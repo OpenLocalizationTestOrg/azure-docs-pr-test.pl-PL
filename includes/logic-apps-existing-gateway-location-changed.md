@@ -1,0 +1,2 @@
+**Q**: Dlaczego lokalizacji dla moich istniejących zmian bramy? <br/>
+**A**: zasoby bramy utworzone przed 3 może 2017 zostały przeniesione do oryginalnych dzierżawy usługi Azure AD dla konta służbowego, które utworzyło tych bram. Jednak te zmiany nie wpływa na aktualnie uruchomionej aplikacji logiki, które powinno być kontynuowane działać jak zwykle. Z bramy ogólnej dostępności w maju lokalizacje zasobów bramy może się różnić od lokalizacji aplikacji logiki.
