@@ -1,0 +1,7 @@
+> [!IMPORTANT]
+> Obsługa zarządzania zasobami usługi HDInsight przy użyciu usługi Azure Service Manager (ASM) za pomocą programu Azure PowerShell, interfejsu wiersza polecenia Azure i zestawu .NET SDK usługi HDInsight jest **przestarzałe**i została usunięta w dniu 1 stycznia 2017 r. Kroki opisane w tym dokumencie użycia nowych poleceń cmdlet programu Azure PowerShell, interfejsu wiersza polecenia Azure polecenia i zestawu .NET SDK, które działają z usługą Azure Resource Manager.
+> 
+> Wykonaj kroki opisane w [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](../articles/cli-install-nodejs.md) i [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs) zainstalować najnowszą wersję programu Azure PowerShell i interfejsu wiersza polecenia Azure. Aby zainstalować najnowszą wersję zestawu .NET SDK usługi HDInsight, należy skorzystać z informacji zawartych w [zestawu .NET SDK usługi Microsoft Azure HDInsight](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/) strony NuGet. Jeśli masz istniejące skrypty lub aplikacje, które muszą zostać zmodyfikowane w celu użycia nowych poleceń cmdlet, nowe polecenia interfejsu wiersza polecenia lub zestawu .NET SDK, zobacz [Migrowanie do narzędzi programistycznych opartych na usłudze Azure Resource Manager dla klastrów usługi HDInsight](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md) Aby uzyskać więcej informacji.
+> 
+> 
+
