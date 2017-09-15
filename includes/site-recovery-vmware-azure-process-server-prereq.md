@@ -1,9 +1,9 @@
-W tym artykule założono, że
+<span data-ttu-id="05f65-101">W tym artykule założono, że</span><span class="sxs-lookup"><span data-stu-id="05f65-101">This article assumes that</span></span>
 
-1. Ustanowiono już połączenie **VPN lokacja-lokacja** lub **Express Route** między siecią lokalną a usługą Azure Virtual Network.
-2. Twoje konto użytkownika ma uprawnienia do tworzenia nowej maszyny wirtualnej w ramach subskrypcji platformy Azure, do której maszyny wirtualne zostały awaryjnie przełączone.
-3. W Twojej subskrypcji są dostępne co najmniej 4 rdzenie do uruchomienia nowej maszyny wirtualnej serwera przetwarzania.
-4. Masz dostępne **hasło serwera konfiguracji**.
+1. <span data-ttu-id="05f65-102">Ustanowiono już połączenie **VPN lokacja-lokacja** lub **Express Route** między siecią lokalną a usługą Azure Virtual Network.</span><span class="sxs-lookup"><span data-stu-id="05f65-102">A **Site to Site VPN** or an **Express Route** connection between your on-premises network and the Azure Virtual Network has already been established.</span></span>
+2. <span data-ttu-id="05f65-103">Twoje konto użytkownika ma uprawnienia do tworzenia nowej maszyny wirtualnej w ramach subskrypcji platformy Azure, do której maszyny wirtualne zostały awaryjnie przełączone.</span><span class="sxs-lookup"><span data-stu-id="05f65-103">Your user account has permissions to create a new virtual machine in the Azure Subscription that the virtual machines have been failed over into.</span></span>
+3. <span data-ttu-id="05f65-104">W Twojej subskrypcji są dostępne co najmniej 4 rdzenie do uruchomienia nowej maszyny wirtualnej serwera przetwarzania.</span><span class="sxs-lookup"><span data-stu-id="05f65-104">Your subscription has a minimum of 4 Cores available to spin up a new Process Server virtual machine.</span></span>
+4. <span data-ttu-id="05f65-105">Masz dostępne **hasło serwera konfiguracji**.</span><span class="sxs-lookup"><span data-stu-id="05f65-105">You have the **Configuration Server Passphrase** available.</span></span>
 
 > [!TIP]
-> Upewnij się, że możesz połączyć się z portem 443 serwera konfiguracji (działającego lokalnie) z usługi Azure Virtual Network, do której maszyny wirtualne zostały awaryjnie przełączone.
+> <span data-ttu-id="05f65-106">Upewnij się, że możesz połączyć się z portem 443 serwera konfiguracji (działającego lokalnie) z usługi Azure Virtual Network, do której maszyny wirtualne zostały awaryjnie przełączone.</span><span class="sxs-lookup"><span data-stu-id="05f65-106">Ensure that you are able to connect port 443 of the Configuration Server (running on-premises) from the Azure Virtual Network that the virtual machines have been failed over into.</span></span>

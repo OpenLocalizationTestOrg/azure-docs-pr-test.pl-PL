@@ -1,27 +1,27 @@
 <!--author=SharS last changed: 9/15/15-->
 
-#### <a name="to-create-a-custom-backup-policy"></a>Aby utworzyć niestandardowe zasady tworzenia kopii zapasowej
-1. Na **urządzeń** kliknij przycisk **zasady tworzenia kopii zapasowej** , a następnie kliknij przycisk **Dodaj**.
-2. W **Dodawanie zasad tworzenia kopii zapasowej** okna dialogowego, w obszarze **Definiowanie zasad tworzenia kopii zapasowej**:
+#### <a name="to-create-a-custom-backup-policy"></a><span data-ttu-id="84ebc-101">Aby utworzyć niestandardowe zasady tworzenia kopii zapasowej</span><span class="sxs-lookup"><span data-stu-id="84ebc-101">To create a custom backup policy</span></span>
+1. <span data-ttu-id="84ebc-102">Na **urządzeń** kliknij przycisk **zasady tworzenia kopii zapasowej** , a następnie kliknij przycisk **Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="84ebc-102">On the **Devices** page, click **Backup Policies** and then click **Add**.</span></span>
+2. <span data-ttu-id="84ebc-103">W **Dodawanie zasad tworzenia kopii zapasowej** okna dialogowego, w obszarze **Definiowanie zasad tworzenia kopii zapasowej**:</span><span class="sxs-lookup"><span data-stu-id="84ebc-103">In the **Add a backup policy** dialog box, under **Define your backup policy**:</span></span>
    
-   1. Podaj nazwę zasad tworzenia kopii zapasowej.
-   2. Wybierz woluminy do dodania do tej zasady. Można dodać wiele woluminów, wybierając je z listy rozwijanej.
-   3. Kliknij ikonę znacznika wyboru ![ikona znacznika wyboru](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
+   1. <span data-ttu-id="84ebc-104">Podaj nazwę zasad tworzenia kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="84ebc-104">Specify a backup policy name.</span></span>
+   2. <span data-ttu-id="84ebc-105">Wybierz woluminy do dodania do tej zasady.</span><span class="sxs-lookup"><span data-stu-id="84ebc-105">Select the volumes to be added to this policy.</span></span> <span data-ttu-id="84ebc-106">Można dodać wiele woluminów, wybierając je z listy rozwijanej.</span><span class="sxs-lookup"><span data-stu-id="84ebc-106">You can choose to add multiple volumes by selecting them from the drop-down list.</span></span>
+   3. <span data-ttu-id="84ebc-107">Kliknij ikonę znacznika wyboru</span><span class="sxs-lookup"><span data-stu-id="84ebc-107">Click the check icon</span></span> ![ikona znacznika wyboru](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png)<span data-ttu-id="84ebc-109">.</span><span class="sxs-lookup"><span data-stu-id="84ebc-109">.</span></span>
       
-      Po pomyślnym utworzeniu zasad, otrzymasz powiadomienie. Na stronie zasad tworzenia kopii zapasowych aktualizowane są do wyświetlenia nowo utworzonych zasad.
-3. Kliknij zasady nazwa (pierwszej kolumny), aby przejść do szczegółów utworzonego zasady.
-4. Kliknij przycisk **zarządzania harmonogramami**.
-5. W **zarządzania harmonogramami** okno dialogowe:
+      <span data-ttu-id="84ebc-110">Po pomyślnym utworzeniu zasad, otrzymasz powiadomienie.</span><span class="sxs-lookup"><span data-stu-id="84ebc-110">You will be notified after the policy is created successfully.</span></span> <span data-ttu-id="84ebc-111">Na stronie zasad tworzenia kopii zapasowych aktualizowane są do wyświetlenia nowo utworzonych zasad.</span><span class="sxs-lookup"><span data-stu-id="84ebc-111">The backup policies page will also be updated to show the newly created policy.</span></span>
+3. <span data-ttu-id="84ebc-112">Kliknij zasady nazwa (pierwszej kolumny), aby przejść do szczegółów utworzonego zasady.</span><span class="sxs-lookup"><span data-stu-id="84ebc-112">Click the policy name (first column) to drill down into details of the policy you just created.</span></span>
+4. <span data-ttu-id="84ebc-113">Kliknij przycisk **zarządzania harmonogramami**.</span><span class="sxs-lookup"><span data-stu-id="84ebc-113">Click **manage schedules**.</span></span>
+5. <span data-ttu-id="84ebc-114">W **zarządzania harmonogramami** okno dialogowe:</span><span class="sxs-lookup"><span data-stu-id="84ebc-114">In the **Manage Schedules** dialog box:</span></span>
    
-   1. Wybierz **Utwórz nowy** można dodać inny harmonogram.
-   2. Z listy rozwijanej wybierz typ kopii zapasowej jako **lokalnego** lub **chmury** migawki.
-   3. Określ częstotliwość wykonywania kopii zapasowych w minutach, godzinach, dniach lub tygodniach.
-   4. Wybierz przechowywania. Opcje przechowywania zależą od częstotliwości tworzenia kopii zapasowej.
-   5. Wybierz godzinę rozpoczęcia i Data zasad.
-   6. Zaznacz pole wyboru, aby włączyć zasady.
-6. Kliknij ikonę znacznika wyboru ![ikona znacznika wyboru](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) Aby zakończyć.
-7. Nastąpi powrót do szczegółów zasad. Kliknij przycisk **zapisać** Aby zapisać zmiany wprowadzone do tej zasady. Jeśli zasady zostały zapisane, otrzymasz powiadomienie.
-8. Przejdź z powrotem do **zasady tworzenia kopii zapasowej** strony. Tabelaryczny spis zasad tworzenia kopii zapasowych zostaną zaktualizowane do wyświetlenia zmodyfikowane zasady.
+   1. <span data-ttu-id="84ebc-115">Wybierz **Utwórz nowy** można dodać inny harmonogram.</span><span class="sxs-lookup"><span data-stu-id="84ebc-115">Select **Create new** to add another schedule.</span></span>
+   2. <span data-ttu-id="84ebc-116">Z listy rozwijanej wybierz typ kopii zapasowej jako **lokalnego** lub **chmury** migawki.</span><span class="sxs-lookup"><span data-stu-id="84ebc-116">From the drop-down list, choose the backup type as **local** or **cloud** snapshot.</span></span>
+   3. <span data-ttu-id="84ebc-117">Określ częstotliwość wykonywania kopii zapasowych w minutach, godzinach, dniach lub tygodniach.</span><span class="sxs-lookup"><span data-stu-id="84ebc-117">Specify the backup frequency in minutes, hours, days, or weeks.</span></span>
+   4. <span data-ttu-id="84ebc-118">Wybierz przechowywania.</span><span class="sxs-lookup"><span data-stu-id="84ebc-118">Select a retention.</span></span> <span data-ttu-id="84ebc-119">Opcje przechowywania zależą od częstotliwości tworzenia kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="84ebc-119">The retention choices depend on the backup frequency.</span></span>
+   5. <span data-ttu-id="84ebc-120">Wybierz godzinę rozpoczęcia i Data zasad.</span><span class="sxs-lookup"><span data-stu-id="84ebc-120">Select the starting time and date for the policy.</span></span>
+   6. <span data-ttu-id="84ebc-121">Zaznacz pole wyboru, aby włączyć zasady.</span><span class="sxs-lookup"><span data-stu-id="84ebc-121">Select the check box to enable the policy.</span></span>
+6. <span data-ttu-id="84ebc-122">Kliknij ikonę znacznika wyboru</span><span class="sxs-lookup"><span data-stu-id="84ebc-122">Click the check icon</span></span> ![ikona znacznika wyboru](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) <span data-ttu-id="84ebc-124">Aby zakończyć.</span><span class="sxs-lookup"><span data-stu-id="84ebc-124">to finish.</span></span>
+7. <span data-ttu-id="84ebc-125">Nastąpi powrót do szczegółów zasad.</span><span class="sxs-lookup"><span data-stu-id="84ebc-125">You will return to the policy details.</span></span> <span data-ttu-id="84ebc-126">Kliknij przycisk **zapisać** Aby zapisać zmiany wprowadzone do tej zasady.</span><span class="sxs-lookup"><span data-stu-id="84ebc-126">Click **Save** to save the changes you made to this policy.</span></span> <span data-ttu-id="84ebc-127">Jeśli zasady zostały zapisane, otrzymasz powiadomienie.</span><span class="sxs-lookup"><span data-stu-id="84ebc-127">You will be notified when the policy has been saved.</span></span>
+8. <span data-ttu-id="84ebc-128">Przejdź z powrotem do **zasady tworzenia kopii zapasowej** strony.</span><span class="sxs-lookup"><span data-stu-id="84ebc-128">Navigate back to the **Backup Policies** page.</span></span> <span data-ttu-id="84ebc-129">Tabelaryczny spis zasad tworzenia kopii zapasowych zostaną zaktualizowane do wyświetlenia zmodyfikowane zasady.</span><span class="sxs-lookup"><span data-stu-id="84ebc-129">The tabular listing of the backup policies will be updated to display the modified policy.</span></span>
    
-    ![Niestandardowe zasady tworzenia kopii zapasowej](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
+    ![Niestandardowe zasady tworzenia kopii zapasowej](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png)<span data-ttu-id="84ebc-131">.</span><span class="sxs-lookup"><span data-stu-id="84ebc-131">.</span></span>
 

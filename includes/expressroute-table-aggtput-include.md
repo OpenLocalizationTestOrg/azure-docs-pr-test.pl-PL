@@ -1,7 +1,7 @@
-|  | **Przepływność bramy ExpressRoute (do)** | **Usługi VPN Gateway i ExpressRoute współistnieją** |
+|  | <span data-ttu-id="d19f7-101">**Przepływność bramy ExpressRoute (do)**</span><span class="sxs-lookup"><span data-stu-id="d19f7-101">**ExpressRoute Gateway throughput (up to)**</span></span> | <span data-ttu-id="d19f7-102">**Usługi VPN Gateway i ExpressRoute współistnieją**</span><span class="sxs-lookup"><span data-stu-id="d19f7-102">**VPN Gateway and ExpressRoute coexist**</span></span> |
 | --- | --- | --- |
-| **Podstawowy SKU (przestarzałe)** |500 Mb/s |Nie |
-| **Standardowy SKU** |1000 Mb/s |Tak |
-| **SKU wysokiej wydajności** |2000 Mb/s |Tak |
-| **Wysoka wydajność jednostki SKU** |9000 MB/s |Tak |
+| <span data-ttu-id="d19f7-103">**Podstawowy SKU (przestarzałe)**</span><span class="sxs-lookup"><span data-stu-id="d19f7-103">**Basic SKU (deprecated)**</span></span> |<span data-ttu-id="d19f7-104">500 Mb/s</span><span class="sxs-lookup"><span data-stu-id="d19f7-104">500 Mbps</span></span> |<span data-ttu-id="d19f7-105">Nie</span><span class="sxs-lookup"><span data-stu-id="d19f7-105">No</span></span> |
+| <span data-ttu-id="d19f7-106">**Standardowy SKU**</span><span class="sxs-lookup"><span data-stu-id="d19f7-106">**Standard SKU**</span></span> |<span data-ttu-id="d19f7-107">1000 Mb/s</span><span class="sxs-lookup"><span data-stu-id="d19f7-107">1000 Mbps</span></span> |<span data-ttu-id="d19f7-108">Tak</span><span class="sxs-lookup"><span data-stu-id="d19f7-108">Yes</span></span> |
+| <span data-ttu-id="d19f7-109">**SKU wysokiej wydajności**</span><span class="sxs-lookup"><span data-stu-id="d19f7-109">**High Performance SKU**</span></span> |<span data-ttu-id="d19f7-110">2000 Mb/s</span><span class="sxs-lookup"><span data-stu-id="d19f7-110">2000 Mbps</span></span> |<span data-ttu-id="d19f7-111">Tak</span><span class="sxs-lookup"><span data-stu-id="d19f7-111">Yes</span></span> |
+| <span data-ttu-id="d19f7-112">**Wysoka wydajność jednostki SKU**</span><span class="sxs-lookup"><span data-stu-id="d19f7-112">**Ultra Performance SKU**</span></span> |<span data-ttu-id="d19f7-113">9000 MB/s</span><span class="sxs-lookup"><span data-stu-id="d19f7-113">9000 Mbps</span></span> |<span data-ttu-id="d19f7-114">Tak</span><span class="sxs-lookup"><span data-stu-id="d19f7-114">Yes</span></span> |
 

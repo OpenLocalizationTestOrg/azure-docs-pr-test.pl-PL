@@ -1,7 +1,7 @@
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
-> * [PowerShell](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
-> * [Interfejs wiersza polecenia platformy Azure](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
-> * [Portalu Azure (klasyczne)](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)
-> * [PowerShell (klasyczny)](../articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md)
-> * [Interfejs wiersza polecenia platformy Azure (klasyczne)](../articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md)
+> * [<span data-ttu-id="b35e3-101">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="b35e3-101">Azure portal</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
+> * [<span data-ttu-id="b35e3-102">PowerShell</span><span class="sxs-lookup"><span data-stu-id="b35e3-102">PowerShell</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
+> * [<span data-ttu-id="b35e3-103">Interfejs wiersza polecenia platformy Azure</span><span class="sxs-lookup"><span data-stu-id="b35e3-103">Azure CLI</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
+> * [<span data-ttu-id="b35e3-104">Portalu Azure (klasyczne)</span><span class="sxs-lookup"><span data-stu-id="b35e3-104">Azure portal (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)
+> * [<span data-ttu-id="b35e3-105">PowerShell (klasyczny)</span><span class="sxs-lookup"><span data-stu-id="b35e3-105">PowerShell (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md)
+> * [<span data-ttu-id="b35e3-106">Interfejs wiersza polecenia platformy Azure (klasyczne)</span><span class="sxs-lookup"><span data-stu-id="b35e3-106">Azure CLI (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md)

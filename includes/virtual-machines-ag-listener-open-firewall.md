@@ -1,18 +1,18 @@
-W tym kroku możesz utworzyć regułę zapory można otworzyć port sondy równoważeniem obciążenia punktu końcowego (określone wcześniej 59999) i innej reguły, aby otworzyć port odbiornika grupy dostępności. Ponieważ utworzono punkt końcowy z równoważeniem obciążenia na maszynach wirtualnych, które zawierają repliki grupy dostępności, należy otworzyć port sondy i port odbiornika w odpowiednich maszynach wirtualnych.
+<span data-ttu-id="c30fb-101">W tym kroku możesz utworzyć regułę zapory można otworzyć port sondy równoważeniem obciążenia punktu końcowego (określone wcześniej 59999) i innej reguły, aby otworzyć port odbiornika grupy dostępności.</span><span class="sxs-lookup"><span data-stu-id="c30fb-101">In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (59999, as specified earlier) and another rule to open the availability group listener port.</span></span> <span data-ttu-id="c30fb-102">Ponieważ utworzono punkt końcowy z równoważeniem obciążenia na maszynach wirtualnych, które zawierają repliki grupy dostępności, należy otworzyć port sondy i port odbiornika w odpowiednich maszynach wirtualnych.</span><span class="sxs-lookup"><span data-stu-id="c30fb-102">Because you created the load-balanced endpoint on the VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective VMs.</span></span>
 
-1. Na maszynach wirtualnych, które obsługują replik, należy uruchomić **Zapora systemu Windows z zabezpieczeniami zaawansowanymi**.
+1. <span data-ttu-id="c30fb-103">Na maszynach wirtualnych, które obsługują replik, należy uruchomić **Zapora systemu Windows z zabezpieczeniami zaawansowanymi**.</span><span class="sxs-lookup"><span data-stu-id="c30fb-103">On VMs that host replicas, start **Windows Firewall with Advanced Security**.</span></span>
 
-2. Kliknij prawym przyciskiem myszy **reguły ruchu przychodzącego**, a następnie kliknij przycisk **nową regułę**.
+2. <span data-ttu-id="c30fb-104">Kliknij prawym przyciskiem myszy **reguły ruchu przychodzącego**, a następnie kliknij przycisk **nową regułę**.</span><span class="sxs-lookup"><span data-stu-id="c30fb-104">Right-click **Inbound Rules**, and then click **New Rule**.</span></span>
 
-3. Na **typ reguły** wybierz pozycję **portu**, a następnie kliknij przycisk **dalej**.
+3. <span data-ttu-id="c30fb-105">Na **typ reguły** wybierz pozycję **portu**, a następnie kliknij przycisk **dalej**.</span><span class="sxs-lookup"><span data-stu-id="c30fb-105">On the **Rule Type** page, select **Port**, and then click **Next**.</span></span>
 
-4. Na **protokoły i porty** wybierz pozycję **TCP**, typ **59999** w **określone porty lokalne** , a następnie kliknij przycisk  **Następny**.
+4. <span data-ttu-id="c30fb-106">Na **protokoły i porty** wybierz pozycję **TCP**, typ **59999** w **określone porty lokalne** , a następnie kliknij przycisk  **Następny**.</span><span class="sxs-lookup"><span data-stu-id="c30fb-106">On the **Protocol and Ports** page, select **TCP**, type **59999** in the **Specific local ports** box, and then click **Next**.</span></span>
 
-5. Na **akcji** Zachowaj **zezwalały na połączenie** zaznaczone, a następnie kliknij przycisk **dalej**.
+5. <span data-ttu-id="c30fb-107">Na **akcji** Zachowaj **zezwalały na połączenie** zaznaczone, a następnie kliknij przycisk **dalej**.</span><span class="sxs-lookup"><span data-stu-id="c30fb-107">On the **Action** page, keep **Allow the connection** selected, and then click **Next**.</span></span>
 
-6. Na **profilu** Zaakceptuj ustawienia domyślne, a następnie kliknij pozycję **dalej**.
+6. <span data-ttu-id="c30fb-108">Na **profilu** Zaakceptuj ustawienia domyślne, a następnie kliknij pozycję **dalej**.</span><span class="sxs-lookup"><span data-stu-id="c30fb-108">On the **Profile** page, accept the default settings, and then click **Next**.</span></span>
 
-7. Na **nazwa** strony w **nazwa** tekst Określ nazwę reguły, takie jak **zawsze na sondowania Port odbiornika**, a następnie kliknij przycisk **Zakończ**.
+7. <span data-ttu-id="c30fb-109">Na **nazwa** strony w **nazwa** tekst Określ nazwę reguły, takie jak **zawsze na sondowania Port odbiornika**, a następnie kliknij przycisk **Zakończ**.</span><span class="sxs-lookup"><span data-stu-id="c30fb-109">On the **Name** page, in the **Name** text box, specify a rule name, such as **Always On Listener Probe Port**, and then click **Finish**.</span></span>
 
-8. Powtórz te czynności na port odbiornika grupy dostępności (jak określono w parametrze $EndpointPort skryptu), a następnie określ nazwę odpowiednią regułę, takich jak **zawsze na Port odbiornika**.
+8. <span data-ttu-id="c30fb-110">Powtórz te czynności na port odbiornika grupy dostępności (jak określono w parametrze $EndpointPort skryptu), a następnie określ nazwę odpowiednią regułę, takich jak **zawsze na Port odbiornika**.</span><span class="sxs-lookup"><span data-stu-id="c30fb-110">Repeat the preceding steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script), and then specify an appropriate rule name, such as **Always On Listener Port**.</span></span>
 

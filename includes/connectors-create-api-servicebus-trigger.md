@@ -1,16 +1,16 @@
-Poniżej przedstawiono sposób użycia **usługi Service Bus — po odebraniu wiadomości w kolejce** trigger, aby inicjować przepływ pracy aplikacji logiki, gdy nowy element zostanie wysłana do kolejki usługi Service Bus.  
+<span data-ttu-id="05a75-101">Poniżej przedstawiono sposób użycia **usługi Service Bus — po odebraniu wiadomości w kolejce** trigger, aby inicjować przepływ pracy aplikacji logiki, gdy nowy element zostanie wysłana do kolejki usługi Service Bus.</span><span class="sxs-lookup"><span data-stu-id="05a75-101">Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.</span></span>  
 
 > [!NOTE]
-> Pojawi się zalogować za pomocą parametrów połączenia magistrali usług, jeśli nie utworzono jeszcze połączenia magistrali usług.  
+> <span data-ttu-id="05a75-102">Pojawi się zalogować za pomocą parametrów połączenia magistrali usług, jeśli nie utworzono jeszcze połączenia magistrali usług.</span><span class="sxs-lookup"><span data-stu-id="05a75-102">You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.</span></span>  
 > 
 > 
 
-1. W polu wyszukiwania w Projektancie aplikacji logiki, wprowadź **usługi magistrali**. Następnie wybierz **usługi Service Bus — po odebraniu wiadomości w kolejce** wyzwalacza.  
-   ![Usługa Service Bus wyzwalacza obraz 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-2. **Po odebraniu wiadomości w kolejce** zostanie wyświetlone okno dialogowe.  
-   ![Usługa Service Bus wyzwalacza obraz 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-3. Wprowadź nazwę kolejki usługi Service Bus ma wyzwalacz do monitorowania.   
+1. <span data-ttu-id="05a75-103">W polu wyszukiwania w Projektancie aplikacji logiki, wprowadź **usługi magistrali**.</span><span class="sxs-lookup"><span data-stu-id="05a75-103">In the search box on the logic apps designer, enter **service bus**.</span></span> <span data-ttu-id="05a75-104">Następnie wybierz **usługi Service Bus — po odebraniu wiadomości w kolejce** wyzwalacza.</span><span class="sxs-lookup"><span data-stu-id="05a75-104">Then select the **Service Bus - When a message is received in a queue** trigger.</span></span>  
+   <span data-ttu-id="05a75-105">![Usługa Service Bus wyzwalacza obraz 1](./media/connectors-create-api-servicebus/trigger-1.png)</span><span class="sxs-lookup"><span data-stu-id="05a75-105">![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)</span></span>   
+2. <span data-ttu-id="05a75-106">**Po odebraniu wiadomości w kolejce** zostanie wyświetlone okno dialogowe.</span><span class="sxs-lookup"><span data-stu-id="05a75-106">The **When a message is received in a queue** dialog box is displayed.</span></span>  
+   <span data-ttu-id="05a75-107">![Usługa Service Bus wyzwalacza obraz 2](./media/connectors-create-api-servicebus/trigger-2.png)</span><span class="sxs-lookup"><span data-stu-id="05a75-107">![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)</span></span>   
+3. <span data-ttu-id="05a75-108">Wprowadź nazwę kolejki usługi Service Bus ma wyzwalacz do monitorowania.</span><span class="sxs-lookup"><span data-stu-id="05a75-108">Enter the name of the Service Bus queue you would like the trigger to monitor.</span></span>   
    ![Usługa Service Bus wyzwalacza obrazu 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-W tym momencie została skonfigurowana z wyzwalaczem aplikacji logiki. Po odebraniu nowego elementu w wybranej kolejce wyzwalacza rozpocznie wykonywania innych wyzwalacze i akcje w przepływie pracy.    
+<span data-ttu-id="05a75-110">W tym momencie została skonfigurowana z wyzwalaczem aplikacji logiki.</span><span class="sxs-lookup"><span data-stu-id="05a75-110">At this point, your logic app has been configured with a trigger.</span></span> <span data-ttu-id="05a75-111">Po odebraniu nowego elementu w wybranej kolejce wyzwalacza rozpocznie wykonywania innych wyzwalacze i akcje w przepływie pracy.</span><span class="sxs-lookup"><span data-stu-id="05a75-111">When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.</span></span>    
 

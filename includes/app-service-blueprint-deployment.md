@@ -1,7 +1,7 @@
-* [Wdrażanie aplikacji w usłudze Azure App Service](../articles/app-service-web/web-sites-deploy.md)
-* [Konfigurowanie kontroli źródła i ciągłej integracji](../articles/app-service-web/app-service-continuous-deployment.md)
-* [Wdrożenia przemieszczania z miejsca wdrożenia](../articles/app-service-web/web-sites-staged-publishing.md)
-* [Publikowanie i oparta na rolach kontrola dostępu (RBAC)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
+* [<span data-ttu-id="45543-101">Wdrażanie aplikacji w usłudze Azure App Service</span><span class="sxs-lookup"><span data-stu-id="45543-101">Deploying an app to Azure App Service</span></span>](../articles/app-service-web/web-sites-deploy.md)
+* [<span data-ttu-id="45543-102">Konfigurowanie kontroli źródła i ciągłej integracji</span><span class="sxs-lookup"><span data-stu-id="45543-102">Configuring source control and continuous integration</span></span>](../articles/app-service-web/app-service-continuous-deployment.md)
+* [<span data-ttu-id="45543-103">Wdrożenia przemieszczania z miejsca wdrożenia</span><span class="sxs-lookup"><span data-stu-id="45543-103">Staging deployments with deployment slots</span></span>](../articles/app-service-web/web-sites-staged-publishing.md)
+* [<span data-ttu-id="45543-104">Publikowanie i oparta na rolach kontrola dostępu (RBAC)</span><span class="sxs-lookup"><span data-stu-id="45543-104">Publishing and Role Based Access Control (RBAC)</span></span>](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
 
-## <a name="videos"></a>Filmy wideo
-* [Automatyzacja przepływu pracy wdrażania dla release management](https://azure.microsoft.com/resources/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)
+## <a name="videos"></a><span data-ttu-id="45543-105">Filmy wideo</span><span class="sxs-lookup"><span data-stu-id="45543-105">Videos</span></span>
+* [<span data-ttu-id="45543-106">Automatyzacja przepływu pracy wdrażania dla release management</span><span class="sxs-lookup"><span data-stu-id="45543-106">Automating the deployment workflow for release management</span></span>](https://azure.microsoft.com/resources/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)

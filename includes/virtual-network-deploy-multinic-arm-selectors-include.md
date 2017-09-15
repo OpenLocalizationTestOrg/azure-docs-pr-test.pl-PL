@@ -1,7 +1,7 @@
 > [!div class="op_single_selector"]
-> * [PowerShell](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md)
-> * [Interfejs wiersza polecenia platformy Azure 2.0](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md)
-> * [Interfejs wiersza polecenia platformy Azure 1.0](../articles/virtual-network/virtual-network-deploy-multinic-cli-nodejs.md)
-> * [Szablon](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md)
-> * [PowerShell (klasyczny)](../articles/virtual-network/virtual-network-deploy-multinic-classic-ps.md)
-> * [Interfejs wiersza polecenia platformy Azure 1.0](../articles/virtual-network/virtual-network-deploy-multinic-classic-cli.md)
+> * [<span data-ttu-id="3a70b-101">PowerShell</span><span class="sxs-lookup"><span data-stu-id="3a70b-101">PowerShell</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md)
+> * [<span data-ttu-id="3a70b-102">Interfejs wiersza polecenia platformy Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="3a70b-102">Azure CLI 2.0</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md)
+> * [<span data-ttu-id="3a70b-103">Interfejs wiersza polecenia platformy Azure 1.0</span><span class="sxs-lookup"><span data-stu-id="3a70b-103">Azure CLI 1.0</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-cli-nodejs.md)
+> * [<span data-ttu-id="3a70b-104">Szablon</span><span class="sxs-lookup"><span data-stu-id="3a70b-104">Template</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md)
+> * [<span data-ttu-id="3a70b-105">PowerShell (klasyczny)</span><span class="sxs-lookup"><span data-stu-id="3a70b-105">PowerShell (Classic)</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-classic-ps.md)
+> * [<span data-ttu-id="3a70b-106">Interfejs wiersza polecenia platformy Azure 1.0</span><span class="sxs-lookup"><span data-stu-id="3a70b-106">Azure CLI 1.0 (Classic)</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-classic-cli.md)

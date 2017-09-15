@@ -1,15 +1,15 @@
-1. Skopiuj instalacji na serwerze, a następnie otwórz Instalator.
-2. Na **opcji instalacji** bloku, wybierz opcję **zainstalować usługi mobilności**.
+1. <span data-ttu-id="33df7-101">Skopiuj instalacji na serwerze, a następnie otwórz Instalator.</span><span class="sxs-lookup"><span data-stu-id="33df7-101">Copy the installation to the server, and then open the installer.</span></span>
+2. <span data-ttu-id="33df7-102">Na **opcji instalacji** bloku, wybierz opcję **zainstalować usługi mobilności**.</span><span class="sxs-lookup"><span data-stu-id="33df7-102">On the **Installation Option** blade, select **Install Mobility Service**.</span></span>
 
-    ![Strona opcji instalacji usługi mobilności ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
-3. Wybierz lokalizację instalacji i kliknij przycisk **zainstalować** obecności procedury instalacji.
+    ![<span data-ttu-id="33df7-103">Strona opcji instalacji usługi mobilności</span><span class="sxs-lookup"><span data-stu-id="33df7-103">Mobility Service Install Option Page</span></span> ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
+3. <span data-ttu-id="33df7-104">Wybierz lokalizację instalacji i kliknij przycisk **zainstalować** obecności procedury instalacji.</span><span class="sxs-lookup"><span data-stu-id="33df7-104">Select the install location  and click **Install** to being the installation procedure.</span></span>
 
-    ![Strona lokalizacji instalacji usługi mobilności ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
-4. Można użyć **postęp instalacji** stronę, aby monitorować postęp w Instalatorze.
-    ![Postęp instalacji usługi mobilności](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+    ![<span data-ttu-id="33df7-105">Strona lokalizacji instalacji usługi mobilności</span><span class="sxs-lookup"><span data-stu-id="33df7-105">Mobility Service Install Location Page</span></span> ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
+4. <span data-ttu-id="33df7-106">Można użyć **postęp instalacji** stronę, aby monitorować postęp w Instalatorze.</span><span class="sxs-lookup"><span data-stu-id="33df7-106">You can use **Installation Progress** page to monitor the installer's progress.</span></span>
+    <span data-ttu-id="33df7-107">![Postęp instalacji usługi mobilności](./media/site-recovery-install-mob-svc-gui/mobility3.png)</span><span class="sxs-lookup"><span data-stu-id="33df7-107">![Mobility Service Install Progress ](./media/site-recovery-install-mob-svc-gui/mobility3.png)</span></span>
 
-5. Po zakończeniu instalacji kliknij przycisk **przejść do konfiguracji** przycisk, aby zarejestrować usługi mobilności z serwerem konfiguracji.
-    ![Usługa mobilności zarejestrować strony](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+5. <span data-ttu-id="33df7-108">Po zakończeniu instalacji kliknij przycisk **przejść do konfiguracji** przycisk, aby zarejestrować usługi mobilności z serwerem konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="33df7-108">Once installation is complete, click the **Proceed to Configuration** button to register the Mobility Service with your Configuration server.</span></span>
+    <span data-ttu-id="33df7-109">![Usługa mobilności zarejestrować strony](./media/site-recovery-install-mob-svc-gui/mobility4.png)</span><span class="sxs-lookup"><span data-stu-id="33df7-109">![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility4.png)</span></span>
 
-6. Polecenie **zarejestrować** przycisk, aby ukończyć rejestrację.
-    ![Usługa mobilności zarejestrować strony](./media/site-recovery-install-mob-svc-gui/mobility5.png)
+6. <span data-ttu-id="33df7-110">Polecenie **zarejestrować** przycisk, aby ukończyć rejestrację.</span><span class="sxs-lookup"><span data-stu-id="33df7-110">Click on the **Register** button to complete the registration.</span></span>
+    <span data-ttu-id="33df7-111">![Usługa mobilności zarejestrować strony](./media/site-recovery-install-mob-svc-gui/mobility5.png)</span><span class="sxs-lookup"><span data-stu-id="33df7-111">![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility5.png)</span></span>

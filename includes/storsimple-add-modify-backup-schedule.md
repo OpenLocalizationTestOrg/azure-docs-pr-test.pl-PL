@@ -1,20 +1,20 @@
 
 <!--author=SharS last changed: 9/15/15-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Aby dodać lub zmodyfikować harmonogram tworzenia kopii zapasowych StorSimple
-1. Na stronie **Szybki start** urządzenia kliknij kartę **Zasady kopii zapasowych**. Nastąpi przekierowanie do strony **Zasady kopii zapasowych**.
-2. Tabelaryczne liście zasady, wybierz i kliknij zasady, które chcesz edytować.
-3. W obszarze **ogólne**, można zmodyfikować nazwę zasad tworzenia kopii zapasowej.
-4. W obszarze **harmonogramy**, kliknij przycisk **zarządzania harmonogramami** Aby dodać lub usunąć harmonogramów. W **zarządzanie harmonogramem** okna dialogowego pole, wykonaj następujące czynności:
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a><span data-ttu-id="362c0-101">Aby dodać lub zmodyfikować harmonogram tworzenia kopii zapasowych StorSimple</span><span class="sxs-lookup"><span data-stu-id="362c0-101">To add or modify a StorSimple backup schedule</span></span>
+1. <span data-ttu-id="362c0-102">Na stronie **Szybki start** urządzenia kliknij kartę **Zasady kopii zapasowych**.</span><span class="sxs-lookup"><span data-stu-id="362c0-102">On the device **Quick Start** page, click the **Backup Policies** tab.</span></span> <span data-ttu-id="362c0-103">Nastąpi przekierowanie do strony **Zasady kopii zapasowych**.</span><span class="sxs-lookup"><span data-stu-id="362c0-103">This will take you to the **Backup Policies** page.</span></span>
+2. <span data-ttu-id="362c0-104">Tabelaryczne liście zasady, wybierz i kliknij zasady, które chcesz edytować.</span><span class="sxs-lookup"><span data-stu-id="362c0-104">In the tabular listing of the policies, select and click the policy that you want to edit.</span></span>
+3. <span data-ttu-id="362c0-105">W obszarze **ogólne**, można zmodyfikować nazwę zasad tworzenia kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="362c0-105">Under **general**, you can modify the backup policy name.</span></span>
+4. <span data-ttu-id="362c0-106">W obszarze **harmonogramy**, kliknij przycisk **zarządzania harmonogramami** Aby dodać lub usunąć harmonogramów.</span><span class="sxs-lookup"><span data-stu-id="362c0-106">Under **schedules**, click **manage schedules** to add or remove schedules.</span></span> <span data-ttu-id="362c0-107">W **zarządzanie harmonogramem** okna dialogowego pole, wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="362c0-107">In the **Manage Schedule** dialog box, do the following:</span></span>
    
-   1. Wybierz istniejący harmonogram lub Utwórz nowy harmonogram.
-   2. Wybierz typ kopii zapasowej jako lokalne lub migawka w chmurze.
-   3. Określ częstotliwość wykonywania kopii zapasowych, przechowywania i godzinę rozpoczęcia harmonogramu.
-   4. Włącza lub wyłącza harmonogram.
-   5. Kliknij ikonę znacznika wyboru ![ikona znacznika wyboru](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) Aby zapisać zmiany w harmonogramie.
-5. W **woluminów** sekcji, Dodaj lub Usuń woluminy, które do tych zasad.
-6. Zapisz zmiany w tych zasadach.
-7. Pojawi się monit o potwierdzenie. Kliknij przycisk **OK** zapisać zasady.
+   1. <span data-ttu-id="362c0-108">Wybierz istniejący harmonogram lub Utwórz nowy harmonogram.</span><span class="sxs-lookup"><span data-stu-id="362c0-108">Choose an existing schedule or create a new schedule.</span></span>
+   2. <span data-ttu-id="362c0-109">Wybierz typ kopii zapasowej jako lokalne lub migawka w chmurze.</span><span class="sxs-lookup"><span data-stu-id="362c0-109">Select the type of backup as local or cloud snapshot.</span></span>
+   3. <span data-ttu-id="362c0-110">Określ częstotliwość wykonywania kopii zapasowych, przechowywania i godzinę rozpoczęcia harmonogramu.</span><span class="sxs-lookup"><span data-stu-id="362c0-110">Specify the backup frequency, retention, and starting time of the schedule.</span></span>
+   4. <span data-ttu-id="362c0-111">Włącza lub wyłącza harmonogram.</span><span class="sxs-lookup"><span data-stu-id="362c0-111">Enable or disable the schedule.</span></span>
+   5. <span data-ttu-id="362c0-112">Kliknij ikonę znacznika wyboru</span><span class="sxs-lookup"><span data-stu-id="362c0-112">Click the check icon</span></span> ![ikona znacznika wyboru](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) <span data-ttu-id="362c0-114">Aby zapisać zmiany w harmonogramie.</span><span class="sxs-lookup"><span data-stu-id="362c0-114">to save the changes to the schedule.</span></span>
+5. <span data-ttu-id="362c0-115">W **woluminów** sekcji, Dodaj lub Usuń woluminy, które do tych zasad.</span><span class="sxs-lookup"><span data-stu-id="362c0-115">In the **Volumes** section, add or remove the volumes to this policy.</span></span>
+6. <span data-ttu-id="362c0-116">Zapisz zmiany w tych zasadach.</span><span class="sxs-lookup"><span data-stu-id="362c0-116">Save the changes to this policy.</span></span>
+7. <span data-ttu-id="362c0-117">Pojawi się monit o potwierdzenie.</span><span class="sxs-lookup"><span data-stu-id="362c0-117">You will prompted for confirmation.</span></span> <span data-ttu-id="362c0-118">Kliknij przycisk **OK** zapisać zasady.</span><span class="sxs-lookup"><span data-stu-id="362c0-118">Click **OK** to save the policy.</span></span>
 
-**Zasady tworzenia kopii zapasowej** strona będzie aktualizowana zapisanie zmian z zasadami.
+<span data-ttu-id="362c0-119">**Zasady tworzenia kopii zapasowej** strona będzie aktualizowana zapisanie zmian z zasadami.</span><span class="sxs-lookup"><span data-stu-id="362c0-119">The **Backup Policies** page will be updated to save the changes to the policy.</span></span>
 

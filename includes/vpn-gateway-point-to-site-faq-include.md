@@ -1,47 +1,47 @@
-### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Których systemów operacyjnych klienta można używać z połączeniami typu punkt-lokacja?
+### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a><span data-ttu-id="ec03e-101">Których systemów operacyjnych klienta można używać z połączeniami typu punkt-lokacja?</span><span class="sxs-lookup"><span data-stu-id="ec03e-101">What client operating systems can I use with Point-to-Site?</span></span>
 
-Obsługiwane są następujące systemy operacyjne klientów:
+<span data-ttu-id="ec03e-102">Obsługiwane są następujące systemy operacyjne klientów:</span><span class="sxs-lookup"><span data-stu-id="ec03e-102">The following client operating systems are supported:</span></span>
 
-* Windows 7 (32-bitowy i 64-bitowy)
-* Windows Server 2008 R2 (tylko 64-bitowy)
-* Windows 8 (32-bitowy i 64-bitowy)
-* Windows 8.1 (32-bitowy i 64-bitowy)
-* Windows Server 2012 (tylko 64-bitowy)
-* Windows Server 2012 R2 (tylko 64-bitowy)
-* Windows 10
+* <span data-ttu-id="ec03e-103">Windows 7 (32-bitowy i 64-bitowy)</span><span class="sxs-lookup"><span data-stu-id="ec03e-103">Windows 7 (32-bit and 64-bit)</span></span>
+* <span data-ttu-id="ec03e-104">Windows Server 2008 R2 (tylko 64-bitowy)</span><span class="sxs-lookup"><span data-stu-id="ec03e-104">Windows Server 2008 R2 (64-bit only)</span></span>
+* <span data-ttu-id="ec03e-105">Windows 8 (32-bitowy i 64-bitowy)</span><span class="sxs-lookup"><span data-stu-id="ec03e-105">Windows 8 (32-bit and 64-bit)</span></span>
+* <span data-ttu-id="ec03e-106">Windows 8.1 (32-bitowy i 64-bitowy)</span><span class="sxs-lookup"><span data-stu-id="ec03e-106">Windows 8.1 (32-bit and 64-bit)</span></span>
+* <span data-ttu-id="ec03e-107">Windows Server 2012 (tylko 64-bitowy)</span><span class="sxs-lookup"><span data-stu-id="ec03e-107">Windows Server 2012 (64-bit only)</span></span>
+* <span data-ttu-id="ec03e-108">Windows Server 2012 R2 (tylko 64-bitowy)</span><span class="sxs-lookup"><span data-stu-id="ec03e-108">Windows Server 2012 R2 (64-bit only)</span></span>
+* <span data-ttu-id="ec03e-109">Windows 10</span><span class="sxs-lookup"><span data-stu-id="ec03e-109">Windows 10</span></span>
 
-### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a>Czy można użyć dowolnego oprogramowania klienta VPN do połączenia punkt-lokacja obsługującego protokół SSTP?
+### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a><span data-ttu-id="ec03e-110">Czy można użyć dowolnego oprogramowania klienta VPN do połączenia punkt-lokacja obsługującego protokół SSTP?</span><span class="sxs-lookup"><span data-stu-id="ec03e-110">Can I use any software VPN client for Point-to-Site that supports SSTP?</span></span>
 
-Nie. Obsługa jest ograniczona tylko do wersji systemu operacyjnego Windows wymienionych powyżej.
+<span data-ttu-id="ec03e-111">Nie.</span><span class="sxs-lookup"><span data-stu-id="ec03e-111">No.</span></span> <span data-ttu-id="ec03e-112">Obsługa jest ograniczona tylko do wersji systemu operacyjnego Windows wymienionych powyżej.</span><span class="sxs-lookup"><span data-stu-id="ec03e-112">Support is limited only to the Windows operating system versions listed above.</span></span>
 
-### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Ile punktów końcowych klienta sieci VPN może obejmować konfiguracja punkt-lokacja?
+### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a><span data-ttu-id="ec03e-113">Ile punktów końcowych klienta sieci VPN może obejmować konfiguracja punkt-lokacja?</span><span class="sxs-lookup"><span data-stu-id="ec03e-113">How many VPN client endpoints can I have in my Point-to-Site configuration?</span></span>
 
-Obsługiwanych jest maksymalnie 128 klientów VPN, które mogą jednocześnie nawiązać połączenie z siecią wirtualną.
+<span data-ttu-id="ec03e-114">Obsługiwanych jest maksymalnie 128 klientów VPN, które mogą jednocześnie nawiązać połączenie z siecią wirtualną.</span><span class="sxs-lookup"><span data-stu-id="ec03e-114">We support up to 128 VPN clients to be able to connect to a virtual network at the same time.</span></span>
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>Czy w przypadku połączenia punkt-lokacja można użyć własnego głównego urzędu certyfikacji PKI?
+### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a><span data-ttu-id="ec03e-115">Czy w przypadku połączenia punkt-lokacja można użyć własnego głównego urzędu certyfikacji PKI?</span><span class="sxs-lookup"><span data-stu-id="ec03e-115">Can I use my own internal PKI root CA for Point-to-Site connectivity?</span></span>
 
-Tak. Wcześniej można było używać tylko certyfikatów głównych z podpisem własnym. Nadal można przesłać 20 certyfikatów głównych.
+<span data-ttu-id="ec03e-116">Tak.</span><span class="sxs-lookup"><span data-stu-id="ec03e-116">Yes.</span></span> <span data-ttu-id="ec03e-117">Wcześniej można było używać tylko certyfikatów głównych z podpisem własnym.</span><span class="sxs-lookup"><span data-stu-id="ec03e-117">Previously, only self-signed root certificates could be used.</span></span> <span data-ttu-id="ec03e-118">Nadal można przesłać 20 certyfikatów głównych.</span><span class="sxs-lookup"><span data-stu-id="ec03e-118">You can still upload 20 root certificates.</span></span>
 
-### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Czy można pominąć serwery proxy i zapory, korzystając z funkcji punkt-lokacja?
+### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a><span data-ttu-id="ec03e-119">Czy można pominąć serwery proxy i zapory, korzystając z funkcji punkt-lokacja?</span><span class="sxs-lookup"><span data-stu-id="ec03e-119">Can I traverse proxies and firewalls using Point-to-Site capability?</span></span>
 
-Tak. Do celów tunelowania przez zaporę jest wykorzystywany protokół SSTP (Secure Socket Tunneling Protocol). Ten tunel zostanie wyświetlony jako połączenie HTTPs.
+<span data-ttu-id="ec03e-120">Tak.</span><span class="sxs-lookup"><span data-stu-id="ec03e-120">Yes.</span></span> <span data-ttu-id="ec03e-121">Do celów tunelowania przez zaporę jest wykorzystywany protokół SSTP (Secure Socket Tunneling Protocol).</span><span class="sxs-lookup"><span data-stu-id="ec03e-121">We use SSTP (Secure Socket Tunneling Protocol) to tunnel through firewalls.</span></span> <span data-ttu-id="ec03e-122">Ten tunel zostanie wyświetlony jako połączenie HTTPs.</span><span class="sxs-lookup"><span data-stu-id="ec03e-122">This tunnel will appear as an HTTPs connection.</span></span>
 
-### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Czy w przypadku ponownego uruchomienia komputera klienckiego skonfigurowanego pod kątem połączenia typu punkt-lokacja połączenie z siecią VPN zostanie nawiązane automatycznie?
+### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a><span data-ttu-id="ec03e-123">Czy w przypadku ponownego uruchomienia komputera klienckiego skonfigurowanego pod kątem połączenia typu punkt-lokacja połączenie z siecią VPN zostanie nawiązane automatycznie?</span><span class="sxs-lookup"><span data-stu-id="ec03e-123">If I restart a client computer configured for Point-to-Site, will the VPN automatically reconnect?</span></span>
 
-Domyślnie komputer kliencki nie przywraca automatycznie połączenia z siecią VPN.
+<span data-ttu-id="ec03e-124">Domyślnie komputer kliencki nie przywraca automatycznie połączenia z siecią VPN.</span><span class="sxs-lookup"><span data-stu-id="ec03e-124">By default, the client computer will not reestablish the VPN connection automatically.</span></span>
 
-### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>Czy w przypadku połączeń punkt-lokacja jest obsługiwane automatyczne ponowne nawiązywanie połączenia i DDNS na klientach sieci VPN?
+### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a><span data-ttu-id="ec03e-125">Czy w przypadku połączeń punkt-lokacja jest obsługiwane automatyczne ponowne nawiązywanie połączenia i DDNS na klientach sieci VPN?</span><span class="sxs-lookup"><span data-stu-id="ec03e-125">Does Point-to-Site support auto-reconnect and DDNS on the VPN clients?</span></span>
 
-Automatyczne ponowne nawiązywanie połączenia i DDNS nie są obecnie obsługiwane w przypadku połączeń VPN typu punkt-lokacja.
+<span data-ttu-id="ec03e-126">Automatyczne ponowne nawiązywanie połączenia i DDNS nie są obecnie obsługiwane w przypadku połączeń VPN typu punkt-lokacja.</span><span class="sxs-lookup"><span data-stu-id="ec03e-126">Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.</span></span>
 
-### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Czy z konfiguracji typu lokacja-lokacja i punkt-lokacja można korzystać równolegle w ramach tej samej sieci wirtualnej?
+### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a><span data-ttu-id="ec03e-127">Czy z konfiguracji typu lokacja-lokacja i punkt-lokacja można korzystać równolegle w ramach tej samej sieci wirtualnej?</span><span class="sxs-lookup"><span data-stu-id="ec03e-127">Can I have Site-to-Site and Point-to-Site configurations coexist for the same virtual network?</span></span>
 
-Tak. Oba te rozwiązania będą działać, o ile zastosowana zostanie brama sieci VPN typu RouteBased. W przypadku klasycznego modelu wdrażania należy użyć bramy dynamicznej. Połączenia typu punkt-lokacja nie są obsługiwane w przypadku bram sieci VPN o statycznym routingu ani bram korzystających z polecenia cmdlet `-VpnType PolicyBased`.
+<span data-ttu-id="ec03e-128">Tak.</span><span class="sxs-lookup"><span data-stu-id="ec03e-128">Yes.</span></span> <span data-ttu-id="ec03e-129">Oba te rozwiązania będą działać, o ile zastosowana zostanie brama sieci VPN typu RouteBased.</span><span class="sxs-lookup"><span data-stu-id="ec03e-129">Both these solutions will work if you have a RouteBased VPN type for your gateway.</span></span> <span data-ttu-id="ec03e-130">W przypadku klasycznego modelu wdrażania należy użyć bramy dynamicznej.</span><span class="sxs-lookup"><span data-stu-id="ec03e-130">For the classic deployment model, you need a dynamic gateway.</span></span> <span data-ttu-id="ec03e-131">Połączenia typu punkt-lokacja nie są obsługiwane w przypadku bram sieci VPN o statycznym routingu ani bram korzystających z polecenia cmdlet `-VpnType PolicyBased`.</span><span class="sxs-lookup"><span data-stu-id="ec03e-131">We do not support Point-to-Site for static routing VPN gateways or gateways using the `-VpnType PolicyBased` cmdlet.</span></span>
 
-### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Czy można skonfigurować klienta typu punkt-lokacja pod kątem jednoczesnego nawiązywania połączenia z wieloma sieciami wirtualnymi?
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a><span data-ttu-id="ec03e-132">Czy można skonfigurować klienta typu punkt-lokacja pod kątem jednoczesnego nawiązywania połączenia z wieloma sieciami wirtualnymi?</span><span class="sxs-lookup"><span data-stu-id="ec03e-132">Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?</span></span>
 
-Tak, jest to możliwe. Sieci wirtualne nie mogą jednak mieć nakładających się prefiksów IP, a przestrzenie adresowe w przypadku połączenia punkt-lokacja nie mogą nakładać się między sieciami wirtualnymi.
+<span data-ttu-id="ec03e-133">Tak, jest to możliwe.</span><span class="sxs-lookup"><span data-stu-id="ec03e-133">Yes, it is possible.</span></span> <span data-ttu-id="ec03e-134">Sieci wirtualne nie mogą jednak mieć nakładających się prefiksów IP, a przestrzenie adresowe w przypadku połączenia punkt-lokacja nie mogą nakładać się między sieciami wirtualnymi.</span><span class="sxs-lookup"><span data-stu-id="ec03e-134">But the virtual networks cannot have overlapping IP prefixes and the Point-to-Site address spaces must not overlap between the virtual networks.</span></span>
 
-### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Jakiej przepływności można oczekiwać w przypadku połączeń typu lokacja-lokacja lub punkt-lokacja?
+### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a><span data-ttu-id="ec03e-135">Jakiej przepływności można oczekiwać w przypadku połączeń typu lokacja-lokacja lub punkt-lokacja?</span><span class="sxs-lookup"><span data-stu-id="ec03e-135">How much throughput can I expect through Site-to-Site or Point-to-Site connections?</span></span>
 
-Trudno jest utrzymać dokładną przepływność tuneli VPN. Protokoły IPsec i SSTP należą do niejawnie ciężkich protokołów sieci VPN. Przepływność ograniczają również opóźnienia i przepustowość między lokalizacjami lokalnymi i Internetem.
+<span data-ttu-id="ec03e-136">Trudno jest utrzymać dokładną przepływność tuneli VPN.</span><span class="sxs-lookup"><span data-stu-id="ec03e-136">It's difficult to maintain the exact throughput of the VPN tunnels.</span></span> <span data-ttu-id="ec03e-137">Protokoły IPsec i SSTP należą do niejawnie ciężkich protokołów sieci VPN.</span><span class="sxs-lookup"><span data-stu-id="ec03e-137">IPsec and SSTP are crypto-heavy VPN protocols.</span></span> <span data-ttu-id="ec03e-138">Przepływność ograniczają również opóźnienia i przepustowość między lokalizacjami lokalnymi i Internetem.</span><span class="sxs-lookup"><span data-stu-id="ec03e-138">Throughput is also limited by the latency and bandwidth between your premises and the Internet.</span></span>

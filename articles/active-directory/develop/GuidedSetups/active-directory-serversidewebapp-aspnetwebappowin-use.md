@@ -21,15 +21,15 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/11/2017
 ---
-## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Dodawanie kontrolera do obsługi żądań logowania i wylogowywania
+## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a><span data-ttu-id="459f0-103">Dodawanie kontrolera do obsługi żądań logowania i wylogowywania</span><span class="sxs-lookup"><span data-stu-id="459f0-103">Add a controller to handle sign-in and sign-out requests</span></span>
 
-W tym kroku przedstawiono sposób tworzenia nowego kontrolera do udostępnienia metody logowania i wylogowywania.
+<span data-ttu-id="459f0-104">W tym kroku przedstawiono sposób tworzenia nowego kontrolera do udostępnienia metody logowania i wylogowywania.</span><span class="sxs-lookup"><span data-stu-id="459f0-104">This step shows how to create a new controller to expose sign-in and sign-out methods.</span></span>
 
-1.  Kliknij prawym przyciskiem myszy `Controllers` i wybierz polecenie`Add` > `Controller`
-2.  Wybierz `MVC (.NET version) Controller – Empty`.
-3.  Kliknij przycisk *Dodaj*
-4.  Nadaj mu nazwę `HomeController` i kliknij przycisk *Dodaj*
-5.  Dodaj *OWIN* odwołania do klasy:
+1.  <span data-ttu-id="459f0-105">Kliknij prawym przyciskiem myszy `Controllers` i wybierz polecenie`Add` > `Controller`</span><span class="sxs-lookup"><span data-stu-id="459f0-105">Right click the `Controllers` folder and select `Add` > `Controller`</span></span>
+2.  <span data-ttu-id="459f0-106">Wybierz `MVC (.NET version) Controller – Empty`.</span><span class="sxs-lookup"><span data-stu-id="459f0-106">Select `MVC (.NET version) Controller – Empty`.</span></span>
+3.  <span data-ttu-id="459f0-107">Kliknij przycisk *Dodaj*</span><span class="sxs-lookup"><span data-stu-id="459f0-107">Click *Add*</span></span>
+4.  <span data-ttu-id="459f0-108">Nadaj mu nazwę `HomeController` i kliknij przycisk *Dodaj*</span><span class="sxs-lookup"><span data-stu-id="459f0-108">Name it `HomeController` and click *Add*</span></span>
+5.  <span data-ttu-id="459f0-109">Dodaj *OWIN* odwołania do klasy:</span><span class="sxs-lookup"><span data-stu-id="459f0-109">Add *OWIN* references to the class:</span></span>
 
 ```csharp
 using Microsoft.Owin.Security;
@@ -39,7 +39,7 @@ using Microsoft.Owin.Security.OpenIdConnect;
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-Dodaj te dwie metody poniżej, aby obsłużyć logowania i wylogowywania do kontrolera, inicjując żądanie uwierzytelnienia za pomocą kodu:
+<span data-ttu-id="459f0-110">Dodaj te dwie metody poniżej, aby obsłużyć logowania i wylogowywania do kontrolera, inicjując żądanie uwierzytelnienia za pomocą kodu:</span><span class="sxs-lookup"><span data-stu-id="459f0-110">Add the two methods below to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:</span></span>
 </li>
 </ol>
 
@@ -69,13 +69,13 @@ public void SignOut()
 }
 ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Tworzenie strony głównej aplikacji do logowania użytkowników przy użyciu przycisku logowania
+## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a><span data-ttu-id="459f0-111">Tworzenie strony głównej aplikacji do logowania użytkowników przy użyciu przycisku logowania</span><span class="sxs-lookup"><span data-stu-id="459f0-111">Create the app's home page to sign in users via a sign-in button</span></span>
 
-W programie Visual Studio Utwórz nowy widok, aby dodać przycisk Zarejestruj i wyświetlić informacje o użytkowniku po uwierzytelnieniu:
+<span data-ttu-id="459f0-112">W programie Visual Studio Utwórz nowy widok, aby dodać przycisk Zarejestruj i wyświetlić informacje o użytkowniku po uwierzytelnieniu:</span><span class="sxs-lookup"><span data-stu-id="459f0-112">In Visual Studio, create a new view to add the sign-in button and display user information after authentication:</span></span>
 
-1.  Kliknij prawym przyciskiem myszy `Views\Home` i wybierz polecenie`Add View`
-2.  Nadaj jej nazwę `Index`.
-3.  Dodaj poniższy kod HTML, który zawiera przycisk Zarejestruj, do pliku:
+1.  <span data-ttu-id="459f0-113">Kliknij prawym przyciskiem myszy `Views\Home` i wybierz polecenie`Add View`</span><span class="sxs-lookup"><span data-stu-id="459f0-113">Right click the `Views\Home` folder and select `Add View`</span></span>
+2.  <span data-ttu-id="459f0-114">Nadaj jej nazwę `Index`.</span><span class="sxs-lookup"><span data-stu-id="459f0-114">Name it `Index`.</span></span>
+3.  <span data-ttu-id="459f0-115">Dodaj poniższy kod HTML, który zawiera przycisk Zarejestruj, do pliku:</span><span class="sxs-lookup"><span data-stu-id="459f0-115">Add the following HTML, which includes the sign-in button, to the file:</span></span>
 
 ```html
 <html>
@@ -115,18 +115,18 @@ else
 </html>
 ```
 <!--start-collapse-->
-### <a name="more-information"></a>Więcej informacji
-> Ta strona dodaje przycisk Zarejestruj się w formacie SVG z czarnym tle:<br/>![Logowania z firmą Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> W przypadku więcej logowania przycisków, przejdź do [tej strony](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+### <a name="more-information"></a><span data-ttu-id="459f0-116">Więcej informacji</span><span class="sxs-lookup"><span data-stu-id="459f0-116">More Information</span></span>
+> <span data-ttu-id="459f0-117">Ta strona dodaje przycisk Zarejestruj się w formacie SVG z czarnym tle:</span><span class="sxs-lookup"><span data-stu-id="459f0-117">This page adds a sign-in button in SVG format with a black background:</span></span><br/><span data-ttu-id="459f0-118">![Logowania z firmą Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)</span><span class="sxs-lookup"><span data-stu-id="459f0-118">![Sign-in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)</span></span><br/> <span data-ttu-id="459f0-119">W przypadku więcej logowania przycisków, przejdź do [tej strony](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").</span><span class="sxs-lookup"><span data-stu-id="459f0-119">For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").</span></span>
 <!--end-collapse-->
 
-## <a name="add-a-controller-to-display-users-claims"></a>Dodawanie kontrolera w celu wyświetlenia oświadczeń użytkownika
-Ten kontroler pokazuje zastosowań `[Authorize]` atrybut do ochrony kontrolera. Ten atrybut ogranicza dostęp do kontrolera, zezwalając tylko użytkownicy uwierzytelnieni. Poniższy kod sprawia, że użycie atrybutu do wyświetlenia w ramach logowania w oświadczeń użytkowników, które zostały pobrane.
+## <a name="add-a-controller-to-display-users-claims"></a><span data-ttu-id="459f0-120">Dodawanie kontrolera w celu wyświetlenia oświadczeń użytkownika</span><span class="sxs-lookup"><span data-stu-id="459f0-120">Add a controller to display user's claims</span></span>
+<span data-ttu-id="459f0-121">Ten kontroler pokazuje zastosowań `[Authorize]` atrybut do ochrony kontrolera.</span><span class="sxs-lookup"><span data-stu-id="459f0-121">This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller.</span></span> <span data-ttu-id="459f0-122">Ten atrybut ogranicza dostęp do kontrolera, zezwalając tylko użytkownicy uwierzytelnieni.</span><span class="sxs-lookup"><span data-stu-id="459f0-122">This attribute restricts access to the controller by only allowing authenticated users.</span></span> <span data-ttu-id="459f0-123">Poniższy kod sprawia, że użycie atrybutu do wyświetlenia w ramach logowania w oświadczeń użytkowników, które zostały pobrane.</span><span class="sxs-lookup"><span data-stu-id="459f0-123">The code below makes use of the attribute to display user claims that were retrieved as part of the sign-in.</span></span>
 
-1.  Kliknij prawym przyciskiem myszy `Controllers` folderu:`Add` > `Controller`
-2.  Wybierz `MVC {version} Controller – Empty`.
-3.  Kliknij przycisk *Dodaj*
-4.  Nadaj jej nazwę`ClaimsController`
-5.  Zamień na kod klasy kontrolera kod poniżej — spowoduje to dodanie `[Authorize]` do klasy atrybutu:
+1.  <span data-ttu-id="459f0-124">Kliknij prawym przyciskiem myszy `Controllers` folderu:`Add` > `Controller`</span><span class="sxs-lookup"><span data-stu-id="459f0-124">Right click the `Controllers` folder: `Add` > `Controller`</span></span>
+2.  <span data-ttu-id="459f0-125">Wybierz `MVC {version} Controller – Empty`.</span><span class="sxs-lookup"><span data-stu-id="459f0-125">Select `MVC {version} Controller – Empty`.</span></span>
+3.  <span data-ttu-id="459f0-126">Kliknij przycisk *Dodaj*</span><span class="sxs-lookup"><span data-stu-id="459f0-126">Click *Add*</span></span>
+4.  <span data-ttu-id="459f0-127">Nadaj jej nazwę`ClaimsController`</span><span class="sxs-lookup"><span data-stu-id="459f0-127">Name it `ClaimsController`</span></span>
+5.  <span data-ttu-id="459f0-128">Zamień na kod klasy kontrolera kod poniżej — spowoduje to dodanie `[Authorize]` do klasy atrybutu:</span><span class="sxs-lookup"><span data-stu-id="459f0-128">Replace the code of your controller class with the code below - this adds the `[Authorize]` attribute to the class:</span></span>
 
 ```csharp
 [Authorize]
@@ -157,17 +157,17 @@ public class ClaimsController : Controller
 ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Więcej informacji
-> Z powodu użycia `[Authorize]` atrybutu, wszystkie metody tego kontrolera można wykonać tylko, jeśli użytkownik jest uwierzytelniony. Jeśli użytkownik nie jest uwierzytelniony i próbuje uzyskać dostęp z kontrolerem, OWIN inicjują żądania uwierzytelnienia i zmusza użytkownika do uwierzytelniania. Powyższy kod analizuje kolekcję oświadczeń `ClaimsPrincipal.Current` wystąpienia dla określonego użytkownika atrybuty uwzględnione w tokenie użytkownika. Te atrybuty obejmują pełną nazwę użytkownika i nazwę użytkownika, a także temat identyfikator użytkownika globalne. Zawiera także *identyfikator dzierżawcy*, który reprezentuje identyfikator organizacji użytkownika. 
+### <a name="more-information"></a><span data-ttu-id="459f0-129">Więcej informacji</span><span class="sxs-lookup"><span data-stu-id="459f0-129">More Information</span></span>
+> <span data-ttu-id="459f0-130">Z powodu użycia `[Authorize]` atrybutu, wszystkie metody tego kontrolera można wykonać tylko, jeśli użytkownik jest uwierzytelniony.</span><span class="sxs-lookup"><span data-stu-id="459f0-130">Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated.</span></span> <span data-ttu-id="459f0-131">Jeśli użytkownik nie jest uwierzytelniony i próbuje uzyskać dostęp z kontrolerem, OWIN inicjują żądania uwierzytelnienia i zmusza użytkownika do uwierzytelniania.</span><span class="sxs-lookup"><span data-stu-id="459f0-131">If the user is not authenticated and tries to access the controller, OWIN will initiate an authentication challenge and force the user to authenticate.</span></span> <span data-ttu-id="459f0-132">Powyższy kod analizuje kolekcję oświadczeń `ClaimsPrincipal.Current` wystąpienia dla określonego użytkownika atrybuty uwzględnione w tokenie użytkownika.</span><span class="sxs-lookup"><span data-stu-id="459f0-132">The code above looks at the claims collection of the `ClaimsPrincipal.Current` instance for specific user attributes included in the user’s token.</span></span> <span data-ttu-id="459f0-133">Te atrybuty obejmują pełną nazwę użytkownika i nazwę użytkownika, a także temat identyfikator użytkownika globalne.</span><span class="sxs-lookup"><span data-stu-id="459f0-133">These attributes include the user’s full name and username, as well as the global user identifier subject.</span></span> <span data-ttu-id="459f0-134">Zawiera także *identyfikator dzierżawcy*, który reprezentuje identyfikator organizacji użytkownika.</span><span class="sxs-lookup"><span data-stu-id="459f0-134">It also contains the *Tenant ID*, which represents the ID for the user’s organization.</span></span> 
 <!--end-collapse-->
 
-## <a name="create-a-view-to-display-the-users-claims"></a>Tworzenie widoku do wyświetlenia oświadczenia użytkownika
+## <a name="create-a-view-to-display-the-users-claims"></a><span data-ttu-id="459f0-135">Tworzenie widoku do wyświetlenia oświadczenia użytkownika</span><span class="sxs-lookup"><span data-stu-id="459f0-135">Create a view to display the user's claims</span></span>
 
-W programie Visual Studio Utwórz nowy widok, aby wyświetlić oświadczeń użytkownika na stronie sieci web:
+<span data-ttu-id="459f0-136">W programie Visual Studio Utwórz nowy widok, aby wyświetlić oświadczeń użytkownika na stronie sieci web:</span><span class="sxs-lookup"><span data-stu-id="459f0-136">In Visual Studio, create a new view to display the user's claims in a web page:</span></span>
 
-1.  Kliknij prawym przyciskiem myszy `Views\Claims` folderu oraz:`Add View`
-2.  Nadaj jej nazwę `Index`.
-3.  Dodaj poniższy kod HTML do pliku:
+1.  <span data-ttu-id="459f0-137">Kliknij prawym przyciskiem myszy `Views\Claims` folderu oraz:`Add View`</span><span class="sxs-lookup"><span data-stu-id="459f0-137">Right click the `Views\Claims` folder and: `Add View`</span></span>
+2.  <span data-ttu-id="459f0-138">Nadaj jej nazwę `Index`.</span><span class="sxs-lookup"><span data-stu-id="459f0-138">Name it `Index`.</span></span>
+3.  <span data-ttu-id="459f0-139">Dodaj poniższy kod HTML do pliku:</span><span class="sxs-lookup"><span data-stu-id="459f0-139">Add the following HTML to the file:</span></span>
 
 ```html
 <html>

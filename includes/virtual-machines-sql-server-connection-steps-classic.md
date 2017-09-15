@@ -1,23 +1,23 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Określanie nazwy DNS maszyny wirtualnej
-Aby połączyć się z aparatem bazy danych programu SQL Server z innego komputera, musisz znać nazwy systemu nazw domen (DNS, Domain Name System) maszyny wirtualnej. (Jest to nazwa, używanych przez internet na identyfikację maszyny wirtualnej. Możesz użyć adresu IP, ale adres IP mogą ulec zmianie, gdy Azure przenosi zasoby nadmiarowość lub konserwacji. Nazwa DNS będzie stabilny, ponieważ mogą zostać przekierowane do nowego adresu IP).  
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a><span data-ttu-id="d1828-101">Określanie nazwy DNS maszyny wirtualnej</span><span class="sxs-lookup"><span data-stu-id="d1828-101">Determine the DNS name of the virtual machine</span></span>
+<span data-ttu-id="d1828-102">Aby połączyć się z aparatem bazy danych programu SQL Server z innego komputera, musisz znać nazwy systemu nazw domen (DNS, Domain Name System) maszyny wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="d1828-102">To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine.</span></span> <span data-ttu-id="d1828-103">(Jest to nazwa, używanych przez internet na identyfikację maszyny wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="d1828-103">(This is the name the internet uses to identify the virtual machine.</span></span> <span data-ttu-id="d1828-104">Możesz użyć adresu IP, ale adres IP mogą ulec zmianie, gdy Azure przenosi zasoby nadmiarowość lub konserwacji.</span><span class="sxs-lookup"><span data-stu-id="d1828-104">You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance.</span></span> <span data-ttu-id="d1828-105">Nazwa DNS będzie stabilny, ponieważ mogą zostać przekierowane do nowego adresu IP).</span><span class="sxs-lookup"><span data-stu-id="d1828-105">The DNS name will be stable because it can be redirected to a new IP address.)</span></span>  
 
-1. W portalu Azure (lub w poprzednim kroku), wybierz **maszyn wirtualnych (klasyczne)**.
-2. Wybierz maszynę Wirtualną programu SQL.
-3. Na **maszyny wirtualnej** bloku, kopiowania **nazwy DNS** dla maszyny wirtualnej.
+1. <span data-ttu-id="d1828-106">W portalu Azure (lub w poprzednim kroku), wybierz **maszyn wirtualnych (klasyczne)**.</span><span class="sxs-lookup"><span data-stu-id="d1828-106">In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.</span></span>
+2. <span data-ttu-id="d1828-107">Wybierz maszynę Wirtualną programu SQL.</span><span class="sxs-lookup"><span data-stu-id="d1828-107">Select your SQL VM.</span></span>
+3. <span data-ttu-id="d1828-108">Na **maszyny wirtualnej** bloku, kopiowania **nazwy DNS** dla maszyny wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="d1828-108">On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.</span></span>
    
     ![Nazwa DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Nawiązywanie połączenia z aparatem bazy danych z innego komputera
-1. Na komputerze podłączonym do Internetu Otwórz program SQL Server Management Studio.
-2. W **Połącz z serwerem** lub **nawiązywanie połączenia z aparatem bazy danych** okna dialogowego, **nazwy serwera** wprowadź nazwę DNS maszyny wirtualnej (określoną w poprzednim zadaniu) i numeru portu publicznego punktu końcowego w formacie *DNSName, numer_portu* takich jak **mysqlvm.cloudapp.net,57500**.
+### <a name="connect-to-the-database-engine-from-another-computer"></a><span data-ttu-id="d1828-110">Nawiązywanie połączenia z aparatem bazy danych z innego komputera</span><span class="sxs-lookup"><span data-stu-id="d1828-110">Connect to the Database Engine from another computer</span></span>
+1. <span data-ttu-id="d1828-111">Na komputerze podłączonym do Internetu Otwórz program SQL Server Management Studio.</span><span class="sxs-lookup"><span data-stu-id="d1828-111">On a computer connected to the internet, open SQL Server Management Studio.</span></span>
+2. <span data-ttu-id="d1828-112">W **Połącz z serwerem** lub **nawiązywanie połączenia z aparatem bazy danych** okna dialogowego, **nazwy serwera** wprowadź nazwę DNS maszyny wirtualnej (określoną w poprzednim zadaniu) i numeru portu publicznego punktu końcowego w formacie *DNSName, numer_portu* takich jak **mysqlvm.cloudapp.net,57500**.</span><span class="sxs-lookup"><span data-stu-id="d1828-112">In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.</span></span>
    
     ![Połącz przy użyciu narzędzia SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    Jeśli nie pamiętasz numeru portu publicznego punktu końcowego została wcześniej utworzona, można znaleźć w **punkty końcowe** obszar **maszyny wirtualnej** bloku.
+    <span data-ttu-id="d1828-114">Jeśli nie pamiętasz numeru portu publicznego punktu końcowego została wcześniej utworzona, można znaleźć w **punkty końcowe** obszar **maszyny wirtualnej** bloku.</span><span class="sxs-lookup"><span data-stu-id="d1828-114">If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.</span></span>
    
     ![Port publiczny](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. W polu **Authentication** (Uwierzytelnianie) wybierz opcję **SQL Server Authentication** (Uwierzytelnianie programu SQL Server).
-4. W **logowania** wpisz nazwę logowania, utworzony w starszej zadań.
-5. W **hasło** wpisz hasło logowania, utworzone w wcześniejszych zadań.
-6. Kliknij przycisk **Połącz**.
+3. <span data-ttu-id="d1828-116">W polu **Authentication** (Uwierzytelnianie) wybierz opcję **SQL Server Authentication** (Uwierzytelnianie programu SQL Server).</span><span class="sxs-lookup"><span data-stu-id="d1828-116">In the **Authentication** box, select **SQL Server Authentication**.</span></span>
+4. <span data-ttu-id="d1828-117">W **logowania** wpisz nazwę logowania, utworzony w starszej zadań.</span><span class="sxs-lookup"><span data-stu-id="d1828-117">In the **Login** box, type the name of a login that you created in an earlier task.</span></span>
+5. <span data-ttu-id="d1828-118">W **hasło** wpisz hasło logowania, utworzone w wcześniejszych zadań.</span><span class="sxs-lookup"><span data-stu-id="d1828-118">In the **Password** box, type the password of the login that you create in an earlier task.</span></span>
+6. <span data-ttu-id="d1828-119">Kliknij przycisk **Połącz**.</span><span class="sxs-lookup"><span data-stu-id="d1828-119">Click **Connect**.</span></span>
 

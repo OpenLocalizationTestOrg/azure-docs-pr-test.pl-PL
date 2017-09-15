@@ -1,21 +1,21 @@
-## <a name="specify-the-behavior-of-the-iot-device"></a>Określanie zachowania urządzenia IoT
+## <a name="specify-the-behavior-of-the-iot-device"></a><span data-ttu-id="144aa-101">Określanie zachowania urządzenia IoT</span><span class="sxs-lookup"><span data-stu-id="144aa-101">Specify the behavior of the IoT device</span></span>
 
-Biblioteka kliencka serializatora usługi IoT Hub korzysta z modelu do określania formatu komunikatów wymienianych między urządzeniem a usługą IoT Hub.
+<span data-ttu-id="144aa-102">Biblioteka kliencka serializatora usługi IoT Hub korzysta z modelu do określania formatu komunikatów wymienianych między urządzeniem a usługą IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="144aa-102">The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.</span></span>
 
-1. Dodaj następujące deklaracje zmiennych po instrukcji `#include`. Zastąp wartości zastępcze [Identyfikator urządzenia] i [Klucz urządzenia] wartościami wymienionymi dla urządzenia na zdalnym pulpicie nawigacyjnym rozwiązania. Użyj nazwy hosta usługi IoT Hub z pulpitu nawigacyjnego rozwiązania w celu zastąpienia wartości zastępczej [Nazwa usługi IoTHub]. Jeśli na przykład host usługi IoT Hub ma nazwę **contoso.azure-devices.net**, zastąp wartość zastępczą [Nazwa usługi IoTHub] ciągiem **contoso**:
+1. <span data-ttu-id="144aa-103">Dodaj następujące deklaracje zmiennych po instrukcji `#include`.</span><span class="sxs-lookup"><span data-stu-id="144aa-103">Add the following variable declarations after the `#include` statements.</span></span> <span data-ttu-id="144aa-104">Zastąp wartości zastępcze [Identyfikator urządzenia] i [Klucz urządzenia] wartościami wymienionymi dla urządzenia na zdalnym pulpicie nawigacyjnym rozwiązania.</span><span class="sxs-lookup"><span data-stu-id="144aa-104">Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard.</span></span> <span data-ttu-id="144aa-105">Użyj nazwy hosta usługi IoT Hub z pulpitu nawigacyjnego rozwiązania w celu zastąpienia wartości zastępczej [Nazwa usługi IoTHub].</span><span class="sxs-lookup"><span data-stu-id="144aa-105">Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name].</span></span> <span data-ttu-id="144aa-106">Jeśli na przykład host usługi IoT Hub ma nazwę **contoso.azure-devices.net**, zastąp wartość zastępczą [Nazwa usługi IoTHub] ciągiem **contoso**:</span><span class="sxs-lookup"><span data-stu-id="144aa-106">For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:</span></span>
    
     ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
 
-1. Dodaj następujący kod w celu zdefiniowania modelu umożliwiającego komunikację między urządzeniem a usługą IoT Hub. Ten model określa następujące właściwości urządzenia:
+1. <span data-ttu-id="144aa-107">Dodaj następujący kod w celu zdefiniowania modelu umożliwiającego komunikację między urządzeniem a usługą IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="144aa-107">Add the following code to define the model that enables the device to communicate with IoT Hub.</span></span> <span data-ttu-id="144aa-108">Ten model określa następujące właściwości urządzenia:</span><span class="sxs-lookup"><span data-stu-id="144aa-108">This model specifies that the device:</span></span>
 
-   - Może wysłać dane dotyczące temperatury, temperatury zewnętrznej, wilgotności i identyfikatora urządzenia jako dane telemetryczne.
-   - Może wysyłać metadane dotyczące urządzenia do usługi IoT Hub. Podczas uruchamiania urządzenie wysyła podstawowe metadane w obiekcie **DeviceInfo**.
-   - Może wysyłać zgłaszane właściwości do bliźniaczej reprezentacji urządzenia w usłudze IoT Hub. Te zgłaszane właściwości są podzielone na następujące grupy: właściwości konfiguracji, urządzeń i systemu.
-   - Może odbierać i przetwarzać żądane właściwości ustawione w bliźniaczej reprezentacji urządzenia w usłudze IoT Hub.
-   - Może odpowiadać na bezpośrednie metody **Reboot** i **InitiateFirmwareUpdate** wywoływane za pośrednictwem portalu rozwiązania. Urządzenie wysyła informacje dotyczące obsługiwanych metod bezpośrednich za pomocą zgłaszanych właściwości.
+   - <span data-ttu-id="144aa-109">Może wysłać dane dotyczące temperatury, temperatury zewnętrznej, wilgotności i identyfikatora urządzenia jako dane telemetryczne.</span><span class="sxs-lookup"><span data-stu-id="144aa-109">Can send temperature, external temperature, humidity, and a device id as telemetry.</span></span>
+   - <span data-ttu-id="144aa-110">Może wysyłać metadane dotyczące urządzenia do usługi IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="144aa-110">Can send metadata about the device to IoT Hub.</span></span> <span data-ttu-id="144aa-111">Podczas uruchamiania urządzenie wysyła podstawowe metadane w obiekcie **DeviceInfo**.</span><span class="sxs-lookup"><span data-stu-id="144aa-111">The device sends basic metadata in a **DeviceInfo** object at startup.</span></span>
+   - <span data-ttu-id="144aa-112">Może wysyłać zgłaszane właściwości do bliźniaczej reprezentacji urządzenia w usłudze IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="144aa-112">Can send reported properties, to the device twin in IoT Hub.</span></span> <span data-ttu-id="144aa-113">Te zgłaszane właściwości są podzielone na następujące grupy: właściwości konfiguracji, urządzeń i systemu.</span><span class="sxs-lookup"><span data-stu-id="144aa-113">These reported properties are grouped into configuration, device, and system properties.</span></span>
+   - <span data-ttu-id="144aa-114">Może odbierać i przetwarzać żądane właściwości ustawione w bliźniaczej reprezentacji urządzenia w usłudze IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="144aa-114">Can receive and act on desired properties set in the device twin in IoT Hub.</span></span>
+   - <span data-ttu-id="144aa-115">Może odpowiadać na bezpośrednie metody **Reboot** i **InitiateFirmwareUpdate** wywoływane za pośrednictwem portalu rozwiązania.</span><span class="sxs-lookup"><span data-stu-id="144aa-115">Can respond to the **Reboot** and **InitiateFirmwareUpdate** direct methods invoked through the solution portal.</span></span> <span data-ttu-id="144aa-116">Urządzenie wysyła informacje dotyczące obsługiwanych metod bezpośrednich za pomocą zgłaszanych właściwości.</span><span class="sxs-lookup"><span data-stu-id="144aa-116">The device sends information about the direct methods it supports using reported properties.</span></span>
    
     ```c
     // Define the Model
@@ -85,10 +85,10 @@ Biblioteka kliencka serializatora usługi IoT Hub korzysta z modelu do określan
     END_NAMESPACE(Contoso);
     ```
 
-## <a name="implement-the-behavior-of-the-device"></a>Implementowanie zachowania urządzenia
-Teraz można dodać kod, który implementuje zachowanie zdefiniowane w modelu.
+## <a name="implement-the-behavior-of-the-device"></a><span data-ttu-id="144aa-117">Implementowanie zachowania urządzenia</span><span class="sxs-lookup"><span data-stu-id="144aa-117">Implement the behavior of the device</span></span>
+<span data-ttu-id="144aa-118">Teraz można dodać kod, który implementuje zachowanie zdefiniowane w modelu.</span><span class="sxs-lookup"><span data-stu-id="144aa-118">Now add code that implements the behavior defined in the model.</span></span>
 
-1. Dodaj następujące funkcje obsługujące żądane właściwości ustawione na pulpicie nawigacyjnym rozwiązania. Te żądane właściwości są zdefiniowane w modelu:
+1. <span data-ttu-id="144aa-119">Dodaj następujące funkcje obsługujące żądane właściwości ustawione na pulpicie nawigacyjnym rozwiązania.</span><span class="sxs-lookup"><span data-stu-id="144aa-119">Add the following functions that handle the desired properties set in the solution dashboard.</span></span> <span data-ttu-id="144aa-120">Te żądane właściwości są zdefiniowane w modelu:</span><span class="sxs-lookup"><span data-stu-id="144aa-120">These desired properties are defined in the model:</span></span>
 
     ```c
     void onDesiredTemperatureMeanValue(void* argument)
@@ -107,7 +107,7 @@ Teraz można dodać kod, który implementuje zachowanie zdefiniowane w modelu.
     }
     ```
 
-1. Dodaj następujące funkcje obsługujące bezpośrednie metody wywoływane za pośrednictwem usługi IoT Hub. Te metody bezpośrednie są zdefiniowane w modelu:
+1. <span data-ttu-id="144aa-121">Dodaj następujące funkcje obsługujące bezpośrednie metody wywoływane za pośrednictwem usługi IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="144aa-121">Add the following functions that handle the direct methods invoked through the IoT hub.</span></span> <span data-ttu-id="144aa-122">Te metody bezpośrednie są zdefiniowane w modelu:</span><span class="sxs-lookup"><span data-stu-id="144aa-122">These direct methods are defined in the model:</span></span>
 
     ```c
     /* Handlers for direct methods */
@@ -130,7 +130,7 @@ Teraz można dodać kod, który implementuje zachowanie zdefiniowane w modelu.
     }
     ```
 
-1. Dodaj następującą funkcję, która wysyła komunikat do wstępnie skonfigurowanego rozwiązania:
+1. <span data-ttu-id="144aa-123">Dodaj następującą funkcję, która wysyła komunikat do wstępnie skonfigurowanego rozwiązania:</span><span class="sxs-lookup"><span data-stu-id="144aa-123">Add the following function that sends a message to the preconfigured solution:</span></span>
    
     ```c
     /* Send data to IoT Hub */
@@ -158,7 +158,7 @@ Teraz można dodać kod, który implementuje zachowanie zdefiniowane w modelu.
     }
     ```
 
-1. Dodaj następujący program obsługi wywołania zwrotnego, który jest uruchamiany, gdy urządzenie wyśle nowe wartości zgłaszanych właściwości do wstępnie skonfigurowanego rozwiązania:
+1. <span data-ttu-id="144aa-124">Dodaj następujący program obsługi wywołania zwrotnego, który jest uruchamiany, gdy urządzenie wyśle nowe wartości zgłaszanych właściwości do wstępnie skonfigurowanego rozwiązania:</span><span class="sxs-lookup"><span data-stu-id="144aa-124">Add the following callback handler that runs when the device has sent new reported property values to the preconfigured solution:</span></span>
 
     ```c
     /* Callback after sending reported properties */
@@ -169,16 +169,16 @@ Teraz można dodać kod, który implementuje zachowanie zdefiniowane w modelu.
     }
     ```
 
-1. Dodaj następującą funkcję, aby połączyć urządzenie ze wstępnie skonfigurowanym rozwiązaniem w chmurze i rozpocząć wymianę danych. Ta funkcja wykonuje następujące działania:
+1. <span data-ttu-id="144aa-125">Dodaj następującą funkcję, aby połączyć urządzenie ze wstępnie skonfigurowanym rozwiązaniem w chmurze i rozpocząć wymianę danych.</span><span class="sxs-lookup"><span data-stu-id="144aa-125">Add the following function to connect your device to the preconfigured solution in the cloud, and exchange data.</span></span> <span data-ttu-id="144aa-126">Ta funkcja wykonuje następujące działania:</span><span class="sxs-lookup"><span data-stu-id="144aa-126">This function performs the following steps:</span></span>
 
-    - Inicjuje platformę.
-    - Rejestruje przestrzeń nazw Contoso z biblioteką serializacji.
-    - Inicjuje klienta za pomocą parametrów połączenia urządzenia.
-    - Tworzy wystąpienie modelu **Thermostat**.
-    - Tworzy i wysyła zgłaszane wartości właściwości.
-    - Wysyła obiekt **DeviceInfo**.
-    - Tworzy pętlę wysyłającą dane telemetryczne co sekundę.
-    - Wyłącza wszystkie zasoby.
+    - <span data-ttu-id="144aa-127">Inicjuje platformę.</span><span class="sxs-lookup"><span data-stu-id="144aa-127">Initializes the platform.</span></span>
+    - <span data-ttu-id="144aa-128">Rejestruje przestrzeń nazw Contoso z biblioteką serializacji.</span><span class="sxs-lookup"><span data-stu-id="144aa-128">Registers the Contoso namespace with the serialization library.</span></span>
+    - <span data-ttu-id="144aa-129">Inicjuje klienta za pomocą parametrów połączenia urządzenia.</span><span class="sxs-lookup"><span data-stu-id="144aa-129">Initializes the client with the device connection string.</span></span>
+    - <span data-ttu-id="144aa-130">Tworzy wystąpienie modelu **Thermostat**.</span><span class="sxs-lookup"><span data-stu-id="144aa-130">Create an instance of the **Thermostat** model.</span></span>
+    - <span data-ttu-id="144aa-131">Tworzy i wysyła zgłaszane wartości właściwości.</span><span class="sxs-lookup"><span data-stu-id="144aa-131">Creates and sends reported property values.</span></span>
+    - <span data-ttu-id="144aa-132">Wysyła obiekt **DeviceInfo**.</span><span class="sxs-lookup"><span data-stu-id="144aa-132">Sends a **DeviceInfo** object.</span></span>
+    - <span data-ttu-id="144aa-133">Tworzy pętlę wysyłającą dane telemetryczne co sekundę.</span><span class="sxs-lookup"><span data-stu-id="144aa-133">Creates a loop to send telemetry every second.</span></span>
+    - <span data-ttu-id="144aa-134">Wyłącza wszystkie zasoby.</span><span class="sxs-lookup"><span data-stu-id="144aa-134">Deinitializes all resources.</span></span>
 
       ```c
       void remote_monitoring_run(void)
@@ -296,7 +296,7 @@ Teraz można dodać kod, który implementuje zachowanie zdefiniowane w modelu.
       }
     ```
    
-    Do celów referencyjnych zamieszczono tutaj przykładowy komunikat z **danymi telemetrycznymi** wysłany do wstępnie skonfigurowanego rozwiązania:
+    <span data-ttu-id="144aa-135">Do celów referencyjnych zamieszczono tutaj przykładowy komunikat z **danymi telemetrycznymi** wysłany do wstępnie skonfigurowanego rozwiązania:</span><span class="sxs-lookup"><span data-stu-id="144aa-135">For reference, here is a sample **Telemetry** message sent to the preconfigured solution:</span></span>
    
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}

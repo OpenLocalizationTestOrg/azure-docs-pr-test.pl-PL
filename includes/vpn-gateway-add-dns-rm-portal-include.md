@@ -1,8 +1,8 @@
-1. Na stronie **Ustawienia** sieci wirtualnej przejdź do opcji **Serwery DNS** i kliknij blok **Serwery DNS**, aby go otworzyć.
+1. <span data-ttu-id="ce889-101">Na stronie **Ustawienia** sieci wirtualnej przejdź do opcji **Serwery DNS** i kliknij blok **Serwery DNS**, aby go otworzyć.</span><span class="sxs-lookup"><span data-stu-id="ce889-101">On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to open the **DNS servers** blade.</span></span>
 
-    ![Dodaj serwer DNS](./media/vpn-gateway-add-dns-rm-portal/add_dns_server.png "Dodaj serwer DNS")
+    <span data-ttu-id="ce889-102">![Dodaj serwer DNS](./media/vpn-gateway-add-dns-rm-portal/add_dns_server.png "Dodaj serwer DNS")</span><span class="sxs-lookup"><span data-stu-id="ce889-102">![Add DNS server](./media/vpn-gateway-add-dns-rm-portal/add_dns_server.png "Add DNS Server")</span></span>
 
-  - **Serwery DNS:** wybierz pozycję **Niestandardowy**.
-  - **Dodaj serwer DNS:** wprowadź adres IP serwera DNS, który ma być używany do rozpoznawania nazw.
+  - <span data-ttu-id="ce889-103">**Serwery DNS:** wybierz pozycję **Niestandardowy**.</span><span class="sxs-lookup"><span data-stu-id="ce889-103">**DNS Servers:** Select select **Custom**.</span></span>
+  - <span data-ttu-id="ce889-104">**Dodaj serwer DNS:** wprowadź adres IP serwera DNS, który ma być używany do rozpoznawania nazw.</span><span class="sxs-lookup"><span data-stu-id="ce889-104">**Add DNS server:** Enter the IP address of the DNS server that you want to use for name resolution.</span></span>
 
-2. Po zakończeniu dodawania serwerów DNS kliknij przycisk **Zapisz** znajdujący się na górze bloku.
+2. <span data-ttu-id="ce889-105">Po zakończeniu dodawania serwerów DNS kliknij przycisk **Zapisz** znajdujący się na górze bloku.</span><span class="sxs-lookup"><span data-stu-id="ce889-105">When you are done adding DNS servers, click **Save** at the top of the blade.</span></span>

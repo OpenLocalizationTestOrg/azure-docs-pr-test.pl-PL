@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 9/17/15-->
 
 
-#### <a name="to-get-the-storsimple-service-registration-key"></a>Aby pobrać klucz rejestracji usługi StorSimple
-1. Na stronie **usługi StorSimple Manager** kliknij utworzoną usługę. Nastąpi przekierowanie do strony **Szybki start**. (Możesz kliknąć ikonę szybkiego startu ![Ikona Szybki start usługi StorSimple ](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png), aby w dowolnej chwili uzyskać dostęp do strony **Szybki start**).
+#### <a name="to-get-the-storsimple-service-registration-key"></a><span data-ttu-id="8eea7-101">Aby pobrać klucz rejestracji usługi StorSimple</span><span class="sxs-lookup"><span data-stu-id="8eea7-101">To get the StorSimple service registration key</span></span>
+1. <span data-ttu-id="8eea7-102">Na stronie **usługi StorSimple Manager** kliknij utworzoną usługę.</span><span class="sxs-lookup"><span data-stu-id="8eea7-102">On the **StorSimple Manager service** page, click the service that you created.</span></span> <span data-ttu-id="8eea7-103">Nastąpi przekierowanie do strony **Szybki start**.</span><span class="sxs-lookup"><span data-stu-id="8eea7-103">This will take you to the **Quick Start** page.</span></span> <span data-ttu-id="8eea7-104">(Możesz kliknąć ikonę szybkiego startu ![Ikona Szybki start usługi StorSimple ](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png), aby w dowolnej chwili uzyskać dostęp do strony **Szybki start**).</span><span class="sxs-lookup"><span data-stu-id="8eea7-104">(You can click the quick start icon ![StorSimple Quick Start icon ](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png) to access the **Quick Start** page at any time.)</span></span>
    
      ![Strona Szybki start usługi StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_ServiceQuickStart-gov-include.png)
-2. Kliknij pozycję **Pobierz klucz rejestracji usługi**. Możesz również kliknąć pozycję **Klucz rejestracji** w dolnej części strony. Trzeba będzie zaczekać kilka minut na pobranie klucza. Zostanie wyświetlone okno dialogowe **Klucz rejestracji usługi**.
+2. <span data-ttu-id="8eea7-106">Kliknij pozycję **Pobierz klucz rejestracji usługi**.</span><span class="sxs-lookup"><span data-stu-id="8eea7-106">Click **Get service registration key**.</span></span> <span data-ttu-id="8eea7-107">Możesz również kliknąć pozycję **Klucz rejestracji** w dolnej części strony.</span><span class="sxs-lookup"><span data-stu-id="8eea7-107">You can also click **Registration Key** at the bottom of the page.</span></span> <span data-ttu-id="8eea7-108">Trzeba będzie zaczekać kilka minut na pobranie klucza.</span><span class="sxs-lookup"><span data-stu-id="8eea7-108">You will have to wait for a few minutes while the key is retrieved.</span></span> <span data-ttu-id="8eea7-109">Zostanie wyświetlone okno dialogowe **Klucz rejestracji usługi**.</span><span class="sxs-lookup"><span data-stu-id="8eea7-109">The **Service Registration Key** dialog box appears.</span></span>
    
      ![Okno dialogowe Klucz rejestracji usługi](./media/storsimple-get-service-registration-key-gov/HCS_ServiceRegistrationKey-gov-include.png)
-3. Zlokalizuj klucz rejestracji usługi.
-4. Kliknij ikonę kopiowania, ![Ikona kopiowania usługi StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png) aby skopiować klucz i zapisać go do użytku w przyszłości.
-5. Kliknij ikonę znacznika wyboru![Ikona znacznika wyboru StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png), aby zamknąć okno dialogowe i wrócić do strony **Szybki start**.
+3. <span data-ttu-id="8eea7-111">Zlokalizuj klucz rejestracji usługi.</span><span class="sxs-lookup"><span data-stu-id="8eea7-111">Locate the service registration key.</span></span>
+4. <span data-ttu-id="8eea7-112">Kliknij ikonę kopiowania,</span><span class="sxs-lookup"><span data-stu-id="8eea7-112">Click the copy icon</span></span> ![Ikona kopiowania usługi StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png) <span data-ttu-id="8eea7-114">aby skopiować klucz i zapisać go do użytku w przyszłości.</span><span class="sxs-lookup"><span data-stu-id="8eea7-114">to copy the key and save it for later use.</span></span>
+5. <span data-ttu-id="8eea7-115">Kliknij ikonę znacznika wyboru![Ikona znacznika wyboru StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png), aby zamknąć okno dialogowe i wrócić do strony **Szybki start**.</span><span class="sxs-lookup"><span data-stu-id="8eea7-115">Click the check icon ![StorSimple Check icon](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png) to close this dialog box and return to the **Quick Start** page.</span></span>
 
 > [!NOTE]
-> Klucz rejestracji usługi służy do rejestrowania wszystkich urządzeń, które należy zarejestrować w usłudze StorSimple Manager.
+> <span data-ttu-id="8eea7-116">Klucz rejestracji usługi służy do rejestrowania wszystkich urządzeń, które należy zarejestrować w usłudze StorSimple Manager.</span><span class="sxs-lookup"><span data-stu-id="8eea7-116">The service registration key is used to register all the devices that need to register with your StorSimple Manager service.</span></span>
 > 
 > 
 

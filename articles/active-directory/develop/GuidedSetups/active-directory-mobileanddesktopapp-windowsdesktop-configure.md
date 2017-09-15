@@ -21,20 +21,20 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/11/2017
 ---
-## <a name="create-an-application-express"></a>Tworzenie aplikacji (Express)
-Teraz musisz zarejestrować aplikację w *portalu rejestracji aplikacji Microsoft*:
-1. Zarejestrować aplikację za pośrednictwem [portalu rejestracji aplikacji firmy Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)
-2.  Wprowadź nazwę aplikacji i poczty e-mail
-3.  Upewnij się, że zaznaczono opcję instrukcje konfiguracji
-4.  Postępuj zgodnie z instrukcjami, aby uzyskać identyfikator aplikacji i wklej go w kodzie
+## <a name="create-an-application-express"></a><span data-ttu-id="f39b5-104">Tworzenie aplikacji (Express)</span><span class="sxs-lookup"><span data-stu-id="f39b5-104">Create an application (Express)</span></span>
+<span data-ttu-id="f39b5-105">Teraz musisz zarejestrować aplikację w *portalu rejestracji aplikacji Microsoft*:</span><span class="sxs-lookup"><span data-stu-id="f39b5-105">Now you need to register your application in the *Microsoft Application Registration Portal*:</span></span>
+1. <span data-ttu-id="f39b5-106">Zarejestrować aplikację za pośrednictwem [portalu rejestracji aplikacji firmy Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)</span><span class="sxs-lookup"><span data-stu-id="f39b5-106">Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)</span></span>
+2.  <span data-ttu-id="f39b5-107">Wprowadź nazwę aplikacji i poczty e-mail</span><span class="sxs-lookup"><span data-stu-id="f39b5-107">Enter a name for your application and your email</span></span>
+3.  <span data-ttu-id="f39b5-108">Upewnij się, że zaznaczono opcję instrukcje konfiguracji</span><span class="sxs-lookup"><span data-stu-id="f39b5-108">Make sure the option for Guided Setup is checked</span></span>
+4.  <span data-ttu-id="f39b5-109">Postępuj zgodnie z instrukcjami, aby uzyskać identyfikator aplikacji i wklej go w kodzie</span><span class="sxs-lookup"><span data-stu-id="f39b5-109">Follow the instructions to obtain the application ID and paste it into your code</span></span>
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Dodaj swoje informacje rejestracyjne aplikacji do rozwiązania (zaawansowane)
-Teraz musisz zarejestrować aplikację w *portalu rejestracji aplikacji Microsoft*:
-1. Przejdź do [portalu rejestracji aplikacji Microsoft](https://apps.dev.microsoft.com/portal/register-app) do rejestrowania aplikacji
-2. Wprowadź nazwę aplikacji i poczty e-mail 
-3. Upewnij się, że jest zaznaczona opcja instrukcje konfiguracji
-4. Kliknij przycisk `Add Platform`, a następnie wybierz pozycję `Native Application` i kliknij przycisk Zapisz
-5. Skopiuj identyfikator GUID w identyfikator aplikacji, wróć do programu Visual Studio, otwórz `App.xaml.cs` i Zastąp `your_client_id_here` z został zarejestrowany identyfikator aplikacji:
+### <a name="add-your-application-registration-information-to-your-solution-advanced"></a><span data-ttu-id="f39b5-110">Dodaj swoje informacje rejestracyjne aplikacji do rozwiązania (zaawansowane)</span><span class="sxs-lookup"><span data-stu-id="f39b5-110">Add your application registration information to your solution (Advanced)</span></span>
+<span data-ttu-id="f39b5-111">Teraz musisz zarejestrować aplikację w *portalu rejestracji aplikacji Microsoft*:</span><span class="sxs-lookup"><span data-stu-id="f39b5-111">Now you need to register your application in the *Microsoft Application Registration Portal*:</span></span>
+1. <span data-ttu-id="f39b5-112">Przejdź do [portalu rejestracji aplikacji Microsoft](https://apps.dev.microsoft.com/portal/register-app) do rejestrowania aplikacji</span><span class="sxs-lookup"><span data-stu-id="f39b5-112">Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application</span></span>
+2. <span data-ttu-id="f39b5-113">Wprowadź nazwę aplikacji i poczty e-mail</span><span class="sxs-lookup"><span data-stu-id="f39b5-113">Enter a name for your application and your email</span></span> 
+3. <span data-ttu-id="f39b5-114">Upewnij się, że jest zaznaczona opcja instrukcje konfiguracji</span><span class="sxs-lookup"><span data-stu-id="f39b5-114">Make sure the option for Guided Setup is unchecked</span></span>
+4. <span data-ttu-id="f39b5-115">Kliknij przycisk `Add Platform`, a następnie wybierz pozycję `Native Application` i kliknij przycisk Zapisz</span><span class="sxs-lookup"><span data-stu-id="f39b5-115">Click `Add Platform`, then select `Native Application` and hit Save</span></span>
+5. <span data-ttu-id="f39b5-116">Skopiuj identyfikator GUID w identyfikator aplikacji, wróć do programu Visual Studio, otwórz `App.xaml.cs` i Zastąp `your_client_id_here` z został zarejestrowany identyfikator aplikacji:</span><span class="sxs-lookup"><span data-stu-id="f39b5-116">Copy the GUID in Application ID, go back to Visual Studio, open `App.xaml.cs` and replace `your_client_id_here` with the Application ID you just registered:</span></span>
 
 ```csharp
 private static string ClientId = "your_application_id_here";

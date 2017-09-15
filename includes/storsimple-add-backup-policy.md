@@ -1,14 +1,14 @@
 
 <!--author=alkohli last changed: 9/11/15-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>Aby dodać zasady kopii zapasowych danych StorSimple
-1. Na stronie **Szybki start** urządzenia kliknij kartę **Zasady kopii zapasowych**. Nastąpi przekierowanie do strony **Zasady kopii zapasowych**.
-2. W dolnej części strony kliknij **Dodaj**.
-3. W **Dodaj zasady tworzenia kopii zapasowej** okna dialogowego pole, wykonaj następujące czynności:
+#### <a name="to-add-a-storsimple-backup-policy"></a><span data-ttu-id="4294a-101">Aby dodać zasady kopii zapasowych danych StorSimple</span><span class="sxs-lookup"><span data-stu-id="4294a-101">To add a StorSimple backup policy</span></span>
+1. <span data-ttu-id="4294a-102">Na stronie **Szybki start** urządzenia kliknij kartę **Zasady kopii zapasowych**.</span><span class="sxs-lookup"><span data-stu-id="4294a-102">On the device **Quick Start** page, click the **Backup Policies** tab.</span></span> <span data-ttu-id="4294a-103">Nastąpi przekierowanie do strony **Zasady kopii zapasowych**.</span><span class="sxs-lookup"><span data-stu-id="4294a-103">This will take you to the **Backup Policies** page.</span></span>
+2. <span data-ttu-id="4294a-104">W dolnej części strony kliknij **Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="4294a-104">At the bottom of the page, click **Add**.</span></span>
+3. <span data-ttu-id="4294a-105">W **Dodaj zasady tworzenia kopii zapasowej** okna dialogowego pole, wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="4294a-105">In the **Add Backup Policy** dialog box, do the following:</span></span>
    
-   1. Podaj nazwę zasad kopii zapasowych o długości od 3 do 150 znaków.
-   2. Przypisz co najmniej jeden wolumin do tych zasad tworzenia kopii zapasowej. Jeśli używasz innych dostawców usługi w chmurze oparte na wybór pierwszej listy rozwijanej wyświetli woluminów należących do tylko tego dostawcy usług w chmurze. Umożliwi do woluminów grupy należące do jednej chmury dostawcy usług dla migawki.
-   3. Kliknij ikonę znacznika wyboru ![ikona znacznika wyboru](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) aby zapisać zasady.
+   1. <span data-ttu-id="4294a-106">Podaj nazwę zasad kopii zapasowych o długości od 3 do 150 znaków.</span><span class="sxs-lookup"><span data-stu-id="4294a-106">Specify a backup policy name that contains between 3 and 150 characters.</span></span>
+   2. <span data-ttu-id="4294a-107">Przypisz co najmniej jeden wolumin do tych zasad tworzenia kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="4294a-107">Assign one or more volumes to this backup policy.</span></span> <span data-ttu-id="4294a-108">Jeśli używasz innych dostawców usługi w chmurze oparte na wybór pierwszej listy rozwijanej wyświetli woluminów należących do tylko tego dostawcy usług w chmurze.</span><span class="sxs-lookup"><span data-stu-id="4294a-108">If you are using other cloud service providers, based on your first selection, the drop-down list will show volumes belonging to only that cloud service provider.</span></span> <span data-ttu-id="4294a-109">Umożliwi do woluminów grupy należące do jednej chmury dostawcy usług dla migawki.</span><span class="sxs-lookup"><span data-stu-id="4294a-109">This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.</span></span>
+   3. <span data-ttu-id="4294a-110">Kliknij ikonę znacznika wyboru</span><span class="sxs-lookup"><span data-stu-id="4294a-110">Click the check icon</span></span> ![ikona znacznika wyboru](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) <span data-ttu-id="4294a-112">aby zapisać zasady.</span><span class="sxs-lookup"><span data-stu-id="4294a-112">to save the policy.</span></span>
 
-Nowo dodane zasady będą wyświetlane w widoku tabelarycznym na stronie **Zasady kopii zapasowych**.
+<span data-ttu-id="4294a-113">Nowo dodane zasady będą wyświetlane w widoku tabelarycznym na stronie **Zasady kopii zapasowych**.</span><span class="sxs-lookup"><span data-stu-id="4294a-113">The newly added policy will be displayed in the tabular view on the **Backup Policies** page.</span></span>
 

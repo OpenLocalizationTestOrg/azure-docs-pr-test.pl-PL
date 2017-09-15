@@ -1,10 +1,10 @@
 
 <!--author=SharS last changed: 11/06/15-->
 
-#### <a name="to-delete-a-storsimple-backup-policy"></a>Aby usunąć zasady tworzenia kopii zapasowych StorSimple
-1. Na stronie **Szybki start** urządzenia kliknij kartę **Zasady kopii zapasowych**. Nastąpi przekierowanie do strony **Zasady kopii zapasowych**.
-2. Wybierz zasady, klikając w dowolnym miejscu w odpowiednim z wyjątkiem pierwszej kolumny, a następnie kliknij przycisk **usunąć** w dolnej części strony.
-3. Pojawi się monit o potwierdzenie. Należy pamiętać, że usunięcie zasad tworzenia kopii zapasowej spowoduje usunięcie wszystkich skojarzonych kopii zapasowych. Kliknij przycisk **tak** do usunięcia.
+#### <a name="to-delete-a-storsimple-backup-policy"></a><span data-ttu-id="e8a8c-101">Aby usunąć zasady tworzenia kopii zapasowych StorSimple</span><span class="sxs-lookup"><span data-stu-id="e8a8c-101">To delete a StorSimple backup policy</span></span>
+1. <span data-ttu-id="e8a8c-102">Na stronie **Szybki start** urządzenia kliknij kartę **Zasady kopii zapasowych**.</span><span class="sxs-lookup"><span data-stu-id="e8a8c-102">On the device **Quick Start** page, click the **Backup Policies** tab.</span></span> <span data-ttu-id="e8a8c-103">Nastąpi przekierowanie do strony **Zasady kopii zapasowych**.</span><span class="sxs-lookup"><span data-stu-id="e8a8c-103">This will take you to the **Backup Policies** page.</span></span>
+2. <span data-ttu-id="e8a8c-104">Wybierz zasady, klikając w dowolnym miejscu w odpowiednim z wyjątkiem pierwszej kolumny, a następnie kliknij przycisk **usunąć** w dolnej części strony.</span><span class="sxs-lookup"><span data-stu-id="e8a8c-104">Select the policy by clicking anywhere in the corresponding row except for the first column, and then click **Delete** at the bottom of the page.</span></span>
+3. <span data-ttu-id="e8a8c-105">Pojawi się monit o potwierdzenie.</span><span class="sxs-lookup"><span data-stu-id="e8a8c-105">You will be prompted for confirmation.</span></span> <span data-ttu-id="e8a8c-106">Należy pamiętać, że usunięcie zasad tworzenia kopii zapasowej spowoduje usunięcie wszystkich skojarzonych kopii zapasowych.</span><span class="sxs-lookup"><span data-stu-id="e8a8c-106">Keep in mind that deleting a backup policy will delete all the associated backups.</span></span> <span data-ttu-id="e8a8c-107">Kliknij przycisk **tak** do usunięcia.</span><span class="sxs-lookup"><span data-stu-id="e8a8c-107">Click **Yes** to delete.</span></span>
 
-**Zasady tworzenia kopii zapasowej** strony zostaną zaktualizowane, aby wyświetlić listę nowych zasad.
+<span data-ttu-id="e8a8c-108">**Zasady tworzenia kopii zapasowej** strony zostaną zaktualizowane, aby wyświetlić listę nowych zasad.</span><span class="sxs-lookup"><span data-stu-id="e8a8c-108">The **Backup Policies** page will be updated to display the new list of policies.</span></span>
 

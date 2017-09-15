@@ -1,2 +1,2 @@
 >[!NOTE]
->Zestaw SDK zadań Webjob nie są jeszcze obsługiwane platformy .NET Core.
+><span data-ttu-id="4cc10-101">Zestaw SDK zadań Webjob nie są jeszcze obsługiwane platformy .NET Core.</span><span class="sxs-lookup"><span data-stu-id="4cc10-101">The WebJobs SDK does not yet support .NET Core.</span></span>

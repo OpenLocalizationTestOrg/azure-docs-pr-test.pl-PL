@@ -1,10 +1,10 @@
-## <a name="java-sample-code-repositories"></a>Repozytoria kodu przykładowej Java
+## <a name="java-sample-code-repositories"></a><span data-ttu-id="4b01d-101">Repozytoria kodu przykładowej Java</span><span class="sxs-lookup"><span data-stu-id="4b01d-101">Java sample code repositories</span></span>
 
-Oto lista naszych repozytoriów próbki dla biblioteki klienta magazynu Azure w języku Java.
+<span data-ttu-id="4b01d-102">Oto lista naszych repozytoriów próbki dla biblioteki klienta magazynu Azure w języku Java.</span><span class="sxs-lookup"><span data-stu-id="4b01d-102">Here is a list of all our sample repositories for the Azure Storage Java client library.</span></span>
 
-* [Pobieranie pracy z magazynem — Zarządzanie konta magazynu w języku Java](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
-* [Wprowadzenie do korzystania z usługi Azure Blob w języku Java](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)
-* [Wprowadzenie do korzystania z usługi Azure plików w języku Java](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
-* [Wprowadzenie do korzystania z usługi Azure kolejek w języku Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
-* [Wprowadzenie do korzystania z usługi Azure tabel w języku Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
-* [Przykłady biblioteki klienta Java magazynu](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
+* [<span data-ttu-id="4b01d-103">Pobieranie pracy z magazynem — Zarządzanie konta magazynu w języku Java</span><span class="sxs-lookup"><span data-stu-id="4b01d-103">Getting Started with Storage - Manage Storage Account in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
+* [<span data-ttu-id="4b01d-104">Wprowadzenie do korzystania z usługi Azure Blob w języku Java</span><span class="sxs-lookup"><span data-stu-id="4b01d-104">Getting Started with Azure Blob Service in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)
+* [<span data-ttu-id="4b01d-105">Wprowadzenie do korzystania z usługi Azure plików w języku Java</span><span class="sxs-lookup"><span data-stu-id="4b01d-105">Getting Started with Azure File Service in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
+* [<span data-ttu-id="4b01d-106">Wprowadzenie do korzystania z usługi Azure kolejek w języku Java</span><span class="sxs-lookup"><span data-stu-id="4b01d-106">Getting Started with Azure Queue Service in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
+* [<span data-ttu-id="4b01d-107">Wprowadzenie do korzystania z usługi Azure tabel w języku Java</span><span class="sxs-lookup"><span data-stu-id="4b01d-107">Getting Started with Azure Table Service in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
+* [<span data-ttu-id="4b01d-108">Przykłady biblioteki klienta Java magazynu</span><span class="sxs-lookup"><span data-stu-id="4b01d-108">Storage Java Client Library Samples</span></span>](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)

@@ -1,8 +1,8 @@
-#### <a name="to-configure-mpio-for-storsimple-volumes"></a>Aby skonfigurować wielościeżkowego wejścia/wyjścia dla woluminów StorSimple
-1. Otwórz **Konfiguracja MPIO**. Kliknij przycisk **Menedżera serwera > pulpit nawigacyjny > Narzędzia > wielościeżkowego wejścia/wyjścia**.
-2. W **Właściwości wielościeżkowego wejścia/wyjścia** okno dialogowe, wybierz opcję **wykrywanie obsługi wielu ścieżek** kartę.
-3. Wybierz **dodać obsługę urządzeń iSCSI**, a następnie kliknij przycisk **Dodaj**.  
+#### <a name="to-configure-mpio-for-storsimple-volumes"></a><span data-ttu-id="3fe16-101">Aby skonfigurować wielościeżkowego wejścia/wyjścia dla woluminów StorSimple</span><span class="sxs-lookup"><span data-stu-id="3fe16-101">To configure MPIO for StorSimple volumes</span></span>
+1. <span data-ttu-id="3fe16-102">Otwórz **Konfiguracja MPIO**.</span><span class="sxs-lookup"><span data-stu-id="3fe16-102">Open the **MPIO configuration**.</span></span> <span data-ttu-id="3fe16-103">Kliknij przycisk **Menedżera serwera > pulpit nawigacyjny > Narzędzia > wielościeżkowego wejścia/wyjścia**.</span><span class="sxs-lookup"><span data-stu-id="3fe16-103">Click **Server Manager > Dashboard > Tools > MPIO**.</span></span>
+2. <span data-ttu-id="3fe16-104">W **Właściwości wielościeżkowego wejścia/wyjścia** okno dialogowe, wybierz opcję **wykrywanie obsługi wielu ścieżek** kartę.</span><span class="sxs-lookup"><span data-stu-id="3fe16-104">In the **MPIO Properties** dialog box, select the **Discover Multi-Paths** tab.</span></span>
+3. <span data-ttu-id="3fe16-105">Wybierz **dodać obsługę urządzeń iSCSI**, a następnie kliknij przycisk **Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="3fe16-105">Select **Add support for iSCSI devices**, and then click **Add**.</span></span>  
    
     ![Właściwości wielościeżkowego wejścia/wyjścia odnajdywanie wielu ścieżek](./media/storsimple-configure-mpio-volumes/IC741003.png)
-4. Uruchom ponownie serwer po wyświetleniu monitu.
+4. <span data-ttu-id="3fe16-107">Uruchom ponownie serwer po wyświetleniu monitu.</span><span class="sxs-lookup"><span data-stu-id="3fe16-107">Reboot the server when prompted.</span></span>
 

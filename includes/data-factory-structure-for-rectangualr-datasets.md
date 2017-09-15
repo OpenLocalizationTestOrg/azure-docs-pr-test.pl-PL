@@ -1,16 +1,16 @@
-## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Określanie struktury definicji dla prostokątnego zestawów danych
-Sekcja struktury w zestawach danych JSON jest **opcjonalne** sekcji prostokątne tabel (wiersze i kolumny) i zawiera zestaw kolumn dla tabeli. Struktura sekcji użyje dla obu udostępnienie informacji o typie dla konwersje typów lub wykonując mapowania kolumn. W poniższych sekcjach opisano te funkcje szczegółowo. 
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a><span data-ttu-id="f58c8-101">Określanie struktury definicji dla prostokątnego zestawów danych</span><span class="sxs-lookup"><span data-stu-id="f58c8-101">Specifying structure definition for rectangular datasets</span></span>
+<span data-ttu-id="f58c8-102">Sekcja struktury w zestawach danych JSON jest **opcjonalne** sekcji prostokątne tabel (wiersze i kolumny) i zawiera zestaw kolumn dla tabeli.</span><span class="sxs-lookup"><span data-stu-id="f58c8-102">The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table.</span></span> <span data-ttu-id="f58c8-103">Struktura sekcji użyje dla obu udostępnienie informacji o typie dla konwersje typów lub wykonując mapowania kolumn.</span><span class="sxs-lookup"><span data-stu-id="f58c8-103">You will use the structure section for either providing type information for type conversions or doing column mappings.</span></span> <span data-ttu-id="f58c8-104">W poniższych sekcjach opisano te funkcje szczegółowo.</span><span class="sxs-lookup"><span data-stu-id="f58c8-104">The following sections describe these features in detail.</span></span> 
 
-Każda kolumna zawiera następujące właściwości:
+<span data-ttu-id="f58c8-105">Każda kolumna zawiera następujące właściwości:</span><span class="sxs-lookup"><span data-stu-id="f58c8-105">Each column contains the following properties:</span></span>
 
-| Właściwość | Opis | Wymagane |
+| <span data-ttu-id="f58c8-106">Właściwość</span><span class="sxs-lookup"><span data-stu-id="f58c8-106">Property</span></span> | <span data-ttu-id="f58c8-107">Opis</span><span class="sxs-lookup"><span data-stu-id="f58c8-107">Description</span></span> | <span data-ttu-id="f58c8-108">Wymagane</span><span class="sxs-lookup"><span data-stu-id="f58c8-108">Required</span></span> |
 | --- | --- | --- |
-| name |Nazwa kolumny. |Tak |
-| type |Typ danych kolumny. Zobacz szczegółowe typu konwersje poniższej sekcji dotyczące kiedy należy określić informacje o typie |Nie |
-| Kultury |.NET na podstawie kultury, który będzie używany podczas typu określono i jest typ architektury .NET, Datetime i Datetimeoffset. Domyślna to "en-us". |Nie |
-| Format |Ciąg formatu do użycia, gdy jest określony typ i .NET typu Datetime i Datetimeoffset. |Nie |
+| <span data-ttu-id="f58c8-109">name</span><span class="sxs-lookup"><span data-stu-id="f58c8-109">name</span></span> |<span data-ttu-id="f58c8-110">Nazwa kolumny.</span><span class="sxs-lookup"><span data-stu-id="f58c8-110">Name of the column.</span></span> |<span data-ttu-id="f58c8-111">Tak</span><span class="sxs-lookup"><span data-stu-id="f58c8-111">Yes</span></span> |
+| <span data-ttu-id="f58c8-112">type</span><span class="sxs-lookup"><span data-stu-id="f58c8-112">type</span></span> |<span data-ttu-id="f58c8-113">Typ danych kolumny.</span><span class="sxs-lookup"><span data-stu-id="f58c8-113">Data type of the column.</span></span> <span data-ttu-id="f58c8-114">Zobacz szczegółowe typu konwersje poniższej sekcji dotyczące kiedy należy określić informacje o typie</span><span class="sxs-lookup"><span data-stu-id="f58c8-114">See type conversions section below for more details regarding when should you specify type information</span></span> |<span data-ttu-id="f58c8-115">Nie</span><span class="sxs-lookup"><span data-stu-id="f58c8-115">No</span></span> |
+| <span data-ttu-id="f58c8-116">Kultury</span><span class="sxs-lookup"><span data-stu-id="f58c8-116">culture</span></span> |<span data-ttu-id="f58c8-117">.NET na podstawie kultury, który będzie używany podczas typu określono i jest typ architektury .NET, Datetime i Datetimeoffset.</span><span class="sxs-lookup"><span data-stu-id="f58c8-117">.NET based culture to be used when type is specified and is .NET type Datetime or Datetimeoffset.</span></span> <span data-ttu-id="f58c8-118">Domyślna to "en-us".</span><span class="sxs-lookup"><span data-stu-id="f58c8-118">Default is “en-us”.</span></span> |<span data-ttu-id="f58c8-119">Nie</span><span class="sxs-lookup"><span data-stu-id="f58c8-119">No</span></span> |
+| <span data-ttu-id="f58c8-120">Format</span><span class="sxs-lookup"><span data-stu-id="f58c8-120">format</span></span> |<span data-ttu-id="f58c8-121">Ciąg formatu do użycia, gdy jest określony typ i .NET typu Datetime i Datetimeoffset.</span><span class="sxs-lookup"><span data-stu-id="f58c8-121">Format string to be used when type is specified and is .NET type Datetime or Datetimeoffset.</span></span> |<span data-ttu-id="f58c8-122">Nie</span><span class="sxs-lookup"><span data-stu-id="f58c8-122">No</span></span> |
 
-Poniższy przykład przedstawia sekcji struktury JSON dla tabeli, która ma trzy kolumny userid, nazwy i lastlogindate.
+<span data-ttu-id="f58c8-123">Poniższy przykład przedstawia sekcji struktury JSON dla tabeli, która ma trzy kolumny userid, nazwy i lastlogindate.</span><span class="sxs-lookup"><span data-stu-id="f58c8-123">The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.</span></span>
 
 ```json
 "structure": 
@@ -21,31 +21,31 @@ Poniższy przykład przedstawia sekcji struktury JSON dla tabeli, która ma trzy
 ],
 ```
 
-Użyj następujących wytycznych umieszczania "struktury" informacji i elementów do uwzględnienia w **struktury** sekcji.
+<span data-ttu-id="f58c8-124">Użyj następujących wytycznych umieszczania "struktury" informacji i elementów do uwzględnienia w **struktury** sekcji.</span><span class="sxs-lookup"><span data-stu-id="f58c8-124">Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.</span></span>
 
-* **Dla źródeł danych strukturalnych** że magazynu schematu i typu danych oraz dane (źródeł, takich jak SQL Server, Oracle, tabeli platformy Azure itp.), należy określić w sekcji "structure" tylko wtedy, gdy chcesz wykonać mapowanie kolumn z określonego źródła kolumny do określonych kolumn w ich nazwy i odbiorczy nie są takie same (Zobacz szczegóły w poniższej sekcji mapowanie kolumn). 
+* <span data-ttu-id="f58c8-125">**Dla źródeł danych strukturalnych** że magazynu schematu i typu danych oraz dane (źródeł, takich jak SQL Server, Oracle, tabeli platformy Azure itp.), należy określić w sekcji "structure" tylko wtedy, gdy chcesz wykonać mapowanie kolumn z określonego źródła kolumny do określonych kolumn w ich nazwy i odbiorczy nie są takie same (Zobacz szczegóły w poniższej sekcji mapowanie kolumn).</span><span class="sxs-lookup"><span data-stu-id="f58c8-125">**For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below).</span></span> 
   
-    Jak wspomniano powyżej, informacje o typie jest opcjonalna w sekcji "structure". Strukturalne źródeł informacji o typie jest już dostępne w ramach definicji zestawu danych w magazynie danych, dlatego nie należy używać informacji o typie po dołączeniu w sekcji "structure".
-* **Do schematu w źródłach danych odczytu (w szczególności obiektów blob platformy Azure)** można przechowywać dane bez przechowywania żadnych informacji schematu lub typ z danymi. Dla tych typów źródeł danych, należy uwzględnić "structure" w następujących przypadkach 2:
-  * Chcesz zrobić mapowania kolumn.
-  * Zestaw danych jest źródłem w działaniu kopiowania, możesz podać informacje o typie w "structure", a fabryki danych użyje tych informacji typu do konwersji na typy natywne dla obiekt sink. Zobacz [przenoszenie danych do i z obiektu Blob Azure](../articles/data-factory/data-factory-azure-blob-connector.md) artykułu, aby uzyskać więcej informacji.
+    <span data-ttu-id="f58c8-126">Jak wspomniano powyżej, informacje o typie jest opcjonalna w sekcji "structure".</span><span class="sxs-lookup"><span data-stu-id="f58c8-126">As mentioned above, the type information is optional in “structure” section.</span></span> <span data-ttu-id="f58c8-127">Strukturalne źródeł informacji o typie jest już dostępne w ramach definicji zestawu danych w magazynie danych, dlatego nie należy używać informacji o typie po dołączeniu w sekcji "structure".</span><span class="sxs-lookup"><span data-stu-id="f58c8-127">For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.</span></span>
+* <span data-ttu-id="f58c8-128">**Do schematu w źródłach danych odczytu (w szczególności obiektów blob platformy Azure)** można przechowywać dane bez przechowywania żadnych informacji schematu lub typ z danymi.</span><span class="sxs-lookup"><span data-stu-id="f58c8-128">**For schema on read data sources (specifically Azure blob)**  you can choose to store data without storing any schema or type information with the data.</span></span> <span data-ttu-id="f58c8-129">Dla tych typów źródeł danych, należy uwzględnić "structure" w następujących przypadkach 2:</span><span class="sxs-lookup"><span data-stu-id="f58c8-129">For these types of data sources you should include “structure” in the following 2 cases:</span></span>
+  * <span data-ttu-id="f58c8-130">Chcesz zrobić mapowania kolumn.</span><span class="sxs-lookup"><span data-stu-id="f58c8-130">You want to do column mapping.</span></span>
+  * <span data-ttu-id="f58c8-131">Zestaw danych jest źródłem w działaniu kopiowania, możesz podać informacje o typie w "structure", a fabryki danych użyje tych informacji typu do konwersji na typy natywne dla obiekt sink.</span><span class="sxs-lookup"><span data-stu-id="f58c8-131">When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink.</span></span> <span data-ttu-id="f58c8-132">Zobacz [przenoszenie danych do i z obiektu Blob Azure](../articles/data-factory/data-factory-azure-blob-connector.md) artykułu, aby uzyskać więcej informacji.</span><span class="sxs-lookup"><span data-stu-id="f58c8-132">See [Move data to and from Azure Blob](../articles/data-factory/data-factory-azure-blob-connector.md) article for more information.</span></span>
 
-### <a name="supported-net-based-types"></a>Obsługiwane. Typy sieci
-Fabryki danych obsługuje następujące ze specyfikacją CLS zgodne .NET na podstawie typu wartości udostępnienie informacji o typie w "structure" dla schematu na źródeł danych odczytu, takich jak obiektów blob platformy Azure.
+### <a name="supported-net-based-types"></a><span data-ttu-id="f58c8-133">Obsługiwane. Typy sieci</span><span class="sxs-lookup"><span data-stu-id="f58c8-133">Supported .NET-based types</span></span>
+<span data-ttu-id="f58c8-134">Fabryki danych obsługuje następujące ze specyfikacją CLS zgodne .NET na podstawie typu wartości udostępnienie informacji o typie w "structure" dla schematu na źródeł danych odczytu, takich jak obiektów blob platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="f58c8-134">Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.</span></span>
 
-* Int16
-* Int32 
-* Int64
-* Pojedynczy
-* O podwójnej precyzji
-* Decimal
-* Byte]
-* wartość logiczna
-* Ciąg 
-* Identyfikator GUID
-* Data i godzina
-* Datetimeoffset
-* Zakres czasu 
+* <span data-ttu-id="f58c8-135">Int16</span><span class="sxs-lookup"><span data-stu-id="f58c8-135">Int16</span></span>
+* <span data-ttu-id="f58c8-136">Int32</span><span class="sxs-lookup"><span data-stu-id="f58c8-136">Int32</span></span> 
+* <span data-ttu-id="f58c8-137">Int64</span><span class="sxs-lookup"><span data-stu-id="f58c8-137">Int64</span></span>
+* <span data-ttu-id="f58c8-138">Pojedynczy</span><span class="sxs-lookup"><span data-stu-id="f58c8-138">Single</span></span>
+* <span data-ttu-id="f58c8-139">O podwójnej precyzji</span><span class="sxs-lookup"><span data-stu-id="f58c8-139">Double</span></span>
+* <span data-ttu-id="f58c8-140">Decimal</span><span class="sxs-lookup"><span data-stu-id="f58c8-140">Decimal</span></span>
+* <span data-ttu-id="f58c8-141">Byte]</span><span class="sxs-lookup"><span data-stu-id="f58c8-141">Byte[]</span></span>
+* <span data-ttu-id="f58c8-142">wartość logiczna</span><span class="sxs-lookup"><span data-stu-id="f58c8-142">Bool</span></span>
+* <span data-ttu-id="f58c8-143">Ciąg</span><span class="sxs-lookup"><span data-stu-id="f58c8-143">String</span></span> 
+* <span data-ttu-id="f58c8-144">Identyfikator GUID</span><span class="sxs-lookup"><span data-stu-id="f58c8-144">Guid</span></span>
+* <span data-ttu-id="f58c8-145">Data i godzina</span><span class="sxs-lookup"><span data-stu-id="f58c8-145">Datetime</span></span>
+* <span data-ttu-id="f58c8-146">Datetimeoffset</span><span class="sxs-lookup"><span data-stu-id="f58c8-146">Datetimeoffset</span></span>
+* <span data-ttu-id="f58c8-147">Zakres czasu</span><span class="sxs-lookup"><span data-stu-id="f58c8-147">Timespan</span></span> 
 
-Dla typu Datetime i Datetimeoffset również opcjonalnie można określić ciąg "Kultura" & "format", aby ułatwić analizowanie niestandardowego ciągu daty/godziny. Zobacz przykład poniżej konwersji typu.
+<span data-ttu-id="f58c8-148">Dla typu Datetime i Datetimeoffset również opcjonalnie można określić ciąg "Kultura" & "format", aby ułatwić analizowanie niestandardowego ciągu daty/godziny.</span><span class="sxs-lookup"><span data-stu-id="f58c8-148">For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string.</span></span> <span data-ttu-id="f58c8-149">Zobacz przykład poniżej konwersji typu.</span><span class="sxs-lookup"><span data-stu-id="f58c8-149">See sample for type conversion below.</span></span>
 

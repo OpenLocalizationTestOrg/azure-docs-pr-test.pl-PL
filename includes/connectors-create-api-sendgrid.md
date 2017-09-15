@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Wymagania wstępne
-* A [SendGrid](https://www.SendGrid.com/) konta 
+### <a name="prerequisites"></a><span data-ttu-id="45037-101">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="45037-101">Prerequisites</span></span>
+* <span data-ttu-id="45037-102">A [SendGrid](https://www.SendGrid.com/) konta</span><span class="sxs-lookup"><span data-stu-id="45037-102">A [SendGrid](https://www.SendGrid.com/) account</span></span> 
 
-Zanim użyjesz swojego konta włączenie w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem SendGrid. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
+<span data-ttu-id="45037-103">Zanim użyjesz swojego konta włączenie w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem SendGrid.</span><span class="sxs-lookup"><span data-stu-id="45037-103">Before you can use your SendGrid account in a Logic app, you must authorize the Logic app to connect to your SendGrid account.</span></span> <span data-ttu-id="45037-104">Na szczęście można w tym z aplikacji logiki w portalu Azure.</span><span class="sxs-lookup"><span data-stu-id="45037-104">Fortunately, you can do this easily from within your Logic app on the Azure Portal.</span></span> 
 
-Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem SendGrid:
+<span data-ttu-id="45037-105">Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem SendGrid:</span><span class="sxs-lookup"><span data-stu-id="45037-105">Here are the steps to authorize your Logic app to connect to your SendGrid account:</span></span>
 
-1. Aby utworzyć połączenie SendGrid, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *SendGrid* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
-   ![SendGrid krok 1](./media/connectors-create-api-sendgrid/sendgrid-1.png)
-2. Jeśli nie utworzono żadnych połączeń SendGrid przed będzie zostanie wyświetlony monit o podanie poświadczeń SendGrid. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta SendGrid:  
+1. <span data-ttu-id="45037-106">Aby utworzyć połączenie SendGrid, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *SendGrid* w polu wyszukiwania.</span><span class="sxs-lookup"><span data-stu-id="45037-106">To create a connection to SendGrid, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SendGrid* in the search box.</span></span> <span data-ttu-id="45037-107">Wybierz wyzwalacz lub akcja będzie chcesz użyć:</span><span class="sxs-lookup"><span data-stu-id="45037-107">Select the trigger or action you'll like to use:</span></span>  
+   <span data-ttu-id="45037-108">![SendGrid krok 1](./media/connectors-create-api-sendgrid/sendgrid-1.png)</span><span class="sxs-lookup"><span data-stu-id="45037-108">![SendGrid step 1](./media/connectors-create-api-sendgrid/sendgrid-1.png)</span></span>
+2. <span data-ttu-id="45037-109">Jeśli nie utworzono żadnych połączeń SendGrid przed będzie zostanie wyświetlony monit o podanie poświadczeń SendGrid.</span><span class="sxs-lookup"><span data-stu-id="45037-109">If you haven't created any connections to SendGrid before, you'll get prompted to provide your SendGrid credentials.</span></span> <span data-ttu-id="45037-110">Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta SendGrid:</span><span class="sxs-lookup"><span data-stu-id="45037-110">These credentials will be used to authorize your Logic app to connect to, and access your SendGrid account's data:</span></span>  
    ![SendGrid krok 2](./media/connectors-create-api-sendgrid/sendgrid-2.png)
-3. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+3. <span data-ttu-id="45037-112">Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:</span><span class="sxs-lookup"><span data-stu-id="45037-112">Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:</span></span>  
    ![SendGrid krok 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
 
