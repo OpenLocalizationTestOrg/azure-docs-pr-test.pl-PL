@@ -1,0 +1,4 @@
+| <span data-ttu-id="ca194-101">Zasób</span><span class="sxs-lookup"><span data-stu-id="ca194-101">Resource</span></span> | <span data-ttu-id="ca194-102">Limit</span><span class="sxs-lookup"><span data-stu-id="ca194-102">Limit</span></span> |
+| --- | --- |
+| <span data-ttu-id="ca194-103">Subskrypcje zdarzeń na region</span><span class="sxs-lookup"><span data-stu-id="ca194-103">Event Subscriptions per region</span></span> |<span data-ttu-id="ca194-104">1000</span><span class="sxs-lookup"><span data-stu-id="ca194-104">1000</span></span> |
+| <span data-ttu-id="ca194-105">Tematy niestandardowe na region</span><span class="sxs-lookup"><span data-stu-id="ca194-105">Custom Topics per region</span></span> |<span data-ttu-id="ca194-106">20</span><span class="sxs-lookup"><span data-stu-id="ca194-106">20</span></span> |
