@@ -1,0 +1,66 @@
+---
+title: "Baza danych SQL Azure PowerShell aktywny przykład geograficznie replikacji — pojedynczy | Dokumentacja firmy Microsoft"
+description: "Azure przykładowy skrypt programu PowerShell do konfigurowania aktywna replikacja geograficzna dla pojedynczej bazy danych Azure SQL"
+services: sql-database
+documentationcenter: sql-database
+author: janeng
+manager: jstrauss
+editor: carlrab
+tags: azure-service-management
+ms.assetid: 
+ms.service: sql-database
+ms.custom: business continuity
+ms.devlang: PowerShell
+ms.topic: sample
+ms.tgt_pltfrm: sql-database
+ms.workload: database
+ms.date: 06/23/2017
+ms.author: janeng
+ms.openlocfilehash: b25bc02acda7905cd4c08bbafee1d9b29907d332
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>Aby skonfigurować aktywna replikacja geograficzna dla pojedynczej bazy danych Azure SQL za pomocą programu PowerShell
+
+Ten przykładowy skrypt programu PowerShell konfiguruje aktywna replikacja geograficzna dla pojedynczej bazy danych Azure SQL i awaryjnie do repliki pomocniczej bazy danych Azure SQL.
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+
+## <a name="sample-scripts"></a>Przykładowe skrypty
+
+[!code-powershell[główne](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1?highlight=17-20 "Konfigurowanie aktywna replikacja geograficzna dla pojedynczej bazy danych")]
+
+## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
+
+Po uruchomieniu przykładowy skrypt następującego polecenia można usunąć grupy zasobów i wszystkie zasoby skojarzone z nim.
+
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+```
+
+## <a name="script-explanation"></a>Wyjaśnienie skryptu
+
+Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+
+| Polecenie | Uwagi |
+|---|---|
+| [Nowe AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
+| [Nowe AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Tworzy serwer logiczny, który jest hostem bazy danych lub elastyczna pula. |
+| [Nowe AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Tworzy elastycznej puli w ramach serwera logicznego. |
+| [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Aktualizuje właściwości bazy danych lub bazy danych są przenoszone do z i między pule elastyczne. |
+| [Nowe AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Tworzy pomocniczej bazy danych dla istniejącej bazy danych i rozpoczyna się replikacja danych. |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| Pobiera jeden lub więcej baz danych. |
+| [Zestaw AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| Zmienia pomocniczej bazy danych jako głównej zainicjować trybu failover.|
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Pobiera linki — replikacja geograficzna między bazą danych SQL Azure i grupy zasobów lub SQL Server. |
+| [Usuń AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Kończy replikacji danych między bazą danych SQL i dodatkowej określonej bazy danych. |
+| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
+|||
+
+## <a name="next-steps"></a>Następne kroki
+
+Aby uzyskać więcej informacji dotyczących programu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
+
+Dodatkowe przykłady skryptów programu PowerShell bazy danych SQL można znaleźć w [skryptów programu PowerShell bazy danych SQL Azure](../sql-database-powershell-samples.md).

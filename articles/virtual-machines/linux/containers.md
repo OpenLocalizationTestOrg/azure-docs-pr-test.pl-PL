@@ -1,0 +1,25 @@
+---
+title: Kontenery na maszynach wirtualnych Azure systemu Linux | Dokumentacja firmy Microsoft
+description: "Opis maszyn wirtualnych, Docker i kontenery systemu Linux i ich użycia w grupach każdego na platformie Azure, w tym korzyści i scenariusze, w których każde podejście dobrze działa."
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: squillace
+manager: timlt
+tags: azure-resource-manager,azure-service-management
+ms.assetid: e6e6f966-c48c-499d-9052-796d07123307
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 08/23/2016
+ms.author: rasquill
+ms.openlocfilehash: 3ca47d67e513c73fde040461be9c403a085503ca
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="virtual-machines-vs-containers-in-azure"></a>Maszyny wirtualne a Kontenery na platformie Azure
+[!INCLUDE [virtual-machines-common-and-containers](../../../includes/virtual-machines-common-containers.md)]
+
