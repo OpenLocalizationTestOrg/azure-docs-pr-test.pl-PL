@@ -1,0 +1,89 @@
+---
+title: "Omówienie usługi Azure Media Services | Microsoft Docs"
+description: "Ten temat zawiera omówienie usługi Azure Media Services"
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 07/04/2017
+ms.author: juliako;anilmur
+ms.openlocfilehash: 2a175aed40b9775d9a4de6877eb3467b43819568
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/29/2017
+---
+# <a name="azure-media-services-overview"></a><span data-ttu-id="bf516-103">Omówienie usługi Azure Media Services</span><span class="sxs-lookup"><span data-stu-id="bf516-103">Azure Media Services overview</span></span> 
+
+<span data-ttu-id="bf516-104">Microsoft Azure Media Services to oparta na chmurze rozszerzona platforma, która umożliwia deweloperom tworzenie skalowalnych aplikacji do dostarczania multimediów i zarządzania nimi.</span><span class="sxs-lookup"><span data-stu-id="bf516-104">Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications.</span></span> <span data-ttu-id="bf516-105">Usługi Media Services są oparte na interfejsach API REST, które umożliwiają bezpieczne przekazywanie, przechowywanie, kodowanie i tworzenie pakietów zawartości wideo lub audio na potrzeby transmisji strumieniowej na żądanie i na żywo do różnych klientów (np. odbiorników TV, komputerów i urządzeń przenośnych).</span><span class="sxs-lookup"><span data-stu-id="bf516-105">Media Services is based on REST APIs that enable you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).</span></span>
+
+<span data-ttu-id="bf516-106">Korzystając wyłącznie z usługi Media Services, można tworzyć kompleksowe przepływy pracy.</span><span class="sxs-lookup"><span data-stu-id="bf516-106">You can build end-to-end workflows using entirely Media Services.</span></span> <span data-ttu-id="bf516-107">W przypadku niektórych części przepływu pracy można użyć składników innych firm.</span><span class="sxs-lookup"><span data-stu-id="bf516-107">You can also choose to use third-party components for some parts of your workflow.</span></span> <span data-ttu-id="bf516-108">Na przykład kodowanie można wykonać przy użyciu kodera innego producenta.</span><span class="sxs-lookup"><span data-stu-id="bf516-108">For example, encode using a third-party encoder.</span></span> <span data-ttu-id="bf516-109">Natomiast przekazywanie, zabezpieczanie, tworzenie pakietów i dostarczanie można realizować za pomocą usługi Media Services.</span><span class="sxs-lookup"><span data-stu-id="bf516-109">Then, upload, protect, package, deliver using Media Services.</span></span>
+
+<span data-ttu-id="bf516-110">Możliwe jest przesyłanie strumieniowe zawartości na żywo lub dostarczanie zawartości na żądanie.</span><span class="sxs-lookup"><span data-stu-id="bf516-110">You can choose to stream your content live or deliver content on-demand.</span></span> <span data-ttu-id="bf516-111">Temat zawiera także linki do innych powiązanych tematów.</span><span class="sxs-lookup"><span data-stu-id="bf516-111">The topic also links to other relevant topics.</span></span>
+
+## <a name="media-services-learning-paths"></a><span data-ttu-id="bf516-112">Ścieżki szkoleniowe dotyczące usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="bf516-112">Media Services learning paths</span></span>
+<span data-ttu-id="bf516-113">Ścieżki szkoleniowe dotyczące usługi AMS można zobaczyć tutaj:</span><span class="sxs-lookup"><span data-stu-id="bf516-113">You can view AMS learning paths here:</span></span>
+
+* [<span data-ttu-id="bf516-114">Przepływ pracy transmisji strumieniowej na żywo usługi AMS</span><span class="sxs-lookup"><span data-stu-id="bf516-114">AMS Live Streaming Workflow</span></span>](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [<span data-ttu-id="bf516-115">Przepływ pracy transmisji strumieniowej na żądanie usługi AMS</span><span class="sxs-lookup"><span data-stu-id="bf516-115">AMS on-Demand Streaming Workflow</span></span>](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+## <a name="prerequisites"></a><span data-ttu-id="bf516-116">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="bf516-116">Prerequisites</span></span>
+
+<span data-ttu-id="bf516-117">Do rozpoczęcia korzystania z usługi Azure Media Services potrzebne są:</span><span class="sxs-lookup"><span data-stu-id="bf516-117">To start using Azure Media Services, you should have the following:</span></span>
+
+* <span data-ttu-id="bf516-118">Konto platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="bf516-118">An Azure account.</span></span> <span data-ttu-id="bf516-119">Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut.</span><span class="sxs-lookup"><span data-stu-id="bf516-119">If you don't have an account, you can create a free trial account in just a couple of minutes.</span></span> <span data-ttu-id="bf516-120">Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com).</span><span class="sxs-lookup"><span data-stu-id="bf516-120">For details, see [Azure Free Trial](https://azure.microsoft.com).</span></span>
+* <span data-ttu-id="bf516-121">Konto usługi Azure Media Services.</span><span class="sxs-lookup"><span data-stu-id="bf516-121">An Azure Media Services account.</span></span> <span data-ttu-id="bf516-122">Aby uzyskać więcej informacji, zobacz temat [Tworzenie konta](media-services-portal-create-account.md).</span><span class="sxs-lookup"><span data-stu-id="bf516-122">For more information, see [Create Account](media-services-portal-create-account.md).</span></span>
+* <span data-ttu-id="bf516-123">(Opcjonalnie) Konfigurowanie środowiska deweloperskiego.</span><span class="sxs-lookup"><span data-stu-id="bf516-123">(Optional) Set up development environment.</span></span> <span data-ttu-id="bf516-124">Wybierz platformę .NET lub interfejs API REST dla środowiska deweloperskiego.</span><span class="sxs-lookup"><span data-stu-id="bf516-124">Choose .NET or REST API for your development environment.</span></span> <span data-ttu-id="bf516-125">Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie środowiska](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="bf516-125">For more information, see [Set up environment](media-services-dotnet-how-to-use.md).</span></span>
+
+    <span data-ttu-id="bf516-126">Dowiedz się także, jak [programowo ustanawiać połączenie z interfejsem API usługi AMS](media-services-use-aad-auth-to-access-ams-api.md).</span><span class="sxs-lookup"><span data-stu-id="bf516-126">Also, learn how to [connect  programmatically to AMS API](media-services-use-aad-auth-to-access-ams-api.md).</span></span>
+* <span data-ttu-id="bf516-127">Punkt końcowy przesyłania strumieniowego (standardowy lub Premium) w stanie uruchomionym.</span><span class="sxs-lookup"><span data-stu-id="bf516-127">A standard or premium streaming endpoint in started state.</span></span>  <span data-ttu-id="bf516-128">Aby uzyskać więcej informacji, zobacz [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-portal-manage-streaming-endpoints.md)</span><span class="sxs-lookup"><span data-stu-id="bf516-128">For more information, see [Managing streaming endpoints](media-services-portal-manage-streaming-endpoints.md)</span></span>
+
+## <a name="sdks-and-tools"></a><span data-ttu-id="bf516-129">Zestawy SDK i narzędzia</span><span class="sxs-lookup"><span data-stu-id="bf516-129">SDKs and tools</span></span>
+
+<span data-ttu-id="bf516-130">W celu tworzenia rozwiązań Media Services można użyć następujących elementów:</span><span class="sxs-lookup"><span data-stu-id="bf516-130">To build Media Services solutions, you can use:</span></span>
+
+* [<span data-ttu-id="bf516-131">Interfejs API REST usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="bf516-131">Media Services REST API</span></span>](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
+* <span data-ttu-id="bf516-132">Jeden z dostępnych zestawów SDK klienta:</span><span class="sxs-lookup"><span data-stu-id="bf516-132">One of the available client SDKs:</span></span>
+    * <span data-ttu-id="bf516-133">[Zestaw SDK usługi Azure Media Services dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services)</span><span class="sxs-lookup"><span data-stu-id="bf516-133">[Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),</span></span>
+    * <span data-ttu-id="bf516-134">[Zestaw Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java)</span><span class="sxs-lookup"><span data-stu-id="bf516-134">[Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),</span></span>
+    * <span data-ttu-id="bf516-135">[Zestaw Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)</span><span class="sxs-lookup"><span data-stu-id="bf516-135">[Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),</span></span>
+    * <span data-ttu-id="bf516-136">[Azure Media Services dla środowiska Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jest to wersja zestawu Node.js SDK firmy innej niż Microsoft.</span><span class="sxs-lookup"><span data-stu-id="bf516-136">[Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK.</span></span> <span data-ttu-id="bf516-137">Jest ona opracowywana przez społeczność i aktualnie nie obsługuje 100% interfejsów API usług AMS.)</span><span class="sxs-lookup"><span data-stu-id="bf516-137">It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).</span></span>
+* <span data-ttu-id="bf516-138">Istniejące narzędzia:</span><span class="sxs-lookup"><span data-stu-id="bf516-138">Existing tools:</span></span>
+    * [<span data-ttu-id="bf516-139">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="bf516-139">Azure portal</span></span>](https://portal.azure.com/)
+    * <span data-ttu-id="bf516-140">[Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)</span><span class="sxs-lookup"><span data-stu-id="bf516-140">[Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)</span></span>
+
+## <a name="concepts-and-overview"></a><span data-ttu-id="bf516-141">Pojęcia i omówienie</span><span class="sxs-lookup"><span data-stu-id="bf516-141">Concepts and overview</span></span>
+<span data-ttu-id="bf516-142">Pojęcia związane z usługą Azure Media Services zostały przedstawione w temacie [Pojęcia](media-services-concepts.md).</span><span class="sxs-lookup"><span data-stu-id="bf516-142">For Azure Media Services concepts, see [Concepts](media-services-concepts.md).</span></span>
+
+<span data-ttu-id="bf516-143">Serię poradników ułatwiających rozpoczęcie pracy z wszystkimi głównymi składnikami usługi Azure Media Services można znaleźć na stronie [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) (Usługa Azure Media Services — samouczki krok po kroku).</span><span class="sxs-lookup"><span data-stu-id="bf516-143">For a how-to series that introduces you to all the main components of Azure Media Services, see [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series).</span></span> <span data-ttu-id="bf516-144">Seria zawiera wszechstronne omówienie pojęć i przedstawia zadania AMS przy użyciu narzędzia AMSE.</span><span class="sxs-lookup"><span data-stu-id="bf516-144">This series has a great overview of concepts and it uses the AMSE tool to demonstrate AMS tasks.</span></span> <span data-ttu-id="bf516-145">AMSE to narzędzie systemu Windows.</span><span class="sxs-lookup"><span data-stu-id="bf516-145">AMSE tool is a Windows tool.</span></span> <span data-ttu-id="bf516-146">To narzędzie obsługuje większość zadań, które można wykonać programowo przy użyciu zestawów [AMS SDK dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java) lub [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).</span><span class="sxs-lookup"><span data-stu-id="bf516-146">This tool supports most of the tasks you can achieve programmatically with [AMS SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), or  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).</span></span>
+
+## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a><span data-ttu-id="bf516-147">Obsługiwane scenariusze i dostępność usługi Media Services w centrach danych</span><span class="sxs-lookup"><span data-stu-id="bf516-147">Supported scenarios and availability of Media Services across data centers</span></span>
+
+<span data-ttu-id="bf516-148">Aby uzyskać szczegółowe informacje, zobacz temat [Scenariusze oraz dostępność funkcji i usług AMS w centrach danych](scenarios-and-availability.md).</span><span class="sxs-lookup"><span data-stu-id="bf516-148">For detailed information, see [AMS scenarios and availability of features and services across data centers](scenarios-and-availability.md).</span></span>
+
+## <a name="service-level-agreement-sla"></a><span data-ttu-id="bf516-149">Umowa dotycząca poziomu usług (SLA)</span><span class="sxs-lookup"><span data-stu-id="bf516-149">Service Level Agreement (SLA)</span></span>
+
+* <span data-ttu-id="bf516-150">W przypadku usługi Media Services Encoding gwarantujemy dostępność transakcji interfejsu API REST na poziomie 99,9%.</span><span class="sxs-lookup"><span data-stu-id="bf516-150">For Media Services Encoding, we guarantee 99.9% availability of REST API transactions.</span></span>
+* <span data-ttu-id="bf516-151">W zakresie przesyłania strumieniowego zapewniamy pomyślną obsługę żądań z gwarancją dostępności na poziomie 99,9% dla istniejącej zawartości multimedialnej w przypadku zakupu standardowego punktu końcowego przesyłania strumieniowego lub punktu końcowego przesyłania strumieniowego Premium.</span><span class="sxs-lookup"><span data-stu-id="bf516-151">For Streaming, we will successfully service requests with a 99.9% availability guarantee for existing media content when a standard or premium streaming endpoint is purchased.</span></span>
+* <span data-ttu-id="bf516-152">W odniesieniu do kanałów na żywo gwarantujemy, że uruchomione kanały będą utrzymywać łączność zewnętrzną przez co najmniej 99,9% czasu.</span><span class="sxs-lookup"><span data-stu-id="bf516-152">For Live Channels, we guarantee that running Channels will have external connectivity at least 99.9% of the time.</span></span>
+* <span data-ttu-id="bf516-153">W usłudze Content Protection gwarantujemy pomyślną realizację żądań kluczy przez co najmniej 99,9% czasu.</span><span class="sxs-lookup"><span data-stu-id="bf516-153">For Content Protection, we guarantee that we will successfully fulfill key requests at least 99.9% of the time.</span></span>
+* <span data-ttu-id="bf516-154">Dla odniesieniu do indeksatora zapewniamy pomyślną realizację żądań zadań indeksatora przetwarzanych przez jednostkę zarezerwowaną do celów związanych z kodowaniem przez 99,9% czasu.</span><span class="sxs-lookup"><span data-stu-id="bf516-154">For Indexer, we will successfully service Indexer Task requests processed with an Encoding Reserved Unit 99.9% of the time.</span></span>
+
+<span data-ttu-id="bf516-155">Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług platformy Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).</span><span class="sxs-lookup"><span data-stu-id="bf516-155">For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).</span></span>
+
+<span data-ttu-id="bf516-156">Aby uzyskać informacje na temat dostępności w centrach danych, zobacz sekcję [Dostępność](scenarios-and-availability.md#availability).</span><span class="sxs-lookup"><span data-stu-id="bf516-156">For information about availability in datacenters, see the [Avaiability](scenarios-and-availability.md#availability) section.</span></span>
+
+## <a name="support"></a><span data-ttu-id="bf516-157">Pomoc techniczna</span><span class="sxs-lookup"><span data-stu-id="bf516-157">Support</span></span>
+
+<span data-ttu-id="bf516-158">[Pomoc techniczna platformy Azure](https://azure.microsoft.com/support/options/) zapewnia opcje wsparcia technicznego dla platformy Azure, w tym dla usługi Media Services.</span><span class="sxs-lookup"><span data-stu-id="bf516-158">[Azure Support](https://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.</span></span>
+
+## <a name="provide-feedback"></a><span data-ttu-id="bf516-159">Przekazywanie opinii</span><span class="sxs-lookup"><span data-stu-id="bf516-159">Provide feedback</span></span>
+
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

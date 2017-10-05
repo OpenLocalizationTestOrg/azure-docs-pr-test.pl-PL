@@ -1,0 +1,49 @@
+---
+title: "Co robić w przypadku przerw w działaniu usługi Azure wpływających na sieciach wirtualnych platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, co należy zrobić w przypadku przerw w działaniu usługi Azure wpływających na sieciach wirtualnych platformy Azure."
+services: virtual-network
+documentationcenter: 
+author: NarayanAnnamalai
+manager: jefco
+editor: 
+ms.assetid: ad260ab9-d873-43b3-8896-f9a1db9858a5
+ms.service: virtual-network
+ms.workload: virtual-network
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/16/2016
+ms.author: narayan;aglick
+ms.openlocfilehash: 4e125406d2e798138c45e3fbbf61a610afab69fc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="virtual-network--business-continuity"></a><span data-ttu-id="307ce-103">Sieć wirtualna — ciągłość prowadzenia działalności biznesowej</span><span class="sxs-lookup"><span data-stu-id="307ce-103">Virtual Network – Business Continuity</span></span>
+## <a name="overview"></a><span data-ttu-id="307ce-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="307ce-104">Overview</span></span>
+<span data-ttu-id="307ce-105">Sieć wirtualną (VNet) jest logiczną reprezentacja sieci w chmurze.</span><span class="sxs-lookup"><span data-stu-id="307ce-105">A Virtual Network (VNet) is a logical representation of your network in the cloud.</span></span> <span data-ttu-id="307ce-106">Umożliwia definiowanie własnych prywatnych przestrzeni adresów IP i podzielić sieć na podsieci.</span><span class="sxs-lookup"><span data-stu-id="307ce-106">It allows you to define your own private IP address space and segment the network into subnets.</span></span> <span data-ttu-id="307ce-107">Sieci wirtualne służy jako granicę zaufania, aby obsługiwać zasoby obliczeniowe, takich jak maszyny wirtualne platformy Azure i usługi w chmurze (role sieć web/proces roboczy).</span><span class="sxs-lookup"><span data-stu-id="307ce-107">VNets serves as a trust boundary to host your compute resources such as Azure Virtual Machines and Cloud Services (web/worker roles).</span></span> <span data-ttu-id="307ce-108">Sieć wirtualną umożliwia bezpośrednie prywatnej komunikacji IP między zasobami znajdujące się w nim.</span><span class="sxs-lookup"><span data-stu-id="307ce-108">A VNet allows direct private IP communication between the resources hosted in it.</span></span> <span data-ttu-id="307ce-109">Sieci wirtualnej również może być połączony z siecią lokalną za pomocą jednego z opcji hybrydowych, takich jak brama sieci VPN lub usługi ExpressRoute.</span><span class="sxs-lookup"><span data-stu-id="307ce-109">A Virtual Network can also be linked to an on-premises network through one of the hybrid options such as a VPN Gateway or ExpressRoute.</span></span>
+
+<span data-ttu-id="307ce-110">Sieci wirtualnej jest tworzony w zakresie regionu.</span><span class="sxs-lookup"><span data-stu-id="307ce-110">A VNet is created within the scope of a region.</span></span> <span data-ttu-id="307ce-111">Sieci wirtualne można tworzyć z tą samą przestrzenią adresów w dwóch różnych regionach (tj. nam wschodnie i zachód nam, ale nie można połączyć je bezpośrednio ze sobą).</span><span class="sxs-lookup"><span data-stu-id="307ce-111">You can create VNets with same address space in two different regions (i.e. US East and US West but cannot connect them to one another directly).</span></span> 
+
+## <a name="business-continuity"></a><span data-ttu-id="307ce-112">Ciągłość działania</span><span class="sxs-lookup"><span data-stu-id="307ce-112">Business Continuity</span></span>
+<span data-ttu-id="307ce-113">Może istnieć kilka różnych sposobów, aplikacja może zostać zerwane.</span><span class="sxs-lookup"><span data-stu-id="307ce-113">There could be several different ways that your application could be disrupted.</span></span> <span data-ttu-id="307ce-114">Danego regionu można całkowicie obcięty z powodu klęski żywiołowej lub częściowe po awarii z powodu błędu wielu urządzeń/usług.</span><span class="sxs-lookup"><span data-stu-id="307ce-114">A given region could be completely cut off due to a natural disaster or a partial disaster due to a failure of multiple devices/services.</span></span> <span data-ttu-id="307ce-115">Wpływ na usługi sieci wirtualnej różni się w każdej z tych sytuacji.</span><span class="sxs-lookup"><span data-stu-id="307ce-115">The impact on the VNet service is different in each of these situations.</span></span>
+
+<span data-ttu-id="307ce-116">**Pytanie: co chcesz zrobić w przypadku awarii całego regionu oznacza, że jeśli region jest całkowicie odcięcia z powodu klęski żywiołowej? Co się dzieje z sieci wirtualnych hostowanych w regionie?**</span><span class="sxs-lookup"><span data-stu-id="307ce-116">**Q: What do you do in the event of an outage to an entire region? i.e. if a region is completely cutoff due to a natural disaster? What happens to the Virtual Networks hosted in the region?**</span></span>
+
+<span data-ttu-id="307ce-117">A: sieci wirtualne i zasoby w regionie, których dotyczy pozostają niedostępne podczas przerw w działaniu usługi.</span><span class="sxs-lookup"><span data-stu-id="307ce-117">A: The Virtual Network and the resources in the affected region remains inaccessible during the time of the service disruption.</span></span>
+
+![Diagram prostego sieci wirtualnej](./media/virtual-network-disaster-recovery-guidance/vnet.png)
+
+<span data-ttu-id="307ce-119">**Pytanie: jakie czy można ponownie utworzyć tej samej sieci wirtualnej w innym regionie?**</span><span class="sxs-lookup"><span data-stu-id="307ce-119">**Q: What can I to do re-create the same Virtual Network in a different region?**</span></span>
+
+<span data-ttu-id="307ce-120">A: sieć wirtualna (VNet) jest stosunkowo lekkie zasobów.</span><span class="sxs-lookup"><span data-stu-id="307ce-120">A: Virtual Network (VNet) is fairly lightweight resource.</span></span> <span data-ttu-id="307ce-121">Mogą wywoływać interfejsy API Azure w celu utworzenia sieci wirtualnej z tą samą przestrzenią adresów w innym regionie.</span><span class="sxs-lookup"><span data-stu-id="307ce-121">You can invoke Azure APIs to create a VNet with the same address space in a different region.</span></span> <span data-ttu-id="307ce-122">Aby ponownie utworzyć w tym samym środowisku, która znajdowała się w regionie, których dotyczy, konieczne będzie wprowadzenie wywołań interfejsu API do ponownego wdrożenia usługi w chmurze (role sieć web/proces roboczy) i maszyn wirtualnych, które były.</span><span class="sxs-lookup"><span data-stu-id="307ce-122">To re-create the same environment that was present in the affected region, you have to make API calls to re-deploy your Cloud Services (web/worker roles) and Virtual Machines that you had.</span></span> <span data-ttu-id="307ce-123">Należy również aż bramy sieci VPN i łączyć się z siecią lokalną gdyby łączności lokalnie (np. hybrydowej).</span><span class="sxs-lookup"><span data-stu-id="307ce-123">You will also have to spin up a VPN Gateway and connect to your on-premises network if you had on-premises connectivity (such as in a hybrid deployment).</span></span>
+
+<span data-ttu-id="307ce-124">Znajdują się instrukcje dotyczące tworzenia sieci wirtualnej [tutaj](virtual-networks-create-vnet-arm-pportal.md).</span><span class="sxs-lookup"><span data-stu-id="307ce-124">The instructions for creating a VNet are found [here](virtual-networks-create-vnet-arm-pportal.md).</span></span> 
+
+<span data-ttu-id="307ce-125">**Pytanie: czy replika sieci wirtualnej w danym regionie zostać ponownie utworzone w innym regionie wcześniejsze?**</span><span class="sxs-lookup"><span data-stu-id="307ce-125">**Q: Can a replica of a VNet in a given region be re-created in another region ahead of time?**</span></span>
+
+<span data-ttu-id="307ce-126">Odpowiedź: tak, można utworzyć dwie sieci wirtualnych za pomocą tego samego prywatnych przestrzeni adresów IP i zasobów w dwóch różnych regionach wcześniejsze.</span><span class="sxs-lookup"><span data-stu-id="307ce-126">A: Yes, you can create two VNets using the same private IP address space and resources in two different regions ahead of time.</span></span> <span data-ttu-id="307ce-127">Jeśli klient został hosting internetowy usług w sieci wirtualnej, ich może ustawiono Konfigurowanie Menedżera ruchu geograficznie kierowanie ruchem do regionu, który jest aktywny.</span><span class="sxs-lookup"><span data-stu-id="307ce-127">If a customer was hosting internet facing services in the VNet, they could have set up Traffic Manager to geo-route traffic to the region that is active.</span></span> <span data-ttu-id="307ce-128">Jednak klient nie może połączyć dwie sieci wirtualne z tą samą przestrzenią adresów do ich sieci lokalnej, ponieważ spowodowałoby to problemy routingu.</span><span class="sxs-lookup"><span data-stu-id="307ce-128">However, a customer cannot connect two VNets with the same address space to their on-premises network as it would cause routing issues.</span></span> <span data-ttu-id="307ce-129">W czasie awarii i utratę sieci wirtualnej w jednym regionie klienta można połączyć sieć wirtualną w regionie dostępne z pasującymi przestrzeni adresowej dla sieci lokalnej.</span><span class="sxs-lookup"><span data-stu-id="307ce-129">At the time of a disaster and loss of a VNet in one region, a customer can connect the other VNet in the available region with matching address space to their on-premises network.</span></span>
+
+<span data-ttu-id="307ce-130">Znajdują się instrukcje dotyczące tworzenia sieci wirtualnej [tutaj](virtual-networks-create-vnet-arm-pportal.md).</span><span class="sxs-lookup"><span data-stu-id="307ce-130">The instructions for creating a VNet are found [here](virtual-networks-create-vnet-arm-pportal.md).</span></span>
+
