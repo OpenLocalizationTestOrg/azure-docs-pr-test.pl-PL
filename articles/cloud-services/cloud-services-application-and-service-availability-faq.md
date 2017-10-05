@@ -1,0 +1,48 @@
+---
+title: "Aplikacji i problemów dotyczących dostępności usługi dla Microsoft Azure Cloud Services często zadawane pytania | Dokumentacja firmy Microsoft"
+description: "W tym artykule wymieniono często zadawane pytania dotyczące aplikacji i dostępności usługi dla usługi w chmurze Microsoft Azure."
+services: cloud-services
+documentationcenter: 
+author: genlin
+manager: cshepard
+editor: 
+tags: top-support-issue
+ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
+ms.service: cloud-services
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 7/10/2017
+ms.author: genli
+ms.openlocfilehash: a893a6d009dd018ad440964419e0a5a1963084b4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/03/2017
+---
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a><span data-ttu-id="7c8c9-103">Aplikacji i problemów dotyczących dostępności usługi dla usług Azure Cloud Services: często zadawane pytania (FAQ)</span><span class="sxs-lookup"><span data-stu-id="7c8c9-103">Application and service availability issues for Azure Cloud Services: Frequently asked questions (FAQs)</span></span>
+
+<span data-ttu-id="7c8c9-104">Ten artykuł zawiera często zadawane pytania dotyczące aplikacji i problemów dotyczących dostępności usługi dla [usługi w chmurze Microsoft Azure](https://azure.microsoft.com/services/cloud-services).</span><span class="sxs-lookup"><span data-stu-id="7c8c9-104">This article includes frequently asked questions about application and service availability issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services).</span></span> <span data-ttu-id="7c8c9-105">Można również znaleźć [strony rozmiar maszyny Wirtualnej usługi w chmurze](cloud-services-sizes-specs.md) dla informacji o rozmiarze.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-105">You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.</span></span>
+
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a><span data-ttu-id="7c8c9-106">Moje roli został ponownie przetworzony.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-106">My role got recycled.</span></span> <span data-ttu-id="7c8c9-107">Były aktualizację wprowadzanie dla usługi w chmurze?</span><span class="sxs-lookup"><span data-stu-id="7c8c9-107">Was there any update rolled out for my cloud service?</span></span>
+<span data-ttu-id="7c8c9-108">Około raz w miesiącu, firma Microsoft udostępnia nową wersję systemu operacyjnego gościa dla maszyn wirtualnych systemu Windows Azure PaaS.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-108">Roughly once a month, Microsoft releases a new Guest OS version for Windows Azure PaaS VMs.</span></span><span data-ttu-id="7c8c9-109"> System operacyjny gościa jest tylko jeden taki aktualizacji w potoku.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-109"> The Guest OS is only one such update in the pipeline.</span></span> <span data-ttu-id="7c8c9-110">Inne czynniki mogą mieć wpływ zlecenia.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-110">A release can be affected by many other factors.</span></span> <span data-ttu-id="7c8c9-111">Ponadto Azure działa na setki tysięcy komputerów.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-111">In addition, Azure runs on hundreds of thousands of machines.</span></span> <span data-ttu-id="7c8c9-112">W związku z tym jest niemożliwe do prognozowania określenie dokładnej daty i czasu, gdy zostanie ponownie uruchomiony poszczególnych ról.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-112">Therefore, it's impossible to predict the exact date and time when your roles will reboot.</span></span> <span data-ttu-id="7c8c9-113">Możemy zaktualizować gościa systemu operacyjnego zaktualizować źródła danych RSS o najnowsze informacje, które zostały, ale należy rozważyć, które zostały zgłoszone czas jako wartość przybliżoną.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-113">We update the Guest OS Update RSS Feed with the latest information that we have, but you should consider that reported time to be an approximate value.</span></span> <span data-ttu-id="7c8c9-114">Firma Microsoft wiedzą, że jest to powodować problemy dla klientów i pracy w planie limit lub dokładnie czas ponownego uruchomienia.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-114">We are aware that this is problematic for customers and are working on a plan to limit or precisely time reboots.</span></span>
+
+<span data-ttu-id="7c8c9-115">Aby uzyskać szczegółowe informacje o najnowsze aktualizacje systemu operacyjnego gościa, zobacz [wersji systemu operacyjnego gościa Azure i zgodność pakietu SDK](cloud-services-guestos-update-matrix.md).</span><span class="sxs-lookup"><span data-stu-id="7c8c9-115">For complete details about recent Guest OS updates, see [Azure Guest OS releases and SDK compatibility matrix](cloud-services-guestos-update-matrix.md).</span></span>
+
+<span data-ttu-id="7c8c9-116">Pomocne informacje dotyczące ponownego uruchomienia i wskaźniki do szczegóły techniczne dotyczące systemu operacyjnego hosta i gościa aktualizacji, zapoznaj się z subskrypcją MSDN blogu [roli wystąpienia uruchamia ponownie z powodu uaktualnienia systemu operacyjnego](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).</span><span class="sxs-lookup"><span data-stu-id="7c8c9-116">For helpful information on restarts and pointers to technical details of Guest and Host OS updates, see the MSDN blog post [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).</span></span>
+
+## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a><span data-ttu-id="7c8c9-117">Dlaczego pierwsze żądanie do mojego usługi w chmurze po pewnym czasie usługi trwa dłużej niż zwykle?</span><span class="sxs-lookup"><span data-stu-id="7c8c9-117">Why does the first request to my cloud service after the service has been idle for some time take longer than usual?</span></span>
+<span data-ttu-id="7c8c9-118">Gdy serwer sieci Web otrzymuje pierwsze żądanie, najpierw rekompiluje kod, a następnie je przetwarza żądanie.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-118">When the Web Server receives the first request, it first recompiles the code and then processes the request.</span></span> <span data-ttu-id="7c8c9-119">Dlatego to pierwsze żądanie dłużej, niż pozostałe.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-119">That's why the first request takes longer than the others.</span></span> <span data-ttu-id="7c8c9-120">Domyślnie pula aplikacji pobiera Zamknij w przypadku braku aktywności użytkownika.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-120">By default, the app pool gets shut down in cases of user inactivity.</span></span> <span data-ttu-id="7c8c9-121">Pula aplikacji zostanie również Odtwórz domyślnie co 1,740 minut (29 godzin).</span><span class="sxs-lookup"><span data-stu-id="7c8c9-121">The app pool will also recycle by default every 1,740 minutes (29 hours).</span></span>
+
+<span data-ttu-id="7c8c9-122">Awarie aplikacji usług Internet Information Services (IIS), pule mogą być okresowo przetworzony ponownie, aby uniknąć niestabilny stanów, które mogą prowadzić do aplikacji, zawiesza się, lub przecieków pamięci.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-122">Internet Information Services (IIS) application pools can be periodically recycled to avoid unstable states that can lead to application crashes, hangs, or memory leaks.</span></span>
+
+<span data-ttu-id="7c8c9-123">Poniższe dokumenty ułatwią zrozumienie i ograniczenia tego problemu:</span><span class="sxs-lookup"><span data-stu-id="7c8c9-123">The following documents will help you understand and mitigate this issue:</span></span>
+* [<span data-ttu-id="7c8c9-124">Ustalania powolnego ładowania początkowego dla usług IIS</span><span class="sxs-lookup"><span data-stu-id="7c8c9-124">Fixing slow initial load for IIS</span></span>](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
+* [<span data-ttu-id="7c8c9-125">Pierwsze żądanie aplikacji sieci web usług IIS 7.5 po bardzo wolno odtwarzania puli aplikacji</span><span class="sxs-lookup"><span data-stu-id="7c8c9-125">IIS 7.5 web application first request after app-pool recycle very slow</span></span>](http://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
+
+<span data-ttu-id="7c8c9-126">Jeśli chcesz zmienić domyślne zachowanie usług IIS, konieczne będzie użycie uruchamiania zadań, ponieważ ręcznie zastosować zmiany wystąpień roli sieci Web, zmiany po pewnym czasie zostaną utracone.</span><span class="sxs-lookup"><span data-stu-id="7c8c9-126">If you want to change the default behavior of IIS, you will need to use startup tasks, because if you manually apply changes to the Web Role instances, the changes will eventually be lost.</span></span>
+
+<span data-ttu-id="7c8c9-127">Aby uzyskać więcej informacji, zobacz [sposób konfigurowania i uruchamiania zadań uruchamiania dla usługi w chmurze](cloud-services-startup-tasks.md).</span><span class="sxs-lookup"><span data-stu-id="7c8c9-127">For more information, see [How to configure and run startup tasks for a cloud service](cloud-services-startup-tasks.md).</span></span>

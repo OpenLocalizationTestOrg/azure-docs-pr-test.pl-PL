@@ -1,0 +1,93 @@
+---
+title: "Usługi Azure event niepowodzenie zadania wsadowego | Dokumentacja firmy Microsoft"
+description: "Odwołanie do zadania wsadowego nie zdarzeń."
+services: batch
+author: tamram
+manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
+ms.openlocfilehash: 08feb4ec34bb1635f8ea744b54a10b677b94ab3e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="task-fail-event"></a><span data-ttu-id="e4312-103">Zdarzenie niepowodzenie zadania</span><span class="sxs-lookup"><span data-stu-id="e4312-103">Task fail event</span></span>
+
+ <span data-ttu-id="e4312-104">To zdarzenie jest emitowany, gdy zadanie zostanie ukończone z błędem.</span><span class="sxs-lookup"><span data-stu-id="e4312-104">This event is emitted when a task completes with a failure.</span></span> <span data-ttu-id="e4312-105">Obecnie wszystkie kody zakończenia niezerową są traktowane jako błędy.</span><span class="sxs-lookup"><span data-stu-id="e4312-105">Currently all nonzero exit codes are considered failures.</span></span> <span data-ttu-id="e4312-106">To zdarzenie zostanie wyemitowany *oprócz* zadania zakończenie zdarzenia i może służyć do wykrywania zadania nie powiodło się.</span><span class="sxs-lookup"><span data-stu-id="e4312-106">This event will be emitted *in addition to* a task complete event and can be used to detect when a task has failed.</span></span>
+
+
+ <span data-ttu-id="e4312-107">W poniższym przykładzie przedstawiono treść zadania niepowodzenie zdarzeń.</span><span class="sxs-lookup"><span data-stu-id="e4312-107">The following example shows the body of a task fail event.</span></span>
+
+```
+{
+    "jobId": "job-0000000001",
+    "id": "task-5",
+    "taskType": "User",
+    "systemTaskVersion": 0,
+    "nodeInfo": {
+        "poolId": "pool-001",
+        "nodeId": "tvm-257509324_1-20160908t162728z"
+    },
+    "multiInstanceSettings": {
+        "numberOfInstances": 1
+    },
+    "constraints": {
+        "maxTaskRetryCount": 2
+    },
+    "executionInfo": {
+        "startTime": "2016-09-08T16:32:23.799Z",
+        "endTime": "2016-09-08T16:34:00.666Z",
+        "exitCode": 1,
+        "retryCount": 2,
+        "requeueCount": 0
+    }
+}
+```
+
+|<span data-ttu-id="e4312-108">Nazwa elementu</span><span class="sxs-lookup"><span data-stu-id="e4312-108">Element name</span></span>|<span data-ttu-id="e4312-109">Typ</span><span class="sxs-lookup"><span data-stu-id="e4312-109">Type</span></span>|<span data-ttu-id="e4312-110">Uwagi</span><span class="sxs-lookup"><span data-stu-id="e4312-110">Notes</span></span>|
+|------------------|----------|-----------|
+|<span data-ttu-id="e4312-111">Identyfikator zadania</span><span class="sxs-lookup"><span data-stu-id="e4312-111">jobId</span></span>|<span data-ttu-id="e4312-112">Ciąg</span><span class="sxs-lookup"><span data-stu-id="e4312-112">String</span></span>|<span data-ttu-id="e4312-113">Identyfikator zadania zawierającego zadanie.</span><span class="sxs-lookup"><span data-stu-id="e4312-113">The id of the job containing the task.</span></span>|
+|<span data-ttu-id="e4312-114">id</span><span class="sxs-lookup"><span data-stu-id="e4312-114">id</span></span>|<span data-ttu-id="e4312-115">Ciąg</span><span class="sxs-lookup"><span data-stu-id="e4312-115">String</span></span>|<span data-ttu-id="e4312-116">Identyfikator zadania.</span><span class="sxs-lookup"><span data-stu-id="e4312-116">The id of the task.</span></span>|
+|<span data-ttu-id="e4312-117">taskType</span><span class="sxs-lookup"><span data-stu-id="e4312-117">taskType</span></span>|<span data-ttu-id="e4312-118">Ciąg</span><span class="sxs-lookup"><span data-stu-id="e4312-118">String</span></span>|<span data-ttu-id="e4312-119">Typ zadania.</span><span class="sxs-lookup"><span data-stu-id="e4312-119">The type of the task.</span></span> <span data-ttu-id="e4312-120">Może to być "JobManager" i wskazujący, że jest to zadanie Menedżer zadania lub "User" i wskazujący, że nie jest zadanie Menedżer zadania.</span><span class="sxs-lookup"><span data-stu-id="e4312-120">This can either be 'JobManager' indicating it is a job manager task or 'User' indicating it is not a job manager task.</span></span> <span data-ttu-id="e4312-121">To zdarzenie nie jest emitowany zadanie przygotowanie zadania, zadania wersji lub uruchomienia zadania.</span><span class="sxs-lookup"><span data-stu-id="e4312-121">This event is not emitted for job preparation tasks, job release tasks or start tasks.</span></span>|
+|<span data-ttu-id="e4312-122">systemTaskVersion</span><span class="sxs-lookup"><span data-stu-id="e4312-122">systemTaskVersion</span></span>|<span data-ttu-id="e4312-123">Int32</span><span class="sxs-lookup"><span data-stu-id="e4312-123">Int32</span></span>|<span data-ttu-id="e4312-124">Jest to licznik ponownych prób wewnętrzny dla zadania.</span><span class="sxs-lookup"><span data-stu-id="e4312-124">This is the internal retry counter on a task.</span></span> <span data-ttu-id="e4312-125">Wewnętrznie usługa partia zadań. Spróbuj ponownie zadania konta dla przejściowych problemów.</span><span class="sxs-lookup"><span data-stu-id="e4312-125">Internally the Batch service can retry a task to account for transient issues.</span></span> <span data-ttu-id="e4312-126">Te problemy mogą zawierać błędy wewnętrzne planowania lub próbuje odzyskać z węzłami w złym stanie przetwarzania.</span><span class="sxs-lookup"><span data-stu-id="e4312-126">These issues can include internal scheduling errors or attempts to recover from compute nodes in a bad state.</span></span>|
+|[<span data-ttu-id="e4312-127">nodeInfo</span><span class="sxs-lookup"><span data-stu-id="e4312-127">nodeInfo</span></span>](#nodeInfo)|<span data-ttu-id="e4312-128">Typ złożony</span><span class="sxs-lookup"><span data-stu-id="e4312-128">Complex Type</span></span>|<span data-ttu-id="e4312-129">Zawiera informacje o węźle obliczeń, na którym uruchomiono zadanie.</span><span class="sxs-lookup"><span data-stu-id="e4312-129">Contains information about the compute node on which the task ran.</span></span>|
+|[<span data-ttu-id="e4312-130">multiInstanceSettings</span><span class="sxs-lookup"><span data-stu-id="e4312-130">multiInstanceSettings</span></span>](#multiInstanceSettings)|<span data-ttu-id="e4312-131">Typ złożony</span><span class="sxs-lookup"><span data-stu-id="e4312-131">Complex Type</span></span>|<span data-ttu-id="e4312-132">Określa, że zadanie jest wiele wystąpień zadania wymagające wielu węzłów obliczeniowych.</span><span class="sxs-lookup"><span data-stu-id="e4312-132">Specifies that the task is a Multi-Instance Task requiring multiple compute nodes.</span></span>  <span data-ttu-id="e4312-133">Zobacz [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) szczegółowe informacje.</span><span class="sxs-lookup"><span data-stu-id="e4312-133">See [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) for details.</span></span>|
+|[<span data-ttu-id="e4312-134">ograniczenia</span><span class="sxs-lookup"><span data-stu-id="e4312-134">constraints</span></span>](#constraints)|<span data-ttu-id="e4312-135">Typ złożony</span><span class="sxs-lookup"><span data-stu-id="e4312-135">Complex Type</span></span>|<span data-ttu-id="e4312-136">Ograniczenia wykonanie, które są stosowane do tego zadania.</span><span class="sxs-lookup"><span data-stu-id="e4312-136">The execution constraints that apply to this task.</span></span>|
+|[<span data-ttu-id="e4312-137">executionInfo</span><span class="sxs-lookup"><span data-stu-id="e4312-137">executionInfo</span></span>](#executionInfo)|<span data-ttu-id="e4312-138">Typ złożony</span><span class="sxs-lookup"><span data-stu-id="e4312-138">Complex Type</span></span>|<span data-ttu-id="e4312-139">Zawiera informacje dotyczące wykonywania tego zadania.</span><span class="sxs-lookup"><span data-stu-id="e4312-139">Contains information about the execution of the task.</span></span>|
+
+###  <span data-ttu-id="e4312-140"><a name="nodeInfo"></a>nodeInfo</span><span class="sxs-lookup"><span data-stu-id="e4312-140"><a name="nodeInfo"></a> nodeInfo</span></span>
+
+|<span data-ttu-id="e4312-141">Nazwa elementu</span><span class="sxs-lookup"><span data-stu-id="e4312-141">Element name</span></span>|<span data-ttu-id="e4312-142">Typ</span><span class="sxs-lookup"><span data-stu-id="e4312-142">Type</span></span>|<span data-ttu-id="e4312-143">Uwagi</span><span class="sxs-lookup"><span data-stu-id="e4312-143">Notes</span></span>|
+|------------------|----------|-----------|
+|<span data-ttu-id="e4312-144">poolId</span><span class="sxs-lookup"><span data-stu-id="e4312-144">poolId</span></span>|<span data-ttu-id="e4312-145">Ciąg</span><span class="sxs-lookup"><span data-stu-id="e4312-145">String</span></span>|<span data-ttu-id="e4312-146">Identyfikator puli, na którym uruchomiono zadanie.</span><span class="sxs-lookup"><span data-stu-id="e4312-146">The id of the pool on which the task ran.</span></span>|
+|<span data-ttu-id="e4312-147">ID. węzła</span><span class="sxs-lookup"><span data-stu-id="e4312-147">nodeId</span></span>|<span data-ttu-id="e4312-148">Ciąg</span><span class="sxs-lookup"><span data-stu-id="e4312-148">String</span></span>|<span data-ttu-id="e4312-149">Identyfikator węzła, na którym uruchomiono zadanie.</span><span class="sxs-lookup"><span data-stu-id="e4312-149">The id of the node on which the task ran.</span></span>|
+
+###  <span data-ttu-id="e4312-150"><a name="multiInstanceSettings"></a>multiInstanceSettings</span><span class="sxs-lookup"><span data-stu-id="e4312-150"><a name="multiInstanceSettings"></a> multiInstanceSettings</span></span>
+
+|<span data-ttu-id="e4312-151">Nazwa elementu</span><span class="sxs-lookup"><span data-stu-id="e4312-151">Element name</span></span>|<span data-ttu-id="e4312-152">Typ</span><span class="sxs-lookup"><span data-stu-id="e4312-152">Type</span></span>|<span data-ttu-id="e4312-153">Uwagi</span><span class="sxs-lookup"><span data-stu-id="e4312-153">Notes</span></span>|
+|------------------|----------|-----------|
+|<span data-ttu-id="e4312-154">numberOfInstances</span><span class="sxs-lookup"><span data-stu-id="e4312-154">numberOfInstances</span></span>|<span data-ttu-id="e4312-155">Int32</span><span class="sxs-lookup"><span data-stu-id="e4312-155">Int32</span></span>|<span data-ttu-id="e4312-156">Liczba węzłów obliczeń wymagana przez zadanie.</span><span class="sxs-lookup"><span data-stu-id="e4312-156">The number of compute nodes required by the task.</span></span>|
+
+###  <span data-ttu-id="e4312-157"><a name="constraints"></a>ograniczenia</span><span class="sxs-lookup"><span data-stu-id="e4312-157"><a name="constraints"></a> constraints</span></span>
+
+|<span data-ttu-id="e4312-158">Nazwa elementu</span><span class="sxs-lookup"><span data-stu-id="e4312-158">Element name</span></span>|<span data-ttu-id="e4312-159">Typ</span><span class="sxs-lookup"><span data-stu-id="e4312-159">Type</span></span>|<span data-ttu-id="e4312-160">Uwagi</span><span class="sxs-lookup"><span data-stu-id="e4312-160">Notes</span></span>|
+|------------------|----------|-----------|
+|<span data-ttu-id="e4312-161">maxTaskRetryCount</span><span class="sxs-lookup"><span data-stu-id="e4312-161">maxTaskRetryCount</span></span>|<span data-ttu-id="e4312-162">Int32</span><span class="sxs-lookup"><span data-stu-id="e4312-162">Int32</span></span>|<span data-ttu-id="e4312-163">Maksymalna liczba powtórzeń zadania mogą być ponowiona.</span><span class="sxs-lookup"><span data-stu-id="e4312-163">The maximum number of times the task may be retried.</span></span> <span data-ttu-id="e4312-164">Usługa partia zadań ponawia zadanie, jeśli jego kod zakończenia jest różna od zera.</span><span class="sxs-lookup"><span data-stu-id="e4312-164">The Batch service retries a task if its exit code is nonzero.</span></span><br /><br /> <span data-ttu-id="e4312-165">Należy pamiętać, że ta wartość określa, w szczególności liczby ponownych prób.</span><span class="sxs-lookup"><span data-stu-id="e4312-165">Note that this value specifically controls the number of retries.</span></span> <span data-ttu-id="e4312-166">Usługa partia zadań ponowi zadania raz i może następnie ponów próbę wykonania tego limitu.</span><span class="sxs-lookup"><span data-stu-id="e4312-166">The Batch service will try the task once, and may then retry up to this limit.</span></span> <span data-ttu-id="e4312-167">Na przykład jeśli maksymalna liczba ponowień prób partii zadanie 3 do 4 godziny (jedna próba początkowej i 3 ponowne próby).</span><span class="sxs-lookup"><span data-stu-id="e4312-167">For example, if the maximum retry count is 3, Batch tries a task up to 4 times (one initial try and 3 retries).</span></span><br /><br /> <span data-ttu-id="e4312-168">Jeśli maksymalna liczba ponowień to 0, usługa partia zadań nie ponów próbę wykonania zadania.</span><span class="sxs-lookup"><span data-stu-id="e4312-168">If the maximum retry count is 0, the Batch service does not retry tasks.</span></span><br /><br /> <span data-ttu-id="e4312-169">Jeśli maksymalna liczba ponowień to -1, usługa partia zadań ponawia próbę zadania bez ograniczeń.</span><span class="sxs-lookup"><span data-stu-id="e4312-169">If the maximum retry count is -1, the Batch service retries tasks without limit.</span></span><br /><br /> <span data-ttu-id="e4312-170">Wartość domyślna to 0 (brak ponownych prób).</span><span class="sxs-lookup"><span data-stu-id="e4312-170">The default value is 0 (no retries).</span></span>|
+
+
+###  <span data-ttu-id="e4312-171"><a name="executionInfo"></a>executionInfo</span><span class="sxs-lookup"><span data-stu-id="e4312-171"><a name="executionInfo"></a> executionInfo</span></span>
+
+|<span data-ttu-id="e4312-172">Nazwa elementu</span><span class="sxs-lookup"><span data-stu-id="e4312-172">Element name</span></span>|<span data-ttu-id="e4312-173">Typ</span><span class="sxs-lookup"><span data-stu-id="e4312-173">Type</span></span>|<span data-ttu-id="e4312-174">Uwagi</span><span class="sxs-lookup"><span data-stu-id="e4312-174">Notes</span></span>|
+|------------------|----------|-----------|
+|<span data-ttu-id="e4312-175">startTime</span><span class="sxs-lookup"><span data-stu-id="e4312-175">startTime</span></span>|<span data-ttu-id="e4312-176">Data i godzina</span><span class="sxs-lookup"><span data-stu-id="e4312-176">DateTime</span></span>|<span data-ttu-id="e4312-177">Czas, w którym zadanie uruchomienia.</span><span class="sxs-lookup"><span data-stu-id="e4312-177">The time at which the task started running.</span></span> <span data-ttu-id="e4312-178">"Uruchomiona" odpowiada **systemem** stanu, więc jeśli zadanie Określa pliki zasobów lub pakiety aplikacji, następnie czas rozpoczęcia odzwierciedla godzina, o której zadanie zostanie uruchomione, pobierania lub ich wdrażania.</span><span class="sxs-lookup"><span data-stu-id="e4312-178">'Running' corresponds to the **running** state, so if the task specifies resource files or application packages, then the start time reflects the time at which the task started downloading or deploying these.</span></span>  <span data-ttu-id="e4312-179">Jeśli zadania został ponownie uruchomiony lub ponowione, to jest ostatni czas, w którym zadanie uruchomienia.</span><span class="sxs-lookup"><span data-stu-id="e4312-179">If the task has been restarted or retried, this is the most recent time at which the task started running.</span></span>|
+|<span data-ttu-id="e4312-180">wartość endTime</span><span class="sxs-lookup"><span data-stu-id="e4312-180">endTime</span></span>|<span data-ttu-id="e4312-181">Data i godzina</span><span class="sxs-lookup"><span data-stu-id="e4312-181">DateTime</span></span>|<span data-ttu-id="e4312-182">Czas, jaką zadanie ukończone.</span><span class="sxs-lookup"><span data-stu-id="e4312-182">The time at which the task completed.</span></span>|
+|<span data-ttu-id="e4312-183">exitCode</span><span class="sxs-lookup"><span data-stu-id="e4312-183">exitCode</span></span>|<span data-ttu-id="e4312-184">Int32</span><span class="sxs-lookup"><span data-stu-id="e4312-184">Int32</span></span>|<span data-ttu-id="e4312-185">Kod zakończenia zadania.</span><span class="sxs-lookup"><span data-stu-id="e4312-185">The exit code of the task.</span></span>|
+|<span data-ttu-id="e4312-186">retryCount</span><span class="sxs-lookup"><span data-stu-id="e4312-186">retryCount</span></span>|<span data-ttu-id="e4312-187">Int32</span><span class="sxs-lookup"><span data-stu-id="e4312-187">Int32</span></span>|<span data-ttu-id="e4312-188">Ile razy zadanie było ponawiane przez usługi partia zadań.</span><span class="sxs-lookup"><span data-stu-id="e4312-188">The number of times the task has been retried by the Batch service.</span></span> <span data-ttu-id="e4312-189">Próba zostanie ponowiona zadania, jeśli kończy działanie z kodem zakończenia różną od zera, do określonego MaxTaskRetryCount.</span><span class="sxs-lookup"><span data-stu-id="e4312-189">The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount.</span></span>|
+|<span data-ttu-id="e4312-190">requeueCount</span><span class="sxs-lookup"><span data-stu-id="e4312-190">requeueCount</span></span>|<span data-ttu-id="e4312-191">Int32</span><span class="sxs-lookup"><span data-stu-id="e4312-191">Int32</span></span>|<span data-ttu-id="e4312-192">Liczba powtórzeń zadania ma zostać umieszczony w kolejce przez usługi partia zadań w wyniku żądania użytkownika.</span><span class="sxs-lookup"><span data-stu-id="e4312-192">The number of times the task has been requeued by the Batch service as the result of a user request.</span></span><br /><br /> <span data-ttu-id="e4312-193">Gdy węzły Usuwa użytkownika z pulę (przy zmianie rozmiaru lub zmniejszanie puli) lub gdy zadanie jest wyłączone, użytkownik może określić, że uruchomienie zadań na węzłach być umieszczony w kolejce do wykonania.</span><span class="sxs-lookup"><span data-stu-id="e4312-193">When the user removes nodes from a pool (by resizing or shrinking the pool) or when the job is being disabled, the user can specify that running tasks on the nodes be requeued for execution.</span></span> <span data-ttu-id="e4312-194">Licznik ten uwzględnia śledzi, ile razy zadanie ma zostać umieszczony w kolejce z tego względu.</span><span class="sxs-lookup"><span data-stu-id="e4312-194">This count tracks how many times the task has been requeued for these reasons.</span></span>|

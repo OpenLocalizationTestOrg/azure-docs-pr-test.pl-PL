@@ -1,0 +1,72 @@
+---
+title: "Tworzenie przepływów pracy za pomocą szablonów - Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Wprowadzenie — szybkie tworzenie przepływów pracy przy użyciu szablonów aplikacji logiki platformy Azure, aby połączyć aplikacje i integrowanie danych."
+author: kevinlam1
+manager: anneta
+editor: 
+services: logic-apps
+documentationcenter: 
+ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+ms.author: LADocs; klam
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 89272869f7dfaa34cbd2ad32d67dca0955e6158b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="configure-a-workflow-using-a-pre-built-template-or-pattern-to-get-started-quickly"></a><span data-ttu-id="54f60-103">Konfigurowanie przepływu pracy za pomocą wbudowanych szablonów lub wzorca szybkie rozpoczęcie pracy</span><span class="sxs-lookup"><span data-stu-id="54f60-103">Configure a workflow using a pre-built template or pattern to get started quickly</span></span>
+
+## <a name="what-are-logic-app-templates"></a><span data-ttu-id="54f60-104">Co to są szablony aplikacji logiki</span><span class="sxs-lookup"><span data-stu-id="54f60-104">What are logic app templates</span></span>
+<span data-ttu-id="54f60-105">Szablon aplikacji logiki jest aplikacji logiki wbudowanych, które umożliwiają szybkie rozpoczęcie tworzenia własnych przepływu pracy.</span><span class="sxs-lookup"><span data-stu-id="54f60-105">A logic app template is a pre-built logic app that you can use to quickly get started creating your own workflow.</span></span> 
+
+<span data-ttu-id="54f60-106">Te szablony są dobrze do odnajdywania różnych wzorców, które mogą zostać skompilowane przy użyciu aplikacji logiki.</span><span class="sxs-lookup"><span data-stu-id="54f60-106">These templates are a good way to discover various patterns that can be built using logic apps.</span></span> <span data-ttu-id="54f60-107">Możesz użyć tych szablonów jako- lub zmodyfikować je do danego scenariusza.</span><span class="sxs-lookup"><span data-stu-id="54f60-107">You can either use these templates as-is or modify them to fit your scenario.</span></span>
+
+## <a name="overview-of-available-templates"></a><span data-ttu-id="54f60-108">Omówienie dostępnych szablonów</span><span class="sxs-lookup"><span data-stu-id="54f60-108">Overview of available templates</span></span>
+<span data-ttu-id="54f60-109">Istnieje wiele dostępnych szablonów, w obecnie opublikowanych przez platformę aplikacji logiki.</span><span class="sxs-lookup"><span data-stu-id="54f60-109">There are many available templates currently published in the logic app platform.</span></span> <span data-ttu-id="54f60-110">Poniżej przedstawiono niektóre przykładowe kategorie, a także typu łączników używane w nich.</span><span class="sxs-lookup"><span data-stu-id="54f60-110">Some example categories, as well as the type of connectors used in them, are listed below.</span></span>
+
+### <a name="enterprise-cloud-templates"></a><span data-ttu-id="54f60-111">Szablony Enterprise chmury</span><span class="sxs-lookup"><span data-stu-id="54f60-111">Enterprise cloud templates</span></span>
+<span data-ttu-id="54f60-112">Szablony, które integracji usługi Dynamics CRM, Salesforce pole, obiektów Blob platformy Azure i inne łączniki do potrzeb chmury przedsiębiorstwa.</span><span class="sxs-lookup"><span data-stu-id="54f60-112">Templates that integrate Dynamics CRM, Salesforce, Box, Azure Blob, and other connectors for your enterprise cloud needs.</span></span> <span data-ttu-id="54f60-113">Przykłady co można zrobić za pomocą te szablony obejmują organizowanie potencjalnych klientów i tworzenie kopii zapasowej danych plików firmowych.</span><span class="sxs-lookup"><span data-stu-id="54f60-113">Some examples of what can be done with these templates include organizing your leads and backing up your corporate file data.</span></span>
+
+### <a name="enterprise-integration-pack-templates"></a><span data-ttu-id="54f60-114">Szablony pakietów integracji przedsiębiorstwa</span><span class="sxs-lookup"><span data-stu-id="54f60-114">Enterprise integration pack templates</span></span>
+<span data-ttu-id="54f60-115">Konfiguracje VETER (Sprawdzanie poprawności, extract, transform, uzupełnić, trasy) potoki odbieranie X12 EDI dokumentów za pośrednictwem AS2 i przekształcenia go do pliku XML, jak również komunikat X12 i AS2 obsługi.</span><span class="sxs-lookup"><span data-stu-id="54f60-115">Configurations of VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming it to XML, as well as X12 and AS2 message handling.</span></span>
+
+### <a name="protocol-pattern-templates"></a><span data-ttu-id="54f60-116">Protokół wzorzec szablonów</span><span class="sxs-lookup"><span data-stu-id="54f60-116">Protocol pattern templates</span></span>
+<span data-ttu-id="54f60-117">Te szablony składają się z aplikacji logiki, które zawierają protokołu wzorców, takich jak żądanie odpowiedź za pośrednictwem protokołu HTTP, a także integracji między FTP i SFTP.</span><span class="sxs-lookup"><span data-stu-id="54f60-117">These templates consist of logic apps that contain protocol patterns such as request-response over HTTP as well as integrations across FTP and SFTP.</span></span> <span data-ttu-id="54f60-118">Użyj tych istniejących lub jako podstawy do tworzenia bardziej złożonych wzorców protokołu.</span><span class="sxs-lookup"><span data-stu-id="54f60-118">Use these as they exist, or as a basis for creating more complex protocol patterns.</span></span>  
+
+### <a name="personal-productivity-templates"></a><span data-ttu-id="54f60-119">Szablony produktywność</span><span class="sxs-lookup"><span data-stu-id="54f60-119">Personal productivity templates</span></span>
+<span data-ttu-id="54f60-120">Wzorce, aby zwiększyć produktywność obejmują szablony, które ustawić codzienne przypomnienia, Włącz elementów roboczych ważne do listy zadań do wykonania i zautomatyzować długich zadań krok zatwierdzenia jednego użytkownika.</span><span class="sxs-lookup"><span data-stu-id="54f60-120">Patterns to help improve personal productivity include templates that set daily reminders, turn important work items into to-do lists, and automate lengthy tasks down to a single user approval step.</span></span>
+
+### <a name="consumer-cloud-templates"></a><span data-ttu-id="54f60-121">Szablony konsumentów chmury</span><span class="sxs-lookup"><span data-stu-id="54f60-121">Consumer cloud templates</span></span>
+<span data-ttu-id="54f60-122">Proste szablonów, które integrują się z usługami mediów społecznościowych, takich jak usługi Twitter, zapas czasu i poczty e-mail, ostatecznie stanie wzmocnienia mediów społecznościowych marketingu inicjatyw.</span><span class="sxs-lookup"><span data-stu-id="54f60-122">Simple templates that integrate with social media services such as Twitter, Slack, and email, ultimately capable of strengthening social media marketing initiatives.</span></span> <span data-ttu-id="54f60-123">Obejmują one również szablony taką jak kopiowanie mętna, co może pomóc zwiększyć wydajność, aby zaoszczędzić czas tradycyjnie powtarzających się zadań.</span><span class="sxs-lookup"><span data-stu-id="54f60-123">These also include templates such as cloudy copying, which can help increase productivity by saving time spent on traditionally repetitive tasks.</span></span> 
+
+## <a name="how-to-create-a-logic-app-using-a-template"></a><span data-ttu-id="54f60-124">Jak utworzyć aplikację logiki, przy użyciu szablonu</span><span class="sxs-lookup"><span data-stu-id="54f60-124">How to create a logic app using a template</span></span>
+<span data-ttu-id="54f60-125">Aby rozpocząć korzystanie z szablon aplikacji logiki, przejdź do projektanta aplikacji logiki.</span><span class="sxs-lookup"><span data-stu-id="54f60-125">To get started using a logic app template, go into the logic app designer.</span></span> <span data-ttu-id="54f60-126">Jeśli wprowadzasz projektanta, otwierając istniejących aplikacji logiki, aplikację logiki automatycznie ładuje w widoku projektanta.</span><span class="sxs-lookup"><span data-stu-id="54f60-126">If you're entering the designer by opening an existing logic app, the logic app automatically loads in your designer view.</span></span> <span data-ttu-id="54f60-127">Jednak jeśli tworzysz nową aplikację logiki, zobacz na poniższym zrzucie ekranu.</span><span class="sxs-lookup"><span data-stu-id="54f60-127">However, if you're creating a new logic app, you see the screen below.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template7.png)  
+
+<span data-ttu-id="54f60-128">Na tym ekranie można albo rozpoczynać się od aplikacji logiki puste lub wcześniej utworzonego szablonu.</span><span class="sxs-lookup"><span data-stu-id="54f60-128">From this screen, you can either choose to start with a blank logic app or a pre-built template.</span></span> <span data-ttu-id="54f60-129">W przypadku wybrania jednego z szablonów można uzyskać dodatkowe informacje.</span><span class="sxs-lookup"><span data-stu-id="54f60-129">If you select one of the templates, you are provided with additional information.</span></span> <span data-ttu-id="54f60-130">W tym przykładzie używamy *podczas tworzenia nowego pliku w Dropbox, skopiuj go do usługi OneDrive* szablonu.</span><span class="sxs-lookup"><span data-stu-id="54f60-130">In this example, we use the *When a new file is created in Dropbox, copy it to OneDrive* template.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template2.png)  
+
+<span data-ttu-id="54f60-131">Jeśli chcesz użyć szablonu, wystarczy zaznaczyć *użyć tego szablonu* przycisku.</span><span class="sxs-lookup"><span data-stu-id="54f60-131">If you choose to use the template, just select the *use this template* button.</span></span> <span data-ttu-id="54f60-132">Użytkownik zostanie zapytany logować się do konta, na podstawie łączników, które korzysta z szablonu.</span><span class="sxs-lookup"><span data-stu-id="54f60-132">You'll be asked to sign in to your accounts based on which connectors the template utilizes.</span></span> <span data-ttu-id="54f60-133">Lub, jeśli zostało wcześniej ustanowione połączenie z tych łączników, możesz wybrać kontynuować, jak pokazano poniżej.</span><span class="sxs-lookup"><span data-stu-id="54f60-133">Or, if you've previously established a connection with these connectors, you can select continue as seen below.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template3.png)  
+
+<span data-ttu-id="54f60-134">Po ustanowieniu połączenia i wybraniu *kontynuować*, otwiera aplikację logiki w widoku projektanta.</span><span class="sxs-lookup"><span data-stu-id="54f60-134">After establishing the connection and selecting *continue*, the logic app opens in designer view.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template4.png)  
+
+<span data-ttu-id="54f60-135">W powyższym przykładzie jak w przypadku wielu szablonów, niektóre pola obowiązkowej właściwości może zostać wypełnione w łączniki; Jednak niektóre mogą nadal wymagana była wartość aby można było prawidłowo wdrożyć aplikację logiki.</span><span class="sxs-lookup"><span data-stu-id="54f60-135">In the example above, as is the case with many templates, some of the mandatory property fields may be filled out within the connectors; however, some might still require a value before being able to properly deploy the logic app.</span></span> <span data-ttu-id="54f60-136">Jeśli spróbujesz wdrażania bez konieczności wprowadzania niektóre brakujące pola zostanie wyświetlone powiadomienie z komunikatem o błędzie.</span><span class="sxs-lookup"><span data-stu-id="54f60-136">If you try to deploy without entering some of the missing fields, you'll be notified with an error message.</span></span>
+
+<span data-ttu-id="54f60-137">Jeśli chcesz powrócić do podglądu szablonu, wybierz *szablony* przycisku na górnym pasku nawigacyjnym.</span><span class="sxs-lookup"><span data-stu-id="54f60-137">If you wish to return to the template viewer, select the *Templates* button in the top navigation bar.</span></span> <span data-ttu-id="54f60-138">Przełączanie z powrotem do podglądu szablonu, utracisz wszystkie niezapisane postępu.</span><span class="sxs-lookup"><span data-stu-id="54f60-138">By switching back to the template viewer, you lose any unsaved progress.</span></span> <span data-ttu-id="54f60-139">Przed nastąpi przełączenie do podglądu szablonu, zobaczysz komunikat ostrzegawczy informujący o tym.</span><span class="sxs-lookup"><span data-stu-id="54f60-139">Prior to switching back into template viewer, you'll see a warning message notifying you of this.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template5.png)  
+
+## <a name="how-to-deploy-a-logic-app-created-from-a-template"></a><span data-ttu-id="54f60-140">Jak wdrożyć aplikację logiki, utworzonych na podstawie szablonu</span><span class="sxs-lookup"><span data-stu-id="54f60-140">How to deploy a logic app created from a template</span></span>
+<span data-ttu-id="54f60-141">Po ładowany szablon i wprowadzone żadne zmiany żądaną opcję Zapisz przycisk w lewym górnym rogu.</span><span class="sxs-lookup"><span data-stu-id="54f60-141">Once you have loaded your template and made any desired changes, select the save button in the upper left corner.</span></span> <span data-ttu-id="54f60-142">Spowoduje to zapisanie i publikuje aplikacji logiki.</span><span class="sxs-lookup"><span data-stu-id="54f60-142">This saves and publishes your logic app.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template6.png)  
+
+<span data-ttu-id="54f60-143">Jeśli chcesz więcej informacji na temat dodać kolejne kroki do istniejącego szablonu aplikacji logiki, lub dokonaj edycji ogólnie rzecz biorąc, Dowiedz się więcej o [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).</span><span class="sxs-lookup"><span data-stu-id="54f60-143">If you would like more information on how to add more steps into an existing logic app template, or make edits in general, read more at [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).</span></span>
+
