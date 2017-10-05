@@ -1,0 +1,69 @@
+---
+title: "Równoważenie obciążenia Azure CLI przykładowym skrypcie — wiele witryn sieci Web z wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Równoważenie obciążenia Azure CLI przykładowym skrypcie — wiele witryn sieci Web do tej samej maszyny wirtualnej"
+services: load-balancer
+documentationcenter: load-balancer
+author: KumudD
+manager: timlt
+editor: tysonn
+tags: 
+ms.assetid: 
+ms.service: load-balancer
+ms.devlang: azurecli
+ms.topic: article
+ms.tgt_pltfrm: 
+ms.workload: infrastructure
+ms.date: 07/07/2017
+ms.author: kumud
+ms.openlocfilehash: c5a584b33025122033b930822ae0a0864a7ec1cb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="load-balance-multiple-websites"></a><span data-ttu-id="625da-103">Równoważenie obciążenia wielu witryn sieci Web</span><span class="sxs-lookup"><span data-stu-id="625da-103">Load balance multiple websites</span></span>
+
+<span data-ttu-id="625da-104">Ten przykładowy skrypt tworzy sieć wirtualną z dwóch maszyn wirtualnych (VM), które są członkami zestawu dostępności.</span><span class="sxs-lookup"><span data-stu-id="625da-104">This script sample creates a virtual network with two virtual machines (VM) that are members of an availability set.</span></span> <span data-ttu-id="625da-105">Moduł równoważenia obciążenia kieruje ruch dla dwóch osobnych adresów IP do dwóch maszyn wirtualnych.</span><span class="sxs-lookup"><span data-stu-id="625da-105">A load balancer directs traffic for two separate IP addresses to the two VMs.</span></span> <span data-ttu-id="625da-106">Po uruchomieniu skryptu, można wdrożyć oprogramowanie serwera sieci web do maszyn wirtualnych i hostów wiele witryn sieci web z własnego adresu IP.</span><span class="sxs-lookup"><span data-stu-id="625da-106">After running the script, you could deploy web server software to the VMs and host multiple web sites, each with its own IP address.</span></span>
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="sample-script"></a><span data-ttu-id="625da-107">Przykładowy skrypt</span><span class="sxs-lookup"><span data-stu-id="625da-107">Sample script</span></span>
+
+
+<span data-ttu-id="625da-108">[!code-azurecli-interactive[główne](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Równoważenie obciążenia wielu witryn sieci web")]</span><span class="sxs-lookup"><span data-stu-id="625da-108">[!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Load balance multiple web sites")]</span></span>
+
+## <a name="clean-up-deployment"></a><span data-ttu-id="625da-109">Czyszczenie wdrożenia</span><span class="sxs-lookup"><span data-stu-id="625da-109">Clean up deployment</span></span> 
+
+<span data-ttu-id="625da-110">Uruchom następujące polecenie, aby usunąć grupę zasobów, maszyny Wirtualnej i wszystkie powiązane zasoby.</span><span class="sxs-lookup"><span data-stu-id="625da-110">Run the following command to remove the resource group, VM, and all related resources.</span></span>
+
+```azurecli
+az group delete --name myResourceGroup --yes
+```
+
+## <a name="script-explanation"></a><span data-ttu-id="625da-111">Wyjaśnienie skryptu</span><span class="sxs-lookup"><span data-stu-id="625da-111">Script explanation</span></span>
+
+<span data-ttu-id="625da-112">Ten skrypt używa następujących poleceń do utworzenia grupy zasobów, sieci wirtualnej, usługi równoważenia obciążenia i wszystkie powiązane zasoby.</span><span class="sxs-lookup"><span data-stu-id="625da-112">This script uses the following commands to create a resource group, virtual network, load balancer, and all related resources.</span></span> <span data-ttu-id="625da-113">Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.</span><span class="sxs-lookup"><span data-stu-id="625da-113">Each command in the table links to command specific documentation.</span></span>
+
+| <span data-ttu-id="625da-114">Polecenie</span><span class="sxs-lookup"><span data-stu-id="625da-114">Command</span></span> | <span data-ttu-id="625da-115">Uwagi</span><span class="sxs-lookup"><span data-stu-id="625da-115">Notes</span></span> |
+|---|---|
+| [<span data-ttu-id="625da-116">Tworzenie grupy az</span><span class="sxs-lookup"><span data-stu-id="625da-116">az group create</span></span>](https://docs.microsoft.com/cli/azure/group#create) | <span data-ttu-id="625da-117">Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby.</span><span class="sxs-lookup"><span data-stu-id="625da-117">Creates a resource group in which all resources are stored.</span></span> |
+| [<span data-ttu-id="625da-118">Tworzenie sieci wirtualnej sieci az</span><span class="sxs-lookup"><span data-stu-id="625da-118">az network vnet create</span></span>](https://docs.microsoft.com/cli/azure/network/vnet#create) | <span data-ttu-id="625da-119">Tworzy sieć wirtualna platformy Azure i podsieć.</span><span class="sxs-lookup"><span data-stu-id="625da-119">Creates an Azure virtual network and subnet.</span></span> |
+| [<span data-ttu-id="625da-120">Tworzenie sieci az publicznego ip</span><span class="sxs-lookup"><span data-stu-id="625da-120">az network public-ip create</span></span>](https://docs.microsoft.com/cli/azure/network/public-ip#create) | <span data-ttu-id="625da-121">Tworzy publiczny adres IP z statyczny adres IP i skojarzonej nazwy DNS.</span><span class="sxs-lookup"><span data-stu-id="625da-121">Creates a public IP address with a static IP address and an associated DNS name.</span></span> |
+| [<span data-ttu-id="625da-122">Utwórz równoważeniem obciążenia sieciowego az</span><span class="sxs-lookup"><span data-stu-id="625da-122">az network lb create</span></span>](https://docs.microsoft.com/cli/azure/network/lb#create) | <span data-ttu-id="625da-123">Tworzy moduł równoważenia obciążenia Azure.</span><span class="sxs-lookup"><span data-stu-id="625da-123">Creates an Azure Load Balancer.</span></span> |
+| [<span data-ttu-id="625da-124">Utwórz sondowania równoważeniem obciążenia sieciowego az</span><span class="sxs-lookup"><span data-stu-id="625da-124">az network lb probe create</span></span>](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | <span data-ttu-id="625da-125">Tworzy sondę modułu równoważenia obciążenia.</span><span class="sxs-lookup"><span data-stu-id="625da-125">Creates a load balancer probe.</span></span> <span data-ttu-id="625da-126">Sondę modułu równoważenia obciążenia jest używany do monitorowania każdej maszyny Wirtualnej w zestawie usługi równoważenia obciążenia.</span><span class="sxs-lookup"><span data-stu-id="625da-126">A load balancer probe is used to monitor each VM in the load balancer set.</span></span> <span data-ttu-id="625da-127">Jeśli żadnej maszyny Wirtualnej staje się niedostępny, ruch nie jest kierowany do maszyny Wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="625da-127">If any VM becomes inaccessible, traffic is not routed to the VM.</span></span> |
+| [<span data-ttu-id="625da-128">Utwórz regułę równoważeniem obciążenia sieciowego az</span><span class="sxs-lookup"><span data-stu-id="625da-128">az network lb rule create</span></span>](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | <span data-ttu-id="625da-129">Tworzy regułę modułu równoważenia obciążenia.</span><span class="sxs-lookup"><span data-stu-id="625da-129">Creates a load balancer rule.</span></span> <span data-ttu-id="625da-130">W tym przykładzie jest tworzona reguła dla portu 80.</span><span class="sxs-lookup"><span data-stu-id="625da-130">In this sample, a rule is created for port 80.</span></span> <span data-ttu-id="625da-131">Jak ruchu HTTP dociera do usługi równoważenia obciążenia, jest kierowany do portu 80 jednej z maszyn wirtualnych w zestawie usługi równoważenia obciążenia.</span><span class="sxs-lookup"><span data-stu-id="625da-131">As HTTP traffic arrives at the load balancer, it is routed to port 80 one of the VMs in the load balancer set.</span></span> |
+| [<span data-ttu-id="625da-132">Utwórz az sieci lb-ip frontonu</span><span class="sxs-lookup"><span data-stu-id="625da-132">az network lb frontend-ip create</span></span>](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) | <span data-ttu-id="625da-133">Utwórz adres IP frontonu dla usługi równoważenia obciążenia.</span><span class="sxs-lookup"><span data-stu-id="625da-133">Create a frontend IP address for the Load Balancer.</span></span> |
+| [<span data-ttu-id="625da-134">AZ lb puli adresów sieciowych — tworzenie</span><span class="sxs-lookup"><span data-stu-id="625da-134">az network lb address-pool create</span></span>](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) | <span data-ttu-id="625da-135">Tworzy puli adresów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="625da-135">Creates a backend address pool.</span></span> |
+| [<span data-ttu-id="625da-136">Utwórz az kart interfejsu sieciowego</span><span class="sxs-lookup"><span data-stu-id="625da-136">az network nic create</span></span>](https://docs.microsoft.com/cli/azure/network/nic#create) | <span data-ttu-id="625da-137">Tworzy karty sieci wirtualnej i dołącza go do sieci wirtualnej i podsieci.</span><span class="sxs-lookup"><span data-stu-id="625da-137">Creates a virtual network card and attaches it to the virtual network, and subnet.</span></span> |
+| [<span data-ttu-id="625da-138">Tworzenie maszyny wirtualnej az zestawu dostępności</span><span class="sxs-lookup"><span data-stu-id="625da-138">az vm availability-set create</span></span>](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | <span data-ttu-id="625da-139">Tworzy zestaw dostępności.</span><span class="sxs-lookup"><span data-stu-id="625da-139">Creates an availability set.</span></span> <span data-ttu-id="625da-140">Zestawy dostępności upewnij się, czas działania aplikacji poprzez rozłożenie zasobów fizycznych maszyny wirtualnej tak, aby w przypadku niepowodzenia cały zestaw nie jest wykonywane.</span><span class="sxs-lookup"><span data-stu-id="625da-140">Availability sets ensure application uptime by spreading the virtual machines across physical resources such that if failure occurs, the entire set is not effected.</span></span> |
+| [<span data-ttu-id="625da-141">Tworzenie kart sieciowych az ip-config</span><span class="sxs-lookup"><span data-stu-id="625da-141">az network nic ip-config create</span></span>](https://docs.microsoft.com/cli/azure/network/nic/ip-config#create) | <span data-ttu-id="625da-142">Tworzy confiuration IP.</span><span class="sxs-lookup"><span data-stu-id="625da-142">Creates an IP confiuration.</span></span> <span data-ttu-id="625da-143">Musi być funkcja Microsoft.Network/AllowMultipleIpConfigurationsPerNic włączona dla Twojej subskrypcji.</span><span class="sxs-lookup"><span data-stu-id="625da-143">You must have the Microsoft.Network/AllowMultipleIpConfigurationsPerNic feature enabled for your subscription.</span></span> <span data-ttu-id="625da-144">Tylko jedną konfigurację mogą być oznaczone jako podstawową konfigurację protokołu IP dla karty Sieciowej, za pomocą flagi — podstawowy upewnij.</span><span class="sxs-lookup"><span data-stu-id="625da-144">Only one configuration may be designated as the primary IP configuration per NIC, using the --make-primary flag.</span></span> |
+| [<span data-ttu-id="625da-145">Tworzenie maszyny wirtualnej az</span><span class="sxs-lookup"><span data-stu-id="625da-145">az vm create</span></span>](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | <span data-ttu-id="625da-146">Tworzy maszynę wirtualną i podłączony do karty sieciowej, sieci wirtualnej, podsieci i NSG.</span><span class="sxs-lookup"><span data-stu-id="625da-146">Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG.</span></span> <span data-ttu-id="625da-147">To polecenie określa również obraz maszyny wirtualnej ma być używane i zapewnić poświadczenia administracyjne.</span><span class="sxs-lookup"><span data-stu-id="625da-147">This command also specifies the virtual machine image to be used and administrative credentials.</span></span>  |
+| [<span data-ttu-id="625da-148">Usuwanie grupy az</span><span class="sxs-lookup"><span data-stu-id="625da-148">az group delete</span></span>](https://docs.microsoft.com/cli/azure/vm/extension#set) | <span data-ttu-id="625da-149">Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów.</span><span class="sxs-lookup"><span data-stu-id="625da-149">Deletes a resource group including all nested resources.</span></span> |
+
+## <a name="next-steps"></a><span data-ttu-id="625da-150">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="625da-150">Next steps</span></span>
+
+<span data-ttu-id="625da-151">Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="625da-151">For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
+
+<span data-ttu-id="625da-152">Dodatkowe przykłady skryptów sieci interfejsu wiersza polecenia można znaleźć w [Azure Przegląd dokumentacji](../cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="625da-152">Additional networking CLI script samples can be found in the [Azure Networking Overview documentation](../cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).</span></span>

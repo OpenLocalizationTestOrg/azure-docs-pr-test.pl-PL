@@ -1,0 +1,62 @@
+---
+title: "Przegląd kondycji usługi platformy Azure | Dokumentacja firmy Microsoft"
+description: "Spersonalizowane informacje o aplikacji Azure wpływu problemów aktualnych i przyszłych usługi Azure i konserwacji."
+services: Resource health
+documentationcenter: 
+author: rboucher
+manager: 
+editor: 
+ms.assetid: 
+ms.service: service-health
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: Supportability
+ms.date: 07/07/2017
+ms.author: robb
+ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/29/2017
+---
+# <a name="azure-service-health"></a><span data-ttu-id="5d136-103">Azure Service Health</span><span class="sxs-lookup"><span data-stu-id="5d136-103">Azure Service Health</span></span>
+<span data-ttu-id="5d136-104">Kondycja usługi Azure zawiera informacje o odpowiednim i spersonalizowane, gdy problemy w usługach Azure mieć wpływ na usługi.</span><span class="sxs-lookup"><span data-stu-id="5d136-104">Azure Service Health provides timely and personalized information when problems in Azure services impact your services.</span></span>  <span data-ttu-id="5d136-105">Można go również przygotować do najbliższej planowanej konserwacji.</span><span class="sxs-lookup"><span data-stu-id="5d136-105">It also helps you prepare for upcoming planned maintenance.</span></span>
+
+## <a name="service-health-events"></a><span data-ttu-id="5d136-106">Zdarzenia kondycji usługi</span><span class="sxs-lookup"><span data-stu-id="5d136-106">Service Health Events</span></span>
+<span data-ttu-id="5d136-107">Kondycja usługi śledzi trzy typy zdarzeń kondycji, które mogą mieć wpływ na zasoby:</span><span class="sxs-lookup"><span data-stu-id="5d136-107">Service Health tracks three types of health events that may impact your resources:</span></span>
+1. <span data-ttu-id="5d136-108">**Usługa problemów** -problemy z usług Azure wpływających od razu.</span><span class="sxs-lookup"><span data-stu-id="5d136-108">**Service issues** - Problems in the Azure services that affect you right now.</span></span> 
+2. <span data-ttu-id="5d136-109">**Zaplanowanej konserwacji** -najbliższej konserwacji, które mogą mieć wpływ na dostępność usług w przyszłości.</span><span class="sxs-lookup"><span data-stu-id="5d136-109">**Planned maintenance** - Upcoming maintenance that can affect the availability of your services in the future.</span></span>  
+3. <span data-ttu-id="5d136-110">**Klasyfikatory kondycji** -zmiany w usługach Azure, które wymagają Twojej uwagi.</span><span class="sxs-lookup"><span data-stu-id="5d136-110">**Health advisories** - Changes in Azure services that require your attention.</span></span> <span data-ttu-id="5d136-111">Przykłady obejmują funkcje platformy Azure są przestarzałe lub przekracza przydział użycia.</span><span class="sxs-lookup"><span data-stu-id="5d136-111">Examples include when Azure features are deprecated or if you exceed a usage quota.</span></span>
+
+    ![Zdarzenia kondycji usługi](./media/service-health-overview/azure-service-health-overview-7.png)
+
+## <a name="get-started-with-service-health"></a><span data-ttu-id="5d136-113">Wprowadzenie do usługi kondycji</span><span class="sxs-lookup"><span data-stu-id="5d136-113">Get started with Service Health</span></span>
+<span data-ttu-id="5d136-114">Aby uruchomić Pulpit nawigacyjny kondycji usługi, wybierz Kafelek kondycja usługi na pulpicie nawigacyjnym portalu.</span><span class="sxs-lookup"><span data-stu-id="5d136-114">To launch your Service Health dashboard, select the Service Health tile on your portal dashboard.</span></span> <span data-ttu-id="5d136-115">Jeśli Kafelek wcześniej zostały usunięte lub jest używany niestandardowy pulpit nawigacyjny, wyszukaj usługi usługi kondycji w "Więcej usługi" (dołu w lewo na pulpicie nawigacyjnym).</span><span class="sxs-lookup"><span data-stu-id="5d136-115">If you have previously removed the tile or you're using custom dashboard, search for Service Health service in "More services" (bottom left on your dashboard).</span></span>
+<span data-ttu-id="5d136-116">![Wprowadzenie do usługi kondycji](./media/service-health-overview/azure-service-health-overview-1.png)</span><span class="sxs-lookup"><span data-stu-id="5d136-116">![Get started with Service Health](./media/service-health-overview/azure-service-health-overview-1.png)</span></span>
+
+## <a name="see-current-issues-which-impact-your-services"></a><span data-ttu-id="5d136-117">Zobacz bieżących problemach mogących mieć wpływ na usługi</span><span class="sxs-lookup"><span data-stu-id="5d136-117">See current issues which impact your services</span></span>
+<span data-ttu-id="5d136-118">**Usługi problemów** widok zawiera wszystkie bieżące problemy w usług Azure, które wpływają na Twoich zasobów.</span><span class="sxs-lookup"><span data-stu-id="5d136-118">The **Service issues** view shows any ongoing problems in Azure services that are impacting your resources.</span></span> <span data-ttu-id="5d136-119">Można zrozumieć, kiedy rozpoczął się problem i jakie usługi i regiony są w pełni funkcjonalne.</span><span class="sxs-lookup"><span data-stu-id="5d136-119">You can understand when the issue began, and what services and regions are impacted.</span></span> <span data-ttu-id="5d136-120">Można również odczytać najnowszą aktualizację, aby zrozumieć Azure czynności aby rozwiązać ten problem.</span><span class="sxs-lookup"><span data-stu-id="5d136-120">You can also read the most recent update to understand what Azure is doing to resolve the issue.</span></span> 
+<span data-ttu-id="5d136-121">![Problem dotyczący usługi zarządzania](./media/service-health-overview/azure-service-health-overview-2.png)</span><span class="sxs-lookup"><span data-stu-id="5d136-121">![Manage service issue](./media/service-health-overview/azure-service-health-overview-2.png)</span></span>
+
+<span data-ttu-id="5d136-122">Wybierz **potencjalny wpływ** kartę, aby zapoznać się z listą określonych zasobów własnej, które może występować problem.</span><span class="sxs-lookup"><span data-stu-id="5d136-122">Choose the **Potential impact** tab to see the specific list of resources you own that might be impacted by the issue.</span></span> <span data-ttu-id="5d136-123">Możesz pobrać listę CSV tych zasobów w celu udostępnienia zespołowi.</span><span class="sxs-lookup"><span data-stu-id="5d136-123">You can  download a CSV list of these resources to share with your team.</span></span>
+<span data-ttu-id="5d136-124">![Zarządzanie problem dotyczący usługi — wpływ](./media/service-health-overview/azure-service-health-overview-4.png)</span><span class="sxs-lookup"><span data-stu-id="5d136-124">![Manage service issue - Impact](./media/service-health-overview/azure-service-health-overview-4.png)</span></span>
+
+## <a name="get-links-and-downloadable-explanations"></a><span data-ttu-id="5d136-125">Korzystać z linków i wyjaśnienia do pobrania</span><span class="sxs-lookup"><span data-stu-id="5d136-125">Get links and downloadable explanations</span></span> 
+<span data-ttu-id="5d136-126">Możesz uzyskać łącze problemu do użycia w systemie zarządzania problem.</span><span class="sxs-lookup"><span data-stu-id="5d136-126">You can get a link for the issue to use in your problem management system.</span></span> <span data-ttu-id="5d136-127">Możesz pobrać plików PDF i czasami pliki CSV można udostępniać osobom, które nie mają dostępu do portalu Azure.</span><span class="sxs-lookup"><span data-stu-id="5d136-127">You can download PDF and sometimes CSV files to share with people who don’t have access to the Azure portal.</span></span>   
+![Zarządzanie problem dotyczący usługi — Zarządzanie problemami](./media/service-health-overview/azure-service-health-overview-3.png)
+
+## <a name="get-support-from-microsoft"></a><span data-ttu-id="5d136-129">Uzyskiwanie pomocy technicznej firmy Microsoft</span><span class="sxs-lookup"><span data-stu-id="5d136-129">Get support from Microsoft</span></span>
+<span data-ttu-id="5d136-130">Jeśli zasób jest w złym stanie nawet po problem został rozwiązany, skontaktuj się z pomocą techniczną.</span><span class="sxs-lookup"><span data-stu-id="5d136-130">Contact support if your resource is left in a bad state even after the issue is resolved.</span></span>  <span data-ttu-id="5d136-131">Użyj łącza pomocy technicznej po prawej stronie.</span><span class="sxs-lookup"><span data-stu-id="5d136-131">Use the support links on the right of the page.</span></span>  
+
+## <a name="pin-a-personalized-health-map-to-your-dashboard"></a><span data-ttu-id="5d136-132">Przypnij mapę spersonalizowane kondycji do pulpitu nawigacyjnego</span><span class="sxs-lookup"><span data-stu-id="5d136-132">Pin a personalized health map to your dashboard</span></span>
+<span data-ttu-id="5d136-133">Filtr o krytycznym znaczeniu subskrypcji, regiony i typów zasobów kondycji usługi.</span><span class="sxs-lookup"><span data-stu-id="5d136-133">Filter Service Health to show your business-critical subscriptions, regions, and resource types.</span></span> <span data-ttu-id="5d136-134">Zapisz filtr i Przypnij mapę world spersonalizowane kondycji do pulpitu nawigacyjnego portalu.</span><span class="sxs-lookup"><span data-stu-id="5d136-134">Save the filter and pin a personalized health world map to your portal dashboard.</span></span> 
+<span data-ttu-id="5d136-135">![Mapa spersonalizowane kondycji filtru](./media/service-health-overview/azure-service-health-overview-6a.png)
+![Przypnij mapę spersonalizowane kondycji](./media/service-health-overview/azure-service-health-overview-6b.png)</span><span class="sxs-lookup"><span data-stu-id="5d136-135">![Filter personalized health map](./media/service-health-overview/azure-service-health-overview-6a.png)
+![Pin a personalized health map](./media/service-health-overview/azure-service-health-overview-6b.png)</span></span>
+
+## <a name="configure-service-health-alerts"></a><span data-ttu-id="5d136-136">Skonfiguruj alerty dotyczące kondycji usługi</span><span class="sxs-lookup"><span data-stu-id="5d136-136">Configure Service Health alerts</span></span>
+<span data-ttu-id="5d136-137">Kondycja usługi Azure integruje się z monitorem Azure za pośrednictwem wiadomości e-mail, wiadomości SMS i powiadomień elementu webhook otrzymywanie powiadomień wpływ na zasoby biznesowych o znaczeniu krytycznym.</span><span class="sxs-lookup"><span data-stu-id="5d136-137">Azure Service Health integrates with Azure Monitor to alert you via emails, text messages, and webhook notifications when your business-critical resources are impacted.</span></span> <span data-ttu-id="5d136-138">Konfigurowanie alertu dziennika aktywności odpowiedniego zdarzenia kondycji usługi.</span><span class="sxs-lookup"><span data-stu-id="5d136-138">Set up an activity log alert for the appropriate Service Health event.</span></span> <span data-ttu-id="5d136-139">Trasy alertu do odpowiednich osób w organizacji za pomocą grup akcji.</span><span class="sxs-lookup"><span data-stu-id="5d136-139">Route that alert to the appropriate people in your organization using Action Groups.</span></span> <span data-ttu-id="5d136-140">Aby uzyskać więcej informacji, zobacz [skonfigurować alerty dotyczące kondycji usługi](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)</span><span class="sxs-lookup"><span data-stu-id="5d136-140">For more information, see [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)</span></span>
+
+# <a name="next-steps"></a><span data-ttu-id="5d136-141">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="5d136-141">Next Steps</span></span>
+<span data-ttu-id="5d136-142">Konfigurowanie alertów, więc użytkownik jest powiadamiany o kondycji problemy.</span><span class="sxs-lookup"><span data-stu-id="5d136-142">Set up alerts so you are notified of health issues.</span></span> <span data-ttu-id="5d136-143">Aby uzyskać więcej informacji, zobacz [skonfigurować alerty dotyczące kondycji usługi](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).</span><span class="sxs-lookup"><span data-stu-id="5d136-143">For more information, see [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).</span></span> 

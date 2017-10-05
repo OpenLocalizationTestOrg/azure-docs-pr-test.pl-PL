@@ -1,0 +1,73 @@
+---
+title: "Obsługa kolejność zdarzeń i opóźnienie z usługą Azure Stream Analytics | Dokumentacja firmy Microsoft"
+description: "Dowiedz się więcej na temat działania usługi analiza strumienia poza kolejnością lub opóźnione zdarzenia w strumieniach danych."
+keywords: "zdarzenia poza kolejnością, późne,"
+documentationcenter: 
+services: stream-analytics
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 04/20/2017
+ms.author: jeffstok
+ms.openlocfilehash: a48e48c5fc65d0ffbb7c23f426a4b06dcd568821
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/29/2017
+---
+# <a name="azure-stream-analytics-event-order-handling"></a><span data-ttu-id="93100-104">Obsługa kolejność zdarzeń w usłudze Azure Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="93100-104">Azure Stream Analytics event order handling</span></span>
+
+<span data-ttu-id="93100-105">Każdego zdarzenia jest zarejestrowany w strumieniu danych czasowych zdarzenia, czas odebrania zdarzenia.</span><span class="sxs-lookup"><span data-stu-id="93100-105">In a temporal data stream of events, each event is recorded with the time that the event is received.</span></span> <span data-ttu-id="93100-106">Niektóre warunki może spowodować strumieni zdarzeń do od czasu do czasu otrzymania niektóre zdarzenia w innym porządku niż, które zostały wysłane.</span><span class="sxs-lookup"><span data-stu-id="93100-106">Some conditions might cause event streams to occasionally receive some events in a different order than which they were sent.</span></span> <span data-ttu-id="93100-107">Proste retransmisji TCP lub nawet przesunięcia czasowego zegara między urządzeniem wysyłania i odbierania Centrum zdarzeń może spowodować to możliwe.</span><span class="sxs-lookup"><span data-stu-id="93100-107">A simple TCP retransmit, or even a clock skew between the sending device and the receiving event hub might cause this to occur.</span></span> <span data-ttu-id="93100-108">"Znaki interpunkcyjne" zdarzenia również są dodawane do strumieni zdarzeń odebranych, można poprawić czasu braku Przyjazdy zdarzeń.</span><span class="sxs-lookup"><span data-stu-id="93100-108">“Punctuation” events also are added to received event streams, to advance the time in the absence of event arrivals.</span></span> <span data-ttu-id="93100-109">Są potrzebne w scenariuszach, takich jak "Powiadom mnie, jeśli nie logowania dla 3 minuty występują."</span><span class="sxs-lookup"><span data-stu-id="93100-109">These are needed in scenarios like “Notify me when no logins occur for 3 minutes."</span></span>
+
+<span data-ttu-id="93100-110">Strumienie wejściowe, które nie znajdują się w kolejności są:</span><span class="sxs-lookup"><span data-stu-id="93100-110">Input streams that are not in order are either:</span></span>
+* <span data-ttu-id="93100-111">Sortowane (i w związku z tym **opóźnione**).</span><span class="sxs-lookup"><span data-stu-id="93100-111">Sorted (and therefore **delayed**).</span></span>
+* <span data-ttu-id="93100-112">Dostosowane przez system, zgodnie z zasadami określonymi przez użytkownika.</span><span class="sxs-lookup"><span data-stu-id="93100-112">Adjusted by the system, according to a user-specified policy.</span></span>
+
+
+## <a name="lateness-tolerance"></a><span data-ttu-id="93100-113">Opóźnienie tolerancji</span><span class="sxs-lookup"><span data-stu-id="93100-113">Lateness tolerance</span></span>
+<span data-ttu-id="93100-114">Analiza strumienia zaakceptować tego rodzaju scenariusze.</span><span class="sxs-lookup"><span data-stu-id="93100-114">Stream Analytics tolerates these types of scenarios.</span></span> <span data-ttu-id="93100-115">Analiza strumienia ma obsługi dla zdarzenia "poza kolejnością" i "późne".</span><span class="sxs-lookup"><span data-stu-id="93100-115">Stream Analytics has handling for "out-of-order" and "late" events.</span></span> <span data-ttu-id="93100-116">Obsługuje on tych zdarzeń w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="93100-116">It handles these events in the following ways:</span></span>
+
+* <span data-ttu-id="93100-117">Zdarzenia przychodzące poza kolejnością, ale w granicach tolerancji zestawu są **ponownie uporządkowane według znaczników czasu**.</span><span class="sxs-lookup"><span data-stu-id="93100-117">Events that arrive out of order but within the set tolerance are **reordered by timestamp**.</span></span>
+* <span data-ttu-id="93100-118">Zdarzenia przychodzące później niż uszkodzenia są **porzucone lub dostosowywana**.</span><span class="sxs-lookup"><span data-stu-id="93100-118">Events that arrive later than tolerance are **dropped or adjusted**.</span></span>
+    * <span data-ttu-id="93100-119">**Dostosowana**: dostosowana do wydają się przybyły najnowszych akceptowalnego czasu.</span><span class="sxs-lookup"><span data-stu-id="93100-119">**Adjusted**: Adjusted to appear to have arrived at the latest acceptable time.</span></span>
+    * <span data-ttu-id="93100-120">**Porzucone**: odrzucone.</span><span class="sxs-lookup"><span data-stu-id="93100-120">**Dropped**: Discarded.</span></span>
+
+![Obsługa zdarzeń usługi analiza strumienia](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
+
+## <a name="reduce-the-number-of-out-of-order-events"></a><span data-ttu-id="93100-122">Zmniejsz liczbę zdarzeń poza kolejnością.</span><span class="sxs-lookup"><span data-stu-id="93100-122">Reduce the number of out-of-order events</span></span>
+
+<span data-ttu-id="93100-123">Ponieważ Stream Analytics stosuje transformację danych czasowych podczas przetwarzania zdarzenia przychodzącego (na przykład w przypadku agregacjami lub sprzężenia danych czasowych), Stream Analytics sortuje zdarzenia przychodzące według kolejności znaczników czasu.</span><span class="sxs-lookup"><span data-stu-id="93100-123">Because Stream Analytics applies a temporal transformation when it processes incoming events (for example, for windowed aggregates or temporal joins), Stream Analytics sorts incoming events by timestamp order.</span></span>
+
+<span data-ttu-id="93100-124">Gdy jest słowo kluczowe "sygnatury czasowej przez" **nie** , czas umieścić w kolejce zdarzeń usługi Azure Event Hubs jest używany domyślnie.</span><span class="sxs-lookup"><span data-stu-id="93100-124">When the “timestamp by” keyword is **not** used, the Azure Event Hubs event enqueue time is used by default.</span></span> <span data-ttu-id="93100-125">Centra zdarzeń gwarantuje monotonicity znacznika czasu na każdej partycji Centrum zdarzeń.</span><span class="sxs-lookup"><span data-stu-id="93100-125">Event Hubs guarantees monotonicity of the timestamp on each partition of the event hub.</span></span> <span data-ttu-id="93100-126">Gwarantuje również, że zostaną scalone zdarzenia ze wszystkich partycji w kolejności sygnatury czasowej.</span><span class="sxs-lookup"><span data-stu-id="93100-126">It also guarantees that events from all partitions will be merged in timestamp order.</span></span> <span data-ttu-id="93100-127">Upewnij się, te dwie usługi Event Hubs gwarancje żadne zdarzenia poza kolejnością.</span><span class="sxs-lookup"><span data-stu-id="93100-127">These two Event Hubs guarantees ensure no out-of-order events.</span></span>
+
+<span data-ttu-id="93100-128">Czasami jest ważne w przypadku użycia sygnatury czasowej nadawcy.</span><span class="sxs-lookup"><span data-stu-id="93100-128">Sometimes, it’s important for you to use the sender’s timestamp.</span></span> <span data-ttu-id="93100-129">W takim przypadku sygnatury czasowej z ładunku zdarzenia jest wybierany przy użyciu "sygnatura czasowa przez".</span><span class="sxs-lookup"><span data-stu-id="93100-129">In that case, a timestamp from the event payload is chosen by using “timestamp by.”</span></span> <span data-ttu-id="93100-130">W tych scenariuszach może zostać wprowadzony jeden lub więcej źródeł zdarzeń misorder:</span><span class="sxs-lookup"><span data-stu-id="93100-130">In these scenarios, one or more sources of event misorder might be introduced:</span></span>
+
+* <span data-ttu-id="93100-131">Producenci zdarzeń ma pochyla zegara.</span><span class="sxs-lookup"><span data-stu-id="93100-131">Event producers have clock skews.</span></span> <span data-ttu-id="93100-132">Jest to typowe, gdy producentów są z różnych komputerów, więc mają różne zegary.</span><span class="sxs-lookup"><span data-stu-id="93100-132">This is common when producers are from different computers, so they have different clocks.</span></span>
+* <span data-ttu-id="93100-133">Opóźnienie sieci ze źródła zdarzeń do Centrum zdarzeń docelowy nie istnieje.</span><span class="sxs-lookup"><span data-stu-id="93100-133">There's a network delay from the source of the events to the destination event hub.</span></span>
+* <span data-ttu-id="93100-134">Zegar pochyla istnieje między partycji Centrum zdarzeń.</span><span class="sxs-lookup"><span data-stu-id="93100-134">Clock skews exist between event hub partitions.</span></span> <span data-ttu-id="93100-135">Analiza strumienia najpierw sortuje zdarzenia ze wszystkich partycji Centrum zdarzeń przez czas trwania zdarzenia umieścić w kolejce.</span><span class="sxs-lookup"><span data-stu-id="93100-135">Stream Analytics first sorts events from all event hub partitions by event enqueue time.</span></span> <span data-ttu-id="93100-136">Następnie to sprawdza, czy strumień danych zdarzeń w nieprawidłowej kolejności.</span><span class="sxs-lookup"><span data-stu-id="93100-136">Then, it examines the data stream for misordered events.</span></span>
+
+<span data-ttu-id="93100-137">Na karcie Konfiguracja pojawić następujące wartości domyślne:</span><span class="sxs-lookup"><span data-stu-id="93100-137">On the configuration tab, you see the following defaults:</span></span>
+
+![Obsługa poza kolejnością analiza strumienia](media/stream-analytics-event-handling/stream-analytics-out-of-order-handling.png)
+
+<span data-ttu-id="93100-139">Jeśli używasz 0 sekund jako poza kolejnością tolerancji, są potwierdzające, że wszystkie zdarzenia są w kolejności cały czas.</span><span class="sxs-lookup"><span data-stu-id="93100-139">If you use 0 seconds as the out-of-order tolerance window, you are asserting that all events are in order all the time.</span></span> <span data-ttu-id="93100-140">Biorąc pod uwagę trzech źródeł w nieprawidłowej kolejności zdarzeń, jest mało prawdopodobne, że jest to wartość true.</span><span class="sxs-lookup"><span data-stu-id="93100-140">Given the three sources of misordered events, it’s unlikely that this is true.</span></span> 
+
+<span data-ttu-id="93100-141">Aby umożliwić Stream Analytics poprawić misorder zdarzeń, można określić tolerancji niezerowy poza kolejnością.</span><span class="sxs-lookup"><span data-stu-id="93100-141">To allow Stream Analytics to correct an event misorder, you can specify a non-zero out-of-order tolerance window.</span></span> <span data-ttu-id="93100-142">Analiza strumienia buforuje zdarzenia do tego okna, a następnie zmienia kolejność ich przy użyciu sygnatury czasowej, wybrana.</span><span class="sxs-lookup"><span data-stu-id="93100-142">Stream Analytics buffers events up to that window, and then reorders them by using the timestamp you chose.</span></span> <span data-ttu-id="93100-143">Następnie ma to zastosowanie transformacji danych czasowych.</span><span class="sxs-lookup"><span data-stu-id="93100-143">It then applies the temporal transformation.</span></span> <span data-ttu-id="93100-144">Można rozpoczynać okna 3 sekundy i dostosować wartość, aby zmniejszyć liczbę zdarzeń, które są dostosowywane w czasie.</span><span class="sxs-lookup"><span data-stu-id="93100-144">You can start with a 3-second window, and tune the value to reduce the number of events that are time-adjusted.</span></span> 
+
+<span data-ttu-id="93100-145">Efektem ubocznym buforowania jest dane wyjściowe **opóźniony o tej samej ilość czasu**.</span><span class="sxs-lookup"><span data-stu-id="93100-145">A side effect of the buffering is that the output is **delayed by the same amount of time**.</span></span> <span data-ttu-id="93100-146">Można dostosować wartość, aby zmniejszyć liczbę zdarzeń poza kolejnością i Zachowaj Niskie opóźnienie zadania.</span><span class="sxs-lookup"><span data-stu-id="93100-146">You can tune the value to reduce the number of out-of-order events, and keep the job latency low.</span></span>
+
+## <a name="get-help"></a><span data-ttu-id="93100-147">Uzyskiwanie pomocy</span><span class="sxs-lookup"><span data-stu-id="93100-147">Get help</span></span>
+<span data-ttu-id="93100-148">Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).</span><span class="sxs-lookup"><span data-stu-id="93100-148">For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="93100-149">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="93100-149">Next steps</span></span>
+* [<span data-ttu-id="93100-150">Wprowadzenie do usługi analiza strumienia</span><span class="sxs-lookup"><span data-stu-id="93100-150">Introduction to Stream Analytics</span></span>](stream-analytics-introduction.md)
+* [<span data-ttu-id="93100-151">Wprowadzenie do usługi analiza strumienia</span><span class="sxs-lookup"><span data-stu-id="93100-151">Get started with Stream Analytics</span></span>](stream-analytics-real-time-fraud-detection.md)
+* [<span data-ttu-id="93100-152">Zadania usługi analiza strumienia skali</span><span class="sxs-lookup"><span data-stu-id="93100-152">Scale Stream Analytics jobs</span></span>](stream-analytics-scale-jobs.md)
+* [<span data-ttu-id="93100-153">Dokumentacja języka zapytania usługi analiza strumienia</span><span class="sxs-lookup"><span data-stu-id="93100-153">Stream Analytics query language reference</span></span>](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [<span data-ttu-id="93100-154">Strumienia Analytics management REST API reference</span><span class="sxs-lookup"><span data-stu-id="93100-154">Stream Analytics management REST API reference</span></span>](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -1,0 +1,57 @@
+---
+title: "Pojęcia dotyczące serwera bazy danych Azure dla programu MySQL | Dokumentacja firmy Microsoft"
+description: "Ten temat zawiera zagadnienia i wskazówki dotyczące pracy z bazą danych Azure dla serwerów MySQL."
+services: mysql
+author: v-chenyh
+ms.author: v-chenyh
+manager: jhubbard
+editor: jasonwhowell
+ms.service: mysql-database
+ms.topic: article
+ms.date: 07/06/2017
+ms.openlocfilehash: a2556206ac53829fcd6ab92ffe292859349790d7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="server-concepts-in-azure-database-for-mysql"></a><span data-ttu-id="af394-103">Pojęcia dotyczące serwera bazy danych Azure dla programu MySQL</span><span class="sxs-lookup"><span data-stu-id="af394-103">Server concepts in Azure Database for MySQL</span></span>
+<span data-ttu-id="af394-104">Ten temat zawiera zagadnienia i wskazówki dotyczące pracy z bazą danych Azure dla serwerów MySQL.</span><span class="sxs-lookup"><span data-stu-id="af394-104">This topic provides considerations and guidelines for working with Azure Database for MySQL servers.</span></span>
+
+## <a name="what-is-an-azure-database-for-mysql-server"></a><span data-ttu-id="af394-105">Co to jest Azure bazy danych serwera MySQL?</span><span class="sxs-lookup"><span data-stu-id="af394-105">What is an Azure Database for MySQL server?</span></span>
+
+<span data-ttu-id="af394-106">Baza danych Azure MySQL serwera jest centralny punkt administracyjny dla wielu baz danych.</span><span class="sxs-lookup"><span data-stu-id="af394-106">An Azure Database for MySQL server is a central administrative point for multiple databases.</span></span> <span data-ttu-id="af394-107">Jest tym samym konstrukcja MySQL serwera można zapoznać się z na świecie lokalnych.</span><span class="sxs-lookup"><span data-stu-id="af394-107">It is the same MySQL server construct that you may be familiar with in the on-premises world.</span></span> <span data-ttu-id="af394-108">W szczególności bazą danych Azure dla usługi MySQL jest zarządzany, zapewnia gwarancje wydajności, udostępnia dostępu i funkcji na poziomie serwera.</span><span class="sxs-lookup"><span data-stu-id="af394-108">Specifically, the Azure Database for MySQL service is managed, provides performance guarantees, exposes access and features at server-level.</span></span>
+
+<span data-ttu-id="af394-109">Azure bazy danych MySQL serwera:</span><span class="sxs-lookup"><span data-stu-id="af394-109">An Azure Database for MySQL server:</span></span>
+
+- <span data-ttu-id="af394-110">Zostanie utworzone w subskrypcji platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="af394-110">Is created within an Azure subscription.</span></span>
+- <span data-ttu-id="af394-111">Jest zasobem nadrzędnej dla baz danych.</span><span class="sxs-lookup"><span data-stu-id="af394-111">Is the parent resource for databases.</span></span>
+- <span data-ttu-id="af394-112">Obejmuje przestrzeń nazw dla baz danych.</span><span class="sxs-lookup"><span data-stu-id="af394-112">Provides a namespace for databases.</span></span>
+- <span data-ttu-id="af394-113">To kontener z semantyki silne istnienia — usuwanie serwera i usuwa zawartych baz danych.</span><span class="sxs-lookup"><span data-stu-id="af394-113">Is a container with strong lifetime semantics - delete a server and it deletes the contained databases.</span></span>
+- <span data-ttu-id="af394-114">Collocates zasoby w regionie.</span><span class="sxs-lookup"><span data-stu-id="af394-114">Collocates resources in a region.</span></span>
+- <span data-ttu-id="af394-115">Udostępnia punkt końcowy połączenia dla serwera i dostęp do bazy danych.</span><span class="sxs-lookup"><span data-stu-id="af394-115">Provides a connection endpoint for server and database access.</span></span>
+- <span data-ttu-id="af394-116">Określa zakres dla zasad zarządzania, które są stosowane do jej baz danych: logowania, zapory, użytkowników, ról, konfiguracje itd.</span><span class="sxs-lookup"><span data-stu-id="af394-116">Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.</span></span>
+- <span data-ttu-id="af394-117">Jest dostępna w różnych wersjach.</span><span class="sxs-lookup"><span data-stu-id="af394-117">Is available in multiple versions.</span></span> <span data-ttu-id="af394-118">Aby uzyskać więcej informacji, zobacz [obsługiwane bazy danych Azure dla wersji bazy danych MySQL](./concepts-supported-versions.md).</span><span class="sxs-lookup"><span data-stu-id="af394-118">For more information, see [Supported Azure Database for MySQL database versions](./concepts-supported-versions.md).</span></span>
+
+<span data-ttu-id="af394-119">Na serwerze usługi Azure Database for MySQL można utworzyć jedną lub wiele baz danych.</span><span class="sxs-lookup"><span data-stu-id="af394-119">Within an Azure Database for MySQL server, you can create one or multiple databases.</span></span> <span data-ttu-id="af394-120">Można wybrać opcję utworzenia jednej bazy danych na serwer w celu wykorzystania wszystkich zasobów. Można też utworzyć wiele baz danych, współdzielących zasoby.</span><span class="sxs-lookup"><span data-stu-id="af394-120">You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources.</span></span> <span data-ttu-id="af394-121">Cennik strukturalnych na serwer, na podstawie konfiguracji warstwy cenowej obliczeniowe jednostki, Magazyn (GB).</span><span class="sxs-lookup"><span data-stu-id="af394-121">The pricing is structured per-server, based on the configuration of pricing tier, compute units, storage (GB).</span></span> <span data-ttu-id="af394-122">Aby uzyskać więcej informacji, zobacz [warstw cenowych](./concepts-service-tiers.md).</span><span class="sxs-lookup"><span data-stu-id="af394-122">For more information, see [Pricing tiers](./concepts-service-tiers.md).</span></span>
+
+## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a><span data-ttu-id="af394-123">Jak połączyć i uwierzytelniania do bazy danych MySQL serwera Azure?</span><span class="sxs-lookup"><span data-stu-id="af394-123">How do I connect and authenticate to an Azure Database for MySQL server?</span></span>
+
+<span data-ttu-id="af394-124">Następujące elementy zapewnić bezpieczny dostęp do bazy danych.</span><span class="sxs-lookup"><span data-stu-id="af394-124">The following elements help ensure safe access to your database.</span></span>
+
+|||
+| :-- | :-- |
+| <span data-ttu-id="af394-125">**Uwierzytelnianie i autoryzacja**</span><span class="sxs-lookup"><span data-stu-id="af394-125">**Authentication and authorization**</span></span> | <span data-ttu-id="af394-126">Azure bazy danych MySQL serwera obsługuje natywnych uwierzytelnianie MySQL.</span><span class="sxs-lookup"><span data-stu-id="af394-126">Azure Database for MySQL server supports native MySQL authentication.</span></span> <span data-ttu-id="af394-127">Możesz łączyć i uwierzytelniać się na serwerze z nazwą logowania administratora serwera.</span><span class="sxs-lookup"><span data-stu-id="af394-127">You can connect and authenticate to server with the server's admin login.</span></span> |
+| <span data-ttu-id="af394-128">**Protokół**</span><span class="sxs-lookup"><span data-stu-id="af394-128">**Protocol**</span></span> | <span data-ttu-id="af394-129">Usługa obsługuje protokół oparta na komunikatach używany przez MySQL.</span><span class="sxs-lookup"><span data-stu-id="af394-129">The service supports a message-based protocol used by MySQL.</span></span> |
+| <span data-ttu-id="af394-130">**PROTOKÓŁ TCP/IP**</span><span class="sxs-lookup"><span data-stu-id="af394-130">**TCP/IP**</span></span> | <span data-ttu-id="af394-131">Protokół jest obsługiwany za pośrednictwem protokołu TCP/IP i za pośrednictwem gniazda domeny systemu Unix.</span><span class="sxs-lookup"><span data-stu-id="af394-131">The protocol is supported over TCP/IP, and over Unix-domain sockets.</span></span> |
+| <span data-ttu-id="af394-132">**Zapora**</span><span class="sxs-lookup"><span data-stu-id="af394-132">**Firewall**</span></span> | <span data-ttu-id="af394-133">Aby chronić dane, regułę zapory uniemożliwia dostęp serwer bazy danych lub jej baz danych do chwili określenia komputery, które ma uprawnienia.</span><span class="sxs-lookup"><span data-stu-id="af394-133">To help protect your data, a firewall rule prevents all access to your database server, or to its databases, until you specify which computers have permission.</span></span> <span data-ttu-id="af394-134">Zobacz [bazą danych Azure dla reguł zapory serwera MySQL](./concepts-firewall-rules.md).</span><span class="sxs-lookup"><span data-stu-id="af394-134">See [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md).</span></span> |
+| <span data-ttu-id="af394-135">**PROTOKÓŁ SSL**</span><span class="sxs-lookup"><span data-stu-id="af394-135">**SSL**</span></span> | <span data-ttu-id="af394-136">Usługa obsługuje wymuszenie połączenia SSL między aplikacjami a serwerem bazy danych.</span><span class="sxs-lookup"><span data-stu-id="af394-136">The service supports enforcing SSL connections between your applications and your database server.</span></span>  <span data-ttu-id="af394-137">Zobacz [Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MySQL](./howto-configure-ssl.md).</span><span class="sxs-lookup"><span data-stu-id="af394-137">See [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).</span></span> |
+|||
+
+## <a name="how-do-i-manage-a-server"></a><span data-ttu-id="af394-138">Jak zarządzać serwerem?</span><span class="sxs-lookup"><span data-stu-id="af394-138">How do I manage a server?</span></span>
+<span data-ttu-id="af394-139">Baza danych Azure dla serwerów MySQL można zarządzać za pomocą portalu Azure lub interfejsu wiersza polecenia Azure.</span><span class="sxs-lookup"><span data-stu-id="af394-139">You can manage Azure Database for MySQL servers by using the Azure portal or the Azure CLI.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="af394-140">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="af394-140">Next steps</span></span>
+- <span data-ttu-id="af394-141">Aby zapoznać się z omówieniem usługi, zobacz [Azure bazy danych MySQL — omówienie](./overview.md)</span><span class="sxs-lookup"><span data-stu-id="af394-141">For an overview of the service, see [Azure Database for MySQL Overview](./overview.md)</span></span>
+- <span data-ttu-id="af394-142">Aby uzyskać informacje dotyczące określonego zasobu Przydziały i ograniczenia na podstawie Twojej **warstwy usług**, zobacz [warstwy usług](./concepts-service-tiers.md)</span><span class="sxs-lookup"><span data-stu-id="af394-142">For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-service-tiers.md)</span></span>
+- <span data-ttu-id="af394-143">Aby uzyskać informacje dotyczące połączenia z usługą, zobacz [biblioteki połączeń dla bazy danych Azure dla programu MySQL](./concepts-connection-libraries.md).</span><span class="sxs-lookup"><span data-stu-id="af394-143">For information about connecting to the service, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md).</span></span>
