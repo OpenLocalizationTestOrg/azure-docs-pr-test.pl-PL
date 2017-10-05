@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Projektowanie wysokiej dostępności aplikacji przy użyciu RA-GRS
 

@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentacja usługi Container Service
+metadata:
+  document_id: null
+  title: Dokumentacja usługi Azure Container Service — samouczki i dokumentacja interfejsu API | Microsoft Docs
+  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07-21-2017
+  ms.author: carolz
+abstract:
+  description: 'Usługa Azure Container Service pozwala na szybkie wdrożenie gotowego do użycia w warunkach produkcyjnych klastra Kubernetes, DC/OS lub Docker Swarm. Dowiedz się, jak używać usługi Azure Container Service, korzystając z tych przewodników Szybki start, samouczków i przykładów.'
+sections:
+  - title: null
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Wprowadzenie do klastrów Kubernetes
+            href: /azure/container-service/kubernetes
+            image:
+              src: media/index/get-started.svg
+              href: /azure/container-service/kubernetes
+          - title: Wprowadzenie do klastrów DC/OS i Docker Swarm
+            href: /azure/container-service/dcos-swarm
+            image:
+              src: media/index/get-started.svg
+              href: /azure/container-service/dcos-swarm
