@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Marketo | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i usługi Marketo."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i usługi Marketo."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: e146fd5a8075bc9c7ba049b25e5f301fc2645ed9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 87f88cde4f027f99a83c1ab3b318247bb4d658ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Samouczek: Integracji Azure Active Directory z usługi Marketo
 
-Z tego samouczka dowiesz się Integrowanie usługi Marketo w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate Marketo w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie usługi Marketo w usłudze Azure AD zapewnia następujące korzyści:
+Integrowanie usługi Marketo w usłudze Azure AD zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do usługi Marketo
-- Umożliwia użytkownikom automatycznie pobrać podpisany w przypadku usługi Marketo (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooMarketo
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooMarketo (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z Marketo, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z Marketo należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Usługi Marketo jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie usługi Marketo z galerii
+1. Dodawanie usługi Marketo z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-marketo-from-the-gallery"></a>Dodawanie usługi Marketo z galerii
-Aby skonfigurować integrację usługi Marketo w usłudze Azure Active Directory, należy dodać Marketo z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-marketo-from-hello-gallery"></a>Dodawanie usługi Marketo z galerii hello
+tooconfigure hello integracji usługi Marketo w usłudze Azure Active Directory, należy tooadd Marketo od hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać usługi Marketo z galerii, wykonaj następujące czynności:**
+**tooadd Marketo z galerii hello wykonaj hello następujące kroki:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **Marketo**.
+4. W polu wyszukiwania hello wpisz **Marketo**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_search.png)
 
-5. W panelu wyników wybierz **Marketo**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello, wybierz **Marketo**, a następnie kliknij przycisk **Dodaj** przycisk tooadd hello aplikacji.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z usługi Marketo oparte na koncie użytkownika testu o nazwie "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Marketo jest dla użytkownika, w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Marketo.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Marketo jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Marketo musi toobe ustanowione.
 
-W Marketo, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W Marketo, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Marketo, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Marketo, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Marketo](#creating-a-marketo-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Marketo połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Marketo](#creating-a-marketo-test-user)**  -toohave odpowiednikiem Simona Britta w Marketo, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne do aplikacji usługi Marketo.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować rejestracji jednokrotnej w aplikacji usługi Marketo.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Marketo, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z Marketo, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **Marketo** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **Marketo** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_samlbase.png)
 
-3. Na **Marketo domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **Marketo domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_url.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://saml.marketo.com/sp`
+    a. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://saml.marketo.com/sp`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://login.marketo.com/saml/assertion/\<munchkinid\>`
+    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator i adres URL odpowiedzi, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej usługi Marketo](http://investors.marketo.com/contactus.cfm) uzyskać te wartości.
+    > Wartości te nie są prawdziwe. Witaj rzeczywisty identyfikator i odpowiedzi adresu URL, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej usługi Marketo](http://investors.marketo.com/contactus.cfm) tooget tych wartości.
  
-4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_certificate.png) 
 
@@ -125,174 +125,174 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_general_400.png)
 
-6. Na **konfiguracji usługi Marketo** kliknij **Konfiguruj usługi Marketo** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na powitania **konfiguracji usługi Marketo** kliknij **Konfiguruj usługi Marketo** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_configure.png) 
 
-7. Aby uzyskać identyfikator Munchkin aplikacji, zaloguj się przy użyciu poświadczeń administratora usługi Marketo i wykonania następujących czynności:
+7. tooget Munchkin identyfikator aplikacji, zaloguj się przy użyciu poświadczeń administratora tooMarketo i wykonania następujących czynności:
    
-    a. Zaloguj się do usługi Marketo aplikacji przy użyciu poświadczeń administratora.
+    a. Zaloguj się w aplikacji tooMarketo przy użyciu poświadczeń administratora.
    
-    b. Kliknij przycisk **Admin** przycisk w okienku nawigacji w górnym.
+    b. Kliknij przycisk hello **Admin** przycisk w okienku nawigacji w górnym hello.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Przejdź do menu integracji i kliknij **łącze Munchkin**.
+    c. Przejdź do menu integracji toohello, a następnie kliknij przycisk hello **łącze Munchkin**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_11.png)
    
-    d. Skopiuj identyfikator Munchkin wyświetlone na ekranie i wykonaj adres URL odpowiedzi, w Kreatorze konfiguracji usługi Azure AD.
+    d. Skopiuj identyfikator Munchkin wyświetlany na ekranie powitania hello i wykonaj adres URL odpowiedzi, w Kreatorze konfiguracji hello Azure AD.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_12.png) 
 
-8. Aby skonfigurować logowanie Jednokrotne w aplikacji, wykonaj następujące czynności:
+8. Witaj tooconfigure logowania jednokrotnego w aplikacji hello wykonaj hello następujące czynności:
    
-    a. Zaloguj się do usługi Marketo aplikacji przy użyciu poświadczeń administratora.
+    a. Zaloguj się w aplikacji tooMarketo przy użyciu poświadczeń administratora.
    
-    b. Kliknij przycisk **Admin** przycisk w okienku nawigacji w górnym.
+    b. Kliknij przycisk hello **Admin** przycisk w okienku nawigacji w górnym hello.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Przejdź do menu integracji i kliknij **rejestracji jednokrotnej**.
+    c. Przejdź do menu integracji toohello i kliknij przycisk **rejestracji jednokrotnej**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
    
-    d. Aby włączyć ustawienia SAML, kliknij przycisk **Edytuj** przycisku.
+    d. tooenable hello SAML ustawienia, kliknij przycisk **Edytuj** przycisku.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
    
     e. **Włączone** ustawienia logowania jednokrotnego.
    
-    f. Wklej **identyfikator jednostki SAML**w **identyfikator wystawcy** pola tekstowego.
+    f. Wklej hello **identyfikator jednostki SAML**, w hello **identyfikator wystawcy** pola tekstowego.
    
-    g. W **identyfikator jednostki** pole tekstowe, wprowadź adres URL jako `http://saml.marketo.com/sp`.
+    g. W hello **identyfikator jednostki** pole tekstowe, wprowadź adres URL hello jako `http://saml.marketo.com/sp`.
    
-    h. Wybierz lokalizację identyfikator użytkownika jako **element nazwa identyfikatora**.
+    h. Wybierz hello lokalizacji identyfikator użytkownika jako **element nazwa identyfikatora**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
    
     > [!NOTE]
-    > Jeśli Twojego identyfikatora użytkownika nie ma wartości głównej nazwy użytkownika, a następnie zmień wartość na karcie atrybutu.
+    > Jeśli Twojego identyfikatora użytkownika nie ma wartości głównej nazwy użytkownika, a następnie zmień wartość hello hello atrybutu karcie.
    
-    i. Przekaż certyfikat, który został pobrany z Kreatora konfiguracji usługi Azure AD. **Zapisz** ustawienia.
+    i. Przekaż certyfikat hello, który został pobrany z Kreatora konfiguracji usługi Azure AD. **Zapisz** hello ustawienia.
    
-    j. Edytowanie ustawień stron przekierowania.
+    j. Edytowanie ustawień stron przekierowania hello.
    
-    k. Wklej **SAML pojedynczy znak na adres URL usługi** w **adres URL logowania** pola tekstowego.
+    k. Wklej hello **SAML pojedynczy znak na adres URL usługi** w hello **adres URL logowania** pola tekstowego.
    
-    l. Wklej **Sign-Out URL** w **adresu URL wylogowania** pola tekstowego.
+    l. Wklej hello **Sign-Out URL** w hello **adresu URL wylogowania** pola tekstowego.
    
-    m. W **adres URL błędu**, kopia programu **adresu URL wystąpienia usługi Marketo** i kliknij przycisk **zapisać** przycisk, aby zapisać ustawienia.
+    m. W hello **adres URL błędu**, kopia programu **adresu URL wystąpienia usługi Marketo** i kliknij przycisk **zapisać** przycisk toosave ustawienia.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
 
-9. Aby włączyć logowanie Jednokrotne dla użytkowników, wykonaj następujące czynności:
+9. tooenable hello logowania jednokrotnego dla użytkowników, pełną hello następujące akcje:
    
-    a. Zaloguj się do usługi Marketo aplikacji przy użyciu poświadczeń administratora.
+    a. Zaloguj się w aplikacji tooMarketo przy użyciu poświadczeń administratora.
    
-    b. Kliknij przycisk **Admin** przycisk w okienku nawigacji w górnym.
+    b. Kliknij przycisk hello **Admin** przycisk w okienku nawigacji w górnym hello.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Przejdź do **zabezpieczeń** menu i kliknij przycisk **ustawienia logowania**.
+    c. Przejdź toohello **zabezpieczeń** menu i kliknij przycisk **ustawienia logowania**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_13.png)
    
-    d. Sprawdź **wymagają rejestracji Jednokrotnej** opcji i **zapisać** ustawienia.
+    d. Sprawdź hello **wymagają rejestracji Jednokrotnej** opcji i **zapisać** hello ustawienia.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_14.png)
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-marketo-test-user"></a>Tworzenie użytkownika testowego usługi Marketo
 
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w Marketo. wykonaj następujące kroki, aby utworzyć użytkownika usługi Marketo platformy.
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w Marketo. Wykonaj te kroki toocreate użytkownika na platformie Marketo.
 
-1. Zaloguj się do usługi Marketo aplikacji przy użyciu poświadczeń administratora.
+1. Zaloguj się w aplikacji tooMarketo przy użyciu poświadczeń administratora.
 
-2. Kliknij przycisk **Admin** przycisk w okienku nawigacji w górnym.
+2. Kliknij przycisk hello **Admin** przycisk w okienku nawigacji w górnym hello.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
 
-3. Przejdź do **zabezpieczeń** menu i kliknij przycisk **użytkownicy i role**
+3. Przejdź toohello **zabezpieczeń** menu i kliknij przycisk **użytkownicy i role**
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_19.png)  
 
-4. Kliknij przycisk **zaprosić nowego użytkownika** link na karcie Użytkownicy
+4. Kliknij przycisk hello **zaprosić nowego użytkownika** link na karcie Użytkownicy hello
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_15.png) 
 
-5. W Kreatorze nowego użytkownika z zaproszeniem wypełnij następujące informacje
+5. W hello zaprosić nowego użytkownika Kreatora wypełnienia hello następujących informacji
    
-    a. Wprowadź nazwę danego użytkownika **E-mail** adres w polu tekstowym
+    a. Wprowadź nazwę użytkownika hello **E-mail** adres w polu tekstowym hello
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_16.png)
    
-    b. Wprowadź **imię** w polu tekstowym
+    b. Wprowadź hello **imię** w polu tekstowym hello
    
-    c. Wprowadź **nazwisko** w polu tekstowym
+    c. Wprowadź hello **nazwisko** w polu tekstowym hello
    
     d. Kliknij przycisk **Dalej**
 
-6. W **uprawnienia** wybierz opcję **roli użytkownika** i kliknij przycisk **dalej**
+6. W hello **uprawnienia** kartę, zaznacz hello **roli użytkownika** i kliknij przycisk **dalej**
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_17.png)
-7. Kliknij przycisk **wysyłania** przycisk, aby wysłać zaproszenie użytkownika
+7. Kliknij przycisk hello **wysyłania** przycisk toosend hello użytkownika zaproszenia
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_18.png)
 
-8. Użytkownik otrzymuje powiadomienie e-mail i kliknij łącze i Zmień hasło, aby aktywować konto. 
+8. Użytkownik otrzymuje powiadomienie e-mail hello i hello tooclick łącze i zmień hello hasło tooactivate hello konta. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania jednokrotnego za udzielanie dostępu do usługi Marketo.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooMarketo.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta Marketo, wykonaj następujące czynności:**
+**tooassign tooMarketo Simona Britta wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **Marketo**.
+2. Z listy aplikacji hello wybierz **Marketo**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -300,7 +300,7 @@ W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania 
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -308,13 +308,13 @@ W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania 
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka Marketo w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji usługi Marketo.
+Po kliknięciu kafelka Marketo hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Marketo aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

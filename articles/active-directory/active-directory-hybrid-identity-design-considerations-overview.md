@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości - Przegląd | Dokumentacja firmy Microsoft"
+title: "aaaAzure usługi Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości - Przegląd | Dokumentacja firmy Microsoft"
 description: "Omówienie i Mapa zawartości z przewodnika po zagadnieniach dotyczących projektowania tożsamości hybrydowej"
 documentationcenter: 
 services: active-directory
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e2a70f2474298618dd8ee11c583f8f445d7eba7d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 10aacb04c90abd100eb56d7c44d590946b052f18
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Zagadnienia dotyczące projektowania tożsamości hybrydowej usługi Azure Active Directory
-Konsumenckie urządzeń są proliferating world firmy i oprogramowania jako usługa (SaaS) aplikacji działających w chmurze są łatwe do przyjęcia. W związku z tym zachowaniu kontroli nad dostęp do aplikacji użytkowników wewnętrznych platformach centrów danych i w chmurze może być trudne.  
+Konsumenckie urządzeń są rozmnażające Witaj świecie firmy i oprogramowania jako usługa (SaaS) aplikacji działających w chmurze są łatwe tooadopt. W związku z tym zachowaniu kontroli nad dostęp do aplikacji użytkowników wewnętrznych platformach centrów danych i w chmurze może być trudne.  
 
-Firmy Microsoft tożsamościach span lokalnych i chmurze możliwości tworzenia tożsamością jednego użytkownika do uwierzytelniania i autoryzacji do wszystkich zasobów, niezależnie od lokalizacji. Nazywamy to tożsamość hybrydowa. Brak różnorodności rozwiązań i opcji konfiguracji dla tożsamość hybrydowa korzystania z rozwiązań firmy Microsoft, a w niektórych przypadkach może być trudne do ustalenia, która kombinacja będzie najlepiej odpowiadać potrzebom organizacji. 
+Firmy Microsoft tożsamościach span lokalnych i chmurze możliwości tworzenia tożsamością jednego użytkownika do uwierzytelniania i autoryzacji zasobów tooall, bez względu na lokalizację. Nazywamy to tożsamość hybrydowa. Istnieją różne opcje projektowania i konfiguracji dla tożsamość hybrydowa korzystania z rozwiązań firmy Microsoft, a w niektórych przypadkach może być trudne toodetermine kombinację najlepiej spełniającą hello potrzeb organizacji. 
 
-Przewodnik dla zagadnień projektowych ten hybrydowego tożsamości ułatwią zrozumienie sposobu projektowania rozwiązania z tożsamością hybrydową który najlepiej odpowiada biznesowe i technologiczne organizacji.  Ten przewodnik zawiera szczegóły serii kroków i zadań, które możesz wykonać, aby ułatwić projektowanie rozwiązania z tożsamością hybrydową spełniającego specyficzne wymagania danej organizacji. W ramach zadań i kroków przewodnik przedstawia odpowiednich technologii i funkcji opcji dostępnych dla organizacji, które spełniają funkcjonalności i jakości usługi (np. dostępność, skalowalność, wydajność, możliwości zarządzania i bezpieczeństwo) poziom wymagania. 
+Ten przewodnik zagadnienia dotyczące projektowania tożsamości hybrydowego pomoże Ci toounderstand jak toodesign hybrydowego tożsamości, która najlepiej odpowiada hello biznesowych i technologicznych potrzeb organizacji.  Ten przewodnik zawiera szczegóły serii kroków i zadań, czy można wykonać toohelp Projektowanie rozwiązania z tożsamością hybrydową spełniającego specyficzne wymagania danej organizacji. W ramach zadań i kroków hello hello przewodnik przedstawia hello odpowiednich technologii i funkcji toomeet tooorganizations dostępne opcje funkcjonalności i jakości usługi (np. dostępność, skalowalność, wydajność, możliwości zarządzania i bezpieczeństwo) wymagań dotyczących poziomu. 
 
-W szczególności celów przewodnik zagadnienia dotyczące projektowania tożsamości hybrydowego mają odpowiedzieć na następujące pytania: 
+W szczególności cele przewodnik zagadnienia dotyczące projektu w tożsamości hybrydowego hello są hello tooanswer następujące pytania: 
 
-* Na jakie pytania muszę pytania i odpowiedzi do kierowania hybrydowego tożsamości specyficzne dla technologii lub dziedziny problemu czy najlepiej odpowiadają wymaganiom?
-* Jaką sekwencję działań powinno zakończyć Projektowanie rozwiązania z tożsamością hybrydową dla technologii lub dziedziny problemu? 
-* Jakie hybrydowego tożsamości technologii i konfiguracji są dostępne opcje ułatwiające spełnienie moich wymagań? Co to są kompromis między tymi opcjami, dzięki czemu można wybrać opcję najlepiej firmową?
+* Co zrobić pytania I wymagają tooask i odpowiedzi toodrive hybrydowego tożsamości specyficzne dla technologii lub dziedziny problemu czy najlepiej odpowiadają wymaganiom?
+* Jaką sekwencję działań należy zakończeniu toodesign rozwiązania z tożsamością hybrydową dla hello technologii lub dziedziny problemu? 
+* Jakie hybrydowego tożsamości technologii i opcje konfiguracji są toohelp dostępny me spełnienie moich wymagań? Co to są kompromisy hello jedną z tych opcji, w którym można wybrać hello najlepszym rozwiązaniem dla firmy?
 
 ## <a name="who-is-this-guide-intended-for"></a>Kogo jest przeznaczony ten przewodnik?
  CIO, CITO, architektów tożsamości główny, architektów przedsiębiorstwa i architekci systemów informatycznych odpowiedzialni za projektowanie rozwiązania z tożsamością hybrydową dla średnich i dużych organizacji.
 
 ## <a name="how-can-this-guide-help-you"></a>Jak może być pomocny ten przewodnik?
-Zrozumienie sposobu projektowania rozwiązania z tożsamością hybrydową, który jest w stanie zintegrować system zarządzania tożsamościami w chmurze wraz z bieżącym rozwiązaniem tożsamości lokalnych, można użyć w tym przewodniku. 
+Można użyć tego przewodnika toounderstand jak toodesign rozwiązania z tożsamością hybrydową, który jest w stanie toointegrate chmurę na podstawie tożsamości systemu zarządzania z bieżącym lokalnego rozwiązania z tożsamością. 
 
-Na poniższym rysunku przedstawiono przykład hybrydowego tożsamości, która umożliwia administratorom IT zarządzanie zintegrować ich bieżącym Windows Server Active Directory rozwiązania, znajdujących się lokalnie z Microsoft Azure Active Directory, aby użytkownicy mogli korzystać z logowania jednokrotnego ( SSO) w aplikacjach znajdujących się w chmurze i lokalnie.
+powitania po grafika przedstawia przykład rozwiązania z tożsamością hybrydową umożliwiający ich bieżącego systemu Windows Server Active Directory rozwiązania, znajdujących się na lokalnym Microsoft Azure Active Directory tooenable użytkowników toouse jednym toointegrate toomanage Administratorzy IT Logowania jednokrotnego (SSO) w aplikacjach znajdujących się w chmurze hello i lokalnych.
 
 ![](./media/hybrid-id-design-considerations/hybridID-example.png)
 
-Powyższej ilustracji jest przykładem rozwiązania z tożsamością hybrydową, który polega na wykorzystaniu usług w chmurze do integracji z funkcjami lokalnymi w celu zapewnienia jednego środowiska w procesie uwierzytelniania użytkownika końcowego i ułatwia zarządzanie tymi IT zasoby. Chociaż może to być bardzo typowy scenariusz, może być inna niż przykładzie pokazano na rysunku 1 z powodu różnych wymogów jest projektowania tożsamości hybrydowej każdej organizacji. 
+Witaj powyżej ilustracji jest przykładem rozwiązania z tożsamością hybrydową wykorzystujący chmury usług toointegrate z funkcjami lokalnymi w kolejności tooprovide proces uwierzytelniania użytkownika końcowego toohello pojedynczego środowisko i toofacilitate IT zarządzanie te zasoby. Chociaż może to być bardzo typowy scenariusz, projektowania tożsamości hybrydowej każda organizacja jest prawdopodobnie toobe inne niż przykład Witaj przedstawione na rysunku 1 z powodu toodifferent wymagania. 
 
-Ten przewodnik zawiera serię kroków i zadań, które można wykonać w celu zaprojektowania rozwiązania z tożsamością hybrydową spełniającego specyficzne wymagania danej organizacji. Poniższe kroki i zadania przewodnik przedstawia informacje o odpowiednich technologiach i opcjach funkcji dostępnych w celu spełnienia funkcjonalne i dotyczące poziomu jakości usług dla Twojej organizacji.
+Ten przewodnik zawiera serię kroków i zadań, czy można wykonać toodesign rozwiązania z tożsamością hybrydową spełniającego specyficzne wymagania danej organizacji. Poniższe kroki i zadania, hello przewodnik przedstawia informacje o liczbie hello odpowiednich technologii i funkcji w całym hello opcje dotyczące poziomu jakości funkcjonalności i usługi toomeet tooyou dostępne dla Twojej organizacji.
 
 **Założenia**: użytkownik ma pewne doświadczenie z systemu Windows Server, usług domenowych w usłudze Active Directory i Azure Active Directory. W tym dokumencie przyjęto założenie, że użytkownik chce się dowiedzieć, jak te rozwiązania mogą spełnić potrzeby biznesowe samodzielnie lub w rozwiązaniu zintegrowanym.
 
 ## <a name="design-considerations-overview"></a>Omówienie zagadnień dotyczących projektowania
-Ten dokument zawiera zestaw kroków i zadań, które można wykonać w celu zaprojektowania rozwiązania z tożsamością hybrydową, która najlepiej odpowiada wymaganiom. Kroki są prezentowane w uporządkowanej kolejności. Zagadnienia dotyczące projektowania, które użytkownik pozna w kolejnych krokach może wymagać zmiany decyzji podjętych we wcześniejszych krokach, jednak z powodu podjęcia sprzecznych decyzji projektowych. Staramy alert potencjalnymi konfliktami projektowymi dokumentu. 
+Ten dokument zawiera zestaw kroków i zadań, czy można wykonać toodesign hybrydowego tożsamości, która najlepiej odpowiada wymaganiom. Witaj kroki są prezentowane w uporządkowanej kolejności. Zagadnienia dotyczące projektowania, które użytkownik pozna w kolejnych krokach może wymagać toochange decyzji podjętych we wcześniejszych krokach, jednak powodu tooconflicting decyzji projektowych. Każdy podejmowana jest tooalert możesz toopotential konfliktami projektowymi hello dokumentu. 
 
-Zostanie przyjeździe projekt najlepiej spełniający wymagania dopiero po wykonaniu kroków tyle razy, ile włączenie wszystkich zagadnień opisane w tym dokumencie. 
+Pojawią się na powitania projekt najlepiej spełniający wymagania dopiero po wykonaniu kroków tyle razy, ile to konieczne tooincorporate hello wszystkich zagadnień hello w dokumencie hello. 
 
 | Faza tożsamości hybrydowej | Lista tematów |
 | --- | --- |
@@ -61,5 +61,5 @@ Zostanie przyjeździe projekt najlepiej spełniający wymagania dopiero po wykon
 | Plan cyklu życia tożsamości hybrydowej |[Określić zadań zarządzania tożsamości hybrydowej](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Zarządzanie synchronizacji](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Określić strategii wdrażania zarządzania tożsamości hybrydowej](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
 ## <a name="download-this-guide"></a>Pobierz w tym przewodniku
-Możesz pobrać wersję pdf przewodnika zagadnienia dotyczące projektowania tożsamości hybrydowej z [galerii Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
+Można pobrać wersję pdf hello zagadnienia dotyczące projektowania tożsamości hybrydowej przewodnika z hello [galerii Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
 

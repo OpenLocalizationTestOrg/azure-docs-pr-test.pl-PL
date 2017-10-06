@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C: Przełączanie się na dzierżawę B2C | Microsoft Docs"
-description: "Jak przełączyć się do kontekstu dzierżawy usługi Active Directory B2C"
+title: "Usługa Azure Active Directory B2C: Przełączanie tooa B2C dzierżawy | Dokumentacja firmy Microsoft"
+description: "Jak dzierżawcy tooswitch w kontekście hello programu Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 40d8d57d974a949fbdc0a06eeceb2d06bfbaa09f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 572f9ab283ecac68d284bb04fdfc98575bcf9393
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="switching-to-your-azure-ad-b2c-tenant"></a>Przełączanie się do dzierżawy usługi Azure AD B2C
+# <a name="switching-tooyour-azure-ad-b2c-tenant"></a>Przełączanie dzierżawy usługi Azure AD B2C tooyour
 
-Aby skonfigurować usługę Azure AD B2C, musisz być w kontekście swojej dzierżawy usługi Azure AD B2C.
+W kolejności tooconfigure usługi Azure AD B2C należy toobe w kontekście hello dzierżawy usługi Azure AD B2C.
 
 ## <a name="log-into-azure-ad-b2c-tenant"></a>Logowanie się do dzierżawy usługi Azure AD B2C
 
-Aby przejść do swojej dzierżawy usługi Azure AD B2C, musisz się zalogować do witryny Azure Portal jako administrator globalny dzierżawy usługi Azure AD B2C.
+dzierżawy usługi Azure AD B2C toonavigate tooyour, użytkownik musi być zalogowany do hello portalu Azure jako administrator globalny dzierżawy hello Azure AD B2C.
 
-1. Zaloguj się do [Azure Portal](http://portal.azure.com).
-1. Przełącz dzierżawy, klikając swój adres e-mail lub zdjęcie w prawym górnym rogu.
-1. Z wyświetlonej listy `Directory` wybierz dzierżawę usługi Azure AD B2C, którą chcesz zarządzać.
+1. Zaloguj się na powitania [portalu Azure](http://portal.azure.com).
+1. Przełącz dzierżawcy, klikając Twojego adresu e-mail lub obraz powitania prawym górnym rogu.
+1. W hello `Directory` listy, która pojawia się, że chcesz toomanage dzierżawy wybierz hello Azure AD B2C.
 
-Witryna Azure Portal zostanie odświeżona.  Od tej chwili kontekstem logowania w witrynie Azure Portal będzie Twoja dzierżawa usługi Azure AD B2C.
+Witaj Azure Portal zostanie odświeżony.  Obecnie zalogowano Cię na powitania portalu Azure w kontekście hello dzierżawy usługi Azure AD B2C.
 
-## <a name="navigate-to-the-b2c-features-blade"></a>Przechodzenie do bloku funkcji B2C
+## <a name="navigate-toohello-b2c-features-blade"></a>Przejdź do bloku funkcji B2C toohello
 
-1. Kliknij pozycję **Przeglądaj** w obszarze nawigacji po lewej stronie.
-1. Kliknij pozycję **> Więcej usług**, a następnie wyszukaj tekst `Azure AD B2C` w okienku nawigacyjnym po lewej stronie.  (Aby przypiąć tę pozycję do tablicy startowej po lewej stronie, kliknij gwiazdkę na lewo od usługi Azure AD B2C)
-1. Kliknij pozycję **Azure AD B2C**, aby otworzyć blok funkcji B2C.
+1. Kliknij przycisk **Przeglądaj** na powitania nawigacji po lewej stronie.
+1. Kliknij przycisk **> więcej usług** , a następnie wyszukaj `Azure AD B2C` w okienku nawigacji po lewej stronie powitania.  (toopin tooyour lewa tablicy startowej, kliknij przycisk lewej gwiazdy toohello hello usługi Azure AD B2C)
+1. Kliknij przycisk **usługi Azure AD B2C** tooaccess hello bloku funkcji B2C.
    
-    ![Zrzut ekranu z blokiem przeglądania w poszukiwaniu funkcji B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![Zrzut ekranu przedstawiający blok funkcji tooB2C przeglądania](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
-> Tylko administrator globalny dzierżawy B2C może uzyskiwać dostęp do bloku funkcji B2C. Administrator globalny innej dzierżawy ani użytkownik dowolnej dzierżawy nie mogą uzyskać dostępu do tego bloku.  Na swoją dzierżawę B2C możesz przełączyć się, używając przełącznika dzierżawy w prawym górnym rogu witryny Azure Portal.
+> Należy toobe Administrator globalny dzierżawy B2C hello toobe bloku funkcji hello B2C tooaccess stanie. Administrator globalny innej dzierżawy ani użytkownik dowolnej dzierżawy nie mogą uzyskać dostępu do tego bloku.  Dzierżawy B2C tooyour można przełączać się przy użyciu przełącznik dzierżawy hello w hello prawym górnym rogu hello portalu Azure.

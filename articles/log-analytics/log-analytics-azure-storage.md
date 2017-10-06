@@ -1,6 +1,6 @@
 ---
-title: "Zbierać dzienniki usługi Azure i metryki dla Log Analytics | Dokumentacja firmy Microsoft"
-description: "Skonfiguruj diagnostyki na zasobów platformy Azure można zapisać dzienników i metryk do analizy dzienników."
+title: "aaaCollect Azure usługi Dzienniki i metryki dla Log Analytics | Dokumentacja firmy Microsoft"
+description: "Skonfiguruj diagnostyki na zasobów Azure toowrite dzienniki i metryki tooLog Analytics."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1cede9a94ec83c4e3a95853dc2ec355d8df06d6e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Zbieranie dzienników usługi Azure i metryk do użycia w analizy dzienników
 
 Istnieją cztery różne sposoby zbierania dzienników i metryki dla usług Azure:
 
-1. Diagnostyka Azure bezpośrednio do analizy dzienników (*diagnostyki* w tabeli poniżej)
-2. Diagnostyka Azure do magazynu Azure do analizy dzienników (*magazynu* w tabeli poniżej)
-3. Łączniki dla usług Azure (*łączniki* w tabeli poniżej)
-4. Skrypty do zbierania danych do analizy dzienników (puste wartości w poniższej tabeli oraz usług, które nie są wymienione)
+1. Diagnostyka Azure bezpośrednie tooLog Analytics (*diagnostyki* w poniższej tabeli hello)
+2. Diagnostyka Azure tooAzure magazynu tooLog Analytics (*magazynu* w poniższej tabeli hello)
+3. Łączniki dla usług Azure (*łączniki* w poniższej tabeli hello)
+4. Skrypty toocollect, a następnie post danych do analizy dzienników (puste wartości w hello w poniższej tabeli i usług, które nie są wymienione)
 
 
 | Usługa                 | Typ zasobu                           | Dzienniki        | Metryki     | Rozwiązanie |
@@ -60,22 +60,22 @@ Istnieją cztery różne sposoby zbierania dzienników i metryki dla usług Azur
 
 
 > [!NOTE]
-> Do monitorowania maszyn wirtualnych platformy Azure (Linux i Windows), zaleca się zainstalowanie [rozszerzenia maszyny Wirtualnej analizy dziennika](log-analytics-azure-vm-extension.md). Agent zapewnia szczegółowe informacje zebrane w maszynach wirtualnych. Można również użyć rozszerzenia dla zestawy skalowania maszyny wirtualnej.
+> Do monitorowania maszyn wirtualnych platformy Azure (Linux i Windows), zaleca się zainstalowanie hello [rozszerzenia maszyny Wirtualnej analizy dziennika](log-analytics-azure-vm-extension.md). Hello agent dostarcza szczegółowe informacje zebrane w maszynach wirtualnych. Można również użyć rozszerzenia powitania dla zestawy skalowania maszyny wirtualnej.
 >
 >
 
-## <a name="azure-diagnostics-direct-to-log-analytics"></a>Diagnostyka Azure bezpośrednio do analizy dzienników
-Możliwość zapisywania dzienników diagnostycznych są wielu zasobów platformy Azure i metryki bezpośrednio do analizy dzienników i to jest preferowany sposób zbierania danych do analizy. Podczas korzystania z diagnostyki Azure, dane są zapisywane bezpośrednio do analizy dzienników i nie musi najpierw zapisać danych do magazynu.
+## <a name="azure-diagnostics-direct-toolog-analytics"></a>Diagnostyka Azure bezpośredniego tooLog analityka
+Wiele zasobów platformy Azure są dzienników diagnostycznych może toowrite i metryki bezpośrednio tooLog analityka jest to preferowany hello sposób zbierania danych hello w celu analizy. Podczas korzystania z diagnostyki Azure, dane są zapisywane bezpośrednio tooLog analizy i nie ma toostorage nie konieczności toofirst zapisu hello danych.
 
-Zasobów platformy Azure, które obsługują [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) wysłać ich dzienniki i metryki bezpośrednio do analizy dzienników.
+Zasobów platformy Azure, które obsługują [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) może wysłać ich dzienniki i metryki bezpośrednio tooLog Analytics.
 
-* Aby uzyskać szczegółowe informacje dostępne metryki, zapoznaj się [obsługiwane metryki z monitorem Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
-* Szczegóły dostępne dzienniki, można znaleźć w [obsługiwanych usług i schematu dla dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+* Witaj informacji z dostępnymi metrykami hello znajduje się zbyt[obsługiwane metryki z monitorem Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+* Szczegóły hello hello dostępne dzienniki, można znaleźć zbyt[obsługiwanych usług i schematu dla dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Włączanie diagnostyki przy użyciu programu PowerShell
-Należy listopada 2016 (v2.3.0) lub nowszej wersji usługi [programu Azure PowerShell](/powershell/azure/overview).
+Witaj listopada 2016 (v2.3.0) lub nowszej wersji usługi [programu Azure PowerShell](/powershell/azure/overview).
 
-W poniższym przykładzie programu PowerShell pokazano, jak używać [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) włączyć diagnostyki w grupie zabezpieczeń sieci. Te same podejście działa w przypadku wszystkich obsługiwanych zasobów — ustaw `$resourceId` do identyfikatora zasobu zasobu, aby włączyć diagnostyki.
+Witaj, po PowerShell przykładzie pokazano sposób toouse [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) tooenable diagnostyki w grupie zabezpieczeń sieci. Witaj same podejście działa w przypadku wszystkich obsługiwanych zasobów — Ustawianie `$resourceId` toohello identyfikator zasobu ma tooenable diagnostycznych dla zasobu hello.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -87,7 +87,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 ### <a name="enable-diagnostics-with-resource-manager-templates"></a>Włącz diagnostykę z szablonami usługi Resource Manager
 
-Umożliwia diagnostyki w zasobie, gdy jest tworzona i diagnostyki użytkowników do swojego obszaru roboczego analizy dzienników za pomocą szablonu podobny do przedstawionego poniżej. W tym przykładzie jest dla konta automatyzacji, ale działa dla wszystkich obsługiwanych typów zasobów.
+Diagnostyka tooenable do zasobu, gdy jest tworzona i diagnostyki hello wysłali tooyour obszaru roboczego analizy dzienników, których można użyć szablonu toohello podobne, jeden poniżej. W tym przykładzie jest dla konta automatyzacji, ale działa dla wszystkich obsługiwanych typów zasobów.
 
 ```json
         {
@@ -116,11 +116,11 @@ Umożliwia diagnostyki w zasobie, gdy jest tworzona i diagnostyki użytkowników
 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
-## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Diagnostyka Azure do magazynu, a następnie do analizy dzienników
+## <a name="azure-diagnostics-toostorage-then-toolog-analytics"></a>Diagnostyka Azure toostorage, a następnie tooLog analityka
 
-Do zbierania dzienników z w niektórych zasobów, użytkownik może wysłać dzienniki do magazynu Azure, a następnie skonfiguruj analizy dzienników odczytać dzienniki z magazynu.
+Do zbierania dzienników z w niektórych zasobów, jego jest możliwe toosend hello dzienniki tooAzure magazynu, a następnie skonfiguruj analizy dzienników tooread hello dzienniki z magazynu.
 
-Analiza dzienników umożliwia zbieranie danych diagnostycznych z usługi Azure storage dla następujących zasobów i dzienniki tego podejścia:
+Analiza dzienników można użyć tego podejścia diagnostyki toocollect z usługi Azure storage dla hello zasobów i dzienników:
 
 | Zasób | Dzienniki |
 | --- | --- |
@@ -129,26 +129,26 @@ Analiza dzienników umożliwia zbieranie danych diagnostycznych z usługi Azure 
 | Role sieci Web <br> Role procesów roboczych |Systemu Linux <br> Zdarzenie systemu Windows <br> Dziennik IIS <br> ETWEvent systemu Windows |
 
 > [!NOTE]
-> Naliczane są opłaty szybkości normalne danych platformy Azure dla magazynu i transakcji wysyłanie danych diagnostycznych na konto magazynu i podczas analizy dzienników odczytuje dane z konta magazynu.
+> Naliczane są opłaty szybkości normalne danych platformy Azure dla magazynu i transakcji wysyłanie danych diagnostycznych tooa konta magazynu i podczas analizy dzienników odczytuje hello dane z konta magazynu.
 >
 >
 
-Zobacz [magazyn obiektów blob służy do przechowywania usług IIS i tabeli dla zdarzeń](log-analytics-azure-storage-iis-table.md) Aby dowiedzieć się więcej na temat sposobu analizy dzienników mogą zbierać Dzienniki te.
+Zobacz [magazyn obiektów blob służy do przechowywania usług IIS i tabeli dla zdarzeń](log-analytics-azure-storage-iis-table.md) toolearn więcej informacji na temat sposobu analizy dzienników mogą zbierać Dzienniki te.
 
 ## <a name="connectors-for-azure-services"></a>Łączniki dla usług Azure
 
-Jest łącznikiem usługi Application Insights, dzięki czemu dane zebrane przez usługę Application Insights do wysłania do analizy dzienników.
+Jest łącznikiem usługi Application Insights, dzięki czemu dane zebrane przez wysyłane tooLog Analytics toobe usługi Application Insights.
 
-Dowiedz się więcej o [łącznika usługi Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
+Dowiedz się więcej o hello [łącznika usługi Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Skrypty w celu zbierania, a następnie wysyłać danych do analizy dzienników
+## <a name="scripts-toocollect-and-post-data-toolog-analytics"></a>Skrypty toocollect i post danych tooLog Analytics
 
-Dla usług Azure, które nie mają bezpośredniego sposób wysyłania dzienników i metryk do analizy dzienników skryptu automatyzacji Azure służy do zbierania dzienników i metryki. Skrypt może następnie wysyłać dane analizy dzienników przy użyciu [modułów zbierających dane interfejsu API](log-analytics-data-collector-api.md)
+Dla usług Azure, które nie udostępniają tooLog sposób bezpośredniego toosend dzienniki i metryki Analytics można użyć toocollect skryptów automatyzacji Azure hello dziennika i metryki. Witaj Hello skrypt może następnie wyślij hello danych tooLog Analytics przy użyciu [modułów zbierających dane interfejsu API](log-analytics-data-collector-api.md)
 
-Galeria szablonu Azure ma [przykłady użycia usługi Automatyzacja Azure](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) zbierania danych z usług i wysyłania go do analizy dzienników.
+ma galerii szablonu Azure Hello [przykłady użycia usługi Automatyzacja Azure](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) toocollect danych z usług i wysłanie go tooLog Analytics.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Użyj magazynu obiektów blob dla usług IIS i tabeli magazynu dla zdarzeń](log-analytics-azure-storage-iis-table.md) odczytać dzienniki dla tej diagnostyki zapisu w magazynie tabel lub dzienniki programu IIS zapisywane do magazynu obiektów blob usług Azure.
-* [Włącz rozwiązań](log-analytics-add-solutions.md) zapewnienie wglądu w dane.
-* [Użyj zapytań wyszukiwania](log-analytics-log-searches.md) do analizowania danych.
+* [Użyj magazynu obiektów blob dla usług IIS i tabeli magazynu dla zdarzeń](log-analytics-azure-storage-iis-table.md) tooread hello dzienniki dla usług Azure, które zapisać diagnostyki tootable magazynu lub IIS rejestruje napisane tooblob magazynu.
+* [Włącz rozwiązań](log-analytics-add-solutions.md) tooprovide wgląd w dane hello.
+* [Użyj zapytań wyszukiwania](log-analytics-log-searches.md) tooanalyze hello danych.

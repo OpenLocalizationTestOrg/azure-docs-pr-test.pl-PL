@@ -1,6 +1,6 @@
 ---
-title: "Informacje o wersji dla usług Azure BizTalk | Dokumentacja firmy Microsoft"
-description: "Wymieniono znane problemy dotyczące usług Azure BizTalk"
+title: "aaaRelease uwagi dotyczące usług BizTalk Azure | Dokumentacja firmy Microsoft"
+description: "Wyświetla listę hello znane problemy dotyczące usług Azure BizTalk"
 services: biztalk-services
 documentationcenter: 
 author: msftman
@@ -14,115 +14,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ea53d6c40ed58badf4141453dc77d28dcfc6407f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Informacje o wersji dla usługi Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Informacje o wersji dla usługi Microsoft Azure BizTalk zawierają znane problemy występujące w tej wersji.
+Witaj informacje o wersji dla usługi BizTalk hello Microsoft Azure zawierają hello znane problemy występujące w tej wersji.
 
-## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>Nowości w aktualizacji z listopada usług BizTalk
-* Można włączyć szyfrowanie przechowywanych w portalu usługi BizTalk. Zobacz [włączyć szyfrowanie przechowywanych w portalu usługi BizTalk](https://msdn.microsoft.com/library/azure/dn874052.aspx).
+## <a name="whats-new-in-hello-november-update-of-biztalk-services"></a>Nowości w aktualizacji listopada hello usługi BizTalk Services
+* Można włączyć szyfrowanie przechowywanych w hello Portal usługi BizTalk. Zobacz [włączyć szyfrowanie przechowywanych w portalu usługi BizTalk](https://msdn.microsoft.com/library/azure/dn874052.aspx).
 
 ## <a name="update-history"></a>Historia aktualizacji
 ### <a name="october-update"></a>Aktualizacja z października
 * Konta organizacyjne są obsługiwane:  
-  * **Scenariusz**: zarejestrowany wdrażania usługi BizTalk przy użyciu konta Microsoft (takich jak user@live.com). W tym scenariuszu tylko Account Microsoft użytkownicy mogą zarządzać za pomocą portalu usługi BizTalk Services usługi BizTalk. Nie można użyć konta organizacyjnego.  
-  * **Scenariusz**: zarejestrowanych w usłudze Azure Active Directory za pomocą konta organizacyjnego wdrożenia usługi BizTalk (takich jak user@fabrikam.com lub user@contoso.com). W tym scenariuszu tylko użytkownicy usługi Azure Active Directory w danej organizacji można zarządzać przy użyciu portalu usługi BizTalk Services usługi BizTalk. Nie można użyć konta Microsoft.  
-* Podczas tworzenia usługi BizTalk w klasycznym portalu Azure, są automatycznie rejestrowane w portalu usługi BizTalk.
-  * **Scenariusz**: możesz zalogować się do klasycznego portalu Azure, Utwórz usługę BizTalk, a następnie wybierz **Zarządzaj** po raz pierwszy. Po otwarciu portalu usługi BizTalk Services usługi BizTalk automatycznie rejestruje i jest gotowy do wdrożeń.  
-    Zobacz [rejestrowanie i aktualizowanie wdrożenia usługi BizTalk na BizTalk usług Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
+  * **Scenariusz**: zarejestrowany wdrażania usługi BizTalk przy użyciu konta Microsoft (takich jak user@live.com). W tym scenariuszu tylko Account Microsoft użytkownicy mogą zarządzać hello przy użyciu portalu usługi BizTalk Services hello usługi BizTalk. Nie można użyć konta organizacyjnego.  
+  * **Scenariusz**: zarejestrowanych w usłudze Azure Active Directory za pomocą konta organizacyjnego wdrożenia usługi BizTalk (takich jak user@fabrikam.com lub user@contoso.com). W tym scenariuszu tylko użytkownicy usługi Azure Active Directory w ramach tej samej organizacji można zarządzać powitalne hello przy użyciu portalu usługi BizTalk Services hello usługi BizTalk. Nie można użyć konta Microsoft.  
+* Podczas tworzenia usługi BizTalk w hello klasycznego portalu Azure, są automatycznie rejestrowane w portalu usługi BizTalk hello.
+  * **Scenariusz**: możesz zalogować się do klasycznego portalu Azure, hello Utwórz usługę BizTalk, a następnie wybierz **Zarządzaj** dla hello pierwszego. Po otwarciu portalu usługi BizTalk Services hello hello usługi BizTalk automatycznie rejestruje i jest gotowy do wdrożeń.  
+    Zobacz [rejestrowanie i aktualizowanie wdrożenia usługi BizTalk w portalu usługi BizTalk hello](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Aktualizacja z sierpnia 14
-* Umowy oraz Mostek oddzielenie — umów z partnerami i mostków są całkowicie niezależna teraz w portalu usługi BizTalk. Możesz teraz utworzyć umowy i mostków oddzielnie, a w czasie wykonywania mostków rozpoznać na podstawie wartości w komunikacie EDI umowy. Zobacz [Tworzenie umów w usług Azure BizTalk](https://msdn.microsoft.com/library/azure/hh689908.aspx), [utworzyć mostek EDI przy użyciu portalu usługi BizTalk](https://msdn.microsoft.com/library/azure/dn793986.aspx), [utworzyć mostek AS2 przy użyciu portalu usługi BizTalk](https://msdn.microsoft.com/library/azure/dn793993.aspx)i [ Jak mostków usunąć umowy w czasie wykonywania](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
-* Możliwość tworzenia szablonów dla umowy jest przerywane.  
-* Umowy po stronie wysyłania można teraz określić ogranicznik różne zestawy dla każdego schematu. Ta konfiguracja jest wybranym w ustawieniach protokołu umowy po stronie wysyłania. Aby uzyskać więcej informacji, zobacz [Utwórz moduł X12 umowy w usłudze Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) i [Tworzenie umów EDIFACT w usług Azure BizTalk](https://msdn.microsoft.com/library/azure/dn606267.aspx). Dwa nowe jednostki również są dodawane do interfejsu API OM modułu TPM do takiej obsługi. Zobacz [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) i [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
+* Umowy oraz Mostek oddzielenie — umów z partnerami i mostków teraz jest całkowicie niezależna hello Portal usługi BizTalk. Teraz Utwórz umowy i mostków oddzielnie, a w mostków środowiska uruchomieniowego rozpoznać na podstawie wartości hello w wiadomości powitania EDI umowy tooan. Zobacz [Tworzenie umów w usług Azure BizTalk](https://msdn.microsoft.com/library/azure/hh689908.aspx), [utworzyć mostek EDI przy użyciu portalu usługi BizTalk](https://msdn.microsoft.com/library/azure/dn793986.aspx), [utworzyć mostek AS2 przy użyciu portalu usługi BizTalk](https://msdn.microsoft.com/library/azure/dn793993.aspx)i [ Jak mostków usunąć umowy w czasie wykonywania](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* Hello opcja toocreate szablonów dla umowy jest przerywane.  
+* Powitania po stronie wysyłania umowy można teraz określić ogranicznik różne zestawy dla każdego schematu. Ta konfiguracja jest wybranym w ustawieniach protokołu umowy po stronie wysyłania. Aby uzyskać więcej informacji, zobacz [Utwórz moduł X12 umowy w usłudze Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) i [Tworzenie umów EDIFACT w usług Azure BizTalk](https://msdn.microsoft.com/library/azure/dn606267.aspx). Dwa nowe jednostki zostaną także dodane toohello API OM modułu TPM na powitania tych samych celów. Zobacz [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) i [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Konstrukcje XSD, łącznie z typów pochodnych, są teraz obsługiwane. Zobacz [XSD standardowych użyj konstrukcji w map](https://msdn.microsoft.com/library/azure/dn793987.aspx) i [Użyj typów pochodnych w przykłady i scenariusze mapowania](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
 * AS2 obsługuje nowych algorytmów Mikrofon do podpisywania wiadomości i nowych algorytmów szyfrowania. Zobacz [Tworzenie umów AS2 w usługach Azure BizTalk](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
   ## <a name="know-issues"></a>Znać problemów
 
 ### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>Problemy z połączeniem po aktualizacji portalu usług BizTalk
-  Jeśli masz Portal usługi BizTalk otworzyć, gdy usługi BizTalk Services jest uaktualniany wycofanie zmian do usługi mogą stają przed problemy z łącznością z portalem usługi BizTalk.  
-  Jako obejście może ponownie uruchomić przeglądarkę, usunąć pamięci podręcznej przeglądarki lub uruchomić portalu w trybie prywatnym.  
+  Jeśli masz hello otworzyć Portal usługi BizTalk, gdy trwa uaktualnianie usługi BizTalk Services tooroll w zmiany toohello usługi, może sprostać problemy z łącznością z hello Portal usługi BizTalk.  
+  Jako obejście może ponownie uruchomić przeglądarkę hello, usunąć pamięci podręcznej przeglądarki hello lub start portalu hello w trybie prywatnym.  
 
-### <a name="visual-studio-ide-cannot-locate-the-artifact-if-you-click-an-error-or-warning-in-a-biztalk-services-project"></a>Środowiska IDE programu Visual Studio nie może zlokalizować artefaktu, jeśli klikniesz przycisk błąd lub ostrzeżenie w projekcie usługi BizTalk Services
-Zainstaluj program Visual Studio 2012 Update 3 RC 1 do rozwiązania problemu.  
+### <a name="visual-studio-ide-cannot-locate-hello-artifact-if-you-click-an-error-or-warning-in-a-biztalk-services-project"></a>Środowiska IDE programu Visual Studio nie może zlokalizować artefaktu hello, jeśli klikniesz przycisk błąd lub ostrzeżenie w projekcie usługi BizTalk Services
+Zainstaluj problem hello toofix hello Visual Studio 2012 Update 3 RC 1.  
 
 ### <a name="custom-binding-project-reference"></a>Odwołanie do niestandardowego powiązania projektu
-Należy wziąć pod uwagę następujące sytuacje z usługi BizTalk Services projektu w rozwiązaniu Visual Studio:  
+Należy wziąć pod uwagę hello następujące sytuacje z usługi BizTalk Services projektu w rozwiązaniu Visual Studio:  
 
-* W tym samym rozwiązaniu Visual Studio jest projektu usługi BizTalk Services oraz projekt niestandardowego powiązania. Projekt usługi BizTalk zawiera odwołanie do tego pliku projektu niestandardowego powiązania.
-* Projekt usługi BizTalk zawiera odwołanie do niestandardowego powiązania/zachowanie biblioteki DLL.
+* W hello na tym samym rozwiązaniu Visual Studio, jest projektem usługi BizTalk Services i projektu niestandardowego powiązania. Witaj projektu usługi BizTalk istnieje plik projektu odwołanie toothis niestandardowego powiązania.
+* Hello projektu usługi BizTalk ma odwołania tooa niestandardowego powiązania/zachowanie biblioteki DLL.
 
-"Tworzenia" rozwiązania w programie Visual Studio pomyślnie. Następnie "Odbudować" lub "Czysta" rozwiązania. Po tym, gdy odbudować lub wyczyścić ponownie, wystąpił następujący błąd:  
-  Nie można skopiować pliku <Path to DLL> do "bin\Debug\FileName.dll". Proces uzyskać dostępu do pliku "bin\Debug\FileName.dll", ponieważ jest on używany przez inny proces.  
+Rozwiązanie programu Visual Studio możesz "Kompilacji" hello pomyślnie. Następnie "Odbudować" lub "Czysta" hello rozwiązania. Po wykonaniu tej odbudować lub oczyszczania ponownie hello następującego błędu:  
+  Plik toocopy <Path tooDLL> too"bin\Debug\FileName.dll". proces Hello nie może uzyskać dostępu pliku hello "bin\Debug\FileName.dll", ponieważ jest on używany przez inny proces.  
 
 #### <a name="workaround"></a>Obejście problemu
-* Jeśli [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) jest zainstalowany, masz następujące dwie opcje:
+* Jeśli [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) jest zainstalowany, masz hello następujące dwie opcje:
   
   * Uruchom ponownie program Visual Studio lub
-  * Uruchom ponownie rozwiązanie. Następnie należy wykonać tylko kompilację w ramach rozwiązania.  
-* Jeśli [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) nie jest zainstalowany, Otwórz Menedżer zadań kliknij procesów, kliknij proces MSBuild.exe, a następnie kliknij przycisk Zakończ proces.  
+  * Uruchom ponownie rozwiązanie hello. Następnie należy wykonać tylko kompilacji na powitania rozwiązania.  
+* Jeśli [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) jest nie jest zainstalowany, otwórz Menedżera zadań, kliknij kartę procesów powitania kliknij hello MSBuild.exe procesu i kliknij przycisk Zakończ proces hello.  
 
-### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>Routing do punktów końcowych BasicHttpRelay nie jest obsługiwana w portalu usługi BizTalk i mostków czy znaki niedrukowalne są awansowane nagłówki HTTP
-Jeśli używasz niedrukowalne znaki jako część awansowanej właściwości wiadomości tych wiadomości nie kierowane do przekazywania miejsc docelowych, korzystające z wiązania BasicHttpRelay. Ponadto awansowanej właściwości dostępnych jako część śledzenia są zakodowane w adresie URL dla obiektów blob i cofanie zakodowanego dla miejsc docelowych.  
+### <a name="routing-toobasichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>Routing tooBasicHttpRelay punktów końcowych nie jest obsługiwana w portalu usługi BizTalk i mostków czy znaki niedrukowalne są awansowane nagłówki HTTP
+Jeśli używasz niedrukowalne znaki jako część awansowanej właściwości komunikatów o tych wiadomości nie może być routingiem toorelay miejsc docelowych, korzystające z hello BasicHttpRelay wiązania. Ponadto hello awansowane właściwości, które są dostępne jako część śledzenia są zakodowane w adresie URL dla obiektów blob i cofanie zakodowanego dla miejsc docelowych.  
 
-### <a name="mdn-is-sent-asynchronously-even-if-the-send-asynchronous-mdn-option-is-unchecked"></a>MDN są wysyłane asynchronicznie, nawet jeśli jest zaznaczona opcja MDN asynchronicznego wysyłania
-Rozważmy scenariusz, w tym — w przypadku wybrania **Wysyłanie asynchroniczne MDN** wyboru i wprowadź adres URL Wysyłanie asynchroniczne MDN, a następnie usuń zaznaczenie pola wyboru **Wysyłanie asynchroniczne MDN** wyboru ponownie, MDN jest nadal wysyłane do określony adres URL, nawet jeśli nie wybrano opcję, aby wysłać async MDNs.  
-Określony adres URL jako obejście, należy wyczyścić przed zaznaczenie pola wyboru **Wysyłanie asynchroniczne MDN** pole wyboru, a następnie wdrożyć umowy AS2.  
+### <a name="mdn-is-sent-asynchronously-even-if-hello-send-asynchronous-mdn-option-is-unchecked"></a>MDN są wysyłane asynchronicznie, nawet jeśli hello Wysyłanie asynchroniczne MDN opcja jest zaznaczona
+Rozważmy scenariusz, w tym — w przypadku wybrania hello **Wysyłanie asynchroniczne MDN** wyboru i określ adres URL async hello toosend MDN i usuń zaznaczenie hello **Wysyłanie asynchroniczne MDN** wyboru ponownie, hello MDN jest nadal adres URL określony toohello wysłane, nawet jeśli nie wybrano hello opcja toosend async MDNs.  
+Jako obejście, należy wyczyścić hello określony adres URL przed zaznaczenie pola wyboru hello **Wysyłanie asynchroniczne MDN** pole wyboru, a następnie wdrożyć hello AS2 umowy.  
 
-### <a name="whitespace-characters-beyond-a-valid-interchange-cause-an-empty-message-to-be-sent-to-the-suspend-endpoint"></a>Odstęp poza prawidłową wymiany spowodować pusty komunikat do wysłania do punktu końcowego zawieszenia
-W przypadku białe znaki poza segment IEA dezasembler traktuje tego jako końca bieżącego wymiany i analizuje następny zestaw odstępy jako następny komunikat. Ponieważ to nie jest prawidłową wymiany, widoczny czy jeden komunikat pomyślne jest wysyłany do docelowego trasy i jeden pusty komunikat jest wysyłany Wstrzymaj punktu końcowego.  
+### <a name="whitespace-characters-beyond-a-valid-interchange-cause-an-empty-message-toobe-sent-toohello-suspend-endpoint"></a>Odstęp poza przyczyny prawidłowy wymiany toohello toobe wysyłane wiadomości pusty zawiesić punktu końcowego
+W przypadku białe znaki poza segment IEA dezasembler hello traktuje tego jako końca bieżącego wymiany i analizuje następny zestaw hello odstępy jako następny komunikat. Ponieważ to nie jest prawidłową wymiany, widoczny czy jeden pomyślne komunikat jest wysyłany toohello docelowy trasy i jeden pusty komunikat jest wysyłany hello zawiesić punktu końcowego.  
 
 ### <a name="tracking-in-biztalk-services-portal"></a>Śledzenie w portalu usługi BizTalk
-Zdarzenia śledzenia są przechwytywane do przetwarzania komunikatów EDI i wszelkie korelacji. W przypadku niepowodzenia komunikat poza etap protokołu śledzenia zostaną wyświetlone pomyślnym przeprowadzeniu. W takiej sytuacji można znaleźć w sekcji dziennika pod **szczegóły** kolumny w **śledzenia** szczegóły błędów.
-X12 odbierania i wysyłania ustawień ([Utwórz moduł X12 umowy w usłudze Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) zawierają informacje o fazie protokołu.  
+Zdarzenia śledzenia są przechwytywane przetwarzania komunikatów EDI toohello i wszelkie korelacji. W przypadku niepowodzenia komunikat poza hello etap protokołu śledzenia zostaną wyświetlone pomyślnym przeprowadzeniu. W takiej sytuacji można znaleźć w sekcji dziennika toohello hello **szczegóły** kolumny w **śledzenia** szczegóły błędów.
+Witaj X12 odbierania i wysyłania ustawień ([Utwórz moduł X12 umowy w usłudze Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) zawierają informacje na powitania etap protokołu.  
 
 ### <a name="update-agreement"></a>Aktualizowanie umowy
-Portal usługi BizTalk umożliwia modyfikowanie kwalifikator tożsamości, gdy Umowa jest skonfigurowany. Może to spowodować właściwości jest niezgodna. Na przykład istnieje umowa przy użyciu ZZ:1234567 i ZZ:7654321 kwalifikator. W ustawieniach profilu Portal usługi BizTalk możesz zmienić ZZ:1234567 jako 01:ChangedValue. Otwórz umowę i 01:ChangedValue jest wyświetlany zamiast ZZ:1234567.
-Aby zmodyfikować kwalifikator tożsamości, usunąć umowy, zaktualizuj **tożsamości** w profilu partnera, a następnie ponownie utwórz umowy.  
+Hello Portal usługi BizTalk umożliwia hello toomodify kwalifikator tożsamości Umowa jest skonfigurowany. Może to spowodować właściwości jest niezgodna. Na przykład istnieje umowa przy użyciu ZZ:1234567 i ZZ:7654321 hello kwalifikatora. W ustawieniach profilu Portal usługi BizTalk hello możesz zmienić ZZ:1234567 toobe 01:ChangedValue. Otwórz umowę hello i 01:ChangedValue jest wyświetlany zamiast ZZ:1234567.
+toomodify hello kwalifikator tożsamości, Usuń hello umowy, zaktualizuj **tożsamości** w hello profil partnera, a następnie utwórz ponownie hello umowy.  
 
 > AZURE. Ostrzeżenie zachowanie tej wpływa na X12 i AS2.  
 > 
 > 
 
 ### <a name="as2-attachments"></a>Załączniki AS2
-Załączniki wiadomości nie są obsługiwane w AS2 wysyłać ani odbierać. W szczególności załączników dyskretnie są ignorowane, a treść komunikatu jest przetwarzany jako zwykłe wiadomości AS2.  
+Załączniki wiadomości nie są obsługiwane w AS2 wysyłać ani odbierać. W szczególności załączników dyskretnie są ignorowane, a treść wiadomości powitania jest przetwarzany jako zwykłe wiadomości AS2.  
 
 ### <a name="resources-remembering-path"></a>Zasoby: Ścieżka zapamiętywanie
-Podczas dodawania **zasobów**, okno dialogowe nie może pamiętać ścieżki wcześniej służy do dodawania zasobów. Do zapamiętania wcześniej używane ścieżki, spróbuj dodać witryny sieci web portalu usługi BizTalk **Zaufane witryny** w programie Internet Explorer.  
+Podczas dodawania **zasobów**, okno dialogowe hello nie może pamiętać hello tooadd wcześniej użyta ścieżka zasobu. tooremember hello wcześniej używane ścieżki, spróbuj Dodawanie witryny sieci web portalu usługi BizTalk hello zbyt**Zaufane witryny** w programie Internet Explorer.  
 
-### <a name="if-you-rename-the-entity-name-of-a-bridge-and-close-the-project-without-saving-changes-opening-the-entity-again-results-in-an-error"></a>Możesz zmienić nazwę jednostki mostka, zamknij projekt bez zapisywania zmian ponownie otworzyć obiekt powoduje wystąpienie błędu
-Rozważmy scenariusz, w następującej kolejności:  
+### <a name="if-you-rename-hello-entity-name-of-a-bridge-and-close-hello-project-without-saving-changes-opening-hello-entity-again-results-in-an-error"></a>Jeśli zmienisz nazwę jednostki hello mostek i hello Zamknij projekt bez zapisywania zmian ponownie otworzyć jednostki hello powoduje wystąpienie błędu
+Rozważmy scenariusz, w następującej kolejności hello:  
 
-* Dodaj do projektu usługi BizTalk mostka (na przykład XML One-Way mostek)  
-* Zmień nazwę mostka przez określenie wartości dla właściwości Nazwa jednostki. Zmienia jego nazwę pliku .bridgeconfig skojarzone z podanej nazwy.  
-* Zamknij plik .bcs (zamykając kartę w programie Visual Studio) bez zapisywania zmian.  
-* Otwórz plik .bcs ponownie z Eksploratora rozwiązań.  
-  Można zauważyć, że podczas .bridgeconfig skojarzony plik ma nowy podana nazwa, nazwa jednostki na powierzchni projektu jest nadal starej nazwy. Jeśli spróbujesz otwórz konfigurację mostka, klikając dwukrotnie składnika Mostek otrzymasz następujący błąd:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`Aby uniknąć uruchomiona w tym scenariuszu, upewnij się, że po zmianie nazwy jednostki w projekcie usługi BizTalk zapisywania zmian.  
+* Dodaj tooa Mostek (na przykład XML One-Way mostek) projektu usługi BizTalk  
+* Zmień nazwę Mostek hello, określając wartość hello Właściwość Nazwa jednostki. To polecenie zmienia hello .bridgeconfig skojarzony plik o podanej nazwy hello.  
+* Zamknij plik .bcs hello (zamykając kartę hello w programie Visual Studio) bez zapisywania zmian hello.  
+* Ponownie otworzyć plik .bcs hello z hello Eksploratora rozwiązań.  
+  Można zauważyć, że podczas hello .bridgeconfig skojarzony plik ma hello nowe określona nazwa, nazwa jednostki hello na powierzchni projektowej hello jest nadal hello starej nazwy. Jeśli spróbujesz hello tooopen konfiguracji mostu przez dwukrotne kliknięcie hello Mostek składnika można uzyskać hello następujący błąd:  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`tooavoid uruchomione w tym scenariuszu należy upewnić się, czy zapisać zmiany po zmianie nazwy jednostek hello w projekcie usługi BizTalk.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>Projekt usługi BizTalk kompilacje pomyślnie, nawet jeśli artefakty został on wykluczony z projektu programu Visual Studio
-Rozważmy scenariusz, w którym możesz dodać artefaktu (na przykład plik XSD) do projektu usługi BizTalk, obejmują tego artefaktów w konfiguracji mostu (na przykład, określając go jako typ komunikatu żądania) i wyklucz go z projektu programu Visual Studio. W takim przypadku skompilowanie projektu nie będzie przekazywać wszelkie błędy tak długo, jak tylko usunięte artefakt znajduje się na dysku w tej samej lokalizacji, z którym został dołączony do projektu programu Visual Studio.
+Rozważmy scenariusz, w której dodać tooa artefaktu (na przykład plik XSD) projektu usługi BizTalk, dołączenie tego artefaktu hello konfigurację mostka (na przykład, określając go jako typ komunikatu żądania), a następnie Wyklucz go z projektu programu Visual Studio hello. W takim przypadku kompilowania projektu hello nie będzie przekazywać wszelkie błędy tak długo, jak artefaktu hello usunięte jest dostępna na dysku hello na powitania tej samej lokalizacji, z której została uwzględniona w hello projektu Visual Studio.
   
-### <a name="the-biztalk-service-project-does-not-check-for-schema-availability-while-configuring-the-bridges"></a>Projekt usługi BizTalk nie sprawdza dostępność schematu podczas konfigurowania mostków
-W projekcie usługi BizTalk Jeśli schemat, który zostanie dodany do projektu importuje inny schemat projektu usługi BizTalk nie sprawdza, czy zaimportowanego schematu jest dodawane do projektu. Jeśli podczas próby skompilowania takiego projektu, nie są błędy kompilacji.
+### <a name="hello-biztalk-service-project-does-not-check-for-schema-availability-while-configuring-hello-bridges"></a>Hello projektu usługi BizTalk nie sprawdza dostępność schematu podczas konfigurowania mostków hello
+W projekcie usługi BizTalk Jeśli schemat, który zostanie dodany projekt toohello importuje inny schemat hello projektu usługi BizTalk nie sprawdza, czy hello zaimportowanego schematu dodaniu toohello projektu. Jeśli spróbujesz toobuild takiego projektu nie są błędy kompilacji.
   
-### <a name="the-response-message-for-a-xml-request-reply-bridge-is-always-of-charset-utf-8"></a>Komunikat odpowiedzi dla mostka "żądanie-odpowiedź" XML jest zawsze zestawu znaków UTF-8
-W tym wydaniu zestaw znaków komunikat odpowiedzi z mostka żądanie-odpowiedź XML ma zawsze wartość UTF-8.
+### <a name="hello-response-message-for-a-xml-request-reply-bridge-is-always-of-charset-utf-8"></a>komunikat odpowiedzi Hello mostka "żądanie-odpowiedź" XML jest zawsze zestawu znaków UTF-8
+W tym wydaniu zestaw znaków hello komunikat odpowiedzi z XML mostka "żądanie-odpowiedź" hello ma zawsze wartość tooUTF-8.
   
 ### <a name="user-defined-datatypes"></a>Zdefiniowane przez użytkownika typów danych
-Karty BizTalk Adapter Pack w ramach funkcji usługi karty BizTalk mogą wykorzystywać zdefiniowanych przez użytkownika typów danych w operacjach karty.
-Używając zdefiniowanych przez użytkownika typów danych, należy skopiować pliki (.dll) na dysku: \Program Files\Microsoft Service\BAServiceRuntime\bin\ karty BizTalk lub do globalnej pamięci podręcznej zestawów (GAC) na serwerze obsługującym usługę BizTalk karty usługi. W przeciwnym razie następujący błąd może wystąpić na komputerze klienckim:  
+Hello BizTalk Adapter Pack kart w funkcji usługi Adapter BizTalk hello mogą wykorzystywać zdefiniowanych przez użytkownika typów danych w operacjach karty.
+Używając zdefiniowanych przez użytkownika typów danych, skopiuj hello plików (.dll) toodrive:\Program Files\Microsoft Service\BAServiceRuntime\bin\ karty BizTalk lub toohello globalnej pamięci podręcznej zestawów (GAC) na serwerze hello hello usługi BizTalk karty usługi hosta. W przeciwnym razie hello następujący błąd może wystąpić na powitania klienta:  
 ```
 <s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 <faultcode>s:Client</faultcode>
-<faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
+<faultstring xml:lang="en-US">hello UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing hello assembly containing hello UDT definition in hello Global Assembly Cache.</faultstring>
 <detail>
   <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
     <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
@@ -132,92 +132,92 @@ Używając zdefiniowanych przez użytkownika typów danych, należy skopiować p
 ```  
   
 > [!IMPORTANT]
-> Zaleca GACUtil.exe umożliwia zainstalować plik w globalnej pamięci podręcznej zestawów. GACUtil.exe dokumentów, jak używać tego narzędzia i opcje wiersza polecenia programu Visual Studio.  
+> Jest zalecana toouse GACUtil.exe tooinstall pliku do hello globalnej pamięci podręcznej zestawów. Dokumenty GACUtil.exe jak toouse to narzędzie i hello opcje wiersza polecenia programu Visual Studio.  
 > 
 > 
 
-### <a name="restarting-the-biztalk-adapter-service-web-site"></a>Ponowne uruchamianie witryny sieci Web usługi BizTalk karty
-Instalowanie **środowiska uruchomieniowego usługi karty BizTalk*** tworzy **Usługa karty BizTalk** witryny sieci web w usługach IIS, która zawiera **BAService** aplikacji. **BAService** aplikacji wewnętrznie używa powiązania przekazywania rozszerzyć zasięg lokalnego punktu końcowego usługi w chmurze. Do usługi hostowanej w sieci lokalnej odpowiedniego punktu końcowego przekazywania zostanie zarejestrowany na magistrali usług, tylko wtedy, gdy rozpoczyna się usługa lokalna.  
+### <a name="restarting-hello-biztalk-adapter-service-web-site"></a>Ponowne uruchamianie hello witryny sieci Web usługi karty BizTalk
+Instalowanie hello **środowiska uruchomieniowego usługi karty BizTalk*** tworzy hello **Usługa karty BizTalk** witryny sieci web w usługach IIS, która zawiera hello **BAService** aplikacji. **BAService** aplikacji wewnętrznie używa przekazywania powiązania tooextend hello zasięgu chmury toohello punktu końcowego usługi lokalnej. Do usługi hostowanej w sieci lokalnej punkt końcowy hello odpowiedniego przekazywania zostanie zarejestrowany na powitania usługi Service Bus, tylko wtedy, gdy hello lokalnego uruchamiania usługi.  
 
-Jeśli zatrzymać i uruchomić aplikację, nie jest honorowana konfigurację automatycznego uruchamiania aplikacji. W takim przypadku **BAService** jest zatrzymana, należy zawsze należy ponownie uruchomić **Usługa karty BizTalk** witryny sieci web zamiast tego. Się nie uruchomić lub zatrzymać **BAService** aplikacji.
+Jeśli zatrzymać i uruchomić aplikację, nie jest honorowana hello konfiguracji do automatycznego uruchamiania aplikacji. W takim przypadku **BAService** jest zatrzymana, należy zawsze należy ponownie uruchomić hello **Usługa karty BizTalk** witryny sieci web zamiast tego. Się nie uruchomić lub zatrzymać hello **BAService** aplikacji.
 
 ### <a name="special-characters-should-not-be-used-for-address-and-entity-names-of-lob-components"></a>Nie należy używać znaków specjalnych nazw adres i jednostek biznesowych składników
-Dla nazwy adresu i jednostek biznesowych składników nie należy używać znaków specjalnych. Jeśli tak zrobisz, wystąpi błąd podczas wdrażania projektu usługi BizTalk. Dla niektórych znaków, takich jak '%', BizTalk karty usługi witryny sieci Web może przejść w stan zatrzymania i trzeba będzie uruchomić go ręcznie.
+Dla nazwy adresu i jednostek biznesowych składników nie należy używać znaków specjalnych. Jeśli tak zrobisz, wystąpi błąd podczas wdrażania hello projektu usługi BizTalk. Dla niektórych znaków, takich jak '%', hello BizTalk karty usługi witryny sieci Web może Przejdź w stanie zatrzymania i trzeba będzie toomanually ją uruchomić.
 
 ### <a name="test-map-with-get-context-property"></a>Mapa testu z Get właściwości kontekstu
-Jeśli zawiera transformacji **Get właściwości kontekstu** operacji mapy **mapy testu** zakończy się niepowodzeniem. Tymczasowo zastąpić **Get właściwości kontekstu** mapy operację, podając ciąg połączenia mapy operację fikcyjny danymi. To wypełnić schemat docelowy i zezwala na test innych funkcji przekształcenia.
+Jeśli zawiera transformacji **Get właściwości kontekstu** operacji mapy **mapy testu** zakończy się niepowodzeniem. Tymczasowo zastąpić hello **Get właściwości kontekstu** mapy operację, podając ciąg połączenia mapy operację fikcyjny danymi. To wypełnić schemat docelowej hello i zezwala na test innych funkcji przekształcenia.
 
 ### <a name="test-map-property-does-not-display"></a>Właściwość mapy testu nie jest wyświetlana
-**Mapy testu** właściwości nie są wyświetlane w programie Visual Studio. Taka sytuacja może wystąpić, jeśli **właściwości** okna i **Eksploratora rozwiązań** okno nie jest zadokowany jednocześnie. Aby rozwiązać ten problem, dock **właściwości** i **Eksploratora rozwiązań** systemu windows.  
+Witaj **mapy testu** właściwości nie są wyświetlane w programie Visual Studio. Taka sytuacja może wystąpić, jeśli hello **właściwości** okno i hello **Eksploratora rozwiązań** okno nie jest zadokowany jednocześnie. tooresolve tego hello dokowania **właściwości** i hello **Eksploratora rozwiązań** systemu windows.  
 
 ### <a name="datetime-reformat-drop-down-is-grayed-out"></a>Ponowne formatowanie daty/godziny listy rozwijanej jest wyszarzony.
-Gdy operację mapy ponowne formatowanie daty/godziny zostanie dodany do powierzchni projektu i skonfigurowane, na liście rozwijanej Format może wygaszone. Może się to zdarzyć, jeśli komputer wyświetlana jest ustawiony **średni — 125%** lub **większe – 150%**. Aby rozwiązać, ustawić **mniejsze — 100% (ustawienie domyślne)** wykonując poniższe kroki:  
+Po dodaniu operację mapy ponowne formatowanie daty/godziny toohello zaprojektować powierzchni i skonfigurowaniu hello Format mogą być wyszarzone listy rozwijanej. Może się to zdarzyć, jeśli komputer hello wyświetlana jest ustawiony **średni — 125%** lub **większe – 150%**. tooresolve, ustawić wyświetlania hello także**mniejsze — 100% (ustawienie domyślne)** przy użyciu hello poniższe kroki:  
 
-1. Otwórz **Panelu sterowania** i kliknij przycisk **wygląd i personalizacja**.
+1. Otwórz hello **Panelu sterowania** i kliknij przycisk **wygląd i personalizacja**.
 2. Kliknij przycisk **wyświetlania**.
 3. Kliknij przycisk **mniejsze — 100% (ustawienie domyślne)** i kliknij przycisk **Zastosuj**.
 
-**Format** listy rozwijanej teraz powinny działać zgodnie z oczekiwaniami.
+Witaj **Format** listy rozwijanej teraz powinny działać zgodnie z oczekiwaniami.
 
-### <a name="duplicate-agreements-in-the-biztalk-services-portal"></a>Zduplikowane umów w portalu usługi BizTalk
-Rozważmy następujący scenariusz:
+### <a name="duplicate-agreements-in-hello-biztalk-services-portal"></a>Zduplikowane umów w hello Portal usługi BizTalk
+Należy wziąć pod uwagę hello następujących scenariuszy:
 
-1. Tworzenie umowy z za pomocą API OM handlowymi zarządzania partnera.
-2. Otwórz umowę w dwóch różnych kartach zawierających portalu usługi BizTalk.
-3. Wdróż umowy z obu kart.
-4. W związku z tym zarówno umowy wdrożony co zduplikowane wpisy w portalu usługi BizTalk
+1. Tworzenie umowy z przy użyciu hello handlowi Zarządzanie partnerami OM z interfejsu API.
+2. Otwórz umowę hello w hello Portal usługi BizTalk na dwóch różnych kartach.
+3. Wdróż hello umowy z obu kartach hello.
+4. W związku z tym umowami hello wdrożony co zduplikowane wpisy w hello Portal usługi BizTalk
 
-**Obejście**. Otwórz dowolną zduplikowane umowy w portalu usługi BizTalk i wdrożyć.  
+**Obejście**. Otwórz dowolną hello zduplikowane umów w hello Portal usługi BizTalk i wdrożyć.  
 
-### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>Mostków nie należy używać zaktualizowany certyfikat, nawet po zaktualizowaniu certyfikatu w magazynie artefaktów
-Należy rozważyć następujące scenariusze:  
+### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-hello-artifact-store"></a>Nawet po zaktualizowaniu certyfikatu w magazynie artefaktu hello mostków nie używaj zaktualizowany certyfikat
+Należy wziąć pod uwagę hello następujące scenariusze:  
 
-**Scenariusz 1: Przy użyciu na podstawie odcisku palca certyfikatów do zabezpieczenia transferu wiadomości z mostka dla punktu końcowego**  
-Rozważmy scenariusz, w których są używane certyfikaty oparte na odcisk palca w projekcie usługi BizTalk. Aktualizuj certyfikat w portalu usługi BizTalk o takiej samej nazwie, ale inny odcisk palca, ale nie zaktualizować projektu usługi BizTalk, w związku z tym. W takiej sytuacji mostka może kontynuować przetwarzanie wiadomości, ponieważ starsze dane certyfikatu może nadal być w pamięci podręcznej kanału. Po wykonaniu tej przetwarzanie komunikatu kończy się niepowodzeniem.  
+**Scenariusz 1: Przy użyciu na podstawie odcisku palca certyfikatów do zabezpieczenia transferu wiadomości z punktu końcowego usługi tooa Mostek**  
+Rozważmy scenariusz, w których są używane certyfikaty oparte na odcisk palca w projekcie usługi BizTalk. Należy zaktualizować hello certyfikatu w portalu usługi BizTalk hello z hello takie same nazwy, ale inny odcisk palca, ale nie zaktualizować hello projektu usługi BizTalk, w związku z tym. W takiej sytuacji Mostek hello może kontynuować wiadomości powitania tooprocess, ponieważ hello starszych danych certyfikatu może nadal być w pamięci podręcznej hello kanału. Po wykonaniu tej przetwarzanie komunikatu kończy się niepowodzeniem.  
 
-**Obejście**: aktualizowanie certyfikatów w projekcie usługi BizTalk i wdrożenie projektu.  
+**Obejście**: aktualizowanie certyfikatów hello w hello projektu usługi BizTalk i wdrożenie projektu hello.  
 
-**Scenariusz 2: Za pomocą opartego na nazwie zachowań do identyfikowania certyfikatów do zabezpieczenia transferu wiadomości z mostka dla punktu końcowego**
+**Scenariusz 2: Za pomocą certyfikatów tooidentify na podstawie nazwy zachowania do zabezpieczenia transferu wiadomości z punktu końcowego usługi tooa Mostek**
 
-Rozważmy scenariusz, w których są używane na podstawie nazwy zachowania do identyfikowania certyfikaty w projekcie usługi BizTalk. Aktualizuj certyfikat w portalu usługi BizTalk, ale nie aktualizuj odpowiednio projektu usługi BizTalk. W takiej sytuacji mostka może kontynuować przetwarzanie wiadomości, ponieważ starsze dane certyfikatu może nadal być w pamięci podręcznej kanału. Po wykonaniu tej przetwarzanie komunikatu kończy się niepowodzeniem.  
+Rozważmy scenariusz, w których są używane certyfikaty tooidentify na podstawie nazwy zachowania w projekcie usługi BizTalk. Aktualizuj certyfikat hello w portalu usługi BizTalk hello, ale nie aktualizuj odpowiednio hello projektu usługi BizTalk. W takiej sytuacji Mostek hello może kontynuować wiadomości powitania tooprocess, ponieważ hello starszych danych certyfikatu może nadal być w pamięci podręcznej hello kanału. Po wykonaniu tej przetwarzanie komunikatu kończy się niepowodzeniem.  
 
-**Obejście**: aktualizowanie certyfikatów w projekcie usługi BizTalk i wdrożenie projektu.  
+**Obejście**: aktualizowanie certyfikatów hello w hello projektu usługi BizTalk i wdrożenie projektu hello.  
 
-### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Mostków dalsze przetwarzanie komunikatów, nawet wtedy, gdy baza danych SQL jest w trybie offline
-Mostków usługi BizTalk Services dalsze przetwarzanie wiadomości przez pewien czas, nawet jeśli Microsoft Azure bazy danych SQL (służący do przechowywania uruchomionych informacje, takie jak wdrożonej artefakty i potoki) jest w trybie offline. Jest to spowodowane usługi BizTalk Services korzysta z pamięci podręcznej artefakty i Mostek konfiguracji.
-Jeśli nie chcesz, aby mostków przetworzyć komunikaty, gdy baza danych SQL jest w trybie offline, umożliwia poleceń cmdlet programu PowerShell usługi BizTalk zatrzymać lub wstrzymać usługi BizTalk. Zobacz [przykład zarządzania usługi BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=329019) dla poleceń cmdlet programu Windows PowerShell do zarządzania operacjami.  
+### <a name="bridges-continue-tooprocess-messages-even-when-hello-sql-database-is-offline"></a>Mostków kontynuować tooprocess wiadomości, nawet wtedy, gdy baza danych SQL hello jest w trybie offline
+mostków usługi BizTalk Services Hello kontynuować tooprocess wiadomości przez pewien czas, nawet jeśli hello Microsoft Azure bazy danych SQL (służący do przechowywania hello systemem informacje, takie jak wdrożonej artefakty i potoki) jest w trybie offline. Jest to spowodowane usługi BizTalk Services używa artefakty hello w pamięci podręcznej i Mostek konfiguracji.
+Jeśli nie mają tooprocess mostków hello komunikaty podczas hello bazy danych SQL jest w trybie offline, można użyć toostop poleceń cmdlet programu PowerShell usługi BizTalk hello lub zawiesić hello usługi BizTalk. Zobacz [przykład zarządzania usługi BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=329019) dla operacji toomanage poleceń cmdlet programu Windows PowerShell hello.  
 
-### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>Odczytywanie wiadomości XML w składniku kod niestandardowy Mostek zawiera dodatkowy znak BOM
-Rozważmy scenariusz, gdzie chcesz odczytać komunikatu XML w Mostek niestandardowego kodu. Jeśli używasz System.Text.Encoding.UTF8.GetString(bytes) interfejsu API platformy .NET, nadmiarowe znaki BOM znajduje się w danych wyjściowych na początku komunikatu. Tak, jeśli nie chcesz, aby dane wyjściowe do uwzględnienia nadmiarowe znaki BOM, należy użyć ```System.IO.StreamReader().ReadToEnd()```.
+### <a name="reading-hello-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>Odczytywanie hello XML komunikat w składniku kod niestandardowy Mostek zawiera dodatkowy znak BOM
+Rozważmy scenariusz, w którym ma tooread komunikatu XML w Mostek niestandardowego kodu. Jeśli używasz hello System.Text.Encoding.UTF8.GetString(bytes) interfejsu API platformy .NET nadmiarowe znaki BOM jest uwzględnionych w danych wyjściowych hello na początku hello wiadomości powitania. Tak więc, jeśli nie chcesz hello dane wyjściowe tooinclude hello nadmiarowe znaki BOM, należy użyć ```System.IO.StreamReader().ReadToEnd()```.
 
-### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>Nie obsługuje wysyłanie komunikatów do mostka przy użyciu programu WCF
-Komunikaty wysyłane do mostka przy użyciu usługi WCF nie działa. Zamiast tego należy używać HttpWebRequest, jeśli klient skalowalnych.
+### <a name="sending-messages-tooa-bridge-using-wcf-does-not-scale"></a>Nie obsługuje wysyłanie komunikatów Mostek tooa przy użyciu programu WCF
+Komunikaty wysłane Mostek tooa przy użyciu usługi WCF nie działa. Zamiast tego należy używać HttpWebRequest, jeśli klient skalowalnych.
 
-### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>UAKTUALNIANIE: Błąd dostawcy tokenu po uaktualnieniu z wersji zapoznawczej usługi BizTalk do dostępności ogólne (GA)
-Brak EDI lub umowy AS2 z active partie. Po uaktualnieniu z wersji zapoznawczej usługi BizTalk do GA, mogą wystąpić następujące czynności:
+### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-toogeneral-availability-ga"></a>UAKTUALNIANIE: Błąd dostawcy tokenu po uaktualnieniu z wersji zapoznawczej usługi BizTalk tooGeneral dostępności (GA)
+Brak EDI lub umowy AS2 z active partie. Po uaktualnieniu z wersji zapoznawczej tooGA hello usługi BizTalk, mogą wystąpić następujące hello:
 
-* Błąd: Dostawca tokenu nie była w stanie tokenu zabezpieczającego. Dostawca tokenu zwrócił komunikat: nie można rozpoznać nazwy zdalnej.
+* Błąd: hello dostawcy tokenu to tooprovide tokenu zabezpieczającego. Dostawca tokenu zwrócił komunikat: nie można rozpoznać nazwy zdalnej hello.
 * Zadania wsadowe zostały anulowane.
 
-**Obejście**: po usługa BizTalk jest aktualizowane na ogólne dostępności (GA), należy ponownie wdrożyć umowy.  
+**Obejście**: hello usługi BizTalk po zaktualizowane tooGeneral dostępności (GA), należy ponownie wdrożyć hello umowy.  
 
-### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>UAKTUALNIANIE: Przybornika pokazuje starego ikony Mostek po uaktualnieniu do wersji zestawu SDK usługi BizTalk
-Po uaktualnieniu starszej wersji SDK usługi BizTalk, która ma stare ikony reprezentujące mostków, przybornika w dalszym ciągu Pokaż ikony starego mostków. Jednak jeśli dodasz mostka na powierzchnię projektanta projektu usługi BizTalk powierzchni zawiera ikonę Nowy.  
+### <a name="upgrade-toolbox-shows-hello-old-bridge-icons-after-upgrading-hello-biztalk-services-sdk"></a>UAKTUALNIANIE: Przybornika pokazuje hello starego Mostek ikony po uaktualnieniu hello zestawu SDK usługi BizTalk Services
+Po uaktualnieniu wcześniejszej wersji hello zestaw SDK usługi BizTalk, który miał starego ikony reprezentujące mostków hello, przybornika hello nadal tooshow hello starego ikony hello mostków. Jednak jeśli dodasz powierzchni Mostek tooBizTalk usługi projektu Projektanta powierzchni hello pokazuje hello nową ikonę.  
 
-**Obejście**. Można obejść ten problem, usuwając pliki .tbd w <system drive>: \Users\<użytkownika > \AppData\Local\Microsoft\VisualStudio\11.0.  
+**Obejście**. Można obejść ten problem, usuwając pliki .tbd hello w obszarze <system drive>: \Users\<użytkownika > \AppData\Local\Microsoft\VisualStudio\11.0.  
 
-### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>UAKTUALNIANIE: Aktualizacja BizTalk portalu w wersji zapoznawczej GA mogą być wyświetlane komunikat o błędzie informujący, że możliwości EDI nie jest dostępna
-Jeśli użytkownik jest zalogowany do portalu usługi BizTalk, gdy usługi BizTalk Services jest uaktualniany z wersji zapoznawczej do GA, może uzyskać następujący błąd w portalu:  
+### <a name="upgrade-biztalk-portal-update-from-preview-tooga-might-show-an-error-indicating-that-hello-edi-capability-is-not-available"></a>UAKTUALNIENIE: BizTalk portalu aktualizacji z wersji zapoznawczej tooGA wyświetli komunikat o błędzie informujący, że hello EDI możliwości nie jest dostępny
+Jeśli użytkownik jest zalogowany do portalu usługi BizTalk hello podczas usługi BizTalk hello jest uaktualniana tooGA podglądu, może uzyskać hello następujący błąd w portalu hello:  
 
-Ta funkcja nie jest dostępna w ramach tej wersji usług Microsoft Azure BizTalk. Użyj tych możliwości przełącznika do odpowiedniej wersji.  
+Ta funkcja nie jest dostępna w ramach tej wersji usług Microsoft Azure BizTalk. toouse te możliwości przełącznika tooan odpowiedniej wersji.  
 
-**Rozdzielczość**: wylogowania z portalu, zamknij i Otwórz przeglądarkę, a następnie zaloguj się do portalu.  
+**Rozdzielczość**: wylogowania z portalu hello, zamknij i otwórz hello przeglądarki, a następnie zaloguj się do portalu hello.  
 
-### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>UAKTUALNIANIE: Nowe dane śledzenia nie jest wyświetlany po uaktualnieniu do GA usługi BizTalk Services
-Przykładowa scenariusz, w którym masz Mostek XML wdrożone w wersji zapoznawczej usługi BizTalk subskrypcji. Wysyłanie komunikatów do mostka i odpowiednie dane śledzenia są dostępne w portalu usługi BizTalk. Teraz Jeśli bitów środowiska uruchomieniowego BizTalk usługi portalu i usługi BizTalk Services zostaną uaktualnione do GA i wysyła komunikat do tego samego punktu końcowego mostka wdrożonej wcześniej, dane śledzenia nie jest wyświetlany dla wiadomości wysyłanych po uaktualnieniu.  
+### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-tooga"></a>UAKTUALNIANIE: Nowe dane śledzenia nie jest wyświetlany po uaktualnionego tooGA usługi BizTalk Services
+Przykładowa scenariusz, w którym masz Mostek XML wdrożone w wersji zapoznawczej usługi BizTalk subskrypcji. Wysyłać wiadomości Mostek toohello i odpowiadające im dane śledzenia hello jest dostępna w hello Portal usługi BizTalk. Teraz, jeśli bitów środowiska uruchomieniowego BizTalk usługi portalu i usługi BizTalk Services hello jest uaktualniony tooGA i wysłać toohello wiadomości, tego samego punktu końcowego mostka wdrożonej wcześniej, hello dane śledzenia nie jest wyświetlany dla wiadomości wysyłanych po uaktualnieniu.  
 
 ### <a name="pipelines-versus-bridges"></a>Potoki i mostków
-W tym dokumencie termin "potoki" i "mostków" są używane zamiennie. Zasadniczo zarówno oznaczają to samo, który jest wdrożony na usługi BizTalk Services jednostki przetwarzania komunikatu.  
+W tym dokumencie termin hello "potoki" i "mostków" są używane zamiennie. Zasadniczo oznacza zarówno hello sam element, który jest wdrożony na usługi BizTalk Services jednostki przetwarzania komunikatu.  
 
 ### <a name="concepts"></a>Pojęcia
 [Usługi BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   

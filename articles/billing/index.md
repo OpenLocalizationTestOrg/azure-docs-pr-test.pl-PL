@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Billing — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak interpretować rozliczenia platformy Azure, a także jak monitorować użycie i koszty oraz zarządzać nimi. Samouczki, często zadawane pytania, dokumentacja interfejsu API i inne dokumenty."
+title: "aaaAzure rozliczeń dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toounderstand rozliczenia Azure, a także jako zarządzanie i monitorowanie użycia i koszty. Samouczki, często zadawane pytania, dokumentacja interfejsu API i inne dokumenty."
 services: billing
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f9d8cecf45e40909e39f894c62bcc572b610b014
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 663ea1a4526ed897e963d3daa9ed41a7bdbabef0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-billing-documentation"></a>Dokumentacja rozliczeń platformy Azure
 
-Dowiedz się, jak interpretować rozliczenia platformy Azure, a także jak monitorować użycie i koszty. W samouczkach, często zadawanych pytaniach, dokumentacji interfejsu API i pozostałych dokumentach przedstawiono informacje na temat zarządzania kontem.
+Dowiedz się, jak toounderstand Twojego Azure rozliczeń i monitorowanie użycia oraz koszty. Samouczki, często zadawane pytania, odwołania do interfejsu API, i inne dokumentacja jak toomanage Twojego konta.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,7 +125,7 @@ Dowiedz się, jak interpretować rozliczenia platformy Azure, a także jak monit
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Dowiedz się, jak używać interfejsów API</h3>
+                        <h3>Dowiedz się toouse hello interfejsów API</h3>
                         <p><a href="/azure/billing-usage-rate-card-overview">Przegląd interfejsu API</a></p>
                         <p><a href="/azure/billing-usage-rate-card-partner-solution-cloudcruiser">Rozwiązanie partnera: Cloud Cruiser</a></p>
                         <p><a href="/azure/billing-usage-rate-card-partner-solution-cloudyn">Rozwiązanie partnera: Cloudyn</a></p>

@@ -1,6 +1,6 @@
 ---
-title: "Aplikacje i przeglądarki, które używały zasady dostępu warunkowego w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Z kontroli dostępu warunkowego usługi Azure Active Directory sprawdza dotyczące określonych warunków podczas uwierzytelniania użytkownika i umożliwia dostęp do aplikacji."
+title: "aaaApplications i przeglądarki, które używały zasady dostępu warunkowego w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Z kontroli dostępu warunkowego usługi Azure Active Directory sprawdza określonych warunków podczas uwierzytelniania użytkownika hello i tooallow dostęp do aplikacji."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,27 +15,27 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8614660f7c98af7b4e6d50348775495c67ae1cc8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ca20853bb9f4b22d0b88ddd2f051d658e0d88cf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Aplikacje i przeglądarki, które używały zasady dostępu warunkowego w usłudze Azure Active Directory
 
 Zasady dostępu warunkowego są obsługiwane w usłudze Azure Active Directory (Azure AD)-połączony wniosków, wstępnie zintegrowane federacyjnych oprogramowanie jako usługa (SaaS), aplikacje używające hasło rejestracji jednokrotnej (SSO), aplikacji biznesowych z i aplikacje, które używają serwera Proxy aplikacji usługi Azure AD. Aby uzyskać szczegółową listę aplikacji, dla których można użyć dostępu warunkowego, zobacz [włączyć usługi z dostępem warunkowym](active-directory-conditional-access-technical-reference.md). Dostęp warunkowy działa zarówno z aplikacji mobilnych i klasycznych, które używają nowoczesnego uwierzytelniania. W tym artykule opisano firma Microsoft, sposobie działania dostępu warunkowego w aplikacji mobilnych i klasycznych.
 
-W aplikacjach korzystających z nowoczesnego uwierzytelniania, można użyć strony logowania usługi Azure AD. Ze strony logowania użytkownik jest monitowany w usłudze Multi-Factor authentication. Komunikat jest wyświetlany, jeśli zostanie zablokowany dostęp użytkownika. Nowoczesnego uwierzytelniania jest wymaganych dla tego urządzenia do uwierzytelniania za pomocą usługi Azure AD, dzięki czemu są analizowane zasady dostępu warunkowego opartego na urządzeniu.
+W aplikacjach korzystających z nowoczesnego uwierzytelniania, można użyć strony logowania usługi Azure AD. Ze strony logowania użytkownik jest monitowany w usłudze Multi-Factor authentication. Komunikat jest wyświetlany, jeśli użytkownik hello dostęp będzie zablokowany. Nowoczesnego uwierzytelniania jest wymagany dla hello tooauthenticate urządzenia z usługą Azure AD, dzięki czemu są analizowane zasady dostępu warunkowego opartego na urządzeniu.
 
-Należy znać aplikacji, które można używać zasad dostępu warunkowego i kroki, które należy wykonać, aby zabezpieczyć inne punkty wejścia aplikacji.
+Jest ważne tooknow aplikacji, które można użyć zasad dostępu warunkowego i hello kroki mogą konieczność tootake toosecure inne punkty wejścia aplikacji.
 
 ## <a name="applications-that-use-modern-authentication"></a>Aplikacje używające nowoczesnego uwierzytelniania
 > [!NOTE]
-> Jeśli zasady dostępu warunkowego w usłudze Azure AD, która zawiera odpowiednika w usłudze Office 365, należy skonfigurować obie zasady dostępu warunkowego. Ma to zastosowanie, na przykład zasady dostępu warunkowego dla usługi Exchange Online lub SharePoint Online.
+> Jeśli zasady dostępu warunkowego w usłudze Azure AD, która zawiera odpowiednika w usłudze Office 365, należy skonfigurować obie zasady dostępu warunkowego. Ma to zastosowanie, na przykład tooconditional zasady dostępu dla usługi Exchange Online lub SharePoint Online.
 >
 >
 
-Poniższe aplikacje obsługują dostępu warunkowego dla usługi Office 365 i innych aplikacji usługi Azure AD, połączony:
+Witaj następujące aplikacje obsługują dostępu warunkowego dla usługi Office 365 i innych aplikacji usługi Azure AD, połączony:
 
 
 | Usługa docelowa| Platforma| Aplikacja |
@@ -48,12 +48,12 @@ Poniższe aplikacje obsługują dostępu warunkowego dla usługi Office 365 i in
 | Office 365 Exchange Online| Windows 8.1, Windows 7| Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania), usługi Skype dla firm (z nowoczesnego uwierzytelniania)|
 | Office 365 Exchange Online| iOS| Outlook aplikacji mobilnej|
 | Office 365 Exchange Online| Mac OS X| Outlook 2016 (Urząd macOS)|
-| Usługi Office 365 SharePoint Online| Windows 10| Aplikacje pakietu Office 2016, Office uniwersalnych aplikacji, Office 2013 (z nowoczesnego uwierzytelniania), klient synchronizacji usługi OneDrive (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), planowane Office grupy wsparcia w przyszłości, należy zaplanować na przyszłość obsługi aplikacji programu SharePoint|
+| Usługi Office 365 SharePoint Online| Windows 10| Aplikacje pakietu Office 2016, Office uniwersalnych aplikacji, Office 2013 (z nowoczesnego uwierzytelniania), klient synchronizacji usługi OneDrive (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), zaplanowane dla przyszłych hello Obsługa grupy usługi Office, obsługi aplikacji programu SharePoint zaplanowane dla przyszłych hello|
 | Usługi Office 365 SharePoint Online| Windows 8.1, Windows 7| Aplikacje pakietu Office 2016, Office 2013 (z nowoczesnego uwierzytelniania), usługi OneDrive Synchronizowanie klienta (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|
 | Usługi Office 365 SharePoint Online| iOS i Android| Aplikacje mobilne pakietu Office|
-| Usługi Office 365 SharePoint Online| Mac OS X| Pakiet Office 2016 dla macOS (Word, Excel, PowerPoint, tylko w programie OneNote). OneDrive dla firm Obsługa planowanych w przyszłości|
+| Usługi Office 365 SharePoint Online| Mac OS X| Pakiet Office 2016 dla macOS (Word, Excel, PowerPoint, tylko w programie OneNote). OneDrive dla firm Obsługa planowanych do przyszłych hello|
 | Yammer usługi Office 365| Windows 10, iOS, Android| Aplikacja usługi Yammer pakietu Office|
-| Usługa Power BI| Windows 10, Windows 8.1, Windows 7 i iOS| Aplikacja usługi Power BI. Aplikacja usługi Power BI dla systemu Android nie obsługuje obecnie dostępu warunkowego opartego na urządzeniu.|
+| Usługa Power BI| Windows 10, Windows 8.1, Windows 7 i iOS| Aplikacja usługi Power BI. Witaj aplikacji Power BI dla systemu Android nie obsługuje obecnie dostępu warunkowego opartego na urządzeniu.|
 | Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS i Android| Visual Studio Team Services aplikacji|
 
 
@@ -64,24 +64,24 @@ Poniższe aplikacje obsługują dostępu warunkowego dla usługi Office 365 i in
 
 
 ## <a name="applications-that-do-not-use-modern-authentication"></a>Aplikacje, które nie używają nowoczesnego uwierzytelniania
-Obecnie należy użyć innych metod do blokowania dostępu do aplikacji, które nie używają nowoczesnego uwierzytelniania. Reguły dostępu dla aplikacji używających nowoczesnego uwierzytelniania nie są wymuszane przez funkcję dostępu warunkowego. Jest to przede wszystkim jest brany pod uwagę, aby uzyskać dostęp do programu Exchange i SharePoint. Większość wcześniejszych wersji aplikacji użyj starszych protokołów kontroli dostępu.
+Obecnie należy użyć innych tooapps dostępu tooblock metod nie używają nowoczesnego uwierzytelniania. Reguły dostępu dla aplikacji używających nowoczesnego uwierzytelniania nie są wymuszane przez funkcję dostępu warunkowego. Jest to przede wszystkim jest brany pod uwagę, aby uzyskać dostęp do programu Exchange i SharePoint. Większość wcześniejszych wersji aplikacji użyj starszych protokołów kontroli dostępu.
 
 ### <a name="control-access-in-office-365-sharepoint-online"></a>Kontroli dostępu w usłudze SharePoint Online pakietu Office 365
-Starszy protokół do dostępu do programu SharePoint można wyłączyć za pomocą polecenia cmdlet Set-SPOTenant. Użyj następującego polecenia cmdlet, aby uniemożliwić klientom pakietu Office, które używają protokołów uwierzytelniania nienowoczesne dostęp do zasobów usługi SharePoint Online.
+Starszy protokół do dostępu do programu SharePoint można wyłączyć za pomocą polecenia cmdlet hello SPOTenant zestawu. Użyj tego polecenia cmdlet tooprevent Office klientów, którzy używają nienowoczesne protokoły dostęp do zasobów usługi SharePoint Online.
 
 **Przykładowe polecenie**:`Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
 
 ### <a name="control-access-in-office-365-exchange-online"></a>Kontrola dostępu w usłudze Exchange Online pakietu Office 365
-Exchange oferuje dwie główne kategorie protokołów. Przejrzyj poniższe opcje, a następnie wybierz zasady, które jest odpowiednie dla Twojej organizacji.
+Exchange oferuje dwie główne kategorie protokołów. Przejrzyj hello następujące opcje, a następnie wybierz hello zasad, które jest odpowiednie dla Twojej organizacji.
 
-* **Program Exchange ActiveSync**. Domyślnie zasady dostępu warunkowego dla usługi Multi-Factor authentication i lokalizacji nie są wymuszane dla programu Exchange ActiveSync. Należy chronić dostęp do tych usług, konfigurując zasady programu Exchange ActiveSync, bezpośrednio lub przez blokowanie programu Exchange ActiveSync przy użyciu reguł usługi Active Directory Federation Services (AD FS).
-* **Starszy protokół**. Możesz zablokować starszych protokołów z usługami AD FS. To blokuje dostęp do starszych klientów pakietu Office, takich jak pakiet Office 2013 bez nowoczesnego uwierzytelniania, włączona i starszych wersji pakietu Office.
+* **Program Exchange ActiveSync**. Domyślnie zasady dostępu warunkowego dla usługi Multi-Factor authentication i lokalizacji nie są wymuszane dla programu Exchange ActiveSync. Należy tooprotect dostępu toothese usług, konfigurując zasady programu Exchange ActiveSync bezpośrednio lub przez blokowanie programu Exchange ActiveSync przy użyciu reguł usługi Active Directory Federation Services (AD FS).
+* **Starszy protokół**. Możesz zablokować starszych protokołów z usługami AD FS. To blokuje dostęp tooolder Office klientów, takich jak pakiet Office 2013 bez nowoczesnego uwierzytelniania, włączona i starszych wersji pakietu Office.
 
-### <a name="use-ad-fs-to-block-legacy-protocol"></a>Blokuj starsza wersja protokołu za pomocą usług AD FS
-Następujące reguły autoryzacji wystawiania przykład służy do blokowania dostępu starsza wersja protokołu na poziomie usług AD FS. Wybierz spośród dwóch typowych konfiguracji.
+### <a name="use-ad-fs-tooblock-legacy-protocol"></a>Używanie protokołu starszych tooblock usług AD FS
+Możesz użyć powitania po przykład wystawiania autoryzacji reguły tooblock starsza wersja protokołu dostęp na poziomie hello usług AD FS. Wybierz spośród dwóch typowych konfiguracji.
 
-#### <a name="option-1-allow-exchange-activesync-and-allow-legacy-apps-but-only-on-the-intranet"></a>Opcja 1: Zezwalaj na program Exchange ActiveSync i Zezwalaj aplikacjom starszej wersji, ale tylko w sieci intranet
-Stosując następujące trzy reguły do usług AD FS dla platformy tożsamości pakietu Microsoft Office 365, ruch protokołu Exchange ActiveSync i przeglądarki i nowoczesnego uwierzytelniania ruchu zaufanie jednostki uzależnionej, należy mieć dostęp. Starsze aplikacje są zablokowane z ekstranetu.
+#### <a name="option-1-allow-exchange-activesync-and-allow-legacy-apps-but-only-on-hello-intranet"></a>Opcja 1: Zezwalaj na program Exchange ActiveSync i Zezwalaj aplikacjom starszej wersji, ale tylko w intranecie hello
+Stosując następujące trzy toohello reguły hello jednostki zależnej w usługach AD FS zaufania dla platformą tożsamości Microsoft Office 365, ruch protokołu Exchange ActiveSync i przeglądarki i ruchu nowoczesnego uwierzytelniania dostęp. Starsze aplikacje są blokowane hello ekstranetu.
 
 ##### <a name="rule-1"></a>Reguła 1
     @RuleName = "Allow all intranet traffic"
@@ -100,7 +100,7 @@ Stosując następujące trzy reguły do usług AD FS dla platformy tożsamości 
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 #### <a name="option-2-allow-exchange-activesync-and-block-legacy-apps"></a>Opcja 2: Zezwalaj na program Exchange ActiveSync i blokowania starsze aplikacje
-Stosując następujące trzy reguły do usług AD FS dla platformy tożsamości pakietu Microsoft Office 365, ruch protokołu Exchange ActiveSync i przeglądarki i nowoczesnego uwierzytelniania ruchu zaufanie jednostki uzależnionej, należy mieć dostęp. Starsze aplikacje są zablokowane z dowolnego miejsca.
+Stosując następujące trzy toohello reguły hello jednostki zależnej w usługach AD FS zaufania dla platformą tożsamości Microsoft Office 365, ruch protokołu Exchange ActiveSync i przeglądarki i ruchu nowoczesnego uwierzytelniania dostęp. Starsze aplikacje są zablokowane z dowolnego miejsca.
 
 ##### <a name="rule-1"></a>Reguła 1
     @RuleName = "Allow all intranet traffic only for browser and modern authentication clients"
@@ -124,7 +124,7 @@ Stosując następujące trzy reguły do usług AD FS dla platformy tożsamości 
 
 ## <a name="supported-browsers-for-device-based-policies"></a>Obsługiwane przeglądarki dla urządzeń, na podstawie zasad 
 
-Tylko można uzyskać dostęp do urządzenia, na podstawie zasad, które Sprawdź zgodność urządzenia i przyłączanie do domeny podczas identyfikacji i uwierzytelniania urządzenia usługi Azure AD. Podczas kontroli większości, takie jak lokalizacja i pracy uwierzytelniania Wieloskładnikowego na większości urządzeń i przeglądarki zasady urządzeń wymagają wersji systemu operacyjnego i przeglądarek wymienionych poniżej. Dostęp będzie zablokowany dla użytkowników w nieobsługiwanych przeglądarkach lub systemów operacyjnych w przypadku zasad urządzenia w miejscu. 
+Tylko można uzyskać dostępu do urządzenia, na podstawie zasad, które Sprawdź zgodności urządzenia i przyłączanie do domeny po usługi Azure AD można identyfikację i uwierzytelnienie hello urządzenia. Podczas kontroli większości, takie jak lokalizacja i pracy uwierzytelniania Wieloskładnikowego na większości urządzeń i przeglądarki zasady urządzeń wymagają wersji hello systemu operacyjnego i przeglądarek wymienionych poniżej. Dostęp będzie zablokowany dla użytkowników w nieobsługiwanych przeglądarkach hello systemach operacyjnych czy w przypadku zasad urządzenia w miejscu. 
 
 | System operacyjny                     | Przeglądarki                 | Pomoc techniczna     |
 | :--                    | :--                      | :-:         |
@@ -143,7 +143,7 @@ Tylko można uzyskać dostęp do urządzenia, na podstawie zasad, które Sprawd�
 | Mac OS                 | Chrome                   | Wkrótce |
 
 > [!NOTE]
-> Obsługę Chrome, muszą być przy użyciu systemu Windows 10 twórców aktualizacji i zainstaluj rozszerzenie znaleziono [tutaj](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+> Obsługę Chrome, należy korzystać z systemu Windows 10 twórców aktualizacji i instalacji rozszerzenia hello znaleziono [tutaj](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 >
 >
 

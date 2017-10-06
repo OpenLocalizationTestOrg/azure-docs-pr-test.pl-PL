@@ -1,6 +1,6 @@
 ---
-title: "Ciągłego dostarczania dla chmury usługi z programem TFS na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować ciągłego dostarczania dla aplikacji w chmurze Azure. Przykłady kodu dla instrukcji wiersza polecenia programu MSBuild i skryptów programu PowerShell."
+title: "dostarczanie aaaContinuous chmury usługi z programem TFS na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak aplikacji w chmurze tooset się ciągłego dostarczania dla platformy Azure. Przykłady kodu dla instrukcji wiersza polecenia programu MSBuild i skryptów programu PowerShell."
 services: cloud-services
 documentationcenter: 
 author: kraigb
@@ -14,141 +14,141 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c0e5e72ffbd3c05b84ce1733068e92c528bcc4b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Ciągłego dostarczania dla usług w chmurze na platformie Azure
-Proces opisany w tym artykule pokazano, jak skonfigurować ciągłego dostarczania dla aplikacji w chmurze Azure. Ten proces umożliwia automatyczne tworzenie pakietów i wdrożenie pakietu w systemie Azure po każdym zaewidencjonowaniu kodu. Proces kompilacji pakietu, które są opisane w tym artykule jest odpowiednikiem **pakietu** polecenie w programie Visual Studio i kroki publikowania są równoważne **publikowania** polecenia w programie Visual Studio.
-Artykuł obejmuje metody ma zostać użyty do utworzenia serwera kompilacji MSBuild instrukcje wiersza polecenia i skryptów programu Windows PowerShell, a on również pokazano, jak opcjonalnie skonfigurować Visual Studio Team Foundation Server - Team Build definicje do użycia MSBuild poleceń i skryptów programu PowerShell. Ten proces jest można dostosować do własnego środowiska kompilacji i środowisk docelowej platformy Azure.
+Witaj procesu opisanego w tym artykule przedstawiono sposób tooset się ciągłego dostarczania dla aplikacji w chmurze Azure. Ten proces umożliwia automatyczne tworzenie pakietów i wdrożyć tooAzure pakietu powitania po każdym ewidencjonowania kodu. Witaj procesu kompilacji pakietu opisane w tym artykule jest równoważne toohello **pakietu** polecenie w programie Visual Studio i kroki publikowania są równoważne toohello **publikowania** polecenia w programie Visual Studio.
+Hello artykuł obejmuje hello metody toocreate serwera kompilacji będzie korzystać także z MSBuild instrukcje wiersza polecenia i skryptów programu Windows PowerShell i pokazuje, jak toooptionally Konfigurowanie programu Visual Studio Team Foundation Server - Team Build definicje toouse hello MSBuild poleceń i skryptów programu PowerShell. proces Hello jest można dostosować do własnego środowiska kompilacji i środowisk docelowej platformy Azure.
 
-Można również użyć programu Visual Studio Team Services, wersji programu TFS, która jest hostowana na platformie Azure, aby łatwiej. 
+Można również użyć programu Visual Studio Team Services, wersji programu TFS, która jest hostowana na platformie Azure, toodo to łatwiejsze. 
 
 Przed rozpoczęciem należy opublikować aplikacji z programu Visual Studio.
-Zapewni to, że wszystkie zasoby są dostępne i została zainicjowana przy próbie zautomatyzować proces publikacji.
+Zapewni to, czy wszystkie zasoby hello są dostępne i została zainicjowana usiłujące tooautomate hello publikacji procesu.
 
-## <a name="1-configure-the-build-server"></a>1: Konfigurowanie serwera kompilacji
-Przed utworzeniem pakietu Azure przy użyciu programu MSBuild, należy zainstalować wymaganego oprogramowania i narzędzi na serwerze kompilacji.
+## <a name="1-configure-hello-build-server"></a>1: Konfigurowanie powitania serwera kompilacji
+Przed utworzeniem pakietu Azure przy użyciu programu MSBuild, należy zainstalować hello wymagane oprogramowanie i narzędzi na serwerze kompilacji hello.
 
-Program Visual Studio nie jest wymagane do zainstalowania na serwerze kompilacji. Jeśli chcesz użyć do zarządzania serwerem kompilacji usługi kompilacji programu Team Foundation, postępuj zgodnie z instrukcjami [usługi kompilacji programu Team Foundation] [ Team Foundation Build Service] dokumentacji.
+Program Visual Studio nie jest wymagane toobe zainstalowane na powitania serwera kompilacji. Toomanage usługi kompilacji programu Team Foundation toouse serwera kompilacji, należy wykonać instrukcje hello hello [usługi kompilacji programu Team Foundation] [ Team Foundation Build Service] dokumentacji.
 
-1. Zainstalować na serwerze kompilacji [.NET Framework 4.5.2][.NET Framework 4.5.2], która obejmuje MSBuild.
-2. Zainstaluj najnowszą [Azure Authoring Tools dla programu .NET](https://azure.microsoft.com/develop/net/).
-3. Zainstaluj [bibliotek platformy Azure dla platformy .NET](http://go.microsoft.com/fwlink/?LinkId=623519).
-4. Skopiuj plik Microsoft.WebApplication.targets z instalacją programu Visual Studio do serwera kompilacji.
+1. Na serwerze kompilacji hello Zainstaluj hello [.NET Framework 4.5.2][.NET Framework 4.5.2], która obejmuje MSBuild.
+2. Zainstaluj najnowsze hello [Azure Authoring Tools dla programu .NET](https://azure.microsoft.com/develop/net/).
+3. Zainstaluj hello [biblioteki Azure dla platformy .NET](http://go.microsoft.com/fwlink/?LinkId=623519).
+4. Serwer kompilacji pliku Microsoft.WebApplication.targets hello kopiowania z toohello instalacji programu Visual Studio.
 
-   Na komputerze z programem Visual Studio zainstalowany, ten plik znajduje się w katalogu C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\14.0\\WebApplications. Skopiuj go do tego samego katalogu na serwerze kompilacji.
-5. Zainstaluj [Azure Tools dla Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
+   Na komputerze z programem Visual Studio zainstalowany, ten plik znajduje się w katalogu hello C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\14.0\\WebApplications. Należy skopiować toohello tym samym katalogu na powitania serwera kompilacji.
+5. Zainstaluj hello [Azure Tools dla programu Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
 
 ## <a name="2-build-a-package-using-msbuild-commands"></a>2: Tworzenie pakietu przy użyciu polecenia programu MSBuild
-Ta sekcja opisuje sposób tworzenia polecenie MSBuild, która tworzy pakiet Azure. Wykonaj ten krok, na serwerze kompilacji, aby sprawdzić, czy wszystko jest poprawnie skonfigurowany i czy wykonywanie polecenia programu MSBuild, co ma wykonania. Można dodać ten wiersz polecenia do istniejących skryptów kompilacji na serwerze kompilacji lub użyć wiersza polecenia w definicji kompilacji TFS, zgodnie z opisem w następnej sekcji. Aby uzyskać więcej informacji na temat parametrów wiersza polecenia i MSBuild, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
+W tej sekcji opisano, jak tooconstruct MSBuild polecenia, który tworzy pakiet Azure. Wykonaj ten krok na powitania kompilacji serwera tooverify czy wszystko jest poprawnie skonfigurowana i czy polecenie MSBuild hello wykonuje, co ma toodo. Można dodać skrypty kompilacji to tooexisting wiersza polecenia na serwerze kompilacji hello lub skorzystać z wiersza polecenia hello w definicji kompilacji TFS, zgodnie z opisem w następnej sekcji hello. Aby uzyskać więcej informacji na temat parametrów wiersza polecenia i MSBuild, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
-1. Jeśli program Visual Studio jest zainstalowany na serwerze kompilacji, Znajdź i wybierz **wiersz polecenia programu Visual Studio** w **programu Visual Studio Tools** folderu systemu Windows.
+1. Jeśli program Visual Studio jest zainstalowany na serwerze kompilacji hello, Znajdź i wybierz **wiersz polecenia programu Visual Studio** w hello **programu Visual Studio Tools** folderu systemu Windows.
 
-   Jeśli program Visual Studio nie jest zainstalowany na serwerze kompilacji, otwórz wiersz polecenia i upewnij się, że MSBuild.exe jest dostępny w ścieżce. Platformy .NET Framework w ścieżce % WINDIR % jest zainstalowany program MSBuild\\Microsoft.NET\\Framework\\*wersji*. Na przykład aby dodać MSBuild.exe do zmiennej środowiskowej PATH, jeśli masz zainstalowany program .NET Framework 4, wpisz następujące polecenie w wierszu polecenia:
+   Jeśli program Visual Studio nie jest zainstalowany na serwerze kompilacji hello, otwórz wiersz polecenia i upewnij się, że MSBuild.exe jest dostępny w ścieżce. Z hello .NET Framework w hello ścieżki % WINDIR % jest zainstalowany program MSBuild\\Microsoft.NET\\Framework\\*wersji*. Na przykład aby dodać zmiennej środowiskowej PATH toohello MSBuild.exe, jeśli masz zainstalowany program .NET Framework 4, wpisz następujące polecenie w wierszu polecenia hello hello:
 
        set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
-2. W wierszu polecenia przejdź do folderu zawierającego plik projektu platformy Azure, który chcesz utworzyć.
-3. Uruchom program MSBuild z opcji/target: publikowanie opcja jak w poniższym przykładzie:
+2. W wierszu polecenia hello Przejdź toohello folder zawierający plik projektu platformy Azure, które mają toobuild.
+3. Uruchom program MSBuild z hello/target: opcja tak jak hello poniższy przykład publikowania:
 
        MSBuild /target:Publish
 
-   Tej opcji można stosować skrót /t: publikowania. Opcja /t:Publish w programie MSBuild nie należy mylić z polecenia Opublikuj dostępne w programie Visual Studio, jeśli masz zainstalowany zestaw SDK usługi Azure. /T: publikowanie tylko kompilacje opcji Azure pakietów. Nie wdrażać pakiety jak polecenia Opublikuj w programie Visual Studio.
+   Tej opcji można stosować skrót /t: publikowania. Opcja /t:Publish Hello w programie MSBuild nie należy mylić z polecenia Opublikuj hello dostępne w programie Visual Studio Jeśli masz hello zainstalowania zestawu Azure SDK. Witaj /t: opcja publikowania tylko kompilacje hello Azure pakietów. Nie wdrażać pakietów hello jak hello polecenia Opublikuj w programie Visual Studio.
 
-   Opcjonalnie można określić nazwę projektu jako parametr MSBuild. Jeśli nie zostanie określony, używany jest bieżący katalog. Aby uzyskać więcej informacji na temat opcji wiersza polecenia programu MSBuild, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
-4. Znajdź dane wyjściowe. Domyślnie to polecenie tworzy katalog w odniesieniu do folderu głównego dla projektu, takie jak *ProjectDir*\\bin\\*konfiguracji*\\app.publish \\. Podczas tworzenia projektu platformy Azure, generowanie dwóch plików, sam plik pakietu i towarzyszący plik konfiguracji:
+   Opcjonalnie można określić nazwę projektu hello jako parametr MSBuild. Jeśli nie zostanie określony, używany jest hello bieżący katalog. Aby uzyskać więcej informacji na temat opcji wiersza polecenia programu MSBuild, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
+4. Zlokalizuj hello danych wyjściowych. Domyślnie to polecenie tworzy katalog w folderze głównym toohello relacji dla projektu hello, takich jak *ProjectDir*\\bin\\*konfiguracji* \\ App.publish\\. Podczas tworzenia projektu platformy Azure, generowanie dwóch plików, sam plik pakietu hello i hello towarzyszącego pliku konfiguracji:
 
    * Project.cspkg
    * Element ServiceConfiguration. *TargetProfile*.cscfg
 
-   Domyślnie każdy projekt Azure zawiera jeden usługi konfiguracji pliku (cscfg) lokalne kompilacje (debugowanie) i drugi dla kompilacji chmury (tymczasowym czy produkcyjnym), ale można dodać lub usunąć pliki konfiguracji usługi, zgodnie z potrzebami. Podczas tworzenia pakietu w programie Visual Studio, użytkownik zostanie poproszony które pliku konfiguracji usługi, aby uwzględnić obok pakietu.
-5. Określ plik konfiguracji usługi. Podczas tworzenia pakietu przy użyciu programu MSBuild, domyślnie znajduje się plik konfiguracji Usługa lokalna. Aby dołączyć plik konfiguracji innej usługi, należy ustawić właściwość TargetProfile polecenia programu MSBuild, jak w poniższym przykładzie:
+   Domyślnie każdy projekt Azure zawiera jeden usługi konfiguracji pliku (cscfg) lokalne kompilacje (debugowanie) i drugi dla kompilacji chmury (tymczasowym czy produkcyjnym), ale można dodać lub usunąć pliki konfiguracji usługi, zgodnie z potrzebami. Podczas tworzenia pakietu w programie Visual Studio, użytkownik zostanie poproszony które tooinclude pliku konfiguracji usługi obok hello pakietu.
+5. Określ plik konfiguracji usługi hello. Podczas tworzenia pakietu przy użyciu programu MSBuild w pliku konfiguracji usługi lokalne powitania znajduje się domyślnie. tooinclude plik konfiguracji innej usługi, ustaw właściwość TargetProfile hello polecenia programu MSBuild, tak jak hello poniższy przykład:
 
        MSBuild /t:Publish /p:TargetProfile=Cloud
-6. Określ lokalizację dla danych wyjściowych. Ustawianie ścieżki przy użyciu /p:PublishDir =*katalogu* \\ opcji, w tym końcowe separatora ukośnik odwrotny, jak w poniższym przykładzie:
+6. Określ lokalizację hello hello danych wyjściowych. Ustaw ścieżkę hello przy użyciu /p:PublishDir =*katalogu* \\ opcji, w tym hello kończyć się separatorem ukośnik odwrotny, tak jak hello poniższy przykład:
 
        MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
-   Po utworzone i przetestowane odpowiedni wiersz polecenia programu MSBuild do tworzenia projektów i połączyć je w pakiecie Azure, można dodać ten wiersz polecenia do skrypty kompilacji. Jeśli serwer kompilacji obsługuje skrypty niestandardowe, ten proces będzie zależeć od specyfiki procesu kompilacji niestandardowej. Jeśli używasz TFS jako środowiska kompilacji, można postępuj zgodnie z instrukcjami w następnym kroku, aby dodać pakiet Azure kompilacji do procesu kompilacji.
+   Po utworzone i przetestowane MSBuild odpowiednie polecenie wiersza toobuild projektów i połączyć je w pakiecie Azure, istnieje możliwość dodania skryptów kompilacji tooyour tego wiersza polecenia. Jeśli serwer kompilacji obsługuje skrypty niestandardowe, ten proces będzie zależeć od specyfiki procesu kompilacji niestandardowej. Jeśli używasz TFS jako środowiska kompilacji, a następnie wykonać instrukcje hello hello następnego kroku procesu kompilacji tooyour tooadd hello Azure pakietu kompilacji.
 
 ## <a name="3-build-a-package-using-tfs-team-build"></a>3: Tworzenie pakietu za pomocą kompilacji TFS zespołu
-Jeśli masz skonfigurowany jako kontroler kompilacji i serwer kompilacji Team Foundation Server (TFS), skonfigurować jako maszyna kompilacji TFS, a następnie możesz opcjonalnie skonfigurować automatyczne kompilacji pakietu Azure. Aby uzyskać informacje na temat sposobu konfigurowania i używania jako system kompilacji Team Foundation server, zobacz [skalowania w poziomie system kompilacji][Scale out your build system]. W szczególności w poniższej procedurze przyjęto, że na serwerze kompilacji zostało skonfigurowane zgodnie z opisem w [Wdróż i skonfiguruj serwer kompilacji][Deploy and configure a build server], i utworzyć projektu zespołowego, należy utworzyć chmury projekt usługi w projekcie zespołowym.
+Jeśli masz Konfigurowanie kontrolera kompilacji i hello serwer kompilacji Team Foundation Server (TFS), skonfigurować jako maszyna kompilacji TFS, a następnie możesz opcjonalnie skonfigurować automatyczne kompilacji pakietu Azure. Aby uzyskać informacje dotyczące sposobu tooset się i użyj Team Foundation server jako system kompilacji, zobacz [skalowania w poziomie system kompilacji][Scale out your build system]. W szczególności w poniższej procedurze przyjęto, że na serwerze kompilacji zostało skonfigurowane zgodnie z opisem w [Wdróż i skonfiguruj serwer kompilacji][Deploy and configure a build server], i utworzyć projektu zespołowego, należy utworzyć chmury projekt usługi w projekcie zespołowym hello.
 
-Aby skonfigurować TFS do tworzenia pakietów platformy Azure, wykonaj następujące czynności:
+tooconfigure TFS toobuild Azure pakietów, wykonaj następujące kroki hello:
 
-1. W programie Visual Studio na komputerze deweloperskim, w menu Widok wybierz polecenie **Team Explorer**, lub wybierz polecenie Ctrl +\\, Ctrl + M. W oknie programu Team Explorer rozwiń **kompilacje** węzła lub wybierz **kompilacje** stronie, a następnie wybierz **nową definicję kompilacji**.
+1. W programie Visual Studio na komputerze dewelopera na powitania menu Widok wybierz polecenie **Team Explorer**, lub wybierz polecenie Ctrl +\\, Ctrl + M. W oknie programu Team Explorer rozwiń hello **kompilacje** węzła lub wybierz hello **kompilacje** stronie, a następnie wybierz **nową definicję kompilacji**.
 
    ![Nowa opcja definicji kompilacji][0]
-2. Wybierz **wyzwalacza** , a następnie określić żądaną warunki, gdy chcesz pakietu, który ma zostać utworzony. Na przykład określić **ciągłej integracji** do utworzenia pakietu przy każdym kontroli źródła zaewidencjonowania występuje.
-3. Wybierz **ustawienia źródła** karcie i upewnij się, że folder projektu jest wymieniony w **folderu kontroli źródła** kolumny, a stan ma **Active**.
-4. Wybierz **kompilacji domyślne** , a następnie w obszarze kontroler kompilacji, sprawdź nazwę serwera kompilacji.  Ponadto wybierz opcję **Kopiuj dane wyjściowe kompilacji do następującego folderu docelowego** i określ lokalizację docelową żądany.
-5. Wybierz **procesu** kartę. Na karcie procesu wybierz szablon domyślny, w obszarze **kompilacji**, wybierz projekt, jeśli nie została jeszcze wybrana, a rozwiń **zaawansowane** sekcji **kompilacji** sekcji siatki.
-6. Wybierz **argumenty programu MSBuild**i ustaw odpowiednie argumenty wiersza polecenia programu MSBuild, zgodnie z opisem w kroku 2. powyżej. Na przykład wprowadź **/t: publikowanie /p:PublishDir =\\\\MójSerwer\\porzuca\\**  do tworzenia pakietu i skopiuj pliki pakietu do lokalizacji \\ \\ MójSerwer\\porzuca\\:
+2. Wybierz hello **wyzwalacza** , a następnie określ hello potrzeby warunków, dla której ma zostać hello toobe pakiet utworzony. Na przykład określić **ciągłej integracji** występuje toobuild hello pakietu przy każdym wyboru w kontroli źródła.
+3. Wybierz hello **ustawienia źródła** karcie i upewnij się, że folder projektu jest wymieniony w hello **folderu kontroli źródła** kolumny, i jest w stanie hello **Active**.
+4. Wybierz hello **kompilacji domyślne** , a następnie w obszarze kontroler kompilacji, sprawdź nazwę hello powitania serwera kompilacji.  Ponadto wybierz opcję hello **folderu odrzuceń następujące toohello danych wyjściowych kompilacji kopiowania** i określ hello żądaną lokalizację docelową.
+5. Wybierz hello **procesu** kartę. Na karcie procesu hello, wybierz szablon domyślny hello, w obszarze **kompilacji**, wybierz projekt hello, jeśli nie została jeszcze wybrana, a rozwiń hello **zaawansowane** części hello **kompilacji**części hello siatki.
+6. Wybierz **argumenty programu MSBuild**i ustaw odpowiednie argumenty wiersza polecenia programu MSBuild hello zgodnie z opisem w kroku 2. powyżej. Na przykład wprowadź **/t: publikowanie /p:PublishDir =\\\\MójSerwer\\porzuca\\**  toobuild pakietu hello pakietu i skopiuj pliki lokalizacji toohello \\ \\MójSerwer\\porzuca\\:
 
    ![Argumenty programu MSBuild][2]
 
    > [!NOTE]
-   > Kopiowanie plików do udziału publicznego ułatwia ręcznie wdrażania pakietów na komputerze projektowym.
-7. Testowanie Powodzenie z kroku kompilacji sprawdzając w przypadku zmiany do projektu lub kolejki nowej kompilacji. Do kolejki z nowej kompilacji w programie Team Explorer, kliknij prawym przyciskiem myszy **wszystkie definicje kompilacji,** , a następnie wybierz **Tworzenie nowej kolejki**.
+   > Kopiowanie tooa pliki hello udziału umożliwia łatwiejsze toomanually wdrażania pakietów hello na komputerze projektowym.
+7. Testowanie hello Powodzenie z kroku kompilacji sprawdzając w projekcie tooyour zmiany lub kolejki nowej kompilacji. Kliknij prawym przyciskiem myszy tooqueue zapasowej nowej kompilacji w programie Team Explorer **wszystkie definicje kompilacji,** , a następnie wybierz **Tworzenie nowej kolejki**.
 
 ## <a name="4-publish-a-package-using-a-powershell-script"></a>4: publikowanie pakietu przy użyciu skryptu programu PowerShell
-Ta sekcja opisuje sposób tworzenia skryptu programu Windows PowerShell, która będzie publikować dane wyjściowe pakietu aplikacji chmurze na platformie Azure przy użyciu parametrów opcjonalnych. Ten skrypt można wywołać po wykonaniu kroku kompilacji w Twojej automatyzacji niestandardowej kompilacji. Można również nadać mu z szablonu procesu działania przepływu pracy w Visual Studio TFS Team Build.
+W tej sekcji opisano, jak tooconstruct skrypt programu Windows PowerShell, która będzie publikować pakiet aplikacji hello chmury output tooAzure przy użyciu parametrów opcjonalnych. Ten skrypt można wywołać po wykonaniu kroku kompilacji hello w Twojej automatyzacji niestandardowej kompilacji. Można również nadać mu z szablonu procesu działania przepływu pracy w Visual Studio TFS Team Build.
 
-1. Zainstaluj [poleceń cmdlet programu Azure PowerShell] [ Azure PowerShell cmdlets] (v0.6.1 lub nowszej).
-   Podczas fazy instalacji polecenia cmdlet należy wybrać opcję instalacji jako przystawki. Należy zwrócić uwagę, czy tego oficjalnie obsługiwana wersja zastępuje starszej wersji oferowane za pośrednictwem portalu CodePlex, chociaż poprzednie wersje zostały numerowane 2.x.x.
-2. Uruchom program Azure PowerShell przy użyciu Start menu lub strony początkowej. Jeśli uruchamiasz w ten sposób, poleceń cmdlet programu Azure PowerShell zostanie załadowany.
-3. W wierszu polecenia programu PowerShell, sprawdź, czy polecenia cmdlet programu PowerShell są załadowane przez wprowadzenie polecenia częściowe `Get-Azure` , a następnie naciśnięcie klawisza Tab do uzupełniania instrukcji.
+1. Zainstaluj hello [poleceń cmdlet programu Azure PowerShell] [ Azure PowerShell cmdlets] (v0.6.1 lub nowszej).
+   Podczas fazy instalacji polecenia cmdlet hello należy wybrać tooinstall jako przystawki. Należy zwrócić uwagę, czy tego oficjalnie obsługiwana wersja zastępuje starszej wersji hello oferowane za pośrednictwem portalu CodePlex, chociaż hello poprzednie wersje zostały numerowane 2.x.x.
+2. Uruchom program PowerShell Azure przy użyciu hello Start menu lub strony początkowej. Po uruchomieniu w ten sposób hello poleceń cmdlet programu Azure PowerShell zostanie załadowany.
+3. W wierszu polecenia programu PowerShell hello, sprawdź, czy polecenia cmdlet programu PowerShell hello są załadowane przez wprowadzenie polecenia częściowe hello `Get-Azure` , a następnie naciskając klawisz hello klawisza Tab do uzupełniania instrukcji.
 
-   Po naciśnięciu klawisza Tab wielokrotnie, powinny pojawić różne polecenia programu PowerShell systemu Azure.
-4. Sprawdź, czy możesz nawiązać subskrypcji platformy Azure, przez zaimportowanie informacji o subskrypcji z pliku .publishsettings.
+   Po naciśnięciu klawisza Tab hello wielokrotnie, powinny pojawić różne polecenia programu PowerShell systemu Azure.
+4. Sprawdź, czy masz połączenie tooyour subskrypcji platformy Azure przez zaimportowanie informacji o subskrypcji z pliku .publishsettings hello.
 
    `Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings`
 
-   Następnie wprowadź polecenie
+   Następnie wprowadź polecenie hello
 
    `Get-AzureSubscription`
 
    Oznacza to, informacje o Twojej subskrypcji. Sprawdź, czy wszystkie ustawienia są poprawne.
-5. Zapisz szablon skryptu podana na końcu tego artykułu w folderze skryptów jako c:\\skryptów\\WindowsAzure\\**PublishCloudService.ps1**.
-6. Zapoznaj się z sekcją Parametry skryptu. Dodaj lub zmodyfikuj wartości domyślne. Te wartości zawsze może być zastąpiona przez przekazywanie parametrów jawnych.
-7. Upewnij się, są prawidłową chmurą konta usługi i Magazyn tworzone w ramach subskrypcji, która może być celem skryptu publikowania. Konto magazynu (magazynu obiektów blob) będzie używany do przekazywania i tymczasowe przechowywanie wdrożenia pakietu i pliku konfiguracji podczas tworzenia wdrożenia.
+5. Zapisz szablon skryptu hello podana na końcu tego artykułu w folderze skryptów jako c: hello\\skryptów\\WindowsAzure\\**PublishCloudService.ps1**.
+6. Przejrzyj sekcję parametry hello hello skryptu. Dodaj lub zmodyfikuj wartości domyślne. Te wartości zawsze może być zastąpiona przez przekazywanie parametrów jawnych.
+7. Upewnij się, istnieją usługi w chmurze prawidłowe i kont magazynu utworzonych w ramach subskrypcji, która może być celem hello publikowanie skryptu. Konto magazynu (magazynu obiektów blob) zostanie użyty tooupload i tymczasowe przechowywanie hello wdrożenia pakietu i pliku konfiguracji podczas tworzenia wdrożenia.
 
-   * Aby utworzyć nową usługę w chmurze, można wywołać tego skryptu lub użyć [portalu Azure](https://portal.azure.com). Nazwa usługi w chmurze będzie służyć jako prefiksu w pełni kwalifikowaną nazwę domeny i dlatego musi być unikatowa.
+   * toocreate nową usługę w chmurze, można wywołać tego skryptu lub użyj hello [portalu Azure](https://portal.azure.com). Nazwa usługi w chmurze Hello będzie służyć jako prefiksu w pełni kwalifikowaną nazwę domeny i dlatego musi być unikatowa.
 
          New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
-   * Aby utworzyć nowe konto magazynu, można wywołać tego skryptu lub użyć [portalu Azure](https://portal.azure.com). Nazwa konta magazynu będzie służyć jako prefiksu w pełni kwalifikowaną nazwę domeny i dlatego musi być unikatowa. Można spróbować użyć takiej samej nazwie jako usługa w chmurze.
+   * toocreate nowe konto magazynu, można wywołać tego skryptu lub użyj hello [portalu Azure](https://portal.azure.com). Nazwa konta magazynu Hello będzie służyć jako prefiksu w pełni kwalifikowaną nazwę domeny i dlatego musi być unikatowa. Spróbuj użyć hello takie same nazwy jako usługa w chmurze.
 
          New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
-8. Wywołanie skryptu bezpośrednio z programu Azure PowerShell lub połączenie się tego skryptu do kompilacji hosta automatyzacji wystąpić po kompilacji pakietu.
+8. Wywołanie skryptu hello bezpośrednio z programu Azure PowerShell lub okablować się tego skryptu tooyour hosta kompilacji automatyzacji toooccur po hello kompilacji pakietu.
 
    > [!IMPORTANT]
-   > Skrypt będzie zawsze usunąć lub zamienić istniejący wdrożeń domyślnie, jeśli ich wykrycia. Jest to niezbędne do włączenia ciągłego dostarczania automatyzacji, jeśli to możliwe nie monitowania użytkownika.
+   > skrypt Hello będzie zawsze usunąć lub zamienić istniejący wdrożeń domyślnie, jeśli ich wykrycia. Jest to niezbędne do włączenia ciągłego dostarczania automatyzacji, jeśli to możliwe nie monitowania użytkownika.
    >
    >
 
-   **Przykładowy scenariusz 1:** ciągłe wdrażanie w środowisku przemieszczania usługi:
+   **Przykładowy scenariusz 1:** toohello ciągłe wdrażanie tymczasowej środowiska usługi:
 
        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-   To jest zazwyczaj następuje testu weryfikacji i wymiany wirtualnych adresów IP. Wymiany wirtualnych adresów IP może odbywać się za pośrednictwem [portalu Azure](https://portal.azure.com) lub za pomocą polecenia cmdlet Move-wdrożenia.
+   To jest zazwyczaj następuje testu weryfikacji i wymiany wirtualnych adresów IP. swap Hello VIP może odbywać się za pośrednictwem hello [portalu Azure](https://portal.azure.com) lub za pomocą polecenia cmdlet hello przenoszenia wdrożenia.
 
-   **Przykładowy scenariusz 2:** ciągłego wdrażania do środowiska produkcyjnego usługi dedykowanych testu
+   **Przykładowy scenariusz 2:** środowiska produkcyjnego toohello ciągłego wdrażania usługi dedykowanych testu
 
        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Production -enableDeploymentUpgrade 1 -serviceName mycloudservice -storageAccountName mystorageaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
    **Pulpit zdalny:**
 
-   Włączenie pulpitu zdalnego w projekcie platformy Azure, konieczne będzie wykonanie dodatkowych kroków jednorazowe, aby upewnić się, że przekazano poprawny certyfikat usługi chmury do wszystkich usług w chmurze celem tego skryptu.
+   Włączenie pulpitu zdalnego w projekcie platformy Azure należy tooperform dodatkowe kroki jednorazowe hello tooensure, który jest poprawny certyfikat usługi w chmurze przekazać usługi w chmurze tooall celem tego skryptu.
 
-   Znajdź wartości odcisku palca certyfikatu oczekiwany przez poszczególnych ról. Wartości odcisku palca są widoczne w sekcji certyfikaty w pliku konfiguracji chmury (tj. ServiceConfiguration.Cloud.cscfg). Istnieje również wyświetlane w oknie dialogowym Konfiguracja usług pulpitu zdalnego w programie Visual Studio po wyświetleniu opcji i wyświetlanie wybranego certyfikatu.
+   Znajdź wartości odcisku palca certyfikatu hello oczekiwany przez poszczególnych ról. Wartości odcisku palca są widoczne w sekcji certyfikaty hello pliku konfiguracji chmury (tj. ServiceConfiguration.Cloud.cscfg). Jest również widoczna w oknie dialogowym Konfiguracja usług pulpitu zdalnego hello w programie Visual Studio, gdy hello Pokaż opcje i widok wybranego certyfikatu.
 
        <Certificates>
              <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="C33B6C432C25581601B84C80F86EC2809DC224E8" thumbprintAlgorithm="sha1" />
        </Certificates>
 
-   Przekaż certyfikaty pulpitu zdalnego krokiem jednorazowej konfiguracji za pomocą następującego skryptu apletu polecenia:
+   Przekaż certyfikaty usług pulpitu zdalnego za pomocą następującego polecenia cmdlet skryptu hello krokiem jednorazowej konfiguracji:
 
        Add-AzureCertificate -serviceName <CLOUDSERVICENAME> -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
 
@@ -156,31 +156,31 @@ Ta sekcja opisuje sposób tworzenia skryptu programu Windows PowerShell, która 
 
        Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-   Możesz też wyeksportować plik PFX certyfikatu z kluczem prywatnym i przekaż certyfikaty do każdej docelowej chmury usługi za pomocą [portalu Azure](https://portal.azure.com).
+   Alternatywnie można wyeksportować plik certyfikatu PFX hello z kluczem prywatnym i przekazywania certyfikaty tooeach docelowej chmury usługi przy użyciu [portalu Azure](https://portal.azure.com).
 
    <!---
-   Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
+   Fixing broken links for Azure content migration from ACOM tooDOCS. I'm unable toofind a replacement links, so I'm commenting out this reference for now. hello author can investigate in hello future. "Read hello following article toolearn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
    -->
    **Uaktualnienie a wdrożenia. Usunięcie wdrożenia —\> nowego wdrożenia**
 
-   Skrypt będzie domyślnie wykonywać uaktualniania wdrożenia ($enableDeploymentUpgrade = 1) gdy brak parametru jest przekazano lub nie została jawnie przekazana wartość 1. Dla pojedynczego wystąpienia to zaletą jest mniej czasu niż pełne wdrożenie. Dla wystąpień, które wymagają wysokiej dostępności to również zaletą jest pozostawienie niektórych wystąpień uruchomiona, podczas gdy inne uaktualnienia (przejście domenę aktualizacji), a także Twojego adresu VIP, nie zostaną usunięte.
+   skrypt Hello będzie domyślnie wykonywać uaktualniania wdrożenia ($enableDeploymentUpgrade = 1) gdy brak parametru jest przekazano lub nie została jawnie przekazana wartość 1. Dla pojedynczego wystąpienia to zaletą jest mniej czasu niż pełne wdrożenie. Dla wystąpień, które wymagają wysokiej dostępności ma to również zaletą hello pozostawienie niektórych wystąpień uruchomiona, podczas gdy inne uaktualnienia (przejście domenę aktualizacji), a także Twojego adresu VIP, nie zostaną usunięte.
 
-   Wdrożenia uaktualnienia można wyłączyć w skrypcie ($enableDeploymentUpgrade = 0) lub przez przekazanie *- enableDeploymentUpgrade 0* jako parametru, która zmienia zachowanie skryptu, najpierw usuń wszystkie istniejące wdrożenia, a następnie utworzyć nowy wdrożenia.
+   Wdrożenia uaktualnienia można wyłączyć w skrypcie hello ($enableDeploymentUpgrade = 0) lub przez przekazanie *- enableDeploymentUpgrade 0* jako parametr zmienia delete toofirst zachowanie skryptu wszystkie istniejące wdrożenia i utworzyć nowe wdrożenie.
 
    > [!IMPORTANT]
-   > Skrypt będzie zawsze usunąć lub zamienić istniejący wdrożeń domyślnie, jeśli ich wykrycia. Jest to niezbędne do włączenia ciągłego dostarczania automatyzacji, jeśli to możliwe nie monitowania użytkownika / — operator.
+   > skrypt Hello będzie zawsze usunąć lub zamienić istniejący wdrożeń domyślnie, jeśli ich wykrycia. Jest to niezbędne do włączenia ciągłego dostarczania automatyzacji, jeśli to możliwe nie monitowania użytkownika / — operator.
    >
    >
 
 ## <a name="5-publish-a-package-using-tfs-team-build"></a>5: publikowanie pakietu za pomocą kompilacji TFS zespołu
-Ten opcjonalny krok łączy TFS Team Build do skryptu utworzonego w kroku 4, która obsługuje publikowanie kompilacji pakietu Azure. Dzięki temu modyfikowania szablonu procesu, używany przez definicję kompilacji, wykonywania działań publikowania na końcu przepływu pracy. Działanie publikowania zostanie wykonane polecenie programu PowerShell przekazywanie parametrów z kompilacji. Dane wyjściowe programu MSBuild elementów docelowych i opublikować skrypt będzie przekazywany w potoku do wyjścia standardowego kompilacji.
+Ten opcjonalny krok łączy TFS Team Build toohello skryptu utworzonego w kroku 4, który obsługuje publikowanie tooAzure kompilacji pakietu hello. Pociąga za sobą modyfikowanie hello szablonu procesu używanego przez definicję kompilacji, wykonywania działań publikowania na końcu hello hello przepływu pracy. Witaj Publikuj działania wykona przekazywanie parametrów z kompilacji hello polecenia programu PowerShell. W danych wyjściowych kompilacji standardowe hello będzie przekazywany w potoku dane wyjściowe hello MSBuild elementów docelowych i opublikuj skryptu.
 
-1. Edytowanie definicji kompilacji odpowiedzialny za ciągłego wdrażania.
-2. Wybierz **procesu** kartę.
-3. Postępuj zgodnie z [tych instrukcji](http://msdn.microsoft.com/library/dd647551.aspx) można dodać projektu działania dla szablonu procesu kompilacji, Pobierz domyślny szablon, dodaj go do projektu i jego zaewidencjonowania. Nadaj nazwę nowej, takich jak AzureBuildProcessTemplate szablonu procesu kompilacji.
-4. Wróć do **procesu** , a następnie użyć **Pokaż szczegóły** wyświetlić listę szablonów procesu kompilacji dostępne. Wybierz **nowych...**  przycisk, a następnie przejdź do projektu po prostu dodane i zaewidencjonowane. Znajdź szablon, który został utworzony i wybierz polecenie **OK**.
-5. Otwórz wybrany szablon procesu do edycji. Możesz otworzyć bezpośrednio w Projektancie przepływów pracy lub w edytorze XML, aby pracować z XAML.
-6. Dodaj poniższą listę nowych argumentów jako oddzielne pozycje w karcie argumenty projektanta przepływów pracy. Wszystkie argumenty powinny posiadać kierunek = w i wpisz = ciąg. Te posłuży do parametry przepływu z definicji kompilacji do przepływu pracy, które następnie Uzyskaj używane do wywoływania skryptu publikowania.
+1. Edytuj hello definicji kompilacji odpowiedzialny za ciągłego wdrażania.
+2. Wybierz hello **procesu** kartę.
+3. Postępuj zgodnie z [tych instrukcji](http://msdn.microsoft.com/library/dd647551.aspx) tooadd projekt działania hello szablon procesu kompilacji, Pobierz szablon domyślny hello, dodaj go do projektu hello i go zaewidencjonować. Nadaj nazwę nowej, takich jak AzureBuildProcessTemplate szablonu procesu kompilacji hello.
+4. Zwraca toohello **procesu** , a następnie użyć **Pokaż szczegóły** tooshow listę szablonów procesu kompilacji dostępne. Wybierz hello **nowy...**  przycisk, a następnie przejdź projektu toohello właśnie dodany i zaewidencjonowane. Znajdź właśnie utworzony szablon hello i wybierz polecenie **OK**.
+5. Otwórz hello wybrany szablon procesu do edycji. Możesz otworzyć bezpośrednio w Projektancie przepływów pracy hello lub toowork edytora XML hello z hello XAML.
+6. Dodaj następujące listy argumentów nowe jako odrębne pozycje hello argumenty karcie projektanta przepływów pracy hello hello. Wszystkie argumenty powinny posiadać kierunek = w i wpisz = ciąg. Te parametry są parametry używane tooflow z hello definicję kompilacji w przepływie pracy hello, które następnie hello używane toocall get publikowania skryptu.
 
        SubscriptionName
        StorageAccountName
@@ -193,7 +193,7 @@ Ten opcjonalny krok łączy TFS Team Build do skryptu utworzonego w kroku 4, kt�
 
    ![Lista argumentów][3]
 
-   Odpowiednie XAML wygląda następująco:
+   powitalne odpowiedniego XAML wygląda następująco:
 
        <Activity  _ />
          <x:Members>
@@ -228,38 +228,38 @@ Ten opcjonalny krok łączy TFS Team Build do skryptu utworzonego w kroku 4, kt�
          </x:Members>
 
          <this:Process.MSBuildArguments>
-7. Dodaj nową sekwencję na koniec uruchom na agenta:
+7. Dodaj nową sekwencję na końcu hello Uruchom na agenta:
 
-   1. Rozpocznij od dodania działanie Jeśli instrukcji, aby sprawdzić prawidłowym plikiem skryptu. Warunek tej wartości:
+   1. Rozpocznij od dodania toocheck działania Jeśli instrukcji dla prawidłowym plikiem skryptu. Ustaw wartość toothis warunku hello:
 
           Not String.IsNullOrEmpty(PublishScriptLocation)
-   2. Następnie przypadek Jeśli instrukcji, Dodaj nowe działanie w sekwencji. Ustaw nazwę wyświetlaną na "publish Start"
-   3. Z początkiem publikowania sekwencji nadal wybrane, należy dodać na następującej liście nowe zmienne jako oddzielne pozycje w karcie Zmienne projektanta przepływów pracy. Wszystkie zmienne powinny mieć typ zmiennej = ciągu i zakres = rozpoczęcie publikowania. Te posłuży do parametry przepływu z definicji kompilacji do przepływu pracy, które następnie Uzyskaj używane do wywoływania skryptu publikowania.
+   2. W hello następnie przypadku hello Jeśli instrukcji Dodaj nowe działanie w sekwencji. Publikowanie zestawu hello wyświetlana nazwa too'Start "
+   3. Z hello rozpoczęcia publikowania sekwencji nadal zaznaczony Dodaj na następującej liście nowe zmienne jako oddzielne pozycje w karcie Zmienne hello projektanta przepływów pracy. Wszystkie zmienne powinny mieć typ zmiennej = ciągu i zakres = rozpoczęcie publikowania. Te parametry są parametry używane tooflow z hello definicji kompilacji do przepływu pracy, które następnie hello używane toocall get publikowania skryptu.
 
       * SubscriptionDataFilePath typu String
       * PublishScriptFilePath typu String
 
         ![Nowe zmienne][4]
-   4. Jeśli używasz programu TFS 2012 lub starszy, Dodaj działanie ConvertWorkspaceItem na początku nowego sekwencji. Jeśli używasz programu TFS 2013 lub nowszy, Dodaj działanie GetLocalPath na początku nowego sekwencji. Dla ConvertWorkspaceItem, ustaw właściwości w następujący sposób: kierunek = ServerToLocal, nazwa wyświetlana = 'Convert opublikować nazwę pliku skryptu', dane wejściowe = "PublishScriptLocation", wynik = "PublishScriptFilePath", obszar roboczy = "Obszar roboczy". Dla działania GetLocalPath ustaw właściwość IncomingPath do "PublishScriptLocation" i "PublishScriptFilePath" wynik. To działanie konwertuje ścieżka skryptu publikowania z TFS lokalizacji serwera (jeśli dotyczy) do ścieżki standardowe dysku lokalnym.
-   5. Jeśli używasz programu TFS 2012 lub starszy, należy dodać innego działania ConvertWorkspaceItem na końcu nowej sekwencji. Kierunek = ServerToLocal, nazwa wyświetlana = "Dokonać konwersji subskrypcji nazwa_pliku", dane wejściowe = "SubscriptionDataFileLocation", wynik = "SubscriptionDataFilePath", obszar roboczy = "Obszar roboczy". Jeśli używasz programu TFS 2013 lub nowszy, Dodaj inny GetLocalPath. IncomingPath = "SubscriptionDataFileLocation", a wynik = "SubscriptionDataFilePath."
-   6. Dodaj działanie InvokeProcess na końcu nowej sekwencji.
-      To działanie wywołuje PowerShell.exe z argumentami przekazany przez definicję kompilacji.
+   4. Jeśli korzystają z programu TFS 2012 lub starszy, Dodaj działanie ConvertWorkspaceItem początku hello hello nowej sekwencji. Jeśli używasz programu TFS 2013 lub nowszy, Dodaj działanie GetLocalPath początku hello hello nowej sekwencji. Dla ConvertWorkspaceItem, ustaw właściwości hello w następujący sposób: kierunek = ServerToLocal, nazwa wyświetlana = 'Convert opublikować nazwę pliku skryptu', dane wejściowe = "PublishScriptLocation", wynik = "PublishScriptFilePath", obszar roboczy = "Obszar roboczy". Dla działania GetLocalPath, ustaw too'PublishScriptLocation IncomingPath właściwości hello ", a hello too'PublishScriptFilePath wynik". To działanie konwertuje hello ścieżki toohello publikowania skryptu z lokalizacji serwera TFS (jeśli dotyczy) tooa ścieżka standardowe dysku lokalnym.
+   5. Jeśli używasz programu TFS 2012 lub wcześniej, Dodaj kolejne działanie ConvertWorkspaceItem na końcu hello hello nowej sekwencji. Kierunek = ServerToLocal, nazwa wyświetlana = "Dokonać konwersji subskrypcji nazwa_pliku", dane wejściowe = "SubscriptionDataFileLocation", wynik = "SubscriptionDataFilePath", obszar roboczy = "Obszar roboczy". Jeśli używasz programu TFS 2013 lub nowszy, Dodaj inny GetLocalPath. IncomingPath = "SubscriptionDataFileLocation", a wynik = "SubscriptionDataFilePath."
+   6. Dodawanie działania InvokeProcess na końcu hello hello nowej sekwencji.
+      Tego wywołania działania PowerShell.exe z argumentami hello przekazany przez hello definicji kompilacji.
 
       + Argumenty = String.Format ("-""{0}" "- serviceName {1} - storageAccountName {2} tabelę packageLocation —""{3}" "- cloudConfigLocation""{4}" "- subscriptionDataFile""{5}" "- selectedSubscription {6} pliku-środowiska""{7}" "",  PublishScriptFilePath, ServiceName, StorageAccountName, tabelę PackageLocation, CloudConfigLocation, SubscriptionDataFilePath, Nazwa subskrypcji, środowisko)
       + Nazwa wyświetlana = Execute publikowania skryptu
-      + Nazwa pliku = "PowerShell" (m.in. cudzysłowy)
+      + Nazwa pliku = "PowerShell" (zawierają hello oferty)
       + OutputEncoding = System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)
-   7. W **Obsługa standardowego wyjścia** sekcji textbox InvokeProcess, ustaw wartość pola tekstowego "dane". To jest zmienną do przechowywania dane wyjścia standardowego.
-   8. Dodaj działanie WriteBuildMessage tylko poniżej **Obsługa standardowego wyjścia** sekcji. Ustaw ważność = "Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High" i komunikatem = "dane". Dzięki temu standardowe dane wyjściowe skryptu zostanie zapisana w danych wyjściowych kompilacji.
-   9. W **obsługi błędów wyjścia** sekcji textbox InvokeProcess, ustaw wartość pola tekstowego "dane". To jest zmienną do przechowywania danych błędów.
-   10. Dodaj działanie WriteBuildError tylko poniżej **obsługi błędów wyjścia** sekcji. Ustaw komunikat = "dane". Dzięki temu, że błędy standardowe skryptu zostanie zapisana w danych wyjściowych błędu kompilacji.
-   11. Popraw błędy wskazywanym przez niebieski znaczniki wykrzyknika. Umieść kursor nad znaczników wykrzyknik, aby uzyskać wskazówki dotyczące błędu. Zapisywanie przepływu pracy, aby usunąć błędy.
+   7. W hello **Obsługa standardowego wyjścia** sekcji textbox InvokeProcess, ustaw too'data wartości tekstowe hello ". To dane wyjścia standardowego hello toostore zmiennej.
+   8. Dodaj działanie WriteBuildMessage poniżej hello **Obsługa standardowego wyjścia** sekcji. Ustaw hello znaczenie = "Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High" i wiadomość hello = "dane". Dzięki temu hello standardowe dane wyjściowe skryptu zostanie zapisane dane wyjściowe kompilacji toohello.
+   9. W hello **obsługi błędów wyjścia** sekcji textbox InvokeProcess, ustaw too'data wartości tekstowe hello ". To dane błąd standardowy hello toostore zmiennej.
+   10. Dodaj działanie WriteBuildError poniżej hello **obsługi błędów wyjścia** sekcji. Ustaw wiadomość hello = "dane". Dzięki temu, że błędy standardowe hello skryptu hello zostaną zapisane dane wyjściowe błędów kompilacji toohello.
+   11. Popraw błędy wskazywanym przez niebieski znaczniki wykrzyknika. Umieść kursor nad tooget znaczniki wykrzyknika wskazówkę o błędzie hello. Zapisz hello przepływu pracy, aby usunąć błędy.
 
-   Wynik końcowy publikowania działań przepływu pracy będzie wyglądać następująco w Projektancie:
+   wynik końcowy Hello hello opublikować przepływu pracy działania będzie wyglądać następująco w Projektancie hello:
 
    ![Działania przepływu pracy][5]
 
-   Wynik końcowy publikowania działań przepływu pracy będzie wyglądać następująco w języku XAML:
+   wynik końcowy Hello hello opublikować działań będzie wyglądać następująco w języku XAML przepływu pracy:
 
        <If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap2010:WorkflowViewState.IdRef="If_1">
            <If.Then>
@@ -292,22 +292,22 @@ Ten opcjonalny krok łączy TFS Team Build do skryptu utworzonego w kroku 4, kt�
            </If.Then>
          </If>
        </Sequence>
-8. Zapisywanie przepływu pracy szablonu procesu kompilacji i zaewidencjonuj tego pliku.
-9. Edytowanie definicji kompilacji (je zamknąć, jeżeli jest już otwarty) i wybierz **nowy** przycisku, jeśli nie ma jeszcze nowego szablonu na liście szablonów procesów.
-10. Ustaw dla parametru wartości właściwości w sekcji różne w następujący sposób:
+8. Zapisz hello przepływu pracy szablonu procesu dla kompilacji i zaewidencjonuj tego pliku.
+9. Edytowanie definicji kompilacji hello (je zamknąć, jeżeli jest już otwarty) i wybierz hello **nowy** przycisku, jeśli nie ma jeszcze hello nowego szablonu na liście hello szablonów procesu.
+10. Ustawiania wartości właściwości parametru hello w sekcji różne hello w następujący sposób:
 
     1. CloudConfigLocation = "c:\\porzuca\\app.publish\\ServiceConfiguration.Cloud.cscfg" *ta wartość jest określana na podstawie: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
     2. Tabelę PackageLocation = "c:\\porzuca\\app.publish\\ContactManager.Azure.cspkg" *ta wartość jest określana na podstawie: (cspkg)($ProjectName) $PublishDir*
     3. PublishScriptLocation = "c:\\skryptów\\WindowsAzure\\PublishCloudService.ps1"
-    4. ServiceName = "mycloudservicename" *nazwa usługi w chmurze odpowiednie w tym miejscu użyć*
+    4. ServiceName = "mycloudservicename" *Użyj hello odpowiednie nazwa usługi w chmurze w tym miejscu*
     5. Środowisko = "Tymczasowe"
-    6. StorageAccountName = "mystorageaccountname" *Użyj nazwy konta magazynu odpowiednie tutaj*
+    6. StorageAccountName = "mystorageaccountname" *Użyj hello odpowiednie nazwy konta magazynu w tym miejscu*
     7. SubscriptionDataFileLocation = "c:\\skryptów\\WindowsAzure\\Subscription.xml"
     8. Nazwa subskrypcji = "default"
 
     ![Wartości właściwości parametru][6]
-11. Zapisz zmiany w definicji kompilacji.
-12. Kolejka kompilacji do wykonywania kompilacji pakietu i publikowania. Jeśli masz ustawioną ciągłej integracji wyzwalacz wykona to zachowanie na każdym zaewidencjonowania.
+11. Zapisz hello toohello zmiany definicji kompilacji.
+12. Kolejka tooexecute kompilacji, zarówno hello kompilacji pakietu i publikowania. Jeśli masz wyzwalacz ustawić tooContinuous integracji wykona to zachowanie na każdym zaewidencjonowania.
 
 ### <a name="publishcloudserviceps1-script-template"></a>PublishCloudService.ps1 skrypt szablonu
 ```
@@ -316,7 +316,7 @@ Param(  $serviceName = "",
         $packageLocation = "",
         $cloudConfigLocation = "",
         $environment = "Staging",
-        $deploymentLabel = "ContinuousDeploy to $servicename",
+        $deploymentLabel = "ContinuousDeploy too$servicename",
         $timeStampFormat = "g",
         $alwaysDeleteExistingDeployments = 1,
         $enableDeploymentUpgrade = 1,
@@ -332,7 +332,7 @@ function Publish()
     {
         Write-Output "$(Get-Date -f $timeStampFormat) - No deployment is detected. Creating a new deployment. "
     }
-    #check for existing deployment and then either upgrade, delete + deploy, or cancel according to $alwaysDeleteExistingDeployments and $enableDeploymentUpgrade boolean variables
+    #check for existing deployment and then either upgrade, delete + deploy, or cancel according too$alwaysDeleteExistingDeployments and $enableDeploymentUpgrade boolean variables
     if ($deployment.Name -ne $null)
     {
         switch ($alwaysDeleteExistingDeployments)
@@ -499,7 +499,7 @@ $subscriptionname = $subscription.subscriptionname
 $subscriptionid = $subscription.subscriptionid
 $slot = $environment
 
-#main driver - publish & write progress to activity log
+#main driver - publish & write progress tooactivity log
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script started."
 Write-Output "$(Get-Date -f $timeStampFormat) - Preparing deployment of $deploymentLabel for $subscriptionname with Subscription ID $subscriptionid."
 
@@ -513,7 +513,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby włączyć debugowanie zdalne, korzystając z ciągłego dostarczania, zobacz [Włączanie debugowania zdalnego, gdy publikowanie na platformie Azure przy użyciu ciągłego dostarczania](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
+tooenable zdalne debugowanie przy użyciu ciągłego dostarczania, zobacz [Włączanie debugowania zdalnego, korzystając z ciągłego dostarczania toopublish tooAzure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
 [Team Foundation Build Service]: https://msdn.microsoft.com/library/ee259687.aspx
 [.NET Framework 4]: https://www.microsoft.com/download/details.aspx?id=17851
@@ -522,7 +522,7 @@ Aby włączyć debugowanie zdalne, korzystając z ciągłego dostarczania, zobac
 [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
 [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
 [Azure PowerShell cmdlets]: /powershell/azureps-cmdlets-docs
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
+[hello .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
 [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
 [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
 [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Mixpanel | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Mixpanel."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Mixpanel."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 3dd11b3477de1329c1c8e45a6dbf212b1635fd95
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8da8aaefee3558c37babe3e10aeba4224ceffa16
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Samouczek: Integracji Azure Active Directory z Mixpanel
 
-Z tego samouczka dowiesz się integrowanie Mixpanel z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate Mixpanel w usłudze Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Mixpanel zapewnia następujące korzyści:
+Integracja z usługą Azure AD Mixpanel zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do Mixpanel
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do Mixpanel (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooMixpanel
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooMixpanel (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z Mixpanel, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z Mixpanel należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Mixpanel logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Mixpanel z galerii
+1. Dodawanie Mixpanel z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-mixpanel-from-the-gallery"></a>Dodawanie Mixpanel z galerii
-Aby skonfigurować integrację usługi Azure AD Mixpanel, należy dodać Mixpanel z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-mixpanel-from-hello-gallery"></a>Dodawanie Mixpanel z galerii hello
+tooconfigure hello integracji Mixpanel do usługi Azure AD, należy tooadd Mixpanel z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać Mixpanel z galerii, wykonaj następujące czynności:**
+**tooadd Mixpanel z galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **Mixpanel**.
+4. W polu wyszukiwania hello wpisz **Mixpanel**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_search.png)
 
-5. W panelu wyników wybierz **Mixpanel**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello zaznacz **Mixpanel**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Mixpanel w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Mixpanel jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Mixpanel musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Mixpanel jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Mixpanel musi toobe ustanowione.
 
-W Mixpanel, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W Mixpanel, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Mixpanel, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Mixpanel, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Mixpanel](#creating-a-mixpanel-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Mixpanel połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Mixpanel](#creating-a-mixpanel-test-user)**  -toohave odpowiednikiem Simona Britta w Mixpanel, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Mixpanel.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Mixpanel.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Mixpanel, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z Mixpanel, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **Mixpanel** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **Mixpanel** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_samlbase.png)
 
-3. Na **Mixpanel domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **Mixpanel domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_url.png)
 
-     W **adres URL logowania** tekstowym, wpisz adres URL jako:`https://mixpanel.com/login/`
+     W hello **adres URL logowania** tekstowym, wpisz adres URL jako:`https://mixpanel.com/login/`
 
     > [!NOTE] 
-    > Zarejestruj w [https://mixpanel.com/register/](https://mixpanel.com/register/) skonfigurować poświadczenia logowania i skontaktuj się z [zespołem pomocy technicznej Mixpanel](mailto:support@mixpanel.com) Aby włączyć ustawienia logowania jednokrotnego dla dzierżawy. Możesz również uzyskać wartość na adres URL logowania w razie potrzeby z zespołem pomocy technicznej Mixpanel. 
+    > Zarejestruj w [https://mixpanel.com/register/](https://mixpanel.com/register/) tooset zapasową poświadczeń logowania i skontaktuj się z pomocą hello [zespołem pomocy technicznej Mixpanel](mailto:support@mixpanel.com) tooenable ustawienia logowania jednokrotnego dla dzierżawy. Możesz również uzyskać wartość na adres URL logowania w razie potrzeby z zespołem pomocy technicznej Mixpanel. 
  
-4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_certificate.png) 
 
@@ -123,100 +123,100 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mixpanel-tutorial/tutorial_general_400.png)
 
-6. Na **konfiguracji Mixpanel** , kliknij przycisk **skonfigurować Mixpanel** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na powitania **konfiguracji Mixpanel** kliknij **skonfigurować Mixpanel** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_configure.png) 
 
-7. W oknie innej przeglądarki logowanie do aplikacji Mixpanel jako administrator.
+7. W oknie innej przeglądarki, logowania jednokrotnego tooyour Mixpanel aplikacji jako administrator.
 
-8. W dolnej części strony, kliknij polecenie trochę **narzędzi** ikonę w lewym rogu. 
+8. W dolnej części strony hello, kliknij polecenie hello nieco **narzędzi** ikonę w lewym rogu hello. 
    
     ![Mixpanel rejestracji jednokrotnej](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_06.png) 
 
-9. Kliknij przycisk **dostęp zabezpieczeń** , a następnie kliknij pozycję **zmienić ustawienia**.
+9. Kliknij przycisk hello **dostęp zabezpieczeń** , a następnie kliknij pozycję **zmienić ustawienia**.
    
     ![Ustawienia Mixpanel](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
-10. Na **zmienić certyfikat** strony okna dialogowego, kliknij przycisk **wybierz plik** przekazanie pobranego certyfikatu, a następnie kliknij przycisk **dalej**.
+10. Na powitania **zmienić certyfikat** strony okna dialogowego, kliknij przycisk **wybierz plik** tooupload pobranego certyfikatu, a następnie kliknij przycisk **dalej**.
    
     ![Ustawienia Mixpanel](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
-11.  W polu tekstowym adres URL uwierzytelniania na **zmienić adres URL uwierzytelniania** okna dialogowego strony, Wklej wartość **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure, a następnie kliknij przycisk **Dalej**.
+11.  W polu tekstowym adres URL uwierzytelniania hello na powitania **zmienić adres URL uwierzytelniania** strony okna dialogowego, Wklej wartość hello **SAML pojedynczy znak na adres URL usługi** , które zostały skopiowane z portalu Azure, a następnie kliknij przycisk **Dalej**.
    
    ![Ustawienia Mixpanel](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 12. Kliknij przycisk **Gotowe**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-mixpanel-test-user"></a>Tworzenie użytkownika testowego Mixpanel
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w Mixpanel. 
+Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w Mixpanel. 
 
-1. Zalogować się do witryny firmy Mixpanel jako administrator.
+1. Rejestracja tooyour Mixpanel witryny firmy jako administrator.
 
-2. W dolnej części strony, kliknij przycisk Koło zębate małego na lewym rogu, aby otworzyć **ustawienia** okna.
+2. Na powitania u dołu strony hello, kliknij przycisk hello małego koło zębate znajdującego się na powitania lewym rogu tooopen hello **ustawienia** okna.
 
-3. Kliknij przycisk **zespołu** kartę.
+3. Kliknij przycisk hello **zespołu** kartę.
 
-4. W **członek zespołu** tekstowym, wpisz adres e-mail Britta na platformie Azure.
+4. W hello **członek zespołu** tekstowym, wpisz adres e-mail firmy Britta hello Azure.
    
     ![Ustawienia Mixpanel](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. Kliknij przycisk **zaprosić**. 
 
 > [!Note]
-> Użytkownik otrzyma wiadomość e-mail, aby skonfigurować profil.
+> Witaj, użytkownik otrzyma tooset e-mail hello profilu.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Mixpanel.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooMixpanel.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta Mixpanel, wykonaj następujące czynności:**
+**tooassign tooMixpanel Simona Britta wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **Mixpanel**.
+2. Z listy aplikacji hello wybierz **Mixpanel**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -224,7 +224,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -232,14 +232,14 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka Mixpanel w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Mixpanel.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Po kliknięciu kafelka Mixpanel hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Mixpanel aplikacji.
+Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

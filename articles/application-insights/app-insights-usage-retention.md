@@ -1,6 +1,6 @@
 ---
-title: "Analiza przechowywania użytkownika dla aplikacji sieci web za pomocą usługi Azure Application Insights | Dokumentacja firmy Microsoft"
-description: "Zwraca liczbę użytkowników do aplikacji?"
+title: "Analiza przechowywania aaaUser dla aplikacji sieci web za pomocą usługi Azure Application Insights | Dokumentacja firmy Microsoft"
+description: "Ilu użytkowników zwraca tooyour aplikacji?"
 services: application-insights
 documentationcenter: 
 author: botatoes
@@ -12,42 +12,42 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
-ms.openlocfilehash: 7f7ca19ab171278bbd82f68e3822bc650b25373d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8bcee5f1611afbd69016ec3eef27832c304762a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analiza przechowywania użytkownika dla aplikacji sieci web za pomocą usługi Application Insights
 
-Funkcja przechowywania w [Azure Application Insights](app-insights-overview.md) pomaga analizować ilu użytkowników powrót do aplikacji i jak często wykonywać określone zadania lub osiągnięcia celów. Na przykład po uruchomieniu gier lokacji można porównywać liczby użytkowników, którzy wróć do witryny po utracie gry o numerze którzy powrócić po nadanie pierwszeństwa. Ta wiedza może pomóc w usprawnieniu zarówno użytkowników, jak i jej strategią biznesową.
+Funkcja przechowywania Hello [Azure Application Insights](app-insights-overview.md) pomaga analizować ilu użytkowników zwracać tooyour aplikacji i jak często wykonywać określone zadania lub osiągnięcia celów. Na przykład po uruchomieniu gier lokacji można porównywać hello liczby użytkowników, którzy zwracać toohello lokacji po utracie gry o numerze hello którzy powrócić po nadanie pierwszeństwa. Ta wiedza może pomóc w usprawnieniu zarówno użytkowników, jak i jej strategią biznesową.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Jeśli nie widzisz jeszcze danych w narzędziu przechowywania w portalu usługi Application Insights [Dowiedz się, jak rozpocząć pracę z narzędziami użycia](app-insights-usage-overview.md).
+Jeśli nie widzisz jeszcze danych w narzędziu przechowywania hello w portalu usługi Application Insights hello [Dowiedz się, jak tooget pracę z narzędziami użycia hello](app-insights-usage-overview.md).
 
-## <a name="the-retention-tool"></a>Narzędzie przechowywania
+## <a name="hello-retention-tool"></a>Narzędzie do przechowywania Hello
 
 ![Narzędzie utrzymywania](./media/app-insights-usage-retention/retention.png)
 
-1. Pasek narzędzi umożliwia tworzenia nowych raportów przechowywania, otwórz istniejących raportów przechowywania, Zapisz bieżący raport przechowywania lub Zapisz jako cofnięcie zmian wprowadzonych do zapisanych raportów, odświeżania danych w raporcie udostępnianie raportów za pośrednictwem poczty e-mail lub bezpośredniego łącza i uzyskać dostęp do strony dokumentacji. 
-2. Domyślnie przechowywania zawiera wszystkich użytkowników, którzy niczego została następnie wrócił i czy czymkolwiek innym przez okres. Możesz wybrać inną kombinację zdarzeń, aby zawęzić na działania użytkownika.
-3. Dodaj co najmniej jeden filtr właściwości. Na przykład można skoncentrować się na użytkowników w danym kraju lub regionu. Kliknij przycisk **aktualizacji** kliknij ikonę znacznika wyboru. 
-4. Ogólny wykresu przechowywania przedstawia podsumowanie przechowywania użytkownika przez wybrany okres czasu. 
-5. Siatka pokazuje liczbę użytkowników zachowane zgodnie z konstruktora zapytań w #2. Każdy wiersz reprezentuje kohorty użytkowników, który wykonał wszystkie zdarzenia w przedstawionym okresie. Każdej komórki w wierszu pokazuje, ile tego kohorty zwróciła co najmniej raz w późniejszym terminie. W przypadku niektórych użytkowników może zwrócić więcej niż jednym okresie. 
-6. Karty insights Pokaż górny pięć inicjujący zdarzenia i górny pięć zwrócony umożliwić użytkownikom lepsze zrozumienie ich przechowywania raportu. 
+1. Hello narzędzi umożliwia użytkownikom toocreate nowe raporty przechowywania, otwórz istniejących raportów przechowywania, Zapisz bieżący raport do przechowywania lub Zapisz jako, Przywróć zmiany toosaved raporty, odświeżania danych w hello raport, udziału za pośrednictwem poczty e-mail lub bezpośredniego łącza i hello dostępu stronę dokumentacji. 
+2. Domyślnie przechowywania zawiera wszystkich użytkowników, którzy niczego została następnie wrócił i czy czymkolwiek innym przez okres. Można wybrać inną kombinację zdarzenia toonarrow hello fokus na działania konkretnego użytkownika.
+3. Dodaj co najmniej jeden filtr właściwości. Na przykład można skoncentrować się na użytkowników w danym kraju lub regionu. Kliknij przycisk **aktualizacji** po ustawieniu filtrów hello. 
+4. Hello ogólną przechowywania wykres przedstawia podsumowanie przechowywania użytkownika między hello w wybranym okresie. 
+5. Siatka Hello pokazuje hello liczbę użytkowników, przechowywane zgodnie z konstruktora zapytań toohello w #2. Każdy wiersz reprezentuje kohorty użytkowników, który wykonał wszystkie zdarzenia w czasie hello przedstawionym okresie. Każdej komórki w wierszu hello pokazuje, ile tego kohorty zwróciła co najmniej raz w późniejszym terminie. W przypadku niektórych użytkowników może zwrócić więcej niż jednym okresie. 
+6. karty insights Hello Pokaż górny pięć zdarzenia inicjujący i pięciu najwyższego zwracany zdarzenia toogive użytkowników lepiej zrozumieć ich przechowywania raportu. 
 
 ![Przesuwania myszy przechowywania](./media/app-insights-usage-retention/hover.png)
 
-Użytkownicy mogą umieść kursor nad komórek narzędzie przechowywania dostępu etykietki narzędzia i przycisk analytics wyjaśniający, co oznacza komórki do. Przycisk Analytics powoduje przejście do narzędzia do analizy za pomocą wstępnie wypełnionych kwerendy do generowania użytkowników z komórki. 
+Użytkownicy mogą umieść kursor nad komórek na powitania przechowywania narzędzia tooaccess hello analytics przycisku, która oznacza wyjaśniający, jakie komórki hello etykietki narzędzi. przycisk Analytics Hello pobiera narzędzie analityczne toohello użytkowników z użytkownikami toogenerate wstępnie wypełnione zapytania hello komórki. 
 
-## <a name="use-business-events-to-track-retention"></a>Umożliwia śledzenie przechowywania zdarzeń biznesowych
+## <a name="use-business-events-tootrack-retention"></a>Użyj przechowywania tootrack zdarzenia biznesowe
 
-Aby uzyskać najbardziej przydatne analizy przechowywania, pomiarów zdarzenia, które reprezentują znaczących działalności. 
+tooget hello najbardziej przydatne przechowywania analizy, zdarzenia miary, które reprezentują znaczących działalności. 
 
-Na przykład wielu użytkowników może zostać otwarta strona w aplikacji bez gry, który jest wyświetlany. Śledzenia po prostu wyświetleń strony w związku z tym Podaj oszacowanie niedokładne ile osób powrócić do gry po korzystających z wcześniej. Aby uzyskać jasny obraz przekazujących odtwarzaczy, aplikacji należy wysłać zdarzenie niestandardowe, gdy użytkownik faktycznie odgrywa.  
+Na przykład wielu użytkowników może zostać otwarta strona w aplikacji bez gry hello, który jest wyświetlany. Śledzenie tylko hello wyświetleń strony w związku z tym Podaj oszacowanie niedokładne ile osób zwraca tooplay gry powitania po korzystających z wcześniej. tooget jasny obraz przekazujących odtwarzacze aplikacji należy wysłać zdarzenie niestandardowe, gdy użytkownik faktycznie jest odtwarzany.  
 
-Jest dobrą praktyką jest kodem niestandardowych zdarzeń, które reprezentują akcji klucza biznesowych i ich używać do przechowywania analizy. Aby przechwycić wyniku gier, należy napisać wiersza kodu w celu wysyłania niestandardowych zdarzeń do usługi Application Insights. Podczas pisania kodu strony sieci web lub w środowisku Node.JS, wygląda następująco:
+Należy dobrze toocode niestandardowych zdarzeń, które reprezentują akcji klucza biznesowych i ich używać do przechowywania analizy. toocapture hello wyniku gier, należy toowrite wiersz kodu toosend tooApplication zdarzenie niestandardowe szczegółowych informacji. Podczas pisania kodu strony sieci web hello lub w środowisku Node.JS, wygląda następująco:
 
 ```JavaScript
     appinsights.trackEvent("won game");
@@ -63,8 +63,8 @@ Lub w kodzie serwera ASP.NET:
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby umożliwić korzystanie z użycia, Rozpocznij wysyłanie [zdarzeń niestandardowych](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) lub [wyświetlenia strony](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Jeżeli już zdarzeń niestandardowych lub wyświetleń strony, Poznaj narzędzia użycia, aby dowiedzieć się, jak używać usługi przez użytkowników.
+- Użycie tooenable napotyka, Rozpocznij wysyłanie [zdarzeń niestandardowych](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) lub [wyświetlenia strony](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Jeśli już wysyłania zdarzeń niestandardowych lub wyświetleń strony Eksploruj hello użycia narzędzia toolearn użytkowników wykorzystania usługi.
     - [Użytkownicy, sesje, zdarzenia](app-insights-usage-segmentation.md)
     - [Lejki](usage-funnels.md)
     - [User Flows (Przepływy użytkowników)](app-insights-usage-flows.md)

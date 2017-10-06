@@ -1,6 +1,6 @@
 ---
-title: "Zmienia się z punktem końcowym v2.0 usługi Azure AD | Dokumentacja firmy Microsoft"
-description: "Opis zmian wprowadzonych w protokołach app model v2.0 publicznej wersji zapoznawczej."
+title: "punktu końcowego v2.0 usługi Azure AD toohello aaaChanges | Dokumentacja firmy Microsoft"
+description: "Opis zmian wprowadzonych toohello app model v2.0 publicznej wersji zapoznawczej protokołów."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,28 +15,28 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ae73833a68db14804dc40eaf07ff7d3effaa9052
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7b28a481e12d5dbbc4a10110193bdbd754f4929
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="important-updates-to-the-v20-authentication-protocols"></a>Ważne aktualizacje protokoły uwierzytelniania w wersji 2.0
-Deweloperzy uwagi! W ciągu przyszłych dwóch tygodni wprowadzamy kilka aktualizacji do naszej v2.0 protokoły uwierzytelniania, które może oznaczać fundamentalne zmiany dla wszystkich aplikacji, zapisane w okresie podglądu.  
+# <a name="important-updates-toohello-v20-authentication-protocols"></a>Ważne aktualizacje toohello v2.0 protokoły uwierzytelniania
+Deweloperzy uwagi! Za pośrednictwem hello przyszłych dwóch tygodni, wprowadzamy kilka aktualizacji tooour v2.0 protokoły, których może oznaczać fundamentalne zmiany dla wszystkich aplikacji, zapisane w okresie podglądu.  
 
 ## <a name="who-does-this-affect"></a>Kto to wpływa?
-Wszystkie aplikacje, które zostały zapisane do użycia w wersji 2.0 zbieżność punktu końcowego uwierzytelniania,
+Wszystkie aplikacje zapisanych toouse hello v2.0 zbieżność punktu końcowego uwierzytelniania,
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 ```
 
-Można znaleźć więcej informacji na temat punktu końcowego v2.0 [tutaj](active-directory-appmodel-v2-overview.md).
+Można znaleźć więcej informacji na temat punktu końcowego v2.0 hello [tutaj](active-directory-appmodel-v2-overview.md).
 
-Jeśli utworzono aplikację, używając kodowania bezpośrednio do protokołu v2.0 punktu końcowego v2.0, za pomocą dowolnej z naszych OpenID Connect i OAuth middlewares sieci web lub innych 3 bibliotek strony do uwierzytelniania, musisz powinna być przygotowana do testowania projektów i wprowadzić zmiany, jeśli to konieczne.
+Jeśli zostały skompilowane aplikację, używając kodowania bezpośrednio toohello v2.0 protokół punktu końcowego v2.0 hello przy użyciu dowolnej z naszych OpenID Connect i OAuth middlewares sieci web lub przy użyciu innych 3 uwierzytelniania tooperform bibliotek firmy, należy przygotować tootest swoje projekty i upewnij zmiany w razie potrzeby.
 
 ## <a name="who-doesnt-this-affect"></a>Kto nie to mieć wpływ na?
-Wszystkie aplikacje, które zostały napisane względem punktu końcowego uwierzytelniania usługi Azure AD w środowisku produkcyjnym,
+Wszystkie aplikacje, które zostały zapisane do punktu końcowego uwierzytelniania usługi Azure AD w środowisku produkcyjnym hello,
 
 ```
 https://login.microsoftonline.com/common/oauth2/authorize
@@ -44,11 +44,11 @@ https://login.microsoftonline.com/common/oauth2/authorize
 
 Ten protokół jest ustawiany w kamienie, a nie występują wszystkie zmiany.
 
-Ponadto jeśli aplikacja **tylko** używa naszego biblioteki ADAL do uwierzytelniania, nie będziesz mieć wprowadzanie zmian.  Biblioteka ADAL ma osłonę aplikacji z zmiany.  
+Ponadto jeśli aplikacji **tylko** używa naszego uwierzytelniania tooperform biblioteki ADAL, toochange nie ma żadnych czynności.  Biblioteka ADAL ma osłonę aplikacji hello zmiany.  
 
-## <a name="what-are-the-changes"></a>Jakie są zmiany?
-### <a name="removing-the-x5t-value-from-jwt-headers"></a>Usunięcie z nagłówków JWT wartości x5t
-Punktu końcowego v2.0 korzysta z tokenów JWT często, która zawiera sekcja Parametry nagłówka o odpowiednie metadane dotyczące tokenu.  Jeśli dekodowanie nagłówka jednego z naszych bieżącego tokenów Jwt, może znaleźć wyglądać mniej więcej tak:
+## <a name="what-are-hello-changes"></a>Jakie są hello zmiany?
+### <a name="removing-hello-x5t-value-from-jwt-headers"></a>Usunięcie z nagłówków JWT hello x5t wartości
+punktu końcowego v2.0 Hello korzysta z tokenów JWT często, która zawiera sekcja Parametry nagłówka o odpowiednie metadane dotyczące hello token.  Jeśli dekodowanie nagłówka hello jednego z naszych bieżącego tokenów Jwt, może znaleźć wyglądać mniej więcej tak:
 
 ```
 { 
@@ -59,23 +59,23 @@ Punktu końcowego v2.0 korzysta z tokenów JWT często, która zawiera sekcja Pa
 }
 ```
 
-Gdzie "x5t" i "kid" właściwości identyfikacji klucza publicznego, który powinien być używany do weryfikacji podpisu tokenu, ponieważ pobrana z punktu końcowego metadanych OpenID Connect.
+Gdy obie właściwości "x5t" i "dziecko" hello identyfikacji klucza publicznego hello powinny być używane toovalidate hello token podpisu, ponieważ pobrana z punktu końcowego metadanych hello OpenID Connect.
 
-Zmiana, którą czynione tutaj jest Usuń właściwość "x5t".  Może nadal używać te same mechanizmy do sprawdzania poprawności tokenów, ale polegać wyłącznie na właściwość "kid" można pobrać prawidłowy klucz publiczny, jak określono w protokołu OpenID Connect. 
+zmiany Hello czynione tutaj jest tooremove hello "x5t" właściwości.  Możesz kontynuować hello toouse tego samego toovalidate mechanizmów tokeny, ale polegać wyłącznie na powitania "dziecko" właściwość tooretrieve hello prawidłowy klucz publiczny, jak określono w hello protokołu OpenID Connect. 
 
 > [!IMPORTANT]
-> **Zadania: Upewnij się, że aplikacja nie zależy od istnienia wartość x5t.**
+> **Zadania: Upewnij się, że aplikacja nie zależy od hello istnienie hello x5t wartość.**
 > 
 > 
 
 ### <a name="removing-profileinfo"></a>Usuwanie profile_info
-Wcześniej punktu końcowego v2.0 ma zostały zwracając obiekt JSON kodowany w standardzie base64 w odpowiedzi tokenu o nazwie `profile_info`.  Podczas żądania tokenu dostępu z punktem końcowym v2.0, wysyłając żądanie:
+Wcześniej punktu końcowego v2.0 hello ma zostały zwracając obiekt JSON kodowany w standardzie base64 w odpowiedzi tokenu o nazwie `profile_info`.  Podczas żądania tokenu dostępu z punktu końcowego v2.0 hello, wysyłając żądanie:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-Odpowiedź będzie wyglądać w następujący obiekt JSON:
+odpowiedź Hello będzie wyglądać powitania po obiekt JSON:
 
 ```
 { 
@@ -88,9 +88,9 @@ Odpowiedź będzie wyglądać w następujący obiekt JSON:
 }
 ```
 
-`profile_info` Wartość informacji o użytkowniku, która zarejestrowała się w aplikacji - ich nazwę wyświetlaną, imię, nazwisko, adres e-mail, identyfikator i tak dalej.  Przede wszystkim `profile_info` była używana do buforowania tokenu i wyświetlić celów.
+Witaj `profile_info` wartość informacje o użytkowniku hello, która zarejestrowała się w aplikacji hello - ich nazwę wyświetlaną, imię, nazwisko, adres e-mail, identyfikator i tak dalej.  Przede wszystkim hello `profile_info` była używana do buforowania tokenu i wyświetlić celów.
 
-Teraz zostaną usunięte `profile_info` wartość — nie martw się, nadal zapewniamy te informacje dla deweloperów w miejscu nieco inne.  Zamiast `profile_info`, teraz zwróci punktu końcowego v2.0 `id_token` w każdej odpowiedzi tokenu:
+Teraz zostaną usunięte hello `profile_info` wartość — nie martw się, nadal zapewniamy toodevelopers tej informacji w miejscu nieco inne.  Zamiast `profile_info`, teraz zwróci punktu końcowego v2.0 hello `id_token` w każdej odpowiedzi tokenu:
 
 ```
 { 
@@ -103,17 +103,17 @@ Teraz zostaną usunięte `profile_info` wartość — nie martw się, nadal zape
 }
 ```
 
-Może zdekodować i przeanalizować żądaniu, aby pobrać informacje, które odebrano od profile_info.  W żądaniu jest JSON Web Token (JWT), o treści określonej przez OpenID Connect.  Kod może powinien być tak bardzo podobne — należy po prostu wyodrębnić środkowej segmentu (jednostka) żądaniu i base64 zdekodować dostępu do obiektu JSON w.
+Może zdekodować i przeanalizować żądaniu hello tooretrieve hello informacje, które odebrano od profile_info.  żądaniu Hello jest JSON Web Token (JWT), o treści określonej przez OpenID Connect.  Hello kod ten powinien być bardzo podobna — wystarczy bliski hello tooextract segmentu (hello treść) żądaniu hello i base64 dekodowania obiekt JSON hello tooaccess w ciągu.
 
-W ciągu przyszłych dwóch tygodni, powinien kodu aplikację, aby pobrać informacje o użytkowniku z albo `id_token` lub `profile_info`; zależności jest obecny.  Dzięki temu podczas wprowadzania zmian aplikacji bezproblemowo może obsłużyć przejście od `profile_info` do `id_token` bez przeszkód.
+Za pośrednictwem hello przyszłych dwóch tygodni, powinien kodem aplikacji tooretrieve hello informacje o użytkowniku z obu hello `id_token` lub `profile_info`; zależności jest obecny.  W ten sposób w przypadku zmian hello aplikacji bezproblemowo może obsłużyć hello przejście od `profile_info` zbyt`id_token` bez przeszkód.
 
 > [!IMPORTANT]
-> **Zadania: Upewnij się, że aplikacja nie zależy od istnienia `profile_info` wartość.**
+> **Zadania: Upewnij się, że aplikacja nie zależy od istnienia hello hello `profile_info` wartość.**
 > 
 > 
 
 ### <a name="removing-idtokenexpiresin"></a>Usuwanie id_token_expires_in
-Podobnie jak `profile_info`, zostaną również usunięte `id_token_expires_in` parametr z odpowiedzi.  Wcześniej punktu końcowego v2.0 zwróci wartość `id_token_expires_in` wraz z każdym odpowiedzi żądaniu, na przykład w odpowiedzi autoryzacji:
+Podobnie za`profile_info`, zostaną również usunięte hello `id_token_expires_in` parametr z odpowiedzi.  Wcześniej punktu końcowego v2.0 hello zwróci wartość `id_token_expires_in` wraz z każdym odpowiedzi żądaniu, na przykład w odpowiedzi autoryzacji:
 
 ```
 https://myapp.com?id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...&id_token_expires_in=3599...
@@ -132,15 +132,15 @@ Lub w odpowiedzi tokenu:
 }
 ```
 
-`id_token_expires_in` Wartość wskazuje liczbę sekund żądaniu pozostanie dotyczy.  Teraz, zostaną usunięte `id_token_expires_in` wartości całkowite.  Zamiast tego można użyć standardowego protokołu OpenID Connect `nbf` i `exp` oświadczeń do sprawdzenia poprawności żądaniu.  Zobacz [odwołania do tokenu v2.0](active-directory-v2-tokens.md) Aby uzyskać więcej informacji na temat tych oświadczeń.
+Witaj `id_token_expires_in` wartość wskazuje hello liczbę sekund, żądaniu hello pozostanie dotyczy.  Teraz, zostaną usunięte hello `id_token_expires_in` wartości całkowite.  Zamiast tego można użyć standardowego protokołu OpenID Connect hello `nbf` i `exp` oświadczeń tooexamine hello ważności w żądaniu.  Zobacz hello [odwołania do tokenu v2.0](active-directory-v2-tokens.md) Aby uzyskać więcej informacji na temat tych oświadczeń.
 
 > [!IMPORTANT]
-> **Zadania: Upewnij się, że aplikacja nie zależy od istnienia `id_token_expires_in` wartość.**
+> **Zadania: Upewnij się, że aplikacja nie zależy od istnienia hello hello `id_token_expires_in` wartość.**
 > 
 > 
 
-### <a name="changing-the-claims-returned-by-scopeopenid"></a>Zmiana oświadczeń zwrócony przez zakres = openid
-Ta zmiana będzie najbardziej znaczących — w rzeczywistości, będzie miało wpływ na prawie każdej aplikacji, który używa punktu końcowego v2.0.  Wiele aplikacji wysyłać żądania przy użyciu punktu końcowego v2.0 `openid` zakresu, takie jak:
+### <a name="changing-hello-claims-returned-by-scopeopenid"></a>Zmiana oświadczeń hello zwrócony przez zakres = openid
+Ta zmiana zostanie hello najważniejszych — w rzeczywistości, będzie miało wpływ na prawie każdej aplikacji, który używa hello punktu końcowego v2.0.  Wiele aplikacji wysyłania żądań toohello punktu końcowego v2.0 za pomocą hello `openid` zakresu, takie jak:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -151,9 +151,9 @@ client_id=...
 &scope=openid offline_access https://outlook.office.com/mail.read
 ```
 
-Obecnie, gdy użytkownik udziela zgody na `openid` zakresu, aplikacja odbiera szereg informacji o użytkowniku w żądaniu wynikowy.  Oświadczenia te mogą obejmować nazwy, preferowane nazwy użytkownika, adres e-mail i identyfikator obiektu.
+Obecnie, gdy użytkownik hello przyznaje zgody na powitania `openid` zakresu, aplikacji otrzymuje szereg informacji o użytkowniku hello hello wynikowa żądaniu.  Oświadczenia te mogą obejmować nazwy, preferowane nazwy użytkownika, adres e-mail i identyfikator obiektu.
 
-W ramach tej aktualizacji, zmieniamy informacje który `openid` zakresu daje aplikacji dostęp do, aby lepiej comform ze specyfikacją OpenID Connect.  `openid` Zakres będzie tylko umożliwić zalogować użytkownika w aplikacji, a wyświetlony identyfikator specyficzny dla aplikacji dla użytkownika w `sub` oświadczeń o żądaniu.  Oświadczenia w żądaniu tylko z `openid` zakres przyznane będzie pozbawione żadnych informacji umożliwiających identyfikację użytkownika.  Przykład żądaniu oświadczenia są:
+W ramach tej aktualizacji, zmieniamy hello informacje o tym hello `openid` zakresu zapewnia dostęp aplikacji do comform toobetter z hello specyfikacji OpenID Connect.  Witaj `openid` zakresu zostanie tylko Zezwalaj toosign aplikacji hello użytkownika w i otrzymywanie identyfikator specyficzny dla aplikacji dla użytkownika hello hello `sub` oświadczeń o żądaniu hello.  Witaj oświadczeń w żądaniu z tylko hello `openid` zakres przyznane będzie pozbawione żadnych informacji umożliwiających identyfikację użytkownika.  Przykład żądaniu oświadczenia są:
 
 ```
 { 
@@ -169,12 +169,12 @@ W ramach tej aktualizacji, zmieniamy informacje który `openid` zakresu daje apl
 }
 ```
 
-Jeśli chcesz uzyskać dane osobowe lub informacje o użytkowniku w aplikacji, aplikacji należy zażądać dodatkowych uprawnień od użytkownika.  Wprowadzono obsługę dwa nowe zakresy z OpenID Connect specyfikacji — `email` i `profile` zakresy — które umożliwiają zrobić.
+Jeśli chcesz tooobtain dane osobowe lub informacje o użytkowniku hello w aplikacji, aplikacji należy toorequest dodatkowych uprawnień od hello użytkownika.  Wprowadzono obsługę dwa nowe zakresy z OpenID Connect specyfikacji hello — Witaj `email` i `profile` zakresy — które umożliwiają toodo tak.
 
-* `email` Zakres jest bardzo prosta — umożliwia dostęp aplikacji do użytkownika podstawowego adresu e-mail za pośrednictwem `email` oświadczeń w żądaniu.  Należy pamiętać, że `email` oświadczenia nie zawsze będą obecne w id_tokens — tylko zostanie on uwzględniony jeśli są dostępne w profilu użytkownika.
-* `profile` Zakresu daje aplikacji dostęp do wszystkich innych podstawowe informacje o użytkowniku — ich nazwy, preferowane username identyfikator obiektu i tak dalej.
+* Witaj `email` zakres jest bardzo prosta — umożliwia aplikacji dostęp toohello użytkownika podstawowego adresu e-mail za pośrednictwem hello `email` oświadczeń w żądaniu hello.  Należy pamiętać, że hello `email` oświadczenia nie zawsze będą obecne w id_tokens — tylko zostanie on uwzględniony jeśli są dostępne w profilu użytkownika hello.
+* Witaj `profile` zakresu zapewnia tooall dostępu do Twojej aplikacji inne podstawowe informacje dotyczące użytkownika hello — ich nazwy, preferowane username identyfikator obiektu i tak dalej.
 
-Dzięki temu można kod aplikacji w sposób minimalnego ujawnienie — użytkownik może uzyskać tylko w zestawie danych, czy aplikacja wymaga, aby rozpocząć tworzenie.  Jeśli chcesz kontynuować pobieranie pełny zestaw informacje o użytkowniku, który obecnie otrzymuje aplikacji, należy uwzględnić wszystkie trzy zakresy w swoje żądania autoryzacji:
+Dzięki temu można toocode aplikacji w sposób minimalnego ujawnienie — możesz poprosić użytkownika hello właśnie hello zestawu informacje, że aplikacja wymaga toodo swojego zadania.  Jeśli chcesz toocontinue pobierania pełnego zestawu informacje o użytkowniku, który obecnie otrzymuje aplikacji hello, wszystkie trzy zakresy, należy uwzględnić w Twoich żądań autoryzacji:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -185,55 +185,55 @@ client_id=...
 &scope=openid profile email offline_access https://outlook.office.com/mail.read
 ```
 
-Aplikację można rozpocząć wysyłanie `email` i `profile` natychmiast zakresy i punktu końcowego v2.0 będzie zaakceptować te dwa zakresy i rozpocząć żądanie uprawnień użytkowników w razie potrzeby.  Jednak zmiana interpretacji `openid` zakres nie zostanie zastosowana dla kilka tygodni.
+Aplikację można rozpocząć wysyłanie hello `email` i `profile` natychmiast zakresy i punktu końcowego v2.0 hello będzie zaakceptować te dwa zakresy i rozpocząć żądanie uprawnień użytkowników w razie potrzeby.  Jednak zmienić hello w hello interpretacja hello `openid` zakres nie zostanie zastosowana dla kilka tygodni.
 
 > [!IMPORTANT]
-> **Zadania: Dodaj `profile` i `email` zakresów, jeśli aplikacja wymaga informacji o użytkowniku.**  Należy pamiętać, że ADAL będzie zawierać oba te uprawnienia żądań domyślnie. 
+> **Zadania: Dodaj hello `profile` i `email` zakresów, jeśli aplikacja wymaga informacji na temat hello użytkownika.**  Należy pamiętać, że ADAL będzie zawierać oba te uprawnienia żądań domyślnie. 
 > 
 > 
 
-### <a name="removing-the-issuer-trailing-slash"></a>Usuwanie wystawcy ukośnikiem na końcu.
-Wcześniej wartość wystawcy, która jest wyświetlana w tokenach z punktem końcowym v2.0 trwało formularza
+### <a name="removing-hello-issuer-trailing-slash"></a>Usuwanie Witaj wystawca ukośnika.
+Wcześniej Witaj wystawca wartość wyświetlana w tokenów z punktu końcowego v2.0 hello trwało hello formularza
 
 ```
 https://login.microsoftonline.com/{some-guid}/v2.0/
 ```
 
-W przypadku, gdy identyfikatora dzierżawy usługi Azure AD został identyfikator guid dzierżawy, która wystawiła token.  Wprowadzone zmiany staje się wartości wystawcy
+Gdzie hello identyfikator guid został tenantId hello dzierżawcy hello Azure AD, który wydał hello tokenu.  Wprowadzone zmiany staje się hello wartości wystawcy
 
 ```
 https://login.microsoftonline.com/{some-guid}/v2.0 
 ```
 
-w obu tokeny i w dokumencie odnajdywania OpenID Connect.
+w obu tokeny i hello OpenID Connect dokument.
 
 > [!IMPORTANT]
-> **Zadania: Upewnij się, że aplikacja akceptuje wartości wystawcy, zarówno z i bez ukośnika podczas sprawdzania poprawności wystawcy.**
+> **Zadania: Upewnij się, że aplikacja akceptuje wartości wystawcy hello zarówno z i bez ukośnika podczas sprawdzania poprawności wystawcy.**
 > 
 > 
 
 ## <a name="why-change"></a>Dlaczego mam zmienić?
-Główną motywacją do wprowadzenia tych zmian jest zgodny ze specyfikacją standardowe OpenID Connect.  Będąc OpenID Connect zgodne mamy nadzieję zminimalizować różnice między integracji z usługami tożsamość firmy Microsoft oraz z innymi usługami tożsamościami w branży.  Chcemy umożliwiają deweloperom używanie bibliotek uwierzytelniania ich ulubionych typu open source bez konieczności zmiany w bibliotekach w celu uwzględnienia różnic między Microsoft.
+Witaj główną motywacją do wprowadzenia tych zmian jest zgodne z OpenID Connect standardowej specyfikacji hello toobe.  Będąc OpenID Connect zgodne mamy nadzieję toominimize różnice między integracji z usługami tożsamość firmy Microsoft oraz z innymi usługami tożsamościami w branży hello.  Chcemy toouse deweloperzy tooenable ich ulubionych typu open source bibliotek uwierzytelniania bez konieczności tooalter hello bibliotek tooaccommodate Microsoft różnice.
 
 ## <a name="what-can-you-do"></a>Co należy zrobić?
-Obecnie można rozpocząć wprowadzania wszystkie zmiany opisane powyżej.  Należy natychmiast:
+Obecnie można rozpocząć wprowadzania wszystkie zmiany hello opisane powyżej.  Należy natychmiast:
 
-1. **Usuń wszelkie zależności na `x5t` parametr nagłówka.**
-2. **Obsługiwać przejście od `profile_info` do `id_token` w odpowiedzi tokenu.**
-3. **Usuń wszelkie zależności na `id_token_expires_in` parametr odpowiedzi.**
-4. **Dodaj `profile` i `email` zakresów do aplikacji, jeśli aplikacja potrzebuje informacji użytkownika podstawowego.**
+1. **Usuń wszelkie zależności hello `x5t` parametr nagłówka.**
+2. **Obsługiwać hello przejście od `profile_info` zbyt`id_token` w odpowiedzi tokenu.**
+3. **Usuń wszelkie zależności hello `id_token_expires_in` parametr odpowiedzi.**
+4. **Dodaj hello `profile` i `email` zakresy tooyour aplikacji, jeśli aplikacja potrzebuje informacji użytkownika podstawowego.**
 5. **Zaakceptuj wartości wystawcy tokenów zarówno z i bez ukośnika.**
 
-Nasze [dokumentacji protokołu v2.0](active-directory-v2-protocols.md) już została zaktualizowana w celu odzwierciedlenia tych zmian, mogą używać go jako odwołanie pomagające, zaktualizuj kod.
+Nasze [dokumentacji protokołu v2.0](active-directory-v2-protocols.md) został już zaktualizowany tooreflect te zmiany, mogą używać go jako odwołanie pomagające, zaktualizuj kod.
 
-Jeśli masz dodatkowe pytania na zakres zmian, proszę Możesz dotrzeć do nas w serwisie Twitter na @AzureAD.
+Jeśli masz dodatkowe pytania w zakresie hello hello zmian możesz wolnego tooreach poza toous w serwisie Twitter na @AzureAD.
 
 ## <a name="how-often-will-protocol-changes-occur"></a>Jak często będą protokołu zmian?
-Firma Microsoft nie przewiduje się, że dodatkowe fundamentalne zmiany protokoły uwierzytelniania.  Te zmiany w jednej wersji celowo są zostać grupowania, dzięki czemu nie trzeba przechodzić przez ten typ procesu aktualizacji ponownie kiedykolwiek wkrótce.  Oczywiście Będziemy nadal dodawania do usługi uwierzytelniania konwergentnej v2.0, co użytkownik może skorzystać z funkcji, ale te zmiany należy dodatku i nie podziału istniejący kod.
+Firma Microsoft nie przewiduje dalsze fundamentalne zmiany toohello protokoły uwierzytelniania.  Firma Microsoft są celowo tworzenie pakietów te zmiany w jednej wersji, aby toogo za pośrednictwem procesu aktualizacji tego typu nie trzeba ponownie kiedykolwiek wkrótce.  Oczywiście będzie nadal toohello funkcje tooadd zbieżność v2.0 usługi uwierzytelniania, które użytkownik może skorzystać z, ale te zmiany należy dodatku i nie podziału istniejący kod.
 
-Wreszcie chcemy powiedzieć Dziękujemy za wypróbowanie kwestii okresie używania wersji zapoznawczej.  Szczegółowe informacje i doświadczenia naszych pilotażowe zostały nieoceniony w dotychczasowych i mamy nadzieję, że nastąpi przejście do udostępniania opinie i pomysłów.
+Wreszcie chcemy toosay Dziękujemy za wypróbowanie kwestii okresie Podgląd hello.  Hello insights i doświadczenia naszych pilotażowe zostały nieoceniony w dotychczasowych i mamy nadzieję, że Twoje opinie i pomysły będzie tooshare.
 
 Kodowanie przyjemność!
 
-Dzielenie tożsamość firmy Microsoft
+Witaj dzielenia tożsamość firmy Microsoft
 

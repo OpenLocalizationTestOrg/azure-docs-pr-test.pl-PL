@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Bynder | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Bynder."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Bynder."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -14,202 +14,202 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 6786d7eb6a11405278ef7267f25279f9e39b3bde
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2a8477580d28fe422f2836f483dff286bc71c93
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bynder"></a>Samouczek: Integracji Azure Active Directory z Bynder
-Celem tego samouczka jest pokazanie sposobu integracji Bynder z usługi Azure Active Directory (Azure AD).
+Celem Hello tego samouczka jest tooshow należy jak toointegrate Bynder w usłudze Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Bynder zapewnia następujące korzyści:
+Integracja z usługą Azure AD Bynder zapewnia hello następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do Bynder
-* Umożliwia użytkownikom automatycznie pobrać zalogowane do Bynder rejestracji jednokrotnej (SSO) przy użyciu ich kont usługi Azure AD
-* Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure
+* Można kontrolować w usłudze Azure AD, kto ma dostęp do tooBynder
+* Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooBynder rejestracji jednokrotnej (SSO) przy użyciu ich kont usługi Azure AD
+* Możesz zarządzać kont w jednej centralnej lokalizacji - hello klasycznego portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby skonfigurować integrację usługi Azure AD z Bynder, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z Bynder należy hello następujące elementy:
 
 * Subskrypcję usługi Azure AD
 * Subskrypcja włączone Bynder jednokrotnego (SSO)
 
 >[!NOTE]
->Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego. 
+>tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego. 
 > 
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 * Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 * Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać [miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-Celem tego samouczka jest umożliwienie testowania Usługa rejestracji Jednokrotnej w Microsoft Azure AD w środowisku testowym.
+Celem Hello tego samouczka jest tooenable możesz tootest Usługa rejestracji Jednokrotnej w Microsoft Azure AD w środowisku testowym.
 
-Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Bynder z galerii
+1. Dodawanie Bynder z galerii hello
 2. Konfigurowanie i testowania Usługa rejestracji Jednokrotnej w Microsoft Azure AD
 
-## <a name="add-bynder-from-the-gallery"></a>Dodaj Bynder z galerii
-Aby skonfigurować integrację usługi Azure AD Bynder, należy dodać Bynder z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="add-bynder-from-hello-gallery"></a>Dodaj Bynder z galerii hello
+tooconfigure hello integracji Bynder do usługi Azure AD, należy tooadd Bynder z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać Bynder z galerii, wykonaj następujące czynności:**
+**tooadd Bynder z galerii hello, wykonaj następujące kroki hello:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**. 
+1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**. 
    
     ![Usługa Active Directory][1]
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
+2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
+3. Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
    
     ![Aplikacje][2]
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
+4. Kliknij przycisk **Dodaj** u dołu hello hello strony.
    
     ![Aplikacje][3]
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
+5. Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.
    
     ![Aplikacje][4]
-6. W polu wyszukiwania wpisz **Bynder**.
+6. W polu wyszukiwania hello wpisz **Bynder**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_01.png)
-7. W panelu wyników wybierz **Bynder**, a następnie kliknij przycisk **Complete** można dodać aplikację.
+7. W panelu wyników hello, wybierz **Bynder**, a następnie kliknij przycisk **Complete** tooadd hello aplikacji.
    
-    ![Wybieranie aplikacji w galerii](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_001.png)
+    ![Wybieranie aplikacji hello w galerii hello](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_001.png)
 
 ## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Konfiguracja i testowanie Usługa rejestracji Jednokrotnej w Microsoft Azure AD
-Jest celem tej sekcji opisano sposób konfigurowania i testowania programu Microsoft Azure AD usługa rejestracji Jednokrotnej z Bynder w oparciu o nazwie "Britta Simona" użytkownika testowego.
+Celem Hello w tej sekcji jest tooshow użytkownika jak tooconfigure i testowania programu Microsoft Azure AD usługa rejestracji Jednokrotnej z Bynder na podstawie użytkownika testowego o nazwie "Britta Simona".
 
-Dla logowania jednokrotnego do pracy usługi Azure AD musi wiedzieć, co to jest odpowiednikiem użytkownikowi w Bynder użytkownika w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Bynder musi się.
+Aby toowork logowania jednokrotnego usługi Azure AD musi tooknow jest odpowiednikiem hello użytkownika w Bynder tooan użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Bynder musi toobe ustanowione.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w Bynder.
+Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w Bynder.
 
-Aby skonfigurować i przetestować programu Microsoft Azure AD usługa rejestracji Jednokrotnej z Bynder, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowania programu Microsoft Azure AD usługa rejestracji Jednokrotnej z Bynder, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Microsoft Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Microsoft Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Bynder](#creating-a-bynder-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Bynder połączonego z jej reprezentacji usługi Azure AD.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Microsoft Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Microsoft Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Microsoft Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Bynder](#creating-a-bynder-test-user)**  -toohave odpowiednikiem Simona Britta w Bynder, że jego reprezentacja toohello połączonej usługi Azure AD.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable toouse Simona Britta usługi Microsoft Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-microsoft-azure-ad-sso"></a>Konfigurowanie logowania jednokrotnego usługi AD platformy Microsoft Azure
-W tej sekcji można włączyć Usługa rejestracji Jednokrotnej w Microsoft Azure AD w klasycznym portalu i skonfigurować logowanie Jednokrotne w aplikacji Bynder.
+W tej sekcji można włączyć Usługa rejestracji Jednokrotnej w Microsoft Azure AD w klasycznym portalu hello i skonfigurować logowanie Jednokrotne w aplikacji Bynder.
 
-**Aby skonfigurować Usługa rejestracji Jednokrotnej w Microsoft Azure AD z Bynder, wykonaj następujące czynności:**
+**tooconfigure programu Microsoft Azure AD usługa rejestracji Jednokrotnej z Bynder, wykonaj następujące kroki hello:**
 
-1. W klasycznym portalu na **Bynder** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne** okna dialogowego.
+1. W klasycznym portalu hello na powitania **Bynder** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello **skonfigurować logowanie jednokrotne** okna dialogowego.
    
     ![Konfigurowanie rejestracji jednokrotnej][6] 
-2. Na **jak chcesz użytkownikom zalogować się na Bynder** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+2. Na powitania **jak ma toosign użytkowników na tooBynder** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_03.png)
-3. Na **Konfigurowanie ustawień aplikacji** strony okna dialogowego, jeśli chcesz skonfigurować aplikację w **IDP zainicjował tryb**, wykonaj następujące kroki i kliknij przycisk **dalej**:
+3. Na powitania **Konfigurowanie ustawień aplikacji** strony okna dialogowego, jeśli chcesz, aby aplikacja hello tooconfigure w **IDP zainicjował tryb**, wykonaj następujące kroki hello i kliknij przycisk **dalej**:
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_04.png)
-  1. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<company name>.getbynder.com/sso/SAML/authenticate/`
+  1. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<company name>.getbynder.com/sso/SAML/authenticate/`
   2. Kliknij przycisk **Dalej**.
-4. Jeśli chcesz skonfigurować aplikację w **SP zainicjował tryb** na **Konfigurowanie ustawień aplikacji** strony okna dialogowego, a następnie kliknij polecenie **"Pokaż zaawansowane ustawienia (opcjonalnie)"** , a następnie wprowadź **na adres URL logowania** i kliknij przycisk **dalej**.
+4. Jeśli chcesz, aby aplikacja hello tooconfigure w **SP zainicjował tryb** na powitania **Konfigurowanie ustawień aplikacji** strony okna dialogowego, a następnie kliknij polecenie hello **"Pokaż zaawansowane ustawienia (opcjonalnie)"**, a następnie wprowadź hello **na adres URL logowania** i kliknij przycisk **dalej**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_10.png)
-  1. W **na adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<company name>.getbynder.com/login/`
+  1. W hello **na adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<company name>.getbynder.com/login/`
   2. Kliknij przycisk **Dalej**.
   
    >[!NOTE]
-   >Wartość na adres URL logowania w tym samouczku jest po prostu placeholfer. Aby uzyskać rzeczywiste vlaue dla danego środowiska, skontaktuj się z Bynder.
+   >wartość Hello hello na adres URL logowania, w tym samouczku jest po prostu placeholfer. tooget hello rzeczywiste vlaue dla danego środowiska, skontaktuj się z Bynder.
    >
 
-5. Na **skonfigurować logowanie jednokrotne w Bynder** , wykonaj poniższe kroki, a następnie kliknij przycisk **dalej**:
+5. Na powitania **skonfigurować logowanie jednokrotne w Bynder** , wykonaj następujące kroki hello i kliknij przycisk **dalej**:
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_05.png)  
-  1. Kliknij przycisk **pobierania metadanych**, a następnie zapisz plik na komputerze.
+  1. Kliknij przycisk **pobierania metadanych**, a następnie zapisz plik hello na tym komputerze.
   2. Kliknij przycisk **Dalej**.
-6. Aby uzyskać logowania jednokrotnego skonfigurowane dla aplikacji, skontaktuj się z zespołem pomocy technicznej Bynder. Dołącz plik metadanych pobranych i udostępniać je zespołowi Bynder konfigurowania rejestracji Jednokrotnej w bok.
-7. W klasycznym portalu, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **dalej**.
+6. tooget logowania jednokrotnego skonfigurowane dla danej aplikacji, skontaktuj się z zespołem pomocy technicznej Bynder. Dołącz plik metadanych pobranych hello i udostępniać je tooset zespołu Bynder się rejestracji Jednokrotnej w bok.
+7. W portalu klasycznym hello, wybierz hello konfiguracji rejestracji jednokrotnej potwierdzenie, a następnie kliknij **dalej**.
    
     ![Azure AD rejestracji jednokrotnej][10]
-8. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
+8. Na powitania **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
    
     ![Azure AD rejestracji jednokrotnej][11]
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w klasycznym portalu o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu klasycznym hello o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][20]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
+1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_09.png)
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
-3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
+2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
+3. Kliknij toodisplay hello listę użytkowników, w menu hello na górze hello **użytkowników**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_03.png)
-4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**.
+4. Witaj tooopen **Dodaj użytkownika** kliknij okno dialogowe narzędzi hello na dole hello **Dodaj użytkownika**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_04.png)
-5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności:
+5. Na powitania **Poinformuj nas o tym użytkowniku** okna dialogowego wykonaj hello następujące kroki:
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_05.png)
   1. Jako typ użytkownika wybierz nowego użytkownika w organizacji.
-  2. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.
+  2. W hello nazwy użytkownika **pole tekstowe**, typ **BrittaSimon**.
   3. Kliknij przycisk **Dalej**.
-6. Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+6. Na powitania **profilu użytkownika** okna dialogowego wykonaj hello następujące kroki:
    
    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_06.png)
-  1. W **imię** pole tekstowe, typ **Britta**.  
-  2. W **nazwisko** pole tekstowe, typ **Simona**. 
-  3. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
-  4. W **roli** listy, wybierz **użytkownika**.
+  1. W hello **imię** pole tekstowe, typ **Britta**.  
+  2. W hello **nazwisko** pole tekstowe, typ **Simona**. 
+  3. W hello **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
+  4. W hello **roli** listy, wybierz **użytkownika**.
   5. Kliknij przycisk **Dalej**.
-7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
+7. Na powitania **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_07.png)
-8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
+8. Na powitania **Uzyskaj hasło tymczasowe** okna dialogowego wykonaj hello następujące kroki:
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_08.png)
-   1. Zanotuj wartość **nowe hasło**.
+   1. Zanotuj wartość hello hello **nowe hasło**.
    2. Kliknij przycisk **Complete** (Zakończ).   
 
 ### <a name="create-a-bynder-test-user"></a>Tworzenie użytkownika testowego Bynder
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w Bynder. Bynder obsługę w czasie, który jest domyślnie włączone.
+Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w Bynder. Bynder obsługę w czasie, który jest domyślnie włączone.
 
-Nie ma elementu akcji można w tej sekcji. Nowy użytkownik zostanie utworzony podczas próby dostępu Bynder, jeśli go jeszcze nie istnieje.
+Nie ma elementu akcji można w tej sekcji. Nowy użytkownik zostanie utworzony podczas próby tooaccess Bynder, jeśli go jeszcze nie istnieje.
 
 >[!NOTE]
->Jeśli trzeba ręcznie utworzyć użytkownika, należy skontaktować się z zespołem pomocy technicznej Bynder. 
+>Należy ręcznie toocreate użytkownika, należy najpierw toocontact hello Bynder z pomocą techniczną. 
 > 
 
-### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
-Celem tej sekcji jest włączenie Simona Britta do udostępnienia jej Bynder za pomocą logowania jednokrotnego Azure.
+### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+Celem Hello w tej sekcji jest tooenabling toouse Simona Britta Azure logowania jednokrotnego, przyznając jej tooBynder dostępu.
 
    ![Przypisz użytkownika][200]
 
-**Aby przypisać Simona Britta Bynder, wykonaj następujące czynności:**
+**tooassign tooBynder Simona Britta wykonaj hello następujące kroki:**
 
-1. W klasycznym portalu, aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
+1. W portalu klasycznym hello, kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
    
     ![Przypisz użytkownika][201]
-2. Na liście aplikacji zaznacz **Bynder**.
+2. Z listy aplikacji hello wybierz **Bynder**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_50.png)
-3. W menu u góry kliknij **użytkowników**.
+3. W menu hello na górze hello, kliknij przycisk **użytkowników**.
    
     ![Przypisz użytkownika][203]
-4. Na liście użytkowników wybierz **Simona Britta**.
-5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
+4. Na liście hello użytkowników, wybierz **Simona Britta**.
+5. W narzędzi hello na dole powitania kliknij **przypisać**.
    
     ![Przypisz użytkownika][205]
 
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
-Celem tej sekcji służy do testowania konfiguracji Usługa rejestracji Jednokrotnej w Microsoft Azure AD za pomocą panelu dostępu.
+Celem Hello w tej sekcji jest tootest Twojego systemu Microsoft Azure AD SSO konfiguracji przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka Bynder w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Bynder.
+Po kliknięciu kafelka Bynder hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Bynder aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

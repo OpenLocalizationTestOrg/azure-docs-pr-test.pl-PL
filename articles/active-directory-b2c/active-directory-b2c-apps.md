@@ -1,6 +1,6 @@
 ---
-title: "Usługa Azure AD B2C | Microsoft Docs"
-description: "Typy aplikacji, które można tworzyć w usłudze Azure Active Directory B2C."
+title: aaaAzure AD B2C | Dokumentacja firmy Microsoft
+description: "Witaj typów aplikacji, które można tworzyć w hello Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
@@ -14,45 +14,45 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-ms.openlocfilehash: 762af7e09342f1bb51352e6c3d104bd4d8944e65
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7dd3dac781fb7e1553dd0f2d112b1956489a7dfd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Usługa Azure Active Directory B2C: typy aplikacji
-Usługa Azure Active Directory (Azure AD) B2C obsługuje uwierzytelnianie w wielu nowoczesnych architekturach aplikacji. Wszystkie one są oparte na standardowych protokołach branżowych [OAuth 2.0](active-directory-b2c-reference-protocols.md) lub [OpenID Connect](active-directory-b2c-reference-protocols.md). W tym dokumencie krótko opisano typy aplikacji, które można tworzyć, niezależnie od preferowanego języka lub platformy. Ułatwia on także zrozumienie ogólnych scenariuszy przed [rozpoczęciem tworzenia aplikacji](active-directory-b2c-overview.md#get-started).
+Usługa Azure Active Directory (Azure AD) B2C obsługuje uwierzytelnianie w wielu nowoczesnych architekturach aplikacji. Wszystkie z nich są oparte na standardowych protokołach branżowych hello [OAuth 2.0](active-directory-b2c-reference-protocols.md) lub [OpenID Connect](active-directory-b2c-reference-protocols.md). W tym dokumencie krótko opisano hello typy aplikacji, które można tworzyć, niezależnie od języka hello lub platformy preferowane. Ułatwia on także zrozumienie ogólnych scenariuszy hello przed [rozpocząć tworzenie aplikacji](active-directory-b2c-overview.md#get-started).
 
-## <a name="the-basics"></a>Podstawy
-Każda aplikacja, która korzysta z usługi Azure AD B2C musi być zarejestrowana w [katalogu usługi B2C](active-directory-b2c-get-started.md) za pośrednictwem witryny [Azure Portal](https://portal.azure.com/). Proces rejestracji aplikacji polega na zgromadzeniu kilku wartości i przypisaniu ich do aplikacji:
+## <a name="hello-basics"></a>podstawy Hello
+Każda aplikacja, która używa usługi Azure AD B2C musi być zarejestrowana w Twojej [katalogu B2C](active-directory-b2c-get-started.md) za pośrednictwem hello [Azure Portal](https://portal.azure.com/). proces rejestracji aplikacji Hello zbiera i przypisuje kilka wartości tooyour aplikacji:
 
 * **Identyfikator aplikacji** który w sposób unikatowy identyfikuje aplikację.
-* **Identyfikator URI przekierowania**, który może służyć do kierowania odpowiedzi z powrotem do aplikacji.
-* Dowolne inne wartości właściwe dla scenariusza. Aby uzyskać więcej szczegółowych informacji, zapoznaj się z procedurą [rejestracji aplikacji](active-directory-b2c-app-registration.md).
+* A **identyfikator URI przekierowania** które może być używane toodirect odpowiedzi wstecz tooyour aplikacji.
+* Dowolne inne wartości właściwe dla scenariusza. Aby uzyskać więcej informacji, Dowiedz się, jak za[rejestracji aplikacji](active-directory-b2c-app-registration.md).
 
-Po zarejestrowaniu aplikacji komunikuje się ona z usługą Azure AD, wysyłając żądania do punktu końcowego v2.0 usługi Azure AD:
+Po zarejestrowaniu aplikacji hello komunikacji z usługą Azure AD, wysyłając punktu końcowego v2.0 toohello usługi Azure AD żądań:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-Każde żądanie wysłane do usługi Azure AD B2C określa **zasady**. Zasady regulują sposób działania usługi Azure AD. Można również użyć tych punktów końcowych do utworzenia zestawu funkcji środowiska użytkownika, które można w znacznym stopniu dostosowywać. Wspólne zasady obejmują rejestrację, logowanie i edycję profilu. Jeśli nie znasz tych zasad, przed wykonaniem dalszych czynności zapoznaj się z informacjami na temat [rozszerzonej platformy zasad](active-directory-b2c-reference-policies.md) usługi Azure AD B2C.
+Każde żądanie wysłania tooAzure AD B2C Określa **zasad**. Zasady regulują hello zachowanie usługi Azure AD. Umożliwia także te punkty końcowe toocreate dużym stopniu dostosowywane zestawu funkcji środowiska użytkownika. Wspólne zasady obejmują rejestrację, logowanie i edycję profilu. Jeśli nie masz doświadczenia z zasadami, należy przeczytać temat hello Azure AD B2C [rozszerzona platforma zasad](active-directory-b2c-reference-policies.md) przed kontynuowaniem.
 
-Interakcja wszystkich aplikacji z punktem końcowym v2.0 jest realizowana według następującego ogólnego schematu:
+Witaj interakcja wszystkich aplikacji z punktem końcowym v2.0 następujące podobnego wzorca wysokiego poziomu:
 
-1. Aplikacja przekierowuje użytkownika do punktu końcowego v2.0, aby wykonać [zasady](active-directory-b2c-reference-policies.md).
-2. Użytkownik wypełnia zasady zgodnie z definicją zasad.
-3. Aplikacja odbiera określonego rodzaju token zabezpieczający z punktu końcowego v2.0.
-4. Aplikacja używa tokenu zabezpieczającego, aby uzyskać dostęp do chronionych informacji lub chronionego zasobu.
-5. Serwer zasobów weryfikuje token zabezpieczający, aby sprawdzić możliwość przyznania dostępu.
-6. Aplikacja okresowo odświeża token zabezpieczający.
+1. Aplikacja Hello przekierowuje hello użytkownika toohello v2.0 punktu końcowego tooexecute [zasad](active-directory-b2c-reference-policies.md).
+2. Użytkownik Hello kończy hello zasad zgodnie z toohello definicji zasad.
+3. Aplikacja Hello odbiera określonego rodzaju token zabezpieczający z punktu końcowego v2.0 hello.
+4. Aplikacja Hello używa hello zabezpieczeń tokenu tooaccess chronionych informacji lub chronionego zasobu.
+5. Witaj, serwer zasobów weryfikuje hello zabezpieczeń tokenu tooverify, który może być przyznany dostęp.
+6. Aplikacja Hello okresowo odświeża token zabezpieczający hello.
 
-<!-- TODO: Need a page for libraries to link to -->
-Te kroki mogą się nieznacznie różnić w zależności od typu tworzonej aplikacji. Szczegółowe informacje można znaleźć w bibliotekach open source.
+<!-- TODO: Need a page for libraries toolink too-->
+Te kroki mogą się nieznacznie różnić na powitania typu aplikacji, które tworzysz. Biblioteki typu open source można adres hello szczegóły.
 
 ## <a name="web-apps"></a>Aplikacje sieci Web
-W przypadku aplikacji sieci Web (w tym .NET, PHP, Java, Ruby, Python i Node.js), które są hostowane na serwerze i dostępne za pośrednictwem przeglądarki, usługa Azure AD B2C obsługuje protokół [OpenID Connect](active-directory-b2c-reference-protocols.md) w odniesieniu wszystkich funkcji środowiska użytkownika. Obejmuje to logowanie, rejestrację i zarządzanie profilami. Podczas wdrażania protokołu OpenID Connect w usłudze Azure AD B2C aplikacja sieci Web inicjuje te funkcje środowiska użytkownika, wysyłając żądania uwierzytelniania do usługi Azure AD. Wynikiem żądania jest token `id_token`. Ten token zabezpieczający reprezentuje tożsamość użytkownika. Zawiera także informacje o użytkowniku w formie oświadczeń:
+W przypadku aplikacji sieci Web (w tym .NET, PHP, Java, Ruby, Python i Node.js), które są hostowane na serwerze i dostępne za pośrednictwem przeglądarki, usługa Azure AD B2C obsługuje protokół [OpenID Connect](active-directory-b2c-reference-protocols.md) w odniesieniu wszystkich funkcji środowiska użytkownika. Obejmuje to logowanie, rejestrację i zarządzanie profilami. W implementacji hello Azure AD B2C OpenID Connect aplikacji sieci web inicjuje te funkcje środowiska użytkownika przez wystawienie tooAzure żądań uwierzytelniania usługi AD. wynik żądania hello Hello jest `id_token`. Ten token zabezpieczający reprezentuje tożsamość użytkownika hello. Zawiera także informacje o użytkowniku hello w postaci hello oświadczeń:
 
 ```
 // Partial raw id_token
@@ -67,22 +67,22 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Aby uzyskać więcej informacji o typach tokenów i oświadczeń dostępnych dla aplikacji, zobacz [informacje o tokenach usługi B2C](active-directory-b2c-reference-tokens.md).
+Dowiedz się więcej o typach tokenów i oświadczeń aplikacji tooan dostępne w hello hello [odwołania do tokenu usługi B2C](active-directory-b2c-reference-tokens.md).
 
 W aplikacji sieci Web każde wykonanie [zasad](active-directory-b2c-reference-policies.md) obejmuje następujące ogólne kroki:
 
 ![Obraz ścieżek aplikacji sieci Web](./media/active-directory-b2c-apps/webapp.png)
 
-Sprawdzenie tokenu `id_token` przy użyciu publicznego klucza podpisywania otrzymanego z usługi Azure AD jest wystarczające do zweryfikowania tożsamości użytkownika. Powoduje ono również ustawienie pliku cookie sesji, którego można użyć do identyfikacji użytkownika w żądaniach na kolejnych stronach.
+Sprawdzanie poprawności hello `id_token` przy użyciu publicznego klucza podpisywania otrzymanego z usługi Azure AD jest wystarczające tożsamości użytkownika hello hello tooverify. Powoduje ono również ustawienie pliku cookie sesji, które mogą być używane tooidentify hello użytkownika na następnej stronie żądania.
 
-Aby zapoznać się z tym scenariuszem w praktyce, wypróbuj jedną z próbek kodu logowania aplikacji sieci Web w [sekcji Wprowadzenie](active-directory-b2c-overview.md#get-started).
+toosee tym scenariuszem w praktyce, wypróbuj jedną z hello przykłady kodu logowania aplikacji sieci web w naszym [sekcji wprowadzenie](active-directory-b2c-overview.md#get-started).
 
-Oprócz ułatwienia prostego logowania aplikacja serwera sieci Web może również potrzebować dostępu do usługi sieci Web zaplecza. W takim przypadku aplikacja sieci Web może wykonać nieco inny [przepływ protokołu OpenID Connect](active-directory-b2c-reference-oidc.md) i uzyskać tokeny przy użyciu kodów autoryzacji i tokenów odświeżania. Ten scenariusz jest opisany w [sekcji dotyczącej interfejsów API sieci Web](#web-apis) poniżej.
+W dodatku toofacilitating prostego logowania aplikacja serwera sieci web może być również konieczne tooaccess usługi sieci web zaplecza. W takim przypadku hello aplikacji sieci web może wykonać nieco inny [przepływ protokołu OpenID Connect](active-directory-b2c-reference-oidc.md) i uzyskać tokeny przy użyciu kodów autoryzacji i tokenów odświeżania. Ten scenariusz jest opisany w następujących hello [interfejsów API sieci Web sekcji](#web-apis).
 
 <!--, and in our [WebApp-WebAPI Getting started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
 
 ## <a name="web-apis"></a>Interfejsy API sieci Web
-Usługi Azure AD B2C można użyć do zabezpieczania usług sieci Web, np. interfejsu API sieci Web RESTful aplikacji. Interfejsy API sieci Web mogą zabezpieczać swoje dane za pomocą protokołu OAuth 2.0, uwierzytelniając żądania przychodzące HTTP przy użyciu tokenów. Element wywołujący interfejs API sieci Web dołącza token w nagłówku autoryzacji żądania HTTP:
+Można użyć usług sieci web toosecure usługi Azure AD B2C, takich jak RESTful aplikacji interfejsu API sieci web. Interfejsy API sieci Web można używać toosecure OAuth 2.0 ich danych uwierzytelniający przychodzących żądań HTTP przy użyciu tokenów. Witaj wywołujący interfejs API sieci web dołącza token w nagłówku autoryzacji hello żądania HTTP:
 
 ```
 GET /api/items HTTP/1.1
@@ -92,42 +92,42 @@ Accept: application/json
 ...
 ```
 
-Interfejs API sieci Web może następnie użyć tego tokenu do zweryfikowania tożsamości elementu wywołującego interfejs API oraz do wyodrębnienia informacji o elemencie wywołującym z oświadczeń zakodowanych w tokenie. Aby uzyskać więcej informacji o typach tokenów i oświadczeń dostępnych dla aplikacji, zobacz [informacje o tokenach usługi Azure AD B2C](active-directory-b2c-reference-tokens.md).
+Hello interfejsu API sieci web może następnie używać hello tokenu tooverify hello interfejsu API wywołującego tożsamości i tooextract informacji o wywołującego hello z oświadczeń zakodowanych w tokenie hello. Dowiedz się więcej o typach tokenów i oświadczeń aplikacji tooan dostępne w hello hello [odwołania do tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
 > [!NOTE]
-> Usługa Azure AD B2C obsługuje obecnie tylko interfejsy API sieci Web, do których dostęp uzyskują ich własne dobrze znane aplikacje klienckie. Na przykład pełna aplikacja może obejmować aplikację systemu iOS, aplikację systemu Android i interfejs API sieci Web zaplecza. Taka architektura jest w pełni obsługiwana. Zezwalanie klientowi partnera, np. innej aplikacji systemu iOS, na dostęp do tego samego interfejsu API sieci Web nie jest obecnie obsługiwane. Wszystkie składniki pełnej aplikacji muszą współdzielić jeden identyfikator aplikacji.
+> Usługa Azure AD B2C obsługuje obecnie tylko interfejsy API sieci Web, do których dostęp uzyskują ich własne dobrze znane aplikacje klienckie. Na przykład pełna aplikacja może obejmować aplikację systemu iOS, aplikację systemu Android i interfejs API sieci Web zaplecza. Taka architektura jest w pełni obsługiwana. Zezwalanie klientowi partnera, np. innej aplikacji systemu iOS tooaccess hello tej samej sieci web interfejsu API nie jest obecnie obsługiwane. Wszystkie składniki hello pełnej aplikacji muszą współdzielić jeden identyfikator aplikacji.
 >
 >
 
-Interfejs API sieci Web może odbierać tokeny od wielu typów klientów, m.in. aplikacji sieci Web, aplikacji klasycznych i aplikacji, aplikacji jednej strony, demonów po stronie serwera oraz innych interfejsów API sieci Web. Oto przykład pełnego przepływu aplikacji sieci Web, która wywołuje interfejs API sieci Web:
+Interfejs API sieci Web może odbierać tokeny od wielu typów klientów, m.in. aplikacji sieci Web, aplikacji klasycznych i aplikacji, aplikacji jednej strony, demonów po stronie serwera oraz innych interfejsów API sieci Web. Oto przykład pełnego przepływu aplikacji sieci web, która wywołuje interfejs API sieci web hello:
 
 ![Obraz ścieżek interfejsu API sieci Web aplikacji sieci Web](./media/active-directory-b2c-apps/webapi.png)
 
-Aby dowiedzieć się więcej o kodach autoryzacji, tokenach odświeżania i krokach uzyskiwania tokenów, zapoznaj się z informacjami na temat [protokołu OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
+toolearn więcej informacji o kodach autoryzacji, tokenach odświeżania i kroki hello dla uzyskiwania tokenów, przeczytaj o hello [protokołu OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 
-Aby dowiedzieć się, jak zabezpieczyć interfejs API sieci Web przy użyciu usługi Azure AD B2C, zapoznaj się z samouczkami dotyczącymi interfejsu API sieci Web w [sekcji Wprowadzenie](active-directory-b2c-overview.md#get-started).
+toolearn jak toosecure interfejs API sieci web przy użyciu usługi Azure AD B2C, wyewidencjonowanie hello sieci web samouczki interfejsu API w naszym [sekcji wprowadzenie](active-directory-b2c-overview.md#get-started).
 
 ## <a name="mobile-and-native-apps"></a>Aplikacje mobilne i natywne
-Aplikacje, które są zainstalowane na urządzeniach, takie jak aplikacje mobilne i klasyczne, często muszą uzyskiwać dostęp do usług zaplecza lub interfejsów API sieci Web w imieniu użytkowników. Możesz dodać niestandardowe środowiska zarządzania tożsamością do aplikacji natywnych i bezpiecznie wywoływać usługi zaplecza przy użyciu usługi Azure AD B2C i [przepływu kodu autoryzacji protokołu OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
+Aplikacje, które są zainstalowane na urządzeniach, takich jak aplikacji mobilnych i klasycznych, często muszą tooaccess usług zaplecza lub interfejsów API sieci web w imieniu użytkowników. Możesz dodać aplikacje natywne tooyour środowiska zarządzania dostosowane tożsamości i bezpiecznie wywoływać usługi zaplecza przy użyciu usługi Azure AD B2C i hello [przepływu kodu autoryzacji protokołu OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
 
-W tym przepływie aplikacja wykonuje [zasady](active-directory-b2c-reference-policies.md) i odbiera kod `authorization_code` od usługi Azure AD po wypełnieniu zasad przez użytkownika. Kod `authorization_code` reprezentuje zezwolenie aplikacji na wywołanie usług zaplecza w imieniu użytkownika, który jest aktualnie zalogowany. Aplikacja może następnie wymienić kod `authorization_code` w tle na tokeny `id_token` i `refresh_token`.  Aplikacja może używać tokenu `id_token` do uwierzytelniania interfejsu API sieci Web zaplecza w żądaniach HTTP. Może również użyć tokenu `refresh_token` do pobrania nowego tokenu `id_token`, gdy wygaśnie stary.
+W tym przepływie aplikacja hello wykonuje [zasady](active-directory-b2c-reference-policies.md) i odbiera `authorization_code` z usługi Azure AD po hello użytkownik kończy hello zasad. Witaj `authorization_code` reprezentuje hello usług zaplecza aplikacji uprawnienia toocall imieniu hello użytkownika, który jest aktualnie zalogowany. Aplikacja Hello może następnie wymienić hello `authorization_code` w tle hello `id_token` i `refresh_token`.  Aplikacja Hello można używać hello `id_token` tooauthenticate tooa zaplecza interfejsu API sieci web w żądaniach HTTP. Można również użyć hello `refresh_token` tooget nowy `id_token` gdy wygaśnie stary.
 
 > [!NOTE]
-> Usługa Azure AD B2C obsługuje obecnie tylko tokeny, które umożliwiają dostęp do własnej usługi sieci Web zaplecza aplikacji. Na przykład pełna aplikacja może obejmować aplikację systemu iOS, aplikację systemu Android i interfejs API sieci Web zaplecza. Taka architektura jest w pełni obsługiwana. Zezwalanie aplikacji systemu iOS na dostęp do interfejsu API sieci Web partnera przy użyciu tokenów dostępu protokołu OAuth 2.0 nie jest obecnie obsługiwane. Wszystkie składniki pełnej aplikacji muszą współdzielić jeden identyfikator aplikacji.
+> Azure AD B2C obsługuje obecnie tylko tokeny, które są używane tooaccess usługę sieci web zaplecza w aplikacji. Na przykład pełna aplikacja może obejmować aplikację systemu iOS, aplikację systemu Android i interfejs API sieci Web zaplecza. Taka architektura jest w pełni obsługiwana. Stosowanie interfejsu API sieci web partnera z tooaccess aplikacji systemu iOS przy użyciu tokenów dostępu protokołu OAuth 2.0 nie jest obecnie obsługiwane. Wszystkie składniki hello pełnej aplikacji muszą współdzielić jeden identyfikator aplikacji.
 >
 >
 
 ![Obraz ścieżek aplikacji natywnej](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
-Usługa Azure AD B2C nie obsługuje obecnie poniższych typów aplikacji, ale są one w planach. 
+Usługa Azure AD B2C nie obsługuje obecnie hello następujące typy aplikacji, ale znajdują się na plan hello. 
 
 ### <a name="daemonsserver-side-apps"></a>Demony/aplikacje po stronie serwera
-Aplikacje obejmujące procesy długotrwałe lub niewymagające obecności użytkownika również potrzebują sposobu uzyskiwania dostępu do zabezpieczonych zasobów, np. interfejsów API sieci Web. Te aplikacje mogą uwierzytelniać i uzyskiwać tokeny przy użyciu tożsamości aplikacji (zamiast delegowanej tożsamości użytkownika) oraz przy użyciu przepływu poświadczeń klienta OAuth 2.0.
+Aplikacje, które zawierają procesy długotrwałe lub niewymagające obecności użytkownika hello muszą również sposób którą tooaccess zabezpieczonych zasobów, takich jak interfejsów API sieci web. Te aplikacje mogą uwierzytelniać i uzyskiwać tokeny przy użyciu tożsamości aplikacji hello (zamiast delegowanej tożsamości użytkownika) i przy użyciu przepływu poświadczeń klienta hello OAuth 2.0.
 
 Ten przepływ nie jest obecnie obsługiwany w usłudze Azure AD B2C. Te aplikacje mogą uzyskiwać tokeny tylko po wystąpieniu interaktywnego przepływu użytkownika.
 
 ### <a name="web-api-chains-on-behalf-of-flow"></a>Łańcuchy interfejsu API sieci Web (przepływ „w imieniu”)
-Wiele architektur obejmuje interfejs API sieci Web, który musi wywołać inny podrzędny interfejs API sieci Web, przy czym oba interfejsy są zabezpieczane przez usługę Azure AD B2C. Ten scenariusz jest często spotykany w klientach natywnych, którzy mają zaplecza interfejsu API sieci Web. Następnie następuje wywołanie usługi online firmy Microsoft, np. interfejsu API Azure AD Graph.
+Wiele architektur obejmują składnika web API, który wymaga toocall inny podrzędny interfejs API sieci web, gdy oba interfejsy są zabezpieczane przez usługi Azure AD B2C. Ten scenariusz jest często spotykany w klientach natywnych, którzy mają zaplecza interfejsu API sieci Web. Następnie następuje wywołanie usługi online firmy Microsoft, takich jak hello interfejsu API usługi Azure AD Graph.
 
-Ten scenariusz obejmujący łańcuch interfejsów API sieci Web może być obsługiwany przy użyciu przyznania poświadczeń elementu nośnego OAuth 2.0 JWT, określanego również jako przepływ „w imieniu”.  Jednak przepływ „w imieniu” nie jest obecnie wdrażany w usłudze Azure AD B2C.
+Ten scenariusz łańcuchowa interfejsu API sieci web mogą być obsługiwane przez przy użyciu przyznania poświadczeń elementu nośnego OAuth 2.0 JWT hello, znanej także jako hello imieniu-przepływ "w".  Jednak hello imieniu-przepływ "w" nie jest obecnie zaimplementowana w hello Azure AD B2C.

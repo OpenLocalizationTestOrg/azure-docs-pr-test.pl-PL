@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie aplikacji funkcji i wdrażanie kodu funkcji z usługi GitHub | Dokumentacja firmy Microsoft"
+title: "aaaCreate aplikacji funkcji i wdrażanie kodu funkcji z usługi GitHub | Dokumentacja firmy Microsoft"
 description: "Tworzenie aplikacji funkcji i wdrażanie kodu funkcji z usługi GitHub"
 services: functions
 ms.service: functions
@@ -10,15 +10,15 @@ ms.author: cfowler
 ms.date: 04/27/2017
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 67eb41d89328ab57741c419d8b718e19b947dab1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4d44204b899b32af464260db51ed98bcf00eb2bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-app-service"></a>Utwórz usługę aplikacji
 
-Ten przykładowy skrypt tworzy aplikacji funkcji przy użyciu [planu zużycie](../functions-scale.md#consumption-plan) z jego powiązanych zasobów i stale wdraża kodu funkcji z repozytorium GitHub. W tym przykładzie należy:
+Ten przykładowy skrypt tworzy aplikacji funkcji przy użyciu hello [planu zużycie](../functions-scale.md#consumption-plan) z jego powiązanych zasobów i stale wdraża kodu funkcji z repozytorium GitHub. W tym przykładzie należy:
 
 * Repozytorium GitHub z kodem funkcje, które ma uprawnienia administracyjne.
 * A [osobistych dostępu tokenu (PAWEŁ)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) na koncie usługi GitHub.
@@ -27,19 +27,19 @@ Ten przykładowy skrypt tworzy aplikacji funkcji przy użyciu [planu zużycie](.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli wybierz tooinstall i użyj interfejsu wiersza polecenia hello lokalnie, w tym temacie wymaga, że uruchamiasz hello Azure CLI w wersji 2.0 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
 Ten przykład tworzy aplikację funkcji platformy Azure i wdraża kod funkcji z usługi GitHub.
 
-[!code-azurecli-interactive[główne](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "usługi Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Każde polecenie w tabeli łącza do dokumentacji określonego polecenia. Ten skrypt korzysta z następujących czynności:
+Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji. Ten skrypt używa następujących hello:
 
 | Polecenie | Uwagi |
 |---|---|
@@ -50,6 +50,6 @@ Każde polecenie w tabeli łącza do dokumentacji określonego polecenia. Ten sk
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów wiersza polecenia funkcji platformy Azure można znaleźć w [dokumentacji usługi Azure Functions](../functions-cli-samples.md).
+Dodatkowe przykłady skryptów wiersza polecenia funkcji platformy Azure można znaleźć w hello [dokumentacji usługi Azure Functions](../functions-cli-samples.md).

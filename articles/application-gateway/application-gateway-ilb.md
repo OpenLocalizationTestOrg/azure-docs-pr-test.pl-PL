@@ -1,6 +1,6 @@
 ---
-title: "Przy użyciu bramy aplikacji Azure z wewnętrznego modułu równoważenia obciążenia | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera instrukcje dotyczące konfigurowania bramy aplikacji Azure z punktem końcowym wewnętrzny o zrównoważonym obciążeniu"
+title: "aaaUsing bramy aplikacji Azure z wewnętrznego modułu równoważenia obciążenia | Dokumentacja firmy Microsoft"
+description: "Ta strona zawiera instrukcje tooconfigure bramę aplikacji Azure z punktem końcowym wewnętrzny o zrównoważonym obciążeniu"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 272ef84a02f92a8521c35aad6f1d9f9bf1675718
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Tworzenie Bramy aplikacji z wewnętrznym modułem równoważenia obciążenia (ILB)
 
@@ -26,25 +26,25 @@ ms.lasthandoff: 07/11/2017
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-ilb.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-ilb-arm.md)
 
-Brama aplikacji można skonfigurować internetowy wirtualnego adresu IP lub wewnętrzny punkt końcowy nie uwidoczniony w Internecie, znanej także jako punktu końcowego wewnętrznego modułu równoważenia obciążenia (ILB). Konfigurowanie bramy z ILB jest przydatna do wewnętrznych aplikacji biznesowych — nie są widoczne dla Internetu. Jest również przydatne w przypadku warstwy aplikacji wielowarstwowych, który znajduje się w granicy zabezpieczeń nie są widoczne do Internetu, ale nadal wymagają rozkład obciążenia działanie okrężne, lepkości sesji lub kończenia żądań SSL z/usług. W tym artykule przeprowadzimy Cię przez proces konfigurowania bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia.
+Brama aplikacji można skonfigurować internetowy wirtualnego adresu IP lub toohello wewnętrzny punkt końcowy nie widoczne internet, znanej także jako punktu końcowego wewnętrznego modułu równoważenia obciążenia (ILB). Konfigurowanie bramy hello z ILB jest przydatne w przypadku toointernet wewnętrznych aplikacji biznesowych — nie są widoczne. Jest również przydatne w przypadku warstwy aplikacji wielowarstwowych, który znajduje się w toointernet nie widoczne granic zabezpieczeń, ale nadal wymagają rozkład obciążenia działanie okrężne, lepkości sesji lub kończenia żądań SSL z/usług. W tym artykule przedstawiono hello kroki tooconfigure bramę aplikacji z ILB.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-1. Zainstaluj najnowszą wersję poleceń cmdlet programu Azure PowerShell, za pomocą Instalatora platformy sieci Web. Można pobrać i zainstalować najnowszą wersję ze **programu Windows PowerShell** sekcji [stronę pobierania](https://azure.microsoft.com/downloads/).
+1. Zainstaluj najnowszą wersję hello Azure poleceń cmdlet programu PowerShell przy użyciu hello Instalatora platformy sieci Web. Można pobrać i zainstalować najnowszą wersję hello z hello **programu Windows PowerShell** sekcji hello [stronę pobierania](https://azure.microsoft.com/downloads/).
 2. Sprawdź, czy sieć wirtualną pracy z prawidłową podsieć.
-3. Sprawdź, czy masz serwerów wewnętrznej bazy danych w sieci wirtualnej lub z publicznego adresu IP/VIP przypisane.
+3. Sprawdź, czy masz serwerów wewnętrznej bazy danych w sieci wirtualnej hello lub z publicznego adresu IP/VIP przypisane.
 
-Aby utworzyć bramę aplikacji, wykonaj następujące kroki w podanej kolejności. 
+toocreate bramę aplikacji, wykonaj następujące kroki w podanej kolejności hello hello. 
 
 1. [Tworzenie bramy aplikacji](#create-a-new-application-gateway)
-2. [Konfigurowanie bramy](#configure-the-gateway)
-3. [Ustaw konfigurację bramy](#set-the-gateway-configuration)
-4. [Uruchom bramę](#start-the-gateway)
-5. [Sprawdź bramy](#verify-the-gateway-status)
+2. [Konfigurowanie bramy hello](#configure-the-gateway)
+3. [Konfiguracja bramy hello zestawu](#set-the-gateway-configuration)
+4. [Uruchom hello bramy](#start-the-gateway)
+5. [Sprawdź hello bramy](#verify-the-gateway-status)
 
 ## <a name="create-an-application-gateway"></a>Utwórz bramę aplikacji:
 
-**Aby utworzyć bramę**, użyj `New-AzureApplicationGateway` polecenia cmdlet, zastępując wartości własnymi. Zauważ, że opłaty za bramę nie są jeszcze naliczane. Rozliczanie zaczyna się na późniejszym etapie, po pomyślnym uruchomieniu bramy.
+**Brama hello toocreate**, użyj hello `New-AzureApplicationGateway` polecenia cmdlet, zastępując wartości hello własne. Należy pamiętać, że rozliczeń hello bramy nie jest uruchamiana w tym momencie. Karta rozpoczyna się od w kolejnym kroku hello bramy została pomyślnie uruchomiona.
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -58,9 +58,9 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 ```
 
-**Aby sprawdzić poprawność** czy utworzono bramę, możesz użyć `Get-AzureApplicationGateway` polecenia cmdlet. 
+**toovalidate** czy utworzono bramę hello, możesz użyć hello `Get-AzureApplicationGateway` polecenia cmdlet. 
 
-W przykładzie *opis*, *InstanceCount*, i *GatewaySize* są opcjonalnymi parametrami. Wartość domyślna parametru *InstanceCount* to 2, a wartość maksymalna — 10. Wartość domyślna parametru *GatewaySize* to Medium (Średnia). Małe i duże są inne dostępne wartości. *VIP* i *DnsName* są wyświetlane jako puste, ponieważ brama nie została jeszcze uruchomiona. Zostaną utworzone, gdy brama zacznie działać. 
+W przykładowym hello *opis*, *InstanceCount*, i *GatewaySize* są opcjonalnymi parametrami. Witaj wartości domyślnej dla *InstanceCount* 2, maksymalna wartość 10. Witaj wartości domyślnej dla *GatewaySize* to średni. Małe i duże są inne dostępne wartości. *VIP* i *DnsName* są wyświetlane jako puste, ponieważ brama hello nie została jeszcze uruchomiona. Są one tworzone po hello brama jest w hello stanu działania. 
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -81,25 +81,25 @@ VirtualIPs:
 DnsName:
 ```
 
-## <a name="configure-the-gateway"></a>Konfigurowanie bramy
-Konfiguracja bramy aplikacji składa się z wielu wartości. Wartości mogą być powiązane ze sobą w celu utworzenia konfiguracji.
+## <a name="configure-hello-gateway"></a>Konfigurowanie bramy hello
+Konfiguracja bramy aplikacji składa się z wielu wartości. mogą być związane Hello wartości konfiguracji hello tooconstruct razem.
 
-Potrzebne wartości:
+Witaj wartości są następujące:
 
-* **Pula serwerów wewnętrznej bazy danych:** listę adresów IP serwerów wewnętrznej bazy danych. Na liście adresów IP albo powinna należeć do podsieci sieci wirtualnej lub powinny być publicznego adresu IP/VIP. 
-* **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.
-* **Port serwera sieci Web:** ten port jest port publiczny otwarte na bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
-* **Odbiornik:** odbiornika ma port serwera sieci Web, protokół (Http lub Https, te jest rozróżniana wielkość liter) oraz nazwę certyfikatu SSL (jeśli odciążania Konfigurowanie protokołu SSL). 
-* **Reguła:** reguła wiąże odbiornika i puli serwerów wewnętrznej bazy danych i definiuje puli serwerów wewnętrznej bazy danych, których ruch powinny być kierowane do, gdy trafienia w szczególności odbiornika. Obecnie jest obsługiwana tylko reguła *podstawowa*. Reguła *podstawowa* to dystrybucja obciążenia z działaniem okrężnym.
+* **Pula serwerów wewnętrznej bazy danych:** hello listę adresów IP hello serwerów wewnętrznej bazy danych. wymienionych na liście adresów IP Hello albo powinny należeć toohello podsieci sieci wirtualnej lub powinny być publicznego adresu IP/VIP. 
+* **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są wiązanej tooa puli i są stosowane tooall serwery w puli hello.
+* **Port serwera sieci Web:** ten port jest port publiczny hello otwarte na powitania bramy aplikacji. Ruch trafienia tego portu, a następnie pobiera przekierowanego tooone hello serwerów wewnętrznej bazy danych.
+* **Odbiornik:** odbiornika hello ma port serwera sieci Web, protokół (Http lub Https, te jest rozróżniana wielkość liter), a hello nazwa certyfikatu SSL (jeśli odciążania Konfigurowanie protokołu SSL). 
+* **Reguła:** reguła hello wiąże odbiornika hello i puli serwerów wewnętrznej bazy danych hello i określa, jaki ruch hello puli serwera wewnętrznej bazy danych ukierunkowanej toowhen trafienia w szczególności odbiornika. Obecnie tylko hello *podstawowe* reguła jest obsługiwana. Witaj *podstawowe* reguła jest rozkład obciążenia okrężnego.
 
-Można utworzyć konfiguracji poprzez utworzenie obiektu konfiguracji lub plik XML konfiguracji. Do utworzenia konfiguracji przy użyciu pliku XML konfiguracji, użyj przykładu poniżej.
+Można utworzyć konfiguracji poprzez utworzenie obiektu konfiguracji lub plik XML konfiguracji. tooconstruct konfiguracji przy użyciu pliku XML konfiguracji, użyj hello przykładowe poniżej.
 
-Pamiętaj o następujących kwestiach:
+Należy uwzględnić następujące hello:
 
-* *Konfiguracji IP frontonu* element opisuje zastosowanie w przypadku konfigurowania bramy aplikacji przy użyciu ILB szczegóły ILB. 
-* Adres IP frontonu *typu* powinien być ustawiony na "Private"
-* *StaticIPAddress* powinien być ustawiony na żądaną wewnętrznym adresem IP, na którym Brama odbiera ruch. Należy pamiętać, że *StaticIPAddress* element jest opcjonalny. Jeśli nie jest dostępny wewnętrzny adres IP z podsieci wdrożonej zestaw, jest wybierany. 
-* Wartość *nazwa* elementu określonego w parametrze *elementu FrontendIPConfiguration* powinny być używane w HTTPListener *FrontendIP* element, aby odwołać się do Konfiguracja IP frontonu.
+* Witaj *konfiguracji IP frontonu* element opisuje hello ILB szczegółowe informacje dotyczące konfigurowania bramy aplikacji przy użyciu ILB. 
+* Witaj adresu IP frontonu *typu* powinien być ustawiony too'Private "
+* Witaj *StaticIPAddress* wewnętrznym adresem IP toohello żądanego na które hello bramy odbiera ruch powinien być ustawiony. Należy pamiętać, że hello *StaticIPAddress* element jest opcjonalny. Jeśli nie jest dostępny wewnętrzny adres IP z podsieci hello wdrożone zestaw, jest wybierany. 
+* Witaj wartość hello *nazwa* elementu określonego w parametrze *elementu FrontendIPConfiguration* powinny być używane w hello HTTPListener *FrontendIP* toohello toorefer elementu Konfiguracja IP frontonu.
   
   **Przykładowy plik XML konfiguracji**
 ```xml
@@ -156,8 +156,8 @@ Pamiętaj o następujących kwestiach:
 ```
 
 
-## <a name="set-the-gateway-configuration"></a>Ustaw konfigurację bramy
-Następnie będzie Ustaw bramy aplikacji. Można użyć `Set-AzureApplicationGatewayConfig` polecenia cmdlet bez obiekt konfiguracji lub z pliku XML konfiguracji. 
+## <a name="set-hello-gateway-configuration"></a>Konfiguracja bramy hello zestawu
+Następnie będzie Ustaw hello bramy aplikacji. Można użyć hello `Set-AzureApplicationGatewayConfig` polecenia cmdlet bez obiekt konfiguracji lub z pliku XML konfiguracji. 
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
@@ -171,12 +171,12 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 ```
 
-## <a name="start-the-gateway"></a>Uruchamianie bramy
+## <a name="start-hello-gateway"></a>Uruchom hello bramy
 
-Po skonfigurowaniu bramy użyj polecenia cmdlet `Start-AzureApplicationGateway`, aby uruchomić bramę. Naliczanie opłat za bramę aplikacji rozpocznie się po pomyślnym uruchomieniu bramy. 
+Po skonfigurowaniu bramy hello Użyj hello `Start-AzureApplicationGateway` bramy hello toostart polecenia cmdlet. Rozliczeń dla bramy aplikacji rozpocznie się po pomyślnym uruchomieniu hello bramy. 
 
 > [!NOTE]
-> `Start-AzureApplicationGateway` Polecenie cmdlet może potrwać do 15-20 minut. 
+> Witaj `Start-AzureApplicationGateway` polecenie cmdlet może potrwać toocomplete too15 20 minut. 
 > 
 > 
 
@@ -192,12 +192,12 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 ```
 
-## <a name="verify-the-gateway-status"></a>Sprawdzanie stanu bramy
+## <a name="verify-hello-gateway-status"></a>Sprawdź stan bramy hello
 
-Użyj `Get-AzureApplicationGateway` polecenia cmdlet, aby sprawdzić stan bramy. Jeśli `Start-AzureApplicationGateway` zakończyło się pomyślnie w poprzednim kroku, powinien mieć stan *systemem*, i Vip oraz DnsName powinny mieć prawidłowe wpisy. Przykład obejmuje polecenia cmdlet w pierwszym wierszu, to po danych wyjściowych. W tym przykładzie brama jest uruchomiona i jest gotowa do sporządzenia ruchu. 
+Użyj hello `Get-AzureApplicationGateway` polecenia cmdlet toocheck hello stanu bramy. Jeśli `Start-AzureApplicationGateway` zakończyło się pomyślnie w poprzednim kroku hello, powinien mieć stan hello *systemem*, hello Vip i DnsName powinny mieć prawidłowe wpisy. To przykładowe przedstawiono polecenie cmdlet hello na powitania pierwszy wiersz, następuje hello danych wyjściowych. W tym przykładzie hello bramy działa i jest gotowy tootake ruchu. 
 
 > [!NOTE]
-> Brama aplikacji jest skonfigurowana do akceptowania ruchu w skonfigurowanym punkcie końcowym ILB 10.0.0.10 w tym przykładzie.
+> Brama aplikacji Hello jest skonfigurowana tooaccept ruchu na powitania skonfigurowany punkt końcowy ILB 10.0.0.10 w tym przykładzie.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest 

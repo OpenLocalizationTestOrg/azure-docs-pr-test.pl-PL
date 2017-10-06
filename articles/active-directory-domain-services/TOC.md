@@ -8,7 +8,7 @@
 
 # Rozpoczęcie pracy
 ## klasyczny portal Azure
-### [Task 1: create the administrator group (Zadanie 1. Tworzenie grupy administratorów)](active-directory-ds-getting-started-create-group.md)
+### [Zadanie 1: Tworzenie grupy administratorów hello](active-directory-ds-getting-started-create-group.md)
 ### [Zadanie 2. Tworzenie lub wybieranie sieci wirtualnej](active-directory-ds-getting-started-vnet.md)
 ### [Zadanie 3. Włączanie Usług domenowych Azure AD](active-directory-ds-getting-started-enableaadds.md)
 ### [Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej](active-directory-ds-getting-started-update-dns.md)
@@ -30,9 +30,9 @@
 ### [Administrowanie systemem DNS w domenie zarządzanej](active-directory-ds-admin-guide-administer-dns.md)
 ### Konfigurowanie protokołu LDAP dla domeny zarządzanej
 #### [Task 1: obtain a certificate for secure LDAP (Zadanie 1. Uzyskiwanie certyfikatu na potrzeby protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap.md)
-#### [Task 2: export the secure LDAP certificate (Zadanie 2. Eksportowanie certyfikatu protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Task 3: enable secure LDAP for the managed domain using Azure classic portal (Zadanie 3. Włączanie protokołu Secure LDAP dla domeny zarządzanej przy użyciu klasycznej witryny Azure Portal)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Task 3: enable secure LDAP for the managed domain using Azure portal (preview) (Zadanie 3. Włączanie protokołu Secure LDAP dla domeny zarządzanej przy użyciu wersji zapoznawczej witryny Azure Portal)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [: Zadanie 2 hello bezpiecznego certyfikatu LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+#### [Zadanie 3: Włącz bezpiecznego protokołu LDAP do domeny zarządzanej hello przy użyciu klasycznego portalu Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
+#### [Zadanie 3: Włącz bezpiecznego protokołu LDAP do domeny zarządzanej hello przy użyciu portalu Azure (wersja zapoznawcza)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Tworzenie jednostki organizacyjnej w domenie zarządzanej](active-directory-ds-admin-guide-create-ou.md)
 ### [Administrowanie zasadami grupy w domenie zarządzanej](active-directory-ds-admin-guide-administer-group-policy.md)
@@ -44,7 +44,7 @@
 ## Rozwiązywanie problemów
 ### [Często zadawane pytania](active-directory-ds-faqs.md)
 ### [Przewodnik rozwiązywania problemów](active-directory-ds-troubleshooting.md)
-### [Enable the preview Azure portal experience (Włączanie środowiska witryny Azure Portal w wersji zapoznawczej)](active-directory-ds-azure-portal-enable-preview-access.md)
+### [Włącz podgląd hello obsługi portalu Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolve mismatched tenant errors (Rozwiązywanie błędów dotyczących niezgodnych dzierżaw)](active-directory-ds-mismatched-tenant-error.md)
 
 # Dokumentacja

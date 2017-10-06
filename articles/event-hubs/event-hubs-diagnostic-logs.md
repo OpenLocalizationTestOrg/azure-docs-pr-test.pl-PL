@@ -1,6 +1,6 @@
 ---
-title: "Azure Event Hubs dzienników diagnostycznych | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania dzienników diagnostycznych usługi event hubs na platformie Azure."
+title: "dzienniki diagnostyczne aaaAzure usługi Event Hubs | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooset zapasowe dzienników diagnostycznych usługi event hubs na platformie Azure."
 keywords: 
 documentationcenter: 
 services: event-hubs
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2054e2e444e715e5077fe2608fe1e009e6c1d84
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Dzienniki diagnostyczne centra zdarzeń
 
 Dla usługi Azure Event Hubs można wyświetlić dwa typy dzienników:
-* **[Dzienniki aktywności](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Te dzienniki ma informacje o operacji wykonywanych w zadaniu. Dzienniki są zawsze włączone.
-* **[Dzienniki diagnostyczne](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Dzienniki diagnostyczne bardziej zaawansowane funkcje dostępne w widoku wszystkich podejmowanych można skonfigurować za pomocą zadania. Dzienniki diagnostyczne obejmują działania, od czasu utworzenia zadania do momentu usunięcia zadania, w tym aktualizacje i działania, które są wykonywane, gdy zadanie jest uruchomione.
+* **[Dzienniki aktywności](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Te dzienniki ma informacje o operacji wykonywanych w zadaniu. Dzienniki Hello są zawsze włączone.
+* **[Dzienniki diagnostyczne](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Dzienniki diagnostyczne bardziej zaawansowane funkcje dostępne w widoku wszystkich podejmowanych można skonfigurować za pomocą zadania. Dzienniki diagnostyczne obejmują działania, od czasu hello, utworzenia zadania hello do momentu usunięcia zadania hello, w tym aktualizacje i działania, które są wykonywane, gdy jest wykonywane zadanie hello.
 
 ## <a name="turn-on-diagnostic-logs"></a>Włączanie dzienników diagnostycznych
-Dzienniki diagnostyczne są domyślnie wyłączone. Aby włączyć dzienniki diagnostyczne:
+Dzienniki diagnostyczne są domyślnie wyłączone. dzienniki diagnostyczne tooenable:
 
-1.  W [portalu Azure](https://portal.azure.com)w obszarze **monitorowanie i zarządzanie**, kliknij przycisk **dzienników diagnostycznych**.
+1.  W hello [portalu Azure](https://portal.azure.com)w obszarze **monitorowanie i zarządzanie**, kliknij przycisk **dzienników diagnostycznych**.
 
-    ![Nawigacja bloku do dzienników diagnostycznych](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Dzienniki toodiagnostic nawigacji bloku](./media/event-hubs-diagnostic-logs/image1.png)
 
-2.  Kliknij zasób, który chcesz monitorować.
+2.  Kliknij zasób hello ma toomonitor.
 
 3.  Kliknij przycisk **Włącz diagnostykę**.
 
@@ -42,32 +42,32 @@ Dzienniki diagnostyczne są domyślnie wyłączone. Aby włączyć dzienniki dia
 
 4.  Aby uzyskać **stan**, kliknij przycisk **na**.
 
-    ![Zmień stan dzienników diagnostycznych](./media/event-hubs-diagnostic-logs/image3.png)
+    ![Zmiana stanu hello dzienników diagnostycznych](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Ustaw element docelowy archiwum, które mają; na przykład konto magazynu, Centrum zdarzeń lub Analiza dzienników Azure.
+5.  Zestaw docelowy archiwum hello, który ma; na przykład konto magazynu, Centrum zdarzeń lub Analiza dzienników Azure.
 
-6.  Zapisz nowe ustawienia diagnostyki.
+6.  Zapisz hello nowe ustawienia diagnostyki.
 
-Nowe ustawienia zaczęły obowiązywać w ciągu około 10 minut. Po wykonaniu tej dzienników pojawia się w celu archiwizacji skonfigurowane, na **dzienników diagnostycznych** bloku.
+Nowe ustawienia zaczęły obowiązywać w ciągu około 10 minut. Po wykonaniu tej dzienników pojawia się w celu archiwizacji hello skonfigurowane, na powitania **dzienników diagnostycznych** bloku.
 
-Aby uzyskać więcej informacji na temat konfigurowania diagnostyki, zobacz [omówienie Azure dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Aby uzyskać więcej informacji na temat konfigurowania diagnostyki, zobacz hello [omówienie Azure dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-categories"></a>Dzienniki diagnostyczne kategorii
 Centra zdarzeń przechwytuje dzienniki diagnostyczne dla dwóch kategorii:
 
-* **ArchiveLogs**: dzienniki związane z archiwami usługi Event Hubs, w szczególności, dzienniki związane z archiwum błędy.
-* **OperationalLogs**: informacje o tym, co dzieje się podczas operacji usługi Event Hubs, w szczególności operacji typu, łącznie z tworzenia Centrum zdarzeń, zasoby używane i stan operacji.
+* **ArchiveLogs**: dzienniki powiązane tooEvent archiwów koncentratory, w szczególności rejestruje błędy tooarchive pokrewne.
+* **OperationalLogs**: informacje o tym, co dzieje podczas operacji usługi Event Hubs, w szczególności hello typ operacji, w tym tworzenia Centrum zdarzeń, zasoby używane i hello stan hello operacji.
 
 ## <a name="diagnostic-logs-schema"></a>Dzienniki diagnostyczne schematu
-Wszystkie dzienniki są przechowywane w formacie JavaScript Object Notation (JSON). Każdy wpis ma pól ciągów, które używają formatu opisane w poniższych sekcjach.
+Wszystkie dzienniki są przechowywane w formacie JavaScript Object Notation (JSON). Każdy wpis ma pól ciągów, w formacie hello opisanego w hello następujące sekcje.
 
 ### <a name="archive-logs-schema"></a>Schemat dzienniki archiwum
 
-Ciągi JSON dziennika archiwum obejmują elementy wymienione w poniższej tabeli:
+Ciągi JSON dziennika archiwum obejmują elementy wymienione w poniższej tabeli hello:
 
 Nazwa | Opis
 ------- | -------
-TaskName | Opis zadań, które zakończyły się niepowodzeniem.
+TaskName | Opis hello zadań, które zakończyły się niepowodzeniem.
 Identyfikator działania | Wewnętrzny identyfikator używany do śledzenia.
 trackingId | Wewnętrzny identyfikator używany do śledzenia.
 resourceId | Identyfikator usługi Azure Resource Manager zasobu.
@@ -80,7 +80,7 @@ durationInSeconds | Czas trwania awarii.
 Komunikat | Komunikat o błędzie.
 category | ArchiveLogs
 
-Następujący kod jest przykładem dziennika archiwum ciągu JSON:
+Witaj następujący kod jest przykładem dziennika archiwum ciągu JSON:
 
 ```json
 {
@@ -94,18 +94,18 @@ Następujący kod jest przykładem dziennika archiwum ciągu JSON:
      "startTime": "9/22/2016 5:11:21 AM",
      "failures": 3,
      "durationInSeconds": 360,
-     "message": "Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (404) Not Found. ---> System.Net.WebException: The remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
+     "message": "Microsoft.WindowsAzure.Storage.StorageException: hello remote server returned an error: (404) Not Found. ---> System.Net.WebException: hello remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
      "category": "ArchiveLogs"
 }
 ```
 
 ### <a name="operational-logs-schema"></a>Schemat operacyjne dzienniki
 
-Dziennik operacyjny JSON ciągi zawierać elementy wymienione w poniższej tabeli:
+Dziennik operacyjny JSON ciągi zawierać elementy wymienione w poniższej tabeli hello:
 
 Nazwa | Opis
 ------- | -------
-Identyfikator działania | Wewnętrzny identyfikator służący do śledzenia cel.
+Identyfikator działania | Wewnętrzny identyfikator używany tootrack cel.
 EventName | Nazwa operacji.  
 resourceId | Identyfikator usługi Azure Resource Manager zasobu.
 SubscriptionId | Identyfikator subskrypcji.
@@ -115,7 +115,7 @@ Stan | Stan operacji.
 Obiekt wywołujący | Obiekt wywołujący operacji (Azure portalu lub zarządzania klienta).
 category | OperationalLogs
 
-Następujący kod jest przykładem ciągu JSON dziennik operacji:
+Witaj następujący kod jest przykładem ciągu JSON dziennik operacji:
 
 ```json
 Example:
@@ -133,6 +133,6 @@ Example:
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wprowadzenie do usługi Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Wprowadzenie tooEvent koncentratory](event-hubs-what-is-event-hubs.md)
 * [Omówienie interfejsu API usługi Event Hubs](event-hubs-api-overview.md)
 * [Rozpoczynanie pracy z usługą Event Hubs](event-hubs-csharp-ephcs-getstarted.md)

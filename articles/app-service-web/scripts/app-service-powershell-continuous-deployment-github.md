@@ -1,5 +1,5 @@
 ---
-title: "Skrypt programu PowerShell Azure przykładowe — tworzenie aplikacji sieci web w usłudze ciągłego wdrażania od GitHub | Dokumentacja firmy Microsoft"
+title: "aaaAzure przykładowy skrypt programu PowerShell — tworzenie aplikacji sieci web w usłudze ciągłego wdrażania od GitHub | Dokumentacja firmy Microsoft"
 description: "Skrypt programu PowerShell Azure przykładowe — tworzenie aplikacji sieci web w usłudze ciągłego wdrażania od GitHub"
 services: app-service\web
 documentationcenter: 
@@ -15,29 +15,29 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: fc594a94bb64ceb88370be8617036a73402ade4e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c2f260a06bce9af6d11ad4033931d3dc18da8f49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>Tworzenie aplikacji sieci web w usłudze ciągłego wdrażania od GitHub
 
 Ten przykładowy skrypt tworzy aplikację sieci web w usłudze App Service z powiązane zasoby, a następnie konfiguruje ciągłego wdrażania od repozytorium GitHub. GitHub wdrożenia bez ciągłego wdrażania, zobacz [tworzenie aplikacji sieci web i wdrażanie kodu z usługi GitHub](app-service-powershell-deploy-github.md).
 
-W razie potrzeby zainstalować program Azure PowerShell przy użyciu instrukcji w [Przewodnik programu Azure PowerShell](/powershell/azure/overview). Ponadto upewnij się, że:
+Jeśli to konieczne, zainstaluj hello Azure PowerShell przy użyciu instrukcji hello znalezione w hello [Przewodnik programu Azure PowerShell](/powershell/azure/overview). Ponadto upewnij się, że:
 
-- Utworzono połączenie z platformą Azure za pomocą `az login` polecenia.
-- Kod aplikacji znajduje się w publicznym lub prywatnym repozytorium GitHub, którego jesteś właścicielem.
+- Utworzono połączenie z platformą Azure, za pomocą hello `az login` polecenia.
+- Kod aplikacji Hello znajduje się w publicznym lub prywatnym repozytorium GitHub, którego jesteś właścicielem.
 - Masz [utworzony token dostępu na koncie usługi GitHub](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-powershell[główne](../../../powershell_scripts/app-service/deploy-github-continuous/deploy-github-continuous.ps1?highlight=1-2 "utworzenia aplikacji sieci web z ciągłego wdrażania od GitHub")]
+[!code-powershell[main](../../../powershell_scripts/app-service/deploy-github-continuous/deploy-github-continuous.ps1?highlight=1-2 "Create a web app with continuous deployment from GitHub")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Po uruchomieniu przykładowym skrypcie następującego polecenia można usunąć grupy zasobów, aplikacji sieci web i wszystkie powiązane zasoby.
+Po uruchomieniu przykładowym skrypcie hello hello następujące polecenia można grupy zasobów hello tooremove używanych aplikacji sieci web i wszystkie powiązane zasoby.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -45,7 +45,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa hello następujące polecenia. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
@@ -56,6 +56,6 @@ Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na powitania modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
 
-Dodatkowe przykłady programu Powershell systemu Azure dla aplikacji sieci Web usługi aplikacji Azure można znaleźć w [przykłady programu Azure PowerShell](../app-service-powershell-samples.md).
+Dodatkowe przykłady programu Azure Powershell dla aplikacji sieci Web usługi aplikacji Azure można znaleźć w hello [przykłady programu Azure PowerShell](../app-service-powershell-samples.md).

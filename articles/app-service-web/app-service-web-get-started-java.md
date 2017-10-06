@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie pierwszej aplikacji internetowej w środowisku Java na platformie Azure"
-description: "Dowiedz się, jak można uruchamiać aplikacje internetowe w usłudze App Service, wdrażając podstawową aplikację w środowisku Java."
+title: aaaCreate pierwszej aplikacji sieci web Java na platformie Azure
+description: "Dowiedz się, jak toorun web apps w usłudze App Service przez wdrożenie podstawowego aplikacji Java."
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -15,24 +15,24 @@ ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc
-ms.openlocfilehash: b91b9bde5eb8ea0d7e2196056b635fe54095e748
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 81315c07b5aa84cbec50a17b2cb3914927b19c00
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Tworzenie pierwszej aplikacji internetowej w środowisku Java na platformie Azure
 
-Funkcja [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) usługi [Azure App Service](../app-service/app-service-value-prop-what-is.md) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie. W tym przewodniku Szybki start pokazano, jak wdrożyć aplikację internetową w języku Java przy użyciu środowiska [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
+Witaj [aplikacje sieci Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) funkcji [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md) oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web. Ta opcja szybkiego startu przedstawia, jak toodeploy Java web app tooApp usługi za pomocą hello [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
 
 ![„Hello Azure!” — przykładowa aplikacja internetowa](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start, zainstaluj:
+toocomplete tego przewodnika Szybki Start, zainstalować:
 
-* Bezpłatne środowisko [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). W tym przewodniku Szybki start używane jest środowisko Eclipse Neon.
-* [Zestaw narzędzi platformy Azure dla środowiska Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* Witaj wolnego [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). W tym przewodniku Szybki start używane jest środowisko Eclipse Neon.
+* Witaj [zestawu narzędzi platformy Azure dla programu Eclipse](/azure/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +40,7 @@ Aby ukończyć ten przewodnik Szybki Start, zainstaluj:
 
 W środowisku Eclipse wybierz pozycję **File** > **New** > **Dynamic Web Project** (Plik > Nowy > Dynamiczny projekt internetowy).
 
-W oknie dialogowym **New Dynamic Web Project** (Nowy dynamiczny projekt internetowy) wpisz nazwę projektu **MyFirstJavaOnAzureWebApp**, a następnie wybierz pozycję **Finish** (Zakończ).
+W hello **nowego projektu sieci Web dynamiczne** okno dialogowe, nazwa projektu hello **MyFirstJavaOnAzureWebApp**i wybierz **Zakończ**.
    
 ![Okno dialogowe New Dynamic Web Project (Nowy dynamiczny projekt internetowy)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -50,19 +50,19 @@ Jeśli obszar Project Explorer (Eksplorator projektów) nie jest wyświetlany, p
 
 ![Obszar roboczy Java EE dla środowiska Eclipse](./media/app-service-web-get-started-java/pe.png)
 
-W obszarze Project Explorer (Eksplorator projektów) rozwiń projekt **MyFirstJavaOnAzureWebApp**.
+W obszarze Eksplorator projektów rozwiń hello **MyFirstJavaOnAzureWebApp** projektu.
 Kliknij prawym przyciskiem myszy folder **WebContent**, a następnie kliknij pozycję **New** > **JSP File** (Nowy > Plik JSP).
 
 ![Menu dla nowego pliku JSP w obszarze Project Explorer (Eksplorator projektów)](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
-W oknie dialogowym **New JSP File** (Nowy plik JSP):
+W hello **New JSP File** okno dialogowe:
 
-* Jako nazwę pliku podaj wartość **index.jsp**.
+* Nazwa pliku hello **index.jsp**.
 * Wybierz pozycję **Finish** (Zakończ).
 
   ![Okno dialogowe New JSP File (Nowy plik JSP)](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 
-W pliku index.jsp zastąp element `<body></body>` następującym kodem:
+W pliku index.jsp hello Zastąp hello `<body></body>` element z powitania po znaczników:
 
 ```jsp
 <body>
@@ -70,21 +70,21 @@ W pliku index.jsp zastąp element `<body></body>` następującym kodem:
 </body>
 ```
 
-Zapisz zmiany.
+Zapisz zmiany hello.
 
-## <a name="publish-the-web-app-to-azure"></a>Publikowanie aplikacji internetowej na platformie Azure
+## <a name="publish-hello-web-app-tooazure"></a>Publikowanie tooAzure aplikacji sieci web hello
 
-W obszarze Project Explorer (Eksplorator projektów) kliknij projekt prawym przyciskiem myszy, a następnie wybierz pozycję **Azure** > **Publish as Azure Web App** (Publikuj jako aplikację internetową platformy Azure).
+W obszarze Eksplorator projektów kliknij prawym przyciskiem myszy projekt hello, a następnie wybierz **Azure** > **Publikuj jako aplikacji sieci Web Azure**.
 
 ![Menu kontekstowe Publish as Azure Web App (Publikuj jako aplikację internetową platformy Azure)](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-W oknie dialogowym **Azure Sign In** (Logowanie do platformy Azure) zachowaj opcję **Interactive** (Interaktywne), a następnie wybierz pozycję **Sign in** (Zaloguj).
+W hello **Azure logowania** okno dialogowe, Zachowaj hello **Interactive** opcji, a następnie wybierz **Zaloguj**.
 
-Postępuj zgodnie z instrukcjami dotyczącymi logowania.
+Instrukcjami hello logowania.
 
 ### <a name="deploy-web-app-dialog-box"></a>Okno dialogowe Deploy Web App (Wdrażanie aplikacji internetowej)
 
-Po zalogowaniu się na koncie platformy Azure zostanie wyświetlone okno dialogowe **Deploy Web App** (Wdrażanie aplikacji internetowej).
+Po zalogowaniu tooyour konta Azure hello **wdrażanie aplikacji sieci Web** zostanie wyświetlone okno dialogowe.
 
 Wybierz pozycję **Utwórz**.
 
@@ -92,20 +92,20 @@ Wybierz pozycję **Utwórz**.
 
 ### <a name="create-app-service-dialog-box"></a>Okno dialogowe Create App Service (Tworzenie usługi App Service)
 
-Zostanie wyświetlone okno dialogowe **Create App Service** (Tworzenie usługi App Service) z wartościami domyślnymi. Liczba **170602185241** wyświetlana na poniższym obrazie będzie inna w Twoim oknie dialogowym.
+Witaj **Tworzenie usługi App Service** zostanie wyświetlone okno dialogowe z wartościami domyślnymi. Witaj numer **170602185241** pokazano powitania po obrazu różni się w oknie dialogowym.
 
 ![Okno dialogowe Create App Service (Tworzenie usługi App Service)](./media/app-service-web-get-started-java/cas1.png)
 
-W oknie dialogowym **Create App Service** (Tworzenie usługi App Service):
+W hello **Tworzenie usługi App Service** okno dialogowe:
 
-* Zachowaj wygenerowaną nazwę aplikacji internetowej. Ta nazwa musi być unikatowa w obrębie całej platformy Azure. Nazwa jest częścią adresu URL aplikacji internetowej. Przykład: jeśli nazwa aplikacji internetowej to **MyJavaWebApp**, adres URL to *myjavawebapp.azurewebsites.net*.
-* Zachowaj domyślny kontener internetowy.
+* Zachowaj nazwę hello generowany dla aplikacji sieci web hello. Ta nazwa musi być unikatowa w obrębie całej platformy Azure. Nazwa Hello jest częścią hello adres URL aplikacji sieci web hello. Na przykład: Jeśli nazwa aplikacji sieci web hello jest **MyJavaWebApp**, adres URL jest hello *myjavawebapp.azurewebsites.net*.
+* Zachowaj hello domyślny kontener sieci web.
 * Wybierz subskrypcję platformy Azure.
-* Na karcie **App service plan** (Plan usługi App Service):
+* Na powitania **plan usługi App service** karty:
 
-  * **Create new** (Utwórz nowy): zachowaj wartość domyślną, czyli nazwę planu usługi App Service.
+  * **Utwórz nowe**: Zachowaj domyślne hello, czyli nazwa hello hello planu usługi aplikacji.
   * **Location** (Lokalizacja): wybierz pozycję **West Europe** (Europa Zachodnia) lub lokalizację w Twoim pobliżu.
-  * **Pricing tier** (Warstwa cenowa): wybierz opcję Free (Bezpłatna). Aby uzyskać informacje o funkcjach, zobacz [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/) (Cennik usługi App Service).
+  * **Warstwa cenowa**: Wybierz hello bezpłatną opcją. Aby uzyskać informacje o funkcjach, zobacz [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/) (Cennik usługi App Service).
 
    ![Okno dialogowe Create App Service (Tworzenie usługi App Service)](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
@@ -113,7 +113,7 @@ W oknie dialogowym **Create App Service** (Tworzenie usługi App Service):
 
 ### <a name="resource-group-tab"></a>Karta Resource group (Grupa zasobów)
 
-Wybierz kartę **Resource group** (Grupa zasobów). Zachowaj domyślnie wygenerowaną wartość dla grupy zasobów.
+Wybierz hello **grupy zasobów** kartę. Należy zachować wartość domyślną wygenerowany hello hello grupy zasobów.
 
 ![Karta Resource group (Grupa zasobów)](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
 
@@ -122,38 +122,38 @@ Wybierz kartę **Resource group** (Grupa zasobów). Zachowaj domyślnie wygenero
 Wybierz pozycję **Utwórz**.
 
 <!--
-### The JDK tab
+### hello JDK tab
 
-Select the **JDK** tab. Keep the default, and then select **Create**.
+Select hello **JDK** tab. Keep hello default, and then select **Create**.
 
 ![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 -->
 
-Za pomocą zestawu narzędzi platformy Azure zostanie utworzona aplikacja internetowa i wyświetlone okno dialogowe postępu.
+Hello Azure Toolkit hello aplikacji sieci web tworzy i wyświetla okno dialogowe postępu.
 
 ![Okno dialogowe Create App Service Progress (Postęp tworzenia usługi App Service)](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
 ### <a name="deploy-web-app-dialog-box"></a>Okno dialogowe Deploy Web App (Wdrażanie aplikacji internetowej)
 
-W oknie dialogowym **Deploy Web App** (Wdrażanie aplikacji internetowej) wybierz pozycję **Deploy to root** (Wdróż w katalogu głównym). Jeśli istnieje usługa App Service w lokalizacji *wingtiptoys.azurewebsites.net* i nie wybierzesz wdrożenia w katalogu głównym, to aplikacja internetowa o nazwie **MyFirstJavaOnAzureWebApp** zostanie wdrożona w lokalizacji *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+W hello **wdrażanie aplikacji sieci Web** okno dialogowe, wybierz opcję **wdrażanie tooroot**. Jeśli masz usługę aplikacji na *wingtiptoys.azurewebsites.net* i nie należy wdrażać toohello głównego, hello aplikacji sieci web o nazwie **MyFirstJavaOnAzureWebApp** jest wdrażany za *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
 ![Okno dialogowe Deploy Web App (Wdrażanie aplikacji internetowej)](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
-Okno dialogowe zawiera wybory dokonane dla platformy Azure, zestawu JDK i kontenera internetowego.
+Pokazuje okno dialogowe Hello hello Azure, JDK i opcje kontenera sieci web.
 
-Wybierz pozycję **Deploy** (Wdróż), aby opublikować aplikację internetową na platformie Azure.
+Wybierz **Wdróż** tooAzure aplikacji sieci web hello toopublish.
 
-Po zakończeniu publikowania wybierz link **Published** (Opublikowano) w oknie dialogowym **Azure Activity Log** (Dziennik aktywności platformy Azure).
+Po zakończeniu publikowania hello, wybierz hello **opublikowano** łącze w hello **dziennika aktywności platformy Azure** okno dialogowe.
 
 ![Okno dialogowe Azure Activity Log (Dziennik aktywności platformy Azure)](./media/app-service-web-get-started-java/aal.png)
 
-Gratulacje! Aplikacja internetowa została pomyślnie wdrożona na platformie Azure. 
+Gratulacje! Pomyślnie wdrożono tooAzure aplikacji sieci web. 
 
 ![„Hello Azure!” — przykładowa aplikacja internetowa](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="update-the-web-app"></a>Aktualizowanie aplikacji internetowej
+## <a name="update-hello-web-app"></a>Aktualizowanie aplikacji sieci web hello
 
-Zmień przykładowy kod JSP na inny komunikat.
+Zmień hello przykładowa JSP kodu tooa inną wiadomość.
 
 ```jsp
 <body>
@@ -161,35 +161,35 @@ Zmień przykładowy kod JSP na inny komunikat.
 </body>
 ```
 
-Zapisz zmiany.
+Zapisz zmiany hello.
 
-W obszarze Project Explorer (Eksplorator projektów) kliknij projekt prawym przyciskiem myszy, a następnie wybierz pozycję **Azure** > **Publish as Azure Web App** (Publikuj jako aplikację internetową platformy Azure).
+W obszarze Eksplorator projektów kliknij prawym przyciskiem myszy projekt hello, a następnie wybierz **Azure** > **Publikuj jako aplikacji sieci Web Azure**.
 
-Zostanie wyświetlone okno dialogowe **Deploy Web App** (Wdrażanie aplikacji internetowej), w którym będzie wyświetlona wcześniej utworzona usługa App Service. 
+Witaj **wdrażanie aplikacji sieci Web** zostanie wyświetlone okno dialogowe i pokazuje hello wcześniej utworzoną usługę aplikacji. 
 
 > [!NOTE]
-> Wybieraj pozycję **Deploy to root** (Wdróż w katalogu głównym) za każdym razem, gdy ma miejsce publikowanie.
+> Wybierz **wdrażanie tooroot** zawsze publikowania.
 >
 
-Wybierz aplikację internetową, a następnie wybierz pozycję **Deploy** (Wdróż), co spowoduje opublikowanie zmian.
+Wybierz aplikację sieci web hello i wybierz **Wdróż**, która publikuje hello zmiany.
 
-Gdy zostanie wyświetlony link **Publishing** (Publikowanie), wybierz go, aby przejść do aplikacji internetowej i wyświetlić zmiany.
+Gdy hello **publikowania** łącze jest wyświetlane, wybierz go w aplikacji sieci web toohello toobrowse i zobaczyć zmiany hello.
 
-## <a name="manage-the-web-app"></a>Zarządzanie aplikacją internetową
+## <a name="manage-hello-web-app"></a>Zarządzanie hello aplikacji sieci web
 
-Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby wyświetlić utworzoną aplikację internetową.
+Przejdź toohello <a href="https://portal.azure.com" target="_blank">portalu Azure</a> aplikacji sieci web hello toosee, który został utworzony.
 
-W menu po lewej stronie kliknij pozycję **Grupy zasobów**.
+Wybierz z menu po lewej stronie powitania **grup zasobów**.
 
-![Nawigacja w portalu do grupy zasobów](media/app-service-web-get-started-java/rg.png)
+![Grupy tooresource nawigacji w portalu](media/app-service-web-get-started-java/rg.png)
 
-Wybierz grupę zasobów. Na stronie znajdują się zasoby utworzone w ramach tego przewodnika Szybki Start.
+Wybierz grupę zasobów hello. na stronie powitania są pokazane hello zasobów, które zostały utworzone w tym Szybki Start.
 
 ![Grupa zasobów myResourceGroup](media/app-service-web-get-started-java/rg2.png)
 
-Wybierz aplikację internetową (**webapp-170602193915** na powyższym obrazie).
+Wybierz hello aplikacji sieci web (**170602193915 aplikacji sieci Web** w hello poprzedzające obraz).
 
-Zostanie wyświetlona strona **Przegląd**. Ta strona udostępnia widok sposobu działania aplikacji. Tutaj możesz wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. Na kartach po lewej stronie strony są pokazane poszczególne konfiguracje, które można otworzyć. 
+Witaj **omówienie** zostanie wyświetlona strona. Ta strona umożliwia widok jak robi aplikacji hello. Tutaj możesz wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. Witaj w lewej części strony hello hello kartach hello różne konfiguracje, które można otworzyć. 
 
 ![Strona usługi App Service w witrynie Azure Portal](media/app-service-web-get-started-java/web-app-blade.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do interfejsu wiersza polecenia platformy Azure dla usługi Batch | Microsoft Docs"
-description: "Skorzystaj z szybkiego wprowadzenia do poleceń usługi Batch w interfejsie wiersza polecenia platformy Azure, aby zarządzać zasobami usługi Azure Batch"
+title: aaaGet uruchomiony z wiersza polecenia platformy Azure dla partii | Dokumentacja firmy Microsoft
+description: "Przełącz szybkie wprowadzenie toohello pliki wsadowe wiersza polecenia platformy Azure zarządzanie zasobami usługi partia zadań Azure"
 services: batch
 documentationcenter: 
 author: tamram
@@ -15,90 +15,90 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 14f28311ecb16c8097d0d304a4ad89de282a2e9b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Interfejs wiersza polecenia platformy Azure 2.0 to nowe środowisko wiersza polecenia platformy Azure do zarządzania jej zasobami. Można go używać w systemach macOS, Linux i Windows. Interfejs wiersza polecenia platformy Azure 2.0 jest zoptymalizowany do zarządzania i administrowania zasobami platformy Azure z wiersza polecenia. Interfejs wiersza polecenia platformy Azure umożliwia zarządzanie kontami usługi Azure Batch i zarządzanie zasobami, na przykład pulami, zadaniami i zadaniami podrzędnymi. Za pomocą interfejsu wiersza polecenia platformy Azure można tworzyć skrypty dla wielu tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz poleceń cmdlet programu PowerShell dla usługi Batch.
+Hello Azure CLI 2.0 jest nowe środowisko wiersza polecenia platformy Azure do zarządzania zasobami platformy Azure. Można go używać w systemach macOS, Linux i Windows. 2.0 interfejsu wiersza polecenia platformy Azure jest zoptymalizowany do zarządzania i administrowania zasobami Azure z wiersza polecenia hello. Używając hello Azure CLI toomanage Twojego konta partii zadań Azure i toomanage zasobów, takich jak pule, zadań i zadań. Z hello wiersza polecenia platformy Azure, można utworzyć skrypty wiele hello hello te same zadania wykonywane z interfejsów API partii, portalu Azure i poleceń cmdlet programu PowerShell partii.
 
-Ten artykuł zawiera omówienie korzystania z [interfejsu wiersza polecenia platformy Azure w wersji 2.0](https://docs.microsoft.com/cli/azure/overview) z usługą Batch. Aby zapoznać się z omówieniem korzystania z interfejsu wiersza polecenia na platformie Azure, zobacz [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Ten artykuł zawiera omówienie korzystania z [interfejsu wiersza polecenia platformy Azure w wersji 2.0](https://docs.microsoft.com/cli/azure/overview) z usługą Batch. Zobacz [wprowadzenie Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) omówienie przy użyciu hello interfejsu wiersza polecenia platformy Azure.
 
-Firma Microsoft zaleca korzystanie z najnowszej wersji interfejsu wiersza polecenia na platformie Azure, czyli wersji 2.0. Aby uzyskać więcej informacji na temat wersji 2.0, zobacz [Interfejs wiersza polecenia platformy Azure 2.0 jest ogólnie dostępny](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
+Firma Microsoft zaleca używanie najnowszej wersji hello hello Azure CLI w wersji 2.0. Aby uzyskać więcej informacji na temat wersji 2.0, zobacz [Interfejs wiersza polecenia platformy Azure 2.0 jest ogólnie dostępny](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 
-## <a name="set-up-the-azure-cli"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure
+## <a name="set-up-hello-azure-cli"></a>Konfigurowanie hello wiersza polecenia platformy Azure
 
-Aby zainstalować interfejs wiersza polecenia platformy Azure, wykonaj czynności opisane w artykule [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
+Witaj tooinstall wiersza polecenia platformy Azure, wykonaj kroki hello opisane w [hello instalowanie interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
 
 > [!TIP]
-> Zaleca się częstą aktualizację interfejsu wiersza polecenia platformy Azure, aby mieć możliwość korzystania z aktualizacji i rozszerzeń usługi.
+> Firma Microsoft zaleca się zaktualizowanie instalacji interfejsu wiersza polecenia Azure często tootake zalet usługi aktualizacji i ulepszeń.
 > 
 > 
 
 ## <a name="command-help"></a>Pomoc związana z poleceniami
 
-Możesz wyświetlić tekst pomocy dla każdego polecenia w interfejsie wiersza polecenia platformy Azure, dodając do polecenia opcję `-h`. Pomiń wszelkie inne opcje. Na przykład:
+Tekst pomocy dla każdego polecenia można wyświetlić w hello Azure CLI, dodając `-h` toohello polecenia. Pomiń wszelkie inne opcje. Na przykład:
 
-* Aby uzyskać pomoc dotyczącą polecenia `az`, wprowadź: `az -h`
-* Aby uzyskać listę wszystkich poleceń usługi Batch w interfejsie wiersza polecenia, użyj: `az batch -h`
-* Aby uzyskać pomoc związaną z tworzeniem konta usługi Batch, wprowadź: `az batch account create -h`
+* tooget pomocy hello `az` polecenia, wpisz:`az -h`
+* tooget listę wszystkich poleceń partii w hello interfejsu wiersza polecenia, należy użyć:`az batch -h`
+* tooget informacje na temat tworzenia konta usługi partia zadań, wprowadź:`az batch account create -h`
 
-W razie wątpliwości użyj opcji wiersza polecenia `-h`, aby uzyskać pomoc dotyczącą jakiegokolwiek polecenia interfejsu wiersza polecenia platformy Azure.
+W razie wątpliwości, użyj hello `-h` opcji wiersza polecenia tooget pomocy dotyczącej polecenia wiersza polecenia platformy Azure.
 
 > [!NOTE]
-> W wcześniejszych wersjach interfejsu wiersza polecenia platformy Azure polecenia interfejsu wiersza polecenia były poprzedzane opcją `azure`. W wersji 2.0 wszystkie polecenia są teraz poprzedzane opcją `az`. Należy zaktualizować skrypty, aby były zgodne z nową składnią wersji 2.0.
+> Starsze niż hello Azure CLI używane `azure` toopreface polecenia interfejsu wiersza polecenia. W wersji 2.0 wszystkie polecenia są teraz poprzedzane opcją `az`. Można się tooupdate Twojego skrypty toouse hello nowej składni w wersji 2.0.
 >
 >  
 
-Ponadto w dokumentacji wiersza polecenia platformy Azure można znaleźć szczegółowe informacje o [poleceniach wiersza polecenia platformy Azure dla usługi Batch](https://docs.microsoft.com/cli/azure/batch). 
+Ponadto, zapoznaj się z dokumentacją odwołanie do wiersza polecenia platformy Azure toohello szczegółowe informacje o [polecenia wiersza polecenia platformy Azure dla partii](https://docs.microsoft.com/cli/azure/batch). 
 
 ## <a name="log-in-and-authenticate"></a>Logowanie i uwierzytelnianie
 
-Aby używać interfejsu wiersza polecenia platformy Azure z usługą Batch, należy się zalogować i uwierzytelnić. Należy w tym celu wykonać dwa proste kroki:
+Witaj toouse wiersza polecenia platformy Azure z partii, należy toolog w i uwierzytelniania. Istnieją dwa toofollow prostych kroków:
 
-1. **Zaloguj się na platformie Azure.** Zalogowanie się na platformie Azure zapewnia dostęp do poleceń usługi Azure Resource Manager, w tym do poleceń [usługi Batch Management](batch-management-dotnet.md).  
-2. **Zaloguj się na koncie usługi Batch.** Zalogowanie się na koncie usługi Batch zapewnia dostęp do poleceń usługi Batch.   
+1. **Zaloguj się na platformie Azure.** Logowanie do platformy Azure zapewnia dostęp tooAzure poleceń Menedżera zasobów, w tym [usługi zarządzania partii](batch-management-dotnet.md) poleceń.  
+2. **Zaloguj się na koncie usługi Batch.** Logowanie do sieci zapewnia konta wsadowego dostęp do poleceń usługi tooBatch.   
 
-### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+### <a name="log-in-tooazure"></a>Zaloguj się za tooAzure
 
-Istnieje kilka różnych sposobów logowania się na platformie Azure. Opisano je szczegółowo w artykule [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
+Istnieje kilka różnych sposobów toolog na platformie Azure, opisano szczegółowo w [Zaloguj się za pomocą usługi Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-1. [Logowanie interakcyjne](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Zaloguj się interakcyjnie, gdy samodzielnie uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure w wierszu polecenia.
+1. [Logowanie interakcyjne](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Zaloguj się interaktywnie po uruchomieniu polecenia interfejsu wiersza polecenia Azure samodzielnie hello wiersza polecenia.
 2. [Logowanie za pomocą jednostki usługi](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). Zaloguj się za pomocą jednostki usługi, gdy uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure za pomocą skryptu lub aplikacji.
 
-Na potrzeby tego artykułu wyjaśnimy, jak zalogować się interakcyjnie. W wierszu polecenia wpisz [az login](https://docs.microsoft.com/cli/azure/#login):
+Dla celów hello w tym artykule, zostanie przedstawiony sposób toolog na platformie Azure interaktywnie. Typ [logowania az](https://docs.microsoft.com/cli/azure/#login) hello w wierszu polecenia:
 
 ```azurecli
-# Log in to Azure and authenticate interactively.
+# Log in tooAzure and authenticate interactively.
 az login
 ```
 
-Polecenie `az login` zwraca token używany do uwierzytelniania, jak to tutaj pokazano. Postępuj zgodnie z instrukcjami, aby otworzyć stronę internetową i przesłać token do platformy Azure:
+Witaj `az login` polecenie zwraca token można użyć tooauthenticate, jak pokazano poniżej. Wykonaj hello instrukcjami tooopen strony sieci web i przesyłanie hello token tooAzure:
 
-![Zaloguj się do platformy Azure.](./media/batch-cli-get-started/az-login.png)
+![Zaloguj się za tooAzure](./media/batch-cli-get-started/az-login.png)
 
-W przykładach wymienionych w sekcji [Przykładowe skrypty powłoki](#sample-shell-scripts) również pokazano, jak uruchomić sesję interfejsu wiersza polecenia platformy Azure przez zalogowanie się interakcyjne na platformie Azure. Po zalogowaniu się można wywoływać polecenia do pracy z zasobami usługi Batch Management, w tym z kluczami, pakietami aplikacji, przydziałami i kontami usługi Batch.  
+Przykłady Hello na liście hello [przykładowe skrypty powłoki](#sample-shell-scripts) sekcji również Pokaż jak toostart sesję wiersza polecenia platformy Azure przez interakcyjnego logowania się do platformy Azure. Po zalogowaniu, można wywołać polecenia toowork z zasobów usługi partia zadań zarządzania, w tym konta wsadowego, kluczy, pakiety aplikacji i przydziały.  
 
-### <a name="log-in-to-your-batch-account"></a>Logowanie się na koncie usługi Batch
+### <a name="log-in-tooyour-batch-account"></a>Zaloguj się za tooyour konta usługi partia zadań
 
-Aby za pomocą interfejsu wiersza polecenia platformy Azure zarządzać zasobami usługi Batch, na przykład pulami, zadaniami i zadaniami podrzędnymi, należy zalogować się na koncie usługi Batch i dokonać uwierzytelnienia. Aby zalogować się do usługi Batch, użyj polecenia [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
+toouse hello Azure CLI toomanage partii zasoby, takie jak pule, zadań i zadań, należy toolog do konta partii zadań i uwierzytelniania. toolog w toohello usługa partia zadań, użyj hello [logowania konta wsadowego az](https://docs.microsoft.com/cli/azure/batch/account#login) polecenia. 
 
 Dostępne są dwie opcje uwierzytelnienia na koncie usługi Batch:
 
 - **Przy użyciu uwierzytelniania usługi Azure Active Directory (Azure AD).** 
 
-    Uwierzytelnianie przy użyciu usługi Azure AD jest ustawieniem domyślnym w przypadku używania interfejsu wiersza polecenia platformy Azure z usługą Batch i jest zalecane w większości przypadków. 
+    Uwierzytelniania w usłudze Azure AD jest hello domyślną, gdy użytkownik korzysta z partii hello wiersza polecenia platformy Azure i zalecane w przypadku większości scenariuszy. 
     
-    W razie logowania się interakcyjnego na platformie Azure, zgodnie z opisem w poprzedniej sekcji, poświadczenia są buforowane, dzięki czemu interfejs wiersza polecenia platformy Azure może zalogować użytkownika na koncie usługi Batch za ich pomocą. W razie logowania się na platformie Azure za pomocą jednostki usługi te poświadczenia także są używane do zalogowania się na koncie usługi Batch.
+    Po zalogowaniu tooAzure interaktywnego, zgodnie z opisem w poprzedniej sekcji hello, poświadczenia są buforowane, dlatego hello wiersza polecenia platformy Azure można Cię zalogować w tooyour przy użyciu tych samych poświadczeń konta usługi partia zadań. Jeśli logujesz się przy użyciu nazwy głównej usługi tooAzure, te poświadczenia są również toolog używanych w tooyour konta usługi partia zadań.
 
-    Przewagą wynikającą z korzystania z usługi Azure AD jest to, że zapewnia ona kontrolę dostępu opartą na rolach. W przypadku kontroli dostępu opartej na rolach poziom dostępu użytkownika zależy od przypisanej mu roli, a nie od tego, czy posiada on klucze konta. Zamiast zarządzać kluczami konta, można zarządzać rolami kontroli dostępu opartej na rolach oraz obsługiwać dostęp i uwierzytelnianie w usłudze Azure AD.  
+    Przewagą wynikającą z korzystania z usługi Azure AD jest to, że zapewnia ona kontrolę dostępu opartą na rolach. Z RBAC dostępu użytkownika zależy od przypisanej roli, zamiast czy posiadają hello klucze konta. Zamiast zarządzać kluczami konta, można zarządzać rolami kontroli dostępu opartej na rolach oraz obsługiwać dostęp i uwierzytelnianie w usłudze Azure AD.  
 
-    Uwierzytelnianie w usłudze Azure AD jest wymagane, jeśli konto usługi Batch utworzono w trybie alokacji puli z ustawieniem Subskrypcja użytkownika. 
+    Uwierzytelnianie w usłudze Azure AD jest wymagany, jeśli utworzono kontem usługi partia zadań Azure za pomocą trybu alokacji puli ustawić too'User subskrypcji ". 
 
-    Aby zalogować się na koncie usługi Batch za pomocą usługi Azure AD, wywołaj polecenie [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login): 
+    toolog w tooyour partii konta za pomocą usługi Azure AD, należy wywołać hello [logowania konta wsadowego az](https://docs.microsoft.com/cli/azure/batch/account#login) polecenia: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -106,25 +106,25 @@ Dostępne są dwie opcje uwierzytelnienia na koncie usługi Batch:
 
 - **Przy użyciu uwierzytelniania klucza wspólnego.**
 
-    [Uwierzytelnianie klucza wspólnego](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) polega na uwierzytelnianiu poleceń interfejsu wiersza polecenia platformy Azure dla usługi Batch za pomocą kluczy dostępu konta.
+    [Uwierzytelniania klucza współużytkowanego](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) usługi partii używa polecenia interfejsu wiersza polecenia Azure tooauthenticate hello kluczy dostępu do Twojego konta.
 
-    W przypadku tworzenia skryptów interfejsu wiersza polecenia platformy Azure w celu zautomatyzowania wywoływania poleceń usługi Batch można użyć uwierzytelniania klucza wspólnego lub jednostki usługi w usłudze Azure AD. W niektórych przypadkach użycie uwierzytelniania klucza wspólnego może być łatwiejsze niż tworzenie jednostki usługi.  
+    W przypadku tworzenia skryptów wiersza polecenia platformy Azure tooautomate wywoływania pliki wsadowe, można użyć klucza wspólnego uwierzytelniania lub nazwy głównej usługi Azure AD. W niektórych przypadkach użycie uwierzytelniania klucza wspólnego może być łatwiejsze niż tworzenie jednostki usługi.  
 
-    Aby zalogować się przy użyciu uwierzytelniania klucza wspólnego, dodaj w wierszu polecenia opcję `--shared-key-auth`:
+    toolog za pomocą uwierzytelniania klucza wspólnego obejmują hello `--shared-key-auth` opcji hello w wierszu polecenia:
 
     ```azurecli
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-W przykładach wymienionych w sekcji [Przykładowe skrypty powłoki](#sample-shell-scripts) pokazano, jak zalogować się na koncie usługi Batch za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu zarówno usługi Azure AD, jak i klucza wspólnego.
+Przykłady Hello na liście hello [przykładowe skrypty powłoki](#sample-shell-scripts) sekcja wskazuje, jak toolog do konta partii zadań z hello Azure CLI jednoczesnego używania usługi Azure AD i klucz wstępny.
 
 ## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików (wersja zapoznawcza)
 
-Interfejsu wiersza polecenia platformy Azure można używać do kompleksowej obsługi zadań usługi Batch bez konieczności pisania kodu. Pliki szablonów usługi Batch obsługują tworzenie pul, zadań i zadań podrzędnych przy użyciu interfejsu wiersza polecenia platformy Azure. Interfejs wiersza polecenia platformy Azure umożliwia także przekazywanie plików wejściowych zadania do konta usługi Azure Storage skojarzonego z kontem usługi Batch oraz pobieranie z niego plików wyjściowych zadania. Więcej informacji można znaleźć w temacie [Use Azure Batch CLI Templates and File Transfer (Preview) (Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików (wersja zapoznawcza))](batch-cli-templates.md).
+Hello Azure CLI toorun partii zadań end-to-end można użyć bez pisania kodu. Pliki szablonów partii obsługuje tworzenia pul, zadań i zadania związane z hello wiersza polecenia platformy Azure. Można również użyć plików wejściowych hello Azure CLI tooupload zadania konta usługi Azure Storage toohello skojarzonego z hello konto usługi partia zadań i pobierane pliki wyjściowe zadania. Więcej informacji można znaleźć w temacie [Use Azure Batch CLI Templates and File Transfer (Preview) (Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików (wersja zapoznawcza))](batch-cli-templates.md).
 
 ## <a name="sample-shell-scripts"></a>Przykładowe skrypty powłoki
 
-W przykładowych skryptach wymienionych w poniższej tabeli pokazano, jak za pomocą poleceń interfejsu wiersza polecenia platformy Azure z usługami Batch i Batch Management wykonywać typowe zadania. Te przykładowe skrypty obejmują wiele poleceń dostępnych w interfejsie wiersza polecenia platformy Azure dla usługi Batch. 
+Hello przykładowe skrypty na liście powitania po Pokaż tabeli jak polecenia toouse wiersza polecenia platformy Azure z hello usługa partia zadań i zarządzania partii usługi tooaccomplish typowych zadań. Te przykładowe skrypty obejmują wiele poleceń hello dostępne w hello wiersza polecenia platformy Azure dla partii. 
 
 | Skrypt | Uwagi |
 |---|---|
@@ -135,61 +135,61 @@ W przykładowych skryptach wymienionych w poniższej tabeli pokazano, jak za pom
 
 ## <a name="json-files-for-resource-creation"></a>Pliki JSON do tworzenia zasobów
 
-Podczas tworzenia zasobów usługi Batch, np. puli i zadań, możesz określić plik JSON zawierający konfiguracje nowego zasobu, zamiast przekazywać parametry zasobu w opcjach wiersza polecenia. Na przykład:
+Podczas tworzenia partii zasobów, takich jak pule i zadań, można określić plik JSON zawierający konfigurację hello nowy zasób zamiast przekazywanie jego parametrów jako opcje wiersza polecenia. Na przykład:
 
 ```azurecli
 az batch pool create my_batch_pool.json
 ```
 
-Możesz wykonać większość operacji tworzenia zasobów usługi Batch, korzystając wyłącznie z opcji wiersza polecenia, niemniej niektóre funkcje wymagają określenia pliku w formacie JSON zawierającego szczegółowe informacje o zasobie. Przykładowo musisz użyć pliku JSON, jeśli chcesz określić pliki zasobu dla zadania rozpoczęcia.
+Można tworzyć najwięcej zasobów partii, używając tylko opcji wiersza polecenia, niektóre funkcje wymagają, aby określić plik w formacie JSON zawierający szczegóły zasobu hello. Należy na przykład użyć pliku JSON, pliki zasobów toospecify na zadanie uruchamiania.
 
-Aby zapoznać się ze składnią pliku JSON wymaganego do utworzenia zasobu, skorzystaj z dokumentacji [interfejsu API REST usługi Batch][rest_api]. Każdy temat „Dodawanie *typu zasobu*” w dokumentacji interfejsu API REST zawiera przykładowe skrypty JSON do tworzenia zasobu. Tych przykładowych skryptów JSON można używać jako szablonów dla plików JSON do użytku z interfejsem wiersza polecenia platformy Azure. Aby na przykład zapoznać się ze składnią pliku JSON do tworzenia puli, zobacz [Dodawanie puli do konta][rest_add_pool].
+Witaj toosee składni JSON wymagane toocreate zasobu, można znaleźć toohello [dokumentacji interfejsu API REST partii] [ rest_api] dokumentacji. Każdy "Dodaj *typu zasobu*" tematu w dokumentacji interfejsu API REST hello zawiera przykładowe skrypty JSON do tworzenia tego zasobu. Te przykładowe skrypty JSON można użyć jako szablon dla toouse pliki JSON z hello wiersza polecenia platformy Azure. Na przykład hello toosee składni JSON tworzenie puli, można znaleźć zbyt[dodać konto puli tooan][rest_add_pool].
 
 Aby uzyskać przykładowy skrypt określający plik JSON, zobacz [Uruchamianie zadań i zadań podrzędnych za pomocą usługi Batch](./scripts/batch-cli-sample-run-job.md).
 
 > [!NOTE]
-> Jeśli określisz plik JSON podczas tworzenia zasobu, wszystkie inne parametry określone dla tego zasobu w wierszu polecenia zostaną zignorowane.
+> Jeśli określisz pliku JSON, podczas tworzenia zasobu, są ignorowane parametrów określone na powitania wiersza polecenia dla tego zasobu.
 > 
 > 
 
 ## <a name="efficient-queries-for-batch-resources"></a>Wydajne zapytania dotyczące zasobów usługi Batch
 
-Każdy typ zasobu usługi Batch obsługuje polecenie `list`, które wysyła zapytania do konta usługi Batch i wyświetla listę zasobów tego typu. Przykładowo możesz wyświetlić listę puli na koncie i zadań w ramach zadania:
+Każdy typ zasobu usługi Batch obsługuje polecenie `list`, które wysyła zapytania do konta usługi Batch i wyświetla listę zasobów tego typu. Na przykład można wyświetlić listę pul hello w zadaniach w ramach zadania konta i hello:
 
 ```azurecli
 az batch pool list
 az batch task list --job-id job001
 ```
 
-Podczas wysyłania zapytania do usługi Batch z operacją `list` można określić klauzulę OData, aby ograniczyć ilość zwracanych danych. Ponieważ całe filtrowanie odbywa się po stronie serwera, tylko dane, których zażądasz, zostają przekazane podczas transmisji. Użyj tych klauzul, aby oszczędzić przepustowość (i czas) podczas wykonywania operacji związanych z wyświetlaniem listy.
+Gdy zapytanie usługi partia zadań hello z `list` operacji można określić OData klauzuli toolimit hello ilości zwracanych danych. Ponieważ wszystkie filtrowania odbywa się po stronie serwera, hello tylko te dane, które możesz poprosić przecina hello danych przesyłanych w sieci. Użyj tych przepustowości toosave klauzule (i w związku z tym czas) po wykonaniu operacji na liście.
 
-W poniższej tabeli opisano klauzule OData obsługiwane przez usługę Batch:
+Witaj poniższej tabeli opisano hello klauzule OData obsługiwany przez hello usługa partia zadań:
 
 | Klauzula | Opis |
 |---|---|
 | `--select-clause [select-clause]` | Zwracanie podzbioru właściwości dla każdej jednostki. |
-| `--filter-clause [filter-clause]` | Zwracanie tylko jednostek, które pasują do określonego wyrażenia OData. |
-| `--expand-clause [expand-clause]` | Uzyskiwanie informacji dotyczących jednostki w pojedynczym, podstawowym wywołaniu REST. Klauzula expand obsługuje obecnie tylko właściwość `stats`. |
+| `--filter-clause [filter-clause]` | Zwraca tylko jednostki, które pasują hello określone wyrażenie OData. |
+| `--expand-clause [expand-clause]` | Pobiera informacje jednostki hello w pojedynczym wywołaniu elementu źródłowego REST. Witaj rozwiń klauzuli aktualnie obsługuje tylko hello `stats` właściwości. |
 
-Aby uzyskać przykładowy skrypt ilustrujący używanie klauzuli OData, zobacz [Uruchamianie zadań i zadań podrzędnych za pomocą usługi Batch](./scripts/batch-cli-sample-run-job.md).
+Na przykład skryptu pokazujący toouse klauzula OData, zobacz temat [uruchomienie zadania i zadania z partii](./scripts/batch-cli-sample-run-job.md).
 
-Aby uzyskać więcej informacji o wykonywaniu wydajnych zapytań listy przy użyciu klauzul OData, zobacz [Efektywne wysyłanie zapytań do usługi Azure Batch](batch-efficient-list-queries.md).
+Aby uzyskać więcej informacji dotyczących wykonywania zapytania wydajne listy z klauzulami OData, zobacz [wydajnie zapytania usługi partia zadań Azure hello](batch-efficient-list-queries.md).
 
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
-Poniższe porady mogą być pomocne w przypadku rozwiązywania problemów związanych z interfejsem wiersza polecenia platformy Azure:
+Witaj Poniższe porady mogą pomóc przy rozwiązywaniu problemów z wiersza polecenia platformy Azure:
 
-* Użyj polecenia `-h`, aby uzyskać **tekst pomocy** dla dowolnego polecenia interfejsu wiersza polecenia
-* Użyj opcji `-v` i `-vv`, aby wyświetlić **pełne** dane wyjściowe polecenia. Gdy jest dołączona flaga `-vv`, w interfejsie wiersza polecenia platformy Azure wyświetlane są faktyczne żądania i odpowiedzi REST. Te przełączniki są przydatne do wyświetlania pełnych danych wyjściowych błędu.
-* Możesz wyświetlić **dane wyjściowe polecenia w formie pliku JSON** przy użyciu opcji `--json`. Przykładowo polecenie `az batch pool show pool001 --json` wyświetla właściwości puli 001 w formacie JSON. Następnie możesz skopiować i zmodyfikować te dane wyjściowe, aby użyć ich w pliku `--json-file` (zobacz sekcję [Pliki JSON](#json-files) wcześniej w tym artykule).
-<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-* [Forum usługi Batch][batch_forum] jest monitorowane przez członków zespołu usługi Batch. Możesz tam zamieszczać pytania w przypadku napotkania problemów lub w sytuacji, w której potrzebujesz pomocy z konkretną operacją.
+* Użyj `-h` tooget **tekst pomocy** dla dowolnego polecenia interfejsu wiersza polecenia
+* Użyj `-v` i `-vv` toodisplay **pełne** danych wyjściowych polecenia. Gdy hello `-vv` flaga jest dołączony, hello Azure CLI Wyświetla hello rzeczywiste REST żądań i odpowiedzi. Te przełączniki są przydatne do wyświetlania pełnych danych wyjściowych błędu.
+* Możesz wyświetlić **polecenia danych wyjściowych w formacie JSON** z hello `--json` opcji. Przykładowo polecenie `az batch pool show pool001 --json` wyświetla właściwości puli 001 w formacie JSON. Możesz skopiować i zmodyfikuj ten toouse danych wyjściowych w `--json-file` (zobacz [pliki w formacie JSON](#json-files) wcześniej w tym artykule).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting tooany location.--->
+* Witaj [forum usługi partia zadań] [ batch_forum] monitorują członkowie zespołu partii. Możesz tam zamieszczać pytania w przypadku napotkania problemów lub w sytuacji, w której potrzebujesz pomocy z konkretną operacją.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
+* Aby uzyskać więcej informacji na temat hello wiersza polecenia platformy Azure, zobacz hello [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 * Aby uzyskać więcej informacji o zasobach usługi Batch, zobacz [Omówienie usługi Azure Batch dla deweloperów](batch-api-basics.md).
-* Aby uzyskać więcej informacji o tworzeniu pul, zadań i zadań podrzędnych przy użyciu szablonów usługi Batch i bez konieczności pisania kodu, zobacz [Use Azure Batch CLI Templates and File Transfer (Preview) (Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików (wersja zapoznawcza))](batch-cli-templates.md).
+* Aby uzyskać więcej informacji o używaniu pule toocreate szablony, zadań i zadania wsadowego bez pisania kodu, zobacz [szablony interfejsu wiersza polecenia usługi partia zadań Azure Użyj i transferu plików (wersja zapoznawcza)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

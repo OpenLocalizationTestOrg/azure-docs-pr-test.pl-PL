@@ -1,5 +1,5 @@
 ---
-title: "Zasady przechowywania raportów w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+title: "zasady przechowywania raportów usługi Active Directory aaaAzure | Dokumentacja firmy Microsoft"
 description: "Zasady przechowywania danych raportu w usłudze Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -15,42 +15,42 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ffeba8a6c32a21c75af21f948bbd6ea88dd9278c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c46a68198cb34e9c92662b2f8461010745392c04
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Zasady przechowywania raportów w usłudze Azure Active Directory
 
 
-W tym temacie przedstawiono odpowiedzi na często zadawane pytania w połączeniu z przechowywaniem danych dla raportów innej aktywności w usłudze Azure Active Directory. 
+W tym temacie przedstawiono odpowiedzi toohello często zadawane pytania w połączeniu z przechowywaniem danych hello hello raportów innej aktywności w usłudze Azure Active Directory. 
 
-**Pytanie: jak możesz uzyskać zbierania danych działania uruchomiona?**
+**Pytanie: jak uzyskać hello gromadzenia danych dotyczących działalności uruchomiona?**
 
 **ODP.:**
 
 | Wersja usługi Azure AD | Początkowy kolekcji |
 | :--              | :--   |
 | Usługa Azure AD — warstwa Premium P1 <br /> Usługa Azure AD — warstwa Premium P2 | Jeśli możesz przystąpić do subskrypcji |
-| Usługa Azure AD — warstwa Bezpłatna | Przy pierwszym otwarciu [bloku usługi Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) lub użyj [raportowania interfejsów API](https://aka.ms/aadreports)  |
+| Usługa Azure AD — warstwa Bezpłatna | Witaj pierwszym otwarciu hello [bloku usługi Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) lub użyj hello [raportowania interfejsów API](https://aka.ms/aadreports)  |
 
 ---
-**Pytanie: kiedy dane działanie jest dostępne w portalu Azure**
+**Pytanie: kiedy dane o aktywności jest dostępne w portalu Azure hello**
 
 **ODP.:**
 
-- **Natychmiast** — Jeśli już pracy z raportami w klasycznym portalu Azure
-- **W ciągu 2 godzin** — Jeśli nie włączono raportowania w klasycznym portalu Azure
+- **Natychmiast** — Jeśli już pracy z raportami w hello klasycznego portalu Azure
+- **W ciągu 2 godzin** — Jeśli nie włączono raportowania w hello klasycznego portalu Azure
 
 ---
-**Pytanie: jak uzyskać kolekcja sygnałów zabezpieczeń uruchomić?**  
+**Pytanie: jak uzyskać hello kolekcja sygnałów zabezpieczeń uruchomić?**  
 
-**Odpowiedź:** dla sygnałów zabezpieczeń procesu zbierania rozpoczyna się, gdy należy wyrazić zgodę na Użyj Centrum ochrony tożsamości. 
+**Odpowiedź:** dla sygnałów zabezpieczeń hello proces zbierania rozpoczyna się, gdy użytkownik uczestnictwa w Centrum ochrony tożsamości hello toouse. 
 
 
 ---
-**Pytanie: na jak długo są zebrane dane przechowywane?**
+**Pytanie: jak długo ma hello zebrane dane przechowywane?**
 
 **ODP.:**
 

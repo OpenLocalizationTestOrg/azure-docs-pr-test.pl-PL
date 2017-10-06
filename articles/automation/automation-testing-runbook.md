@@ -1,6 +1,6 @@
 ---
-title: Testowanie elementu runbook automatyzacji Azure | Dokumentacja firmy Microsoft
-description: "Przed opublikowaniem elementu runbook automatyzacji Azure możesz przetestować, aby upewnić się, że działa zgodnie z oczekiwaniami.  W tym artykule opisano, jak przetestować element runbook oraz wyświetlić dane wyjściowe."
+title: Element runbook automatyzacji Azure aaaTesting | Dokumentacja firmy Microsoft
+description: "Przed opublikowaniem elementu runbook automatyzacji Azure można przetestować tooensure, że działa zgodnie z oczekiwaniami.  W tym artykule opisano sposób tootest elementu runbook oraz wyświetlić dane wyjściowe."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 5186eb8f1732d533cbceb397b4d8b5224ad773cd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8c531f702699d586f8215d4c171cb0ecf94732b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Testowanie elementu runbook automatyzacji Azure
-Podczas testowania elementu runbook [wersję roboczą](automation-creating-importing-runbook.md#publishing-a-runbook) jest wykonywany i wykonywane są wszystkie akcje, które wykonuje. Historia zadań nie został utworzony, ale [dane wyjściowe](automation-runbook-output-and-messages.md#output-stream) i [ostrzeżeń i błędów](automation-runbook-output-and-messages.md#message-streams) strumienie są wyświetlane w teście output okienka. Komunikaty [strumień pełny](automation-runbook-output-and-messages.md#message-streams) są wyświetlane w okienku danych wyjściowych tylko wtedy, gdy [zmiennej $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) jest ustawiona, aby kontynuować.
+Podczas testowania elementu runbook hello [wersję roboczą](automation-creating-importing-runbook.md#publishing-a-runbook) jest wykonywany i wykonywane są wszystkie akcje, które wykonuje. Historia zadań nie zostało utworzone, ale hello [dane wyjściowe](automation-runbook-output-and-messages.md#output-stream) i [ostrzeżeń i błędów](automation-runbook-output-and-messages.md#message-streams) strumienie są wyświetlane w hello okienko w danych wyjściowych testu. Komunikaty toohello [strumień pełny](automation-runbook-output-and-messages.md#message-streams) są wyświetlane w okienku danych wyjściowych hello tylko wtedy, gdy hello [zmiennej $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) ustawiono tooContinue.
 
-Nawet, jeśli jest uruchamiana wersja robocza elementu runbook nadal przepływu pracy jest wykonywany normalnie i wykonuje wszystkie akcje dotyczące zasobów w środowisku. Z tego powodu należy przetestować tylko elementy runbook w zasobach nieprodukcyjnych.
+Nawet jeśli jest uruchamiana wersja robocza hello, hello runbook nadal hello przepływu pracy jest wykonywany normalnie i wykonuje wszystkie akcje dotyczące zasobów w środowisku hello. Z tego powodu należy przetestować tylko elementy runbook w zasobach nieprodukcyjnych.
 
-Procedury do przetestowania każdego [typu element runbook](automation-runbook-types.md) jest takie same i występują nie różni się w trakcie testów między edytor tekstowy i edytora graficznego w portalu Azure.  
+Witaj procedury tootest [typu element runbook](automation-runbook-types.md) hello takie same, a nie ma żadnej różnicy w testowaniu między edytor tekstowy hello i hello edytora graficznego w hello portalu Azure.  
 
-## <a name="to-test-a-runbook-in-the-azure-portal"></a>Aby przetestować element runbook w portalu Azure
-Można pracować ze wszystkimi [typ elementu runbook](automation-runbook-types.md) w portalu Azure.
+## <a name="tootest-a-runbook-in-hello-azure-portal"></a>Element runbook w portalu Azure hello tootest
+Można pracować ze wszystkimi [typ elementu runbook](automation-runbook-types.md) w hello portalu Azure.
 
-1. Otwórz wersję roboczą elementu runbook albo [edytor tekstowy](automation-edit-textual-runbook.md) lub [edytora graficznego usługi](automation-graphical-authoring-intro.md).
-2. Kliknij przycisk **testu** przycisk, aby otworzyć blok testu.
-3. Jeśli element runbook ma parametry, będą one wyświetlane w okienku po lewej stronie, w którym można podać wartości do użycia dla testu.
-4. Jeśli chcesz uruchomić test [hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md), następnie zmienić **parametrów uruchomieniowych** do **hybrydowy proces roboczy** i wybierz nazwę grupy docelowej.  W przeciwnym razie Zachowaj domyślną **Azure** do uruchomienia testu w chmurze.
-5. Kliknij przycisk **Start** przycisk, aby uruchomić test.
-6. Jeśli element runbook ma [przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) lub [graficzny](automation-runbook-types.md#graphical-runbooks), a następnie można zatrzymać lub wstrzymać go podczas testowania za pomocą przycisków pod okienkiem danych wyjściowych. Po wstrzymaniu elementu runbook przed jego wstrzymaniem ukończy bieżącego działania. Gdy element runbook zostanie wstrzymany, można zatrzymać lub uruchom go ponownie.
-7. Sprawdź dane wyjściowe z elementu runbook w okienku danych wyjściowych.
+1. Witaj Otwórz wersję roboczą elementu runbook hello w obu hello [edytor tekstowy](automation-edit-textual-runbook.md) lub [edytora graficznego usługi](automation-graphical-authoring-intro.md).
+2. Kliknij przycisk hello **testu** przycisk tooopen hello testu bloku.
+3. Jeśli hello runbook ma parametry, wyświetlane w okienku po lewej stronie powitania, którym można podać wartości toobe używane dla testu hello.
+4. Jeśli chcesz toorun hello testu na [hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md), następnie zmienić **parametrów uruchomieniowych** za**hybrydowy proces roboczy** i hello wybierz nazwę grupy docelowej hello.  W przeciwnym razie Zachowaj domyślną hello **Azure** toorun hello testu w chmurze hello.
+5. Kliknij przycisk hello **Start** przycisk toostart hello testu.
+6. Jeśli element runbook hello jest [przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) lub [graficzny](automation-runbook-types.md#graphical-runbooks), a następnie można zatrzymać lub wstrzymać go podczas jest poddawana testom przyciskami hello poniżej hello okienku danych wyjściowych. Po wstrzymaniu elementu runbook hello kończy hello bieżące działanie przed jego wstrzymaniem. Po wstrzymaniu elementu runbook hello, można zatrzymać lub uruchomić go ponownie.
+7. Sprawdź, czy dane wyjściowe hello runbook hello w okienku danych wyjściowych hello.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się, jak utworzyć lub zaimportować element runbook, zobacz [Tworzenie lub importowanie elementu runbook automatyzacji Azure](automation-creating-importing-runbook.md)
-* Aby dowiedzieć się więcej na temat tworzenia elementów graficznych, zobacz [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md) (Tworzenie elementów graficznych w usłudze Azure Automation).
-* Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz artykuł [My first PowerShell workflow runbook](automation-first-runbook-textual.md) (Mój pierwszy element Runbook przepływu pracy programu PowerShell).
-* Aby dowiedzieć się więcej o konfigurowaniu runboks, aby zwrócić komunikaty o stanie i błędy, łącznie zalecane rozwiązania, zobacz [Runbook dane wyjściowe i komunikaty w automatyzacji Azure](automation-runbook-output-and-messages.md)
+* jak toocreate lub importowanie elementu runbook, zobacz toolearn [Tworzenie lub importowanie elementu runbook automatyzacji Azure](automation-creating-importing-runbook.md)
+* Zobacz toolearn więcej informacji na temat tworzenia graficznego [tworzenia graficznego automatyzacji Azure](automation-graphical-authoring-intro.md)
+* tooget pracy z elementami runbook przepływu pracy programu PowerShell, zobacz [Mój pierwszy element runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
+* Zobacz toolearn więcej informacji o konfigurowaniu komunikaty o stanie tooreturn runboks i błędy, łącznie zalecane praktyki [Runbook dane wyjściowe i komunikaty w automatyzacji Azure](automation-runbook-output-and-messages.md)
 

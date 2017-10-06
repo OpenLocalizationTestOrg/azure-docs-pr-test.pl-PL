@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z DocuSign | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i DocuSign."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i DocuSign."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,82 +13,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 8562a8f9e05fb72d3331507b7da5c6afee38f9b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Samouczek: Konfigurowanie DocuSign Inicjowanie obsługi użytkowników
 
-Celem tego samouczka jest opisano czynności, które należy wykonać w DocuSign i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD DocuSign.
+Celem Hello tego samouczka jest tooshow hello czynności, które należy tooperform w DocuSign i Azure AD tooautomatically udostępniania i usuwanie kont użytkowników z usługi Azure AD tooDocuSign.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że już następujące elementy:
+Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
 
 *   Dzierżawy usługi Azure Active directory.
 *   DocuSign logowanie jednokrotne włączone subskrypcji.
 *   Konto użytkownika w DocuSign z uprawnieniami administratora zespołu.
 
-## <a name="assigning-users-to-docusign"></a>Przypisywanie użytkowników do DocuSign
+## <a name="assigning-users-toodocusign"></a>Przypisywanie użytkowników tooDocuSign
 
-Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD są synchronizowane.
+Azure Active Directory korzysta z koncepcji o nazwie "przypisania" toodetermine użytkowników, którzy mają otrzymywać aplikacje tooselected dostępu. W kontekście hello Inicjowanie obsługi konta użytkowników tylko hello użytkowników i grup, które zostały "przypisane" tooan aplikacji w usłudze Azure AD są synchronizowane.
 
-Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy zdecydować, jakie użytkownicy i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji DocuSign. Po decyzję, postępując zgodnie z instrukcjami w tym miejscu można przypisać tych użytkowników do aplikacji DocuSign:
+Przed Skonfiguruj i Włącz hello usługi inicjowania obsługi administracyjnej, należy toodecide jakie użytkowników i/lub grup w usłudze Azure AD reprezentują hello użytkowników, którzy muszą uzyskiwać dostęp do aplikacji DocuSign tooyour. Po decyzję, wykonując instrukcje hello w tym miejscu można przypisać tych użytkowników tooyour DocuSign aplikacji:
 
-[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Przypisywanie użytkownikowi lub grupie aplikacji przedsiębiorstwa tooan](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-docusign"></a>Ważne porady dotyczące przypisywania użytkowników do DocuSign
+### <a name="important-tips-for-assigning-users-toodocusign"></a>Ważne porady dotyczące przypisywania tooDocuSign użytkowników
 
-*   Zalecane jest jeden jest przypisany użytkownik usługi Azure AD DocuSign do testowania konfiguracji inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest jeden użytkownik usługi Azure AD jest przypisany hello tootest tooDocuSign inicjowania obsługi konfiguracji. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-*   Przypisanie użytkownika do DocuSign, musisz wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" nie działa w przypadku inicjowania obsługi administracyjnej.
+*   Podczas przypisywania tooDocuSign użytkownika, należy wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" Hello nie działa w przypadku inicjowania obsługi administracyjnej.
 
 ## <a name="enable-user-provisioning"></a>Włącz inicjowanie obsługi użytkowników
 
-Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkownika w DocuSign inicjowania obsługi interfejsu API i konfigurowanie inicjowania obsługi usługi do tworzenia, aktualizacji i wyłączania konta użytkowników przypisane w DocuSign w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez łączenie inicjowania obsługi interfejsu API konta użytkownika tooDocuSign programu Azure AD i konfigurowanie hello inicjowania obsługi usługi toocreate, zaktualizować, a następnie wyłącz konta użytkowników przypisane w DocuSign w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
 
 > [!Tip]
-> Można też włączyć na języku SAML logowania jednokrotnego dla DocuSign, wykonując instrukcje podane w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
+> Można też tooenabled na języku SAML logowania jednokrotnego dla DocuSign hello instrukcje podane w następujących [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
 
-### <a name="to-configure-user-account-provisioning"></a>Aby skonfigurować, inicjowanie obsługi konta użytkownika:
+### <a name="tooconfigure-user-account-provisioning"></a>Przypisywanie konta użytkowników tooconfigure:
 
-Celem tej sekcji jest przedstawiają sposób włączania kont użytkowników usługi Active Directory do DocuSign Inicjowanie obsługi użytkowników.
+Celem Hello w tej sekcji jest toooutline jak tooDocuSign kont tooenable użytkownika usługi Active Directory Inicjowanie obsługi użytkowników.
 
-1. W [portalu Azure](https://portal.azure.com), przejdź do **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
+1. W hello [portalu Azure](https://portal.azure.com), Przeglądaj toohello **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
 
-2. Jeśli DocuSign został już skonfigurowany dla logowania jednokrotnego, wyszukiwanie wystąpieniem DocuSign przy użyciu pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **DocuSign** w galerii aplikacji. Wybierz DocuSign w wynikach wyszukiwania, a następnie dodaj go do listy aplikacji.
+2. DocuSign został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpieniem DocuSign za pomocą hello pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **DocuSign** w galerii aplikacji hello. Wybierz DocuSign z wyników wyszukiwania hello i dodać go tooyour listy aplikacji.
 
-3. Wybierz wystąpienia programu DocuSign, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
+3. Wybierz wystąpienia programu DocuSign, a następnie wybierz hello **inicjowania obsługi administracyjnej** kartę.
 
-4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**. 
+4. Zestaw hello **inicjowania obsługi trybu** za**automatyczne**. 
 
     ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-docusign-provisioning-tutorial/provisioning.png)
 
-5. W obszarze **poświadczeń administratora** sekcji, skonfiguruj następujące ustawienia konfiguracji:
+5. W obszarze hello **poświadczeń administratora** sekcji, podaj hello następujące ustawienia konfiguracji:
    
-    a. W **nazwa użytkownika administratora** pole tekstowe, typ, nazwa, która ma konta DocuSign **Administrator systemu** profil DocuSign.com przypisane.
+    a. W hello **nazwa użytkownika administratora** tekstowym, wpisz nazwę, która ma hello konta DocuSign **administratorem** profil DocuSign.com przypisane.
    
-    b. W **hasło administratora** tekstowym, wpisz hasło dla tego konta.
+    b. W hello **hasło administratora** tekstowym, wpisz hello hasło dla tego konta.
 
-6. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji DocuSign.
+6. W portalu Azure hello, kliknij przycisk **Testuj połączenie** tooensure usługi Azure AD można połączyć tooyour DocuSign aplikację.
 
-7. W **wiadomość E-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, który powinien otrzymywać powiadomienia błąd inicjowania obsługi administracyjnej i zaznacz pole wyboru.
+7. W hello **wiadomość E-mail z powiadomieniem** wprowadź hello adres e-mail osoby lub grupy, który powinien otrzymywać powiadomienia błąd inicjowania obsługi administracyjnej i zaznacz pole wyboru hello.
 
 8. Kliknij przycisk **zapisać.**
 
-9. W sekcji mapowania wybierz **synchronizacji Azure Active Directory użytkownikom DocuSign.**
+9. W obszarze hello sekcji mapowania, wybierz **tooDocuSign synchronizacji Azure Active Directory użytkowników.**
 
-10. W **mapowań atrybutów** Przejrzyj atrybutów użytkowników, które są synchronizowane z usługi Azure AD DocuSign. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w DocuSign dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
+10. W hello **mapowań atrybutów** Przejrzyj hello atrybutów użytkowników, które są synchronizowane z usługą Azure AD tooDocuSign. Witaj atrybuty wybrany jako **pasujące** właściwości są używane toomatch hello kontom DocuSign dla operacji update. Wybierz toocommit przycisk Zapisz hello wszelkie zmiany.
 
-11. Aby włączyć usługi Azure AD usługi dla DocuSign inicjowania obsługi administracyjnej, zmień **stan inicjowania obsługi administracyjnej** do **na** w sekcji Ustawienia
+11. tooenable hello inicjowania obsługi usługi Azure AD dla DocuSign, zmień hello **stan inicjowania obsługi administracyjnej** za**na** w sekcji Ustawienia hello
 
 12. Kliknij przycisk **zapisać.**
 
-Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do DocuSign w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na DocuSign aplikacji.
+Rozpoczyna się hello wstępnej synchronizacji użytkowników i/lub grupy przypisane tooDocuSign w hello użytkowników i grup sekcji. Witaj początkowej synchronizacji ma tooperform dłużej niż kolejne synchronizacje, które występują co około 20 minut, tak długo, jak działa usługa hello. Można użyć hello **szczegóły synchronizacji** sekcji postępu toomonitor i wykonaj łącza tooprovisioning działania raporty, które opisują wszystkie działania wykonywane przez hello usługi w aplikacji DocuSign inicjowania obsługi administracyjnej.
 
-Można teraz utworzyć konta testowego. Aby sprawdzić, czy konto zostało zsynchronizowane z DocuSign poczekaj maksymalnie 20 minut.
+Można teraz utworzyć konta testowego. Poczekaj na górę minut too20 tooverify, który hello konto zostało zsynchronizowane tooDocuSign.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

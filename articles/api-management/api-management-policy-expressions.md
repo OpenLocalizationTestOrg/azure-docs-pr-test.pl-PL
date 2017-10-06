@@ -1,5 +1,5 @@
 ---
-title: "Wyrażenie zasad interfejsu API zarządzania platformy Azure | Dokumentacja firmy Microsoft"
+title: "Wyrażenie zasad interfejsu API zarządzania aaaAzure | Dokumentacja firmy Microsoft"
 description: "Więcej informacji na temat wyrażeń zasad w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: d96dde8c74141d000c1f7c5fd9ef624ff5e46953
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 79da0d6ca3963307ec811a33aaac3d63a7abd97d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-policy-expressions"></a>Wyrażenie zasad interfejsu API zarządzania
-Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do udostępnionego niejawnie [kontekstu](api-management-policy-expressions.md#ContextVariables) zmienną i dozwolonych [podzestawu](api-management-policy-expressions.md#CLRTypes) typów .NET Framework.  
+Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma toohello dostępu niejawnie podane [kontekstu](api-management-policy-expressions.md#ContextVariables) zmienną i dozwolonych [podzestawu](api-management-policy-expressions.md#CLRTypes) typów .NET Framework.  
   
 > [!NOTE]
->  Aby uzyskać więcej informacji na temat wyrażenia zasad, zobacz [wyrażenie zasad](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) wideo.  
+>  Aby uzyskać więcej informacji na temat wyrażenia zasad, zobacz hello [wyrażenie zasad](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) wideo.  
 >   
->  Aby pokazów konfigurowania zasad przy użyciu wyrażenia zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Ten film zawiera następujące pokazów wyrażenie zasad.  
+>  Aby pokazów konfigurowania zasad przy użyciu wyrażenia zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Ten film zawiera powitania po pokazów wyrażenie zasad.  
 >   
->  -   10:30 — w temacie jak stosowanie zasad na poziomie interfejsu API, aby podać informacje o kontekście przy użyciu usługi wewnętrznej bazy danych [ustawić parametr ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) i [nagłówka HTTP ustawić](api-management-transformation-policies.md#SetHTTPheader) zasad. Na 12:10 istnieje pokaz wywołanie operacji w portalu dla deweloperów, w którym można zobaczyć te zasady w miejscu pracy.  
-> -   13:50 — zobacz temat jak korzystać [JWT do zweryfikowania](api-management-access-restriction-policies.md#ValidateJWT) zasad do wstępnie autoryzacji dostępu do operacji na podstawie tokenu oświadczeń. Szybko przewiń do przodu do 15:00, aby wyświetlić zasady skonfigurowane w edytorze zasad, a następnie do 18:50 dla pokaz wywołanie operacji z portalu dla deweloperów zarówno z i bez tokenu autoryzacji wymagane.  
-> -   Sposób użycia Zobacz 21:00 - [inspektora interfejsu API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) śledzenia, aby zobaczyć, jak są analizowane zasady i wyniki oceny.  
-> -   25:25 — jak używać zasad wyrażenia z [pobrać z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) i [magazynu pamięci podręcznej](api-management-caching-policies.md#StoreToCache) zasad, aby skonfigurować zarządzanie interfejsami API odpowiedzi buforowanie czasu trwania odpowiadającego buforowanie odpowiedzi wewnętrznej bazy danych usługi określone przez usługę kopii `Cache-Control` dyrektywy.  
-> -   34:30 — Zobacz, jak wykonać filtrowanie zawartości przez usunięcie elementów danych z odpowiedzi otrzymanych z usługi wewnętrznej bazy danych przy użyciu [sterowania przepływem](api-management-advanced-policies.md#choose) i [ustawić treść](api-management-transformation-policies.md#SetBody) zasad. Rozpocznij od 31:50 wyświetlić przegląd [ciemny niebo prognozy interfejsu API](https://developer.forecast.io/) używane na potrzeby tego pokazu.  
-> -   Aby pobrać deklaracji zasad, używane w tym wideo, zobacz [interfejsu api zarządzania — przykłady/zasadami](https://github.com/Azure/api-management-samples/tree/master/policies) repozytorium github.  
+>  -   10:30 — Zobacz, jak zasady tooapply na powitania interfejsu API na poziomie toosupply kontekstu informacji toohello wewnętrznej bazy danych usługi przy użyciu hello [ustawić parametr ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) i [nagłówka HTTP ustawić](api-management-transformation-policies.md#SetHTTPheader) zasad. Na 12:10 istnieje pokaz wywołanie operacji w portalu dla deweloperów hello, w którym można zobaczyć te zasady w miejscu pracy.  
+> -   Zobacz 13:50 - jak toouse hello [JWT do zweryfikowania](api-management-access-restriction-policies.md#ValidateJWT) toopre zasad-toooperations dostępu na podstawie tokenu oświadczeń autoryzacji. Szybkie przewijanie do przodu too15:00 zasady hello toosee skonfigurowane w edytorze zasad hello, a następnie too18:50 dla pokaz wywołanie operacji z portalu dla deweloperów hello zarówno z i bez hello wymagany token autoryzacji.  
+> -   Zobacz 21:00 - jak toouse [inspektora interfejsu API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) toosee jak zasady są oceniane i hello wyniki oceny hello śledzenia.  
+> -   25:25 — Zobacz, jak hello toouse wyrażenie zasad o [pobrać z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) i [toocache magazynu](api-management-caching-policies.md#StoreToCache) odpowiedzi interfejsu API zarządzania tooconfigure zasady czy dopasowań hello buforowanie odpowiedzi hello czas trwania buforowania usługi wewnętrznej bazy danych określony przez hello kopii usługi `Cache-Control` dyrektywy.  
+> -   34:30 — Zobacz, jak zawartość tooperform filtrowania przez usunięcie elementów danych z hello odpowiedzi otrzymanych od hello usługi wewnętrznej bazy danych przy użyciu hello [sterowania przepływem](api-management-advanced-policies.md#choose) i [ustawić treść](api-management-transformation-policies.md#SetBody) zasad. Rozpocznij od 31:50 toosee omówienie [hello ciemny niebo prognozy API](https://developer.forecast.io/) używane na potrzeby tego pokazu.  
+> -   deklaracji zasad hello toodownload używane w tym wideo, zobacz hello [interfejsu api zarządzania — przykłady/zasadami](https://github.com/Azure/api-management-samples/tree/master/policies) repozytorium github.  
   
   
 ##  <a name="Syntax"></a>Składnia  
@@ -68,13 +68,13 @@ Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do 
 ```  
   
 ##  <a name="PolicyExpressionsUsage"></a>Użycie  
- Wyrażenia mogą być używane jako wartości atrybutu lub tekst w żadnym z interfejsu API zarządzania [zasady](api-management-policies.md), chyba że informacje o zasadach Określa, w przeciwnym razie wartość.  
+ Wyrażenia mogą być używane jako wartości atrybutu lub tekst w żadnym hello zarządzanie interfejsami API [zasady](api-management-policies.md), chyba że informacje o zasadach hello Określa, w przeciwnym razie wartość.  
   
 > [!IMPORTANT]
->  Należy pamiętać, że użycie wyrażenia zasad, tylko ograniczone weryfikacji wyrażenia zasad po zdefiniowaniu zasad. Ponieważ wyrażenia są wykonywane w czasie wykonywania w potoku ruchu przychodzącego lub wychodzącego przez bramę, wszelkie wyjątki czasu wykonywania wygenerowanych przez wyrażenie zasad spowoduje błąd w czasie wykonywania w wywołaniu interfejsu API.  
+>  Należy pamiętać, że użycie wyrażenia zasad, tylko ograniczone weryfikacji wyrażenia zasad powitania po zdefiniowaniu zasad hello. Ponieważ wyrażenia hello są wykonywane w czasie wykonywania w potoku hello ruchu przychodzącego lub wychodzącego przez bramę hello, wszelkie wyjątki czasu wykonywania wygenerowanych przez wyrażenie zasad hello spowoduje błąd w czasie wykonywania w wywołaniu hello interfejsu API.  
   
 ##  <a name="CLRTypes"></a>Typy .NET framework dozwolone w wyrażeniach zasad  
- Poniższa tabela zawiera listę typów .NET Framework i ich elementy członkowskie, które są dozwolone w wyrażeniach zasad.  
+ Witaj Poniższa tabela zawiera listę typów .NET Framework hello i ich elementy członkowskie, które są dozwolone w wyrażeniach zasad.  
   
 |Typ CLR|Obsługiwane metody|  
 |--------------|-----------------------|  
@@ -168,7 +168,7 @@ Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do 
 |System.Xml.XmlNodeType|Wszystkie|  
   
 ##  <a name="ContextVariables"></a>Zmienna kontekstu  
- Zmiennej o nazwie `context` jest niejawnie dostępne we wszystkich zasadach [wyrażenia](api-management-policy-expressions.md#Syntax). Jej elementów członkowskich zawierają informacje dotyczące `\request`. Wszystkie `context` elementy członkowskie są tylko do odczytu.  
+ Zmiennej o nazwie `context` jest niejawnie dostępne we wszystkich zasadach [wyrażenia](api-management-policy-expressions.md#Syntax). Jej elementów członkowskich Podaj informacje istotne toohello `\request`. Wszystkie hello `context` elementy członkowskie są tylko do odczytu.  
   
 |Zmienna kontekstu|Dozwolone metody, właściwości i wartości parametrów|  
 |----------------------|-------------------------------------------------------|  
@@ -179,26 +179,26 @@ Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do 
 |kontekst. Operacja|Identyfikator: ciąg<br /><br /> Metoda: ciąg<br /><br /> Nazwa: ciąg<br /><br /> UrlTemplate: ciąg|  
 |kontekst. Produktu|Interfejsy API: IEnumerable < IApi\><br /><br /> ApprovalRequired: wartość logiczna<br /><br /> Grupy: IEnumerable < IGroup\><br /><br /> Identyfikator: ciąg<br /><br /> Nazwa: ciąg<br /><br /> Stan: wyliczenia ProductState {NotPublished, opublikowaną}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: wartość logiczna|  
 |kontekst. Żądanie|Treść: IMessageBody<br /><br /> Certyfikat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Nagłówki: IReadOnlyDictionary < string, string [] ><br /><br /> Adres IP: ciąg<br /><br /> MatchedParameters: IReadOnlyDictionary < ciąg, ciąg ><br /><br /> Metoda: ciąg<br /><br /> OriginalUrl:IUrl<br /><br /> Adres URL: IUrl|  
-|kontekst ciągu. Request.Headers.GetValueOrDefault (headerName: ciąg, wartość domyślna: ciąg)|headerName: ciąg<br /><br /> Wartość domyślna: ciąg<br /><br /> Zwraca przecinkami wartości nagłówka żądania lub `defaultValue` Jeżeli nie znaleziono nagłówka.|  
+|kontekst ciągu. Request.Headers.GetValueOrDefault (headerName: ciąg, wartość domyślna: ciąg)|headerName: ciąg<br /><br /> Wartość domyślna: ciąg<br /><br /> Zwraca przecinkami wartości nagłówka żądania lub `defaultValue` Jeżeli nie znaleziono nagłówka hello.|  
 |kontekst. Odpowiedź|Treść: IMessageBody<br /><br /> Nagłówki: IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: ciąg|  
-|kontekst ciągu. Response.Headers.GetValueOrDefault (headerName: ciąg, wartość domyślna: ciąg)|headerName: ciąg<br /><br /> Wartość domyślna: ciąg<br /><br /> Zwraca wartości nagłówka odpowiedzi przecinkami lub `defaultValue` Jeżeli nie znaleziono nagłówka.|  
+|kontekst ciągu. Response.Headers.GetValueOrDefault (headerName: ciąg, wartość domyślna: ciąg)|headerName: ciąg<br /><br /> Wartość domyślna: ciąg<br /><br /> Zwraca wartości nagłówka odpowiedzi przecinkami lub `defaultValue` Jeżeli nie znaleziono nagłówka hello.|  
 |kontekst. Subskrypcji|CreatedTime: daty i godziny<br /><br /> EndDate: DateTime?<br /><br /> Identyfikator: ciąg<br /><br /> Klucz: ciąg<br /><br /> Nazwa: ciąg<br /><br /> PrimaryKey: ciąg<br /><br /> Klucz pomocniczy: ciąg<br /><br /> Datą rozpoczęcia: DateTime?|  
 |kontekst. Użytkownika|Wiadomości e-mail: ciąg<br /><br /> Imię: ciąg<br /><br /> Grupy: IEnumerable < IGroup\><br /><br /> Identyfikator: ciąg<br /><br /> Tożsamości: IEnumerable < IUserIdentity\><br /><br /> Nazwisko: ciąg<br /><br /> Uwaga: ciąg<br /><br /> RegistrationDate: daty i godziny|  
 |IApi|Identyfikator: ciąg<br /><br /> Nazwa: ciąg<br /><br /> Ścieżka: ciąg<br /><br /> Protokoły: IEnumerable < ciąg\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|Identyfikator: ciąg<br /><br /> Nazwa: ciąg|  
-|IMessageBody|Jako < T\>(preserveContent: bool = false): gdy T: ciągu JObject, JToken, JArray, XNode klasy XElement, XDocument<br /><br /> `context.Request.Body.As<T>` i `context.Response.Body.As<T>` metody są używane do odczytu treści wiadomości w określonym typie żądań i odpowiedzi `T`. Domyślnie metoda korzysta z oryginalnego strumień treści komunikatu i reneders niedostępne po zwraca go. Aby tego uniknąć, ponieważ działają na kopii w strumieniu treści metody, należy ustawić `preserveContent` parametr `true`. Przejdź [tutaj](api-management-transformation-policies.md#SetBody) na przykład.|  
+|IMessageBody|Jako < T\>(preserveContent: bool = false): gdy T: ciągu JObject, JToken, JArray, XNode klasy XElement, XDocument<br /><br /> Witaj `context.Request.Body.As<T>` i `context.Response.Body.As<T>` metody są używane tooread organów komunikatów żądań i odpowiedzi w określonym typie `T`. Domyślnie hello metoda używa hello oryginalnego treści strumienia komunikatów i reneders niedostępne po nim zwraca. tooavoid, że o metody hello działają na kopię hello strumień treści, zestaw hello `preserveContent` parametru zbyt`true`. Przejdź [tutaj](api-management-transformation-policies.md#SetBody) toosee przykładem.|  
 |IUrl|Host: ciąg<br /><br /> Ścieżka: ciąg<br /><br /> Port: int<br /><br /> Zapytań: IReadOnlyDictionary < string, string [] ><br /><br /> Ciąg zapytania: ciąg<br /><br /> Schemat: ciąg|  
 |IUserIdentity|Identyfikator: ciąg<br /><br /> Dostawca: ciąg|  
 |ISubscriptionKeyParameterNames|Nagłówek: ciąg<br /><br /> Zapytania: ciąg|  
-|ciąg IUrl.Query.GetValueOrDefault (queryParameterName: ciąg, wartość domyślna: ciąg)|queryParameterName: ciąg<br /><br /> Wartość domyślna: ciąg<br /><br /> Zwraca przecinkami wartości parametrów zapytania lub `defaultValue` Jeśli parametr nie zostanie znaleziony.|  
-|Kontekst T. Variables.GetValueOrDefault < T\>(nazwa_zmiennej: ciąg, wartość domyślna: T)|nazwa_zmiennej: ciąg<br /><br /> Wartość domyślna: T<br /><br /> Zwraca wartość zmiennej rzutowany na typ `T` lub `defaultValue` Jeśli zmienna nie zostanie znaleziony.<br /><br /> Ta metoda zgłasza wyjątek, jeśli określony typ nie jest zgodny z rzeczywisty typ zwrócony zmiennej.|  
-|BasicAuthCredentials AsBasic(input: this string)|wprowadzania: ciąg<br /><br /> Jeśli parametr wejściowy zawiera prawidłową wartość nagłówka żądania uwierzytelnienia podstawowego uwierzytelniania HTTP, metoda zwraca obiekt typu `BasicAuthCredentials`; w przeciwnym razie metoda zwraca wartość null.|  
-|wartość logiczna TryParseBasic (dane wejściowe: ten ciąg, wynik: limit BasicAuthCredentials)|wprowadzania: ciąg<br /><br /> wynik: limit BasicAuthCredentials<br /><br /> Jeśli parametr wejściowy zawiera prawidłową wartość nagłówka żądania uwierzytelnienia podstawowego uwierzytelniania HTTP, metoda zwraca `true` i parametr wynik zawiera wartości typu `BasicAuthCredentials`; w przeciwnym razie metoda zwraca `false`.|  
+|ciąg IUrl.Query.GetValueOrDefault (queryParameterName: ciąg, wartość domyślna: ciąg)|queryParameterName: ciąg<br /><br /> Wartość domyślna: ciąg<br /><br /> Zwraca przecinkami wartości parametrów zapytania lub `defaultValue` Jeśli hello parametr nie zostanie znaleziony.|  
+|Kontekst T. Variables.GetValueOrDefault < T\>(nazwa_zmiennej: ciąg, wartość domyślna: T)|nazwa_zmiennej: ciąg<br /><br /> Wartość domyślna: T<br /><br /> Zwraca wartość zmiennej rzutowania tootype `T` lub `defaultValue` Jeśli hello zmienna nie zostanie znaleziony.<br /><br /> Ta metoda zgłasza wyjątek, jeśli hello określony typ nie jest zgodny hello rzeczywisty typ hello zwrócił zmiennej.|  
+|BasicAuthCredentials AsBasic(input: this string)|wprowadzania: ciąg<br /><br /> Jeśli parametr wejściowy hello zawiera prawidłową wartość nagłówka żądania uwierzytelnienia podstawowego uwierzytelniania HTTP, hello metoda zwraca wartość typu obiektu `BasicAuthCredentials`; w przeciwnym razie hello metoda zwraca wartość null.|  
+|wartość logiczna TryParseBasic (dane wejściowe: ten ciąg, wynik: limit BasicAuthCredentials)|wprowadzania: ciąg<br /><br /> wynik: limit BasicAuthCredentials<br /><br /> Jeśli hello parametr wejściowy zawiera prawidłową wartość nagłówka żądania uwierzytelnienia podstawowego uwierzytelniania HTTP, hello metoda zwraca `true` i hello wynik parametru zawiera wartość typu `BasicAuthCredentials`; w przeciwnym razie zwraca hello metody `false`.|  
 |BasicAuthCredentials|Hasło: ciąg<br /><br /> Nazwa użytkownika: ciąg|  
-|Jwt AsJwt(input: this string)|wprowadzania: ciąg<br /><br /> Jeśli parametr wejściowy zawiera prawidłową wartość tokenu JWT, metoda zwraca obiekt typu `Jwt`; w przeciwnym razie metoda zwraca `null`.|  
-|bool TryParseJwt (dane wejściowe: ten ciąg, wynik: limit Jwt)|wprowadzania: ciąg<br /><br /> wynik: limit Jwt<br /><br /> Jeśli parametr wejściowy zawiera prawidłową wartość tokenu JWT, metoda zwraca `true` i parametr wynik zawiera wartości typu `Jwt`; w przeciwnym razie metoda zwraca `false`.|  
+|Jwt AsJwt(input: this string)|wprowadzania: ciąg<br /><br /> Jeśli parametr wejściowy hello zawiera prawidłową wartość tokenu JWT, hello metoda zwraca wartość typu obiektu `Jwt`; w przeciwnym razie zwraca hello metody `null`.|  
+|bool TryParseJwt (dane wejściowe: ten ciąg, wynik: limit Jwt)|wprowadzania: ciąg<br /><br /> wynik: limit Jwt<br /><br /> Jeśli hello parametr wejściowy zawiera prawidłową wartość tokenu JWT, hello metoda zwraca `true` i hello wynik parametru zawiera wartość typu `Jwt`; w przeciwnym razie zwraca hello metody `false`.|  
 |Token Jwt|Algorytm: ciąg<br /><br /> Grupy odbiorców: IEnumerable < ciąg\><br /><br /> Oświadczenia: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> Identyfikator: ciąg<br /><br /> Wystawca: ciąg<br /><br /> Nie wcześniej niż: DateTime?<br /><br /> Podmiot: ciąg<br /><br /> Typ: ciąg|  
-|ciąg Jwt.Claims.GetValueOrDefault (claimName: ciąg, wartość domyślna: ciąg)|claimName: ciąg<br /><br /> Wartość domyślna: ciąg<br /><br /> Zwraca wartości oświadczeń przecinkami lub `defaultValue` Jeżeli nie znaleziono nagłówka.|
+|ciąg Jwt.Claims.GetValueOrDefault (claimName: ciąg, wartość domyślna: ciąg)|claimName: ciąg<br /><br /> Wartość domyślna: ciąg<br /><br /> Zwraca wartości oświadczeń przecinkami lub `defaultValue` Jeżeli nie znaleziono nagłówka hello.|
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji, Praca z zasad, zobacz [zasad w usłudze API Management](api-management-howto-policies.md).  

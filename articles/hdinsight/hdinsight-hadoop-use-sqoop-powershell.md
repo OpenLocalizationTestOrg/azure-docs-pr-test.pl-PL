@@ -1,6 +1,6 @@
 ---
-title: "Uruchamianie zadań Sqoop przy użyciu programu PowerShell i Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać programu Azure PowerShell na stacji roboczej uruchom Sqoop importowania i eksportowania między klastrem Hadoop i bazy danych Azure SQL."
+title: "aaaRun Sqoop zadania przy użyciu programu PowerShell i Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse programu Azure PowerShell z toorun stacji roboczej Sqoop importowania i eksportowania między klastrem Hadoop i bazy danych Azure SQL."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,24 +16,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: 956f4ac7c39e2936a2a6b5e5108dbe302446270c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8313bbd109e968aeab540bbcefefe84ebd64c87e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>Uruchamianie zadań Sqoop przy użyciu programu PowerShell systemu Azure dla platformy Hadoop w usłudze HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informacje o sposobie uruchamiania zadań Sqoop w usłudze HDInsight umożliwia importowanie i eksportowanie między klastrem usługi HDInsight i bazy danych Azure SQL lub bazy danych SQL Server przy użyciu programu Azure PowerShell.
+Dowiedz się, jak toouse programu Azure PowerShell toorun Sqoop zadania w usłudze HDInsight tooimport i eksportowanie między klastrem usługi HDInsight i bazy danych Azure SQL lub bazy danych SQL Server.
 
 > [!NOTE]
-> Kroki opisane w tym artykule może być używany z obu komputerów z systemem Windows lub opartych na systemie Linux klastra usługi HDInsight; Jednak te kroki działa tylko w kliencie systemu Windows. Aby uzyskać inne metody przesyłania zadań kliknij selektor karty w górnej części tego artykułu.
+> Witaj opisanych w tym artykule może służyć z obu komputerów z systemem Windows lub opartych na systemie Linux klastrem usługi HDInsight; Jednak te kroki działa tylko w kliencie systemu Windows. Inne metody przesyłania zadań po kliknięciu hello selektora kartę w górnej części hello hello artykułu.
 > 
 > 
 
 ### <a name="prerequisites"></a>Wymagania wstępne
-Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
+Przed rozpoczęciem tego samouczka wymagane są następujące hello:
 
 * **Stacja robocza z programem Azure PowerShell**.
   
@@ -41,7 +41,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 * **Klastra usługi Hadoop w usłudze HDInsight**. Zobacz [Tworzenie klastra i bazy danych SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="run-sqoop-using-powershell"></a>Uruchom Sqoop przy użyciu programu PowerShell
-Poniższy skrypt programu PowerShell wstępnie przetwarza plik źródłowy i eksportuje je do bazy danych Azure SQL:
+Witaj następującego skryptu programu PowerShell wstępnie przetwarza hello pliku źródłowego i eksportuje je tooan bazy danych Azure SQL:
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $hdinsightClusterName = "<HDInsightClusterName>"
@@ -58,51 +58,51 @@ Poniższy skrypt programu PowerShell wstępnie przetwarza plik źródłowy i eks
     $sqlDatabaseLogin = "sqluser"
     $sqlDatabasePassword = "<Password>"
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #endregion
 
-    #region - pre-process the source file
+    #region - pre-process hello source file
 
-    Write-Host "`nPreprocessing the source file ..." -ForegroundColor Green
+    Write-Host "`nPreprocessing hello source file ..." -ForegroundColor Green
 
     # This procedure creates a new file with $destBlobName
     $sourceBlobName = "example/data/sample.log"
     $destBlobName = "tutorials/usesqoop/data/sample.log"
 
-    # Define the connection string
+    # Define hello connection string
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
     $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
 
-    # Create block blob objects referencing the source and destination blob.
+    # Create block blob objects referencing hello source and destination blob.
     $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $defaultStorageAccountName
     $storageContainer = ($storageAccount |Get-AzureStorageContainer -Name $defaultBlobContainerName).CloudBlobContainer
     $sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
     $destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
 
-    # Define a MemoryStream and a StreamReader for reading from the source file
+    # Define a MemoryStream and a StreamReader for reading from hello source file
     $stream = New-Object System.IO.MemoryStream
     $stream = $sourceBlob.OpenRead()
     $sReader = New-Object System.IO.StreamReader($stream)
 
-    # Define a MemoryStream and a StreamWriter for writing into the destination file
+    # Define a MemoryStream and a StreamWriter for writing into hello destination file
     $memStream = New-Object System.IO.MemoryStream
     $writeStream = New-Object System.IO.StreamWriter $memStream
 
-    # Pre-process the source blob
+    # Pre-process hello source blob
     $exString = "java.lang.Exception:"
     while(-Not $sReader.EndOfStream){
         $line = $sReader.ReadLine()
         $split = $line.Split(" ")
 
-        # remove the "java.lang.Exception" from the first element of the array
+        # remove hello "java.lang.Exception" from hello first element of hello array
         # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
         if ($split[0] -eq $exString){
-            #create a new ArrayList to remove $split[0]
+            #create a new ArrayList tooremove $split[0]
             $newArray = [System.Collections.ArrayList] $split
             $newArray.Remove($exString)
 
@@ -111,23 +111,23 @@ Poniższy skrypt programu PowerShell wstępnie przetwarza plik źródłowy i eks
             $line = $newArray -join(" ")
         }
 
-        # remove the lines that has less than 7 elements
+        # remove hello lines that has less than 7 elements
         if ($split.count -ge 7){
             write-host $line
             $writeStream.WriteLine($line)
         }
     }
 
-    # Write to the destination blob
+    # Write toohello destination blob
     $writeStream.Flush()
     $memStream.Seek(0, "Begin")
     $destBlob.UploadFromStream($memStream)
 
     #endregion
 
-    #region - export the log file from the cluster to the SQL database
+    #region - export hello log file from hello cluster toohello SQL database
 
-    Write-Host "Exporting the log file ..." -ForegroundColor Green
+    Write-Host "Exporting hello log file ..." -ForegroundColor Green
 
     $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
     $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
@@ -166,14 +166,14 @@ Poniższy skrypt programu PowerShell wstępnie przetwarza plik źródłowy i eks
     #endregion
 
 ## <a name="limitations"></a>Ograniczenia
-* Zbiorcze export - opartych na systemie Linux z usługi HDInsight, łącznik Sqoop, używany do eksportowania danych do programu Microsoft SQL Server lub bazy danych SQL Azure nie obsługuje obecnie zbiorcze operacje wstawiania.
-* Przetwarzanie wsadowe — z opartą na systemie Linux usługą HDInsight przy użyciu `-batch` przełączyć podczas wykonywania operacji wstawienia, Sqoop będzie wykonywać wiele operacji wstawienia zamiast przetwarzanie wsadowe operacji insert.
+* Masowo export - HDInsight opartych na systemie Linux z, hello Sqoop łącznik używany tooexport danych tooMicrosoft serwera SQL lub bazy danych SQL Azure nie obsługuje obecnie zbiorcze operacje wstawiania.
+* Przetwarzanie wsadowe — z opartą na systemie Linux usługą HDInsight przy użyciu hello `-batch` przełączyć podczas wykonywania operacji wstawienia, Sqoop będzie wykonywać wiele operacji wstawienia zamiast przetwarzanie wsadowe hello operacje wstawiania.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz ma przedstawiono sposób używania Sqoop. Aby dowiedzieć się więcej, zobacz:
+Teraz wiesz już, jak toouse Sqoop. toolearn więcej, zobacz:
 
 * [Korzystanie z usługą HDInsight Oozie](hdinsight-use-oozie.md): Użyj Sqoop działań w przepływie pracy Oozie.
-* [Analizowanie danych opóźnienie transmitowane przy użyciu usługi HDInsight](hdinsight-analyze-flight-delay-data.md): Użyj gałąź rejestru, aby transmitowane analizować opóźnienie danych, a następnie użyj Sqoop eksportować dane do bazy danych Azure SQL.
-* [Przekazywanie danych do usługi HDInsight](hdinsight-upload-data.md): znajdowanie innych metod do przekazywania danych do magazynu obiektów Blob HDInsight/Azure.
+* [Analizowanie danych opóźnienie transmitowane przy użyciu usługi HDInsight](hdinsight-analyze-flight-delay-data.md): Użyj Hive transmitowane tooanalyze opóźnienie danych, a następnie użyj bazy danych Azure SQL tooan Sqoop tooexport danych.
+* [Przekazywanie danych tooHDInsight](hdinsight-upload-data.md): znajdowanie innych metod do przekazywania danych tooHDInsight/usługi Azure Blob storage.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Zscaler ZSCloud | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Zscaler ZSCloud."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Zscaler ZSCloud."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 2b6eb113e5725260bc04f50e9218939bf28b1ff0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: af6d5c1994e715cccf959cc9fd3ba998e5b9effa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Samouczek: Integracji Azure Active Directory z Zscaler ZSCloud
 
-Z tego samouczka dowiesz się integrowanie Zscaler ZSCloud z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate Zscaler ZSCloud w usłudze Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Zscaler ZSCloud zapewnia następujące korzyści:
+Integracja z usługą Azure AD Zscaler ZSCloud zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do Zscaler ZSCloud
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do Zscaler ZSCloud (logowanie jednokrotne) z konta usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooZscaler ZSCloud
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooZscaler ZSCloud (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z Zscaler ZSCloud, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z Zscaler ZSCloud należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Zscaler ZSCloud logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Zscaler ZSCloud z galerii
+1. Dodawanie Zscaler ZSCloud z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Dodawanie Zscaler ZSCloud z galerii
-Aby skonfigurować integrację usługi Azure AD Zscaler ZSCloud, należy dodać Zscaler ZSCloud z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-zscaler-zscloud-from-hello-gallery"></a>Dodawanie Zscaler ZSCloud z galerii hello
+tooconfigure hello integracji Zscaler ZSCloud do usługi Azure AD, należy tooadd Zscaler ZSCloud z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać Zscaler ZSCloud z galerii, wykonaj następujące czynności:**
+**tooadd Zscaler ZSCloud z galerii hello wykonaj hello następujące kroki:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **Zscaler ZSCloud**.
+4. W polu wyszukiwania hello wpisz **Zscaler ZSCloud**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_search.png)
 
-5. W panelu wyników wybierz **Zscaler ZSCloud**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello, wybierz **Zscaler ZSCloud**, a następnie kliknij przycisk **Dodaj** przycisk tooadd hello aplikacji.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i test usługi Azure AD rejestracji jednokrotnej z Zscaler ZSCloud oparte na użytkownika testowego o nazwie "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Zscaler ZSCloud jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Zscaler ZSCloud musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Zscaler ZSCloud jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Zscaler ZSCloud musi toobe ustanowione.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w Zscaler ZSCloud.
+Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w Zscaler ZSCloud.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Zscaler ZSCloud, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Zscaler ZSCloud, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Konfigurowanie ustawień serwera proxy](#configuring-proxy-settings)**  — Aby skonfigurować ustawienia serwera proxy w programie Internet Explorer
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Zscaler ZSCloud](#creating-a-zscaler-zscloud-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Zscaler ZSCloud, połączonej z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Konfigurowanie ustawień serwera proxy](#configuring-proxy-settings)**  — ustawienia serwera proxy hello tooconfigure w programie Internet Explorer
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Zscaler ZSCloud](#creating-a-zscaler-zscloud-test-user)**  -toohave odpowiednikiem Simona Britta w Zscaler ZSCloud, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Zscaler ZSCloud.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Zscaler ZSCloud.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Zscaler ZSCloud, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z Zscaler ZSCloud wykonaj hello następujące kroki:**
 
-1. W portalu Azure na **Zscaler ZSCloud** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **Zscaler ZSCloud** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_samlbase.png)
 
-3. Na **Zscaler ZSCloud domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **Zscaler ZSCloud domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_url.png)
 
-     W **adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego do aplikacji ZScaler ZSCloud.
+     W hello **adres URL logowania** pole tekstowe, wprowadź adres URL hello używany przez Twoje użytkowników toosign na tooyour ZScaler ZSCloud aplikacji.
     
     > [!NOTE] 
-    > Należy zaktualizować tę wartość z adresem URL logowania rzeczywistych. Skontaktuj się z [zespołem pomocy technicznej klienta ZSCloud Zscaler](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint) aby zyskać tę wartość. 
+    > Masz tooupdate tej wartości z hello rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta ZSCloud Zscaler](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint) tooget tej wartości. 
  
-4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_certificate.png) 
 
@@ -124,13 +124,13 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_general_400.png)
 
-6. Na **Zscaler ZSCloud konfiguracji** kliknij **skonfigurować Zscaler ZSCloud** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na powitania **konfiguracji ZSCloud Zscaler** kliknij **skonfigurować Zscaler ZSCloud** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_configure.png) 
 
-7. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy ZScaler ZSCloud.
+7. W oknie przeglądarki innej witryny sieci web Zaloguj się za tooyour ZScaler ZSCloud witryny firmy jako administrator.
 
-8. W menu u góry kliknij **administracji**.
+8. W menu hello na górze hello, kliknij przycisk **administracji**.
    
     ![Administracja](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800206.png "administracji")
 
@@ -138,7 +138,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
             
     ![Zarządzaj użytkownikami & uwierzytelniania](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800207.png "zarządzania użytkownikami i uwierzytelniania")
 
-10. W **wybierz opcje uwierzytelniania dla Twojej organizacji** sekcji, wykonaj następujące czynności:   
+10. W hello **wybierz opcje uwierzytelniania dla Twojej organizacji** sekcji, wykonaj następujące kroki hello:   
                 
     ![Uwierzytelnianie](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800208.png "uwierzytelniania")
    
@@ -146,19 +146,19 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Kliknij przycisk **skonfigurować SAML pojedynczego logowania jednokrotnego parametry**.
 
-11. Na **skonfigurować SAML pojedynczych logowania jednokrotnego parametrów** strony okna dialogowego, wykonaj następujące czynności, a następnie kliknij **gotowe**
+11. Na powitania **skonfigurować SAML pojedynczych logowania jednokrotnego parametrów** strony okna dialogowego, wykonaj następujące kroki hello, a następnie kliknij **gotowe**
 
     ![Logowanie jednokrotne](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800209.png "logowanie jednokrotne")
     
-    a. Wklej **SAML pojedynczy znak na adres URL usługi** wartości do **adres URL portalu SAML, do którego użytkownicy są wysyłane do uwierzytelniania** pola tekstowego.
+    a. Wklej hello **SAML pojedynczy znak na adres URL usługi** wartości do hello **adres URL hello SAML portalu toowhich użytkowników są wysyłane do uwierzytelniania** pola tekstowego.
     
-    b. W **atrybutu zawierającego nazwę logowania** pole tekstowe, typ **NameID**.
+    b. W hello **atrybutu zawierającego nazwę logowania** pole tekstowe, typ **NameID**.
     
-    c. Aby przekazać certyfikat pobrany, kliknij przycisk **Zscaler pem**.
+    c. tooupload pobranego certyfikatu, kliknij przycisk **Zscaler pem**.
     
     d. Wybierz **Włącz SAML automatycznego inicjowania obsługi**.
 
-12. Na **skonfigurować uwierzytelnianie użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+12. Na powitania **skonfigurować uwierzytelnianie użytkownika** okna dialogowego wykonaj hello następujące kroki:
 
     ![Administracja](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800210.png "administracji")
     
@@ -167,75 +167,75 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     b. Kliknij przycisk **Aktywuj teraz**.
 
 ## <a name="configuring-proxy-settings"></a>Konfigurowanie ustawień serwera proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Aby skonfigurować ustawienia serwera proxy w programie Internet Explorer
+### <a name="tooconfigure-hello-proxy-settings-in-internet-explorer"></a>ustawienia serwera proxy hello tooconfigure w programie Internet Explorer
 
 1. Uruchom **programu Internet Explorer**.
 
-2. Wybierz **Opcje internetowe** z **narzędzia** menu otwartego **Opcje internetowe** okna dialogowego.   
+2. Wybierz **Opcje internetowe** z hello **narzędzia** menu Otwórz hello **Opcje internetowe** okna dialogowego.   
     
      ![Opcje internetowe](./media/active-directory-saas-zscaler-zscloud-tutorial/ic769492.png "Opcje internetowe")
 
-3. Kliknij przycisk **połączeń** kartę.   
+3. Kliknij przycisk hello **połączeń** kartę.   
   
      ![Połączenia](./media/active-directory-saas-zscaler-zscloud-tutorial/ic769493.png "połączeń")
 
-4. Kliknij przycisk **ustawienia sieci LAN** otworzyć **ustawienia sieci LAN** okna dialogowego.
+4. Kliknij przycisk **ustawienia sieci LAN** tooopen hello **ustawienia sieci LAN** okna dialogowego.
 
-5. W sekcji serwer Proxy wykonaj następujące czynności:   
+5. W sekcji serwer Proxy hello wykonaj hello następujące kroki:   
    
     ![Serwer proxy](./media/active-directory-saas-zscaler-zscloud-tutorial/ic769494.png "serwera Proxy")
 
     a. Wybierz **Użyj serwera proxy dla sieci LAN**.
 
-    b. W polu tekstowym adres typu **gateway.zscalerone.net**.
+    b. W polu tekstowym adres hello, wpisz **gateway.zscalerone.net**.
 
-    c. W polu tekstowym portu, wpisz **80**.
+    c. W polu tekstowym portu hello, wpisz **80**.
 
     d. Wybierz **używaj serwera proxy dla adresów lokalnych**.
 
-    e. Kliknij przycisk **OK** zamknąć **ustawienia sieci lokalnej (LAN)** okna dialogowego.
+    e. Kliknij przycisk **OK** tooclose hello **ustawienia sieci lokalnej (LAN)** okna dialogowego.
 
-6. Kliknij przycisk **OK** zamknąć **Opcje internetowe** okna dialogowego.
+6. Kliknij przycisk **OK** tooclose hello **Opcje internetowe** okna dialogowego.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-zscaler-zscloud-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-zscaler-zscloud-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-zscaler-zscloud-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-zscaler-zscloud-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="creating-a-zscaler-zscloud-test-user"></a>Tworzenie użytkownika testowego Zscaler ZSCloud
 
-Aby umożliwić użytkownikom usługi Azure AD zalogować się do ZScaler ZSCloud, muszą mieć przydzielone do ZScaler ZSCloud.  
-W przypadku ZScaler ZSCloud Inicjowanie obsługi to zadanie ręczne.
+tooenable usługi Azure AD użytkownicy toolog tooZScaler ZSCloud, muszą być elastycznie tooZScaler ZSCloud.  
+W przypadku hello ZScaler ZSCloud Inicjowanie obsługi to zadanie ręczne.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:
+### <a name="tooconfigure-user-provisioning-perform-hello-following-steps"></a>tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:
 
-1. Zaloguj się do Twojego **Zscaler** dzierżawy.
+1. Zaloguj się za tooyour **Zscaler** dzierżawy.
 
 2. Kliknij przycisk **administracji**.   
    
@@ -245,38 +245,38 @@ W przypadku ZScaler ZSCloud Inicjowanie obsługi to zadanie ręczne.
         
      ![Dodaj](./media/active-directory-saas-zscaler-zscloud-tutorial/ic781037.png "Dodaj")
 
-4. W **użytkowników** , kliknij pozycję **Dodaj**.
+4. W hello **użytkowników** , kliknij pozycję **Dodaj**.
       
     ![Dodaj](./media/active-directory-saas-zscaler-zscloud-tutorial/ic781037.png "Dodaj")
 
-5. W sekcji Dodaj użytkownika wykonaj następujące czynności:
+5. W sekcji Dodaj użytkownika hello wykonaj hello następujące kroki:
         
     ![Dodaj użytkownika](./media/active-directory-saas-zscaler-zscloud-tutorial/ic781038.png "Dodaj użytkownika")
    
-    a. Typu **UserID**, **Nazwa wyświetlana użytkownika**, **hasło**, **Potwierdź hasło**, a następnie wybierz **grup** i **działu** poprawnego konta usługi AAD chcesz udostępnić.
+    a. Hello typu **UserID**, **Nazwa wyświetlana użytkownika**, **hasło**, **Potwierdź hasło**, a następnie wybierz **grup**i hello **działu** ma tooprovision poprawnego konta usługi AAD.
 
     b. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
-> Możesz użyć innych ZScaler ZSCloud użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez ZScaler ZSCloud do kont użytkowników usługi AAD.
+> Możesz użyć innych ZScaler ZSCloud użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez tooprovision ZScaler ZSCloud kont użytkowników usługi AAD.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Zscaler ZSCloud.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooZscaler ZSCloud.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta Zscaler ZSCloud, wykonaj następujące czynności:**
+**tooassign tooZscaler Simona Britta ZSCloud, wykonaj następujące kroki hello:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **Zscaler ZSCloud**.
+2. Z listy aplikacji hello wybierz **Zscaler ZSCloud**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -284,7 +284,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -292,15 +292,15 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Jeśli chcesz przetestować jednego ustawienia logowania jednokrotnego, otwórz Panel dostępu.
+Jeśli chcesz tootest jednego ustawienia logowania jednokrotnego, otwórz hello panelu dostępu.
 
-Po kliknięciu kafelka Zscaler ZSCloud w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Zscaler ZSCloud.
+Po kliknięciu hello Zscaler ZSCloud kafelka w hello Panel dostępu, należy pobrać zalogowane automatycznie tooyour Zscaler ZSCloud aplikacji.
 
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
+Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

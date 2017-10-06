@@ -1,6 +1,6 @@
 ---
-title: Przypisywanie grup do aplikacji Azure AD | Dokumentacja firmy Microsoft
-description: "Jak zaimplementować przypisanie do grupy aplikacji Azure."
+title: aaaAssign grup aplikacji tooAzure AD | Dokumentacja firmy Microsoft
+description: Jak tooimplement grupy przypisania dla aplikacji platformy Azure.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -16,26 +16,26 @@ ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 robots: noindex
-ms.openlocfilehash: e0b0b87a454db96747f024e81882fe83d62fdbe2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 086619df09c13bf259afc3128d45ed804b99e519
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-azure-active-directory-groups-to-an-application"></a>Przypisywanie grup usługi Azure Active Directory do aplikacji
-Przed przypisaniem użytkowników i grup do aplikacji może wymagać przypisanie użytkownika. Aby dowiedzieć się, jak wymagają przypisania użytkownika, zobacz [wymagające przypisanie użytkownika](active-directory-applications-guiding-developers-requiring-user-assignment.md) artykułu.
+# <a name="assign-azure-active-directory-groups-tooan-application"></a>Przypisywanie grup usługi Azure Active Directory tooan aplikacji
+Przed przypisaniem użytkowników i grup tooan aplikacji może wymagać przypisanie użytkownika. toolearn jak toorequire przypisanie użytkownika, zobacz hello [wymagające przypisanie użytkownika](active-directory-applications-guiding-developers-requiring-user-assignment.md) artykułu.
 
-W tym artykule przyjęto założenie, że utworzono już grup w usłudze active directory, używanego dla tej aplikacji.
+W tym artykule przyjęto założenie, że utworzono już grup w usłudze active directory hello używanego dla tej aplikacji.
 
-## <a name="assigning-groups-to-an-application"></a>Przypisywanie grup do aplikacji
-1. Zaloguj się do portalu Azure przy użyciu konta administratora.
-2. Polecenie **wszystkie elementy** elementu w menu głównym.
-3. Wybierz katalog, w używanej aplikacji.
-4. Polecenie **aplikacji** kartę.
-5. Wybierz aplikację z listy aplikacji skojarzonych z tym katalogiem.
-6. Kliknij przycisk **użytkowników i grup** kartę.
-7. Filtrowanie listy grup w usłudze active directory przy użyciu **grup** listy rozwijanej.
-8. Wybierz grupę.
+## <a name="assigning-groups-tooan-application"></a>Przypisywanie tooan grup aplikacji
+1. Zaloguj się za toohello portalu Azure przy użyciu konta administratora.
+2. Polecenie hello **wszystkie elementy** element w menu głównym hello.
+3. Wybierz katalog hello, używanego dla aplikacji hello.
+4. Polecenie hello **aplikacji** kartę.
+5. Wybierz aplikację hello z hello listy aplikacji skojarzonych z tym katalogiem.
+6. Kliknij przycisk hello **użytkowników i grup** kartę.
+7. Lista hello filtrów grup w usłudze active directory przy użyciu hello **grup** listy rozwijanej.
+8. Wybierz grupę hello.
 9. Kliknij przycisk **PRZYPISAĆ**.
 10. Kliknij przycisk **tak** po wyświetleniu monitu.
 

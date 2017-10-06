@@ -1,5 +1,5 @@
 ---
-title: "Monitorowanie użycia i wydajności klasycznych aplikacji systemu Windows"
+title: "aaaMonitoring użycia i wydajności dla aplikacji klasycznych systemu Windows"
 description: "Analizowanie użycia i wydajności klasycznej aplikacji systemu Windows za pomocą usług HockeyApp i Application Insights."
 services: application-insights
 documentationcenter: windows
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: bwren
-ms.openlocfilehash: 9d7e2a390adf10cbf5d88dd0084ce09136987309
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 73806885a6f0ed3896c0e43308c90ba087007887
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Monitorowanie użycia i wydajności klasycznych aplikacji systemu Windows
 
@@ -25,27 +25,27 @@ ms.lasthandoff: 08/18/2017
 Usługi [Azure Application Insights](app-insights-overview.md) i [HockeyApp](https://hockeyapp.net) umożliwiają monitorowanie wdrożonej aplikacji pod kątem użycia i wydajności.
 
 > [!IMPORTANT]
-> Zalecamy użycie usługi [HockeyApp](https://hockeyapp.net) do dystrybucji i monitorowania aplikacji klasycznych i urządzenia. Za pomocą usługi HockeyApp można zarządzać dystrybucją, testowaniem na żywo i opiniami użytkowników oraz monitorować raporty użycia i awarii. Możesz również [eksportować telemetrię i tworzyć zapytania do niej za pomocą funkcji analizy](app-insights-hockeyapp-bridge-app.md).
+> Firma Microsoft zaleca [HockeyApp](https://hockeyapp.net) toodistribute i monitorowanie aplikacji pulpitu i urządzenia. Za pomocą usługi HockeyApp można zarządzać dystrybucją, testowaniem na żywo i opiniami użytkowników oraz monitorować raporty użycia i awarii. Możesz również [eksportować telemetrię i tworzyć zapytania do niej za pomocą funkcji analizy](app-insights-hockeyapp-bridge-app.md).
 > 
-> Chociaż telemetria może być wysyłana do usługi Application Insights z klasycznej aplikacji, jest to głównie przydatne podczas debugowania i do celów doświadczalnych.
+> Mimo że telemetrii można wysyłać tooApplication Insights z aplikacją, jest głównie przydatna do celów debugowania i eksperymentalne.
 > 
 > 
 
-## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Aby wysłać dane telemetryczne do usługi Application Insights z aplikacji systemu Windows
-1. W witrynie [Azure Portal](https://portal.azure.com) [utwórz zasób usługi Application Insights](app-insights-create-new-resource.md). Jako typ aplikacji wybierz ASP.NET.
-2. Wykonaj kopię klucza instrumentacji. Klucz można znaleźć na liście rozwijanej Podstawy dla nowego zasobu, który właśnie został utworzony. 
-3. W programie Visual Studio edytuj pakiety NuGet projektu aplikacji, a następnie dodaj interfejs Microsoft.ApplicationInsights.WindowsServer. (Lub wybierz interfejs Microsoft.ApplicationInsights, jeśli potrzebny jest tylko podstawowy interfejs API bez standardowych modułów gromadzenia telemetrii).
-4. Ustaw klucz instrumentacji w kodzie:
+## <a name="toosend-telemetry-tooapplication-insights-from-a-windows-application"></a>toosend telemetrii tooApplication szczegółowych informacji z aplikacji systemu Windows
+1. W hello [portalu Azure](https://portal.azure.com), [utworzyć zasobu usługi Application Insights](app-insights-create-new-resource.md). Jako typ aplikacji wybierz ASP.NET.
+2. Należy wykonać kopię hello klucza instrumentacji. Znajdź klucz hello w hello rozwijanej Essentials hello nowy zasób, który właśnie utworzony. 
+3. W programie Visual Studio Edytuj hello pakietów NuGet projektu aplikacji, a następnie dodaj Microsoft.ApplicationInsights.WindowsServer. (Lub wybierz Microsoft.ApplicationInsights, jeśli chcesz hello API systemu od zera, bez modułów kolekcji standardowych telemetrii hello.)
+4. Ustaw hello klucza Instrumentacji w kodzie:
    
     `TelemetryConfiguration.Active.InstrumentationKey = "` *Twój klucz* `";` 
    
-    albo w pliku ApplicationInsights.config (jeśli został zainstalowany jeden ze standardowych pakietów telemetrii):
+    lub ApplicationInsights.config (jeśli został zainstalowany jeden z pakietów standardowe telemetrii hello):
    
     `<InstrumentationKey>`*Twój klucz*`</InstrumentationKey>` 
    
-    Jeśli używasz pliku ApplicationInsights.config, upewnij się, że jego właściwości w Eksploratorze rozwiązań zostały ustawione na **Akcja kompilacji = Zawartość, Kopiuj do katalogu wyjściowego = Kopiuj**.
-5. [Użyj interfejsu API](app-insights-api-custom-events-metrics.md), aby wysłać telemetrię.
-6. Uruchom aplikację i wyświetl dane telemetryczne w zasobie utworzonym w witrynie Azure Portal.
+    Jeśli używasz ApplicationInsights.config, upewnij się, jego właściwości w Eksploratorze rozwiązań są ustawiane za**Akcja kompilacji = zawartość, tooOutput kopiowania katalogu = kopiowania**.
+5. [Za pomocą interfejsu API hello](app-insights-api-custom-events-metrics.md) toosend telemetrii.
+6. Uruchom aplikację i wyświetlić dane telemetryczne hello w zasobie hello, utworzony w hello portalu Azure.
 
 ## <a name="telemetry"></a>Przykładowy kod
 ```C#
@@ -56,7 +56,7 @@ Usługi [Azure Application Insights](app-insights-overview.md) i [HockeyApp](htt
         ...
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Alternative to setting ikey in config file:
+            // Alternative toosetting ikey in config file:
             tc.InstrumentationKey = "key copied from portal";
 
             // Set session data:

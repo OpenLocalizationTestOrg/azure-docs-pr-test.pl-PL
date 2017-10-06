@@ -1,5 +1,5 @@
 ---
-title: "Używanie agentów maszyn wirtualnych platformy Azure w celu zapewnienia ciągłej integracji z usługą Jenkins."
+title: "aaaUse agentów maszyny Wirtualnej platformy Azure dla ciągłej integracji z Wpięć."
 description: "Agenty maszyn wirtualnych platformy Azure jako elementy podrzędne usługi Jenkins."
 services: multiple
 documentationcenter: 
@@ -15,57 +15,57 @@ ms.topic: hero-article
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0b22a559fbc03158a6d4398603d1a7d2874d7b67
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2388e6919d0280372166fbd325d80dafb00d7550
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-vm-agents-for-continuous-integration-with-jenkins"></a>Używanie agentów maszyn wirtualnych platformy Azure w celu zapewnienia ciągłej integracji z usługą Jenkins.
 
-Ten przewodnik Szybki start opisuje, jak przy użyciu wtyczki agentów maszyn wirtualnych platformy Azure dla usługi Jenkins utworzyć agenta systemu Linux (Ubuntu) na platformie Azure na żądanie.
+Ta opcja szybkiego startu pokazuje, jak toouse hello toocreate wtyczki Wpięć Azure VM agentów na żądanie agenta systemu Linux (Ubuntu) na platformie Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki start:
+toocomplete tego przewodnika Szybki Start:
 
-* Jeśli nie masz jeszcze wzorca usługi Jenkins, możesz na początek użyć [szablonu rozwiązania](install-jenkins-solution-template.md). 
-* Jeśli nie masz jeszcze jednostki usługi Azure, zobacz artykuł [Tworzenie jednostki usługi platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
+* Jeśli nie masz już wzorca Wpięć, można uruchomić z poziomu hello [szablon rozwiązania](install-jenkins-solution-template.md) 
+* Odwołuje się zbyt[Tworzenie nazwy głównej usługi Azure Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) Jeśli nie masz już nazwę główną usługi Azure.
 
 ## <a name="install-azure-vm-agents-plugin"></a>Instalowanie wtyczki agentów maszyn wirtualnych platformy Azure
 
-Jeśli używasz [szablonu rozwiązania](install-jenkins-solution-template.md), wtyczka agentów maszyn wirtualnych platformy Azure jest zainstalowana we wzorcu usługi Jenkins.
+Jeśli zostanie uruchomione z hello [szablon rozwiązania](install-jenkins-solution-template.md), hello wtyczki Agent maszyny Wirtualnej jest zainstalowany w hello Wpięć wzorca.
 
-W innym przypadku zainstaluj wtyczkę **agentów maszyn wirtualnych platformy Azure** z poziomu pulpitu nawigacyjnego usługi Jenkins.
+W przeciwnym razie zainstaluj hello **agentów maszyny Wirtualnej Azure** wtyczki z wewnątrz pulpitu nawigacyjnego Wpięć hello.
 
-## <a name="configure-the-plugin"></a>Konfigurowanie wtyczki
+## <a name="configure-hello-plugin"></a>Skonfiguruj wtyczkę hello
 
-* Na pulpicie nawigacyjnym usługi Jenkins kliknij **Manage Jenkins -> Configure System** (Zarządzanie usługą Jenkins -> Konfiguracja systemu). Przewiń do dołu strony i znajdź sekcję z listą rozwijaną **Add new cloud** (Dodaj nową chmurę). Wybierz z menu opcję **Microsoft Azure VM Agents** (Agenty maszyn wirtualnych platformy Microsoft Azure).
-* Wybierz istniejące konto z listy rozwijanej Azure Credentials (Poświadczenia platformy Azure).  Aby dodać nową jednostkę usługi Microsoft Azure (**Microsoft Azure Service Principal**), wprowadź następujące wartości: Subscription ID (Identyfikator subskrypcji), Client ID (Identyfikator klienta), Client Secret (Klucz tajny klienta) i OAuth 2.0 Token Endpoint (Punkt końcowy tokenu OAuth 2.0).
+* W ramach hello Wpięć pulpitu nawigacyjnego, kliknij przycisk **Wpięć Zarządzanie -> skonfiguruj System ->**. Przewiń toohello u dołu strony hello i Znajdź sekcję hello z listy rozwijanej hello **Dodaj nowe chmury**. Wybierz z hello menu **agentów programu Microsoft Azure maszyny Wirtualnej**
+* Wybierz istniejące konto z listy rozwijanej poświadczenia Azure hello.  tooadd nowy **nazwy głównej usługi Azure firmy Microsoft,** wprowadź hello następujące wartości: identyfikator subskrypcji, Identyfikatora klienta, klucz tajny klienta i końcowym tokenów OAuth 2.0.
 
 ![Poświadczenia platformy Azure](./media/jenkins-azure-vm-agents/service-principal.png)
 
-* Kliknij przycisk **Verify configuration** (Sprawdź konfigurację), aby upewnić się, że konfiguracja profilu jest prawidłowa.
-* Zapisz konfigurację i przejdź do następnego kroku.
+* Kliknij przycisk **konfiguracji Sprawdź** toomake się, że hello profilu konfiguracji są poprawne.
+* Zapisz konfigurację hello i kontynuować toohello następnego kroku.
 
 ## <a name="template-configuration"></a>Konfigurowanie szablonu
 
 ### <a name="general-configuration"></a>Konfiguracja ogólna
-Następnie skonfiguruj szablon używany do definiowania agenta maszyny wirtualnej platformy Azure. 
+Skonfiguruj szablon do użycia toodefine agenta maszyny Wirtualnej platformy Azure. 
 
-* Kliknij przycisk **Add** (Dodaj), aby dodać szablon. 
+* Kliknij przycisk **Dodaj** tooadd szablonu. 
 * Wpisz nazwę nowego szablonu. 
-* Jako etykietę wprowadź wartość „ubuntu”. Ta etykieta jest używana podczas konfigurowania zadania.
-* Wybierz region z pola kombi.
-* Wybierz rozmiar maszyny wirtualnej.
-* Określ nazwę konta Azure Storage lub pozostaw to pole puste, aby użyć domyślnej nazwy „jenkinsarmst”.
-* Określ czas przechowywania w minutach. To ustawienie określa liczbę minut, po jakiej usługa Jenkins automatycznie usunie bezczynnego agenta. Wpisz 0, jeśli nie chcesz, aby bezczynne agenty były automatycznie usuwane.
+* Etykiety hello wprowadź "ubuntu." Etykieta jest używany podczas konfigurowania zadania hello.
+* Wybierz odpowiedni region hello z hello pola kombi.
+* Witaj wybierz żądany rozmiar maszyny Wirtualnej.
+* Określ nazwę konta usługi Azure Storage hello lub pozostaw nazwę domyślną hello puste toouse "jenkinsarmst."
+* Określ czas przechowywania hello w minutach. To ustawienie określa hello liczbę minut oczekiwania przez Wpięć przed usunięciem automatycznie bezczynności agenta. Określ 0, jeśli nie chcesz toobe bezczynności agentów automatycznie usuwane.
 
 ![Konfiguracja ogólna](./media/jenkins-azure-vm-agents/general-config.png)
 
 ### <a name="image-configuration"></a>Konfiguracja obrazu
 
-Aby utworzyć agenta systemu Linux (Ubuntu), wybierz **Image reference** (Obraz odniesienia) i użyj poniższej konfiguracji jako przykładu. Najnowsze obrazy obsługiwane przez platformę Azure znajdziesz w portalu [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1).
+Wybierz toocreate agenta systemu Linux (Ubuntu), **obrazu odniesienia** i użyj powitania po konfiguracji, na przykład. Odwołuje się zbyt[portalu Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) hello Azure najnowsze obsługiwanych obrazów.
 
 * Image Publisher: Canonical
 * Image Offer: UbuntuServer
@@ -84,23 +84,23 @@ sudo apt-get install -y openjdk-7-jdk
 ```
 ![Konfiguracja obrazu](./media/jenkins-azure-vm-agents/image-config.png)
 
-* Kliknij przycisk **Verify template** (Sprawdź szablon), aby sprawdzić konfigurację.
-* Kliknij przycisk **Save** (Zapisz).
+* Kliknij przycisk **Sprawdź szablon** tooverify hello konfiguracji.
+* Kliknij pozycję **Zapisz**.
 
 ## <a name="create-a-job-in-jenkins"></a>Tworzenie zadania w usłudze Jenkins
 
-* Na pulpicie nawigacyjnym usługi Jenkins kliknij **New Item** (Nowy element). 
+* W ramach hello Wpięć pulpitu nawigacyjnego, kliknij przycisk **nowy element**. 
 * Wprowadź nazwę, wybierz **Freestyle project** (Projekt Freestyle) i kliknij przycisk **OK**.
-* Na karcie **General** (Ogólne) wybierz opcję „Restrict where project can be run” (Ogranicz miejsca uruchomienia projektu) i wpisz „ubuntu” w polu Label Expression (Wyrażenie etykiety). Na liście rozwijanej pojawi się pozycja „ubuntu”.
-* Kliknij przycisk **Save** (Zapisz).
+* W hello **ogólne** kartę, wybierz "Ograniczenia, gdzie można uruchomić projektu" i typie "ubuntu" w wyrażeniu etykiety. Pojawi się "ubuntu" w hello listy rozwijanej.
+* Kliknij pozycję **Zapisz**.
 
 ![Konfigurowanie zadania](./media/jenkins-azure-vm-agents/job-config.png)
 
 ## <a name="build-your-new-project"></a>Tworzenie nowego projektu
 
-* Wróć do pulpitu nawigacyjnego usługi Jenkins.
-* Kliknij prawym przyciskiem myszy nowo utworzone zadanie, a następnie kliknij przycisk **Build now** (Skompiluj teraz). Rozpocznie się kompilowanie. 
-* Po ukończeniu kompilacji przejdź do obszaru **Console output** (Dane wyjściowe konsoli). Będzie widać, że kompilacja została wykonana zdalnie na platformie Azure.
+* Wrócić do poprzedniej strony pulpitu nawigacyjnego Wpięć toohello.
+* Utworzono nowe zadanie powitania kliknij prawym przyciskiem myszy, kliknij przycisk **kompilacji teraz**. Rozpocznie się kompilowanie. 
+* Po zakończeniu kompilacji hello Przejdź zbyt**dane wyjściowe konsoli**. Możesz sprawdzić, czy hello kompilacji została wykonana zdalnie na platformie Azure.
 
 ![Dane wyjściowe konsoli](./media/jenkins-azure-vm-agents/console-output.png)
 

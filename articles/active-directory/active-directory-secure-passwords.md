@@ -1,5 +1,5 @@
 ---
-title: "Usługi Azure AD do warstwy zabezpieczeń hasła | Dokumentacja firmy Microsoft"
+title: "aaaAzure AD do warstwy zabezpieczeń hasła | Dokumentacja firmy Microsoft"
 description: "Wyjaśniono, jak usługi Azure AD wymusza silne hasła i uniemożliwia hasła użytkowników przez przestępców,"
 services: active-directory
 documentationcenter: 
@@ -13,77 +13,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: joflore
-ms.openlocfilehash: 32464307ccb082b25538eaa522c1cdedef1ca555
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 10d8b600d9f4c02355b2cd8c5dccf8505aaf210d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>To podejście wielowarstwowych zabezpieczeń hasła usługi Azure AD
+# <a name="a-multi-tiered-approach-tooazure-ad-password-security"></a>Wielowarstwowa podejście tooAzure AD hasło zabezpieczeń
 
-W tym artykule omówiono najlepsze rozwiązania można wykonać jako użytkownik lub administrator do ochrony usługi Azure Active Directory (Azure AD) Account firmy Microsoft.
+W tym artykule omówiono najlepsze rozwiązania z usługi Azure Active Directory (Azure AD) lub Account Microsoft można wykonać jako użytkownik lub administrator tooprotect.
 
  > [!NOTE]
- > Administratorzy usług Azure AD można zresetować hasło użytkownika za pomocą wskazówki zawarte w artykule [resetowania hasła dla użytkownika w usłudze Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > Administratorzy usług Azure AD mogą resetować hasła użytkownika przy użyciu wskazówek hello w artykule hello [hello zresetowano hasło użytkownika w usłudze Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
  >
- > Użytkownicy mogą resetować swoje hasła przy użyciu wskazówek w następującym artykule w [pomocy nie pamiętam hasła usługi Azure AD](active-directory-passwords-update-your-own-password.md).
+ > Użytkownicy mogą resetować swoje hasła przy użyciu wskazówek hello w artykule hello [pomocy nie pamiętam hasła usługi Azure AD](active-directory-passwords-update-your-own-password.md).
  >
 
 ## <a name="password-requirements"></a>Wymagania dotyczące hasła
 
-Usługa Azure AD zapewnia następujące popularne podejścia do zabezpieczania haseł:
+Usługi Azure AD zawiera następujące typowe hasła toosecuring podejścia hello:
 
 * Wymagania dotyczące długości hasła
 * Wymagania dotyczące złożoności hasła
 * Regularne i okresowe wygasanie haseł
 
-Aby uzyskać informacje o resetowania w usłudze Azure Active Directory, zobacz temat [usługi Azure AD samodzielnego resetowania haseł dla specjalistów IT](active-directory-passwords.md).
+Uzyskać informacji na temat resetowania w usłudze Azure Active Directory, zobacz temat hello [usługi Azure AD samodzielnego resetowania haseł dla specjalistów IT hello](active-directory-passwords.md).
 
 ## <a name="azure-ad-password-protections"></a>Zabezpieczenia hasła w usłudze Azure AD
 
-Usługi Azure AD i System obsługi kont Microsoft Użyj branży sprawdzonych metod w celu zabezpieczenia bezpiecznych haseł użytkowników i administratora, w tym:
+Usługi Azure AD i branży sprawdzone używane w systemie konta Microsoft hello zbliża się tooensure zabezpieczenie hasła użytkownika i administratora, w tym:
 
 * Hasła dynamicznie zakazane
 * Inteligentna blokada haseł
 
-Informacji na temat zarządzania hasłami oparte na bieżącej badań, można znaleźć w dokumencie [wskazówki dotyczące hasła](http://aka.ms/passwordguidance).
+Uzyskać informacji na temat zarządzania hasłami oparte na bieżącej badań, zobacz oficjalny dokument hello [wskazówki dotyczące hasła](http://aka.ms/passwordguidance).
 
 ### <a name="dynamically-banned-passwords"></a>Hasła dynamicznie zakazane
 
-Usługi Azure AD i Accounts Microsoft zabezpieczenia ochrony hasłem przez dynamicznie zakaz często używanych haseł. Zespół ds. usługi Azure ID Identity Protection regularnie analizuje listy zakazanych haseł, zapobiegając stosowaniu powszechnie używanych haseł przez użytkowników. Ta usługa jest dostępna dla klientów usługi Azure AD i usługi konta Microsoft.
+Usługi Azure AD i Accounts Microsoft zabezpieczenia ochrony hasłem przez dynamicznie zakaz często używanych haseł. zespół Azure identyfikator Identity Protection Hello regularnie analizuje listy zabronionych haseł, uniemożliwia wybranie często używanych haseł użytkowników. Ta usługa jest dostępna tooAzure AD i klienci usługi konta Microsoft hello.
 
-Podczas tworzenia haseł, jest ważne dla administratorów zachęcić pracowników do wybierz fraz hasła, które obejmują unikatowej kombinacji wartości litery, cyfry, znaki lub słowa. Takie podejście ułatwia niemal uniemożliwiają hasła użytkownika, którego bezpieczeństwo zostało naruszone ale łatwiejsze do zapamiętania przez użytkowników.
+Podczas tworzenia haseł, jest ważne dla administratorów tooencourage użytkowników toochoose hasło frazy, które obejmują unikatowej kombinacji wartości litery, cyfry, znaki lub słowa. Takie podejście ułatwia haseł użytkowników toomake toobe prawie niemożliwe naruszone, ale ułatwia tooremember użytkowników.
 
 #### <a name="password-breaches"></a>Naruszenia hasła
 
-Aby pozostać w jednym kroku wcześniejsze przez przestępców zawsze działa firmy Microsoft.
+Microsoft zawsze działa jeden krok toostay wcześniejsze przez przestępców.
 
-Zespół ds. usługi Azure AD Identity Protection nieustannie analizuje często używane hasła. Cyberprzestępcy również często stosują podobne strategie do przeprowadzania ataków, na przykład tworzą [tęczowe tablice](https://en.wikipedia.org/wiki/Rainbow_table) w celu łamania skrótów haseł.
+Zespół usługi Azure AD Identity Protection Hello stale analizuje haseł, które są często używane. Przez przestępców również użyć podobne tooinform strategii ich ataki, takie jak tworzenie [siłowe tabeli](https://en.wikipedia.org/wiki/Rainbow_table) dla łamania skrótów haseł.
 
-Firma Microsoft stale analizuje [naruszenia danych](https://www.privacyrights.org/data-breaches) w celu utrzymania dynamicznie aktualizowanej listy zakazanych haseł, dzięki której narażone hasła są zakazywane, zanim staną się prawdziwym zagrożeniem dla klientów usługi Azure AD. Więcej informacji o naszych bieżących działaniach związanych z zabezpieczeniami można znaleźć w raporcie analizy zabezpieczeń firmy Microsoft [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx).
+Firma Microsoft stale analizuje [naruszeń danych](https://www.privacyrights.org/data-breaches) toomaintain listy aktualizowany dynamicznie zabronione hasła, który zapewnia, że narażone hasła są niedozwolone, zanim staną się rzeczywistych zagrożenia tooAzure AD klientów. Aby uzyskać więcej informacji o bieżącym dążenie zabezpieczeń, zobacz hello [raportów analizy zabezpieczeń firmy Microsoft](https://www.microsoft.com/security/sir/default.aspx).
 
 ### <a name="smart-password-lockout"></a>Inteligentna blokada haseł
 
-Gdy usługa Azure AD wykryje próbę złamania hasła użytkownika przez potencjalnego przestępcę, blokujemy konto użytkownika przy użyciu funkcji inteligentnej blokady haseł. Usługę Azure AD zaprojektowano z myślą o określaniu ryzyka związanego z konkretnymi sesjami logowania. Następnie przy użyciu najbardziej aktualnych danych zabezpieczeń stosujemy semantyki blokady przestanie zagrożeniami przez.
+Usługi Azure AD wykryje potencjalne toohack w trakcie karne ataków na hasło użytkownika, możemy zablokowanie hello konto użytkownika z inteligentne blokady hasła. Zaprojektowano w usłudze Azure AD toodetermine hello ryzyka związanego z określonej sesji. Następnie przy użyciu najnowszych danych zabezpieczeń hello stosujemy blokady semantyki toostop przez zagrożeń.
 
-Jeśli użytkownik jest zablokowany z usługi Azure AD, ich ekran podobny do następującymi:
+Jeśli użytkownik jest zablokowany z usługi Azure AD, ich ekranu wygląda podobnie toohello, co który następuje:
 
   ![Blokada w usłudze Azure AD](./media/active-directory-secure-passwords/locked-out-azuread.png)
 
-W przypadku innych kont Microsoft ich ekranu wygląda podobnie do następującymi:
+Dla innego konta Microsoft ich ekranu wygląda podobnie toohello, co który następuje:
 
   ![Blokada konta Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Aby uzyskać informacje o resetowania w usłudze Azure Active Directory, zobacz temat [usługi Azure AD samodzielnego resetowania haseł dla specjalistów IT](active-directory-passwords.md).
+Uzyskać informacji na temat resetowania w usłudze Azure Active Directory, zobacz temat hello [usługi Azure AD samodzielnego resetowania haseł dla specjalistów IT hello](active-directory-passwords.md).
 
   >[!NOTE]
-  >Jeśli jesteś administratorem usługi Azure AD, możesz użyć usługi [Windows Hello](https://www.microsoft.com/windows/windows-hello), aby całkowicie uniknąć tworzenia tradycyjnych haseł przez użytkowników.
+  >Jeśli jesteś administratorem usługi Azure AD, możesz toouse [Windows Hello](https://www.microsoft.com/windows/windows-hello) tooavoid o użytkownikom tworzenie haseł tradycyjnych całkowicie.
   >
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Jak zaktualizować własne hasło](active-directory-passwords-update-your-own-password.md)
-* [The fundamentals of Azure identity management](fundamentals-identity.md) (Podstawy zarządzania tożsamościami w usłudze Azure)
+* [Jak tooupdate własnego hasła](active-directory-passwords-update-your-own-password.md)
+* [Witaj podstawowe informacje na temat zarządzania tożsamość platformy Azure](fundamentals-identity.md)
 * [Aktywność resetowania raportów dotyczących hasła](active-directory-passwords-reporting.md)
 
 

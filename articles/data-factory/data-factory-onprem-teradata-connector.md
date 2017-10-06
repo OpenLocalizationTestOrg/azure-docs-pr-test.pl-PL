@@ -1,6 +1,6 @@
 ---
-title: "Przenoszenia danych z programu Teradata przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat programu Teradata Connector dla usługi fabryka danych, które umożliwia przenoszenie danych z bazy danych programu Teradata"
+title: "aaaMove danych z programu Teradata przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat łącznika programu Teradata dla hello usługi fabryka danych, które umożliwia przenoszenie danych z bazy danych programu Teradata"
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,86 +14,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
-ms.openlocfilehash: 01edb32cd9e20d4199feac5b98a73aa06b74fec2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 79153476157666463b499edaa7585adaf8ad3bee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Przenoszenia danych z programu Teradata przy użyciu fabryki danych Azure
-W tym artykule opisano sposób używania działania kopiowania w fabryce danych Azure do przenoszenia danych z lokalną bazą danych programu Teradata. Opiera się na [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z działania kopiowania.
+W tym artykule opisano, jak toouse hello działanie kopiowania w fabryce danych Azure toomove danych z lokalną bazą danych programu Teradata. Opiera się na powitania [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z hello działanie kopiowania.
 
-Można skopiować danych z magazynu danych programu Teradata lokalnymi żadnych obsługiwanych ujścia magazynu danych. Lista magazynów danych obsługiwane jako wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. Fabryka danych aktualnie obsługuje tylko dane przenoszenie, z magazynu danych programu Teradata do innych magazynów danych, ale nie do przenoszenia danych z innych magazynów danych w magazynie danych programu Teradata. 
+Można skopiować danych z lokalnego Teradata magazynu tooany obsługiwane ujścia danych magazynu danych. Lista danych obsługiwane magazyny wychwytywanie przez działanie kopiowania hello, zobacz hello [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. Fabryka danych aktualnie obsługuje tylko przeniesienie tooother magazyny danych magazynu danych ze źródła danych programu Teradata, ale nie do przenoszenia danych z innym magazynie danych programu Teradata tooa danych magazynów. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Fabryka danych obsługuje połączenia ze źródłami Teradata lokalnej za pośrednictwem bramy zarządzania danymi. Zobacz [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu, aby dowiedzieć się więcej na temat bramy zarządzania danymi i instrukcje krok po kroku dotyczące konfigurowania bramy.
+Fabryka danych obsługuje łączącego źródła Teradata tooon lokalnego za pośrednictwem hello brama zarządzania danymi. Zobacz [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) toolearn artykuł o brama zarządzania danymi i instrukcje krok po kroku dotyczące konfigurowania bramy hello.
 
-Wymagana jest brama, nawet jeśli Teradata znajduje się w maszynie Wirtualnej platformy Azure IaaS. Można zainstalować bramę na tej samej maszyny Wirtualnej IaaS do przechowywania danych lub w innej maszyny Wirtualnej, tak długo, jak bramy można połączyć z bazą danych.
+Wymagana jest brama, nawet jeśli hello Teradata znajduje się w maszynie Wirtualnej platformy Azure IaaS. Możesz zainstalować bramę hello na powitania sam maszyn wirtualnych IaaS jako dane hello przechowywania lub na innej maszynie Wirtualnej tak długo, jak bramy hello połączyć toohello bazy danych.
 
 > [!NOTE]
 > Zobacz [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) porady dotyczące rozwiązywania problemów z bramy/połączenia problemy związane z.
 
 ## <a name="supported-versions-and-installation"></a>Obsługiwane wersje i instalacji
-Dla bramy zarządzania danymi do łączenia z bazą danych programu Teradata, musisz zainstalować [dostawcy danych .NET dla programu Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) wersji 14 lub nowszej na tym samym systemie co brama zarządzania danymi. Teradata wersji 12 i nowszej jest obsługiwana.
+Dla bazy danych programu Teradata. toohello tooconnect brama zarządzania danymi, trzeba tooinstall hello [dostawcy danych .NET dla programu Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) wersji 14 lub powyżej na hello sam system jako hello brama zarządzania danymi. Teradata wersji 12 i nowszej jest obsługiwana.
 
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok z działania kopiowania, który przenosi dane z magazynu lokalnego Cassandra danych przy użyciu różnych narzędzi/interfejsów API. 
 
-- Najprostszym sposobem, aby utworzyć potok jest użycie **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora kopiowania danych. 
-- Umożliwia także następujące narzędzia do tworzenia potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager**, **interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania. 
+- Witaj Najprostszym sposobem toocreate potoku jest toouse hello **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora dane Kopiuj hello. 
+- Można również użyć hello następujące narzędzia toocreate potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager** , **Interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) dla toocreate instrukcje krok po kroku potoku z działaniem kopiowania. 
 
-Czy można użyć narzędzia i interfejsy API, należy wykonać następujące kroki, aby utworzyć potok, który przenosi dane z magazynu danych źródła do ujścia magazynu danych:
+Czy za pomocą narzędzia hello lub interfejsów API, należy wykonać następujące kroki toocreate potok, który przenosi się, że magazyn danych ze źródła danych magazynu danych zbiornika tooa hello:
 
-1. Utwórz **połączone usługi** Aby połączyć dane wejściowe i wyjściowe są przechowywane w fabryce danych.
-2. Utwórz **zestawów danych** do reprezentowania danych wejściowych i wyjściowych operacji kopiowania. 
+1. Utwórz **połączone usługi** toolink usługi fabryka danych tooyour magazynów danych wejściowych i wyjściowych.
+2. Utwórz **zestawów danych** toorepresent wejściowe i wyjściowe dane hello operacji kopiowania. 
 3. Utwórz **potoku** aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. 
 
-Korzystając z kreatora, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoki) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować tych jednostek fabryki danych w formacie JSON.  Przykładowy z definicji JSON dla jednostek fabryki danych, które są używane do skopiowania danych na lokalnym magazynem danych programu Teradata [przykład JSON: kopiowanie danych z programu Teradata do obiektów Blob platformy Azure](#json-example-copy-data-from-teradata-to-azure-blob) sekcji tego artykułu. 
+Korzystając z Kreatora hello, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoku hello) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować za pomocą formatu JSON hello tych jednostek fabryki danych.  Dla przykładu z definicji JSON dla jednostek fabryki danych, które są używane toocopy danych z magazynu danych programu Teradata lokalnych, zobacz [przykład JSON: kopiowanie danych z programu Teradata tooAzure obiektu Blob](#json-example-copy-data-from-teradata-to-azure-blob) sekcji tego artykułu. 
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane do definiowania jednostek fabryki danych określonej w magazynie danych programu Teradata:
+Witaj następujące sekcje zawierają szczegółowe informacje o właściwości JSON, które są magazynu danych programu Teradata tooa określonych jednostek używanych toodefine fabryki danych:
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
-Poniższa tabela zawiera opis specyficzne dla usługi programu Teradata połączone elementy JSON.
+Hello w poniższej tabeli przedstawiono opis usługi określonego tooTeradata połączone elementy JSON.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesTeradata** |Tak |
-| serwer |Nazwa serwera programu Teradata. |Tak |
-| Typ authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych programu Teradata. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Tak |
+| type |musi mieć ustawioną właściwość type Hello: **OnPremisesTeradata** |Tak |
+| serwer |Nazwa serwera programu Teradata hello. |Tak |
+| Typ authenticationType |Typ uwierzytelniania używany toohello tooconnect bazą danych programu Teradata. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Tak |
 | nazwa użytkownika |Określ nazwę użytkownika, jeśli korzystasz z uwierzytelniania podstawowego lub systemu Windows. |Nie |
-| hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. |Nie |
-| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych programu Teradata. |Tak |
+| hasło |Określ hasło dla konta użytkownika hello określone dla hello nazwy użytkownika. |Nie |
+| gatewayName |Nazwa bramy hello hello usługi fabryka danych należy używać tooconnect toohello lokalną bazą danych programu Teradata. |Tak |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
+Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz hello [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
 
-**TypeProperties** sekcja jest różne dla każdego typu zestawu danych i zawiera informacje o lokalizacji danych w magazynie danych. Obecnie nie ma żadnych właściwości typu, obsługiwane dla zestawu danych programu Teradata.
+Witaj **typeProperties** sekcja zawiera informacje o lokalizacji hello hello danych w magazynie danych hello i różni się dla każdego typu zestawu danych. Obecnie nie ma żadnych właściwości typu, obsługiwane dla zestawu danych programu Teradata hello.
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
+Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz hello [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
 
-Właściwości, które są dostępne w sekcji typeProperties działania różnić się z każdym typem działania. Dla działania kopiowania różnią się w zależności od typów źródeł i sink.
+Właściwości, które są dostępne w sekcji typeProperties hello działania hello różnić się z każdym typem działania. Dla działania kopiowania różnią się w zależności od typów hello źródeł i sink.
 
-Jeśli źródło jest typu **RelationalSource** (która obejmuje Teradata), są dostępne w następujących właściwości **typeProperties** sekcji:
+Gdy źródło hello jest typu **RelationalSource** (która obejmuje Teradata), dostępne są następujące właściwości hello **typeProperties** sekcji:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj niestandardowych zapytania można odczytać danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable. |Tak |
+| query |Użyj hello zapytanie niestandardowe tooread danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable. |Tak |
 
-### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>Przykład JSON: kopiowanie danych z programu Teradata do obiektów Blob platformy Azure
-W poniższym przykładzie przedstawiono przykładowe definicje JSON, które można użyć, aby utworzyć potok przy użyciu [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przedstawiają sposób kopiowania danych z programu Teradata do magazynu obiektów Blob Azure. Jednak można skopiować danych do dowolnego wychwytywanie podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w fabryce danych Azure.   
+### <a name="json-example-copy-data-from-teradata-tooazure-blob"></a>Przykład JSON: kopiowanie danych z programu Teradata tooAzure obiektów Blob
+Witaj poniższym przykładzie przedstawiono przykładowe definicje JSON przy użyciu można toocreate potoku [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przedstawiają sposób toocopy danych z programu Teradata tooAzure magazynu obiektów Blob. Jednak dane mogą być tooany skopiowanych z wychwytywanie hello podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) przy użyciu hello działanie kopiowania w fabryce danych Azure.   
 
-Przykład zawiera następujące obiekty fabryki danych:
+przykład Witaj ma hello następujące obiekty fabryki danych:
 
 1. Połączonej usługi typu [OnPremisesTeradata](#linked-service-properties).
 2. Połączonej usługi typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Dane wejściowe [dataset](data-factory-create-datasets.md) typu [RelationalTable](#dataset-properties).
 4. Dane wyjściowe [dataset](data-factory-create-datasets.md) typu [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. [Potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [RelationalSource](#copy-activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+5. Witaj [potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [RelationalSource](#copy-activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Przykład kopiuje dane z wyniku kwerendy w bazie danych programu Teradata do obiektu blob co godzinę. Właściwości JSON używane w te przykłady są opisane w sekcjach poniżej próbek.
+przykład Witaj kopiuje dane z wyniku kwerendy w obiekcie blob tooa bazy danych programu Teradata co godzinę. właściwości JSON Hello używane w te przykłady są opisane w sekcjach poniżej hello próbek.
 
-Pierwszym krokiem konfiguracji bramy zarządzania danymi. Instrukcje znajdują się w [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu.
+Pierwszym krokiem konfiguracji bramy zarządzania danymi hello. Witaj instrukcje znajdują się w hello [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu.
 
 **Teradata połączonej usługi:**
 
@@ -129,9 +129,9 @@ Pierwszym krokiem konfiguracji bramy zarządzania danymi. Instrukcje znajdują s
 
 **Wejściowy zestaw danych programu Teradata:**
 
-Przykładzie przyjęto założenie, utworzysz tabelę "MyTable" Teradata i zawiera kolumnę o nazwie "timestamp" dla czasu serii danych.
+przykład Witaj przyjęto założenie, utworzysz tabelę "MyTable" Teradata i zawiera kolumnę o nazwie "timestamp" dla czasu serii danych.
 
-Ustawienie "external": true usługi fabryka danych informuje, że w tabeli zewnętrznej dla fabryki danych i nie jest generowany przez działanie w fabryce danych.
+Ustawienie "external": true informuje usługi fabryka danych hello tabeli hello zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello.
 
 ```json
 {
@@ -160,7 +160,7 @@ Ustawienie "external": true usługi fabryka danych informuje, że w tabeli zewn�
 
 **Azure Blob wyjściowy zestaw danych:**
 
-Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu dla obiekt blob jest dynamicznie obliczane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godziny części czas rozpoczęcia.
+Dane są zapisywane tooa nowych obiektów blob, co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu Hello hello obiektu blob dynamicznie jest obliczane na podstawie czasu rozpoczęcia hello hello wycinek, który jest przetwarzana. Ścieżka folderu Hello używa rok, miesiąc, dzień i godziny części hello czas rozpoczęcia.
 
 ```json
 {
@@ -220,7 +220,7 @@ Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godzin
 ```
 **W potoku z działania kopiowania:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wejściowe i wyjściowe zestawy danych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **RelationalSource** i **zbiornika** ustawiono typ **BlobSink**. Określony dla zapytania SQL **zapytania** właściwości wybiera dane w ostatniej godziny do skopiowania.
+Witaj potoku zawiera działanie kopiowania, który jest skonfigurowany toouse hello wejściowych i wyjściowych zestawów danych i jest toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**RelationalSource** i **zbiornika** typu ustawiono zbyt**BlobSink**. Zapytanie SQL Hello określone dla hello **zapytania** właściwości zaznacza danych hello hello poza toocopy godzinę.
 
 ```json
 {
@@ -269,12 +269,12 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wej
 }
 ```
 ## <a name="type-mapping-for-teradata"></a>Mapowanie typu dla programu Teradata
-Jak wspomniano w [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, wykonuje działanie kopiowania automatyczne konwersje z typów źródła do zbiornika typów o następujące podejście krok 2:
+Jak wspomniano w hello [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, hello działanie kopiowania przeprowadza automatyczne konwersje z typów toosink typy źródła z hello następujące podejście krok 2:
 
-1. Konwertowanie typów natywnych źródła na typ architektury .NET
-2. Konwertowanie na typ macierzysty ujścia typ architektury .NET
+1. Konwertować z typu too.NET typów natywnych źródła
+2. Konwertować z typu sink toonative typu .NET
 
-Podczas przenoszenia danych do programu Teradata, następujące mapowania są używane z typu Teradata do typ architektury .NET.
+Podczas przenoszenia danych tooTeradata, hello następujące mapowania są używane z too.NET typu programu Teradata.
 
 | Typ bazy danych programu Teradata | Typ programu .NET framework |
 | --- | --- |
@@ -291,7 +291,7 @@ Podczas przenoszenia danych do programu Teradata, następujące mapowania są u�
 | Decimal |Decimal |
 | O podwójnej precyzji |O podwójnej precyzji |
 | Liczba całkowita |Int32 |
-| Numer |O podwójnej precyzji |
+| Liczba |O podwójnej precyzji |
 | SmallInt |Int16 |
 | Date |Data i godzina |
 | Time |Zakres czasu |
@@ -299,17 +299,17 @@ Podczas przenoszenia danych do programu Teradata, następujące mapowania są u�
 | Znacznik czasu |Data i godzina |
 | Sygnatura czasowa ze strefą czasową |DateTimeOffset |
 | Interwał dnia |Zakres czasu |
-| Interwał dzień na godzinę |Zakres czasu |
-| Interwał dzień na minutę |Zakres czasu |
-| Interwał dzień na sekundę |Zakres czasu |
+| Interwał tooHour dnia |Zakres czasu |
+| Interwał tooMinute dnia |Zakres czasu |
+| Interwał tooSecond dnia |Zakres czasu |
 | Interwał, godzinę |Zakres czasu |
-| Interwał godzinę, minutę |Zakres czasu |
-| Interwał godzinę na sekundę |Zakres czasu |
+| Interwał tooMinute godzinę |Zakres czasu |
+| Interwał tooSecond godzinę |Zakres czasu |
 | Interwał minutę |Zakres czasu |
-| Interwał minutę na sekundę |Zakres czasu |
+| Interwał tooSecond minuty |Zakres czasu |
 | Interwał drugi |Zakres czasu |
 | Interwał roku |Ciąg |
-| Interwał rok, miesiąc |Ciąg |
+| Interwał tooMonth roku |Ciąg |
 | Interwał miesiąca |Ciąg |
 | Period(Date) |Ciąg |
 | Period(Time) |Ciąg |
@@ -318,11 +318,11 @@ Podczas przenoszenia danych do programu Teradata, następujące mapowania są u�
 | Okres (sygnatura ze strefą czasową) |Ciąg |
 | XML |Ciąg |
 
-## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła
-Aby uzyskać informacje dotyczące mapowania kolumn w zestawie źródła danych do kolumn w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
+## <a name="map-source-toosink-columns"></a>Mapowanie kolumny toosink źródłowe
+toolearn o mapowanie kolumn w źródłowej toocolumns zestawu danych w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Odczyt powtarzalny ze źródłami relacyjnymi
-Podczas kopiowania danych z danych relacyjnych przechowuje, należy pamiętać, aby uniknąć niezamierzone wyniki powtarzalności. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek jest uruchamiany ponownie, gdy wystąpi błąd. Podczas wycinek zostanie uruchomiona ponownie w obu przypadkach, należy się upewnić, że te same dane jest do odczytu niezależnie od tego, ile razy wycinek jest uruchamiany. Zobacz [Repeatable odczytywać źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Podczas kopiowania danych z baz danych relacyjnych, zachowania powtarzalności w uwadze tooavoid niezamierzone wyników. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek jest uruchamiany ponownie, gdy wystąpi błąd. W przypadku wycinek zostanie uruchomiona ponownie w obu przypadkach, należy się upewnić, że hello tych samych danych toomake jest do odczytu niezależnie od tego, jak często wycinek jest uruchamiany. Zobacz [Repeatable odczytywać źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Wydajność i dostrajania
-Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) Aby dowiedzieć się więcej o kluczowych czynników tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i zoptymalizować ją na różne sposoby.
+Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) toolearn o kluczu czynniki tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i różne sposoby toooptimize go.

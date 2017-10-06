@@ -1,6 +1,6 @@
 ---
-title: "Funkcje szablonu usługi Azure Resource Manager — stałych i obiekty | Dokumentacja firmy Microsoft"
-description: "Opisuje funkcje służące do pracy z tablicami i obiektami w szablonie usługi Azure Resource Manager."
+title: "funkcje szablonu usługi Resource Manager aaaAzure — stałych i obiekty | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano toouse funkcje hello w szablonie usługi Azure Resource Manager do pracy z tablicami i obiektami."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e5f1a9b2a71039562eae7e48c2474a1fa59a7bea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Tablica i obiektu funkcje dla szablonów usługi Azure Resource Manager 
 
@@ -42,20 +42,20 @@ Menedżer zasobów zawiera kilka funkcji do pracy z tablicami i obiektami.
 * [podejmij](#take)
 * [Unii](#union)
 
-Aby uzyskać tablicę wartości ciągów rozdzielonych według wartości, zobacz [podzielić](resource-group-template-functions-string.md#split).
+tooget tablicę wartości ciągu, rozdzielone wartości, zobacz [podzielić](resource-group-template-functions-string.md#split).
 
 <a id="array" />
 
 ## <a name="array"></a>Tablica
 `array(convertToArray)`
 
-Konwertuje wartość na tablicę.
+Konwertuje hello wartość tooan tablicy.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Tak |int, string, tablicy lub obiektu |Wartość do przekonwertowania na tablicę. |
+| convertToArray |Tak |int, string, tablicy lub obiektu |Witaj wartość tooconvert tooan tablicy. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -63,7 +63,7 @@ Tablica.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład pokazuje, jak używać funkcji tablicy z różnych typów.
+Witaj poniższy przykład przedstawia sposób toouse hello funkcji tablicy z różnych typów.
 
 ```json
 {
@@ -102,7 +102,7 @@ Poniższy przykład pokazuje, jak używać funkcji tablicy z różnych typów.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -115,22 +115,22 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="coalesce"></a>połączenie
 `coalesce(arg1, arg2, arg3, ...)`
 
-Zwraca pierwszą wartość inną niż null z parametrów. Puste ciągi, puste tablice i puste obiekty nie są wartości null.
+Zwraca pierwszą wartość inną niż null z hello parametrów. Puste ciągi, puste tablice i puste obiekty nie są wartości null.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |int, string, tablicy lub obiektu |Pierwsza wartość do testowania w przypadku wartości null. |
-| dodatkowe argumenty |Nie |int, string, tablicy lub obiektu |Dodatkowe wartości do sprawdzenia wartości null. |
+| arg1 |Tak |int, string, tablicy lub obiektu |Witaj pierwszy tootest wartość dla wartości null. |
+| dodatkowe argumenty |Nie |int, string, tablicy lub obiektu |Dodatkowe wartości tootest dla wartości null. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Wartość pierwszego parametrów innych niż null, co może być ciągiem, int, tablicy lub obiektu. Wartość null, jeśli wszystkie parametry mają wartość null. 
+wartość Hello pierwszy parametrów innych niż null hello, które może być ciągiem, int, tablicy lub obiektu. Wartość null, jeśli wszystkie parametry mają wartość null. 
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia dane wyjściowe z różnych zastosowań łączonej.
+Witaj poniższy przykład przedstawia dane wyjściowe hello różnych zastosowań łączonej.
 
 ```json
 {
@@ -176,7 +176,7 @@ Poniższy przykład przedstawia dane wyjściowe z różnych zastosowań łączon
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -191,23 +191,23 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="concat"></a>concat
 `concat(arg1, arg2, arg3, ...)`
 
-Łączy wiele tablic i zwraca połączonych tablicy lub łączy wiele wartości ciągu i zwraca połączony ciąg. 
+Łączy wiele tablic i zwraca tablicę hello połączonych lub łączy wiele wartości ciągu i zwraca ciąg hello połączonych. 
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica lub ciąg |Pierwsza tablica lub ciąg dla łączenia. |
+| arg1 |Tak |tablica lub ciąg |Witaj, pierwsza tablica lub ciąg dla łączenia. |
 | dodatkowe argumenty |Nie |tablica lub ciąg |Tablice dodatkowe lub ciągów w kolejności sekwencyjnej dla łączenia. |
 
-Ta funkcja może zająć dowolną liczbę argumentów i może akceptować ciągi lub tablice parametrów.
+Ta funkcja może zająć dowolną liczbę argumentów i może akceptować ciągi lub tablice hello parametrów.
 
 ### <a name="return-value"></a>Wartość zwracana
 Ciąg lub tablica wartości połączonych.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład pokazuje, jak połączyć dwóch tablic.
+Witaj poniższy przykład pokazuje, jak toocombine dwóch stałych.
 
 ```json
 {
@@ -242,13 +242,13 @@ Poniższy przykład pokazuje, jak połączyć dwóch tablic.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | Zwraca | Tablica | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-Poniższy przykład pokazuje, jak połączyć dwóch wartości ciągu i zwraca połączony ciąg.
+Witaj poniższy przykład przedstawia sposób toocombine dwóch wartości ciągu i zwraca połączony ciąg.
 
 ```json
 {
@@ -270,7 +270,7 @@ Poniższy przykład pokazuje, jak połączyć dwóch wartości ciągu i zwraca p
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -287,16 +287,16 @@ Sprawdza, czy tablica zawiera wartość, obiekt zawiera klucz lub ciąg zawieraj
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| Kontener |Tak |Tablica, obiektów lub ciąg |Wartość, która zawiera wartość, aby znaleźć. |
-| itemToFind |Tak |ciąg lub int |Wartość, aby znaleźć. |
+| Kontener |Tak |Tablica, obiektów lub ciąg |wartość Hello zawierający hello toofind wartość. |
+| itemToFind |Tak |ciąg lub int |Witaj toofind wartość. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-**Wartość true,** Jeśli element zostanie znaleziony, a w przeciwnym razie **False**.
+**Wartość true,** Jeśli hello element zostanie znaleziony, a w przeciwnym razie wartość **False**.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie zawiera z różnych typów:
+Witaj poniższy przykład przedstawia sposób toouse zawiera z różnych typów:
 
 ```json
 {
@@ -347,7 +347,7 @@ Poniższy przykład przedstawia użycie zawiera z różnych typów:
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -363,14 +363,14 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="createarray"></a>createarray
 `createArray (arg1, arg2, arg3, ...)`
 
-Tworzy tablicę z parametrów.
+Tworzy tablicę z hello parametrów.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |Ciąg, liczbę całkowitą, tablicy lub obiekt |Pierwsza wartość w tablicy. |
-| dodatkowe argumenty |Nie |Ciąg, liczbę całkowitą, tablicy lub obiekt |Dodatkowe wartości w tablicy. |
+| arg1 |Tak |Ciąg, liczbę całkowitą, tablicy lub obiekt |Pierwsza wartość Hello hello tablicy. |
+| dodatkowe argumenty |Nie |Ciąg, liczbę całkowitą, tablicy lub obiekt |Dodatkowe wartości w tablicy hello. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -378,7 +378,7 @@ Tablica.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie createArray z różnych typów:
+powitania po przykładzie pokazano, jak createArray toouse z różnych typów:
 
 ```json
 {
@@ -417,7 +417,7 @@ Poniższy przykład przedstawia użycie createArray z różnych typów:
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -438,15 +438,15 @@ Określa, czy tablicy, obiektu lub ciąg pusty.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Tak |Tablica, obiektów lub ciąg |Wartość do sprawdzenia, czy jest pusta. |
+| itemToTest |Tak |Tablica, obiektów lub ciąg |Witaj toocheck wartość, jeśli jest pusty. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Zwraca **True** , jeśli wartość jest pusta, a w przeciwnym razie **False**.
+Zwraca **True** Jeśli wartość hello jest pusty; w przeciwnym razie **False**.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład sprawdza, czy tablica, obiekt i ciąg są puste.
+Poniższy przykład Hello sprawdza, czy tablicy, obiekt i ciąg są puste.
 
 ```json
 {
@@ -485,7 +485,7 @@ Poniższy przykład sprawdza, czy tablica, obiekt i ciąg są puste.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -498,21 +498,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="first"></a>pierwszy
 `first(arg1)`
 
-Zwraca pierwszy element tablicy lub pierwszego znaku ciągu.
+Zwraca hello pierwszy element macierzy hello lub pierwszego znaku ciągu hello.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica lub ciąg |Wartości do pobrania pierwszy element lub znak. |
+| arg1 |Tak |tablica lub ciąg |Witaj wartość tooretrieve hello pierwszym elementem lub znak. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Typ (ciąg, int, tablicy lub obiekt) pierwszego elementu w tablicy lub pierwszego znaku ciągu.
+Witaj typ (ciąg, int, tablicy lub obiekt) hello pierwszego elementu w tablicy lub hello pierwszego znaku ciągu.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład pokazuje, jak używać funkcji pierwszy z tablicy i ciąg.
+Witaj poniższy przykład przedstawia sposób toouse hello pierwszej funkcji z tablicy i ciąg.
 
 ```json
 {
@@ -539,7 +539,7 @@ Poniższy przykład pokazuje, jak używać funkcji pierwszy z tablicy i ciąg.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -551,23 +551,23 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="intersection"></a>część wspólną
 `intersection(arg1, arg2, arg3, ...)`
 
-Zwraca pojedynczą tablicę lub obiektu o wspólnych elementach z parametrów.
+Zwraca pojedynczą tablicę lub obiektu z typowymi elementami hello z hello parametrów.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica lub obiekt |Pierwsza wartość służące do znajdowania wspólne elementy. |
-| Arg2 |Tak |tablica lub obiekt |Druga wartość służące do znajdowania wspólne elementy. |
-| dodatkowe argumenty |Nie |tablica lub obiekt |Dodatkowe wartości służące do znajdowania wspólne elementy. |
+| arg1 |Tak |tablica lub obiekt |Witaj pierwszy toouse wartość do znajdowania wspólne elementy. |
+| Arg2 |Tak |tablica lub obiekt |Witaj drugi toouse wartość do znajdowania wspólne elementy. |
+| dodatkowe argumenty |Nie |tablica lub obiekt |Dodatkowe wartości toouse do znajdowania wspólne elementy. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Tablica lub obiektu z typowymi elementami.
+Tablica lub obiektu z typowymi elementami hello.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie punktu przecięcia z tablicami i obiektami:
+Witaj poniższy przykład pokazuje, jak toouse przecina stałych i obiekty:
 
 ```json
 {
@@ -606,7 +606,7 @@ Poniższy przykład przedstawia użycie punktu przecięcia z tablicami i obiekta
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -623,16 +623,16 @@ Zwraca obiekt JSON.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |Ciąg |Wartość do przekonwertowania na format JSON. |
+| arg1 |Tak |Ciąg |Witaj tooJSON tooconvert wartość. |
 
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Obiekt JSON z określonego ciągu lub pustego obiektu podczas **null** jest określona.
+Obiekt JSON Hello hello określony ciąg lub pusty obiekt podczas **null** jest określona.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie punktu przecięcia z tablicami i obiektami:
+Witaj poniższy przykład pokazuje, jak toouse przecina stałych i obiekty:
 
 ```json
 {
@@ -653,7 +653,7 @@ Poniższy przykład przedstawia użycie punktu przecięcia z tablicami i obiekta
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -665,21 +665,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="last"></a>ostatni
 `last (arg1)`
 
-Zwraca ostatni element tablicy lub ostatni znak w ciągu.
+Zwraca hello ostatnim elemencie tablicy hello lub ostatni znak w ciągu hello.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica lub ciąg |Wartość można pobrać ostatniego elementu lub znak. |
+| arg1 |Tak |tablica lub ciąg |Witaj wartość tooretrieve hello ostatni element lub znak. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Typ (ciąg, int, tablicy lub obiekt) ostatniego elementu w tablicy lub ostatni znak w ciągu.
+Witaj typ (ciąg, int, tablicy lub obiekt) hello ostatniego elementu w tablicy lub hello ostatni znak w ciągu.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład pokazuje, jak używać funkcji ostatniego z tablicy i ciąg.
+Witaj poniższy przykład przedstawia sposób toouse hello ostatniej funkcji i tablicy ciągów.
 
 ```json
 {
@@ -706,7 +706,7 @@ Poniższy przykład pokazuje, jak używać funkcji ostatniego z tablicy i ciąg.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -718,13 +718,13 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="length"></a>długość
 `length(arg1)`
 
-Zwraca liczbę elementów w tablicy lub znaki w ciągu.
+Zwraca hello liczba elementów w tablicy lub znaki w ciągu.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica lub ciąg |Tablica służących do pobierania liczba elementów lub ciąg do użycia podczas pobierania liczby znaków. |
+| arg1 |Tak |tablica lub ciąg |Witaj toouse tablicy uzyskania hello liczba elementów lub hello toouse ciąg uzyskania hello liczbę znaków. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -732,7 +732,7 @@ Int.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie długość tablicy oraz ciąg:
+powitania po przykładzie pokazano, jak toouse długość tablicy oraz ciąg:
 
 ```json
 {
@@ -766,14 +766,14 @@ Poniższy przykład przedstawia użycie długość tablicy oraz ciąg:
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
 
-Ta funkcja z tablicą umożliwia określanie liczby iteracji, podczas tworzenia zasobów. W poniższym przykładzie parametr **siteNames** może odwołać się do tablicy nazw używany do tworzenia witryn sieci web.
+Ta funkcja służy z tablicy toospecify hello liczby iteracji podczas tworzenia zasobów. W hello poniższy przykład, hello parametru **siteNames** odwoływało tooan tablicę nazw toouse podczas tworzenia witryn sieci web hello.
 
 ```json
 "copy": {
@@ -789,21 +789,21 @@ Aby uzyskać więcej informacji o korzystaniu z tej funkcji z tablicy, zobacz [u
 ## <a name="min"></a>min.
 `min(arg1)`
 
-Zwraca minimalną wartość z tablicy liczb całkowitych lub rozdzielaną przecinkami listę liczb całkowitych.
+Zwraca hello wartość minimalna z tablica liczb całkowitych lub rozdzielaną przecinkami listę liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica liczb całkowitych lub rozdzielaną przecinkami listą liczb całkowitych |Kolekcja można uzyskać wartość minimalna. |
+| arg1 |Tak |tablica liczb całkowitych lub rozdzielaną przecinkami listą liczb całkowitych |Witaj kolekcji tooget hello wartość minimalna. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Int reprezentujący wartość minimalna.
+Int reprezentujący hello minimalnej wartości.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie min z tablicy i listy liczb całkowitych:
+powitania po przykładzie pokazano, jak min toouse z tablicy i listy liczb całkowitych:
 
 ```json
 {
@@ -829,7 +829,7 @@ Poniższy przykład przedstawia użycie min z tablicy i listy liczb całkowitych
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -841,21 +841,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="max"></a>Maksymalna
 `max(arg1)`
 
-Zwraca maksymalną wartość z tablicy liczb całkowitych lub rozdzielaną przecinkami listę liczb całkowitych.
+Zwraca hello maksymalną wartość z tablicy liczb całkowitych lub rozdzielaną przecinkami listę liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica liczb całkowitych lub rozdzielaną przecinkami listą liczb całkowitych |Kolekcja można uzyskać wartość maksymalna. |
+| arg1 |Tak |tablica liczb całkowitych lub rozdzielaną przecinkami listą liczb całkowitych |Witaj kolekcji tooget hello wartość maksymalna. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Int reprezentujący wartość maksymalna.
+Int reprezentujący hello maksymalnej wartości.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie max z tablicy i listy liczb całkowitych:
+powitania po przykładzie pokazano, jak toouse max z tablicy i listy liczb całkowitych:
 
 ```json
 {
@@ -881,7 +881,7 @@ Poniższy przykład przedstawia użycie max z tablicy i listy liczb całkowitych
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -899,8 +899,8 @@ Tworzy tablicę liczb całkowitych na podstawie początkowa liczba całkowita i 
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Tak |int |Pierwszej liczby całkowitej w tablicy. |
-| numberofElements |Tak |int |Liczba liczby całkowite w tablicy. |
+| startingInteger |Tak |int |Witaj pierwszej liczby całkowitej w tablicy hello. |
+| numberofElements |Tak |int |Liczba Hello liczby całkowite w tablicy hello. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -908,7 +908,7 @@ Tablica liczb całkowitych.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia sposób użycia funkcji zakresu:
+Witaj poniższy przykład pokazuje, jak toouse hello zakresu funkcji:
 
 ```json
 {
@@ -934,7 +934,7 @@ Poniższy przykład przedstawia sposób użycia funkcji zakresu:
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -945,14 +945,14 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="skip"></a>Pomiń
 `skip(originalValue, numberToSkip)`
 
-Zwraca tablicę z wszystkich elementów po określonym w tablicy lub zwraca ciąg zawierający wszystkie znaki po określonym w ciągu.
+Zwraca tablicę z wszystkich elementów powitania po hello podany numer w tablicy hello lub zwraca ciąg znakami powitania po hello określony numer w ciągu hello.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| originalValue |Tak |tablica lub ciąg |Tablica lub ciąg wykorzystywany do pominięcia. |
-| numberToSkip |Tak |int |Liczba elementów lub znaków, aby pominąć. Jeśli ta wartość jest mniejsze lub równe 0, zwracane są wszystkie elementy lub znaków w wartości. Jeśli jest większa niż długość tablicy lub ciągu, zwracana jest pusta tablica lub ciąg. |
+| originalValue |Tak |tablica lub ciąg |Witaj tablicy lub ciągu toouse pomijania. |
+| numberToSkip |Tak |int |Liczba Hello tooskip elementów ani znaków. Jeśli ta wartość jest mniejsze lub równe 0, hello wszystkie elementy lub znaków w wartości hello są zwracane. Jeśli jest większa niż długość hello hello tablicy lub ciągu, zwracana jest pusta tablica lub ciąg. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -960,7 +960,7 @@ Tablica lub ciąg.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład pomija określoną liczbę elementów w tablicy i określoną liczbę znaków w ciągu.
+powitania po przykład hello pomija określone liczba elementów w tablicy hello i hello określona liczba znaków w ciągu.
 
 ```json
 {
@@ -1002,7 +1002,7 @@ Poniższy przykład pomija określoną liczbę elementów w tablicy i określon�
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1014,14 +1014,14 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="take"></a>podejmij
 `take(originalValue, numberToTake)`
 
-Zwraca tablicę o określoną liczbę elementów od początku tablicy lub ciągu z określoną liczbę znaków od początku ciągu.
+Zwraca tablicę z hello określona liczba elementów od hello początku hello tablicy lub ciągu z hello określone liczbę znaków od początku hello ciąg hello.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| originalValue |Tak |tablica lub ciąg |Tablica lub ciąg Aby pobrać elementy z. |
-| numberToTake |Tak |int |Liczba elementów lub znaków do wykonania. Jeśli ta wartość jest mniejsze lub równe 0, zwracana jest pusta tablica lub ciąg. Jeśli jest większa niż długość podanej tablicy lub ciągu, zwracane są wszystkie elementy tablicy lub ciągu. |
+| originalValue |Tak |tablica lub ciąg |Witaj tablicy lub ciągu tootake hello elementy z. |
+| numberToTake |Tak |int |Liczba Hello tootake elementów ani znaków. Jeśli ta wartość jest mniejsze lub równe 0, zwracana jest pusta tablica lub ciąg. Jeśli jest większa niż długość tablicy lub ciągu hello hello, zwracane są wszystkie elementy hello hello tablicy lub ciągu. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -1029,7 +1029,7 @@ Tablica lub ciąg.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład pobiera określoną liczbę elementów z tablicy i znaków z ciągu.
+powitania po hello ma przykład określona liczba elementów w tablicy hello i znaków z ciągu.
 
 ```json
 {
@@ -1071,7 +1071,7 @@ Poniższy przykład pobiera określoną liczbę elementów z tablicy i znaków z
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1083,15 +1083,15 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="union"></a>Unii
 `union(arg1, arg2, arg3, ...)`
 
-Zwraca pojedynczą tablicę lub obiekt wszystkie elementy z parametrów. Zduplikowane wartości lub klucze są tylko raz uwzględnione.
+Zwraca pojedynczą tablicę lub obiekt wszystkie elementy z hello parametrów. Zduplikowane wartości lub klucze są tylko raz uwzględnione.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica lub obiekt |Pierwsza wartość na potrzeby dołączenia elementów. |
-| Arg2 |Tak |tablica lub obiekt |Druga wartość na potrzeby dołączenia elementów. |
-| dodatkowe argumenty |Nie |tablica lub obiekt |Dodatkowe wartości na potrzeby dołączenia elementów. |
+| arg1 |Tak |tablica lub obiekt |Witaj pierwszy toouse wartość łączenia elementów. |
+| Arg2 |Tak |tablica lub obiekt |Witaj drugi toouse wartość łączenia elementów. |
+| dodatkowe argumenty |Nie |tablica lub obiekt |Dodatkowe wartości toouse łączenia elementów. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -1099,7 +1099,7 @@ Tablica lub obiekt.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie związek z tablicami i obiektami:
+Witaj poniższy przykład pokazuje, jak toouse Unii o stałych i obiekty:
 
 ```json
 {
@@ -1138,7 +1138,7 @@ Poniższy przykład przedstawia użycie związek z tablicami i obiektami:
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1146,8 +1146,8 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 | arrayOutput | Tablica | ["jeden", "dwa", "trzy", "4"] |
 
 ## <a name="next-steps"></a>Następne kroki
-* Opis części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Aby scalić wiele szablonów, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
-* Do wykonywania iteracji określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
-* Aby zobaczyć, jak wdrożyć szablon został utworzony, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
+* Aby uzyskać opis hello części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
+* Zobacz wielu szablonów toomerge [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
+* toosee toodeploy hello szablonu po utworzeniu, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
 

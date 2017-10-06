@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z SAP HANA | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i SAP HANA."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i SAP HANA."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,252 +14,252 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: a7e73f6ee763d1005ad85935cf2d8f6b24ecf116
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 5ff6bfde0b1d7ab14025a4bc45199f9f826affd1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Samouczek: Integracji Azure Active Directory z SAP HANA
 
-Z tego samouczka dowiesz się sposobu integracji z usługą Azure Active Directory (Azure AD) SAP HANA.
+Z tego samouczka, dowiesz się, jak toointegrate SAP HANA w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie SAP HANA z usługą Azure AD zapewnia następujące korzyści:
+Integrowanie SAP HANA z usługą Azure AD zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do programu SAP HANA
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do SAP HANA (logowanie jednokrotne) z konta usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooSAP HANA
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooSAP HANA (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z SAP HANA, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z SAP HANA należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - SAP HANA logowanie jednokrotne włączone subskrypcji
 - HANA uruchomione wystąpienie na publicznych IaaS, lokalnymi, maszynach wirtualnych platformy Azure lub SAP dużych wystąpień na platformie Azure
-- Interfejs sieci Web administracji XSA jak również zainstalowana w wystąpieniu HANA Studio HANA.
+- Interfejs sieci Web administracji XSA Hello, jak również zainstalowana w wystąpieniu HANA hello Studio HANA.
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego programu SAP HANA. Przetestowanie integracji w rozwoju lub środowisko przejściowe aplikacji, a następnie użyj środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego programu SAP HANA. Testowanie integracji hello najpierw w rozwoju lub przemieszczania środowisko aplikacji hello, a następnie środowiska produkcyjnego hello użycia.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie SAP HANA z galerii
+1. Dodawanie SAP HANA z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-sap-hana-from-the-gallery"></a>Dodawanie SAP HANA z galerii
-Aby skonfigurować integrację usługi Azure AD SAP HANA, należy dodać SAP HANA z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-sap-hana-from-hello-gallery"></a>Dodawanie SAP HANA z galerii hello
+tooconfigure hello integracji SAP HANA do usługi Azure AD, należy tooadd SAP HANA z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać SAP HANA z galerii, wykonaj następujące czynności:**
+**tooadd SAP HANA z galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
-    ![Przycisk usługi Azure Active Directory][1]
+    ![przycisk usługi Azure Active Directory Hello][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa][2]
+    ![Blok aplikacje przedsiębiorstwa Hello][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
-    ![Nowy przycisk aplikacji][3]
+    ![Nowy przycisk aplikacji Hello][3]
 
-4. W polu wyszukiwania wpisz **SAP HANA**, wybierz pozycję **SAP HANA** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację. 
+4. W polu wyszukiwania hello wpisz **SAP HANA**, wybierz pozycję **SAP HANA** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd. 
 
-    ![Nowa aplikacja](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_addfromgallery.png)
+    ![Witaj nowej aplikacji](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SAP HANA oparte na koncie użytkownika testu o nazwie "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w SAP HANA jest dla użytkownika, w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w SAP HANA.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w SAP HANA jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w SAP HANA musi toobe ustanowione.
 
-SAP HANA przypisywanie wartości **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+Przypisywanie wartości hello hello SAP HANA **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SAP HANA, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i test usługi Azure AD rejestracji jednokrotnej z SAP HANA należy hello toocomplete po bloków konstrukcyjnych:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego SAP HANA](#creating-a-sap-hana-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta SAP HANA, połączonej z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego SAP HANA](#creating-a-sap-hana-test-user)**  -toohave odpowiednikiem Simona Britta w SAP HANA, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne do aplikacji SAP HANA.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne w aplikacji SAP HANA.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z SAP HANA, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z SAP HANA wykonaj hello następujące kroki:**
 
-1. W portalu Azure na **SAP HANA** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **SAP HANA** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_samlbase.png)
 
-3. Na **adresy URL i SAP HANA domeny** sekcji, wykonaj następujące czynności:
+3. Na powitania **adresy URL i SAP HANA domeny** sekcji, wykonaj następujące kroki hello:
 
     ![Domena i adres URL z jednym informacje logowania jednokrotnego](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_url.png)
 
-    a. W **identyfikator** pole tekstowe, typu co:`HA100` 
+    a. W hello **identyfikator** pole tekstowe, typu co:`HA100` 
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
+    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator i adres URL odpowiedzi, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej SAP HANA klienta](https://cloudplatform.sap.com/contact.html) uzyskać te wartości. 
+    > Wartości te nie są prawdziwe. Witaj rzeczywisty identyfikator i odpowiedzi adresu URL, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej SAP HANA klienta](https://cloudplatform.sap.com/contact.html) tooget tych wartości. 
 
-4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.
 
-    ![Łącze pobierania certyfikatu](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_certificate.png) 
+    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_certificate.png) 
 
     >[!Note]
-    >Jeśli certyfikat nie jest aktywne następnie uaktywnić go, klikając pole wyboru "Uaktywnij nowy certyfikat" w usłudze Azure AD. 
+    >Jeśli certyfikat nie jest aktywne następnie uaktywnić go, klikając hello wyboru "Utwórz nowy certyfikat active" w hello Azure AD. 
 
-5. Aplikacja SAP HANA oczekuje potwierdzenia języka SAML w określonym formacie. Poniższy zrzut ekranu przedstawia przykład tego. W tym miejscu możemy zamapowaniu **identyfikator użytkownika** z **ExtractMailPrefix()** funkcji **user.mail**. Dzięki temu wartość prefiksu adres e-mail użytkownika, który jest unikatowy identyfikator użytkownika. To są wysyłane do aplikacji SAP HANA w każdym pomyślnym odpowiedzi.
+5. Aplikacja SAP HANA oczekuje potwierdzenia SAML hello w określonym formacie. powitania po zrzut ekranu przedstawia przykład tego. W tym miejscu zostały zamapowane hello **identyfikator użytkownika** z **ExtractMailPrefix()** funkcji **user.mail**. Dzięki temu wartość prefiksu hello adres e-mail użytkownika hello, co jest hello Unikatowy identyfikator użytkownika. Każdy odpowiedź oznaczająca Powodzenie to wysyłane toohello aplikacji SAP HANA.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-saphana-tutorial/attribute.png)
 
-6. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego:
+6. W hello **atrybuty użytkownika** sekcji na powitania **logowanie jednokrotne** okna dialogowego:
 
-    a. W **identyfikator użytkownika** listy rozwijanej wybierz **ExtractMailPrefix**.
+    a. W hello **identyfikator użytkownika** listy rozwijanej wybierz **ExtractMailPrefix**.
     
-    b. W **poczty** listy rozwijanej wybierz **user.mail**.
+    b. W hello **poczty** listy rozwijanej wybierz **user.mail**.
 
 7. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-saphana-tutorial/tutorial_general_400.png)
     
-8. Do konfigurowania rejestracji jednokrotnej na **SAP HANA** strona, zaloguj się do sieci **konsoli sieci Web XSA HANA** przechodząc do odpowiednich końcowego HTTPS.
+8. tooconfigure rejestracji jednokrotnej w **SAP HANA** strona, logowania tooyour **konsoli sieci Web XSA HANA** przechodząc toohello odpowiednich punkt końcowy HTTPS.
 
     > [!Note]
-    > W domyślnej konfiguracji adres URL przekierowuje żądanie do strony logowania, co wymaga poświadczeń uwierzytelnionego użytkownika bazy danych SAP HANA do ukończenia procesu logowania. Użytkownik, który loguje się musi mieć uprawnienia wymagane do wykonywania zadań administracyjnych SAML.
+    > W konfiguracji domyślnej hello hello adresu URL przekierowuje ekran logowania tooa żądania hello, co wymaga poświadczeń hello uwierzytelnionego SAP HANA bazy danych toocomplete hello proces logowania użytkownika. Witaj użytkownika, który loguje się musi mieć zadań administracyjnych hello uprawnienia wymagane tooperform SAML.
 
-9. W interfejsie sieci Web XSA, przejdź do **dostawca tożsamości SAML** i z tego miejsca, kliknij przycisk **"+"** — przycisk w dolnej części ekranu, aby wyświetlić okienko dodać informacje dostawcy tożsamości i wykonaj następujące czynności kroki:
+9. W hello XSA interfejs sieci Web, przejdź za**dostawca tożsamości SAML** i z tego miejsca, kliknij przycisk hello **"+"** -znajdujący się na dole hello hello ekranu toodisplay hello dodać informacje dostawcy tożsamości okienka i wykonania Witaj, następujące kroki:
 
     ![Dodaj dostawcę tożsamości](./media/active-directory-saas-saphana-tutorial/sap1.png)
 
-    a. W **dodać informacje dostawcy tożsamości** okienku Wklej zawartość XML metadanych, który został pobrany z portalu Azure do **metadanych** pola tekstowego.
+    a. W hello **dodać informacje dostawcy tożsamości** okienka, Wklej zawartość hello hello XML metadanych, który został pobrany z portalu Azure, do hello **metadanych** pola tekstowego.
 
     ![Dodaj ustawienia dostawcy tożsamości](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
-    b. Jeśli zawartość dokumentu XML są prawidłowe, proces analizowania wyodrębnia informacje wymagane do wstawienia do **podmiotu, identyfikator jednostki i wystawcy** pola w obszarze ekranu ogólne danych i pola Adres URL na ekranie docelowego obszar, na przykład  **podstawowego adresu URL i adresu URL SingleSignOn (*)**.
+    b. Jeśli zawartość hello hello dokumentu XML są prawidłowe, proces analizowania hello wyodrębnia hello tooinsert informacje wymagane do hello **podmiotu, identyfikator jednostki i wystawcy** pól w hello ogólne dane obszar ekranu i hello pól adres URL w hello Obszar ekranu docelowy, na przykład  **podstawowego adresu URL i adresu URL SingleSignOn (*)**.
 
     ![Dodaj ustawienia dostawcy tożsamości](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
-    c. W polu Nazwa obszaru danych ogólne ekranu wprowadź nazwę dla nowego logowania jednokrotnego SAML dostawcy tożsamości.
+    c. W polu Nazwa hello hello danych ogólne obszar ekranu, wprowadź nazwę hello nowego logowania jednokrotnego SAML dostawcy tożsamości.
 
     > [!Note]
-    > Nazwa SAML IDP jest wymagana i musi być unikatowa. wygląda na to, na liście dostępnych IDPs SAML, która jest wyświetlana, wtedy, gdy metoda uwierzytelniania SAP HANA XS do użycia przez aplikacje, na przykład w obszarze uwierzytelnianie ekranu narzędzia do administrowania artefaktu XS SAML.
+    > Nazwa Hello hello SAML IDP jest wymagana i musi być unikatowa. wygląda na to hello listę dostępnych IDPs SAML, który jest wyświetlany w przypadku wybrania SAML jako hello metodę uwierzytelniania dla programu SAP HANA XS toouse aplikacji, na przykład w obszarze ekranu uwierzytelniania hello narzędzia do administrowania artefaktu XS hello.
 
-10. Zapisz szczegóły nowego dostawcy tożsamości SAML. Wybierz **zapisać** zapisać szczegóły dostawca tożsamości SAML i dodać nowe IDP SAML do listy znanych IDPs SAML.
+10. Zapisz szczegóły hello hello nowy dostawca tożsamości SAML. Wybierz **zapisać** toosave hello szczegóły dostawca tożsamości SAML hello i Dodaj hello nową SAML IDP toohello listę znanych IDPs SAML.
 
     ![Przyciskiem Zapisz](./media/active-directory-saas-saphana-tutorial/sap4.png)
 
-11. W Studio HANA w ramach właściwości systemu **konfiguracji** karcie, po prostu filtrowania ustawień przez **saml** i dostosować **assertion_timeout** z **10 s**  do **120 s**.
+11. W Studio HANA w ramach właściwości systemu hello hello **konfiguracji** karcie, po prostu filtrowania ustawień przez **saml** i dostosować hello **assertion_timeout** z **10 s** za**120 s**.
 
     ![Ustawienie assertion_timeout](./media/active-directory-saas-saphana-tutorial/sap7.png)
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
-    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-saphana-tutorial/create_aaduser_01.png) 
+    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-saphana-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
-    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-saphana-tutorial/create_aaduser_02.png) 
+    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-saphana-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
-    ![Przycisk Dodaj](./media/active-directory-saas-saphana-tutorial/create_aaduser_03.png) 
+    ![przycisk Dodaj Hello](./media/active-directory-saas-saphana-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
-    ![Okno dialogowe użytkownika](./media/active-directory-saas-saphana-tutorial/create_aaduser_04.png) 
+    ![okno dialogowe Hello użytkownika](./media/active-directory-saas-saphana-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-sap-hana-test-user"></a>Tworzenie użytkownika testowego SAP HANA
 
-Aby umożliwić użytkownikom usługi Azure AD zalogować się do programu SAP HANA, muszą mieć przydzielone do programu SAP HANA.
+toolog użytkowników tooenable usługi Azure AD w tooSAP HANA muszą mieć przydzielone do programu SAP HANA.
 SAP HANA obsługę w czasie, który jest domyślnie włączone.
 
-Jeśli trzeba ręcznie utworzyć użytkownika, wykonaj następujące czynności:
+Jeśli potrzebujesz toocreate użytkownik ręcznie, wykonaj hello następujące kroki:
 
 >[!Note]
->Uwierzytelnianie zewnętrzne używane przez użytkownika, można zmienić.
+>Uwierzytelnianie zewnętrzne hello używane przez użytkownika hello, można zmienić.
 Użytkownicy zewnętrzni są uwierzytelniani, za pomocą zewnętrznego systemu, na przykład system protokołu Kerberos. Aby uzyskać szczegółowe informacje o tożsamości zewnętrznych, skontaktuj się z [administrator domeny](https://cloudplatform.sap.com/contact.html).
 
-1. Otwórz [SAP HANA Studio](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-us) jako administrator i Włącz użytkownika bazy danych dla logowania jednokrotnego SAML.
+1. Otwórz hello [SAP HANA Studio](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-us) jako administrator i Włącz hello bazy danych użytkownika dla logowania jednokrotnego SAML.
 
     ![Utwórz użytkownika](./media/active-directory-saas-saphana-tutorial/sap5.png)
 
-2. Znaczników niewidoczne pola wyboru po lewej **SAML** i kliknij link Konfiguruj.
+2. Znaczników hello niewidoczne wyboru toohello rogu **SAML** i konfigurowanie hello łącza.
 
-3. Kliknij przycisk **Dodaj** dodany SAML IDP i kliknij przycisk **OK** wybranie odpowiednich IDP SAML.
+3. Kliknij przycisk **Dodaj** tooadd hello SAML IDP i kliknij przycisk **OK** wybranie hello odpowiednie IDP SAML.
 
-4. Dodaj **tożsamości zewnętrznych** (np. W tym miejscu BrittaSimon) lub wybierz **"Wszystkie"** i kliknij przycisk **OK**.
+4. Dodaj hello **tożsamości zewnętrznych** (np. W tym miejscu BrittaSimon) lub wybierz **"Wszystkie"** i kliknij przycisk **OK**.
 
     >[!Note]
-    >Jeśli nie zaznaczono pole "Wszystkie", a następnie nazwę użytkownika w HANA musi dokładnie odpowiadać nazwie użytkownika w głównej nazwy użytkownika przed sufiksem domeny (np. BrittaSimon@contoso.com staje się BrittaSimon w HANA).
+    >Jeśli nie zaznaczono "Wszystkie" pole wyboru, a następnie hello nazwę użytkownika w HANA potrzebuje tooexactly dopasowania hello nazwy użytkownika hello w hello UPN przed sufiksem domeny hello (tj. BrittaSimon@contoso.com staje się BrittaSimon w HANA).
 
-5. Do celów testowych, przypisać wszystkie **"XS"** ról do użytkownika.
+5. Do celów testowych, przypisać wszystkie **"XS"** użytkownika toohello ról.
 
     ![Przypisywanie ról](./media/active-directory-saas-saphana-tutorial/sap6.png)
 
     > [!TIP]
     > Należy podać te uprawnienia, które są odpowiednie dla Twojej przypadki użycia tylko.
 
-6. Zapisz użytkownika.
+6. Zapisz hello użytkownika.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do programu SAP HANA.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooSAP HANA.
 
-![Przypisanie roli użytkownika][200] 
+![Przypisanie roli użytkownika hello][200] 
 
-**Aby przypisać Simona Britta SAP HANA, wykonaj następujące czynności:**
+**tooassign tooSAP Simona Britta HANA, wykonaj następujące kroki hello:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **SAP HANA**.
+2. Z listy aplikacji hello wybierz **SAP HANA**.
 
     ![Przypisz użytkownika](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
-    ![Łącze "Użytkownicy i grupy"][202] 
+    ![łącze "Użytkownicy i grupy" Hello][202] 
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![W okienku Dodaj przydziału][203]
+    ![Okienko Dodaj przypisania Hello][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -267,14 +267,14 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka SAP HANA w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji SAP HANA.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Po kliknięciu kafelka SAP HANA hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour aplikacji SAP HANA.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

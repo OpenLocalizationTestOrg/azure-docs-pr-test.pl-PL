@@ -1,5 +1,5 @@
 ---
-title: "Przykłady interfejsu wiersza polecenia platformy Azure dla platformy Azure rozwiązania Cosmos DB | Dokumentacja firmy Microsoft"
+title: "Przykłady interfejsu wiersza polecenia dla bazy danych Azure rozwiązania Cosmos aaaAzure | Dokumentacja firmy Microsoft"
 description: "Przykładów dla interfejsu wiersza polecenia platformy Azure — tworzenie i zarządzanie kontami, baz danych, kontenerów, regiony i zapory bazy danych Azure rozwiązania Cosmos."
 services: cosmos-db
 author: mimig1
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 06/07/2017
 ms.author: mimig
-ms.openlocfilehash: 709d2ccce0f4b9827a8076f683c7e0f74cbdd4ea
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d6eefc3274e0b66eec4e69166bb7d4ddd58a522e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Przykładów dla interfejsu wiersza polecenia platformy Azure dla bazy danych Azure rozwiązania Cosmos
 
-Poniższa tabela zawiera linki do przykładowe skrypty wiersza polecenia platformy Azure dla bazy danych Azure rozwiązania Cosmos. Odwołanie do strony dla wszystkich poleceń interfejsu wiersza polecenia Azure rozwiązania Cosmos bazy danych są dostępne w [odwołania 2.0 interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/cosmosdb).
+Witaj Poniższa tabela zawiera linki toosample interfejsu wiersza polecenia Azure skryptów dla bazy danych Azure rozwiązania Cosmos. Odwołanie do strony dla wszystkich poleceń interfejsu wiersza polecenia Azure rozwiązania Cosmos bazy danych są dostępne w hello [odwołania 2.0 interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/cosmosdb).
 
 | |  |
 |---|---|
 |**Tworzenie konta bazy danych Azure rozwiązania Cosmos, bazy danych i kontenerów**||
-|[Utwórz konto usługi DocumentDB interfejsu API, wykres lub tabeli interfejsu API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy jednego konta Azure rozwiązania Cosmos DB API, bazy danych i kontener do użycia z usługi DocumentDB, wykres lub interfejsów API tabeli. |
+|[Utwórz konto usługi DocumentDB interfejsu API, wykres lub tabeli interfejsu API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy pojedynczy konto interfejsu API Azure rozwiązania Cosmos bazy danych, bazę danych i kontener do użycia z hello usługi DocumentDB, wykres lub interfejsów API tabeli. |
 | [Tworzenie konta bazy danych MongoDB interfejsu API](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy jednego interfejsu API Azure rozwiązania Cosmos bazy danych MongoDB konta bazy danych i kolekcji. |
 |**Skalować rozwiązania Cosmos Azure DB**||
-| [Przepływność kontenera skali](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Zmienia elastycznie througput do kontenera.|
+| [Przepływność kontenera skali](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Zmiany hello zainicjowana througput do kontenera.|
 |[Replikację bazy danych Azure rozwiązania Cosmos konta bazy danych w wielu regionach i skonfiguruj priorytetów trybu failover](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Globalny replikuje dane konta w wielu regionach o priorytecie określonego trybu failover.|
 |**Zabezpieczanie Azure rozwiązania Cosmos bazy danych**||
-| [Uzyskaj klucze konta](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Pobiera klucze podstawowe i pomocnicze zapisu głównego i klucze podstawowe i pomocnicze tylko do odczytu dla konta.|
-| [Pobierz ciąg połączenia bazy danych MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Pobiera parametry połączenia do łączenie aplikacji z bazy danych MongoDB do swojego konta bazy danych Azure rozwiązania Cosmos.|
-|[Wygeneruj ponownie klucze konta](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Ponowne wygenerowanie klucza głównego lub w trybie tylko do odczytu dla konta.|
-|[Utworzenie zapory](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy przychodzących zasad kontroli dostępu w IP można ograniczyć dostęp do konta z zatwierdzonych zbiór maszyny i/lub usług w chmurze.|
+| [Uzyskaj klucze konta](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Pobiera klucze podstawowe i pomocnicze zapisu wzorca hello i klucze podstawowe i pomocnicze tylko do odczytu dla konta hello.|
+| [Pobierz ciąg połączenia bazy danych MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Pobiera tooconnect ciąg połączenia hello tooyour aplikacji z bazy danych MongoDB konta bazy danych Azure rozwiązania Cosmos.|
+|[Wygeneruj ponownie klucze konta](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Generuje ponownie wzorca hello lub tylko do odczytu klucza dla konta hello.|
+|[Utworzenie zapory](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy przychodzących IP dostępu kontroli zasad toolimit toohello konto dostępu z zatwierdzonych zbiór maszyny i/lub usługi w chmurze.|
 |**Wysokiej dostępności, odzyskiwania po awarii, kopia zapasowa i przywracanie**||
-|[Konfigurowanie zasad trybu failover](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Ustawia priorytet trybu failover każdego regionu, w którym konta są replikowane.|
+|[Konfigurowanie zasad trybu failover](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Ustawia hello każdego regionu, w której są replikowane konta hello priorytet trybu failover.|
 |**Łączenie z zasobami Azure DB rozwiązania Cosmos**||
-|[Łączenie aplikacji sieci web do bazy danych Azure rozwiązania Cosmos](https://docs.microsoft.com/azure/app-service-web/scripts/app-service-cli-app-service-documentdb?toc=%2fcli%2fazure%2ftoc.json)|Utwórz i połączenia bazy danych Azure rozwiązania Cosmos bazy danych i aplikacji sieci web platformy Azure.|
+|[Połącz tooAzure aplikacji sieci web DB rozwiązania Cosmos](https://docs.microsoft.com/azure/app-service-web/scripts/app-service-cli-app-service-documentdb?toc=%2fcli%2fazure%2ftoc.json)|Utwórz i połączenia bazy danych Azure rozwiązania Cosmos bazy danych i aplikacji sieci web platformy Azure.|
 |||

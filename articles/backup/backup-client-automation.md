@@ -1,6 +1,6 @@
 ---
-title: "Utwórz kopię zapasową serwera systemu Windows Azure przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie wdrażania i zarządzania nimi przy użyciu programu PowerShell usługi Kopia zapasowa Azure"
+title: "tooback PowerShell aaaUse się tooAzure systemu Windows Server | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toodeploy i zarządzać nimi za pomocą programu PowerShell usługi Kopia zapasowa Azure"
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f13224f53abd6fbd132fee4347b0b99e8f5e2678
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie kopii zapasowych systemu Windows Server/Windows Client na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
+# <a name="deploy-and-manage-backup-tooazure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie i zarządzanie nimi tooAzure kopii zapasowej dla klienta systemu Windows i serwera systemu Windows przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Wdrożenie klasyczne](backup-client-automation-classic.md)
 >
 >
 
-W tym artykule przedstawiono sposób konfigurowania usługi Kopia zapasowa Azure w systemie Windows Server lub klienta systemu Windows oraz zarządzania nimi kopii zapasowych i odzyskiwania przy użyciu programu PowerShell.
+W tym artykule opisano sposób toouse PowerShell Konfigurowanie usługi Kopia zapasowa Azure w systemie Windows Server lub klienta systemu Windows oraz zarządzania nimi kopii zapasowych i odzyskiwania.
 
 ## <a name="install-azure-powershell"></a>Instalowanie programu Azure PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Ten artykuł dotyczy usługi Azure Resource Manager (ARM) i poleceń cmdlet programu środowiska PowerShell kopii zapasowej Online MS umożliwiają korzystanie z magazynu usług odzyskiwania w grupie zasobów.
+Ten artykuł dotyczy hello Azure Resource Manager (ARM) i hello poleceń cmdlet programu PowerShell kopii zapasowej Online MS, umożliwiające toouse magazynu usług odzyskiwania w grupie zasobów.
 
-Października 2015 Azure PowerShell 1.0 został wydany. Tej wersji 0.9.8 powiodło się. Zwolnij i temat istotne zmiany, szczególnie w wzorzec nazewnictwa poleceń cmdlet. Polecenia cmdlet 1.0 mają wzorzec nazewnictwa {czasownik}-AzureRm{rzeczownik}; natomiast nazwy 0.9.8 nie zawierają elementu **Rm** (np. New-AzureRmResourceGroup zamiast New-AzureResourceGroup). W przypadku korzystania z programu Azure PowerShell 0.9.8 trzeba najpierw włączyć tryb usługi Resource Manager przez uruchomienie polecenia **Switch-AzureMode AzureResourceManager**. To polecenie nie jest konieczne w wersji 1.0 lub nowszej.
+Października 2015 Azure PowerShell 1.0 został wydany. Ta wersja zakończyło się pomyślnie wersji hello 0.9.8 i temat istotne zmiany, szczególnie w hello wzorzec nazewnictwa hello poleceń cmdlet. Wykonaj polecenia cmdlet 1.0 hello wzorzec nazewnictwa {czasownik}-AzureRm {rzeczownik}; natomiast nie dołączaj nazwy hello 0.9.8 **Rm** (na przykład, New-AzureRmResourceGroup zamiast New-AzureResourceGroup). Podczas korzystania z programu Azure PowerShell 0.9.8, należy najpierw włączyć tryb Resource Manager hello, uruchamiając hello **Switch-AzureMode AzureResourceManager** polecenia. To polecenie nie jest konieczne w wersji 1.0 lub nowszej.
 
-Jeśli chcesz używać skryptów przeznaczony dla 0.9.8 środowisko, w środowisku w wersji 1.0 lub nowszej, należy ostrożnie aktualizacji i przetestować skrypty w środowisku przedprodukcyjnym przed ich użyciem w środowisku produkcyjnym, aby uniknąć nieoczekiwanego wpływu.
+Jeśli chcesz toouse skryptów przeznaczony dla środowiska hello 0.9.8, hello 1.0 lub nowszej środowiska, należy ostrożnie aktualizacji i testowanie skryptów hello w środowisku przedprodukcyjnym przed ich użyciem w środowisku produkcyjnym tooavoid nieoczekiwany wpływu.
 
-[Pobierz najnowszą wersję programu PowerShell](https://github.com/Azure/azure-powershell/releases) (minimalna wersja wymagana jest: 1.0.0)
+[Pobierz najnowszą wersję programu PowerShell hello](https://github.com/Azure/azure-powershell/releases) (minimalna wersja wymagana jest: 1.0.0)
 
 [!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
-Poniższe kroki prowadzi przez proces tworzenia magazynu usług odzyskiwania. Magazyn usług odzyskiwania są inne niż magazynu kopii zapasowych.
+następujące kroki Hello przeprowadzi Cię przez tworzenie magazynu usług odzyskiwania. Magazyn usług odzyskiwania są inne niż magazynu kopii zapasowych.
 
-1. Jeśli korzystasz z usługi Kopia zapasowa Azure po raz pierwszy, należy użyć **AzureRMResourceProvider rejestru** polecenia cmdlet, aby zarejestrować dostawcę usług odzyskiwania Azure w ramach subskrypcji.
+1. Jeśli kopia zapasowa Azure jest używana do powitania po raz pierwszy, należy użyć hello **AzureRMResourceProvider rejestru** polecenia cmdlet tooregister hello Azure odzyskiwania usługodawcy w ramach subskrypcji.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-2. Magazyn usług odzyskiwania jest zasobem ARM, więc należy umieścić w grupie zasobów. Użyj istniejącej grupy zasobów lub Utwórz nową. Podczas tworzenia nowej grupy zasobów, określ nazwę i lokalizację dla grupy zasobów.  
+2. Witaj magazyn usług odzyskiwania jest zasobu ARM, więc należy tooplace go w grupie zasobów. Użyj istniejącej grupy zasobów lub Utwórz nową. Podczas tworzenia nowej grupy zasobów, określ hello nazwy i lokalizacji hello grupy zasobów.  
 
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "WestUS"
     ```
-3. Użyj **AzureRmRecoveryServicesVault nowy** , aby utworzyć nowy magazyn. Należy określić tę samą lokalizację dla magazynu, które było używane dla grupy zasobów.
+3. Użyj hello **AzureRmRecoveryServicesVault nowy** nowy magazyn hello toocreate polecenia cmdlet. Pamiętaj, toospecify hello tę samą lokalizację dla magazynu hello, które było używane dla grupy zasobów hello.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
-4. Określ typ nadmiarowość magazynu mają być używane; można użyć [lokalnie nadmiarowego magazynu (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) lub [z magazynu geograficznie nadmiarowego magazynu (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). W poniższym przykładzie przedstawiono, że opcja - BackupStorageRedundancy testVault jest ustawiona na GeoRedundant.
+4. Określ typ hello toouse nadmiarowość magazynu; można użyć [lokalnie nadmiarowego magazynu (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) lub [z magazynu geograficznie nadmiarowego magazynu (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Witaj poniższy przykład przedstawia się, że opcja - BackupStorageRedundancy hello testVault ustawiono tooGeoRedundant.
 
    > [!TIP]
-   > Wiele poleceń cmdlet narzędzia Kopia zapasowa Azure wymaga obiektu magazynu usług odzyskiwania jako danych wejściowych. Z tego powodu jest wygodne do przechowywania obiektów magazynu usług odzyskiwania kopii zapasowej w zmiennej.
+   > Wiele poleceń cmdlet narzędzia Kopia zapasowa Azure wymaga obiektu magazynu usług odzyskiwania hello jako danych wejściowych. Z tego powodu jest wygodne toostore hello usług odzyskiwania kopii zapasowej magazynu obiekt w zmiennej.
    >
    >
 
@@ -72,10 +72,10 @@ Poniższe kroki prowadzi przez proces tworzenia magazynu usług odzyskiwania. Ma
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
-## <a name="view-the-vaults-in-a-subscription"></a>Wyświetlanie magazynów w ramach subskrypcji
-Użyj **Get AzureRmRecoveryServicesVault** Aby wyświetlić listę wszystkich magazynów w bieżącej subskrypcji. Można użyć tego polecenia, aby sprawdzić, czy został utworzony nowy magazyn lub aby zobaczyć, jakie magazyny są dostępne w ramach subskrypcji.
+## <a name="view-hello-vaults-in-a-subscription"></a>Widok hello magazynów w ramach subskrypcji
+Użyj **Get-AzureRmRecoveryServicesVault** tooview hello listę wszystkich magazynów w hello bieżącej subskrypcji. Możesz użyć tego polecenia toocheck, utworzono nowy magazyn lub toosee magazynów, jakie są dostępne w hello subskrypcji.
 
-Uruchom polecenie **Get-AzureRmRecoveryServicesVault**, i są wyświetlane wszystkie magazyny do subskrypcji.
+Uruchom polecenie hello **Get-AzureRmRecoveryServicesVault**, i wszystkich magazynów w subskrypcji hello są wyświetlane.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault
@@ -89,10 +89,10 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
-## <a name="installing-the-azure-backup-agent"></a>Instalowanie agenta usługi Kopia zapasowa Azure
-Przed zainstalowaniem agenta usługi Kopia zapasowa Azure, musisz mieć Instalator pobrane i są obecne w systemie Windows Server. Możesz pobrać najnowszą wersję Instalatora z [Microsoft Download Center](http://aka.ms/azurebackup_agent) lub ze strony pulpitu nawigacyjnego magazynu usług odzyskiwania. Zapisanie Instalatora, aby łatwo dostępnej lokalizacji, takich jak * C:\Downloads\*.
+## <a name="installing-hello-azure-backup-agent"></a>Instalowanie agenta usługi Kopia zapasowa Azure hello
+Przed zainstalowaniem agenta usługi Kopia zapasowa Azure hello należy toohave hello Instalatora, pobranych i znajdują się na powitania serwera systemu Windows. Możesz pobrać najnowszą wersję Instalatora hello hello ze hello [Microsoft Download Center](http://aka.ms/azurebackup_agent) lub z magazynu usług odzyskiwania hello strony pulpitu nawigacyjnego. Zapisz Instalator hello tooan łatwo dostępnej lokalizacji, takich jak * C:\Downloads\*.
 
-Można również użyć programu PowerShell, aby uzyskać narzędzia do pobierania:
+Alternatywnie można użyć narzędzia pobierania hello tooget środowiska PowerShell:
  
  ```
  $MarsAURL = 'Http://Aka.Ms/Azurebackup_Agent'
@@ -101,33 +101,33 @@ Można również użyć programu PowerShell, aby uzyskać narzędzia do pobieran
  C:\Downloads\MARSAgentInstaller.EXE /q
  ```
 
-Aby zainstalować agenta, uruchom następujące polecenie w konsoli programu PowerShell z podwyższonym poziomem uprawnień:
+tooinstall hello agenta, uruchom następujące polecenie w konsoli programu PowerShell z podwyższonym poziomem uprawnień hello:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
 ```
 
-Spowoduje to zainstalowanie agenta przy użyciu opcji domyślnej. Instalacja trwa kilka minut w tle. Jeśli nie określisz */nu* opcji, a następnie **usługi Windows Update** zostanie otwarte okno po zakończeniu instalacji sprawdź, czy wszystkie aktualizacje. Po zainstalowaniu agenta zostaną wyświetlone na liście zainstalowanych programów.
+Spowoduje to zainstalowanie agenta hello z wszystkich opcji domyślnych hello. Instalacja Hello zajmuje kilka minut w tle hello. Jeśli nie określisz hello */nu* opcji, a następnie hello **usługi Windows Update** na końcu hello hello toocheck instalacji dla wszystkich aktualizacji, zostanie otwarte okno. Po zainstalowaniu agenta hello wyświetli hello listy zainstalowanych programów.
 
-Aby wyświetlić listę zainstalowanych programów, przejdź do **Panelu sterowania** > **programy** > **programy i funkcje**.
+toosee hello listy zainstalowanych programów, należy przejść za**Panelu sterowania** > **programy** > **programy i funkcje**.
 
 ![Agent został zainstalowany](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Opcje instalacji
-Aby wyświetlić wszystkie opcje dostępne za pomocą wiersza polecenia, użyj następującego polecenia:
+toosee, który hello wszystkie opcje dostępne za pośrednictwem hello wiersza polecenia, użyj następującego polecenia hello:
 
 ```
 PS C:\> MARSAgentInstaller.exe /?
 ```
 
-Dostępne opcje to:
+Witaj dostępne opcje to:
 
 | Opcja | Szczegóły | Domyślne |
 | --- | --- | --- |
 | /q |Instalację cichą |- |
-| / p: "Lokalizacja" |Ścieżka do folderu instalacji agenta usługi Kopia zapasowa Azure. |C:\Program Files\Microsoft Azure Recovery usługi agenta |
-| / s: "Lokalizacja" |Ścieżka do folderu pamięci podręcznej agenta usługi Kopia zapasowa Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m |Zezwól na usługi Microsoft Update |- |
+| / p: "Lokalizacja" |Ścieżka folderu instalacji toohello hello Azure Backup Agent. |C:\Program Files\Microsoft Azure Recovery usługi agenta |
+| / s: "Lokalizacja" |Ścieżka folderu pamięci podręcznej toohello hello Azure Backup Agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |TooMicrosoft opcjonalnych aktualizacji |- |
 | /nu |Nie sprawdzaj aktualizacji po ukończeniu instalacji |- |
 | /d |Odinstalowuje agenta usług odzyskiwania Microsoft Azure |- |
 | /pH |Adres hosta serwera proxy |- |
@@ -135,31 +135,31 @@ Dostępne opcje to:
 | /Pu |Nazwa użytkownika serwera proxy hosta |- |
 | /PW |Hasło serwera proxy |- |
 
-## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Rejestracja systemu Windows Server lub komputer kliencki z systemem Windows w magazynie usług odzyskiwania
-Po utworzeniu magazynu usług odzyskiwania, Pobierz najnowszą wersję agenta i poświadczenia magazynu i zapisz go w dogodnym miejscu, podobnie jak C:\Downloads.
+## <a name="registering-windows-server-or-windows-client-machine-tooa-recovery-services-vault"></a>Rejestracja systemu Windows Server lub klienta systemu Windows w maszynie tooa magazynu usług odzyskiwania
+Po utworzeniu magazynu usług odzyskiwania hello, Pobierz najnowszą wersję agenta hello i poświadczenia magazynu hello i zapisz go w dogodnym miejscu, podobnie jak C:\Downloads.
 
 ```
 PS C:\> $credspath = "C:\downloads"
 PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
 ```
 
-Na serwerze systemu Windows lub komputera klienckiego z systemem Windows, uruchom [Start OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) polecenia cmdlet, aby zarejestrować komputer w magazynie.
-To i inne polecenia cmdlet używane do tworzenia kopii zapasowych, są w module MSONLINE, który Mars AgentInstaller dodany jako część procesu instalacji. 
+Uruchom na powitania serwera systemu Windows lub komputera klienckiego z systemem Windows hello [Start OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) polecenia cmdlet tooregister hello maszyny z magazynem hello.
+To i inne polecenia cmdlet używane do tworzenia kopii zapasowych, są z modułu MSONLINE hello które hello Mars AgentInstaller dodany jako część procesu instalacji hello. 
 
-Instalator agenta nie aktualizuje $Env: PSModulePath zmiennej. Oznacza to, że automatyczne ładowanie modułu nie powiodło się. Aby rozwiązać ten problem można wykonaj następujące czynności:
+Witaj Instalatora agenta nie aktualizuje hello $Env: PSModulePath zmiennej. Oznacza to, że automatyczne ładowanie modułu nie powiodło się. tooresolve to można wykonać następujące hello:
 
 ```
 PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules
 ```
 
-Alternatywnie można ręcznie załadować moduł skryptu w następujący sposób:
+Alternatywnie można ręcznie załadować moduł hello w skrypcie w następujący sposób:
 
 ```
 PS C:\>  Import-Module  'C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup'
 
 ```
 
-Po załadowaniu poleceń cmdlet programu kopii zapasowej Online, zarejestruj się poświadczenia magazynu:
+Po załadowaniu hello poleceń cmdlet z kopii zapasowej Online, zarejestruj się poświadczenia magazynu hello:
 
 
 ```
@@ -173,16 +173,16 @@ Machine registration succeeded.
 ```
 
 > [!IMPORTANT]
-> Aby określić plik poświadczeń magazynu nie należy używać ścieżek względnych. Należy podać ścieżkę bezwzględną jako dane wejściowe polecenia cmdlet.
+> Nie należy używać pliku poświadczeń magazynu hello toospecify ścieżek względnych. Należy podać ścieżkę bezwzględną jako polecenia cmdlet toohello wejściowego.
 >
 >
 
 ## <a name="networking-settings"></a>Ustawienia sieciowe
-W przypadku połączenia komputera z systemem Windows do Internetu za pośrednictwem serwera proxy, ustawienia serwera proxy można również podać agenta. W tym przykładzie nie żadnego serwera proxy, dlatego firma Microsoft są jawnie wyczyszczenie żadnych informacji dotyczących serwera proxy.
+Gdy łączność hello hello systemu Windows maszyny toohello jest internet za pośrednictwem serwera proxy, ustawienia serwera proxy hello można również podać o toohello agenta. W tym przykładzie nie żadnego serwera proxy, dlatego firma Microsoft są jawnie wyczyszczenie żadnych informacji dotyczących serwera proxy.
 
-Przepustowości można również sterować za pomocą opcji ```work hour bandwidth``` i ```non-work hour bandwidth``` dla danego zestawu dni tygodnia.
+Wykorzystanie przepustowości można również sterować za pomocą opcji hello ```work hour bandwidth``` i ```non-work hour bandwidth``` dla danego zestawu dni tygodnia hello.
 
-Ustawienie szczegóły serwera proxy i przepustowości jest wykonywane przy użyciu [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) polecenia cmdlet:
+Ustawienie szczegóły serwera proxy i przepustowości hello jest wykonywane przy użyciu hello [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) polecenia cmdlet:
 
 ```
 PS C:\> Set-OBMachineSetting -NoProxy
@@ -193,7 +193,7 @@ Server properties updated successfully.
 ```
 
 ## <a name="encryption-settings"></a>Ustawienia szyfrowania
-Dane kopii zapasowej wysyłane do usługi Kopia zapasowa Azure są szyfrowane w chronieniu poufności danych. Hasło szyfrowania jest "password" do odszyfrowania danych w czasie przywracania.
+tooAzure wysyłane dane kopii zapasowej Hello kopii zapasowej jest zaszyfrowany tooprotect hello poufność danych hello. hasło szyfrowania Hello jest hello "password" toodecrypt hello danych w czasie hello przywracania.
 
 ```
 PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
@@ -204,30 +204,30 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Zachowaj informacje hasło bezpieczne po ustawieniu. Nie są można przywrócić dane z usługi Azure bez tego hasła.
+> Zachowaj informacje hasło hello bezpieczne po ustawieniu. Są nie jest możliwe toorestore danych z platformy Azure bez tego hasła.
 >
 >
 
 ## <a name="back-up-files-and-folders"></a>Tworzenie kopii zapasowych plików i folderów
-Wszystkie kopie zapasowe i serwery z systemem Windows Azure Backup zarządzane przez zasady. Zasady składa się z trzech części:
+Wszystkie kopie zapasowe z serwerów z systemem Windows i klientów tooAzure kopii zapasowej zarządzane przez zasady. zasady Hello składa się z trzech części:
 
-1. A **harmonogram tworzenia kopii zapasowych** określający, gdy kopie zapasowe muszą być podjęte i zsynchronizowane z usługą.
-2. A **harmonogramu przechowywania** określająca czas przechowywania punktów odzyskiwania na platformie Azure.
+1. A **harmonogram tworzenia kopii zapasowych** , który określa podczas tworzenia kopii zapasowych należy toobe podjęte, a następnie synchronizowane z usługą hello.
+2. A **harmonogramu przechowywania** Określa, jak długo punkty odzyskiwania hello tooretain na platformie Azure.
 3. A **określania włączenia/wyłączenia pliku** które nakazują, co należy utworzyć kopię.
 
-W tym dokumencie ponieważ będziemy w przypadku automatyzacji kopii zapasowej, przyjęto będzie założenie, że nic nie skonfigurowano. Zaczniemy poprzez tworzenie na podstawie nowych zasad tworzenia kopii zapasowej [OBPolicy nowy](https://technet.microsoft.com/library/hh770416.aspx) polecenia cmdlet.
+W tym dokumencie ponieważ będziemy w przypadku automatyzacji kopii zapasowej, przyjęto będzie założenie, że nic nie skonfigurowano. Zaczniemy przez utworzenie nowych zasad tworzenia kopii zapasowej przy użyciu hello [OBPolicy nowy](https://technet.microsoft.com/library/hh770416.aspx) polecenia cmdlet.
 
 ```
 PS C:\> $newpolicy = New-OBPolicy
 ```
 
-W tym momencie zasady jest pusta i innych poleceń cmdlet są wymagane do zdefiniowania, jakie elementy będą dołączone lub wykluczone, kiedy kopii zapasowych zostanie wykonane, a w przypadku, gdy kopie zapasowe będą przechowywane.
+W tym hello czasu zasady jest pusta i innych poleceń cmdlet są potrzebne toodefine jakie elementy zostaną uwzględnione lub wykluczone, gdy kopie zapasowe zostaną uruchomione i gdy hello kopie zapasowe będą przechowywane.
 
-### <a name="configuring-the-backup-schedule"></a>Konfigurowanie harmonogramu tworzenia kopii zapasowych
-Pierwsza z 3 części zasad jest harmonogram tworzenia kopii zapasowych, który jest tworzony przy użyciu [OBSchedule nowy](https://technet.microsoft.com/library/hh770401) polecenia cmdlet. Harmonogram tworzenia kopii zapasowych definiuje, gdy kopie zapasowe należy podjąć. Podczas tworzenia harmonogramu, musisz podać parametry wejściowe 2:
+### <a name="configuring-hello-backup-schedule"></a>Konfigurowanie hello harmonogram tworzenia kopii zapasowych
+Witaj najpierw hello 3 części zasad jest harmonogram tworzenia kopii zapasowych hello, który został utworzony za pomocą hello [OBSchedule nowy](https://technet.microsoft.com/library/hh770401) polecenia cmdlet. harmonogram tworzenia kopii zapasowych Hello definiuje, podczas tworzenia kopii zapasowych należy toobe podjęte. Podczas tworzenia harmonogramu należy toospecify 2 parametry wejściowe:
 
-* **Dni tygodnia** uruchomienia tworzenia kopii zapasowej. Można uruchomić zadanie tworzenia kopii zapasowej na tylko jeden dzień lub każdego dnia, tygodnia lub dowolnej kombinacji między.
-* **Porach dnia** uruchomienia tworzenia kopii zapasowej. Można określić maksymalnie 3 różnych porach dnia, gdy zostanie wywołane kopii zapasowej.
+* **Dni tygodnia hello** hello kopii zapasowej powinno być ono uruchomione. Można uruchomić zadanie tworzenia kopii zapasowej hello na tylko jeden dzień lub każdego dnia tygodnia hello lub dowolną kombinację między.
+* **Pór dnia hello** uruchomienia hello kopii zapasowej. Można zdefiniować się too3 różnych porach dnia hello, gdy zostanie wywołane hello kopii zapasowej.
 
 Na przykład można skonfigurować zasad tworzenia kopii zapasowej, wykonywany o 16: 00 w każdą sobotę i niedziela.
 
@@ -235,20 +235,20 @@ Na przykład można skonfigurować zasad tworzenia kopii zapasowej, wykonywany o
 PS C:\> $sched = New-OBSchedule -DaysofWeek Saturday, Sunday -TimesofDay 16:00
 ```
 
-Harmonogram tworzenia kopii zapasowych musi być skojarzone z zasadami i można to osiągnąć przy użyciu [OBSchedule zestaw](https://technet.microsoft.com/library/hh770407) polecenia cmdlet.
+harmonogram tworzenia kopii zapasowych Hello musi toobe skojarzonej z zasadami i można to osiągnąć przy użyciu hello [OBSchedule zestaw](https://technet.microsoft.com/library/hh770407) polecenia cmdlet.
 
 ```
 PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 ### <a name="configuring-a-retention-policy"></a>Konfigurowania zasad przechowywania
-Zasady przechowywania określają, jak długo są przechowywane punkty odzyskiwania utworzone na podstawie zadania tworzenia kopii zapasowej. Podczas tworzenia nowych zasad przechowywania, przy użyciu [OBRetentionPolicy nowy](https://technet.microsoft.com/library/hh770425) polecenia cmdlet, można określić liczbę dni, które muszą być przechowywane w usłudze Kopia zapasowa Azure punktów odzyskiwania. W poniższym przykładzie ustawia zasady przechowywania wynosi 7 dni.
+zasady przechowywania Hello definiuje czas odzyskiwania, punkty utworzone na podstawie zadania tworzenia kopii zapasowej zostaną zachowane. Podczas tworzenia nowych zasad przechowywania przy użyciu hello [OBRetentionPolicy nowy](https://technet.microsoft.com/library/hh770425) polecenia cmdlet, można określić hello liczbę dni, które hello punktów odzyskiwania należy toobe przechowywane w usłudze Kopia zapasowa Azure. w poniższym przykładzie Hello ustawia zasady przechowywania wynosi 7 dni.
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-Zasady przechowywania muszą być skojarzone z zasadami głównego za pomocą polecenia cmdlet [OBRetentionPolicy zestaw](https://technet.microsoft.com/library/hh770405):
+Witaj zasady przechowywania muszą być skojarzone z zasadami głównego hello przy użyciu polecenia cmdlet hello [OBRetentionPolicy zestaw](https://technet.microsoft.com/library/hh770405):
 
 ```
 PS C:\> Set-OBRetentionPolicy -Policy $newpolicy -RetentionPolicy $retentionpolicy
@@ -272,16 +272,16 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
-### <a name="including-and-excluding-files-to-be-backed-up"></a>Włączanie i wyłączanie plików do wykonania kopii zapasowej
-```OBFileSpec``` Obiekt definiuje pliki mają być uwzględnione i wykluczone w kopii zapasowej. Jest to zestaw reguł, które zakres chronionych plików i folderów na komputerze. Może mieć wiele pliku reguł dołączania lub wykluczania zgodnie z wymaganiami i skojarzyć je z zasadami. Tworząc nowy obiekt OBFileSpec, można:
+### <a name="including-and-excluding-files-toobe-backed-up"></a>Włączanie i wyłączanie toobe pliki kopii zapasowej
+```OBFileSpec``` Obiekt definiuje hello pliki toobe dołączone i wykluczone w kopii zapasowej. Jest to zestaw reguł, że zakres limit hello chronione pliki i foldery na komputerze. Może mieć wiele pliku reguł dołączania lub wykluczania zgodnie z wymaganiami i skojarzyć je z zasadami. Tworząc nowy obiekt OBFileSpec, można:
 
-* Określ pliki i foldery do uwzględnienia
-* Określ pliki i foldery do wykluczenia
-* Określ rekursywne tworzenie kopii zapasowych danych w folderze (lub) czy tylko pliki najwyższego poziomu w określonym folderze należy utworzyć kopię zapasową.
+* Określ toobe pliki i foldery hello włączone
+* Określ toobe pliki i foldery hello wyłączone
+* Określ rekursywne tworzenie kopii zapasowych danych w folderze (lub) czy tylko hello pliki najwyższego poziomu w określonym folderze hello należy utworzyć kopię zapasową.
 
-Rozwinięciu przy użyciu flagi - Nierekurencyjny polecenia New-OBFileSpec.
+ostatnie Hello odbywa się przy użyciu flagi - Nierekurencyjny hello w poleceniu hello OBFileSpec nowy.
 
-W poniższym przykładzie możemy utworzyć kopię zapasową woluminu, C: i D: i wykluczanie plików binarnych systemu operacyjnego w folderze systemu Windows i foldery tymczasowe. Aby to zrobić, utworzymy dwóch plików przy użyciu specyfikacji [OBFileSpec nowy](https://technet.microsoft.com/library/hh770408) polecenia cmdlet — jeden dla dołączania i jeden do wykluczenia. Po utworzeniu specyfikacji pliku są powiązane z zasad przy użyciu opcji [OBFileSpec Dodaj](https://technet.microsoft.com/library/hh770424) polecenia cmdlet.
+W poniższym przykładzie hello możemy utworzyć kopię zapasową woluminu, C: i D: i wykluczanie plików binarnych systemu operacyjnego hello w folderze systemu Windows hello i foldery tymczasowe. toodo, utworzymy dwa specyfikacji pliku przy użyciu hello [OBFileSpec nowy](https://technet.microsoft.com/library/hh770408) polecenia cmdlet — jeden dla dołączania i jeden do wykluczenia. Po utworzeniu specyfikacji pliku hello są powiązane z zasadami hello przy użyciu hello [OBFileSpec Dodaj](https://technet.microsoft.com/library/hh770424) polecenia cmdlet.
 
 ```
 PS C:\> $inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -372,19 +372,19 @@ State           : New
 PolicyState     : Valid
 ```
 
-### <a name="applying-the-policy"></a>Stosowanie zasad
-Teraz ten obiekt zasad została zakończona i ma skojarzone harmonogram tworzenia kopii zapasowych, zasad przechowywania i włączenia/wyłączenia lista plików. Te zasady można teraz zatwierdzona dla usługi Kopia zapasowa Azure do użycia. Przed zastosowaniem zasad nowo utworzony upewnij się, że nie ma żadnych istniejących zasad tworzenia kopii zapasowej skojarzone z serwerem przy użyciu [OBPolicy Usuń](https://technet.microsoft.com/library/hh770415) polecenia cmdlet. Usuwanie zasad wyświetli monit o potwierdzenie. Aby pominąć użycie potwierdzenia ```-Confirm:$false``` flagę za pomocą polecenia cmdlet.
+### <a name="applying-hello-policy"></a>Zastosowanie zasad hello
+Teraz hello obiektu zasad została zakończona i ma skojarzone harmonogram tworzenia kopii zapasowych, zasad przechowywania i włączenia/wyłączenia lista plików. Te zasady można teraz zatwierdzone dla toouse kopia zapasowa Azure. Przed zastosowaniem hello nowo utworzone zasady upewnij się, że nie ma żadnych istniejących zasad tworzenia kopii zapasowej skojarzonego z serwerem hello przy użyciu hello [OBPolicy Usuń](https://technet.microsoft.com/library/hh770415) polecenia cmdlet. Usuwanie zasad hello wyświetli monit o potwierdzenie. Potwierdzenie hello tooskip Użyj hello ```-Confirm:$false``` flagę hello polecenia cmdlet.
 
 ```
 PS C:> Get-OBPolicy | Remove-OBPolicy
-Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
+Microsoft Azure Backup Are you sure you want tooremove this backup policy? This will delete all hello backed up data. [Y] Yes [A] Yes tooAll [N] No [L] No tooAll [S] Suspend [?] Help (default is "Y"):
 ```
 
-Zatwierdzania obiektu zasad jest wykonywane przy użyciu [OBPolicy zestaw](https://technet.microsoft.com/library/hh770421) polecenia cmdlet. Spowoduje to również monituje o potwierdzenie. Aby pominąć użycie potwierdzenia ```-Confirm:$false``` flagę za pomocą polecenia cmdlet.
+Przekazywanie obiektu zasad hello jest wykonywane przy użyciu hello [OBPolicy zestaw](https://technet.microsoft.com/library/hh770421) polecenia cmdlet. Spowoduje to również monituje o potwierdzenie. Potwierdzenie hello tooskip Użyj hello ```-Confirm:$false``` flagę hello polecenia cmdlet.
 
 ```
 PS C:> Set-OBPolicy -Policy $newpolicy
-Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
+Microsoft Azure Backup Do you want toosave this backup policy ? [Y] Yes [A] Yes tooAll [N] No [L] No tooAll [S] Suspend [?] Help (default is "Y"):
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s)
 DsList : {DataSource
          DatasourceId:4508156004108672185
@@ -425,7 +425,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Można wyświetlić szczegółowe informacje o istniejących zasad tworzenia kopii zapasowej przy użyciu [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) polecenia cmdlet. Użytkownik może przejść za pomocą [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) polecenia cmdlet dla harmonogramu tworzenia kopii zapasowych i [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) polecenia cmdlet dla zasad przechowywania
+Możesz wyświetlić szczegóły hello hello istniejących zasad tworzenia kopii zapasowej przy użyciu hello [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) polecenia cmdlet. Użytkownik może przejść za pomocą hello [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) polecenia cmdlet hello harmonogram tworzenia kopii zapasowych i hello [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) polecenia cmdlet dla zasad przechowywania hello
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -466,32 +466,32 @@ IsRecursive : True
 ```
 
 ### <a name="performing-an-ad-hoc-backup"></a>Wykonywanie kopii zapasowych ad hoc
-Po ustawieniu zasad tworzenia kopii zapasowej kopie zapasowe zostanie przeprowadzona na harmonogram. Wyzwolenie kopii zapasowych ad hoc jest także możliwe przy użyciu [Start OBBackup](https://technet.microsoft.com/library/hh770426) polecenia cmdlet:
+Po ustawieniu zasad tworzenia kopii zapasowej hello kopii zapasowych zostanie przeprowadzona na powitania harmonogramu. Wyzwolenie kopii zapasowych ad hoc jest także możliwe przy użyciu hello [Start OBBackup](https://technet.microsoft.com/library/hh770426) polecenia cmdlet:
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
 Initializing
 Taking snapshot of volumes...
 Preparing storage...
-Generating backup metadata information and preparing the metadata VHD...
-Data transfer is in progress. It might take longer since it is the first backup and all data needs to be transferred...
-Data transfer completed and all backed up data is in the cloud. Verifying data integrity...
+Generating backup metadata information and preparing hello metadata VHD...
+Data transfer is in progress. It might take longer since it is hello first backup and all data needs toobe transferred...
+Data transfer completed and all backed up data is in hello cloud. Verifying data integrity...
 Data transfer completed
 In progress...
 Job completed.
-The backup operation completed successfully.
+hello backup operation completed successfully.
 ```
 
 ## <a name="restore-data-from-azure-backup"></a>Przywróć dane z usługi Kopia zapasowa Azure
-Ta sekcja przeprowadzi Cię przez kolejne kroki do automatyzacji odzyskiwanie danych z kopii zapasowej Azure. Dzięki temu obejmuje następujące kroki:
+W tej sekcji przedstawiono kroki hello do automatyzacji odzyskiwanie danych z kopii zapasowej Azure. Spowoduje to obejmuje hello następujące kroki:
 
-1. Wybierz wolumin źródłowy
-2. Wybierz punktu kopii zapasowej do przywrócenia
-3. Wybierz element, aby przywrócić
-4. Wyzwalacz proces przywracania
+1. Wybierz wolumin źródłowy hello
+2. Wybierz opcję tworzenia kopii zapasowej toorestore punktu
+3. Wybierz element toorestore
+4. Proces przywracania hello wyzwalacza
 
-### <a name="picking-the-source-volume"></a>Pobrania woluminu źródłowego
-Aby przywrócić element z kopii zapasowej Azure, należy najpierw określić źródło elementu. Ponieważ firma Microsoft w przypadku wykonywania polecenia w kontekście systemu Windows Server lub klienta systemu Windows, komputer jest już zidentyfikowany. Następnym krokiem w identyfikacji źródła jest zidentyfikować woluminu zawierającego go. Listę woluminów lub źródła Trwa wykonywanie kopii zapasowej z tego komputera mogą być pobierane, wykonując [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) polecenia cmdlet. To polecenie zwraca tablicę wszystkich źródeł kopii zapasowej z serwera/klienta.
+### <a name="picking-hello-source-volume"></a>Wolumin źródła hello pobrania
+W kolejności toorestore element z kopii zapasowej Azure najpierw tooidentify hello źródła elementu hello. Ponieważ firma Microsoft jest wykonywania poleceń hello w kontekście systemu Windows Server lub klienta systemu Windows hello, jest już zidentyfikowany hello maszyny. następnym krokiem Hello w identyfikacji źródła hello jest tooidentify hello woluminu zawierającego go. Listę woluminów lub źródła Trwa wykonywanie kopii zapasowej z tego komputera mogą być pobierane, wykonując hello [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) polecenia cmdlet. To polecenie zwraca tablicę wszystkich źródeł hello kopii zapasowej z serwera/klienta.
 
 ```
 PS C:> $source = Get-OBRecoverableSource
@@ -505,8 +505,8 @@ RecoverySourceName : D:\
 ServerName : myserver.microsoft.com
 ```
 
-### <a name="choosing-a-backup-point-from-which-to-restore"></a>Wybieranie punktu kopii zapasowej, z której można przywrócić
-Pobieranie listy punktów kopii zapasowej, wykonując [Get OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) polecenie cmdlet z odpowiednimi parametrami. W naszym przykładzie wybrano najnowszego punktu kopii zapasowej woluminu źródłowego *D:* i używać go do odzyskania określonego pliku.
+### <a name="choosing-a-backup-point-from-which-toorestore"></a>Wybieranie punktu kopii zapasowej, z których toorestore
+Pobieranie listy punktów kopii zapasowej, wykonując hello [Get OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) polecenie cmdlet z odpowiednimi parametrami. W naszym przykładzie wybrano hello najnowszego punktu kopii zapasowej dla woluminu źródłowego hello *D:* i korzystać z niego toorecover określonego pliku.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
@@ -532,12 +532,12 @@ ServerName : myserver.microsoft.com
 ItemSize :
 ItemLastModifiedTime :
 ```
-Obiekt ```$rps``` jest tablicą punktów kopii zapasowej. Pierwszy element jest najnowszy punkt i n-tego elementu jest starsze punkty. Aby wybrać najnowszy punkt, będziemy używać ```$rps[0]```.
+Obiekt Hello ```$rps``` jest tablicą punktów kopii zapasowej. pierwszy element Hello jest hello najnowszy punkt i hello n-tego elementu jest hello starsze punkty. używamy toochoose hello najnowszy punkt ```$rps[0]```.
 
-### <a name="choosing-an-item-to-restore"></a>Wybranie elementu do przywrócenia
-Aby zidentyfikować dokładną plik lub folder do przywrócenia, użyj rekursywnie [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) polecenia cmdlet. W ten sposób hierarchię folderów można przeglądać wyłącznie przy użyciu ```Get-OBRecoverableItem```.
+### <a name="choosing-an-item-toorestore"></a>Wybieranie toorestore elementu
+tooidentify hello plików lub folder toorestore rekursywnie Użyj hello [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) polecenia cmdlet. Hierarchia folderów hello ten sposób można przeglądać wyłącznie przy użyciu hello ```Get-OBRecoverableItem```.
 
-W tym przykładzie, jeśli chcemy przywrócić plik *finances.xls* firma Microsoft może odwoływać się który przy użyciu obiektu ```$filesFolders[1]```.
+W tym przykładzie, jeśli chcemy pliku hello toorestore *finances.xls* firma Microsoft może odwoływać się przy użyciu tego obiektu hello ```$filesFolders[1]```.
 
 ```
 PS C:> $filesFolders = Get-OBRecoverableItem $rps[0]
@@ -578,20 +578,20 @@ ItemSize : 96256
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```
 
-Możesz również wyszukać elementy do przywrócenia przy użyciu ```Get-OBRecoverableItem``` polecenia cmdlet. W naszym przykładzie, aby wyszukać *finances.xls* firma Microsoft można uzyskać dojścia do pliku, uruchamiając poniższe polecenie:
+Możesz również wyszukać toorestore elementów przy użyciu hello ```Get-OBRecoverableItem``` polecenia cmdlet. W naszym przykładzie toosearch dla *finances.xls* firma Microsoft można uzyskać dojścia do pliku hello, uruchamiając polecenie:
 
 ```
 PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyData" -SearchString "finance*"
 ```
 
-### <a name="triggering-the-restore-process"></a>Wyzwolenie procesu przywracania
-Aby wyzwolić procesu przywracania, najpierw musimy Określ opcje odzyskiwania. Można to zrobić za pomocą [OBRecoveryOption nowy](https://technet.microsoft.com/library/hh770417.aspx) polecenia cmdlet. Na przykład załóżmy, że chcemy przywrócić pliki *C:\temp*. Załóżmy również, że chcemy pominąć pliki, które już istnieją w folderze docelowym *C:\temp*. Aby utworzyć opcji odzyskiwania, użyj następującego polecenia:
+### <a name="triggering-hello-restore-process"></a>Wyzwolenie procesu przywracania hello
+proces przywracania hello tootrigger, najpierw musisz opcje odzyskiwania hello toospecify. Można to zrobić za pomocą hello [OBRecoveryOption nowy](https://technet.microsoft.com/library/hh770417.aspx) polecenia cmdlet. Na przykład załóżmy, że czy zbyt chcemy pliki hello toorestore*C:\temp*. Umożliwia również założono, że chcemy tooskip pliki, które już istnieją w folderze docelowym hello *C:\temp*. toocreate takie opcję odzyskiwania, użyj hello następujące polecenie:
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-Teraz uruchomić proces przywracania, używając [Start OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) polecenia na wybranym ```$item``` z danych wyjściowych ```Get-OBRecoverableItem``` polecenia cmdlet:
+Teraz uruchomić proces przywracania hello, używając hello [Start OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) na powitania wybrane ```$item``` z danych wyjściowych hello hello ```Get-OBRecoverableItem``` polecenia cmdlet:
 
 ```
 PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
@@ -600,29 +600,29 @@ Estimating size of backup items...
 Estimating size of backup items...
 Estimating size of backup items...
 Job completed.
-The recovery operation completed successfully.
+hello recovery operation completed successfully.
 ```
 
 
-## <a name="uninstalling-the-azure-backup-agent"></a>Odinstalowanie agenta usługi Kopia zapasowa Azure
-Odinstalowanie agenta usługi Kopia zapasowa Azure może odbywać się przy użyciu następującego polecenia:
+## <a name="uninstalling-hello-azure-backup-agent"></a>Odinstalowanie agenta usługi Kopia zapasowa Azure hello
+Odinstalowanie agenta usługi Kopia zapasowa Azure hello może odbywać się przy użyciu hello następujące polecenie:
 
 ```
 PS C:\> .\MARSAgentInstaller.exe /d /q
 ```
 
-Odinstalowywanie pliki binarne agenta na komputerze ma niektórych konsekwencje wziąć pod uwagę:
+Odinstalowywanie pliki binarne agenta hello z maszyny hello ma niektórych tooconsider konsekwencje:
 
-* Usuwa filtr plików z komputera, a zatrzymania śledzenia zmian.
-* Wszystkie informacje o zasadach jest usuwany z komputera, ale informacje o zasadach nadal mają być przechowywane w usłudze.
+* Usuwa filtr plików hello z hello maszyny i śledzenie zmian jest zatrzymana.
+* Wszystkie informacje o zasadach zostanie usunięty z maszyny hello, ale informacje o zasadach hello nadal toobe przechowywany w usłudze hello.
 * Wszystkie harmonogramy tworzenia kopii zapasowej są usuwane i są pobierane nie dalsze kopii zapasowych.
 
-Jednak dane przechowywane w pozostaje Azure i są przechowywane zgodnie z ustawień zasad przechowywania przez użytkownika. Starsze punkty automatycznie są przestarzałe.
+Jednak hello dane przechowywane w pozostaje Azure i są przechowywane zgodnie z ustawień zasad przechowywania hello przez użytkownika. Starsze punkty automatycznie są przestarzałe.
 
 ## <a name="remote-management"></a>Zdalne zarządzanie
-Całe Zarządzanie wokół agenta usługi Kopia zapasowa Azure, zasady i źródłami danych mogą to robić zdalnie za pomocą programu PowerShell. Komputer, który będzie zarządzany zdalnie musi poprawnie przygotowany.
+Całe Zarządzanie hello wokół hello agenta usługi Kopia zapasowa Azure, zasady i źródłami danych mogą to robić zdalnie za pomocą programu PowerShell. Witaj maszyny, który będzie zarządzany zdalnie musi toobe poprawnie przygotowany.
 
-Domyślnie Usługa WinRM jest skonfigurowany do uruchamiania ręcznego. Typ uruchamiania musi mieć ustawioną *automatyczne* i można uruchomić usługi. Aby sprawdzić, czy Usługa WinRM jest uruchomiona, wartość właściwości Stan powinien być *systemem*.
+Domyślnie program hello Usługa WinRM jest skonfigurowany do uruchamiania ręcznego. musi być zbyt ustawionym typem uruchomienia Hello*automatyczne* i hello usługi powinny być uruchamiane. tooverify, który hello Usługa WinRM jest uruchomiona, musi mieć wartość hello hello właściwość stanu *systemem*.
 
 ```
 PS C:\> Get-Service WinRM
@@ -636,14 +636,14 @@ Programu PowerShell, należy skonfigurować dla niego komunikację zdalną.
 
 ```
 PS C:\> Enable-PSRemoting -force
-WinRM is already set up to receive requests on this computer.
+WinRM is already set up tooreceive requests on this computer.
 WinRM has been updated for remote management.
 WinRM firewall exception enabled.
 
 PS C:\> Set-ExecutionPolicy unrestricted -force
 ```
 
-Komputer teraz można zarządzać zdalnie — począwszy od instalacji agenta. Na przykład poniższy skrypt kopiuje agenta z komputerem zdalnym i instaluje je.
+maszyny Hello teraz można zarządzać zdalnie — począwszy od instalacji hello hello agenta. Na przykład hello następującego skryptu kopiuje hello maszyny zdalnej toohello agenta i instaluje je.
 
 ```
 PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
@@ -658,5 +658,5 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji o kopii zapasowej dla systemu Windows Server/klienta Azure, zobacz
 
-* [Wprowadzenie do usługi Azure Backup](backup-introduction-to-azure-backup.md)
+* [Wprowadzenie tooAzure kopii zapasowej](backup-introduction-to-azure-backup.md)
 * [Wykonaj kopię zapasową serwerów z systemem Windows](backup-configure-vault.md)

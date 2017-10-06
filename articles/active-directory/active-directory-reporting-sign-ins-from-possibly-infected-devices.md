@@ -1,5 +1,5 @@
 ---
-title: "Logowania z potencjalnie zainfekowanych urządzeń"
+title: "aaaSign ins z potencjalnie zainfekowanych urządzeń"
 description: "Raport, który zawiera znak w prób, wykonanych z urządzeń, na których mogą być uruchomione niektóre złośliwe oprogramowanie (złośliwego oprogramowania)."
 services: active-directory
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-ms.openlocfilehash: 3809e20937d8d9829675e20f893101cb849dcea2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8d973701d6833f748de443f96cf7ed1d060202e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-ins-from-possibly-infected-devices"></a>Logowania z potencjalnie zainfekowanych urządzeń
-Ten raport próbuje zidentyfikować urządzenia użytkowników, która ma zostać zainfekowany i są teraz częścią botnet. Firma Microsoft skorelowania logowania użytkowników z adresami IP, które wiemy, że można kontaktu z serwerami botnet adresów IP.
+Ten raport prób tooidentify urządzeń użytkowników, które mają zostać zainfekowany i są teraz częścią botnet. Firma Microsoft skorelowania logowania użytkowników z adresami IP, aby było wiadomo, toobe kontaktu z serwerami botnet adresów IP.
 
-Zalecenie: W tym raporcie flagi adresy IP, nie urządzeń użytkownika. Firma Microsoft zaleca, skontaktuj się z użytkownika i skanowanie wszystkich urządzeń użytkownika należy się upewnić. Istnieje również możliwość, że jest zainfekowany urządzenia osobiste użytkownika, lub czy kogoś innego niż użytkownik, który korzystał z tego samego adresu IP, jako użytkownik, ma zainfekowanego urządzenia.
+Zalecenie: W tym raporcie flagi adresy IP, nie urządzeń użytkownika. Firma Microsoft zaleca, skontaktuj się z hello użytkownika i skanowanie wszystkich użytkowników hello toobe urządzeń niektórych. Istnieje również możliwość, że jest zainfekowany urządzenia osobiste użytkownika, lub czy hello kogoś innego niż hello użytkownik, który korzystał z tego samego adresu IP, jako użytkownik hello została zainfekowanego urządzenia.
 
-Aby uzyskać więcej informacji na temat adresów infekcji złośliwym oprogramowaniem, zobacz [Centrum ochrony przed złośliwym oprogramowaniem](http://go.microsoft.com/fwlink/?linkid=335773).
+Aby uzyskać więcej informacji o tym, jak tooaddress infekcji złośliwym oprogramowaniem, zobacz hello [Centrum ochrony przed złośliwym oprogramowaniem](http://go.microsoft.com/fwlink/?linkid=335773).
 
 ![Logowania z potencjalnie zainfekowanych urządzeń](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 

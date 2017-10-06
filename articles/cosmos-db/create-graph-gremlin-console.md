@@ -1,6 +1,6 @@
 ---
 title: "Samouczek usługi Azure Cosmos DB: Tworzenie, wykonywanie zapytań i przechodzenie w konsoli Apache TinkerPops Gremlin | Microsoft Docs"
-description: "Przewodnik Szybki start usługi Azure Cosmos DB opisujący tworzenie wierzchołków, krawędzi i zapytań za pomocą interfejsu API programu Graph w usłudze Azure Cosmos DB."
+description: "Toocreates Szybki Start Azure DB rozwiązania Cosmos wierzchołków, krawędzie i zapytań przy użyciu hello DB Azure rozwiązania Cosmos interfejsu API programu Graph."
 services: cosmos-db
 author: dennyglee
 manager: jhubbard
@@ -13,29 +13,29 @@ ms.devlang: terminal
 ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: denlee
-ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9de64c97fec89c45cecba9e14214db472ec76f57
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Tworzenie elementów, wykonywanie zapytań i przechodzenie grafu w konsoli Gremlin
+# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-hello-gremlin-console"></a>Azure rozwiązania Cosmos bazy danych: Utwórz zapytanie i przechodzić między nimi wykres w konsoli Gremlin hello
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Można szybko utworzyć i wyszukiwać dokumentu, klucza i wartości i wykres baz danych, które korzystają z dystrybucji globalne hello i możliwości skalowanie w poziomie na podstawowe hello Azure DB rozwiązania Cosmos. 
 
-Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych i grafu (kontenera) przy użyciu witryny Azure Portal oraz korzystania z [konsoli Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) z platformy [Apache TinkerPop](http://tinkerpop.apache.org) do pracy z danymi interfejsu API programu Graph (wersja zapoznawcza). W tym samouczku utworzysz wierzchołki i krawędzie oraz wykonasz względem nich zapytania, zaktualizujesz właściwość wierzchołka, przejdziesz graf i usuniesz wierzchołek.
+To szybki start pokazano, jak toocreate konta bazy danych Azure rozwiązania Cosmos, bazy danych i wykres (kontener) przy użyciu hello portalu Azure, a następnie użyj hello [konsoli Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) z [Apache TinkerPop](http://tinkerpop.apache.org) toowork z Wykres danych interfejsu API (wersja zapoznawcza). W tym samouczku Utwórz i zapytania wierzchołków i krawędzi, aktualizowanie właściwości wierzchołków zapytania wierzchołków, przechodzenie przez wykres hello i upuść wierzchołka.
 
-![Usługa Azure Cosmos DB w konsoli Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
+![Azure DB rozwiązania Cosmos z hello Apache Gremlin konsoli](./media/create-graph-gremlin-console/gremlin-console.png)
 
-Konsola Gremlin jest oparta na języku Groovy/Java i działa w systemach Linux, Mac i Windows. Możesz ją pobrać z [witryny Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
+Konsola Gremlin Hello jest Groovy/Java i działa w systemie Linux, Mac i systemu Windows. Można go pobrać ze hello [lokacji Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz dysponować subskrypcją platformy Azure, aby utworzyć konto usługi Azure Cosmos DB na potrzeby tego przewodnika Szybki start.
+Toohave toocreate subskrypcji platformy Azure, konto bazy danych Azure rozwiązania Cosmos jest wymagane dla tego przewodnika Szybki Start.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Należy również zainstalować [konsolę Gremlin](http://tinkerpop.apache.org/). Użyj wersji 3.2.5 lub nowszej.
+Należy również tooinstall hello [konsoli Gremlin](http://tinkerpop.apache.org/). Użyj wersji 3.2.5 lub nowszej.
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -45,44 +45,44 @@ Należy również zainstalować [konsolę Gremlin](http://tinkerpop.apache.org/)
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a id="ConnectAppService"></a>Łączenie z usługą aplikacji
-1. Przed uruchomieniem konsoli Gremlin utwórz lub zmodyfikuj plik konfiguracji remote-secure.yaml w katalogu apache-tinkerpop-gremlin-console-3.2.5/conf.
+## <a id="ConnectAppService"></a>Połącz tooyour usługi aplikacji
+1. Przed rozpoczęciem hello Gremlin konsoli, Utwórz lub zmodyfikuj plik konfiguracji zdalnego secure.yaml hello w katalogu apache-tinkerpop-gremlin-console-3.2.5/conf hello.
 2. Wypełnij ustawienia konfiguracji *host*, *port*, *username*, *password*, *connectionPool* i *serializer*:
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
-    hosty|[***.graphs.azure.com]|Zobacz poniższy zrzut ekranu. Jest to wartość identyfikatora URI Gremlin na stronie Przegląd w witrynie Azure Portal w nawiasach kwadratowych z usuniętym fragmentem końcowym :443/.<br><br>Tę wartość można również pobrać z karty Klucze, używając wartości identyfikatora URI po usunięciu ciągu https://, zmianie dokumentów na grafy i usunięciu fragmentu końcowego :443/.
-    port|443|Ustaw wartość 443.
-    nazwa użytkownika|*Twoja nazwa użytkownika*|Zasób w postaci `/dbs/<db>/colls/<coll>`, gdzie `<db>` jest nazwą bazy danych, a `<coll>` oznacza nazwę kolekcji.
-    hasło|*Twój klucz podstawowy*| Zobacz drugi zrzut ekranu poniżej. To jest klucz podstawowy, który można pobrać ze strony Klucze w witrynie Azure Portal, z pola Klucz podstawowy. Aby skopiować wartość, użyj przycisku kopiowania po lewej stronie pola.
+    hosty|[***.graphs.azure.com]|Zobacz poniższy zrzut ekranu. Jest to wartość identyfikatora URI Gremlin hello na stronie Przegląd hello hello portalu Azure w nawiasach kwadratowych spacją hello: 443 / usunięty.<br><br>Tę wartość można również pobrać z karty klucze hello, przy użyciu wartości identyfikatora URI hello usuwanie https://, zmieniając toographs dokumentów i usuwanie końcowe hello: 443 /.
+    port|443|Ustaw too443.
+    nazwa użytkownika|*Twoja nazwa użytkownika*|Witaj zasobów formularza hello `/dbs/<db>/colls/<coll>` gdzie `<db>` jest nazwa bazy danych i `<coll>` oznacza nazwę kolekcji.
+    hasło|*Twój klucz podstawowy*| Zobacz drugi zrzut ekranu poniżej. Jest to klucz podstawowy, który można pobrać ze strony klucze hello hello portalu Azure, w polu klucza podstawowego hello. Użyj przycisku Kopiuj hello po lewej stronie powitania hello pole toocopy hello wartość.
     connectionPool|{enableSsl: true}|Ustawienie puli połączeń protokołu SSL.
-    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Ustaw tę wartość i usuń wszystkie podziały wiersza `\n` podczas wklejania w wartości.
+    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Ustaw wartość toothis i usunięcie wszystkich `\n` podziały podczas wklejania hello wartości.
 
-    Jako wartość hostów skopiuj wartość **Identyfikator URI Gremlin** ze strony **Przegląd**: ![Wyświetl i skopiuj wartość identyfikatora URI Gremlin ze strony Przegląd w witrynie Azure Portal](./media/create-graph-gremlin-console/gremlin-uri.png)
+    Dla wartości hostów hello, skopiuj hello **Gremlin URI** wartość z zakresu od hello **omówienie** strony: ![wyświetlanie i kopiowanie wartość identyfikatora URI Gremlin hello na stronie Przegląd hello hello portalu Azure](./media/create-graph-gremlin-console/gremlin-uri.png)
 
-    Jako wartość hasła skopiuj **Klucz podstawowy** ze strony **Klucze**: ![Wyświetl i skopiuj klucz podstawowy w witrynie Azure Portal, strona Klucze](./media/create-graph-gremlin-console/keys.png)
+    W przypadku wartości hasła hello, skopiuj hello **klucza podstawowego** z hello **klucze** strony: ![wyświetlanie i kopiowanie kluczy primary key w hello portalu Azure, strony](./media/create-graph-gremlin-console/keys.png)
 
 
-3. W terminalu uruchom `bin/gremlin.bat` lub `bin/gremlin.sh`, aby uruchomić [Konsolę Gremlin](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
-4. W terminalu uruchom `:remote connect tinkerpop.server conf/remote-secure.yaml` w celu nawiązania połączenia z usługą aplikacji.
+3. W terminalu, uruchom `bin/gremlin.bat` lub `bin/gremlin.sh` toostart hello [konsoli Gremlin](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+4. W terminalu, uruchom `:remote connect tinkerpop.server conf/remote-secure.yaml` tooconnect tooyour aplikacji usługi.
 
     > [!TIP]
-    > Jeśli zostanie wyświetlony błąd `No appenders could be found for logger`, upewnij się, że zaktualizowano wartość serializatora w pliku remote-secure.yaml, zgodnie z opisem w kroku 2. 
+    > Jeśli wystąpi błąd hello `No appenders could be found for logger` upewnij się, zaktualizowano hello serializator wartość w pliku zdalnego secure.yaml hello, zgodnie z opisem w kroku 2. 
 
-Wspaniale! Teraz, po zakończeniu konfigurowania, zacznijmy uruchamianie poleceń konsoli.
+Wspaniale! Teraz, gdy zakończeniu hello instalacji, Zacznijmy niektóre polecenia konsoli.
 
-Wypróbujmy proste polecenie count(). Wpisz następujący tekst w wierszu polecenia konsoli:
+Wypróbujmy proste polecenie count(). Wpisz następujące hello do konsoli hello w wierszu hello:
 ```
 :> g.V().count()
 ```
 
 > [!TIP]
-> Warto zauważyć prefiks `:>` poprzedzający tekst `g.V().count()`. 
+> Powiadomienie hello `:>` czy poprzedza hello `g.V().count()` tekst? 
 >
-> Jest to część polecenia, które należy wpisać. Jest to ważne, gdy konsola Gremlin jest używana z usługą Azure Cosmos DB.  
+> Jest to część polecenia hello potrzebne tootype. Jest ważne podczas korzystania z bazy danych Azure rozwiązania Cosmos hello Gremlin konsoli.  
 >
-> Pominięcie tego prefiksu `:>` oznacza, że konsola ma wykonać polecenia lokalnie, często względem grafu w pamięci.
-> Użycie tego prefiksu `:>` powoduje wykonanie polecenia zdalnego przez konsolę, w tym przypadku względem usługi Cosmos DB (emulatora localhost lub wystąpienia > Azure).
+> Pominięcie to `:>` prefiks nakazuje hello tooexecute hello polecenie konsoli lokalnie, często względem wykresu w pamięci.
+> Za pomocą tej `:>` informuje tooexecute konsoli hello polecenia zdalnego, w tym przypadku przed DB rozwiązania Cosmos (albo emulatora localhost hello, lub > wystąpienia platformy Azure).
 
 
 ## <a name="create-vertices-and-edges"></a>Tworzenie wierzchołków i krawędzi
@@ -192,7 +192,7 @@ Dane wyjściowe:
 
 ## <a name="update-a-vertex"></a>Aktualizowanie wierzchołka
 
-Zaktualizujmy wierzchołek *Thomas*, podając nowy wiek: *45*.
+Ta funkcja pozwala zaktualizować hello *blogu Thomasa* wierzchołka z nowego wiek *45*.
 
 Dane wejściowe:
 ```
@@ -208,7 +208,7 @@ Dane wyjściowe:
 
 Teraz uruchommy różne zapytania względem grafu.
 
-Najpierw wypróbujmy zapytanie z filtrem, aby zwrócić tylko te osoby, które mają więcej niż 40 lat.
+Po pierwsze spróbujmy zapytania z filtru tooreturn tylko osoby, które są starsze niż 40 lat.
 
 Dane wejściowe (zapytanie filtru):
 
@@ -222,7 +222,7 @@ Dane wyjściowe:
 ==>[id:ae36f938-210e-445a-92df-519f2b64c8ec,label:person,type:vertex,properties:[firstName:[[id:872090b6-6a77-456a-9a55-a59141d4ebc2,value:Thomas]],lastName:[[id:7ee7a39a-a414-4127-89b4-870bc4ef99f3,value:Andersen]],age:[[id:a2a75d5a-ae70-4095-806d-a35abcbfe71d,value:45]]]]
 ```
 
-Następnie wyświetlmy imiona osób, które mają więcej niż 40 lat.
+Następnie Załóżmy projekt hello imię osoby hello, które są starsze niż 40 lat.
 
 Dane wejściowe (zapytanie filtru i projekcji):
 
@@ -238,7 +238,7 @@ Dane wyjściowe:
 
 ## <a name="traverse-your-graph"></a>Przechodzenie grafu
 
-Przejdźmy graf w celu zwrócenia wszystkich znajomych Thomasa.
+Umożliwia przenoszenie hello wykres tooreturn wszystkie w blogu Thomasa znajomych.
 
 Dane wejściowe (znajomi Thomasa):
 
@@ -253,7 +253,7 @@ Dane wyjściowe:
 ==>[id:91605c63-4988-4b60-9a30-5144719ae326,label:person,type:vertex,properties:[firstName:[[id:f760e0e6-652a-481a-92b0-1767d9bf372e,value:Robin]],lastName:[[id:352a4caa-bad6-47e3-a7dc-90ff342cf870,value:Wakefield]]]]
 ```
 
-Następnie uzyskajmy kolejną warstwę wierzchołków. Przejdźmy graf w celu zwrócenia wszystkich osób będących znajomymi znajomych Thomasa.
+Następnie zaloguj się hello warstwy następnym wierzchołków. Przenoszenie wszystkich hello znajomych przyjaciół w blogu Thomasa hello tooreturn wykresu.
 
 Dane wejściowe (znajomi znajomych Thomasa):
 
@@ -268,7 +268,7 @@ Dane wyjściowe:
 
 ## <a name="drop-a-vertex"></a>Usuwanie wierzchołka
 
-Usuńmy teraz wierzchołek z bazy danych grafu.
+Umożliwia teraz usunąć wierzchołek z bazy danych wykresu hello.
 
 Dane wejściowe (usunięcie wierzchołka Jacka):
 
@@ -278,7 +278,7 @@ Dane wejściowe (usunięcie wierzchołka Jacka):
 
 ## <a name="clear-your-graph"></a>Czyszczenie grafu
 
-Na koniec usuńmy z bazy danych wszystkie wierzchołki i krawędzie.
+Na koniec Przyjrzyjmy Wyczyść bazę danych hello wszystkich wierzchołków i krawędzi.
 
 Dane wejściowe:
 
@@ -289,20 +289,20 @@ Dane wejściowe:
 
 Gratulacje! Pomyślnie ukończono samouczek interfejsu API programu Graph w usłudze Azure Cosmos DB!
 
-## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
+## <a name="review-slas-in-hello-azure-portal"></a>Przejrzyj umowy SLA w hello portalu Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego przewodnika Szybki start:  
+Jeśli nie będzie toocontinue toouse tej aplikacji, należy usunąć wszystkie zasoby utworzone przez tego przewodnika Szybki Start w hello portalu Azure z hello następujące kroki:  
 
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. Z menu po lewej stronie powitania w hello portalu Azure, kliknij przycisk **grup zasobów** a następnie kliknij nazwę hello zasobu hello został utworzony. 
+2. Na stronie grupy zasobów, kliknij przycisk **usunąć**, wpisz nazwę hello toodelete zasobów hello w polu tekstowym hello, a następnie kliknij **usunąć**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start wyjaśniono, jak utworzyć konto usługi Azure Cosmos DB, jak utworzyć graf za pomocą Eksploratora danych oraz jak utworzyć wierzchołki i krawędzie, a także jak przejść graf za pomocą konsoli Gremlin. Teraz możesz tworzyć bardziej złożone zapytania i implementować zaawansowaną logikę przechodzenia grafu za pomocą języka Gremlin. 
+W tym szybkiego startu kiedy znasz już jak toocreate konto bazy danych Azure rozwiązania Cosmos utworzyć wykres przy użyciu hello Eksploratora danych, tworzyć wierzchołki i krawędzi i przechodzić między nimi przy użyciu konsoli Gremlin hello wykresu. Teraz możesz tworzyć bardziej złożone zapytania i implementować zaawansowaną logikę przechodzenia grafu za pomocą języka Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Wykonywanie zapytań przy użyciu języka Gremlin](tutorial-query-graph.md)

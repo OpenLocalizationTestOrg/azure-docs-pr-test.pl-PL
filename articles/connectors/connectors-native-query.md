@@ -1,6 +1,6 @@
 ---
-title: "Dodaj akcję zapytania w aplikacjach logiki | Dokumentacja firmy Microsoft"
-description: "Omówienie działania zapytania do wykonywania akcji, takich jak tablicy filtrów."
+title: Akcja kwerendy hello aaaAdd w aplikacjach logiki | Dokumentacja firmy Microsoft
+description: "Przegląd hello zapytania akcji do wykonania akcji, takich jak tablicy filtrów."
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,68 +15,68 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3d4be901e7e6bf1b644057648930667ab34f2124
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-query-action"></a>Rozpoczynanie pracy z akcją zapytań
-Za pomocą akcji zapytania, możesz pracować z partii i tablic w celu przepływy pracy, aby:
+# <a name="get-started-with-hello-query-action"></a>Rozpoczynanie pracy z akcją zapytań hello
+Za pomocą akcji zapytania hello, możesz pracować z partii tablice tooaccomplish przepływy pracy i do:
 
 * Utwórz zadania dla wszystkich rekordów o wysokim priorytecie z bazy danych.
 * Zapisz wszystkie załączniki plików PDF do wiadomości e-mail do obiektów blob platformy Azure.
 
-Aby rozpocząć, korzystając z akcji zapytania w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+tooget uruchomiony przy użyciu akcji zapytania hello w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="use-the-query-action"></a>Za pomocą akcji zapytania
-Akcja jest operacja odbywa się przez przepływ pracy, który jest zdefiniowany w aplikacji logiki. [Dowiedz się więcej o akcjach](connectors-overview.md).  
+## <a name="use-hello-query-action"></a>Za pomocą akcji zapytania hello
+Akcja jest operacja odbywa się przez hello przepływ pracy, który jest zdefiniowany w aplikacji logiki. [Dowiedz się więcej o akcjach](connectors-overview.md).  
 
-Akcja zapytania ma obecnie jedną operację o nazwie tablicy filtrów, która jest widoczna w projektancie. Umożliwia to zapytanie tablicy i zwraca zestawu wyników filtrowane.
+Akcja kwerendy Hello aktualnie ma jedną operację o nazwie tablicy filtrów hello, która jest widoczna w Projektancie hello. To pozwala tooquery tablicy i zwraca zestawu wyników filtrowane.
 
 Oto, jak można dodać go w aplikacji logiki:
 
-1. Wybierz **nowy krok** przycisku.
+1. Wybierz hello **nowy krok** przycisku.
 2. Wybierz **Dodaj akcję**.
-3. W polu wyszukiwania akcji wpisz **filtru** do listy **tablicy filtrów** akcji.
+3. W polu wyszukiwania akcji hello wpisz **filtru** toolist hello **tablicy filtrów** akcji.
    
-    ![Wybierz akcję zapytania](./media/connectors-native-query/using-action-1.png)
-4. Wybierz tablicę do filtrowania. (Poniższy zrzut ekranu przedstawia tablicy wyniki wyszukiwania Twitter).
-5. Warunku można oszacować na każdego elementu. (Poniższy zrzut ekranu filtry tweetów od użytkowników, którzy mają więcej niż 100 adherentami).
+    ![Wybierz akcję zapytania hello](./media/connectors-native-query/using-action-1.png)
+4. Wybierz toofilter tablicy. (hello Poniższy zrzut ekranu przedstawia hello tablicę wyniki wyszukiwania usługi Twitter.)
+5. Utwórz tooevaluate warunku w każdym elemencie. (hello następującego zrzutu ekranu filtry tweetów od użytkowników, którzy mają więcej niż 100 adherentami).
    
-    ![Zakończenie akcji zapytania](./media/connectors-native-query/using-action-2.png)
+    ![Akcja kwerendy hello ukończone](./media/connectors-native-query/using-action-2.png)
    
-    Akcja dane wyjściowe obejmują nowe tablica, która zawiera tylko wyniki, które zostały spełnione wymagania dotyczące filtru.
-6. Kliknij w lewym górnym rogu paska narzędzi, aby zapisać i aplikacji logiki będzie Zapisz i opublikuj (Aktywuj).
+    Akcja Hello dane wyjściowe obejmują nowe tablica, która zawiera tylko wyniki, które spełniają wymagań filtru hello.
+6. Kliknij przycisk hello lewego górnego rogu hello toosave narzędzi i Twoje logiki aplikacji zapisze zarówno i publikowanie (Aktywuj).
 
 ## <a name="query-action"></a>Akcja kwerendy
-Poniżej przedstawiono szczegóły akcję, która obsługuje ten łącznik. Łącznik ma jedną akcję możliwe.
+Poniżej przedstawiono szczegóły hello hello akcję, która obsługuje ten łącznik. Łącznik Hello ma jedną akcję możliwe.
 
 | Akcja | Opis |
 | --- | --- |
-| Macierz filtru |Sprawdza warunek dla każdego elementu w tablicy i zwraca wyniki |
+| Macierz filtru |Sprawdza warunek dla każdego elementu w tablicy i zwraca wyniki hello |
 
 ## <a name="action-details"></a>Szczegóły akcji
-Akcja kwerendy jest dostarczany z jedną akcję możliwe. Poniższe tabele zawierają opis wymaganych i opcjonalnych pól wejściowych dla akcji i odpowiednie szczegóły danych wyjściowych, które są skojarzone z przy użyciu akcji.
+Akcja kwerendy Hello jest dostarczany z jedną akcję możliwe. Witaj poniższych tabelach opisano hello wymagane i opcjonalne pola wejściowego dla akcji hello i hello odpowiednie dane wyjściowe szczegóły, które są skojarzone z przy użyciu akcji hello.
 
 ### <a name="filter-array"></a>Macierz filtru
-Poniżej przedstawiono pól wejściowych dla akcji, dzięki czemu wychodzące żądania HTTP.
+Oto Hello pól wejściowych dla akcji hello, dzięki czemu żądania wychodzącego HTTP.
 A * oznacza, że jest polem wymaganym.
 
 | Nazwa wyświetlana | Nazwa właściwości | Opis |
 | --- | --- | --- |
-| Z * |Z |Tablica do filtrowania |
-| Warunek * |gdzie |Warunek, który ma zostać obliczone dla każdego elementu |
+| Z * |Z |Witaj toofilter tablicy |
+| Warunek * |gdzie |Witaj tooevaluate warunek dla każdego elementu |
 
 <br>
 
 ### <a name="output-details"></a>Szczegóły danych wyjściowych
-Poniżej przedstawiono szczegóły danych wyjściowych dla odpowiedzi HTTP.
+Witaj poniżej przedstawiono szczegóły danych wyjściowych dla hello odpowiedzi HTTP.
 
 | Nazwa właściwości | Typ danych | Opis |
 | --- | --- | --- |
 | Filtrowane tablicy |Tablica |Tablica, która zawiera obiekt dla każdego wyniku filtrowane |
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
+Teraz, wypróbuj hello platformy i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Można eksplorować hello innych dostępnych łączników w aplikacjach logiki analizując naszych [listy interfejsów API](apis-list.md).
 

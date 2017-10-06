@@ -1,6 +1,6 @@
 ---
-title: "Migrowanie aplikacji sieci Web przedsiębiorstwa do usługi Azure App Service"
-description: "Przedstawia sposób użycia Asystenta migracji aplikacji sieci Web szybko migrację istniejących witryn sieci Web usług IIS do aplikacji sieci Web usługi aplikacji Azure"
+title: "aaaMigrate enterprise tooAzure aplikacji sieci web usługi aplikacji"
+description: "Pokazuje, jak tooquickly Asystenta migracji aplikacji sieci Web toouse migracji istniejącej tooAzure witryn sieci Web usług IIS aplikacji usługi sieci Web aplikacji"
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,118 +15,118 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18d6a8da38b42dcf5c1500f7fc26638aea26a809
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7d66c5b799f0eefe85cbd9ba596ee0a05167f295
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-an-enterprise-web-app-to-azure-app-service"></a>Migrowanie aplikacji sieci Web przedsiębiorstwa do usługi Azure App Service
-Możesz łatwo przeprowadzić migrację istniejących uruchomionymi na Internet Information Service (IIS) 6 lub nowszej do witryny sieci Web [aplikacji usługi sieci Web aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714). 
+# <a name="migrate-an-enterprise-web-app-tooazure-app-service"></a>Migrowanie enterprise tooAzure aplikacji sieci web usługi aplikacji
+Możesz łatwo przeprowadzić migrację istniejącej witryny sieci Web uruchomionymi na Internet Information Service (IIS) 6 lub nowszej zbyt[aplikacji usługi sieci Web aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714). 
 
 > [!IMPORTANT]
-> Windows Server 2003 osiągnięto koniec pomocy technicznej na 14 lipca 2015 r. Obecnie obsługując witryny sieci Web na serwerze IIS to Windows Server 2003, aplikacje sieci Web jest niskiego ryzyka, niskich kosztach i niskim tarcia sposobem utrzymywania witryn w trybie online i Asystenta migracji aplikacji sieci Web pomaga zautomatyzować proces migracji. 
+> Windows Server 2003 osiągnięto koniec pomocy technicznej na 14 lipca 2015 r. Jeśli są obecnie obsługuje witryny sieci Web na serwerze IIS, Windows Server 2003, aplikacje sieci Web jest sposób niskiego ryzyka, niskich kosztach i niskim tarcia tookeep witryn internetowych online i Asystenta migracji aplikacji sieci Web mogą pomóc zautomatyzować proces migracji hello. 
 > 
 > 
 
-[Web Apps migracji Asystenta](https://www.movemetothecloud.net/) można analizować instalacji serwera IIS, które witryny można poddać migracji do usługi App Service, zaznacz wszystkie elementy, które nie mogą być migrowane lub nieobsługiwane na platformie, a następnie przeprowadzić migrację witryny sieci Web i skojarzone bazy danych do platformy Azure.
+[Web Apps migracji Asystenta](https://www.movemetothecloud.net/) można analizować instalacji serwera IIS, identyfikowanie witryn, które mogą być tooApp zmigrowane usługi, zaznacz wszystkie elementy, które nie mogą być migrowane lub nieobsługiwane na platformie hello a następnie przeprowadzić migrację witryny sieci Web i tooAzure skojarzonych bazach danych.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="elements-verified-during-compatibility-analysis"></a>Elementy zweryfikowana podczas analizy zgodności
-Asystent migracji tworzy raport gotowości, aby zidentyfikować wszelkie potencjalnych przyczyn problemu lub problemy z blokowaniem, które mogą uniemożliwić pomyślną migrację z lokalnej usługi IIS do aplikacji sieci Web usługi aplikacji Azure. Niektóre z kluczowych elementów pod uwagę są:
+Witaj Asystenta migracji tworzy tooidentify Raport gotowości, wszelkie potencjalne przyczyny problemu lub problemy z blokowaniem, które mogą uniemożliwić pomyślną migrację z lokalnej usługi IIS tooAzure aplikacji usługi sieci Web aplikacji. Niektóre znane toobe kluczowych elementów hello są:
 
-* Port powiązania — aplikacji sieci Web obsługuje tylko Port 80 dla protokołu HTTP i portu 443 dla ruchu HTTPS. Konfiguracje innego portu zostanie zignorowany, a ruch będą kierowane do 80 i 443. 
+* Port powiązania — aplikacji sieci Web obsługuje tylko Port 80 dla protokołu HTTP i portu 443 dla ruchu HTTPS. Konfiguracje innego portu zostanie zignorowany, a ruch zostanie too80 routingiem i 443. 
 * Uwierzytelnianie — aplikacji sieci Web obsługuje uwierzytelnianie anonimowe domyślnie i uwierzytelnianie oparte na formularzach w przypadku, gdy określony przez aplikację. Dzięki integracji z usługą Azure Active Directory i usług AD FS tylko jest używane uwierzytelnianie systemu Windows. Wszystkie inne formy uwierzytelniania — na przykład uwierzytelnianie podstawowe — nie są obecnie obsługiwane. 
-* Globalnej pamięci podręcznej zestawów (GAC) — pamięci podręcznej GAC nie jest obsługiwany w aplikacji sieci Web. Jeśli aplikacja odwołuje się do zestawów, które zwykle wdrażasz do pamięci podręcznej GAC, należy wdrożyć na folder bin aplikacji w aplikacji sieci Web. 
+* Globalnej pamięci podręcznej zestawów (GAC) — Witaj pamięci podręcznej GAC nie jest obsługiwane w aplikacjach sieci Web. Jeśli aplikacja odwołuje się do zestawów które zwykle wdrażanie toohello pamięci podręcznej GAC, konieczne będzie folder bin toodeploy toohello aplikacji w aplikacji sieci Web. 
 * Wersją IIS5 Tryb zgodności — nie jest to obsługiwane w aplikacjach sieci Web. 
-* Pule aplikacji — w aplikacji sieci Web, każdej lokacji i jej podrzędne aplikacje uruchomione w tej samej puli aplikacji. Jeśli witryna ma wiele aplikacji podrzędnych przy użyciu wielu pul aplikacji, konsolidować je do jednej puli aplikacji z typowymi ustawieniami lub migracji poszczególnych aplikacji w aplikacji sieci web w osobnych.
-* COM — składniki — aplikacji sieci Web nie zezwala na rejestracji składników COM na platformie. Jeśli z witryn sieci Web lub aplikacji wykorzystać wszystkie składniki modelu COM, musi ponownie zapisuje je w kodzie zarządzanym i wdrażać je z witryny sieci Web lub aplikacji.
-* Rozszerzenia ISAPI — aplikacji sieci Web obsługuje używanie rozszerzenia ISAPI. Należy wykonać następujące czynności:
+* Pule aplikacji — w aplikacjach sieci Web, każdej lokacji i jej podrzędne aplikacje uruchamiane w hello tej samej puli aplikacji. Jeśli witryna ma wiele aplikacji podrzędnych przy użyciu wielu pul aplikacji, umożliwi to ich skonsolidowanie tooa jednej puli aplikacji z typowymi ustawieniami lub migracji każdej aplikacji sieci web w osobnych tooa aplikacji.
+* COM — składniki — aplikacji sieci Web nie zezwala na powitania rejestracji składników COM na platformie hello. Jeśli z witryn sieci Web lub aplikacji wykorzystać wszystkie składniki modelu COM, należy ponownie zapisuje je w kodzie zarządzanym i wdrażać je hello witryny sieci Web lub aplikacji.
+* Rozszerzenia ISAPI — aplikacji sieci Web mogą obsługiwać hello korzystanie z rozszerzeń interfejsu ISAPI. Potrzebne są następujące hello toodo:
   
-  * Wdróż biblioteki dll z aplikacji sieci web 
-  * Zarejestruj za pomocą bibliotek DLL [pliku Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
-  * Umieść plik applicationHost.xdt w katalogu głównym witryny z zawartością opisane w "Zezwalanie arbitrart rozszerzeń ISAPI do załadowania" [sekcji tego artykułu](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples) 
+  * Wdrażanie hello dll z aplikacji sieci web 
+  * Zarejestruj hello biblioteki DLL przy użyciu [pliku Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
+  * Umieść plik applicationHost.xdt w katalogu głównym witryny hello z zawartością hello opisane w "Stosowanie toobe rozszerzenia ISAPI arbitrart załadowany" [sekcji tego artykułu](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples) 
     
   
     
-    Aby uzyskać więcej przykładów do transformacji dokumentów XML za pomocą witryny sieci Web, zobacz [przekształcenie witryny sieci Web Microsoft Azure](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx).
+    Aby uzyskać więcej przykładów toouse transformacji dokumentów XML z witryny sieci Web, zobacz [przekształcenie witryny sieci Web Microsoft Azure](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx).
 * Inne składniki, takich jak SharePoint, rozszerzenia serwera FrontPage (FPSE), FTP, certyfikaty SSL nie zostaną zmigrowane.
 
-## <a name="how-to-use-the-web-apps-migration-assistant"></a>Sposób korzystania z Asystenta migracji aplikacji sieci Web
-Ta procedura sekcji za pośrednictwem przykład w celu migracji kilka witryn sieci Web, że korzystanie z bazy danych programu SQL Server i uruchomiona na lokalnym komputerze z systemem Windows Server 2003 R2 (IIS 6.0):
+## <a name="how-toouse-hello-web-apps-migration-assistant"></a>Jak toouse hello Asystenta migracji aplikacji sieci Web
+W tej sekcji przechodzi przez tootoomigrate przykład kilka witryn sieci Web używające bazy danych programu SQL Server i uruchomiona na lokalnym komputerze z systemem Windows Server 2003 R2 (IIS 6.0):
 
-1. Na serwerze IIS serwerze lub komputerze klienckim przejdź do [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
+1. Na powitania IIS serwerze lub komputerze klienckim Przejdź zbyt[https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
    
    ![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
-2. Instalowanie Asystenta migracji aplikacji sieci Web, klikając **serwera IIS w wersji dedykowanej** przycisku. Aby wyświetlić więcej opcji będzie opcje w najbliższej przyszłości. 
-3. Kliknij przycisk **Zainstaluj narzędzie** przycisk, aby zainstalować Asystenta migracji aplikacji sieci Web na tym komputerze.
+2. Instalowanie Asystenta migracji aplikacji sieci Web, klikając hello **serwera IIS w wersji dedykowanej** przycisku. Więcej opcji będzie opcje w hello Najbliższa przyszłość. 
+3. Kliknij przycisk hello **Zainstaluj narzędzie** przycisk tooinstall Asystenta migracji aplikacji sieci Web na tym komputerze.
    
    ![](./media/web-sites-migration-from-iis-server/install-page.png)
    
    > [!NOTE]
-   > Możesz również kliknąć **Pobierz instalacji w trybie offline** Aby pobrać plik ZIP do instalowania na serwerach nie jest połączony z Internetem. Możesz też kliknąć przycisk **przekazać istniejący raport gotowości migracji**, która jest opcją zaawansowaną do pracy z istniejących migracji Raport gotowości wcześniej generowany (co omówiono później).
+   > Możesz również kliknąć **Pobierz instalacji w trybie offline** toodownload ZIP pliku dla nie instalowanie na serwerach połączonych toohello internet. Możesz też kliknąć przycisk **przekazać istniejący raport gotowości migracji**, która jest toowork zaawansowanej opcji z istniejącej migracji Raport gotowości wcześniej generowany (co omówiono później).
    > 
    > 
-4. W **instalacji aplikacji** kliknij **zainstalować** do zainstalowania na tym komputerze. Spowoduje także zainstalowanie odpowiednich zależności, takie jak narzędzie Web Deploy, DacFX i IIS, jeśli to konieczne. 
+4. W hello **instalacji aplikacji** kliknij **zainstalować** tooinstall na tym komputerze. Spowoduje także zainstalowanie odpowiednich zależności, takie jak narzędzie Web Deploy, DacFX i IIS, jeśli to konieczne. 
    
    ![](./media/web-sites-migration-from-iis-server/install-progress.png)
    
    Po zakończeniu instalacji Asystenta migracji aplikacji sieci Web jest uruchamiana automatycznie.
-5. Wybierz **migracji lokacji i bazy danych z serwera zdalnego Azure**. Wprowadź poświadczenia administracyjne dla serwera zdalnego, a następnie kliknij przycisk **Kontynuuj**. 
+5. Wybierz **migracji lokacji i bazy danych z tooAzure serwera zdalnego**. Wprowadź poświadczenia administracyjne hello powitania serwera zdalnego i kliknij przycisk **Kontynuuj**. 
    
    ![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
    
-   Oczywiście można migrować z lokalnego serwera. Zdalne opcja jest przydatna, gdy użytkownik chce migrować witryn sieci Web z produkcyjnym serwerem usługi IIS.
+   Oczywiście można toomigrate powitania serwera lokalnego. Opcja zdalnego Hello jest przydatna, jeśli chcesz toomigrate witryn sieci Web z produkcyjnym serwerem usługi IIS.
    
-   W tym momencie będzie przeprowadzał inspekcję narzędzie do migracji konfiguracji serwera IIS, np. witryny, aplikacji, pul aplikacji i zależności, do identyfikowania candidate witryn sieci Web do migracji. 
-6. Poniższy zrzut ekranu przedstawia trzy witryn sieci Web — **domyślna witryna sieci Web**, **TimeTracker**, i **CommerceNet4**. Wszystkie mają skojarzonej bazy danych, która ma być migracji. Wybierz wszystkie witryny, które chcesz ocenić, a następnie kliknij przycisk **dalej**.
+   W tym momencie będzie przeprowadzał inspekcję narzędzia migracji hello hello konfiguracji serwer usług IIS, takie jak witryny, aplikacji, pul aplikacji i zależności tooidentify candidate witryn sieci Web do migracji. 
+6. Poniższy zrzut ekranu Hello zawiera trzy witryn sieci Web — **domyślna witryna sieci Web**, **TimeTracker**, i **CommerceNet4**. Wszystkie mają skojarzone bazy danych, że chcemy toomigrate. Wybierz wszystkie lokacje hello zostaną tooassess, takich jak, a następnie kliknij przycisk **dalej**.
    
    ![](./media/web-sites-migration-from-iis-server/select-migration-candidates.png)
-7. Kliknij przycisk **przekazać** przekazać Raport gotowości. Jeśli klikniesz przycisk **Zapisz plik lokalnie**, można ponownie uruchomić narzędzie do migracji i przekaż Raport gotowości zapisanych, jak wspomniano wcześniej.
+7. Kliknij przycisk **przekazać** Raport gotowości hello tooupload. Jeśli klikniesz przycisk **Zapisz plik lokalnie**, można uruchomić narzędzia migracji hello później i przekazywania hello zapisano Raport gotowości, jak wspomniano wcześniej.
    
    ![](./media/web-sites-migration-from-iis-server/upload-readiness-report.png)
    
-   Po przekazaniu Raport gotowości Azure przeprowadza analizę gotowości i pokazuje wyniki. Przeczytaj szczegóły oceny dla każdej witryny sieci Web i upewnij się, że rozumie, lub usunąć wszystkie problemy przed kontynuowaniem. 
+   Po przekazaniu Raport gotowości hello Azure wykonuje analizy gotowości i pokazuje hello wyników. Odczytać hello szczegółów oceny dla każdej witryny sieci Web i upewnij się, że rozumie, lub usunąć wszystkie problemy przed kontynuowaniem. 
    
    ![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
-8. Kliknij przycisk **rozpocząć migrację** aby rozpocząć migrację. Nastąpi przekierowanie do platformy Azure, aby zalogować się do swojego konta. Jest ważne, aby zalogować się przy użyciu konta, które ma aktywną subskrypcją platformy Azure. Jeśli nie masz konta platformy Azure, można założyć bezpłatnej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_). 
-9. Wybierz region baz danych i aplikacji sieci web platformy Azure zmigrowane, a następnie kliknij przycisk konta dzierżawy, subskrypcji platformy Azure i **Start migracji**. Możesz wybrać witryn sieci Web, aby przeprowadzić migrację później.
+8. Kliknij przycisk **rozpocząć migrację** toostart hello migracji. Teraz można toolog tooAzure przekierowane do swojego konta. Jest ważne, aby zalogować się przy użyciu konta, które ma aktywną subskrypcją platformy Azure. Jeśli nie masz konta platformy Azure, można założyć bezpłatnej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_). 
+9. Wybierz konta dzierżawy hello, subskrypcji platformy Azure i region toouse baz danych i aplikacji sieci web platformy Azure zmigrowane, a następnie kliknij przycisk **Start migracji**. Możesz wybrać toomigrate witryn sieci Web hello później.
    
    ![](./media/web-sites-migration-from-iis-server/choose-tenant-account.png)
-10. Na następnym ekranie można można zmienić domyślne ustawienia migracji, takie jak:
+10. Na następnym ekranie powitania można zmieniać toohello domyślnych migracji ustawień, takich jak:
     
     * Użyj istniejącej bazy danych SQL Azure lub Utwórz nową bazę danych SQL Azure i skonfigurować jej poświadczenia
-    * Wybierz witryny sieci Web do migracji
-    * Definiowanie nazw dla aplikacji sieci web platformy Azure i ich połączonej bazy danych SQL
-    * Dostosuj ustawienia globalne i ustawienia na poziomie witryny
+    * Wybierz hello toomigrate witryn sieci Web
+    * Definiowanie nazw dla aplikacji sieci web platformy Azure hello i ich połączonej bazy danych SQL
+    * Dostosuj ustawienia globalne hello i ustawienia na poziomie witryny
     
-    Poniższy zrzut ekranu przedstawia wszystkich witryn sieci Web wybrana do migracji z ustawieniami domyślnymi.
+    Witaj Poniższy zrzut ekranu przedstawia wszystkich witryn hello wybrana do migracji z ustawieniami domyślnymi hello.
     
     ![](./media/web-sites-migration-from-iis-server/migration-settings.png)
     
     > [!NOTE]
-    > **włączyć usługi Azure Active Directory** wyboru w niestandardowych ustawieniach integruje się w aplikacji sieci web platformy Azure przy użyciu [usługi Azure Active Directory](../active-directory/active-directory-whatis.md) ( **katalog domyślny**). Aby uzyskać więcej informacji o synchronizacji usługi Azure Active Directory z lokalnej usługi Active Directory, zobacz [integracji katalogów](http://msdn.microsoft.com/library/jj573653).
+    > Witaj **włączyć usługi Azure Active Directory** wyboru w niestandardowych ustawieniach integruje hello aplikacji sieci web platformy Azure z [usługi Azure Active Directory](../active-directory/active-directory-whatis.md) (hello **katalog domyślny**). Aby uzyskać więcej informacji o synchronizacji usługi Azure Active Directory z lokalnej usługi Active Directory, zobacz [integracji katalogów](http://msdn.microsoft.com/library/jj573653).
     > 
     > 
-11. Po wprowadzeniu wszystkich odpowiednich zmian, kliknij przycisk **Utwórz** do rozpoczęcia procesu migracji. Narzędzie do migracji tworzenie bazy danych SQL Azure i aplikacji sieci web platformy Azure, a następnie opublikować zawartości witryny sieci Web i baz danych. Postęp migracji wyraźnie jest wyświetlany w narzędziu do migracji, a następnie zostanie wyświetlony ekran podsumowania na końcu szczegóły Lokacje migracji, czy zostały one pomyślnie, linki do aplikacji nowo utworzone sieci web platformy Azure. 
+11. Po wprowadzeniu wszystkich zmian hello żądanego kliknij **Utwórz** procesu migracji hello toostart. Narzędzie migracji Hello zostanie tworzenie aplikacji sieci web hello Azure SQL Database i Azure, a następnie opublikuj hello zawartości witryny sieci Web i baz danych. Postęp migracji Hello wyraźnie jest wyświetlany w obszarze narzędzia migracji hello i zostanie wyświetlony ekran podsumowania w celu hello, które witryny hello szczegóły migracji, czy zostały one pomyślnie, łącza toohello nowo utworzony Azure aplikacje sieci web. 
     
-    W przypadku błędu podczas migracji, narzędzie do migracji zostanie wyraźnie wskazuje błędu i wycofywania zmian. Ponadto można wysłać raport o błędach bezpośrednio do zespołu inżynieryjnego, klikając **Wyślij raport o błędach** przycisku, z błędem przechwyconych stos wywołań i kompilacji treści wiadomości. 
+    Jeśli dowolne wystąpienia błędu w trakcie migracji, wyraźnie hello będzie narzędzia migracji wskazywać hello błędu i wycofywania hello zmiany. Będzie również raportu o błędach hello toosend może bezpośrednia Inżynieria toohello zespołu, klikając hello **Wyślij raport o błędach** przycisk ze stosu wywołań przechwycony błąd hello i kompilacji treści wiadomości. 
     
     ![](./media/web-sites-migration-from-iis-server/migration-error-report.png)
     
-    Jeśli migracja powiedzie się bez błędów, możesz również kliknąć **Przekaż opinię** przycisk, aby zapewnić opinię bezpośrednio. 
-12. Kliknij łącza do aplikacji sieci web platformy Azure i sprawdź, czy migracja zakończyła się pomyślnie.
-13. Możesz teraz zarządzać aplikacji sieci web zmigrowane w usłudze Azure App Service. Aby to zrobić, zaloguj się do [Azure Portal](https://portal.azure.com).
-14. W portalu Azure otwarcie bloku aplikacji sieci Web, aby zobaczyć migrowanych witryny sieci Web (wyświetlane jako aplikacje sieci web), a następnie kliknij na jednym z nich, aby rozpocząć zarządzanie aplikacją sieci web, takich jak konfigurowanie ciągłej publikowania, tworzenia kopii zapasowych, skalowanie automatyczne i monitorowania użycia i wydajności.
+    Jeśli migracja powiedzie się bez błędów, możesz również kliknąć hello **Przekaż opinię** przycisk tooprovide opinię bezpośrednio. 
+12. Kliknij aplikacje sieci web Azure toohello łącza hello i sprawdź, czy migracja hello zakończyła się pomyślnie.
+13. Możesz teraz zarządzać hello migracji aplikacji sieci web w usłudze Azure App Service. toodo, zaloguj się do hello [Azure Portal](https://portal.azure.com).
+14. Hello portalu Azure, otwórz toosee bloku aplikacji sieci Web hello migrowanych witryny sieci Web (wyświetlane jako aplikacje sieci web), a następnie kliknij na jednym z nich toostart Zarządzanie hello aplikacji sieci web, takich jak skonfigurowanie ciągłego publikowania, tworzenie kopii zapasowych, skalowanie automatyczne i monitorowanie wykorzystania lub wydajność.
     
     ![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Tooget wprowadzenie do usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź zbyt[Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), gdzie możesz od razu utworzyć krótkotrwałą, początkową aplikację sieci web w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
 ## <a name="whats-changed"></a>Co zostało zmienione
-* Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
+* Toohello przewodnik zmiany z tooApp witryn sieci Web usługi dla: [usłudze Azure App Service i jej wpływ na istniejące usługi platformy Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
 

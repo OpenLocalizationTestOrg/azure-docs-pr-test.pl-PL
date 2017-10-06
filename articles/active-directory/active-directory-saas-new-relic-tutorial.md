@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integracji Azure Active Directory z usługi New Relic | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i usługi New Relic."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i usługi New Relic."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 605e85c23a849f70fcc0237361d7a891f716ca3a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc8f0df3b18a32bde155e8911a581fc5f91af217
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Samouczek: Integracji Azure Active Directory z usługi New Relic
 
-Z tego samouczka dowiesz się Integrowanie usługi New Relic w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate usługi New Relic w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie usługi New Relic z usługą Azure AD zapewnia następujące korzyści:
+Integrowanie usługi New Relic z usługą Azure AD zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do usługi New Relic
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do usługi New Relic (logowanie jednokrotne) z konta usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooNew Relic
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooNew Relic (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z usługi New Relic, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z usługi New Relic należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Usługi New Relic logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie usługi New Relic w galerii
+1. Dodawanie usługi New Relic w galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-new-relic-from-the-gallery"></a>Dodawanie usługi New Relic w galerii
-Aby skonfigurować integrację usługi New Relic w usłudze Azure Active Directory, należy dodać usługi New Relic w galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-new-relic-from-hello-gallery"></a>Dodawanie usługi New Relic w galerii hello
+tooconfigure hello integracji usługi New Relic w usłudze Azure Active Directory, należy tooadd usługi New Relic z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać usługi New Relic w galerii, wykonaj następujące czynności:**
+**tooadd usługi New Relic w galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **usługi New Relic**.
+4. W polu wyszukiwania hello wpisz **usługi New Relic**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_search.png)
 
-5. W panelu wyników wybierz **usługi New Relic**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello, wybierz **usługi New Relic**, a następnie kliknij przycisk **Dodaj** przycisk tooadd hello aplikacji.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z usługi New Relic w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Do rejestracji jednokrotnej do pracy usługi Azure AD musi ustalić użytkownika odpowiednika w usługi New Relic dla użytkownika w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w usługi New Relic.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w usługi New Relic jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w usługi New Relic musi toobe ustanowione.
 
-Usługi New Relic, przypisywanie wartości **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+Usługi New Relic, przypisywanie wartości hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z usługi New Relic, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z usługi New Relic, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego usługi New Relic](#creating-a-new-relic-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta usługi New Relic jest połączony z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego usługi New Relic](#creating-a-new-relic-test-user)**  -toohave odpowiednikiem Simona Britta w usługi New Relic, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne do aplikacji usługi New Relic.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji usługi New Relic.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z usługi New Relic, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z usługi New Relic, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **usługi New Relic** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **usługi New Relic** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_samlbase.png)
 
-3. Na **adresy URL i nowej domeny Relic** sekcji, wykonaj następujące czynności:
+3. Na powitania **adresy URL i nowej domeny Relic** sekcji, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_url.png)
 
-    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.newrelic.com`
+    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<subdomain>.newrelic.com`
 
     > [!NOTE] 
-    > Wartość nie jest prawdziwe. Zaktualizuj tę wartość z adresem URL logowania rzeczywistych. Skontaktuj się z [zespołem pomocy technicznej nowego klienta Relic](https://support.newrelic.com/) można uzyskać wartość. 
+    > wartość Hello nie jest prawdziwe. Wartość hello aktualizacji z hello rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej nowego klienta Relic](https://support.newrelic.com/) tooget hello wartość. 
  
-4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_certificate.png) 
 
@@ -123,114 +123,114 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-new-relic-tutorial/tutorial_general_400.png)
 
-6. Na **nowej konfiguracji Relic** kliknij **skonfigurować usługi New Relic** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na powitania **nowej konfiguracji Relic** kliknij **skonfigurować usługi New Relic** tooopen **Konfigurowanie logowania jednokrotnego** okna. Witaj kopii **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_configure.png) 
 
-7. W oknie przeglądarki innej witryny sieci web, zaloguj się na Twojej **usługi New Relic** witryny firmy jako administrator.
+7. W oknie przeglądarki innej witryny sieci web, zaloguj się na tooyour **usługi New Relic** witryny firmy jako administrator.
 
-8. W menu u góry kliknij **ustawienia konta**.
+8. W menu hello na górze hello, kliknij przycisk **ustawienia konta**.
    
     ![Ustawienia konta](./media/active-directory-saas-new-relic-tutorial/ic797036.png "ustawienia konta")
 
-9. Kliknij przycisk **zabezpieczeń i uwierzytelniania** , a następnie kliknij pozycję **jednokrotne** kartę.
+9. Kliknij przycisk hello **zabezpieczeń i uwierzytelniania** , a następnie kliknij pozycję hello **jednokrotne** kartę.
    
     ![Logowanie jednokrotne](./media/active-directory-saas-new-relic-tutorial/ic797037.png "logowanie jednokrotne")
 
-10. Na stronie okna dialogowego SAML wykonaj następujące czynności:
+10. Na stronie okna dialogowego SAML hello wykonaj następujące kroki hello:
    
     ![SAML](./media/active-directory-saas-new-relic-tutorial/ic797038.png "SAML")
    
-   a. Kliknij przycisk **wybierz plik** przekazać pobrany certyfikat usługi Azure Active Directory.
+   a. Kliknij przycisk **wybierz plik** tooupload pobrany certyfikat usługi Azure Active Directory.
 
-   b. W **adres URL logowania zdalnego** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure.
+   b. W hello **adres URL logowania zdalnego** pole tekstowe, Wklej wartość hello **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure.
    
-   c. W **lądowanie adresu URL wylogowania** pole tekstowe, Wklej wartość **Sign-Out adres URL**, które zostały skopiowane z portalu Azure.
+   c. W hello **lądowanie adresu URL wylogowania** pole tekstowe, Wklej wartość hello **Sign-Out adres URL**, które zostały skopiowane z portalu Azure.
 
    d. Kliknij przycisk **Zapisz moje zmiany**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-new-relic-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-new-relic-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-new-relic-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-new-relic-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-new-relic-test-user"></a>Tworzenie użytkownika testowego usługi New Relic
 
-Aby włączyć usługi Azure Active Directory użytkownikom na logowanie się do usługi New Relic, musi być przygotowana do usługi New Relic. W przypadku usługi New Relic Inicjowanie obsługi to zadanie ręczne.
+W przypadku użytkowników usługi Azure Active Directory toolog kolejności tooenable w tooNew Relic musi być przygotowana do usługi New Relic. W przypadku hello usługi New Relic Inicjowanie obsługi to zadanie ręczne.
 
-**Aby udostępnić konta użytkownika do usługi New Relic, wykonaj następujące czynności:**
+**tooprovision tooNew konta użytkownika Relic, wykonaj następujące kroki hello:**
 
-1. Zaloguj się do Twojego **usługi New Relic** witryny firmy jako administrator.
+1. Zaloguj się za tooyour **usługi New Relic** witryny firmy jako administrator.
 
-2. W menu u góry kliknij **ustawienia konta**.
+2. W menu hello na górze hello, kliknij przycisk **ustawienia konta**.
    
     ![Ustawienia konta](./media/active-directory-saas-new-relic-tutorial/ic797040.png "ustawienia konta")
 
-3. W **konta** w okienku po lewej stronie kliknij **Podsumowanie**, a następnie kliknij przycisk **Dodaj użytkownika**.
+3. W hello **konta** na powitania w okienku po lewej stronie, kliknij przycisk **Podsumowanie**, a następnie kliknij przycisk **Dodaj użytkownika**.
    
     ![Ustawienia konta](./media/active-directory-saas-new-relic-tutorial/ic797041.png "ustawienia konta")
 
-4. Na **aktywni użytkownicy** okna dialogowego, wykonaj następujące czynności:
+4. Na powitania **aktywni użytkownicy** okna dialogowego, wykonaj następujące kroki hello:
    
     ![Aktywni użytkownicy](./media/active-directory-saas-new-relic-tutorial/ic797042.png "aktywni użytkownicy")
    
-    a. W **E-mail** tekstowym, wpisz adres e-mail chcesz udostępnić prawidłowym użytkownikiem usługi Azure Active Directory.
+    a. W hello **E-mail** pole tekstowe, hello typu adres e-mail z prawidłowym użytkownikiem usługi Azure Active Directory ma tooprovision.
 
     b. Jako **roli** wybierz **użytkownika**.
 
     c. Kliknij przycisk **Dodaj tego użytkownika**.
 
 >[!NOTE]
->Można użyć dowolnego inne usługi New Relic użytkownika konta narzędzia do tworzenia lub interfejsów API dostarczonych przez usługi New Relic do kont użytkowników usługi AAD.
+>Możesz użyć innych usługi New Relic użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez usługi New Relic tooprovision kont użytkowników usługi AAD.
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania jednokrotnego za udzielanie dostępu do usługi New Relic.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooNew Relic.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta do usługi New Relic, wykonaj następujące czynności:**
+**tooassign tooNew Simona Britta Relic, wykonaj następujące kroki hello:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **usługi New Relic**.
+2. Z listy aplikacji hello wybierz **usługi New Relic**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -238,7 +238,7 @@ W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania 
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -246,13 +246,13 @@ W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania 
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.
 
-Po kliknięciu kafelka usługi New Relic w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji usługi New Relic.
+Po kliknięciu kafelka usługi New Relic hello w hello Panel dostępu, należy pobrać aplikację usługi New Relic tooyour zalogowane automatycznie.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

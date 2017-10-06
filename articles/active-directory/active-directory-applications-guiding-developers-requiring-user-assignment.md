@@ -1,6 +1,6 @@
 ---
-title: "Wymagaj przypisanie użytkownika — usługi Azure AD | Dokumentacja firmy Microsoft"
-description: "Jak wymagają przypisania użytkownika dla aplikacji platformy Azure."
+title: "Przypisanie użytkownika aaaRequire — usługi Azure AD | Dokumentacja firmy Microsoft"
+description: "Jak toorequire przypisanie użytkownika dla aplikacji platformy Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: 079b806c041a4a21e9350342867aee581c57bf45
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b72037cb2321fe03a8ecbbefb568029ce903a126
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Usługi Azure AD i aplikacji: wymagają przypisania użytkownika
 ## <a name="requiring-user-assignment"></a>Wymaganie przypisanie użytkownika
-1. Zaloguj się do portalu Azure przy użyciu konta administratora.
-2. Polecenie **wszystkie elementy** elementu w menu głównym.
-3. Wybierz katalog, w używanej aplikacji.
-4. Polecenie **aplikacji** kartę.
-5. Wybierz aplikację z listy aplikacji skojarzonych z tym katalogiem.
-6. Kliknij przycisk **Konfiguruj** kartę.
-7. Zmień **użytkownika przypisania wymagane do dostępu do aplikacji** przełącznik, aby tak.
-8. Kliknij przycisk **zapisać** u dołu ekranu.
+1. Zaloguj się za toohello portalu Azure przy użyciu konta administratora.
+2. Polecenie hello **wszystkie elementy** element w menu głównym hello.
+3. Wybierz katalog hello, używanego dla aplikacji hello.
+4. Polecenie hello **aplikacji** kartę.
+5. Wybierz aplikację hello z hello listy aplikacji skojarzonych z tym katalogiem.
+6. Kliknij przycisk hello **Konfiguruj** kartę.
+7. Zmień hello **tooAccess wymagane przypisanie użytkownika aplikacji** Przełącz tooYes.
+8. Kliknij przycisk hello **zapisać** przycisk u dołu hello hello ekranu.
 
-Teraz musisz przypisać użytkowników i/lub grup do aplikacji. Zobacz [przypisywania użytkowników do aplikacji](active-directory-applications-guiding-developers-assigning-users.md) i [przypisanie grupy do aplikacji](active-directory-applications-guiding-developers-assigning-groups.md).
+Teraz należy tooassign użytkowników i/lub grup toohello aplikacji. Zobacz [przypisywanie użytkowników aplikacji tooan](active-directory-applications-guiding-developers-assigning-users.md) i [Przypisywanie grup aplikacji tooan](active-directory-applications-guiding-developers-assigning-groups.md).
 
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]

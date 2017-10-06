@@ -1,5 +1,5 @@
 ---
-title: "Model danych Telemetrii Insights aplikacji Azure — dane telemetryczne zależności | Dokumentacja firmy Microsoft"
+title: "aaaAzure aplikacji modelu danych Telemetrii Insights - dane telemetryczne zależności | Dokumentacja firmy Microsoft"
 description: "Model danych usługi Insights aplikacji dla dane telemetryczne zależności"
 services: application-insights
 documentationcenter: .net
@@ -12,23 +12,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: bwren
-ms.openlocfilehash: 2e97c3f951f46c32802aea543b93d5ab1bb76228
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: cd5ab7c61d3498e4aa2a0aa0c8b0d106a92912e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Dane telemetryczne zależności: model danych usługi Application Insights
 
-Dane telemetryczne zależności (w [usługi Application Insights](app-insights-overview.md)) reprezentuje interakcji monitorowanego składnika zdalnego składnika, takiego jak SQL lub punkt końcowy HTTP.
+Dane telemetryczne zależności (w [usługi Application Insights](app-insights-overview.md)) reprezentuje interakcji składnika hello monitorować za pomocą składnika zdalnego, takich jak SQL lub punkt końcowy HTTP.
 
 ## <a name="name"></a>Nazwa
 
-Nazwa polecenia inicjowane z tego wywołania zależności. Wartość Kardynalność niski. Przykłady są nazwa procedury składowanej i szablon ścieżki adresu URL.
+Nazwa polecenia hello inicjowane z tego wywołania zależności. Wartość Kardynalność niski. Przykłady są nazwa procedury składowanej i szablon ścieżki adresu URL.
 
 ## <a name="id"></a>ID
 
-Identyfikator wystąpienia wywołania zależności. Używane na potrzeby korelacji z elementem dane telemetryczne żądania odpowiadające wywołanie zależności. Aby uzyskać więcej informacji, zobacz [korelacji](application-insights-correlation.md) strony.
+Identyfikator wystąpienia wywołania zależności. Używane na potrzeby korelacji z elementem dane telemetryczne żądania hello odpowiadającego toothis wywołanie zależności. Aby uzyskać więcej informacji, zobacz [korelacji](application-insights-correlation.md) strony.
 
 ## <a name="data"></a>Dane
 

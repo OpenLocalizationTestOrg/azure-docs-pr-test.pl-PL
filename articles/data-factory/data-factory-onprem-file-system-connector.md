@@ -1,6 +1,6 @@
 ---
-title: "Kopiowanie danych do/z systemem plików przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane do i z lokalnego systemu plików przy użyciu fabryki danych Azure."
+title: "aaaCopy danych do/z systemem plików przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocopy tooand danych z lokalnego systemu plików przy użyciu fabryki danych Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 52305e54f539de6aba2ba9cc856a09e04d608ded
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 201b8bc3ffa639df781443aa0c3f95c975d280be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Kopiowanie danych do i z lokalnego systemu plików przy użyciu fabryki danych Azure
-W tym artykule opisano sposób używania działania kopiowania w fabryce danych Azure można skopiować danych z lokalnego systemu plików. Opiera się na [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z działania kopiowania.
+# <a name="copy-data-tooand-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Skopiuj tooand danych z lokalnego systemu plików przy użyciu fabryki danych Azure
+W tym artykule opisano, jak toouse hello działanie kopiowania w fabryce danych Azure toocopy danych z lokalnego systemu plików. Opiera się na powitania [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z hello działanie kopiowania.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
-Dane należy skopiować **z lokalnego systemu plików** do następujących danych przechowuje:
+Dane należy skopiować **z lokalnego systemu plików** toohello po magazynów danych:
 
 [!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
 
-Możesz skopiować dane z następujących baz danych **lokalnego systemu plików**:
+Można skopiować danych z powitania po magazyny danych **tooan lokalnego systemu plików**:
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> Aktywność kopiowania nie powoduje usunięcia pliku źródłowego, po pomyślnym jest kopiowany do lokalizacji docelowej. Jeśli musisz usunąć pliku źródłowego po pomyślnym kopii tworzenia działań niestandardowych do usuwania pliku i użyć działania w potoku. 
+> Aktywność kopiowania nie powoduje usunięcia pliku źródłowego hello po pomyślnie skopiowane toohello docelowego. Jeśli potrzebujesz pliku źródłowego hello toodelete po pomyślnym kopiowania, Utwórz plik hello toodelete działań niestandardowych i użyj hello działania w potoku hello. 
 
 ## <a name="enabling-connectivity"></a>Włączenie łączności
-Fabryka danych obsługuje połączenia z lokalnego systemu plików za pośrednictwem i **brama zarządzania danymi**. Brama zarządzania danymi należy zainstalować w środowisku lokalnym dla usługi fabryka danych do nawiązania połączenia wszelkich obsługiwanych na lokalnym magazynem danych, w tym systemie plików. Aby dowiedzieć się więcej o brama zarządzania danymi i instrukcje krok po kroku dotyczące konfigurowania bramy, zobacz [przenoszenie danych między lokalnych źródeł i w chmurze z brama zarządzania danymi](data-factory-move-data-between-onprem-and-cloud.md). Oprócz brama zarządzania danymi inne pliki binarne muszą być zainstalowane do komunikowania się do i z lokalnego systemu plików. Należy zainstalować i używać bramy zarządzania danymi, nawet jeśli systemu plików jest w maszynie Wirtualnej platformy Azure IaaS. Aby uzyskać szczegółowe informacje dotyczące bramy, zobacz [brama zarządzania danymi](data-factory-data-management-gateway.md).
+Fabryka danych obsługuje tooand nawiązujący połączenie z lokalnego systemu plików za pomocą **brama zarządzania danymi**. Należy zainstalować hello brama zarządzania danymi w środowisku lokalnym dla hello fabryki danych usługi tooconnect tooany obsługiwanych na lokalnym magazynem danych w tym systemie plików. Zobacz toolearn o brama zarządzania danymi i instrukcje krok po kroku dotyczące konfigurowania bramy hello [przenoszenie danych między lokalnych źródeł i w chmurze hello z brama zarządzania danymi](data-factory-move-data-between-onprem-and-cloud.md). Oprócz brama zarządzania danymi inne pliki binarne muszą tooand toocommunicate toobe zainstalowane z lokalnego systemu plików. Należy zainstalować i używać hello brama zarządzania danymi, nawet jeśli hello systemu plików jest maszyn wirtualnych IaaS platformy Azure. Aby uzyskać szczegółowe informacje na temat bramy hello, zobacz [brama zarządzania danymi](data-factory-data-management-gateway.md).
 
-Aby używać udziału plików systemu Linux, zainstaluj [Samba](https://www.samba.org/) na serwerze Linux i instalacja bramy zarządzania danymi w systemie Windows server. Instalowanie bramy zarządzania danymi na serwerze z systemem Linux nie jest obsługiwane.
+Zainstaluj toouse udział plików Linux [Samba](https://www.samba.org/) na serwerze Linux i instalacja bramy zarządzania danymi w systemie Windows server. Instalowanie bramy zarządzania danymi na serwerze z systemem Linux nie jest obsługiwane.
 
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok z działaniem kopiowania przenoszenia danych w systemie plików przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem, aby utworzyć potok jest użycie **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora kopiowania danych.
+Witaj Najprostszym sposobem toocreate potoku jest toouse hello **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora dane Kopiuj hello.
 
-Umożliwia także następujące narzędzia do tworzenia potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager**, **interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+Można również użyć hello następujące narzędzia toocreate potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager** , **Interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) dla toocreate instrukcje krok po kroku potoku z działaniem kopiowania.
 
-Czy można użyć narzędzia i interfejsy API, należy wykonać następujące kroki, aby utworzyć potok, który przenosi dane z magazynu danych źródła do ujścia magazynu danych:
+Czy za pomocą narzędzia hello lub interfejsów API, należy wykonać następujące kroki toocreate potok, który przenosi się, że magazyn danych ze źródła danych magazynu danych zbiornika tooa hello:
 
 1. Utwórz **fabryki danych**. Fabryka danych może zawierać co najmniej jeden potoków. 
-2. Utwórz **połączone usługi** Aby połączyć dane wejściowe i wyjściowe są przechowywane w fabryce danych. Jeśli kopiujesz danych z magazynu obiektów blob platformy Azure do lokalnego systemu plików, na przykład utworzyć dwa połączone usługi, aby połączyć lokalnego systemu plików z kontem magazynu platformy Azure z fabryką danych. Dla właściwości połączonej usługi, które są specyficzne dla lokalnego systemu plików, zobacz [połączona usługa właściwości](#linked-service-properties) sekcji.
-3. Utwórz **zestawów danych** do reprezentowania danych wejściowych i wyjściowych operacji kopiowania. W tym przykładzie wymienionych w ostatnim kroku tworzenia zestawu danych, aby określić folder, który zawiera dane wejściowe i kontener obiektów blob. I Utwórz innego elementu dataset, aby określić folder i nazwę pliku (opcjonalnie) w systemie plików. Dla właściwości zestawu danych, które są specyficzne dla lokalnego systemu plików, zobacz [właściwości zestawu danych](#dataset-properties) sekcji.
-4. Utwórz **potoku** aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. W przykładzie wspomniano wcześniej używasz BlobSource jako źródło i FileSystemSink jako zbiorniku dla działania kopiowania. Podobnie lokalnego systemu plików są kopiowane do magazynu obiektów Blob Azure, należy użyć FileSystemSource i BlobSink w przypadku działania kopiowania. Właściwości działania kopiowania, które są specyficzne dla lokalnego systemu plików, zobacz [skopiować właściwości działania](#copy-activity-properties) sekcji. Aby uzyskać szczegółowe informacje dotyczące sposobu używania magazynu danych jako źródło lub zbiorniku kliknij łącze w poprzedniej sekcji dla magazynu danych.
+2. Utwórz **połączone usługi** toolink usługi fabryka danych tooyour magazynów danych wejściowych i wyjściowych. Na przykład jeśli dane są kopiowane z system plików lokalnych tooan magazynu obiektów blob platformy Azure, utworzysz dwie toolink połączone usługi lokalnego systemu plików i fabryki danych tooyour konta magazynu platformy Azure. Dla właściwości połączonej usługi, które są tooan określonych lokalnego systemu plików, zobacz [połączona usługa właściwości](#linked-service-properties) sekcji.
+3. Utwórz **zestawów danych** toorepresent wejściowe i wyjściowe dane hello operacji kopiowania. Przykład Witaj wymienionych w ostatnim kroku hello służy do tworzenia kontenera obiektów blob hello toospecify zestawu danych i folderu zawierającego hello danych wejściowych. I utworzeniu innego zestawu danych toospecify hello folder i nazwę pliku (opcjonalnie) w systemie plików. Dla właściwości zestawu danych, które są określonych tooon lokalnego systemu plików, zobacz [właściwości zestawu danych](#dataset-properties) sekcji.
+4. Utwórz **potoku** aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. W przykładzie hello wspomniano wcześniej używa BlobSource jako źródło i FileSystemSink jako zbiorniku dla aktywności kopiowania hello. Podobnie są kopiowane z lokalnego pliku system tooAzure magazynu obiektów Blob, należy użyć FileSystemSource i BlobSink w przypadku działania kopiowania hello. Dla właściwości działania kopiowania określonych firmą tooon systemu plików, zobacz [skopiować właściwości działania](#copy-activity-properties) sekcji. Szczegółowe informacje dotyczące sposobu toouse, Magazyn danych, jako źródło lub zbiorniku kliknij łącze hello w poprzedniej sekcji powitania dla magazynu danych.
 
-Korzystając z kreatora, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoki) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować tych jednostek fabryki danych w formacie JSON.  Dla przykładów z definicji JSON dla jednostek fabryki danych, które są używane do kopiowania danych do/z systemem plików, zobacz [przykłady JSON](#json-examples-for-copying-data-to-and-from-file-system) sekcji tego artykułu.
+Korzystając z Kreatora hello, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoku hello) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować za pomocą formatu JSON hello tych jednostek fabryki danych.  Aby uzyskać przykłady z definicji JSON dla jednostek fabryki danych, które są używane toocopy danych do/z systemu plików, zobacz [przykłady JSON](#json-examples-for-copying-data-to-and-from-file-system) sekcji tego artykułu.
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane do definiowania jednostek fabryki danych określonej do systemu plików:
+Witaj następujące sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane toodefine fabryki danych jednostek toofile określonego systemu:
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
-System plików lokalnych można połączyć z fabryki danych Azure z **na lokalnym serwerze plików** połączonej usługi. Poniższa tabela zawiera opisy elementy JSON, które są specyficzne dla usługi z lokalnym serwerem plików połączonych.
+Możesz połączyć fabrykę danych Azure lokalnego pliku system tooan z hello **na lokalnym serwerze plików** połączonej usługi. Witaj w poniższej tabeli przedstawiono opis elementów JSON, które są określone toohello połączony serwer plików lokalnej usługi.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Upewnij się, że właściwość type ma ustawioną **OnPremisesFileServer**. |Tak |
-| Host |Określa ścieżkę katalogu głównego folderu, który chcesz skopiować. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady. |Tak |
-| Nazwa użytkownika |Określ identyfikator użytkownika, który ma dostęp do serwera. |Nie (Jeśli wybierzesz encryptedCredential) |
-| hasło |Określ hasło dla użytkownika (nazwa użytkownika). |Nie (Jeśli wybierzesz encryptedCredential |
-| encryptedCredential |Określ zaszyfrowane poświadczenia, które można uzyskać, uruchamiając polecenie cmdlet New-AzureRmDataFactoryEncryptValue. |Nie (Jeśli wybierzesz określić identyfikator użytkownika i hasło w postaci zwykłego tekstu) |
-| gatewayName |Nazwa bramy, która fabryka danych ma używać do łączenia z serwerem plików lokalnych. |Tak |
+| type |Sprawdź, czy właściwość type hello jest ustawiony za**OnPremisesFileServer**. |Tak |
+| Host |Określa ścieżkę katalogu głównego hello folderu hello, które mają toocopy. Użyj znaku ucieczki hello ' \ ' znaków specjalnych w ciągu hello. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady. |Tak |
+| Nazwa użytkownika |Określ identyfikator hello hello użytkownik, który ma dostęp do serwera toohello. |Nie (Jeśli wybierzesz encryptedCredential) |
+| hasło |Określ hasło hello hello użytkownika (nazwa użytkownika). |Nie (Jeśli wybierzesz encryptedCredential |
+| encryptedCredential |Określ poświadczenia hello zaszyfrowane, które można uzyskać, uruchamiając polecenie cmdlet hello AzureRmDataFactoryEncryptValue nowy. |Nie (Jeśli wybierzesz toospecify identyfikatora użytkownika i hasła w postaci zwykłego tekstu) |
+| gatewayName |Określa nazwę hello hello bramy, że fabryka danych powinien używać serwera plików lokalnych toohello tooconnect. |Tak |
 
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Przykładowe połączonej usługi i definicji zestawu danych
@@ -114,24 +114,24 @@ System plików lokalnych można połączyć z fabryki danych Azure z **na lokaln
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby uzyskać pełną listę sekcje i właściwości, które są dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md). Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów w zestawie danych.
 
-Sekcja typeProperties jest różne dla każdego typu zestawu danych. Zawiera informacje, takie jak lokalizacja i formatu danych w magazynie danych. TypeProperties sekcja dla zestawu danych typu **FileShare** ma następujące właściwości:
+sekcja typeProperties Hello jest różne dla każdego typu zestawu danych. Zawiera informacje, takie jak lokalizacja hello i format hello danych w magazynie danych hello. Hello typeProperties sekcja dla zestawu danych hello typu **FileShare** ma hello następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| folderPath |Określa podrzędną do folderu. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady.<br/><br/>Możesz łączyć tej właściwości z **partitionBy** do folderu ścieżki oparte na wycinku rozpoczęcia/zakończenia daty i godziny. |Tak |
-| fileName |Określ nazwę pliku w **folderPath** aby tabela do odwoływania się do określonego pliku w folderze. Jeśli nie określono żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Gdy **fileName** dla wyjściowego zestawu danych nie został określony i **preserveHierarchy** nie została określona w zbiornika działania nazwę wygenerowanego pliku znajduje się w następującym formacie: <br/><br/>`Data.<Guid>.txt`(Przykład: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nie |
-| obiektu fileFilter |Określ filtr służący do wybierania podzbioru pliki w ścieżce folderu, a nie wszystkie pliki. <br/><br/>Dozwolone wartości to: `*` (wielu znaków) i `?` (pojedynczy znak).<br/><br/>Przykład 1: "obiektu"fileFilter: "* .log"<br/>Przykład 2: "obiektu"fileFilter: 2014 - 1-?. txt"<br/><br/>Należy pamiętać, że tego obiektu fileFilter jest odpowiednie dla wejściowego zestawu danych z udziału plików. |Nie |
-| partitionedBy |PartitionedBy służy do określenia dynamiczne folderPath/fileName danych szeregu czasowego. Przykładem jest folderPath sparametryzowana dla każdej godziny danych. |Nie |
-| Format | Obsługiwane są następujące typy format: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw **typu** właściwości w formacie do jednej z tych wartości. Aby uzyskać więcej informacji, zobacz [formacie tekstowym](data-factory-supported-file-and-compression-formats.md#text-format), [formatu Json](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), i [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sekcje. <br><br> Jeśli chcesz **skopiuj pliki jako — jest** między opartych na plikach magazynów (kopia binarnego), Pomiń sekcji format w obu definicji zestawu danych wejściowych i wyjściowych. |Nie |
-| Kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy to: **GZip**, **Deflate**, **BZip2**, i **ZipDeflate**. Obsługiwane poziomy: **optymalna** i **najszybciej**. zobacz [formaty plików i kompresji w fabryce danych Azure](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |
+| folderPath |Określa folder toohello podrzędną hello. Użyj znaku ucieczki hello ' \' znaków specjalnych w ciągu hello. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady.<br/><br/>Możesz łączyć tej właściwości z **partitionBy** daty i godziny rozpoczęcia/zakończenia ścieżki folderu toohave oparte na wycinka. |Tak |
+| fileName |Określ nazwę hello pliku hello w hello **folderPath** Jeśli chcesz hello tabeli toorefer tooa określonego pliku w folderze hello. Jeśli nie określono żadnej wartości dla tej właściwości, tabeli hello punktów tooall pliki w folderze hello.<br/><br/>Gdy **fileName** dla wyjściowego zestawu danych nie został określony i **preserveHierarchy** nie została określona w zbiornika działania hello nazwa hello wygenerowany plik jest zgodny z formatem hello: <br/><br/>`Data.<Guid>.txt`(Przykład: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nie |
+| obiektu fileFilter |Określ toobe filtru używane tooselect podzbiór plików w hello folderPath, a nie wszystkich plików. <br/><br/>Dozwolone wartości to: `*` (wielu znaków) i `?` (pojedynczy znak).<br/><br/>Przykład 1: "obiektu"fileFilter: "* .log"<br/>Przykład 2: "obiektu"fileFilter: 2014 - 1-?. txt"<br/><br/>Należy pamiętać, że tego obiektu fileFilter jest odpowiednie dla wejściowego zestawu danych z udziału plików. |Nie |
+| partitionedBy |Toospecify partitionedBy dynamiczne folderPath/fileName służącego do dane szeregów czasowych. Przykładem jest folderPath sparametryzowana dla każdej godziny danych. |Nie |
+| Format | obsługiwane są następujące typy format Hello: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Zestaw hello **typu** właściwości w formacie tooone tych wartości. Aby uzyskać więcej informacji, zobacz [formacie tekstowym](data-factory-supported-file-and-compression-formats.md#text-format), [formatu Json](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), i [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sekcje. <br><br> Jeśli chcesz zbyt**skopiuj pliki jako — jest** między opartych na plikach magazynów (kopia binarnego), Pomiń sekcja format hello w obu definicji zestawu danych wejściowych i wyjściowych. |Nie |
+| Kompresja | Określ typ hello i poziom kompresji danych hello. Obsługiwane typy to: **GZip**, **Deflate**, **BZip2**, i **ZipDeflate**. Obsługiwane poziomy: **optymalna** i **najszybciej**. zobacz [formaty plików i kompresji w fabryce danych Azure](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |
 
 > [!NOTE]
 > Nie można użyć nazwy pliku i obiektu fileFilter jednocześnie.
 
 ### <a name="using-partitionedby-property"></a>Za pomocą właściwości partitionedBy
-Jak wspomniano w poprzedniej sekcji, można określić folderPath dynamiczne i nazwę pliku dla czasu danych serii za pomocą **partitionedBy** właściwość [funkcje fabryki danych i zmienne systemu](data-factory-functions-variables.md).
+Jak wspomniano w poprzedniej sekcji hello, można określić folderPath dynamiczne i nazwę pliku dla danych serii czasu z hello **partitionedBy** właściwość [funkcje fabryki danych i zmienne systemu hello](data-factory-functions-variables.md).
 
-Aby poznać więcej informacji na temat zestawów danych szeregu czasowego, planowanie i wycinków, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md), [planowania i wykonywania](data-factory-scheduling-and-execution.md), i [tworzenie potoków](data-factory-create-pipelines.md).
+Zobacz więcej informacji na temat zestawów danych szeregu czasowego, planowanie i wycinków, toounderstand [Tworzenie zbiorów danych](data-factory-create-datasets.md), [planowania i wykonywania](data-factory-scheduling-and-execution.md), i [tworzenie potoków](data-factory-create-pipelines.md).
 
 #### <a name="sample-1"></a>Przykład 1:
 
@@ -143,7 +143,7 @@ Aby poznać więcej informacji na temat zestawów danych szeregu czasowego, plan
 ],
 ```
 
-W tym przykładzie {wycinka} zostanie zastąpiony wartością zmiennej systemowej fabryki danych SliceStart w formacie (YYYYMMDDHH). SliceStart odnosi się uruchomienie wycinka. Element folderPath jest różne dla każdego wycinka. Na przykład: wikidatagateway/wikisampledataout/2014100103 lub wikidatagateway/wikisampledataout/2014100104.
+W tym przykładzie {wycinka} zostanie zastąpiony wartością hello hello fabryki danych zmiennej systemowej SliceStart w formacie hello (YYYYMMDDHH). SliceStart odwołuje się czas toostart hello wycinka. Witaj folderPath jest różne dla każdego wycinka. Na przykład: wikidatagateway/wikisampledataout/2014100103 lub wikidatagateway/wikisampledataout/2014100104.
 
 #### <a name="sample-2"></a>Przykład 2:
 
@@ -159,45 +159,45 @@ W tym przykładzie {wycinka} zostanie zastąpiony wartością zmiennej systemowe
 ],
 ```
 
-W tym przykładzie rok, miesiąc, dzień i czas SliceStart są wyodrębniane do oddzielnych zmiennych, korzystających z właściwości folderPath i nazwę pliku.
+W tym przykładzie rok, miesiąc, dzień i czas SliceStart są wyodrębniane do oddzielnych zmiennych, korzystających z hello folderPath i nazwę właściwości.
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe zestawy danych i zasady są dostępne dla wszystkich typów działań. Właściwości dostępne w **typeProperties** sekcji działania zależne od każdego typu działania.
+Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz hello [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe zestawy danych i zasady są dostępne dla wszystkich typów działań. Właściwości dostępne w hello **typeProperties** sekcji hello działanie zależy od każdy typ działania.
 
-Dla działania kopiowania różnią się w zależności od typów źródeł i sink. Jeśli przenosisz danych z lokalnego systemu plików w przypadku działania kopiowania, aby ustawić typ źródła **FileSystemSource**. Podobnie jeśli przenosisz dane do lokalnego systemu plików, należy ustawić typ ujścia w działanie kopiowania do **FileSystemSink**. Ta sekcja zawiera listę obsługiwanych przez FileSystemSource i FileSystemSink właściwości.
+Dla działania kopiowania różnią się w zależności od typów hello źródeł i sink. Są przenoszenia danych z lokalnego systemu plików, należy ustawić typ źródła hello w przypadku działania kopiowania hello zbyt**FileSystemSource**. Podobnie jeśli przenosisz dane tooan lokalnego systemu plików, w przypadku działania kopiowania hello ustawić także typ ujścia hello**FileSystemSink**. Ta sekcja zawiera listę obsługiwanych przez FileSystemSource i FileSystemSink właściwości.
 
-**FileSystemSource** obsługuje następujące właściwości:
-
-| Właściwość | Opis | Dozwolone wartości | Wymagane |
-| --- | --- | --- | --- |
-| Cykliczne |Wskazuje, czy dane są odczytywane rekursywnie z podfoldery lub tylko określonego folderu. |Wartość true, False (ustawienie domyślne) |Nie |
-
-**FileSystemSink** obsługuje następujące właściwości:
+**FileSystemSource** obsługuje hello następujące właściwości:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| copyBehavior |Określa zachowanie kopiowania, gdy źródłem jest BlobSource lub systemu plików. |**PreserveHierarchy:** zachowuje hierarchię plików w folderze docelowym. Względna ścieżka pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna docelowego pliku do folderu docelowego.<br/><br/>**FlattenHierarchy:** wszystkie pliki z folderu źródłowego są tworzone w pierwszy poziom folderu docelowego. Pliki docelowe są tworzone z automatycznie generowaną nazwą.<br/><br/>**MergeFiles:** scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli określono nazwę pliku nazwy/obiektów blob, nazwa scalony plik jest określona nazwa. W przeciwnym razie jest nazwa pliku wygenerowana automatycznie. |Nie |
+| Cykliczne |Wskazuje, czy hello są odczytywane dane rekursywnie z podfoldery hello lub tylko hello określonego folderu. |Wartość true, False (ustawienie domyślne) |Nie |
+
+**FileSystemSink** obsługuje hello następujące właściwości:
+
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
+| --- | --- | --- | --- |
+| copyBehavior |Definiuje zachowanie kopii hello, gdy źródłem hello jest BlobSource lub systemu plików. |**PreserveHierarchy:** zachowuje hello hierarchii plików w folderze docelowym hello. Oznacza to, że hello względnej ścieżki folderu źródłowego toohello pliku źródłowego hello jest hello taka sama jak ścieżka względna hello hello docelowego pliku toohello docelowy folderu.<br/><br/>**FlattenHierarchy:** wszystkie pliki z folderu źródłowego hello są tworzone w hello pierwszy poziom folderu docelowego. pliki docelowe Hello są tworzone z automatycznie generowaną nazwą.<br/><br/>**MergeFiles:** scala wszystkie pliki z pliku tooone folderu źródłowego hello. Jeśli określono hello pliku nazwy/nazwa obiektu blob, hello scalony plik nazwa jest hello określonej nazwy. W przeciwnym razie jest nazwa pliku wygenerowana automatycznie. |Nie |
 
 ### <a name="recursive-and-copybehavior-examples"></a>Przykłady cyklicznego i copyBehavior
-W tej sekcji opisano efekty operacji kopiowania dla różnych kombinacji wartości dla właściwości cyklicznego i copyBehavior.
+W tej sekcji opisano hello efekty hello operacji kopiowania dla różnych kombinacji wartości dla właściwości cyklicznego i copyBehavior hello.
 
 | wartości cykliczne | wartość copyBehavior | Efekty |
 | --- | --- | --- |
-| Wartość true |preserveHierarchy |Dla folderu źródłowego Folder1 o następującej strukturze<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>folder docelowy Folder1 jest tworzony z tej samej struktury jako źródło:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
-| Wartość true |flattenHierarchy |Dla folderu źródłowego Folder1 o następującej strukturze<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>element docelowy Folder1, utworzono o następującej strukturze: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie File5 |
-| Wartość true |mergeFiles |Dla folderu źródłowego Folder1 o następującej strukturze<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>element docelowy Folder1, utworzono o następującej strukturze: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1 + plik2 + plik3 + File4 + pliku 5 zawartości są scalane w jeden plik o nazwie pliku wygenerowana automatycznie. |
-| wartość false |preserveHierarchy |Dla folderu źródłowego Folder1 o następującej strukturze<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>folder docelowy Folder1 jest tworzony o następującej strukturze:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/><br/>Subfolder1 plik3, File4 i File5 nie zostaje pobrana. |
-| wartość false |flattenHierarchy |Dla folderu źródłowego Folder1 o następującej strukturze<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>folder docelowy Folder1 jest tworzony o następującej strukturze:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie plik2<br/><br/>Subfolder1 plik3, File4 i File5 nie zostaje pobrana. |
-| wartość false |mergeFiles |Dla folderu źródłowego Folder1 o następującej strukturze<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>folder docelowy Folder1 jest tworzony o następującej strukturze:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1 + plik2 zawartości są scalane w jeden plik o nazwie pliku wygenerowana automatycznie.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie Plik1<br/><br/>Subfolder1 plik3, File4 i File5 nie zostaje pobrana. |
+| Wartość true |preserveHierarchy |Dla folderu źródłowego Folder1 z hello następujące struktury<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>folder docelowy Hello Folder1 jest tworzony z hello takie same struktury jako źródło hello:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
+| Wartość true |flattenHierarchy |Dla folderu źródłowego Folder1 z hello następujące struktury<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>docelowy Hello Folder1 jest tworzony z następującej struktury hello: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie File5 |
+| Wartość true |mergeFiles |Dla folderu źródłowego Folder1 z hello następujące struktury<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>docelowy Hello Folder1 jest tworzony z następującej struktury hello: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1 + plik2 + plik3 + File4 + pliku 5 zawartości są scalane w jeden plik o nazwie pliku wygenerowana automatycznie. |
+| wartość false |preserveHierarchy |Dla folderu źródłowego Folder1 z hello następujące struktury<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>folder docelowy Hello Folder1 jest tworzony z następującej struktury hello:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/><br/>Subfolder1 plik3, File4 i File5 nie zostaje pobrana. |
+| wartość false |flattenHierarchy |Dla folderu źródłowego Folder1 z hello następujące struktury<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>folder docelowy Hello Folder1 jest tworzony z następującej struktury hello:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie plik2<br/><br/>Subfolder1 plik3, File4 i File5 nie zostaje pobrana. |
+| wartość false |mergeFiles |Dla folderu źródłowego Folder1 z hello następujące struktury<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>folder docelowy Hello Folder1 jest tworzony z następującej struktury hello:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik1 + plik2 zawartości są scalane w jeden plik o nazwie pliku wygenerowana automatycznie.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nazwa wygenerowana automatycznie Plik1<br/><br/>Subfolder1 plik3, File4 i File5 nie zostaje pobrana. |
 
 ## <a name="supported-file-and-compression-formats"></a>Obsługiwane formaty plików i kompresji
 Zobacz [formaty plików i kompresji w fabryce danych Azure](data-factory-supported-file-and-compression-formats.md) artykuł na temat szczegółów.
 
-## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>Przykłady JSON kopiowania danych do i z systemu plików
-Poniższe przykłady zapewniają definicje JSON, których można utworzyć potok przy użyciu [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przedstawiają sposób kopiowania danych do i z lokalnego systemu plików i magazynu obiektów Blob platformy Azure. Można jednak skopiować dane *bezpośrednio* z dowolnego źródła do dowolnego wychwytywanie na liście [obsługiwanych źródeł i wychwytywanie](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w fabryce danych Azure.
+## <a name="json-examples-for-copying-data-tooand-from-file-system"></a>Przykłady JSON do kopiowania tooand danych z systemu plików
+Witaj poniższe przykłady zapewniają definicje JSON przy użyciu hello można toocreate potoku [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przedstawiają sposób toocopy tooand danych z lokalnego systemu plików i magazynu obiektów Blob platformy Azure. Można jednak skopiować dane *bezpośrednio* za pomocą dowolnego hello tooany źródeł z wychwytywanie hello na liście [obsługiwanych źródeł i wychwytywanie](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w fabryce danych Azure.
 
-### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Przykład: Kopiowanie danych z lokalnego systemu plików do magazynu obiektów Blob platformy Azure
-W tym przykładzie pokazano, jak można skopiować danych z lokalnego systemu plików do magazynu obiektów Blob Azure. Przykład zawiera następujące jednostek fabryki danych:
+### <a name="example-copy-data-from-an-on-premises-file-system-tooazure-blob-storage"></a>Przykład: Kopiowanie danych z tooAzure systemu lokalnego pliku magazynu obiektów Blob
+W tym przykładzie pokazano sposób toocopy danych z tooAzure systemu lokalnego pliku magazynu obiektów Blob. przykład Witaj ma powitania po jednostek fabryki danych:
 
 * Połączonej usługi typu [OnPremisesFileServer](#linked-service-properties).
 * Połączonej usługi typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -205,9 +205,9 @@ W tym przykładzie pokazano, jak można skopiować danych z lokalnego systemu pl
 * Dane wyjściowe [dataset](data-factory-create-datasets.md) typu [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 * A [potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [FileSystemSource](#copy-activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Poniższy przykład kopiuje dane szeregów czasowych z lokalnego systemu plików do magazynu obiektów Blob Azure co godzinę. Właściwości JSON, które są używane w te przykłady są opisane w sekcjach po próbek.
+następujące przykładowe Hello kopiuje dane szeregów czasowych z tooAzure systemu lokalnego pliku magazynu obiektów Blob, co godzinę. Witaj JSON właściwości, które są używane w te przykłady są opisane w sekcjach hello po hello próbek.
 
-Pierwszym krokiem skonfigurować bramę zarządzania danymi zgodnie z instrukcjami wyświetlanymi w [przenoszenie danych między lokalnych źródeł i w chmurze z brama zarządzania danymi](data-factory-move-data-between-onprem-and-cloud.md).
+Pierwszym krokiem skonfigurować bramę zarządzania danymi zgodnie z instrukcjami hello [przenoszenie danych między lokalnych źródeł i w chmurze hello z brama zarządzania danymi](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Serwer plików lokalnych połączonej usługi:**
 
@@ -226,7 +226,7 @@ Pierwszym krokiem skonfigurować bramę zarządzania danymi zgodnie z instrukcja
 }
 ```
 
-Firma Microsoft zaleca używanie **encryptedCredential** właściwości zamiast **userid** i **hasło** właściwości. Zobacz [serwera plików połączona usługa](#linked-service-properties) szczegółowe informacje o tej połączonej usługi.
+Firma Microsoft zaleca używanie hello **encryptedCredential** właściwości zamiast hello **userid** i **hasło** właściwości. Zobacz [serwera plików połączona usługa](#linked-service-properties) szczegółowe informacje o tej połączonej usługi.
 
 **Połączonej usługi magazynu Azure:**
 
@@ -244,9 +244,9 @@ Firma Microsoft zaleca używanie **encryptedCredential** właściwości zamiast 
 
 **Lokalnego pliku zestawu danych wejściowych systemu:**
 
-Dane są pobierane z nowego pliku co godzinę. Właściwości folderPath i nazwa pliku są określane na podstawie czasu rozpoczęcia wycinka.  
+Dane są pobierane z nowego pliku co godzinę. Witaj folderPath i nazwę pliku, właściwości są określane na podstawie czasu rozpoczęcia hello hello wycinka.  
 
-Ustawienie `"external": "true"` fabryki danych informuje, czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w fabryce danych.
+Ustawienie `"external": "true"` informuje fabryki danych tego elementu dataset hello zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello.
 
 ```JSON
 {
@@ -310,7 +310,7 @@ Ustawienie `"external": "true"` fabryki danych informuje, czy zestaw danych jest
 
 **Magazyn obiektów Blob Azure wyjściowy zestaw danych:**
 
-Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu dla obiekt blob jest dynamicznie obliczane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godzinę części czas rozpoczęcia.
+Dane są zapisywane tooa nowych obiektów blob, co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu Hello hello obiektu blob dynamicznie jest obliczane na podstawie czasu rozpoczęcia hello hello wycinek, który jest przetwarzana. Ścieżka folderu Hello używa hello rok, miesiąc, dzień i godzinę części hello czas rozpoczęcia.
 
 ```JSON
 {
@@ -370,7 +370,7 @@ Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godzin
 
 **Działanie kopiowania w potoku z systemu plików źródłowy i odbiorczy obiektów Blob:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wejściowe i wyjściowe zestawy danych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **FileSystemSource**, i **zbiornika** ustawiono typ **BlobSink**.
+Witaj potoku zawiera działanie kopiowania, który jest skonfigurowany toouse hello wejściowych i wyjściowych zestawów danych i jest toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**FileSystemSource**, i **zbiornika** typu ustawiono zbyt**BlobSink**.
 
 ```JSON
 {  
@@ -418,8 +418,8 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wej
 }
 ```
 
-### <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Przykład: Kopiowanie danych z bazy danych SQL Azure do lokalnego systemu plików
-Poniższy przykład przedstawia:
+### <a name="example-copy-data-from-azure-sql-database-tooan-on-premises-file-system"></a>Przykład: Skopiuj dane z bazy danych SQL Azure tooan lokalnego systemu plików
+następujące przykładowe pokazuje Hello:
 
 * Połączonej usługi typu [AzureSqlDatabase.](data-factory-azure-sql-connector.md#linked-service-properties)
 * Połączonej usługi typu [OnPremisesFileServer](#linked-service-properties).
@@ -427,7 +427,7 @@ Poniższy przykład przedstawia:
 * Wyjściowy zestaw danych typu [FileShare](#dataset-properties).
 * Potok z działania kopiowania, która używa [SqlSource](data-factory-azure-sql-connector.md##copy-activity-properties) i [FileSystemSink](#copy-activity-properties).
 
-Przykład kopiuje dane szeregów czasowych z tabeli Azure SQL do lokalnego systemu plików co godzinę. Właściwości JSON, które są używane w te przykłady zostały opisane w sekcjach po próbek.
+Przykładowe Hello kopiuje dane szeregów czasowych z system plików lokalnych tooan tabeli Azure SQL co godzinę. Witaj JSON właściwości, które są używane w te przykłady zostały opisane w sekcjach po hello próbek.
 
 **Baza danych SQL Azure połączonej usługi:**
 
@@ -460,13 +460,13 @@ Przykład kopiuje dane szeregów czasowych z tabeli Azure SQL do lokalnego syste
 }
 ```
 
-Firma Microsoft zaleca używanie **encryptedCredential** zamiast za pomocą właściwości **userid** i **hasło** właściwości. Zobacz [System plików połączona usługa](#linked-service-properties) szczegółowe informacje o tej połączonej usługi.
+Firma Microsoft zaleca używanie hello **encryptedCredential** właściwości zamiast hello **userid** i **hasło** właściwości. Zobacz [System plików połączona usługa](#linked-service-properties) szczegółowe informacje o tej połączonej usługi.
 
 **Azure SQL wejściowy zestaw danych:**
 
-Przykładzie założono, że po utworzeniu tabeli "MyTable" w języku SQL Azure i zawiera kolumnę o nazwie "timestampcolumn", szeregów czasowych danych.
+przykład Witaj założono, że po utworzeniu tabeli "MyTable" w języku SQL Azure i zawiera kolumnę o nazwie "timestampcolumn", szeregów czasowych danych.
 
-Ustawienie ``“external”: ”true”`` fabryki danych informuje, czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w fabryce danych.
+Ustawienie ``“external”: ”true”`` informuje fabryki danych tego elementu dataset hello zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello.
 
 ```JSON
 {
@@ -495,7 +495,7 @@ Ustawienie ``“external”: ”true”`` fabryki danych informuje, czy zestaw d
 
 **Lokalnego pliku systemu wyjściowego zestawu danych:**
 
-Dane zostaną skopiowane do nowego pliku co godzinę. FolderPath i nazwę pliku dla obiekt blob są określane na podstawie czasu rozpoczęcia wycinka.
+Dane są kopiowane tooa nowy plik co godzinę. Hello folderPath i nazwę pliku dla obiekt blob hello są określane na podstawie czasu rozpoczęcia hello hello wycinka.
 
 ```JSON
 {
@@ -559,7 +559,7 @@ Dane zostaną skopiowane do nowego pliku co godzinę. FolderPath i nazwę pliku 
 
 **Działanie kopiowania w potoku z SQL źródłowy i odbiorczy systemu plików:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wejściowe i wyjściowe zestawy danych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **SqlSource**i **zbiornika** ustawiono typ **FileSystemSink**. Zapytanie SQL, który jest określony dla **SqlReaderQuery** właściwości wybiera dane w ostatniej godziny do skopiowania.
+Witaj potoku zawiera działanie kopiowania, który jest skonfigurowany toouse hello wejściowych i wyjściowych zestawów danych i jest toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**SqlSource**i hello **zbiornika** typu ustawiono zbyt**FileSystemSink**. Zapytanie SQL Hello określony dla hello **SqlReaderQuery** właściwości zaznacza danych hello hello poza toocopy godzinę.
 
 ```JSON
 {  
@@ -609,7 +609,7 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wej
 ```
 
 
-Można również mapować kolumn z zestawu źródła danych do kolumn z zestawu danych zbiornika w definicji działania kopiowania. Aby uzyskać więcej informacji, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
+Można również mapować kolumn z źródła toocolumns zestawu danych z zestawu danych zbiornika w definicji działania kopiowania hello. Aby uzyskać więcej informacji, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Wydajności i dostosowywanie
- Aby dowiedzieć się więcej na temat kluczowych czynników, które mają wpływ na wydajność przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i zoptymalizować ją na różne sposoby, zobacz [wydajności działania kopiowania i dostrajania przewodnik](data-factory-copy-activity-performance.md).
+ toolearn o kluczu czynniki tego wydajność hello wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i różne sposoby toooptimize, zobacz hello [wydajności działania kopiowania i dostrajania przewodnik](data-factory-copy-activity-performance.md).

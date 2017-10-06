@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Voyance | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Voyance."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Voyance."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,128 +14,128 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e860b810904fb7972d75d55d913d5622ff9a406a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e2cb9eb6b20e8611a9f6e8529b7c85a8d86ec3e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Samouczek: Integracji Azure Active Directory z Voyance
 
-Z tego samouczka dowiesz się integrowanie Voyance z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate Voyance w usłudze Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Voyance zapewnia następujące korzyści:
+Integracja z usługą Azure AD Voyance zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do Voyance
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do Voyance (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooVoyance
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooVoyance (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z Voyance, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z Voyance należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Voyance logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Voyance z galerii
+1. Dodawanie Voyance z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-voyance-from-the-gallery"></a>Dodawanie Voyance z galerii
-Aby skonfigurować integrację usługi Azure AD Voyance, należy dodać Voyance z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-voyance-from-hello-gallery"></a>Dodawanie Voyance z galerii hello
+tooconfigure hello integracji Voyance do usługi Azure AD, należy tooadd Voyance z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać Voyance z galerii, wykonaj następujące czynności:**
+**tooadd Voyance z galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
-    ![Przycisk usługi Azure Active Directory][1]
+    ![przycisk usługi Azure Active Directory Hello][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa][2]
+    ![Blok aplikacje przedsiębiorstwa Hello][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
-    ![Nowy przycisk aplikacji][3]
+    ![Nowy przycisk aplikacji Hello][3]
 
-4. W polu wyszukiwania wpisz **Voyance**, wybierz pozycję **Voyance** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+4. W polu wyszukiwania hello wpisz **Voyance**, wybierz pozycję **Voyance** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
-    ![Voyance na liście wyników](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_addfromgallery.png)
+    ![Voyance hello listy wyników](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Voyance w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Voyance jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Voyance musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Voyance jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Voyance musi toobe ustanowione.
 
-W Voyance, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W Voyance, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Voyance, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Voyance, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Voyance](#create-a-voyance-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Voyance połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Voyance](#create-a-voyance-test-user)**  -toohave odpowiednikiem Simona Britta w Voyance, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Voyance.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Voyance.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Voyance, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z Voyance, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **Voyance** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **Voyance** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_samlbase.png)
 
-3. Na **Voyance domeny i adres URL** sekcji, wykonaj następujące kroki, aby skonfigurować aplikację w **IDP** inicjowane tryb:
+3. Na powitania **Voyance domeny i adres URL** sekcji, wykonaj następujące kroki, jeśli chcesz, aby aplikacja hello tooconfigure w hello **IDP** inicjowane tryb:
 
     ![Adresy URL i domeny Voyance pojedynczy informacje logowania dla dostawców tożsamości](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_url1.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.nyansa.com`
+    a. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<companyname>.nyansa.com`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.nyansa.com/saml/create/`
+    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<companyname>.nyansa.com/saml/create/`
 
-4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL** i wykonać następujący krok, jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb:
+4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL** i wykonywać powitania po kroku, jeśli chcesz, aby aplikacja hello tooconfigure w **SP** inicjowane tryb:
 
     ![Adresy URL i domeny Voyance pojedynczy informacje logowania dla dostawcy](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_url2.png)
 
-    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.nyansa.com/`
+    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<companyname>.nyansa.com/`
      
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta Voyance](mailto:support@nyansa.com) uzyskać te wartości. 
+    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Voyance](mailto:support@nyansa.com) tooget tych wartości. 
 
-5. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+5. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
-    ![Łącze pobierania certyfikatu](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_certificate.png) 
+    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_certificate.png) 
 
 6. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-voyance-tutorial/tutorial_general_400.png)
     
-7. Na **konfiguracji Voyance** , kliknij przycisk **skonfigurować Voyance** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+7. Na powitania **konfiguracji Voyance** kliknij **skonfigurować Voyance** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfiguracja Voyance](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_configure.png) 
 
-8. W oknie przeglądarki innej witryny sieci web logowanie do dzierżawy Voyance jako administrator.
+8. W oknie przeglądarki innej witryny sieci web, logowania jednokrotnego tooyour Voyance dzierżawy z uprawnieniami administratora.
 
-9. Przejdź do prawym górnym rogu paska nawigacji i kliknij listę rozwijaną informujący "**University xyz**".
+9. Przejdź toohello prawym górnym rogu paska nawigacyjnego hello i kliknij pozycję hello listy rozwijanej informacją "**University xyz**".
     
     ![Konfigurowanie rejestracji jednokrotnej w aplikacji po stronie xyz University](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_001.png) 
 
@@ -147,90 +147,90 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej na dostęp do aplikacji po stronie użytkownika](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_003.png)
 
-12. Kliknij przycisk "**wyłączeniu logowania jednokrotnego**" przycisk, aby skonfigurować usługi Azure AD jako dostawca tożsamości przy użyciu SAML 2.0.
+12. Kliknij przycisk hello "**wyłączeniu logowania jednokrotnego**" przycisk tooconfigure usługi Azure AD jako dostawca tożsamości przy użyciu SAML 2.0.
 
     ![Konfigurowanie jednego logowania w aplikacji po stronie rejestracji Jednokrotnej jest wyłączony przycisk](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_004.png)
 
-13. Przejdź do **SAML v2** sekcji i wykonaj następujące czynności:
+13. Przejdź za**SAML v2** sekcji i wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej w aplikacji po stronie SAML v2](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_005.png)
     
     a. Wybierz **włączone**.
     
-    b. Wklej **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure do **adres URL logowania IdP** pola tekstowego.
+    b. Wklej **SAML pojedynczy znak na adres URL usługi**, która została skopiowana z hello portalu Azure do hello **adres URL logowania IdP** pole tekstowe.
 
-    c. Otwórz w Notatniku z pobranego certyfikatu szyfrowania Base64, skopiuj zawartość go do Schowka, a następnie wklej go do **IdP Cert** pola tekstowego.
+    c. Otwórz z pobranego certyfikatu szyfrowania Base64 w Notatniku hello kopiowania zawartości go do Schowka, a następnie wklej go toohello **IdP Cert** pola tekstowego.
     
     d. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
-    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-voyance-tutorial/create_aaduser_01.png) 
+    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-voyance-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
-    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-voyance-tutorial/create_aaduser_02.png) 
+    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-voyance-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
-    ![Przycisk Dodaj](./media/active-directory-saas-voyance-tutorial/create_aaduser_03.png) 
+    ![przycisk Dodaj Hello](./media/active-directory-saas-voyance-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
-    ![Okno dialogowe użytkownika](./media/active-directory-saas-voyance-tutorial/create_aaduser_04.png) 
+    ![okno dialogowe Hello użytkownika](./media/active-directory-saas-voyance-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-voyance-test-user"></a>Tworzenie użytkownika testowego Voyance
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w Voyance. Voyance obsługę w czasie, który jest domyślnie włączone. Nie ma elementu akcji można w tej sekcji. Nowy użytkownik został utworzony podczas próby dostępu Voyance, jeśli go jeszcze nie istnieje.
+Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w Voyance. Voyance obsługę w czasie, który jest domyślnie włączone. Nie ma elementu akcji można w tej sekcji. Nowy użytkownik jest tworzona podczas próby tooaccess Voyance, jeśli go jeszcze nie istnieje.
 
 >[!NOTE]
->Jeśli trzeba ręcznie utworzyć użytkownika, należy skontaktować się [zespołem pomocy technicznej Voyance](maiLto:support@nyansa.com).
+>Jeśli potrzebujesz ręcznie toocreate użytkownika, należy toocontact [zespołem pomocy technicznej Voyance](maiLto:support@nyansa.com).
 
-### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Voyance.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooVoyance.
 
-![Przypisanie roli użytkownika][200]
+![Przypisanie roli użytkownika hello][200]
 
-**Aby przypisać Simona Britta Voyance, wykonaj następujące czynności:**
+**tooassign tooVoyance Simona Britta wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **Voyance**.
+2. Z listy aplikacji hello wybierz **Voyance**.
 
-    ![Łącze Voyance na liście aplikacji](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_app.png) 
+    ![łącze Voyance Hello na liście aplikacji hello](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
-    ![Łącze "Użytkownicy i grupy"][202]
+    ![łącze "Użytkownicy i grupy" Hello][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![W okienku Dodaj przydziału][203]
+    ![Okienko Dodaj przypisania Hello][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -238,13 +238,13 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka Voyance w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Voyance.
+Po kliknięciu kafelka Voyance hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Voyance aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
-title: "Środowisko usługi aplikacji | Dokumentacja firmy Microsoft"
-description: "Co to jest środowisko usługi aplikacji Azure? Wprowadzenie do środowiska usługi aplikacji."
+title: "aaaApp środowiska usługi | Dokumentacja firmy Microsoft"
+description: "Co to jest środowisko usługi aplikacji Azure? TooApp wprowadzenie środowiska usługi."
 keywords: "środowiska usługi aplikacji Azure, sieci wirtualnej, bezpieczeństwo operacji sieciowych"
 services: app-service
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: stefsch
-ms.openlocfilehash: 1de3f2c513f4f5ce6fd2ab2b57514122955a9a98
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b59fed4e5a72d4c4805e1dca203747e07e77103
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service-environment-documentation"></a>Dokumentacja środowiska usługi aplikacji
 Środowiska usługi aplikacji jest [Premium] [ PremiumTier] opcji plan usługi aplikacji Azure, która udostępnia środowisko pełni izolowanym środowisku, aby bezpiecznie pracować z aplikacjami Azure App Service na dużą skalę, usługa w tym [aplikacje sieci Web][WebApps], [Mobile Apps][MobileApps], i [aplikacje interfejsu API] [ APIApps].  
@@ -31,9 +31,9 @@ ms.lasthandoff: 07/11/2017
 
 Klienci mogą tworzyć wiele środowisk usługi aplikacji w jednym regionie Azure, a także w wielu regionach platformy Azure.  Dzięki temu można idealne rozwiązanie w przypadku skalowania w poziomie warstwach aplikacji bez stanu, w związku z wysoką obciążeniami RPS środowiska usługi App Service.
 
-Środowiska usługi aplikacji są izolowane do uruchamiania tylko jednego odbiorcy aplikacji i zawsze są wdrażane w sieci wirtualnej.  Klienci mają precyzyjną kontrolę nad zarówno dla ruchu przychodzącego i wychodzącego aplikacji sieciowych ruchu przy użyciu [sieciowej grupy zabezpieczeń][NetworkSecurityGroups].  Aplikacje można również ustanowić bezpiecznych połączeń o dużej szybkości za pośrednictwem sieci wirtualnej do zasobów firmy lokalnie.
+Środowiska usługi aplikacji są izolowane toorunning tylko jednego odbiorcy aplikacje i zawsze są wdrażane w sieci wirtualnej.  Klienci mają precyzyjną kontrolę nad zarówno dla ruchu przychodzącego i wychodzącego aplikacji sieciowych ruchu przy użyciu [sieciowej grupy zabezpieczeń][NetworkSecurityGroups].  Aplikacje można również ustanowić bezpiecznych połączeń o dużej szybkości za pośrednictwem zasobów firmowych tooon lokalnej sieci wirtualnych.
 
-Aplikacje często muszą uzyskiwać dostęp do zasobów firmy, takich jak wewnętrznej bazy danych i usług sieci web.  Aplikacje działające na środowiska usługi App Service może uzyskiwać dostęp do zasobów osiągalne za pomocą [lokacja-lokacja] [ SiteToSite] sieci VPN i [Azure ExpressRoute] [ ExpressRoute] połączenia.
+Aplikacje muszą często tooaccess zasobów firmowych, takich jak wewnętrznej bazy danych i usług sieci web.  Aplikacje działające na środowiska usługi App Service może uzyskiwać dostęp do zasobów osiągalne za pomocą [lokacja-lokacja] [ SiteToSite] sieci VPN i [Azure ExpressRoute] [ ExpressRoute] połączenia.
 
 * [Co to jest środowisko usługi App Service?](../app-service-web/app-service-app-service-environment-intro.md)
 * [Tworzenie środowiska usługi App Service](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)

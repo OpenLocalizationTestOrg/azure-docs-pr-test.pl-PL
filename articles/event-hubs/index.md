@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Event Hubs — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak usługa Event Hubs umożliwia pozyskiwanie milionów zdarzeń na sekundę z połączonych aplikacji i urządzeń IoT na wielu platformach."
+title: "aaaAzure dokumentacji centra zdarzeń — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse usługi Event Hubs tooingest miliony zdarzeń na sekundę z podłączone urządzenia IoT i aplikacji na szeroki platformy."
 services: event-hubs
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 56c24eb26faf1729c33b025d5c9fcf5d13abd376
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b75a4f958f66afdbca2fc612e2359df241164818
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-documentation"></a>Dokumentacja usługi Event Hubs
 
-Dowiedz się, jak usługa Event Hubs umożliwia zbieranie milionów zdarzeń na sekundę i zarządzanie nimi z połączonych aplikacji i urządzeń IoT. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować skalowalne pozyskiwanie zdarzeń na wielu platformach.
+Dowiedz się, jak toouse toocollect centra zdarzeń i zarządzanie nimi miliony zdarzeń na sekundę z połączonych urządzeń IoT i aplikacji. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować skalowalne pozyskiwanie zdarzeń na wielu platformach.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -70,7 +70,7 @@ Dowiedz się, jak usługa Event Hubs umożliwia zbieranie milionów zdarzeń na 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do programowania usługi Event Hubs</h3>
+                        <h3>Wprowadzenie do usługi Event Hubs hello — Podręcznik programowania</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Dowiedz się, jak usługa Event Hubs umożliwia zbieranie milionów zdarzeń na 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpoczynanie pracy z usługą Event Hubs przy użyciu witryny Azure Portal</h3>
+                        <h3>Rozpoczynanie pracy z usługą Event Hubs przy użyciu hello portalu Azure</h3>
                     </div>
                 </div>
             </div>

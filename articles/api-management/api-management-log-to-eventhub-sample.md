@@ -1,6 +1,6 @@
 ---
-title: "Monitorowanie interfejsów API za pomocą usługi Azure API Management, usługa Event Hubs i Runscope | Dokumentacja firmy Microsoft"
-description: "Przykładowa aplikacja prezentacja zasad dziennika do Centrum eventhub połączenia usługi Azure API Management, Azure Event Hubs i Runscope dla protokołu HTTP, rejestrowania i monitorowania"
+title: "interfejsy API z usługi Azure API Management, usługa Event Hubs i Runscope aaaMonitor | Dokumentacja firmy Microsoft"
+description: "Przykładowa aplikacja prezentacja zasad dziennika do Centrum eventhub hello łączącego Azure API Management, Azure Event Hubs i Runscope dla protokołu HTTP, rejestrowania i monitorowania"
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,39 +14,39 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 70ee752c5639c90f77dde104ce85eec0a1062300
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7456a2436f3a2d7b815b70b65fca9481d39c5fe9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitoruj swoje interfejsy API z usługi Azure API Management, usługa Event Hubs i Runscope
-[Usługi Zarządzanie interfejsami API](api-management-key-concepts.md) zawiera wiele możliwości przetwarzania żądania HTTP wysyłane do interfejsu API protokołu HTTP. Istnienie żądań i odpowiedzi są jednak przejściowej. Żądanie, a następnie za pomocą usługi Zarządzanie interfejsami API z wewnętrzną bazą danych interfejsu API. Interfejs API przetwarza żądania i odpowiedzi przechodzi wstecz przez konsumenta interfejsu API. Usługi Zarządzanie interfejsami API utrzymuje niektórych ważnych statystyk dotyczących interfejsów API do wyświetlenia na pulpicie nawigacyjnym portalu wydawcy w ale ponad, czy szczegóły znikną.
+Witaj [usługi Zarządzanie interfejsami API](api-management-key-concepts.md) zawiera wiele możliwości tooenhance hello przetwarzania HTTP tooyour wysłanych żądań interfejsu API protokołu HTTP. Jednak hello istnienie hello żądań i odpowiedzi są przejściowej. Witaj żądań i przelewa się przez interfejs API zaplecza tooyour usługi Zarządzanie interfejsami API hello. Interfejs API przetwarza hello żądania i odpowiedzi przechodzi wstecz przez konsumentów toohello interfejsu API. Hello usługi Zarządzanie interfejsami API utrzymuje niektórych ważnych statystyk dotyczących hello interfejsów API do wyświetlenia hello wydawcy portalu w pulpicie nawigacyjnym, ale poza tym, szczegóły hello znikną.
 
-Za pomocą [dziennika do Centrum eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) [zasad](api-management-howto-policies.md) usługi Zarządzanie interfejsami API można wysyłać żadnych szczegółów z żądania i odpowiedzi na [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Istnieje wiele przyczyn, dlaczego warto generowanie zdarzeń z wiadomości HTTP są wysyłane do swoje interfejsy API. Oto kilka przykładów dziennik inspekcji aktualizacji, analizy użycia, alerty wyjątków i 3 integracji strony.   
+Za pomocą hello [dziennika do Centrum eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) [zasad](api-management-howto-policies.md) w hello usługi Zarządzanie interfejsami API można wysyłać żadnych szczegółów z hello żądań i odpowiedzi tooan [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Istnieje wiele powodów może być toogenerate zdarzenia z komunikaty HTTP wysyłane tooyour interfejsów API. Oto kilka przykładów dziennik inspekcji aktualizacji, analizy użycia, alerty wyjątków i 3 integracji strony.   
 
-W tym artykule przedstawiono sposób przechwytywania cały komunikat żądania i odpowiedzi HTTP, wysyłają je do Centrum zdarzeń i następnie przekazywania wiadomości osobie trzeciej usługa, która zapewnia HTTP rejestrowania i monitorowania usług.
+W tym artykule pokazano, jak toocapture hello całego żądań i odpowiedzi komunikat HTTP, przesyła tooan Centrum zdarzeń i następnie przekazywania tej usługi innej firmy tooa komunikat zawiera HTTP rejestrowania i monitorowania usług.
 
 ## <a name="why-send-from-api-management-service"></a>Dlaczego należy wysłać z interfejsu API usługi zarządzania?
-Istnieje możliwość zapisu oprogramowania pośredniczącego protokołu HTTP, który można podłączyć do struktur HTTP API do przechwytywania żądań i odpowiedzi HTTP i ich źródła do rejestrowania i monitorowania systemów. Wadą tego podejścia interfejsu jest oprogramowanie pośredniczące HTTP musi być zintegrowane zaplecza interfejsu API i musi odpowiadać platformy interfejsu API. Jeśli istnieje wiele interfejsów API każdej z nich należy wdrożyć oprogramowanie pośredniczące. Często jest przyczyn, dlaczego nie można zaktualizować interfejsów API w wewnętrznej bazie danych.
+Jest możliwe toowrite oprogramowania pośredniczącego protokołu HTTP, który można podłączyć do interfejsu API HTTP struktur toocapture żądań i odpowiedzi HTTP źródła je do rejestrowania i monitorowania systemów. podejście toothis wadą interfejsu Hello jest oprogramowanie pośredniczące HTTP hello musi toobe zintegrowane hello zaplecza interfejsu API i musi odpowiadać hello platforma hello interfejsu API. Jeśli istnieje wiele interfejsów API każdej z nich należy wdrożyć hello oprogramowania pośredniczącego. Często jest przyczyn, dlaczego nie można zaktualizować interfejsów API w wewnętrznej bazie danych.
 
-Za pomocą usługi Zarządzanie interfejsami API Azure do integracji z infrastrukturą rejestrowania zapewnia rozwiązanie scentralizowany i niezależne od platformy. Jest również skalowalne, w części ze względu na [— replikacja geograficzna](api-management-howto-deploy-multi-region.md) możliwości usługi Azure API Management.
+Przy użyciu toointegrate usługi Azure API Management hello z infrastrukturą rejestrowania zapewnia rozwiązanie scentralizowany i niezależne od platformy. Jest również skalowalne, w części powodu toohello [— replikacja geograficzna](api-management-howto-deploy-multi-region.md) możliwości usługi Azure API Management.
 
-## <a name="why-send-to-an-azure-event-hub"></a>Dlaczego są wysyłane do usługi Azure Event Hub?
-Jest to uzasadnione na pytanie, dlaczego Tworzenie zasad, które są specyficzne dla usługi Azure Event Hubs? Istnieje wiele różnych miejscach, w którym chcieć Moje żądania logowania. Dlaczego nie wystarczy wysłać żądania bezpośrednio do końcowego miejsca docelowego?  To opcja. Podczas tworzenia żądania rejestrowania z interfejsu API usługi zarządzania, należy wziąć pod uwagę, jak rejestrowanie komunikatów ma wpływ na wydajność, interfejsu API. Stopniowa wzrost obciążenia są obsługiwane przez odpowiednie zwiększenie dostępnych wystąpień składników systemu, czy dzięki wykorzystaniu — replikacja geograficzna. Krótki największego ruchu może jednak spowodować żądań znacznie opóźnionych żądań rejestrowania infrastruktury uruchomić zmniejszyć obciążenie.
+## <a name="why-send-tooan-azure-event-hub"></a>Dlaczego wysłać tooan Centrum zdarzeń Azure?
+Dlaczego warto utworzyć zasady, które jest określone tooAzure Event Hubs, jest uzasadnione tooask? Istnieje wiele różnych miejscach, w którym można toolog Moje żądania. Dlaczego nie wystarczy wysłać hello bezpośrednio żądań przeznaczenia toohello?  To opcja. Podczas tworzenia żądania rejestrowania z interfejsu API usługi zarządzania, jest jednak konieczne tooconsider jak rejestrowanie komunikatów będzie miało wpływ wydajność hello hello interfejsu API. Stopniowa wzrost obciążenia są obsługiwane przez odpowiednie zwiększenie dostępnych wystąpień składników systemu, czy dzięki wykorzystaniu — replikacja geograficzna. Krótki największego ruchu może jednak spowodować znacznie opóźnione, jeżeli infrastruktura toologging żądania uruchomienia tooslow pod obciążeniem toobe żądań.
 
-Azure Event Hubs jest przeznaczona do transferu dużych ilości danych, o pojemności na potrzeby zajmujących się znacznie większej liczby zdarzeń niż liczba żądań HTTP większości procesu interfejsów API. Centrum zdarzeń pełni rolę bufora zaawansowane między usługą zarządzania interfejsu API i infrastrukturę, która będzie przechowywać i przetwarzać komunikaty. Dzięki temu, że z powodu infrastruktury rejestrowania nie będzie pogorszyć wydajność z interfejsu API.  
+Hello Azure Event Hubs jest zaprojektowana tooingress dużych ilości danych, o pojemności zajmujących się znacznie większej liczby zdarzeń niż liczba hello HTTP żądania większości procesu interfejsów API. Witaj Centrum zdarzeń pełni rolę bufora zaawansowane między interfejsu API usługi i hello infrastruktury zarządzania, który będzie przechowywać i przetwarzać wiadomości powitania. Dzięki temu, że wydajność interfejsu API nie będzie ponieść powodu toohello rejestrowania infrastruktury.  
 
-Gdy dane został przekazany do Centrum zdarzeń jest trwały i będzie oczekiwał na konsumentów Centrum zdarzeń go przetworzyć. Centrum zdarzeń nie zależy sposób przetwarzania, ją po prostu dba upewnienie się, że wiadomość zostanie dostarczona pomyślnie.     
+Po hello danych został przekazany tooan Centrum zdarzeń jest trwały i oczekuje na otrzymanie tooprocess konsumentów Centrum zdarzeń go. Witaj Centrum zdarzeń nie zależy sposób przetwarzania, ją po prostu dba upewnienie się, że wiadomość hello zostanie dostarczona pomyślnie.     
 
-Centra zdarzeń mają możliwość strumienia zdarzeń do wielu grup odbiorców. Dzięki temu zdarzenia, które mają być przetwarzane przez całkowicie różnych systemów. Dzięki temu, obsługa wielu scenariuszy integracji bez umieszczania Dodawanie opóźnień w przetwarzania żądania interfejsu API w usłudze API Management, jak tylko jedno zdarzenie ma zostać wygenerowany.
+Centra zdarzeń ma grupy konsumentów toomultiple hello możliwości toostream zdarzenia. Dzięki temu toobe zdarzenia przetwarzane przez całkowicie różnych systemów. Dzięki temu, obsługa wielu scenariuszy integracji bez umieszczania Dodawanie opóźnień w hello przetwarzanie żądania interfejsu API hello w ramach usługi Zarządzanie interfejsami API hello potrzeb toobe generowane tylko jedno zdarzenie.
 
-## <a name="a-policy-to-send-applicationhttp-messages"></a>Zasady do wysyłania wiadomości protokół http i aplikacji
-Centrum zdarzeń akceptuje dane zdarzeń prosty ciąg znaków. Zawartość tego ciągu jest całkowicie od użytkownika. Aby można było spakować żądania HTTP i wysłania go do usługi Event Hubs należy sformatować ciągu z żądania lub odpowiedzi informacji. W sytuacjach, takich jak ta Jeśli istniejący format można ponownie użyć, a następnie firma Microsoft nie trzeba napisać własne analizy kodu. Początkowo I uznawane za pomocą [HAR](http://www.softwareishard.com/blog/har-12-spec/) do wysyłania żądań i odpowiedzi HTTP. Jednak ten format jest zoptymalizowany do przechowywania w formacie JSON na podstawie sekwencji żądań HTTP. Zawiera liczbę obowiązkowe elementy dodane niepotrzebnych złożoności scenariusza przekazywania komunikatu HTTP przez sieć.  
+## <a name="a-policy-toosend-applicationhttp-messages"></a>Protokół http i aplikacji komunikatów toosend zasad
+Centrum zdarzeń akceptuje dane zdarzeń prosty ciąg znaków. Zawartość tego ciągu Hello są całkowicie włączone tooyou. toobe toopackage stanie up żądania HTTP i wysłać go poza tooEvent koncentratory potrzebujemy ciąg hello tooformat informacje hello żądania lub odpowiedzi. W sytuacjach, takich jak ta Jeśli istniejący format, który można ponownie użyć, następnie może nie być toowrite własnej analizy kodu. Początkowo I uznawane za pomocą hello [HAR](http://www.softwareishard.com/blog/har-12-spec/) do wysyłania żądań i odpowiedzi HTTP. Jednak ten format jest zoptymalizowany do przechowywania w formacie JSON na podstawie sekwencji żądań HTTP. Zawiera liczbę obowiązkowe elementy dodane niepotrzebnych złożoności dla scenariusza hello przekazywania wiadomości powitania HTTP za pośrednictwem przewodowy hello.  
 
-Opcja alternatywna było jednoczesne używanie `application/http` typ nośnika zgodnie z opisem w specyfikacji HTTP [RFC 7230](http://tools.ietf.org/html/rfc7230). Ten typ nośnika używa dokładnie tego samego formatu używanego do faktycznego wysyłania wiadomości HTTP przez sieć, ale cały komunikat można umieścić w treści żądania HTTP innego. W tym przypadku po prostu zamierzamy być treści wiadomości do wysłania do usługi Event Hubs. Wygodnie jest analizatorem w [klienta Microsoft ASP.NET Web API 2.2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotek, które mogą przeanalizować tego formatu oraz przekształcać je do natywnego `HttpRequestMessage` i `HttpResponseMessage` obiektów.
+Opcja alternatywna został toouse hello `application/http` typ nośnika zgodnie z opisem w specyfikacji hello HTTP [RFC 7230](http://tools.ietf.org/html/rfc7230). Ten typ nośnika wykorzystuje hello dokładnie takiego samego formatu czyli używane tooactually wysyłać wiadomości HTTP za pośrednictwem przewodowy hello, ale cała wiadomość hello można umieścić w treści hello innego żądania HTTP. W tym przypadku po prostu zamierzamy treści hello toouse jako tooEvent toosend naszych komunikat koncentratorów. Wygodnie jest analizatorem w [klienta Microsoft ASP.NET Web API 2.2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotek, które mogą przeanalizować tego formatu oraz przekształcać je do natywnego hello `HttpRequestMessage` i `HttpResponseMessage` obiektów.
 
-Aby można było utworzyć tę wiadomość należy przeprowadzać na podstawie języka C# [wyrażenie zasad](https://msdn.microsoft.com/library/azure/dn910913.aspx) w usłudze Azure API Management. Poniżej przedstawiono zasady, która wysyła komunikat żądania HTTP do usługi Azure Event Hubs.
+toocreate stanie toobe tego komunikatu, potrzebujemy tootake korzystać na podstawie języka C# [wyrażenie zasad](https://msdn.microsoft.com/library/azure/dn910913.aspx) w usłudze Azure API Management. Oto hello zasada, która wysyła tooAzure komunikat żądania HTTP usługi Event Hubs.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -75,27 +75,27 @@ Aby można było utworzyć tę wiadomość należy przeprowadzać na podstawie j
 ```
 
 ### <a name="policy-declaration"></a>Deklaracja zasad
-Istnieje kilka rzeczy określonego warto zauważyć o wyrażenie zasad. Zasada dziennika do Centrum eventhub ma atrybut o nazwie rejestratora id, który odwołuje się do nazwy rejestratora, który został utworzony w ramach usługi Zarządzanie interfejsami API. Szczegóły dotyczące konfiguracji rejestratora Centrum zdarzeń w usłudze API Management znajduje się w dokumencie [sposób rejestrowania zdarzeń do usługi Azure Event Hubs w usłudze Azure API Management](api-management-howto-log-event-hubs.md). Drugi atrybut jest opcjonalnym parametrem, który powoduje, że usługa Event Hubs, która partycji do przechowywania wiadomości w. Centra zdarzeń partycje służą do włączenia scalabilty i wymagają co najmniej dwa. Uporządkowanego dostarczenia komunikatów jest gwarantowaną jedynie w partycji. Jeśli można wydać Centrum zdarzeń, w których partycji można umieścić wiadomości, zostanie użyty algorytm okrężnego rozłożenie obciążenia. Mogą jednak powodować niektóre nasze komunikaty do przetwarzania poza kolejnością.  
+Istnieje kilka rzeczy określonego warto zauważyć o wyrażenie zasad. Zasada dziennika do Centrum eventhub Hello ma atrybut o nazwie rejestratora id, który odwołuje się nazwa toohello rejestratora, który został utworzony w ramach hello usługi Zarządzanie interfejsami API. Witaj szczegóły jak toosetup rejestratora Centrum zdarzeń w usłudze API Management hello można znaleźć w dokumencie hello [jak toolog zdarzenia tooAzure centra zdarzeń w usłudze Azure API Management](api-management-howto-log-event-hubs.md). drugi atrybut Hello jest opcjonalnym parametrem, który powoduje, że usługa Event Hubs które wiadomość hello toostore partycji w. Centra zdarzeń Użyj partycji tooenable scalabilty i wymagają co najmniej dwa. Witaj uporządkowanego dostarczenia komunikatów jest gwarantowaną jedynie w partycji. Jeśli firma Microsoft nie poinstruować Centrum zdarzeń, w których wiadomości powitania tooplace partycji, zostanie użyty algorytm okrężnego toodistribute hello obciążenia. Mogą jednak powodować część naszego toobe komunikaty przetwarzane poza kolejnością.  
 
 ### <a name="partitions"></a>Partycje
-Aby zapewnić naszym wiadomości są dostarczane do odbiorców w kolejności i skorzystać z zalet możliwości rozkładu obciążenia partycji, wybrano wysyłać żądania HTTP do jednej partycji i komunikatów odpowiedzi HTTP do drugiej partycji. Zapewni to rozkład obciążenia nawet i można gwarantujemy, że wszystkie żądania, które będą używane w kolejności i wszystkie odpowiedzi zostaną użyte w kolejności. Istnieje możliwość odpowiedzi zużywanych przed odpowiednie żądanie, ale który nie jest problem jak mamy inny mechanizm korelowanie żądania do odpowiedzi i wiemy, że żądania zawsze występować przed odpowiedzi.
+tooensure nasze komunikaty są dostarczane tooconsumers w odpowiedniej kolejności i skorzystać z zalet możliwości dystrybucji obciążenia hello partycji, wybrano toosend HTTP żądania wiadomości tooone partycji i partycji drugi tooa komunikatów odpowiedzi HTTP. Zapewni to rozkład obciążenia nawet i można gwarantujemy, że wszystkie żądania, które będą używane w kolejności i wszystkie odpowiedzi zostaną użyte w kolejności. Istnieje możliwość toobe odpowiedzi, użyty przed hello odpowiednie żądanie, ale który nie jest problem jak mamy inny mechanizm korelowanie żądań tooresponses i wiemy, że żądania zawsze występować przed odpowiedzi.
 
 ### <a name="http-payloads"></a>Ładunki HTTP
-Po budynku `requestLine` możemy sprawdzić, czy obcięte treści żądania. Treść żądania jest obcinana tylko 1024 znaki. To można zwiększyć, ale poszczególne wiadomości Centrum zdarzeń są ograniczone do 256KB, więc istnieje duże prawdopodobieństwo, że niektóre komunikaty HTTP organów zostanie nie mieści się w pojedynczym komunikacie. Podczas rejestrowania i analiza znaczną ilość informacji mogą pochodzić z właśnie wiersz żądania HTTP i nagłówków. Ponadto wiele żądań interfejsu API zwracać tylko małych jednostek, i dlatego utraty wartość informacji przez Obcinanie dużych jednostek jest dość minimalnego w odróżnieniu od skrócenie transferu, przetwarzania i kosztów magazynowania, aby zachować całą zawartość treści. Jeden końcowego Uwaga dotycząca przetwarzanie treści jest potrzebujemy przekazać `true` do As<string>— metoda () ponieważ firma Microsoft czytają zawartość treści, jednak podano również mają zaplecza interfejsu API, aby można było odczytać treści. Przekazując wartość PRAWDA, aby ta metoda możemy spowodować jednostkę do buforowanego, dzięki czemu mogą być odczytywane po raz drugi. Jest to ważne, należy pamiętać o Jeśli interfejs API, który nie przekazywania bardzo dużych plików ani nie używa długiego sondowania. W takich przypadkach byłoby unikanie odczytu treści w ogóle.   
+Po utworzeniu hello `requestLine` sprawdzamy toosee, jeśli treść żądania hello powinny być obcinana. Treść żądania Hello jest skróconą tooonly 1024. Może zostać zwiększona, jednak poszczególne wiadomości Centrum zdarzeń są too256KB ograniczone, istnieje duże prawdopodobieństwo, że niektóre komunikaty HTTP organów zostanie nie mieści się w pojedynczym komunikacie. Podczas rejestrowania i analiza znaczną ilość informacji mogą pochodzić z właśnie wiersz żądania HTTP hello i nagłówków. Ponadto wiele żądań interfejsu API zwracać tylko małych jednostek tak hello utraty wartość informacji przez Obcinanie dużych jednostek jest dość minimalny zmniejszenia toohello porównania transferu, przetwarzania i przechowywania koszty i tookeep całą zawartość treści. Jednego końcowego Uwaga dotycząca przetwarzanie treści hello jest, że potrzebujemy toopass `true` toohello jako<string>— metoda () ponieważ możemy czytania hello treść, jednak podano również chcesz hello interfejs API zaplecza toobe tooread stanie hello treści. Przez przekazanie toothis wartość true, metoda możemy spowodować toobe treści hello buforowane, dzięki czemu mogą być odczytywane po raz drugi. Jest to ważne toobe uwagę Jeśli interfejs API, który nie przekazywania bardzo dużych plików ani nie używa długiego sondowania. W takich przypadkach byłoby najlepsze tooavoid odczytu treści hello w ogóle.   
 
 ### <a name="http-headers"></a>Nagłówki HTTP
-Nagłówki HTTP może być po prostu transferowanych za pośrednictwem do formatu wiadomości w formacie pary klucz/wartość prostą. Wybraliśmy usuwają niektórych zabezpieczeń pól, aby uniknąć niepotrzebnego przeciek informacji o poświadczeniach. Jest mało prawdopodobne, że klucze interfejsu API i inne poświadczenia mają być używane do celów analizy. Jeśli Życzymy czy analizy na użytkownika i określonego produktu używają, można pobrać z `context` obiektu i dodać go do wiadomości.     
+Nagłówki HTTP może być po prostu transferowanych za pośrednictwem do formatu wiadomość hello w formacie pary klucz/wartość prostą. Wybraliśmy toostrip limit zabezpieczeń określonych pól, tooavoid niepotrzebnie przeciek informacji o poświadczeniach. Jest mało prawdopodobne, że klucze interfejsu API i inne poświadczenia mają być używane do celów analizy. Jeśli Życzymy analizy toodo na powitania użytkownika i określonego produktu hello używają, firma Microsoft może pobrać który z hello `context` obiektu i Dodaj ten komunikat toohello.     
 
 ### <a name="message-metadata"></a>Komunikat metadanych
-Podczas kompilowania pełny komunikat do wysłania do Centrum zdarzeń, pierwszy wiersz nie jest częścią faktycznie `application/http` wiadomości. Pierwszy wiersz jest dodatkowe metadane składające się z tego, czy wiadomość jest żądanie lub komunikat odpowiedzi i identyfikator komunikatu, który służy do skorelowania żądań do odpowiedzi. Identyfikator komunikatu jest tworzona przy użyciu innej zasady, która wygląda następująco:
+Podczas tworzenia Centrum zdarzeń toohello toosend całą wiadomość hello, hello pierwszego wiersza nie jest częścią hello `application/http` wiadomości. pierwszy wiersz Hello jest dodatkowe metadane składające się z tego, czy wiadomość hello jest komunikat żądania lub odpowiedzi i identyfikator komunikatu, która jest używana toocorrelate żądań tooresponses. Identyfikator komunikatu Hello jest tworzona przy użyciu innej zasady, która wygląda następująco:
 
 ```xml
 <set-variable name="message-id" value="@(Guid.NewGuid())" />
 ```
 
-Firma Microsoft może utworzyć komunikat żądania, który przechowywana w zmiennej, dopóki odpowiedzi został zwrócony, a następnie po prostu wysyłała żądań i odpowiedzi jako pojedynczy komunikat. Jednak wysyłania żądań i odpowiedzi niezależnie i za pomocą identyfikatora komunikatu do skorelowania dwa, uzyskujemy nieco większą elastyczność w rozmiar komunikatu, możliwość wykorzystania wiele partycji, jednocześnie zachowując kolejność wiadomości i żądania zostanie wyświetlony w naszym rejestrowania pulpitu nawigacyjnego wcześniej. Może istnieć sytuacje, w których prawidłowej odpowiedzi nigdy nie są wysyłane do Centrum zdarzeń, prawdopodobnie z powodu błędu krytycznego żądania w usłudze API Management, ale wciąż będzie istnieje rekord żądania.
+Komunikat żądania hello, przechowywane czy w zmiennej, dopóki hello odpowiedzi został zwrócony i po prostu przesłany hello żądań i odpowiedzi w jednym komunikacie można został utworzony. Jednak wysyłania hello żądań i odpowiedzi niezależnie i używając toocorrelate identyfikator komunikatu Witaj dwie, uzyskujemy nieco większej elastyczności rozmiar wiadomości powitania, hello możliwości tootake korzystać z wielu partycji przy jednoczesnym zachowaniu kolejności wiadomości i hello żądania będą wyświetlane na pulpicie nawigacyjnym naszych rejestrowania wcześniej. Może istnieć niektórych sytuacji, gdy prawidłowej odpowiedzi nigdy nie są wysyłane z Centrum zdarzeń toohello, prawdopodobnie powodu tooa błąd krytyczny żądania usługi Zarządzanie interfejsami API hello, ale wciąż będzie istnieje rekord hello żądania.
 
-Zasady można wysłać komunikatu odpowiedzi HTTP wygląda bardzo podobnie do żądania i dlatego konfiguracji zasad pełną wygląda następująco:
+wiadomość Hello zasad toosend hello odpowiedzi HTTP wygląda bardzo podobnie żądania toohello i aby umożliwić ukończenie hello konfiguracji zasad wygląda następująco:
 
 ```xml
 <policies>
@@ -155,16 +155,16 @@ Zasady można wysłać komunikatu odpowiedzi HTTP wygląda bardzo podobnie do ż
 </policies>
 ```
 
-`set-variable` Zasad tworzy wartość, który jest dostępny dla obu `log-to-eventhub` zasad w `<inbound>` sekcji i `<outbound>` sekcji.  
+Witaj `set-variable` zasad tworzy wartość, który jest dostępny dla obu hello `log-to-eventhub` zasad w hello `<inbound>` sekcji i hello `<outbound>` sekcji.  
 
 ## <a name="receiving-events-from-event-hubs"></a>Odbieranie zdarzeń z usługi Event Hubs
-Zdarzenia z Centrum zdarzeń Azure są odbierane przy użyciu [protokołu AMQP](http://www.amqp.org/). Zespół Microsoft Service Bus zostały wprowadzone klienta biblioteki dostępne ułatwić korzystanie zdarzenia. Istnieją dwa różne podejścia obsługiwane, co jest *konsumenta bezpośredniego* , a drugi używa `EventProcessorHost` klasy. Przykłady te dwie metody znajdują się w [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md). Jest krótkiej różnice, `Direct Consumer` umożliwia pełną kontrolę i `EventProcessorHost` wykonuje część pracy żmudne procesy, dla ale powoduje pewne założenia, o jaki będzie przetwarzać tych zdarzeń.  
+Zdarzenia z Centrum zdarzeń Azure są odbierane przy użyciu hello [protokołu AMQP](http://www.amqp.org/). Zespół Microsoft Service Bus Hello zostały wprowadzone klienta wykorzystywanie zdarzenia łatwiejsze hello toomake dostępnych bibliotek. Istnieją dwa różne podejścia obsługiwane, co jest *konsumenta bezpośredniego* i hello innych używa hello `EventProcessorHost` klasy. Przykłady te dwie metody znajdują się w hello [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md). jest Hello krótkiej hello różnice, `Direct Consumer` umożliwia pełną kontrolę i hello `EventProcessorHost` wykonuje część hello żmudne procesy robocze, dla ale powoduje pewne założenia, o jaki będzie przetwarzać tych zdarzeń.  
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-W tym przykładzie używamy `EventProcessorHost` dla uproszczenia, jednak może ona nie najlepszym rozwiązaniem dla tego scenariusza. `EventProcessorHost`wykonuje pracę twardych zagwarantowanie, że nie trzeba martwić wątkowość problemów w obrębie klasy procesora konkretnego zdarzenia. Jednak w naszym scenariuszu firma Microsoft są po prostu Konwertowanie wiadomości do innego formatu i przekazanie jej wraz z inną usługą przy użyciu metody asynchronicznej. Nie istnieje potrzeba aktualizowania stanu udostępnionego i w związku z tym ryzyko problemy wielowątkowości. W przypadku większości scenariuszy `EventProcessorHost` najlepszym rozwiązaniem jest prawdopodobnie i na pewno jest łatwiejsze opcji.     
+W tym przykładzie używamy hello `EventProcessorHost` dla uproszczenia, jednak ją może nie hello najlepszym rozwiązaniem dla tego scenariusza. `EventProcessorHost`Witaj Praca upewnieniu się, że nie masz tooworry wątki problemów w obrębie klasy procesora określonego zdarzenia — informacje. Jednak w naszym scenariuszu będziemy są po prostu konwertowania formatu tooanother wiadomość hello i przekazanie jej wzdłuż tooanother usługi przy użyciu metody asynchronicznej. Nie istnieje potrzeba aktualizowania stanu udostępnionego i w związku z tym ryzyko problemy wielowątkowości. W przypadku większości scenariuszy `EventProcessorHost` hello najlepszym rozwiązaniem jest prawdopodobnie i na pewno jest łatwiejsze opcja hello.     
 
 ### <a name="ieventprocessor"></a>IEventProcessor
-Centralna koncepcji przy użyciu `EventProcessorHost` jest utworzenie implementacja `IEventProcessor` interfejs, który zawiera metodę `ProcessEventAsync`. Użycia tej metody jest następujący:
+pojęcie centralnej Hello przy użyciu `EventProcessorHost` jest toocreate implementacja hello `IEventProcessor` interfejs, który zawiera metodę hello `ProcessEventAsync`. Witaj użycia tej metody jest następujący:
 
 ```c#
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
@@ -188,10 +188,10 @@ async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumera
 }
 ```
 
-Lista obiektów EventData są przekazywane do metody i możemy iteracja tej listy. Bajty każdej metody są parsowane do obiektu HttpMessage, a ten obiekt jest przekazywana do wystąpienia IHttpMessageProcessor.
+Lista obiektów EventData są przekazywane do metody hello i możemy iteracja tej listy. Bajty Hello każdej metody są parsowane do obiektu HttpMessage, a ten obiekt jest przekazywana tooan wystąpienie IHttpMessageProcessor.
 
 ### <a name="httpmessage"></a>HttpMessage
-`HttpMessage` Wystąpienia zawiera trzy elementy danych:
+Witaj `HttpMessage` wystąpienia zawiera trzy elementy danych:
 
 ```c#
 public class HttpMessage
@@ -206,15 +206,15 @@ public class HttpMessage
 }
 ```
 
-`HttpMessage` Wystąpienie zawiera `MessageId` identyfikator GUID, który pozwala na żądania HTTP łączyć się z odpowiedniego odpowiedzi HTTP i wartość logiczna, która określa, czy obiekt zawiera wystąpienie HttpRequestMessage i HttpResponseMessage. Przy użyciu wbudowanych w klasach HTTP z `System.Net.Http`, I mógł korzystać z `application/http` analizy kodu, który znajduje się w `System.Net.Http.Formatting`.  
+Witaj `HttpMessage` wystąpienie zawiera `MessageId` identyfikuje identyfikator GUID, który pozwala nam żądania hello HTTP tooconnect wartość odpowiadająca mu reakcja HTTP toohello i wartość logiczną, jeśli obiekt hello zawiera wystąpienie HttpRequestMessage i HttpResponseMessage. Za pomocą hello wbudowane klasy HTTP z `System.Net.Http`, została tootake mogli korzystać z hello `application/http` analizy kodu, który znajduje się w `System.Net.Http.Formatting`.  
 
 ### <a name="ihttpmessageprocessor"></a>IHttpMessageProcessor
-`HttpMessage` Wystąpienia jest następnie przekazywane do wykonania `IHttpMessageProcessor` czyli interfejs został utworzony na odłączeniu odbieranie i interpretacji zdarzenia z Centrum zdarzeń platformy Azure i odpowiada za przetwarzanie.
+Hello `HttpMessage` wystąpienia jest następnie przekazywany tooimplementation z `IHttpMessageProcessor` czyli interfejs utworzono toodecouple hello odbieranie i interpretacji hello zdarzeń z Centrum zdarzeń platformy Azure i hello rzeczywiste przetwarzania go.
 
-## <a name="forwarding-the-http-message"></a>Przekazywanie komunikatów HTTP
-Dla tego przykładu I uzgodnionych byłoby interesujące do dystrybuowania żądań HTTP za pośrednictwem do [Runscope](http://www.runscope.com). Runscope to usługa w chmurze, która specjalizuje się w protokole HTTP, debugowanie, rejestrowania i monitorowania. Mają one warstwę bezpłatna, dzięki czemu ułatwia spróbuj i pozwala zobaczyć żądania HTTP do transmisji w czasie rzeczywistym za pomocą naszej usługi Zarządzanie interfejsami API.
+## <a name="forwarding-hello-http-message"></a>Komunikat HTTP hello przekazywania
+Dla tego przykładu I uzgodnionych byłoby interesujące hello toopush żądania HTTP przez zbyt[Runscope](http://www.runscope.com). Runscope to usługa w chmurze, która specjalizuje się w protokole HTTP, debugowanie, rejestrowania i monitorowania. Mają one warstwę bezpłatna, dzięki czemu jest łatwe tootry i umożliwia żądań HTTP hello toosee do transmisji w czasie rzeczywistym za pomocą naszej usługi Zarządzanie interfejsami API.
 
-`IHttpMessageProcessor` Implementacji wygląda tak,
+Witaj `IHttpMessageProcessor` implementacji wygląda tak,
 
 ```c#
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
@@ -254,24 +254,24 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
        messagesLink.BucketKey = _BucketKey;
        messagesLink.RunscopeMessage = runscopeMessage;
        var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-       _Logger.LogDebug("Request sent to Runscope");
+       _Logger.LogDebug("Request sent tooRunscope");
    }
 }
 ```
 
-I mógł korzystać z [istniejącej biblioteki klienta dla Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) ułatwia wypchnąć `HttpRequestMessage` i `HttpResponseMessage` wystąpienia się ich użytkowania. Aby uzyskać dostęp do interfejsu API Runscope należy konta i klucz interfejsu API. Instrukcje dotyczące pobierania klucza interfejsu API można znaleźć w [tworzenie aplikacji interfejsu API Runscope dostępu](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
+Została tootake mogli korzystać z [istniejącej biblioteki klienta dla Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) w ten sposób można łatwo toopush `HttpRequestMessage` i `HttpResponseMessage` wystąpienia się ich użytkowania. W kolejności tooaccess hello Runscope interfejsu API, będziesz potrzebować konta i klucz interfejsu API. Instrukcje dotyczące pobierania klucza interfejsu API można znaleźć w hello [tooAccess tworzenie aplikacji interfejsu API Runscope](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
 
 ## <a name="complete-sample"></a>Kompletnego przykładu
-[Kod źródłowy](https://github.com/darrelmiller/ApimEventProcessor) i testy przykładowej są w serwisie GitHub. Konieczne będzie [usługi interfejsu API zarządzania](api-management-get-started.md), [połączonego Centrum zdarzeń](api-management-howto-log-event-hubs.md), a [konta magazynu](../storage/common/storage-create-storage-account.md) do uruchomienia przykładu dla siebie.   
+Witaj [kod źródłowy](https://github.com/darrelmiller/ApimEventProcessor) i testy dla przykładu hello są w serwisie GitHub. Konieczne będzie [usługi interfejsu API zarządzania](api-management-get-started.md), [połączonego Centrum zdarzeń](api-management-howto-log-event-hubs.md), a [konta magazynu](../storage/common/storage-create-storage-account.md) toorun hello próbki dla siebie.   
 
-Próbka jest po prostu prostą aplikację konsoli, która nasłuchuje zdarzenia pochodzące z Centrum zdarzeń, konwertuje je do `HttpRequestMessage` i `HttpResponseMessage` obiekty i przekazuje je do interfejsu API Runscope.
+Witaj próbki jest po prostu prostą aplikację konsoli, która nasłuchuje zdarzenia pochodzące z Centrum zdarzeń, konwertuje je do `HttpRequestMessage` i `HttpResponseMessage` obiekty i przekazuje je na toohello Runscope interfejsu API.
 
-Na poniższej ilustracji animowany widać żądanie do interfejsu API w portalu dla deweloperów aplikacji konsoli przedstawiający wiadomości odebrane, przetwarzane i przesyłane dalej, a następnie żądania i odpowiedzi, które pojawiają się w inspektora Runscope ruchu.
+W hello po animowany obraz widoczne wniosku tooan interfejsu API w portalu dla deweloperów, odbierane, hello konsoli aplikacji przedstawiający hello wiadomości powitania przetwarzane i przesyłane dalej i następnie hello żądań i odpowiedzi, które pojawiają się w hello Runscope ruchu Inspektor.
 
-![Pokaz żądanie przesyłane dalej do Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
+![Pokaz żądanie przesyłane dalej tooRunscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
 ## <a name="summary"></a>Podsumowanie
-Usługi Zarządzanie interfejsami API Azure udostępnia doskonale nadaje się do przechwytywania ruchu HTTP do i z swoje interfejsy API. Usługa Azure Event Hubs to wysoce skalowalne, ekonomiczne rozwiązanie do przechwytywania tego ruchu i skierowanie go do systemów przetwarzania dodatkowej do rejestrowania, monitorowania i inne zaawansowane opcje analizy. Łączenie z usługą 3 ruchu strony monitorowanie systemów, takich jak Runscope jest prostą jako dozen zaledwie kilku wierszach kodu.
+Usługi Zarządzanie interfejsami API Azure udostępnia ruch hello HTTP toocapture doskonale nadaje się podróży tooand z swoje interfejsy API. Usługa Azure Event Hubs to wysoce skalowalne, ekonomiczne rozwiązanie do przechwytywania tego ruchu i skierowanie go do systemów przetwarzania dodatkowej do rejestrowania, monitorowania i inne zaawansowane opcje analizy. Łączenie too3rd strona ruchu monitorowania systemów, takich jak Runscope jest prostą jako dozen zaledwie kilku wierszach kodu.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat usługi Azure Event Hubs
@@ -279,6 +279,6 @@ Usługi Zarządzanie interfejsami API Azure udostępnia doskonale nadaje się do
   * [Odbieranie komunikatów za pomocą klasy EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Przewodnik programowania w usłudze Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Dowiedz się więcej na temat integracji usługi API Management i usługi Event Hubs
-  * [Jak mają być rejestrowane zdarzenia do usługi Azure Event Hubs w usłudze Azure API Management](api-management-howto-log-event-hubs.md)
+  * [Jak toolog zdarzenia tooAzure centra zdarzeń w usłudze Azure API Management](api-management-howto-log-event-hubs.md)
   * [Odwołanie do jednostki rejestratora](https://msdn.microsoft.com/library/azure/mt592020.aspx)
   * [informacje o zasadach dziennika do Centrum eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)

@@ -1,6 +1,6 @@
 ---
-title: "Przy użyciu usługi Azure CDN z CORS | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać usługi Azure sieci dostarczania zawartości (CDN) do z udostępniania zasobów między źródłami (CORS)."
+title: aaaUsing Azure CDN z CORS | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toouse hello Azure sieci dostarczania zawartości (CDN) toowith udostępniania zasobów między źródłami (CORS)."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6c743b56c32a2d3aacc9a77094cb87d61b95d2f7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-azure-cdn-with-cors"></a>Przy użyciu usługi Azure CDN z CORS
 ## <a name="what-is-cors"></a>Co to jest CORS?
-CORS (Cross źródła Resource Sharing) to funkcja HTTP, która umożliwia aplikacja sieci web w jednej domenie dostęp do zasobów w innej domenie. Aby zmniejszyć ryzyko ataków skryptów między witrynami, wszystkie nowoczesne przeglądarki zaimplementować ograniczenia zabezpieczeń znany jako [zasad samego pochodzenia](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Zapobiega to strony sieci web na podstawie wywoływania interfejsów API w innej domenie.  Mechanizm CORS zapewnia bezpieczny sposób umożliwić jedno źródło (domeny pochodzenia) do wywoływania interfejsów API w inny początek.
+CORS (Cross źródła Resource Sharing) to funkcja HTTP, która umożliwia aplikacja sieci web w jednej domenie tooaccess zasobów w innej domenie. W kolejności tooreduce hello możliwości ataków skryptów między witrynami, wszystkie nowoczesne przeglądarki zaimplementować ograniczenia zabezpieczeń znany jako [zasad samego pochodzenia](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Zapobiega to strony sieci web na podstawie wywoływania interfejsów API w innej domenie.  Mechanizm CORS zapewnia bezpieczny sposób tooallow jedno źródło (hello domeny pochodzenia) toocall interfejsów API w innego źródła.
 
 ## <a name="how-it-works"></a>Jak to działa
 Istnieją dwa typy żądań CORPS *prostych żądań* i *złożonych żądań.*
 
 ### <a name="for-simple-requests"></a>Proste żądań:
 
-1. Przeglądarka wysyła żądanie CORS z dodatkowymi **pochodzenia** nagłówek żądania HTTP. Wartość tego nagłówka jest punkt początkowy, który obsłużył Strona nadrzędna, który jest zdefiniowany jako kombinacja *protokołu,* *domeny,* i *portu.*  Jeśli strony z https://www.contoso.com próbuje uzyskać dostęp do danych użytkownika ze źródłem fabrikam.com, następujący nagłówek żądania wysłania do fabrikam.com:
+1. Przeglądarka Hello wysyła żądanie CORS hello z dodatkowymi **pochodzenia** nagłówek żądania HTTP. wartość Hello tego nagłówka jest pochodzenia hello, który obsłużył Strona nadrzędna hello, która jest zdefiniowana jako kombinacja hello *protokołu,* *domeny,* i *portu.*  Jeśli strony z https://www.contoso.com próbuje tooaccess danych użytkownika w hello fabrikam.com pochodzenia, powitania po nagłówek żądania wysłania toofabrikam.com:
 
    `Origin: https://www.contoso.com`
 
-2. Serwer może odpowiadać za pomocą dowolnego z następujących czynności:
+2. Serwer Hello mogą odpowiadać za pomocą dowolnego z następujących hello:
 
    * **Access-Control-Allow-Origin** nagłówka w swojej odpowiedzi wskazujący lokacji pochodzenia, do której jest dozwolona. Na przykład:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
-   * Kod błędu HTTP, takie jak 403, jeśli serwer nie zezwala na żądania cross-origin po sprawdzeniu nagłówka źródła
+   * Błąd HTTP code takich jak 403, jeśli powitania serwera nie zezwala na żądania cross-origin hello po sprawdzeniu hello źródła nagłówka
 
    * **Access-Control-Allow-Origin** nagłówka z symbolem wieloznacznym, który zezwala na wszystkie pochodzenia:
 
@@ -47,52 +47,52 @@ Istnieją dwa typy żądań CORPS *prostych żądań* i *złożonych żądań.*
 
 ### <a name="for-complex-requests"></a>Złożonych żądań:
 
-Złożone żądanie jest żądaniem CORS, w którym przeglądarki jest wymagany do wysłania *żądania wstępnego* (tj. wstępne badanie) przed wysłaniem rzeczywiste żądanie CORS. Żądania wstępnego żąda uprawnienia serwera, jeśli oryginalny CORS żądanie może kontynuować i jest `OPTIONS` żądania do tego samego adresu URL.
+Złożonych żądanie jest żądaniem CORS, w których przeglądarka hello jest wymagane toosend *żądania wstępnego* (tj. wstępne badanie) przed wysłaniem hello rzeczywiste żądanie CORS. Hello żądania wstępnego żąda uprawnienia serwera hello czy hello oryginalne żądanie CORS można kontynuować i jest `OPTIONS` żądania toohello tego samego adresu URL.
 
 > [!TIP]
-> Więcej informacji dotyczących przepływów mechanizmu CORS i typowych problemów, można wyświetlić [przewodnik CORS dla interfejsów API REST](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/).
+> Więcej szczegółów na przepływów mechanizmu CORS i typowych problemów, należy wyświetlić hello [przewodniku tooCORS interfejsów API REST](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/).
 >
 >
 
 ## <a name="wildcard-or-single-origin-scenarios"></a>Symbol wieloznaczny lub scenariuszy pojedynczego źródła
-Mechanizm CORS w sieci CDN w warstwie Azure będą działać automatycznie bez konieczności dodatkowej konfiguracji po **Access-Control-Allow-Origin** nagłówka jest ustawiony na symbolu wieloznacznego (*) lub jednego źródła.  CDN będą buforowane pierwszej odpowiedzi i kolejne żądania będą używały tego samego nagłówka.
+CORS w sieci CDN w warstwie Azure będą działać automatycznie bez konieczności dodatkowej konfiguracji, gdy hello **Access-Control-Allow-Origin** ustawiono nagłówka toowildcard (*) lub jednego źródła.  Hello CDN będą buforowane hello pierwszej odpowiedzi i kolejne żądania użyje hello tego samego nagłówka.
 
-Jeśli żądań zostały już wprowadzone do sieci CDN przed CORS ustawiania źródła, konieczne będzie przeczyścić zawartości na zawartość ponownie załaduj zawartość z punktu końcowego **Access-Control-Allow-Origin** nagłówka.
+Jeśli żądań zostały już wprowadzone toohello CDN tooCORS wcześniejszego ustawiania hello źródła, konieczne będzie toopurge zawartości na powitania tooreload zawartości z punktu końcowego zawartości z hello **Access-Control-Allow-Origin** nagłówka.
 
 ## <a name="multiple-origin-scenarios"></a>Wiele scenariuszy źródła
-Jeśli musisz zezwolić określonej listy źródeł, które mogą być dla CORS, rzeczy uzyskać nieco bardziej skomplikowane. Problem występuje, gdy sieć CDN ma buforować **Access-Control-Allow-Origin** nagłówek dla pierwszego źródło CORS.  Gdy różne źródło CORS sprawia, że kolejne żądania, sieć CDN będzie służyć zapisane w pamięci podręcznej **Access-Control-Allow-Origin** nagłówek, który nie odpowiada.  Istnieje kilka sposobów, aby rozwiązać ten problem.
+Tooallow do określonej listy źródeł toobe dozwolone dla mechanizmu CORS należy rzeczy Pobierz nieco bardziej skomplikowane. Witaj problem występuje, gdy hello CDN buforuje hello **Access-Control-Allow-Origin** nagłówek hello pierwsze źródło CORS.  Gdy inny źródło CORS sprawia, że kolejne żądania, hello CDN posłuży hello buforowane **Access-Control-Allow-Origin** nagłówek, który nie odpowiada.  Istnieje kilka sposobów toocorrect to.
 
 ### <a name="azure-cdn-premium-from-verizon"></a>Usługa Azure CDN w warstwie Premium firmy Verizon
-Najlepszym sposobem, aby je włączyć, jest użycie **Azure CDN Premium from Verizon**, który ujawnia niektóre zaawansowane funkcje. 
+Najlepszym sposobem tooenable Hello jest toouse **Azure CDN Premium from Verizon**, który ujawnia niektóre zaawansowane funkcje. 
 
-Konieczne będzie [utworzyć regułę](cdn-rules-engine.md) do sprawdzenia **pochodzenia** nagłówka w żądaniu.  Jeśli istnieje prawidłowy punkt początkowy reguły ustawi **Access-Control-Allow-Origin** nagłówek z pochodzenia podany w żądaniu.  Jeśli punkt początkowy określony w **pochodzenia** nagłówka nie jest dozwolona, należy pominąć reguły **Access-Control-Allow-Origin** nagłówka, co spowoduje przeglądarkę, aby odrzucić żądanie. 
+Będziesz potrzebować zbyt[utworzyć regułę](cdn-rules-engine.md) toocheck hello **pochodzenia** nagłówka w żądaniu hello.  Jeśli istnieje prawidłowy punkt początkowy reguły ustawi hello **Access-Control-Allow-Origin** nagłówek z pochodzenia hello podany w żądaniu hello.  Jeśli określono pochodzenia hello hello **pochodzenia** nagłówka nie jest dozwolona, reguła musi pominąć hello **Access-Control-Allow-Origin** nagłówka, co spowoduje hello przeglądarki tooreject hello żądania. 
 
-Istnieją dwa sposoby, w tym celu z aparatu reguł.  W obu przypadkach **Access-Control-Allow-Origin** nagłówka z serwera pochodzenia pliku całkowicie jest ignorowany, aparat reguł w sieci CDN w pełni zarządza dozwolonych źródeł CORS.
+Istnieją dwa sposoby toodo to hello aparatu reguł.  W obu przypadkach hello **Access-Control-Allow-Origin** nagłówka z serwera pochodzenia pliku hello całkowicie jest ignorowany, aparat reguł hello CDN w pełni zarządza hello dozwolone źródła CORS.
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Jednego wyrażenia regularnego z wszystkie prawidłowe źródła
-W takim przypadku utworzysz wyrażenie regularne, które zawiera wszystkie źródła, które chcesz zezwolić na: 
+W takim przypadku utworzysz wyrażenie regularne, które zawiera wszystkie źródła hello ma tooallow: 
 
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> **Usługi Azure CDN from Verizon** używa [zgodne wyrażeń regularnych języka Perl](http://pcre.org/) jako jego aparat wyrażeń regularnych.  Można użyć narzędzia, takiego jak [101 wyrażeń regularnych](https://regex101.com/) do sprawdzania poprawności z wyrażeniem regularnym.  Należy pamiętać, że znak "/" jest nieprawidłowe w wyrażeniach regularnych i nie należy wstawić jednak anulowanie ten znak jest traktowane jako najlepsze rozwiązanie i jest oczekiwane przez niektóre moduły weryfikacji wyrażenia regularnego.
+> **Usługi Azure CDN from Verizon** używa [zgodne wyrażeń regularnych języka Perl](http://pcre.org/) jako jego aparat wyrażeń regularnych.  Można użyć narzędzia, takiego jak [101 wyrażeń regularnych](https://regex101.com/) toovalidate wyrażenie regularnego.  Należy pamiętać, że Witaj "/" znak jest nieprawidłowe w wyrażeniach regularnych i nie wymaga toobe wyjściowym, jednak anulowanie ten znak jest traktowane jako najlepsze rozwiązanie i jest oczekiwane przez niektóre moduły weryfikacji wyrażenia regularnego.
 > 
 > 
 
-Jeśli pasuje do wyrażenia regularnego, zastąpi reguły **Access-Control-Allow-Origin** nagłówek (jeśli istnieje), od źródła z pochodzenia, który wysłał żądanie.  Możesz także dodać dodatkowe nagłówki CORS, takich jak **dostępu-formant-Allow-Methods**.
+Jeśli pasuje do wyrażenia regularnego hello, reguły zastąpi hello **Access-Control-Allow-Origin** nagłówka (jeśli istnieją) z hello źródła z pochodzenia hello, który wysłał żądanie hello.  Możesz także dodać dodatkowe nagłówki CORS, takich jak **dostępu-formant-Allow-Methods**.
 
 ![Przykład reguły z wyrażeniem regularnym](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Reguła nagłówka żądania dla każdego źródła.
-Zamiast wyrażeń regularnych, zamiast tego można utworzyć regułę osobne dla każdego źródła mają być dozwolone, za pomocą **wieloznaczny nagłówka żądania** [dopasować stan](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1). Podobnie jak w przypadku metody wyrażenia regularnego samego silnika reguły ustawia nagłówki CORS. 
+Zamiast wyrażeń regularnych, możesz zamiast tego utworzyć oddzielne reguły dla każdego źródła mają tooallow przy użyciu hello **wieloznaczny nagłówka żądania** [dopasować stan](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1). Jako przy użyciu metody wyrażenia regularnego hello reguły hello aparat samodzielnie ustawia nagłówki CORS hello. 
 
 ![Przykład reguły bez wyrażeń regularnych](./media/cdn-cors/cdn-cors-no-regex.png)
 
 > [!TIP]
-> W przykładzie powyżej stosowania symbol wieloznaczny * informuje aparatu reguł do dopasowania protokołów HTTP i HTTPS.
+> W powyższym przykładzie hello, hello Użyj hello wieloznaczny * informuje reguły hello aparat toomatch protokołów HTTP i HTTPS.
 > 
 > 
 
 ### <a name="azure-cdn-standard"></a>Usługi Azure CDN Standard
-Na profile Azure CDN Standard, jest użycie mechanizmu tylko do obsługi wielu źródeł bez użycia początkowego symbolu wieloznacznego [buforowanie ciągu zapytania](cdn-query-string.md).  Należy włączyć ustawienie ciągu zapytania dla punktu końcowego CDN, a następnie użyć ciągu zapytania unikatowy dla żądań z każdej domeny, dozwolone. W ten sposób spowoduje CDN buforowanie oddzielny obiekt dla każdego ciągu zapytania unikatowy. Ta metoda nie jest idealne, jednak zgodnie z spowoduje powstanie wielu kopii tego samego pliku pamięci podręcznej w sieci CDN.  
+Na platformie Azure CDN Standard profile hello tylko tooallow mechanizm dla wielu źródeł bez użycia hello pochodzenia symbolu wieloznacznego hello jest toouse [buforowanie ciągu zapytania](cdn-query-string.md).  Ustawienie parametrów zapytania tooenable dla punktu końcowego CDN hello a następnie za pomocą ciąg zapytania unikatowy dla żądań z każdej domeny, dozwolone. W ten sposób spowoduje hello CDN buforowanie oddzielny obiekt dla każdego ciągu zapytania unikatowy. Ta metoda nie jest idealnym rozwiązaniem, jednak zgodnie z spowoduje utworzenie wielu kopii hello tego samego pliku pamięci podręcznej na powitania CDN.  
 

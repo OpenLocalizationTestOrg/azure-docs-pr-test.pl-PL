@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie aplikacji sieci web sails.js przy użyciu usługi Azure App Service | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak wdrożyć aplikację Node.js usługi Azure App Service. Ten samouczek pokazuje, jak wdrożyć aplikację sieci web Sails.js."
+title: "aaaDeploy Sails.js tooAzure aplikacji sieci web usługi App Service | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toodeploy aplikacji Node.js usługi Azure App Service. Ten samouczek pokazuje, jak jest toodeploy sails.js przy użyciu aplikacji sieci web."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -14,32 +14,32 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: e36fc5f5273f98c3cca91973db9910f32443ec7c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f5b2518b9c87c040845f7268763862be8c15e83e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>Wdrażanie aplikacji sieci Web Sails.js przy użyciu usługi Azure App Service
-Ten samouczek przedstawia sposób wdrażania aplikacji Sails.js w usłudze Azure App Service. W procesie można zgromadzonych niektórych ogólnej wiedzy na temat konfigurowania aplikacji Node.js do uruchamiania w usłudze App Service.
+# <a name="deploy-a-sailsjs-web-app-tooazure-app-service"></a>Wdrażanie Sails.js tooAzure aplikacji sieci web usługi aplikacji
+W tym samouczku przedstawiono sposób toodeploy Sails.js tooAzure aplikację usługi aplikacji. W procesie hello można zgromadzonych niektórych ogólnej wiedzy na temat tooconfigure Twojego toorun aplikacji Node.js w usłudze App Service.
 
 W tym miejscu dowiesz się, że przydatne umiejętności, takich jak:
 
 * Konfigurowanie aplikacji Sails.js, uruchom w usłudze App Service.
-* Wdrażanie aplikacji w usłudze App Service z wiersza polecenia.
-* Przeczytaj dzienniki stderr i stdout rozwiązywać problemy z wdrażaniem.
+* Wdróż tooApp aplikacji usługi z wiersza polecenia hello.
+* Przeczytaj stderr i stdout tootroubleshoot dzienniki wszelkich problemów dotyczących wdrożenia.
 * Przechowywanie zmiennych środowiskowych poza kontrolą źródła.
 * Dostęp do zmiennych środowiskowych Azure z aplikacji.
-* Połączenie z bazą danych (bazy danych MongoDB).
+* Połącz tooa bazy danych (bazy danych MongoDB).
 
-Należy mieć praktyczną wiedzę o sails.js przy użyciu. W tym samouczku nie jest przeznaczona do pomocy w rozwiązaniu problemy związane z uruchamianiem Sail.js ogólnie.
+Należy mieć praktyczną wiedzę o sails.js przy użyciu. W tym samouczku nie jest zamierzone toohelp toorunning Sail.js z problemów powiązanych ogólnie.
 
-## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania
+## <a name="cli-versions-toocomplete-hello-task"></a>Zadanie hello toocomplete wersje interfejsu wiersza polecenia
 
-Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
+Można ukończyć powitalnych zadań przy użyciu jednej z hello następujące wersje interfejsu wiersza polecenia:
 
-- [Interfejs wiersza polecenia platformy Azure w wersji 1.0](app-service-web-nodejs-sails-cli-nodejs.md) — nasz interfejs wiersza polecenia dla klasycznego modelu wdrażania i modelu wdrażania na potrzeby zarządzania zasobami
-- [Interfejs wiersza polecenia platformy Azure w wersji 2.0](app-service-web-nodejs-sails.md) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami
+- [Azure CLI 1.0](app-service-web-nodejs-sails-cli-nodejs.md) — nasze interfejsu wiersza polecenia dla hello classic i zasobów zarządzania modelami wdrażania
+- [Azure CLI 2.0](app-service-web-nodejs-sails.md) -naszej nowej generacji interfejsu wiersza polecenia dla modelu wdrażania zarządzania zasobów hello
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Node.js](https://nodejs.org/)
@@ -49,38 +49,38 @@ Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu 
 * Konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Usługę [App Service](https://azure.microsoft.com/try/app-service/) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
+> Usługę [App Service](https://azure.microsoft.com/try/app-service/) możesz wypróbować, nie mając konta platformy Azure. Utwórz początkową aplikację i odtworzyć na temat godzinę tooan — bez karty kredytowej i bez zobowiązań.
 > 
 > 
 
 ## <a name="step-1-create-and-configure-a-sailsjs-app-locally"></a>Krok 1: Tworzenie i konfigurowanie sails.js przy użyciu aplikacji lokalnie
 Po pierwsze szybko utworzyć domyślna aplikacja Sails.js w środowisku projektowania wykonaj następujące czynności:
 
-1. Otwórz wybrany terminal wiersza polecenia dowolnego i `CD` do katalogu roboczego.
+1. Witaj Otwórz terminal wiersza polecenia dowolnego i `CD` tooa katalog roboczy.
 2. Tworzenie aplikacji Sails.js i uruchom go:
 
         sails new <app_name>
         cd <app_name>
         sails lift
 
-    Upewnij się, że można przejść do domyślnej strony głównej w http://localhost:1377.
+    Upewnij się, że można przechodzić toohello domyślną stronę główną w http://localhost:1377.
 
-1. Następnie należy włączyć rejestrowanie dla platformy Azure. W katalogu głównym, Utwórz plik o nazwie `iisnode.yml` i dodaj następujące dwa wiersze:
+1. Następnie należy włączyć rejestrowanie dla platformy Azure. W katalogu głównym, Utwórz plik o nazwie `iisnode.yml` i Dodaj hello następujące dwa wiersze:
 
         loggingEnabled: true
         logDirectory: iisnode
 
-    Włączono rejestrowanie dla [iisnode](https://github.com/tjanczuk/iisnode) serwera, który używa usługi Azure App Service uruchamia aplikacje Node.js. 
-    Aby uzyskać więcej informacji o jego działaniu, zobacz [debugowanie aplikacji sieci web Node.js w usłudze Azure App Service](web-sites-nodejs-debug.md).
+    Włączono rejestrowanie dla hello [iisnode](https://github.com/tjanczuk/iisnode) serwera używany toorun aplikacji Node.js w usłudze Azure App Service. 
+    Aby uzyskać więcej informacji o jego działaniu, zobacz [jak toodebug Node.js sieci web aplikacji w usłudze Azure App Service](web-sites-nodejs-debug.md).
 
-2. Skonfiguruj aplikację Sails.js do używania zmiennych środowiskowych systemu Azure. Otwórz config/env/production.js do skonfigurowania środowiska produkcyjnego i `port` i `hookTimeout`:
+2. Skonfiguruj hello sails.js przy użyciu aplikacji toouse środowiska platformy Azure zmiennych. Otwórz config/env/production.js tooconfigure środowiska produkcyjnego i ustaw `port` i `hookTimeout`:
 
         module.exports = {
 
-            // Use process.env.port to handle web requests to the default HTTP port
+            // Use process.env.port toohandle web requests toohello default HTTP port
             port: process.env.port,
-            // Increase hooks timout to 30 seconds
-            // This avoids the Sails.js error documented at https://github.com/balderdashy/sails/issues/2691
+            // Increase hooks timout too30 seconds
+            // This avoids hello Sails.js error documented at https://github.com/balderdashy/sails/issues/2691
             hookTimeout: 30000,
 
             ...
@@ -88,39 +88,39 @@ Po pierwsze szybko utworzyć domyślna aplikacja Sails.js w środowisku projekto
 
     Można znaleźć w dokumentacji tych ustawień konfiguracji w [dokumentacji Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
 
-4. Następnie kodowania wersji środowiska Node.js, który ma być używany. W pliku package.json, Dodaj następujący `engines` właściwość umożliwiająca ustawienie wersji środowiska Node.js na taki, który chcemy.
+4. Następnie kodowania hello Node.js w wersji ma toouse. W pliku package.json, należy dodać następujące hello `engines` systemu właściwość tooset hello Node.js wersji tooone który chcemy.
 
         "engines": {
             "node": "6.9.1"
         },
 
-5. Na koniec zainicjować repozytorium Git i przekazać pliki. W katalogu głównym aplikacji (pliku package.json przypadku) uruchom następujące polecenia Git:
+5. Na koniec zainicjować repozytorium Git i przekazać pliki. W hello katalog główny aplikacji (pliku package.json przypadku), uruchom następujące polecenia usługi Git hello:
 
         git init
         git add .
         git commit -m "<your commit message>"
 
-Kod jest gotowa do wdrożenia. 
+Kod jest gotowy toobe wdrożone. 
 
 ## <a name="step-2-create-an-azure-app-and-deploy-sailsjs"></a>Krok 2: Tworzenie aplikacji platformy Azure i wdrażanie Sails.js
 
-Następnie utwórz zasób usługi aplikacji na platformie Azure i wdrażanie aplikacji Sails.js do niego.
+Następnie utwórz hello zasobów usługi aplikacji na platformie Azure i wdrażanie Twojego Sails.js tooit aplikacji.
 
-1. Zaloguj się do platformy Azure w następujący sposób:
+1. dziennik w tooAzure w następujący sposób:
 
         az login
 
-    Postępuj zgodnie z wyświetlanymi instrukcjami, aby kontynuować logowanie w przeglądarce za pomocą konta Microsoft zawierającego subskrypcję Azure.
+    Wykonaj hello monitu toocontinue hello logowania w przeglądarce za pomocą konta Microsoft, które ma subskrypcji platformy Azure.
 
-3. Ustaw użytkownika wdrożenia dla usługi App Service. Kod zostanie później wdrożony przy użyciu tych poświadczeń.
+3. Ustaw hello użytkownika wdrożenia dla aplikacji usługi. Kod zostanie później wdrożony przy użyciu tych poświadczeń.
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Utwórz [grupy zasobów](../azure-resource-manager/resource-group-overview.md) o nazwie. W tym samouczku środowiska Node.js nie naprawdę musisz wiedzieć, co to jest.
+3. Utwórz [grupy zasobów](../azure-resource-manager/resource-group-overview.md) o nazwie. W tym samouczku środowiska Node.js nie naprawdę potrzebny tooknow co to jest.
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
-    Aby sprawdzić, jakich wartości można użyć dla lokalizacji `<location>`, użyj polecenia interfejsu wiersza polecenia `az appservice list-locations`.
+    toosee jakie możliwe wartości można użyć dla `<location>`, użyj hello `az appservice list-locations` polecenia interfejsu wiersza polecenia.
 
 3. Tworzenie "Wolne" [planu usługi aplikacji](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) o nazwie. W tym samouczku środowiska Node.js wystarczy wiedzieć, że użytkownik nie zostanie obciążona dla aplikacji sieci web w tym planie.
 
@@ -132,36 +132,36 @@ Następnie utwórz zasób usługi aplikacji na platformie Azure i wdrażanie apl
 
 ## <a name="step-3-configure-and-deploy-your-sailsjs-app"></a>Krok 3: Konfigurowanie i wdrażanie aplikacji Sails.js
 
-1. Skonfiguruj lokalne wdrożenie narzędzia Git dla aplikacji sieci Web za pomocą następującego polecenia:
+1. Skonfigurować lokalne wdrożenie Git dla nowej aplikacji sieci web z hello następujące polecenie:
 
         az appservice web source-control config-local-git --name <app_name> --resource-group my-sailsjs-app-group
 
-    Otrzymasz dane wyjściowe JSON podobne do następujących, co oznacza, że skonfigurowano zdalne repozytorium Git:
+    Otrzymasz dane wyjściowe JSON podobny do tego, co oznacza, że skonfigurowano tego hello zdalnego repozytorium Git:
 
         {
         "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
         }
 
-6. Dodaj adres URL w formacie JSON jako zdalny obiekt narzędzia Git lokalnego repozytorium Git (nazywanego dla uproszczenia `azure`).
+6. Dodaj adres URL hello w hello JSON jako zdalnego dla lokalnego repozytorium Git (nazywane `azure` dla uproszczenia).
 
         git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
    
-7. Wdróż przykładowy kod w zdalnym obiekcie narzędzia Git `azure`. Gdy zostanie wyświetlony odpowiedni monit, użyj skonfigurowanych wcześniej poświadczeń wdrożenia.
+7. Wdrażanie programu przykładowy kod toohello `azure` zdalnego Git. Po wyświetleniu monitu użyj poświadczeń wdrożenia hello przez skonfigurowane wcześniej.
 
         git push azure master
 
-7. Na koniec można uruchomić działającą aplikację Azure w przeglądarce:
+7. Na koniec można uruchomić w przeglądarce hello działającą aplikację Azure:
 
         az appservice web browse --name <app_name> --resource-group my-sailsjs-app-group
 
-    Powinna zostać wyświetlona strona główna sails.js przy użyciu tego samego.
+    Powinien zostać wyświetlony hello tej samej stronie głównej Sails.js.
 
     ![](./media/app-service-web-nodejs-sails/sails-in-azure.png)
 
 ## <a name="troubleshoot-your-deployment"></a>Rozwiązywanie problemów z wdrożeniem
-Jeśli zaistnieje w usłudze App Service sails.js przy użyciu aplikacji nie powiedzie się, Znajdź dzienniki stderr, aby ułatwić rozwiązywanie problemów.
-Aby uzyskać więcej informacji, zobacz [debugowanie aplikacji sieci web Node.js w usłudze Azure App Service](web-sites-nodejs-debug.md).
-Jeśli aplikacja została uruchomiona pomyślnie, dziennika stdout powinien być wyświetlony zostanie znanych komunikat:
+Jeśli zaistnieje w usłudze App Service sails.js przy użyciu aplikacji nie powiedzie się, Znajdź dzienniki stderr hello toohelp Rozwiązywanie problemów.
+Aby uzyskać więcej informacji, zobacz [jak toodebug Node.js sieci web aplikacji w usłudze Azure App Service](web-sites-nodejs-debug.md).
+Jeśli pomyślnie uruchomił aplikacji hello dziennika stdout hello powinny być widoczne należy zapoznać się wiadomość hello:
 
                    .-..-.
     
@@ -176,22 +176,22 @@ Jeśli aplikacja została uruchomiona pomyślnie, dziennika stdout powinien być
      ____---___--___---___--___---___--___-__
 
     Server lifted in `D:\home\site\wwwroot`
-    To see your app, visit http://localhost:\\.\pipe\c775303c-0ebc-4854-8ddd-2e280aabccac
-    To shut down Sails, press <CTRL> + C at any time.
+    toosee your app, visit http://localhost:\\.\pipe\c775303c-0ebc-4854-8ddd-2e280aabccac
+    tooshut down Sails, press <CTRL> + C at any time.
 
-Można kontrolować poziom szczegółowości dzienniki stdout w [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) pliku.
+Można kontrolować poziom szczegółowości dzienniki stdout hello w hello [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) pliku.
 
-## <a name="connect-to-a-database-in-azure"></a>Połączenie z bazą danych na platformie Azure
-Do połączenia z bazą danych na platformie Azure, utworzyć bazę danych, wybranych przez użytkownika na platformie Azure, takich jak bazy danych SQL Azure, MySQL, bazy danych MongoDB, pamięć podręczna Azure (Redis), itp. i użyj odpowiadającego [karty magazyn danych](https://github.com/balderdashy/sails#compatibility) się z nią połączyć. Kroki opisane w tej sekcji opisano sposób nawiązywania połączenia z bazy danych MongoDB przy użyciu [bazy danych Azure rozwiązania Cosmos](../documentdb/documentdb-protocol-mongodb.md) bazy danych, który może obsługiwać połączeń klienckich bazy danych MongoDB.
+## <a name="connect-tooa-database-in-azure"></a>Połączenia bazy danych tooa na platformie Azure
+Baza danych tooa tooconnect na platformie Azure, Utwórz bazę danych hello wybranym na platformie Azure, takich jak bazy danych SQL Azure, MySQL, bazy danych MongoDB, pamięć podręczna Azure (Redis), itp. i użyj odpowiadającego hello [karty magazyn danych](https://github.com/balderdashy/sails#compatibility) tooconnect tooit. Witaj kroki opisane w tej sekcji opisano sposób tooMongoDB tooconnect za pomocą [bazy danych Azure rozwiązania Cosmos](../documentdb/documentdb-protocol-mongodb.md) bazy danych, który może obsługiwać połączeń klienckich bazy danych MongoDB.
 
 1. [Tworzenie konta bazy danych rozwiązania Cosmos z obsługą protokołu bazy danych MongoDB](../documentdb/documentdb-create-mongodb-account.md).
-2. [Tworzenie kolekcji rozwiązania Cosmos bazy danych i bazy danych](../documentdb/documentdb-create-collection.md). Nazwa kolekcji nie ma znaczenia, ale potrzebna jest nazwa bazy danych podczas nawiązywania połączenia z Sails.js.
-3. [Znajdź informacje o połączeniu dla bazy danych DB rozwiązania Cosmos](../cosmos-db/connect-mongodb-account.md#GetCustomConnection).
-2. Z wiersza polecenia terminalu należy zainstalować adapter bazy danych MongoDB:
+2. [Tworzenie kolekcji rozwiązania Cosmos bazy danych i bazy danych](../documentdb/documentdb-create-collection.md). Nazwa Hello hello kolekcji nie ma znaczenia, ale należy hello nazwa hello bazy danych, podczas łączenia z Sails.js.
+3. [Znajdź informacje o połączeniu hello bazy danych DB rozwiązania Cosmos](../cosmos-db/connect-mongodb-account.md#GetCustomConnection).
+2. Z wiersza polecenia terminalu Zainstaluj hello bazy danych MongoDB karty:
 
         npm install sails-mongo --save
 
-3. Otwórz config/connections.js i Dodaj następujący obiekt połączenie do listy:
+3. Otwórz config/connections.js i Dodaj powitania po liście toohello obiektu połączenia:
 
         docDbMongo: {
             adapter: 'sails-mongo',
@@ -204,11 +204,11 @@ Do połączenia z bazą danych na platformie Azure, utworzyć bazę danych, wybr
         },
 
     > [!NOTE] 
-    > `ssl: true` Ważne jest opcja, ponieważ [DB rozwiązania Cosmos wymaga](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+    > Witaj `ssl: true` opcji ważne jest, ponieważ [DB rozwiązania Cosmos wymaga](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 
-4. Dla każdej zmiennej środowiskowej (`process.env.*`), należy ustawić go w usłudze App Service. Aby to zrobić, uruchom następujące polecenia z terminala. Użyj informacji o połączeniu dla Twojej bazy danych rozwiązania Cosmos.
+4. Dla każdej zmiennej środowiskowej (`process.env.*`), należy tooset go w usłudze App Service. toodo tego hello uruchom następujące polecenia z terminala. Użyj informacji o połączeniu hello Twojego rozwiązania Cosmos bazy danych.
 
         az appservice web config appsettings update --settings dbuser="<database user>" --name <app_name> --resource-group my-sailsjs-app-group
         az appservice web config appsettings update --settings dbpassword="<database password>" --name <app_name> --resource-group my-sailsjs-app-group
@@ -216,8 +216,8 @@ Do połączenia z bazą danych na platformie Azure, utworzyć bazę danych, wybr
         az appservice web config appsettings update --settings dbport="<database port>" --name <app_name> --resource-group my-sailsjs-app-group
         az appservice web config appsettings update --settings dbname="<database name>" --name <app_name> --resource-group my-sailsjs-app-group
 
-    Wprowadzanie ustawień w ustawieniach aplikacji Azure chroni poufne dane poza do kontroli źródła (Git). Następnie należy skonfigurować środowiska deweloperskiego, aby użyć tego samego informacji o połączeniu.
-5. Otwórz config/local.js i Dodaj następujący obiekt połączenia:
+    Wprowadzanie ustawień w ustawieniach aplikacji Azure chroni poufne dane poza do kontroli źródła (Git). Następnie należy skonfigurować programowania toouse środowiska hello tych samych informacji połączenia.
+5. Otwórz config/local.js i Dodaj powitania od obiektu połączenia:
 
         connections: {
             docDbMongo: {
@@ -229,47 +229,47 @@ Do połączenia z bazą danych na platformie Azure, utworzyć bazę danych, wybr
             },
         },
 
-    Ta konfiguracja zastępuje ustawienia w pliku config/connections.js w środowisku lokalnym. Ten plik jest wykluczone przez domyślne .gitignore w projekcie, dlatego nie można zapisać w usłudze Git. Teraz jest możliwość połączenia z bazą danych rozwiązania Cosmos bazy danych (bazy danych MongoDB) zarówno z aplikacji sieci web platformy Azure i środowiska deweloperskiego lokalnego.
-6. Otwórz config/env/production.js do konfigurowania środowiska produkcyjnego i dodaj następujące `models` obiektu:
+    Ta konfiguracja zastępuje ustawienia hello w pliku config/connections.js hello środowiska lokalnego. Ten plik jest wykluczone przez hello domyślne .gitignore w projekcie, dlatego nie można zapisać w usłudze Git. Teraz jesteś stanie tooconnect tooyour rozwiązania Cosmos bazy danych (bazy danych MongoDB) w bazie danych zarówno z aplikacji sieci web platformy Azure i środowiska deweloperskiego lokalnego.
+6. Otwórz config/env/production.js tooconfigure środowiska produkcyjnego i dodaj następujące hello `models` obiektu:
 
         models: {
             connection: 'docDbMongo',
             migrate: 'safe'
         },
-7. Otwórz config/env/development.js do konfigurowania środowiska deweloperskiego i dodaj następujące `models` obiektu:
+7. Otwórz config/env/development.js tooconfigure środowiska projektowego i dodaj następujące hello `models` obiektu:
 
         models: {
             connection: 'docDbMongo',
             migrate: 'alter'
         },
 
-    `migrate: 'alter'`Umożliwia tworzenie i aktualizowanie kolekcji bazy danych lub tabel łatwo przy użyciu funkcji migracji bazy danych. Jednak `migrate: 'safe'` służy do środowiska Azure (środowisko produkcyjne), ponieważ Sails.js nie będzie można korzystać `migrate: 'alter'` w środowisku produkcyjnym (zobacz [dokumentacji Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
-8. Z poziomu terminala [Generowanie](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) Sails.js [plan interfejsu API](http://sailsjs.org/documentation/concepts/blueprints) tak jak zwykle następnie należy uruchomić `sails lift` utworzyć bazę danych z Sails.js migracja bazy danych. Na przykład:
+    `migrate: 'alter'`pozwala używać toocreate funkcji migracji bazy danych i łatwo aktualizować kolekcje bazy danych lub tabel. Jednak `migrate: 'safe'` służy do środowiska Azure (środowisko produkcyjne), ponieważ Sails.js pozwalają toouse `migrate: 'alter'` w środowisku produkcyjnym (zobacz [dokumentacji Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+8. Z hello terminali [Generowanie](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) Sails.js [plan interfejsu API](http://sailsjs.org/documentation/concepts/blueprints) tak jak zwykle następnie należy uruchomić `sails lift` do tworzenia bazy danych hello sails.js przy użyciu bazy danych migracji. Na przykład:
 
          sails generate api mywidget
          sails lift
 
-    `mywidget` Modelu wygenerowanym przez to polecenie jest pusty, ale możemy ich użyć do wyświetlenia, że istnieje łączność z bazą danych.
-    Po uruchomieniu `sails lift`, tworzy Brak kolekcje i tabel dla modeli aplikacji używa.
-9. Dostęp do planu API właśnie utworzony w przeglądarce. Na przykład:
+    Witaj `mywidget` modelu wygenerowanym przez to polecenie jest pusty, ale firma Microsoft może być używany tooshow, że istnieje łączność z bazą danych.
+    Po uruchomieniu `sails lift`, tworzy hello Brak kolekcje i tabel dla hello modele używany przez aplikację.
+9. Interfejs API hello plan utworzony w przeglądarce hello. Na przykład:
 
         http://localhost:1337/mywidget/create
 
-    Interfejs API należy wrócić utworzony wpis do w oknie przeglądarki, co oznacza, że pomyślnie utworzono kolekcję.
+    Witaj interfejsu API powinien zwrócić tooyou wstecz hello utworzony wpis w oknie przeglądarki hello, co oznacza, że pomyślnie utworzono kolekcję.
 
         {"id":1,"createdAt":"2016-09-23T13:32:00.000Z","updatedAt":"2016-09-23T13:32:00.000Z"}
-10. Teraz Wypchnij zmiany do platformy Azure i przejdź do aplikacji w taki sposób, aby upewnić się, że nadal działa.
+10. Teraz push tooAzure Twoje zmiany i Przeglądaj toomake aplikacji tooyour się, że nadal działa.
 
          git add .
          git commit -m "<your commit message>"
          git push azure master
          az appservice web browse --name <app_name> --resource-group my-sailsjs-app-group
 
-11. Dostęp do aplikacji sieci web platformy Azure plan interfejsu API. Na przykład:
+11. Hello plan interfejsu API dostępu do aplikacji sieci web platformy Azure. Na przykład:
 
          http://<appname>.azurewebsites.net/mywidget/create
 
-     Jeśli interfejs API zwraca nowy wpis innego, aplikacji sieci web platformy Azure jest rozmowie z bazy danych DB rozwiązania Cosmos (MongoDB).
+     Jeśli hello interfejsu API zwraca nowy wpis innego, aplikacji sieci web platformy Azure rozmawia tooyour rozwiązania Cosmos bazy danych (bazy danych MongoDB) w bazie danych.
 
 ## <a name="more-resources"></a>Więcej zasobów
 * [Rozpoczynanie pracy z aplikacjami sieci web Node.js w usłudze Azure App Service](app-service-web-get-started-nodejs.md)

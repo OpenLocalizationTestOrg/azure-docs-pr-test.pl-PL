@@ -1,6 +1,6 @@
 ---
-title: "Zasady uwierzytelniania usługi Azure API Management | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat zasad uwierzytelniania można używać usługi Azure API Management."
+title: "zasady uwierzytelniania interfejsu API zarządzania aaaAzure | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat zasad uwierzytelniania hello dostępne do użycia w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 63ef20a56ab7721f9ecc7025d05963cc4b0c27a0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ce93cced66cb67520e97c7c15f3685bffb08e1f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-authentication-policies"></a>Zarządzanie interfejsami API zasady uwierzytelniania
-W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+W tym temacie znajdują się informacje na następujące zasady usługi API Management hello. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AuthenticationPolicies"></a>Zasady uwierzytelniania  
   
@@ -30,7 +30,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 -   [Uwierzytelniania za pomocą certyfikatu klienta](api-management-authentication-policies.md#ClientCertificate) -uwierzytelniania za pomocą usługi wewnętrznej bazy danych przy użyciu certyfikatów klienta.  
   
 ##  <a name="Basic"></a>Uwierzytelniania Basic  
- Użyj `authentication-basic` zasad uwierzytelniania za pomocą usługi wewnętrznej bazy danych przy użyciu uwierzytelniania podstawowego. Ta zasada efektywnie ustawia dla nagłówka HTTP autoryzacji wartość odpowiadającą poświadczenia podane w zasadach.  
+ Użyj hello `authentication-basic` tooauthenticate zasad z usługi wewnętrznej bazy danych przy użyciu uwierzytelniania podstawowego. Ta zasada efektywnie ustawia wartość odpowiednie poświadczenia toohello podany w zasadzie hello toohello nagłówek autoryzacji HTTP hello.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -54,18 +54,18 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|nazwa użytkownika|Określa nazwę użytkownika, podstawowe poświadczenia.|Tak|Nie dotyczy|  
-|hasło|Określa hasło podstawowych poświadczeń.|Tak|Nie dotyczy|  
+|nazwa użytkownika|Określa nazwy użytkownika hello hello podstawowe poświadczenia.|Tak|Nie dotyczy|  
+|hasło|Określa hasło hello hello podstawowe poświadczenia.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** interfejsu API  
   
 ##  <a name="ClientCertificate"></a>Uwierzytelniania za pomocą certyfikatu klienta  
- Użyj `authentication-certificate` zasad uwierzytelniania za pomocą usługi wewnętrznej bazy danych przy użyciu certyfikatu klienta. Ten certyfikat musi być [zainstalowane do interfejsu API zarządzania](http://go.microsoft.com/fwlink/?LinkID=511599) pierwszy i jest identyfikowany przez jego odcisk palca.  
+ Użyj hello `authentication-certificate` tooauthenticate zasad z usługi wewnętrznej bazy danych przy użyciu certyfikatu klienta. certyfikat Hello musi toobe [zainstalowane do interfejsu API zarządzania](http://go.microsoft.com/fwlink/?LinkID=511599) pierwszy i jest identyfikowany przez jego odcisk palca.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -89,10 +89,10 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|Odcisk palca|Odcisk palca certyfikatu klienta.|Tak|Nie dotyczy|  
+|Odcisk palca|Witaj odcisk palca certyfikatu klienta hello.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   

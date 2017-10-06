@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie usługi równoważenia obciążenia Azure internetowych w przypadku adresu IPv6 - PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć internetowy modułu równoważenia obciążenia w przypadku adresu IPv6 przy użyciu programu PowerShell dla Menedżera zasobów"
+title: "Moduł równoważenia obciążenia Azure internetowy aaaCreate z IPv6 - PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak usługa równoważenia w przypadku adresu IPv6 przy użyciu programu PowerShell dla Menedżera zasobów obciążenia toocreate umożliwiających dostęp z Internetu"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 9d3cd37d3f2912301904b0a35f6fbc978d173079
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6ebb108399b070e06dddc33b7a774481eb44d717
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Rozpocząć tworzenie internetowy modułu równoważenia obciążenia w przypadku adresu IPv6 przy użyciu programu PowerShell dla Menedżera zasobów
 
@@ -28,39 +28,39 @@ ms.lasthandoff: 08/03/2017
 > * [Interfejs wiersza polecenia platformy Azure](load-balancer-ipv6-internet-cli.md)
 > * [Szablon](load-balancer-ipv6-internet-template.md)
 
-Usługa Azure Load Balancer to moduł równoważenia obciążenia w warstwie 4 (TCP, UDP). Moduł równoważenia obciążenia zapewnia wysoką dostępność, dystrybuując ruch przychodzący w wystąpieniach usług o dobrej kondycji w usługach w chmurze lub na maszynach wirtualnych w zestawie modułu równoważenia obciążenia. Usługa Azure Load Balancer może także prezentować te usługi na wielu portach i/lub wielu adresach IP.
+Usługa Azure Load Balancer to moduł równoważenia obciążenia w warstwie 4 (TCP, UDP). Hello modułu równoważenia obciążenia zapewnia wysoką dostępność, przekazując przychodzący ruch między wystąpienie usługi działa prawidłowo usług w chmurze lub maszyn wirtualnych w zestawie usługi równoważenia obciążenia. Usługa Azure Load Balancer może także prezentować te usługi na wielu portach i/lub wielu adresach IP.
 
 ## <a name="example-deployment-scenario"></a>Przykładowy scenariusz wdrażania
 
-Na poniższym diagramie przedstawiono wdrażany w tym artykule rozwiązania do równoważenia obciążenia.
+Witaj poniższym diagramie przedstawiono wdrażany w tym artykule rozwiązania do równoważenia obciążenia hello.
 
 ![Scenariusz modułu równoważenia obciążenia](./media/load-balancer-ipv6-internet-ps/lb-ipv6-scenario.png)
 
-W tym scenariuszu spowoduje utworzenie następujących zasobów platformy Azure:
+W tym scenariuszu utworzysz hello następujących zasobów platformy Azure:
 
 * Moduł równoważenia obciążenia internetowy z protokołów IPv4 i IPv6 publicznego adresu IP
-* dwie reguły równoważenia do mapowania publiczne adresy VIP prywatnej punkty końcowe obciążenia
-* Zestaw dostępności w tym zawiera dwie maszyny wirtualne
+* dwa załadować równoważenia reguły toomap hello publiczne adresy VIP toohello prywatnej punkty końcowe
+* toothat zestawu dostępności zawiera Witaj dwie maszyny wirtualne
 * dwóch maszyn wirtualnych (VM)
 * Interfejs sieci wirtualnej, dla każdej maszyny Wirtualnej przy użyciu adresów IPv4 i IPv6 przypisany
 
-## <a name="deploying-the-solution-using-the-azure-powershell"></a>Wdrażanie rozwiązania przy użyciu programu Azure PowerShell
+## <a name="deploying-hello-solution-using-hello-azure-powershell"></a>Wdrażanie rozwiązania hello przy użyciu hello Azure PowerShell
 
-Poniższe kroki pokazują, jak utworzyć internetowy modułu równoważenia obciążenia przy użyciu usługi Azure Resource Manager przy użyciu programu PowerShell. Usługi Azure Resource Manager każdy zasób jest tworzony i skonfigurować osobno, następnie put ze sobą w celu utworzenia zasobu.
+Witaj następujące kroki pokazują, jak toocreate Internetem obciążenia przy użyciu usługi Azure Resource Manager przy użyciu programu PowerShell usługi równoważenia. Usługi Azure Resource Manager każdy zasób został utworzony i skonfigurowany oddzielnie, następnie opracować toocreate zasobu.
 
-Aby wdrożyć usługę równoważenia obciążenia, możesz utworzyć i skonfigurować następujące obiekty:
+toodeploy modułu równoważenia obciążenia, możesz utworzyć i skonfigurować hello następujące obiekty:
 
 * Konfiguracja IP frontonu — publiczne adresy IP dla przychodzącego ruchu sieciowego.
-* Pula adresów zaplecza — interfejsy sieciowe (NIC) maszyn wirtualnych odbierających ruch sieciowy z modułu równoważenia obciążenia.
-* Reguły równoważenia obciążenia — reguły mapowania portu publicznego modułu równoważenia obciążenia na port w puli adresów zaplecza.
-* Reguły NAT ruchu przychodzącego — reguły mapowania portu publicznego modułu równoważenia obciążenia na port określonej maszyny wirtualnej w puli adresów zaplecza.
-* Sondy — sondy kondycji używane do sprawdzania dostępności wystąpień maszyn wirtualnych w puli adresów zaplecza.
+* Pula adresów zaplecza — zawiera interfejsów sieciowych (NIC) dla ruchu sieciowego tooreceive hello maszyn wirtualnych z hello modułu równoważenia obciążenia.
+* Reguły równoważenia obciążenia — zawiera reguły mapowania port publiczny na tooport usługi równoważenia obciążenia hello hello puli adresów zaplecza.
+* Reguły NAT dla ruchu przychodzącego — zawiera reguły mapowania port publiczny na porcie programu tooa usługi równoważenia obciążenia w hello dla określonej maszyny wirtualnej w puli adresów zaplecza hello.
+* Sondy — zawiera dostępności toocheck badania używane kondycji wystąpień maszyn wirtualnych w puli adresów zaplecza hello.
 
 Aby uzyskać więcej informacji, zobacz artykuł [Azure Resource Manager support for Load Balancer](load-balancer-arm.md) (Obsługa usługi Azure Resource Manager dla modułu równoważenia obciążenia).
 
-## <a name="set-up-powershell-to-use-resource-manager"></a>Konfigurowanie programu PowerShell do korzystania z usługi Resource Manager
+## <a name="set-up-powershell-toouse-resource-manager"></a>Konfigurowanie środowiska PowerShell toouse Resource Manager
 
-Upewnij się, że masz najnowszej wersji produkcyjnej moduł usługi Azure Resource Manager dla środowiska PowerShell.
+Upewnij się, że masz hello najnowszej wersji produkcyjnej hello moduł usługi Azure Resource Manager dla środowiska PowerShell.
 
 1. Zaloguj się do platformy Azure
 
@@ -70,13 +70,13 @@ Upewnij się, że masz najnowszej wersji produkcyjnej moduł usługi Azure Resou
 
     Po wyświetleniu monitu wprowadź poświadczenia.
 
-2. Sprawdź subskrypcje dostępne na koncie.
+2. Sprawdź subskrypcje hello hello konta
 
     ```powershell
     Get-AzureRmSubscription
     ```
 
-3. Wybierz subskrypcję platformy Azure do użycia.
+3. Wybierz z toouse Twojej subskrypcji platformy Azure.
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
@@ -88,7 +88,7 @@ Upewnij się, że masz najnowszej wersji produkcyjnej moduł usługi Azure Resou
     New-AzureRmResourceGroup -Name NRP-RG -location "West US"
     ```
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Tworzenie sieci wirtualnej oraz publicznego adresu IP dla puli adresów IP frontonu
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-hello-front-end-ip-pool"></a>Tworzenie sieci wirtualnej i publiczny adres IP dla puli adresów IP frontonu hello
 
 1. Utwórz sieć wirtualną z podsiecią.
 
@@ -97,7 +97,7 @@ Upewnij się, że masz najnowszej wersji produkcyjnej moduł usługi Azure Resou
     $vnet = New-AzureRmvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Utwórz zasoby (PIP) dla puli adresów IP frontonu Azure publicznego adresu IP.
+2. Utwórz zasoby (PIP) dla puli adresów IP frontonu hello Azure publicznego adresu IP.
 
     ```powershell
     $publicIPv4 = New-AzureRmPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
@@ -105,11 +105,11 @@ Upewnij się, że masz najnowszej wersji produkcyjnej moduł usługi Azure Resou
     ```
 
     > [!IMPORTANT]
-    > Moduł równoważenia obciążenia używa etykieta domeny publicznego adresu IP jako prefiksu nazwy FQDN. W tym przykładzie są nazwy FQDN *lbnrpipv4.westus.cloudapp.azure.com* i *lbnrpipv6.westus.cloudapp.azure.com*.
+    > Moduł równoważenia obciążenia Hello używa hello etykieta domeny publicznego adresu IP hello jako prefiks dla nazwy FQDN. W tym przykładzie są nazwy FQDN hello *lbnrpipv4.westus.cloudapp.azure.com* i *lbnrpipv6.westus.cloudapp.azure.com*.
 
 ## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Tworzenie konfiguracji IP frontonu i puli adresów zaplecza
 
-1. Utwórz konfigurację adres frontonu, używający adresów publicznego adresu IP, który został utworzony.
+1. Utwórz konfigurację adres frontonu, który korzysta z hello publiczny adres IP, który został utworzony.
 
     ```powershell
     $FEIPConfigv4 = New-AzureRmLoadBalancerFrontendIpConfig -Name "LB-Frontendv4" -PublicIpAddress $publicIPv4
@@ -125,22 +125,22 @@ Upewnij się, że masz najnowszej wersji produkcyjnej moduł usługi Azure Resou
 
 ## <a name="create-lb-rules-nat-rules-a-probe-and-a-load-balancer"></a>Tworzenie LB reguł, NAT reguły, badanie i równoważenia obciążenia
 
-W tym przykładzie opisano tworzenie następujących elementów:
+W tym przykładzie jest tworzony hello następujące elementy:
 
-* regułę NAT do tłumaczenia cały ruch przychodzący na porcie 443 do portu 4443
-* Reguła modułu równoważenia obciążenia do równoważenia całego ruchu przychodzącego do portu 80 na port 80 adresów w puli zaplecza.
-* reguły modułu równoważenia obciążenia umożliwiają połączenie RDP z maszyn wirtualnych do portu 3389.
-* zasada sondowania, aby sprawdzić stan kondycji na stronie o nazwie *HealthProbe.aspx* lub usługi na porcie 8080
+* translator NAT reguły tootranslate cały ruch przychodzący na porcie 443 tooport 4443
+* toobalance reguły modułu równoważenia obciążenia cały ruch przychodzący na porcie 80 tooport 80 na powitania adresów w puli zaplecza hello.
+* obciążenia równoważenia reguły tooallow RDP połączenia toohello maszyn wirtualnych do portu 3389.
+* stan kondycji sondowania reguł toocheck hello na stronie o nazwie *HealthProbe.aspx* lub usługi na porcie 8080
 * Moduł równoważenia obciążenia, która używa tych obiektów
 
-1. Utwórz reguły NAT.
+1. Tworzenie reguł NAT hello.
 
     ```powershell
     $inboundNATRule1v4 = New-AzureRmLoadBalancerInboundNatRuleConfig -Name "NicNatRulev4" -FrontendIpConfiguration $FEIPConfigv4 -Protocol TCP -FrontendPort 443 -BackendPort 4443
     $inboundNATRule1v6 = New-AzureRmLoadBalancerInboundNatRuleConfig -Name "NicNatRulev6" -FrontendIpConfiguration $FEIPConfigv6 -Protocol TCP -FrontendPort 443 -BackendPort 4443
     ```
 
-2. Utwórz sondę kondycji. Istnieją dwie metody konfiguracji sondy:
+2. Utwórz sondę kondycji. Istnieją dwa sposoby tooconfigure badanie:
 
     Sonda HTTP
 
@@ -155,7 +155,7 @@ W tym przykładzie opisano tworzenie następujących elementów:
     $RDPprobe = New-AzureRmLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
-    Na przykład firma Microsoft będzie używany sond protokołu TCP.
+    Na przykład zamierzamy powitalne toouse sondy protokołu TCP.
 
 3. Utwórz regułę modułu równoważenia obciążenia.
 
@@ -165,22 +165,22 @@ W tym przykładzie opisano tworzenie następujących elementów:
     $RDPrule = New-AzureRmLoadBalancerRuleConfig -Name "RDPrule" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $RDPprobe -Protocol Tcp -FrontendPort 3389 -BackendPort 3389
     ```
 
-4. Utwórz moduł równoważenia obciążenia przy użyciu utworzonego wcześniej obiektów.
+4. Utwórz hello modułu równoważenia obciążenia przy użyciu obiektów hello wcześniej utworzony.
 
     ```powershell
     $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
     ```
 
-## <a name="create-nics-for-the-back-end-vms"></a>Tworzenie kart sieciowych w maszynach wirtualnych zaplecza
+## <a name="create-nics-for-hello-back-end-vms"></a>Tworzenie kart sieciowych dla hello zaplecza maszyny wirtualne
 
-1. Pobierz sieci wirtualnej i podsieci sieci wirtualnej, gdy karty te muszą zostać utworzone.
+1. Pobierz hello sieci wirtualnej i podsieci sieci wirtualnej, której hello karty sieciowe muszą toobe utworzony.
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -Name VNet -ResourceGroupName NRP-RG
     $backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
     ```
 
-2. Tworzenie konfiguracji adresów IP i karty sieciowe dla maszyn wirtualnych.
+2. Tworzenie konfiguracji adresów IP i kart interfejsu sieciowego dla hello maszyn wirtualnych.
 
     ```powershell
     $nic1IPv4 = New-AzureRmNetworkInterfaceIpConfig -Name "IPv4IPConfig" -PrivateIpAddressVersion "IPv4" -Subnet $backendSubnet -LoadBalancerBackendAddressPool $backendpoolipv4 -LoadBalancerInboundNatRule $inboundNATRule1v4
@@ -192,7 +192,7 @@ W tym przykładzie opisano tworzenie następujących elementów:
     $nic2 = New-AzureRmNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
     ```
 
-## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Tworzenie maszyn wirtualnych i przypisz nowo utworzony kart sieciowych
+## <a name="create-virtual-machines-and-assign-hello-newly-created-nics"></a>Tworzenie maszyn wirtualnych i przypisz hello nowo utworzony kart sieciowych
 
 Aby uzyskać więcej informacji na temat tworzenia maszyny Wirtualnej, zobacz [Utwórz wstępnie skonfigurowaną maszynę wirtualną systemu Windows z usługi Resource Manager i programu Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
@@ -205,10 +205,10 @@ Aby uzyskać więcej informacji na temat tworzenia maszyny Wirtualnej, zobacz [U
     $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
     ```
 
-2. Utwórz każdej maszyny Wirtualnej i przypisz poprzedniej karty sieciowe utworzone
+2. Utwórz każdej maszyny Wirtualnej i przypisz hello poprzedniej utworzone kart sieciowych
 
     ```powershell
-    $mySecureCredentials= Get-Credential -Message "Type the username and password of the local administrator account."
+    $mySecureCredentials= Get-Credential -Message "Type hello username and password of hello local administrator account."
 
     $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
     $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate

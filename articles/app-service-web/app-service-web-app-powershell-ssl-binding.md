@@ -1,6 +1,6 @@
 ---
-title: "Powiązanie certyfikatów SSL przy użyciu programu PowerShell"
-description: "Dowiedz się, jak można powiązać certyfikaty SSL do aplikacji sieci web przy użyciu programu PowerShell."
+title: "Certyfikaty aaaSSL powiązania przy użyciu programu PowerShell"
+description: "Dowiedz się, jak toobind SSL certyfikaty tooyour aplikacji sieci web przy użyciu programu PowerShell."
 services: app-service\web
 documentationcenter: 
 author: ahmedelnably
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-ms.openlocfilehash: a1fcc618fb0c68778e39cc227368a60b008f9401
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 82f0e7c796da99ab50f69f3638ef64d55a94fc8e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-ssl-certificate-binding-using-powershell"></a>Azure App Service powiązanie certyfikatu SSL za pomocą programu PowerShell
-Wraz z wydaniem programu Microsoft Azure PowerShell w wersji 1.1.0 nowe polecenie cmdlet został dodany, który będzie uzyskanie użytkownika możliwość powiązania istniejących lub nowych certyfikatów SSL do istniejącej aplikacji sieci Web.
+Hello wersji programu Microsoft Azure PowerShell w wersji 1.1.0 dodano nowe polecenia cmdlet, które będzie powodują hello użytkownika hello możliwości toobind istniejącego lub nowego SSL certyfikatów tooan istniejącą aplikację sieci Web.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-Aby dowiedzieć się więcej o korzystaniu z poleceń cmdlet programu Azure PowerShell do zarządzania wyboru Twojej aplikacji sieci Web na podstawie usługi Azure Resource Manager [usługi Azure Resource Manager na podstawie poleceń programu PowerShell dla aplikacji sieci Web Azure](app-service-web-app-azure-resource-manager-powershell.md)
+toolearn dotyczące korzystania z usługi Azure Resource Manager toomanage poleceń cmdlet programu PowerShell systemu Azure na podstawie wyboru Twojej aplikacji sieci Web [usługi Azure Resource Manager na podstawie poleceń programu PowerShell dla aplikacji sieci Web Azure](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## <a name="uploading-and-binding-a-new-ssl-certificate"></a>Przekazywanie i powiązanie nowy certyfikat SSL
-Scenariusz: Użytkownik chce powiązać certyfikatu SSL z jednej z jego aplikacji sieci web.
+Scenariusz: hello użytkownika ma zostać toobind tooone certyfikatu SSL w swojej aplikacji sieci web.
 
-Znajomość Nazwa grupy zasobów, która zawiera aplikację sieci web, nazwa aplikacji sieci web, ścieżka pliku PFX certyfikatu na komputerze użytkownika, hasło dla certyfikatu i niestandardową nazwę hosta, możemy użyć następującego polecenia programu PowerShell do tworzenia tego powiązania SSL:
+Znajomość hello Nazwa grupy zasobów, zawierającą hello aplikacji sieci web, nazwa aplikacji sieci web hello, ścieżka pliku PFX certyfikatu hello na komputerze użytkownika hello, hello hasło dla certyfikatu hello i hello niestandardową nazwę hosta, możemy użyć powitania po toocreate polecenia programu PowerShell który Powiązanie SSL:
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -CertificateFilePath PathToPfxFile -CertificatePassword PlainTextPwd -Name www.contoso.com
 
-Należy pamiętać, że przed dodaniem powiązanie SSL do aplikacji sieci web, musi mieć już skonfigurowane nazwy hosta (niestandardowe domeny). Jeśli nie skonfigurowano nazwy hosta, a następnie będzie wyświetlany komunikat o błędzie "Nazwa hosta" nie istnieje podczas uruchamiania AzureRmWebAppSSLBinding nowy. Bezpośrednio w portalu lub przy użyciu programu Azure PowerShell, można dodać nazwę hosta. Poniższy fragment kodu programu PowerShell można skonfigurować przed uruchomieniem nowego AzureRmWebAppSSLBinding nazwy hosta.   
+Należy pamiętać, że przed dodaniem aplikacji sieci web tooa powiązania SSL, musi mieć nazwę hosta (domeny niestandardowej) już skonfigurowane. Jeśli nie skonfigurowano hello nazwy hosta, a następnie wystąpi błąd "Nazwa hosta" nie istnieje podczas uruchamiania AzureRmWebAppSSLBinding nowy. Możesz dodać nazwę hosta bezpośrednio z portalu hello lub przy użyciu programu Azure PowerShell. Witaj poniższy fragment PowerShell może być tooconfigure hello hostname przed uruchomieniem nowego AzureRmWebAppSSLBinding.   
 
     $webApp = Get-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup  
     $hostNames = $webApp.HostNames  
     $HostNames.Add("www.contoso.com")  
     Set-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup -HostNames $HostNames   
 
-Należy zrozumieć, że polecenia cmdlet Set-AzureRmWebApp zastępuje nazwy hostów dla aplikacji sieci web. Dlatego powyżej fragment programu PowerShell jest dołączenie do istniejącej listy nazwy hostów dla aplikacji sieci web.  
+Jest ważne toounderstand, który hello polecenia cmdlet Set-AzureRmWebApp zastępuje nazwy hostów hello hello aplikacji sieci web. Dlatego hello powyżej fragment programu PowerShell jest dodanie toohello istniejącej listy nazw hostów hello hello aplikacji sieci web.  
 
 ## <a name="uploading-and-binding-an-existing-ssl-certificate"></a>Przekazywanie i powiązanie istniejącego certyfikatu SSL
-Scenariusz: Użytkownik chce powiązać wcześniej przekazane certyfikaty SSL do jednego z jego aplikacji sieci web.
+Scenariusz: hello użytkownika ma zostać toobind wcześniej przekazane tooone certyfikatu SSL w swojej aplikacji sieci web.
 
-Możemy uzyskać listę certyfikatów już przekazany do określonej grupy zasobów za pomocą następującego polecenia
+Firma Microsoft można uzyskać hello Lista certyfikatów już przekazane tooa określonej grupy zasobów za pomocą następującego polecenia hello
 
     Get-AzureRmWebAppCertificate -ResourceGroupName myresourcegroup
 
-Należy pamiętać, że certyfikaty znajdują się lokalnie do określonej lokalizacji i grupy zasobów, użytkownik będzie musiał ponownie przekazać certyfikat, jeśli aplikacja sieci web skonfigurowana jest w innej lokalizacji i grupy zasobów, innego niż który potrzebny certyfikat 
+Należy pamiętać, że certyfikaty hello są określonej grupy lokalizacji i zasobów lokalnych tooa hello użytkownik musiał przekazywania toore hello certyfikatu, jeśli aplikacja sieci web skonfigurowana hello jest w innej lokalizacji i grupy zasobów, innego niż, który z hello wymagany certyfikat 
 
-Znajomość nazwy grupy zasobów, która zawiera aplikacji sieci web, nazwa aplikacji sieci web, odcisk palca certyfikatu i niestandardową nazwę hosta, możemy użyć następującego polecenia programu PowerShell do tworzenia tego powiązania SSL:
+Znajomość hello Nazwa grupy zasobów, który zawiera aplikację sieci web hello, hello Nazwa aplikacji sieci web, hello odcisk palca certyfikatu i hello niestandardową nazwę hosta, możemy użyć powitania po toocreate polecenia programu PowerShell tego powiązania SSL:
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Thumbprint <certificate thumbprint> -Name www.contoso.com
 
 ## <a name="deleting-an-existing-ssl-binding"></a>Usuwanie istniejące powiązanie SSL
-Scenariusz: Użytkownik chce usunąć istniejące powiązanie SSL.
+Scenariusz: hello użytkownika ma zostać toodelete istniejące powiązanie SSL.
 
-Znajomość Nazwa grupy zasobów, który zawiera aplikacji sieci web, nazwa aplikacji sieci web i niestandardową nazwę hosta, możemy użyć następującego polecenia programu PowerShell do usunięcia tego powiązania SSL:
+Znajomość hello Nazwa grupy zasobów, który zawiera aplikację sieci web hello, hello Nazwa aplikacji sieci web i hello niestandardową nazwę hosta, możemy użyć powitania po tooremove polecenia programu PowerShell tego powiązania SSL:
 
     Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com
 
-Należy pamiętać, że jeśli usunięte powiązanie SSL był ostatni powiązania przy użyciu tego certyfikatu w tej lokalizacji, domyślnie certyfikat będzie można usunąć, jeśli użytkownik chce zachować certyfikatów, może użyć opcji DeleteCertificate w celu zachowania certyfikatu
+Należy pamiętać, że jeśli hello usunięte powiązanie SSL został hello ostatnio powiązanie, używając tego certyfikatu w tym miejscu przez domyślny hello certyfikat zostaną usunięte, użytkownik hello certyfikatu hello tookeep on użyć hello DeleteCertificate opcji tookeep hello certyfikatu
 
     Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### <a name="references"></a>Dokumentacja
 * [Usługa Azure Resource Manager na podstawie poleceń programu PowerShell dla aplikacji sieci Web Azure](app-service-web-app-azure-resource-manager-powershell.md)
-* [Wprowadzenie do usługi App Service Environment](app-service-app-service-environment-intro.md)
+* [Wprowadzenie tooApp środowiska usługi](app-service-app-service-environment-intro.md)
 * [Używanie programu Azure PowerShell z usługą Azure Resource Manager](../powershell-azure-resource-manager.md)
 

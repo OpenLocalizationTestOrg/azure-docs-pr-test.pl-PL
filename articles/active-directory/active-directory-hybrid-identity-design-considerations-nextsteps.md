@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory hybrydowego tożsamości projektowania zagadnienia — następne kroki | Dokumentacja firmy Microsoft"
-description: "Streszczenie i następne kroki po przeczytaniu Przewodnik po zagadnieniach dotyczących projektowania tożsamości hybrydowej"
+title: "Następne kroki aaaAzure usługi Active Directory hybrydowego tożsamości projektowania zagadnienia - | Dokumentacja firmy Microsoft"
+description: "Streszczenie i następne kroki po przeczytaniu hello przewodnik dotyczący zagadnień projektowych tożsamość hybrydowa"
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 1d133430e0dcdcd0c24b44a2a7c452fbf16ecf29
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7100eaaf61a7b3b7d38a381f6bb9d8b82677c352
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybrydowego tożsamości projektu dalej zagadnienia dotyczące czynności
-Teraz, gdy przeprowadzisz zdefiniowaniu wymagań i sprawdzeniu wszystkich opcji rozwiązania do zarządzania urządzeniami przenośnymi, możesz wykonać kolejne kroki w celu wdrożenia infrastruktury pomocniczej odpowiedniej dla Ciebie i Twojej organizacji.
+Teraz, gdy przeprowadzisz zdefiniowaniu wymagań i sprawdzeniu wszystkich opcji rozwiązania do zarządzania urządzeniami przenośnymi hello jesteś gotowy tootake hello kolejne kroki w celu wdrażania hello obsługa infrastruktury odpowiedniej dla Ciebie i Twojej organizacji.
 
 ## <a name="hybrid-identity-solutions"></a>Hybrydowych rozwiązań tożsamości
--Wykorzystanie określonych scenariuszy rozwiązań, które odpowiadają potrzebom jest to dobry sposób na zweryfikowanie i zaplanowanie szczegółów wdrażania infrastruktury zarządzania urządzeniami przenośnymi. Następujące rozwiązania przedstawiają kilka najbardziej typowych scenariuszy zarządzania urządzeniami przenośnymi:
+-Wykorzystanie określonych scenariuszy rozwiązań, które odpowiadają potrzebom to doskonały sposób tooreview i planowanie hello szczegółów wdrażania infrastruktury zarządzania urządzeniami przenośnymi. Witaj następujące rozwiązania przedstawiają kilka najbardziej typowych scenariuszy zarządzania urządzeniami przenośnymi hello:
 
-* [Zarządzanie urządzeniami przenośnymi i komputerami w przedsiębiorstwie środowisk rozwiązaniu](https://technet.microsoft.com/library/dn582037.aspx) ułatwia zarządzanie urządzeniami przenośnymi dzięki rozszerzeniu lokalnej infrastruktury programu System Center 2012 Configuration Manager do chmury w usłudze Microsoft Intune. Ta infrastruktura hybrydowa pomaga specjalistom IT w średnich i dużych środowiskach wprowadzaniu modelu BYOD i dostępu zdalnego, zmniejszając jednocześnie złożoność administrowania.
-* [Zarządzania urządzeniami przenośnymi dla programu Configuration Manager 2007 rozwiązania](https://technet.microsoft.com/library/dn508400.aspx) ułatwia zarządzanie urządzeniami przenośnymi, gdy infrastruktura opiera się na programie System Center Configuration Manager 2007. Rozwiązanie przedstawia sposób konfigurowania pojedynczego serwera z programem System Center 2012 Configuration Manager, aby móc uruchomić Microsoft Intune i skorzystać z jego możliwości zarządzania urządzeniami Przenośnymi.
-* [Zarządzania urządzeniami przenośnymi w małych środowiskach rozwiązania](https://technet.microsoft.com/library/dn715906.aspx) jest przeznaczone dla małych firm, które potrzebują obsługi zarządzania urządzeniami przenośnymi. Wyjaśniono, jak używać programu Microsoft Intune można rozszerzyć bieżącą infrastrukturę do obsługi zarządzania urządzeniami przenośnymi i modelu BYOD. To rozwiązanie przedstawia najprostszy obsługiwany scenariusz użycia Microsoft Intune w autonomicznej konfiguracji tylko w chmurze bez serwerów lokalnych.
+* Witaj [zarządzanie urządzeniami przenośnymi i komputerami w przedsiębiorstwie środowisk rozwiązaniu](https://technet.microsoft.com/library/dn582037.aspx) pomaga zarządzać urządzeniami przenośnymi dzięki rozszerzeniu lokalnej infrastruktury programu System Center 2012 Configuration Manager do chmury hello z firmą Microsoft Usługa Intune. Ta infrastruktura hybrydowa pomaga specjalistom IT w średnich i dużych środowiskach wprowadzaniu modelu BYOD i dostępu zdalnego, zmniejszając jednocześnie złożoność administrowania.
+* Witaj [zarządzania urządzeniami przenośnymi dla programu Configuration Manager 2007 rozwiązania](https://technet.microsoft.com/library/dn508400.aspx) ułatwia zarządzanie urządzeniami przenośnymi, gdy infrastruktura opiera się na programie System Center Configuration Manager 2007. To rozwiązanie przedstawia sposób tooset zapasową pojedynczego serwera z programem System Center 2012 Configuration Manager, aby móc uruchomić Microsoft Intune i skorzystać z jego możliwości zarządzania urządzeniami Przenośnymi.
+* Witaj [zarządzania urządzeniami przenośnymi w małych środowiskach rozwiązania](https://technet.microsoft.com/library/dn715906.aspx) jest przeznaczone dla małych firm, które wymagają toosupport zarządzania urządzeniami przenośnymi. Wyjaśniono, jak tooextend Microsoft Intune toouse Twojego bieżącego zarządzania urządzeniami przenośnymi toosupport infrastruktury i modelu BYOD. To rozwiązanie przedstawia hello najprostszy obsługiwany scenariusz użycia programu Microsoft Intune w autonomicznej konfiguracji tylko w chmurze bez serwerów lokalnych.
 
 ## <a name="hybrid-identity-documentation"></a>Dokumentacja tożsamości hybrydowej
 Koncepcyjna i proceduralna zawartość planowania, wdrażania i administrowania jest przydatna w przypadku wdrażania rozwiązania do zarządzania urządzeniami przenośnymi:
 
 * [Microsoft System Center](https://technet.microsoft.com/library/cc507089.aspx) rozwiązania mogą ułatwić zdobycie i zgromadzenie informacji na temat infrastruktury, zasad, procesów i najlepszych rozwiązań dzięki czemu działu IT będą mogli stworzyć systemy do zarządzania i zautomatyzować operacje.
-* [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) jest usługą zarządzania urządzeniami w chmurze, która ułatwia zarządzanie komputerami i urządzeniami przenośnymi oraz zabezpieczanie informacji firmy.
-* [MDM dla Office 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) służy do zarządzania i zabezpieczania urządzeń przenośnych, gdy są one połączone z organizacją usługi Office 365. MDM dla Office 365 służy do konfigurowania zasad i reguły dostępu zabezpieczeń urządzeń i czyszczenie urządzeń przenośnych, jeśli zostaną zgubione lub skradzione.
+* [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) jest usługą zarządzania urządzeniami w chmurze, ułatwiająca możesz toomanage na komputerach i urządzeniach przenośnych i toosecure informacji w firmie.
+* [MDM dla Office 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) umożliwia toomanage i zabezpieczanie urządzeń przenośnych, gdy będą organizacji tooyour podłączonej usługi Office 365. Jeśli zostaną zgubione lub skradzione, można użyć zarządzania urządzeniami Przenośnymi zasad zabezpieczeń urządzeń tooset usługi Office 365 i reguł dostępu i urządzeń przenośnych toowipe.
 
 ## <a name="hybrid-identity-resources"></a>Zasoby hybrydowego tożsamości
-Często monitorowanie następujących zasobów zapewni dostęp do najnowszych wiadomości i aktualizacji dotyczących rozwiązań do zarządzania urządzeniami przenośnymi:
+Monitorowanie następujących hello zasobów często zawiera najnowsze wiadomości powitania i aktualizacji dotyczących rozwiązań do zarządzania urządzeniami przenośnymi:
 
 * [Blog dotyczący pakietu Microsoft Enterprise Mobility](http://blogs.technet.com/b/enterprisemobility/)
-* [Blog firmy Microsoft w chmurze](http://blogs.technet.com/b/in_the_cloud/)
+* [Firmy Microsoft w blogu hello w chmurze](http://blogs.technet.com/b/in_the_cloud/)
 * [Blog usługi Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
 * [Blog programu Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
 * [Blog zespołu programu Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
