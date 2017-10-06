@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Halosys | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak używać Halosys usłudze Azure Active Directory w celu włączenia logowania jednokrotnego, automatyczne Inicjowanie obsługi i inne!"
+description: "Dowiedz się, jak toouse Halosys z usługą Azure Active Directory tooenable pojedynczy logowania jednokrotnego, automatyczne Inicjowanie obsługi i inne!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -13,238 +13,238 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 18043ed1b6f7ab45c59cfd36252bef1621618e51
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-halosys"></a><span data-ttu-id="8ecae-103">Samouczek: Integracji Azure Active Directory z Halosys</span><span class="sxs-lookup"><span data-stu-id="8ecae-103">Tutorial: Azure Active Directory integration with Halosys</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-halosys"></a><span data-ttu-id="6b0f7-103">Samouczek: Integracji Azure Active Directory z Halosys</span><span class="sxs-lookup"><span data-stu-id="6b0f7-103">Tutorial: Azure Active Directory integration with Halosys</span></span>
 
-<span data-ttu-id="8ecae-104">Z tego samouczka dowiesz się integrowanie Halosys z usługi Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="8ecae-104">In this tutorial, you learn how to integrate Halosys with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="6b0f7-104">Z tego samouczka, dowiesz się, jak toointegrate Halosys w usłudze Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="6b0f7-104">In this tutorial, you learn how toointegrate Halosys with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="8ecae-105">Integracja z usługą Azure AD Halosys zapewnia następujące korzyści:</span><span class="sxs-lookup"><span data-stu-id="8ecae-105">Integrating Halosys with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="6b0f7-105">Integracja z usługą Azure AD Halosys zapewnia hello następujące korzyści:</span><span class="sxs-lookup"><span data-stu-id="6b0f7-105">Integrating Halosys with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="8ecae-106">Można kontrolować w usłudze Azure AD, który ma dostęp do Halosys</span><span class="sxs-lookup"><span data-stu-id="8ecae-106">You can control in Azure AD who has access to Halosys</span></span>
-- <span data-ttu-id="8ecae-107">Umożliwia użytkownikom automatycznie pobrać zalogowane do Halosys (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="8ecae-107">You can enable your users to automatically get signed-on to Halosys (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="8ecae-108">Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure</span><span class="sxs-lookup"><span data-stu-id="8ecae-108">You can manage your accounts in one central location - the Azure classic portal</span></span>
+- <span data-ttu-id="6b0f7-106">Można kontrolować w usłudze Azure AD, kto ma dostęp do tooHalosys</span><span class="sxs-lookup"><span data-stu-id="6b0f7-106">You can control in Azure AD who has access tooHalosys</span></span>
+- <span data-ttu-id="6b0f7-107">Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooHalosys (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="6b0f7-107">You can enable your users tooautomatically get signed-on tooHalosys (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="6b0f7-108">Możesz zarządzać kont w jednej centralnej lokalizacji - hello klasycznego portalu Azure</span><span class="sxs-lookup"><span data-stu-id="6b0f7-108">You can manage your accounts in one central location - hello Azure classic portal</span></span>
 
-<span data-ttu-id="8ecae-109">Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="8ecae-109">If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="6b0f7-109">Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="6b0f7-109">If you want tooknow more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="8ecae-110">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="8ecae-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="6b0f7-110">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="6b0f7-110">Prerequisites</span></span>
 
-<span data-ttu-id="8ecae-111">Aby skonfigurować integrację usługi Azure AD z Halosys, potrzebne są następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="8ecae-111">To configure Azure AD integration with Halosys, you need the following items:</span></span>
+<span data-ttu-id="6b0f7-111">tooconfigure integracji z usługą Azure AD z Halosys należy hello następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="6b0f7-111">tooconfigure Azure AD integration with Halosys, you need hello following items:</span></span>
 
-- <span data-ttu-id="8ecae-112">Subskrypcję usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="8ecae-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="8ecae-113">Halosys jednokrotnego włączone subskrypcji</span><span class="sxs-lookup"><span data-stu-id="8ecae-113">A Halosys single-sign on enabled subscription</span></span>
+- <span data-ttu-id="6b0f7-112">Subskrypcję usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="6b0f7-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="6b0f7-113">Halosys jednokrotnego włączone subskrypcji</span><span class="sxs-lookup"><span data-stu-id="6b0f7-113">A Halosys single-sign on enabled subscription</span></span>
 
 
 > [!NOTE] 
-> <span data-ttu-id="8ecae-114">Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.</span><span class="sxs-lookup"><span data-stu-id="8ecae-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="6b0f7-114">tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
 
-<span data-ttu-id="8ecae-115">Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:</span><span class="sxs-lookup"><span data-stu-id="8ecae-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="6b0f7-115">tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:</span><span class="sxs-lookup"><span data-stu-id="6b0f7-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="8ecae-116">Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.</span><span class="sxs-lookup"><span data-stu-id="8ecae-116">You should not use your production environment, unless this is necessary.</span></span>
-- <span data-ttu-id="8ecae-117">Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="8ecae-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
-
-
-## <a name="scenario-description"></a><span data-ttu-id="8ecae-118">Opis scenariusza</span><span class="sxs-lookup"><span data-stu-id="8ecae-118">Scenario description</span></span>
-<span data-ttu-id="8ecae-119">W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym.</span><span class="sxs-lookup"><span data-stu-id="8ecae-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span>
-
-<span data-ttu-id="8ecae-120">Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:</span><span class="sxs-lookup"><span data-stu-id="8ecae-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
-
-1. <span data-ttu-id="8ecae-121">Dodawanie Halosys z galerii</span><span class="sxs-lookup"><span data-stu-id="8ecae-121">Adding Halosys from the gallery</span></span>
-2. <span data-ttu-id="8ecae-122">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="8ecae-122">Configuring and testing Azure AD single sign-on</span></span>
+- <span data-ttu-id="6b0f7-116">Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-116">You should not use your production environment, unless this is necessary.</span></span>
+- <span data-ttu-id="6b0f7-117">Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="6b0f7-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
 
-## <a name="adding-halosys-from-the-gallery"></a><span data-ttu-id="8ecae-123">Dodawanie Halosys z galerii</span><span class="sxs-lookup"><span data-stu-id="8ecae-123">Adding Halosys from the gallery</span></span>
-<span data-ttu-id="8ecae-124">Aby skonfigurować integrację usługi Azure AD Halosys, należy dodać Halosys z galerii do listy zarządzanych aplikacji SaaS.</span><span class="sxs-lookup"><span data-stu-id="8ecae-124">To configure the integration of Halosys into Azure AD, you need to add Halosys from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="6b0f7-118">Opis scenariusza</span><span class="sxs-lookup"><span data-stu-id="6b0f7-118">Scenario description</span></span>
+<span data-ttu-id="6b0f7-119">W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span>
 
-<span data-ttu-id="8ecae-125">**Aby dodać Halosys z galerii, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="8ecae-125">**To add Halosys from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="6b0f7-120">Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:</span><span class="sxs-lookup"><span data-stu-id="6b0f7-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="8ecae-126">W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-126">In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.</span></span>
+1. <span data-ttu-id="6b0f7-121">Dodawanie Halosys z galerii hello</span><span class="sxs-lookup"><span data-stu-id="6b0f7-121">Adding Halosys from hello gallery</span></span>
+2. <span data-ttu-id="6b0f7-122">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="6b0f7-122">Configuring and testing Azure AD single sign-on</span></span>
+
+
+## <a name="adding-halosys-from-hello-gallery"></a><span data-ttu-id="6b0f7-123">Dodawanie Halosys z galerii hello</span><span class="sxs-lookup"><span data-stu-id="6b0f7-123">Adding Halosys from hello gallery</span></span>
+<span data-ttu-id="6b0f7-124">tooconfigure hello integracji Halosys do usługi Azure AD, należy tooadd Halosys z hello galerii tooyour listę zarządzanych aplikacji SaaS.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-124">tooconfigure hello integration of Halosys into Azure AD, you need tooadd Halosys from hello gallery tooyour list of managed SaaS apps.</span></span>
+
+<span data-ttu-id="6b0f7-125">**tooadd Halosys z galerii hello, wykonaj następujące kroki hello:**</span><span class="sxs-lookup"><span data-stu-id="6b0f7-125">**tooadd Halosys from hello gallery, perform hello following steps:**</span></span>
+
+1. <span data-ttu-id="6b0f7-126">W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-126">In hello **Azure classic portal**, on hello left navigation pane, click **Active Directory**.</span></span>
 
     ![Usługa Active Directory][1]
-2. <span data-ttu-id="8ecae-128">Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.</span><span class="sxs-lookup"><span data-stu-id="8ecae-128">From the **Directory** list, select the directory for which you want to enable directory integration.</span></span>
+2. <span data-ttu-id="6b0f7-128">Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-128">From hello **Directory** list, select hello directory for which you want tooenable directory integration.</span></span>
 
-3. <span data-ttu-id="8ecae-129">Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.</span><span class="sxs-lookup"><span data-stu-id="8ecae-129">To open the applications view, in the directory view, click **Applications** in the top menu.</span></span>
+3. <span data-ttu-id="6b0f7-129">Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-129">tooopen hello applications view, in hello directory view, click **Applications** in hello top menu.</span></span>
 
     ![Aplikacje][2]
 
-4. <span data-ttu-id="8ecae-131">Kliknij przycisk **Dodaj** w dolnej części strony.</span><span class="sxs-lookup"><span data-stu-id="8ecae-131">Click **Add** at the bottom of the page.</span></span>
+4. <span data-ttu-id="6b0f7-131">Kliknij przycisk **Dodaj** u dołu hello hello strony.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-131">Click **Add** at hello bottom of hello page.</span></span>
 
     ![Aplikacje][3]
 
-5. <span data-ttu-id="8ecae-133">Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-133">On the **What do you want to do** dialog, click **Add an application from the gallery**.</span></span>
+5. <span data-ttu-id="6b0f7-133">Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-133">On hello **What do you want toodo** dialog, click **Add an application from hello gallery**.</span></span>
 
     ![Aplikacje][4]
 
-6. <span data-ttu-id="8ecae-135">W polu wyszukiwania wpisz **Halosys**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-135">In the search box, type **Halosys**.</span></span>
+6. <span data-ttu-id="6b0f7-135">W polu wyszukiwania hello wpisz **Halosys**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-135">In hello search box, type **Halosys**.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_01.png)
     
-7. <span data-ttu-id="8ecae-137">W okienku wyników wybierz **Halosys**, a następnie kliknij przycisk **Complete** można dodać aplikację.</span><span class="sxs-lookup"><span data-stu-id="8ecae-137">In the results pane, select **Halosys**, and then click **Complete** to add the application.</span></span>
+7. <span data-ttu-id="6b0f7-137">Wybierz w okienku wyników hello **Halosys**, a następnie kliknij przycisk **Complete** aplikacji hello tooadd.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-137">In hello results pane, select **Halosys**, and then click **Complete** tooadd hello application.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_011.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="8ecae-139">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="8ecae-139">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="8ecae-140">W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Halosys w oparciu o nazwie "Britta Simona" użytkownika testowego.</span><span class="sxs-lookup"><span data-stu-id="8ecae-140">In this section, you configure and test Azure AD single sign-on with Halosys based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="6b0f7-139">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="6b0f7-139">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="6b0f7-140">W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Halosys w oparciu o nazwie "Britta Simona" użytkownika testowego.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-140">In this section, you configure and test Azure AD single sign-on with Halosys based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="8ecae-141">Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Halosys jest dla użytkownika, w usłudze Azure AD.</span><span class="sxs-lookup"><span data-stu-id="8ecae-141">For single sign-on to work, Azure AD needs to know what the counterpart user in Halosys is to a user in Azure AD.</span></span> <span data-ttu-id="8ecae-142">Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Halosys musi się.</span><span class="sxs-lookup"><span data-stu-id="8ecae-142">In other words, a link relationship between an Azure AD user and the related user in Halosys needs to be established.</span></span>
+<span data-ttu-id="6b0f7-141">Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Halosys jest tooa użytkownika w usłudze Azure AD.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-141">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Halosys is tooa user in Azure AD.</span></span> <span data-ttu-id="6b0f7-142">Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Halosys musi toobe ustanowione.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-142">In other words, a link relationship between an Azure AD user and hello related user in Halosys needs toobe established.</span></span>
 
-<span data-ttu-id="8ecae-143">Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w Halosys.</span><span class="sxs-lookup"><span data-stu-id="8ecae-143">This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Halosys.</span></span>
+<span data-ttu-id="6b0f7-143">Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w Halosys.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-143">This link relationship is established by assigning hello value of hello **user name** in Azure AD as hello value of hello **Username** in Halosys.</span></span>
 
-<span data-ttu-id="8ecae-144">Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Halosys, należy wykonać poniższe bloki konstrukcyjne:</span><span class="sxs-lookup"><span data-stu-id="8ecae-144">To configure and test Azure AD single sign-on with Halosys, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="6b0f7-144">tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Halosys, należy po bloków konstrukcyjnych hello toocomplete:</span><span class="sxs-lookup"><span data-stu-id="6b0f7-144">tooconfigure and test Azure AD single sign-on with Halosys, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="8ecae-145">**[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.</span><span class="sxs-lookup"><span data-stu-id="8ecae-145">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="8ecae-146">**[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="8ecae-146">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="8ecae-147">**[Tworzenie użytkownika testowego Halosys](#creating-a-halosys-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Halosys połączonego z jej reprezentacji usługi Azure AD.</span><span class="sxs-lookup"><span data-stu-id="8ecae-147">**[Creating a Halosys test user](#creating-a-halosys-test-user)** - to have a counterpart of Britta Simon in Halosys that is linked to the Azure AD representation of her.</span></span>
-4. <span data-ttu-id="8ecae-148">**[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.</span><span class="sxs-lookup"><span data-stu-id="8ecae-148">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="8ecae-149">**[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.</span><span class="sxs-lookup"><span data-stu-id="8ecae-149">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="6b0f7-145">**[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-145">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="6b0f7-146">**[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-146">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="6b0f7-147">**[Tworzenie użytkownika testowego Halosys](#creating-a-halosys-test-user)**  -toohave odpowiednikiem Simona Britta w Halosys, że jego reprezentacja toohello połączonej usługi Azure AD.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-147">**[Creating a Halosys test user](#creating-a-halosys-test-user)** - toohave a counterpart of Britta Simon in Halosys that is linked toohello Azure AD representation of her.</span></span>
+4. <span data-ttu-id="6b0f7-148">**[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-148">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="6b0f7-149">**[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-149">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="8ecae-150">Konfigurowanie usługi Azure AD rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="8ecae-150">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="6b0f7-150">Konfigurowanie usługi Azure AD rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="6b0f7-150">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="8ecae-151">W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w klasycznym portalu i skonfigurować logowanie jednokrotne w aplikacji Halosys.</span><span class="sxs-lookup"><span data-stu-id="8ecae-151">In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Halosys application.</span></span>
+<span data-ttu-id="6b0f7-151">W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu klasycznym hello i skonfigurować logowanie jednokrotne w aplikacji Halosys.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-151">In this section, you enable Azure AD single sign-on in hello classic portal and configure single sign-on in your Halosys application.</span></span>
 
 
-<span data-ttu-id="8ecae-152">**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Halosys, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="8ecae-152">**To configure Azure AD single sign-on with Halosys, perform the following steps:**</span></span>
+<span data-ttu-id="6b0f7-152">**tooconfigure usługi Azure AD rejestracji jednokrotnej z Halosys, wykonaj następujące kroki hello:**</span><span class="sxs-lookup"><span data-stu-id="6b0f7-152">**tooconfigure Azure AD single sign-on with Halosys, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="8ecae-153">W klasycznym portalu na **Halosys** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="8ecae-153">In the classic portal, on the **Halosys** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.</span></span>
+1. <span data-ttu-id="6b0f7-153">W klasycznym portalu hello na powitania **Halosys** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello **skonfigurować logowanie jednokrotne** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-153">In hello classic portal, on hello **Halosys** application integration page, click **Configure single sign-on** tooopen hello **Configure Single Sign-On**  dialog.</span></span>
      
     ![Konfigurowanie rejestracji jednokrotnej][6] 
 
-2. <span data-ttu-id="8ecae-155">Na **jak chcesz użytkownikom zalogować się na Halosys** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-155">On the **How would you like users to sign on to Halosys** page, select **Azure AD Single Sign-On**, and then click **Next**.</span></span>
+2. <span data-ttu-id="6b0f7-155">Na powitania **jak ma toosign użytkowników na tooHalosys** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-155">On hello **How would you like users toosign on tooHalosys** page, select **Azure AD Single Sign-On**, and then click **Next**.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_03.png) 
 
-3. <span data-ttu-id="8ecae-157">Na **Konfigurowanie ustawień aplikacji** okna dialogowego strony, należy wykonać następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="8ecae-157">On the **Configure App Settings** dialog page, perform the following steps:</span></span>
+3. <span data-ttu-id="6b0f7-157">Na powitania **Konfigurowanie ustawień aplikacji** okna dialogowego wykonaj hello następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="6b0f7-157">On hello **Configure App Settings** dialog page, perform hello following steps:</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_04.png) 
 
-    <span data-ttu-id="8ecae-159">a.</span><span class="sxs-lookup"><span data-stu-id="8ecae-159">a.</span></span> <span data-ttu-id="8ecae-160">W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego do aplikacji Halosys przy użyciu następującego wzorca: `https://<company-name>.Halosys.com/client-api/api`.</span><span class="sxs-lookup"><span data-stu-id="8ecae-160">In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Halosys application using the following pattern: `https://<company-name>.Halosys.com/client-api/api`.</span></span>
+    <span data-ttu-id="6b0f7-159">a.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-159">a.</span></span> <span data-ttu-id="6b0f7-160">W hello **na adres URL logowania** pole tekstowe, wprowadź adres URL hello używanych przez aplikację Halosys toosign na tooyour użytkowników przy użyciu hello następującego wzorca: `https://<company-name>.Halosys.com/client-api/api`.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-160">In hello **Sign On URL** textbox, type hello URL used by your users toosign-on tooyour Halosys application using hello following pattern: `https://<company-name>.Halosys.com/client-api/api`.</span></span>
 
-    <span data-ttu-id="8ecae-161">b.In **adres URL identyfikatora** tekstowym, wpisz adres URL do następującego wzorca: `https://<company-name>.Halosys.com`.</span><span class="sxs-lookup"><span data-stu-id="8ecae-161">b.In the **Identifier URL** textbox, type the URL in the following pattern: `https://<company-name>.Halosys.com`.</span></span>   
+    <span data-ttu-id="6b0f7-161">Witaj b.In **adres URL identyfikatora** pole tekstowe, wprowadź adres URL hello w hello następującego wzorca: `https://<company-name>.Halosys.com`.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-161">b.In hello **Identifier URL** textbox, type hello URL in hello following pattern: `https://<company-name>.Halosys.com`.</span></span> 
          
-4. <span data-ttu-id="8ecae-162">Na **skonfigurować logowanie jednokrotne w Halosys** kliknij przycisk **pobierania metadanych**, a następnie zapisz plik na komputerze:</span><span class="sxs-lookup"><span data-stu-id="8ecae-162">On the **Configure single sign-on at Halosys** page, click **Download metadata**, and then save the file on your computer:</span></span>
+4. <span data-ttu-id="6b0f7-162">Na powitania **skonfigurować logowanie jednokrotne w Halosys** kliknij przycisk **pobierania metadanych**, a następnie zapisz plik hello na tym komputerze:</span><span class="sxs-lookup"><span data-stu-id="6b0f7-162">On hello **Configure single sign-on at Halosys** page, click **Download metadata**, and then save hello file on your computer:</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_05.png)
    
-5. <span data-ttu-id="8ecae-164">Aby uzyskać logowania jednokrotnego skonfigurowane dla aplikacji, skontaktuj się z zespołem pomocy technicznej Halosys i podaj z następujących czynności:</span><span class="sxs-lookup"><span data-stu-id="8ecae-164">To get SSO configured for your application, contact Halosys support team and provide them with the following:</span></span>
+5. <span data-ttu-id="6b0f7-164">tooget logowania jednokrotnego skonfigurowane dla danej aplikacji, skontaktuj się z zespołem pomocy technicznej Halosys i podaj następujący hello:</span><span class="sxs-lookup"><span data-stu-id="6b0f7-164">tooget SSO configured for your application, contact Halosys support team and provide them with hello following:</span></span>
 
-    <span data-ttu-id="8ecae-165">• Pobrany **pliku metadanych**</span><span class="sxs-lookup"><span data-stu-id="8ecae-165">• The downloaded **metadata file**</span></span>
+    <span data-ttu-id="6b0f7-165">• hello pobrane **pliku metadanych**</span><span class="sxs-lookup"><span data-stu-id="6b0f7-165">• hello downloaded **metadata file**</span></span>
     
-    <span data-ttu-id="8ecae-166">• **Adres URL logowania jednokrotnego SAML**</span><span class="sxs-lookup"><span data-stu-id="8ecae-166">• The **SAML SSO URL**</span></span>
+    <span data-ttu-id="6b0f7-166">• hello **adres URL logowania jednokrotnego SAML**</span><span class="sxs-lookup"><span data-stu-id="6b0f7-166">• hello **SAML SSO URL**</span></span>
     
 
-6. <span data-ttu-id="8ecae-167">W klasycznym portalu, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **dalej**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-167">In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.</span></span>
+6. <span data-ttu-id="6b0f7-167">W portalu klasycznym hello, wybierz hello konfiguracji rejestracji jednokrotnej potwierdzenie, a następnie kliknij **dalej**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-167">In hello classic portal, select hello single sign-on configuration confirmation, and then click **Next**.</span></span>
     
     ![Azure AD rejestracji jednokrotnej][10]
 
-7. <span data-ttu-id="8ecae-169">Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-169">On the **Single sign-on confirmation** page, click **Complete**.</span></span>  
+7. <span data-ttu-id="6b0f7-169">Na powitania **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-169">On hello **Single sign-on confirmation** page, click **Complete**.</span></span>  
  
     ![Azure AD rejestracji jednokrotnej][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="8ecae-171">Tworzenie użytkownika testowego usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="8ecae-171">Creating an Azure AD test user</span></span>
-<span data-ttu-id="8ecae-172">W tej sekcji utworzysz użytkownika testowego w klasycznym portalu o nazwie Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="8ecae-172">In this section, you create a test user in the classic portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="6b0f7-171">Tworzenie użytkownika testowego usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="6b0f7-171">Creating an Azure AD test user</span></span>
+<span data-ttu-id="6b0f7-172">W tej sekcji Tworzenie użytkownika testowego w portalu klasycznym hello o nazwie Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-172">In this section, you create a test user in hello classic portal called Britta Simon.</span></span>
 
 
 ![Tworzenie użytkowników usługi Azure AD][20]
 
-<span data-ttu-id="8ecae-174">**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="8ecae-174">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="6b0f7-174">**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**</span><span class="sxs-lookup"><span data-stu-id="6b0f7-174">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="8ecae-175">W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-175">In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.</span></span>
+1. <span data-ttu-id="6b0f7-175">W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-175">In hello **Azure classic portal**, on hello left navigation pane, click **Active Directory**.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_09.png) 
 
-2. <span data-ttu-id="8ecae-177">Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.</span><span class="sxs-lookup"><span data-stu-id="8ecae-177">From the **Directory** list, select the directory for which you want to enable directory integration.</span></span>
+2. <span data-ttu-id="6b0f7-177">Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-177">From hello **Directory** list, select hello directory for which you want tooenable directory integration.</span></span>
 
-3. <span data-ttu-id="8ecae-178">Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-178">To display the list of users, in the menu on the top, click **Users**.</span></span>
+3. <span data-ttu-id="6b0f7-178">Kliknij toodisplay hello listę użytkowników, w menu hello na górze hello **użytkowników**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-178">toodisplay hello list of users, in hello menu on hello top, click **Users**.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="8ecae-180">Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-180">To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.</span></span>
+4. <span data-ttu-id="6b0f7-180">Witaj tooopen **Dodaj użytkownika** kliknij okno dialogowe narzędzi hello na dole hello **Dodaj użytkownika**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-180">tooopen hello **Add User** dialog, in hello toolbar on hello bottom, click **Add User**.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. <span data-ttu-id="8ecae-182">Na **Poinformuj nas o tym użytkowniku** okna dialogowego wykonaj następujące kroki: ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png)</span><span class="sxs-lookup"><span data-stu-id="8ecae-182">On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png)</span></span> 
+5. <span data-ttu-id="6b0f7-182">Na powitania **Poinformuj nas o tym użytkowniku** okna dialogowego wykonaj następujące kroki hello: ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png)</span><span class="sxs-lookup"><span data-stu-id="6b0f7-182">On hello **Tell us about this user** dialog page, perform hello following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png)</span></span> 
 
-    <span data-ttu-id="8ecae-183">a.</span><span class="sxs-lookup"><span data-stu-id="8ecae-183">a.</span></span> <span data-ttu-id="8ecae-184">Jako typ użytkownika wybierz nowego użytkownika w organizacji.</span><span class="sxs-lookup"><span data-stu-id="8ecae-184">As Type Of User, select New user in your organization.</span></span>
+    <span data-ttu-id="6b0f7-183">a.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-183">a.</span></span> <span data-ttu-id="6b0f7-184">Jako typ użytkownika wybierz nowego użytkownika w organizacji.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-184">As Type Of User, select New user in your organization.</span></span>
 
-    <span data-ttu-id="8ecae-185">b.</span><span class="sxs-lookup"><span data-stu-id="8ecae-185">b.</span></span> <span data-ttu-id="8ecae-186">W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-186">In the User Name **textbox**, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="6b0f7-185">b.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-185">b.</span></span> <span data-ttu-id="6b0f7-186">W hello nazwy użytkownika **pole tekstowe**, typ **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-186">In hello User Name **textbox**, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="8ecae-187">c.</span><span class="sxs-lookup"><span data-stu-id="8ecae-187">c.</span></span> <span data-ttu-id="8ecae-188">Kliknij przycisk **Dalej**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-188">Click **Next**.</span></span>
+    <span data-ttu-id="6b0f7-187">c.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-187">c.</span></span> <span data-ttu-id="6b0f7-188">Kliknij przycisk **Dalej**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-188">Click **Next**.</span></span>
 
-6.  <span data-ttu-id="8ecae-189">Na **profilu użytkownika** okna dialogowego wykonaj następujące kroki: ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png)</span><span class="sxs-lookup"><span data-stu-id="8ecae-189">On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png)</span></span> 
+6.  <span data-ttu-id="6b0f7-189">Na powitania **profilu użytkownika** okna dialogowego wykonaj następujące kroki hello: ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png)</span><span class="sxs-lookup"><span data-stu-id="6b0f7-189">On hello **User Profile** dialog page, perform hello following steps: ![Creating an Azure AD test user](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png)</span></span> 
 
-    <span data-ttu-id="8ecae-190">a.</span><span class="sxs-lookup"><span data-stu-id="8ecae-190">a.</span></span> <span data-ttu-id="8ecae-191">W **imię** pole tekstowe, typ **Britta**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-191">In the **First Name** textbox, type **Britta**.</span></span>  
+    <span data-ttu-id="6b0f7-190">a.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-190">a.</span></span> <span data-ttu-id="6b0f7-191">W hello **imię** pole tekstowe, typ **Britta**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-191">In hello **First Name** textbox, type **Britta**.</span></span>  
 
-    <span data-ttu-id="8ecae-192">b.</span><span class="sxs-lookup"><span data-stu-id="8ecae-192">b.</span></span> <span data-ttu-id="8ecae-193">W **nazwisko** pole tekstowe, typ **Simona**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-193">In the **Last Name** textbox, type, **Simon**.</span></span>
+    <span data-ttu-id="6b0f7-192">b.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-192">b.</span></span> <span data-ttu-id="6b0f7-193">W hello **nazwisko** pole tekstowe, typ **Simona**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-193">In hello **Last Name** textbox, type, **Simon**.</span></span>
 
-    <span data-ttu-id="8ecae-194">c.</span><span class="sxs-lookup"><span data-stu-id="8ecae-194">c.</span></span> <span data-ttu-id="8ecae-195">W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-195">In the **Display Name** textbox, type **Britta Simon**.</span></span>
+    <span data-ttu-id="6b0f7-194">c.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-194">c.</span></span> <span data-ttu-id="6b0f7-195">W hello **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-195">In hello **Display Name** textbox, type **Britta Simon**.</span></span>
 
-    <span data-ttu-id="8ecae-196">d.</span><span class="sxs-lookup"><span data-stu-id="8ecae-196">d.</span></span> <span data-ttu-id="8ecae-197">W **roli** listy, wybierz **użytkownika**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-197">In the **Role** list, select **User**.</span></span>
+    <span data-ttu-id="6b0f7-196">d.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-196">d.</span></span> <span data-ttu-id="6b0f7-197">W hello **roli** listy, wybierz **użytkownika**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-197">In hello **Role** list, select **User**.</span></span>
 
-    <span data-ttu-id="8ecae-198">e.</span><span class="sxs-lookup"><span data-stu-id="8ecae-198">e.</span></span> <span data-ttu-id="8ecae-199">Kliknij przycisk **Dalej**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-199">Click **Next**.</span></span>
+    <span data-ttu-id="6b0f7-198">e.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-198">e.</span></span> <span data-ttu-id="6b0f7-199">Kliknij przycisk **Dalej**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-199">Click **Next**.</span></span>
 
-7. <span data-ttu-id="8ecae-200">Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-200">On the **Get temporary password** dialog page, click **create**.</span></span>
+7. <span data-ttu-id="6b0f7-200">Na powitania **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-200">On hello **Get temporary password** dialog page, click **create**.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_07.png) 
 
-8. <span data-ttu-id="8ecae-202">Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="8ecae-202">On the **Get temporary password** dialog page, perform the following steps:</span></span>
+8. <span data-ttu-id="6b0f7-202">Na powitania **Uzyskaj hasło tymczasowe** okna dialogowego wykonaj hello następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="6b0f7-202">On hello **Get temporary password** dialog page, perform hello following steps:</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_08.png) 
 
-    <span data-ttu-id="8ecae-204">a.</span><span class="sxs-lookup"><span data-stu-id="8ecae-204">a.</span></span> <span data-ttu-id="8ecae-205">Zanotuj wartość **nowe hasło**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-205">Write down the value of the **New Password**.</span></span>
+    <span data-ttu-id="6b0f7-204">a.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-204">a.</span></span> <span data-ttu-id="6b0f7-205">Zanotuj wartość hello hello **nowe hasło**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-205">Write down hello value of hello **New Password**.</span></span>
 
-    <span data-ttu-id="8ecae-206">b.</span><span class="sxs-lookup"><span data-stu-id="8ecae-206">b.</span></span> <span data-ttu-id="8ecae-207">Kliknij przycisk **Complete** (Zakończ).</span><span class="sxs-lookup"><span data-stu-id="8ecae-207">Click **Complete**.</span></span>   
-
-
-
-### <a name="creating-a-halosys-test-user"></a><span data-ttu-id="8ecae-208">Tworzenie użytkownika testowego Halosys</span><span class="sxs-lookup"><span data-stu-id="8ecae-208">Creating a Halosys test user</span></span>
-
-<span data-ttu-id="8ecae-209">W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w Halosys.</span><span class="sxs-lookup"><span data-stu-id="8ecae-209">In this section, you create a user called Britta Simon in Halosys.</span></span> <span data-ttu-id="8ecae-210">Należy współpracować z zespołem pomocy technicznej Halosys Aby dodać użytkowników do platformy Halosys.</span><span class="sxs-lookup"><span data-stu-id="8ecae-210">Please work with Halosys support team to add the users in the Halosys platform.</span></span>
+    <span data-ttu-id="6b0f7-206">b.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-206">b.</span></span> <span data-ttu-id="6b0f7-207">Kliknij przycisk **Complete** (Zakończ).</span><span class="sxs-lookup"><span data-stu-id="6b0f7-207">Click **Complete**.</span></span>   
 
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="8ecae-211">Przypisanie użytkownika testowego usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="8ecae-211">Assigning the Azure AD test user</span></span>
 
-<span data-ttu-id="8ecae-212">W tej sekcji można włączyć Simona Britta do udostępnienia jej Halosys za pomocą usługi Azure rejestracji jednokrotnej.</span><span class="sxs-lookup"><span data-stu-id="8ecae-212">In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Halosys.</span></span>
+### <a name="creating-a-halosys-test-user"></a><span data-ttu-id="6b0f7-208">Tworzenie użytkownika testowego Halosys</span><span class="sxs-lookup"><span data-stu-id="6b0f7-208">Creating a Halosys test user</span></span>
+
+<span data-ttu-id="6b0f7-209">W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w Halosys.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-209">In this section, you create a user called Britta Simon in Halosys.</span></span> <span data-ttu-id="6b0f7-210">Należy skontaktować się z Halosys pomocy technicznej zespół tooadd hello użytkowników hello Halosys platformy.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-210">Please work with Halosys support team tooadd hello users in hello Halosys platform.</span></span>
+
+
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="6b0f7-211">Przypisanie użytkownika testowego hello Azure AD</span><span class="sxs-lookup"><span data-stu-id="6b0f7-211">Assigning hello Azure AD test user</span></span>
+
+<span data-ttu-id="6b0f7-212">W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie jej tooHalosys dostępu.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-212">In this section, you enable Britta Simon toouse Azure single sign-on by granting her access tooHalosys.</span></span>
 
 ![Przypisz użytkownika][200] 
 
-<span data-ttu-id="8ecae-214">**Aby przypisać Simona Britta Halosys, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="8ecae-214">**To assign Britta Simon to Halosys, perform the following steps:**</span></span>
+<span data-ttu-id="6b0f7-214">**tooassign tooHalosys Simona Britta wykonaj hello następujące kroki:**</span><span class="sxs-lookup"><span data-stu-id="6b0f7-214">**tooassign Britta Simon tooHalosys, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="8ecae-215">W klasycznym portalu, aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.</span><span class="sxs-lookup"><span data-stu-id="8ecae-215">On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.</span></span>
+1. <span data-ttu-id="6b0f7-215">W portalu klasycznym hello, kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-215">On hello classic portal, tooopen hello applications view, in hello directory view, click **Applications** in hello top menu.</span></span>
 
     ![Przypisz użytkownika][201] 
 
-2. <span data-ttu-id="8ecae-217">Na liście aplikacji zaznacz **Halosys**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-217">In the applications list, select **Halosys**.</span></span>
+2. <span data-ttu-id="6b0f7-217">Z listy aplikacji hello wybierz **Halosys**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-217">In hello applications list, select **Halosys**.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_50.png) 
 
-3. <span data-ttu-id="8ecae-219">W menu u góry kliknij **użytkowników**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-219">In the menu on the top, click **Users**.</span></span>
+3. <span data-ttu-id="6b0f7-219">W menu hello na górze hello, kliknij przycisk **użytkowników**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-219">In hello menu on hello top, click **Users**.</span></span>
 
     ![Przypisz użytkownika][203]
 
-4. <span data-ttu-id="8ecae-221">Na liście użytkowników wybierz **Simona Britta**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-221">In the Users list, select **Britta Simon**.</span></span>
+4. <span data-ttu-id="6b0f7-221">Na liście hello użytkowników, wybierz **Simona Britta**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-221">In hello Users list, select **Britta Simon**.</span></span>
 
-5. <span data-ttu-id="8ecae-222">Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.</span><span class="sxs-lookup"><span data-stu-id="8ecae-222">In the toolbar on the bottom, click **Assign**.</span></span>
+5. <span data-ttu-id="6b0f7-222">W narzędzi hello na dole powitania kliknij **przypisać**.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-222">In hello toolbar on hello bottom, click **Assign**.</span></span>
 
     ![Przypisz użytkownika][205]
 
 
-### <a name="testing-single-sign-on"></a><span data-ttu-id="8ecae-224">Testowanie rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="8ecae-224">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="6b0f7-224">Testowanie rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="6b0f7-224">Testing single sign-on</span></span>
 
-<span data-ttu-id="8ecae-225">W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.</span><span class="sxs-lookup"><span data-stu-id="8ecae-225">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="6b0f7-225">W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-225">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="8ecae-226">Po kliknięciu kafelka Halosys w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Halosys.</span><span class="sxs-lookup"><span data-stu-id="8ecae-226">When you click the Halosys tile in the Access Panel, you should get automatically signed-on to your Halosys application.</span></span>
+<span data-ttu-id="6b0f7-226">Po kliknięciu powitalne Halosys kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Halosys aplikacji.</span><span class="sxs-lookup"><span data-stu-id="6b0f7-226">When you click hello Halosys tile in hello Access Panel, you should get automatically signed-on tooyour Halosys application.</span></span>
 
 
-## <a name="additional-resources"></a><span data-ttu-id="8ecae-227">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="8ecae-227">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="6b0f7-227">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="6b0f7-227">Additional resources</span></span>
 
-* [<span data-ttu-id="8ecae-228">Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="8ecae-228">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="8ecae-229">Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="8ecae-229">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="6b0f7-228">Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="6b0f7-228">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="6b0f7-229">Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="6b0f7-229">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->

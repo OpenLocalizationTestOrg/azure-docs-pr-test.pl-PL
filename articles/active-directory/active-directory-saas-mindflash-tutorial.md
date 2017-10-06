@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Mindflash | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Mindflash."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Mindflash."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,228 +13,228 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 90de7b6a82d88f9407a35fbfebe8a652928d76cd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a1bc327ea3867287103acbb64d30f0a8d7d4c5e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mindflash"></a><span data-ttu-id="78ace-103">Samouczek: Integracji Azure Active Directory z Mindflash</span><span class="sxs-lookup"><span data-stu-id="78ace-103">Tutorial: Azure Active Directory integration with Mindflash</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-mindflash"></a><span data-ttu-id="48ea7-103">Samouczek: Integracji Azure Active Directory z Mindflash</span><span class="sxs-lookup"><span data-stu-id="48ea7-103">Tutorial: Azure Active Directory integration with Mindflash</span></span>
 
-<span data-ttu-id="78ace-104">Z tego samouczka dowiesz się integrowanie Mindflash z usługi Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="78ace-104">In this tutorial, you learn how to integrate Mindflash with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="48ea7-104">Z tego samouczka, dowiesz się, jak toointegrate Mindflash w usłudze Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="48ea7-104">In this tutorial, you learn how toointegrate Mindflash with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="78ace-105">Integracja z usługą Azure AD Mindflash zapewnia następujące korzyści:</span><span class="sxs-lookup"><span data-stu-id="78ace-105">Integrating Mindflash with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="48ea7-105">Integracja z usługą Azure AD Mindflash zapewnia hello następujące korzyści:</span><span class="sxs-lookup"><span data-stu-id="48ea7-105">Integrating Mindflash with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="78ace-106">Można kontrolować w usłudze Azure AD, który ma dostęp do Mindflash</span><span class="sxs-lookup"><span data-stu-id="78ace-106">You can control in Azure AD who has access to Mindflash</span></span>
-- <span data-ttu-id="78ace-107">Umożliwia użytkownikom automatycznie pobrać zalogowane do Mindflash (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="78ace-107">You can enable your users to automatically get signed-on to Mindflash (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="78ace-108">Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure</span><span class="sxs-lookup"><span data-stu-id="78ace-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="48ea7-106">Można kontrolować w usłudze Azure AD, kto ma dostęp do tooMindflash</span><span class="sxs-lookup"><span data-stu-id="48ea7-106">You can control in Azure AD who has access tooMindflash</span></span>
+- <span data-ttu-id="48ea7-107">Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooMindflash (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="48ea7-107">You can enable your users tooautomatically get signed-on tooMindflash (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="48ea7-108">Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure</span><span class="sxs-lookup"><span data-stu-id="48ea7-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="78ace-109">Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="78ace-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="48ea7-109">Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="48ea7-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="78ace-110">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="78ace-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="48ea7-110">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="48ea7-110">Prerequisites</span></span>
 
-<span data-ttu-id="78ace-111">Aby skonfigurować integrację usługi Azure AD z Mindflash, potrzebne są następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="78ace-111">To configure Azure AD integration with Mindflash, you need the following items:</span></span>
+<span data-ttu-id="48ea7-111">tooconfigure integracji z usługą Azure AD z Mindflash należy hello następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="48ea7-111">tooconfigure Azure AD integration with Mindflash, you need hello following items:</span></span>
 
-- <span data-ttu-id="78ace-112">Subskrypcję usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="78ace-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="78ace-113">Mindflash logowanie jednokrotne włączone subskrypcji</span><span class="sxs-lookup"><span data-stu-id="78ace-113">A Mindflash single sign-on enabled subscription</span></span>
+- <span data-ttu-id="48ea7-112">Subskrypcję usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="48ea7-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="48ea7-113">Mindflash logowanie jednokrotne włączone subskrypcji</span><span class="sxs-lookup"><span data-stu-id="48ea7-113">A Mindflash single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="78ace-114">Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.</span><span class="sxs-lookup"><span data-stu-id="78ace-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="48ea7-114">tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.</span><span class="sxs-lookup"><span data-stu-id="48ea7-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="78ace-115">Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:</span><span class="sxs-lookup"><span data-stu-id="78ace-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="48ea7-115">tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:</span><span class="sxs-lookup"><span data-stu-id="48ea7-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="78ace-116">Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.</span><span class="sxs-lookup"><span data-stu-id="78ace-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="78ace-117">Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="78ace-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="48ea7-116">Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.</span><span class="sxs-lookup"><span data-stu-id="48ea7-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="48ea7-117">Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="48ea7-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="78ace-118">Opis scenariusza</span><span class="sxs-lookup"><span data-stu-id="78ace-118">Scenario description</span></span>
-<span data-ttu-id="78ace-119">W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym.</span><span class="sxs-lookup"><span data-stu-id="78ace-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="78ace-120">Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:</span><span class="sxs-lookup"><span data-stu-id="78ace-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="48ea7-118">Opis scenariusza</span><span class="sxs-lookup"><span data-stu-id="48ea7-118">Scenario description</span></span>
+<span data-ttu-id="48ea7-119">W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym.</span><span class="sxs-lookup"><span data-stu-id="48ea7-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="48ea7-120">Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:</span><span class="sxs-lookup"><span data-stu-id="48ea7-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="78ace-121">Dodawanie Mindflash z galerii</span><span class="sxs-lookup"><span data-stu-id="78ace-121">Adding Mindflash from the gallery</span></span>
-2. <span data-ttu-id="78ace-122">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="78ace-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="48ea7-121">Dodawanie Mindflash z galerii hello</span><span class="sxs-lookup"><span data-stu-id="48ea7-121">Adding Mindflash from hello gallery</span></span>
+2. <span data-ttu-id="48ea7-122">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="48ea7-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-mindflash-from-the-gallery"></a><span data-ttu-id="78ace-123">Dodawanie Mindflash z galerii</span><span class="sxs-lookup"><span data-stu-id="78ace-123">Adding Mindflash from the gallery</span></span>
-<span data-ttu-id="78ace-124">Aby skonfigurować integrację usługi Azure AD Mindflash, należy dodać Mindflash z galerii do listy zarządzanych aplikacji SaaS.</span><span class="sxs-lookup"><span data-stu-id="78ace-124">To configure the integration of Mindflash into Azure AD, you need to add Mindflash from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-mindflash-from-hello-gallery"></a><span data-ttu-id="48ea7-123">Dodawanie Mindflash z galerii hello</span><span class="sxs-lookup"><span data-stu-id="48ea7-123">Adding Mindflash from hello gallery</span></span>
+<span data-ttu-id="48ea7-124">tooconfigure hello integracji Mindflash do usługi Azure AD, należy tooadd Mindflash z hello galerii tooyour listę zarządzanych aplikacji SaaS.</span><span class="sxs-lookup"><span data-stu-id="48ea7-124">tooconfigure hello integration of Mindflash into Azure AD, you need tooadd Mindflash from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="78ace-125">**Aby dodać Mindflash z galerii, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="78ace-125">**To add Mindflash from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="48ea7-125">**tooadd Mindflash z galerii hello, wykonaj następujące kroki hello:**</span><span class="sxs-lookup"><span data-stu-id="48ea7-125">**tooadd Mindflash from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="78ace-126">W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony.</span><span class="sxs-lookup"><span data-stu-id="78ace-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="48ea7-126">W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony.</span><span class="sxs-lookup"><span data-stu-id="48ea7-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Usługa Active Directory][1]
 
-2. <span data-ttu-id="78ace-128">Przejdź do **aplikacje dla przedsiębiorstw**.</span><span class="sxs-lookup"><span data-stu-id="78ace-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="78ace-129">Następnie przejdź do **wszystkie aplikacje**.</span><span class="sxs-lookup"><span data-stu-id="78ace-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="48ea7-128">Przejdź za**aplikacje dla przedsiębiorstw**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="48ea7-129">Następnie przejdź zbyt**wszystkie aplikacje**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-129">Then go too**All applications**.</span></span>
 
     ![Aplikacje][2]
     
-3. <span data-ttu-id="78ace-131">Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="78ace-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="48ea7-131">tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="48ea7-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplikacje][3]
 
-4. <span data-ttu-id="78ace-133">W polu wyszukiwania wpisz **Mindflash**.</span><span class="sxs-lookup"><span data-stu-id="78ace-133">In the search box, type **Mindflash**.</span></span>
+4. <span data-ttu-id="48ea7-133">W polu wyszukiwania hello wpisz **Mindflash**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-133">In hello search box, type **Mindflash**.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mindflash-tutorial/tutorial_mindflash_search.png)
 
-5. <span data-ttu-id="78ace-135">W panelu wyników wybierz **Mindflash**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.</span><span class="sxs-lookup"><span data-stu-id="78ace-135">In the results panel, select **Mindflash**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="48ea7-135">W panelu wyników hello zaznacz **Mindflash**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.</span><span class="sxs-lookup"><span data-stu-id="48ea7-135">In hello results panel, select **Mindflash**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mindflash-tutorial/tutorial_mindflash_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="78ace-137">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="78ace-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="78ace-138">W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Mindflash w oparciu o nazwie "Britta Simona" użytkownika testowego.</span><span class="sxs-lookup"><span data-stu-id="78ace-138">In this section, you configure and test Azure AD single sign-on with Mindflash based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="48ea7-137">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="48ea7-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="48ea7-138">W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Mindflash w oparciu o nazwie "Britta Simona" użytkownika testowego.</span><span class="sxs-lookup"><span data-stu-id="48ea7-138">In this section, you configure and test Azure AD single sign-on with Mindflash based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="78ace-139">Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Mindflash jest dla użytkownika, w usłudze Azure AD.</span><span class="sxs-lookup"><span data-stu-id="78ace-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Mindflash is to a user in Azure AD.</span></span> <span data-ttu-id="78ace-140">Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Mindflash musi się.</span><span class="sxs-lookup"><span data-stu-id="78ace-140">In other words, a link relationship between an Azure AD user and the related user in Mindflash needs to be established.</span></span>
+<span data-ttu-id="48ea7-139">Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Mindflash jest tooa użytkownika w usłudze Azure AD.</span><span class="sxs-lookup"><span data-stu-id="48ea7-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Mindflash is tooa user in Azure AD.</span></span> <span data-ttu-id="48ea7-140">Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Mindflash musi toobe ustanowione.</span><span class="sxs-lookup"><span data-stu-id="48ea7-140">In other words, a link relationship between an Azure AD user and hello related user in Mindflash needs toobe established.</span></span>
 
-<span data-ttu-id="78ace-141">W Mindflash, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.</span><span class="sxs-lookup"><span data-stu-id="78ace-141">In Mindflash, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="48ea7-141">W Mindflash, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.</span><span class="sxs-lookup"><span data-stu-id="48ea7-141">In Mindflash, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="78ace-142">Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Mindflash, należy wykonać poniższe bloki konstrukcyjne:</span><span class="sxs-lookup"><span data-stu-id="78ace-142">To configure and test Azure AD single sign-on with Mindflash, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="48ea7-142">tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Mindflash, należy po bloków konstrukcyjnych hello toocomplete:</span><span class="sxs-lookup"><span data-stu-id="48ea7-142">tooconfigure and test Azure AD single sign-on with Mindflash, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="78ace-143">**[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.</span><span class="sxs-lookup"><span data-stu-id="78ace-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="78ace-144">**[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="78ace-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="78ace-145">**[Tworzenie użytkownika testowego Mindflash](#creating-a-mindflash-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Mindflash połączonego z usługi Azure AD reprezentację użytkownika.</span><span class="sxs-lookup"><span data-stu-id="78ace-145">**[Creating a Mindflash test user](#creating-a-mindflash-test-user)** - to have a counterpart of Britta Simon in Mindflash that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="78ace-146">**[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.</span><span class="sxs-lookup"><span data-stu-id="78ace-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="78ace-147">**[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.</span><span class="sxs-lookup"><span data-stu-id="78ace-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="48ea7-143">**[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.</span><span class="sxs-lookup"><span data-stu-id="48ea7-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="48ea7-144">**[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="48ea7-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="48ea7-145">**[Tworzenie użytkownika testowego Mindflash](#creating-a-mindflash-test-user)**  -toohave odpowiednikiem Simona Britta w Mindflash, który jest połączony toohello usługi Azure AD reprezentację użytkownika.</span><span class="sxs-lookup"><span data-stu-id="48ea7-145">**[Creating a Mindflash test user](#creating-a-mindflash-test-user)** - toohave a counterpart of Britta Simon in Mindflash that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="48ea7-146">**[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.</span><span class="sxs-lookup"><span data-stu-id="48ea7-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="48ea7-147">**[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.</span><span class="sxs-lookup"><span data-stu-id="48ea7-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="78ace-148">Konfigurowanie usługi Azure AD rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="78ace-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="48ea7-148">Konfigurowanie usługi Azure AD rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="48ea7-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="78ace-149">W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Mindflash.</span><span class="sxs-lookup"><span data-stu-id="78ace-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Mindflash application.</span></span>
+<span data-ttu-id="48ea7-149">W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Mindflash.</span><span class="sxs-lookup"><span data-stu-id="48ea7-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Mindflash application.</span></span>
 
-<span data-ttu-id="78ace-150">**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Mindflash, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="78ace-150">**To configure Azure AD single sign-on with Mindflash, perform the following steps:**</span></span>
+<span data-ttu-id="48ea7-150">**tooconfigure usługi Azure AD rejestracji jednokrotnej z Mindflash, wykonaj następujące kroki hello:**</span><span class="sxs-lookup"><span data-stu-id="48ea7-150">**tooconfigure Azure AD single sign-on with Mindflash, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="78ace-151">W portalu Azure na **Mindflash** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.</span><span class="sxs-lookup"><span data-stu-id="78ace-151">In the Azure portal, on the **Mindflash** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="48ea7-151">W portalu Azure na powitania hello **Mindflash** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-151">In hello Azure portal, on hello **Mindflash** application integration page, click **Single sign-on**.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. <span data-ttu-id="78ace-153">Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.</span><span class="sxs-lookup"><span data-stu-id="78ace-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="48ea7-153">Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.</span><span class="sxs-lookup"><span data-stu-id="48ea7-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mindflash-tutorial/tutorial_mindflash_samlbase.png)
 
-3. <span data-ttu-id="78ace-155">Na **Mindflash domeny i adres URL** sekcji, wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="78ace-155">On the **Mindflash Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="48ea7-155">Na powitania **Mindflash domeny i adres URL** sekcji, wykonaj następujące kroki hello:</span><span class="sxs-lookup"><span data-stu-id="48ea7-155">On hello **Mindflash Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mindflash-tutorial/tutorial_mindflash_url.png)
 
-    <span data-ttu-id="78ace-157">a.</span><span class="sxs-lookup"><span data-stu-id="78ace-157">a.</span></span> <span data-ttu-id="78ace-158">W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.mindflash.com`</span><span class="sxs-lookup"><span data-stu-id="78ace-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.mindflash.com`</span></span>
+    <span data-ttu-id="48ea7-157">a.</span><span class="sxs-lookup"><span data-stu-id="48ea7-157">a.</span></span> <span data-ttu-id="48ea7-158">W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<companyname>.mindflash.com`</span><span class="sxs-lookup"><span data-stu-id="48ea7-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<companyname>.mindflash.com`</span></span>
 
-    <span data-ttu-id="78ace-159">b.</span><span class="sxs-lookup"><span data-stu-id="78ace-159">b.</span></span> <span data-ttu-id="78ace-160">W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.mindflash.com`</span><span class="sxs-lookup"><span data-stu-id="78ace-160">In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.mindflash.com`</span></span>
+    <span data-ttu-id="48ea7-159">b.</span><span class="sxs-lookup"><span data-stu-id="48ea7-159">b.</span></span> <span data-ttu-id="48ea7-160">W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<companyname>.mindflash.com`</span><span class="sxs-lookup"><span data-stu-id="48ea7-160">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<companyname>.mindflash.com`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="78ace-161">Wartości te nie są prawdziwe.</span><span class="sxs-lookup"><span data-stu-id="78ace-161">These values are not real.</span></span> <span data-ttu-id="78ace-162">Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości.</span><span class="sxs-lookup"><span data-stu-id="78ace-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="78ace-163">Skontaktuj się z [zespołem pomocy technicznej klienta Mindflash](https://www.mindflash.com/contact/) uzyskać te wartości.</span><span class="sxs-lookup"><span data-stu-id="78ace-163">Contact [Mindflash Client support team](https://www.mindflash.com/contact/) to get these values.</span></span> 
+    > <span data-ttu-id="48ea7-161">Wartości te nie są prawdziwe.</span><span class="sxs-lookup"><span data-stu-id="48ea7-161">These values are not real.</span></span> <span data-ttu-id="48ea7-162">Zaktualizować te wartości z hello rzeczywisty adres URL logowania i identyfikator.</span><span class="sxs-lookup"><span data-stu-id="48ea7-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="48ea7-163">Skontaktuj się z [zespołem pomocy technicznej klienta Mindflash](https://www.mindflash.com/contact/) tooget tych wartości.</span><span class="sxs-lookup"><span data-stu-id="48ea7-163">Contact [Mindflash Client support team](https://www.mindflash.com/contact/) tooget these values.</span></span> 
  
 
 
-4. <span data-ttu-id="78ace-164">Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.</span><span class="sxs-lookup"><span data-stu-id="78ace-164">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="48ea7-164">Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.</span><span class="sxs-lookup"><span data-stu-id="48ea7-164">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mindflash-tutorial/tutorial_mindflash_certificate.png) 
 
-5. <span data-ttu-id="78ace-166">Kliknij przycisk **zapisać** przycisku.</span><span class="sxs-lookup"><span data-stu-id="78ace-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="48ea7-166">Kliknij przycisk **zapisać** przycisku.</span><span class="sxs-lookup"><span data-stu-id="48ea7-166">Click **Save** button.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mindflash-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="78ace-168">Skonfigurować logowanie jednokrotne w **Mindflash** stronie, musisz wysłać pobrany **XML metadanych** do [zespołem pomocy technicznej Mindflash](https://www.mindflash.com/contact/).</span><span class="sxs-lookup"><span data-stu-id="78ace-168">To configure single sign-on on **Mindflash** side, you need to send the downloaded **Metadata XML** to [Mindflash support team](https://www.mindflash.com/contact/).</span></span>
+6. <span data-ttu-id="48ea7-168">tooconfigure rejestracji jednokrotnej w **Mindflash** strony, należy pobrać hello toosend **XML metadanych** za[zespołem pomocy technicznej Mindflash](https://www.mindflash.com/contact/).</span><span class="sxs-lookup"><span data-stu-id="48ea7-168">tooconfigure single sign-on on **Mindflash** side, you need toosend hello downloaded **Metadata XML** too[Mindflash support team](https://www.mindflash.com/contact/).</span></span>
 
 > [!TIP]
-> <span data-ttu-id="78ace-169">Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!</span><span class="sxs-lookup"><span data-stu-id="78ace-169">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="78ace-170">Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu.</span><span class="sxs-lookup"><span data-stu-id="78ace-170">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="78ace-171">Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="78ace-171">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="48ea7-169">Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!</span><span class="sxs-lookup"><span data-stu-id="48ea7-169">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="48ea7-170">Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello.</span><span class="sxs-lookup"><span data-stu-id="48ea7-170">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="48ea7-171">Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="48ea7-171">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="78ace-172">Tworzenie użytkownika testowego usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="78ace-172">Creating an Azure AD test user</span></span>
-<span data-ttu-id="78ace-173">Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="78ace-173">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="48ea7-172">Tworzenie użytkownika testowego usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="48ea7-172">Creating an Azure AD test user</span></span>
+<span data-ttu-id="48ea7-173">Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.</span><span class="sxs-lookup"><span data-stu-id="48ea7-173">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-<span data-ttu-id="78ace-175">**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="78ace-175">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="48ea7-175">**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**</span><span class="sxs-lookup"><span data-stu-id="48ea7-175">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="78ace-176">W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.</span><span class="sxs-lookup"><span data-stu-id="78ace-176">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="48ea7-176">W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.</span><span class="sxs-lookup"><span data-stu-id="48ea7-176">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mindflash-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="78ace-178">Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.</span><span class="sxs-lookup"><span data-stu-id="78ace-178">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="48ea7-178">toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-178">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mindflash-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="78ace-180">Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="78ace-180">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="48ea7-180">Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="48ea7-180">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mindflash-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="78ace-182">Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="78ace-182">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="48ea7-182">Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="48ea7-182">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-mindflash-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="78ace-184">a.</span><span class="sxs-lookup"><span data-stu-id="78ace-184">a.</span></span> <span data-ttu-id="78ace-185">W **nazwa** pole tekstowe, typ **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="78ace-185">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="48ea7-184">a.</span><span class="sxs-lookup"><span data-stu-id="48ea7-184">a.</span></span> <span data-ttu-id="48ea7-185">W hello **nazwa** pole tekstowe, typ **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-185">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="78ace-186">b.</span><span class="sxs-lookup"><span data-stu-id="78ace-186">b.</span></span> <span data-ttu-id="78ace-187">W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="78ace-187">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="48ea7-186">b.</span><span class="sxs-lookup"><span data-stu-id="48ea7-186">b.</span></span> <span data-ttu-id="48ea7-187">W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="48ea7-187">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="78ace-188">c.</span><span class="sxs-lookup"><span data-stu-id="78ace-188">c.</span></span> <span data-ttu-id="78ace-189">Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.</span><span class="sxs-lookup"><span data-stu-id="78ace-189">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="48ea7-188">c.</span><span class="sxs-lookup"><span data-stu-id="48ea7-188">c.</span></span> <span data-ttu-id="48ea7-189">Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-189">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="78ace-190">d.</span><span class="sxs-lookup"><span data-stu-id="78ace-190">d.</span></span> <span data-ttu-id="78ace-191">Kliknij przycisk **Utwórz**.</span><span class="sxs-lookup"><span data-stu-id="78ace-191">Click **Create**.</span></span>
+    <span data-ttu-id="48ea7-190">d.</span><span class="sxs-lookup"><span data-stu-id="48ea7-190">d.</span></span> <span data-ttu-id="48ea7-191">Kliknij przycisk **Utwórz**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-191">Click **Create**.</span></span>
  
-### <a name="creating-a-mindflash-test-user"></a><span data-ttu-id="78ace-192">Tworzenie użytkownika testowego Mindflash</span><span class="sxs-lookup"><span data-stu-id="78ace-192">Creating a Mindflash test user</span></span>
+### <a name="creating-a-mindflash-test-user"></a><span data-ttu-id="48ea7-192">Tworzenie użytkownika testowego Mindflash</span><span class="sxs-lookup"><span data-stu-id="48ea7-192">Creating a Mindflash test user</span></span>
 
-<span data-ttu-id="78ace-193">Aby włączyć użytkowników usługi Azure AD zalogować się do Mindflash, musi być przygotowana do Mindflash.</span><span class="sxs-lookup"><span data-stu-id="78ace-193">In order to enable Azure AD users to log into Mindflash, they must be provisioned into Mindflash.</span></span> <span data-ttu-id="78ace-194">W przypadku Mindflash Inicjowanie obsługi to zadanie ręczne.</span><span class="sxs-lookup"><span data-stu-id="78ace-194">In the case of Mindflash, provisioning is a manual task.</span></span>
+<span data-ttu-id="48ea7-193">W przypadku użytkowników usługi Azure AD toolog kolejności tooenable do Mindflash muszą mieć przydzielone do Mindflash.</span><span class="sxs-lookup"><span data-stu-id="48ea7-193">In order tooenable Azure AD users toolog into Mindflash, they must be provisioned into Mindflash.</span></span> <span data-ttu-id="48ea7-194">W przypadku hello Mindflash Inicjowanie obsługi to zadanie ręczne.</span><span class="sxs-lookup"><span data-stu-id="48ea7-194">In hello case of Mindflash, provisioning is a manual task.</span></span>
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a><span data-ttu-id="78ace-195">Aby udostępnić konta użytkowników, wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="78ace-195">To provision a user accounts, perform the following steps:</span></span>
+### <a name="tooprovision-a-user-accounts-perform-hello-following-steps"></a><span data-ttu-id="48ea7-195">tooprovision kont użytkowników, wykonaj hello następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="48ea7-195">tooprovision a user accounts, perform hello following steps:</span></span>
 
-1. <span data-ttu-id="78ace-196">Zaloguj się do Twojego **Mindflash** witryny firmy jako administrator.</span><span class="sxs-lookup"><span data-stu-id="78ace-196">Log in to your **Mindflash** company site as an administrator.</span></span>
+1. <span data-ttu-id="48ea7-196">Zaloguj się za tooyour **Mindflash** witryny firmy jako administrator.</span><span class="sxs-lookup"><span data-stu-id="48ea7-196">Log in tooyour **Mindflash** company site as an administrator.</span></span>
 
-2. <span data-ttu-id="78ace-197">Przejdź do **Zarządzanie użytkownikami**.</span><span class="sxs-lookup"><span data-stu-id="78ace-197">Go to **Manage Users**.</span></span>
+2. <span data-ttu-id="48ea7-197">Przejdź za**Zarządzanie użytkownikami**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-197">Go too**Manage Users**.</span></span>
    
-    <span data-ttu-id="78ace-198">![Zarządzaj użytkownikami](./media/active-directory-saas-mindflash-tutorial/ic787140.png "Zarządzanie użytkownikami")</span><span class="sxs-lookup"><span data-stu-id="78ace-198">![Manage Users](./media/active-directory-saas-mindflash-tutorial/ic787140.png "Manage Users")</span></span>
+    <span data-ttu-id="48ea7-198">![Zarządzaj użytkownikami](./media/active-directory-saas-mindflash-tutorial/ic787140.png "Zarządzanie użytkownikami")</span><span class="sxs-lookup"><span data-stu-id="48ea7-198">![Manage Users](./media/active-directory-saas-mindflash-tutorial/ic787140.png "Manage Users")</span></span>
 
-3. <span data-ttu-id="78ace-199">Kliknij przycisk **Dodaj użytkowników**, a następnie kliknij przycisk **nowy**.</span><span class="sxs-lookup"><span data-stu-id="78ace-199">Click the **Add Users**, and then click **New**.</span></span>
+3. <span data-ttu-id="48ea7-199">Kliknij przycisk hello **Dodaj użytkowników**, a następnie kliknij przycisk **nowy**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-199">Click hello **Add Users**, and then click **New**.</span></span>
 
-4. <span data-ttu-id="78ace-200">W **Dodaj nowych użytkowników** sekcji, wykonaj następujące kroki prawidłowy Azure AD konta chcesz udostępnić:</span><span class="sxs-lookup"><span data-stu-id="78ace-200">In the **Add New Users** section, perform the following steps of a valid Azure AD account you want to provision:</span></span>
+4. <span data-ttu-id="48ea7-200">W hello **Dodaj nowych użytkowników** sekcji, wykonaj następujące kroki prawidłowy Azure hello konta AD ma tooprovision:</span><span class="sxs-lookup"><span data-stu-id="48ea7-200">In hello **Add New Users** section, perform hello following steps of a valid Azure AD account you want tooprovision:</span></span>
    
-    <span data-ttu-id="78ace-201">![Dodawanie nowych użytkowników](./media/active-directory-saas-mindflash-tutorial/ic787141.png "Dodawanie nowych użytkowników")</span><span class="sxs-lookup"><span data-stu-id="78ace-201">![Add New Users](./media/active-directory-saas-mindflash-tutorial/ic787141.png "Add New Users")</span></span>
+    <span data-ttu-id="48ea7-201">![Dodawanie nowych użytkowników](./media/active-directory-saas-mindflash-tutorial/ic787141.png "Dodawanie nowych użytkowników")</span><span class="sxs-lookup"><span data-stu-id="48ea7-201">![Add New Users](./media/active-directory-saas-mindflash-tutorial/ic787141.png "Add New Users")</span></span>
    
-    <span data-ttu-id="78ace-202">a.</span><span class="sxs-lookup"><span data-stu-id="78ace-202">a.</span></span> <span data-ttu-id="78ace-203">W **imię** pole tekstowe, typ **imię** użytkownika jako **Britta**.</span><span class="sxs-lookup"><span data-stu-id="78ace-203">In the **First name** textbox, type **First name** of the user as **Britta**.</span></span>
+    <span data-ttu-id="48ea7-202">a.</span><span class="sxs-lookup"><span data-stu-id="48ea7-202">a.</span></span> <span data-ttu-id="48ea7-203">W hello **imię** pole tekstowe, typ **imię** hello użytkownika jako **Britta**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-203">In hello **First name** textbox, type **First name** of hello user as **Britta**.</span></span>
 
-    <span data-ttu-id="78ace-204">b.</span><span class="sxs-lookup"><span data-stu-id="78ace-204">b.</span></span> <span data-ttu-id="78ace-205">W **nazwisko** pole tekstowe, typ **nazwisko** użytkownika jako **Simona**.</span><span class="sxs-lookup"><span data-stu-id="78ace-205">In the **Last name** textbox, type **Last name** of the user as **Simon**.</span></span>
+    <span data-ttu-id="48ea7-204">b.</span><span class="sxs-lookup"><span data-stu-id="48ea7-204">b.</span></span> <span data-ttu-id="48ea7-205">W hello **nazwisko** pole tekstowe, typ **nazwisko** hello użytkownika jako **Simona**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-205">In hello **Last name** textbox, type **Last name** of hello user as **Simon**.</span></span>
     
-    <span data-ttu-id="78ace-206">c.</span><span class="sxs-lookup"><span data-stu-id="78ace-206">c.</span></span> <span data-ttu-id="78ace-207">W **E-mail** pole tekstowe, typ **adres E-mail** użytkownika jako  **BrittaSimon@contoso.com** .</span><span class="sxs-lookup"><span data-stu-id="78ace-207">In the **Email** textbox, type **Email Address** of the user as **BrittaSimon@contoso.com**.</span></span>
+    <span data-ttu-id="48ea7-206">c.</span><span class="sxs-lookup"><span data-stu-id="48ea7-206">c.</span></span> <span data-ttu-id="48ea7-207">W hello **E-mail** pole tekstowe, typ **adres E-mail** hello użytkownika jako  **BrittaSimon@contoso.com** .</span><span class="sxs-lookup"><span data-stu-id="48ea7-207">In hello **Email** textbox, type **Email Address** of hello user as **BrittaSimon@contoso.com**.</span></span>
 
-    <span data-ttu-id="78ace-208">b.</span><span class="sxs-lookup"><span data-stu-id="78ace-208">b.</span></span> <span data-ttu-id="78ace-209">Kliknij pozycję **Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="78ace-209">Click **Add**.</span></span>
+    <span data-ttu-id="48ea7-208">b.</span><span class="sxs-lookup"><span data-stu-id="48ea7-208">b.</span></span> <span data-ttu-id="48ea7-209">Kliknij pozycję **Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-209">Click **Add**.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="78ace-210">Możesz użyć innych Mindflash użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Mindflash do kont użytkowników usługi AAD.</span><span class="sxs-lookup"><span data-stu-id="78ace-210">You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision AAD user accounts.</span></span> 
+><span data-ttu-id="48ea7-210">Możesz użyć innych Mindflash użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Mindflash tooprovision kont użytkowników usługi AAD.</span><span class="sxs-lookup"><span data-stu-id="48ea7-210">You can use any other Mindflash user account creation tools or APIs provided by Mindflash tooprovision AAD user accounts.</span></span> 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="78ace-211">Przypisanie użytkownika testowego usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="78ace-211">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="48ea7-211">Przypisanie użytkownika testowego hello Azure AD</span><span class="sxs-lookup"><span data-stu-id="48ea7-211">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="78ace-212">W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Mindflash.</span><span class="sxs-lookup"><span data-stu-id="78ace-212">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Mindflash.</span></span>
+<span data-ttu-id="48ea7-212">W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooMindflash.</span><span class="sxs-lookup"><span data-stu-id="48ea7-212">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooMindflash.</span></span>
 
 ![Przypisz użytkownika][200] 
 
-<span data-ttu-id="78ace-214">**Aby przypisać Simona Britta Mindflash, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="78ace-214">**To assign Britta Simon to Mindflash, perform the following steps:**</span></span>
+<span data-ttu-id="48ea7-214">**tooassign tooMindflash Simona Britta wykonaj hello następujące kroki:**</span><span class="sxs-lookup"><span data-stu-id="48ea7-214">**tooassign Britta Simon tooMindflash, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="78ace-215">W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.</span><span class="sxs-lookup"><span data-stu-id="78ace-215">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="48ea7-215">W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-215">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Przypisz użytkownika][201] 
 
-2. <span data-ttu-id="78ace-217">Na liście aplikacji zaznacz **Mindflash**.</span><span class="sxs-lookup"><span data-stu-id="78ace-217">In the applications list, select **Mindflash**.</span></span>
+2. <span data-ttu-id="48ea7-217">Z listy aplikacji hello wybierz **Mindflash**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-217">In hello applications list, select **Mindflash**.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-mindflash-tutorial/tutorial_mindflash_app.png) 
 
-3. <span data-ttu-id="78ace-219">W menu po lewej stronie kliknij **użytkowników i grup**.</span><span class="sxs-lookup"><span data-stu-id="78ace-219">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="48ea7-219">W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.</span><span class="sxs-lookup"><span data-stu-id="48ea7-219">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Przypisz użytkownika][202] 
 
-4. <span data-ttu-id="78ace-221">Kliknij przycisk **Dodaj** przycisku.</span><span class="sxs-lookup"><span data-stu-id="78ace-221">Click **Add** button.</span></span> <span data-ttu-id="78ace-222">Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="78ace-222">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="48ea7-221">Kliknij przycisk **Dodaj** przycisku.</span><span class="sxs-lookup"><span data-stu-id="48ea7-221">Click **Add** button.</span></span> <span data-ttu-id="48ea7-222">Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="48ea7-222">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Przypisz użytkownika][203]
 
-5. <span data-ttu-id="78ace-224">Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.</span><span class="sxs-lookup"><span data-stu-id="78ace-224">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="48ea7-224">Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.</span><span class="sxs-lookup"><span data-stu-id="48ea7-224">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="78ace-225">Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="78ace-225">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="48ea7-225">Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="48ea7-225">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="78ace-226">Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="78ace-226">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="48ea7-226">Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="48ea7-226">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="78ace-227">Testowanie rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="78ace-227">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="48ea7-227">Testowanie rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="48ea7-227">Testing single sign-on</span></span>
 
-<span data-ttu-id="78ace-228">W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.</span><span class="sxs-lookup"><span data-stu-id="78ace-228">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="48ea7-228">W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.</span><span class="sxs-lookup"><span data-stu-id="48ea7-228">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="78ace-229">Po kliknięciu kafelka Mindflash w panelu dostępu, należy pobrać strony logowania Mindflash aplikacji.</span><span class="sxs-lookup"><span data-stu-id="78ace-229">When you click the Mindflash tile in the Access Panel, you should get login page of Mindflash application.</span></span>
-<span data-ttu-id="78ace-230">Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="78ace-230">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
+<span data-ttu-id="48ea7-229">Po kliknięciu kafelka Mindflash hello w hello Panel dostępu, należy pobrać strony logowania Mindflash aplikacji.</span><span class="sxs-lookup"><span data-stu-id="48ea7-229">When you click hello Mindflash tile in hello Access Panel, you should get login page of Mindflash application.</span></span>
+<span data-ttu-id="48ea7-230">Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="48ea7-230">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="78ace-231">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="78ace-231">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="48ea7-231">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="48ea7-231">Additional resources</span></span>
 
-* [<span data-ttu-id="78ace-232">Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="78ace-232">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="78ace-233">Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="78ace-233">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="48ea7-232">Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="48ea7-232">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="48ea7-233">Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="48ea7-233">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

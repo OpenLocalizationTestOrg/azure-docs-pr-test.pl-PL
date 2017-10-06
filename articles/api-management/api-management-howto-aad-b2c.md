@@ -1,6 +1,6 @@
 ---
-title: "Autoryzowanie konta dewelopera przy użyciu usługi Azure Active Directory B2C - Azure API Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak i autoryzacji użytkowników przy użyciu usługi Azure Active Directory B2C w usłudze API Management."
+title: "konta dewelopera aaaAuthorize za pomocą usługi Azure Active Directory B2C - Azure API Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooauthorize użytkowników za pomocą usługi Azure Active Directory B2C w usłudze API Management."
 services: api-management
 documentationcenter: API Management
 author: miaojiang
@@ -14,112 +14,112 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: eb7deb1a79d9db9ac5cfbea69b8d3c564eb55577
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 28f7cae53138938dbbc848b4afcbf08b72690e37
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a><span data-ttu-id="1e368-103">Sposób autoryzowania konta dewelopera przy użyciu usługi Azure Active Directory B2C w usłudze Azure API Management</span><span class="sxs-lookup"><span data-stu-id="1e368-103">How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management</span></span>
-## <a name="overview"></a><span data-ttu-id="1e368-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="1e368-104">Overview</span></span>
-<span data-ttu-id="1e368-105">Usługa Azure Active Directory B2C jest chmury rozwiązania do zarządzania tożsamościami internetowych i aplikacji dla urządzeń przenośnych.</span><span class="sxs-lookup"><span data-stu-id="1e368-105">Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications.</span></span> <span data-ttu-id="1e368-106">Można go użyć do zarządzania dostępem do swojego portalu dla deweloperów.</span><span class="sxs-lookup"><span data-stu-id="1e368-106">You can use it to manage access to your developer portal.</span></span> <span data-ttu-id="1e368-107">Ten przewodnik przedstawia konfigurację, która jest wymagana w usłudze API Management do integracji z usługi Azure Active Directory B2C.</span><span class="sxs-lookup"><span data-stu-id="1e368-107">This guide shows you the configuration that's required in your API Management service to integrate with Azure Active Directory B2C.</span></span> <span data-ttu-id="1e368-108">Aby uzyskać informacje na temat włączania dostępu do portalu dla deweloperów przy użyciu klasycznego Azure Active Directory, zobacz [sposób autoryzowania konta dewelopera przy użyciu usługi Azure Active Directory].</span><span class="sxs-lookup"><span data-stu-id="1e368-108">For information about enabling access to the developer portal by using classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory].</span></span>
+# <a name="how-tooauthorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a><span data-ttu-id="622e1-103">Jak tooauthorize developer kont przy użyciu narzędzia Azure Active Directory B2C w usłudze Azure API Management</span><span class="sxs-lookup"><span data-stu-id="622e1-103">How tooauthorize developer accounts by using Azure Active Directory B2C in Azure API Management</span></span>
+## <a name="overview"></a><span data-ttu-id="622e1-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="622e1-104">Overview</span></span>
+<span data-ttu-id="622e1-105">Usługa Azure Active Directory B2C jest chmury rozwiązania do zarządzania tożsamościami internetowych i aplikacji dla urządzeń przenośnych.</span><span class="sxs-lookup"><span data-stu-id="622e1-105">Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications.</span></span> <span data-ttu-id="622e1-106">Służy on toomanage dostępu tooyour developer portal.</span><span class="sxs-lookup"><span data-stu-id="622e1-106">You can use it toomanage access tooyour developer portal.</span></span> <span data-ttu-id="622e1-107">Ten przewodnik przedstawia hello konfiguracji, który jest wymagany w Twojej toointegrate usługi Zarządzanie interfejsami API z usługi Azure Active Directory B2C.</span><span class="sxs-lookup"><span data-stu-id="622e1-107">This guide shows you hello configuration that's required in your API Management service toointegrate with Azure Active Directory B2C.</span></span> <span data-ttu-id="622e1-108">Aby uzyskać informacje na temat włączania dostępu do portalu dla deweloperów toohello przy użyciu klasycznego Azure Active Directory, zobacz [jak tooauthorize developer kont przy użyciu narzędzia Azure Active Directory].</span><span class="sxs-lookup"><span data-stu-id="622e1-108">For information about enabling access toohello developer portal by using classic Azure Active Directory, see [How tooauthorize developer accounts using Azure Active Directory].</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="1e368-109">Aby wykonać kroki opisane w tym przewodniku, najpierw musi mieć dzierżawy usługi Azure Active Directory B2C, aby utworzyć aplikację w.</span><span class="sxs-lookup"><span data-stu-id="1e368-109">To complete the steps in this guide, you must first have an Azure Active Directory B2C tenant to create an application in.</span></span> <span data-ttu-id="1e368-110">Ponadto konieczne są gotowe zasady rejestracji i logowania.</span><span class="sxs-lookup"><span data-stu-id="1e368-110">Also, you need to have signup and signin policies ready.</span></span> <span data-ttu-id="1e368-111">Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Active Directory B2C].</span><span class="sxs-lookup"><span data-stu-id="1e368-111">For more information, see [Azure Active Directory B2C overview].</span></span>
+> <span data-ttu-id="622e1-109">toocomplete hello kroków tego podręcznika, najpierw musisz toocreate dzierżawy usługi Azure Active Directory B2C aplikacja.</span><span class="sxs-lookup"><span data-stu-id="622e1-109">toocomplete hello steps in this guide, you must first have an Azure Active Directory B2C tenant toocreate an application in.</span></span> <span data-ttu-id="622e1-110">Ponadto należy zasad rejestracji i logowania toohave gotowe.</span><span class="sxs-lookup"><span data-stu-id="622e1-110">Also, you need toohave signup and signin policies ready.</span></span> <span data-ttu-id="622e1-111">Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Active Directory B2C].</span><span class="sxs-lookup"><span data-stu-id="622e1-111">For more information, see [Azure Active Directory B2C overview].</span></span>
 
-## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a><span data-ttu-id="1e368-112">Autoryzowanie konta dewelopera przy użyciu usługi Azure Active Directory B2C</span><span class="sxs-lookup"><span data-stu-id="1e368-112">Authorize developer accounts by using Azure Active Directory B2C</span></span>
+## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a><span data-ttu-id="622e1-112">Autoryzowanie konta dewelopera przy użyciu usługi Azure Active Directory B2C</span><span class="sxs-lookup"><span data-stu-id="622e1-112">Authorize developer accounts by using Azure Active Directory B2C</span></span>
 
-1. <span data-ttu-id="1e368-113">Aby rozpocząć, kliknij przycisk **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API.</span><span class="sxs-lookup"><span data-stu-id="1e368-113">To get started, click **Publisher portal** in the Azure portal for your API Management service.</span></span> <span data-ttu-id="1e368-114">Spowoduje to przejście do portalu wydawcy usługi API Management.</span><span class="sxs-lookup"><span data-stu-id="1e368-114">This takes you to the API Management publisher portal.</span></span>
+1. <span data-ttu-id="622e1-113">tooget pracę, kliknij przycisk **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API hello.</span><span class="sxs-lookup"><span data-stu-id="622e1-113">tooget started, click **Publisher portal** in hello Azure portal for your API Management service.</span></span> <span data-ttu-id="622e1-114">Trwa toohello zarządzanie interfejsami API wydawcy portalu.</span><span class="sxs-lookup"><span data-stu-id="622e1-114">This takes you toohello API Management publisher portal.</span></span>
 
    ![Portal wydawcy][api-management-management-console]
 
    > [!NOTE]
-   > <span data-ttu-id="1e368-116">Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API] [ Create an API Management service instance] w [Wprowadzenie — samouczek usługi Azure API Management][Get started with Azure API Management].</span><span class="sxs-lookup"><span data-stu-id="1e368-116">If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management tutorial][Get started with Azure API Management].</span></span>
+   > <span data-ttu-id="622e1-116">Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API] [ Create an API Management service instance] w hello [wprowadzenie do usługi Azure API Management samouczek][Get started with Azure API Management].</span><span class="sxs-lookup"><span data-stu-id="622e1-116">If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in hello [Get started with Azure API Management tutorial][Get started with Azure API Management].</span></span>
 
-2. <span data-ttu-id="1e368-117">Na **zarządzanie interfejsami API** menu, kliknij przycisk **zabezpieczeń**.</span><span class="sxs-lookup"><span data-stu-id="1e368-117">On the **API Management** menu, click **Security**.</span></span> <span data-ttu-id="1e368-118">Na **tożsamości** , wybierz pozycję **usługi Azure Active Directory B2C**.</span><span class="sxs-lookup"><span data-stu-id="1e368-118">On the **Identities** tab, choose **Azure Active Directory B2C**.</span></span>
+2. <span data-ttu-id="622e1-117">Na powitania **zarządzanie interfejsami API** menu, kliknij przycisk **zabezpieczeń**.</span><span class="sxs-lookup"><span data-stu-id="622e1-117">On hello **API Management** menu, click **Security**.</span></span> <span data-ttu-id="622e1-118">Na powitania **tożsamości** , wybierz pozycję **usługi Azure Active Directory B2C**.</span><span class="sxs-lookup"><span data-stu-id="622e1-118">On hello **Identities** tab, choose **Azure Active Directory B2C**.</span></span>
 
   ![1 tożsamości zewnętrznych][api-management-howto-aad-b2c-security-tab]
 
-3. <span data-ttu-id="1e368-120">Zanotuj **adresem URL przekierowania** i przełączyć się do usługi Azure Active Directory B2C w portalu Azure.</span><span class="sxs-lookup"><span data-stu-id="1e368-120">Make a note of the **Redirect URL** and switch over to Azure Active Directory B2C in the Azure portal.</span></span>
+3. <span data-ttu-id="622e1-120">Zanotuj hello **adresem URL przekierowania** i przełączyć na tooAzure Active Directory B2C w portalu Azure hello.</span><span class="sxs-lookup"><span data-stu-id="622e1-120">Make a note of hello **Redirect URL** and switch over tooAzure Active Directory B2C in hello Azure portal.</span></span>
 
   ![2 tożsamości zewnętrznych][api-management-howto-aad-b2c-security-tab-reply-url]
 
-4. <span data-ttu-id="1e368-122">Kliknij przycisk **aplikacji** przycisku.</span><span class="sxs-lookup"><span data-stu-id="1e368-122">Click the **Applications** button.</span></span>
+4. <span data-ttu-id="622e1-122">Kliknij przycisk hello **aplikacji** przycisku.</span><span class="sxs-lookup"><span data-stu-id="622e1-122">Click hello **Applications** button.</span></span>
 
   ![Zarejestrować nową aplikację 1][api-management-howto-aad-b2c-portal-menu]
 
-5. <span data-ttu-id="1e368-124">Kliknij przycisk **Dodaj** przycisk, aby utworzyć nową aplikację usługi Azure Active Directory B2C.</span><span class="sxs-lookup"><span data-stu-id="1e368-124">Click the **Add** button to create a new Azure Active Directory B2C application.</span></span>
+5. <span data-ttu-id="622e1-124">Kliknij przycisk hello **Dodaj** przycisk aplikacji toocreate nowej usługi Azure Active Directory B2C.</span><span class="sxs-lookup"><span data-stu-id="622e1-124">Click hello **Add** button toocreate a new Azure Active Directory B2C application.</span></span>
 
   ![Zarejestrować nową aplikację 2][api-management-howto-aad-b2c-add-button]
 
-6. <span data-ttu-id="1e368-126">W **nowej aplikacji** bloku, wprowadź nazwę aplikacji.</span><span class="sxs-lookup"><span data-stu-id="1e368-126">In the **New application** blade, enter a name for the application.</span></span> <span data-ttu-id="1e368-127">Wybierz **tak** w obszarze **interfejsu API sieci Web i aplikacji sieci Web**i wybierz polecenie **tak** w obszarze **Zezwalaj przepływu niejawnego**.</span><span class="sxs-lookup"><span data-stu-id="1e368-127">Choose **Yes** under **Web App/Web API**, and choose **Yes** under **Allow implicit flow**.</span></span> <span data-ttu-id="1e368-128">Następnie skopiuj **adresem URL przekierowania** z **usługi Azure Active Directory B2C** sekcji **tożsamości** w portalu wydawcy, a następnie wklej ją do **adres URL odpowiedzi** pola tekstowego.</span><span class="sxs-lookup"><span data-stu-id="1e368-128">Then copy the **Redirect URL** from the **Azure Active Directory B2C** section of the **Identities** tab in the publisher portal, and paste it into the **Reply URL** text box.</span></span>
+6. <span data-ttu-id="622e1-126">W hello **nowej aplikacji** bloku, wprowadź nazwę aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="622e1-126">In hello **New application** blade, enter a name for hello application.</span></span> <span data-ttu-id="622e1-127">Wybierz **tak** w obszarze **interfejsu API sieci Web i aplikacji sieci Web**i wybierz polecenie **tak** w obszarze **Zezwalaj przepływu niejawnego**.</span><span class="sxs-lookup"><span data-stu-id="622e1-127">Choose **Yes** under **Web App/Web API**, and choose **Yes** under **Allow implicit flow**.</span></span> <span data-ttu-id="622e1-128">Następnie hello kopiowania **adresem URL przekierowania** z hello **usługi Azure Active Directory B2C** sekcji hello **tożsamości** karcie w portalu wydawcy hello i wklej go do hello **Adres URL odpowiedzi** pola tekstowego.</span><span class="sxs-lookup"><span data-stu-id="622e1-128">Then copy hello **Redirect URL** from hello **Azure Active Directory B2C** section of hello **Identities** tab in hello publisher portal, and paste it into hello **Reply URL** text box.</span></span>
 
   ![Zarejestrować nową aplikację 3][api-management-howto-aad-b2c-app-details]
 
-7. <span data-ttu-id="1e368-130">Kliknij przycisk **Utwórz**.</span><span class="sxs-lookup"><span data-stu-id="1e368-130">Click the **Create** button.</span></span> <span data-ttu-id="1e368-131">Po utworzeniu aplikacji jest wyświetlany w **aplikacji** bloku.</span><span class="sxs-lookup"><span data-stu-id="1e368-131">When the application is created, it appears in the **Applications** blade.</span></span> <span data-ttu-id="1e368-132">Kliknij nazwę aplikacji, aby wyświetlić jego szczegóły.</span><span class="sxs-lookup"><span data-stu-id="1e368-132">Click the application name to see its details.</span></span>
+7. <span data-ttu-id="622e1-130">Kliknij przycisk hello **Utwórz** przycisku.</span><span class="sxs-lookup"><span data-stu-id="622e1-130">Click hello **Create** button.</span></span> <span data-ttu-id="622e1-131">Po utworzeniu aplikacji hello jest wyświetlana w hello **aplikacji** bloku.</span><span class="sxs-lookup"><span data-stu-id="622e1-131">When hello application is created, it appears in hello **Applications** blade.</span></span> <span data-ttu-id="622e1-132">Kliknij przycisk toosee Nazwa aplikacji hello jego szczegóły.</span><span class="sxs-lookup"><span data-stu-id="622e1-132">Click hello application name toosee its details.</span></span>
 
   ![Zarejestrować nową aplikację 4][api-management-howto-aad-b2c-app-created]
 
-8. <span data-ttu-id="1e368-134">Z **właściwości** bloku, kopiowania **identyfikator aplikacji** do Schowka.</span><span class="sxs-lookup"><span data-stu-id="1e368-134">From the **Properties** blade, copy the **Application ID** to the clipboard.</span></span>
+8. <span data-ttu-id="622e1-134">Z hello **właściwości** bloku, hello kopiowania **identyfikator aplikacji** toohello Schowka.</span><span class="sxs-lookup"><span data-stu-id="622e1-134">From hello **Properties** blade, copy hello **Application ID** toohello clipboard.</span></span>
 
   ![Identyfikator aplikacji 1][api-management-howto-aad-b2c-app-id]
 
-9. <span data-ttu-id="1e368-136">Przełączyć się do portalu wydawcy i wklej identyfikator do **identyfikator klienta** pola tekstowego.</span><span class="sxs-lookup"><span data-stu-id="1e368-136">Switch back to the publisher portal and paste the ID into the **Client Id** text box.</span></span>
+9. <span data-ttu-id="622e1-136">Przełącz wstecz toohello wydawcy portalu i wklej identyfikator hello w hello **identyfikator klienta** pola tekstowego.</span><span class="sxs-lookup"><span data-stu-id="622e1-136">Switch back toohello publisher portal and paste hello ID into hello **Client Id** text box.</span></span>
 
   ![Identyfikator aplikacji 2][api-management-howto-aad-b2c-client-id]
 
-10. <span data-ttu-id="1e368-138">Wrócić do portalu Azure, kliknij przycisk **klucze** przycisk, a następnie kliknij przycisk **generowanie klucza**.</span><span class="sxs-lookup"><span data-stu-id="1e368-138">Switch back to the Azure portal, click the **Keys** button, and then click **Generate key**.</span></span> <span data-ttu-id="1e368-139">Kliknij przycisk **zapisać** Aby zapisać konfigurację i wyświetlić **klucz aplikacji**.</span><span class="sxs-lookup"><span data-stu-id="1e368-139">Click **Save** to save the configuration and display the **App key**.</span></span> <span data-ttu-id="1e368-140">Skopiuj klucz do Schowka.</span><span class="sxs-lookup"><span data-stu-id="1e368-140">Copy the key to the clipboard.</span></span>
+10. <span data-ttu-id="622e1-138">Przełącz wstecz toohello portalu Azure, kliknij hello **klucze** przycisk, a następnie kliknij przycisk **generowanie klucza**.</span><span class="sxs-lookup"><span data-stu-id="622e1-138">Switch back toohello Azure portal, click hello **Keys** button, and then click **Generate key**.</span></span> <span data-ttu-id="622e1-139">Kliknij przycisk **zapisać** hello konfiguracji oraz wyświetlania hello toosave **klucz aplikacji**.</span><span class="sxs-lookup"><span data-stu-id="622e1-139">Click **Save** toosave hello configuration and display hello **App key**.</span></span> <span data-ttu-id="622e1-140">Kopiuj hello klucza toohello Schowka.</span><span class="sxs-lookup"><span data-stu-id="622e1-140">Copy hello key toohello clipboard.</span></span>
 
   ![Klucz aplikacji 1][api-management-howto-aad-b2c-app-key]
 
-11. <span data-ttu-id="1e368-142">Przełączyć się do portalu wydawcy i Wklej klucz do **klucz tajny klienta** pola tekstowego.</span><span class="sxs-lookup"><span data-stu-id="1e368-142">Switch back to the publisher portal and paste the key into the **Client Secret** text box.</span></span>
+11. <span data-ttu-id="622e1-142">Przełącznik wstecz toohello wydawcy portalu i Wklej hello klucza do hello **klucz tajny klienta** pola tekstowego.</span><span class="sxs-lookup"><span data-stu-id="622e1-142">Switch back toohello publisher portal and paste hello key into hello **Client Secret** text box.</span></span>
 
   ![Klucz aplikacji 2][api-management-howto-aad-b2c-client-secret]
 
-12. <span data-ttu-id="1e368-144">Określ nazwę domeny dzierżawy usługi Azure Active Directory B2C w **dozwolone dzierżawy**.</span><span class="sxs-lookup"><span data-stu-id="1e368-144">Specify the domain name of the Azure Active Directory B2C tenant in **Allowed Tenant**.</span></span>
+12. <span data-ttu-id="622e1-144">Określ nazwę domeny dzierżawy usługi Azure Active Directory B2C hello w hello **dozwolone dzierżawy**.</span><span class="sxs-lookup"><span data-stu-id="622e1-144">Specify hello domain name of hello Azure Active Directory B2C tenant in **Allowed Tenant**.</span></span>
 
   ![Dozwolone dzierżawy][api-management-howto-aad-b2c-allowed-tenant]
 
-13. <span data-ttu-id="1e368-146">Określ **zasad rejestracji** i **zasad Signin**.</span><span class="sxs-lookup"><span data-stu-id="1e368-146">Specify the **Signup Policy** and **Signin Policy**.</span></span> <span data-ttu-id="1e368-147">Opcjonalnie można też podać **zasady edycji profilu** i **zasady resetowania hasła**.</span><span class="sxs-lookup"><span data-stu-id="1e368-147">Optionally, you can also provide the **Profile Editing Policy** and **Password Reset Policy**.</span></span>
+13. <span data-ttu-id="622e1-146">Określ hello **zasad rejestracji** i **zasad Signin**.</span><span class="sxs-lookup"><span data-stu-id="622e1-146">Specify hello **Signup Policy** and **Signin Policy**.</span></span> <span data-ttu-id="622e1-147">Opcjonalnie można też podać hello **zasady edycji profilu** i **zasady resetowania hasła**.</span><span class="sxs-lookup"><span data-stu-id="622e1-147">Optionally, you can also provide hello **Profile Editing Policy** and **Password Reset Policy**.</span></span>
 
   ![Zasady][api-management-howto-aad-b2c-policies]
 
   > [!NOTE]
-  > <span data-ttu-id="1e368-149">Aby uzyskać więcej informacji dotyczących zasad, zobacz [usługi Azure Active Directory B2C: rozszerzona platforma zasad].</span><span class="sxs-lookup"><span data-stu-id="1e368-149">For more information on policies, see [Azure Active Directory B2C: Extensible policy framework].</span></span>
+  > <span data-ttu-id="622e1-149">Aby uzyskać więcej informacji dotyczących zasad, zobacz [usługi Azure Active Directory B2C: rozszerzona platforma zasad].</span><span class="sxs-lookup"><span data-stu-id="622e1-149">For more information on policies, see [Azure Active Directory B2C: Extensible policy framework].</span></span>
 
-14. <span data-ttu-id="1e368-150">Po określeniu odpowiednią konfigurację, kliknij przycisk **zapisać**.</span><span class="sxs-lookup"><span data-stu-id="1e368-150">After you've specified the desired configuration, click **Save**.</span></span>
+14. <span data-ttu-id="622e1-150">Po określeniu wymaganą konfiguracją powitania kliknij **zapisać**.</span><span class="sxs-lookup"><span data-stu-id="622e1-150">After you've specified hello desired configuration, click **Save**.</span></span>
 
-  <span data-ttu-id="1e368-151">Po zapisaniu zmian deweloperzy będzie mógł tworzyć nowych kont i zaloguj się do portalu dla deweloperów przy użyciu usługi Azure Active Directory B2C.</span><span class="sxs-lookup"><span data-stu-id="1e368-151">After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.</span></span>
+  <span data-ttu-id="622e1-151">Gdy hello zmiany zostaną zapisane, deweloperzy zostanie toocreate stanie nowych kont i logowania w portalu dla deweloperów toohello przy użyciu usługi Azure Active Directory B2C.</span><span class="sxs-lookup"><span data-stu-id="622e1-151">After hello changes are saved, developers will be able toocreate new accounts and sign in toohello developer portal by using Azure Active Directory B2C.</span></span>
 
-## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a><span data-ttu-id="1e368-152">Załóż konto dewelopera przy użyciu usługi Azure Active Directory B2C</span><span class="sxs-lookup"><span data-stu-id="1e368-152">Sign up for a developer account by using Azure Active Directory B2C</span></span>
+## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a><span data-ttu-id="622e1-152">Załóż konto dewelopera przy użyciu usługi Azure Active Directory B2C</span><span class="sxs-lookup"><span data-stu-id="622e1-152">Sign up for a developer account by using Azure Active Directory B2C</span></span>
 
-1. <span data-ttu-id="1e368-153">Aby utworzyć konto dewelopera przy użyciu usługi Azure Active Directory B2C, Otwórz nowe okno przeglądarki i przejdź do portalu dla deweloperów.</span><span class="sxs-lookup"><span data-stu-id="1e368-153">To sign up for a developer account by using Azure Active Directory B2C, open a new browser window and go to the developer portal.</span></span> <span data-ttu-id="1e368-154">Kliknij przycisk **Zarejestruj** przycisku.</span><span class="sxs-lookup"><span data-stu-id="1e368-154">Click the **Sign up** button.</span></span>
+1. <span data-ttu-id="622e1-153">toosign dla konta dewelopera, za pomocą usługi Azure Active Directory B2C, Otwórz nowe okno przeglądarki i przejdź toohello portalu dla deweloperów.</span><span class="sxs-lookup"><span data-stu-id="622e1-153">toosign up for a developer account by using Azure Active Directory B2C, open a new browser window and go toohello developer portal.</span></span> <span data-ttu-id="622e1-154">Kliknij przycisk hello **Zarejestruj** przycisku.</span><span class="sxs-lookup"><span data-stu-id="622e1-154">Click hello **Sign up** button.</span></span>
 
    ![Portalu dla deweloperów 1][api-management-howto-aad-b2c-dev-portal]
 
-2. <span data-ttu-id="1e368-156">Wybierz konto z **usługi Azure Active Directory B2C**.</span><span class="sxs-lookup"><span data-stu-id="1e368-156">Choose to sign up with **Azure Active Directory B2C**.</span></span>
+2. <span data-ttu-id="622e1-156">Wybierz polecenie toosign z **usługi Azure Active Directory B2C**.</span><span class="sxs-lookup"><span data-stu-id="622e1-156">Choose toosign up with **Azure Active Directory B2C**.</span></span>
 
    ![Portalu dla deweloperów 2][api-management-howto-aad-b2c-dev-portal-b2c-button]
 
-3. <span data-ttu-id="1e368-158">Możesz są przekierowywane do zasad rejestracji, skonfigurowanego w poprzedniej sekcji.</span><span class="sxs-lookup"><span data-stu-id="1e368-158">You're redirected to the signup policy that you configured in the previous section.</span></span> <span data-ttu-id="1e368-159">Wybierz utworzyć konto przy użyciu adresu e-mail lub jeden z istniejących kont społecznościowych.</span><span class="sxs-lookup"><span data-stu-id="1e368-159">Choose to sign up by using your email address or one of your existing social accounts.</span></span>
+3. <span data-ttu-id="622e1-158">Możesz teraz skonfigurowane w poprzedniej sekcji hello zasady rejestracji toohello przekierowane.</span><span class="sxs-lookup"><span data-stu-id="622e1-158">You're redirected toohello signup policy that you configured in hello previous section.</span></span> <span data-ttu-id="622e1-159">Wybierz toosign przy użyciu adresu e-mail lub jeden z istniejących kont społecznościowych.</span><span class="sxs-lookup"><span data-stu-id="622e1-159">Choose toosign up by using your email address or one of your existing social accounts.</span></span>
 
    > [!NOTE]
-   > <span data-ttu-id="1e368-160">Jeśli usługi Azure Active Directory B2C jest jedyną opcją jest włączona na **tożsamości** kartę w portalu wydawcy użytkownik zostanie przekierowany do zasad rejestracji bezpośrednio.</span><span class="sxs-lookup"><span data-stu-id="1e368-160">If Azure Active Directory B2C is the only option that's enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.</span></span>
+   > <span data-ttu-id="622e1-160">Jeśli usługi Azure Active Directory B2C jest jedyną opcją hello, który został włączony na powitania **tożsamości** kartę w portalu wydawcy hello będzie zasad rejestracji toohello przekierowane bezpośrednio.</span><span class="sxs-lookup"><span data-stu-id="622e1-160">If Azure Active Directory B2C is hello only option that's enabled on hello **Identities** tab in hello publisher portal, you'll be redirected toohello signup policy directly.</span></span>
 
    ![Portal dla deweloperów][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
-   <span data-ttu-id="1e368-162">Po zakończeniu rejestracja jest przekierowany do portalu dla deweloperów.</span><span class="sxs-lookup"><span data-stu-id="1e368-162">When the signup is complete, you're redirected back to the developer portal.</span></span> <span data-ttu-id="1e368-163">Obecnie zalogowano Cię do portalu dla deweloperów wystąpienia usługi Zarządzanie interfejsami API.</span><span class="sxs-lookup"><span data-stu-id="1e368-163">You're now signed in to the developer portal for your API Management service instance.</span></span>
+   <span data-ttu-id="622e1-162">Po zakończeniu rejestracji hello możesz przekierowanego toohello wstecz portalu dla deweloperów.</span><span class="sxs-lookup"><span data-stu-id="622e1-162">When hello signup is complete, you're redirected back toohello developer portal.</span></span> <span data-ttu-id="622e1-163">Obecnie zalogowano Cię w portalu dla deweloperów toohello wystąpienia usługi Zarządzanie interfejsami API.</span><span class="sxs-lookup"><span data-stu-id="622e1-163">You're now signed in toohello developer portal for your API Management service instance.</span></span>
 
     ![Zakończono rejestrację][api-management-registration-complete]
 
-## <a name="next-steps"></a><span data-ttu-id="1e368-165">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="1e368-165">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="622e1-165">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="622e1-165">Next steps</span></span>
 
-*  <span data-ttu-id="1e368-166">[Omówienie usługi Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="1e368-166">[Azure Active Directory B2C overview]</span></span>
-*  <span data-ttu-id="1e368-167">[usługi Azure Active Directory B2C: rozszerzona platforma zasad]</span><span class="sxs-lookup"><span data-stu-id="1e368-167">[Azure Active Directory B2C: Extensible policy framework]</span></span>
-*  <span data-ttu-id="1e368-168">[Użyj konta Microsoft jako dostawca tożsamości w usłudze Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="1e368-168">[Use a Microsoft account as an identity provider in Azure Active Directory B2C]</span></span>
-*  <span data-ttu-id="1e368-169">[Użyj konta Google funkcję dostawcy tożsamości w usłudze Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="1e368-169">[Use a Google account as an identity provider in Azure Active Directory B2C]</span></span>
-*  <span data-ttu-id="1e368-170">[Użyj konta LinkedIn funkcję dostawcy tożsamości w usłudze Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="1e368-170">[Use a LinkedIn account as an identity provider in Azure Active Directory B2C]</span></span>
-*  <span data-ttu-id="1e368-171">[Użyj konta usługi Facebook jako dostawca tożsamości w usłudze Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="1e368-171">[Use a Facebook account as an identity provider in Azure Active Directory B2C]</span></span>
+*  <span data-ttu-id="622e1-166">[Omówienie usługi Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="622e1-166">[Azure Active Directory B2C overview]</span></span>
+*  <span data-ttu-id="622e1-167">[usługi Azure Active Directory B2C: rozszerzona platforma zasad]</span><span class="sxs-lookup"><span data-stu-id="622e1-167">[Azure Active Directory B2C: Extensible policy framework]</span></span>
+*  <span data-ttu-id="622e1-168">[Użyj konta Microsoft jako dostawca tożsamości w usłudze Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="622e1-168">[Use a Microsoft account as an identity provider in Azure Active Directory B2C]</span></span>
+*  <span data-ttu-id="622e1-169">[Użyj konta Google funkcję dostawcy tożsamości w usłudze Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="622e1-169">[Use a Google account as an identity provider in Azure Active Directory B2C]</span></span>
+*  <span data-ttu-id="622e1-170">[Użyj konta LinkedIn funkcję dostawcy tożsamości w usłudze Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="622e1-170">[Use a LinkedIn account as an identity provider in Azure Active Directory B2C]</span></span>
+*  <span data-ttu-id="622e1-171">[Użyj konta usługi Facebook jako dostawca tożsamości w usłudze Azure Active Directory B2C]</span><span class="sxs-lookup"><span data-stu-id="622e1-171">[Use a Facebook account as an identity provider in Azure Active Directory B2C]</span></span>
 
 
 
@@ -172,10 +172,10 @@ ms.lasthandoff: 07/11/2017
 [api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
 [api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How tooadd and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
 [API Management policy reference]: api-management-policy-reference.md
@@ -184,19 +184,19 @@ ms.lasthandoff: 07/11/2017
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
-<span data-ttu-id="1e368-172">[Omówienie usługi Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview</span><span class="sxs-lookup"><span data-stu-id="1e368-172">[Azure Active Directory B2C overview]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview</span></span>
-<span data-ttu-id="1e368-173">[sposób autoryzowania konta dewelopera przy użyciu usługi Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad</span><span class="sxs-lookup"><span data-stu-id="1e368-173">[How to authorize developer accounts using Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad</span></span>
-<span data-ttu-id="1e368-174">[usługi Azure Active Directory B2C: rozszerzona platforma zasad]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies</span><span class="sxs-lookup"><span data-stu-id="1e368-174">[Azure Active Directory B2C: Extensible policy framework]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies</span></span>
-<span data-ttu-id="1e368-175">[Użyj konta Microsoft jako dostawca tożsamości w usłudze Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app</span><span class="sxs-lookup"><span data-stu-id="1e368-175">[Use a Microsoft account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app</span></span>
-<span data-ttu-id="1e368-176">[Użyj konta Google funkcję dostawcy tożsamości w usłudze Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app</span><span class="sxs-lookup"><span data-stu-id="1e368-176">[Use a Google account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app</span></span>
-<span data-ttu-id="1e368-177">[Użyj konta usługi Facebook jako dostawca tożsamości w usłudze Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app</span><span class="sxs-lookup"><span data-stu-id="1e368-177">[Use a Facebook account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app</span></span>
-<span data-ttu-id="1e368-178">[Użyj konta LinkedIn funkcję dostawcy tożsamości w usłudze Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app</span><span class="sxs-lookup"><span data-stu-id="1e368-178">[Use a LinkedIn account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app</span></span>
+[Accessing hello Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
+[Omówienie usługi Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
+[jak tooauthorize developer kont przy użyciu narzędzia Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
+[usługi Azure Active Directory B2C: rozszerzona platforma zasad]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
+[Użyj konta Microsoft jako dostawca tożsamości w usłudze Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
+[Użyj konta Google funkcję dostawcy tożsamości w usłudze Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
+[Użyj konta usługi Facebook jako dostawca tożsamości w usłudze Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
+[Użyj konta LinkedIn funkcję dostawcy tożsamości w usłudze Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1
-[Configure an API to use OAuth 2.0 user authorization]: #step2
-[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Configure an API toouse OAuth 2.0 user authorization]: #step2
+[Test hello OAuth 2.0 user authorization in hello Developer Portal]: #step3
 [Next steps]: #next-steps
 
-[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+[Log in toohello Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
