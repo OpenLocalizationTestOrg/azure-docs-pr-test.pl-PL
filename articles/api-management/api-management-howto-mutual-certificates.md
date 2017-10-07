@@ -1,6 +1,6 @@
 ---
-title: "Bezpieczne usługi zaplecza przy użyciu klienta uwierzytelniania certyfikatów - Azure API Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zabezpieczyć usług zaplecza w usłudze Azure API Management przy użyciu wstępnego uwierzytelniania certyfikatu klienta."
+title: "aaaSecure usług zaplecza przy użyciu wstępnego uwierzytelniania certyfikatu klienta - Azure API Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak za pomocą klienta usług zaplecza toosecure certyfikatów uwierzytelniania w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,101 +14,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 2ebe71c96fd9076a48f689041634dbd23d3d8414
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 565bb61044fed1158944202c36e8abe30edf5729
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a><span data-ttu-id="4f3be-103">Jak zabezpieczyć za pomocą klienta usług zaplecza certyfikatów uwierzytelniania w usłudze Azure API Management</span><span class="sxs-lookup"><span data-stu-id="4f3be-103">How to secure back-end services using client certificate authentication in Azure API Management</span></span>
-<span data-ttu-id="4f3be-104">Zarządzanie interfejsami API umożliwia bezpieczny dostęp do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta.</span><span class="sxs-lookup"><span data-stu-id="4f3be-104">API Management provides the capability to secure access to the back-end service of an API using client certificates.</span></span> <span data-ttu-id="4f3be-105">Ten przewodnik zawiera sposobu zarządzania certyfikatami w portalu wydawcy interfejsu API i Konfigurowanie interfejsu API do używania certyfikatu dostęp do jej usługi zaplecza.</span><span class="sxs-lookup"><span data-stu-id="4f3be-105">This guide shows how to manage certificates in the API publisher portal, and how to configure an API to use a certificate to access its back-end service.</span></span>
+# <a name="how-toosecure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a><span data-ttu-id="56d8e-103">Jak za pomocą klienta usług zaplecza toosecure certyfikatów uwierzytelniania w usłudze Azure API Management</span><span class="sxs-lookup"><span data-stu-id="56d8e-103">How toosecure back-end services using client certificate authentication in Azure API Management</span></span>
+<span data-ttu-id="56d8e-104">Zarządzanie interfejsami API udostępnia hello możliwości toosecure dostępu toohello usługi zaplecza interfejsu API przy użyciu certyfikatów klienta.</span><span class="sxs-lookup"><span data-stu-id="56d8e-104">API Management provides hello capability toosecure access toohello back-end service of an API using client certificates.</span></span> <span data-ttu-id="56d8e-105">Ten przewodnik przedstawia, jak toomanage certyfikaty w portalu wydawcy hello interfejsu API i jak toouse tooconfigure API tooaccess certyfikatu jej usługi zaplecza.</span><span class="sxs-lookup"><span data-stu-id="56d8e-105">This guide shows how toomanage certificates in hello API publisher portal, and how tooconfigure an API toouse a certificate tooaccess its back-end service.</span></span>
 
-<span data-ttu-id="4f3be-106">Aby uzyskać informacje o zarządzaniu certyfikatami przy użyciu interfejsu API REST zarządzania interfejsu API, zobacz [jednostki certyfikat interfejsu API REST zarządzania interfejsu API platformy Azure][Azure API Management REST API Certificate entity].</span><span class="sxs-lookup"><span data-stu-id="4f3be-106">For information about managing certificates using the API Management REST API, see [Azure API Management REST API Certificate entity][Azure API Management REST API Certificate entity].</span></span>
+<span data-ttu-id="56d8e-106">Aby uzyskać informacje o zarządzaniu certyfikatami przy użyciu interfejsu API REST zarządzania interfejsu API hello, zobacz [jednostki certyfikat interfejsu API REST zarządzania interfejsu API platformy Azure][Azure API Management REST API Certificate entity].</span><span class="sxs-lookup"><span data-stu-id="56d8e-106">For information about managing certificates using hello API Management REST API, see [Azure API Management REST API Certificate entity][Azure API Management REST API Certificate entity].</span></span>
 
-## <span data-ttu-id="4f3be-107"><a name="prerequisites"></a>Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="4f3be-107"><a name="prerequisites"> </a>Prerequisites</span></span>
-<span data-ttu-id="4f3be-108">W tym przewodniku przedstawiono sposób skonfigurować wystąpienie usługi Zarządzanie interfejsami API do używania uwierzytelniania certyfikatów klienta do uzyskania dostępu do usługi zaplecza interfejsu API.</span><span class="sxs-lookup"><span data-stu-id="4f3be-108">This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API.</span></span> <span data-ttu-id="4f3be-109">Przed wykonaniem kroków w tym temacie, powinien mieć skonfigurowany na potrzeby uwierzytelniania certyfikatu klienta usługi zaplecza ([do konfigurowania certyfikatów uwierzytelniania w witrynach sieci Web Azure odwoływać się do tego artykułu] [ to configure certificate authentication in Azure WebSites refer to this article]), i mieć dostęp do certyfikat i hasło dla certyfikatu na potrzeby przekazywania w portalu zarządzania interfejsu API wydawcy.</span><span class="sxs-lookup"><span data-stu-id="4f3be-109">Before following the steps in this topic, you should have your back-end service configured for client certificate authentication ([to configure certificate authentication in Azure WebSites refer to this article][to configure certificate authentication in Azure WebSites refer to this article]), and have access to the certificate and the password for the certificate for uploading in the API Management publisher portal.</span></span>
+## <span data-ttu-id="56d8e-107"><a name="prerequisites"></a>Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="56d8e-107"><a name="prerequisites"> </a>Prerequisites</span></span>
+<span data-ttu-id="56d8e-108">Ten przewodnik przedstawia, jak tooconfigure Twojego zarządzanie interfejsami API usługi wystąpienia toouse klienta certyfikatu uwierzytelniania tooaccess hello usługi zaplecza do interfejsu API.</span><span class="sxs-lookup"><span data-stu-id="56d8e-108">This guide shows you how tooconfigure your API Management service instance toouse client certificate authentication tooaccess hello back-end service for an API.</span></span> <span data-ttu-id="56d8e-109">Przed hello następujące kroki w tym temacie, powinien mieć skonfigurowany na potrzeby uwierzytelniania certyfikatu klienta usługi zaplecza ([tooconfigure certyfikatów uwierzytelniania w witrynach sieci Web platformy Azure można znaleźć w artykule toothis] [ tooconfigure certificate authentication in Azure WebSites refer toothis article]), i mieć toohello certyfikat i hello hasło dostępu do certyfikatu hello pobierania w portalu wydawcy zarządzanie interfejsami API hello.</span><span class="sxs-lookup"><span data-stu-id="56d8e-109">Before following hello steps in this topic, you should have your back-end service configured for client certificate authentication ([tooconfigure certificate authentication in Azure WebSites refer toothis article][tooconfigure certificate authentication in Azure WebSites refer toothis article]), and have access toohello certificate and hello password for hello certificate for uploading in hello API Management publisher portal.</span></span>
 
-## <span data-ttu-id="4f3be-110"><a name="step1"></a>Przekazywanie certyfikatu klienta</span><span class="sxs-lookup"><span data-stu-id="4f3be-110"><a name="step1"> </a>Upload a client certificate</span></span>
-<span data-ttu-id="4f3be-111">Na początku kliknij opcję **Portal wydawcy** w klasycznej witrynie Azure Portal dla usługi API Management.</span><span class="sxs-lookup"><span data-stu-id="4f3be-111">To get started, click **Publisher portal** in the Azure Portal for your API Management service.</span></span> <span data-ttu-id="4f3be-112">Spowoduje to przejście do portalu wydawcy usługi API Management.</span><span class="sxs-lookup"><span data-stu-id="4f3be-112">This takes you to the API Management publisher portal.</span></span>
+## <span data-ttu-id="56d8e-110"><a name="step1"></a>Przekazywanie certyfikatu klienta</span><span class="sxs-lookup"><span data-stu-id="56d8e-110"><a name="step1"> </a>Upload a client certificate</span></span>
+<span data-ttu-id="56d8e-111">tooget pracę, kliknij przycisk **portal wydawcy** w hello portalu Azure usługi Zarządzanie interfejsami API.</span><span class="sxs-lookup"><span data-stu-id="56d8e-111">tooget started, click **Publisher portal** in hello Azure Portal for your API Management service.</span></span> <span data-ttu-id="56d8e-112">Trwa toohello zarządzanie interfejsami API wydawcy portalu.</span><span class="sxs-lookup"><span data-stu-id="56d8e-112">This takes you toohello API Management publisher portal.</span></span>
 
 ![Portal wydawcy interfejsu API][api-management-management-console]
 
-> <span data-ttu-id="4f3be-114">Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].</span><span class="sxs-lookup"><span data-stu-id="4f3be-114">If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.</span></span>
+> <span data-ttu-id="56d8e-114">Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API] [ Create an API Management service instance] w hello [wprowadzenie do usługi Azure API Management] [ Get started with Azure API Management] samouczka.</span><span class="sxs-lookup"><span data-stu-id="56d8e-114">If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in hello [Get started with Azure API Management][Get started with Azure API Management] tutorial.</span></span>
 > 
 > 
 
-<span data-ttu-id="4f3be-115">Kliknij przycisk **zabezpieczeń** z **zarządzanie interfejsami API** menu po lewej stronie, a następnie kliknij przycisk **certyfikaty klienta**.</span><span class="sxs-lookup"><span data-stu-id="4f3be-115">Click **Security** from the **API Management** menu on the left, and click **Client certificates**.</span></span>
+<span data-ttu-id="56d8e-115">Kliknij przycisk **zabezpieczeń** z hello **zarządzanie interfejsami API** menu po lewej hello i kliknij przycisk **certyfikaty klienta**.</span><span class="sxs-lookup"><span data-stu-id="56d8e-115">Click **Security** from hello **API Management** menu on hello left, and click **Client certificates**.</span></span>
 
 ![Certyfikaty klienta][api-management-security-client-certificates]
 
-<span data-ttu-id="4f3be-117">Aby przekazać nowy certyfikat, kliknij przycisk **przekazywania certyfikatu**.</span><span class="sxs-lookup"><span data-stu-id="4f3be-117">To upload a new certificate, click **Upload certificate**.</span></span>
+<span data-ttu-id="56d8e-117">tooupload nowego świadectwa, kliknij przycisk **przekazywania certyfikatu**.</span><span class="sxs-lookup"><span data-stu-id="56d8e-117">tooupload a new certificate, click **Upload certificate**.</span></span>
 
 ![Przekazywanie certyfikatu][api-management-upload-certificate]
 
-<span data-ttu-id="4f3be-119">Przejdź do swojego certyfikatu, a następnie wprowadź hasło dla certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="4f3be-119">Browse to your certificate, and then enter the password for the certificate.</span></span>
+<span data-ttu-id="56d8e-119">Przeglądaj tooyour certyfikatu, a następnie wprowadź hasło hello hello certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="56d8e-119">Browse tooyour certificate, and then enter hello password for hello certificate.</span></span>
 
-> <span data-ttu-id="4f3be-120">Certyfikat musi być w **PFX** format.</span><span class="sxs-lookup"><span data-stu-id="4f3be-120">The certificate must be in **.pfx** format.</span></span> <span data-ttu-id="4f3be-121">Certyfikaty z podpisem własnym są dozwolone.</span><span class="sxs-lookup"><span data-stu-id="4f3be-121">Self-signed certificates are allowed.</span></span>
+> <span data-ttu-id="56d8e-120">Witaj, certyfikat musi być w **PFX** format.</span><span class="sxs-lookup"><span data-stu-id="56d8e-120">hello certificate must be in **.pfx** format.</span></span> <span data-ttu-id="56d8e-121">Certyfikaty z podpisem własnym są dozwolone.</span><span class="sxs-lookup"><span data-stu-id="56d8e-121">Self-signed certificates are allowed.</span></span>
 > 
 > 
 
 ![Przekazywanie certyfikatu][api-management-upload-certificate-form]
 
-<span data-ttu-id="4f3be-123">Kliknij przycisk **przekazać** można przekazać certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="4f3be-123">Click **Upload** to upload the certificate.</span></span>
+<span data-ttu-id="56d8e-123">Kliknij przycisk **przekazać** tooupload hello certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="56d8e-123">Click **Upload** tooupload hello certificate.</span></span>
 
-> <span data-ttu-id="4f3be-124">Hasło certyfikatu jest weryfikowana w tej chwili.</span><span class="sxs-lookup"><span data-stu-id="4f3be-124">The certificate password is validated at this time.</span></span> <span data-ttu-id="4f3be-125">Jeśli jest nieprawidłowe, zostanie wyświetlony komunikat o błędzie.</span><span class="sxs-lookup"><span data-stu-id="4f3be-125">If it is incorrect an error message is displayed.</span></span>
+> <span data-ttu-id="56d8e-124">Hasło certyfikatu Hello jest weryfikowana w tej chwili.</span><span class="sxs-lookup"><span data-stu-id="56d8e-124">hello certificate password is validated at this time.</span></span> <span data-ttu-id="56d8e-125">Jeśli jest nieprawidłowe, zostanie wyświetlony komunikat o błędzie.</span><span class="sxs-lookup"><span data-stu-id="56d8e-125">If it is incorrect an error message is displayed.</span></span>
 > 
 > 
 
 ![Przekazany certyfikat][api-management-certificate-uploaded]
 
-<span data-ttu-id="4f3be-127">Po przesłaniu certyfikatu, pojawi się na **certyfikaty klienta** kartę.</span><span class="sxs-lookup"><span data-stu-id="4f3be-127">Once the certificate is uploaded, it appears on the **Client certificates** tab.</span></span> <span data-ttu-id="4f3be-128">Jeśli istnieje wiele certyfikatów, należy Uwaga podmiot lub cztery ostatnie znaki odcisk palca, które są używane, aby wybrać certyfikat, podczas konfigurowania interfejsu API, aby korzystać z certyfikatów, co opisano w następujących [skonfigurować interfejs API do użycia certyfikat klienta na potrzeby uwierzytelniania bramy] [ Configure an API to use a client certificate for gateway authentication] sekcji.</span><span class="sxs-lookup"><span data-stu-id="4f3be-128">If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication] section.</span></span>
+<span data-ttu-id="56d8e-127">Po przekazaniu hello certyfikatu znajdującego się na powitania **certyfikaty klienta** kartę. Jeśli masz wiele certyfikatów, zanotuj hello podmiotu lub hello cztery ostatnie znaki hello odcisku palca, które są używane tooselect hello certyfikatu podczas konfigurowania toouse interfejsu API certyfikaty, jak to opisano w następujących hello [Konfiguruj Interfejs API toouse certyfikat klienta na potrzeby uwierzytelniania bramy] [ Configure an API toouse a client certificate for gateway authentication] sekcji.</span><span class="sxs-lookup"><span data-stu-id="56d8e-127">Once hello certificate is uploaded, it appears on hello **Client certificates** tab. If you have multiple certificates, make a note of hello subject, or hello last four characters of hello thumbprint, which are used tooselect hello certificate when configuring an API toouse certificates, as covered in hello following [Configure an API toouse a client certificate for gateway authentication][Configure an API toouse a client certificate for gateway authentication] section.</span></span>
 
-> <span data-ttu-id="4f3be-129">Aby wyłączyć weryfikacji łańcucha certyfikatu przy użyciu, na przykład certyfikatu z podpisem własnym, wykonaj czynności opisane w tym artykule [elementu](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).</span><span class="sxs-lookup"><span data-stu-id="4f3be-129">To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).</span></span>
+> <span data-ttu-id="56d8e-128">tooturn poza weryfikacji łańcucha certyfikatu w przypadku korzystania na przykład certyfikatu z podpisem własnym, wykonaj kroki hello opisane w tym artykule [elementu](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).</span><span class="sxs-lookup"><span data-stu-id="56d8e-128">tooturn off certificate chain validation when using, for example, a self-signed certificate, follow hello steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).</span></span>
 > 
 > 
 
-## <span data-ttu-id="4f3be-130"><a name="step1a"></a>Usuwanie certyfikatu klienta</span><span class="sxs-lookup"><span data-stu-id="4f3be-130"><a name="step1a"> </a>Delete a client certificate</span></span>
-<span data-ttu-id="4f3be-131">Aby usunąć certyfikat, kliknij przycisk **usunąć** obok żądanego certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="4f3be-131">To delete a certificate, click **Delete** beside the desired certificate.</span></span>
+## <span data-ttu-id="56d8e-129"><a name="step1a"></a>Usuwanie certyfikatu klienta</span><span class="sxs-lookup"><span data-stu-id="56d8e-129"><a name="step1a"> </a>Delete a client certificate</span></span>
+<span data-ttu-id="56d8e-130">toodelete certyfikat, kliknij przycisk **usunąć** obok hello żądanego certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="56d8e-130">toodelete a certificate, click **Delete** beside hello desired certificate.</span></span>
 
 ![Usuń certyfikat][api-management-certificate-delete]
 
-<span data-ttu-id="4f3be-133">Kliknij przycisk **tak, usuń go** o potwierdzenie.</span><span class="sxs-lookup"><span data-stu-id="4f3be-133">Click **Yes, delete it** to confirm.</span></span>
+<span data-ttu-id="56d8e-132">Kliknij przycisk **tak, usuń go** tooconfirm.</span><span class="sxs-lookup"><span data-stu-id="56d8e-132">Click **Yes, delete it** tooconfirm.</span></span>
 
 ![Potwierdzenie usunięcia][api-management-confirm-delete]
 
-<span data-ttu-id="4f3be-135">Jeśli certyfikat jest używany przez interfejs API, a następnie zostanie wyświetlony ekran ostrzeżenie.</span><span class="sxs-lookup"><span data-stu-id="4f3be-135">If the certificate is in use by an API, then a warning screen is displayed.</span></span> <span data-ttu-id="4f3be-136">Aby usunąć certyfikat należy najpierw usunąć certyfikat z żadnych interfejsów API, które są skonfigurowane do używania go.</span><span class="sxs-lookup"><span data-stu-id="4f3be-136">To delete the certificate you must first remove the certificate from any APIs that are configured to use it.</span></span>
+<span data-ttu-id="56d8e-134">Jeśli certyfikat hello jest używany przez interfejs API, wyświetlany jest ekran z ostrzeżeniem.</span><span class="sxs-lookup"><span data-stu-id="56d8e-134">If hello certificate is in use by an API, then a warning screen is displayed.</span></span> <span data-ttu-id="56d8e-135">toodelete hello certyfikatów, należy najpierw usunąć hello certyfikatów wszystkie interfejsy API, które są skonfigurowane toouse go.</span><span class="sxs-lookup"><span data-stu-id="56d8e-135">toodelete hello certificate you must first remove hello certificate from any APIs that are configured toouse it.</span></span>
 
 ![Potwierdzenie usunięcia][api-management-confirm-delete-policy]
 
-## <span data-ttu-id="4f3be-138"><a name="step2"></a>Skonfigurować interfejs API do używania certyfikatu klienta uwierzytelniania bramy</span><span class="sxs-lookup"><span data-stu-id="4f3be-138"><a name="step2"> </a>Configure an API to use a client certificate for gateway authentication</span></span>
-<span data-ttu-id="4f3be-139">Kliknij przycisk **interfejsów API** z **zarządzanie interfejsami API** menu po lewej stronie kliknij nazwę żądanego interfejsu API, a następnie kliknij przycisk **zabezpieczeń** kartę.</span><span class="sxs-lookup"><span data-stu-id="4f3be-139">Click **APIs** from the **API Management** menu on the left, click the name of the desired API, and click the **Security** tab.</span></span>
+## <span data-ttu-id="56d8e-137"><a name="step2"></a>Skonfigurować toouse interfejsu API certyfikat klienta na potrzeby uwierzytelniania bramy</span><span class="sxs-lookup"><span data-stu-id="56d8e-137"><a name="step2"> </a>Configure an API toouse a client certificate for gateway authentication</span></span>
+<span data-ttu-id="56d8e-138">Kliknij przycisk **interfejsów API** z hello **zarządzanie interfejsami API** menu na powitania po lewej, kliknij nazwę hello hello żądanego interfejsu API, a następnie kliknij przycisk hello **zabezpieczeń** kartę.</span><span class="sxs-lookup"><span data-stu-id="56d8e-138">Click **APIs** from hello **API Management** menu on hello left, click hello name of hello desired API, and click hello **Security** tab.</span></span>
 
 ![Zabezpieczeń interfejsu API][api-management-api-security]
 
-<span data-ttu-id="4f3be-141">Wybierz **certyfikaty klienta** z **przy użyciu poświadczeń** listy rozwijanej.</span><span class="sxs-lookup"><span data-stu-id="4f3be-141">Select **Client certificates** from the **With credentials** drop-down list.</span></span>
+<span data-ttu-id="56d8e-140">Wybierz **certyfikaty klienta** z hello **przy użyciu poświadczeń** listy rozwijanej.</span><span class="sxs-lookup"><span data-stu-id="56d8e-140">Select **Client certificates** from hello **With credentials** drop-down list.</span></span>
 
 ![Certyfikaty klienta][api-management-mutual-certificates]
 
-<span data-ttu-id="4f3be-143">Wybierz żądany certyfikat z **certyfikatu klienta** listy rozwijanej.</span><span class="sxs-lookup"><span data-stu-id="4f3be-143">Select the desired certificate from the **Client certificate** drop-down list.</span></span> <span data-ttu-id="4f3be-144">Jeśli dostępnych jest wiele certyfikatów można przyjrzeć się podmiot lub cztery ostatnie znaki odcisk palca, zgodnie z opisem w poprzedniej sekcji, aby określić odpowiedni certyfikat.</span><span class="sxs-lookup"><span data-stu-id="4f3be-144">If there are multiple certificates you can look at the subject or the last four characters of the thumbprint as noted in the previous section to determine the correct certificate.</span></span>
+<span data-ttu-id="56d8e-142">Wybierz hello żądany certyfikat z hello **certyfikatu klienta** listy rozwijanej.</span><span class="sxs-lookup"><span data-stu-id="56d8e-142">Select hello desired certificate from hello **Client certificate** drop-down list.</span></span> <span data-ttu-id="56d8e-143">Jeśli dostępnych jest wiele certyfikatów można przeglądać temat hello i hello cztery ostatnie znaki hello odcisk palca, zgodnie z opisem w hello poprzedniej sekcji toodetermine hello prawidłowego certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="56d8e-143">If there are multiple certificates you can look at hello subject or hello last four characters of hello thumbprint as noted in hello previous section toodetermine hello correct certificate.</span></span>
 
 ![Wybierz certyfikat][api-management-select-certificate]
 
-<span data-ttu-id="4f3be-146">Kliknij przycisk **zapisać** można zapisać zmiany konfiguracji do interfejsu API.</span><span class="sxs-lookup"><span data-stu-id="4f3be-146">Click **Save** to save the configuration change to the API.</span></span>
+<span data-ttu-id="56d8e-145">Kliknij przycisk **zapisać** toosave hello konfiguracji zmiany toohello interfejsu API.</span><span class="sxs-lookup"><span data-stu-id="56d8e-145">Click **Save** toosave hello configuration change toohello API.</span></span>
 
-> <span data-ttu-id="4f3be-147">Ta zmiana zaczyna się od razu i wywołania operacji tego interfejsu API będzie używany certyfikat do uwierzytelniania na serwerze zaplecza.</span><span class="sxs-lookup"><span data-stu-id="4f3be-147">This change is effective immediately, and calls to operations of that API will use the certificate to authenticate on the back-end server.</span></span>
+> <span data-ttu-id="56d8e-146">Ta zmiana zaczyna się od razu i tooauthenticate certyfikatu na serwerze zaplecza hello hello wywołania używanego toooperations tego interfejsu API.</span><span class="sxs-lookup"><span data-stu-id="56d8e-146">This change is effective immediately, and calls toooperations of that API will use hello certificate tooauthenticate on hello back-end server.</span></span>
 > 
 > 
 
 ![Zapisz zmiany interfejsu API][api-management-save-api]
 
-> <span data-ttu-id="4f3be-149">Jeśli nie określono certyfikatu bramy uwierzytelniania usługi zaplecza interfejsu API, staje się częścią zasad dla tego interfejsu API i mogą być wyświetlane w edytorze zasad.</span><span class="sxs-lookup"><span data-stu-id="4f3be-149">When a certificate is specified for gateway authentication for the back-end service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.</span></span>
+> <span data-ttu-id="56d8e-148">Jeśli nie określono certyfikatu uwierzytelniania bramy hello usługi zaplecza interfejsu API, staje się częścią hello zasad dla tego interfejsu API i można wyświetlić w edytorze zasad hello.</span><span class="sxs-lookup"><span data-stu-id="56d8e-148">When a certificate is specified for gateway authentication for hello back-end service of an API, it becomes part of hello policy for that API, and can be viewed in hello policy editor.</span></span>
 > 
 > 
 
 ![Zasady certyfikatów][api-management-certificate-policy]
 
-## <a name="next-steps"></a><span data-ttu-id="4f3be-151">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="4f3be-151">Next steps</span></span>
-<span data-ttu-id="4f3be-152">Aby uzyskać więcej informacji na inne metody zabezpieczania usługi wewnętrznej bazy danych, takich jak HTTP uwierzytelniania podstawowego lub udostępnionego tajne zobacz poniższe wideo.</span><span class="sxs-lookup"><span data-stu-id="4f3be-152">For more information on other ways to secure your backend service, such as HTTP basic or shared secret authentication, see the following video.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="56d8e-150">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="56d8e-150">Next steps</span></span>
+<span data-ttu-id="56d8e-151">Aby uzyskać więcej informacji na temat innych sposobów toosecure usługi wewnętrznej bazy danych, takich jak HTTP uwierzytelniania podstawowego lub udostępnionego tajne, zobacz powitania po wideo.</span><span class="sxs-lookup"><span data-stu-id="56d8e-151">For more information on other ways toosecure your backend service, such as HTTP basic or shared secret authentication, see hello following video.</span></span>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
 > 
@@ -130,10 +130,10 @@ ms.lasthandoff: 07/11/2017
 
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How tooadd and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
 [API Management policy reference]: api-management-policy-reference.md
@@ -142,13 +142,13 @@ ms.lasthandoff: 07/11/2017
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[tooconfigure certificate authentication in Azure WebSites refer toothis article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configure an API to use a client certificate for gateway authentication]: #step2
-[Test the configuration by calling an operation in the Developer Portal]: #step3
+[Configure an API toouse a client certificate for gateway authentication]: #step2
+[Test hello configuration by calling an operation in hello Developer Portal]: #step3
 [Next steps]: #next-steps
 
 

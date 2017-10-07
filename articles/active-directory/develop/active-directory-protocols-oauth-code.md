@@ -1,6 +1,6 @@
 ---
-title: "Zrozumienie przepływu kodu autoryzacji protokołu OAuth 2.0 w usłudze Azure AD | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób użycia wiadomości HTTP do autoryzowania dostępu do aplikacji sieci web i interfejsów API sieci web w dzierżawie przy użyciu usługi Azure Active Directory i OAuth 2.0."
+title: "Witaj aaaUnderstand przepływu kodu autoryzacji protokołu OAuth 2.0 w usłudze Azure AD | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak tooauthorize wiadomości toouse HTTP dostępu tooweb aplikacji i interfejsów API sieci web w dzierżawie przy użyciu usługi Azure Active Directory i OAuth 2.0."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4a6fe67d786a5fcb87d1059c2e94ba0c88d26cd3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# Autoryzowanie dostępu do aplikacji sieci Web przy użyciu protokołu OAuth 2.0 i usługi Azure Active Directory
-Azure Active Directory (Azure AD) używa protokołu OAuth 2.0 do autoryzowania dostępu do aplikacji sieci web i interfejsów API sieci web w dzierżawie usługi Azure AD. Ten przewodnik jest niezależny od języka i opisuje sposób wysyłania i odbierania wiadomości HTTP bez przy użyciu dowolnej z naszych bibliotekach open source.
+# Autoryzowanie dostępu tooweb aplikacji przy użyciu protokołu OAuth 2.0 i usługi Azure Active Directory
+Azure Active Directory (Azure AD) używa protokołu OAuth 2.0 tooenable tooauthorize dostępu tooweb aplikacji i interfejsów API sieci web w dzierżawie usługi Azure AD. Ten przewodnik jest niezależny od języka i opisano sposób toosend i odbieranie wiadomości HTTP bez przy użyciu dowolnej z naszych bibliotekach open source.
 
-Przepływu kodu autoryzacji protokołu OAuth 2.0 jest opisany w [sekcji 4.1 specyfikacji protokołu OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). Służy do wykonywania uwierzytelniania i autoryzacji w większości typów aplikacji, w tym aplikacje sieci web, a natywnie zainstalowane aplikacje.
+Witaj przepływu kodu autoryzacji protokołu OAuth 2.0 jest opisany w [sekcji 4.1 specyfikacji hello OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). Tooperform używane uwierzytelnianie i autoryzację w większości typów aplikacji, w tym aplikacje sieci web i jest natywnie zainstalowane aplikacje.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## Przepływ autoryzacji OAuth 2.0
-Na wysokim poziomie przepływ całego autoryzacji dla aplikacji wygląda nieco następująco:
+Na wysokim poziomie hello przepływ całego autoryzacji dla aplikacji wygląda nieco następująco:
 
 ![Przepływu kodu autoryzacji OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## Kod autoryzacji żądania
-Przepływu kodu autoryzacji rozpoczyna się od klienta kierowanie użytkownikowi `/authorize` punktu końcowego. W tym żądaniu klient wskazuje uprawnień wymaganych do uzyskania dostępu przez użytkownika. Punkty końcowe protokołu OAuth 2.0 ze strony aplikacji w klasycznym portalu Azure, można uzyskać w **Wyświetl punkty końcowe** przycisk w szufladzie dolnej.
+przepływu kodu autoryzacji Hello rozpoczyna się od klienta hello kierowanie hello użytkownika toohello `/authorize` punktu końcowego. W tym żądaniu powitania klienta wskazuje uprawnienia hello musi tooacquire hello użytkownika. Punkty końcowe hello OAuth 2.0 można uzyskać ze strony aplikacji w klasycznym portalu Azure w hello **Wyświetl punkty końcowe** przycisk w szufladzie dolnej hello.
 
 ```
 // Line breaks for legibility only
@@ -50,23 +50,23 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametr |  | Opis |
 | --- | --- | --- |
-| Dzierżawy |Wymagane |`{tenant}` Wartość w ścieżce żądania może być używana w celu kontrolowania, kto może zalogować się do aplikacji.  Dozwolone wartości to identyfikatory dzierżawy, na przykład `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` lub `contoso.onmicrosoft.com` lub `common` tokenów niezależny od dzierżawcy |
-| client_id |Wymagane |Identyfikator aplikacji przypisany do aplikacji podczas rejestrowania z usługą Azure AD. To można znaleźć w portalu Azure. Kliknij przycisk **usługi Active Directory**, kliknij katalog, wybierz aplikację, a następnie kliknij przycisk **Konfiguruj** |
-| response_type |Wymagane |Musi zawierać `code` dla przepływu kodu autoryzacji. |
-| redirect_uri |Zalecane |Redirect_uri aplikacji, w którym można wysłanych i odebranych przez aplikację odpowiedzi uwierzytelniania.  Go musi dokładnie pasować redirect_uris, który został zarejestrowany w portalu, z wyjątkiem musi być zakodowane w adresie url.  W przypadku aplikacji natywnej & przenośnych powinny używać wartość domyślną `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Zalecane |Określa metodę, które mają być używane do wysyłania wynikowy token wstecz do aplikacji.  Może być `query` lub `form_post`. |
-| state |Zalecane |Wartość zawarte w żądaniu, który jest także zwracany w odpowiedzi tokenu. Losowo generowany unikatową wartość jest zazwyczaj używana w przypadku [zapobieganie fałszerstwie żądania międzywitrynowego](http://tools.ietf.org/html/rfc6749#section-10.12).  Stan służy także do kodowania informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widok, które były na. |
-| Zasobów |Opcjonalne |Identyfikator URI aplikacji sieci Web interfejsu API (zabezpieczonych zasobów). Aby znaleźć identyfikator URI aplikacji interfejsu API sieci Web w portalu Azure, kliknij przycisk **usługi Active Directory**, kliknij katalog, kliknij aplikację, a następnie kliknij przycisk **Konfiguruj**. |
-| wiersz |Opcjonalne |Wskazuje typ interakcji z użytkownikiem, który jest wymagany.<p> Prawidłowe wartości to: <p> *logowania*: użytkownik powinien być monitowany o ponownego uwierzytelnienia. <p> *zgoda*: zgody użytkownika przyznano, ale musi zostać zaktualizowany. Użytkownik powinien monit o zgodę. <p> *admin_consent*: administrator powinien być monitowany o zgodę imieniu wszyscy użytkownicy w organizacji |
-| login_hint |Opcjonalne |Można wstępnie wypełnić pole adresu e-mail/nazwa użytkownika strony logowania dla użytkownika, jeśli znasz swoją nazwę użytkownika wcześniejsze.  Aplikacje często tego parametru należy użyć podczas ponownego uwierzytelniania, już o wyodrębnić nazwy użytkownika z poprzedniej logowania przy użyciu `preferred_username` oświadczeń. |
-| domain_hint |Opcjonalne |Zawiera wskazówki dotyczące dzierżawy lub domeny, która powinna być używana do logowania użytkownika. Wartość domain_hint jest domeną zarejestrowanych dla dzierżawcy. Jeśli dzierżawa jest Sfederowane do katalogu lokalnego, usługi AAD przekierowuje do serwera federacyjnego w określonym dzierżawcy. |
+| Dzierżawy |Wymagane |Witaj `{tenant}` wartość w ścieżce hello hello żądania mogą być używane toocontrol, który można zalogować się do aplikacji hello.  Witaj dozwolone wartości to identyfikatory dzierżawy, na przykład `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` lub `contoso.onmicrosoft.com` lub `common` tokenów niezależny od dzierżawcy |
+| client_id |Wymagane |Program Hello identyfikator aplikacji przypisany tooyour aplikacji został zarejestrowany z usługą Azure AD. To można znaleźć w portalu Azure hello. Kliknij przycisk **usługi Active Directory**, kliknij katalog hello, wybierz aplikację hello, a następnie kliknij przycisk **Konfiguruj** |
+| response_type |Wymagane |Musi zawierać `code` dla przepływu kodu autoryzacji hello. |
+| redirect_uri |Zalecane |Witaj redirect_uri aplikacji, w którym można wysłanych i odebranych przez aplikację odpowiedzi uwierzytelniania.  Dokładnie musi odpowiadać jedną redirect_uris hello, który został zarejestrowany w portalu hello, z wyjątkiem musi być zakodowane w adresie url.  Dla aplikacji natywnych i przenośnych, należy używać wartość domyślną hello `urn:ietf:wg:oauth:2.0:oob`. |
+| response_mode |Zalecane |Określa metodę hello, który ma być używane toosend hello wynikowy tooyour tyłu tokenu aplikacji.  Może być `query` lub `form_post`. |
+| state |Zalecane |Wartość zawarte w żądaniu hello, który jest także zwracany w odpowiedzi tokenu hello. Losowo generowany unikatową wartość jest zazwyczaj używana w przypadku [zapobieganie fałszerstwie żądania międzywitrynowego](http://tools.ietf.org/html/rfc6749#section-10.12).  Stan Hello jest również używane tooencode informacji na temat stanu hello użytkownika w aplikacji hello przed wystąpieniem hello żądania uwierzytelniania, takie jak strona hello lub widok, które były na. |
+| Zasobów |Opcjonalne |Witaj identyfikator URI aplikacji hello składnika web API (zabezpieczonych zasobów). Witaj toofind identyfikator URI aplikacji hello interfejsu API sieci web, w hello portalu Azure, kliknij przycisk **usługi Active Directory**, kliknij katalog hello, kliknij przycisk aplikacji hello, a następnie kliknij przycisk **Konfiguruj**. |
+| wiersz |Opcjonalne |Określ typ hello interakcji z użytkownikiem, który jest wymagany.<p> Prawidłowe wartości to: <p> *logowania*: hello użytkownik powinien być zostanie wyświetlony monit o tooreauthenticate. <p> *zgoda*: zgody użytkownika przyznano, ale wymaga toobe aktualizacji. Witaj, użytkownik powinien być zostanie wyświetlony monit o tooconsent. <p> *admin_consent*: administrator powinien być tooconsent zostanie wyświetlony monit o imieniu wszyscy użytkownicy w organizacji |
+| login_hint |Opcjonalne |Może być pole adresu e-mail/nazwa użytkownika hello używane wypełnienia toopre hello strony logowania dla użytkownika hello, jeśli znasz swoją nazwę użytkownika wcześniejsze.  Aplikacje często tego parametru należy użyć podczas ponownego uwierzytelniania, już o wyodrębnić hello username z poprzednich logowanie przy użyciu hello `preferred_username` oświadczeń. |
+| domain_hint |Opcjonalne |Zawiera wskazówki dotyczące dzierżawy hello lub domeny, która hello użytkownika powinien użyć toosign w. wartość Hello hello domain_hint jest domeną zarejestrowanych hello dzierżawcy. Jeśli jest dostępna dzierżawa hello federacyjnych tooan lokalnego katalogu, AAD przekierowuje serwer federacyjny toohello określonego dzierżawcę. |
 
 > [!NOTE]
-> Jeśli użytkownik należy do organizacji, administrator w organizacji można wyrazić zgodę lub odrzucić w imieniu użytkownika lub zezwolenie na użytkownika o zgodę. Użytkownik otrzymuje opcję, aby wyrazić zgodę tylko wtedy, gdy administrator pozwala.
+> Hello użytkownika w przypadku organizacji, administrator organizacji hello można wyrazić zgodę lub odrzucić w imieniu użytkownika hello lub zezwolenie na powitania tooconsent użytkownika. Hello użytkownik otrzymuje hello opcja tooconsent tylko wtedy, gdy hello administrator pozwala.
 >
 >
 
-W tym momencie użytkownik jest proszony o wprowadzenie poświadczeń i wyrażenia zgody na uprawnienia wskazanych w `scope` parametr zapytania. Po uwierzytelnia i udziela zgody użytkownika usługi Azure AD wysyła odpowiedź do aplikacji w `redirect_uri` adresu w żądaniu.
+W tym momencie hello użytkownik jest pytany, tooenter ich poświadczeń i uprawnień toohello zgody wskazane hello `scope` parametr zapytania. Po hello użytkownik jest uwierzytelniany i udziela zgody, usługi Azure AD wysyła aplikacji tooyour odpowiedzi na powitania `redirect_uri` adresu w żądaniu.
 
 ### Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie może wyglądać następująco:
@@ -78,13 +78,13 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 
 | Parametr | Opis |
 | --- | --- |
-| admin_consent |Ma wartość True, jeśli administrator zgodę na wiersz żądania zgody. |
-| Kod |Aplikacja zażądała kod autoryzacji. Aplikacji można użyć kodu autoryzacji do żądania tokenu dostępu dla zasobu docelowego. |
-| session_state |Unikatowa wartość, która identyfikuje bieżącą sesję użytkownika. Ta wartość jest identyfikatorem GUID, ale powinien być traktowany jako wartość przezroczystości, która została przekazana bez badania. |
-| state |Jeśli parametr Stan jest uwzględniony w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Jest dobrym rozwiązaniem dla aplikacji, aby zweryfikować, że wartości stan żądania i odpowiedzi są identyczne, przed użyciem odpowiedzi. Ułatwia to wykrywanie [atakami opartymi na fałszowanie żądań między witrynami (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) względem klienta. |
+| admin_consent |wartość Hello ma wartość PRAWDA, jeśli administrator zgodę tooa zgody żądania wiersza. |
+| Kod |Kod autoryzacji Hello żądać aplikacji hello. zasób docelowy hello aplikacji Hello można używać toorequest kod autoryzacji hello tokenu dostępu. |
+| session_state |Unikatowa wartość, która identyfikuje hello bieżącą sesję użytkownika. Ta wartość jest identyfikatorem GUID, ale powinien być traktowany jako wartość przezroczystości, która została przekazana bez badania. |
+| state |Jeśli parametr Stan jest uwzględniony w żądaniu hello, hello tej samej wartości powinny być wyświetlane w hello odpowiedzi. Dobrym rozwiązaniem dla tooverify aplikacji hello, że wartości stanu hello hello żądań i odpowiedzi są identyczne, przed użyciem odpowiedź hello jest. Dzięki temu toodetect [atakami opartymi na fałszowanie żądań między witrynami (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) przed powitania klienta. |
 
 ### Odpowiedzi na błąd
-Odpowiedzi na błędy mogą być również wysyłane do `redirect_uri` , dzięki czemu aplikacja może je odpowiednią obsługę.
+Odpowiedzi na błędy mogą być również wysyłane toohello `redirect_uri` tak, aby aplikacja hello można je odpowiednią obsługę.
 
 ```
 GET http://localhost:12345/?
@@ -94,25 +94,25 @@ error=access_denied
 
 | Parametr | Opis |
 | --- | --- |
-| error |Wartość kodu błędu, zdefiniowane w sekcji 5.2 [OAuth 2.0 autoryzacji Framework](http://tools.ietf.org/html/rfc6749). W następnej tabeli opisano kody błędów, które zwraca usługi Azure AD. |
-| error_description |Bardziej szczegółowy opis błędu. Ten komunikat nie ma być przyjazny dla użytkownika końcowego. |
-| state |Wartość stanu jest losowo generowany-ponownie wartość, która jest wysłanych w żądaniu i zwracany w odpowiedzi, aby zapobiec fałszerstwie żądania międzywitrynowego (CSRF). |
+| error |Wartość kodu błędu, zdefiniowane w sekcji 5.2 hello [OAuth 2.0 autoryzacji Framework](http://tools.ietf.org/html/rfc6749). Hello dalej tabeli opisano kody błędów hello, które zwraca usługi Azure AD. |
+| error_description |Bardziej szczegółowy opis błędu hello. Ten komunikat nie ma toobe przyjazny dla użytkownika końcowego. |
+| state |Witaj stan wartość jest liczbą losowo generowany-ponownie wysyłany w żądaniu hello i zwracany w hello odpowiedzi tooprevent między witrynami (CSRF) fałszerstwie żądania. |
 
 #### Kody błędów dla błędów punktu końcowego autoryzacji
-W poniższej tabeli opisano różne kody błędów, które mogą być zwracane w `error` parametr odpowiedzi na błąd.
+Witaj poniższej tabeli opisano hello różnych kody błędów, które mogą być zwracane w hello `error` parametru hello odpowiedzi na błąd.
 
 | Kod błędu: | Opis | Akcja klienta |
 | --- | --- | --- |
-| invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie. Jest to błąd programowanie i zwykle zostanie przechwycony podczas testowania początkowej. |
-| unauthorized_client |Aplikacja kliencka nie jest dozwolone przy kod autoryzacji żądania. |Dzieje się tak zazwyczaj, gdy aplikacja kliencka nie jest zarejestrowany w usłudze Azure AD lub nie została dodana do dzierżawy usługi Azure AD przez użytkownika. Aplikację można monitować użytkownika z instrukcji dotyczących instalowania aplikacji i dodanie go do usługi Azure AD. |
-| ACCESS_DENIED |Odmowa zgody właściciel zasobu |Aplikacja kliencka powiadamiać użytkownika, którego nie można kontynuować, chyba że użytkownik zgadza. |
-| unsupported_response_type |Serwer autoryzacji w żądaniu nie obsługuje typ odpowiedzi. |Usuń i ponownie prześlij żądanie. Jest to błąd programowanie i zwykle zostanie przechwycony podczas testowania początkowej. |
-| server_error |Serwer napotkał nieoczekiwany błąd. |Ponów żądanie. Te błędy może wynikać z tymczasowego warunków. Aplikacja kliencka może wyjaśnić użytkownikowi, że odpowiedzi jest opóźnione z powodu tymczasowy błąd. |
-| temporarily_unavailable |Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądania. |Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że odpowiedzi jest opóźniony ze względu na tymczasowy warunek. |
-| invalid_resource |Zasób docelowy jest nieprawidłowy, ponieważ nie istnieje, nie można znaleźć usługi Azure AD lub nie została poprawnie skonfigurowana. |Oznacza to, że zasób, jeśli istnieje, nie został skonfigurowany w dzierżawie. Aplikację można monitować użytkownika z instrukcji dotyczących instalowania aplikacji i dodanie go do usługi Azure AD. |
+| invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie hello. Jest to błąd programowanie i zwykle zostanie przechwycony podczas testowania początkowej. |
+| unauthorized_client |Witaj aplikację klienta nie jest dozwolone toorequest kod autoryzacji. |Zazwyczaj dzieje się tak, gdy aplikacja kliencka hello nie jest zarejestrowany w usłudze Azure AD lub dzierżawy usługi Azure AD toohello użytkownika nie została dodana. aplikacji Hello można monitować użytkownika hello z instrukcji dotyczących instalowania aplikacji hello i dodanie go tooAzure AD. |
+| ACCESS_DENIED |Odmowa zgody właściciel zasobu |Aplikacja kliencka Hello powiadamiać hello użytkownika, którego nie można kontynuować, chyba że użytkownik hello zgadza. |
+| unsupported_response_type |w żądaniu hello powitania serwera autoryzacji nie obsługuje hello typ odpowiedzi. |Usuń i ponownie prześlij żądanie hello. Jest to błąd programowanie i zwykle zostanie przechwycony podczas testowania początkowej. |
+| server_error |Witaj serwer napotkał nieoczekiwany błąd. |Ponów żądanie hello. Te błędy może wynikać z tymczasowego warunków. Aplikacja kliencka Hello może wyjaśnić toohello użytkownika czy ze względu na tymczasowy błąd tooa jest opóźnione odpowiedzi. |
+| temporarily_unavailable |Serwer Hello tymczasowo jest zbyt zajęty toohandle hello żądania. |Ponów żądanie hello. Aplikacja kliencka Hello może wyjaśnić toohello użytkownika czy ze względu na tymczasowy warunek tooa jest opóźnione odpowiedzi. |
+| invalid_resource |zasób docelowy Hello jest nieprawidłowy, ponieważ nie istnieje, nie można znaleźć usługi Azure AD lub nie została poprawnie skonfigurowana. |Oznacza to, że hello zasobu, jeśli istnieje, nie został skonfigurowany w dzierżawie powitalnych. aplikacji Hello można monitować użytkownika hello z instrukcji dotyczących instalowania aplikacji hello i dodanie go tooAzure AD. |
 
-## Użyj kodu autoryzacji do żądania tokenu dostępu
-Teraz, gdy zostały nabyte kod autoryzacji i mieć odpowiednie uprawnienia udzielone przez użytkownika, możesz zrealizować kod tokenu dostępu do żądanego zasobu, poprzez wysłanie żądania POST do `/token` punktu końcowego:
+## Użyj toorequest kod autoryzacji hello token dostępu
+Teraz, gdy zostały nabyte kod autoryzacji i mieć odpowiednie uprawnienia udzielone przez użytkownika hello możesz zrealizować hello kod dostępu tokenu toohello żądanego zasobu, wysyłając toohello żądania POST `/token` punktu końcowego:
 
 ```
 // Line breaks for legibility only
@@ -132,20 +132,20 @@ grant_type=authorization_code
 
 | Parametr |  | Opis |
 | --- | --- | --- |
-| Dzierżawy |Wymagane |`{tenant}` Wartość w ścieżce żądania może być używana w celu kontrolowania, kto może zalogować się do aplikacji.  Dozwolone wartości to identyfikatory dzierżawy, na przykład `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` lub `contoso.onmicrosoft.com` lub `common` tokenów niezależny od dzierżawcy |
-| client_id |Wymagane |Identyfikator aplikacji przypisany do aplikacji podczas rejestrowania z usługą Azure AD. To można znaleźć w klasycznym portalu Azure. Kliknij przycisk **usługi Active Directory**, kliknij katalog, wybierz aplikację, a następnie kliknij przycisk **Konfiguruj** |
-| Typ grant_type |Wymagane |Musi być `authorization_code` dla przepływu kodu autoryzacji. |
-| Kod |Wymagane |`authorization_code` Uzyskanego w poprzedniej sekcji |
-| redirect_uri |Wymagane |Taki sam `redirect_uri` wartości, które zostało użyte do uzyskania `authorization_code`. |
-| client_secret |wymagane dla aplikacji sieci web |Klucz tajny aplikacji utworzonej w portalu rejestracji aplikacji dla aplikacji.  Nie należy można użyć w natywnej aplikacji, ponieważ client_secrets nie może być niezawodnie przechowywanych na urządzeniach.  Jest to wymagane dla aplikacji sieci web i interfejsów API, które mają możliwość przechowywania sieci web `client_secret` bezpiecznie po stronie serwera. |
-| Zasobów |wymagane, jeśli określony w żądaniu kodu autoryzacji, else opcjonalne |Identyfikator URI aplikacji sieci Web interfejsu API (zabezpieczonych zasobów). |
+| Dzierżawy |Wymagane |Witaj `{tenant}` wartość w ścieżce hello hello żądania mogą być używane toocontrol, który można zalogować się do aplikacji hello.  Witaj dozwolone wartości to identyfikatory dzierżawy, na przykład `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` lub `contoso.onmicrosoft.com` lub `common` tokenów niezależny od dzierżawcy |
+| client_id |Wymagane |Program Hello identyfikator aplikacji przypisany tooyour aplikacji został zarejestrowany z usługą Azure AD. To można znaleźć w hello klasycznego portalu Azure. Kliknij przycisk **usługi Active Directory**, kliknij katalog hello, wybierz aplikację hello, a następnie kliknij przycisk **Konfiguruj** |
+| Typ grant_type |Wymagane |Musi być `authorization_code` dla przepływu kodu autoryzacji hello. |
+| Kod |Wymagane |Witaj `authorization_code` uzyskanego w poprzedniej sekcji hello |
+| redirect_uri |Wymagane |Witaj sam `redirect_uri` wartości, które były używane tooacquire hello `authorization_code`. |
+| client_secret |wymagane dla aplikacji sieci web |Witaj klucz tajny aplikacji utworzonej w portalu rejestracji aplikacji hello dla aplikacji.  Nie należy można użyć w natywnej aplikacji, ponieważ client_secrets nie może być niezawodnie przechowywanych na urządzeniach.  Jest to wymagane dla aplikacji sieci web i interfejsów API, którym hello możliwości toostore hello sieci web `client_secret` bezpiecznie na powitania po stronie serwera. |
+| Zasobów |wymagane, jeśli określony w żądaniu kodu autoryzacji, else opcjonalne |Witaj identyfikator URI aplikacji hello składnika web API (zabezpieczonych zasobów). |
 
-Aby znaleźć identyfikator URI aplikacji w portalu zarządzania Azure, kliknij przycisk **usługi Active Directory**kliknij katalog, kliknij aplikację, a następnie kliknij przycisk **Konfiguruj**.
+Kliknij toofind hello identyfikator URI aplikacji w portalu zarządzania Azure, hello **usługi Active Directory**kliknij katalog hello, kliknij przycisk aplikacji hello, a następnie kliknij przycisk **Konfiguruj**.
 
 ### Odpowiedź oznaczająca Powodzenie
-Usługi Azure AD zwraca token dostępu po pomyślnej odpowiedzi. Aby zminimalizować wywołania sieci z aplikacji klienckiej i ich skojarzonych opóźnienia, aplikacja kliencka powinna buforowane tokenów dostępu przez okres istnienia tokenu, który określono w odpowiedzi protokołu OAuth 2.0. Aby ustalić okres istnienia tokenu, użyj `expires_in` lub `expires_on` wartości parametrów.
+Usługi Azure AD zwraca token dostępu po pomyślnej odpowiedzi. wywołania sieci toominimize z powitania klienta aplikacji i ich skojarzonych opóźnienia, powitania klienta aplikacji powinien buforowane tokenów dostępu przez okres istnienia tokenu hello, określonego w hello odpowiedzi protokołu OAuth 2.0. toodetermine hello okres istnienia tokenu, użyj albo hello `expires_in` lub `expires_on` wartości parametrów.
 
-Jeśli zasobu interfejsu API sieci web zwraca `invalid_token` kodu błędu, może to oznaczać, że zasób stwierdził, że token utracił ważność. Jeśli czas zegara klienta i zasobów są różne (znane jako "czas pochylenia"), zasobu warto rozważyć token wygaśnie, zanim token jest wyczyszczone z pamięci podręcznej klienta. W takim przypadku należy wyczyścić tokenu z pamięci podręcznej, nawet jeśli jest nadal w jego obliczeniowej okres istnienia.
+Jeśli zasobu interfejsu API sieci web zwraca `invalid_token` kodu błędu, może to oznaczać, że zasobów hello stwierdził wygaśnięcia tego tokenu hello. Jeśli czas zegara powitania klienta i zasobów są różne (znane jako "czas pochylenia"), zasobu hello może należy rozważyć hello token toobe wygasł przed hello token jest wyczyszczone z pamięci podręcznej powitania klienta. W takim przypadku należy wyczyścić hello tokenu z pamięci podręcznej hello, nawet jeśli jest nadal w jego obliczeniowej okres istnienia.
 
 Odpowiedź oznaczająca Powodzenie może wyglądać następująco:
 
@@ -165,17 +165,17 @@ Odpowiedź oznaczająca Powodzenie może wyglądać następująco:
 
 | Parametr | Opis |
 | --- | --- |
-| ' access_token ' |Żądany dostęp token. Aplikacja może używać tego tokenu do uwierzytelniania zabezpieczonych zasobów, takich jak interfejsu API sieci web. |
-| token_type |Wskazuje wartość typ tokenu. Jedynym typem, który obsługuje usługę Azure AD jest elementu nośnego. Aby uzyskać więcej informacji dotyczących tokenów elementu nośnego, zobacz [Framework autoryzacji OAuth2.0: użycie tokenu elementu nośnego (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
-| expires_in |Jak długo token dostępu jest nieprawidłowy (w sekundach). |
-| expires_on |Czas wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia. Ta wartość jest używana do określenia okres istnienia pamięci podręcznej tokenów. |
-| Zasobów |Identyfikator URI aplikacji sieci Web interfejsu API (zabezpieczonych zasobów). |
-| Zakres |Personifikacja uprawnienia do aplikacji klienckiej. Domyślne uprawnienia `user_impersonation`. Właściciel zasobu zabezpieczonych rejestrować dodatkowych wartości w usłudze Azure AD. |
-| refresh_token |Token odświeżania OAuth 2.0. Aplikacja może używać tego tokenu uzyskanie tokenów dostępu dodatkowe po wygaśnięciu bieżącego tokenu dostępu.  Odśwież tokeny są to długotrwałe i pozwala zachować dostęp do zasobów przez dłuższy czas. |
-| żądaniu |Niepodpisane JSON Web Token (JWT). Aplikacji base64Url może zdekodować segmentów tego tokenu do żądania informacji dotyczących użytkownika, który jest zalogowany. Można je wyświetlić i pamięci podręcznej wartości aplikacji, ale nie należy polegać na nich autoryzacji lub granic zabezpieczeń. |
+| ' access_token ' |token dostępu do żądanego Hello. Aplikacja Hello można użyć tego toohello tokenu tooauthenticate zabezpieczonych zasobów, takich jak interfejsu API sieci web. |
+| token_type |Wskazuje wartość tokenu typu hello. Hello tylko typ, czy obsługa usługi Azure AD jest elementu nośnego. Aby uzyskać więcej informacji dotyczących tokenów elementu nośnego, zobacz [Framework autoryzacji OAuth2.0: użycie tokenu elementu nośnego (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
+| expires_in |Jak długo hello token dostępu jest nieprawidłowy (w sekundach). |
+| expires_on |Witaj czas wygaśnięcia tokenu dostępu hello. Data Hello jest reprezentowany jako hello liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia hello. Ta wartość jest używane toodetermine hello okres istnienia pamięci podręcznej tokenów. |
+| Zasobów |Witaj identyfikator URI aplikacji hello składnika web API (zabezpieczonych zasobów). |
+| Zakres |Aplikacja kliencka toohello przyznane uprawnienia personifikacji. Witaj domyślne uprawnienia `user_impersonation`. Właściciel Hello hello zabezpieczonych zasobów można zarejestrować dodatkowych wartości w usłudze Azure AD. |
+| refresh_token |Token odświeżania OAuth 2.0. Aplikacja Hello można użyć tego tokeny dostępu dodatkowe tooacquire tokenu po wygaśnięciu tokenu dostępu bieżącego hello.  Odśwież tokeny są to długotrwałe i mogą być używane tooretain tooresources dostępu przez dłuższy czas. |
+| żądaniu |Niepodpisane JSON Web Token (JWT). base64Url może aplikacji Hello dekodowania hello segmenty tokenu toorequest informacje o hello użytkownik zalogowany. aplikacji Hello można buforować hello wartości i wyświetlić je, ale nie należy polegać na nich autoryzacji lub granic zabezpieczeń. |
 
 ### Oświadczenia tokenu JWT
-Token JWT wartości `id_token` parametr może zostać odczytany na następujących oświadczenia:
+token JWT Hello hello wartości hello `id_token` parametr może zostać odczytany na powitania po oświadczeń:
 
 ```
 {
@@ -199,35 +199,35 @@ Token JWT wartości `id_token` parametr może zostać odczytany na następujący
 }.
 ```
 
-Aby uzyskać więcej informacji dotyczących tokenów sieci web JSON, zobacz [Specyfikacja wersji roboczej JWT IETF](http://go.microsoft.com/fwlink/?LinkId=392344). Aby uzyskać więcej informacji o typach tokenów i oświadczeń, przeczytaj [obsługiwany Token i typy oświadczeń](active-directory-token-and-claims.md)
+Aby uzyskać więcej informacji na temat tokenów sieci web JSON, zobacz hello [Specyfikacja wersji roboczej JWT IETF](http://go.microsoft.com/fwlink/?LinkId=392344). Aby uzyskać więcej informacji na temat hello typy tokenów i oświadczeń, przeczytaj [obsługiwany Token i typy oświadczeń](active-directory-token-and-claims.md)
 
-`id_token` Parametr zawiera następujące typy oświadczeń:
+Witaj `id_token` parametr zawiera hello następujące typy oświadczeń:
 
 | Typ oświadczenia | Opis |
 | --- | --- |
-| lub |Odbiorcy tokenu. Token jest wystawiony dla aplikacji klienckiej, odbiorców jest `client_id` klienta. |
-| EXP |Czas wygaśnięcia. Czas wygaśnięcia tokenu. Token był prawidłowy, bieżącej daty/godziny musi być mniejsza lub równa `exp` wartość. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC czasu token został wystawiony. |
-| family_name |Użytkownika imienia lub nazwiska. Aplikację można wyświetlić tę wartość. |
-| given_name |Imię użytkownika. Aplikację można wyświetlić tę wartość. |
-| IAT |Wygenerowane w czasie. Czas, kiedy wydano tokenu JWT. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC czasu token został wystawiony. |
-| iss |Identyfikuje wystawcy tokenów |
-| NBF |Nie wcześniej niż czas. Czas, gdy token rozpoczęcia obowiązywania. Aby token był prawidłowy bieżącej daty/godziny musi być większa lub równa wartości Nbf. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC czasu token został wystawiony. |
-| Identyfikator OID |Identyfikator obiektu (ID) obiektu użytkownika w usłudze Azure AD. |
-| Sub |Identyfikator podmiotu tokenu. To jest trwałe i modyfikować identyfikator dla użytkownika, który opisuje tokenu. Użyj tej wartości w ramach buforowania logiki. |
-| TID |Dzierżawy identyfikator dzierżawy usługi Azure AD, która wystawiła token. |
-| unique_name |Unikatowy identyfikator, które mogą być wyświetlane dla użytkownika. Jest to zwykle główna nazwa użytkownika (UPN). |
-| nazwy UPN |Główna nazwa użytkownika użytkownika. |
-| VER |Wersja. Wersja tokenu JWT, zwykle 1.0. |
+| lub |Grupy odbiorców hello tokenu. Po wystawieniu tokenu hello aplikacji klienckiej tooa odbiorców hello jest hello `client_id` powitania klienta. |
+| EXP |Czas wygaśnięcia. Witaj czas wygaśnięcia tokenu hello. Witaj tokenu toobe prawidłowe, hello bieżącej daty/godziny musi być mniejsza lub równa toohello `exp` wartość. czas Hello jest reprezentowany jako hello liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC, dopóki hello czasu hello token został wystawiony. |
+| family_name |Użytkownika imienia lub nazwiska. Aplikacja Hello można wyświetlić tę wartość. |
+| given_name |Imię użytkownika. Aplikacja Hello można wyświetlić tę wartość. |
+| IAT |Wygenerowane w czasie. czas powitania po hello JWT został wystawiony. czas Hello jest reprezentowany jako hello liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC, dopóki hello czasu hello token został wystawiony. |
+| iss |Identyfikuje Witaj wystawca tokenów |
+| NBF |Nie wcześniej niż czas. Witaj godzina, kiedy hello token skuteczne. Dla hello tokenu toobe prawidłowe hello bieżącej daty/godziny wartość musi być większy lub równy toohello Nbf. czas Hello jest reprezentowany jako hello liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC, dopóki hello czasu hello token został wystawiony. |
+| Identyfikator OID |Identyfikator obiektu (ID) hello obiektu użytkownika w usłudze Azure AD. |
+| Sub |Identyfikator podmiotu tokenu. Jest to identyfikator trwałe i modyfikować dla opisuje hello hello tokenu użytkownika. Użyj tej wartości w ramach buforowania logiki. |
+| TID |Dzierżawy dzierżawy hello Azure AD, która wystawiła hello token identyfikator (ID). |
+| unique_name |Unikatowy identyfikator, który może być wyświetlanych toohello użytkownika. Jest to zwykle główna nazwa użytkownika (UPN). |
+| nazwy UPN |Główna nazwa użytkownika hello użytkownika. |
+| VER |Wersja. Wersja Hello hello tokenu JWT, zwykle 1.0. |
 
 ### Odpowiedzi na błąd
-Błędy programu endpoint wystawiania tokenu są kody błędów HTTP, ponieważ klient wywołuje punkt końcowy wydawania tokenów bezpośrednio. Oprócz kod stanu HTTP punktu końcowego usługi Azure AD wydawania tokenów zwraca dokument JSON z obiektami, które opisują błędu.
+błędy programu endpoint wydawania tokenów Hello są kody błędów HTTP, ponieważ powitania klienta wywołania bezpośrednio hello wydawania tokenów punktu końcowego. Ponadto kod stanu toohello HTTP, punkt końcowy wystawiania tokenu usługi Azure AD hello również zwraca dokument JSON z obiektów, które opisują hello błąd.
 
 Przykładowa odpowiedź błędu może wyglądać następująco:
 
 ```
 {
   "error": "invalid_grant",
-  "error_description": "AADSTS70002: Error validating credentials. AADSTS70008: The provided authorization code or refresh token is expired. Send a new interactive authorization request for this user and resource.\r\nTrace ID: 3939d04c-d7ba-42bf-9cb7-1e5854cdce9e\r\nCorrelation ID: a8125194-2dc8-4078-90ba-7b6592a7f231\r\nTimestamp: 2016-04-11 18:00:12Z",
+  "error_description": "AADSTS70002: Error validating credentials. AADSTS70008: hello provided authorization code or refresh token is expired. Send a new interactive authorization request for this user and resource.\r\nTrace ID: 3939d04c-d7ba-42bf-9cb7-1e5854cdce9e\r\nCorrelation ID: a8125194-2dc8-4078-90ba-7b6592a7f231\r\nTimestamp: 2016-04-11 18:00:12Z",
   "error_codes": [
     70002,
     70008
@@ -239,37 +239,37 @@ Przykładowa odpowiedź błędu może wyglądać następująco:
 ```
 | Parametr | Opis |
 | --- | --- |
-| error |Ciąg kodu błędu, który może służyć do klasyfikowania typy błędów występujących i może służyć do reagowania na błędy. |
-| error_description |Komunikat o błędzie, które mogą ułatwić dewelopera Określ przyczynę błędu uwierzytelniania. |
+| error |Ciąg kodu błędu mogą być używane tooclassify typów błędów występujących, która może być używana tooreact tooerrors. |
+| error_description |Komunikat o błędzie, które mogą ułatwić dewelopera zidentyfikować hello głównej przyczyny błędu uwierzytelniania. |
 | error_codes |Lista specyficzne dla usługi STS kody błędów, które mogą pomóc w diagnostyce. |
-| sygnatura czasowa |Czas, w którym wystąpił błąd. |
-| trace_id |Unikatowy identyfikator dla żądania, które mogą pomóc w diagnostyce. |
-| correlation_id |Unikatowy identyfikator dla żądania, które mogą pomóc w diagnostyce między składnikami. |
+| sygnatura czasowa |czas Hello, w którym wystąpił błąd hello. |
+| trace_id |Unikatowy identyfikator dla żądania hello, które mogą pomóc w diagnostyce. |
+| correlation_id |Unikatowy identyfikator dla żądania hello, które mogą pomóc w diagnostyce między składnikami. |
 
 #### Kody stanu HTTP
-Poniższa tabela zawiera listę kodów stanu HTTP, które zwraca punkt końcowy wydawania tokenów. W niektórych przypadkach kod błędu jest wystarczająca do opisywania odpowiedzi, ale jeśli występują błędy, należy przeanalizować towarzyszący dokument JSON i sprawdź, czy jego kod błędu.
+Witaj Poniższa tabela zawiera listę kodów stanu hello HTTP, które hello zwraca punkt końcowy wydawania tokenów. W niektórych przypadkach, kod błędu hello jest wystarczające toodescribe hello odpowiedzi, ale jeśli występują błędy, należy hello tooparse towarzyszące JSON dokumentów i sprawdź, czy jego kod błędu.
 
 | Kod HTTP | Opis |
 | --- | --- |
-| 400 |Domyślny kod HTTP. Używane w większości przypadków i jest zwykle z powodu źle sformułowane żądanie. Usuń i ponownie prześlij żądanie. |
-| 401 |Uwierzytelnianie nie powiodło się. Na przykład w żądaniu brakuje parametru client_secret. |
-| 403 |Autoryzacja nie powiodła się. Na przykład użytkownik nie ma uprawnień dostępu do zasobu. |
-| 500 |Wystąpił błąd wewnętrzny w usłudze. Ponów żądanie. |
+| 400 |Domyślny kod HTTP. Używane w większości przypadków i jest zwykle powodu tooa źle sformułowane żądanie. Usuń i ponownie prześlij żądanie hello. |
+| 401 |Uwierzytelnianie nie powiodło się. Na przykład żądania hello brakuje parametru client_secret hello. |
+| 403 |Autoryzacja nie powiodła się. Na przykład hello użytkownik nie ma uprawnień tooaccess hello zasobów. |
+| 500 |Wystąpił błąd wewnętrzny w hello usług. Ponów żądanie hello. |
 
 #### Kody błędów dla punktu końcowego tokena błędów
 | Kod błędu: | Opis | Akcja klienta |
 | --- | --- | --- |
-| invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie |
-| invalid_grant |Kod autoryzacji jest nieprawidłowa lub wygasła. |Ponów żądanie nowej `/authorize` punktu końcowego |
-| unauthorized_client |Uwierzytelniany klient nie ma uprawnień do używania tego typu przydziału autoryzacji. |Dzieje się tak zazwyczaj, gdy aplikacja kliencka nie jest zarejestrowany w usłudze Azure AD lub nie została dodana do dzierżawy usługi Azure AD przez użytkownika. Aplikację można monitować użytkownika z instrukcji dotyczących instalowania aplikacji i dodanie go do usługi Azure AD. |
-| invalid_client |Uwierzytelnianie klienta nie powiodło się. |Poświadczenia klienta są nieprawidłowe. Aby rozwiązać problem, administrator aplikacji aktualizuje poświadczenia. |
-| unsupported_grant_type |Serwer autoryzacji nie obsługuje typ przydziału autoryzacji. |Zmień typ grant w żądaniu. Tego typu błędu powinien wystąpić tylko podczas programowania i być wykryte podczas testowania początkowej. |
-| invalid_resource |Zasób docelowy jest nieprawidłowy, ponieważ nie istnieje, nie można znaleźć usługi Azure AD lub nie została poprawnie skonfigurowana. |Oznacza to, że zasób, jeśli istnieje, nie został skonfigurowany w dzierżawie. Aplikację można monitować użytkownika z instrukcji dotyczących instalowania aplikacji i dodanie go do usługi Azure AD. |
-| interaction_required |Żądanie wymaga interakcji z użytkownikiem. Na przykład krok dodatkowego uwierzytelniania jest wymagany. | Zamiast żądanie nieinterakcyjnym spróbuj ponownie z żądaniem interakcyjne autoryzacji dla tego samego zasobu. |
-| temporarily_unavailable |Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądania. |Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że odpowiedzi jest opóźniony ze względu na tymczasowy warunek. |
+| invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie hello |
+| invalid_grant |Kod autoryzacji Hello jest nieprawidłowa lub wygasła. |Spróbuj nowe toohello żądania `/authorize` punktu końcowego |
+| unauthorized_client |Witaj uwierzytelniany klient nie ma uprawnień toouse udzielić autoryzacji tego typu. |Zazwyczaj dzieje się tak, gdy aplikacja kliencka hello nie jest zarejestrowany w usłudze Azure AD lub dzierżawy usługi Azure AD toohello użytkownika nie została dodana. aplikacji Hello można monitować użytkownika hello z instrukcji dotyczących instalowania aplikacji hello i dodanie go tooAzure AD. |
+| invalid_client |Uwierzytelnianie klienta nie powiodło się. |powitania klienta poświadczenia są nieprawidłowe. toofix, administrator aplikacji hello aktualizuje hello poświadczeń. |
+| unsupported_grant_type |powitania serwera autoryzacji nie obsługuje typ przydziału hello autoryzacji. |Zmień hello przyznać typu w żądaniu hello. Tego typu błędu powinien wystąpić tylko podczas programowania i być wykryte podczas testowania początkowej. |
+| invalid_resource |zasób docelowy Hello jest nieprawidłowy, ponieważ nie istnieje, nie można znaleźć usługi Azure AD lub nie została poprawnie skonfigurowana. |Oznacza to, że hello zasobu, jeśli istnieje, nie został skonfigurowany w dzierżawie powitalnych. aplikacji Hello można monitować użytkownika hello z instrukcji dotyczących instalowania aplikacji hello i dodanie go tooAzure AD. |
+| interaction_required |Żądanie hello wymaga interakcji użytkownika. Na przykład krok dodatkowego uwierzytelniania jest wymagany. | Zamiast żądanie nieinterakcyjnym, ponów próbę przy użyciu żądania autoryzacji interakcyjne dla hello sam zasobów. |
+| temporarily_unavailable |Serwer Hello tymczasowo jest zbyt zajęty toohandle hello żądania. |Ponów żądanie hello. Aplikacja kliencka Hello może wyjaśnić toohello użytkownika czy ze względu na tymczasowy warunek tooa jest opóźnione odpowiedzi. |
 
-## Użyj tokenu dostępu, dostęp do zasobu
-Teraz, zostały pomyślnie uzyskano `access_token`, użyć tokenu w żądaniach wysyłanych do interfejsów API sieci Web, w tym `Authorization` nagłówka. [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specyfikacji wyjaśniono, jak uzyskać dostęp do chronionych zasobów za pomocą tokenów bearer w żądaniach HTTP.
+## Użyj zasobu hello tooaccess tokenu dostępu hello
+Teraz, zostały pomyślnie uzyskano `access_token`, można hello token w tooWeb żądań interfejsów API, umieszczając ją hello `Authorization` nagłówka. Witaj [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specyfikacji wyjaśniono, jak toouse tokenów elementu nośnego w tooaccess żądań HTTP chronionych zasobów.
 
 ### Przykładowe żądanie
 ```
@@ -279,41 +279,41 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ### Odpowiedzi na błąd
-Zabezpieczonych zasobów, które implementuje kody stanu HTTP problem RFC 6750. Jeśli nie ma poświadczeń uwierzytelniania lub brak tokenu żądania odpowiedź zawiera `WWW-Authenticate` nagłówka. Gdy żądanie nie powiodło się, serwer zasobów odpowie kod stanu HTTP i kod błędu.
+Zabezpieczonych zasobów, które implementuje kody stanu HTTP problem RFC 6750. Jeśli Żądanie hello nie ma poświadczeń uwierzytelniania lub brak odpowiedzi hello z tokenu, hello obejmuje `WWW-Authenticate` nagłówka. Gdy żądanie nie powiodło się, serwer zasobów hello odpowie kod stanu HTTP hello i kod błędu.
 
-Poniżej przedstawiono przykładowy odpowiedzi nie powiodło się, gdy żądanie klienta nie obejmuje tokenu elementu nośnego:
+następujące Hello jest przykładem odpowiedzi nie powiodło się, gdy żądanie klienta hello nie obejmuje tokenu elementu nośnego hello:
 
 ```
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
+WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="hello access token is missing.",
 ```
 
 #### Błąd parametrów
 | Parametr | Opis |
 | --- | --- |
-| authorization_uri |Identyfikator URI (fizycznych punktu końcowego) serwera autoryzacji. Ta wartość jest także używana jako klucz wyszukiwania, aby uzyskać więcej informacji o serwerze z punktu końcowego odnajdywania. <p><p> Klient musi sprawdzić, czy serwer autoryzacji jest zaufany. Zasób jest chroniony przez usługę Azure AD, jest wystarczające do zweryfikowania, że adres URL rozpoczyna się od https://login.microsoftonline.com lub innej nazwy hosta, który obsługuje usługę Azure AD. Zasób specyficznego dla dzierżawy zawsze powinna zwrócić identyfikatora URI autoryzacji specyficznego dla dzierżawy. |
-| error |Wartość kodu błędu, zdefiniowane w sekcji 5.2 [OAuth 2.0 autoryzacji Framework](http://tools.ietf.org/html/rfc6749). |
-| error_description |Bardziej szczegółowy opis błędu. Ten komunikat nie ma być przyjazny dla użytkownika końcowego. |
-| resource_id |Zwraca unikatowy identyfikator zasobu. Aplikacja kliencka może użyć tego identyfikatora jako wartość `resource` parametr podczas żądania tokenu dla zasobu. <p><p> Ważne jest, aby aplikacja klienta sprawdzić tę wartość, w przeciwnym razie złośliwe usługi będzie mógł wywołać **"podniesienia uprawnień"** ataków <p><p> Jest zalecana strategia zapobiegania atak do sprawdzenia, czy `resource_id` podstawowy adres URL interfejsu API sieci Web odpowiada, do której uzyskuje dostęp. Na przykład, jeśli jest uzyskiwany https://service.contoso.com/data `resource_id` może być htttps://service.contoso.com/. Aplikacja kliencka musi odrzucania `resource_id` nie zaczynające się od podstawowego adresu URL, chyba że jest to niezawodny sposób alternatywnych można zweryfikować identyfikatora. |
+| authorization_uri |Witaj identyfikator URI (fizycznych punktu końcowego) powitania serwera autoryzacji. Ta wartość służy również jako odnośnik kluczy tooget więcej informacji o serwerze hello z punktu końcowego odnajdywania. <p><p> powitania klienta należy zweryfikować tego hello serwera autoryzacji jest zaufany. Jeśli zasobów hello jest chroniony przez usługę Azure AD, jest wystarczające tooverify, hello adres URL rozpoczynający się od https://login.microsoftonline.com lub innego nazwy hosta, który obsługuje usługę Azure AD. Zasób specyficznego dla dzierżawy zawsze powinna zwrócić identyfikatora URI autoryzacji specyficznego dla dzierżawy. |
+| error |Wartość kodu błędu, zdefiniowane w sekcji 5.2 hello [OAuth 2.0 autoryzacji Framework](http://tools.ietf.org/html/rfc6749). |
+| error_description |Bardziej szczegółowy opis błędu hello. Ten komunikat nie ma toobe przyjazny dla użytkownika końcowego. |
+| resource_id |Zwraca hello Unikatowy identyfikator zasobu hello. powitania klienta aplikacji można użyć tego identyfikatora jako wartość hello hello `resource` parametr podczas żądania tokenu hello zasobu. <p><p> Ważne jest, aby hello tooverify aplikacji klienta tej wartości, w przeciwnym razie złośliwe usługi mogą być stanie tooinduce **"podniesienia uprawnień"** ataków <p><p> Witaj zalecane strategii uniemożliwia ataku jest tooverify, który hello `resource_id` dopasowań hello base hello sieci web adres URL interfejsu API, który uzyskiwany. Na przykład, jeśli jest uzyskiwany https://service.contoso.com/data hello `resource_id` może być htttps://service.contoso.com/. Aplikacja kliencka Hello musi odrzucania `resource_id` nie zaczynające się od podstawowego adresu URL hello chyba, że jest identyfikatorem hello tooverify niezawodnej alternatywny sposób. |
 
 #### Kody błędów schematu elementu nośnego
-Specyfikacja RFC 6750 definiuje następujące błędy zasobów korzystających z nagłówka WWW-Authenticate i schematu elementu nośnego w odpowiedzi.
+Witaj specyfikacji RFC 6750 definiuje następujące błędy zasobów, które użycia nagłówka WWW-Authenticate hello i schematu elementu nośnego w odpowiedzi hello hello.
 
 | Kod stanu HTTP | Kod błędu: | Opis | Akcja klienta |
 | --- | --- | --- | --- |
-| 400 |invalid_request |Żądanie nie jest poprawnie sformułowany. Na przykład może być brak parametru lub przy użyciu tego samego parametru dwa razy. |Usuń błąd i ponów żądanie. Tego typu błędu powinien wystąpić tylko podczas programowania i wykryty w początkowej testowania. |
-| 401 |invalid_token |Token dostępu jest brakujące, nieprawidłowe lub został odwołany. Wartość parametru error_description zawiera dodatkowe szczegóły. |Żądania nowy token od serwera autoryzacji. Jeśli nowy token nie powiedzie się, wystąpił nieoczekiwany błąd. Wyślij komunikat o błędzie do użytkownika i spróbuj ponownie po losowego opóźnienia. |
-| 403 |insufficient_scope |Token dostępu zawiera personifikacji wymaganych uprawnień do dostępu do zasobu. |Wysłanie nowego żądania autoryzacji do punktu końcowego autoryzacji. Jeśli odpowiedź zawiera parametr zakresu, należy użyć wartości zakresu żądania do zasobu. |
-| 403 |insufficient_access |Podmiot tokenu nie ma uprawnień, które są wymagane do uzyskania dostępu do zasobu. |Monituj użytkownika, aby korzystała z innego konta lub poproś o uprawnienia do określonego zasobu. |
+| 400 |invalid_request |Witaj żądania nie jest poprawnie sformułowany. Na przykład może być brak parametru lub przy użyciu hello tego samego parametru dwa razy. |Usuń błąd hello i ponów żądanie hello. Tego typu błędu powinien wystąpić tylko podczas programowania i wykryty w początkowej testowania. |
+| 401 |invalid_token |token dostępu Hello jest brakujące, nieprawidłowe lub został odwołany. wartość Hello hello error_description parametru zapewnia dodatkowe szczegóły. |Zażądać nowego tokenu z powitania serwera autoryzacji. Jeśli nowy token hello nie powiedzie się, wystąpił nieoczekiwany błąd. Wysyłanie użytkownika toohello komunikat błędu i ponów próbę po losowego opóźnienia. |
+| 403 |insufficient_scope |token dostępu Hello nie zawiera hello personifikacji uprawnienia wymagane tooaccess hello zasobu. |Wysłać nowe żądanie toohello autoryzacji punktu końcowego autoryzacji. Jeśli odpowiedź hello zawiera parametr zakresu hello, należy użyć wartości zakresu hello w zasobie toohello żądania hello. |
+| 403 |insufficient_access |temat Hello hello tokenu nie ma hello uprawnienia, które są wymagane tooaccess hello zasobów. |Witaj Monituj użytkownika toouse innego konta lub toohello uprawnienia toorequest określony zasób. |
 
-## Odświeżanie tokeny dostępu
-Tokeny dostępu są krótkim okresie i musi zostać odświeżona po wygaśnięciu, aby kontynuować, uzyskiwanie dostępu do zasobów. Można odświeżać `access_token` poprzez przesłanie innego `POST` żądanie `/token` punktu końcowego, ale ten czas, zapewniając `refresh_token` zamiast `code`.
+## Odświeżanie hello tokeny dostępu
+Tokeny dostępu są krótkim okresie i musi zostać odświeżona po wygasną toocontinue uzyskiwania dostępu do zasobów. Można odświeżać hello `access_token` poprzez przesłanie innego `POST` żądania toohello `/token` punktu końcowego, ale teraz podając hello `refresh_token` zamiast hello `code`.
 
-Odśwież tokenów nie ma określonego okresy istnienia. Zwykle okresy istnienia tokenów odświeżania są stosunkowo długo. Jednak w niektórych przypadkach tokenów odświeżania wygaśnie, były odwołane lub Brak wystarczających uprawnień dla żądanej akcji. Aplikacja musi oczekiwać i błędy zwrócone przez punkt końcowy wydawania tokenów poprawnie obsłużyć.
+Odśwież tokenów nie ma określonego okresy istnienia. Zazwyczaj hello okresy istnienia tokenów odświeżania są stosunkowo długo. Jednak w niektórych przypadkach tokenów odświeżania wygaśnie, były odwołane lub Brak wystarczających uprawnień dla akcji hello potrzebne. Aplikacja wymaga tooexpect i uchwytem błędy zwrócone przez punkt końcowy wydawania tokenów hello poprawnie.
 
-Po otrzymaniu odpowiedzi z powodu błędu tokenu odświeżania odrzucić bieżący token odświeżania i poproś o nowy kod autoryzacji lub tokenu dostępu. W szczególności, gdy przy użyciu odświeżenia tokenu w przepływ udzielania kodu autoryzacji, jeśli otrzymasz odpowiedź z `interaction_required` lub `invalid_grant` kody błędów, Odrzuć token odświeżania i poproś o nowy kod autoryzacji.
+Po otrzymaniu odpowiedzi z powodu błędu tokenu odświeżania odrzucić bieżący token odświeżania hello i poproś o nowy kod autoryzacji lub tokenu dostępu. W szczególności, gdy przy użyciu odświeżenia token w hello przepływ udzielania kodu autoryzacji, jeśli otrzymasz odpowiedź z hello `interaction_required` lub `invalid_grant` kody błędów, Odrzuć hello token odświeżania i poproś o nowy kod autoryzacji.
 
-Przykładowe żądanie do **specyficznego dla dzierżawy** punktu końcowego (można również użyć **wspólnej** punktu końcowego) do uzyskania dostępu nowego tokenu przy użyciu tokenu odświeżania wygląda następująco:
+Toohello żądania próbki **specyficznego dla dzierżawy** punktu końcowego (można również użyć hello **wspólnej** punktu końcowego) tooget nowy token dostępu za pomocą tokenu odświeżania wygląda następująco:
 
 ```
 // Line breaks for legibility only
@@ -344,13 +344,13 @@ Odpowiedź oznaczająca Powodzenie tokenu będą wyglądać jak:
 ```
 | Parametr | Opis |
 | --- | --- |
-| token_type |Typ tokenu. Jest to jedyna obsługiwana wartość **elementu nośnego**. |
-| expires_in |Pozostały okres istnienia tokenu, w sekundach. Typowe wartości to 3600 (jedna godzina). |
-| expires_on |Data i godzina wygaśnięcia tokenu. Data jest reprezentowana jako liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia. |
-| Zasobów |Identyfikuje zabezpieczonym zasobem, który token dostępu mogą być używane do dostępu. |
-| Zakres |Personifikacja uprawnienia przyznane aplikację native client. Domyślne uprawnienia **user_impersonation**. Właściciel zasobu docelowego można zarejestrować alternatywne wartości w usłudze Azure AD. |
-| ' access_token ' |Nowy token dostępu, którego zażądano. |
-| refresh_token |Nowe refresh_token OAuth 2.0, który może służyć do żądania nowe tokeny dostępu po wygaśnięciu w tej odpowiedzi. |
+| token_type |Typ tokenu Hello. wartość Hello tylko obsługiwane jest **elementu nośnego**. |
+| expires_in |Witaj pozostały okres istnienia tokenu hello w sekundach. Typowe wartości to 3600 (jedna godzina). |
+| expires_on |Witaj daty i godziny, na którym wygaśnięcia tokenu hello. Data Hello jest reprezentowany jako hello liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia hello. |
+| Zasobów |Identyfikuje hello zabezpieczonych zasobów hello tokenu dostępu mogą być używane tooaccess. |
+| Zakres |Aplikację native client toohello przyznane uprawnienia personifikacji. uprawnienia domyślne Hello jest **user_impersonation**. właściciel zasobu docelowego hello Hello można zarejestrować alternatywne wartości w usłudze Azure AD. |
+| ' access_token ' |Witaj nowego tokenu dostępu, który odebrał żądanie. |
+| refresh_token |Nowe refresh_token OAuth 2.0, które mogą być używane toorequest nowe tokeny dostępu po wygaśnięciu hello jedną w tej odpowiedzi. |
 
 ### Odpowiedzi na błąd
 Przykładowa odpowiedź błędu może wyglądać następująco:
@@ -358,7 +358,7 @@ Przykładowa odpowiedź błędu może wyglądać następująco:
 ```
 {
   "error": "invalid_resource",
-  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant.  You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
+  "error_description": "AADSTS50001: hello application named https://foo.microsoft.com/mail.read was not found in hello tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if hello application has not been installed by hello administrator of hello tenant or consented tooby any user in hello tenant.  You might have sent your authentication request toohello wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
   "error_codes": [
     50001
   ],
@@ -370,11 +370,11 @@ Przykładowa odpowiedź błędu może wyglądać następująco:
 
 | Parametr | Opis |
 | --- | --- |
-| error |Ciąg kodu błędu, który może służyć do klasyfikowania typy błędów występujących i może służyć do reagowania na błędy. |
-| error_description |Komunikat o błędzie, które mogą ułatwić dewelopera Określ przyczynę błędu uwierzytelniania. |
+| error |Ciąg kodu błędu mogą być używane tooclassify typów błędów występujących, która może być używana tooreact tooerrors. |
+| error_description |Komunikat o błędzie, które mogą ułatwić dewelopera zidentyfikować hello głównej przyczyny błędu uwierzytelniania. |
 | error_codes |Lista specyficzne dla usługi STS kody błędów, które mogą pomóc w diagnostyce. |
-| sygnatura czasowa |Czas, w którym wystąpił błąd. |
-| trace_id |Unikatowy identyfikator dla żądania, które mogą pomóc w diagnostyce. |
-| correlation_id |Unikatowy identyfikator dla żądania, które mogą pomóc w diagnostyce między składnikami. |
+| sygnatura czasowa |czas Hello, w którym wystąpił błąd hello. |
+| trace_id |Unikatowy identyfikator dla żądania hello, które mogą pomóc w diagnostyce. |
+| correlation_id |Unikatowy identyfikator dla żądania hello, które mogą pomóc w diagnostyce między składnikami. |
 
-Opis akcji zalecane klienta i kody błędów, zobacz [kody błędów dla błędów punktu końcowego tokena](#error-codes-for-token-endpoint-errors).
+Opis i kody błędów hello hello zalecana Akcja klienta, zobacz [kody błędów dla błędów punktu końcowego tokena](#error-codes-for-token-endpoint-errors).

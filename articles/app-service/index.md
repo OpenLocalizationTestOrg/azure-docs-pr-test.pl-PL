@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure App Service — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak za pomocą usługi App Service tworzyć aplikacje sieci Web i aplikacje mobilne dla dowolnej platformy i dowolnego urządzenia, korzystając z samouczków, klipów wideo, dokumentacji interfejsu API oraz innych dokumentów."
+title: "aaaAzure dokumentację usługi aplikacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse toocreate usługi aplikacji w sieci web i aplikacji mobilnych dla dowolnej platformy lub urządzenia przy użyciu samouczki, wideo, odwołania do interfejsu API i dokumentacji."
 services: app-service
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1d4ec0970232d2a12065a05d2f0211f7aae16d3f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="app-service-documentation"></a>Dokumentacja usługi App Service
 
-Dowiedz się, jak za pomocą usługi App Service opracowywać i hostować aplikacje sieci Web i aplikacje mobilne dla dowolnej platformy i dowolnego urządzenia, korzystając z samouczków, klipów wideo, dokumentacji interfejsu API oraz innych dokumentów. Dowiedz się, jak integrować aplikacje z rozwiązaniami SaaS, nawiązywać połączenia z aplikacjami lokalnymi i automatyzować procesy biznesowe.
+Dowiedz się, jak toouse usługi aplikacji toodevelop i hosta sieci web i aplikacji mobilnych dla dowolnej platformy lub urządzenia przy użyciu samouczki, wideo, odwołania do interfejsu API i dokumentacji. Dowiedz się, jak połączyć się z lokalnymi aplikacjami toointegrate aplikacje z rozwiązaniami SaaS i automatyzować procesy biznesowe.
 
 <ul class="panelContent cardsFTitle">
     <li>

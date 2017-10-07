@@ -1,5 +1,5 @@
 ---
-title: "Użytkownicy z nietypowe logowania działania"
+title: "aaaUsers przy użyciu konta nietypowe działania"
 description: "Wykryto raport, który wskazuje, że wszystkie konta użytkowników, dla którego nietypowych Zaloguj działania."
 services: active-directory
 documentationcenter: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-ms.openlocfilehash: acba4a4d3fa589aa1846f63883e5482e60605b70
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: efc9e21cfc3156b345a84da7527bf749af2b563c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="users-with-anomalous-sign-in-activity"></a><span data-ttu-id="49bb4-103">Użytkownicy z nietypowe logowania działania</span><span class="sxs-lookup"><span data-stu-id="49bb4-103">Users with anomalous sign in activity</span></span>
-<span data-ttu-id="49bb4-104">Jest to łączny raport, który łączy podejrzane logowania z następujących raportów:</span><span class="sxs-lookup"><span data-stu-id="49bb4-104">This is an aggregate report that combines suspicious sign-ins from the following reports:</span></span>
+# <a name="users-with-anomalous-sign-in-activity"></a><span data-ttu-id="b668e-103">Użytkownicy z nietypowe logowania działania</span><span class="sxs-lookup"><span data-stu-id="b668e-103">Users with anomalous sign in activity</span></span>
+<span data-ttu-id="b668e-104">Jest to łączny raport, który łączy podejrzane logowania z hello następujące raporty:</span><span class="sxs-lookup"><span data-stu-id="b668e-104">This is an aggregate report that combines suspicious sign-ins from hello following reports:</span></span>
 
-<ul><li><span data-ttu-id="49bb4-105">Logowania z nieznanych źródeł</span><span class="sxs-lookup"><span data-stu-id="49bb4-105">Sign ins from unknown sources</span></span></li>
-<li><span data-ttu-id="49bb4-106">Logowania po wielokrotnych niepowodzeniach</span><span class="sxs-lookup"><span data-stu-id="49bb4-106">Sign-ins after multiple failures</span></span></li>
-<li><span data-ttu-id="49bb4-107">Logowania z wielu lokalizacji geograficznych</span><span class="sxs-lookup"><span data-stu-id="49bb4-107">Sign-ins from multiple geographies</span></span></li>
-<li><span data-ttu-id="49bb4-108">Logowania z adresów IP związanych z podejrzanymi działaniami</span><span class="sxs-lookup"><span data-stu-id="49bb4-108">Sign-ins from IP addresses with suspicious activity</span></span></li>
-<li><span data-ttu-id="49bb4-109">Logowania z urządzeń, które mogą być zainfekowane</span><span class="sxs-lookup"><span data-stu-id="49bb4-109">Sign-ins from possibly infected devices</span></span></li>
-<li><span data-ttu-id="49bb4-110">Nieregularne działania związane z logowaniem</span><span class="sxs-lookup"><span data-stu-id="49bb4-110">Irregular sign-in activity</span></span></li>
+<ul><li><span data-ttu-id="b668e-105">Logowania z nieznanych źródeł</span><span class="sxs-lookup"><span data-stu-id="b668e-105">Sign ins from unknown sources</span></span></li>
+<li><span data-ttu-id="b668e-106">Logowania po wielokrotnych niepowodzeniach</span><span class="sxs-lookup"><span data-stu-id="b668e-106">Sign-ins after multiple failures</span></span></li>
+<li><span data-ttu-id="b668e-107">Logowania z wielu lokalizacji geograficznych</span><span class="sxs-lookup"><span data-stu-id="b668e-107">Sign-ins from multiple geographies</span></span></li>
+<li><span data-ttu-id="b668e-108">Logowania z adresów IP związanych z podejrzanymi działaniami</span><span class="sxs-lookup"><span data-stu-id="b668e-108">Sign-ins from IP addresses with suspicious activity</span></span></li>
+<li><span data-ttu-id="b668e-109">Logowania z urządzeń, które mogą być zainfekowane</span><span class="sxs-lookup"><span data-stu-id="b668e-109">Sign-ins from possibly infected devices</span></span></li>
+<li><span data-ttu-id="b668e-110">Nieregularne działania związane z logowaniem</span><span class="sxs-lookup"><span data-stu-id="b668e-110">Irregular sign-in activity</span></span></li>
 </ul>
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Pobieranie danych przy użyciu interfejsu API raportowania usługi Azure AD z certyfikatami | Microsoft Docs"
-description: "Opis sposobu użycia interfejsu API raportowania usługi Azure AD przy użyciu poświadczeń certyfikatu w celu pobrania danych z katalogów bez interwencji użytkownika."
+title: "aaaGet danych przy użyciu hello Azure AD interfejsu API raportowania z certyfikatami | Dokumentacja firmy Microsoft"
+description: "W tym artykule wyjaśniono, jak toouse hello Azure AD interfejsu API raportowania certyfikat poświadczeń tooget danymi z katalogów bez interwencji użytkownika."
 services: active-directory
 documentationcenter: 
 author: ramical
@@ -14,82 +14,82 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2017
 ms.author: ramical
-ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 00ddfaefe32ea6ae48f276c974a17ddcf84f7894
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a><span data-ttu-id="e6116-103">Pobieranie danych przy użyciu interfejsu API raportowania usługi Azure AD z certyfikatami</span><span class="sxs-lookup"><span data-stu-id="e6116-103">Get data using the Azure AD Reporting API with certificates</span></span>
-<span data-ttu-id="e6116-104">Ten artykuł zawiera opis sposobu użycia interfejsu API raportowania usługi Azure AD przy użyciu poświadczeń certyfikatu w celu pobrania danych z katalogów bez interwencji użytkownika.</span><span class="sxs-lookup"><span data-stu-id="e6116-104">This article discusses how to use the Azure AD Reporting API with certificate credentials to get data from directories without user intervention.</span></span> 
+# <a name="get-data-using-hello-azure-ad-reporting-api-with-certificates"></a><span data-ttu-id="b182b-103">Pobierz dane przy użyciu interfejsu API raportowania usługi Azure AD hello z certyfikatami</span><span class="sxs-lookup"><span data-stu-id="b182b-103">Get data using hello Azure AD Reporting API with certificates</span></span>
+<span data-ttu-id="b182b-104">W tym artykule opisano, jak toouse hello Azure AD interfejsu API raportowania certyfikat poświadczeń tooget danymi z katalogów bez interwencji użytkownika.</span><span class="sxs-lookup"><span data-stu-id="b182b-104">This article discusses how toouse hello Azure AD Reporting API with certificate credentials tooget data from directories without user intervention.</span></span> 
 
-## <a name="use-the-azure-ad-reporting-api"></a><span data-ttu-id="e6116-105">Zastosowanie interfejsu API raportowania usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="e6116-105">Use the Azure AD Reporting API</span></span> 
-<span data-ttu-id="e6116-106">Interfejs API raportowania usługi Azure AD wymaga wykonania następujących kroków:</span><span class="sxs-lookup"><span data-stu-id="e6116-106">Azure AD Reporting API requires that you complete the following steps:</span></span>
- *  <span data-ttu-id="e6116-107">Instalacja wymagań wstępnych</span><span class="sxs-lookup"><span data-stu-id="e6116-107">Install prerequisites</span></span>
- *  <span data-ttu-id="e6116-108">Skonfigurowanie certyfikatu w aplikacji</span><span class="sxs-lookup"><span data-stu-id="e6116-108">Set the certificate in your app</span></span>
- *  <span data-ttu-id="e6116-109">Pobranie tokenu dostępu</span><span class="sxs-lookup"><span data-stu-id="e6116-109">Get an access token</span></span>
- *  <span data-ttu-id="e6116-110">Wykorzystanie tokenu dostępu do wywołania interfejsu API programu Graph</span><span class="sxs-lookup"><span data-stu-id="e6116-110">Use the access token to call the Graph API</span></span>
+## <a name="use-hello-azure-ad-reporting-api"></a><span data-ttu-id="b182b-105">Użyj hello Azure AD interfejsu API raportowania</span><span class="sxs-lookup"><span data-stu-id="b182b-105">Use hello Azure AD Reporting API</span></span> 
+<span data-ttu-id="b182b-106">Azure AD interfejsu API raportowania wymaga wykonanie hello następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="b182b-106">Azure AD Reporting API requires that you complete hello following steps:</span></span>
+ *  <span data-ttu-id="b182b-107">Instalacja wymagań wstępnych</span><span class="sxs-lookup"><span data-stu-id="b182b-107">Install prerequisites</span></span>
+ *  <span data-ttu-id="b182b-108">Ustaw hello certyfikatu w aplikacji</span><span class="sxs-lookup"><span data-stu-id="b182b-108">Set hello certificate in your app</span></span>
+ *  <span data-ttu-id="b182b-109">Pobranie tokenu dostępu</span><span class="sxs-lookup"><span data-stu-id="b182b-109">Get an access token</span></span>
+ *  <span data-ttu-id="b182b-110">Użyj hello toocall tokenu dostępu hello interfejsu API programu Graph</span><span class="sxs-lookup"><span data-stu-id="b182b-110">Use hello access token toocall hello Graph API</span></span>
 
-<span data-ttu-id="e6116-111">Aby uzyskać informacje o kodzie źródłowym, zobacz [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Wykorzystanie modułu interfejsu API raportowania).</span><span class="sxs-lookup"><span data-stu-id="e6116-111">For information about source code, see [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils).</span></span> 
+<span data-ttu-id="b182b-111">Aby uzyskać informacje o kodzie źródłowym, zobacz [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Wykorzystanie modułu interfejsu API raportowania).</span><span class="sxs-lookup"><span data-stu-id="b182b-111">For information about source code, see [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils).</span></span> 
 
-### <a name="install-prerequisites"></a><span data-ttu-id="e6116-112">Instalacja wymagań wstępnych</span><span class="sxs-lookup"><span data-stu-id="e6116-112">Install prerequisites</span></span>
-<span data-ttu-id="e6116-113">Konieczne jest zainstalowanie programu Azure AD PowerShell V2 i modułu AzureADUtils.</span><span class="sxs-lookup"><span data-stu-id="e6116-113">You will need to have Azure AD PowerShell V2 and AzureADUtils module installed.</span></span>
+### <a name="install-prerequisites"></a><span data-ttu-id="b182b-112">Instalacja wymagań wstępnych</span><span class="sxs-lookup"><span data-stu-id="b182b-112">Install prerequisites</span></span>
+<span data-ttu-id="b182b-113">Konieczne będzie toohave programu Azure AD PowerShell V2 i zainstalowany moduł AzureADUtils.</span><span class="sxs-lookup"><span data-stu-id="b182b-113">You will need toohave Azure AD PowerShell V2 and AzureADUtils module installed.</span></span>
 
-1. <span data-ttu-id="e6116-114">Pobierz i zainstaluj program Azure AD Powershell V2, postępując zgodnie z instrukcjami w temacie [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).</span><span class="sxs-lookup"><span data-stu-id="e6116-114">Download and install Azure AD Powershell V2, following the instructions at [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).</span></span>
-2. <span data-ttu-id="e6116-115">Pobierz moduł Azure AD Utils z lokalizacji [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1).</span><span class="sxs-lookup"><span data-stu-id="e6116-115">Download the Azure AD Utils module from [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1).</span></span> 
-  <span data-ttu-id="e6116-116">Ten moduł zapewnia kilka poleceń cmdlet narzędzi, w tym:</span><span class="sxs-lookup"><span data-stu-id="e6116-116">This module provides several utility cmdlets including:</span></span>
-   * <span data-ttu-id="e6116-117">Najnowszą wersję bibliotek ADAL korzystających z narzędzia Nuget</span><span class="sxs-lookup"><span data-stu-id="e6116-117">The latest version of ADAL using Nuget</span></span>
-   * <span data-ttu-id="e6116-118">Tokeny dostępu użytkownika, kluczy aplikacji i certyfikatów korzystających z bibliotek ADAL</span><span class="sxs-lookup"><span data-stu-id="e6116-118">Access tokens from user, application keys, and certificates using ADAL</span></span>
-   * <span data-ttu-id="e6116-119">Stronicowane wyniki obsługi interfejsu API programu Graph</span><span class="sxs-lookup"><span data-stu-id="e6116-119">Graph API handling paged results</span></span>
+1. <span data-ttu-id="b182b-114">Pobieranie i instalowanie programu Azure AD Powershell V2, postępując zgodnie z instrukcjami hello na [środowiska PowerShell usługi Azure Active Directory](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).</span><span class="sxs-lookup"><span data-stu-id="b182b-114">Download and install Azure AD Powershell V2, following hello instructions at [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).</span></span>
+2. <span data-ttu-id="b182b-115">Pobierz moduł Azure AD witryny hello z [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1).</span><span class="sxs-lookup"><span data-stu-id="b182b-115">Download hello Azure AD Utils module from [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1).</span></span> 
+  <span data-ttu-id="b182b-116">Ten moduł zapewnia kilka poleceń cmdlet narzędzi, w tym:</span><span class="sxs-lookup"><span data-stu-id="b182b-116">This module provides several utility cmdlets including:</span></span>
+   * <span data-ttu-id="b182b-117">Witaj najnowszej wersji biblioteki adal przy użyciu narzędzia Nuget</span><span class="sxs-lookup"><span data-stu-id="b182b-117">hello latest version of ADAL using Nuget</span></span>
+   * <span data-ttu-id="b182b-118">Tokeny dostępu użytkownika, kluczy aplikacji i certyfikatów korzystających z bibliotek ADAL</span><span class="sxs-lookup"><span data-stu-id="b182b-118">Access tokens from user, application keys, and certificates using ADAL</span></span>
+   * <span data-ttu-id="b182b-119">Stronicowane wyniki obsługi interfejsu API programu Graph</span><span class="sxs-lookup"><span data-stu-id="b182b-119">Graph API handling paged results</span></span>
 
-<span data-ttu-id="e6116-120">**Aby zainstalować moduł Azure AD Utils:**</span><span class="sxs-lookup"><span data-stu-id="e6116-120">**To install the Azure AD Utils module:**</span></span>
+<span data-ttu-id="b182b-120">**Moduł Azure AD witryny hello tooinstall:**</span><span class="sxs-lookup"><span data-stu-id="b182b-120">**tooinstall hello Azure AD Utils module:**</span></span>
 
-1. <span data-ttu-id="e6116-121">Utwórz katalog w celu zapisania modułu narzędzi (na przykład c:\azureAD) i pobierz moduł z serwisu GitHub.</span><span class="sxs-lookup"><span data-stu-id="e6116-121">Create a directory to save the utilities module (for example, c:\azureAD) and download the module from GitHub.</span></span>
-2. <span data-ttu-id="e6116-122">Otwórz sesję programu PowerShell i przejdź do utworzonego właśnie katalogu.</span><span class="sxs-lookup"><span data-stu-id="e6116-122">Open a PowerShell session, and go to the directory you just created.</span></span> 
-3. <span data-ttu-id="e6116-123">Zaimportuj moduł i zainstaluj go w ścieżce modułu programu PowerShell za pomocą polecenia cmdlet Install-AzureADUtilsModule.</span><span class="sxs-lookup"><span data-stu-id="e6116-123">Import the module, and install it in the PowerShell module path using the Install-AzureADUtilsModule cmdlet.</span></span> 
+1. <span data-ttu-id="b182b-121">Utwórz moduł narzędzia hello toosave katalog (na przykład c:\azureAD) i Pobierz hello modułu z usługi GitHub.</span><span class="sxs-lookup"><span data-stu-id="b182b-121">Create a directory toosave hello utilities module (for example, c:\azureAD) and download hello module from GitHub.</span></span>
+2. <span data-ttu-id="b182b-122">Otwórz sesję programu PowerShell, a następnie przejdź do katalogu toohello, który został utworzony.</span><span class="sxs-lookup"><span data-stu-id="b182b-122">Open a PowerShell session, and go toohello directory you just created.</span></span> 
+3. <span data-ttu-id="b182b-123">Zaimportuj moduł hello i zainstaluj go w ścieżce modułu programu PowerShell hello przy użyciu polecenia cmdlet hello AzureADUtilsModule instalacji.</span><span class="sxs-lookup"><span data-stu-id="b182b-123">Import hello module, and install it in hello PowerShell module path using hello Install-AzureADUtilsModule cmdlet.</span></span> 
 
-<span data-ttu-id="e6116-124">Sesja powinna wyglądać podobnie do tego ekranu:</span><span class="sxs-lookup"><span data-stu-id="e6116-124">The session should look similar to this screen:</span></span>
+<span data-ttu-id="b182b-124">Hello sesji powinien wyglądać podobnie toothis ekranu:</span><span class="sxs-lookup"><span data-stu-id="b182b-124">hello session should look similar toothis screen:</span></span>
 
   ![Windows Powershell](./media/active-directory-report-api-with-certificates/windows-powershell.png)
 
-### <a name="set-the-certificate-in-your-app"></a><span data-ttu-id="e6116-126">Skonfigurowanie certyfikatu w aplikacji</span><span class="sxs-lookup"><span data-stu-id="e6116-126">Set the certificate in your app</span></span>
-1. <span data-ttu-id="e6116-127">Jeśli masz już aplikację, pobierz jej identyfikator obiektu z witryny Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="e6116-127">If you already have an app, get its Object ID from the Azure Portal.</span></span> 
+### <a name="set-hello-certificate-in-your-app"></a><span data-ttu-id="b182b-126">Ustaw hello certyfikatu w aplikacji</span><span class="sxs-lookup"><span data-stu-id="b182b-126">Set hello certificate in your app</span></span>
+1. <span data-ttu-id="b182b-127">Jeśli już masz aplikację, należy pobrać Identyfikatora obiektu z hello portalu Azure.</span><span class="sxs-lookup"><span data-stu-id="b182b-127">If you already have an app, get its Object ID from hello Azure Portal.</span></span> 
 
-  ![Portal Azure](./media/active-directory-report-api-with-certificates/azure-portal.png)
+  ![Azure Portal](./media/active-directory-report-api-with-certificates/azure-portal.png)
 
-2. <span data-ttu-id="e6116-129">Otwórz sesję programu PowerShell i nawiąż połączenie z usługą Azure AD za pomocą polecenia cmdlet Connect-AzureAD.</span><span class="sxs-lookup"><span data-stu-id="e6116-129">Open a PowerShell session and connect to Azure AD using the Connect-AzureAD cmdlet.</span></span>
+2. <span data-ttu-id="b182b-129">Otwórz sesję programu PowerShell i połącz tooAzure AD za pomocą polecenia cmdlet Connect-AzureAD hello.</span><span class="sxs-lookup"><span data-stu-id="b182b-129">Open a PowerShell session and connect tooAzure AD using hello Connect-AzureAD cmdlet.</span></span>
 
-  ![Portal Azure](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
+  ![Azure Portal](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
 
-3. <span data-ttu-id="e6116-131">Użyj polecenia cmdlet New-AzureADApplicationCertificateCredential z modułu AzureADUtils, aby dodać do niego poświadczenie certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="e6116-131">Use the New-AzureADApplicationCertificateCredential cmdlet from AzureADUtils to add a certificate credential to it.</span></span> 
+3. <span data-ttu-id="b182b-131">Użyj polecenia cmdlet New-AzureADApplicationCertificateCredential hello tooadd AzureADUtils tooit poświadczenie certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="b182b-131">Use hello New-AzureADApplicationCertificateCredential cmdlet from AzureADUtils tooadd a certificate credential tooit.</span></span> 
 
 >[!Note]
-><span data-ttu-id="e6116-132">Należy podać zarejestrowany wcześniej identyfikator obiektu aplikacji, a także obiekt certyfikatu (służy do tego polecenie Cert: drive).</span><span class="sxs-lookup"><span data-stu-id="e6116-132">You need to provide the application Object ID that you captured earlier, as well as the certificate object (get this using the Cert: drive).</span></span>
+><span data-ttu-id="b182b-132">Możesz muszą aplikacji hello tooprovide Identyfikatora obiektu, która została przechwycona wcześniej, a także hello obiektu certyfikatu (przy użyciu tego hello Cert: dysk).</span><span class="sxs-lookup"><span data-stu-id="b182b-132">You need tooprovide hello application Object ID that you captured earlier, as well as hello certificate object (get this using hello Cert: drive).</span></span>
 >
 
 
-  ![Portal Azure](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
+  ![Azure Portal](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
   
-### <a name="get-an-access-token"></a><span data-ttu-id="e6116-134">Pobranie tokenu dostępu</span><span class="sxs-lookup"><span data-stu-id="e6116-134">Get an access token</span></span>
+### <a name="get-an-access-token"></a><span data-ttu-id="b182b-134">Pobranie tokenu dostępu</span><span class="sxs-lookup"><span data-stu-id="b182b-134">Get an access token</span></span>
 
-<span data-ttu-id="e6116-135">Aby uzyskać token dostępu, użyj polecenia cmdlet Get-AzureADGraphAPIAccessTokenFromCert z modułu AzureADUtils.</span><span class="sxs-lookup"><span data-stu-id="e6116-135">To get an access token, use the Get-AzureADGraphAPIAccessTokenFromCert cmdlet from AzureADUtils.</span></span> 
+<span data-ttu-id="b182b-135">tooget tokenu dostępu, użyj polecenia cmdlet Get-AzureADGraphAPIAccessTokenFromCert hello AzureADUtils.</span><span class="sxs-lookup"><span data-stu-id="b182b-135">tooget an access token, use hello Get-AzureADGraphAPIAccessTokenFromCert cmdlet from AzureADUtils.</span></span> 
 
 >[!NOTE]
-><span data-ttu-id="e6116-136">Należy użyć identyfikatora aplikacji zamiast identyfikatora obiektu użytego w ostatniej sekcji.</span><span class="sxs-lookup"><span data-stu-id="e6116-136">You need to use the Application ID instead of the Object ID that you used in the last section.</span></span>
+><span data-ttu-id="b182b-136">Należy toouse hello identyfikator aplikacji zamiast hello Identyfikatora obiektu, który został użyty w ostatniej sekcji hello.</span><span class="sxs-lookup"><span data-stu-id="b182b-136">You need toouse hello Application ID instead of hello Object ID that you used in hello last section.</span></span>
 >
 
- ![Portal Azure](./media/active-directory-report-api-with-certificates/application-id.png)
+ ![Azure Portal](./media/active-directory-report-api-with-certificates/application-id.png)
 
-### <a name="use-the-access-token-to-call-the-graph-api"></a><span data-ttu-id="e6116-138">Wykorzystanie tokenu dostępu do wywołania interfejsu API programu Graph</span><span class="sxs-lookup"><span data-stu-id="e6116-138">Use the access token to call the Graph API</span></span>
+### <a name="use-hello-access-token-toocall-hello-graph-api"></a><span data-ttu-id="b182b-138">Użyj hello toocall tokenu dostępu hello interfejsu API programu Graph</span><span class="sxs-lookup"><span data-stu-id="b182b-138">Use hello access token toocall hello Graph API</span></span>
 
-<span data-ttu-id="e6116-139">Teraz można utworzyć skrypt.</span><span class="sxs-lookup"><span data-stu-id="e6116-139">Now you can create the script.</span></span> <span data-ttu-id="e6116-140">Poniżej zamieszczono przykład korzystający z polecenia Invoke-AzureADGraphAPIQuery z modułu AzureADUtils.</span><span class="sxs-lookup"><span data-stu-id="e6116-140">Below is an example using the Invoke-AzureADGraphAPIQuery cmdlet from the AzureADUtils.</span></span> <span data-ttu-id="e6116-141">To polecenie cmdlet obsługuje wyniki wielostronicowe, a następnie wysyła te wyniki do potoku programu PowerShell.</span><span class="sxs-lookup"><span data-stu-id="e6116-141">This cmdlet handles multi-paged results, and then sends those results to the PowerShell pipeline.</span></span> 
+<span data-ttu-id="b182b-139">Teraz możesz utworzyć hello skryptu.</span><span class="sxs-lookup"><span data-stu-id="b182b-139">Now you can create hello script.</span></span> <span data-ttu-id="b182b-140">Poniżej przedstawiono przykład za pomocą polecenia cmdlet Invoke-AzureADGraphAPIQuery hello hello AzureADUtils.</span><span class="sxs-lookup"><span data-stu-id="b182b-140">Below is an example using hello Invoke-AzureADGraphAPIQuery cmdlet from hello AzureADUtils.</span></span> <span data-ttu-id="b182b-141">To polecenie cmdlet obsługuje wyników wielu stronicowania, a następnie wysyła te wyniki toohello PowerShell potoku.</span><span class="sxs-lookup"><span data-stu-id="b182b-141">This cmdlet handles multi-paged results, and then sends those results toohello PowerShell pipeline.</span></span> 
 
- ![Portal Azure](./media/active-directory-report-api-with-certificates/script-completed.png)
+ ![Azure Portal](./media/active-directory-report-api-with-certificates/script-completed.png)
 
-<span data-ttu-id="e6116-143">Teraz można przystąpić do eksportowania wyników do formatu CSV i zapisu w systemie SIEM.</span><span class="sxs-lookup"><span data-stu-id="e6116-143">You are now ready to export to a CSV and save to a SIEM system.</span></span> <span data-ttu-id="e6116-144">Skrypt można również opakować w zaplanowane zadanie, aby okresowo uzyskiwać dane usługi Azure AD od dzierżawcy bez konieczności przechowywania kluczy aplikacji w kodzie źródłowym.</span><span class="sxs-lookup"><span data-stu-id="e6116-144">You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code.</span></span> 
+<span data-ttu-id="b182b-143">Są teraz gotowe tooexport tooa CSV i zapisać tooa SIEM system.</span><span class="sxs-lookup"><span data-stu-id="b182b-143">You are now ready tooexport tooa CSV and save tooa SIEM system.</span></span> <span data-ttu-id="b182b-144">Można również zawijać skryptu w tooget zaplanowane zadanie danych usługi Azure AD z dzierżawą okresowo bez konieczności toostore kluczy aplikacji hello kodu źródłowego.</span><span class="sxs-lookup"><span data-stu-id="b182b-144">You can also wrap your script in a scheduled task tooget Azure AD data from your tenant periodically without having toostore application keys in hello source code.</span></span> 
 
-## <a name="next-steps"></a><span data-ttu-id="e6116-145">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="e6116-145">Next steps</span></span>
-<span data-ttu-id="e6116-146">[The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity) (Podstawy zarządzania tożsamościami w usłudze Azure)</span><span class="sxs-lookup"><span data-stu-id="e6116-146">[The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)</span></span><br>
+## <a name="next-steps"></a><span data-ttu-id="b182b-145">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="b182b-145">Next steps</span></span>
+[<span data-ttu-id="b182b-146">Witaj podstawowe informacje na temat zarządzania tożsamość platformy Azure</span><span class="sxs-lookup"><span data-stu-id="b182b-146">hello fundamentals of Azure identity management</span></span>](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD w wersji 2 platformy ASP.NET serwera sieci web wprowadzenie | Dokumentacja firmy Microsoft
+title: aaaAzure AD v2 ASP.NET serwera sieci web wprowadzenie | Dokumentacja firmy Microsoft
 description: "Implementowanie logowania firmy Microsoft dla rozwiązania ASP.NET z aplikacji opartych na przeglądarce sieci web tradycyjnych przy użyciu standardowego protokołu OpenID Connect"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7a97cc9d1f13034de41f55399442061fbb4873c2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aae729b4e086d6770648af4708a58f840d2dbb9d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [1. Introduction](active-directory-serversidewebapp-aspnetwebappowin-introduction.md)]
 [!INCLUDE [2. Setup](active-directory-serversidewebapp-aspnetwebappowin-setup.md)]
