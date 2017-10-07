@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczynanie pracy z obiektu blob magazynu i Visual Studio połączone usługi (usługi w chmurze) | Dokumentacja firmy Microsoft"
-description: "Jak rozpocząć pracę przy użyciu magazynu obiektów Blob platformy Azure w projektu usługi w chmurze w programie Visual Studio po połączeniu z kontem magazynu za pomocą programu Visual Studio połączone usługi"
+title: "aaaGet wprowadzenie do magazynu obiektów blob i Visual Studio podłączonych usług (usługi w chmurze) | Dokumentacja firmy Microsoft"
+description: "Jak tooget uruchamiane przy użyciu magazynu obiektów Blob platformy Azure w projektu usługi w chmurze w programie Visual Studio po łączenie tooa konto magazynu przy użyciu programu Visual Studio połączenia usługi"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
-ms.openlocfilehash: e154c81ef3765a3c006b3c27a979be881f14d0ee
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 62fb7fcff0a90008859ebe23755f13ef0555e380
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a><span data-ttu-id="e2422-103">Wprowadzenie do usługi Azure Blob Storage i Visual Studio połączone usługi (usług w chmurze projekty)</span><span class="sxs-lookup"><span data-stu-id="e2422-103">Get started with Azure Blob Storage and Visual Studio connected services (cloud services projects)</span></span>
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a><span data-ttu-id="b7508-103">Wprowadzenie do usługi Azure Blob Storage i Visual Studio połączone usługi (usług w chmurze projekty)</span><span class="sxs-lookup"><span data-stu-id="b7508-103">Get started with Azure Blob Storage and Visual Studio connected services (cloud services projects)</span></span>
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a><span data-ttu-id="e2422-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="e2422-104">Overview</span></span>
-<span data-ttu-id="e2422-105">W tym artykule opisano, jak rozpocząć pracę z magazynu obiektów Blob Azure, po utworzeniu lub odwołuje się do konta usługi Azure Storage za pomocą programu Visual Studio **dodać usług połączonych** projektu usług okna dialogowego w chmurze programu Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="e2422-105">This article describes how to get started with Azure Blob Storage after you created or referenced an Azure Storage account by using the Visual Studio **Add Connected Services** dialog in a Visual Studio cloud services project.</span></span> <span data-ttu-id="e2422-106">Poniżej opisano sposób dostępu i tworzenie kontenerów obiektów blob oraz sposób wykonywania typowych zadań, takich jak przekazywanie, wyświetlania i pobieranie obiektów blob.</span><span class="sxs-lookup"><span data-stu-id="e2422-106">We'll show you how to access and create blob containers, and how to perform common tasks like uploading, listing, and downloading blobs.</span></span> <span data-ttu-id="e2422-107">Przykłady są napisane w języku C\# i użyj [Biblioteka klienta usługi Microsoft Azure Storage dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).</span><span class="sxs-lookup"><span data-stu-id="e2422-107">The samples are written in C\# and use the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).</span></span>
+## <a name="overview"></a><span data-ttu-id="b7508-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="b7508-104">Overview</span></span>
+<span data-ttu-id="b7508-105">W tym artykule opisano, jak tooget pracę z magazynu obiektów Blob Azure po utworzeniu lub odwołuje się do konta usługi Azure Storage za pomocą programu Visual Studio hello **dodać usług połączonych** projektu usług okna dialogowego w chmurze programu Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="b7508-105">This article describes how tooget started with Azure Blob Storage after you created or referenced an Azure Storage account by using hello Visual Studio **Add Connected Services** dialog in a Visual Studio cloud services project.</span></span> <span data-ttu-id="b7508-106">Poniżej opisano sposób tooaccess i tworzenie kontenerów obiektów blob i jak tooperform typowych zadań, takich jak przekazywanie, wyświetlania i pobieranie obiektów blob.</span><span class="sxs-lookup"><span data-stu-id="b7508-106">We'll show you how tooaccess and create blob containers, and how tooperform common tasks like uploading, listing, and downloading blobs.</span></span> <span data-ttu-id="b7508-107">Przykłady Hello są napisane w języku C\# i użyj hello [Biblioteka klienta usługi Microsoft Azure Storage dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).</span><span class="sxs-lookup"><span data-stu-id="b7508-107">hello samples are written in C\# and use hello [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).</span></span>
 
-<span data-ttu-id="e2422-108">Magazyn obiektów Blob Azure to usługa do przechowywania dużych ilości danych bez struktury, którego mogą uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS.</span><span class="sxs-lookup"><span data-stu-id="e2422-108">Azure Blob Storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS.</span></span> <span data-ttu-id="e2422-109">Pojedynczego obiektu blob może być dowolnym rozmiarze.</span><span class="sxs-lookup"><span data-stu-id="e2422-109">A single blob can be any size.</span></span> <span data-ttu-id="e2422-110">Obiekty BLOB można np. obrazów, plików audio i wideo, nieprzetworzone dane i pliki dokumentów.</span><span class="sxs-lookup"><span data-stu-id="e2422-110">Blobs can be things like images, audio and video files, raw data, and document files.</span></span>
+<span data-ttu-id="b7508-108">Magazyn obiektów Blob Azure to usługa do przechowywania dużych ilości danych bez struktury, którego mogą uzyskać dostęp z dowolnego miejsca Witaj świecie za pośrednictwem protokołu HTTP lub HTTPS.</span><span class="sxs-lookup"><span data-stu-id="b7508-108">Azure Blob Storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in hello world via HTTP or HTTPS.</span></span> <span data-ttu-id="b7508-109">Pojedynczego obiektu blob może być dowolnym rozmiarze.</span><span class="sxs-lookup"><span data-stu-id="b7508-109">A single blob can be any size.</span></span> <span data-ttu-id="b7508-110">Obiekty BLOB można np. obrazów, plików audio i wideo, nieprzetworzone dane i pliki dokumentów.</span><span class="sxs-lookup"><span data-stu-id="b7508-110">Blobs can be things like images, audio and video files, raw data, and document files.</span></span>
 
-<span data-ttu-id="e2422-111">Tak samo, jak żywe plików w folderach, na żywo magazynu obiektów blob w kontenerach.</span><span class="sxs-lookup"><span data-stu-id="e2422-111">Just as files live in folders, storage blobs live in containers.</span></span> <span data-ttu-id="e2422-112">Po utworzeniu magazynu należy utworzyć kontenerach w magazynie.</span><span class="sxs-lookup"><span data-stu-id="e2422-112">After you have created a storage, you create one or more containers in the storage.</span></span> <span data-ttu-id="e2422-113">Na przykład magazynu o nazwie "Pamiętnik", można tworzyć kontenery w magazynie o nazwie "obrazy" do przechowywania obrazów i innej o nazwie "audio" do przechowywania plików audio.</span><span class="sxs-lookup"><span data-stu-id="e2422-113">For example, in a storage called "Scrapbook," you can create containers in the storage called "images" to store pictures and another called "audio" to store audio files.</span></span> <span data-ttu-id="e2422-114">Po utworzeniu kontenerów, możesz przekazać pliki poszczególnych obiektów blob do nich.</span><span class="sxs-lookup"><span data-stu-id="e2422-114">After you create the containers, you can upload individual blob files to them.</span></span>
+<span data-ttu-id="b7508-111">Tak samo, jak żywe plików w folderach, na żywo magazynu obiektów blob w kontenerach.</span><span class="sxs-lookup"><span data-stu-id="b7508-111">Just as files live in folders, storage blobs live in containers.</span></span> <span data-ttu-id="b7508-112">Po utworzeniu magazynu tworzenia kontenerach hello magazynu.</span><span class="sxs-lookup"><span data-stu-id="b7508-112">After you have created a storage, you create one or more containers in hello storage.</span></span> <span data-ttu-id="b7508-113">Na przykład magazynu o nazwie "Pamiętnik", można tworzyć kontenery w magazynie hello o nazwie "obrazy" toostore obrazów i innej o nazwie "audio" toostore plików audio.</span><span class="sxs-lookup"><span data-stu-id="b7508-113">For example, in a storage called "Scrapbook," you can create containers in hello storage called "images" toostore pictures and another called "audio" toostore audio files.</span></span> <span data-ttu-id="b7508-114">Po utworzeniu hello kontenerów, możesz przekazać toothem plików poszczególnych obiektów blob.</span><span class="sxs-lookup"><span data-stu-id="b7508-114">After you create hello containers, you can upload individual blob files toothem.</span></span>
 
-* <span data-ttu-id="e2422-115">Aby uzyskać więcej informacji na programowo manipulowanie obiektów blob, zobacz [Rozpoczynanie pracy z magazynem obiektów Blob platformy Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md).</span><span class="sxs-lookup"><span data-stu-id="e2422-115">For more information on programmatically manipulating blobs, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md).</span></span>
-* <span data-ttu-id="e2422-116">Aby uzyskać ogólne informacje na temat usługi Azure Storage, zobacz [dokumentacji magazynu](https://azure.microsoft.com/documentation/services/storage/).</span><span class="sxs-lookup"><span data-stu-id="e2422-116">For general information about Azure Storage, see [Storage documentation](https://azure.microsoft.com/documentation/services/storage/).</span></span>
-* <span data-ttu-id="e2422-117">Aby uzyskać ogólne informacje o usługach w chmurze Azure, zobacz [dokumentacji usługi w chmurze](https://azure.microsoft.com/documentation/services/cloud-services/).</span><span class="sxs-lookup"><span data-stu-id="e2422-117">For general information about Azure Cloud Services, see [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/).</span></span>
-* <span data-ttu-id="e2422-118">Aby uzyskać więcej informacji na temat programowania aplikacji programu ASP.NET, zobacz [ASP.NET](http://www.asp.net).</span><span class="sxs-lookup"><span data-stu-id="e2422-118">For more information about programming ASP.NET applications, see [ASP.NET](http://www.asp.net).</span></span>
+* <span data-ttu-id="b7508-115">Aby uzyskać więcej informacji na programowo manipulowanie obiektów blob, zobacz [Rozpoczynanie pracy z magazynem obiektów Blob platformy Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md).</span><span class="sxs-lookup"><span data-stu-id="b7508-115">For more information on programmatically manipulating blobs, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md).</span></span>
+* <span data-ttu-id="b7508-116">Aby uzyskać ogólne informacje na temat usługi Azure Storage, zobacz [dokumentacji magazynu](https://azure.microsoft.com/documentation/services/storage/).</span><span class="sxs-lookup"><span data-stu-id="b7508-116">For general information about Azure Storage, see [Storage documentation](https://azure.microsoft.com/documentation/services/storage/).</span></span>
+* <span data-ttu-id="b7508-117">Aby uzyskać ogólne informacje o usługach w chmurze Azure, zobacz [dokumentacji usługi w chmurze](https://azure.microsoft.com/documentation/services/cloud-services/).</span><span class="sxs-lookup"><span data-stu-id="b7508-117">For general information about Azure Cloud Services, see [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/).</span></span>
+* <span data-ttu-id="b7508-118">Aby uzyskać więcej informacji na temat programowania aplikacji programu ASP.NET, zobacz [ASP.NET](http://www.asp.net).</span><span class="sxs-lookup"><span data-stu-id="b7508-118">For more information about programming ASP.NET applications, see [ASP.NET](http://www.asp.net).</span></span>
 
-## <a name="access-blob-containers-in-code"></a><span data-ttu-id="e2422-119">Dostęp do kontenerów obiektów blob w kodzie</span><span class="sxs-lookup"><span data-stu-id="e2422-119">Access blob containers in code</span></span>
-<span data-ttu-id="e2422-120">Do uzyskania programowego dostępu do obiektów blob w projekty usługi w chmurze, należy dodać następujące elementy, jeśli nie są one już istnieje.</span><span class="sxs-lookup"><span data-stu-id="e2422-120">To programmatically access blobs in cloud service projects, you need to add the following items, if they're not already present.</span></span>
+## <a name="access-blob-containers-in-code"></a><span data-ttu-id="b7508-119">Dostęp do kontenerów obiektów blob w kodzie</span><span class="sxs-lookup"><span data-stu-id="b7508-119">Access blob containers in code</span></span>
+<span data-ttu-id="b7508-120">tooprogrammatically dostęp do obiektów blob projekty usługi w chmurze, należy hello tooadd następujące elementy, jeśli nie są one już istnieje.</span><span class="sxs-lookup"><span data-stu-id="b7508-120">tooprogrammatically access blobs in cloud service projects, you need tooadd hello following items, if they're not already present.</span></span>
 
-1. <span data-ttu-id="e2422-121">Dodaj następujące deklaracje przestrzeni nazw kod na początku każdego pliku C# w którym chcesz uzyskania programowego dostępu do magazynu Azure.</span><span class="sxs-lookup"><span data-stu-id="e2422-121">Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.</span></span>
+1. <span data-ttu-id="b7508-121">Dodaj hello następującego kodu przestrzeni nazw deklaracje toohello górnej części każdego C# pliku, w którym chcesz tooprogrammatically dostępu do magazynu Azure.</span><span class="sxs-lookup"><span data-stu-id="b7508-121">Add hello following code namespace declarations toohello top of any C# file in which you wish tooprogrammatically access Azure Storage.</span></span>
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
-2. <span data-ttu-id="e2422-122">Pobierz **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu.</span><span class="sxs-lookup"><span data-stu-id="e2422-122">Get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="e2422-123">Użyj następującego kodu można pobrać parametry połączenia magazynu, a informacje o koncie magazynu z konfiguracji usługi Azure.</span><span class="sxs-lookup"><span data-stu-id="e2422-123">Use the following code to get the your storage connection string and storage account information from the Azure service configuration.</span></span>
+2. <span data-ttu-id="b7508-122">Pobierz **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu.</span><span class="sxs-lookup"><span data-stu-id="b7508-122">Get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="b7508-123">Witaj Użyj następującego kodu tooget hello parametry połączenia magazynu, a informacje o koncie magazynu z konfiguracji usługi Azure hello.</span><span class="sxs-lookup"><span data-stu-id="b7508-123">Use hello following code tooget hello your storage connection string and storage account information from hello Azure service configuration.</span></span>
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
-3. <span data-ttu-id="e2422-124">Pobierz **CloudBlobClient** obiekt, aby odwołać istniejącego kontenera na koncie magazynu.</span><span class="sxs-lookup"><span data-stu-id="e2422-124">Get a **CloudBlobClient** object to reference an existing container in your storage account.</span></span>
+3. <span data-ttu-id="b7508-124">Pobierz **CloudBlobClient** obiekt tooreference istniejącego kontenera na koncie magazynu.</span><span class="sxs-lookup"><span data-stu-id="b7508-124">Get a **CloudBlobClient** object tooreference an existing container in your storage account.</span></span>
    
         // Create a blob client.
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-4. <span data-ttu-id="e2422-125">Pobierz **CloudBlobContainer** obiekt, aby odwołać kontenera konkretnego obiektu blob.</span><span class="sxs-lookup"><span data-stu-id="e2422-125">Get a **CloudBlobContainer** object to reference a specific blob container.</span></span>
+4. <span data-ttu-id="b7508-125">Pobierz **CloudBlobContainer** obiekt tooreference kontenera konkretnego obiektu blob.</span><span class="sxs-lookup"><span data-stu-id="b7508-125">Get a **CloudBlobContainer** object tooreference a specific blob container.</span></span>
    
-        // Get a reference to a container named "mycontainer."
+        // Get a reference tooa container named "mycontainer."
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
 > [!NOTE]
-> <span data-ttu-id="e2422-126">Korzystanie ze wszystkich kodem przedstawionym w poprzedniej procedurze przed kodu pokazano w poniższych sekcjach.</span><span class="sxs-lookup"><span data-stu-id="e2422-126">Use all of the code shown in the previous procedure in front of the code shown in the following sections.</span></span>
+> <span data-ttu-id="b7508-126">Korzystanie ze wszystkich hello kodem przedstawionym w poprzedniej procedurze hello przed hello kodu pokazano hello następujące sekcje.</span><span class="sxs-lookup"><span data-stu-id="b7508-126">Use all of hello code shown in hello previous procedure in front of hello code shown in hello following sections.</span></span>
 > 
 > 
 
-## <a name="create-a-container-in-code"></a><span data-ttu-id="e2422-127">Tworzenie kontenera w kodzie</span><span class="sxs-lookup"><span data-stu-id="e2422-127">Create a container in code</span></span>
+## <a name="create-a-container-in-code"></a><span data-ttu-id="b7508-127">Tworzenie kontenera w kodzie</span><span class="sxs-lookup"><span data-stu-id="b7508-127">Create a container in code</span></span>
 > [!NOTE]
-> <span data-ttu-id="e2422-128">Niektórych interfejsów API służących do wykonywania wywołań wychodzących do magazynu Azure w ASP.NET są asynchroniczne.</span><span class="sxs-lookup"><span data-stu-id="e2422-128">Some APIs that perform calls out to Azure Storage in ASP.NET are asynchronous.</span></span> <span data-ttu-id="e2422-129">Zobacz [programowanie asynchroniczne z Async i Await](http://msdn.microsoft.com/library/hh191443.aspx) Aby uzyskać więcej informacji.</span><span class="sxs-lookup"><span data-stu-id="e2422-129">See [Asynchronous programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information.</span></span> <span data-ttu-id="e2422-130">Kod w poniższym przykładzie przyjęto założenie, że używasz metody programowania asynchronicznego.</span><span class="sxs-lookup"><span data-stu-id="e2422-130">The code in the following example assumes that you are using async programming methods.</span></span>
+> <span data-ttu-id="b7508-128">Niektórych interfejsów API służących do wykonywania wywołań wychodzących tooAzure magazynu w ASP.NET są asynchroniczne.</span><span class="sxs-lookup"><span data-stu-id="b7508-128">Some APIs that perform calls out tooAzure Storage in ASP.NET are asynchronous.</span></span> <span data-ttu-id="b7508-129">Zobacz [programowanie asynchroniczne z Async i Await](http://msdn.microsoft.com/library/hh191443.aspx) Aby uzyskać więcej informacji.</span><span class="sxs-lookup"><span data-stu-id="b7508-129">See [Asynchronous programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information.</span></span> <span data-ttu-id="b7508-130">Kod Hello w hello poniższy przykład zakłada, używasz metody programowania asynchronicznego.</span><span class="sxs-lookup"><span data-stu-id="b7508-130">hello code in hello following example assumes that you are using async programming methods.</span></span>
 > 
 > 
 
-<span data-ttu-id="e2422-131">Aby utworzyć kontener na koncie magazynu, jest wszystko co należy zrobić, dodaj wywołanie do **CreateIfNotExistsAsync** zgodnie z poniższym kodem:</span><span class="sxs-lookup"><span data-stu-id="e2422-131">To create a container in your storage account, all you need to do is add a call to **CreateIfNotExistsAsync** as in the following code:</span></span>
+<span data-ttu-id="b7508-131">toocreate kontenera na koncie magazynu, wszystko, czego potrzebujesz toodo jest Dodaj wywołanie za**CreateIfNotExistsAsync** jak hello następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="b7508-131">toocreate a container in your storage account, all you need toodo is add a call too**CreateIfNotExistsAsync** as in hello following code:</span></span>
 
     // If "mycontainer" doesn't exist, create it.
     await container.CreateIfNotExistsAsync();
 
 
-<span data-ttu-id="e2422-132">Aby udostępnić pliki w kontenerze dla wszystkich użytkowników, można ustawić kontener jako publiczny przy użyciu następującego kodu.</span><span class="sxs-lookup"><span data-stu-id="e2422-132">To make the files within the container available to everyone, you can set the container to be public by using the following code.</span></span>
+<span data-ttu-id="b7508-132">pliki hello toomake tooeveryone dostępne hello kontenera, można ustawić toobe kontenera hello publiczny przy użyciu następującego kodu hello.</span><span class="sxs-lookup"><span data-stu-id="b7508-132">toomake hello files within hello container available tooeveryone, you can set hello container toobe public by using hello following code.</span></span>
 
     await container.SetPermissionsAsync(new BlobContainerPermissions
     {
@@ -83,26 +83,26 @@ ms.lasthandoff: 07/11/2017
     });
 
 
-<span data-ttu-id="e2422-133">Wszyscy użytkownicy Internetu mogą wyświetlać obiekty BLOB w kontenerze publicznym, ale można zmodyfikować lub usunąć je tylko wtedy, gdy klucz dostępu.</span><span class="sxs-lookup"><span data-stu-id="e2422-133">Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate access key.</span></span>
+<span data-ttu-id="b7508-133">Wszyscy użytkownicy hello Internetu mogą wyświetlać obiekty BLOB w kontenerze publicznym, ale można zmodyfikować lub usunąć je tylko wtedy, gdy klucz dostępu odpowiednie hello.</span><span class="sxs-lookup"><span data-stu-id="b7508-133">Anyone on hello Internet can see blobs in a public container, but you can modify or delete them only if you have hello appropriate access key.</span></span>
 
-## <a name="upload-a-blob-into-a-container"></a><span data-ttu-id="e2422-134">Przekazywanie obiektu blob do kontenera</span><span class="sxs-lookup"><span data-stu-id="e2422-134">Upload a blob into a container</span></span>
-<span data-ttu-id="e2422-135">Usługa Azure Storage obsługuje blokowe i stronicowe obiekty BLOB.</span><span class="sxs-lookup"><span data-stu-id="e2422-135">Azure Storage supports block blobs and page blobs.</span></span> <span data-ttu-id="e2422-136">W większości przypadków zalecane jest użycie blokowych obiektów blob.</span><span class="sxs-lookup"><span data-stu-id="e2422-136">In the majority of cases, block blob is the recommended type to use.</span></span>
+## <a name="upload-a-blob-into-a-container"></a><span data-ttu-id="b7508-134">Przekazywanie obiektu blob do kontenera</span><span class="sxs-lookup"><span data-stu-id="b7508-134">Upload a blob into a container</span></span>
+<span data-ttu-id="b7508-135">Usługa Azure Storage obsługuje blokowe i stronicowe obiekty BLOB.</span><span class="sxs-lookup"><span data-stu-id="b7508-135">Azure Storage supports block blobs and page blobs.</span></span> <span data-ttu-id="b7508-136">W większości przypadków hello blokowych obiektów blob jest hello zalecane toouse typu.</span><span class="sxs-lookup"><span data-stu-id="b7508-136">In hello majority of cases, block blob is hello recommended type toouse.</span></span>
 
-<span data-ttu-id="e2422-137">Aby przekazać plik do blokowego obiektu blob, pobierz odwołanie do kontenera i uzyskaj za jego pomocą odwołanie do blokowego obiektu blob.</span><span class="sxs-lookup"><span data-stu-id="e2422-137">To upload a file to a block blob, get a container reference and use it to get a block blob reference.</span></span> <span data-ttu-id="e2422-138">Po uzyskaniu odwołania do obiektu blob możesz przekazać do niego dowolny strumień danych, wywołując metodę **UploadFromStream** .</span><span class="sxs-lookup"><span data-stu-id="e2422-138">Once you have a blob reference, you can upload any stream of data to it by calling the **UploadFromStream** method.</span></span> <span data-ttu-id="e2422-139">Ta operacja tworzy obiekt blob, jeśli jeszcze nie istniał, lub go zastępuje, jeśli już istniał.</span><span class="sxs-lookup"><span data-stu-id="e2422-139">This operation creates the blob if it didn't previously exist, or overwrites it if it does exist.</span></span> <span data-ttu-id="e2422-140">W poniższym przykładzie przedstawiono, jak przekazać obiekt blob do kontenera, zakładając, że kontener został już utworzony.</span><span class="sxs-lookup"><span data-stu-id="e2422-140">The following example shows how to upload a blob into a container and assumes that the container was already created.</span></span>
+<span data-ttu-id="b7508-137">tooupload pliku tooa blokowego obiektu blob, Pobierz odwołanie do kontenera i korzystać z niego tooget odwołanie do obiektu blob bloku.</span><span class="sxs-lookup"><span data-stu-id="b7508-137">tooupload a file tooa block blob, get a container reference and use it tooget a block blob reference.</span></span> <span data-ttu-id="b7508-138">Po utworzeniu odwołanie do obiektu blob możesz przekazać dowolny strumień danych tooit przez wywołanie hello **UploadFromStream** metody.</span><span class="sxs-lookup"><span data-stu-id="b7508-138">Once you have a blob reference, you can upload any stream of data tooit by calling hello **UploadFromStream** method.</span></span> <span data-ttu-id="b7508-139">Ta operacja tworzy hello obiektów blob, jeśli wcześniej nie istnieje lub zastąpiony, jeśli istnieje.</span><span class="sxs-lookup"><span data-stu-id="b7508-139">This operation creates hello blob if it didn't previously exist, or overwrites it if it does exist.</span></span> <span data-ttu-id="b7508-140">powitania po przykładzie pokazano, jak tooupload obiektu blob do kontenera i zakłada kontenera hello został już utworzony.</span><span class="sxs-lookup"><span data-stu-id="b7508-140">hello following example shows how tooupload a blob into a container and assumes that hello container was already created.</span></span>
 
-    // Retrieve a reference to a blob named "myblob".
+    // Retrieve a reference tooa blob named "myblob".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
-    // Create or overwrite the "myblob" blob with contents from a local file.
+    // Create or overwrite hello "myblob" blob with contents from a local file.
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
         blockBlob.UploadFromStream(fileStream);
     }
 
-## <a name="list-the-blobs-in-a-container"></a><span data-ttu-id="e2422-141">Wyświetlanie listy obiektów blob w kontenerze</span><span class="sxs-lookup"><span data-stu-id="e2422-141">List the blobs in a container</span></span>
-<span data-ttu-id="e2422-142">Aby wyświetlić listę obiektów blob w kontenerze, należy najpierw uzyskać odwołanie do kontenera.</span><span class="sxs-lookup"><span data-stu-id="e2422-142">To list the blobs in a container, first get a container reference.</span></span> <span data-ttu-id="e2422-143">Następnie można użyć metody **ListBlobs** kontenera, aby pobrać obiekty blob i/lub zawarte w nim katalogi.</span><span class="sxs-lookup"><span data-stu-id="e2422-143">You can then use the container's **ListBlobs** method to retrieve the blobs and/or directories within it.</span></span> <span data-ttu-id="e2422-144">Aby dostęp do bogatego zestawu właściwości i metod zwróconego **IListBlobItem**, należy rzutować go do **CloudBlockBlob**, **CloudPageBlob**, lub  **CloudBlobDirectory** obiektu.</span><span class="sxs-lookup"><span data-stu-id="e2422-144">To access the rich set of properties and methods for a  returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**, **CloudPageBlob**, or **CloudBlobDirectory** object.</span></span> <span data-ttu-id="e2422-145">Jeśli typ jest nieznany, można zastosować sprawdzanie typu, aby określić, do którego obiektu rzutować obiekt.</span><span class="sxs-lookup"><span data-stu-id="e2422-145">If the type is unknown, you can use a type check to determine which to cast it to.</span></span> <span data-ttu-id="e2422-146">Poniższy kod przedstawia sposób pobierania i zwracania identyfikatora URI poszczególnych elementów w kontenerze **photos**:</span><span class="sxs-lookup"><span data-stu-id="e2422-146">The following code demonstrates how to retrieve and output the URI of each item in the **photos** container:</span></span>
+## <a name="list-hello-blobs-in-a-container"></a><span data-ttu-id="b7508-141">Lista hello BLOB w kontenerze</span><span class="sxs-lookup"><span data-stu-id="b7508-141">List hello blobs in a container</span></span>
+<span data-ttu-id="b7508-142">toolist hello BLOB w kontenerze, najpierw pobrać odwołanie do kontenera.</span><span class="sxs-lookup"><span data-stu-id="b7508-142">toolist hello blobs in a container, first get a container reference.</span></span> <span data-ttu-id="b7508-143">Można użyć kontenera hello **ListBlobs** obiekty BLOB hello tooretrieve — metoda i/lub zawarte w nim katalogi.</span><span class="sxs-lookup"><span data-stu-id="b7508-143">You can then use hello container's **ListBlobs** method tooretrieve hello blobs and/or directories within it.</span></span> <span data-ttu-id="b7508-144">bogaty zestaw właściwości i metod zwróconego hello tooaccess **IListBlobItem**, należy rzutować go tooa **CloudBlockBlob**, **CloudPageBlob**, lub  **CloudBlobDirectory** obiektu.</span><span class="sxs-lookup"><span data-stu-id="b7508-144">tooaccess hello rich set of properties and methods for a  returned **IListBlobItem**, you must cast it tooa **CloudBlockBlob**, **CloudPageBlob**, or **CloudBlobDirectory** object.</span></span> <span data-ttu-id="b7508-145">Jeśli typ hello jest nieznany, można użyć toodetermine wyboru typu które toocast jej.</span><span class="sxs-lookup"><span data-stu-id="b7508-145">If hello type is unknown, you can use a type check toodetermine which toocast it to.</span></span> <span data-ttu-id="b7508-146">Witaj poniższy kod przedstawia sposób tooretrieve i dane wyjściowe hello identyfikatora URI poszczególnych elementów w hello **zdjęć** kontenera:</span><span class="sxs-lookup"><span data-stu-id="b7508-146">hello following code demonstrates how tooretrieve and output hello URI of each item in hello **photos** container:</span></span>
 
-    // Loop over items within the container and output the length and URI.
+    // Loop over items within hello container and output hello length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, false))
     {
         if (item.GetType() == typeof(CloudBlockBlob))
@@ -127,7 +127,7 @@ ms.lasthandoff: 07/11/2017
         }
     }
 
-<span data-ttu-id="e2422-147">Jak pokazano w poprzednim przykładzie kodu, usługa blob korzysta z koncepcji katalogów w kontenerach, jak również.</span><span class="sxs-lookup"><span data-stu-id="e2422-147">As shown in the previous code sample, the blob service has the concept of directories within containers, as well.</span></span> <span data-ttu-id="e2422-148">Jest to, dzięki czemu można organizować w strukturze więcej folderu przypominającej obiektów blob.</span><span class="sxs-lookup"><span data-stu-id="e2422-148">This is so that you can organize your blobs in a more folder-like structure.</span></span> <span data-ttu-id="e2422-149">Rozważmy na przykład następujący zestaw blokowych obiektów blob w kontenerze o nazwie **photos**:</span><span class="sxs-lookup"><span data-stu-id="e2422-149">For example, consider the following set of block blobs in a container named **photos**:</span></span>
+<span data-ttu-id="b7508-147">Jak pokazano na powitania poprzedniego kodu, usługa blob hello ma koncepcji hello katalogów w kontenerach, jak również.</span><span class="sxs-lookup"><span data-stu-id="b7508-147">As shown in hello previous code sample, hello blob service has hello concept of directories within containers, as well.</span></span> <span data-ttu-id="b7508-148">Jest to, dzięki czemu można organizować w strukturze więcej folderu przypominającej obiektów blob.</span><span class="sxs-lookup"><span data-stu-id="b7508-148">This is so that you can organize your blobs in a more folder-like structure.</span></span> <span data-ttu-id="b7508-149">Na przykład, należy wziąć pod uwagę następujące zestaw blokowych obiektów blob w kontenerze o nazwie hello **zdjęć**:</span><span class="sxs-lookup"><span data-stu-id="b7508-149">For example, consider hello following set of block blobs in a container named **photos**:</span></span>
 
     photo1.jpg
     2010/architecture/description.txt
@@ -138,22 +138,22 @@ ms.lasthandoff: 07/11/2017
     2011/architecture/description.txt
     2011/photo7.jpg
 
-<span data-ttu-id="e2422-150">Podczas wywoływania **ListBlobs** w kontenerze (jak powyższego przykładu) zawiera kolekcji zwróconej **CloudBlobDirectory** i **CloudBlockBlob** obiektów reprezentujący katalogi i obiekty BLOB, zawarty na najwyższym poziomie.</span><span class="sxs-lookup"><span data-stu-id="e2422-150">When you call **ListBlobs** on the container (as in the previous sample), the collection returned contains **CloudBlobDirectory** and **CloudBlockBlob** objects representing the directories and blobs contained at the top level.</span></span> <span data-ttu-id="e2422-151">Poniżej przedstawiono dane wyjściowe:</span><span class="sxs-lookup"><span data-stu-id="e2422-151">Here is the resulting output:</span></span>
+<span data-ttu-id="b7508-150">Podczas wywoływania **ListBlobs** na powitania kontenera (jak hello powyższego przykładu), zawiera hello kolekcji zwróconej **CloudBlobDirectory** i **CloudBlockBlob** obiektów reprezentujący hello katalogi i obiekty BLOB zawarte na najwyższym poziomie hello.</span><span class="sxs-lookup"><span data-stu-id="b7508-150">When you call **ListBlobs** on hello container (as in hello previous sample), hello collection returned contains **CloudBlobDirectory** and **CloudBlockBlob** objects representing hello directories and blobs contained at hello top level.</span></span> <span data-ttu-id="b7508-151">Poniżej przedstawiono dane wyjściowe hello:</span><span class="sxs-lookup"><span data-stu-id="b7508-151">Here is hello resulting output:</span></span>
 
     Directory: https://<accountname>.blob.core.windows.net/photos/2010/
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-<span data-ttu-id="e2422-152">Opcjonalnie można ustawić parametr **UseFlatBlobListing** metody **ListBlobs** na wartość **true**.</span><span class="sxs-lookup"><span data-stu-id="e2422-152">Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to **true**.</span></span> <span data-ttu-id="e2422-153">Powoduje to każdy obiekt blob jest zwracana jako **CloudBlockBlob**, niezależnie od tego katalogu.</span><span class="sxs-lookup"><span data-stu-id="e2422-153">This results in every blob being returned as a **CloudBlockBlob**, regardless of directory.</span></span> <span data-ttu-id="e2422-154">Oto wywołanie **ListBlobs**:</span><span class="sxs-lookup"><span data-stu-id="e2422-154">Here is the call to **ListBlobs**:</span></span>
+<span data-ttu-id="b7508-152">Opcjonalnie można ustawić hello **UseFlatBlobListing** parametr hello **ListBlobs** metodę **true**.</span><span class="sxs-lookup"><span data-stu-id="b7508-152">Optionally, you can set hello **UseFlatBlobListing** parameter of of hello **ListBlobs** method to **true**.</span></span> <span data-ttu-id="b7508-153">Powoduje to każdy obiekt blob jest zwracana jako **CloudBlockBlob**, niezależnie od tego katalogu.</span><span class="sxs-lookup"><span data-stu-id="b7508-153">This results in every blob being returned as a **CloudBlockBlob**, regardless of directory.</span></span> <span data-ttu-id="b7508-154">W tym miejscu jest zbyt wywołania hello**ListBlobs**:</span><span class="sxs-lookup"><span data-stu-id="b7508-154">Here is hello call too**ListBlobs**:</span></span>
 
-    // Loop over items within the container and output the length and URI.
+    // Loop over items within hello container and output hello length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
     {
        ...
     }
 
-<span data-ttu-id="e2422-155">i poniżej przedstawiono wyniki:</span><span class="sxs-lookup"><span data-stu-id="e2422-155">and here are the results:</span></span>
+<span data-ttu-id="b7508-155">a Oto hello wyników:</span><span class="sxs-lookup"><span data-stu-id="b7508-155">and here are hello results:</span></span>
 
     Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
     Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
@@ -164,23 +164,23 @@ ms.lasthandoff: 07/11/2017
     Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-<span data-ttu-id="e2422-156">Aby uzyskać więcej informacji, zobacz [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).</span><span class="sxs-lookup"><span data-stu-id="e2422-156">For more information, see [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).</span></span>
+<span data-ttu-id="b7508-156">Aby uzyskać więcej informacji, zobacz [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).</span><span class="sxs-lookup"><span data-stu-id="b7508-156">For more information, see [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).</span></span>
 
-## <a name="download-blobs"></a><span data-ttu-id="e2422-157">Pobieranie obiektów blob</span><span class="sxs-lookup"><span data-stu-id="e2422-157">Download blobs</span></span>
-<span data-ttu-id="e2422-158">Aby pobrać obiekty blob, należy najpierw pobrać odwołanie do obiektu blob, a następnie wywołać metodę **DownloadToStream**.</span><span class="sxs-lookup"><span data-stu-id="e2422-158">To download blobs, first retrieve a blob reference and then call the **DownloadToStream** method.</span></span> <span data-ttu-id="e2422-159">W poniższym przykładzie użyto metody **DownloadToStream**, aby przesłać zawartość obiektu blob do obiektu strumienia, który można następnie zachować w pliku lokalnym.</span><span class="sxs-lookup"><span data-stu-id="e2422-159">The following example uses the **DownloadToStream** method to transfer the blob contents to a stream object that you can then persist to a local file.</span></span>
+## <a name="download-blobs"></a><span data-ttu-id="b7508-157">Pobieranie obiektów blob</span><span class="sxs-lookup"><span data-stu-id="b7508-157">Download blobs</span></span>
+<span data-ttu-id="b7508-158">obiekty BLOB toodownload, najpierw pobrać odwołanie do obiektu blob, a następnie wywołać hello **DownloadToStream** metody.</span><span class="sxs-lookup"><span data-stu-id="b7508-158">toodownload blobs, first retrieve a blob reference and then call hello **DownloadToStream** method.</span></span> <span data-ttu-id="b7508-159">Witaj poniższym przykładzie użyto hello **DownloadToStream** metody tootransfer hello blob zawartość tooa obiektu strumienia można następnie zachować tooa pliku lokalnego.</span><span class="sxs-lookup"><span data-stu-id="b7508-159">hello following example uses hello **DownloadToStream** method tootransfer hello blob contents tooa stream object that you can then persist tooa local file.</span></span>
 
-    // Get a reference to a blob named "photo1.jpg".
+    // Get a reference tooa blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
-    // Save blob contents to a file.
+    // Save blob contents tooa file.
     using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
     {
         blockBlob.DownloadToStream(fileStream);
     }
 
-<span data-ttu-id="e2422-160">Można również użyć metody **DownloadToStream**, aby pobrać zawartość obiektu blob jako ciąg tekstowy.</span><span class="sxs-lookup"><span data-stu-id="e2422-160">You can also use the **DownloadToStream** method to download the contents of a blob as a text string.</span></span>
+<span data-ttu-id="b7508-160">Można również użyć hello **DownloadToStream** metody toodownload hello zawartość obiektu blob jako ciąg tekstowy.</span><span class="sxs-lookup"><span data-stu-id="b7508-160">You can also use hello **DownloadToStream** method toodownload hello contents of a blob as a text string.</span></span>
 
-    // Get a reference to a blob named "myblob.txt"
+    // Get a reference tooa blob named "myblob.txt"
     CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
 
     string text;
@@ -190,37 +190,37 @@ ms.lasthandoff: 07/11/2017
         text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
     }
 
-## <a name="delete-blobs"></a><span data-ttu-id="e2422-161">Usuwanie obiektów blob</span><span class="sxs-lookup"><span data-stu-id="e2422-161">Delete blobs</span></span>
-<span data-ttu-id="e2422-162">Aby usunąć obiekt blob, najpierw pobrać odwołanie do obiektu blob, a następnie wywołać **usunąć** metody.</span><span class="sxs-lookup"><span data-stu-id="e2422-162">To delete a blob, first get a blob reference and then call the **Delete** method.</span></span>
+## <a name="delete-blobs"></a><span data-ttu-id="b7508-161">Usuwanie obiektów blob</span><span class="sxs-lookup"><span data-stu-id="b7508-161">Delete blobs</span></span>
+<span data-ttu-id="b7508-162">toodelete obiektu blob, najpierw pobrać odwołanie do obiektu blob, a następnie wywołać **usunąć** metody.</span><span class="sxs-lookup"><span data-stu-id="b7508-162">toodelete a blob, first get a blob reference and then call the **Delete** method.</span></span>
 
-    // Get a reference to a blob named "myblob.txt".
+    // Get a reference tooa blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
 
-    // Delete the blob.
+    // Delete hello blob.
     blockBlob.Delete();
 
 
-## <a name="list-blobs-in-pages-asynchronously"></a><span data-ttu-id="e2422-163">Asynchroniczne wyświetlanie obiektów blob na stronach</span><span class="sxs-lookup"><span data-stu-id="e2422-163">List blobs in pages asynchronously</span></span>
-<span data-ttu-id="e2422-164">Jeśli chcesz wyświetlić dużą liczbę obiektów blob lub kontrolować liczbę wyników zwracanych przez jedną operację wyświetlania listy, możesz wyświetlić obiekty blob na stronach wyników.</span><span class="sxs-lookup"><span data-stu-id="e2422-164">If you are listing a large number of blobs, or you want to control the number of results you return in one listing operation, you can list blobs in pages of results.</span></span> <span data-ttu-id="e2422-165">W tym przykładzie przedstawiono sposób asynchronicznego zwracania wyników na stronach, dzięki czemu wykonanie nie jest blokowane podczas oczekiwania na zwrócenie dużych zestawów wyników.</span><span class="sxs-lookup"><span data-stu-id="e2422-165">This example shows how to return results in pages asynchronously, so that execution is not blocked while waiting to return a large set of results.</span></span>
+## <a name="list-blobs-in-pages-asynchronously"></a><span data-ttu-id="b7508-163">Asynchroniczne wyświetlanie obiektów blob na stronach</span><span class="sxs-lookup"><span data-stu-id="b7508-163">List blobs in pages asynchronously</span></span>
+<span data-ttu-id="b7508-164">Jeśli chcesz wyświetlić dużą liczbę obiektów blob lub ma toocontrol hello liczbę wyników zwracanych przez jedną operację wyświetlania listy, można wyświetlić listę obiektów blob na stronach wyników.</span><span class="sxs-lookup"><span data-stu-id="b7508-164">If you are listing a large number of blobs, or you want toocontrol hello number of results you return in one listing operation, you can list blobs in pages of results.</span></span> <span data-ttu-id="b7508-165">Ten przykład przedstawia, jak tooreturn wyników na stronach asynchronicznie, dzięki czemu wykonanie nie jest blokowane podczas oczekiwania tooreturn dużych zestawów wyników.</span><span class="sxs-lookup"><span data-stu-id="b7508-165">This example shows how tooreturn results in pages asynchronously, so that execution is not blocked while waiting tooreturn a large set of results.</span></span>
 
-<span data-ttu-id="e2422-166">W tym przykładzie przedstawiono niezhierarchizowaną listę obiektów blob, ale można również uzyskać listę hierarchiczną, ustawiając parametr **useFlatBlobListing** metody **ListBlobsSegmentedAsync** na wartość **false**.</span><span class="sxs-lookup"><span data-stu-id="e2422-166">This example shows a flat blob listing, but you can also perform a hierarchical listing, by setting the **useFlatBlobListing** parameter of the **ListBlobsSegmentedAsync** method to **false**.</span></span>
+<span data-ttu-id="b7508-166">W tym przykładzie przedstawiono niezhierarchizowaną listę obiektów blob, ale można również wykonywać listę hierarchiczną, przez ustawienie hello **useFlatBlobListing** parametru hello **ListBlobsSegmentedAsync** metody zbyt **FALSE**.</span><span class="sxs-lookup"><span data-stu-id="b7508-166">This example shows a flat blob listing, but you can also perform a hierarchical listing, by setting hello **useFlatBlobListing** parameter of hello **ListBlobsSegmentedAsync** method too**false**.</span></span>
 
-<span data-ttu-id="e2422-167">Ze względu na to, że przykładowa metoda wywołuje metodę asynchroniczną, musi być poprzedzona słowem kluczowym **async** i zwracać obiekt **Task**.</span><span class="sxs-lookup"><span data-stu-id="e2422-167">Because the sample method calls an asynchronous method, it must be prefaced with the **async** keyword, and it must return a **Task** object.</span></span> <span data-ttu-id="e2422-168">Słowo kluczowe await określone dla metody **ListBlobsSegmentedAsync** wstrzymuje wykonywanie przykładowej metody do momentu ukończenia zadania wyświetlania listy.</span><span class="sxs-lookup"><span data-stu-id="e2422-168">The await keyword specified for the **ListBlobsSegmentedAsync** method suspends execution of the sample method until the listing task completes.</span></span>
+<span data-ttu-id="b7508-167">Ponieważ hello przykładowa metoda wywołuje metodę asynchroniczną, musi być poprzedzona słowem hello **async** — słowo kluczowe, a musi zwracać **zadań** obiektu.</span><span class="sxs-lookup"><span data-stu-id="b7508-167">Because hello sample method calls an asynchronous method, it must be prefaced with hello **async** keyword, and it must return a **Task** object.</span></span> <span data-ttu-id="b7508-168">określona dla hello — słowo kluczowe await Hello **ListBlobsSegmentedAsync** wstrzymuje wykonywanie hello przykładowej metody do momentu ukończenia zadania wyświetlania listy hello.</span><span class="sxs-lookup"><span data-stu-id="b7508-168">hello await keyword specified for hello **ListBlobsSegmentedAsync** method suspends execution of hello sample method until hello listing task completes.</span></span>
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
-        // List blobs to the console window, with paging.
+        // List blobs toohello console window, with paging.
         Console.WriteLine("List blobs in pages:");
 
         int i = 0;
         BlobContinuationToken continuationToken = null;
         BlobResultSegment resultSegment = null;
 
-        // Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
-        // When the continuation token is null, the last page has been returned and execution can exit the loop.
+        // Call ListBlobsSegmentedAsync and enumerate hello result segment returned, while hello continuation token is non-null.
+        // When hello continuation token is null, hello last page has been returned and execution can exit hello loop.
         do
         {
-            // This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter,
+            // This overload allows control of hello page size. You can return all remaining results by passing null for hello maxResults parameter,
             // or by calling a different overload.
             resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
             if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
@@ -230,12 +230,12 @@ ms.lasthandoff: 07/11/2017
             }
             Console.WriteLine();
 
-            //Get the continuation token.
+            //Get hello continuation token.
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);
     }
 
-## <a name="next-steps"></a><span data-ttu-id="e2422-169">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="e2422-169">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="b7508-169">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="b7508-169">Next steps</span></span>
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 

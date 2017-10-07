@@ -1,6 +1,6 @@
 ---
-title: Tworzenie obrazu niestandardowego Azure DevTest Labs na podstawie maszyny Wirtualnej | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak utworzyć obraz niestandardowy w usłudze Azure DevTest Labs elastycznie maszyny wirtualnej przy użyciu portalu Azure"
+title: aaaCreate niestandardowego obrazu z maszyny Wirtualnej Azure DevTest Labs | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toocreate obraz niestandardowy w usłudze Azure DevTest Labs używającego zainicjowana VM hello portalu Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7dccb79d3db4aae676c7bd2f6b800301210491e2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-custom-image-from-a-vm"></a><span data-ttu-id="b7ba6-103">Tworzenie niestandardowego obrazu z maszyny Wirtualnej</span><span class="sxs-lookup"><span data-stu-id="b7ba6-103">Create a custom image from a VM</span></span>
+# <a name="create-a-custom-image-from-a-vm"></a><span data-ttu-id="c7164-103">Tworzenie niestandardowego obrazu z maszyny Wirtualnej</span><span class="sxs-lookup"><span data-stu-id="c7164-103">Create a custom image from a VM</span></span>
 
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
 
-## <a name="step-by-step-instructions"></a><span data-ttu-id="b7ba6-104">Instrukcje krok po kroku</span><span class="sxs-lookup"><span data-stu-id="b7ba6-104">Step-by-step instructions</span></span>
+## <a name="step-by-step-instructions"></a><span data-ttu-id="c7164-104">Instrukcje krok po kroku</span><span class="sxs-lookup"><span data-stu-id="c7164-104">Step-by-step instructions</span></span>
 
-<span data-ttu-id="b7ba6-105">Można utworzyć niestandardowy obraz z elastycznie maszyny Wirtualnej, a później użyć niestandardowego obrazu do utworzenia identycznych maszyn wirtualnych.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-105">You can create a custom image from a provisioned VM, and afterwards use that custom image to create identical VMs.</span></span> <span data-ttu-id="b7ba6-106">Poniższe kroki pokazano, jak utworzyć obraz niestandardowy z maszyny Wirtualnej:</span><span class="sxs-lookup"><span data-stu-id="b7ba6-106">The following steps illustrate how to create a custom image from a VM:</span></span>
+<span data-ttu-id="c7164-105">Utworzyć niestandardowy obraz z elastycznie maszyny Wirtualnej, a następnie użyć tej toocreate niestandardowego obrazu identycznych maszyn wirtualnych.</span><span class="sxs-lookup"><span data-stu-id="c7164-105">You can create a custom image from a provisioned VM, and afterwards use that custom image toocreate identical VMs.</span></span> <span data-ttu-id="c7164-106">Witaj, wykonaj czynności ilustrują sposób toocreate niestandardowego obrazu z maszyny Wirtualnej:</span><span class="sxs-lookup"><span data-stu-id="c7164-106">hello following steps illustrate how toocreate a custom image from a VM:</span></span>
 
-1. <span data-ttu-id="b7ba6-107">Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).</span><span class="sxs-lookup"><span data-stu-id="b7ba6-107">Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).</span></span>
+1. <span data-ttu-id="c7164-107">Zaloguj się toohello [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).</span><span class="sxs-lookup"><span data-stu-id="c7164-107">Sign in toohello [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).</span></span>
 
-1. <span data-ttu-id="b7ba6-108">Wybierz pozycję **Więcej usług**, a następnie z listy wybierz pozycję **DevTest Labs**.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-108">Select **More services**, and then select **DevTest Labs** from the list.</span></span>
+1. <span data-ttu-id="c7164-108">Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy hello.</span><span class="sxs-lookup"><span data-stu-id="c7164-108">Select **More services**, and then select **DevTest Labs** from hello list.</span></span>
 
-1. <span data-ttu-id="b7ba6-109">Z listy labs wybierz żądany laboratorium.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-109">From the list of labs, select the desired lab.</span></span>  
+1. <span data-ttu-id="c7164-109">Z listy hello labs wybierz żądany laboratorium hello.</span><span class="sxs-lookup"><span data-stu-id="c7164-109">From hello list of labs, select hello desired lab.</span></span>  
 
-1. <span data-ttu-id="b7ba6-110">W bloku laboratorium, wybierz **Moje maszyny wirtualne**.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-110">On the lab's blade, select **My virtual machines**.</span></span>
+1. <span data-ttu-id="c7164-110">W bloku hello laboratorium, wybierz **Moje maszyny wirtualne**.</span><span class="sxs-lookup"><span data-stu-id="c7164-110">On hello lab's blade, select **My virtual machines**.</span></span>
  
-1. <span data-ttu-id="b7ba6-111">Na **Moje maszyny wirtualne** bloku, wybierz maszynę Wirtualną, z którego chcesz utworzyć niestandardowy obraz.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-111">On the **My virtual machines** blade, select the VM from which you want to create the custom image.</span></span>
+1. <span data-ttu-id="c7164-111">Na powitania **Moje maszyny wirtualne** bloku, wybierz hello maszyny Wirtualnej, z którego mają zostać toocreate hello niestandardowego obrazu.</span><span class="sxs-lookup"><span data-stu-id="c7164-111">On hello **My virtual machines** blade, select hello VM from which you want toocreate hello custom image.</span></span>
 
-1. <span data-ttu-id="b7ba6-112">W bloku maszyny Wirtualnej, wybierz **Tworzenie niestandardowego obrazu (VHD)**.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-112">On the VM's blade, select **Create custom image (VHD)**.</span></span>
+1. <span data-ttu-id="c7164-112">W bloku hello wirtualna wybierz **Tworzenie niestandardowego obrazu (VHD)**.</span><span class="sxs-lookup"><span data-stu-id="c7164-112">On hello VM's blade, select **Create custom image (VHD)**.</span></span>
 
     ![Tworzenie niestandardowego obrazu elementu menu](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. <span data-ttu-id="b7ba6-114">Na **Utwórz obraz** bloku, wprowadź nazwę i opis dla niestandardowego obrazu.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-114">On the **Create image** blade, enter a name and description for your custom image.</span></span> <span data-ttu-id="b7ba6-115">Te informacje są wyświetlane na liście klas podstawowych, podczas tworzenia maszyny Wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-115">This information is displayed in the list of bases when you create a VM.</span></span>
+1. <span data-ttu-id="c7164-114">Na powitania **Utwórz obraz** bloku, wprowadź nazwę i opis dla niestandardowego obrazu.</span><span class="sxs-lookup"><span data-stu-id="c7164-114">On hello **Create image** blade, enter a name and description for your custom image.</span></span> <span data-ttu-id="c7164-115">Te informacje są wyświetlane na liście hello baz podczas tworzenia maszyny Wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="c7164-115">This information is displayed in hello list of bases when you create a VM.</span></span>
 
     ![Tworzenie niestandardowego obrazu bloku](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. <span data-ttu-id="b7ba6-117">Określ, czy uruchomiono program sysprep na maszynie Wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-117">Select whether sysprep was run on the VM.</span></span> <span data-ttu-id="b7ba6-118">Jeśli nie uruchomiono programu sysprep na maszynie Wirtualnej, określ, czy uruchamiany po utworzeniu maszyny Wirtualnej z tego obrazu niestandardowego narzędzia sysprep.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-118">If the sysprep was not run on the VM, specify whether you want sysprep run when a VM is created from this custom image.</span></span>
+1. <span data-ttu-id="c7164-117">Określ, czy program sysprep zostało uruchomione na powitania maszyny Wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="c7164-117">Select whether sysprep was run on hello VM.</span></span> <span data-ttu-id="c7164-118">Jeśli hello sysprep nie zostało uruchomione na powitania maszyny Wirtualnej, określ, czy program sysprep uruchamiany po utworzeniu maszyny Wirtualnej z tego obrazu niestandardowego.</span><span class="sxs-lookup"><span data-stu-id="c7164-118">If hello sysprep was not run on hello VM, specify whether you want sysprep run when a VM is created from this custom image.</span></span>
 
-1. <span data-ttu-id="b7ba6-119">Wybierz **OK** po zakończeniu można utworzyć niestandardowego obrazu.</span><span class="sxs-lookup"><span data-stu-id="b7ba6-119">Select **OK** when finished to create the custom image.</span></span>
+1. <span data-ttu-id="c7164-119">Wybierz **OK** po toocreate Zakończono hello niestandardowego obrazu.</span><span class="sxs-lookup"><span data-stu-id="c7164-119">Select **OK** when finished toocreate hello custom image.</span></span>
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a><span data-ttu-id="b7ba6-120">Wpisy na blogu pokrewne</span><span class="sxs-lookup"><span data-stu-id="b7ba6-120">Related blog posts</span></span>
+## <a name="related-blog-posts"></a><span data-ttu-id="c7164-120">Wpisy na blogu pokrewne</span><span class="sxs-lookup"><span data-stu-id="c7164-120">Related blog posts</span></span>
 
-- [<span data-ttu-id="b7ba6-121">Niestandardowe obrazy lub formuł?</span><span class="sxs-lookup"><span data-stu-id="b7ba6-121">Custom images or formulas?</span></span>](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [<span data-ttu-id="b7ba6-122">Kopiowanie obrazów niestandardowych między Azure DevTest Labs</span><span class="sxs-lookup"><span data-stu-id="b7ba6-122">Copying Custom Images between Azure DevTest Labs</span></span>](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [<span data-ttu-id="c7164-121">Niestandardowe obrazy lub formuł?</span><span class="sxs-lookup"><span data-stu-id="c7164-121">Custom images or formulas?</span></span>](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [<span data-ttu-id="c7164-122">Kopiowanie obrazów niestandardowych między Azure DevTest Labs</span><span class="sxs-lookup"><span data-stu-id="c7164-122">Copying Custom Images between Azure DevTest Labs</span></span>](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a><span data-ttu-id="b7ba6-123">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="b7ba6-123">Next steps</span></span>
+##<a name="next-steps"></a><span data-ttu-id="c7164-123">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="c7164-123">Next steps</span></span>
 
-- [<span data-ttu-id="b7ba6-124">Dodaj Maszynę wirtualną do laboratorium</span><span class="sxs-lookup"><span data-stu-id="b7ba6-124">Add a VM to your lab</span></span>](./devtest-lab-add-vm-with-artifacts.md)
+- [<span data-ttu-id="c7164-124">Dodawanie laboratorium tooyour maszyny Wirtualnej</span><span class="sxs-lookup"><span data-stu-id="c7164-124">Add a VM tooyour lab</span></span>](./devtest-lab-add-vm-with-artifacts.md)

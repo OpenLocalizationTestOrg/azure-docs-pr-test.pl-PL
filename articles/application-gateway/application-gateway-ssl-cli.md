@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie protokołu SSL odciążania - Azure Application Gateway - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera instrukcje, aby utworzyć bramę aplikacji przy użyciu protokołu SSL odciążenia przez 2.0 interfejsu wiersza polecenia platformy Azure"
+title: "aaaConfigure SSL odciążania - Azure Application Gateway - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
+description: "Ta strona zawiera instrukcje toocreate odciążania bramę aplikacji przy użyciu protokołu SSL przez 2.0 interfejsu wiersza polecenia platformy Azure"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -13,53 +13,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
-ms.openlocfilehash: e8c1ba09daef09ef5002e33345905772961c1d93
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f8d50e0c6ffef17c807938d816410e6d85321c9a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a><span data-ttu-id="9b993-103">Skonfiguruj bramę aplikacji dla odciążania protokołu SSL przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0</span><span class="sxs-lookup"><span data-stu-id="9b993-103">Configure an application gateway for SSL offload by using Azure CLI 2.0</span></span>
+# <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a><span data-ttu-id="34a19-103">Skonfiguruj bramę aplikacji dla odciążania protokołu SSL przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0</span><span class="sxs-lookup"><span data-stu-id="34a19-103">Configure an application gateway for SSL offload by using Azure CLI 2.0</span></span>
 
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="9b993-104">Witryna Azure Portal</span><span class="sxs-lookup"><span data-stu-id="9b993-104">Azure portal</span></span>](application-gateway-ssl-portal.md)
-> * [<span data-ttu-id="9b993-105">Azure Resource Manager — program PowerShell</span><span class="sxs-lookup"><span data-stu-id="9b993-105">Azure Resource Manager PowerShell</span></span>](application-gateway-ssl-arm.md)
-> * [<span data-ttu-id="9b993-106">Klasyczny portal Azure — program PowerShell</span><span class="sxs-lookup"><span data-stu-id="9b993-106">Azure Classic PowerShell</span></span>](application-gateway-ssl.md)
-> * [<span data-ttu-id="9b993-107">Interfejs wiersza polecenia platformy Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="9b993-107">Azure CLI 2.0</span></span>](application-gateway-ssl-cli.md)
+> * [<span data-ttu-id="34a19-104">Witryna Azure Portal</span><span class="sxs-lookup"><span data-stu-id="34a19-104">Azure portal</span></span>](application-gateway-ssl-portal.md)
+> * [<span data-ttu-id="34a19-105">Azure Resource Manager — program PowerShell</span><span class="sxs-lookup"><span data-stu-id="34a19-105">Azure Resource Manager PowerShell</span></span>](application-gateway-ssl-arm.md)
+> * [<span data-ttu-id="34a19-106">Klasyczny portal Azure — program PowerShell</span><span class="sxs-lookup"><span data-stu-id="34a19-106">Azure Classic PowerShell</span></span>](application-gateway-ssl.md)
+> * [<span data-ttu-id="34a19-107">Interfejs wiersza polecenia platformy Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="34a19-107">Azure CLI 2.0</span></span>](application-gateway-ssl-cli.md)
 
-<span data-ttu-id="9b993-108">Usługę Azure Application Gateway można skonfigurować tak, aby przerywała sesję protokołu SSL (Secure Sockets Layer) na poziomie bramy, co pozwoli na uniknięcie wykonywania kosztownych zadań szyfrowania protokołu SSL w kolektywie serwerów sieci Web.</span><span class="sxs-lookup"><span data-stu-id="9b993-108">Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm.</span></span> <span data-ttu-id="9b993-109">Odciążanie protokołu SSL także upraszcza zarządzanie certyfikatami na serwerze frontonu.</span><span class="sxs-lookup"><span data-stu-id="9b993-109">SSL offload also simplifies certificate management at the front-end server.</span></span>
+<span data-ttu-id="34a19-108">Brama aplikacji w Azure może być sesji protokołu Secure Sockets Layer (SSL) hello tooterminate skonfigurowanych na powitania bramy tooavoid kosztowne SSL odszyfrowywania zadania toohappen na powitania kolektywu serwerów sieci web.</span><span class="sxs-lookup"><span data-stu-id="34a19-108">Azure Application Gateway can be configured tooterminate hello Secure Sockets Layer (SSL) session at hello gateway tooavoid costly SSL decryption tasks toohappen at hello web farm.</span></span> <span data-ttu-id="34a19-109">Odciążanie protokołu SSL także upraszcza zarządzanie certyfikatami na powitania serwera frontonu.</span><span class="sxs-lookup"><span data-stu-id="34a19-109">SSL offload also simplifies certificate management at hello front-end server.</span></span>
 
-## <a name="prerequisite-install-the-azure-cli-20"></a><span data-ttu-id="9b993-110">Wymagania wstępne: Instalacja Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="9b993-110">Prerequisite: Install the Azure CLI 2.0</span></span>
+## <a name="prerequisite-install-hello-azure-cli-20"></a><span data-ttu-id="34a19-110">Wymagania wstępne: Instalacja hello Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="34a19-110">Prerequisite: Install hello Azure CLI 2.0</span></span>
 
-<span data-ttu-id="9b993-111">Aby wykonać kroki opisane w tym artykule, należy [instalowanie interfejsu wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).</span><span class="sxs-lookup"><span data-stu-id="9b993-111">To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).</span></span>
+<span data-ttu-id="34a19-111">Witaj tooperform kroków w tym artykule, należy za[zainstalować hello interfejsu wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).</span><span class="sxs-lookup"><span data-stu-id="34a19-111">tooperform hello steps in this article, you need too[install hello Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).</span></span>
 
-## <a name="required-components"></a><span data-ttu-id="9b993-112">Wymagane składniki</span><span class="sxs-lookup"><span data-stu-id="9b993-112">Required components</span></span>
+## <a name="required-components"></a><span data-ttu-id="34a19-112">Wymagane składniki</span><span class="sxs-lookup"><span data-stu-id="34a19-112">Required components</span></span>
 
-* <span data-ttu-id="9b993-113">**Pula serwerów zaplecza:** lista adresów IP serwerów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="9b993-113">**Back-end server pool:** The list of IP addresses of the back-end servers.</span></span> <span data-ttu-id="9b993-114">Adresy IP na liście powinny należeć do podsieci sieci wirtualnej lub być publicznymi bądź wirtualnymi adresami IP.</span><span class="sxs-lookup"><span data-stu-id="9b993-114">The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.</span></span>
-* <span data-ttu-id="9b993-115">**Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie.</span><span class="sxs-lookup"><span data-stu-id="9b993-115">**Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity.</span></span> <span data-ttu-id="9b993-116">Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.</span><span class="sxs-lookup"><span data-stu-id="9b993-116">These settings are tied to a pool and are applied to all servers within the pool.</span></span>
-* <span data-ttu-id="9b993-117">**Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="9b993-117">**Front-end port:** This port is the public port that is opened on the application gateway.</span></span> <span data-ttu-id="9b993-118">Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="9b993-118">Traffic hits this port, and then gets redirected to one of the back-end servers.</span></span>
-* <span data-ttu-id="9b993-119">**Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).</span><span class="sxs-lookup"><span data-stu-id="9b993-119">**Listener:** The listener has a front-end port, a protocol (Http or Https, these settings are case-sensitive), and the SSL certificate name (if configuring SSL offload).</span></span>
-* <span data-ttu-id="9b993-120">**Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika.</span><span class="sxs-lookup"><span data-stu-id="9b993-120">**Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener.</span></span> <span data-ttu-id="9b993-121">Obecnie jest obsługiwana tylko reguła *podstawowa*.</span><span class="sxs-lookup"><span data-stu-id="9b993-121">Currently, only the *basic* rule is supported.</span></span> <span data-ttu-id="9b993-122">Reguła *podstawowa* to dystrybucja obciążenia z działaniem okrężnym.</span><span class="sxs-lookup"><span data-stu-id="9b993-122">The *basic* rule is round-robin load distribution.</span></span>
+* <span data-ttu-id="34a19-113">**Pula serwerów zaplecza:** hello listę adresów IP serwerów wewnętrznych hello.</span><span class="sxs-lookup"><span data-stu-id="34a19-113">**Back-end server pool:** hello list of IP addresses of hello back-end servers.</span></span> <span data-ttu-id="34a19-114">wymienionych na liście adresów IP Hello albo powinny należeć toohello podsieć sieci wirtualnej lub powinny być publicznego adresu IP/VIP.</span><span class="sxs-lookup"><span data-stu-id="34a19-114">hello IP addresses listed should either belong toohello virtual network subnet or should be a public IP/VIP.</span></span>
+* <span data-ttu-id="34a19-115">**Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie.</span><span class="sxs-lookup"><span data-stu-id="34a19-115">**Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity.</span></span> <span data-ttu-id="34a19-116">Te ustawienia są wiązanej tooa puli i są stosowane tooall serwery w puli hello.</span><span class="sxs-lookup"><span data-stu-id="34a19-116">These settings are tied tooa pool and are applied tooall servers within hello pool.</span></span>
+* <span data-ttu-id="34a19-117">**Port frontonu:** ten port jest port publiczny hello, która jest otwarta w bramie aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="34a19-117">**Front-end port:** This port is hello public port that is opened on hello application gateway.</span></span> <span data-ttu-id="34a19-118">Ruch trafienia tego portu, a następnie pobiera przekierowanie tooone serwerami zaplecza hello.</span><span class="sxs-lookup"><span data-stu-id="34a19-118">Traffic hits this port, and then gets redirected tooone of hello back-end servers.</span></span>
+* <span data-ttu-id="34a19-119">**Odbiornik:** odbiornika hello ma port frontonu, protokół (Http lub Https, te ustawienia są z uwzględnieniem wielkości liter), a hello nazwa certyfikatu SSL (jeśli odciążania Konfigurowanie protokołu SSL).</span><span class="sxs-lookup"><span data-stu-id="34a19-119">**Listener:** hello listener has a front-end port, a protocol (Http or Https, these settings are case-sensitive), and hello SSL certificate name (if configuring SSL offload).</span></span>
+* <span data-ttu-id="34a19-120">**Reguła:** reguła hello wiąże odbiornika hello i hello puli serwerów zaplecza i określa, jaki ruch hello puli serwera zaplecza ukierunkowanej toowhen trafienia w szczególności odbiornika.</span><span class="sxs-lookup"><span data-stu-id="34a19-120">**Rule:** hello rule binds hello listener and hello back-end server pool and defines which back-end server pool hello traffic should be directed toowhen it hits a particular listener.</span></span> <span data-ttu-id="34a19-121">Obecnie tylko hello *podstawowe* reguła jest obsługiwana.</span><span class="sxs-lookup"><span data-stu-id="34a19-121">Currently, only hello *basic* rule is supported.</span></span> <span data-ttu-id="34a19-122">Witaj *podstawowe* reguła jest rozkład obciążenia okrężnego.</span><span class="sxs-lookup"><span data-stu-id="34a19-122">hello *basic* rule is round-robin load distribution.</span></span>
 
-<span data-ttu-id="9b993-123">**Uwagi dotyczące konfiguracji dodatkowych**</span><span class="sxs-lookup"><span data-stu-id="9b993-123">**Additional configuration notes**</span></span>
+<span data-ttu-id="34a19-123">**Uwagi dotyczące konfiguracji dodatkowych**</span><span class="sxs-lookup"><span data-stu-id="34a19-123">**Additional configuration notes**</span></span>
 
-<span data-ttu-id="9b993-124">W przypadku konfiguracji certyfikatów SSL protokół w polu **HttpListener** należy zmienić na *Https* (z uwzględnieniem wielkości liter).</span><span class="sxs-lookup"><span data-stu-id="9b993-124">For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive).</span></span> <span data-ttu-id="9b993-125">Element **SslCertificate** jest dodawany do odbiornika **HttpListener** z wartością zmiennej skonfigurowaną dla certyfikatu SSL.</span><span class="sxs-lookup"><span data-stu-id="9b993-125">The **SslCertificate** element is added to **HttpListener** with the variable value configured for the SSL certificate.</span></span> <span data-ttu-id="9b993-126">Port frontonu należy zaktualizować do 443.</span><span class="sxs-lookup"><span data-stu-id="9b993-126">The front-end port should be updated to 443.</span></span>
+<span data-ttu-id="34a19-124">Do konfigurowania certyfikatów SSL, hello protokół **HttpListener** należy zmienić zbyt*Https* (z uwzględnieniem wielkości liter).</span><span class="sxs-lookup"><span data-stu-id="34a19-124">For SSL certificates configuration, hello protocol in **HttpListener** should change too*Https* (case sensitive).</span></span> <span data-ttu-id="34a19-125">Witaj **SslCertificate** zbyt dodany element**HttpListener** z wartości zmiennej hello skonfigurowanej dla certyfikatu SSL hello.</span><span class="sxs-lookup"><span data-stu-id="34a19-125">hello **SslCertificate** element is added too**HttpListener** with hello variable value configured for hello SSL certificate.</span></span> <span data-ttu-id="34a19-126">port frontonu Hello powinien być zaktualizowany too443.</span><span class="sxs-lookup"><span data-stu-id="34a19-126">hello front-end port should be updated too443.</span></span>
 
-<span data-ttu-id="9b993-127">**Aby włączyć koligację opartą na plikach cookie**: bramę aplikacji można skonfigurować tak, aby żądanie z sesji klienta było zawsze kierowane do tej samej maszyny wirtualnej w kolektywie serwerów sieci Web.</span><span class="sxs-lookup"><span data-stu-id="9b993-127">**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm.</span></span> <span data-ttu-id="9b993-128">W tym scenariuszu należy wstrzyknąć plik cookie sesji, który umożliwi bramie prawidłowe kierowanie ruchu.</span><span class="sxs-lookup"><span data-stu-id="9b993-128">This scenario is done by injection of a session cookie that allows the gateway to direct traffic appropriately.</span></span> <span data-ttu-id="9b993-129">Aby włączyć koligację opartą na plikach cookie, ustaw element **CookieBasedAffinity** na wartość *Enabled* w elemencie **BackendHttpSettings**.</span><span class="sxs-lookup"><span data-stu-id="9b993-129">To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.</span></span>
+<span data-ttu-id="34a19-127">**koligacji na podstawie plików cookie tooenable**: bramy aplikacji może być skonfigurowany tooensure żądania z sesji klienta jest zawsze ukierunkowanej toohello tej samej maszyny Wirtualnej w hello kolektywu serwerów sieci web.</span><span class="sxs-lookup"><span data-stu-id="34a19-127">**tooenable cookie-based affinity**: An application gateway can be configured tooensure that a request from a client session is always directed toohello same VM in hello web farm.</span></span> <span data-ttu-id="34a19-128">W tym scenariuszu odbywa się przez uruchomienie pliku cookie sesji, umożliwiającą hello bramy toodirect ruch odpowiednio.</span><span class="sxs-lookup"><span data-stu-id="34a19-128">This scenario is done by injection of a session cookie that allows hello gateway toodirect traffic appropriately.</span></span> <span data-ttu-id="34a19-129">Ustaw koligacji na podstawie plików cookie tooenable **CookieBasedAffinity** za*włączone* w hello **elementu BackendHttpSettings** elementu.</span><span class="sxs-lookup"><span data-stu-id="34a19-129">tooenable cookie-based affinity, set **CookieBasedAffinity** too*Enabled* in hello **BackendHttpSettings** element.</span></span>
 
-## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a><span data-ttu-id="9b993-130">Skonfiguruj odciążanie protokołu SSL na istniejącą bramę aplikacji</span><span class="sxs-lookup"><span data-stu-id="9b993-130">Configure SSL offload on an existing application gateway</span></span>
+## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a><span data-ttu-id="34a19-130">Skonfiguruj odciążanie protokołu SSL na istniejącą bramę aplikacji</span><span class="sxs-lookup"><span data-stu-id="34a19-130">Configure SSL offload on an existing application gateway</span></span>
 
 ```azurecli-interactive
 #!/bin/bash
 
-# Create a new front end port to be used for SSL
+# Create a new front end port toobe used for SSL
 az network application-gateway frontend-port create \
   --name sslport \
   --port 443 \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"
 
-# Upload the .pfx certificate for SSL offload
+# Upload hello .pfx certificate for SSL offload
 az network application-gateway ssl-cert create \
   --name "newcert" \
   --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
@@ -67,7 +67,7 @@ az network application-gateway ssl-cert create \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"
 
-# Create a new listener referencing the port and certificate created earlier
+# Create a new listener referencing hello port and certificate created earlier
 az network application-gateway http-listener create \
   --frontend-ip "appGatewayFrontendIP" \
   --frontend-port sslport  \
@@ -76,14 +76,14 @@ az network application-gateway http-listener create \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"
 
-# Create a new back-end pool to be used
+# Create a new back-end pool toobe used
 az network application-gateway address-pool create \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG" \
   --name "appGatewayBackendPool2" \
   --servers 10.0.0.7 10.0.0.8
 
-# Create a new back-end HTTP settings using the new probe
+# Create a new back-end HTTP settings using hello new probe
 az network application-gateway http-settings create \
   --name "settings2" \
   --port 80 \
@@ -92,7 +92,7 @@ az network application-gateway http-settings create \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"
 
-# Create a new rule linking the listener to the back-end pool
+# Create a new rule linking hello listener toohello back-end pool
 az network application-gateway rule create \
   --name "rule2" \
   --rule-type Basic \
@@ -104,9 +104,9 @@ az network application-gateway rule create \
 
 ```
 
-## <a name="create-an-application-gateway-with-ssl-offload"></a><span data-ttu-id="9b993-131">Utwórz bramę aplikacji z odciążania protokołu SSL</span><span class="sxs-lookup"><span data-stu-id="9b993-131">Create an application gateway with SSL Offload</span></span>
+## <a name="create-an-application-gateway-with-ssl-offload"></a><span data-ttu-id="34a19-131">Utwórz bramę aplikacji z odciążania protokołu SSL</span><span class="sxs-lookup"><span data-stu-id="34a19-131">Create an application gateway with SSL Offload</span></span>
 
-<span data-ttu-id="9b993-132">Poniższy przykład tworzy bramę aplikacji z odciążania protokołu SSL.</span><span class="sxs-lookup"><span data-stu-id="9b993-132">The following sample creates an application gateway with SSL offload.</span></span>  <span data-ttu-id="9b993-133">Certyfikat i hasło muszą zostać zaktualizowane do prawidłowego klucza prywatnego.</span><span class="sxs-lookup"><span data-stu-id="9b993-133">The certificate and certificate password must be updated to a valid private key.</span></span>
+<span data-ttu-id="34a19-132">następujące przykładowe Hello tworzy bramę aplikacji z odciążania protokołu SSL.</span><span class="sxs-lookup"><span data-stu-id="34a19-132">hello following sample creates an application gateway with SSL offload.</span></span>  <span data-ttu-id="34a19-133">Witaj certyfikat i hasło certyfikatu musi być zaktualizowany tooa prawidłowego klucza prywatnego.</span><span class="sxs-lookup"><span data-stu-id="34a19-133">hello certificate and certificate password must be updated tooa valid private key.</span></span>
 
 ```azurecli-interactive
 #!/bin/bash
@@ -135,9 +135,9 @@ az network application-gateway create \
   --public-ip-address-allocation "dynamic"
 ```
 
-## <a name="get-application-gateway-dns-name"></a><span data-ttu-id="9b993-134">Pobieranie nazwy DNS bramy aplikacji</span><span class="sxs-lookup"><span data-stu-id="9b993-134">Get application gateway DNS name</span></span>
+## <a name="get-application-gateway-dns-name"></a><span data-ttu-id="34a19-134">Pobieranie nazwy DNS bramy aplikacji</span><span class="sxs-lookup"><span data-stu-id="34a19-134">Get application gateway DNS name</span></span>
 
-<span data-ttu-id="9b993-135">Po utworzeniu bramy następnym krokiem jest skonfigurowanie frontonu na potrzeby komunikacji.</span><span class="sxs-lookup"><span data-stu-id="9b993-135">Once the gateway is created, the next step is to configure the front end for communication.</span></span> <span data-ttu-id="9b993-136">Gdy jest używany publiczny adres IP, brama aplikacji wymaga dynamicznie przypisywanej nazwy DNS, która nie jest przyjazna.</span><span class="sxs-lookup"><span data-stu-id="9b993-136">When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly.</span></span> <span data-ttu-id="9b993-137">Aby upewnić się, że użytkownicy końcowi mogą trafić bramę aplikacji, można użyć rekordu CNAME w celu wskazania publicznego punktu końcowego bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="9b993-137">To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway.</span></span> <span data-ttu-id="9b993-138">[Konfigurowanie niestandardowej nazwy domeny dla platformy Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).</span><span class="sxs-lookup"><span data-stu-id="9b993-138">[Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).</span></span> <span data-ttu-id="9b993-139">Aby skonfigurować alias, należy pobrać szczegółów bramy aplikacji i jego skojarzonej nazwy IP DNS za pomocą elementu publicznego adresu IP dołączony na bramie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="9b993-139">To configure an alias, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway.</span></span> <span data-ttu-id="9b993-140">Nazwa DNS bramy aplikacji powinna zostać użyta w celu utworzenia rekordu CNAME, który wskazuje dwóm aplikacjom sieci Web tę nazwę DNS.</span><span class="sxs-lookup"><span data-stu-id="9b993-140">The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name.</span></span> <span data-ttu-id="9b993-141">Korzystanie z rekordów A nie jest zalecane, ponieważ adres VIP może ulec zmianie po ponownym uruchomieniu bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="9b993-141">The use of A-records is not recommended since the VIP may change on restart of application gateway.</span></span>
+<span data-ttu-id="34a19-135">Po utworzeniu bramy hello hello następnym krokiem jest tooconfigure hello frontonu dla komunikacji.</span><span class="sxs-lookup"><span data-stu-id="34a19-135">Once hello gateway is created, hello next step is tooconfigure hello front end for communication.</span></span> <span data-ttu-id="34a19-136">Gdy jest używany publiczny adres IP, brama aplikacji wymaga dynamicznie przypisywanej nazwy DNS, która nie jest przyjazna.</span><span class="sxs-lookup"><span data-stu-id="34a19-136">When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly.</span></span> <span data-ttu-id="34a19-137">Użytkownicy końcowi tooensure można trafień bramy aplikacji hello, rekord CNAME mogą być używane toopoint toohello publiczny punkt końcowy bramy aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="34a19-137">tooensure end users can hit hello application gateway, a CNAME record can be used toopoint toohello public endpoint of hello application gateway.</span></span> <span data-ttu-id="34a19-138">[Konfigurowanie niestandardowej nazwy domeny dla platformy Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).</span><span class="sxs-lookup"><span data-stu-id="34a19-138">[Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).</span></span> <span data-ttu-id="34a19-139">tooconfigure aliasu, pobrać szczegółów bramy aplikacji hello i skojarzonej z nią IP DNS nazwy przy użyciu bramy aplikacji hello publicznego adresu IP elementu toohello dołączone.</span><span class="sxs-lookup"><span data-stu-id="34a19-139">tooconfigure an alias, retrieve details of hello application gateway and its associated IP/DNS name using hello PublicIPAddress element attached toohello application gateway.</span></span> <span data-ttu-id="34a19-140">Brama aplikacji Hello DNS nazwa powinna być używana toocreate rekord CNAME, która nazwa punktów Witaj dwie sieci web aplikacji toothis DNS.</span><span class="sxs-lookup"><span data-stu-id="34a19-140">hello application gateway's DNS name should be used toocreate a CNAME record, which points hello two web applications toothis DNS name.</span></span> <span data-ttu-id="34a19-141">Użycie Hello rekordów A nie jest zalecane, ponieważ hello wirtualne adresy IP mogą ulec zmianie po ponownym uruchomieniu bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="34a19-141">hello use of A-records is not recommended since hello VIP may change on restart of application gateway.</span></span>
 
 
 ```azurecli-interactive
@@ -180,11 +180,11 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="9b993-142">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="9b993-142">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="34a19-142">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="34a19-142">Next steps</span></span>
 
-<span data-ttu-id="9b993-143">Jeśli chcesz skonfigurować bramę aplikacji do użycia z wewnętrznego modułem równoważenia obciążenia, zobacz artykuł [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Tworzenie bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia).</span><span class="sxs-lookup"><span data-stu-id="9b993-143">If you want to configure an application gateway to use with an internal load balancer (ILB), see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).</span></span>
+<span data-ttu-id="34a19-143">Jeśli chcesz tooconfigure toouse bramy aplikacji z wewnętrznego modułu równoważenia obciążenia (ILB), zobacz [Utwórz bramę aplikacji z wewnętrznego modułu równoważenia obciążenia (ILB)](application-gateway-ilb.md).</span><span class="sxs-lookup"><span data-stu-id="34a19-143">If you want tooconfigure an application gateway toouse with an internal load balancer (ILB), see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).</span></span>
 
-<span data-ttu-id="9b993-144">Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz znaleźć w następujących artykułach:</span><span class="sxs-lookup"><span data-stu-id="9b993-144">If you want more information about load balancing options in general, see:</span></span>
+<span data-ttu-id="34a19-144">Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz znaleźć w następujących artykułach:</span><span class="sxs-lookup"><span data-stu-id="34a19-144">If you want more information about load balancing options in general, see:</span></span>
 
-* [<span data-ttu-id="9b993-145">Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="9b993-145">Azure Load Balancer</span></span>](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [<span data-ttu-id="9b993-146">Azure Traffic Manager</span><span class="sxs-lookup"><span data-stu-id="9b993-146">Azure Traffic Manager</span></span>](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [<span data-ttu-id="34a19-145">Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="34a19-145">Azure Load Balancer</span></span>](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [<span data-ttu-id="34a19-146">Azure Traffic Manager</span><span class="sxs-lookup"><span data-stu-id="34a19-146">Azure Traffic Manager</span></span>](https://azure.microsoft.com/documentation/services/traffic-manager/)

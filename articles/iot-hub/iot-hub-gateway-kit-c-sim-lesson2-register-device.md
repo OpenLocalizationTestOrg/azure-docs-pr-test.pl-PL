@@ -17,93 +17,93 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 5557989453eb47e4c3a287b26603eff040eb1d96
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d1052ed2fa9e022966e6e71fa2c7d4f18c333b2f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-your-azure-iot-hub-and-register-your-device"></a><span data-ttu-id="4ceba-103">Utworzenie Centrum Azure IoT i rejestrowanie urządzenia</span><span class="sxs-lookup"><span data-stu-id="4ceba-103">Create your Azure IoT hub and register your device</span></span>
+# <a name="create-your-azure-iot-hub-and-register-your-device"></a><span data-ttu-id="8e31a-103">Utworzenie Centrum Azure IoT i rejestrowanie urządzenia</span><span class="sxs-lookup"><span data-stu-id="8e31a-103">Create your Azure IoT hub and register your device</span></span>
 
-## <a name="what-you-will-do"></a><span data-ttu-id="4ceba-104">Będzie wykonywać</span><span class="sxs-lookup"><span data-stu-id="4ceba-104">What you will do</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="8e31a-104">Będzie wykonywać</span><span class="sxs-lookup"><span data-stu-id="8e31a-104">What you will do</span></span>
 
-- <span data-ttu-id="4ceba-105">Tworzenie grupy zasobów</span><span class="sxs-lookup"><span data-stu-id="4ceba-105">Create a resource group</span></span>
-- <span data-ttu-id="4ceba-106">Utworzenie pierwszego Centrum IoT</span><span class="sxs-lookup"><span data-stu-id="4ceba-106">Create your first IoT hub</span></span>
-- <span data-ttu-id="4ceba-107">Zarejestruj urządzenie w Centrum IoT przy użyciu wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="4ceba-107">Register your device in your IoT hub by using the Azure CLI.</span></span> 
+- <span data-ttu-id="8e31a-105">Tworzenie grupy zasobów</span><span class="sxs-lookup"><span data-stu-id="8e31a-105">Create a resource group</span></span>
+- <span data-ttu-id="8e31a-106">Utworzenie pierwszego Centrum IoT</span><span class="sxs-lookup"><span data-stu-id="8e31a-106">Create your first IoT hub</span></span>
+- <span data-ttu-id="8e31a-107">Zarejestruj urządzenie w Centrum IoT przy użyciu hello wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="8e31a-107">Register your device in your IoT hub by using hello Azure CLI.</span></span> 
 
-<span data-ttu-id="4ceba-108">Podczas rejestrowania urządzenia w Centrum IoT, usługa Azure IoT Hub generuje klucz dla urządzenia w celu używania do uwierzytelniania w usłudze.</span><span class="sxs-lookup"><span data-stu-id="4ceba-108">When you register your device in your IoT hub, the Azure IoT Hub service generates a key for your device to use to authenticate with the service.</span></span> 
+<span data-ttu-id="8e31a-108">Po zarejestrowaniu urządzenia w Centrum IoT hello usługi Centrum IoT Azure generuje klucz dla tooauthenticate toouse Twojego urządzenia z usługą hello.</span><span class="sxs-lookup"><span data-stu-id="8e31a-108">When you register your device in your IoT hub, hello Azure IoT Hub service generates a key for your device toouse tooauthenticate with hello service.</span></span> 
 
-<span data-ttu-id="4ceba-109">Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony](iot-hub-gateway-kit-c-sim-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="4ceba-109">If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-sim-troubleshooting.md).</span></span>
+<span data-ttu-id="8e31a-109">Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony](iot-hub-gateway-kit-c-sim-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="8e31a-109">If you have any problems, look for solutions on hello [troubleshooting page](iot-hub-gateway-kit-c-sim-troubleshooting.md).</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="4ceba-110">Co dowiesz się</span><span class="sxs-lookup"><span data-stu-id="4ceba-110">What you will learn</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="8e31a-110">Co dowiesz się</span><span class="sxs-lookup"><span data-stu-id="8e31a-110">What you will learn</span></span>
 
-<span data-ttu-id="4ceba-111">W tej lekcji dowiesz się:</span><span class="sxs-lookup"><span data-stu-id="4ceba-111">In this lesson, you will learn:</span></span>
+<span data-ttu-id="8e31a-111">W tej lekcji dowiesz się:</span><span class="sxs-lookup"><span data-stu-id="8e31a-111">In this lesson, you will learn:</span></span>
 
-- <span data-ttu-id="4ceba-112">Sposób użycia interfejsu wiersza polecenia Azure do tworzenia Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="4ceba-112">How to use the Azure CLI to create an IoT hub.</span></span>
-- <span data-ttu-id="4ceba-113">Jak zarejestrować urządzenie w Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="4ceba-113">How to register a device in an IoT hub.</span></span>
+- <span data-ttu-id="8e31a-112">Jak toouse hello toocreate interfejsu wiersza polecenia Azure IoT hub.</span><span class="sxs-lookup"><span data-stu-id="8e31a-112">How toouse hello Azure CLI toocreate an IoT hub.</span></span>
+- <span data-ttu-id="8e31a-113">Jak tooregister urządzenie w Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="8e31a-113">How tooregister a device in an IoT hub.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="4ceba-114">Co jest potrzebne</span><span class="sxs-lookup"><span data-stu-id="4ceba-114">What you need</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="8e31a-114">Co jest potrzebne</span><span class="sxs-lookup"><span data-stu-id="8e31a-114">What you need</span></span>
 
-- <span data-ttu-id="4ceba-115">Aktywna subskrypcja platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="4ceba-115">An active Azure subscription.</span></span> <span data-ttu-id="4ceba-116">Jeśli nie masz konta platformy Azure, możesz utworzyć [bezpłatnego konta wersji próbnej Azure](http://azure.microsoft.com/pricing/free-trial/) za kilka minut.</span><span class="sxs-lookup"><span data-stu-id="4ceba-116">If you don't have an Azure account, you can create a [free Azure trial account](http://azure.microsoft.com/pricing/free-trial/) in just a few minutes.</span></span>
-- <span data-ttu-id="4ceba-117">Powinny mieć zainstalowane interfejsu wiersza polecenia Azure.</span><span class="sxs-lookup"><span data-stu-id="4ceba-117">You should have the Azure CLI installed.</span></span>
+- <span data-ttu-id="8e31a-115">Aktywna subskrypcja platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="8e31a-115">An active Azure subscription.</span></span> <span data-ttu-id="8e31a-116">Jeśli nie masz konta platformy Azure, możesz utworzyć [bezpłatnego konta wersji próbnej Azure](http://azure.microsoft.com/pricing/free-trial/) za kilka minut.</span><span class="sxs-lookup"><span data-stu-id="8e31a-116">If you don't have an Azure account, you can create a [free Azure trial account](http://azure.microsoft.com/pricing/free-trial/) in just a few minutes.</span></span>
+- <span data-ttu-id="8e31a-117">Powinien mieć hello zainstalowana wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="8e31a-117">You should have hello Azure CLI installed.</span></span>
 
-## <a name="create-an-iot-hub"></a><span data-ttu-id="4ceba-118">Tworzenie centrum IoT</span><span class="sxs-lookup"><span data-stu-id="4ceba-118">Create an IoT hub</span></span>
+## <a name="create-an-iot-hub"></a><span data-ttu-id="8e31a-118">Tworzenie centrum IoT</span><span class="sxs-lookup"><span data-stu-id="8e31a-118">Create an IoT hub</span></span>
 
-<span data-ttu-id="4ceba-119">Aby utworzyć Centrum IoT, wykonaj następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="4ceba-119">To create an IoT hub, follow these steps:</span></span>
+<span data-ttu-id="8e31a-119">toocreate Centrum IoT, wykonaj następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="8e31a-119">toocreate an IoT hub, follow these steps:</span></span>
 
-1. <span data-ttu-id="4ceba-120">Zaloguj się do konta platformy Azure, uruchamiając następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="4ceba-120">Sign in to your Azure account by running the following command:</span></span>
+1. <span data-ttu-id="8e31a-120">Zaloguj się tooyour konto platformy Azure, uruchamiając następujące polecenie hello:</span><span class="sxs-lookup"><span data-stu-id="8e31a-120">Sign in tooyour Azure account by running hello following command:</span></span>
 
    ```bash
    az login
    ```
 
-   <span data-ttu-id="4ceba-121">Zostaną wyświetlone wszystkie subskrypcje dostępne po pomyślnym zalogowaniu.</span><span class="sxs-lookup"><span data-stu-id="4ceba-121">All your available subscriptions will be listed after a successful sign-in.</span></span>
+   <span data-ttu-id="8e31a-121">Zostaną wyświetlone wszystkie subskrypcje dostępne po pomyślnym zalogowaniu.</span><span class="sxs-lookup"><span data-stu-id="8e31a-121">All your available subscriptions will be listed after a successful sign-in.</span></span>
 
-2. <span data-ttu-id="4ceba-122">Ustaw domyślny subskrypcji Azure, która ma być używany, uruchamiając następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="4ceba-122">Set the default Azure subscription that you want to use by running the following command:</span></span>
+2. <span data-ttu-id="8e31a-122">Ustaw domyślny hello subskrypcji platformy Azure, które mają toouse, uruchamiając następujące polecenie hello:</span><span class="sxs-lookup"><span data-stu-id="8e31a-122">Set hello default Azure subscription that you want toouse by running hello following command:</span></span>
 
    ```bash
    az account set --subscription {subscription id or name}
    ```
 
-   <span data-ttu-id="4ceba-123">`subscription ID or name`można znaleźć w danych wyjściowych `az login` lub `az account list` polecenia.</span><span class="sxs-lookup"><span data-stu-id="4ceba-123">`subscription ID or name` can be found in the output of the `az login` or the `az account list` command.</span></span>
+   <span data-ttu-id="8e31a-123">`subscription ID or name`można znaleźć w danych wyjściowych hello hello `az login` lub hello `az account list` polecenia.</span><span class="sxs-lookup"><span data-stu-id="8e31a-123">`subscription ID or name` can be found in hello output of hello `az login` or hello `az account list` command.</span></span>
 
-3. <span data-ttu-id="4ceba-124">Zarejestruj dostawcę, uruchamiając następujące polecenie.</span><span class="sxs-lookup"><span data-stu-id="4ceba-124">Register the provider by running the following command.</span></span> <span data-ttu-id="4ceba-125">Dostawcy zasobów są usługi, które zapewniają zasobów dla aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4ceba-125">Resource providers are services that provide resources for your application.</span></span> <span data-ttu-id="4ceba-126">Przed wdrożeniem zasobów platformy Azure, dostawcy oferujący należy zarejestrować dostawcę.</span><span class="sxs-lookup"><span data-stu-id="4ceba-126">You must register the provider before you can deploy the Azure resource that the provider offers.</span></span>
+3. <span data-ttu-id="8e31a-124">Zarejestruj dostawcę hello, uruchamiając następujące polecenie hello.</span><span class="sxs-lookup"><span data-stu-id="8e31a-124">Register hello provider by running hello following command.</span></span> <span data-ttu-id="8e31a-125">Dostawcy zasobów są usługi, które zapewniają zasobów dla aplikacji.</span><span class="sxs-lookup"><span data-stu-id="8e31a-125">Resource providers are services that provide resources for your application.</span></span> <span data-ttu-id="8e31a-126">Należy zarejestrować dostawcę hello przed wdrożeniem hello zasobów platformy Azure, która hello oferty dostawcy.</span><span class="sxs-lookup"><span data-stu-id="8e31a-126">You must register hello provider before you can deploy hello Azure resource that hello provider offers.</span></span>
 
    ```bash
    az provider register -n "Microsoft.Devices"
    ```
 
-4. <span data-ttu-id="4ceba-127">Utwórz grupę zasobów o nazwie `iot-gateway` regionu zachodnie stany USA, uruchamiając następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="4ceba-127">Create a resource group named `iot-gateway` in the West US region by running the following command:</span></span>
+4. <span data-ttu-id="8e31a-127">Utwórz grupę zasobów o nazwie `iot-gateway` hello regionu zachodnie stany USA, uruchamiając następujące polecenie hello:</span><span class="sxs-lookup"><span data-stu-id="8e31a-127">Create a resource group named `iot-gateway` in hello West US region by running hello following command:</span></span>
 
    ```bash
    az group create --name iot-gateway --location westus
    ```
    
-   <span data-ttu-id="4ceba-128">`westus`jest to lokalizacja, tworzenie grupy zasobów.</span><span class="sxs-lookup"><span data-stu-id="4ceba-128">`westus` is the location you create your resource group.</span></span> <span data-ttu-id="4ceba-129">Jeśli chcesz użyć innej lokalizacji, możesz uruchomić `az account list-locations -o table` do wyświetlenia wszystkich lokalizacji platformy Azure obsługuje.</span><span class="sxs-lookup"><span data-stu-id="4ceba-129">If you want to use another location, you can run `az account list-locations -o table` to see all the locations Azure supports.</span></span>
+   <span data-ttu-id="8e31a-128">`westus`to miejsce hello Tworzenie grupy zasobów.</span><span class="sxs-lookup"><span data-stu-id="8e31a-128">`westus` is hello location you create your resource group.</span></span> <span data-ttu-id="8e31a-129">Jeśli chcesz toouse w innej lokalizacji, możesz uruchomić `az account list-locations -o table` toosee wszystkie hello Azure obsługuje lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="8e31a-129">If you want toouse another location, you can run `az account list-locations -o table` toosee all hello locations Azure supports.</span></span>
 
-5. <span data-ttu-id="4ceba-130">Tworzenie Centrum IoT w `iot-gateway` grupy zasobów, uruchamiając następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="4ceba-130">Create an IoT hub in the `iot-gateway` resource group by running the following command:</span></span>
+5. <span data-ttu-id="8e31a-130">Tworzenie Centrum IoT w hello `iot-gateway` grupy zasobów, uruchamiając następujące polecenie hello:</span><span class="sxs-lookup"><span data-stu-id="8e31a-130">Create an IoT hub in hello `iot-gateway` resource group by running hello following command:</span></span>
 
    ```bash
    az iot hub create --name {my hub name} --resource-group iot-gateway
    ```
 
-<span data-ttu-id="4ceba-131">Domyślnie narzędzie tworzy Centrum IoT w warstwy cenowej bezpłatna.</span><span class="sxs-lookup"><span data-stu-id="4ceba-131">By default, the tool creates an IoT Hub in the Free pricing tier.</span></span> <span data-ttu-id="4ceba-132">Aby uzyskać więcej informacji, zobacz [cennik Centrum IoT Azure](https://azure.microsoft.com/pricing/details/iot-hub/).</span><span class="sxs-lookup"><span data-stu-id="4ceba-132">For more infomation, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).</span></span>
+<span data-ttu-id="8e31a-131">Domyślnie narzędzie hello tworzy Centrum IoT w hello warstwa cenowa bezpłatna.</span><span class="sxs-lookup"><span data-stu-id="8e31a-131">By default, hello tool creates an IoT Hub in hello Free pricing tier.</span></span> <span data-ttu-id="8e31a-132">Aby uzyskać więcej informacji, zobacz [cennik Centrum IoT Azure](https://azure.microsoft.com/pricing/details/iot-hub/).</span><span class="sxs-lookup"><span data-stu-id="8e31a-132">For more infomation, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="4ceba-133">Nazwa centrum IoT musi być globalnie unikatowa.</span><span class="sxs-lookup"><span data-stu-id="4ceba-133">The name of your IoT hub must be globally unique.</span></span> <span data-ttu-id="4ceba-134">Można utworzyć tylko jedną F1 wersji Centrum Iot Azure w ramach Twojej subskrypcji platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="4ceba-134">You can create only one F1 edition of Azure Iot Hub under your Azure subscription.</span></span>
+> <span data-ttu-id="8e31a-133">Hello nazwę Centrum IoT musi być globalnie unikatowa.</span><span class="sxs-lookup"><span data-stu-id="8e31a-133">hello name of your IoT hub must be globally unique.</span></span> <span data-ttu-id="8e31a-134">Można utworzyć tylko jedną F1 wersji Centrum Iot Azure w ramach Twojej subskrypcji platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="8e31a-134">You can create only one F1 edition of Azure Iot Hub under your Azure subscription.</span></span>
 
-## <a name="register-your-device-in-your-iot-hub"></a><span data-ttu-id="4ceba-135">Zarejestruj urządzenie w Centrum IoT</span><span class="sxs-lookup"><span data-stu-id="4ceba-135">Register your device in your IoT hub</span></span>
+## <a name="register-your-device-in-your-iot-hub"></a><span data-ttu-id="8e31a-135">Zarejestruj urządzenie w Centrum IoT</span><span class="sxs-lookup"><span data-stu-id="8e31a-135">Register your device in your IoT hub</span></span>
 
-<span data-ttu-id="4ceba-136">Poszczególne urządzenia, która wysyła komunikaty do Centrum IoT i odbiera komunikaty z Centrum IoT musi być zarejestrowany unikatowego identyfikatora.</span><span class="sxs-lookup"><span data-stu-id="4ceba-136">Each device that sends messages to your IoT hub and receives messages from your IoT hub must be registered with a unique ID.</span></span>
-<span data-ttu-id="4ceba-137">Zarejestruj urządzenie w Centrum IoT przez uruchomione następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="4ceba-137">Register your device in your IoT hub by running following command:</span></span>
+<span data-ttu-id="8e31a-136">Poszczególne urządzenia, która Centrum IoT tooyour komunikatów wysyła i odbiera komunikaty z Centrum IoT musi być zarejestrowany unikatowego identyfikatora.</span><span class="sxs-lookup"><span data-stu-id="8e31a-136">Each device that sends messages tooyour IoT hub and receives messages from your IoT hub must be registered with a unique ID.</span></span>
+<span data-ttu-id="8e31a-137">Zarejestruj urządzenie w Centrum IoT przez uruchomione następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="8e31a-137">Register your device in your IoT hub by running following command:</span></span>
 
 ```bash
 az iot device create --device-id mydevice --hub-name {my hub name} --resource-group iot-gateway
 ```
 
-## <a name="summary"></a><span data-ttu-id="4ceba-138">Podsumowanie</span><span class="sxs-lookup"><span data-stu-id="4ceba-138">Summary</span></span>
+## <a name="summary"></a><span data-ttu-id="8e31a-138">Podsumowanie</span><span class="sxs-lookup"><span data-stu-id="8e31a-138">Summary</span></span>
 
-<span data-ttu-id="4ceba-139">Utworzeniu Centrum IoT i zarejestrowane urządzenia logicznego za pomocą tożsamości urządzenia w Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="4ceba-139">You've created an IoT hub and registered your logical device with a device identity in your IoT hub.</span></span> <span data-ttu-id="4ceba-140">Możesz dowiedzieć się, jak skonfigurować i uruchomić bramy przykładowej aplikacji do wysyłania danych z urządzenia fizycznego do Centrum IoT w chmurze.</span><span class="sxs-lookup"><span data-stu-id="4ceba-140">You're ready to learn how to configure and run a gateway sample application to send data from your physical device to your IoT hub in the cloud.</span></span>
+<span data-ttu-id="8e31a-139">Utworzeniu Centrum IoT i zarejestrowane urządzenia logicznego za pomocą tożsamości urządzenia w Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="8e31a-139">You've created an IoT hub and registered your logical device with a device identity in your IoT hub.</span></span> <span data-ttu-id="8e31a-140">Wszystko jest gotowe toolearn jak tooconfigure i uruchamiania bramy przykładowych aplikacji toosend danych z urządzenia fizycznego Centrum IoT tooyour w hello chmury.</span><span class="sxs-lookup"><span data-stu-id="8e31a-140">You're ready toolearn how tooconfigure and run a gateway sample application toosend data from your physical device tooyour IoT hub in hello cloud.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="4ceba-141">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="4ceba-141">Next steps</span></span>
-[<span data-ttu-id="4ceba-142">Konfigurowanie i uruchamianie symulowane urządzenie chmury przekazywania przykładowej aplikacji</span><span class="sxs-lookup"><span data-stu-id="4ceba-142">Configure and run a simulated device cloud upload sample application</span></span>](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+## <a name="next-steps"></a><span data-ttu-id="8e31a-141">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="8e31a-141">Next steps</span></span>
+[<span data-ttu-id="8e31a-142">Konfigurowanie i uruchamianie symulowane urządzenie chmury przekazywania przykładowej aplikacji</span><span class="sxs-lookup"><span data-stu-id="8e31a-142">Configure and run a simulated device cloud upload sample application</span></span>](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)

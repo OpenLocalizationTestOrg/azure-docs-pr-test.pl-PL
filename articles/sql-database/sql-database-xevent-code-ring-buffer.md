@@ -1,6 +1,6 @@
 ---
-title: "Kod bufor pierścień systemu XEvent dla bazy danych SQL | Dokumentacja firmy Microsoft"
-description: "Zawiera przykładowy kod języka Transact-SQL, które zostało utworzone przy użyciu obiektu docelowego buforu pierścień w bazie danych SQL Azure łatwo i szybko."
+title: "aaaXEvent bufor pierścień kod dla bazy danych SQL | Dokumentacja firmy Microsoft"
+description: "Zawiera przykładowy kod języka Transact-SQL, która zostaje łatwo i szybko przy użyciu hello bufor pierścień obiektu docelowego w bazie danych SQL Azure."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -16,52 +16,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: 6fbefe151901ac3b15d93712422878fc4d6206f1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 21df748d9999d6837d2b5bbe4a3f47fb351b4633
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a><span data-ttu-id="4d9f7-103">Pierścienia kodu docelowego buforu dla zdarzeń rozszerzonych w bazie danych SQL</span><span class="sxs-lookup"><span data-stu-id="4d9f7-103">Ring Buffer target code for extended events in SQL Database</span></span>
+# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a><span data-ttu-id="7e500-103">Pierścienia kodu docelowego buforu dla zdarzeń rozszerzonych w bazie danych SQL</span><span class="sxs-lookup"><span data-stu-id="7e500-103">Ring Buffer target code for extended events in SQL Database</span></span>
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-<span data-ttu-id="4d9f7-104">Chcesz próbkę kompletny kod dla szybkiego Najprostszym sposobem przechwytywania i przekazuje informacje dla zdarzeń rozszerzonych podczas testu.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-104">You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test.</span></span> <span data-ttu-id="4d9f7-105">Najprostszym elementu docelowego dla danych zdarzeń rozszerzonych jest [docelowego buforu pierścień](http://msdn.microsoft.com/library/ff878182.aspx).</span><span class="sxs-lookup"><span data-stu-id="4d9f7-105">The easiest target for extended event data is the [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx).</span></span>
+<span data-ttu-id="7e500-104">Chcesz próbkę kompletny kod dla hello najprostszym szybko toocapture i przekazuje informacje dla zdarzeń rozszerzonych podczas testu.</span><span class="sxs-lookup"><span data-stu-id="7e500-104">You want a complete code sample for hello easiest quick way toocapture and report information for an extended event during a test.</span></span> <span data-ttu-id="7e500-105">Najprostszym docelowy Hello danych zdarzeń rozszerzonych jest hello [docelowego buforu pierścień](http://msdn.microsoft.com/library/ff878182.aspx).</span><span class="sxs-lookup"><span data-stu-id="7e500-105">hello easiest target for extended event data is hello [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx).</span></span>
 
-<span data-ttu-id="4d9f7-106">W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:</span><span class="sxs-lookup"><span data-stu-id="4d9f7-106">This topic presents a Transact-SQL code sample that:</span></span>
+<span data-ttu-id="7e500-106">W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:</span><span class="sxs-lookup"><span data-stu-id="7e500-106">This topic presents a Transact-SQL code sample that:</span></span>
 
-1. <span data-ttu-id="4d9f7-107">Tworzy tabelę z danymi, aby zademonstrować z.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-107">Creates a table with data to demonstrate with.</span></span>
-2. <span data-ttu-id="4d9f7-108">Tworzy sesję dla istniejących zdarzeń rozszerzonych mianowicie **sqlserver.sql_statement_starting**.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-108">Creates a session for an existing extended event, namely **sqlserver.sql_statement_starting**.</span></span>
+1. <span data-ttu-id="7e500-107">Tworzy tabelę z toodemonstrate danych z.</span><span class="sxs-lookup"><span data-stu-id="7e500-107">Creates a table with data toodemonstrate with.</span></span>
+2. <span data-ttu-id="7e500-108">Tworzy sesję dla istniejących zdarzeń rozszerzonych mianowicie **sqlserver.sql_statement_starting**.</span><span class="sxs-lookup"><span data-stu-id="7e500-108">Creates a session for an existing extended event, namely **sqlserver.sql_statement_starting**.</span></span>
    
-   * <span data-ttu-id="4d9f7-109">Zdarzenie jest ograniczona do instrukcji SQL, które zawierają określony ciąg aktualizacji: **instrukcji, takich jak '% aktualizacji tabEmployee %'**.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-109">The event is limited to SQL statements that contain a particular Update string: **statement LIKE '%UPDATE tabEmployee%'**.</span></span>
-   * <span data-ttu-id="4d9f7-110">Wybiera do wysłania dane wyjściowe zdarzenia do elementu docelowego typu pierścień buforu, a mianowicie **package0.ring_buffer**.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-110">Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.</span></span>
-3. <span data-ttu-id="4d9f7-111">Uruchamia sesji zdarzeń.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-111">Starts the event session.</span></span>
-4. <span data-ttu-id="4d9f7-112">Problemy z kilku prostych instrukcji SQL UPDATE.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-112">Issues a couple of simple SQL UPDATE statements.</span></span>
-5. <span data-ttu-id="4d9f7-113">Problemy z instrukcję SQL SELECT, aby pobrać dane wyjściowe zdarzenia z buforu pierścień.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-113">Issues a SQL SELECT statement to retrieve event output from the Ring Buffer.</span></span>
+   * <span data-ttu-id="7e500-109">Witaj zdarzenie jest ograniczona tooSQL zawierających określony ciąg aktualizacji instrukcji: **instrukcji, takich jak '% aktualizacji tabEmployee %'**.</span><span class="sxs-lookup"><span data-stu-id="7e500-109">hello event is limited tooSQL statements that contain a particular Update string: **statement LIKE '%UPDATE tabEmployee%'**.</span></span>
+   * <span data-ttu-id="7e500-110">Wybiera dane wyjściowe hello toosend cel tooa zdarzenia hello typu pierścień buforu, a mianowicie **package0.ring_buffer**.</span><span class="sxs-lookup"><span data-stu-id="7e500-110">Chooses toosend hello output of hello event tooa target of type Ring Buffer, namely  **package0.ring_buffer**.</span></span>
+3. <span data-ttu-id="7e500-111">Uruchamia hello sesji zdarzeń.</span><span class="sxs-lookup"><span data-stu-id="7e500-111">Starts hello event session.</span></span>
+4. <span data-ttu-id="7e500-112">Problemy z kilku prostych instrukcji SQL UPDATE.</span><span class="sxs-lookup"><span data-stu-id="7e500-112">Issues a couple of simple SQL UPDATE statements.</span></span>
+5. <span data-ttu-id="7e500-113">Problemy z SQL SELECT instrukcji tooretrieve zdarzeń dane wyjściowe hello bufor pierścień.</span><span class="sxs-lookup"><span data-stu-id="7e500-113">Issues a SQL SELECT statement tooretrieve event output from hello Ring Buffer.</span></span>
    
-   * <span data-ttu-id="4d9f7-114">**sys.dm_xe_database_session_targets** i innych dynamicznych widoków zarządzania (widoków DMV) są połączone.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-114">**sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.</span></span>
-6. <span data-ttu-id="4d9f7-115">Zatrzymuje sesji zdarzeń.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-115">Stops the event session.</span></span>
-7. <span data-ttu-id="4d9f7-116">Odrzuca docelowej pierścień buforu, aby zwolnić zasoby jego.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-116">Drops the Ring Buffer target, to release its resources.</span></span>
-8. <span data-ttu-id="4d9f7-117">Odrzuca sesji zdarzeń i pokaz tabeli.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-117">Drops the event session and the demo table.</span></span>
+   * <span data-ttu-id="7e500-114">**sys.dm_xe_database_session_targets** i innych dynamicznych widoków zarządzania (widoków DMV) są połączone.</span><span class="sxs-lookup"><span data-stu-id="7e500-114">**sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.</span></span>
+6. <span data-ttu-id="7e500-115">Zatrzymuje hello sesji zdarzeń.</span><span class="sxs-lookup"><span data-stu-id="7e500-115">Stops hello event session.</span></span>
+7. <span data-ttu-id="7e500-116">Porzucania hello pierścień buforu docelowego, toorelease jego zasoby.</span><span class="sxs-lookup"><span data-stu-id="7e500-116">Drops hello Ring Buffer target, toorelease its resources.</span></span>
+8. <span data-ttu-id="7e500-117">Odrzuca hello sesji zdarzeń i hello pokaz tabeli.</span><span class="sxs-lookup"><span data-stu-id="7e500-117">Drops hello event session and hello demo table.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="4d9f7-118">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="4d9f7-118">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="7e500-118">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="7e500-118">Prerequisites</span></span>
 
-* <span data-ttu-id="4d9f7-119">Konto i subskrypcja platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-119">An Azure account and subscription.</span></span> <span data-ttu-id="4d9f7-120">Po zarejestrowaniu się możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="4d9f7-120">You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
-* <span data-ttu-id="4d9f7-121">Wszystkie bazy danych, które można utworzyć tabeli.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-121">Any database you can create a table in.</span></span>
+* <span data-ttu-id="7e500-119">Konto i subskrypcja platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="7e500-119">An Azure account and subscription.</span></span> <span data-ttu-id="7e500-120">Po zarejestrowaniu się możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="7e500-120">You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+* <span data-ttu-id="7e500-121">Wszystkie bazy danych, które można utworzyć tabeli.</span><span class="sxs-lookup"><span data-stu-id="7e500-121">Any database you can create a table in.</span></span>
   
-  * <span data-ttu-id="4d9f7-122">Opcjonalnie można [utworzyć **AdventureWorksLT** demonstracyjna baza danych](sql-database-get-started.md) w minutach.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-122">Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.</span></span>
-* <span data-ttu-id="4d9f7-123">SQL Server Management Studio (ssms.exe), najlepiej najnowszej miesięcznej wersji aktualizacji.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-123">SQL Server Management Studio (ssms.exe), ideally its latest monthly update version.</span></span> 
-  <span data-ttu-id="4d9f7-124">Możesz pobrać najnowszą ssms.exe od:</span><span class="sxs-lookup"><span data-stu-id="4d9f7-124">You can download the latest ssms.exe from:</span></span>
+  * <span data-ttu-id="7e500-122">Opcjonalnie można [utworzyć **AdventureWorksLT** demonstracyjna baza danych](sql-database-get-started.md) w minutach.</span><span class="sxs-lookup"><span data-stu-id="7e500-122">Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.</span></span>
+* <span data-ttu-id="7e500-123">SQL Server Management Studio (ssms.exe), najlepiej najnowszej miesięcznej wersji aktualizacji.</span><span class="sxs-lookup"><span data-stu-id="7e500-123">SQL Server Management Studio (ssms.exe), ideally its latest monthly update version.</span></span> 
+  <span data-ttu-id="7e500-124">Możesz pobrać najnowszą ssms.exe hello z:</span><span class="sxs-lookup"><span data-stu-id="7e500-124">You can download hello latest ssms.exe from:</span></span>
   
-  * <span data-ttu-id="4d9f7-125">Temat zatytułowany [pobierania programu SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).</span><span class="sxs-lookup"><span data-stu-id="4d9f7-125">Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).</span></span>
-  * [<span data-ttu-id="4d9f7-126">Łącze do pobrania.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-126">A direct link to the download.</span></span>](http://go.microsoft.com/fwlink/?linkid=616025)
+  * <span data-ttu-id="7e500-125">Temat zatytułowany [pobierania programu SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).</span><span class="sxs-lookup"><span data-stu-id="7e500-125">Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).</span></span>
+  * [<span data-ttu-id="7e500-126">Pobieranie toohello bezpośredniego łącza.</span><span class="sxs-lookup"><span data-stu-id="7e500-126">A direct link toohello download.</span></span>](http://go.microsoft.com/fwlink/?linkid=616025)
 
-## <a name="code-sample"></a><span data-ttu-id="4d9f7-127">Przykład kodu</span><span class="sxs-lookup"><span data-stu-id="4d9f7-127">Code sample</span></span>
+## <a name="code-sample"></a><span data-ttu-id="7e500-127">Przykład kodu</span><span class="sxs-lookup"><span data-stu-id="7e500-127">Code sample</span></span>
 
-<span data-ttu-id="4d9f7-128">Drobne zmiany w poniższym przykładzie kodu bufor pierścień umożliwia uruchamianie bazy danych SQL Azure lub programu Microsoft SQL Server.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-128">With very minor modification, the following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server.</span></span> <span data-ttu-id="4d9f7-129">Różnica polega na obecność węzeł 'bazy _danych"nazwach niektórych dynamicznych widoków zarządzania (widoków DMV), używany w klauzuli FROM w kroku 5.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-129">The difference is the presence of the node '_database' in the name of some dynamic management views (DMVs), used in the FROM clause in Step 5.</span></span> <span data-ttu-id="4d9f7-130">Na przykład:</span><span class="sxs-lookup"><span data-stu-id="4d9f7-130">For example:</span></span>
+<span data-ttu-id="7e500-128">Drobne modyfikacji hello Poniższy przykładowy kod bufor pierścień może działać w bazy danych SQL Azure lub programu Microsoft SQL Server.</span><span class="sxs-lookup"><span data-stu-id="7e500-128">With very minor modification, hello following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server.</span></span> <span data-ttu-id="7e500-129">Witaj różnica polega na obecność hello hello węzła 'bazy _danych"w nazwie hello niektórych dynamicznych widoków zarządzania (widoków DMV), używany w klauzuli FROM hello w kroku 5.</span><span class="sxs-lookup"><span data-stu-id="7e500-129">hello difference is hello presence of hello node '_database' in hello name of some dynamic management views (DMVs), used in hello FROM clause in Step 5.</span></span> <span data-ttu-id="7e500-130">Na przykład:</span><span class="sxs-lookup"><span data-stu-id="7e500-130">For example:</span></span>
 
-* <span data-ttu-id="4d9f7-131">sys.dm_xe**bazy _danych**_session_targets</span><span class="sxs-lookup"><span data-stu-id="4d9f7-131">sys.dm_xe**_database**_session_targets</span></span>
-* <span data-ttu-id="4d9f7-132">sys.dm_xe_session_targets</span><span class="sxs-lookup"><span data-stu-id="4d9f7-132">sys.dm_xe_session_targets</span></span>
+* <span data-ttu-id="7e500-131">sys.dm_xe**bazy _danych**_session_targets</span><span class="sxs-lookup"><span data-stu-id="7e500-131">sys.dm_xe**_database**_session_targets</span></span>
+* <span data-ttu-id="7e500-132">sys.dm_xe_session_targets</span><span class="sxs-lookup"><span data-stu-id="7e500-132">sys.dm_xe_session_targets</span></span>
 
 &nbsp;
 
@@ -218,15 +218,15 @@ GO
 
 &nbsp;
 
-## <a name="ring-buffer-contents"></a><span data-ttu-id="4d9f7-133">Zawartość buforów pierścień</span><span class="sxs-lookup"><span data-stu-id="4d9f7-133">Ring Buffer contents</span></span>
+## <a name="ring-buffer-contents"></a><span data-ttu-id="7e500-133">Zawartość buforów pierścień</span><span class="sxs-lookup"><span data-stu-id="7e500-133">Ring Buffer contents</span></span>
 
-<span data-ttu-id="4d9f7-134">My używamy ssms.exe uruchomić przykładowy kod.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-134">We used ssms.exe to run the code sample.</span></span>
+<span data-ttu-id="7e500-134">My używamy przykładowy kod hello toorun ssms.exe.</span><span class="sxs-lookup"><span data-stu-id="7e500-134">We used ssms.exe toorun hello code sample.</span></span>
 
-<span data-ttu-id="4d9f7-135">Aby wyświetlić wyniki, możemy kliknięciu komórki w nagłówku kolumny **target_data_XML**.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-135">To view the results, we clicked the cell under the column header **target_data_XML**.</span></span>
+<span data-ttu-id="7e500-135">wyniki hello tooview, możemy kliknięciu komórki hello w obszarze nagłówka kolumny hello **target_data_XML**.</span><span class="sxs-lookup"><span data-stu-id="7e500-135">tooview hello results, we clicked hello cell under hello column header **target_data_XML**.</span></span>
 
-<span data-ttu-id="4d9f7-136">Następnie w okienku wyników możemy kliknięciu komórki w nagłówku kolumny **target_data_XML**.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-136">Then in the results pane we clicked the cell under the column header **target_data_XML**.</span></span> <span data-ttu-id="4d9f7-137">Kliknij ten przycisk utworzyć inną kartę pliku w ssms.exe w którym zawartość komórki wynik został wyświetlony, w formacie XML.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-137">This click created another file tab in ssms.exe in which the content of the result cell was displayed, as XML.</span></span>
+<span data-ttu-id="7e500-136">Następnie w okienku wyników hello możemy kliknięciu komórki hello w obszarze nagłówka kolumny hello **target_data_XML**.</span><span class="sxs-lookup"><span data-stu-id="7e500-136">Then in hello results pane we clicked hello cell under hello column header **target_data_XML**.</span></span> <span data-ttu-id="7e500-137">Kliknij ten przycisk utworzyć inną kartę pliku w ssms.exe w których hello zawartość komórki wynik hello został wyświetlony, w formacie XML.</span><span class="sxs-lookup"><span data-stu-id="7e500-137">This click created another file tab in ssms.exe in which hello content of hello result cell was displayed, as XML.</span></span>
 
-<span data-ttu-id="4d9f7-138">Dane wyjściowe przedstawiono w następującym fragmencie.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-138">The output is shown in the following block.</span></span> <span data-ttu-id="4d9f7-139">Wygląda na to długie, ale jest tylko dwa  **<event>**  elementów.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-139">It looks long, but it is just two **<event>** elements.</span></span>
+<span data-ttu-id="7e500-138">dane wyjściowe Hello jest wyświetlany w powitania po bloku.</span><span class="sxs-lookup"><span data-stu-id="7e500-138">hello output is shown in hello following block.</span></span> <span data-ttu-id="7e500-139">Wygląda na to długie, ale jest tylko dwa  **<event>**  elementów.</span><span class="sxs-lookup"><span data-stu-id="7e500-139">It looks long, but it is just two **<event>** elements.</span></span>
 
 &nbsp;
 
@@ -318,9 +318,9 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 ```
 
 
-#### <a name="release-resources-held-by-your-ring-buffer"></a><span data-ttu-id="4d9f7-140">Zwolnij zasoby zajmowane przez użytkownika bufor pierścień</span><span class="sxs-lookup"><span data-stu-id="4d9f7-140">Release resources held by your Ring Buffer</span></span>
+#### <a name="release-resources-held-by-your-ring-buffer"></a><span data-ttu-id="7e500-140">Zwolnij zasoby zajmowane przez użytkownika bufor pierścień</span><span class="sxs-lookup"><span data-stu-id="7e500-140">Release resources held by your Ring Buffer</span></span>
 
-<span data-ttu-id="4d9f7-141">Po zakończeniu Twojej buforem pierścienia, można ją usunąć i zwolnić jego zasoby wystawiania **ALTER** podobnie do następującego:</span><span class="sxs-lookup"><span data-stu-id="4d9f7-141">When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like the following:</span></span>
+<span data-ttu-id="7e500-141">Po zakończeniu Twojej buforem pierścienia, można ją usunąć i zwolnić jego zasoby wystawiania **ALTER** następujące hello, takich jak:</span><span class="sxs-lookup"><span data-stu-id="7e500-141">When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like hello following:</span></span>
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -330,7 +330,7 @@ GO
 ```
 
 
-<span data-ttu-id="4d9f7-142">Definicja sesji zdarzeń jest zaktualizowana, ale nie został porzucony.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-142">The definition of your event session is updated, but not dropped.</span></span> <span data-ttu-id="4d9f7-143">Później można dodać inne wystąpienie buforu pierścień do sesji zdarzeń:</span><span class="sxs-lookup"><span data-stu-id="4d9f7-143">Later you can add another instance of the Ring Buffer to your event session:</span></span>
+<span data-ttu-id="7e500-142">Definicja Hello sesji zdarzeń jest zaktualizowana, ale nie został porzucony.</span><span class="sxs-lookup"><span data-stu-id="7e500-142">hello definition of your event session is updated, but not dropped.</span></span> <span data-ttu-id="7e500-143">Później można dodać inne wystąpienie sesji zdarzeń tooyour bufor pierścień hello:</span><span class="sxs-lookup"><span data-stu-id="7e500-143">Later you can add another instance of hello Ring Buffer tooyour event session:</span></span>
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -343,19 +343,19 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 ```
 
 
-## <a name="more-information"></a><span data-ttu-id="4d9f7-144">Więcej informacji</span><span class="sxs-lookup"><span data-stu-id="4d9f7-144">More information</span></span>
+## <a name="more-information"></a><span data-ttu-id="7e500-144">Więcej informacji</span><span class="sxs-lookup"><span data-stu-id="7e500-144">More information</span></span>
 
-<span data-ttu-id="4d9f7-145">Podstawowy temat rozszerzonej zdarzeń w bazie danych SQL Azure jest:</span><span class="sxs-lookup"><span data-stu-id="4d9f7-145">The primary topic for extended events on Azure SQL Database is:</span></span>
+<span data-ttu-id="7e500-145">temat głównej Hello rozszerzonej zdarzeń w bazie danych SQL Azure jest:</span><span class="sxs-lookup"><span data-stu-id="7e500-145">hello primary topic for extended events on Azure SQL Database is:</span></span>
 
-* <span data-ttu-id="4d9f7-146">[Rozszerzony zagadnienia dotyczące zdarzeń w bazie danych SQL](sql-database-xevent-db-diff-from-svr.md), która różni się znacząco niektórych aspektów rozszerzone zdarzenia, które różnią się od bazy danych SQL Azure i programu Microsoft SQL Server.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-146">[Extended event considerations in SQL Database](sql-database-xevent-db-diff-from-svr.md), which contrasts some aspects of extended events that differ between Azure SQL Database versus Microsoft SQL Server.</span></span>
+* <span data-ttu-id="7e500-146">[Rozszerzony zagadnienia dotyczące zdarzeń w bazie danych SQL](sql-database-xevent-db-diff-from-svr.md), która różni się znacząco niektórych aspektów rozszerzone zdarzenia, które różnią się od bazy danych SQL Azure i programu Microsoft SQL Server.</span><span class="sxs-lookup"><span data-stu-id="7e500-146">[Extended event considerations in SQL Database](sql-database-xevent-db-diff-from-svr.md), which contrasts some aspects of extended events that differ between Azure SQL Database versus Microsoft SQL Server.</span></span>
 
-<span data-ttu-id="4d9f7-147">Inne tematy przykładowy kod dla zdarzeń rozszerzonych są dostępne w poniższych łączy.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-147">Other code sample topics for extended events are available at the following links.</span></span> <span data-ttu-id="4d9f7-148">Regularnie należy jednak sprawdzić wszelkie przykład, aby zobaczyć, czy próbki jest przeznaczony dla programu Microsoft SQL Server i bazy danych SQL Azure.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-148">However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database.</span></span> <span data-ttu-id="4d9f7-149">Następnie można zdecydować, czy drobne zmiany są potrzebne do uruchomienia przykładu.</span><span class="sxs-lookup"><span data-stu-id="4d9f7-149">Then you can decide whether minor changes are needed to run the sample.</span></span>
+<span data-ttu-id="7e500-147">Inne tematy przykładowy kod dla zdarzeń rozszerzonych są dostępne pod adresem hello następującego łącza.</span><span class="sxs-lookup"><span data-stu-id="7e500-147">Other code sample topics for extended events are available at hello following links.</span></span> <span data-ttu-id="7e500-148">Regularnie musi jednak sprawdzić wszelkie toosee próbki, czy hello przykładowy jest przeznaczony dla programu Microsoft SQL Server i bazy danych SQL Azure.</span><span class="sxs-lookup"><span data-stu-id="7e500-148">However, you must routinely check any sample toosee whether hello sample targets Microsoft SQL Server versus Azure SQL Database.</span></span> <span data-ttu-id="7e500-149">Następnie można zdecydować, czy drobne zmiany są potrzebne toorun hello próbki.</span><span class="sxs-lookup"><span data-stu-id="7e500-149">Then you can decide whether minor changes are needed toorun hello sample.</span></span>
 
-* <span data-ttu-id="4d9f7-150">Przykładowy kod bazy danych SQL Azure: [kod docelowy plik zdarzeń rozszerzonych zdarzeń w bazie danych SQL](sql-database-xevent-code-event-file.md)</span><span class="sxs-lookup"><span data-stu-id="4d9f7-150">Code sample for Azure SQL Database: [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)</span></span>
+* <span data-ttu-id="7e500-150">Przykładowy kod bazy danych SQL Azure: [kod docelowy plik zdarzeń rozszerzonych zdarzeń w bazie danych SQL](sql-database-xevent-code-event-file.md)</span><span class="sxs-lookup"><span data-stu-id="7e500-150">Code sample for Azure SQL Database: [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)</span></span>
 
 <!--
 ('lock_acquired' event.)
 
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Find hello Objects That Have hello Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->

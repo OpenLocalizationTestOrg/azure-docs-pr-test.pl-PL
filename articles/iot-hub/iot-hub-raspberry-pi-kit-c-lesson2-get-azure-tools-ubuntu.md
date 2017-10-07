@@ -1,5 +1,5 @@
 ---
-title: "Connect Raspberry pi (C) do Azure IoT — Lekcja 2: narzędzi platformy Azure (Ubuntu) | Dokumentacja firmy Microsoft"
+title: "Connect Raspberry pi (C) tooAzure IoT — Lekcja 2: narzędzi platformy Azure (Ubuntu) | Dokumentacja firmy Microsoft"
 description: "Zainstaluj środowisko Python i interfejsu wiersza polecenia platformy Azure (Azure CLI) na Ubuntu."
 services: iot-hub
 documentationcenter: 
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: be1506edf0e63190dbb85a3adb7897bd1cc84d38
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1af4848f9fe0508e362c15b36eec8a35aea9ac5b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-azure-tools-ubuntu-1604"></a><span data-ttu-id="d532d-104">Pobierz narzędzia Azure (Ubuntu 16.04)</span><span class="sxs-lookup"><span data-stu-id="d532d-104">Get Azure tools (Ubuntu 16.04)</span></span>
+# <a name="get-azure-tools-ubuntu-1604"></a><span data-ttu-id="29365-104">Pobierz narzędzia Azure (Ubuntu 16.04)</span><span class="sxs-lookup"><span data-stu-id="29365-104">Get Azure tools (Ubuntu 16.04)</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="d532d-105">System Windows 7 lub nowszy</span><span class="sxs-lookup"><span data-stu-id="d532d-105">Windows 7 and later</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
-> * [<span data-ttu-id="d532d-106">Ubuntu 16.04</span><span class="sxs-lookup"><span data-stu-id="d532d-106">Ubuntu 16.04</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
-> * [<span data-ttu-id="d532d-107">System macOS 10.10</span><span class="sxs-lookup"><span data-stu-id="d532d-107">macOS 10.10</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
+> * [<span data-ttu-id="29365-105">System Windows 7 lub nowszy</span><span class="sxs-lookup"><span data-stu-id="29365-105">Windows 7 and later</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
+> * [<span data-ttu-id="29365-106">Ubuntu 16.04</span><span class="sxs-lookup"><span data-stu-id="29365-106">Ubuntu 16.04</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
+> * [<span data-ttu-id="29365-107">System macOS 10.10</span><span class="sxs-lookup"><span data-stu-id="29365-107">macOS 10.10</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
 
-## <a name="what-you-will-do"></a><span data-ttu-id="d532d-108">Będzie wykonywać</span><span class="sxs-lookup"><span data-stu-id="d532d-108">What you will do</span></span>
-<span data-ttu-id="d532d-109">Zainstaluj interfejs wiersza polecenia platformy Azure (Azure CLI).</span><span class="sxs-lookup"><span data-stu-id="d532d-109">Install the Azure command-line interface (Azure CLI).</span></span> <span data-ttu-id="d532d-110">Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="d532d-110">If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="29365-108">Będzie wykonywać</span><span class="sxs-lookup"><span data-stu-id="29365-108">What you will do</span></span>
+<span data-ttu-id="29365-109">Zainstaluj hello interfejsu wiersza polecenia platformy Azure (Azure CLI).</span><span class="sxs-lookup"><span data-stu-id="29365-109">Install hello Azure command-line interface (Azure CLI).</span></span> <span data-ttu-id="29365-110">Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="29365-110">If you have any problems, look for solutions on hello [troubleshooting page](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="d532d-111">Co dowiesz się</span><span class="sxs-lookup"><span data-stu-id="d532d-111">What you will learn</span></span>
-<span data-ttu-id="d532d-112">W tym artykule dowiesz się:</span><span class="sxs-lookup"><span data-stu-id="d532d-112">In this article, you will learn:</span></span>
-* <span data-ttu-id="d532d-113">Jak zainstalować wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="d532d-113">How to install the Azure CLI.</span></span>
-* <span data-ttu-id="d532d-114">Jak dodać podgrupę IoT wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="d532d-114">How to add an IoT subgroup of the Azure CLI.</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="29365-111">Co dowiesz się</span><span class="sxs-lookup"><span data-stu-id="29365-111">What you will learn</span></span>
+<span data-ttu-id="29365-112">W tym artykule dowiesz się:</span><span class="sxs-lookup"><span data-stu-id="29365-112">In this article, you will learn:</span></span>
+* <span data-ttu-id="29365-113">Jak tooinstall hello wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="29365-113">How tooinstall hello Azure CLI.</span></span>
+* <span data-ttu-id="29365-114">Jak tooadd podgrupę IoT hello wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="29365-114">How tooadd an IoT subgroup of hello Azure CLI.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="d532d-115">Co jest potrzebne</span><span class="sxs-lookup"><span data-stu-id="d532d-115">What you need</span></span>
-* <span data-ttu-id="d532d-116">Ubuntu komputera z połączeniem internetowym.</span><span class="sxs-lookup"><span data-stu-id="d532d-116">An Ubuntu computer with an Internet connection.</span></span>
-* <span data-ttu-id="d532d-117">Aktywna subskrypcja platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="d532d-117">An active Azure subscription.</span></span> <span data-ttu-id="d532d-118">Jeśli nie masz konta, możesz utworzyć [bezpłatnego konta wersji próbnej](http://azure.microsoft.com/pricing/free-trial/) za kilka minut.</span><span class="sxs-lookup"><span data-stu-id="d532d-118">If you don't have an account, you can create a [free trial account](http://azure.microsoft.com/pricing/free-trial/) in just a few minutes.</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="29365-115">Co jest potrzebne</span><span class="sxs-lookup"><span data-stu-id="29365-115">What you need</span></span>
+* <span data-ttu-id="29365-116">Ubuntu komputera z połączeniem internetowym.</span><span class="sxs-lookup"><span data-stu-id="29365-116">An Ubuntu computer with an Internet connection.</span></span>
+* <span data-ttu-id="29365-117">Aktywna subskrypcja platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="29365-117">An active Azure subscription.</span></span> <span data-ttu-id="29365-118">Jeśli nie masz konta, możesz utworzyć [bezpłatnego konta wersji próbnej](http://azure.microsoft.com/pricing/free-trial/) za kilka minut.</span><span class="sxs-lookup"><span data-stu-id="29365-118">If you don't have an account, you can create a [free trial account](http://azure.microsoft.com/pricing/free-trial/) in just a few minutes.</span></span>
 
-## <a name="install-the-azure-cli"></a><span data-ttu-id="d532d-119">Zainstaluj interfejs wiersza polecenia platformy Azure</span><span class="sxs-lookup"><span data-stu-id="d532d-119">Install the Azure CLI</span></span>
-<span data-ttu-id="d532d-120">Interfejsu wiersza polecenia Azure zapewnia wiele platform wiersza polecenia platformy Azure, dzięki któremu można pracować bezpośrednio w wierszu polecenia do udostępniania zasobów i zarządzanie nimi.</span><span class="sxs-lookup"><span data-stu-id="d532d-120">The Azure CLI provides a multiplatform command-line experience for Azure, enabling you to work directly from your command line to provision and manage resources.</span></span>
+## <a name="install-hello-azure-cli"></a><span data-ttu-id="29365-119">Zainstaluj hello wiersza polecenia platformy Azure</span><span class="sxs-lookup"><span data-stu-id="29365-119">Install hello Azure CLI</span></span>
+<span data-ttu-id="29365-120">Hello interfejsu wiersza polecenia Azure zapewnia wiele platform wiersza polecenia platformy Azure, umożliwiając toowork bezpośrednio z tooprovision z wiersza polecenia i zarządzanie zasobami.</span><span class="sxs-lookup"><span data-stu-id="29365-120">hello Azure CLI provides a multiplatform command-line experience for Azure, enabling you toowork directly from your command line tooprovision and manage resources.</span></span>
 
-<span data-ttu-id="d532d-121">Aby zainstalować najnowsze wiersza polecenia platformy Azure, wykonaj następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="d532d-121">To install the latest Azure CLI, follow these steps:</span></span>
+<span data-ttu-id="29365-121">tooinstall hello najnowsze wiersza polecenia platformy Azure, wykonaj następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="29365-121">tooinstall hello latest Azure CLI, follow these steps:</span></span>
 
-1. <span data-ttu-id="d532d-122">Uruchom następujące polecenia w oknie terminalu.</span><span class="sxs-lookup"><span data-stu-id="d532d-122">Run the following commands in a terminal window.</span></span> <span data-ttu-id="d532d-123">Może upłynąć pięć minut na zainstalowanie wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="d532d-123">It might take five minutes to install the Azure CLI.</span></span>
+1. <span data-ttu-id="29365-122">Uruchom następujące polecenia w oknie terminalu hello.</span><span class="sxs-lookup"><span data-stu-id="29365-122">Run hello following commands in a terminal window.</span></span> <span data-ttu-id="29365-123">Może upłynąć hello tooinstall pięć minut wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="29365-123">It might take five minutes tooinstall hello Azure CLI.</span></span>
 
    ```bash
    sudo apt-get update
@@ -57,19 +57,19 @@ ms.lasthandoff: 07/11/2017
    sudo pip install --upgrade azure-cli
    sudo pip install --upgrade azure-cli-iot
    ```
-2. <span data-ttu-id="d532d-124">Instalację można zweryfikować, uruchamiając następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="d532d-124">Verify the installation by running the following command:</span></span>
+2. <span data-ttu-id="29365-124">Sprawdź hello instalacji, uruchamiając następujące polecenie hello:</span><span class="sxs-lookup"><span data-stu-id="29365-124">Verify hello installation by running hello following command:</span></span>
 
    ```bash
    az iot -h
    ```
 
-<span data-ttu-id="d532d-125">Następujące dane wyjściowe powinny być widoczne, jeśli instalacja zakończy się pomyślnie.</span><span class="sxs-lookup"><span data-stu-id="d532d-125">You should see the following output if the installation is successful.</span></span>
+<span data-ttu-id="29365-125">Powinien pojawić się następujące hello output, jeśli hello Instalacja powiodła się.</span><span class="sxs-lookup"><span data-stu-id="29365-125">You should see hello following output if hello installation is successful.</span></span>
 
 ![Dane wyjściowe, co oznacza Powodzenie](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_ubuntu.png)
 
-## <a name="summary"></a><span data-ttu-id="d532d-127">Podsumowanie</span><span class="sxs-lookup"><span data-stu-id="d532d-127">Summary</span></span>
-<span data-ttu-id="d532d-128">Po zainstalowaniu interfejsu wiersza polecenia Azure.</span><span class="sxs-lookup"><span data-stu-id="d532d-128">You've installed the Azure CLI.</span></span> <span data-ttu-id="d532d-129">Następnym zadaniem będzie można utworzyć tożsamości koncentratora i urządzenia Azure IoT przy użyciu wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="d532d-129">Your next task is to create your Azure IoT hub and device identity using the Azure CLI.</span></span>
+## <a name="summary"></a><span data-ttu-id="29365-127">Podsumowanie</span><span class="sxs-lookup"><span data-stu-id="29365-127">Summary</span></span>
+<span data-ttu-id="29365-128">Po zainstalowaniu hello wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="29365-128">You've installed hello Azure CLI.</span></span> <span data-ttu-id="29365-129">Następnym zadaniem jest toocreate Centrum Azure IoT i urządzeniami przy użyciu tożsamości hello wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="29365-129">Your next task is toocreate your Azure IoT hub and device identity using hello Azure CLI.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="d532d-130">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="d532d-130">Next steps</span></span>
-[<span data-ttu-id="d532d-131">Utworzenie Centrum IoT i zarejestruj malina Pi 3</span><span class="sxs-lookup"><span data-stu-id="d532d-131">Create your IoT hub and register Raspberry Pi 3</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
+## <a name="next-steps"></a><span data-ttu-id="29365-130">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="29365-130">Next steps</span></span>
+[<span data-ttu-id="29365-131">Utworzenie Centrum IoT i zarejestruj malina Pi 3</span><span class="sxs-lookup"><span data-stu-id="29365-131">Create your IoT hub and register Raspberry Pi 3</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
 

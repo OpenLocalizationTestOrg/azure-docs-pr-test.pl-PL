@@ -25,15 +25,15 @@
 # Instrukcje
 
 ## [Migrowanie danych użytkownika z usługi Azure RemoteApp](remoteapp-migrate.md)
-## [Migrate to MyCloudIT (Migrowanie na platformę MyCloudIT)](remoteapp-migrate-mycloudit.md)
-## [Migrowanie do usługi Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
+## [Migrowanie tooMyCloudIT](remoteapp-migrate-mycloudit.md)
+## [Migrowanie tooCitrix program XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Tworzenie kolekcji usługi RemoteApp
 ### [Której kolekcji potrzebujesz?](remoteapp-collections.md)
 ### [Tworzenie kolekcji w chmurze](remoteapp-create-cloud-deployment.md)
 ### [Tworzenie kolekcji hybrydowej](remoteapp-create-hybrid-deployment.md)
 ### [Aktualizowanie kolekcji](remoteapp-update.md)
 ### [Tworzenie obrazu funkcji RemoteApp](remoteapp-imageoptions.md)
-### [Co zawiera obraz szablonu?](remoteapp-images.md)
+### [Co to jest w obrazie szablonu hello?](remoteapp-images.md)
 ### [Wymagania obrazu](remoteapp-imagereqs.md)
 ### [Przekazywanie obrazu](remoteapp-uploadimage.md)
 ### [Tworzenie obrazu przy użyciu maszyny wirtualnej platformy Azure](remoteapp-image-on-azurevm.md)
@@ -41,13 +41,13 @@
 ### [Planowanie sieci wirtualnej](remoteapp-planvnet.md)
 ### [Informacje o porcie i adresie URL](remoteapp-ports.md)
 ### [Weryfikacja sieci wirtualnej](remoteapp-vnet.md)
-### [Migrowanie do sieci wirtualnej platformy Azure](remoteapp-migratevnet.md)
+### [Migrowanie tooan sieci Wirtualnej Azure](remoteapp-migratevnet.md)
 ## Publikowanie aplikacji
-### [Jak opublikować aplikację](remoteapp-publish.md)
+### [Jak toopublish aplikacji](remoteapp-publish.md)
 ## Zarządzanie użytkownikami
-### [Jak dodawać użytkowników](remoteapp-user.md)
+### [Jak użytkownicy tooadd](remoteapp-user.md)
 ### [Konfigurowanie usługi Active Directory](remoteapp-ad.md)
-### [Zmienianie dzierżawy usługi Azure AD](remoteapp-changetenant.md)
+### [Zmiany dzierżawcy hello Azure AD](remoteapp-changetenant.md)
 ### [Konta użytkowników usługi Office 365](remoteapp-o365user.md)
 ### [Zabezpieczanie danych](remoteapp-secureaccess.md)
 ### [Dane użytkowników](remoteapp-upd.md)

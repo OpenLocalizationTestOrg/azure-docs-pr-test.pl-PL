@@ -1,6 +1,6 @@
 ---
-title: "Jak używać magazynu tabel (C++) | Dokumentacja firmy Microsoft"
-description: "Przechowywanie danych strukturalnych w chmurze za pomocą Magazynu tabel Azure, magazyn danych NoSQL."
+title: toouse aaaHow Table storage (C++) | Dokumentacja firmy Microsoft
+description: "Przechowywanie danych strukturalnych w chmurze hello przy użyciu magazynu tabel Azure, Magazyn danych NoSQL."
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: mimig
-ms.openlocfilehash: 8314292cdb9b7a3f464c60119ed10f6b06ed4d10
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8096fe531427ba4858f7f4cb7f664f941892d1c9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-table-storage-from-c"></a><span data-ttu-id="cda8e-103">Jak używać magazynu tabel w języku C++</span><span class="sxs-lookup"><span data-stu-id="cda8e-103">How to use Table storage from C++</span></span>
+# <a name="how-toouse-table-storage-from-c"></a><span data-ttu-id="0490d-103">Jak toouse magazynu tabel w języku C++</span><span class="sxs-lookup"><span data-stu-id="0490d-103">How toouse Table storage from C++</span></span>
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-## <a name="overview"></a><span data-ttu-id="cda8e-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="cda8e-104">Overview</span></span>
-<span data-ttu-id="cda8e-105">W tym przewodniku opisano sposób wykonywania typowych scenariuszy przy użyciu usługi Magazyn tabel Azure.</span><span class="sxs-lookup"><span data-stu-id="cda8e-105">This guide will show you how to perform common scenarios by using the Azure Table storage service.</span></span> <span data-ttu-id="cda8e-106">Przykłady są napisane w C++ i użyj [biblioteki klienta usługi Azure Storage dla języka C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).</span><span class="sxs-lookup"><span data-stu-id="cda8e-106">The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).</span></span> <span data-ttu-id="cda8e-107">Omówione scenariusze obejmują **tworzenia i usuwania tabeli** i **Praca z jednostek tabeli**.</span><span class="sxs-lookup"><span data-stu-id="cda8e-107">The scenarios covered include **creating and deleting a table** and **working with table entities**.</span></span>
+## <a name="overview"></a><span data-ttu-id="0490d-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="0490d-104">Overview</span></span>
+<span data-ttu-id="0490d-105">W tym przewodniku opisano sposób tooperform typowych scenariuszy przy użyciu hello usługi Magazyn tabel Azure.</span><span class="sxs-lookup"><span data-stu-id="0490d-105">This guide will show you how tooperform common scenarios by using hello Azure Table storage service.</span></span> <span data-ttu-id="0490d-106">Hello przykłady są napisane w języku C++ i używają hello [biblioteki klienta usługi Azure Storage dla języka C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).</span><span class="sxs-lookup"><span data-stu-id="0490d-106">hello samples are written in C++ and use hello [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).</span></span> <span data-ttu-id="0490d-107">Witaj omówione scenariusze obejmują **tworzenia i usuwania tabeli** i **Praca z jednostek tabeli**.</span><span class="sxs-lookup"><span data-stu-id="0490d-107">hello scenarios covered include **creating and deleting a table** and **working with table entities**.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="cda8e-108">Ten przewodnik jest przeznaczony dla biblioteki klienta magazynu Azure dla języka C++ w wersji 1.0.0 i powyżej.</span><span class="sxs-lookup"><span data-stu-id="cda8e-108">This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above.</span></span> <span data-ttu-id="cda8e-109">Zalecana wersja jest biblioteka klienta usługi Storage 2.2.0, który jest dostępny za pośrednictwem [NuGet](http://www.nuget.org/packages/wastorage) lub [GitHub](https://github.com/Azure/azure-storage-cpp/).</span><span class="sxs-lookup"><span data-stu-id="cda8e-109">The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).</span></span>
+> <span data-ttu-id="0490d-108">Cele tego przewodnika hello biblioteki klienta magazynu Azure dla języka C++ w wersji 1.0.0 i powyżej.</span><span class="sxs-lookup"><span data-stu-id="0490d-108">This guide targets hello Azure Storage Client Library for C++ version 1.0.0 and above.</span></span> <span data-ttu-id="0490d-109">Hello zalecana jest wersja biblioteki klienta usługi Storage 2.2.0, który jest dostępny za pośrednictwem [NuGet](http://www.nuget.org/packages/wastorage) lub [GitHub](https://github.com/Azure/azure-storage-cpp/).</span><span class="sxs-lookup"><span data-stu-id="0490d-109">hello recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).</span></span>
 > 
 > 
 
@@ -36,91 +36,91 @@ ms.lasthandoff: 08/29/2017
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-c-application"></a><span data-ttu-id="cda8e-110">Tworzenie aplikacji C++</span><span class="sxs-lookup"><span data-stu-id="cda8e-110">Create a C++ application</span></span>
-<span data-ttu-id="cda8e-111">W tym przewodniku użyje funkcji magazynu, które mogą być uruchamiane w ramach aplikacji C++.</span><span class="sxs-lookup"><span data-stu-id="cda8e-111">In this guide, you will use storage features that can be run within a C++ application.</span></span> <span data-ttu-id="cda8e-112">Aby to zrobić, należy zainstalować bibliotekę klienta usługi Azure Storage dla języka C++ i Utwórz konto magazynu Azure w ramach subskrypcji platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="cda8e-112">To do so, you will need to install the Azure Storage Client Library for C++ and create an Azure storage account in your Azure subscription.</span></span>  
+## <a name="create-a-c-application"></a><span data-ttu-id="0490d-110">Tworzenie aplikacji C++</span><span class="sxs-lookup"><span data-stu-id="0490d-110">Create a C++ application</span></span>
+<span data-ttu-id="0490d-111">W tym przewodniku użyje funkcji magazynu, które mogą być uruchamiane w ramach aplikacji C++.</span><span class="sxs-lookup"><span data-stu-id="0490d-111">In this guide, you will use storage features that can be run within a C++ application.</span></span> <span data-ttu-id="0490d-112">toodo tak, konieczne będzie tooinstall hello biblioteki klienta magazynu Azure dla języka C++ i Utwórz konto magazynu Azure w ramach subskrypcji platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="0490d-112">toodo so, you will need tooinstall hello Azure Storage Client Library for C++ and create an Azure storage account in your Azure subscription.</span></span>  
 
-<span data-ttu-id="cda8e-113">Aby zainstalować bibliotekę klienta usługi Azure Storage dla języka C++, można użyć następujących metod:</span><span class="sxs-lookup"><span data-stu-id="cda8e-113">To install the Azure Storage Client Library for C++, you can use the following methods:</span></span>
+<span data-ttu-id="0490d-113">Witaj tooinstall biblioteki klienta magazynu Azure dla języka C++, można użyć hello następujące metody:</span><span class="sxs-lookup"><span data-stu-id="0490d-113">tooinstall hello Azure Storage Client Library for C++, you can use hello following methods:</span></span>
 
-* <span data-ttu-id="cda8e-114">**Linux:** postępuj zgodnie z instrukcjami na [biblioteki klienta usługi Azure Storage dla języka C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) strony.</span><span class="sxs-lookup"><span data-stu-id="cda8e-114">**Linux:** Follow the instructions given on the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.</span></span>  
-* <span data-ttu-id="cda8e-115">**System Windows:** w programie Visual Studio, kliknij przycisk **Narzędzia > Menedżera pakietów NuGet > konsoli Menedżera pakietów**.</span><span class="sxs-lookup"><span data-stu-id="cda8e-115">**Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**.</span></span> <span data-ttu-id="cda8e-116">Wpisz następujące polecenie w [Konsola Menedżera pakietów NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) i naciśnij klawisz Enter.</span><span class="sxs-lookup"><span data-stu-id="cda8e-116">Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press Enter.</span></span>  
+* <span data-ttu-id="0490d-114">**Linux:** postępuj zgodnie z instrukcjami hello hello [biblioteki klienta usługi Azure Storage dla języka C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) strony.</span><span class="sxs-lookup"><span data-stu-id="0490d-114">**Linux:** Follow hello instructions given on hello [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.</span></span>  
+* <span data-ttu-id="0490d-115">**System Windows:** w programie Visual Studio, kliknij przycisk **Narzędzia > Menedżera pakietów NuGet > konsoli Menedżera pakietów**.</span><span class="sxs-lookup"><span data-stu-id="0490d-115">**Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**.</span></span> <span data-ttu-id="0490d-116">Typ hello następujące polecenie na powitania [Konsola Menedżera pakietów NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) i naciśnij klawisz Enter.</span><span class="sxs-lookup"><span data-stu-id="0490d-116">Type hello following command into hello [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press Enter.</span></span>  
   
-     <span data-ttu-id="cda8e-117">Pakiet instalacyjny wastorage</span><span class="sxs-lookup"><span data-stu-id="cda8e-117">Install-Package wastorage</span></span>
+     <span data-ttu-id="0490d-117">Pakiet instalacyjny wastorage</span><span class="sxs-lookup"><span data-stu-id="0490d-117">Install-Package wastorage</span></span>
 
-## <a name="configure-your-application-to-access-table-storage"></a><span data-ttu-id="cda8e-118">Konfigurowanie aplikacji na dostęp do magazynu tabel</span><span class="sxs-lookup"><span data-stu-id="cda8e-118">Configure your application to access Table storage</span></span>
-<span data-ttu-id="cda8e-119">Dodaj następujące instrukcje na początku pliku C++, których chcesz użyć interfejsów API magazynu Azure dostęp do tabel obejmują:</span><span class="sxs-lookup"><span data-stu-id="cda8e-119">Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access tables:</span></span>  
+## <a name="configure-your-application-tooaccess-table-storage"></a><span data-ttu-id="0490d-118">Konfigurowanie sieci tooaccess aplikacji magazynu tabel</span><span class="sxs-lookup"><span data-stu-id="0490d-118">Configure your application tooaccess Table storage</span></span>
+<span data-ttu-id="0490d-119">Dodaj następujące hello wlicza się instrukcje toohello górnej części pliku C++ hello miejscu toouse hello magazynu Azure API tooaccess tabel:</span><span class="sxs-lookup"><span data-stu-id="0490d-119">Add hello following include statements toohello top of hello C++ file where you want toouse hello Azure storage APIs tooaccess tables:</span></span>  
 
 ```cpp
 #include <was/storage_account.h>
 #include <was/table.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a><span data-ttu-id="cda8e-120">Konfigurowanie parametrów połączenia usługi Azure storage</span><span class="sxs-lookup"><span data-stu-id="cda8e-120">Set up an Azure storage connection string</span></span>
-<span data-ttu-id="cda8e-121">Klienta usługi Azure storage używa parametrów połączenia magazynu do przechowywania punktów końcowych i poświadczeń do uzyskiwania dostępu do danych usługi zarządzania.</span><span class="sxs-lookup"><span data-stu-id="cda8e-121">An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services.</span></span> <span data-ttu-id="cda8e-122">Podczas uruchamiania aplikacji klienckiej, musisz podać parametry połączenia magazynu w następującym formacie.</span><span class="sxs-lookup"><span data-stu-id="cda8e-122">When running a client application, you must provide the storage connection string in the following format.</span></span> <span data-ttu-id="cda8e-123">Użyj nazwy konta magazynu i klucz dostępu do magazynu dla konta magazynu na liście [Azure Portal](https://portal.azure.com) dla *AccountName* i *AccountKey* wartości.</span><span class="sxs-lookup"><span data-stu-id="cda8e-123">Use the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values.</span></span> <span data-ttu-id="cda8e-124">Aby uzyskać informacje dotyczące kont magazynu i klucze dostępu, zobacz [kont magazynu Azure o](../storage/common/storage-create-storage-account.md).</span><span class="sxs-lookup"><span data-stu-id="cda8e-124">For information on storage accounts and access keys, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).</span></span> <span data-ttu-id="cda8e-125">Ten przykład przedstawia, jak można zadeklarować pola statycznego do przechowywania parametrów połączenia:</span><span class="sxs-lookup"><span data-stu-id="cda8e-125">This example shows how you can declare a static field to hold the connection string:</span></span>  
+## <a name="set-up-an-azure-storage-connection-string"></a><span data-ttu-id="0490d-120">Konfigurowanie parametrów połączenia usługi Azure storage</span><span class="sxs-lookup"><span data-stu-id="0490d-120">Set up an Azure storage connection string</span></span>
+<span data-ttu-id="0490d-121">Klienta usługi Azure storage używa punkty końcowe magazynu połączenia ciąg toostore i poświadczeń do uzyskiwania dostępu do danych usługi zarządzania.</span><span class="sxs-lookup"><span data-stu-id="0490d-121">An Azure storage client uses a storage connection string toostore endpoints and credentials for accessing data management services.</span></span> <span data-ttu-id="0490d-122">Podczas uruchamiania aplikacji klienckiej, musisz podać parametry połączenia magazynu hello w hello zgodny z formatem.</span><span class="sxs-lookup"><span data-stu-id="0490d-122">When running a client application, you must provide hello storage connection string in hello following format.</span></span> <span data-ttu-id="0490d-123">Użyj hello nazwę konta i hello magazynu klucz dostępu do magazynu dla konta magazynu hello na liście hello [Azure Portal](https://portal.azure.com) dla hello *AccountName* i *AccountKey* wartości.</span><span class="sxs-lookup"><span data-stu-id="0490d-123">Use hello name of your storage account and hello storage access key for hello storage account listed in hello [Azure Portal](https://portal.azure.com) for hello *AccountName* and *AccountKey* values.</span></span> <span data-ttu-id="0490d-124">Aby uzyskać informacje dotyczące kont magazynu i klucze dostępu, zobacz [kont magazynu Azure o](../storage/common/storage-create-storage-account.md).</span><span class="sxs-lookup"><span data-stu-id="0490d-124">For information on storage accounts and access keys, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).</span></span> <span data-ttu-id="0490d-125">Ten przykład przedstawia, jak można zadeklarować ciąg połączenia pola statycznego toohold hello:</span><span class="sxs-lookup"><span data-stu-id="0490d-125">This example shows how you can declare a static field toohold hello connection string:</span></span>  
 
 ```cpp
-// Define the connection string with your values.
+// Define hello connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-<span data-ttu-id="cda8e-126">Aby przetestować aplikację w lokalnym komputerze z systemem Windows, można użyć platformy Azure [emulatora magazynu](../storage/common/storage-use-emulator.md) zainstalowane z [zestawu Azure SDK](https://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="cda8e-126">To test your application in your local Windows-based computer, you can use the Azure [storage emulator](../storage/common/storage-use-emulator.md) that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/).</span></span> <span data-ttu-id="cda8e-127">Emulator magazynu jest narzędziem, która symuluje dostępne na komputerze deweloperskim lokalnej usługi obiektów Blob platformy Azure, kolejki i tabeli.</span><span class="sxs-lookup"><span data-stu-id="cda8e-127">The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine.</span></span> <span data-ttu-id="cda8e-128">W poniższym przykładzie pokazano, jak można zadeklarować pole statyczne, aby mógł pomieścić parametry połączenia z lokalnym emulatorze magazynu:</span><span class="sxs-lookup"><span data-stu-id="cda8e-128">The following example shows how you can declare a static field to hold the connection string to your local storage emulator:</span></span>  
+<span data-ttu-id="0490d-126">tootest aplikacji w lokalnym komputerze z systemem Windows można użyć hello Azure [emulatora magazynu](../storage/common/storage-use-emulator.md) zainstalowane z hello [zestawu Azure SDK](https://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="0490d-126">tootest your application in your local Windows-based computer, you can use hello Azure [storage emulator](../storage/common/storage-use-emulator.md) that is installed with hello [Azure SDK](https://azure.microsoft.com/downloads/).</span></span> <span data-ttu-id="0490d-127">emulator magazynu Hello jest narzędziem, która symuluje hello dostępne na komputerze deweloperskim lokalnej usługi obiektów Blob platformy Azure, kolejki i tabeli.</span><span class="sxs-lookup"><span data-stu-id="0490d-127">hello storage emulator is a utility that simulates hello Azure Blob, Queue, and Table services available on your local development machine.</span></span> <span data-ttu-id="0490d-128">Witaj poniższym przykładzie pokazano, jak można zadeklarować pola statycznego toohold hello połączenia ciąg tooyour lokalnym emulatorze magazynu:</span><span class="sxs-lookup"><span data-stu-id="0490d-128">hello following example shows how you can declare a static field toohold hello connection string tooyour local storage emulator:</span></span>  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define hello connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-<span data-ttu-id="cda8e-129">Aby uruchomić emulatora magazynu Azure, kliknij przycisk **Start** przycisk lub naciśnij klawisz systemu Windows.</span><span class="sxs-lookup"><span data-stu-id="cda8e-129">To start the Azure storage emulator, click the **Start** button or press the Windows key.</span></span> <span data-ttu-id="cda8e-130">Rozpocznij wpisywanie **emulatora magazynu Azure**, a następnie wybierz **emulatora magazynu Azure Microsoft** z listy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="cda8e-130">Begin typing **Azure Storage Emulator**, and then select **Microsoft Azure Storage Emulator** from the list of applications.</span></span>  
+<span data-ttu-id="0490d-129">toostart hello emulatora magazynu Azure, kliknij przycisk hello **Start** przycisk lub naciśnij klawisz systemu Windows hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-129">toostart hello Azure storage emulator, click hello **Start** button or press hello Windows key.</span></span> <span data-ttu-id="0490d-130">Rozpocznij wpisywanie **emulatora magazynu Azure**, a następnie wybierz **emulatora magazynu Azure Microsoft** z listy aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-130">Begin typing **Azure Storage Emulator**, and then select **Microsoft Azure Storage Emulator** from hello list of applications.</span></span>  
 
-<span data-ttu-id="cda8e-131">Poniższe przykłady założono użycie jednej z tych dwóch metod można pobrać parametry połączenia magazynu.</span><span class="sxs-lookup"><span data-stu-id="cda8e-131">The following samples assume that you have used one of these two methods to get the storage connection string.</span></span>  
+<span data-ttu-id="0490d-131">Hello następujące przykłady założono, że użyto jednego z tych parametrów połączenia magazynu Witaj dwie metody tooget.</span><span class="sxs-lookup"><span data-stu-id="0490d-131">hello following samples assume that you have used one of these two methods tooget hello storage connection string.</span></span>  
 
-## <a name="retrieve-your-connection-string"></a><span data-ttu-id="cda8e-132">Pobranie parametrów połączenia</span><span class="sxs-lookup"><span data-stu-id="cda8e-132">Retrieve your connection string</span></span>
-<span data-ttu-id="cda8e-133">Można użyć **cloud_storage_account** klasy do reprezentowania informacje o koncie magazynu.</span><span class="sxs-lookup"><span data-stu-id="cda8e-133">You can use the **cloud_storage_account** class to represent your storage account information.</span></span> <span data-ttu-id="cda8e-134">Aby pobrać informacje o koncie magazynu z parametrów połączenia magazynu, można użyć metody parse.</span><span class="sxs-lookup"><span data-stu-id="cda8e-134">To retrieve your storage account information from the storage connection string, you can use the parse method.</span></span>
+## <a name="retrieve-your-connection-string"></a><span data-ttu-id="0490d-132">Pobranie parametrów połączenia</span><span class="sxs-lookup"><span data-stu-id="0490d-132">Retrieve your connection string</span></span>
+<span data-ttu-id="0490d-133">Można użyć hello **cloud_storage_account** klasy toorepresent informacje o koncie magazynu.</span><span class="sxs-lookup"><span data-stu-id="0490d-133">You can use hello **cloud_storage_account** class toorepresent your storage account information.</span></span> <span data-ttu-id="0490d-134">tooretrieve informacji z parametrów połączenia magazynu hello konta magazynu, możesz użyć hello metody parse.</span><span class="sxs-lookup"><span data-stu-id="0490d-134">tooretrieve your storage account information from hello storage connection string, you can use hello parse method.</span></span>
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-<span data-ttu-id="cda8e-135">Następnie należy pobrać odwołanie do **cloud_table_client** klasy, ponieważ pozwala uzyskać obiekty odwołań do tabel i jednostek przechowywanych w ramach usługi Magazyn tabel.</span><span class="sxs-lookup"><span data-stu-id="cda8e-135">Next, get a reference to a **cloud_table_client** class, as it lets you get reference objects for tables and entities stored within the Table storage service.</span></span> <span data-ttu-id="cda8e-136">Poniższy kod tworzy **cloud_table_client** obiektu za pomocą obiektu konta magazynu, możemy pobrać powyżej:</span><span class="sxs-lookup"><span data-stu-id="cda8e-136">The following code creates a **cloud_table_client** object by using the storage account object we retrieved above:</span></span>  
+<span data-ttu-id="0490d-135">Następnie Pobierz tooa odwołanie **cloud_table_client** klasy, ponieważ pozwala uzyskać obiekty odwołania do tabel i jednostek przechowywanych w hello usługi Magazyn tabel.</span><span class="sxs-lookup"><span data-stu-id="0490d-135">Next, get a reference tooa **cloud_table_client** class, as it lets you get reference objects for tables and entities stored within hello Table storage service.</span></span> <span data-ttu-id="0490d-136">Witaj poniższy kod tworzy **cloud_table_client** obiektu za pomocą obiektu konta magazynu hello możemy pobrać powyżej:</span><span class="sxs-lookup"><span data-stu-id="0490d-136">hello following code creates a **cloud_table_client** object by using hello storage account object we retrieved above:</span></span>  
 
 ```cpp
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 ```
 
-## <a name="create-a-table"></a><span data-ttu-id="cda8e-137">Tworzenie tabeli</span><span class="sxs-lookup"><span data-stu-id="cda8e-137">Create a table</span></span>
-<span data-ttu-id="cda8e-138">A **cloud_table_client** obiektu pozwala pobierać obiekty odwołania do tabel i jednostek.</span><span class="sxs-lookup"><span data-stu-id="cda8e-138">A **cloud_table_client** object lets you get reference objects for tables and entities.</span></span> <span data-ttu-id="cda8e-139">Poniższy kod tworzy **cloud_table_client** obiektu i używa jej do utworzenia nowej tabeli.</span><span class="sxs-lookup"><span data-stu-id="cda8e-139">The following code creates a **cloud_table_client** object and uses it to create a new table.</span></span>
+## <a name="create-a-table"></a><span data-ttu-id="0490d-137">Tworzenie tabeli</span><span class="sxs-lookup"><span data-stu-id="0490d-137">Create a table</span></span>
+<span data-ttu-id="0490d-138">A **cloud_table_client** obiektu pozwala pobierać obiekty odwołania do tabel i jednostek.</span><span class="sxs-lookup"><span data-stu-id="0490d-138">A **cloud_table_client** object lets you get reference objects for tables and entities.</span></span> <span data-ttu-id="0490d-139">Witaj poniższy kod tworzy **cloud_table_client** obiektu i używa go toocreate nową tabelę.</span><span class="sxs-lookup"><span data-stu-id="0490d-139">hello following code creates a **cloud_table_client** object and uses it toocreate a new table.</span></span>
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);  
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Retrieve a reference to a table.
+// Retrieve a reference tooa table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create the table if it doesn't exist.
+// Create hello table if it doesn't exist.
 table.create_if_not_exists();  
 ```
 
-## <a name="add-an-entity-to-a-table"></a><span data-ttu-id="cda8e-140">Dodawanie jednostki do tabeli</span><span class="sxs-lookup"><span data-stu-id="cda8e-140">Add an entity to a table</span></span>
-<span data-ttu-id="cda8e-141">Aby dodać jednostkę do tabeli, Utwórz nową **table_entity** obiektu i przekaż go do **table_operation::insert_entity**.</span><span class="sxs-lookup"><span data-stu-id="cda8e-141">To add an entity to a table, create a new **table_entity** object and pass it to **table_operation::insert_entity**.</span></span> <span data-ttu-id="cda8e-142">W poniższym kodzie użyto imienia klienta jako klucza wiersza i nazwiska jako klucza partycji.</span><span class="sxs-lookup"><span data-stu-id="cda8e-142">The following code uses the customer's first name as the row key and last name as the partition key.</span></span> <span data-ttu-id="cda8e-143">Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli.</span><span class="sxs-lookup"><span data-stu-id="cda8e-143">Together, an entity's partition and row key uniquely identify the entity in the table.</span></span> <span data-ttu-id="cda8e-144">Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, ale przy użyciu różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych.</span><span class="sxs-lookup"><span data-stu-id="cda8e-144">Entities with the same partition key can be queried faster than those with different partition keys, but using diverse partition keys allows for greater parallel operation scalability.</span></span> <span data-ttu-id="cda8e-145">Aby uzyskać więcej informacji, zobacz [kontrolną wydajności i skalowalności magazynu Microsoft Azure](../storage/common/storage-performance-checklist.md).</span><span class="sxs-lookup"><span data-stu-id="cda8e-145">For more information, see [Microsoft Azure storage performance and scalability checklist](../storage/common/storage-performance-checklist.md).</span></span>
+## <a name="add-an-entity-tooa-table"></a><span data-ttu-id="0490d-140">Dodaj tabelę tooa jednostki</span><span class="sxs-lookup"><span data-stu-id="0490d-140">Add an entity tooa table</span></span>
+<span data-ttu-id="0490d-141">tooadd tabeli tooa jednostki, Utwórz nową **table_entity** obiektu i przekaż go za**table_operation::insert_entity**.</span><span class="sxs-lookup"><span data-stu-id="0490d-141">tooadd an entity tooa table, create a new **table_entity** object and pass it too**table_operation::insert_entity**.</span></span> <span data-ttu-id="0490d-142">Witaj poniższy kod używa imienia klienta hello jako hello klucz wiersza i nazwiska jako klucza partycji hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-142">hello following code uses hello customer's first name as hello row key and last name as hello partition key.</span></span> <span data-ttu-id="0490d-143">Razem klucz partycji i klucz wiersza jednoznacznie zidentyfikować hello jednostki w tabeli hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-143">Together, an entity's partition and row key uniquely identify hello entity in hello table.</span></span> <span data-ttu-id="0490d-144">Klucze partycji jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych powitalne, ale przy użyciu różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych.</span><span class="sxs-lookup"><span data-stu-id="0490d-144">Entities with hello same partition key can be queried faster than those with different partition keys, but using diverse partition keys allows for greater parallel operation scalability.</span></span> <span data-ttu-id="0490d-145">Aby uzyskać więcej informacji, zobacz [kontrolną wydajności i skalowalności magazynu Microsoft Azure](../storage/common/storage-performance-checklist.md).</span><span class="sxs-lookup"><span data-stu-id="0490d-145">For more information, see [Microsoft Azure storage performance and scalability checklist](../storage/common/storage-performance-checklist.md).</span></span>
 
-<span data-ttu-id="cda8e-146">Poniższy kod tworzy nowe wystąpienie klasy **table_entity** z niektóre dane klienta mają być przechowywane.</span><span class="sxs-lookup"><span data-stu-id="cda8e-146">The following code creates a new instance of **table_entity** with some customer data to be stored.</span></span> <span data-ttu-id="cda8e-147">Kod wywołuje dalej **table_operation::insert_entity** utworzyć **table_operation** obiekt do wstawiania jednostek do tabeli i kojarzy nową jednostkę tabeli z nim.</span><span class="sxs-lookup"><span data-stu-id="cda8e-147">The code next calls **table_operation::insert_entity** to create a **table_operation** object to insert an entity into a table, and associates the new table entity with it.</span></span> <span data-ttu-id="cda8e-148">Na koniec kod wywołuje metody execute w **cloud_table** obiektu.</span><span class="sxs-lookup"><span data-stu-id="cda8e-148">Finally, the code calls the execute method on the **cloud_table** object.</span></span> <span data-ttu-id="cda8e-149">I nowych **table_operation** wysyła żądanie do usługi tabel, aby wstawić nową jednostkę klienta do tabeli "osoby".</span><span class="sxs-lookup"><span data-stu-id="cda8e-149">And the new **table_operation** sends a request to the Table service to insert the new customer entity into the "people" table.</span></span>  
+<span data-ttu-id="0490d-146">Witaj poniższy kod tworzy nowe wystąpienie klasy **table_entity** z niektórych toobe dane klienta przechowywane.</span><span class="sxs-lookup"><span data-stu-id="0490d-146">hello following code creates a new instance of **table_entity** with some customer data toobe stored.</span></span> <span data-ttu-id="0490d-147">Witaj kod wywołuje dalej **table_operation::insert_entity** toocreate **table_operation** obiekt tooinsert jednostki do tabeli, a skojarzone hello nową jednostkę tabeli z nim.</span><span class="sxs-lookup"><span data-stu-id="0490d-147">hello code next calls **table_operation::insert_entity** toocreate a **table_operation** object tooinsert an entity into a table, and associates hello new table entity with it.</span></span> <span data-ttu-id="0490d-148">Na koniec kod hello wywołuje hello wykonać metody na powitania **cloud_table** obiektu.</span><span class="sxs-lookup"><span data-stu-id="0490d-148">Finally, hello code calls hello execute method on hello **cloud_table** object.</span></span> <span data-ttu-id="0490d-149">I hello nowe **table_operation** wysyła żądanie toohello usługi tooinsert hello nowego klienta jednostkę tabeli do tabeli "osoby" hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-149">And hello new **table_operation** sends a request toohello Table service tooinsert hello new customer entity into hello "people" table.</span></span>  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Retrieve a reference to a table.
+// Retrieve a reference tooa table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create the table if it doesn't exist.
+// Create hello table if it doesn't exist.
 table.create_if_not_exists();
 
 // Create a new customer entity.
@@ -132,30 +132,30 @@ properties[U("Email")] = azure::storage::entity_property(U("Walter@contoso.com")
 
 properties[U("Phone")] = azure::storage::entity_property(U("425-555-0101"));
 
-// Create the table operation that inserts the customer entity.
+// Create hello table operation that inserts hello customer entity.
 azure::storage::table_operation insert_operation = azure::storage::table_operation::insert_entity(customer1);
 
-// Execute the insert operation.
+// Execute hello insert operation.
 azure::storage::table_result insert_result = table.execute(insert_operation);
 ```
 
-## <a name="insert-a-batch-of-entities"></a><span data-ttu-id="cda8e-150">Zbiorcze wstawianie jednostek</span><span class="sxs-lookup"><span data-stu-id="cda8e-150">Insert a batch of entities</span></span>
-<span data-ttu-id="cda8e-151">Możesz wstawić partię jednostek do usługi tabel w jednej operacji zapisu.</span><span class="sxs-lookup"><span data-stu-id="cda8e-151">You can insert a batch of entities to the Table service in one write operation.</span></span> <span data-ttu-id="cda8e-152">Poniższy kod tworzy **table_batch_operation** obiekt, a następnie dodanie Wstaw trzy operacje do niego.</span><span class="sxs-lookup"><span data-stu-id="cda8e-152">The following code creates a **table_batch_operation** object, and then adds three insert operations to it.</span></span> <span data-ttu-id="cda8e-153">Każda operacja wstawiania jest dodawany przez utworzenie nowego obiektu jednostki, ustawienie wartości i następnie podczas wywoływania metody insert na **table_batch_operation** obiektu jednostki z nowej operacji insert.</span><span class="sxs-lookup"><span data-stu-id="cda8e-153">Each insert operation is added by creating a new entity object, setting its values, and then calling the insert method on the **table_batch_operation** object to associate the entity with a new insert operation.</span></span> <span data-ttu-id="cda8e-154">Następnie **cloud_table.execute** jest wywoływana w celu wykonania operacji.</span><span class="sxs-lookup"><span data-stu-id="cda8e-154">Then, **cloud_table.execute** is called to execute the operation.</span></span>  
+## <a name="insert-a-batch-of-entities"></a><span data-ttu-id="0490d-150">Zbiorcze wstawianie jednostek</span><span class="sxs-lookup"><span data-stu-id="0490d-150">Insert a batch of entities</span></span>
+<span data-ttu-id="0490d-151">Możesz wstawić partię jednostek toohello usługi tabel w jednej operacji zapisu.</span><span class="sxs-lookup"><span data-stu-id="0490d-151">You can insert a batch of entities toohello Table service in one write operation.</span></span> <span data-ttu-id="0490d-152">Witaj poniższy kod tworzy **table_batch_operation** obiekt, a następnie dodanie trzy Wstaw tooit operacji.</span><span class="sxs-lookup"><span data-stu-id="0490d-152">hello following code creates a **table_batch_operation** object, and then adds three insert operations tooit.</span></span> <span data-ttu-id="0490d-153">Każda operacja insert jest dodawany przez utworzenie nowego obiektu jednostki, jego wartości ustawienia i wywołując hello wstawiania metody na powitania **table_batch_operation** obiektu tooassociate hello jednostki o nowej operacji wstawiania.</span><span class="sxs-lookup"><span data-stu-id="0490d-153">Each insert operation is added by creating a new entity object, setting its values, and then calling hello insert method on hello **table_batch_operation** object tooassociate hello entity with a new insert operation.</span></span> <span data-ttu-id="0490d-154">Następnie **cloud_table.execute** jest nazywany tooexecute hello operacji.</span><span class="sxs-lookup"><span data-stu-id="0490d-154">Then, **cloud_table.execute** is called tooexecute hello operation.</span></span>  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 // Define a batch operation.
 azure::storage::table_batch_operation batch_operation;
 
-// Create a customer entity and add it to the table.
+// Create a customer entity and add it toohello table.
 azure::storage::table_entity customer1(U("Smith"), U("Jeff"));
 
 azure::storage::table_entity::properties_type& properties1 = customer1.properties();
@@ -163,7 +163,7 @@ properties1.reserve(2);
 properties1[U("Email")] = azure::storage::entity_property(U("Jeff@contoso.com"));
 properties1[U("Phone")] = azure::storage::entity_property(U("425-555-0104"));
 
-// Create another customer entity and add it to the table.
+// Create another customer entity and add it toohello table.
 azure::storage::table_entity customer2(U("Smith"), U("Ben"));
 
 azure::storage::table_entity::properties_type& properties2 = customer2.properties();
@@ -171,7 +171,7 @@ properties2.reserve(2);
 properties2[U("Email")] = azure::storage::entity_property(U("Ben@contoso.com"));
 properties2[U("Phone")] = azure::storage::entity_property(U("425-555-0102"));
 
-// Create a third customer entity to add to the table.
+// Create a third customer entity tooadd toohello table.
 azure::storage::table_entity customer3(U("Smith"), U("Denise"));
 
 azure::storage::table_entity::properties_type& properties3 = customer3.properties();
@@ -179,44 +179,44 @@ properties3.reserve(2);
 properties3[U("Email")] = azure::storage::entity_property(U("Denise@contoso.com"));
 properties3[U("Phone")] = azure::storage::entity_property(U("425-555-0103"));
 
-// Add customer entities to the batch insert operation.
+// Add customer entities toohello batch insert operation.
 batch_operation.insert_or_replace_entity(customer1);
 batch_operation.insert_or_replace_entity(customer2);
 batch_operation.insert_or_replace_entity(customer3);
 
-// Execute the batch operation.
+// Execute hello batch operation.
 std::vector<azure::storage::table_result> results = table.execute_batch(batch_operation);
 ```
 
-<span data-ttu-id="cda8e-155">Należy pamiętać, dotyczące operacji zbiorczych w kilku kwestiach:</span><span class="sxs-lookup"><span data-stu-id="cda8e-155">Some things to note on batch operations:</span></span>  
+<span data-ttu-id="0490d-155">Niektóre elementy toonote dotyczące operacji zbiorczych:</span><span class="sxs-lookup"><span data-stu-id="0490d-155">Some things toonote on batch operations:</span></span>  
 
-* <span data-ttu-id="cda8e-156">Do 100 insert delete scalania Zamień, operacje wstawiania lub scalania i wstawianie lub zastępowanie można wykonywać w dowolnej kombinacji w pojedynczej partii.</span><span class="sxs-lookup"><span data-stu-id="cda8e-156">You can perform up to 100 insert, delete, merge, replace, insert-or-merge, and insert-or-replace operations in any combination in a single batch.</span></span>  
-* <span data-ttu-id="cda8e-157">Operacji zbiorczej może mieć operacji pobierania, jeśli jest jedyną operacją w partii.</span><span class="sxs-lookup"><span data-stu-id="cda8e-157">A batch operation can have a retrieve operation, if it is the only operation in the batch.</span></span>  
-* <span data-ttu-id="cda8e-158">Wszystkie jednostki w jednej operacji zbiorczej muszą mieć ten sam klucz partycji.</span><span class="sxs-lookup"><span data-stu-id="cda8e-158">All entities in a single batch operation must have the same partition key.</span></span>  
-* <span data-ttu-id="cda8e-159">Operacji zbiorczej jest ograniczony do 4 MB danych ładunku.</span><span class="sxs-lookup"><span data-stu-id="cda8e-159">A batch operation is limited to a 4-MB data payload.</span></span>  
+* <span data-ttu-id="0490d-156">Można wykonać wstawiania too100, Usuń, scalania, Zamień, operacje wstawiania lub scalania i wstawianie lub zastępowanie w dowolnej kombinacji w pojedynczej partii.</span><span class="sxs-lookup"><span data-stu-id="0490d-156">You can perform up too100 insert, delete, merge, replace, insert-or-merge, and insert-or-replace operations in any combination in a single batch.</span></span>  
+* <span data-ttu-id="0490d-157">Operacji zbiorczej może mieć operacji pobierania, jeśli jest jedyną operacją hello w partii hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-157">A batch operation can have a retrieve operation, if it is hello only operation in hello batch.</span></span>  
+* <span data-ttu-id="0490d-158">Wszystkie jednostki w jednej operacji zbiorczej muszą mieć hello tego samego klucza partycji.</span><span class="sxs-lookup"><span data-stu-id="0490d-158">All entities in a single batch operation must have hello same partition key.</span></span>  
+* <span data-ttu-id="0490d-159">Operacji zbiorczej jest ograniczona tooa 4 MB danych ładunku.</span><span class="sxs-lookup"><span data-stu-id="0490d-159">A batch operation is limited tooa 4-MB data payload.</span></span>  
 
-## <a name="retrieve-all-entities-in-a-partition"></a><span data-ttu-id="cda8e-160">Pobieranie wszystkich jednostek w partycji</span><span class="sxs-lookup"><span data-stu-id="cda8e-160">Retrieve all entities in a partition</span></span>
-<span data-ttu-id="cda8e-161">Aby sprawdzić tabelę dla wszystkich jednostek w partycji, użyj **table_query** obiektu.</span><span class="sxs-lookup"><span data-stu-id="cda8e-161">To query a table for all entities in a partition, use a **table_query** object.</span></span> <span data-ttu-id="cda8e-162">Poniższy przykład kodu określa filtr jednostek, gdzie „Smith” jest kluczem partycji.</span><span class="sxs-lookup"><span data-stu-id="cda8e-162">The following code example specifies a filter for entities where 'Smith' is the partition key.</span></span> <span data-ttu-id="cda8e-163">W tym przykładzie drukowane są pola każdej jednostki w wynikach zapytania w konsoli.</span><span class="sxs-lookup"><span data-stu-id="cda8e-163">This example prints the fields of each entity in the query results to the console.</span></span>  
+## <a name="retrieve-all-entities-in-a-partition"></a><span data-ttu-id="0490d-160">Pobieranie wszystkich jednostek w partycji</span><span class="sxs-lookup"><span data-stu-id="0490d-160">Retrieve all entities in a partition</span></span>
+<span data-ttu-id="0490d-161">tooquery tabeli dla wszystkich jednostek w partycji, użyj **table_query** obiektu.</span><span class="sxs-lookup"><span data-stu-id="0490d-161">tooquery a table for all entities in a partition, use a **table_query** object.</span></span> <span data-ttu-id="0490d-162">Witaj poniższy przykład kodu Określa filtr jednostek, gdzie "Smith" jest hello klucza partycji.</span><span class="sxs-lookup"><span data-stu-id="0490d-162">hello following code example specifies a filter for entities where 'Smith' is hello partition key.</span></span> <span data-ttu-id="0490d-163">W tym przykładzie drukowane hello pola każdej jednostki w konsoli toohello wyników zapytania hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-163">This example prints hello fields of each entity in hello query results toohello console.</span></span>  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Construct the query operation for all customer entities where PartitionKey="Smith".
+// Construct hello query operation for all customer entities where PartitionKey="Smith".
 azure::storage::table_query query;
 
 query.set_filter_string(azure::storage::table_query::generate_filter_condition(U("PartitionKey"), azure::storage::query_comparison_operator::equal, U("Smith")));
 
-// Execute the query.
+// Execute hello query.
 azure::storage::table_query_iterator it = table.execute_query(query);
 
-// Print the fields for each customer.
+// Print hello fields for each customer.
 azure::storage::table_query_iterator end_of_results;
 for (; it != end_of_results; ++it)
 {
@@ -228,22 +228,22 @@ for (; it != end_of_results; ++it)
 }  
 ```
 
-<span data-ttu-id="cda8e-164">Zapytania w tym przykładzie powoduje przeniesienie wszystkich jednostek spełniających kryteria filtrowania.</span><span class="sxs-lookup"><span data-stu-id="cda8e-164">The query in this example brings all the entities that match the filter criteria.</span></span> <span data-ttu-id="cda8e-165">Jeśli masz dużych tabel i należy pobrać jednostek tabeli często, zalecamy, aby dane przechowywane w obiektach blob magazynu Azure zamiast tego.</span><span class="sxs-lookup"><span data-stu-id="cda8e-165">If you have large tables and need to download the table entities often, we recommend that you store your data in Azure storage blobs instead.</span></span>
+<span data-ttu-id="0490d-164">Witaj zapytania w tym przykładzie powoduje przeniesienie wszystkich jednostek hello spełniające kryteria filtrowania hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-164">hello query in this example brings all hello entities that match hello filter criteria.</span></span> <span data-ttu-id="0490d-165">Jeśli korzystasz z dużych tabel i często muszą jednostek tabeli hello toodownload, zaleca się przechowywać dane w obiektach blob magazynu Azure zamiast tego.</span><span class="sxs-lookup"><span data-stu-id="0490d-165">If you have large tables and need toodownload hello table entities often, we recommend that you store your data in Azure storage blobs instead.</span></span>
 
-## <a name="retrieve-a-range-of-entities-in-a-partition"></a><span data-ttu-id="cda8e-166">Pobieranie zakresu jednostek w partycji</span><span class="sxs-lookup"><span data-stu-id="cda8e-166">Retrieve a range of entities in a partition</span></span>
-<span data-ttu-id="cda8e-167">Jeśli nie chcesz wykonywać zapytania dla wszystkich jednostek w partycji, możesz określić zakres, łącząc filtr klucza partycji z filtrem klucza wiersza.</span><span class="sxs-lookup"><span data-stu-id="cda8e-167">If you don't want to query all the entities in a partition, you can specify a range by combining the partition key filter with a row key filter.</span></span> <span data-ttu-id="cda8e-168">Poniższy przykład kodu wykorzystuje dwa filtry do pobrania wszystkich jednostek w partycji „Smith”, w których klucz wiersza (imię) rozpoczyna się od litery alfabetu wcześniejszej niż „E”, a następnie drukuje wyniki zapytania.</span><span class="sxs-lookup"><span data-stu-id="cda8e-168">The following code example uses two filters to get all entities in partition 'Smith' where the row key (first name) starts with a letter earlier than 'E' in the alphabet and then prints the query results.</span></span>  
+## <a name="retrieve-a-range-of-entities-in-a-partition"></a><span data-ttu-id="0490d-166">Pobieranie zakresu jednostek w partycji</span><span class="sxs-lookup"><span data-stu-id="0490d-166">Retrieve a range of entities in a partition</span></span>
+<span data-ttu-id="0490d-167">Jeśli nie chcesz tooquery wszystkie hello jednostek w partycji, możesz określić zakres, łącząc filtr klucza partycji hello z filtrem klucza wiersza.</span><span class="sxs-lookup"><span data-stu-id="0490d-167">If you don't want tooquery all hello entities in a partition, you can specify a range by combining hello partition key filter with a row key filter.</span></span> <span data-ttu-id="0490d-168">Witaj poniższy przykład kodu wykorzystuje dwa filtry tooget wszystkich jednostek w partycji "Smith", gdzie hello klucz wiersza (imię) wcześniejszej niż "E" w alfabecie hello zaczynał się literą, a następnie drukuje wyniki zapytania hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-168">hello following code example uses two filters tooget all entities in partition 'Smith' where hello row key (first name) starts with a letter earlier than 'E' in hello alphabet and then prints hello query results.</span></span>  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create the table query.
+// Create hello table query.
 azure::storage::table_query query;
 
 query.set_filter_string(azure::storage::table_query::combine_filter_conditions(
@@ -252,10 +252,10 @@ query.set_filter_string(azure::storage::table_query::combine_filter_conditions(
     azure::storage::query_logical_operator::op_and,
     azure::storage::table_query::generate_filter_condition(U("RowKey"), azure::storage::query_comparison_operator::less_than, U("E"))));
 
-// Execute the query.
+// Execute hello query.
 azure::storage::table_query_iterator it = table.execute_query(query);
 
-// Loop through the results, displaying information about the entity.
+// Loop through hello results, displaying information about hello entity.
 azure::storage::table_query_iterator end_of_results;
 for (; it != end_of_results; ++it)
 {
@@ -267,23 +267,23 @@ for (; it != end_of_results; ++it)
 }  
 ```
 
-## <a name="retrieve-a-single-entity"></a><span data-ttu-id="cda8e-169">Pobieranie pojedynczej jednostki</span><span class="sxs-lookup"><span data-stu-id="cda8e-169">Retrieve a single entity</span></span>
-<span data-ttu-id="cda8e-170">Można napisać zapytanie do pobrania jednej, określonej jednostki.</span><span class="sxs-lookup"><span data-stu-id="cda8e-170">You can write a query to retrieve a single, specific entity.</span></span> <span data-ttu-id="cda8e-171">Poniższy kod używa **table_operation::retrieve_entity** do określenia klienta "Jan Kowalski".</span><span class="sxs-lookup"><span data-stu-id="cda8e-171">The following code uses **table_operation::retrieve_entity** to specify the customer 'Jeff Smith'.</span></span> <span data-ttu-id="cda8e-172">Ta metoda zwraca tylko jedną jednostkę zamiast kolekcji i jest zwracana wartość **table_result**.</span><span class="sxs-lookup"><span data-stu-id="cda8e-172">This method returns just one entity, rather than a collection, and the returned value is in **table_result**.</span></span> <span data-ttu-id="cda8e-173">Określenie kluczy partycji i wiersza w pojedynczym zapytaniu jest najszybszym sposobem na pobranie jednej jednostki z usługi tabel.</span><span class="sxs-lookup"><span data-stu-id="cda8e-173">Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.</span></span>  
+## <a name="retrieve-a-single-entity"></a><span data-ttu-id="0490d-169">Pobieranie pojedynczej jednostki</span><span class="sxs-lookup"><span data-stu-id="0490d-169">Retrieve a single entity</span></span>
+<span data-ttu-id="0490d-170">Tooretrieve kwerendy można pisać w jednej, określonej jednostki.</span><span class="sxs-lookup"><span data-stu-id="0490d-170">You can write a query tooretrieve a single, specific entity.</span></span> <span data-ttu-id="0490d-171">Witaj poniższy kod używa **table_operation::retrieve_entity** toospecify powitania klienta "Jan Kowalski".</span><span class="sxs-lookup"><span data-stu-id="0490d-171">hello following code uses **table_operation::retrieve_entity** toospecify hello customer 'Jeff Smith'.</span></span> <span data-ttu-id="0490d-172">Ta metoda zwraca tylko jedną jednostkę zamiast kolekcji i hello zwrócona wartość jest **table_result**.</span><span class="sxs-lookup"><span data-stu-id="0490d-172">This method returns just one entity, rather than a collection, and hello returned value is in **table_result**.</span></span> <span data-ttu-id="0490d-173">Określenie kluczy partycji i wiersza w zapytaniu jest hello najszybszy sposób tooretrieve pojedyncza jednostka z usługi tabeli hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-173">Specifying both partition and row keys in a query is hello fastest way tooretrieve a single entity from hello Table service.</span></span>  
 
 ```cpp
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
+// Retrieve hello entity with partition key of "Smith" and row key of "Jeff".
 azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
 azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
 
-// Output the entity.
+// Output hello entity.
 azure::storage::table_entity entity = retrieve_result.entity();
 const azure::storage::table_entity::properties_type& properties = entity.properties();
 
@@ -292,17 +292,17 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
     << U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 ```
 
-## <a name="replace-an-entity"></a><span data-ttu-id="cda8e-174">Zastępowanie jednostki</span><span class="sxs-lookup"><span data-stu-id="cda8e-174">Replace an entity</span></span>
-<span data-ttu-id="cda8e-175">Jednostki, pobierz ją z usługi tabel, zmodyfikuj obiekt jednostki, a następnie zapisz zmiany usługi tabel.</span><span class="sxs-lookup"><span data-stu-id="cda8e-175">To replace an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service.</span></span> <span data-ttu-id="cda8e-176">Poniższy kod zmienia istniejący klient telefonu i adresu e-mail.</span><span class="sxs-lookup"><span data-stu-id="cda8e-176">The following code changes an existing customer's phone number and email address.</span></span> <span data-ttu-id="cda8e-177">Zamiast wywoływać metodę **table_operation::insert_entity**, ten kod używa **table_operation::replace_entity**.</span><span class="sxs-lookup"><span data-stu-id="cda8e-177">Instead of calling **table_operation::insert_entity**, this code uses **table_operation::replace_entity**.</span></span> <span data-ttu-id="cda8e-178">Dzięki temu jednostka będzie całkowicie zastąpiona na serwerze, chyba że jednostka na serwerze zmieniła się od czasu jej pobrania. W takim przypadku operacja nie powiedzie się.</span><span class="sxs-lookup"><span data-stu-id="cda8e-178">This causes the entity to be fully replaced on the server, unless the entity on the server has changed since it was retrieved, in which case the operation will fail.</span></span> <span data-ttu-id="cda8e-179">Ten błąd uniemożliwia aplikacji nieodwracalne nadpisanie zmiany dokonanej pomiędzy pobraniem i zaktualizowaniem przez inny składnik aplikacji.</span><span class="sxs-lookup"><span data-stu-id="cda8e-179">This failure is to prevent your application from inadvertently overwriting a change made between the retrieval and update by another component of your application.</span></span> <span data-ttu-id="cda8e-180">Odpowiednie obsługi tego błędu jest ponowne pobranie jednostki, wprowadź żądane zmiany (jeśli jest nadal ważny) i następnie ponowne przeprowadzenie **table_operation::replace_entity** operacji.</span><span class="sxs-lookup"><span data-stu-id="cda8e-180">The proper handling of this failure is to retrieve the entity again, make your changes (if still valid), and then perform another **table_operation::replace_entity** operation.</span></span> <span data-ttu-id="cda8e-181">W następnej sekcji opisano sposób zastąpienia tego zachowania.</span><span class="sxs-lookup"><span data-stu-id="cda8e-181">The next section will show you how to override this behavior.</span></span>  
+## <a name="replace-an-entity"></a><span data-ttu-id="0490d-174">Zastępowanie jednostki</span><span class="sxs-lookup"><span data-stu-id="0490d-174">Replace an entity</span></span>
+<span data-ttu-id="0490d-175">tooreplace jednostki, pobrać hello usługi tabel, zmodyfikuj obiekt jednostki hello i następnie zapisz zmiany hello ponownie toohello usługi tabel.</span><span class="sxs-lookup"><span data-stu-id="0490d-175">tooreplace an entity, retrieve it from hello Table service, modify hello entity object, and then save hello changes back toohello Table service.</span></span> <span data-ttu-id="0490d-176">Witaj poniższy kod zmienia istniejący klient telefonu i adresu e-mail.</span><span class="sxs-lookup"><span data-stu-id="0490d-176">hello following code changes an existing customer's phone number and email address.</span></span> <span data-ttu-id="0490d-177">Zamiast wywoływać metodę **table_operation::insert_entity**, ten kod używa **table_operation::replace_entity**.</span><span class="sxs-lookup"><span data-stu-id="0490d-177">Instead of calling **table_operation::insert_entity**, this code uses **table_operation::replace_entity**.</span></span> <span data-ttu-id="0490d-178">Powoduje to toobe jednostki hello całkowicie zastąpiona na powitania serwera, chyba że hello jednostki na powitania serwera została zmieniona, ponieważ został on pobrany, w którym to przypadku hello operacja zakończy się niepowodzeniem.</span><span class="sxs-lookup"><span data-stu-id="0490d-178">This causes hello entity toobe fully replaced on hello server, unless hello entity on hello server has changed since it was retrieved, in which case hello operation will fail.</span></span> <span data-ttu-id="0490d-179">Ten błąd jest tooprevent aplikacji nieodwracalne nadpisanie zmiany wprowadzone od hello pobierania i aktualizowania przez inny składnik aplikacji.</span><span class="sxs-lookup"><span data-stu-id="0490d-179">This failure is tooprevent your application from inadvertently overwriting a change made between hello retrieval and update by another component of your application.</span></span> <span data-ttu-id="0490d-180">Hello prawidłowego obsługi tego błędu jest jednostki hello tooretrieve ponownie, wprowadź żądane zmiany (jeśli jest nadal ważny), a następnie wykonaj inną **table_operation::replace_entity** operacji.</span><span class="sxs-lookup"><span data-stu-id="0490d-180">hello proper handling of this failure is tooretrieve hello entity again, make your changes (if still valid), and then perform another **table_operation::replace_entity** operation.</span></span> <span data-ttu-id="0490d-181">Witaj w następnej sekcji opisano, jak toooverride to zachowanie.</span><span class="sxs-lookup"><span data-stu-id="0490d-181">hello next section will show you how toooverride this behavior.</span></span>  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 // Replace an entity.
@@ -316,24 +316,24 @@ properties_to_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0
 // Specify a new email address.
 properties_to_replace[U("Email")] = azure::storage::entity_property(U("JeffS@contoso.com"));
 
-// Create an operation to replace the entity.
+// Create an operation tooreplace hello entity.
 azure::storage::table_operation replace_operation = azure::storage::table_operation::replace_entity(entity_to_replace);
 
-// Submit the operation to the Table service.
+// Submit hello operation toohello Table service.
 azure::storage::table_result replace_result = table.execute(replace_operation);
 ```
 
-## <a name="insert-or-replace-an-entity"></a><span data-ttu-id="cda8e-182">Wstawianie lub zastępowanie jednostki</span><span class="sxs-lookup"><span data-stu-id="cda8e-182">Insert-or-replace an entity</span></span>
-<span data-ttu-id="cda8e-183">**table_operation::replace_entity** operacji zakończy się niepowodzeniem, jeśli jednostka została zmieniona, ponieważ został on pobrany z serwera.</span><span class="sxs-lookup"><span data-stu-id="cda8e-183">**table_operation::replace_entity** operations will fail if the entity has been changed since it was retrieved from the server.</span></span> <span data-ttu-id="cda8e-184">Ponadto należy pobrać jednostki z serwera najpierw aby **table_operation::replace_entity** powiódł się.</span><span class="sxs-lookup"><span data-stu-id="cda8e-184">Furthermore, you must retrieve the entity from the server first in order for **table_operation::replace_entity** to be successful.</span></span> <span data-ttu-id="cda8e-185">Czasami jednak nie wiesz, czy jednostka istnieje na serwerze i czy obecne wartości przechowywane w nim nie mają znaczenia — aktualizacja powinna nadpisać je wszystkie.</span><span class="sxs-lookup"><span data-stu-id="cda8e-185">Sometimes, however, you don't know if the entity exists on the server and the current values stored in it are irrelevant—your update should overwrite them all.</span></span> <span data-ttu-id="cda8e-186">W tym celu należy użyć **table_operation::insert_or_replace_entity** operacji.</span><span class="sxs-lookup"><span data-stu-id="cda8e-186">To accomplish this, you would use a **table_operation::insert_or_replace_entity** operation.</span></span> <span data-ttu-id="cda8e-187">Ta operacja wstawi jednostkę, jeśli jednostka nie istnieje, lub zastąpi ją, jeśli już istnieje — niezależnie od czasu ostatniej aktualizacji.</span><span class="sxs-lookup"><span data-stu-id="cda8e-187">This operation inserts the entity if it doesn't exist, or replaces it if it does, regardless of when the last update was made.</span></span> <span data-ttu-id="cda8e-188">W poniższym przykładzie kodu jednostka klienta dla Jan Kowalski nadal jest pobierana, ale następnie jest zapisywana na serwerze za pomocą **table_operation::insert_or_replace_entity**.</span><span class="sxs-lookup"><span data-stu-id="cda8e-188">In the following code example, the customer entity for Jeff Smith is still retrieved, but it is then saved back to the server via **table_operation::insert_or_replace_entity**.</span></span> <span data-ttu-id="cda8e-189">Wszelkie aktualizacje wprowadzone w jednostce między pobierania i operacji aktualizacji zostaną zastąpione.</span><span class="sxs-lookup"><span data-stu-id="cda8e-189">Any updates made to the entity between the retrieval and update operation will be overwritten.</span></span>  
+## <a name="insert-or-replace-an-entity"></a><span data-ttu-id="0490d-182">Wstawianie lub zastępowanie jednostki</span><span class="sxs-lookup"><span data-stu-id="0490d-182">Insert-or-replace an entity</span></span>
+<span data-ttu-id="0490d-183">**table_operation::replace_entity** operacji zakończy się niepowodzeniem, jeśli jednostka hello została zmieniona, ponieważ został on pobrany z serwera hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-183">**table_operation::replace_entity** operations will fail if hello entity has been changed since it was retrieved from hello server.</span></span> <span data-ttu-id="0490d-184">Ponadto należy pobrać hello jednostki z powitania serwera najpierw **table_operation::replace_entity** toobe powiodło się.</span><span class="sxs-lookup"><span data-stu-id="0490d-184">Furthermore, you must retrieve hello entity from hello server first in order for **table_operation::replace_entity** toobe successful.</span></span> <span data-ttu-id="0490d-185">Czasami jednak nie wiesz, jeśli hello jednostka istnieje na serwerze hello i hello bieżące wartości znajdujące się w niej nie mają znaczenia — aktualizacja powinna nadpisać je wszystkie.</span><span class="sxs-lookup"><span data-stu-id="0490d-185">Sometimes, however, you don't know if hello entity exists on hello server and hello current values stored in it are irrelevant—your update should overwrite them all.</span></span> <span data-ttu-id="0490d-186">tooaccomplish, należy użyć **table_operation::insert_or_replace_entity** operacji.</span><span class="sxs-lookup"><span data-stu-id="0490d-186">tooaccomplish this, you would use a **table_operation::insert_or_replace_entity** operation.</span></span> <span data-ttu-id="0490d-187">Ta operacja wstawi hello jednostki, jeśli nie istnieje, lub zastąpi ją, jeśli tak jest, niezależnie od tego, kiedy dokonano hello ostatniej aktualizacji.</span><span class="sxs-lookup"><span data-stu-id="0490d-187">This operation inserts hello entity if it doesn't exist, or replaces it if it does, regardless of when hello last update was made.</span></span> <span data-ttu-id="0490d-188">W hello poniższy przykład kodu, hello jednostka klienta dla Jan Kowalski nadal jest pobierana, ale następnie jest zapisywana serwera zapasowego toohello za pośrednictwem **table_operation::insert_or_replace_entity**.</span><span class="sxs-lookup"><span data-stu-id="0490d-188">In hello following code example, hello customer entity for Jeff Smith is still retrieved, but it is then saved back toohello server via **table_operation::insert_or_replace_entity**.</span></span> <span data-ttu-id="0490d-189">Wszelkie aktualizacje wprowadzone jednostki toohello między hello operacji pobierania i aktualizacji zostaną zastąpione.</span><span class="sxs-lookup"><span data-stu-id="0490d-189">Any updates made toohello entity between hello retrieval and update operation will be overwritten.</span></span>  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 // Insert-or-replace an entity.
@@ -348,37 +348,37 @@ properties_to_insert_or_replace[U("Phone")] = azure::storage::entity_property(U(
 // Specify an email address.
 properties_to_insert_or_replace[U("Email")] = azure::storage::entity_property(U("Jeffsm@contoso.com"));
 
-// Create an operation to insert-or-replace the entity.
+// Create an operation tooinsert-or-replace hello entity.
 azure::storage::table_operation insert_or_replace_operation = azure::storage::table_operation::insert_or_replace_entity(entity_to_insert_or_replace);
 
-// Submit the operation to the Table service.
+// Submit hello operation toohello Table service.
 azure::storage::table_result insert_or_replace_result = table.execute(insert_or_replace_operation);
 ```
 
-## <a name="query-a-subset-of-entity-properties"></a><span data-ttu-id="cda8e-190">Tworzenie zapytania do podzbioru właściwości jednostki</span><span class="sxs-lookup"><span data-stu-id="cda8e-190">Query a subset of entity properties</span></span>
-<span data-ttu-id="cda8e-191">Zapytanie do tabeli może pobrać kilka właściwości jednostki.</span><span class="sxs-lookup"><span data-stu-id="cda8e-191">A query to a table can retrieve just a few properties from an entity.</span></span> <span data-ttu-id="cda8e-192">Zapytanie w poniższym kodzie używa **table_query::set_select_columns** metodę, aby zwrócić tylko adresy e-mail jednostek w tabeli.</span><span class="sxs-lookup"><span data-stu-id="cda8e-192">The query in the following code uses the **table_query::set_select_columns** method to return only the email addresses of entities in the table.</span></span>  
+## <a name="query-a-subset-of-entity-properties"></a><span data-ttu-id="0490d-190">Tworzenie zapytania do podzbioru właściwości jednostki</span><span class="sxs-lookup"><span data-stu-id="0490d-190">Query a subset of entity properties</span></span>
+<span data-ttu-id="0490d-191">Tabela tooa kwerend może pobrać kilka właściwości jednostki.</span><span class="sxs-lookup"><span data-stu-id="0490d-191">A query tooa table can retrieve just a few properties from an entity.</span></span> <span data-ttu-id="0490d-192">Witaj zapytanie w hello następującego kodu używa hello **table_query::set_select_columns** metody tooreturn tylko hello adresy e-mail jednostek w tabeli hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-192">hello query in hello following code uses hello **table_query::set_select_columns** method tooreturn only hello email addresses of entities in hello table.</span></span>  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Define the query, and select only the Email property.
+// Define hello query, and select only hello Email property.
 azure::storage::table_query query;
 std::vector<utility::string_t> columns;
 
 columns.push_back(U("Email"));
 query.set_select_columns(columns);
 
-// Execute the query.
+// Execute hello query.
 azure::storage::table_query_iterator it = table.execute_query(query);
 
-// Display the results.
+// Display hello results.
 azure::storage::table_query_iterator end_of_results;
 for (; it != end_of_results; ++it)
 {
@@ -395,64 +395,64 @@ for (; it != end_of_results; ++it)
 ```
 
 > [!NOTE]
-> <span data-ttu-id="cda8e-193">Badania kilka właściwości jednostki jest operacją bardziej efektywne niż pobierania wszystkich właściwości.</span><span class="sxs-lookup"><span data-stu-id="cda8e-193">Querying a few properties from an entity is a more efficient operation than retrieving all properties.</span></span>
+> <span data-ttu-id="0490d-193">Badania kilka właściwości jednostki jest operacją bardziej efektywne niż pobierania wszystkich właściwości.</span><span class="sxs-lookup"><span data-stu-id="0490d-193">Querying a few properties from an entity is a more efficient operation than retrieving all properties.</span></span>
 > 
 > 
 
-## <a name="delete-an-entity"></a><span data-ttu-id="cda8e-194">Usuwanie jednostki</span><span class="sxs-lookup"><span data-stu-id="cda8e-194">Delete an entity</span></span>
-<span data-ttu-id="cda8e-195">Po jej pobraniu można z łatwością usunąć jednostkę.</span><span class="sxs-lookup"><span data-stu-id="cda8e-195">You can easily delete an entity after you have retrieved it.</span></span> <span data-ttu-id="cda8e-196">Po pobraniu jednostki wywołać **table_operation::delete_entity** z jednostką do usunięcia.</span><span class="sxs-lookup"><span data-stu-id="cda8e-196">Once the entity is retrieved, call **table_operation::delete_entity** with the entity to delete.</span></span> <span data-ttu-id="cda8e-197">Następnie wywołaj **cloud_table.execute** metody.</span><span class="sxs-lookup"><span data-stu-id="cda8e-197">Then call the **cloud_table.execute** method.</span></span> <span data-ttu-id="cda8e-198">Poniższy kod pobiera i usunięcie jednostki z kluczem partycji "Smith" i kluczem wiersza "Jeff".</span><span class="sxs-lookup"><span data-stu-id="cda8e-198">The following code retrieves and deletes an entity with a partition key of "Smith" and a row key of "Jeff".</span></span>  
+## <a name="delete-an-entity"></a><span data-ttu-id="0490d-194">Usuwanie jednostki</span><span class="sxs-lookup"><span data-stu-id="0490d-194">Delete an entity</span></span>
+<span data-ttu-id="0490d-195">Po jej pobraniu można z łatwością usunąć jednostkę.</span><span class="sxs-lookup"><span data-stu-id="0490d-195">You can easily delete an entity after you have retrieved it.</span></span> <span data-ttu-id="0490d-196">Po pobraniu jednostki hello wywołać **table_operation::delete_entity** z hello toodelete jednostki.</span><span class="sxs-lookup"><span data-stu-id="0490d-196">Once hello entity is retrieved, call **table_operation::delete_entity** with hello entity toodelete.</span></span> <span data-ttu-id="0490d-197">Następnie wywołaj hello **cloud_table.execute** metody.</span><span class="sxs-lookup"><span data-stu-id="0490d-197">Then call hello **cloud_table.execute** method.</span></span> <span data-ttu-id="0490d-198">Witaj poniższy kod pobiera i usunięcie jednostki z kluczem partycji "Smith" i kluczem wiersza "Jeff".</span><span class="sxs-lookup"><span data-stu-id="0490d-198">hello following code retrieves and deletes an entity with a partition key of "Smith" and a row key of "Jeff".</span></span>  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
+// Create an operation tooretrieve hello entity with partition key of "Smith" and row key of "Jeff".
 azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
 azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
 
-// Create an operation to delete the entity.
+// Create an operation toodelete hello entity.
 azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
 
-// Submit the delete operation to the Table service.
+// Submit hello delete operation toohello Table service.
 azure::storage::table_result delete_result = table.execute(delete_operation);  
 ```
 
-## <a name="delete-a-table"></a><span data-ttu-id="cda8e-199">Usuwanie tabeli</span><span class="sxs-lookup"><span data-stu-id="cda8e-199">Delete a table</span></span>
-<span data-ttu-id="cda8e-200">Poniższy przykład kodu usuwa tabelę z konta magazynu.</span><span class="sxs-lookup"><span data-stu-id="cda8e-200">Finally, the following code example deletes a table from a storage account.</span></span> <span data-ttu-id="cda8e-201">Tabeli, która została usunięta, nie będzie można ponownie utworzyć przez dany okres czasu po jej usunięciu.</span><span class="sxs-lookup"><span data-stu-id="cda8e-201">A table that has been deleted will be unavailable to be re-created for a period of time following the deletion.</span></span>  
+## <a name="delete-a-table"></a><span data-ttu-id="0490d-199">Usuwanie tabeli</span><span class="sxs-lookup"><span data-stu-id="0490d-199">Delete a table</span></span>
+<span data-ttu-id="0490d-200">Na koniec hello poniższy przykład kodu usuwa tabelę z konta magazynu.</span><span class="sxs-lookup"><span data-stu-id="0490d-200">Finally, hello following code example deletes a table from a storage account.</span></span> <span data-ttu-id="0490d-201">Tabela, która została usunięta będzie niedostępna toobe ponownie utworzone w danym okresie czasu po usunięciu hello.</span><span class="sxs-lookup"><span data-stu-id="0490d-201">A table that has been deleted will be unavailable toobe re-created for a period of time following hello deletion.</span></span>  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
+// Create an operation tooretrieve hello entity with partition key of "Smith" and row key of "Jeff".
 azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
 azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
 
-// Create an operation to delete the entity.
+// Create an operation toodelete hello entity.
 azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
 
-// Submit the delete operation to the Table service.
+// Submit hello delete operation toohello Table service.
 azure::storage::table_result delete_result = table.execute(delete_operation);
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="cda8e-202">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="cda8e-202">Next steps</span></span>
-<span data-ttu-id="cda8e-203">Teraz, kiedy znasz już podstawy magazynu tabel, skorzystaj z poniższych linków, aby dowiedzieć się więcej na temat usługi Azure Storage:</span><span class="sxs-lookup"><span data-stu-id="cda8e-203">Now that you've learned the basics of table storage, follow these links to learn more about Azure Storage:</span></span>  
+## <a name="next-steps"></a><span data-ttu-id="0490d-202">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="0490d-202">Next steps</span></span>
+<span data-ttu-id="0490d-203">Teraz, kiedy znasz już podstawy magazynu tabel hello, wykonaj te toolearn łącza więcej informacji na temat usługi Azure Storage:</span><span class="sxs-lookup"><span data-stu-id="0490d-203">Now that you've learned hello basics of table storage, follow these links toolearn more about Azure Storage:</span></span>  
 
-* <span data-ttu-id="cda8e-204">[Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.</span><span class="sxs-lookup"><span data-stu-id="cda8e-204">[Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.</span></span>
-* [<span data-ttu-id="cda8e-205">Jak używać magazynu obiektów Blob w języku C++</span><span class="sxs-lookup"><span data-stu-id="cda8e-205">How to use Blob storage from C++</span></span>](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [<span data-ttu-id="cda8e-206">Jak używać magazynu kolejek w języku C++</span><span class="sxs-lookup"><span data-stu-id="cda8e-206">How to use Queue storage from C++</span></span>](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
-* [<span data-ttu-id="cda8e-207">Lista zasobów magazynu Azure w języku C++</span><span class="sxs-lookup"><span data-stu-id="cda8e-207">List Azure Storage resources in C++</span></span>](../storage/common/storage-c-plus-plus-enumeration.md)
-* [<span data-ttu-id="cda8e-208">Biblioteka klienta usługi Storage for C++ — dokumentacja</span><span class="sxs-lookup"><span data-stu-id="cda8e-208">Storage Client Library for C++ reference</span></span>](http://azure.github.io/azure-storage-cpp)
-* [<span data-ttu-id="cda8e-209">Dokumentację magazynu platformy Azure</span><span class="sxs-lookup"><span data-stu-id="cda8e-209">Azure Storage documentation</span></span>](https://azure.microsoft.com/documentation/services/storage/)
+* <span data-ttu-id="0490d-204">[Eksplorator magazynu Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatna, aplikacja autonomiczny firmy Microsoft, który umożliwia toowork wizualnie z danymi usługi Azure Storage w systemie Windows, macOS i Linux.</span><span class="sxs-lookup"><span data-stu-id="0490d-204">[Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you toowork visually with Azure Storage data on Windows, macOS, and Linux.</span></span>
+* [<span data-ttu-id="0490d-205">Jak toouse magazynu obiektów Blob w języku C++</span><span class="sxs-lookup"><span data-stu-id="0490d-205">How toouse Blob storage from C++</span></span>](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [<span data-ttu-id="0490d-206">Jak toouse magazynu kolejek w języku C++</span><span class="sxs-lookup"><span data-stu-id="0490d-206">How toouse Queue storage from C++</span></span>](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
+* [<span data-ttu-id="0490d-207">Lista zasobów magazynu Azure w języku C++</span><span class="sxs-lookup"><span data-stu-id="0490d-207">List Azure Storage resources in C++</span></span>](../storage/common/storage-c-plus-plus-enumeration.md)
+* [<span data-ttu-id="0490d-208">Biblioteka klienta usługi Storage for C++ — dokumentacja</span><span class="sxs-lookup"><span data-stu-id="0490d-208">Storage Client Library for C++ reference</span></span>](http://azure.github.io/azure-storage-cpp)
+* [<span data-ttu-id="0490d-209">Dokumentację magazynu platformy Azure</span><span class="sxs-lookup"><span data-stu-id="0490d-209">Azure Storage documentation</span></span>](https://azure.microsoft.com/documentation/services/storage/)

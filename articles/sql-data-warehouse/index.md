@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure SQL Data Warehouse — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Informacje o sposobie używania usługi SQL Data Warehouse, która korzysta z programu SQL Server i masowego przetwarzania równoległego. Dokumentacja przedstawiająca sposób ładowania, analizowania i eksportowania danych oraz zarządzania nimi."
+title: "aaaAzure dokumentacji magazynu danych SQL — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse SQL Data Warehouse, połączenie programu SQL Server z ogromną skalę równoległe przetwarzanie. Dokumentacji przedstawiono, jak tooload, analizowanie, zarządzanie i eksportowania danych."
 services: sql-data-warehouse
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: b9f5bc85d6fca466be7abbe67b400856e1635459
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3deb9fe2dbd29cdc250510ca7368b4d71422658
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-data-warehouse-documentation"></a>Dokumentacja usługi SQL Data Warehouse
 
-Dowiedz się, jak używać usługi SQL Data Warehouse, która korzysta z relacyjnej bazy danych programu SQL Server oraz masowego przetwarzania równoległego. Samouczki i inne dokumenty przedstawiające sposób ładowania danych do magazynu, ich analizowania i eksportowania oraz zarządzania nimi.
+Dowiedz się, jak toouse magazyn danych SQL, który łączy relacyjnej bazy danych programu SQL Server hello z masowego przetwarzania równoległego. Samouczki i dokumentacji opisano sposób tooload danych do magazynu hello następnie analizować, zarządzanie i wyeksportować go.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -71,7 +71,7 @@ Dowiedz się, jak używać usługi SQL Data Warehouse, która korzysta z relacyj
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpocznij tworzenie magazynu danych SQL Data Warehouse przy użyciu witryny Azure Portal</h3>
+                        <h3>Tworzenie przy użyciu hello Azure Portal SQL Data Warehouse</h3>
                     </div>
                 </div>
             </div>
