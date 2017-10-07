@@ -1,5 +1,5 @@
 ---
-title: "ReliableConcurrentQueue w sieci szkieletowej usług Azure"
+title: "aaaReliableConcurrentQueue w sieci szkieletowej usług Azure"
 description: "ReliableConcurrentQueue jest kolejką wysokiej przepustowości, co umożliwia równoległe enqueues i dequeues."
 services: service-fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
-ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 78a9905996b9ab265c1288d2b49753638d7bc445
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Wprowadzenie do ReliableConcurrentQueue w sieci szkieletowej usług Azure
-Niezawodne równoczesnych kolejka jest asynchroniczne, transakcyjne i replikowane kolejki które concurrency wysokiej funkcji umieścić w kolejce i usuwania z kolejki operacji. Został zaprojektowany w celu dostarczenia wysokiej przepływności i małe opóźnienia za mniejsze strict kolejności FIFO dostarczonych przez [kolejka niezawodnych](https://msdn.microsoft.com/library/azure/dn971527.aspx) i przekazuje optymalnych porządkowania.
+# <a name="introduction-tooreliableconcurrentqueue-in-azure-service-fabric"></a>Wprowadzenie tooReliableConcurrentQueue w sieci szkieletowej usług Azure
+Niezawodne równoczesnych kolejka jest asynchroniczne, transakcyjne i replikowane kolejki które concurrency wysokiej funkcji umieścić w kolejce i usuwania z kolejki operacji. Jest zaprojektowana toodeliver wysokiej przepływności i małe opóźnienia przez złagodzeniu hello strict FIFO porządkowanie udostępniane przez [kolejka niezawodnych](https://msdn.microsoft.com/library/azure/dn971527.aspx) i przekazuje optymalnych porządkowania.
 
 ## <a name="apis"></a>Interfejsy API
 
@@ -33,20 +33,20 @@ Niezawodne równoczesnych kolejka jest asynchroniczne, transakcyjne i replikowan
 
 ## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Porównanie z [niezawodnej kolejki](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
-Niezawodne równoczesnych kolejki jest oferowany jako alternatywę do [kolejka niezawodnych](https://msdn.microsoft.com/library/azure/dn971527.aspx). Tej opcji należy używać w przypadku, gdy strict kolejności FIFO nie jest wymagane, jako gwarantujących FIFO wymaga zależnościami z współbieżności.  [Kolejka niezawodnych](https://msdn.microsoft.com/library/azure/dn971527.aspx) używa blokad wymusić kolejności FIFO, co najwyżej jedna transakcja może umieścić w kolejce i możliwość usuwania z kolejki w czasie co najwyżej jedna transakcja. Z kolei niezawodnej kolejki równoczesnych zwalnia ograniczenie porządkowania i umożliwia liczba równoczesnych transakcji interleave ich umieścić w kolejce do usuwania z kolejki operacji. Porządkowanie optymalnych została podana, jednak względne uporządkowanie dwóch wartości w niezawodnej kolejki równoczesnych nigdy nie można zagwarantować.
+Niezawodne równoczesnych kolejki jest oferowany jako alternatywę zbyt[kolejka niezawodnych](https://msdn.microsoft.com/library/azure/dn971527.aspx). Tej opcji należy używać w przypadku, gdy strict kolejności FIFO nie jest wymagane, jako gwarantujących FIFO wymaga zależnościami z współbieżności.  [Kolejka niezawodnych](https://msdn.microsoft.com/library/azure/dn971527.aspx) używa blokad tooenforce FIFO kolejności, o co najwyżej jedna transakcja dozwolone tooenqueue i najwyżej jedna transakcja w danym momencie dozwolona toodequeue. W porównaniu niezawodnej kolejki równoczesnych zwalnia hello porządkowanie ograniczenia i umożliwia żadnych liczba równoczesnych transakcji toointerleave ich umieścić w kolejce i usuwania z kolejki operacji. Porządkowanie optymalnych została podana, jednak hello względne uporządkowanie dwóch wartości w niezawodnej kolejki równoczesnych nigdy nie można zagwarantować.
 
 Niezawodne kolejki równoczesnych zapewnia wyższą przepływność i mniejsze opóźnienia niż [kolejka niezawodnych](https://msdn.microsoft.com/library/azure/dn971527.aspx) zawsze, gdy istnieje wiele równoczesnych transakcji wykonywania enqueues i/lub dequeues.
 
-Przypadek użycia próbki jest ReliableConcurrentQueue [kolejki komunikatów](https://en.wikipedia.org/wiki/Message_queue) scenariusza. W tym scenariuszu jeden lub więcej komunikatów producentów tworzyć i Dodaj elementy do kolejki, a co najmniej jednego odbiorcy wiadomości ściągać komunikaty z kolejki i przetwarzanie ich. Wiele producenci i konsumenci może pracować wielel osób, aby przetworzyć kolejki przy użyciu równoczesnych transakcji.
+Przypadek użycia próbkę hello ReliableConcurrentQueue jest hello [kolejki komunikatów](https://en.wikipedia.org/wiki/Message_queue) scenariusza. W tym scenariuszu jeden lub więcej komunikatów producentów Utwórz i Dodaj elementy toohello kolejki, a co najmniej jednego odbiorcy wiadomości ściągać komunikaty z kolejki hello i ich przetworzenia. Wiele producenci i konsumenci może pracować wielel osób, w kolejności tooprocess hello kolejki przy użyciu równoczesnych transakcji.
 
 ## <a name="usage-guidelines"></a>Wskazówki dotyczące użycia
-* Kolejki oczekuje, że okres przechowywania mało elementów w kolejce. Oznacza to elementy nie może pozostać w kolejce przez długi czas.
-* Kolejka nie gwarantuje kolejności FIFO strict.
-* Kolejka nie odczytuje własną zapisy. Jeśli element jest dodawanych do kolejki w ramach transakcji, nie będą widoczne dla dequeuer w ramach tej samej transakcji.
-* Dequeues nie są od siebie odizolowane. Jeśli element *A* jest usuniętej w transakcji *txnA*, nawet jeśli *txnA* nie została przekazana, element *A* nie będą widoczne dla równoczesne Transakcja *txnB*.  Jeśli *txnA* przerywa, *A* staną się widoczne dla *txnB* natychmiast.
-* *TryPeekAsync* zachowanie można zaimplementować przy użyciu *TryDequeueAsync* i Trwa przerywanie transakcji. Na przykład można znaleźć w sekcji wzorce programowania.
-* Liczba jest nietransakcyjnej. Może służyć do poznać liczbę elementów w kolejce, ale reprezentuje punkt w czasie i nie może opierać się.
-* Nie ma zostać wykonane przetwarzanie kosztowne dequeued elementów, gdy transakcja jest aktywna, aby uniknąć długotrwałe transakcje, które mogą mieć wpływ na wydajność systemu.
+* kolejki Hello oczekuje, że hello elementów w kolejce hello mają okres przechowywania niski. Oznacza to, że elementy hello nie będzie pozostają w kolejce hello przez długi czas.
+* kolejki Hello nie gwarantuje kolejności FIFO strict.
+* kolejki Hello nie odczytuje własną zapisów. Jeśli element jest dodawanych do kolejki w ramach transakcji, nie będzie widoczne tooa dequeuer w hello tej samej transakcji.
+* Dequeues nie są od siebie odizolowane. Jeśli element *A* jest usuniętej w transakcji *txnA*, nawet jeśli *txnA* nie została przekazana, element *A* nie będą widoczne tooa jednoczesnych Transakcja *txnB*.  Jeśli *txnA* przerywa, *A* stają się widoczne zbyt*txnB* natychmiast.
+* *TryPeekAsync* zachowanie można zaimplementować przy użyciu *TryDequeueAsync* , a następnie Przerywanie transakcji hello. Na przykład można znaleźć w sekcji wzorce programowania hello.
+* Liczba jest nietransakcyjnej. Może być używane tooget pomysł hello liczba elementów w kolejce hello, ale reprezentuje punkt w czasie i nie może opierać się.
+* Kosztowna przetwarzania na powitania usuniętej elementy nie powinny być wykonywane podczas hello transakcji jest aktywny, tooavoid długotrwałe transakcje, które mogą mieć negatywny wpływ na wydajność w systemie hello.
 
 ## <a name="code-snippets"></a>Wstawki kodu
 Daj nam przyjrzeć się kilka fragmentów kodu i ich oczekiwane dane wyjściowe. Obsługa wyjątków jest ignorowany w tej sekcji.
@@ -66,7 +66,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Załóżmy, że zadanie zostało pomyślnie zakończone i czy nie zostały żadne transakcje równoczesnych modyfikowanie kolejki. Użytkownika można oczekiwać w kolejce zawierać elementów w jednym z następujących zleceń:
+Siebie to zadanie hello zakończyła się pomyślnie, a które nie było żadnych równoczesnych transakcji modyfikowanie hello kolejki. Witaj użytkownik może spodziewać się hello kolejki toocontain hello elementów w żadnym hello następujących zleceń:
 
 > 10, 20
 
@@ -95,11 +95,11 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Załóżmy, czy zadania zakończyła się pomyślnie, że zadania uruchomione równolegle i że nie wystąpiły żadne inne transakcje równoczesnych modyfikowanie kolejki. Brak wnioskowania nie jest możliwe o kolejności elementów w kolejce. Na poniższym przykładzie elementów może występować w żadnym z 4! możliwe uporządkowania.  Kolejka będzie próbował zachować elementy w kolejności (umieszczonych w kolejce), ale można wymusić ponownie określić ich kolejność z powodu równoczesnych operacji lub błędów.
+Załóżmy, czy zadania hello zakończyła się pomyślnie, czy zadania hello uruchomiło równolegle i że nie wystąpiły żadne inne transakcje równoczesnych modyfikowanie hello kolejki. Brak wnioskowania nie jest możliwe o hello kolejność elementów w kolejce hello. Na poniższym przykładzie hello elementy są w żadnym hello 4! możliwe uporządkowania.  kolejki Hello podejmie elementów hello tookeep hello oryginalnego zamówienia (umieszczonych w kolejce), ale może być wymuszone tooreorder ich ukończenia operacji tooconcurrent lub błędów.
 
 
 ### <a name="dequeueasync"></a>DequeueAsync
-Poniżej przedstawiono kilka fragmenty kodu przy użyciu TryDequeueAsync następuje oczekiwane dane wyjściowe. Załóżmy, że kolejka jest już wypełniony następujących elementów w kolejce:
+Poniżej przedstawiono kilka fragmenty kodu przy użyciu TryDequeueAsync następuje hello oczekiwane dane wyjściowe. Przyjęto założenie, że tej kolejki hello jest już wypełniony hello następujących elementów w kolejce hello:
 > 10, 20, 30, 40, 50, 60
 
 - *Przypadek 1: Jednym usuwania z kolejki zadań*
@@ -115,7 +115,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Załóżmy, że zadanie zostało pomyślnie zakończone i czy nie zostały żadne transakcje równoczesnych modyfikowanie kolejki. Ponieważ żadne wnioskowania nie jest możliwe o kolejności elementów w kolejce, wszystkie trzy elementy może być usunięty z kolejki, w dowolnej kolejności. Kolejka będzie próbował zachować elementy w kolejności (umieszczonych w kolejce), ale można wymusić ponownie określić ich kolejność z powodu równoczesnych operacji lub błędów.  
+Siebie to zadanie hello zakończyła się pomyślnie, a które nie było żadnych równoczesnych transakcji modyfikowanie hello kolejki. Ponieważ żadne wnioskowania nie jest możliwe o zamówieniu hello hello elementów w kolejce hello, wszystkie trzy elementy hello może być usunięty z kolejki, w dowolnej kolejności. kolejki Hello podejmie elementów hello tookeep hello oryginalnego zamówienia (umieszczonych w kolejce), ale może być wymuszone tooreorder ich ukończenia operacji tooconcurrent lub błędów.  
 
 - *Przypadek 2: Dequeue równoległych zadań*
 
@@ -141,13 +141,13 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Załóżmy, czy zadania zakończyła się pomyślnie, że zadania uruchomione równolegle i że nie wystąpiły żadne inne transakcje równoczesnych modyfikowanie kolejki. Ponieważ żadne wnioskowania nie jest możliwe o kolejności elementów w kolejce listy *dequeue1* i *dequeue2* każdy będzie zawierać dwa elementy, w dowolnej kolejności.
+Załóżmy, czy zadania hello zakończyła się pomyślnie, czy zadania hello uruchomiło równolegle i że nie wystąpiły żadne inne transakcje równoczesnych modyfikowanie hello kolejki. Ponieważ żadne wnioskowania nie jest możliwe o zamówieniu hello hello elementów w kolejce hello, hello list *dequeue1* i *dequeue2* każdy będzie zawierać dwa elementy, w dowolnej kolejności.
 
-Taki sam element zostanie *nie* są wyświetlane na listach obu. W związku z tym jeśli dequeue1 *10*, *30*, następnie byłyby dequeue2 *20*, *40*.
+Hello będzie tym samym elemencie *nie* są wyświetlane na listach obu. W związku z tym jeśli dequeue1 *10*, *30*, następnie byłyby dequeue2 *20*, *40*.
 
 - *Przypadek 3: Usuwania z kolejki w kolejności z przerwać transakcji*
 
-Przerywanie transakcji z locie dequeues naraża elementy z powrotem na head kolejki. Kolejność, w której elementy są odłożyć na head kolejki nie jest gwarantowana. Daj nam przyjrzeć się następującym kodem:
+Przerywanie transakcji z locie dequeues naraża hello elementy z powrotem na powitania head hello kolejki. kolejność Hello, w którym elementy hello są odłożyć na powitania head hello kolejki nie jest gwarantowana. Daj nam przyjrzeć się hello następującego kodu:
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -155,25 +155,25 @@ using (var txn = this.StateManager.CreateTransaction())
     await this.Queue.TryDequeueAsync(txn, cancellationToken);
     await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
-    // Abort the transaction
+    // Abort hello transaction
     await txn.AbortAsync();
 }
 ```
-Załóżmy, że elementy zostały usuniętej w następującej kolejności:
+Załóżmy, że elementy hello zostały usuniętej w następującej kolejności hello:
 > 10, 20
 
-Gdy firma Microsoft przerwać transakcji, elementy zostanie dodany do head kolejki w jednym z następujących zleceń:
+Gdy firma Microsoft przerwać transakcji hello, elementy hello zostanie dodany head wstecz toohello kolejki hello w żadnym hello następujących zleceń:
 > 10, 20
 
 > 20, 10
 
-To samo dotyczy wszystkich przypadkach, gdy transakcja nie została pomyślnie *zatwierdzone*.
+Witaj dotyczy to wszystkich przypadkach, gdy hello transakcja nie została pomyślnie *zatwierdzone*.
 
 ## <a name="programming-patterns"></a>Wzorce programowania
 W tej sekcji Sprawdź Daj nam kilka programowania w języku wzorców, które mogą być przydatne przy użyciu ReliableConcurrentQueue.
 
 ### <a name="batch-dequeues"></a>Dequeues partii
-A zalecane jest wzorzec programowania dla konsumentów zadania wsadowego jego dequeues zamiast wykonaj jedną usuwania z kolejki w czasie. Użytkownik może wybrać ograniczać opóźnienia między każdej partii lub rozmiar partii. Poniższy fragment kodu przedstawia ten model programowania.  Należy pamiętać, że w tym przykładzie przetwarzanie odbywa się po transakcja została zatwierdzona, tak jakby był błąd występuje podczas przetwarzania, nieprzetworzone elementy zostaną utracone bez przetworzeniu.  Alternatywnie przetwarzanie może odbywać się w zakresie transakcji, jednak to może mieć negatywny wpływ na wydajność i wymaga obsługi elementów już przetworzone.
+A zalecane programowania wzorzec jest na powitania klienta zadań toobatch jego dequeues zamiast wykonaj jedną usuwania z kolejki w czasie. Witaj, użytkownik może wybrać toothrottle opóźnienia między każdej partii lub hello rozmiar partii. Witaj poniższy fragment kodu przedstawia ten model programowania.  Należy pamiętać, że w tym przykładzie hello przetwarzania odbywa się po dba hello transakcji, jeśli błąd był toooccur podczas przetwarzania, hello nieprzetworzone elementy zostaną utracone bez przetworzeniu.  Alternatywnie przetwarzania hello może odbywać się w zakresie transakcji hello, jednak to może mieć negatywny wpływ na wydajność i wymaga obsługi elementów hello przetworzone.
 
 ```
 int batchSize = 5;
@@ -194,12 +194,12 @@ while(!cancellationToken.IsCancellationRequested)
 
             if (ret.HasValue)
             {
-                // If an item was dequeued, add to the buffer for processing
+                // If an item was dequeued, add toohello buffer for processing
                 processItems.Add(ret.Value);
             }
             else
             {
-                // else break the for loop
+                // else break hello for loop
                 break;
             }
         }
@@ -207,7 +207,7 @@ while(!cancellationToken.IsCancellationRequested)
         await txn.CommitAsync();
     }
 
-    // Process the dequeues
+    // Process hello dequeues
     for (int i = 0; i < processItems.Count; ++i)
     {
         Console.WriteLine("Value : " + processItems[i]);
@@ -219,7 +219,7 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-notification-based-processing"></a>Przetwarzanie powiadomień na podstawie optymalnych
-Inny interesujące wzorzec programowania używa interfejsu API Count. W tym miejscu możemy wdrożyć optymalnych powiadomień na podstawie przetwarzania dla kolejki. Kolejki licznik może służyć do ograniczania umieścić w kolejce "lub" task kolejki.  Należy pamiętać, że co w poprzednim przykładzie, ponieważ przetwarzanie zachodzi poza transakcją, nieprzetworzone elementy mogą zostać utracone jeśli wystąpi błąd podczas przetwarzania.
+Inny interesujące wzorzec programowania używa hello liczba interfejsu API. W tym miejscu możemy wdrożyć optymalnych powiadomień na podstawie przetwarzania hello kolejki. kolejki Hello liczba może być toothrottle używane jako umieścić w kolejce "lub" task kolejki.  Należy pamiętać, że jak w poprzednim przykładzie hello, ponieważ przetwarzanie hello odbywa się poza transakcji hello nieprzetworzone elementy mogą zostać utracone jeśli wystąpi błąd podczas przetwarzania.
 
 ```
 int threshold = 5;
@@ -231,11 +231,11 @@ while(!cancellationToken.IsCancellationRequested)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        // If the queue does not have the threshold number of items, delay the task and check again
+        // If hello queue does not have hello threshold number of items, delay hello task and check again
         await Task.Delay(TimeSpan.FromMilliseconds(delayMs), cancellationToken);
     }
 
-    // If there are approximately threshold number of items, try and process the queue
+    // If there are approximately threshold number of items, try and process hello queue
 
     // Buffer for dequeued items
     List<int> processItems = new List<int>();
@@ -250,7 +250,7 @@ while(!cancellationToken.IsCancellationRequested)
 
             if (ret.HasValue)
             {
-                // If an item was dequeued, add to the buffer for processing
+                // If an item was dequeued, add toohello buffer for processing
                 processItems.Add(ret.Value);
             }
         } while (processItems.Count < threshold && ret.HasValue);
@@ -258,7 +258,7 @@ while(!cancellationToken.IsCancellationRequested)
         await txn.CommitAsync();
     }
 
-    // Process the dequeues
+    // Process hello dequeues
     for (int i = 0; i < processItems.Count; ++i)
     {
         Console.WriteLine("Value : " + processItems[i]);
@@ -267,9 +267,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>Optymalny opróżniania
-Nie można zagwarantować opróżniania kolejki z powodu równoczesnych charakter struktury danych.  Jest to możliwe, że nawet jeśli nie ma operacji użytkownika w kolejce znajdują się aktywny, określonego wywołania TryDequeueAsync nie może zwracać element, który został wcześniej umieszczonych w kolejce i zatwierdzone.  Jest gwarantowane elementu umieszczonych w kolejce *ostatecznie* stają się widoczne do usuwania z kolejki, bez mechanizm komunikacji poza pasmem konsumenta niezależne nie wiedzieć, że kolejka została osiągnięta nawet jeśli stan wszystkich producentów zostały zatrzymane, a nie nowy umieścić operacje są niedozwolone. W związku z tym Operacja opróżniania jest optymalnych zgodnie z implementacją poniżej.
+Nie można zagwarantować opróżniania kolejki hello powodu toohello równoczesnych rodzaj hello struktury danych.  Jest to możliwe, że nawet jeśli nie ma operacji użytkownika w kolejce hello jest aktywny, tooTryDequeueAsync rozmowy określonym nie może zwracać element, który został wcześniej umieszczonych w kolejce i zatwierdzone.  Element umieszczonych w kolejce Hello jest gwarantowana zbyt*ostatecznie* stają się widoczne toodequeue, jednak bez mechanizm komunikacji poza pasmem konsumenta niezależne nie może znać tej kolejki hello osiągnęła nawet jeśli stan wszystkich Producenci została zatrzymana, a nie ma nowych umieścić w kolejce operacji jest niedozwolone. W związku z tym Operacja opróżniania hello jest optymalnych zgodnie z implementacją poniżej.
 
-Użytkownik należy zatrzymać wszystkie dalsze producentów i zadania odbiorców i poczekaj, aż locie transakcji do zatwierdzenia lub przerwania, przed podjęciem próby opróżnienia kolejki.  Jeśli użytkownik zna oczekiwana liczba elementów w kolejce, można skonfigurować powiadomienia, która sygnalizuje, że wszystkie elementy zostały usuniętej.
+Hello użytkownika należy zatrzymać dalsze producentów i zadania odbiorców i poczekaj, aż wszystkie transakcje locie toocommit lub Przerwij, przed podjęciem próby wykonania toodrain hello kolejki.  Jeśli użytkownik hello zna hello oczekiwana liczba elementów w kolejce hello, można skonfigurować powiadomienia, która sygnalizuje, że wszystkie elementy zostały usuniętej.
 
 ```
 int numItemsDequeued;
@@ -289,7 +289,7 @@ do
 
             if(ret.HasValue)
             {
-                // Buffer the dequeues
+                // Buffer hello dequeues
                 processItems.Add(ret.Value);
             }
         } while (ret.HasValue && processItems.Count < batchSize);
@@ -297,7 +297,7 @@ do
         await txn.CommitAsync();
     }
 
-    // Process the dequeues
+    // Process hello dequeues
     for (int i = 0; i < processItems.Count; ++i)
     {
         Console.WriteLine("Value : " + processItems[i]);
@@ -306,7 +306,7 @@ do
 ```
 
 ### <a name="peek"></a>Peek
-Nie ma ReliableConcurrentQueue *TryPeekAsync* interfejsu api. Użytkownicy mogą uzyskać wglądu semantycznych przy użyciu *TryDequeueAsync* i Trwa przerywanie transakcji. W tym przykładzie dequeues są przetwarzane tylko wtedy, gdy wartość elementu jest większa niż *10*.
+ReliableConcurrentQueue nie zapewnia hello *TryPeekAsync* interfejsu api. Użytkownicy mogą uzyskać wglądu hello semantycznych przy użyciu *TryDequeueAsync* , a następnie Przerywanie transakcji hello. W tym przykładzie dequeues są przetwarzane tylko wtedy, gdy jest większa niż wartość elementu hello *10*.
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -318,7 +318,7 @@ using (var txn = this.StateManager.CreateTransaction())
     {
         if (ret.Value > 10)
         {
-            // Process the item
+            // Process hello item
             Console.WriteLine("Value : " + ret.Value);
             valueProcessed = true;
         }
@@ -342,5 +342,5 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Niezawodne usługi tworzenia kopii zapasowej i przywracania (odzyskiwania po awarii)](service-fabric-reliable-services-backup-restore.md)
 * [Niezawodne stanu Menedżera konfiguracji](service-fabric-reliable-services-configuration.md)
 * [Wprowadzenie do usług interfejsu API sieci Web sieci szkieletowej usług](service-fabric-reliable-services-communication-webapi.md)
-* [Zaawansowanego wykorzystania niezawodnej Model programowania usług](service-fabric-reliable-services-advanced-usage.md)
+* [Zaawansowanego wykorzystania hello niezawodnej modelu programowania usług](service-fabric-reliable-services-advanced-usage.md)
 * [Dokumentacja dla deweloperów niezawodnej kolekcji](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

@@ -1,5 +1,5 @@
 ---
-title: "Architektura zabezpieczeń warstwowych ze środowiska usługi aplikacji"
+title: "aaaLayered Architektura zabezpieczeń ze środowiska usługi App Service"
 description: "Implementacja architektury zabezpieczeń warstwowych, ze środowiska usługi App Service."
 services: app-service
 documentationcenter: 
@@ -14,83 +14,83 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
-ms.openlocfilehash: 0fb02c13f99a8f4a46e0142c20da3b152c809b6b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0627ba6fa849908506fe62c451c888c147cabc03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementacja architektury zabezpieczeń warstwowych, ze środowiska usługi aplikacji
 ## <a name="overview"></a>Omówienie
 Ponieważ środowiska usługi App Service udostępniają odizolowanym środowisku uruchomieniowym wdrożony w sieci wirtualnej, deweloperzy mogą tworzyć architektury zabezpieczeń warstwowych, zapewniając różne poziomy dostępu do sieci dla każdej warstwy aplikacji fizycznych.
 
-Wspólne dążenie jest Ukryj zapleczy interfejsu API z dostępem do Internetu ogólne i Zezwalaj tylko na interfejsy API do wywołania przez aplikacje sieci web nadrzędnego.  [Sieciowe grupy zabezpieczeń (NSG)] [ NetworkSecurityGroups] pozwala na podsieci zawierający środowiska usługi App Service ograniczenia publiczny dostęp do aplikacji interfejsu API.
+Wspólne dążenie jest toohide interfejsu API zapleczy z dostępem do Internetu ogólne i Zezwalaj tylko na interfejsy API toobe wywoływany przez aplikacje sieci web nadrzędnego.  [Sieciowe grupy zabezpieczeń (NSG)] [ NetworkSecurityGroups] mogą być używane w podsieci zawierający aplikacje tooAPI dostępu publicznego toorestrict środowiska usługi App Service.
 
-Na poniższym diagramie przedstawiono architekturę przykład z aplikacją WebAPI na podstawie wdrożony w środowisku usługi aplikacji.  Trzy wystąpienia aplikacji sieci web w osobnych, wdrożone na trzy osobne środowiska usługi aplikacji wywołań zaplecza w tej samej aplikacji WebAPI.
+Hello Poniższy diagram przedstawia architekturę przykład z aplikacją WebAPI na podstawie wdrożony w środowisku usługi aplikacji.  Trzy wystąpienia aplikacji sieci web w osobnych, wdrożone na trzy osobne środowiska usługi aplikacji należy toohello zaplecza wywołania tej samej aplikacji WebAPI.
 
 ![Architektura koncepcyjna][ConceptualArchitecture] 
 
-Zielony znak plus wskazują, że grupy zabezpieczeń sieci w podsieci zawierający "apiase" umożliwia wywołania z aplikacji sieci web nadrzędnego jako dobrze wywołania po sobie samym.  Jednak tej samej grupy zabezpieczeń sieci jawnie nie zezwala na dostęp do ogólnego ruch przychodzący z Internetu. 
+Witaj zielony znak plus wskazać, że hello sieciowej grupy zabezpieczeń w podsieci hello zawierający "apiase" umożliwia wywołania z hello aplikacji sieci web nadrzędnego jako dobrze wywołania po sobie samym.  Jednak hello tej samej grupy zabezpieczeń sieci jawnie nie zezwala na dostęp do toogeneral ruchu przychodzącego ruchu z hello Internet. 
 
-W pozostałej części w tym temacie przedstawiono kroki potrzebne do skonfigurowania sieciowej grupy zabezpieczeń w podsieci zawierający "apiase".
+Witaj pozostałej części tego tematu przeprowadzi Cię przez hello kroki potrzebne tooconfigure hello sieciowej grupy zabezpieczeń w podsieci hello zawierający "apiase".
 
-## <a name="determining-the-network-behavior"></a>Określanie zachowania sieci
-Aby dowiedzieć się, jakie reguły zabezpieczeń sieciowych są potrzebne, musisz określić klientów sieci będzie mogło nawiązać środowiska usługi aplikacji zawierającej aplikację interfejsu API i których klienci będą blokowane.
+## <a name="determining-hello-network-behavior"></a>Określanie hello zachowanie sieci
+W kolejności tooknow zabezpieczenia sieci, jakie potrzebne są zasady, konieczne toodetermine klientów sieci, które mogą być tooreach hello środowiska usługi aplikacji zawierającego hello aplikacji interfejsu API i których klienci będą blokowane.
 
-Ponieważ [sieciowej grupy zabezpieczeń (NSG)] [ NetworkSecurityGroups] są stosowane do podsieci i środowiska usługi App Service są wdrażane na podsieci, zasad zawartych w grupie NSG są stosowane do **wszystkie** aplikacje działające w środowisku usługi aplikacji.  Przy użyciu architektury próbki tego artykułu, po zastosowaniu sieciową grupę zabezpieczeń do podsieci, zawierający "apiase", wszystkie aplikacje uruchomione na "apiase" środowiska usługi aplikacji będą chronione za pomocą tego samego zestawu reguł zabezpieczeń. 
+Ponieważ [sieciowej grupy zabezpieczeń (NSG)] [ NetworkSecurityGroups] są stosowane toosubnets i środowiska usługi App Service są wdrażane na podsieci, hello reguły zawarte w grupy NSG stosuje się zbyt**wszystkie** aplikacje działające w środowisku usługi aplikacji.  Przy użyciu hello przykładowa architektura tego artykułu, grupy zabezpieczeń sieci po podsieci zastosowane toohello zawierającej "apiase", wszystkie aplikacje uruchomione na powitania "apiase" środowiska usługi aplikacji, które będą chronione za pomocą hello sam zestaw reguł zabezpieczeń. 
 
-* **Określić wychodzący adres IP nadrzędne obiekty wywołujące:** co to jest adres IP lub adresy nadrzędne obiekty wywołujące?  Te adresy musi być jawnie dozwolone dostępu w grupie NSG.  Ponieważ wywołań między środowiska usługi App Service są traktowane jako wywołania "Internet", oznacza to, że wychodzący adres IP przypisany do każdego z trzech nadrzędnego środowiska usługi aplikacji musi mieć dostęp w grupie NSG dla podsieci "apiase".   Aby uzyskać więcej informacji na temat określania wychodzący adres IP, aby aplikacje działające w środowisku usługi aplikacji, zobacz [architektury sieci] [ NetworkArchitecture] artykuł z omówieniem.
-* **W aplikacji interfejsu API zaplecza trzeba wywołać się?**  Czasami ich i niewielkie punkt jest scenariusz, w którym aplikacja zaplecza musi wywołać się.  Jeśli aplikacji interfejsu API zaplecza w środowisku usługi aplikacji musi wywołać się, to także traktowane jako wywołanie "Internet".  W architekturze próbki wymaga zezwalania na dostęp z wychodzący adres IP "apiase" środowiska usługi aplikacji oraz.
+* **Określić hello wychodzący adres IP nadrzędnego obiektów wywołujących:** co to jest hello adres lub adresy IP z wywołań nadrzędnego hello?  Te adresy muszą toobe jawnie dozwolone w hello NSG dostępu.  Ponieważ wywołań między środowiska usługi App Service są traktowane jako wywołania "Internet", oznacza to hello wychodzącego IP przypisany adres tooeach z hello trzy nadrzędnego środowiska usługi App Service musi toobe zezwolenie na dostęp w hello NSG dla podsieci "apiase" hello.   Aby uzyskać więcej informacji na temat określania hello wychodzący adres IP, aplikacje działające w środowisku usługi aplikacji można znaleźć hello [architektury sieci] [ NetworkArchitecture] artykuł z omówieniem.
+* **Aplikacja interfejsu API zaplecza hello należy toocall się?**  Czasami ich i niewielkie punkt jest scenariusz hello których hello zaplecza aplikacji wymaga toocall samej siebie.  Jeśli w aplikacji interfejsu API zaplecza w środowisku usługi aplikacji wymaga toocall samego, to także traktowane jako wywołanie "Internet".  W architekturze próbki hello wymaga zezwalania na dostęp z hello wychodzący adres IP hello "apiase" środowiska usługi aplikacji oraz.
 
-## <a name="setting-up-the-network-security-group"></a>Konfigurowanie grupy zabezpieczeń sieci
-Zestaw wychodzących adresów IP są znane, następnym krokiem po do utworzenia grupy zabezpieczeń sieci.  Można utworzyć grupy zabezpieczeń sieci dla obu Menedżera zasobów opartych na sieci wirtualnych, a także klasycznych sieci wirtualnych.  Poniższe przykłady Pokaż tworzenia i konfigurowania grupy NSG w klasycznym sieci wirtualnej przy użyciu programu Powershell.
+## <a name="setting-up-hello-network-security-group"></a>Konfigurowanie hello grupy zabezpieczeń sieci
+Po ustawieniu hello z wychodzących adresów IP są znane, hello następnym krokiem jest tooconstruct grupy zabezpieczeń sieci.  Można utworzyć grupy zabezpieczeń sieci dla obu Menedżera zasobów opartych na sieci wirtualnych, a także klasycznych sieci wirtualnych.  Poniższe przykłady Hello Pokaż tworzenia i konfigurowania grupy NSG w klasycznym sieci wirtualnej przy użyciu programu Powershell.
 
-Dla architektury próbki tych środowisk znajdują się w południowo-środkowe stany, więc pusta grupa NSG jest tworzona w tym regionie:
+Dla architektury próbki hello środowisk hello znajdują się w południowo-środkowe stany, więc pusta grupa NSG jest tworzona w tym regionie:
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-Najpierw jawnie zezwolić na reguły jest dodawany do infrastruktury zarządzania platformy Azure, zgodnie z opisem w artykule na [ruch przychodzący] [ InboundTraffic] dla środowiska usługi App Service.
+Najpierw jawnie zezwolić na reguła jest dodawana hello infrastruktury zarządzania platformy Azure, zgodnie z opisem w artykule hello na [ruch przychodzący] [ InboundTraffic] dla środowiska usługi App Service.
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 
-Następnie dwie reguły są dodawane do zezwala na wywołania HTTP i HTTPS z pierwszego środowiska usługi aplikacji nadrzędnego ("fe1ase").
+Następnie dwie reguły są dodawane tooallow HTTP i HTTPS wywołania z hello pierwszy nadrzędnego środowiska usługi aplikacji ("fe1ase").
 
-    #Grant access to requests from the first upstream web front-end
+    #Grant access toorequests from hello first upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe1ase" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe1ase" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Przepłukać i powtórz dla drugiego i trzeciego nadrzędnego środowiska usługi App Service ("fe2ase" i "fe3ase").
+Płukania i powtórz te czynności dla hello drugiego i trzeciego nadrzędnego środowiska usługi App Service ("fe2ase" i "fe3ase").
 
-    #Grant access to requests from the second upstream web front-end
+    #Grant access toorequests from hello second upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe2ase" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe2ase" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-    #Grant access to requests from the third upstream web front-end
+    #Grant access toorequests from hello third upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe3ase" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe3ase" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Ponadto należy udzielić dostępu do środowiska usługi aplikacji interfejsu API zaplecza wychodzących adres IP, dzięki czemu można wywołania zwrotnego do tego samego.
+Ponadto należy udzielić dostępu toohello wychodzący adres IP środowiska usługi aplikacji hello zaplecza interfejsu API, dzięki czemu można wywołania zwrotnego do samej siebie.
 
-    #Allow apps on the apiase environment to call back into itself
+    #Allow apps on hello apiase environment toocall back into itself
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Żadne inne reguły zabezpieczeń sieci należy skonfigurować co grupa NSG ma zestaw reguł domyślnych, które blokują dostęp przychodzące z Internetu domyślnie.
+Nie inne reguły zabezpieczeń sieciowych muszą toobe skonfigurowany, ponieważ co grupa NSG zawiera zestaw reguł domyślnych, które blokują dostęp przychodzące z Internetu hello domyślnie.
 
-Poniżej przedstawiono pełną listę reguł w grupie zabezpieczeń sieci.  Należy zwrócić uwagę, jak ostatni reguły, która zostanie wyróżniona, blokuje dostęp dla ruchu przychodzącego z wszystkich wywołań innych niż te, które jawnie przyznano dostęp.
+Poniżej przedstawiono pełną listę reguł w grupie zabezpieczeń sieci hello Hello.  Należy zwrócić uwagę, jak reguły ostatniego hello, który zostanie wyróżniona, blokuje przychodzące dostęp z wszystkich wywołań innych niż te, które jawnie przyznano dostęp.
 
 ![Konfiguracja grupy NSG][NSGConfiguration] 
 
-Ostatnim krokiem jest aby zastosować grupy NSG do podsieci, która zawiera "apiase" środowiska usługi aplikacji.  
+Ostatnim krokiem Hello jest tooapply hello NSG toohello podsieci, która zawiera hello "apiase" środowiska usługi aplikacji.  
 
-     #Apply the NSG to the backend API subnet
+     #Apply hello NSG toohello backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
 
-Grupa NSG stosowana do podsieci tylko trzy nadrzędnego środowiska usługi App Service i środowiska usługi aplikacji zawierające zaplecza interfejsu API, są dozwolone do wywołania w środowisku "apiase".
+Z podsiecią toohello grupa NSG stosowana hello hello trzy nadrzędnego środowiska usługi App Service i hello środowiska usługi aplikacji hello zawierającego zaplecza interfejsu API, dozwolone są tylko toocall do środowiska "apiase" hello.
 
 ## <a name="additional-links-and-information"></a>Linki do dodatkowych i informacji
-Wszystkie artykuły i w jaki sposób — do użytkownika dla środowiska usługi aplikacji są dostępne w [Plik README dla środowiska usługi aplikacji](../app-service/app-service-app-service-environments-readme.md).
+Wszystkie artykuły i w jaki sposób — do użytkownika dla środowiska usługi aplikacji są dostępne w hello [Plik README dla środowiska usługi aplikacji](../app-service/app-service-app-service-environments-readme.md).
 
 Informacje o [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md). 
 

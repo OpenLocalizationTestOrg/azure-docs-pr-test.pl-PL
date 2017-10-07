@@ -1,6 +1,6 @@
 ---
-title: "Zapytanie Hive za pośrednictwem sterownik JDBC - Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Sterownik JDBC z aplikacji Java umożliwia wysyłanie zapytań programu Hive do platformy Hadoop w usłudze HDInsight. Połącz programowo i z klienta SQuirrel SQL."
+title: "aaaQuery Hive za pośrednictwem sterownik JDBC hello - Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Użyj sterownik JDBC hello z tooHadoop zapytań Hive toosubmit Java aplikacji w usłudze HDInsight. Połącz programowo i z powitania klienta SQuirrel SQL."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,46 +16,46 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: f2de58c2763b2ddd0926336164738929c477c4ae
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 93178da3b8d497faa4c788e91dba89c4e45d3fff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Zapytanie Hive za pośrednictwem sterownik JDBC w usłudze HDInsight
+# <a name="query-hive-through-hello-jdbc-driver-in-hdinsight"></a>Zapytanie Hive za pośrednictwem sterownik JDBC hello w usłudze HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Dowiedz się, jak umożliwia wysyłanie zapytań programu Hive do platformy Hadoop w usłudze Azure HDInsight sterownik JDBC z aplikacji Java. Informacje przedstawione w tym dokumencie pokazano, jak połączyć programowo i z klienta SQuirrel SQL.
+Dowiedz się, jak sterownik JDBC hello toouse z toosubmit aplikacji Java Hive odpytuje tooHadoop w usłudze Azure HDInsight. Witaj informacje w tym dokumencie przedstawiono sposób tooconnect programowo i z hello SQuirrel klienta SQL.
 
-Aby uzyskać więcej informacji na interfejsie JDBC Hive, zobacz [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
+Aby uzyskać więcej informacji na powitania interfejsu JDBC Hive, zobacz [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Hadoop w klastrze usługi HDInsight. Praca klastrach opartych na systemie Linux albo systemem Windows.
 
   > [!IMPORTANT]
-  > Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz [wycofanie HDInsight 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz [wycofanie HDInsight 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL jest aplikacją kliencką JDBC.
 
-* [Java Developer Kit (JDK) w wersji 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) lub nowszej.
+* Witaj [Java Developer Kit (JDK) w wersji 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) lub nowszej.
 
-* [Apache Maven](https://maven.apache.org). Maven jest projektem systemu dla projektów języka Java, używanego przez projekt skojarzony z tym artykułem kompilacji.
+* [Apache Maven](https://maven.apache.org). Maven jest projektem systemu dla projektów języka Java, używanego przez projekt hello skojarzone z tym artykułem kompilacji.
 
 ## <a name="jdbc-connection-string"></a>Parametry połączenia sterownika JDBC
 
-JDBC połączenia z klastrem usługi HDInsight na platformie Azure są nawiązywane ponad 443, a ruch jest zabezpieczony przy użyciu protokołu SSL. Publiczny bramy, która klastrów sit za przekierowuje ruch do portu, który faktycznie nasłuchiwanie serwera HiveServer2. Poniżej przedstawiono przykład parametry połączenia:
+Klaster usługi HDInsight tooan JDBC połączeń na platformie Azure są wprowadzane ponad 443, a ruch hello jest zabezpieczone przy użyciu protokołu SSL. Hello publicznego bramy, która klastrów hello sit za przekierowuje hello ruchu toohello portu nasłuchiwania serwera HiveServer2 faktycznie na. Witaj poniżej znajduje się przykład parametry połączenia:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
-Element `CLUSTERNAME` należy zastąpić nazwą klastra usługi HDInsight.
+Zastąp `CLUSTERNAME` o nazwie hello klastra usługi HDInsight.
 
 ## <a name="authentication"></a>Authentication
 
-Podczas ustanawiania połączenia, należy użyć nazwy administratora klastra usługi HDInsight i hasła do uwierzytelnienia klastra bramy. Podczas nawiązywania połączenia z klientami JDBC, takich jak SQuirreL SQL, wprowadź nazwę administratora i hasła w ustawieniach klienta.
+Podczas ustanawiania połączenia hello, musisz użyć hello HDInsight klastra Administrator nazwy i hasła tooauthenticate toohello klastra bramy. Podczas nawiązywania połączenia z klientami JDBC, takich jak SQuirreL SQL, wprowadź hello admin nazwy i hasła w ustawieniach klienta.
 
-Z poziomu aplikacji Java należy użyć nazwy i hasła podczas nawiązywania połączenia. Na przykład następujący kod w języku Java otwiera nowe połączenie przy użyciu parametrów połączenia, nazwa administratora i hasła:
+Z poziomu aplikacji Java musi używać hello nazwy i hasła podczas ustanawiania połączenia. Na przykład hello następujący kod w języku Java otwiera nowe połączenie przy użyciu parametrów połączenia hello, nazwę administratora i hasła:
 
 ```java
 DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
@@ -63,15 +63,15 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 ## <a name="connect-with-squirrel-sql-client"></a>Połączenie z klientem SQuirreL SQL
 
-SQuirreL SQL jest klienta JDBC, który umożliwia zdalne uruchamianie zapytań Hive z klastrem usługi HDInsight. W następujących krokach założono zainstalowano SQuirreL SQL.
+SQuirreL SQL jest klientem JDBC, które mogą być używane tooremotely uruchamiania zapytań Hive z klastrem usługi HDInsight. Witaj następujących krokach założono zainstalowano SQuirreL SQL.
 
-1. Skopiuj sterownik Hive JDBC z klastrem usługi HDInsight.
+1. Skopiuj hello Hive JDBC sterowniki z klastrem usługi HDInsight.
 
-    * Aby uzyskać **HDInsight opartych na systemie Linux**, wykonaj następujące kroki, aby pobrać pliki jar wymagane.
+    * Dla **HDInsight opartych na systemie Linux**, użyj następujących hello kroki pliki jar hello wymagane toodownload.
 
-        1. Utwórz katalog zawierający pliki. Na przykład `mkdir hivedriver`.
+        1. Utwórz katalog zawierający pliki hello. Na przykład `mkdir hivedriver`.
 
-        2. Z wiersza polecenia użyj następujących poleceń, aby skopiować pliki z klastrem usługi HDInsight:
+        2. Z wiersza polecenia użyj następujących hello polecenia toocopy hello plików z klastrem usługi HDInsight hello:
 
             ```bash
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
@@ -79,79 +79,79 @@ SQuirreL SQL jest klienta JDBC, który umożliwia zdalne uruchamianie zapytań H
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
             ```
 
-            Zastąp `USERNAME` o nazwie konta użytkownika SSH dla klastra. Zastąp `CLUSTERNAME` z nazwą klastra usługi HDInsight.
+            Zastąp `USERNAME` z nazwą konta użytkownika SSH hello hello klastra. Zastąp `CLUSTERNAME` o nazwie klastra usługi HDInsight hello.
 
-    * Aby uzyskać **HDInsight opartych na systemie Windows**, wykonaj następujące kroki, aby pobrać pliki jar.
+    * Dla **HDInsight opartych na systemie Windows**, użyj następujących hello kroki pliki jar hello toodownload.
 
-        1. W portalu Azure, wybierz z klastrem usługi HDInsight, a następnie wybierz **pulpitu zdalnego** ikony.
+        1. Z hello portalu Azure, wybierz z klastrem usługi HDInsight, a następnie wybierz hello **pulpitu zdalnego** ikony.
 
             ![Ikony pulpitu zdalnego](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. W bloku pulpitu zdalnego za pomocą **Connect** przycisk, aby połączyć się z klastrem. Jeśli nie włączono pulpitu zdalnego, użyj formularza, aby podać nazwę użytkownika i hasło, a następnie wybierz **włączyć** można włączyć pulpitu zdalnego dla klastra.
+        2. W bloku hello pulpitu zdalnego za pomocą hello **Connect** przycisk tooconnect toohello klastra. Jeśli hello pulpitu zdalnego nie jest włączona, użyj hello formularza tooprovide nazwę użytkownika i hasło, a następnie wybierz **włączyć** tooenable pulpitu zdalnego dla klastra hello.
 
             ![Blok pulpitu zdalnego](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 
-            Po wybraniu **Connect**, zostanie pobrany plik RDP. Aby uruchomić klienta usług pulpitu zdalnego, należy użyć tego pliku. Po wyświetleniu monitu użyj nazwy użytkownika i hasło dostępu do pulpitu zdalnego.
+            Po wybraniu **Connect**, zostanie pobrany plik RDP. Korzystając z tego pliku toolaunch hello pulpitu zdalnego klienta. Po wyświetleniu monitu użyj hello nazwę użytkownika i hasło dostępu do pulpitu zdalnego.
 
-        3. Po nawiązaniu połączenia, skopiuj następujące pliki z sesji pulpitu zdalnego na komputerze lokalnym. Umieść je w lokalnym katalogu o nazwie `hivedriver`.
+        3. Po nawiązaniu połączenia, skopiuj następujące pliki z komputera lokalnego tooyour sesji pulpitu zdalnego hello hello. Umieść je w lokalnym katalogu o nazwie `hivedriver`.
 
             * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-Standalone.JAR
             * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-Common-2.6.0.2.2.9.1-7.JAR
             * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.JAR
 
             > [!NOTE]
-            > Numery wersji dołączony do ścieżki i nazwy plików mogą być inne dla klastra.
+            > Witaj w wersji numery objęte hello ścieżki i nazwy plików mogą być inne dla klastra.
 
-        4. Rozłączenie sesji pulpitu zdalnego, po zakończeniu kopiowania plików.
+        4. Rozłączenie sesji pulpitu zdalnego powitania po zakończeniu kopiowania plików hello.
 
-2. Uruchom aplikację SQuirreL SQL. Od lewej części okna wybierz **sterowniki**.
+2. Uruchom aplikację SQuirreL SQL hello. Od lewej hello hello okna, wybierz **sterowniki**.
 
-    ![Sterowniki karty po lewej stronie okna](./media/hdinsight-connect-hive-jdbc-driver/squirreldrivers.png)
+    ![Sterowniki karty po lewej stronie powitania hello okna](./media/hdinsight-connect-hive-jdbc-driver/squirreldrivers.png)
 
-3. Z ikony w górnej części **sterowniki** okno dialogowe, wybierz opcję  **+**  ikonę, aby utworzyć sterownika.
+3. Z ikon hello u góry hello hello **sterowniki** okno dialogowe, wybierz opcję hello  **+**  toocreate ikona sterownika.
 
     ![Ikony sterowniki](./media/hdinsight-connect-hive-jdbc-driver/driversicons.png)
 
-4. W oknie dialogowym dodawania sterowników Dodaj następujące informacje:
+4. W oknie dialogowym Dodawanie sterownika hello Dodaj hello następujących informacji:
 
     * **Nazwa**: Hive
     * **Przykładowy adres URL**:`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Dodatkowe ścieżki klasy**: Użyj przycisk Dodaj, aby dodać pliki jar pobrane wcześniej
+    * **Dodatkowe ścieżki klasy**: Użyj hello Dodaj przycisk tooadd hello jar pliki pobrane wcześniej
     * **Nazwa klasy**: org.apache.hive.jdbc.HiveDriver
 
    ![Dodaj sterownik okna dialogowego](./media/hdinsight-connect-hive-jdbc-driver/adddriver.png)
 
-   Kliknij przycisk **OK** Aby zapisać te ustawienia.
+   Kliknij przycisk **OK** toosave te ustawienia.
 
-5. Po lewej stronie okna SQuirreL SQL, wybierz **aliasy**. Następnie kliknij przycisk  **+**  ikonę, aby utworzyć alias połączenia.
+5. Powitania po lewej stronie okna SQuirreL SQL hello wybierz **aliasy**. Następnie kliknij przycisk hello  **+**  toocreate ikona alias połączenia.
 
     ![Dodaj nowy alias](./media/hdinsight-connect-hive-jdbc-driver/aliases.png)
 
-6. Użyj poniższych wartości **Dodaj Alias** okna dialogowego.
+6. Użyj następujących hello wartości hello **Dodaj Alias** okna dialogowego.
 
     * **Nazwa**: Hive w usłudze HDInsight
 
-    * **Sterownik**: Użyj listy rozwijanej, aby wybrać **Hive** sterownika
+    * **Sterownik**: Użyj hello listy rozwijanej tooselect hello **Hive** sterownika
 
     * **Adres URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
-        Zastąp **CLUSTERNAME** nazwą klastra usługi HDInsight:
+        Zastąp **CLUSTERNAME** o nazwie hello klastra usługi HDInsight.
 
-    * **Nazwa użytkownika**: Nazwa konta logowania klastra dla klastra usługi HDInsight. Wartość domyślna to `admin`.
+    * **Nazwa użytkownika**: Nazwa konta logowania hello klastra dla klastra usługi HDInsight. Domyślnie Hello `admin`.
 
-    * **Hasło**: hasło do konta logowania klastra.
+    * **Hasło**: hello hasła konta logowania hello klastra.
 
  ![Dodaj alias okna dialogowego](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
-    Użyj **testu** przycisk, aby sprawdzić, czy połączenie działa. Gdy **nawiązać: Hive w usłudze HDInsight** zostanie wyświetlone okno dialogowe, wybierz **Connect** do wykonania testu. Jeśli test zakończy się powodzeniem, zobacz **połączenie przebiegło pomyślnie** okna dialogowego.
+    Użyj hello **testu** tooverify przycisku, który hello połączenie działa. Gdy **nawiązać: Hive w usłudze HDInsight** zostanie wyświetlone okno dialogowe, wybierz **Connect** tooperform hello testu. Jeśli hello test zakończy się pomyślnie, zostanie wyświetlony **połączenie przebiegło pomyślnie** okna dialogowego.
 
-    Aby zapisać alias połączenie, użyj **Ok** przycisk w dolnej części **Dodaj Alias** okna dialogowego.
+    połączenie hello toosave alias, użyj hello **Ok** u dołu hello hello **Dodaj Alias** okna dialogowego.
 
-7. Z **nawiązać** wybierz z listy rozwijanej w górnej części SQuirreL SQL **Hive w usłudze HDInsight**. Po wyświetleniu monitu wybierz **Connect**.
+7. Z hello **nawiązać** wybierz z listy rozwijanej na górze hello SQuirreL SQL **Hive w usłudze HDInsight**. Po wyświetleniu monitu wybierz **Connect**.
 
     ![w oknie dialogowym połączenia](./media/hdinsight-connect-hive-jdbc-driver/connect.png)
 
-8. Po nawiązaniu połączenia, wpisz poniższe zapytanie w oknie dialogowym zapytania SQL, a następnie wybierz **Uruchom** ikony. Wyniki zapytania powinien być wyświetlony w obszarze wyniki.
+8. Po nawiązaniu połączenia, wprowadź hello następujące zapytanie do okna dialogowego zapytania SQL hello, a następnie wybierz hello **Uruchom** ikony. obszar wyników Hello powinny być wyświetlane hello wyniki zapytania hello.
 
         select * from hivesampletable limit 10;
 
@@ -159,13 +159,13 @@ SQuirreL SQL jest klienta JDBC, który umożliwia zdalne uruchamianie zapytań H
 
 ## <a name="connect-from-an-example-java-application"></a>Połącz się z przykładem aplikacji Java
 
-Przykład użycia Java klientowi zapytania Hive w usłudze HDInsight jest dostępna w [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Postępuj zgodnie z instrukcjami w repozytorium, aby skompilować i uruchomić próbki.
+Przykład użycia tooquery klienta Java Hive w usłudze HDInsight jest dostępna w [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Wykonaj te instrukcje hello hello toobuild repozytorium, a następnie uruchom przykładowe hello.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Wystąpił nieoczekiwany błąd wystąpił podczas próby otwarcia połączenia SQL
+### <a name="unexpected-error-occurred-attempting-tooopen-an-sql-connection"></a>Wystąpił nieoczekiwany błąd podczas próby tooopen połączenia SQL
 
-**Objawy**: podczas łączenia z klastra usługi HDInsight, który jest w wersji 3.3 lub 3.4, może zostać wyświetlony błąd, który wystąpił nieoczekiwany błąd. Ślad stosu dla tego błędu rozpoczyna się od następujące wiersze:
+**Objawy**: podczas łączenia z klastrem usługi HDInsight tooan, który jest w wersji 3.3 lub 3.4, może zostać wyświetlony błąd, który wystąpił nieoczekiwany błąd. Witaj śladu stosu dla tego błędu rozpoczyna się od hello następujące wiersze:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -173,23 +173,23 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**Przyczyna**: niezgodność wersji pliku commons codec.jar używane przez SQuirreL i wersji wymaganej przez składniki programu Hive JDBC przyczyną tego błędu.
+**Przyczyna**: niezgodność wersji hello pliku commons codec.jar hello używanego przez SQuirreL i hello wymagana przez składniki Hive JDBC hello przyczyną tego błędu.
 
-**Rozdzielczość**: Aby naprawić ten błąd, wykonaj następujące kroki:
+**Rozdzielczość**: toofix tego błędu, użyj hello następujące kroki:
 
-1. Pobierz plik jar koder-dekoder commons z klastrem usługi HDInsight.
+1. Pobierz plik jar koder-dekoder commons hello z klastrem usługi HDInsight.
 
         scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
 
-2. Zamknij SQuirreL, a następnie przejdź do katalogu, którym SQuirreL jest zainstalowany w systemie. W katalogu SquirreL w obszarze `lib` katalogu, Zastąp istniejące codec.jar commons każdy z nich pobrane z klastrem usługi HDInsight.
+2. Zakończ SQuirreL, a następnie przejdź katalogu toohello zainstalowanym SQuirreL w tym systemie. W katalogu SquirreL hello, hello `lib` katalogu, Zastąp hello istniejących na commons codec.jar z jedną pobrane z klastrem usługi HDInsight hello hello.
 
-3. Uruchom ponownie SQuirreL. Błąd nie powinien wystąpić podczas nawiązywania połączenia Hive w usłudze HDInsight.
+3. Uruchom ponownie SQuirreL. Błąd Hello już powinien wystąpić, gdy połączenie tooHive w usłudze HDInsight.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, kiedy znasz jak pracować z Hive za pomocą JDBC, użyj następujących linków, aby poznać inne sposoby pracy z usługą Azure HDInsight.
+Teraz, kiedy znasz już jak toowork JDBC toouse przy użyciu Hive, hello Użyj następujących łączy tooexplore toowork inne sposoby z usługą Azure HDInsight.
 
-* [Przekazywanie danych do usługi HDInsight](hdinsight-upload-data.md)
+* [Przekazywanie danych tooHDInsight](hdinsight-upload-data.md)
 * [Korzystanie z programu Hive z usługą HDInsight](hdinsight-use-hive.md)
 * [Korzystanie z języka Pig z usługą HDInsight](hdinsight-use-pig.md)
 * [Korzystanie z zadań MapReduce z usługą HDInsight](hdinsight-use-mapreduce.md)

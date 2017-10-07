@@ -1,6 +1,6 @@
 ---
-title: Tworzenie magazynu danych SQL Data Warehouse w witrynie Azure Portal | Microsoft Docs
-description: "Dowiedz się, jak utworzyć bazę danych w usłudze Azure SQL Data Warehouse w portalu Azure"
+title: aaaCreate SQL Data Warehouse w portalu Azure hello | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak hello przez toocreate usługi Azure SQL Data Warehouse w portalu Azure"
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -16,11 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 24ed2d8bad3090e378acf2a42fb909dee0a8517b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f5be6e3f2936e3af9d099854a468f8ce66fd8fbe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-sql-data-warehouse"></a>Tworzenie bazy danych w usłudze Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -30,13 +30,13 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-Z tego samouczka dowiesz się, jak za pomocą witryny Azure Portal utworzyć bazę danych w usłudze SQL Data Warehouse zawierającą przykładową bazę danych AdventureWorksDW.
+W tym samouczku używana hello toocreate portalu Azure SQL Data Warehouse zawierającą przykładową bazę danych AdventureWorksDW.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby rozpocząć pracę, potrzebne będą następujące elementy:
+Rozpoczęto tooget, potrzebne są:
 
-* **Konto platformy Azure**: aby utworzyć konto, odwiedź witrynę [Bezpłatna wersja próbna platformy Azure][Azure Free Trial] lub [Środki na korzystanie z systemu Azure w ramach usługi MSDN][MSDN Azure Credits].
-* **Serwer Azure SQL**: aby uzyskać więcej informacji, zobacz [Tworzenie bazy danych Azure SQL Database przy użyciu witryny Azure Portal][Create an Azure SQL database in the Azure portal].
+* **Konto platformy Azure**: odwiedź [bezpłatnej wersji próbnej Azure] [ Azure Free Trial] lub [MSDN Azure środków] [ MSDN Azure Credits] toocreate konta.
+* **Azure SQL server**: zobacz [tworzenie bazy danych Azure SQL z portalu Azure hello] [ Create an Azure SQL database in hello Azure portal] więcej szczegółów.
 
 > [!NOTE]
 > Utworzenie bazy danych w usłudze SQL Data Warehouse może skutkować powstaniem nowej usługi płatnej.  Aby uzyskać więcej informacji o cenach, zobacz [Cennik usługi SQL Data Warehouse][SQL Data Warehouse pricing].
@@ -44,51 +44,51 @@ Aby rozpocząć pracę, potrzebne będą następujące elementy:
 >
 
 ## <a name="create-a-sql-data-warehouse"></a>Tworzenie bazy danych w usłudze SQL Data Warehouse
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
 2. Kliknij kolejno pozycje **+ Nowy** > **Bazy danych** > **SQL Data Warehouse**.
 
-    ![Tworzenie](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
-3. W bloku **SQL Data Warehouse** podaj potrzebne informacje, a następnie naciśnij przycisk „Utwórz”, aby utworzyć usługę.
+    ![Przycisk Utwórz](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
+3. W hello **SQL Data Warehouse** bloku, wypełnij hello potrzebne informacje, naciśnij klawisz toocreate "Utwórz".
 
     ![Tworzenie bazy danych](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
    * **Serwer**: zalecamy, aby najpierw wybrać serwer.  
-   * **Nazwa bazy danych**: Nazwa używana jako odwołanie do usługi SQL Data Warehouse.  Musi być unikatowa dla serwera.
-   * **Wydajność**: zalecamy rozpoczynanie od 400 jednostek [DWU][DWU]. Możesz przesuwać suwak w lewo lub w prawo, aby dostosować wydajność magazynu danych albo skalować w górę lub w dół po utworzeniu.  Aby dowiedzieć się więcej o jednostkach DWU, zobacz dokumentację dotyczącą [skalowania](sql-data-warehouse-manage-compute-overview.md) lub [nasz cennik][SQL Data Warehouse pricing].
-   * **Subskrypcja**: Wybierz [Subskrypcja], która będzie obciążana płatnościami za tę usługę SQL Data Warehouse.
-   * **Grupa zasobów**: [grupy zasobów][Resource group] to kontenery, które mają ułatwiać zarządzanie kolekcją zasobów platformy Azure. Dowiedz się więcej o [grupach zasobów](../azure-resource-manager/resource-group-overview.md).
-   * **Wybierz źródło**: kliknij kolejno **Wybierz źródło**  >  **Przykład**. Platforma Azure automatycznie wypełni opcję **Wybierz przykład** bazą danych AdventureWorksDW.
+   * **Nazwa bazy danych**: hello nazwę, która jest używana tooreference hello SQL Data Warehouse.  Musi być unikatowy toohello serwera.
+   * **Wydajność**: zalecamy rozpoczynanie od 400 jednostek [DWU][DWU]. Można przenieść hello toohello suwak w lewo lub w prawo tooadjust hello wydajności magazynu danych lub skalowania w górę lub w dół po utworzeniu.  toolearn więcej informacji na temat jednostek dwu, zobacz dokumentację dotyczącą na [skalowanie](sql-data-warehouse-manage-compute-overview.md) lub nasz [cennikiem][SQL Data Warehouse pricing].
+   * **Subskrypcja**: Wybierz hello [subskrypcji] który tej usługi SQL Data Warehouse będzie naliczać opłaty do.
+   * **Grupa zasobów**: [grup zasobów] [ Resource group] są toohelp kontenery, które zarządzanie kolekcją zasobów systemu Azure. Dowiedz się więcej o [grupach zasobów](../azure-resource-manager/resource-group-overview.md).
+   * **Wybierz źródło**: kliknij kolejno **Wybierz źródło**  >  **Przykład**. Azure automatycznie wypełnia hello **wybierz przykład** nazwą AdventureWorksDW.
 
    > [!NOTE]
-   > Sortowanie domyślne dla usługi SQL Data Warehouse to SQL_Latin1_General_CP1_CI_AS. Jeśli jest potrzebne inne sortowanie, za pomocą polecenia języka [T-SQL][T-SQL] można utworzyć bazę danych z innym sortowaniem.
+   > Witaj sortowanie domyślne dla magazynu danych SQL jest SQL_Latin1_General_CP1_CI_AS. W razie potrzeby posortowane w różny sposób [T-SQL] [ T-SQL] mogą być używane toocreate hello z bazy danych o różnych ustawieniach sortowania.
    >
    >
 
-1. Kliknij przycisk **Utwórz**, aby utworzyć usługę SQL Data Warehouse.
-2. Poczekaj kilka minut. Po utworzeniu magazynu danych powinien nastąpić powrót do witryny [Azure Portal](https://portal.azure.com). Usługę SQL Data Warehouse można znaleźć na pulpicie nawigacyjnym, na liście Bazy danych SQL lub w grupie zasobów użytej podczas tworzenia.
+1. Kliknij przycisk **Utwórz** toocreate Twojego SQL Data Warehouse.
+2. Poczekaj kilka minut. Gdy magazyn danych jest gotowy, powinien nastąpić powrót toohello [portalu Azure](https://portal.azure.com). Można znaleźć magazynu danych SQL na pulpicie nawigacyjnym, kategorii bazy danych SQL, lub w zasobie hello grupy tego toocreate można używać go.
 
     ![widok portalu](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Po utworzeniu bazy danych w usłudze SQL Data Warehouse można rozpocząć [nawiązywanie połączenia](sql-data-warehouse-connect-overview.md) i wykonywanie zapytań.
+Po utworzeniu magazynu danych SQL, wszystko jest gotowe za[Connect](sql-data-warehouse-connect-overview.md) i wykonywanie zapytań.
 
-Aby załadować dane do usługi SQL Data Warehouse, zobacz [omówienie ładowania](sql-data-warehouse-overview-load.md).
+tooload dane do usługi SQL Data Warehouse, zobacz hello [omówienie ładowania](sql-data-warehouse-overview-load.md).
 
-Jeśli próbujesz przeprowadzić migrację z istniejącej bazy danych do usługi SQL Data Warehouse, zobacz [omówienie migracji](sql-data-warehouse-overview-migrate.md) lub użyj [narzędzia do migracji](sql-data-warehouse-migrate-migration-utility.md).
+Jeśli próbujesz toomigrate tooSQL istniejącej bazy danych magazynu danych, zobacz hello [Omówienie migracji](sql-data-warehouse-overview-migrate.md) lub użyj [narzędzia do migracji](sql-data-warehouse-migrate-migration-utility.md).
 
 Reguły zapory można również skonfigurować za pomocą języka Transact-SQL. Aby uzyskać więcej informacji, zobacz artykuły dotyczące poleceń [sp_set_firewall_rule][sp_set_firewall_rule] i [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
 
-Warto również zapoznać się z artykułem [Najlepsze praktyki][Best practices].
+Istnieje również toolook pomysł na powitania [najlepsze rozwiązania][Best practices].
 
 <!--Article references-->
-[Create an Azure SQL database in the Azure portal]: ../sql-database/sql-database-get-started.md
+[Create an Azure SQL database in hello Azure portal]: ../sql-database/sql-database-get-started.md
 [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell
 [resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
 [Best practices]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md
-[Subskrypcja]: ../azure-glossary-cloud-terminology.md#subscription
+[subskrypcji]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
 

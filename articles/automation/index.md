@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Automation — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak można zautomatyzować procesy i zarządzanie konfiguracją przy użyciu usługi Automation, aby zaoszczędzić czas i zwiększyć niezawodność typowych zadań administracyjnych."
+title: "aaaAzure automatyzacji dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse automatyzacji tooautomate procesy i zarządzania konfiguracją w kolejności toosave czasu i zwiększyć niezawodność regularnych zadań administracyjnych."
 services: automation
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 00c4fe633a7ef76b20d2a9d1c704bb09da6b19a0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eda979bac2434d9b4a91a4e661f5b46a6540a1d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automation-documentation"></a>Dokumentacja usługi Automation
 
-Dowiedz się, jak używać usługi Automation, aby zaoszczędzić czas i zwiększyć niezawodność typowych zadań administracyjnych wykonywanych w środowisku chmury. Samouczki, dokumentacja interfejsu API oraz inne dokumenty przedstawiające sposób automatyzacji procesów za pomocą elementów Runbook lub automatyzacji zarządzania konfiguracją przy użyciu konfiguracji żądanego stanu.
+Dowiedz się, jak toouse automatyzację toosave i zwiększyć hello niezawodności regularnych zadań administracyjnych wykonywanych w środowisku chmury. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób tooautomate procesy używające elementów runbook lub zautomatyzować przy użyciu konfiguracji żądanego stanu zarządzania konfiguracją.
 
 <ul class="panelContent cardsFTitle">
     <li>

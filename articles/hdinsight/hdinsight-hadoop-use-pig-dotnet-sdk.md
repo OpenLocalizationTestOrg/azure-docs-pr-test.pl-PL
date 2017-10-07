@@ -1,6 +1,6 @@
 ---
-title: "Uruchamianie zadań Apache Pig przy użyciu zestawu .NET SDK dla platformy Hadoop - Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać zestawu .NET SDK dla platformy Hadoop do przesyłania zadań Pig do platformy Hadoop w usłudze HDInsight."
+title: "Apache Pig aaaRun zadania przy użyciu zestawu .NET SDK dla platformy Hadoop - Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse hello zestawu .NET SDK dla platformy Hadoop toosubmit Pig zadania tooHadoop w usłudze HDInsight."
 services: hdinsight
 documentationcenter: .net
 author: Blackmist
@@ -16,38 +16,38 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/15/2017
 ms.author: larryfr
-ms.openlocfilehash: e40d152821b36852c447d5a3adfd39114edbbace
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1d4ceebd7c168372d23fe29a088f04676686de30
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Uruchamianie zadań Pig przy użyciu zestawu .NET SDK dla platformy Hadoop w usłudze HDInsight
+# <a name="run-pig-jobs-using-hello-net-sdk-for-hadoop-in-hdinsight"></a>Uruchamianie zadań Pig przy użyciu hello zestawu .NET SDK dla platformy Hadoop w usłudze HDInsight
 
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-Dowiedz się, jak używać zestawu .NET SDK dla platformy Hadoop do przesyłania zadań Apache Pig do platformy Hadoop w usłudze Azure HDInsight.
+Dowiedz się, jak toouse hello zestawu .NET SDK dla platformy Hadoop toosubmit Apache Pig zadania tooHadoop w usłudze Azure HDInsight.
 
-Zestaw .NET SDK usługi HDInsight zapewnia bibliotek klienta .NET, które ułatwia pracy z klastrami HDInsight ze środowiska .NET. Pig służy do tworzenia MapReduce operacji za pomocą modelowania szereg przekształcenia danych. W tym dokumencie Dowiedz się jak używać podstawowej aplikacji C# można przesłać zadania programu Pig do klastra usługi HDInsight.
+Witaj zestawu .NET SDK usługi HDInsight udostępnia biblioteki klienta .NET, które umożliwia łatwiejsze toowork z klastrami HDInsight ze środowiska .NET. Pig umożliwia toocreate MapReduce operacji za pomocą modelowania szereg przekształcenia danych. W tym dokumencie możesz dowiedzieć się, jak toosubmit aplikacji toouse podstawowe C# Pig zadania tooan klastra usługi HDInsight.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym artykule, są potrzebne.
+toocomplete hello kroki opisane w tym artykule, należy hello poniżej.
 
 * Klaster usługi Azure HDInsight (Hadoop w usłudze HDInsight) (Windows lub opartych na systemie Linux).
 
   > [!IMPORTANT]
-  > Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+  > Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 * Program Visual Studio 2012, 2013, 2015 lub 2017 r.
 
-## <a name="create-the-application"></a>Tworzenie aplikacji
+## <a name="create-hello-application"></a>Tworzenie aplikacji hello
 
-Zestawu .NET SDK HDInsight udostępnia biblioteki klienta .NET, co ułatwia do pracy z klastrami HDInsight ze środowiska .NET.
+Hello zestawu .NET SDK HDInsight udostępnia biblioteki klienta .NET, co pozwala na łatwiejsze toowork z klastrami HDInsight ze środowiska .NET.
 
-1. Z **pliku** menu w programie Visual Studio, wybierz **nowy** , a następnie wybierz **projektu**.
+1. Z hello **pliku** menu w programie Visual Studio, wybierz **nowy** , a następnie wybierz **projektu**.
 
-2. Dla nowego projektu wpisz lub wybierz następujące wartości:
+2. Dla nowego projektu hello wpisz lub wybierz hello następujące wartości:
 
    | Właściwość | Wartość |
    | ------ | ------ |
@@ -55,15 +55,15 @@ Zestawu .NET SDK HDInsight udostępnia biblioteki klienta .NET, co ułatwia do p
    | Szablon | Aplikacja konsolowa |
    | Nazwa | SubmitPigJob |
 
-3. Kliknij przycisk **OK**, aby utworzyć projekt.
+3. Kliknij przycisk **OK** toocreate hello projektu.
 
-4. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki** lub **Menedżera pakietów Nuget**, a następnie wybierz **Konsola Menedżera pakietów**.
+4. Z hello **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki** lub **Menedżera pakietów Nuget**, a następnie wybierz **Konsola Menedżera pakietów**.
 
-5. Aby zainstalować pakiety zestawu .NET SDK, użyj następującego polecenia:
+5. tooinstall hello zestawu .NET SDK pakietów, użyj hello następujące polecenie:
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-6. W Eksploratorze rozwiązań kliknij dwukrotnie **Program.cs** go otworzyć. Zamień istniejący kod poniżej.
+6. W Eksploratorze rozwiązań kliknij dwukrotnie **Program.cs** tooopen go. Zastąp istniejący kod hello hello poniżej.
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
@@ -83,14 +83,14 @@ Zestawu .NET SDK HDInsight udostępnia biblioteki klienta .NET, co ułatwia do p
 
             static void Main(string[] args)
             {
-                System.Console.WriteLine("The application is running ...");
+                System.Console.WriteLine("hello application is running ...");
 
                 var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
                 _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
 
                 SubmitPigJob();
 
-                System.Console.WriteLine("Press ENTER to continue ...");
+                System.Console.WriteLine("Press ENTER toocontinue ...");
                 System.Console.ReadLine();
             }
 
@@ -107,30 +107,30 @@ Zestawu .NET SDK HDInsight udostępnia biblioteki klienta .NET, co ułatwia do p
                                 DUMP RESULT;"
                 };
 
-                System.Console.WriteLine("Submitting the Pig job to the cluster...");
+                System.Console.WriteLine("Submitting hello Pig job toohello cluster...");
                 var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
-                System.Console.WriteLine("Validating that the response is as expected...");
+                System.Console.WriteLine("Validating that hello response is as expected...");
                 System.Console.WriteLine("Response status code is " + response.StatusCode);
-                System.Console.WriteLine("Validating the response object...");
+                System.Console.WriteLine("Validating hello response object...");
                 System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
             }
         }
     }
     ```
 
-7. Aby uruchomić aplikację, naciśnij klawisz **F5**.
+7. Aplikacja hello toostart, naciśnij klawisz **F5**.
 
-8. Aby zakończyć aplikację, naciśnij klawisz **ENTER**.
+8. Aplikacja hello tooexit, naciśnij klawisz **ENTER**.
 
 ## <a name="summary"></a>Podsumowanie
 
-Jak widać, zestawu .NET SDK dla platformy Hadoop umożliwia tworzenie aplikacji platformy .NET, które przesyłania zadań Pig do klastra usługi HDInsight i monitorowanie stanu zadania.
+Jak widać, hello zestawu .NET SDK dla platformy Hadoop umożliwia aplikacje .NET toocreate przesłać klastra usługi HDInsight tooan zadań Pig i monitorować stan zadania hello.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać informacji na temat Pig w usłudze HDInsight, zobacz [Use Pig z usługą Hadoop w usłudze HDInsight](hdinsight-use-pig.md).
 
-Aby uzyskać więcej informacji na temat używania usługi Hadoop w usłudze HDInsight można znaleźć w następujących dokumentach:
+Aby uzyskać więcej informacji na temat używania usługi Hadoop w usłudze HDInsight Zobacz hello w następujących dokumentach:
 
 * [Korzystanie z programu Hive z usługą Hadoop w usłudze HDInsight](hdinsight-use-hive.md)
 * [Używanie MapReduce z usługą Hadoop w usłudze HDInsight](hdinsight-use-mapreduce.md)

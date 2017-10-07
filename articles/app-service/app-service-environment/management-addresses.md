@@ -1,6 +1,6 @@
 ---
-title: "Adresy zarządzania środowiska usługi aplikacji Azure"
-description: "Wyświetla listę adresów zarządzania używany do poleceń środowiska usługi aplikacji"
+title: "adresy zarządzania aaaAzure środowiska usługi aplikacji"
+description: "Adresy zarządzania hello list używane toocommand środowiska usługi aplikacji"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: e97a084772fd16252d925b62498d2e696629a25d
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b34b6266dc3a35915421b14bf34eddc07c2825c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service-environment-management-addresses"></a>Adresy zarządzania środowiska usługi aplikacji
 
-Environment(ASE) usługi aplikacji to wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure (VNet).  ASE musi być dostępny z usługi aplikacji Azure, dzięki czemu można nim zarządzać.  Ten ruch związany z zarządzaniem ASE jest przesyłany w sieci kontrolowanego przez użytkownika.  Pochodzi on z serwerów zarządzania w usłudze Azure App Service do publicznego adresu IP, który jest skojarzony z ASE.  Szczegółowe informacje na temat ASE networking zależności odczytu [sieci zagadnienia i środowiska usługi aplikacji][networking].  Ogólne informacje na temat ASE można uruchomić z [wprowadzenie do środowiska usługi aplikacji][intro].
+Witaj Environment(ASE) usługi aplikacji jest wdrożenie hello Azure App Service w podsieci sieci wirtualnej platformy Azure (VNet).  Hello ASE musi być dostępny z hello Azure App Service, dzięki czemu można nim zarządzać.  Ten ruch związany z zarządzaniem ASE przesyłany hello sieci kontrolowanego przez użytkownika.  Pochodzi z usługi aplikacji Azure zarządzania serwerów toohello publicznych adresów VIP skojarzony z hello ASE.  Szczegółowe informacje na temat hello ASE networking zależności odczytu [sieci zagadnienia i środowiska usługi aplikacji hello][networking].  Ogólne informacje na temat hello ASE można uruchomić z [toohello wprowadzenie środowiska usługi aplikacji][intro].
 
-Ten dokument zawiera listę źródło adresy IP do ASE ruch związany z zarządzaniem. Te adresy służy do tworzenia grup zabezpieczeń sieci, aby zablokować ruch przychodzący lub używać ich w tabele tras, zgodnie z potrzebami.  Aby użyć tych informacji należy użyć:
+Ten dokument zawiera listę hello źródło adresów IP dla zarządzania ruchu toohello ASE. Można użyć tych adresów toocreate grup zabezpieczeń sieci toolock dół ruchu przychodzącego lub używać ich w tabele tras, zgodnie z potrzebami.  toouse te informacje należy toouse:
 
-* adresy IP, które są wyświetlane dla wszystkich regionów
-* adresy IP, które pasują do regionu użytkownika ASE wdrożonej do.
+* Witaj adresy IP, które są wyświetlane dla wszystkich regionów
+* dopasowania regionu toohello Twojego ASE wdrożonej do adresów Hello IP.
 
-Przychodzący ruch związany z zarządzaniem pochodzi się z tych adresów IP w portach 454 i 455.
+ruch związany z zarządzaniem przychodzące Hello jest dostarczany z tych adresów IP tooports 454 i 455.
 
 | Region | Adresy |
 |--------|-----------|

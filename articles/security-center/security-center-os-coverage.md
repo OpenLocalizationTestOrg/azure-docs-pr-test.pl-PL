@@ -1,5 +1,5 @@
 ---
-title: "Obsługiwane platformy w Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
+title: "aaaSupported platform w Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
 description: "Ten dokument zawiera listę systemów Windows i Linux operatings obsługiwane w Centrum zabezpieczeń Azure."
 services: security-center
 documentationcenter: na
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.openlocfilehash: c33e132037d95fa92fd59a8243a9a8a351ae0224
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f73e04970749271fc9d75836f4f468b0a4953f9e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Obsługiwane platformy w Centrum zabezpieczeń Azure
-Monitorowanie stanu zabezpieczeń i zalecenia są dostępne dla maszyn wirtualnych (VM) utworzona przy użyciu zarówno klasycznego i modeli wdrażania Menedżera zasobów.
+Monitorowanie stanu zabezpieczeń i zalecenia są dostępne dla maszyn wirtualnych (VM) utworzona przy użyciu zarówno hello klasycznego i modeli wdrażania Menedżera zasobów.
 
 > [!NOTE]
-> Dowiedz się więcej o [klasycznego i modeli wdrażania usługi Resource Manager](../azure-classic-rm.md) dla zasobów platformy Azure.
+> Dowiedz się więcej o hello [klasycznego i modeli wdrażania usługi Resource Manager](../azure-classic-rm.md) dla zasobów platformy Azure.
 >
 >
 
@@ -60,11 +60,11 @@ Obsługiwane systemy operacyjne Linux:
 >
 
 ## <a name="vms-and-cloud-services"></a>Maszyny wirtualne i usługi w chmurze
-Maszyn wirtualnych uruchomionych w usłudze chmury są również obsługiwane. Tylko chmury usługi sieci web i proces roboczy role uruchomione w środowisku produkcyjnym, które są monitorowane gniazda. Aby dowiedzieć się więcej na temat usługi w chmurze, zobacz [Omówienie usługi w chmurze](../cloud-services/cloud-services-choose-me.md).
+Maszyn wirtualnych uruchomionych w usłudze chmury są również obsługiwane. Tylko chmury usługi sieci web i proces roboczy role uruchomione w środowisku produkcyjnym, które są monitorowane gniazda. toolearn więcej informacji na temat usługi w chmurze, zobacz [Omówienie usługi w chmurze](../cloud-services/cloud-services-choose-me.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przewodnik planowania Centrum zabezpieczeń Azure i obsługi](security-center-planning-and-operations-guide.md) — informacje o sposobie planowania i projektowania przyjęcie Centrum zabezpieczeń Azure
+- [Przewodnik planowania Centrum zabezpieczeń Azure i obsługi](security-center-planning-and-operations-guide.md) — Dowiedz się jak tooplan i zrozumieć zagadnienia dotyczące projektowania hello tooadopt Centrum zabezpieczeń Azure
 - [Alerty zabezpieczeń według typu w Centrum zabezpieczeń Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) — Dowiedz się więcej na temat analizy behawioralnej maszyny wirtualnej i awarii zrzutu pamięci analizy w Centrum zabezpieczeń
-- [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi
+- [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md) — często zadawane pytania dotyczące korzystania z usługi hello Znajdź
 - [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń platformy Azure i zgodności

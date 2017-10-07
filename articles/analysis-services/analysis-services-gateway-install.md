@@ -1,6 +1,6 @@
 ---
-title: Instalowanie bramy danych lokalnych | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak zainstalować i skonfigurować bramę danych lokalnego."
+title: Brama danych lokalnych aaaInstall | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak tooinstall i skonfiguruj bramę danych lokalnego."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: owend
-ms.openlocfilehash: 6ef296fb98478be9240f0231c8ad39cd2a0af995
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e2878bf765c82910d452ae2cdd9264a343ec1990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Zainstaluj i skonfiguruj bramę danych lokalnych
-Bramę danych lokalnych jest wymagany, gdy łączą się lokalnych źródeł danych z co najmniej jeden serwer usług Azure Analysis Services, w tym samym regionie. Aby dowiedzieć się więcej o bramie, zobacz [bramy danych lokalnych](analysis-services-gateway.md).
+Brama danych lokalnych jest wymagany, jeśli co najmniej jeden serwer usług Azure Analysis Services w hello sam region połączenia tooon lokalnych źródeł danych. Zobacz toolearn więcej informacji na temat bramy hello [bramy danych lokalnych](analysis-services-gateway.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 **Minimalne wymagania:**
@@ -38,21 +38,21 @@ Bramę danych lokalnych jest wymagany, gdy łączą się lokalnych źródeł dan
 
 **Ważne kwestie:**
 
-* Podczas instalacji przy rejestracji bramy w usłudze Azure wybrano domyślnego regionu dla Twojej subskrypcji. Można wybrać inny region. Jeśli masz serwery w więcej niż jeden region, należy zainstalować bramy dla każdego regionu. 
-* Brama nie można zainstalować na kontrolerze domeny.
+* Podczas instalacji przy rejestracji bramy w usłudze Azure wybrano hello domyślnego regionu dla Twojej subskrypcji. Można wybrać inny region. Jeśli masz serwery w więcej niż jeden region, należy zainstalować bramy dla każdego regionu. 
+* Witaj bramy nie można zainstalować na kontrolerze domeny.
 * Na jednym komputerze można zainstalować tylko jedną bramę.
-* Zainstalować bramę na komputerze, który pozostaje na, a nie przechodzi w stan uśpienia.
-* Nie należy instalować bramy na komputerze bezprzewodowo podłączony do sieci. Wydajność może być mniejsza.
+* Zainstaluj bramę hello na komputerze, który pozostaje na, a nie przechodzi toosleep.
+* Nie należy instalować bramy hello sieci tooyour bezprzewodowo podłączonego komputera. Wydajność może być mniejsza.
 
 
 ## <a name="download"></a>Pobierz
- [Pobierz bramę](https://aka.ms/azureasgateway)
+ [Pobierz hello bramy](https://aka.ms/azureasgateway)
 
 ## <a name="install"></a>Zainstaluj
 
 1. Uruchom Instalatora.
 
-2. Wybierz lokalizację, zaakceptuj warunki, a następnie kliknij **zainstalować**.
+2. Wybierz lokalizację, zaakceptuj postanowienia hello, a następnie kliknij przycisk **zainstalować**.
 
    ![Zainstaluj lokalizacji oraz postanowienia licencyjne](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
@@ -60,27 +60,27 @@ Bramę danych lokalnych jest wymagany, gdy łączą się lokalnych źródeł dan
 
    ![Wybierz typ bramy](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
 
-4. Wprowadź konto, aby logowanie do platformy Azure. Konto musi znajdować się w Twojej dzierżawy usługi Azure Active Directory. To konto jest używane dla administratora bramy. 
+4. Wprowadź konto toosign tooAzure. Witaj, konto musi być w Twojej dzierżawy usługi Azure Active Directory. To konto jest używane dla hello administratora bramy. 
 
-   ![Wprowadź konto, aby logowanie do platformy Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Wprowadź konto toosign w tooAzure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > Jeśli możesz zalogować się przy użyciu konta domeny, zostanie zamapowane na konto organizacyjne w usłudze Azure AD. Konta organizacyjnego będzie służyć jako administratora bramy.
+   > Jeśli możesz zalogować się przy użyciu konta domeny, będzie on zamapowany tooyour konto organizacyjne w usłudze Azure AD. Konta organizacyjnego będzie służyć jako administrator bramy hello hello.
 
 ## <a name="register"></a>Rejestr
-Aby utworzyć zasób bramy na platformie Azure, możesz zarejestrować lokalne wystąpienie instalowania z usługi bramy w chmurze. 
+W kolejności toocreate zasobu bramy na platformie Azure możesz zarejestrować hello lokalne wystąpienie instalowania z hello usługi bramy w chmurze. 
 
 1.  Wybierz **zarejestrować nową bramę na tym komputerze**.
 
     ![Zarejestruj subskrypcję](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
-2. Wpisz nazwę i odzyskiwanie klucza bramy. Domyślnie przy użyciu brama swoją subskrypcję domyślnego regionu. Jeśli chcesz wybrać inny region, wybierz **Region zmiany**.
+2. Wpisz nazwę i odzyskiwanie klucza bramy. Domyślnie brama hello używa Twojej subskrypcji domyślnego regionu. Jeśli potrzebujesz tooselect inny region, wybierz **Region zmiany**.
 
    ![Zarejestruj subskrypcję](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Utwórz zasób Azure bramy
-Po zainstalowaniu i zarejestrować bramę, należy utworzyć zasób bramy w Twojej subskrypcji platformy Azure. Zaloguj się do platformy Azure z tego samego konta używanego podczas rejestrowania bramy.
+Po zainstalowaniu i zarejestrować bramę, należy toocreate zasobów bramy w Twojej subskrypcji platformy Azure. Zaloguj tooAzure z hello samo konto używane podczas rejestrowania hello bramy.
 
 1. W portalu Azure kliknij **Utwórz nową usługę** > **integracji przedsiębiorstwa** > **bramy danych lokalnych** > **Utwórz**.
 
@@ -90,33 +90,33 @@ Po zainstalowaniu i zarejestrować bramę, należy utworzyć zasób bramy w Twoj
 
     * **Nazwa**: Wprowadź nazwę dla zasobu bramy. 
 
-    * **Subskrypcja**: Wybierz subskrypcję platformy Azure do skojarzenia z zasobu bramy. 
-    Ta subskrypcja powinna być tej samej subskrypcji, które serwery są w.
+    * **Subskrypcja**: Wybierz hello tooassociate subskrypcji platformy Azure z zasobu bramy. 
+    Ta subskrypcja powinna być hello tej samej subskrypcji, serwery są w.
    
-      Domyślna subskrypcja opiera się na konto platformy Azure, używany do logowania.
+      Hello Domyślna subskrypcja jest oparta na powitania konto platformy Azure, który został użyty toosign w.
 
     * **Grupa zasobów**: utwórz grupę zasobów lub wybierz istniejącą.
 
-    * **Lokalizacja**: Wybierz region, w zarejestrowany bramy w.
+    * **Lokalizacja**: hello wybierz region zarejestrować bramy w.
 
-    * **Nazwa instalacji**: Jeśli instalacji bramy nie została jeszcze wybrana, wybierz bramę, w zarejestrowany. 
+    * **Nazwa instalacji**: Jeśli instalacji bramy nie została jeszcze wybrana, wybierz hello brama zarejestrowana. 
 
     Gdy wszystko będzie gotowe, kliknij przycisk **Utwórz**.
 
-## <a name="connect-servers"></a>Połącz serwery do zasobu bramy
+## <a name="connect-servers"></a>Połącz zasób bramy toohello serwerów
 
 1. W sieci — Omówienie serwera usług Azure Analysis Services kliknij **bramy danych lokalnych**.
 
-   ![Połącz serwer bramy](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
+   ![Połącz toogateway serwera](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. W **wybierz bramę danych lokalnego, aby połączyć**wybierz zasób bramy, a następnie kliknij przycisk **wybranej bramy Połącz**.
+2. W **wybierz tooconnect bramy danych lokalnego**wybierz zasób bramy, a następnie kliknij przycisk **wybranej bramy Połącz**.
 
-   ![Połącz serwer bramy zasobów](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
+   ![Połącz zasób toogateway serwera](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
-    > Jeśli na liście nie ma bramy, serwer, prawdopodobnie nie w tym samym regionie co region określone podczas rejestrowania bramy. 
+    > Jeśli brama nie ma na liście hello, serwer może nie jest w tym samym regionie co określony podczas rejestrowania bramy hello region hello hello. 
 
-To już wszystko. Jeśli trzeba otworzyć porty lub czy rozwiązywania wszelkich problemów, koniecznie zapoznaj się z [bramy danych lokalnych](analysis-services-gateway.md).
+To już wszystko. Jeśli potrzebne porty tooopen lub wykonaj wszelkie rozwiązywania problemów, można się toocheck limit [bramy danych lokalnych](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zarządzanie usług Analysis Services](analysis-services-manage.md)   

@@ -1,6 +1,6 @@
 ---
-title: "Monitorowanie Maszynę wirtualną z rozszerzenia maszyny Wirtualnej systemu Linux | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak rozszerzenie diagnostycznych Linux służy do monitorowania wydajności i danych diagnostycznych maszyny wirtualnej systemu Linux na platformie Azure."
+title: "aaaMonitoring Maszynę wirtualną z rozszerzenia maszyny Wirtualnej systemu Linux | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse hello wydajności hello toomonitor Linux rozszerzenia diagnostycznych i danych diagnostycznych maszyny wirtualnej systemu Linux na platformie Azure."
 services: virtual-machines-linux
 author: NingKuang
 manager: timlt
@@ -14,91 +14,91 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cf7bfebca8c0367941f7a975417f60fe2e2dab25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania wydajności i danych diagnostycznych maszyny wirtualnej systemu Linux
+# <a name="use-hello-linux-diagnostic-extension-toomonitor-hello-performance-and-diagnostic-data-of-a-linux-vm"></a>Użyj hello rozszerzenia diagnostycznych Linux toomonitor hello wydajności i danych diagnostycznych maszyny wirtualnej systemu Linux
 
-W tym dokumencie opisano wersji 2.3 rozszerzenia diagnostyczne systemu Linux.
+W tym dokumencie opisano wersji 2.3 hello rozszerzenia diagnostyczne systemu Linux.
 
 > [!IMPORTANT]
-> Ta wersja jest przestarzały i może być nieopublikowane dowolnym momencie po 30 czerwca 2018. Zastąpiono wersji 3.0 lub nowszej. Aby uzyskać więcej informacji, zobacz [dokumentację w wersji 3.0 rozszerzenia diagnostycznych Linux](../diagnostic-extension.md).
+> Ta wersja jest przestarzały i może być nieopublikowane dowolnym momencie po 30 czerwca 2018. Zastąpiono wersji 3.0 lub nowszej. Aby uzyskać więcej informacji, zobacz hello [dokumentacji dla wersji 3.0 hello rozszerzenia diagnostycznych Linux](../diagnostic-extension.md).
 
 ## <a name="introduction"></a>Wprowadzenie
 
-(**Uwaga**: rozszerzenie diagnostyczne systemu Linux jest open-powierzając jej ich konserwację na [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) gdzie najbardziej aktualnych informacji o rozszerzeniu pierwszej publikacji. Należy sprawdzić [GitHub strony](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) pierwszej.)
+(**Uwaga**: hello rozszerzenia diagnostyczne systemu Linux jest open-powierzając jej ich konserwację na [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) gdzie hello najnowsze informacje dotyczące rozszerzeń hello pierwszej publikacji. Może być toocheck hello [GitHub strony](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) pierwszej.)
 
-Rozszerzenie diagnostycznych Linux pomaga monitor użytkownika maszyn wirtualnych systemu Linux, które działają w systemie Microsoft Azure. Ma ona następujące możliwości:
+Hello rozszerzenia diagnostycznych Linux pomaga użytkownika monitora hello maszyn wirtualnych systemu Linux, które działają w systemie Microsoft Azure. Ma hello następujące możliwości:
 
-* Zbiera i przekazuje informacje o wydajności systemu z maszyny Wirtualnej systemu Linux do tabeli magazynu użytkownika, w tym informacji diagnostycznych i syslog.
-* Umożliwia dostosowanie metryk danych, które zostaną zebrane i przekazane.
-* Umożliwia użytkownikom na przekazywanie do tabeli magazynu wyznaczonego określone pliki dziennika.
+* Zbiera i przekazuje informacje o wydajności systemu hello z tabeli magazynu hello maszyny Wirtualnej systemu Linux toohello użytkownika, w tym informacji diagnostycznych i syslog.
+* Umożliwia użytkownikom toocustomize hello danych metryki, które zostaną zebrane i przekazane.
+* Umożliwia użytkownikom tooupload określony dziennik pliki tooa magazynu wyznaczonego tabeli.
 
-W bieżącej wersji 2.3 dane obejmują:
+W bieżącej wersji hello 2.3 hello dane obejmują:
 
 * Wszystkie dzienniki Linux Rsyslog, w tym system, zabezpieczenia i dzienniki aplikacji.
-* Wszystkie dane systemu, które jest określone w [lokacji rozwiązania Cross platformy w programie System Center](https://scx.codeplex.com/wikipage?title=xplatproviders).
+* Wszystkie dane systemu, które jest określone w [lokacji rozwiązania Cross platformy w programie System Center hello](https://scx.codeplex.com/wikipage?title=xplatproviders).
 * Pliki dziennika zdefiniowane przez użytkownika.
 
-To rozszerzenie działa zarówno z klasycznego i modeli wdrażania Menedżera zasobów.
+To rozszerzenie działa zarówno z klasycznym hello i modeli wdrażania Menedżera zasobów.
 
-### <a name="current-version-of-the-extension-and-deprecation-of-old-versions"></a>Bieżąca wersja rozszerzenia i amortyzacja stare wersje
+### <a name="current-version-of-hello-extension-and-deprecation-of-old-versions"></a>Bieżąca wersja rozszerzenia hello i amortyzacja stare wersje
 
-Najnowsza wersja rozszerzenia **2.3**, i **wszystkie starsze wersje (2.0, 2.1 i 2.2) zostanie zastąpiona i nieopublikowane końca roku (2017)**. Po zainstalowaniu rozszerzenia Diagnostyka systemu Linux wraz z uaktualnieniem automatyczne wersja pomocnicza wyłączone, zdecydowanie zaleca się odinstalować rozszerzenia, a następnie zainstaluj go ponownie z uaktualnieniem automatyczne wersja pomocnicza włączone. W klasycznym (ASM) maszyn wirtualnych można to osiągnąć, określając "2.*" jako wersja instalowania rozszerzenia za pomocą interfejsu wiersza polecenia XPLAT platformy Azure lub programu Powershell. Na maszynach ARM można to osiągnąć poprzez włączenie ""autoUpgradeMinorVersion": true" w szablonie wdrożenia maszyny Wirtualnej. Ponadto żadnej nowej instalacji rozszerzenia powinien mieć wersja pomocnicza automatycznego uaktualniania opcja jest włączona.
+Najnowsza wersja rozszerzenia hello Hello jest **2.3**, i **wszystkie starsze wersje (2.0, 2.1 i 2.2) zostanie zastąpiona i nieopublikowane końca roku (2017)**. Jeśli zainstalowano hello rozszerzenia Diagnostyka systemu Linux wraz z uaktualnieniem automatyczne wersja pomocnicza wyłączone, jest zalecane Odinstaluj hello rozszerzenie, a następnie zainstaluj go ponownie z uaktualnieniem automatyczne wersja pomocnicza włączone. W klasycznym (ASM) maszyn wirtualnych można to osiągnąć, określając "2.*" jako wersja hello instalowania rozszerzenia hello za pośrednictwem interfejsu wiersza polecenia XPLAT platformy Azure lub programu Powershell. Na maszynach ARM można to osiągnąć poprzez włączenie ""autoUpgradeMinorVersion": true" w szablonie wdrożenia maszyny Wirtualnej hello. Ponadto żadnej nowej instalacji rozszerzenia hello powinien mieć wersja pomocnicza automatycznie hello uaktualnienia opcja jest włączona.
 
-## <a name="enable-the-extension"></a>Włącz rozszerzenia
+## <a name="enable-hello-extension"></a>Włącz rozszerzenie hello
 
-To rozszerzenie można włączyć za pomocą [portalu Azure](https://portal.azure.com/#), programu Azure PowerShell lub skryptów wiersza polecenia platformy Azure.
+To rozszerzenie można włączyć za pomocą hello [portalu Azure](https://portal.azure.com/#), programu Azure PowerShell lub skryptów wiersza polecenia platformy Azure.
 
-Aby wyświetlić i skonfigurować wydajność systemu i dane bezpośrednio z portalu Azure, wykonaj [następujące kroki na blogu Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+tooview i skonfiguruj hello system oraz dane wydajności bezpośrednio z hello portalu Azure, wykonaj [następujące czynności na powitania Azure blog](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
-W tym artykule przedstawiono sposób włączania i konfigurowania rozszerzenia przy użyciu poleceń wiersza polecenia platformy Azure. Dzięki temu można odczytać oraz jak wyświetlać dane bezpośrednio z tabeli magazynu.
+Ten artykuł skupia się na temat tooenable i skonfigurować rozszerzenia hello przy użyciu poleceń wiersza polecenia platformy Azure. Dzięki temu tooread i widok danych hello bezpośrednio z tabeli magazynu hello.
 
-Należy pamiętać, że metody konfiguracji, które zostały opisane w tym miejscu nie będzie działać dla portalu Azure. Aby wyświetlić i skonfigurować wydajność systemu i dane bezpośrednio z portalu Azure, należy włączyć rozszerzenie za pośrednictwem portalu.
+Należy pamiętać, że hello metody konfiguracji, które zostały opisane w tym miejscu nie będzie działać dla hello portalu Azure. tooview i skonfigurować hello wydajność systemu i dane bezpośrednio z hello portalu Azure, musi być włączona rozszerzenia hello za pośrednictwem portalu hello.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Agenta systemu Linux platformy Azure w wersji 2.0.6 lub nowszym**.
 
-  Należy pamiętać, że większość obrazów Galeria Linux maszyny Wirtualnej Azure obejmuje wersji 2.0.6 lub nowszej. Można uruchomić **agenta WAAgent-wersja** o potwierdzenie, która wersja jest zainstalowana na maszynie Wirtualnej. Jeśli maszyna wirtualna działa w wersji starszej niż 2.0.6, można wykonać [tych instrukcji w serwisie GitHub](https://github.com/Azure/WALinuxAgent "instrukcje") go zaktualizować.
-* **Interfejs wiersza polecenia platformy Azure**. Postępuj zgodnie z [tym instrukcje dotyczące instalowania interfejsu wiersza polecenia](../../../cli-install-nodejs.md) do skonfigurowania środowiska wiersza polecenia platformy Azure na tym komputerze. Po zainstalowaniu interfejsu wiersza polecenia Azure, możesz użyć **azure** polecenie z interfejsu wiersza polecenia (Bash, Terminal lub wiersza polecenia) do poleceń wiersza polecenia platformy Azure. Na przykład:
+  Należy pamiętać, że większość obrazów Galeria Linux maszyny Wirtualnej Azure obejmuje wersji 2.0.6 lub nowszej. Można uruchomić **agenta WAAgent-wersja** tooconfirm wersję zainstalowanego na powitania maszyny Wirtualnej. Jeśli hello maszyny Wirtualnej jest uruchomiony w wersji starszej niż 2.0.6, można wykonać [tych instrukcji w serwisie GitHub](https://github.com/Azure/WALinuxAgent "instrukcje") tooupdate go.
+* **Interfejs wiersza polecenia platformy Azure**. Postępuj zgodnie z [tym instrukcje dotyczące instalowania interfejsu wiersza polecenia](../../../cli-install-nodejs.md) tooset hello środowiska wiersza polecenia platformy Azure na tym komputerze. Po zainstalowaniu interfejsu wiersza polecenia Azure, można użyć hello **azure** polecenie z interfejsu wiersza polecenia (Bash, Terminal lub wiersza polecenia) tooaccess hello Azure CLI poleceniach. Na przykład:
 
   * Uruchom **zestaw rozszerzenie azure maszyny wirtualnej — Pomoc** uzyskać szczegółową pomoc.
-  * Uruchom **logowanie w usłudze azure** logować się do platformy Azure.
-  * Uruchom **listy maszyna wirtualna platformy azure** do tworzenia listy wszystkich maszyn wirtualnych, które masz na platformie Azure.
-* Konto magazynu do przechowywania danych. Konieczne będzie nazwa konta magazynu, które zostało utworzone wcześniej i klucza dostępu, aby przekazać dane do usługi magazynu.
+  * Uruchom **logowanie w usłudze azure** toosign w tooAzure.
+  * Uruchom **listy maszyna wirtualna platformy azure** toolist hello wszystkich maszyn wirtualnych, które masz na platformie Azure.
+* Dane hello toostore konta magazynu. Konieczne będzie nazwa konta magazynu, które zostało utworzone wcześniej i dostępu do klucza tooupload hello tooyour pamięci masowej.
 
-## <a name="use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension"></a>Użyj polecenia interfejsu wiersza polecenia Azure, aby włączyć rozszerzenie diagnostyczne systemu Linux
+## <a name="use-hello-azure-cli-command-tooenable-hello-linux-diagnostic-extension"></a>Użyj hello Azure CLI polecenia tooenable hello rozszerzenia diagnostyczne systemu Linux
 
-### <a name="scenario-1-enable-the-extension-with-the-default-data-set"></a>Scenariusz 1. Włącz rozszerzenie z domyślnego zestawu danych
+### <a name="scenario-1-enable-hello-extension-with-hello-default-data-set"></a>Scenariusz 1. Włącz rozszerzenie hello hello domyślny zestaw danych
 
-W wersji 2.3 lub nowszej zawiera wartości domyślne, które będą zbierane:
+W wersji 2.3 lub nowszej zawierają hello domyślnych danych, które będą zbierane:
 
 * Wszystkie informacje Rsyslog (w tym system, zabezpieczenia i dzienniki aplikacji).  
-* Podstawowy zestaw danych systemowych podstawy. Należy pamiętać, że pełny zestaw danych jest opisany w [lokacji rozwiązania Cross platformy w programie System Center](https://scx.codeplex.com/wikipage?title=xplatproviders).
-  Jeśli chcesz włączyć dodatkowe dane, wykonaj czynności w scenariuszach 2 i 3.
+* Podstawowy zestaw danych systemowych podstawy. Należy pamiętać, że hello pełny zestaw danych jest opisane na powitania [lokacji rozwiązania Cross platformy w programie System Center](https://scx.codeplex.com/wikipage?title=xplatproviders).
+  Jeśli chcesz, aby tooenable dodatkowe dane, wykonaj czynności hello w scenariuszach 2 i 3.
 
-Krok 1. Utwórz plik o nazwie PrivateConfig.json o następującej treści:
+Krok 1. Utwórz plik o nazwie PrivateConfig.json z hello następującej zawartości:
 
     {
-        "storageAccountName" : "the storage account to receive data",
-        "storageAccountKey" : "the key of the account"
+        "storageAccountName" : "hello storage account tooreceive data",
+        "storageAccountKey" : "hello key of hello account"
     }
 
 Krok 2. Uruchom  **vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 ustawić rozszerzenia maszyny wirtualnej platformy azure.* — PrivateConfig.json prywatnego config-path**.
 
-### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Scenariusz 2. Dostosowanie metryk monitora wydajności
+### <a name="scenario-2-customize-hello-performance-monitor-metrics"></a>Scenariusz 2. Dostosowanie metryk monitora wydajności hello
 
-Ta sekcja opisuje sposób dostosowywania wydajności i tabelę danych diagnostycznych.
+W tej sekcji opisano, jak toocustomize hello wydajności i tabelę danych diagnostycznych.
 
-Krok 1. Utwórz plik o nazwie PrivateConfig.json z zawartością, który został opisany w scenariuszu 1. Utwórz również plik o nazwie PublicConfig.json. Umożliwia określenie danych, które mają być zbierane.
+Krok 1. Utwórz plik o nazwie PrivateConfig.json z zawartością hello, który został opisany w scenariuszu 1. Utwórz również plik o nazwie PublicConfig.json. Umożliwia określenie hello danych ma toocollect.
 
-Dla wszystkich obsługiwanych dostawców i zmienne odwołania [lokacji rozwiązania Cross platformy w programie System Center](https://scx.codeplex.com/wikipage?title=xplatproviders). Możesz mieć wiele zapytań i przechowywać je w wielu tabel, dodając więcej kwerend do skryptu.
+Dla wszystkich obsługiwanych dostawców i zmienne odwołania hello [lokacji rozwiązania Cross platformy w programie System Center](https://scx.codeplex.com/wikipage?title=xplatproviders). Możesz mieć wiele zapytań i przechowywać je w wielu tabel, dodając więcej skryptu toohello zapytania.
 
-Domyślnie dane Rsyslog zawsze są zbierane.
+Domyślnie zbierane są zawsze hello Rsyslog danych.
 
     {
           "perfCfg":
@@ -115,9 +115,9 @@ Krok 2. Uruchom  **vm_name LinuxDiagnostic Microsoft.OSTCExtensions "2 ustawić 
 
 ### <a name="scenario-3-upload-your-own-log-files"></a>Scenariusz 3. Przekazanie plików dzienników
 
-W tej sekcji opisano, jak do gromadzenia i przekazywania określone pliki dziennika na koncie magazynu. Należy określić ścieżkę do pliku dziennika i nazwę tabeli, w której chcesz zapisać dziennik. Można utworzyć wiele plików dziennika, dodając wiele wpisów tabeli/plików do skryptu.
+W tej sekcji opisano, jak toocollect i przekazywania dziennika określone pliki tooyour konta magazynu. Należy toospecify zarówno hello ścieżki tooyour dziennika plików i hello nazwy tabeli hello miejscu toostore dziennika. Można utworzyć wiele plików dziennika, dodając wielu skryptu toohello wpisów tabeli/plików.
 
-Krok 1. Utwórz plik o nazwie PrivateConfig.json z zawartością, który został opisany w scenariuszu 1. Następnie utwórz plik o nazwie PublicConfig.json o następującej treści:
+Krok 1. Utwórz plik o nazwie PrivateConfig.json z zawartością hello, który został opisany w scenariuszu 1. Następnie utwórz plik o nazwie PublicConfig.json z powitania po zawartości:
 
 ```json
 {
@@ -133,13 +133,13 @@ Krok 1. Utwórz plik o nazwie PrivateConfig.json z zawartością, który został
 
 Krok 2. Uruchom polecenie `azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json`.
 
-Należy pamiętać, że to ustawienie w wersjach rozszerzenia przed 2.3 wszystkie dzienniki zapisane `/var/log/mysql.err` mogą być zduplikowane do `/var/log/syslog` (lub `/var/log/messages` w zależności od Linux distro) również. Jeśli chcesz uniknąć zduplikowanych rejestrowanie, można wykluczyć rejestrowanie `local6` zakładzie dzienniki w konfiguracji rsyslog. Zależy on od Linux distro, ale w systemie Ubuntu 14.04 jest plik, aby zmodyfikować `/etc/rsyslog.d/50-default.conf` można zastąpić wiersza `*.*;auth,authpriv.none -/var/log/syslog` do `*.*;auth,authpriv,local6.none -/var/log/syslog`. Tego problemu w najnowszym wydaniu poprawki 2.3 (2.3.9007), więc jeśli wersja rozszerzenia 2.3, ten problem nie powinno się zdarzyć. Jeśli nadal nie nawet po ponownym uruchomieniu maszyny Wirtualnej, skontaktuj się z nami i pomóc nam Rozwiązywanie problemów z powodu najnowszej wersji poprawki nie jest instalowana automatycznie.
+Należy pamiętać, że to ustawienie na powitania rozszerzenie wersji wcześniejszych too2.3, wszystkie dzienniki zapisane zbyt`/var/log/mysql.err` mogą być zduplikowane zbyt`/var/log/syslog` (lub `/var/log/messages` w zależności od hello Linux distro) oraz. Jeśli chcesz tooavoid duplikat rejestrowania, można wykluczyć rejestrowanie `local6` zakładzie dzienniki w konfiguracji rsyslog. Zależy od hello Linux distro, ale w systemie Ubuntu 14.04 toomodify pliku hello jest `/etc/rsyslog.d/50-default.conf` można zastąpić wiersza hello `*.*;auth,authpriv.none -/var/log/syslog` zbyt`*.*;auth,authpriv,local6.none -/var/log/syslog`. Tego problemu w najnowszej wersji poprawki hello 2.3 (2.3.9007), więc jeśli masz rozszerzenia hello wersji 2.3, ten problem nie powinno się zdarzyć. Jeśli nadal nie nawet po ponownym uruchomieniu maszyny Wirtualnej, skontaktuj się z nami i pomóc nam Rozwiązywanie problemów z powodu hello poprawka jest zainstalowana najnowsza wersja nie automatycznie.
 
-### <a name="scenario-4-stop-the-extension-from-collecting-any-logs"></a>Scenariusz 4. Zatrzymaj rozszerzenia ze zbierania żadnych dzienników
+### <a name="scenario-4-stop-hello-extension-from-collecting-any-logs"></a>Scenariusz 4. Zatrzymaj rozszerzenia hello ze zbierania żadnych dzienników
 
-W tej sekcji opisano, jak zatrzymać rozszerzenia ze zbierania dzienników. Należy pamiętać, że proces agenta monitorowania będzie nadal uruchomione i działają prawidłowo nawet w przypadku tego procesu ponownej konfiguracji. Jeśli chcesz całkowicie zatrzymać procesu agenta monitorowania, możesz to zrobić po wyłączeniu rozszerzenia. To polecenie, aby wyłączyć rozszerzenie `azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'`.
+W tej sekcji opisano, jak rozszerzenie hello toostop ze zbierania dzienników. Należy pamiętać, że proces agenta monitorowania hello będzie nadal uruchomione i działają prawidłowo, nawet w przypadku tego procesu ponownej konfiguracji. Jeśli chcesz całkowicie monitorowania procesu agenta hello toostop, możesz to zrobić przez wyłączenie hello rozszerzenia. rozszerzenie hello toodisable polecenia Hello jest `azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'`.
 
-Krok 1. Utwórz plik o nazwie PrivateConfig.json z zawartością, który został opisany w scenariuszu 1. Utwórz plik o nazwie PublicConfig.json o następującej treści:
+Krok 1. Utwórz plik o nazwie PrivateConfig.json z zawartością hello, który został opisany w scenariuszu 1. Utwórz plik o nazwie PublicConfig.json z powitania po zawartości:
 
     {
         "perfCfg" : [],
@@ -151,17 +151,17 @@ Krok 2. Uruchom  **vm_name LinuxDiagnostic Microsoft.OSTCExtensions "2 ustawić 
 
 ## <a name="review-your-data"></a>Przejrzyj dane
 
-Wydajność i danych diagnostycznych są przechowywane w tabeli magazynu Azure. Przegląd [jak używać magazynu tabel Azure w języku Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) więcej informacji na temat dostępu do danych w tabeli magazynu za pomocą skryptów wiersza polecenia platformy Azure.
+Witaj wydajności i danych diagnostycznych są przechowywane w tabeli magazynu Azure. Przegląd [jak toouse Azure Table Storage w języku Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) toolearn jak tooaccess hello danych w magazynie hello tabeli za pomocą skryptów wiersza polecenia platformy Azure.
 
-Ponadto służy następujące narzędzia interfejsu użytkownika do uzyskania dostępu do danych:
+Ponadto można użyć następujących danych hello tooaccess narzędzi interfejsu użytkownika:
 
-1. Eksplorator serwera programu Visual Studio. Przejdź do swojego konta magazynu. Po uruchomieniu maszyny Wirtualnej dla około pięciu minut, zostanie wyświetlony w tabelach cztery domyślne: "LinuxCpu", "LinuxDisk", "LinuxMemory" i "Linuxsyslog". Kliknij dwukrotnie nazwy tabeli, aby wyświetlić dane.
+1. Eksplorator serwera programu Visual Studio. Przejdź tooyour konta magazynu. Po uruchomieniu hello maszyny Wirtualnej dla około pięciu minut, zobaczysz hello cztery domyślne tabele: "LinuxCpu", "LinuxDisk", "LinuxMemory" i "Linuxsyslog". Kliknij dwukrotnie hello tabeli nazw tooview hello danych.
 1. [Eksplorator usługi Azure Storage](https://azurestorageexplorer.codeplex.com/ "Eksploratora usługi Azure Storage").
 
 ![Obraz](./media/diagnostic-extension/no1.png)
 
-Jeśli włączono fileCfg lub perfCfg (zgodnie z opisem w scenariuszach 2 i 3), można użyć programu Visual Studio w Eksploratorze serwera i Eksploratora usługi Storage platformy Azure do wyświetlania danych innych niż domyślne.
+Jeśli włączono fileCfg lub perfCfg (zgodnie z opisem w scenariuszach 2 i 3), można użyć danych innych niż domyślne tooview Eksploratora serwera w usłudze Visual Studio i Eksploratora usługi Storage platformy Azure.
 
 ## <a name="known-issues"></a>Znane problemy
 
-* Rsyslog informacji i określić klienta pliku dziennika można uzyskać tylko za pomocą skryptów.
+* Witaj Rsyslog informacji i określonych przez klienta plików dziennika można uzyskać tylko za pomocą skryptów.

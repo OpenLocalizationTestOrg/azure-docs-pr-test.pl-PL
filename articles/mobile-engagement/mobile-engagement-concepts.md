@@ -1,5 +1,5 @@
 ---
-title: "Pojęcia dotyczące usługi Mobile Engagement | Microsoft Docs"
+title: "Pojęcia dotyczące usługi Engagement aaaMobile | Dokumentacja firmy Microsoft"
 description: "Pojęcia dotyczące usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,72 +14,72 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5aa7f28c00cd641a36a6e040c6b13d802ea6ae41
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Pojęcia dotyczące usługi Azure Mobile Engagement
-Usługa Mobile Engagement definiuje kilka pojęć wspólnych dla wszystkich obsługiwanych platform. W tym artykule krótko opisano te pojęcia.
+Usługa Mobile Engagement definiuje kilka pojęć wspólnych tooall obsługiwane platformy. W tym artykule krótko opisano te pojęcia.
 
-Ten artykuł stanowi dobry początek, jeśli dopiero zaczynasz korzystać z usługi Mobile Engagement. Należy również zapoznać się z dokumentacją specyficzną dla używanej platformy, ponieważ pozwoli to uściślić pojęcia opisane w tym artykule i uzyskać więcej szczegółów oraz przykładów, a także informacje o możliwych ograniczeniach.
+Ten artykuł stanowi dobry początek, jeśli są nowe tooMobile zaangażowania. Upewnij się, że tooread hello dokumentacji toohello określonych platform używanego, również, ponieważ pozwoli to uściślić pojęcia hello opisane w tym artykule i więcej informacji i przykłady także możliwych ograniczeniach.
 
 ## <a name="devices-and-users"></a>Urządzenia i użytkownicy
-Usługa Mobile Engagement identyfikuje użytkowników, generując unikatowy identyfikator dla każdego urządzenia. Ten identyfikator jest określany jako identyfikator urządzenia (lub `deviceid`). Jest on generowany w taki sposób, że wszystkie aplikacje uruchomione na tym samym urządzeniu współużytkują ten sam identyfikator urządzenia.
+Usługa Mobile Engagement identyfikuje użytkowników, generując unikatowy identyfikator dla każdego urządzenia. Ten identyfikator jest określany hello identyfikator urządzenia (lub `deviceid`). Jest on generowany w taki sposób, że wszystkie aplikacje uruchomione hello takie same urządzenia udziału hello sam identyfikator urządzenia.
 
-Oznacza to, że usługa Mobile Engagement traktuje jedno urządzenie jako należące dokładnie do jednego użytkownika. W związku z tym użytkownicy i urządzenia stanowią równoważne pojęcia.
+Oznacza to, że usługa Mobile Engagement traktuje jednego urządzenia toobelong tooexactly jednego użytkownika, a w związku z tym użytkownicy i urządzenia stanowią równoważne pojęcia.
 
 ## <a name="sessions-and-activities"></a>Sesje i działania
-Sesja stanowi jedno użycie aplikacji przez użytkownika i trwa od momentu rozpoczęcia korzystania z aplikacji przez użytkownika do momentu, gdy użytkownik skończy z niej korzystać.
+Sesja stanowi jedno użycie aplikacji hello wykonywane przez użytkownika, od użytkownika hello hello w czasie rozpoczęcia korzystania, dopóki hello zatrzymuje użytkownika.
 
-Działanie stanowi jedno użycie danej części podrzędnej aplikacji przez jednego użytkownika (jest to zazwyczaj ekran, ale może to być dowolne działanie odpowiednie dla aplikacji).
+Działanie stanowi jedno użycie danej części podrzędnej aplikacji hello przez jednego użytkownika (jest to zazwyczaj ekran, ale może być toohello cokolwiek odpowiedniej aplikacji).
 
 Użytkownik może wykonywać tylko jedno działanie naraz.
 
-Działanie jest identyfikowane przez nazwę (ograniczoną do 64 znaków) i opcjonalnie może mieć osadzone dodatkowe dane (ich limit to 1024 bajty).
+Działanie jest identyfikowane przez nazwę (ograniczoną too64 znaków) i opcjonalnie mogą mieć osadzone dodatkowe dane (w hello limit to 1024 bajty).
 
-Sesje są automatycznie obliczane na podstawie sekwencji działań wykonywanych przez użytkowników. Sesja rozpoczyna się, gdy użytkownik rozpoczyna swoje pierwsze działanie, i zatrzymuje się, gdy użytkownik kończy swoje ostatnie działanie. Oznacza to, że sesja nie musi być jawnie rozpoczynana ani zatrzymywana. Zamiast tego ma miejsce jawne rozpoczynanie i zatrzymywanie działań. Jeśli nie zostanie zgłoszone żadne działanie, nie zostanie zgłoszona żadna sesja.
+Sesje są automatycznie obliczane na podstawie hello sekwencji działań wykonywanych przez użytkowników. Sesja rozpoczyna się, gdy hello użytkownik rozpoczyna swoje pierwsze działanie i zatrzymywana, gdy użytkownik kończy swoje ostatnie działanie. Oznacza to, że sesja nie jest konieczne toobe jawnie rozpoczynana ani zatrzymywana. Zamiast tego ma miejsce jawne rozpoczynanie i zatrzymywanie działań. Jeśli nie zostanie zgłoszone żadne działanie, nie zostanie zgłoszona żadna sesja.
 
 ## <a name="events"></a>Zdarzenia
-Zdarzenia są używane do raportowania natychmiastowych akcji (na przykład naciśniętego przycisku lub artykułu przeczytanego przez użytkowników).
+Zdarzenia są używane tooreport akcje błyskawicznych (na przykład naciśniętego przycisku lub artykułu przeczytanego przez użytkowników).
 
-Zdarzenie może być związane z bieżącą sesją lub z uruchomionym zadaniem. Zdarzenie może też być autonomiczne.
+Zdarzenie może być powiązane toohello bieżącej sesji, tooa uruchomienia zadania, lub może być zdarzenie autonomicznych.
 
-Zdarzenie jest identyfikowane przez nazwę (ograniczoną do 64 znaków) i opcjonalnie może mieć osadzone dodatkowe dane (ich limit to 1024 bajty).
+Zdarzenie jest identyfikowane przez nazwę (ograniczoną too64 znaków) i opcjonalnie mogą mieć osadzone dodatkowe dane (w hello limit to 1024 bajty).
 
 ## <a name="error"></a>Błąd
-Błędy są używane do zgłaszania problemów poprawnie wykrytych przez aplikację (na przykład nieprawidłowych akcji użytkownika lub niepowodzeń wywołania interfejsu API).
+Błędy są używane tooreport problemów poprawnie wykrytych przez aplikację hello (na przykład nieprawidłowych akcji użytkownika lub niepowodzeń wywołania interfejsu API).
 
-Błąd może być związany z bieżącą sesją lub z uruchomionym zadaniem. Błąd może też być autonomiczny.
+Błąd może być powiązane toohello bieżącej sesji, tooa uruchomienia zadania, lub może być błąd autonomicznego.
 
-Błędy są identyfikowane przez nazwę (ograniczoną do 64 znaków) i opcjonalnie mogą mieć osadzone dodatkowe dane (ich limit to 1024 bajty).
+Wystąpił błąd jest identyfikowane przez nazwę (ograniczoną too64 znaków) i opcjonalnie mogą mieć osadzone dodatkowe dane (w hello limit to 1024 bajty).
 
 ## <a name="job"></a>Zadanie
-Zadania są używane do raportowania akcji mających czas trwania (na przykład czas trwania wywołań interfejsu API, czas wyświetlania reklam, czas trwania zadań w tle lub czas trwania akcji użytkowników).
+Zadania są używane tooreport akcji mających czas trwania (takie jak czas trwania wywołań interfejsu API, Wyświetl czas reklam, czas trwania zadania w tle lub czas trwania akcji użytkowników).
 
-Zadanie nie jest powiązane z sesją, ponieważ może być wykonywane w tle bez żadnej interakcji użytkownika.
+Zadanie nie jest powiązane tooa sesji, ponieważ zadania mogą być wykonywane w tle hello, bez interakcji użytkownika.
 
-Zadania są identyfikowane przez nazwę (ograniczoną do 64 znaków) i opcjonalnie mogą mieć osadzone dodatkowe dane (ich limit to 1024 bajty).
+Zadanie jest identyfikowane przez nazwę (ograniczoną too64 znaków) i opcjonalnie mogą mieć osadzone dodatkowe dane (w hello limit to 1024 bajty).
 
 ## <a name="crash"></a>Awaria
-Awarie są generowane przez zestaw Mobile Engagement SDK w celu raportowania błędów aplikacji w sytuacji, gdy problemy niewykryte przez aplikację powodują jej awarię.
+Awarie są generowane przez hello zestaw SDK usługi Mobile Engagement tooreport aplikacji, którą awarii, gdy problemy niewykryte przez aplikację hello była awarii.
 
 ## <a name="application-information"></a>Informacje o aplikacji
-Informacje o aplikacji służą do oznaczania użytkowników, czyli kojarzenia określonych danych z użytkownikami aplikacji (jest to podobne do plików cookie w sieci Web, z tą różnicą, że informacje o aplikacji są przechowywane po stronie serwera na platformie Azure Mobile Engagement).
+Informacje o aplikacji (lub informacje o aplikacji) jest używane tootag użytkowników, czyli tooassociate niektórzy użytkownicy toohello danych aplikacji (jest to podobne tooweb plików cookie, z wyjątkiem tego, że informacje o aplikacji są przechowywane na powitania po stronie serwera na powitania platformy Azure Mobile Engagement).
 
-Informacje o aplikacji można rejestrować przy użyciu interfejsu API zestawu Mobile Engagement SDK lub przy użyciu interfejsu API urządzenia platformy Mobile Engagement.
+Informacje o aplikacji mogą być rejestrowane za pomocą hello interfejsu API zestawu Mobile Engagement SDK lub przy użyciu interfejsu API urządzenia platformy Mobile Engagement hello.
 
-Informacje o aplikacji to para klucz/wartość skojarzona z urządzeniem. Klucz to nazwa informacji o aplikacji (maksymalnie 64 litery ASCII [a-zA-Z], cyfry [0-9] i znaki podkreślenia [_]). Wartość (maksymalnie 1024 znaki) może być dowolnym ciągiem, liczbą całkowitą, datą (format rrrr-MM-dd) lub wartością logiczną (true lub false).
+Informacje o aplikacji to urządzenie skojarzone tooa pary klucz/wartość. klucz Hello jest nazwa hello informacje o aplikacji hello (ograniczone too64 ASCII litery [a-zA-Z], cyfry [0-9] i znaki podkreślenia [_]). wartość Hello (ograniczone too1024 znaki) może być ciąg, liczbę całkowitą, Data (RRRR MM-dd) lub wartością logiczną (true lub false).
 
-Z urządzeniem można skojarzyć dowolną liczbę informacji o aplikacji w granicach limitu zdefiniowanego przez warunki cenowe usługi Mobile Engagement. Dla danego klucza usługa Mobile Engagement śledzi tylko najnowszy zestaw wartości (brak historii). Ustawienie lub zmiana informacji o aplikacji wymusza przeprowadzenie przez usługę Mobile Engagement ponownej oceny kryteriów odbiorców ustawionych dla tych informacji o aplikacji (jeśli istnieją), co oznacza, że informacje o aplikacji mogą służyć do wyzwalania wypychań w czasie rzeczywistym.
+Dowolną liczbę informacji o aplikacji może być skojarzony tooa urządzenia, w ramach limitu hello zdefiniowanego przez warunki cenowe usługi Mobile Engagement hello. Dla danego klucza usługa Mobile Engagement tylko przechowuje informacje o hello najnowszy zestaw wartości (Brak historii). Ustawianie lub zmienianie wartości hello informacji o aplikacji wymusza toore Mobile Engagement — oceny kryteriów odbiorców narzędzia ustawić dla tej aplikacji informacje (jeśli istnieje), co oznacza, że informacje o aplikacji mogą być używane tootrigger wypychań.
 
 ## <a name="extra-data"></a>Dodatkowe dane
-Dodatkowe dane (dodatki) to dowolne dane, które mogą być dołączone do zdarzeń, błędów, działań i zadań.
+Dodatkowe dane (dodatki) to dowolne dane, które mogą być dołączone tooevents, błędów, działań i zadań.
 
-Dodatki mają strukturę podobną do obiektów JSON: składają się z drzewa par klucz/wartość. Klucze są ograniczone do 64 liter ASCII [a-zA-Z], cyfr [0-9] i znaków podkreślenia [_]), a całkowity rozmiar dodatków jest ograniczony do 1024 znaków (po zakodowaniu w formacie JSON przez zestaw Mobile Engagement SDK).
+Dodatki mają strukturę podobnie tooJSON obiektów: składają się z drzewa par klucz/wartość. Klucze są ograniczone too64 litery ASCII [a-zA-Z], cyfry [0-9] i znaki podkreślenia [_]) i hello całkowity rozmiar dodatków jest ograniczony too1024 znaków (po zakodowaniu w formacie JSON przez zestaw SDK usługi Mobile Engagement hello).
 
-Całe drzewo par klucz/wartość jest przechowywane jako obiekt JSON. Jednak tylko pierwszy poziom par klucz/wartość jest rozkładany, aby był dostępny dla niektórych zaawansowanych funkcji, takich jak segmenty (na przykład można łatwo zdefiniować segment o nazwie „Fani science fiction” składający się z wszystkich użytkowników, którzy w ciągu ostatniego miesiąca wysłali co najmniej 10 razy zdarzenie o nazwie „wyświetlono_zawartość” z dodatkowym kluczem „typ_zawartości” ustawionym na wartość „scifi”). Dlatego zdecydowanie zaleca się wysyłanie tylko dodatków składających się z prostej listy par klucz/wartość przy użyciu wartości skalarnych (na przykład ciągów, dat, liczb całkowitych lub wartości logicznych).
+Witaj całe drzewo par klucz/wartość jest przechowywana jako obiekt JSON. Niemniej jednak tylko hello pierwszy poziom par klucz/wartość jest rozkładany toobe bezpośrednio dostępny toosome zaawansowanych funkcji, takich jak segmenty (na przykład można łatwo zdefiniować segment o nazwie "Fani", który składa się z wszystkich użytkowników mających wysyłane co najmniej 10 razy zdarzenie hello o nazwie "wyświetlono_zawartość" z hello dodatkowym kluczem "typ_zawartości" set toohello wartość "scifi" w hello ostatniego miesiąca). W związku z tym zdecydowanie zalecane jest tylko dodatków toosend wprowadzone z prostej listy par klucz/wartość przy użyciu wartości skalarnych (na przykład ciągów, dat, liczb całkowitych lub wartość logiczna).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Omówienie uniwersalnego zestawu SDK systemu Windows dla usługi Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: "Samouczek: korzystanie z interfejsu API REST w celu utworzenia potoku usługi Azure Data Factory | Microsoft Docs"
-description: "W tym samouczku opisano korzystanie z interfejsu API REST w celu utworzenia potoku usługi Azure Data Factory z działaniem kopiowania, aby skopiować dane z magazynu obiektów blob Azure do bazy danych Azure SQL."
+title: "Samouczek: Użyj interfejsu API REST toocreate potoku fabryki danych Azure | Dokumentacja firmy Microsoft"
+description: "W tym samouczku należy użyć interfejsu API REST toocreate potoku fabryki danych Azure z toocopy działanie kopiowania danych z magazynu obiektów blob platformy Azure bazy danych Azure SQL."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 6663774497aa18aa98e7e8c5aed6183c599b2172
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: aa6c9b035101c4ff9acff90117ca6e3e7067f418
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Samouczek: korzystanie z interfejsu API REST w celu utworzenia potoku usługi Azure Data Factory do kopiowania danych 
+# <a name="tutorial-use-rest-api-toocreate-an-azure-data-factory-pipeline-toocopy-data"></a>Samouczek: Użyj interfejsu API REST toocreate danych toocopy potoku fabryki danych Azure 
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
@@ -33,59 +33,59 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-W tym artykule wyjaśniono, jak używać interfejsu API REST do tworzenia fabryki danych obejmującej potok, który kopiuje dane z usługi Azure Blob Storage do bazy danych Azure SQL. Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, przed wykonaniem instrukcji z tego samouczka zapoznaj się z artykułem [Wprowadzenie do usługi Azure Data Factory](data-factory-introduction.md).   
+W tym artykule dowiesz się, jak toouse REST API toocreate fabryki danych z potok, który kopiuje dane z bazy danych Azure SQL tooan magazynu obiektów blob platformy Azure. Jeśli nowy tooAzure fabryki danych, zapoznaj się z artykułem hello [tooAzure wprowadzenie fabryki danych](data-factory-introduction.md) artykuł przed wykonaniem tego samouczka.   
 
-W tym samouczku opisano tworzenie potoku z jednym działaniem (Działanie kopiowania). Działanie kopiowania kopiuje dane z obsługiwanego magazynu danych do obsługiwanego magazynu danych ujścia. Aby zapoznać się z listą magazynów danych obsługiwanych jako źródła i ujścia, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Działanie jest obsługiwane przez globalnie dostępną usługę, która może kopiować dane między różnymi magazynami danych w sposób bezpieczny, niezawodny i skalowalny. Więcej informacji o działaniu kopiowania znajduje się w artykule dotyczącym [działań związanych z przenoszeniem danych](data-factory-data-movement-activities.md).
+W tym samouczku opisano tworzenie potoku z jednym działaniem (Działanie kopiowania). działanie kopiowania Hello kopiuje dane z magazynu danych obsługiwanych ujścia magazynu tooa obsługiwane dane. Aby zapoznać się z listą magazynów danych obsługiwanych jako źródła i ujścia, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). działanie Hello jest obsługiwany przez ogólnie dostępna usługa, która można skopiować dane między różnych magazynach danych w sposób bezpieczny, niezawodny i skalowalności. Aby uzyskać więcej informacji na temat hello działanie kopiowania, zobacz [działań przepływu danych](data-factory-data-movement-activities.md).
 
-Potok może obejmować więcej niż jedno działanie. Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [wielu działań w potoku](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+Potok może obejmować więcej niż jedno działanie. I tworzenia łańcucha dwa działania (Uruchom jedno działanie po drugim), ustawiając hello wyjściowy zestaw danych z jednego działania jako hello wejściowy zestaw danych z hello innych działań. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [wielu działań w potoku](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 > [!NOTE]
-> Ten artykuł nie obejmuje całego interfejsu API REST usługi Data Factory. Pełna dokumentacja dotycząca poleceń cmdlet usługi Data Factory znajduje się w artykule [Data Factory Cmdlet Reference](/rest/api/datafactory/) (Dokumentacja dotycząca interfejsu API REST usługi Data Factory).
+> W tym artykule nie opisano wszystkich hello interfejsu API REST fabryki danych. Pełna dokumentacja dotycząca poleceń cmdlet usługi Data Factory znajduje się w artykule [Data Factory Cmdlet Reference](/rest/api/datafactory/) (Dokumentacja dotycząca interfejsu API REST usługi Data Factory).
 >  
-> Potok danych przedstawiony w tym samouczku kopiuje dane ze źródłowego do docelowego magazynu danych. Aby zapoznać się z samouczkiem dotyczącym przekształcania danych za pomocą usługi Azure Data Factory, zobacz [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Samouczek: Tworzenie potoku przekształcającego dane przy użyciu klastra Hadoop).
+> Witaj potoku danych w tym samouczku kopiuje dane z magazynu danych źródła danych magazynu tooa docelowego. Samouczek na temat danych tootransform przy użyciu fabryki danych Azure, zobacz [samouczek: Tworzenie danych tootransform potoku, przy użyciu klastra usługi Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i wykonaj kroki **wymagań wstępnych**.
-* Zainstaluj na komputerze narzędzie [Curl](https://curl.haxx.se/dlwiz/). W połączeniu z poleceniami REST umożliwia ono utworzenie fabryki danych. 
+* Przejdź przez [— samouczek Przegląd](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i pełne hello **wymagań wstępnych** czynności.
+* Zainstaluj na komputerze narzędzie [Curl](https://curl.haxx.se/dlwiz/). Narzędzie Curl hello jest używany z toocreate polecenia REST fabryki danych. 
 * Postępuj zgodnie z instrukcjami zawartymi w [tym artykule](../azure-resource-manager/resource-group-create-service-principal-portal.md), aby wykonać następujące czynności: 
   1. Utworzenie aplikacji sieci Web o nazwie **ADFCopyTutorialApp** w usłudze Azure Active Directory.
   2. Pobranie **identyfikatora klienta** i **klucza tajnego**. 
   3. Uzyskanie **identyfikatora dzierżawy**. 
-  4. Przypisanie aplikacji **ADFCopyTutorialApp** do roli **Współautor Data Factory**.  
+  4. Przypisz hello **ADFCopyTutorialApp** toohello aplikacji **współautora fabryki danych** roli.  
 * Zainstaluj program [Azure PowerShell](/powershell/azure/overview).  
-* Uruchom program **PowerShell** i wykonaj następujące czynności. Nie zamykaj programu Azure PowerShell, zanim nie wykonasz wszystkich instrukcji z tego samouczka. Jeśli go zamkniesz i otworzysz ponownie, musisz uruchomić te polecenia jeszcze raz.
+* Uruchom **PowerShell** i hello następujące kroki. Nie zamykaj programu Azure PowerShell do momentu zakończenia hello tego samouczka. Zamknij i otwórz ponownie, należy najpierw polecenia hello toorun ponownie.
   
-  1. Uruchom poniższe polecenie i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal:
+  1. Uruchom następujące polecenie hello i wprowadź hello nazwę użytkownika i hasło, użyj toosign w toohello portalu Azure:
     
     ```PowerShell 
     Login-AzureRmAccount
     ```   
-  2. Uruchom poniższe polecenie, aby wyświetlić wszystkie subskrypcje dla tego konta:
+  2. Uruchom następujące polecenie tooview hello wszystkie subskrypcje powitania dla tego konta:
 
     ```PowerShell     
     Get-AzureRmSubscription
     ``` 
-  3. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ciąg **&lt;NameOfAzureSubscription**&gt; nazwą subskrypcji platformy Azure. 
+  3. Uruchom następujące polecenie tooselect hello subskrypcję, która ma toowork z hello. Zastąp  **&lt;NameOfAzureSubscription** &gt; o nazwie hello subskrypcji platformy Azure. 
      
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
-  4. Utwórz grupę zasobów platformy Azure o nazwie **ADFTutorialResourceGroup** przez uruchomienie następującego polecenia w programie PowerShell:  
+  4. Tworzenie grupy zasobów platformy Azure o nazwie **ADFTutorialResourceGroup** , uruchamiając następujące polecenie w środowiska PowerShell hello hello:  
 
     ```PowerShell     
       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
      
-      Jeśli istnieje już grupa zasobów, można określić, czy należy ją zaktualizować (Y), czy zachować (N). 
+      Jeśli hello grupy zasobów już istnieje, określić czy tooupdate go (Y) lub zachować go jako (N). 
      
-      W niektórych krokach w tym samouczku zakłada się, że używana jest grupa zasobów o nazwie ADFTutorialResourceGroup. Jeśli używasz innej grupy zasobów, podczas wykonywania instrukcji w tym samouczku trzeba będzie wstawić jej nazwę zamiast nazwy ADFTutorialResourceGroup.
+      Niektóre kroki hello w tym samouczku Załóżmy, że hello grupy zasobów o nazwie ADFTutorialResourceGroup. Jeśli używasz innej grupie zasobów, należy toouse hello Nazwa grupy zasobów, zamiast ADFTutorialResourceGroup w tym samouczku.
 
 ## <a name="create-json-definitions"></a>Tworzenie definicji JSON
-W folderze, w którym znajduje się narzędzie curl.exe, utwórz następujące pliki w formacie JSON. 
+Utwórz następujące pliki w folderze hello, w którym znajduje się curl.exe w formacie JSON. 
 
 ### <a name="datafactoryjson"></a>datafactory.json
 > [!IMPORTANT]
-> Nazwa musi być globalnie unikatowa — można o to zadbać, dodając do niej prefiks/sufiks ADFCopyTutorialDF. 
+> Nazwa musi być unikatowe globalnie, dlatego może być toomake ADFCopyTutorialDF tooprefix/sufiksu go unikatową nazwę. 
 > 
 > 
 
@@ -98,7 +98,7 @@ W folderze, w którym znajduje się narzędzie curl.exe, utwórz następujące p
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Zastąp wartości **accountname** i **accountkey** nazwą konta usługi Azure Storage oraz jego kluczem. Informacje na temat pobierania klucza dostępu do magazynu znajdują się w artykule [Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu do magazynu](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+> Zastąp wartości **accountname** i **accountkey** nazwą konta usługi Azure Storage oraz jego kluczem. toolearn jak tooget Twojego magazynu uzyskują dostęp do klucza, zobacz [widoku, kopiowania i regenerate magazynu klucze dostępu](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
 
 ```JSON
 {
@@ -116,7 +116,7 @@ Aby uzyskać więcej informacji o właściwościach JSON, zobacz temat dotycząc
 
 ### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
-> Zastąp parametry **servername**, **databasename**, **username** oraz **password** nazwą serwera SQL Azure, bazy danych, konta użytkownika i hasłem do konta.  
+> Zastąp **servername**, **databasename**, **username**, i **hasło** z nazwą swojego serwera Azure SQL, nazwa bazy danych SQL, użytkownika Konto i hasło dla konta hello.  
 > 
 >
 
@@ -170,18 +170,18 @@ Aby uzyskać szczegółowe informacje o właściwościach JSON, zobacz temat dot
 }
 ```
 
-Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie kodu:
+Witaj Poniższa tabela zawiera opisy właściwości JSON hello używane we fragmencie hello:
 
 | Właściwość | Opis |
 |:--- |:--- |
-| type | Właściwość typu jest ustawiona na wartość **AzureBlob**, ponieważ dane znajdują się w magazynie obiektów blob na platformie Azure. |
-| linkedServiceName | Odnosi się do utworzonego wcześniej elementu **AzureStorageLinkedService**. |
-| folderPath | Określa **kontener** obiektów blob oraz **folder**, który zawiera wejściowe obiekty blob. W tym samouczku kontenerem obiektów blob jest adftutorial, a folderem — katalog główny. | 
-| fileName | Ta właściwość jest opcjonalna. Jeśli pominiesz tę właściwość, zostaną wybrane wszystkie pliki z folderu folderPath. W tym samouczku dla fileName określono plik **emp.txt**, więc tylko on zostanie wybrany do przetwarzania. |
-| format -> type |Plik wejściowy jest w formacie tekstowym, więc należy użyć właściwości **TextFormat**. |
-| columnDelimiter | Kolumny w pliku wejściowym są rozdzielane **przecinkami (`,`)**. |
-| frequency/interval | Właściwość frequency (częstotliwość) jest ustawiona na wartość **Hour** (Godzina), a wartość interwału wynosi **1**, co oznacza, że wycinki wejściowe są dostępne **co godzinę**. Innymi słowy, usługa Data Factory szuka danych wejściowych co godzinę w folderze głównym określonego kontenera obiektów blob (**adftutorial**). Wyszukuje dane między godzinami rozpoczęcia i zakończenia potoku, a nie przed nimi ani po nich.  |
-| external | Ta właściwość ma wartość **true** (prawda), jeśli dane nie są generowane przez ten potok. Dane wejściowe w tym samouczku znajdują się w pliku emp.txt, który nie jest generowany w tym potoku, więc możemy ustawić tę właściwość na true. |
+| type | Właściwość type Hello ustawiono zbyt**AzureBlob** ponieważ danych znajduje się w magazynie obiektów blob platformy Azure. |
+| linkedServiceName | Odwołuje się toohello **AzureStorageLinkedService** utworzony wcześniej. |
+| folderPath | Określa obiekt blob hello **kontenera** i hello **folderu** zawiera obiekty BLOB wejściowego. W tym samouczku adftutorial jest hello kontenera obiektów blob i hello folderu głównego. | 
+| fileName | Ta właściwość jest opcjonalna. W przypadku pominięcia tej właściwości, pobierane są wszystkie pliki z hello folderPath. W tym samouczku **emp.txt** określona dla hello nazwę pliku, tak aby plik zostaje pobrana do przetwarzania. |
+| format -> type |Plik wejściowy Hello jest w formacie tekstowym hello, więc używamy **TextFormat**. |
+| columnDelimiter | Witaj kolumn w pliku wejściowym hello są rozdzielane **przecinka (`,`)**. |
+| frequency/interval | częstotliwość Hello ustawiono zbyt**godzina** i interwał jest ustawiany za**1**, co oznacza, że hello wejściowych dostępnych wycinków **co godzinę**. Innymi słowy, hello usługi fabryka danych sprawdza dane wejściowe co godzinę w folderze głównym hello kontenera obiektów blob (**adftutorial**) określone. Wyszukuje hello danych w ramach hello potoku rozpoczęcia i zakończenia godzin, nie przed lub po tych godzinach.  |
+| external | Ta właściwość jest ustawiona zbyt**true** czy hello danych nie jest generowany przez tego potoku. Witaj danych wejściowych w tym samouczku jest hello emp.txt pliku, który nie jest generowany w tym potoku, możemy ustawić tootrue tej właściwości. |
 
 Aby uzyskać więcej informacji o tych właściwościach JSON, zobacz [artykuł dotyczący łącznika obiektu blob platformy Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
@@ -213,16 +213,16 @@ Aby uzyskać więcej informacji o tych właściwościach JSON, zobacz [artykuł 
   }
 }
 ```
-Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie kodu:
+Witaj Poniższa tabela zawiera opisy właściwości JSON hello używane we fragmencie hello:
 
 | Właściwość | Opis |
 |:--- |:--- |
-| type | Właściwość typu jest ustawiona na **AzureSqlTable**, ponieważ dane są kopiowane do tabeli w bazie danych SQL na platformie Azure. |
-| linkedServiceName | Odnosi się do utworzonego wcześniej elementu **AzureSqlLinkedService**. |
-| tableName | Określa **tabelę** , do której są kopiowane dane. | 
-| frequency/interval | Właściwość frequency (częstotliwość) jest ustawiona na wartość **Hour** (Godzina), a wartość interwału wynosi **1**, co oznacza, że wycinki wyjściowe są tworzone **co godzinę** między godziną rozpoczęcia i zakończenia potoku, a nie przed tą godziną lub po niej.  |
+| type | Właściwość type Hello ustawiono zbyt**AzureSqlTable** , ponieważ dane są kopiowane tooa tabeli w bazie danych Azure SQL. |
+| linkedServiceName | Odwołuje się toohello **AzureSqlLinkedService** utworzony wcześniej. |
+| tableName | Określony hello **tabeli** toowhich hello dane są kopiowane. | 
+| frequency/interval | Witaj częstotliwość ustawiono zbyt**godzina** i interwał **1**, co oznacza, że wycinki danych wyjściowych hello są produkowane **co godzinę** między hello potoku rozpoczęcia i zakończenia godzin przed nie lub Po tych godzinach.  |
 
-Tabela emp bazy danych zawiera trzy kolumny — **ID**, **FirstName** i **LastName**. ID to kolumna tożsamości, więc należy określić tylko wartości **FirstName** i **LastName**.
+Istnieją trzy kolumny — **identyfikator**, **imię**, i **nazwisko** — Witaj pustych elementów tabeli w bazie danych hello. Identyfikator jest kolumny tożsamości, więc musisz tylko toospecify **imię** i **nazwisko** tutaj.
 
 Aby uzyskać więcej informacji o tych właściwościach JSON, zobacz [artykuł dotyczący łącznika usługi Azure SQL](data-factory-azure-sql-connector.md#dataset-properties).
 
@@ -232,11 +232,11 @@ Aby uzyskać więcej informacji o tych właściwościach JSON, zobacz [artykuł 
 {
   "name": "ADFTutorialPipeline",
   "properties": {
-    "description": "Copy data from a blob to Azure SQL table",
+    "description": "Copy data from a blob tooAzure SQL table",
     "activities": [
       {
         "name": "CopyFromBlobToSQL",
-        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+        "description": "Push Regional Effectiveness Campaign data tooAzure SQL database",
         "type": "Copy",
         "inputs": [
           {
@@ -272,24 +272,24 @@ Aby uzyskać więcej informacji o tych właściwościach JSON, zobacz [artykuł 
 }
 ```
 
-Pamiętaj o następujących kwestiach:
+Należy zwrócić uwagę hello następujące punkty:
 
-- W sekcji działań jest tylko jedno działanie, którego parametr **type** (typ) został ustawiony na wartość **Copy**. Więcej informacji o działaniu kopiowania znajduje się w artykule dotyczącym [działań związanych z przenoszeniem danych](data-factory-data-movement-activities.md). W rozwiązaniach usługi Data Factory można również użyć [działań dotyczących przekształcania danych](data-factory-data-transformation-activities.md).
-- Dane wejściowe dla działania mają ustawienie **AzureBlobInput**, a dane wyjściowe — **AzureSqlOutput**. 
-- W sekcji **typeProperties** parametr **BlobSource** został określony jako typ źródłowy, a parametr **SqlSink** został określony jako typ ujścia. Aby uzyskać pełną listę magazynów danych obsługiwanych przez działanie kopiowania jako źródła i ujścia, zobacz informacje dotyczące [obsługiwanych magazynów danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aby dowiedzieć się, jak używać określonego obsługiwanego magazynu danych jako źródła/ujścia, kliknij link w tabeli.  
+- W sekcji działania hello jest tylko jedno działanie którego **typu** ustawiono zbyt**kopiowania**. Aby uzyskać więcej informacji o działaniu kopiowania hello, zobacz [działań przepływu danych](data-factory-data-movement-activities.md). W rozwiązaniach usługi Data Factory można również użyć [działań dotyczących przekształcania danych](data-factory-data-transformation-activities.md).
+- Dane wejściowe dla działania hello jest ustawiony za**AzureBlobInput** i danych wyjściowych dla działania hello jest ustawiony za**AzureSqlOutput**. 
+- W hello **typeProperties** sekcji **BlobSource** jest określony jako typ źródła hello i **SqlSink** jest określony jako typ ujścia hello. Aby uzyskać pełną listę obsługiwanych przez działanie kopiowania hello jako źródła i wychwytywanie magazyny danych, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). toolearn jak przechowywać toouse określonych danych obsługiwane jako źródło/ujście, kliknij łącze hello hello tabeli.  
  
-Zastąp wartość właściwości **start** datą bieżącą, a wartość **end** datą jutrzejszą. Możesz określić tylko część daty i pominąć część godziny parametru data/godzina. Na przykład „2017-02-03” jest odpowiednikiem „2017-02-03T00:00:00Z”.
+Zastąp wartość hello hello **start** właściwość o hello bieżącego dnia i **zakończenia** wartości z hello następnego dnia. Można określić tylko część daty hello i Pomiń hello czas część hello Data i godzina. Na przykład "2017-02-03", która odpowiada za "2017-02-03T00:00:00Z"
  
-Zarówno data/godzina rozpoczęcia, jak i data/godzina zakończenia muszą być w [formacie ISO](http://en.wikipedia.org/wiki/ISO_8601). Przykładowo: 2016-10-14T16:32:41Z. Czas **end** jest opcjonalny, ale w tym samouczku zostanie użyty. 
+Zarówno data/godzina rozpoczęcia, jak i data/godzina zakończenia muszą być w [formacie ISO](http://en.wikipedia.org/wiki/ISO_8601). Przykładowo: 2016-10-14T16:32:41Z. Witaj **zakończenia** czasu jest opcjonalne, ale możemy użyć w tym samouczku. 
  
-Jeśli nie określisz wartości dla właściwości **end**, zostanie ona obliczona jako „**czas rozpoczęcia + 48 godzin**”. Aby uruchomić potok bezterminowo, określ **9999-09-09** jako wartość właściwości **end**.
+Jeśli nie określisz wartości hello **zakończenia** właściwości, jest on obliczany jako "**start + 48 godzin**". potok hello toorun przez czas nieokreślony, określ **9999-09-09** jako wartość hello hello **zakończenia** właściwości.
  
-W powyższym przykładzie występują 24 wycinki danych, gdyż poszczególne wycinki są generowane co godzinę.
+W hello poprzedzających przykład istnieją 24 wycinków danych, jak każdy wycinek danych jest tworzone co godzinę.
 
 Opisy właściwości JSON w definicji potoku znajdują się w artykule dotyczącym [tworzenia potoków](data-factory-create-pipelines.md). Opisy właściwości JSON w definicji działania kopiowania znajdują się w artykule dotyczącym [działań związanych z przenoszeniem danych](data-factory-data-movement-activities.md). Opisy właściwości JSON obsługiwanych przez BlobSource można znaleźć w [artykule dotyczącym łącznika usługi Azure Blob](data-factory-azure-blob-connector.md). Opisy właściwości JSON obsługiwanych przez SqlSink można znaleźć w artykule [dotyczącym łącznika usługi Azure SQL Database](data-factory-azure-sql-connector.md).
 
 ## <a name="set-global-variables"></a>Ustawianie zmiennych globalnych
-Po zastąpieniu wartości własnymi wykonaj następujące polecenia w programie Azure PowerShell:
+W programie Azure PowerShell wykonaj następujące polecenia, po zastąpieniu hello wartości własnymi hello:
 
 > [!IMPORTANT]
 > Zobacz sekcję [Wymagania wstępne](#prerequisites), aby uzyskać instrukcje dotyczące pobierania identyfikatora klienta, klucza tajnego klienta, identyfikatora dzierżawy oraz identyfikatora subskrypcji.   
@@ -305,14 +305,14 @@ $subscription_id="<Azure subscription ID>";
 $rg = "ADFTutorialResourceGroup"
 ```
 
-Po zaktualizowaniu nazwy fabryki danych, której używasz, uruchom następujące polecenie: 
+Uruchom następujące polecenia, po zaktualizowaniu hello nazwa fabryki danych hello, którego używasz hello: 
 
 ```
 $adf = "ADFCopyTutorialDF"
 ```
 
 ## <a name="authenticate-with-aad"></a>Uwierzytelnianie przy użyciu usługi AAD
-Uruchom następujące polecenie w celu uwierzytelniania za pomocą usługi Azure Active Directory (AAD): 
+Witaj uruchom następujące polecenie tooauthenticate usłudze Azure Active Directory (AAD): 
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
@@ -323,139 +323,139 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ```
 
 ## <a name="create-data-factory"></a>Tworzenie fabryki danych
-W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFCopyTutorialDF**. Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania w celu kopiowania danych ze źródła do docelowego magazynu danych. Działanie technologii Hive w usłudze HDInsight służące do uruchamiania skryptu Hive używanego do przekształcenia danych wejściowych w dane wyjściowe produktu. Uruchom następujące polecenia, aby utworzyć fabrykę danych: 
+W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFCopyTutorialDF**. Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania toocopy magazynu danych, z docelowym tooa źródła danych. HDInsight Hive działania toorun tootransform skryptu Hive wejściowe dane wyjściowe tooproduct danych. Uruchom powitania po fabryki danych hello toocreate polecenia: 
 
-1. Przypisz polecenie do zmiennej o nazwie **cmd**. 
+1. Przypisz hello toovariable polecenia o nazwie **cmd**. 
    
     > [!IMPORTANT]
-    > Upewnij się, że określona tutaj nazwa fabryki danych (ADFCopyTutorialDF) odpowiada nazwie podanej w pliku **datafactory.json**. 
+    > Potwierdzić tę nazwę hello hello fabryki danych określone w tym miejscu (ADFCopyTutorialDF) dopasowań hello nazwa określona w hello **datafactory.json**. 
    
     ```PowerShell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF0411?api-version=2015-10-01};
     ```
-2. Uruchom to polecenie przy użyciu polecenia **Invoke-Command**.
+2. Uruchom polecenie hello przy użyciu **Invoke-Command**.
    
     ```PowerShell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. Przejrzyj wyniki. Jeśli fabryka danych została utworzona pomyślnie, w **wynikach** będzie widoczny kod JSON tej fabryki. W przeciwnym razie zostanie wyświetlony komunikat o błędzie.  
+3. Wyświetl wyniki hello. Po pomyślnym utworzeniu hello fabryki danych Zobacz hello JSON dla fabryki danych hello w hello **wyniki**; w przeciwnym razie zostanie wyświetlony komunikat o błędzie.  
    
     ```
     Write-Host $results
     ```
 
-Pamiętaj o następujących kwestiach:
+Należy zwrócić uwagę hello następujące punkty:
 
-* Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli w wynikach jest wyświetlany błąd: **Nazwa fabryki danych „ADFCopyTutorialDF” jest niedostępna**, wykonaj następujące czynności:  
+* Nazwa Hello hello fabryki danych Azure musi być globalnie unikatowe. Jeśli zostanie wyświetlony błąd hello w wynikach: **nazwa fabryki danych "ADFCopyTutorialDF" nie jest dostępna**, hello następujące kroki:  
   
-  1. Zmień nazwę fabryki (np. twojanazwaADFCopyTutorialDF) w pliku **datafactory.json**.
-  2. W pierwszym poleceniu, w którym zmiennej **$cmd** jest przypisywana wartość, zastąp nazwę ADFCopyTutorialDF nową nazwą i uruchom to polecenie. 
-  3. Uruchom kolejne dwa polecenia, aby wywołać interfejs API REST w celu utworzenia fabryki danych i wyświetlić wyniki tej operacji. 
+  1. Zmień nazwę hello (na przykład yournameADFCopyTutorialDF) w hello **datafactory.json** pliku.
+  2. W pierwszym poleceniem hello gdzie hello **$cmd** zmiennej jest przypisywana wartość, Zamień ADFCopyTutorialDF hello nowej nazwy i uruchom polecenie hello. 
+  3. Uruchamianie hello następne dwa polecenia tooinvoke hello interfejsu API REST toocreate hello danych fabryki i Drukuj hello wyników hello operacji. 
      
      Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
-* Aby tworzyć wystąpienia usługi Fabryka danych, musisz być współautorem/administratorem subskrypcji Azure
-* W przyszłości nazwa fabryki danych może zostać zarejestrowana jako nazwa DNS, a wówczas stanie się widoczna publicznie.
-* Jeśli zostanie wyświetlony komunikat o błędzie: „**Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw Microsoft.DataFactory**”, wykonaj jedną z następujących czynności i spróbuj opublikować ponownie: 
+* toocreate wystąpienia fabryki danych, należy toobe współautora/administrator hello subskrypcji platformy Azure
+* Nazwa fabryki danych hello Hello mogą być zarejestrowana jako nazwa DNS w przyszłości hello i dlatego stać się publicznie widoczna.
+* Jeśli wystąpi błąd hello: "**Ta subskrypcja nie jest zarejestrowany toouse przestrzeni nazw Microsoft.DataFactory**", wykonaj jedną z następujących hello i spróbuj ponownie opublikować: 
   
-  * W programie Azure PowerShell uruchom następujące polecenie, aby zarejestrować dostawcę usługi Data Factory: 
+  * W programie Azure PowerShell Uruchom hello następujące polecenia tooregister hello fabryki danych dostawcy: 
 
     ```PowerShell    
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
-    Można uruchomić następujące polecenie, aby potwierdzić, że dostawca usługi Data Factory jest zarejestrowany. 
+    Powitania po tooconfirm polecenie można uruchomić tego hello fabryki danych dostawca został zarejestrowany. 
     
     ```PowerShell
     Get-AzureRmResourceProvider
     ```
-  * Zaloguj się przy użyciu subskrypcji Azure do [portalu Azure](https://portal.azure.com) i przejdź do bloku Fabryka danych lub utwórz fabrykę danych w portalu Azure. Ta akcja powoduje automatyczne zarejestrowanie dostawcy.
+  * Logowanie przy użyciu hello subskrypcji platformy Azure do hello [portalu Azure](https://portal.azure.com) i przejdź do bloku usługi fabryka danych tooa tworzenie fabryki danych w hello portalu Azure (lub). Ta akcja rejestruje automatycznie hello dostawcy dla Ciebie.
 
-Przed utworzeniem potoku musisz utworzyć kilka jednostek usługi Fabryka danych. Najpierw utwórz połączone usługi, aby połączyć źródłowy i docelowy magazyn danych ze swoim magazynem danych. Następnie zdefiniuj wejściowy i wyjściowy zestaw danych w celu reprezentowania danych w połączonych magazynach danych. Na koniec utwórz potok z działaniem używającym tych zestawów danych.
+Przed utworzeniem potoku, należy toocreate kilku jednostek fabryki danych najpierw. Najpierw Utwórz źródło toolink połączonych usług i miejsce docelowe danych przechowuje dane tooyour przechowywania. Następnie należy zdefiniować dane toorepresent wejściowych i wyjściowych zestawów danych w magazynach połączonych danych. Na koniec należy utworzyć potok hello do działania, która używa tych zestawów danych.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
-Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tym samouczku nie przedstawiono korzystania z żadnych usług obliczeniowych, takich jak Azure HDInsight czy Azure Data Lake Analytics. Zostają użyte dwa magazyny danych typu Azure Storage (źródło) i Azure SQL Database (lokalizacja docelowa). W związku z tym tworzy się dwie połączone usługi o nazwie AzureStorageLinkedService i AzureSqlLinkedService typu: AzureStorage i AzureSqlDatabase.  
+Połączone usługi są tworzone w toolink fabryki danych dane są przechowywane i obliczeniowe fabryki danych toohello usług. W tym samouczku nie przedstawiono korzystania z żadnych usług obliczeniowych, takich jak Azure HDInsight czy Azure Data Lake Analytics. Zostają użyte dwa magazyny danych typu Azure Storage (źródło) i Azure SQL Database (lokalizacja docelowa). W związku z tym tworzy się dwie połączone usługi o nazwie AzureStorageLinkedService i AzureSqlLinkedService typu: AzureStorage i AzureSqlDatabase.  
 
-Polecenie AzureStorageLinkedService łączy konto usługi Azure Storage z fabryką danych. Na tym koncie magazynu utworzono kontener i przekazano na nie dane w ramach [wymagań wstępnych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+Witaj AzureStorageLinkedService łączy fabrykę danych toohello konta magazynu platformy Azure. To konto magazynu jest hello jedną w którym utworzono kontener i hello dane przekazane jako część [wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-Polecenie AzureSqlLinkedService łączy bazę danych SQL na platformie Azure z fabryką danych. W tej bazie danych są przechowywane dane skopiowane z magazynu obiektów blob. Tabelę emp w tej bazie danych utworzono w ramach [wymagań wstępnych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
+AzureSqlLinkedService łączy fabrykę danych toohello bazy danych Azure SQL. dane Hello, który jest skopiowany z magazynu obiektów blob hello są przechowywane w tej bazie danych. Utworzono hello pustych elementów tabeli w tej bazie danych jako część [wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
 
 ### <a name="create-azure-storage-linked-service"></a>Tworzenie połączonej usługi Azure Storage
-W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych. W tej sekcji określa się nazwę i klucz konta magazynu platformy Azure. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure Storage zawiera temat [Połączona usługa Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service).  
+W tym kroku możesz połączyć fabrykę danych tooyour konta magazynu platformy Azure. W tej sekcji można określić nazwę hello i klucza konta magazynu Azure. Zobacz [połączonej usługi magazynu Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) szczegółowe informacje o toodefine właściwości używane w formacie JSON połączonej usługi magazynu Azure.  
 
-1. Przypisz polecenie do zmiennej o nazwie **cmd**. 
+1. Przypisz hello toovariable polecenia o nazwie **cmd**. 
 
     ```PowerShell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
     ```
-2. Uruchom to polecenie przy użyciu polecenia **Invoke-Command**.
+2. Uruchom polecenie hello przy użyciu **Invoke-Command**.
 
     ```PowerShell   
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. Przejrzyj wyniki. Jeśli połączona usługa została utworzona pomyślnie, w **wynikach** będzie widoczny kod JSON tej usługi. W przeciwnym razie zostanie wyświetlony komunikat o błędzie.
+3. Wyświetl wyniki hello. Jeśli hello połączone usługi został utworzony pomyślnie, zobacz hello JSON usługi hello połączone w hello **wyniki**; w przeciwnym razie zostanie wyświetlony komunikat o błędzie.
 
     ```PowerShell   
     Write-Host $results
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Tworzenie połączonej usługi SQL Azure
-W tym kroku opisano łączenie bazy danych Azure SQL Database z fabryką danych. W tej sekcji określa się nazwę serwera usługi Azure SQL, nazwę bazy danych, nazwę użytkownika i hasło użytkownika. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure SQL zawiera temat [Połączona usługa Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties).
+W tym kroku możesz połączyć fabrykę danych tooyour bazy danych Azure SQL. W tej sekcji można określić nazwy serwera Azure SQL hello, nazwa bazy danych, nazwę użytkownika i hasło użytkownika. Zobacz [Azure SQL połączona usługa](data-factory-azure-sql-connector.md#linked-service-properties) szczegółowe informacje o toodefine właściwości używane w formacie JSON Azure SQL połączonej usługi.
 
-1. Przypisz polecenie do zmiennej o nazwie **cmd**. 
+1. Przypisz hello toovariable polecenia o nazwie **cmd**. 
    
     ```PowerShell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
     ```
-2. Uruchom to polecenie przy użyciu polecenia **Invoke-Command**.
+2. Uruchom polecenie hello przy użyciu **Invoke-Command**.
    
     ```PowerShell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. Przejrzyj wyniki. Jeśli połączona usługa została utworzona pomyślnie, w **wynikach** będzie widoczny kod JSON tej usługi. W przeciwnym razie zostanie wyświetlony komunikat o błędzie.
+3. Wyświetl wyniki hello. Jeśli hello połączone usługi został utworzony pomyślnie, zobacz hello JSON usługi hello połączone w hello **wyniki**; w przeciwnym razie zostanie wyświetlony komunikat o błędzie.
    
     ```PowerShell
     Write-Host $results
     ```
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
-W poprzednim kroku zostały utworzone połączone usługi używane do połączenia konta usługi Azure Storage i bazy danych Azure SQL z fabryką danych. W tym kroku zostaną zdefiniowane dwa zestawy danych o nazwach AzureBlobInput i AzureSqlOutput zawierające dane wejściowe i wyjściowe przechowywane w magazynach danych, do których odwołują się usługi AzureStorageLinkedService i AzureSqlLinkedService.
+W poprzednim kroku hello utworzono toolink połączone usługi konta magazynu Azure i fabryki danych tooyour bazy danych Azure SQL. W tym kroku należy zdefiniować dwa zestawy danych o nazwie AzureBlobInput i AzureSqlOutput reprezentujące danych wejściowych i wyjściowych danych przechowywanych w magazynach danych hello odwołuje się AzureStorageLinkedService i AzureSqlLinkedService odpowiednio.
 
-Połączona usługa magazynu Azure określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z kontem magazynu Azure. Natomiast wejściowy zestaw danych obiektów blob (AzureBlobInput) określa kontener oraz folder, który zawiera dane wejściowe.  
+Hello Azure połączoną usługą magazynu określa parametry połączenia hello, która używa usługi fabryka danych w czasie wykonywania tooconnect tooyour kontem magazynu platformy Azure. I zestawu danych wejściowych obiektu blob hello (AzureBlobInput) określa hello kontenera i folderu hello, który zawiera hello danych wejściowych.  
 
-W analogiczny sposób połączona usługa Azure SQL Database określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z bazą danych SQL usługi Azure. Wyjściowy zestaw danych tabeli SQL (OutputDataset) określa tabelę w bazie danych, do której są kopiowane dane z magazynu obiektów blob. 
+Podobnie hello usługi baza danych SQL Azure połączone określa hello parametry połączenia, które korzysta z usługi fabryka danych w czasie wykonywania tooconnect tooyour — bazy danych Azure SQL. I hello danych wyjściowych SQL tabeli dataset (OututDataset) określa hello tabeli w hello bazy danych toowhich powitalne dane z magazynu obiektów blob hello są kopiowane. 
 
 ### <a name="create-input-dataset"></a>Tworzenie wejściowego zestawu danych
-W tym kroku zostanie utworzony zestaw danych o nazwie AzureBlobInput wskazujący na plik obiektów blob (emp.txt) w katalogu głównym kontenera obiektów blob (adftutorial) w usłudze Azure Storage reprezentowany przez połączoną usługę AzureStorageLinkedService. Jeśli nie określisz wartości obiektu fileName lub ją pominiesz, dane ze wszystkich obiektów blob w folderze wejściowym zostaną skopiowane do lokalizacji docelowej. W tym samouczku wartość obiektu fileName jest określona. 
+W tym kroku utworzysz zestaw danych o nazwie AzureBlobInput, który wskazuje plik obiektu blob tooa (emp.txt) w folderze głównym hello kontenera obiektów blob (adftutorial) w hello reprezentowany przez hello AzureStorageLinkedService połączone usługi Magazyn Azure. Brak określić wartość dla nazwy pliku hello (lub Pomiń je), danych z wszystkich obiektów blob w folderze wejściowych hello są skopiowanych toohello docelowego. W tym samouczku należy określić wartość dla hello fileName. 
 
-1. Przypisz polecenie do zmiennej o nazwie **cmd**. 
+1. Przypisz hello toovariable polecenia o nazwie **cmd**. 
 
     ```PowerSHell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
     ```
-2. Uruchom to polecenie przy użyciu polecenia **Invoke-Command**.
+2. Uruchom polecenie hello przy użyciu **Invoke-Command**.
    
     ```PowerShell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. Przejrzyj wyniki. Jeśli zestaw danych został utworzony pomyślnie, w **wynikach** będzie widoczny kod JSON tego zestawu. W przeciwnym razie zostanie wyświetlony komunikat o błędzie.
+3. Wyświetl wyniki hello. Po pomyślnym utworzeniu zestawu danych hello Zobacz hello JSON dla zestawu danych hello w hello **wyniki**; w przeciwnym razie zostanie wyświetlony komunikat o błędzie.
    
     ```PowerShell
     Write-Host $results
     ```
 
 ### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych
-Połączona usługa Azure SQL Database określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z bazą danych SQL usługi Azure. Wyjściowy zestaw danych tabeli SQL (OutputDataset) tworzony w tym kroku określa tabelę w bazie danych, do której są kopiowane dane z magazynu obiektów blob.
+Hello usługi baza danych SQL Azure połączone określa hello parametry połączenia, które korzysta z usługi fabryka danych w czasie wykonywania tooconnect tooyour — bazy danych Azure SQL. Utwórz w tym kroku Hello danych wyjściowych SQL tabeli dataset (OututDataset) określa, że tabela hello hello bazy danych toowhich hello danych z magazynu obiektów blob hello jest kopiowany.
 
-1. Przypisz polecenie do zmiennej o nazwie **cmd**.
+1. Przypisz hello toovariable polecenia o nazwie **cmd**.
 
     ```PowerShell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
     ```
-2. Uruchom to polecenie przy użyciu polecenia **Invoke-Command**.
+2. Uruchom polecenie hello przy użyciu **Invoke-Command**.
     
     ```PowerShell   
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. Przejrzyj wyniki. Jeśli zestaw danych został utworzony pomyślnie, w **wynikach** będzie widoczny kod JSON tego zestawu. W przeciwnym razie zostanie wyświetlony komunikat o błędzie.
+3. Wyświetl wyniki hello. Po pomyślnym utworzeniu zestawu danych hello Zobacz hello JSON dla zestawu danych hello w hello **wyniki**; w przeciwnym razie zostanie wyświetlony komunikat o błędzie.
    
     ```PowerShell
     Write-Host $results
@@ -464,35 +464,35 @@ Połączona usługa Azure SQL Database określa parametry połączenia, z który
 ## <a name="create-pipeline"></a>Tworzenie potoku
 W tym kroku za pomocą **działania kopiowania** zostanie utworzony potok, w którym parametr **AzureBlobInput** jest używany jako dane wejściowe, a parametr **AzureSqlOutput** jako dane wyjściowe.
 
-Obecnie harmonogram jest prowadzony przy użyciu wyjściowego zestawu danych. W tym samouczku wyjściowy zestaw danych jest konfigurowany do tworzenia wycinka co godzinę. Potok ma godzinę rozpoczęcia i zakończenia, między którymi następuje jeden dzień różnicy (dokładnie 24 godziny). Potok tworzy więc 24 wycinki wyjściowego zestawu danych. 
+Wyjściowy zestaw danych jest obecnie, jakie dysków hello harmonogramu. W tym samouczku wyjściowy zestaw danych jest skonfigurowane tooproduce wycinek godzinę. potok Hello ma czas rozpoczęcia i godzina zakończenia, będące w ciągu jednego dnia od siebie, który wynosi 24 godziny. W związku z tym 24 wycinków wyjściowy zestaw danych są produkowane przez hello potoku. 
 
-1. Przypisz polecenie do zmiennej o nazwie **cmd**.
+1. Przypisz hello toovariable polecenia o nazwie **cmd**.
 
     ```PowerShell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
     ```
-2. Uruchom to polecenie przy użyciu polecenia **Invoke-Command**.
+2. Uruchom polecenie hello przy użyciu **Invoke-Command**.
 
     ```PowerShell   
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. Przejrzyj wyniki. Jeśli zestaw danych został utworzony pomyślnie, w **wynikach** będzie widoczny kod JSON tego zestawu. W przeciwnym razie zostanie wyświetlony komunikat o błędzie.  
+3. Wyświetl wyniki hello. Po pomyślnym utworzeniu zestawu danych hello Zobacz hello JSON dla zestawu danych hello w hello **wyniki**; w przeciwnym razie zostanie wyświetlony komunikat o błędzie.  
 
     ```PowerShell   
     Write-Host $results
     ```
 
-**Gratulacje!** Fabryka danych Azure z potokiem kopiującym dane z usługi Azure Blob Storage do bazy danych Azure SQL Database została pomyślnie utworzona.
+**Gratulacje!** Pomyślnie utworzono fabryki danych Azure z potok, który kopiuje dane z bazy danych SQL tooAzure magazynu obiektów Blob Azure.
 
 ## <a name="monitor-pipeline"></a>Monitorowanie potoku
-W tym kroku interfejs API REST usługi Data Factory służy do monitorowania wycinków generowanych przez potok.
+W tym kroku użyjesz tworzonym przez potok hello wycinków toomonitor interfejsu API REST fabryki danych.
 
 ```PowerShell
 $ds ="AzureSqlOutput"
 ```
 
 > [!IMPORTANT] 
-> Upewnij się, że godziny rozpoczęcia i zakończenia określone w następującym poleceniu są zgodne z godzinami rozpoczęcia i zakończenia potoku. 
+> Upewnij się, hello początkową i końcową czas określony w powitania po polecenie start hello dopasowania i kończyć razy hello potoku. 
 
 ```PowerShell
 $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=2017-05-11T00%3a00%3a00.0000000Z"&"end=2017-05-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
@@ -510,23 +510,23 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 }
 ```
 
-Uruchom polecenie Invoke-Command i kolejne polecenie, aż zobaczysz, że wycinek jest w stanie **Gotowe** lub **Niepowodzenie**. Gdy wycinek jest w stanie Gotowe, sprawdź, czy w tabeli **emp** w bazie danych Azure SQL Database znajdują się dane wyjściowe. 
+Uruchom hello Invoke-Command i hello kolejnego do momentu wyświetlenia wycinek **gotowe** stanu lub **** stanu. Gdy wycinek hello jest w stanie gotowe, sprawdź hello **pustych elementów** tabeli w bazie danych Azure SQL hello danych wyjściowych. 
 
-Dla każdego wycinka do tabeli emp w bazie danych Azure SQL Database zostają skopiowane dwa wiersze danych z pliku źródłowego. Po pomyślnym przetworzeniu wycinków (stan Gotowe) w tabeli emp będą widoczne 24 nowe rekordy. 
+Każdy wycinek dwa wiersze danych z pliku źródłowego hello są kopiowane toohello pustych elementów tabeli w bazie danych Azure SQL hello. W związku z tym 24 nowych rekordów w tabeli pustych elementów hello wyświetlona w sytuacji, gdy wszystkie fragmenty hello są pomyślnie przetworzone (w stanie innym niż Ready). 
 
 ## <a name="summary"></a>Podsumowanie
-W tym samouczku opisano tworzenie fabryki danych Azure za pomocą interfejsu API REST w celu kopiowania danych z obiektu blob Azure do bazy danych Azure SQL Database. Główne kroki opisane w tym samouczku:  
+W tym samouczku użyto toocreate interfejsu API REST usługi Azure data factory toocopy dane z bazy danych Azure SQL tooan obiektów blob platformy Azure. Poniżej przedstawiono ogólne kroki hello, wykonane w tym samouczku:  
 
 1. Tworzenie **fabryki danych** Azure.
 2. Tworzenie **połączonych usług**:
-   1. Połączona usługa Azure Storage, która ma nawiązać połączenie z kontem usługi Azure Storage, na którym przechowywane są dane wejściowe.     
-   2. Połączona usługa SQL Azure, która ma nawiązać połączenie z bazą danych Azure SQL Database, w której przechowywane są dane wyjściowe. 
+   1. Magazyn Azure połączone usługi toolink konta magazynu Azure, która przechowuje dane wejściowe.     
+   2. Azure SQL połączone usługi toolink przechowujący dane wyjściowe hello bazy danych Azure SQL. 
 3. Tworzenie **zestawów danych** opisujących dane wejściowe i wyjściowe dla potoków.
 4. Tworzenie **potoku** za pomocą działania kopiowania, w którym źródłem jest element BlobSource, a ujściem element SqlSink. 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku użyto magazynu obiektów blob platformy Azure jako magazynu danych źródła oraz bazy danych SQL na platformie Azure jako magazynu danych docelowych w operacji kopiowania. Poniższa tabela zawiera listę magazynów danych obsługiwanych przez działanie kopiowania jako źródła i lokalizacje docelowe: 
+W tym samouczku użyto magazynu obiektów blob platformy Azure jako magazynu danych źródła oraz bazy danych SQL na platformie Azure jako magazynu danych docelowych w operacji kopiowania. Witaj Poniższa tabela zawiera listę magazynów danych obsługiwane jako źródeł i miejsc docelowych przez działanie kopiowania hello: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Aby uzyskać informacje dotyczące kopiowania danych do/z magazynu danych, kliknij link do magazynu danych w tabeli.
+toolearn o jak magazyn danych toocopy z danych, kliknij łącze hello hello magazynu danych w tabeli hello.

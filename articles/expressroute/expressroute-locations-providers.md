@@ -1,6 +1,6 @@
 ---
 title: "Lokalizacje i dostawcy połączeń: Azure ExpressRoute | Microsoft Docs"
-description: "Ten artykuł zawiera szczegółowe omówienie lokalizacji, w których są oferowane usługi, i sposobu łączenia z regionami świadczenia usługi Azure. Informacje są posortowane według lokalizacji."
+description: "Ten artykuł zawiera szczegółowe omówienie lokalizacji, w przypadku, gdy usługi są oferowane i w jaki sposób tooconnect tooAzure regionów. Informacje są posortowane według lokalizacji."
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/17/2017
 ms.author: kaanan
-ms.openlocfilehash: a10986ac0b36a3f2065f02533f9e321c755d4cc8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 838d52701d177aa7f13e845b7bde66d07b5efed6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -27,17 +27,17 @@ ms.lasthandoff: 08/29/2017
 > * [Dostawcy według lokalizacji](expressroute-locations-providers.md)
 
 
-Tabele w tym artykule zawierają informacje dotyczące dostawców połączenia ExpressRoute, zasięgu geograficznego usługi ExpressRoute, usług w chmurze firmy Microsoft obsługiwanych za pośrednictwem usługi ExpressRoute oraz integratorów systemowych ExpressRoute (SI).
+Witaj tabele w tym artykule udostępniają informacje dotyczące dostawców łączności usługi ExpressRoute, ExpressRoute zasięgu geograficznego, obsługiwane przez usługi ExpressRoute i integratorów ExpressRoute (SIs) usług chmurowych firmy Microsoft.
 
 ## <a name="partners"></a>Dostawcy połączenia usługi ExpressRoute
-Usługa ExpressRoute jest obsługiwana we wszystkich regionach i lokalizacjach świadczenia usługi Azure. Poniższa mapa zawiera listę regionów świadczenia usługi Azure i lokalizacji usługi ExpressRoute. Lokalizacje usługi ExpressRoute to te, w których firma Microsoft prowadzi komunikację równorzędną z kilkoma dostawcami usług.
+Usługa ExpressRoute jest obsługiwana we wszystkich regionach i lokalizacjach świadczenia usługi Azure. powitania po mapy zawiera listę regionów platformy Azure i lokalizacje ExpressRoute. Lokalizacji usługi można znaleźć toothose gdzie Microsoft równorzędnymi użytkownikami z kilku dostawców usług.
 
 ![Mapa lokalizacji][0]
 
-Będziesz mieć dostęp do usług Azure we wszystkich regionach regionu geopolitycznego, jeśli połączysz się przynajmniej z jedną lokalizacją usługi ExpressRoute w tym regionie. 
+Będziesz mieć dostępu do usług tooAzure we wszystkich regionach w obrębie regionu geograficznymi Jeśli połączony tooat co najmniej jedną lokalizację usługi ExpressRoute w obrębie regionu geograficznymi hello. 
 
-### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Regiony świadczenia usługi Azure i lokalizacje usługi ExpressRoute w regionach geopolitycznych
-Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokalizacji usługi ExpressRoute w regionie geopolitycznym.
+### <a name="azure-regions-tooexpressroute-locations-within-a-geopolitical-region"></a>Lokalizacje tooExpressRoute regiony platformy Azure w ramach geograficznymi regionu
+Witaj w poniższej tabeli podano Mapa regionów systemu Azure tooExpressRoute lokalizacji w obrębie regionu geograficznymi.
 
 | **Region geopolityczny** | **Regiony platformy Azure** | **Lokalizacje usługi ExpressRoute** |
 | --- | --- | --- |
@@ -51,7 +51,7 @@ Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokaliza
 | **Korea Południowa** |Korea Środkowa, Korea Południowa |Busan, Seul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiony i granice geopolityczne chmur krajowych
-W poniższej tabeli zamieszczono informacje o regionach i granicach geopolitycznych chmur krajowych.
+w poniższej tabeli Hello zawiera informacje dotyczące regiony i granice geograficznymi dla chmur national.
 
 | **Region geopolityczny** | **Regiony platformy Azure** | **Lokalizacje usługi ExpressRoute** |
 | --- | --- | --- |
@@ -59,11 +59,11 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Chiny** |Chiny Północne, Chiny Wschodnie |Pekin, Szanghaj |
 | **Niemcy** |Niemcy Środkowe, Niemcy Wschodnie |Berlin, Frankfurt |
 
-Łączność między regionami geopolitycznymi nie jest obsługiwana w standardowej jednostce SKU usługi ExpressRoute. Do obsługi połączeń globalnych trzeba włączyć dodatek Premium usługi ExpressRoute. Łączność z krajowymi środowiskami chmury nie jest obsługiwana. W razie potrzeby można współpracować z dostawcą połączenia.
+Łączność w regionach geograficznymi nie jest obsługiwana na powitania standardowy SKU usługi ExpressRoute. Konieczne będzie tooenable hello ExpressRoute premium dodatek toosupport globalne łączności. Środowisk chmury toonational połączenie nie jest obsługiwane. W razie potrzeby można współpracować z dostawcą połączenia.
 
 ## <a name="locations"></a>Lokalizacje dostawców połączenia
 
-W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dla każdej lokalizacji. Jeśli chcesz wyświetlić dostawców usług i lokalizacje, w których świadczą usługi, zobacz [Lokalizacje według dostawcy usług](expressroute-locations.md#locations). 
+Witaj poniższej tabeli przedstawiono lokalizacje łączności i hello dostawcy usług dla każdej lokalizacji. Jeśli chcesz tooview usługodawców i lokalizacje hello, dla których zapewniają usługi, zobacz [lokalizacje przez dostawcę usług](expressroute-locations.md#locations). 
 
 
 ### <a name="production-azure"></a>Środowisko produkcyjne Azure
@@ -121,7 +121,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Pekin** |China Telecom |
 | **Szanghaj** |China Telecom |
 
-Więcej informacji znajduje się w artykule [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/) (Usługa ExpressRoute w Chinach)
+toolearn więcej, zobacz [ExpressRoute w Chinach](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>Niemcy
 | **Lokalizacja** | **Dostawcy usług** |
@@ -132,7 +132,7 @@ Więcej informacji znajduje się w artykule [ExpressRoute in China](http://www.w
 ## <a name="c1partners"></a>Łączność za pośrednictwem dostawców usług Exchange
 Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, możesz i tak utworzyć połączenie.
 
-* Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy jest on połączony z dowolną wymianą z tabeli powyżej. Użyj poniższych linków, aby zebrać więcej informacji o usługach oferowanych przez dostawców wymiany. Kilku dostawców połączenia jest już połączonych z wymianami sieci Ethernet.
+* Skontaktuj się z Twojego toosee dostawcy łączności, jeśli są one połączone tooany wymiany hello w powyższej tabeli hello. Można sprawdzić następujące hello łączy toogather więcej informacji na temat usług oferowanych przez dostawców programu exchange. Wielu dostawców łączności są już połączone tooEthernet wymiany.
   * [Cologix](http://www.cologix.com/)
   * [Console](https://www.consoleconnect.com/partners/cloudsaas/)
   * [CoreSite](http://www.coresite.com/)
@@ -141,10 +141,10 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
   * [NextDC](http://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-* Poproś dostawcę połączenia o rozszerzenie sieci o wybraną lokalizację komunikacji równorzędnej.
+* Ma dostawcą połączenia rozszerzyć Twojej sieci toohello komunikacji równorzędnej lokalizację.
   * Dopilnuj, by dostawca połączenia rozszerzył łączność w sposób wysoko dostępny, aby nie wystąpiły żadne punkty awarii.
-* Zamów obwód usługi ExpressRoute z wymianą jako dostawcą połączenia, aby połączyć się z firmą Microsoft.
-  * Wykonaj kroki opisane w artykule [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) (Tworzenie obwodu usługi ExpressRoute), aby skonfigurować łączność.
+* Kolejność obwodu usługi ExpressRoute z programem exchange hello jako dostawca połączenia tooconnect tooMicrosoft.
+  * Wykonaj czynności opisane w [utworzyć obwodu usługi ExpressRoute](expressroute-howto-circuit-classic.md) tooset się łączności.
 
 ## <a name="c1partners"></a>Łączność za pośrednictwem dodatkowych dostawców usług
 | **Lokalizacja** | **Exchange** | **Dostawcy połączeń** |
@@ -169,7 +169,7 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
 | **Waszyngton** |Equinix | Altice Business, Gtt Communications Inc, Epsilon, Lightower, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>Integratorzy systemu ExpressRoute
-Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w zależności od skali sieci. Możesz pracować z dowolnymi integratorami systemu wymienionymi w poniższej tabeli, którzy ułatwiają dołączanie do usługi ExpressRoute.
+Włączanie toofit łączności prywatny, który może być wyzwaniem potrzeb, na podstawie skali hello sieci. Można razem ze wszystkimi hello integratorów na liście powitania po tooassist tabeli można tooExpressRoute dołączania.
 
 | **Kontynent** | **Integratorzy systemów** |
 | --- | --- |
@@ -179,7 +179,7 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 | **Ameryka Północna** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **Ameryka Południowa** |Avanade Inc. |
 ## <a name="next-steps"></a>Następne kroki
-* Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
+* Aby uzyskać więcej informacji na temat połączenia ExpressRoute, zobacz hello [ExpressRoute — często zadawane pytania](expressroute-faqs.md).
 * Upewnij się, że zostały spełnione wszystkie wymagania wstępne. Zobacz artykuł [ExpressRoute prerequisites](expressroute-prerequisites.md) (Wymagania wstępne usługi ExpressRoute).
 
 <!--Image References-->

@@ -1,5 +1,5 @@
 ---
-title: "Usługa Azure Site Recovery sieci wskazówki dotyczące replikacji maszyn wirtualnych Azure Azure | Dokumentacja firmy Microsoft"
+title: "Odzyskiwanie lokacji sieciowych wskazówki dotyczące replikacji maszyn wirtualnych z platformy Azure tooAzure aaaAzure | Dokumentacja firmy Microsoft"
 description: "Wskazówki dotyczące replikowanie maszyn wirtualnych platformy Azure Networking"
 services: site-recovery
 documentationcenter: 
@@ -14,69 +14,69 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/13/2017
 ms.author: sujayt
-ms.openlocfilehash: eb7b6d606d1a7455710be5e1cf0298c368fc8b1e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3a3391b8c3512932d243458fd17d2a2b39248448
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="networking-guidance-for-replicating-azure-virtual-machines"></a>Wskazówki dotyczące replikowanie maszyn wirtualnych platformy Azure Networking
 
 >[!NOTE]
 > Replikacja lokacji odzyskiwania maszyn wirtualnych platformy Azure jest obecnie w przeglądzie.
 
-W tym artykule szczegółowo sieci wskazówki dotyczące usługi Azure Site Recovery, podczas replikacji i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu w innym regionie. Aby uzyskać więcej informacji o wymaganiach usługi Azure Site Recovery, zobacz [wymagania wstępne](site-recovery-prereq.md) artykułu.
+Ta sieć wskazówki dotyczące usługi Azure Site Recovery, podczas replikacji i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu tooanother hello szczegóły artykułu. Aby uzyskać więcej informacji o wymaganiach usługi Azure Site Recovery, zobacz hello [wymagania wstępne](site-recovery-prereq.md) artykułu.
 
 ## <a name="site-recovery-architecture"></a>Architektura odzyskiwania lokacji
 
-Usługa Site Recovery zapewnia prosty i łatwy sposób replikowania aplikacji uruchomionych na maszynach wirtualnych platformy Azure do innego regionu Azure, dzięki czemu mogą zostać odzyskane, jeśli brak przerw w działaniu w regionie podstawowym. Dowiedz się więcej o [tego scenariusza i architekturze usługi Site Recovery](site-recovery-azure-to-azure-architecture.md).
+Usługa Site Recovery zapewnia tooreplicate prosty i łatwy sposób aplikacji uruchomionych na tooanother maszyn wirtualnych platformy Azure region platformy Azure, dzięki czemu mogą zostać odzyskane, jeśli brak przerw w działaniu w regionie podstawowym hello. Dowiedz się więcej o [tego scenariusza i architekturze usługi Site Recovery](site-recovery-azure-to-azure-architecture.md).
 
 ## <a name="your-network-infrastructure"></a>Infrastruktura sieciowa użytkownika
 
-Poniższy diagram przedstawia typowy środowiska platformy Azure dla aplikacji działających na maszynach wirtualnych platformy Azure:
+Witaj Poniższy diagram przedstawia hello typowe środowiska platformy Azure dla aplikacji działających na maszynach wirtualnych platformy Azure:
 
 ![środowisko klienta](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Jeśli używasz usługi Azure ExpressRoute lub połączenie sieci VPN z sieci lokalnej do platformy Azure środowiska wygląda następująco:
+Jeśli używasz usługi Azure ExpressRoute lub połączenie sieci VPN z tooAzure sieci lokalnej, środowisko hello wygląda następująco:
 
 ![środowisko klienta](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Zazwyczaj klienci ochrony ich sieci za pomocą zapory i/lub grup zabezpieczeń sieci (NSG). Zapory można użyć na podstawie adresu URL albo opartego na protokole IP listę dozwolonych podobnej do kontrolowania łączność sieciową. Grupy NSG umożliwiają reguły kontrolowania łączność sieciową za pomocą zakresów adresów IP.
+Zazwyczaj klienci ochrony ich sieci za pomocą zapory i/lub grup zabezpieczeń sieci (NSG). Hello zapory można użyć na podstawie adresu URL albo opartego na protokole IP listę dozwolonych podobnej do kontrolowania łączność sieciową. Grupy NSG umożliwiają reguł przy użyciu połączenia sieciowego toocontrol zakresów IP.
 
 >[!IMPORTANT]
-> Jeśli korzystasz z uwierzytelnionego serwera proxy do kontrolowania łączności sieciowej, nie jest obsługiwane i nie można włączyć replikacji usługi Site Recovery. 
+> Jeśli używasz łączności sieciowej toocontrol uwierzytelnionego serwera proxy nie jest obsługiwane i nie można włączyć replikacji usługi Site Recovery. 
 
-W poniższych sekcjach omówiono zmiany łączność wychodząca sieci, które są wymagane z maszyn wirtualnych platformy Azure Site Recovery replikacji do pracy.
+Witaj poniższych sekcjach omówiono hello sieci łączność wychodząca zmiany, które są wymagane w maszynach wirtualnych platformy Azure Site Recovery toowork replikacji.
 
 ## <a name="outbound-connectivity-for-azure-site-recovery-urls"></a>Łączność wychodząca dla adresy URL platformy Azure Site Recovery
 
-Jeśli używasz dowolnego zapora oparta na adres URL serwera proxy do sterowania łączność wychodząca, upewnij się listą dozwolonych adresów IP, adresy URL usługi Azure Site Recovery, są wymagane:
+Jeśli używasz dowolnego zapora oparta na adres URL serwera proxy toocontrol łączność wychodząca można toowhitelist się, że następujące wymagane adresy URL usługi Azure Site Recovery:
 
 
 **ADRES URL** | **Cel**  
 --- | ---
-*.blob.core.windows.net | Wymagane, aby dane mogą być zapisywane na konto magazynu pamięci podręcznej w regionie źródła z maszyny Wirtualnej.
-Login.microsoftonline.com | Wymagane w celu autoryzacji i uwierzytelnianie adresów URL usługi Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | Wymagane, aby komunikacja usługi Site Recovery może wystąpić z maszyny Wirtualnej.
-*. servicebus.windows.net | Wymagane, dzięki czemu można będzie można zapisywać danych monitorowania i diagnostyki usługi Site Recovery z maszyny Wirtualnej.
+*.blob.core.windows.net | Wymagane, aby dane mogą być zapisywane konta magazynu pamięci podręcznej toohello w regionie źródła hello z hello maszyny Wirtualnej.
+Login.microsoftonline.com | Wymagany w przypadku autoryzację i uwierzytelnianie toohello usługi Site Recovery adresy URL usługi.
+*.hypervrecoverymanager.windowsazure.com | Wymagane, aby komunikacja usługi Site Recovery hello może wystąpić z hello maszyny Wirtualnej.
+*. servicebus.windows.net | Wymagane, aby usługi Site Recovery hello monitorowania i diagnostyki danych mogą być zapisywane z hello maszyny Wirtualnej.
 
 ## <a name="outbound-connectivity-for-azure-site-recovery-ip-ranges"></a>Łączność wychodząca dla zakresów IP odzyskiwania lokacji platformy Azure
 
 >[!NOTE]
-> Aby automatycznie utworzyć wymagane reguły NSG na grupę zabezpieczeń sieci, możesz [pobranie i użycie tego skryptu](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
+> tooautomatically tworzenie reguł NSG hello wymagane na powitania sieciowej grupy zabezpieczeń, możesz [pobranie i użycie tego skryptu](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
 >[!IMPORTANT]
-> * Zaleca się tworzenie wymaganych reguł NSG na testową grupę zabezpieczeń sieci, a następnie sprawdź, czy nie ma żadnych problemów przed utworzeniem reguły na grupę zabezpieczeń sieci produkcyjnych.
-> * Aby utworzyć wymaganej liczby elementów reguły NSG, upewnij się, że Twoja subskrypcja jest białej. Skontaktuj się z pomocą techniczną w celu zwiększenia limitu reguły NSG w ramach subskrypcji.
+> * Firma Microsoft zaleca utworzenie reguły NSG hello wymagane na testową grupę zabezpieczeń sieci i sprawdź, czy nie ma żadnych problemów przed utworzeniem reguły hello na grupę zabezpieczeń sieci produkcyjnych.
+> * toocreate hello wymagana liczba reguły NSG, upewnij się, że Twoja subskrypcja jest białej. Skontaktuj się z pomocą techniczną tooincrease hello NSG reguły limit w ramach subskrypcji.
 
-Jeśli używasz serwera proxy oparte na protokole IP zapory lub reguły NSG do kontrolowania łączność wychodząca następujące zakresy IP muszą być białej, w zależności od lokalizacji źródłowej i docelowej maszyn wirtualnych:
+Jeśli używasz serwera proxy oparte na protokole IP zapory lub łączność wychodząca toocontrol reguły NSG hello następujące zakresy adresów IP, należy białej toobe, w zależności od lokalizacji źródłowej i docelowej hello hello maszyn wirtualnych:
 
-- Wszystkie zakresy IP, które odnoszą się do lokalizacji źródłowej. (Możesz pobrać [zakresów IP](https://www.microsoft.com/download/confirmation.aspx?id=41653).) Listę dozwolonych podobnej jest wymagana do danych mogą być zapisywane na koncie magazynu pamięci podręcznej z maszyny Wirtualnej.
+- Wszystkie zakresy IP, które odpowiadają toohello lokalizacji źródła. (Możesz pobrać hello [zakresów IP](https://www.microsoft.com/download/confirmation.aspx?id=41653).) Listę dozwolonych podobnej jest wymagana do danych mogą być zapisywane konta magazynu pamięci podręcznej toohello z hello maszyny Wirtualnej.
 
-- Wszystkie zakresy IP, które odpowiadają usługi Office 365 [uwierzytelnianie i tożsamość punkty końcowe IPv4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+- Wszystkie zakresy IP, które odpowiadają tooOffice 365 [uwierzytelnianie i tożsamość punkty końcowe IPv4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
     >[!NOTE]
-    > Nowe adresy IP zostaną dodane do pakietu Office 365 IP zakresów w przyszłości, należy utworzyć nowe reguły NSG.
+    > Nowe adresy IP zostaną dodane tooOffice 365 zakresy adresów IP w przyszłości hello, należy najpierw toocreate nowe reguły NSG.
     
 - Punkt końcowy usługi odzyskiwania adresów IP lokacji ([dostępne w pliku XML](https://aka.ms/site-recovery-public-ips)), które zależą od lokalizacji docelowej: 
 
@@ -107,38 +107,38 @@ Jeśli używasz serwera proxy oparte na protokole IP zapory lub reguły NSG do k
    Południowe Zjednoczone Królestwo | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
 
 ## <a name="sample-nsg-configuration"></a>Przykładowa konfiguracja grupy NSG
-W tej sekcji opisano kroki konfigurowania reguły NSG, dzięki czemu replikacja usługi Site Recovery może działać na maszynie wirtualnej. Jeśli używasz reguły NSG do kontrolowania łączność wychodząca, za pomocą reguł "Zezwalaj HTTPS wychodzącego" dla wszystkich wymaganych zakresów IP.
+W tej sekcji wyjaśniono reguły NSG tooconfigure kroki hello, dzięki czemu replikacja usługi Site Recovery może działać na maszynie wirtualnej. Jeśli używasz łączność wychodząca toocontrol reguły NSG, należy użyć "Zezwalaj na HTTPS wychodzące" reguł dla wszystkich zakresów IP hello wymagane.
 
 >[!Note]
-> Aby automatycznie utworzyć wymagane reguły NSG na grupę zabezpieczeń sieci, możesz [pobranie i użycie tego skryptu](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
+> tooautomatically tworzenie reguł NSG hello wymagane na powitania sieciowej grupy zabezpieczeń, możesz [pobranie i użycie tego skryptu](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
-Na przykład jeśli lokalizacji źródłowej maszyny Wirtualnej jest "Wschodnie nam" i lokalizacji docelowej replikacji jest "Centralnej nam", postępuj zgodnie z instrukcjami w dwóch następnych sekcjach.
+Na przykład jeśli lokalizacji źródłowej maszyny Wirtualnej "Wschodnie stany USA" i lokalizacji docelowej replikacji jest "Centralnej nas", wykonaj kroki hello w dwóch następnych sekcjach hello.
 
 >[!IMPORTANT]
-> * Zaleca się tworzenie wymaganych reguł NSG na testową grupę zabezpieczeń sieci, a następnie sprawdź, czy nie ma żadnych problemów przed utworzeniem reguły na grupę zabezpieczeń sieci produkcyjnych.
-> * Aby utworzyć wymaganej liczby elementów reguły NSG, upewnij się, że Twoja subskrypcja jest białej. Skontaktuj się z pomocą techniczną w celu zwiększenia limitu reguły NSG w ramach subskrypcji. 
+> * Firma Microsoft zaleca utworzenie reguły NSG hello wymagane na testową grupę zabezpieczeń sieci i sprawdź, czy nie ma żadnych problemów przed utworzeniem reguły hello na grupę zabezpieczeń sieci produkcyjnych.
+> * toocreate hello wymagana liczba reguły NSG, upewnij się, że Twoja subskrypcja jest białej. Skontaktuj się z pomocą techniczną tooincrease hello NSG reguły limit w ramach subskrypcji. 
 
-### <a name="nsg-rules-on-the-east-us-network-security-group"></a>Reguły NSG na grupę zabezpieczeń sieci wschodnie stany USA
+### <a name="nsg-rules-on-hello-east-us-network-security-group"></a>Reguły NSG na grupę zabezpieczeń sieci hello w wschodnie stany USA
 
-* Tworzenie reguł, które odpowiadają [zakresy wschodnie stany USA IP](https://www.microsoft.com/download/confirmation.aspx?id=41653). Jest to wymagane, dzięki czemu dane mogą być zapisywane na koncie magazynu pamięci podręcznej z maszyny Wirtualnej.
+* Tworzenie reguł, które odpowiadają za[zakresy wschodnie stany USA IP](https://www.microsoft.com/download/confirmation.aspx?id=41653). Jest to wymagane, dzięki czemu dane mogą być zapisywane konta magazynu pamięci podręcznej toohello z hello maszyny Wirtualnej.
 
-* Tworzenie reguł dla wszystkich zakresów IP, które odpowiadają usługi Office 365 [uwierzytelnianie i tożsamość punkty końcowe IPv4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+* Tworzenie reguł dla wszystkich zakresów IP, które odpowiadają tooOffice 365 [uwierzytelnianie i tożsamość punkty końcowe IPv4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Tworzenie reguł, które odnoszą się do lokalizacji docelowej:
+* Tworzenie reguł, które odpowiadają toohello lokalizacji docelowej:
 
    **Lokalizacja** | **Usługa Site Recovery adresów IP** |  **Usługa Site Recovery monitorowania IP**
     --- | --- | ---
    Środkowe stany USA | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
 
-### <a name="nsg-rules-on-the-central-us-network-security-group"></a>Reguły NSG na grupę zabezpieczeń sieci środkowe stany USA
+### <a name="nsg-rules-on-hello-central-us-network-security-group"></a>Reguły NSG na grupę zabezpieczeń sieci hello w środkowe stany USA
 
-Te zasady są niezbędne, dzięki czemu można włączyć replikację z region docelowy do źródła region po pracy w trybie failover:
+Te zasady są niezbędne, dzięki czemu można włączyć replikację z hello docelowego regionu toohello źródła region po pracy w trybie failover:
 
-* Zasady, które odpowiadają [zakresy IP USA centralnej](https://www.microsoft.com/download/confirmation.aspx?id=41653). Te są wymagane do konta magazynu pamięci podręcznej można zapisywać danych z maszyny Wirtualnej.
+* Zasady, które odpowiadają za[zakresy IP USA centralnej](https://www.microsoft.com/download/confirmation.aspx?id=41653). Są wymagane, aby dane mogą być zapisywane konta magazynu pamięci podręcznej toohello z hello maszyny Wirtualnej.
 
-* Zasady dla wszystkich zakresów IP, które odpowiadają usługi Office 365 [uwierzytelnianie i tożsamość punkty końcowe IPv4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+* Zasady dla wszystkich zakresów IP, które odpowiadają tooOffice 365 [uwierzytelnianie i tożsamość punkty końcowe IPv4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Reguły, które odnoszą się do lokalizacji źródłowej:
+* Lokalizacja źródłowa reguł, które odpowiadają toohello:
 
    **Lokalizacja** | **Usługa Site Recovery adresów IP** |  **Usługa Site Recovery monitorowania IP**
     --- | --- | ---
@@ -147,36 +147,36 @@ Te zasady są niezbędne, dzięki czemu można włączyć replikację z region d
 
 ## <a name="guidelines-for-existing-azure-to-on-premises-expressroutevpn-configuration"></a>Wytyczne dotyczące istniejącą konfigurację usługi Azure do lokalnymi lub sieć VPN
 
-Jeśli masz połączenie ExpressRoute lub sieci VPN między lokalnymi a lokalizacją źródłową na platformie Azure, postępuj zgodnie z wytycznymi w tej sekcji.
+Jeśli masz połączenie ExpressRoute lub sieci VPN między lokalnymi i hello źródło lokalizacji na platformie Azure, postępuj zgodnie z wytycznymi hello w tej sekcji.
 
 ### <a name="forced-tunneling-configuration"></a>W przypadku konfiguracji tunelowania wymuszonego
 
-Typowa konfiguracja klienta jest do definiowania trasy domyślnej (0.0.0.0/0), która wymusza wychodzący ruch internetowy przepływ lokalizacji lokalnej. Firma Microsoft nie jest to zalecane. Ruch związany z replikacją i komunikacji usługi Site Recovery nie opuszczaj Azure granic. Rozwiązanie to dodać trasy zdefiniowane przez użytkownika (Udr) dla [tych zakresów IP](#outbound-connectivity-for-azure-site-recovery-ip-ranges) tak, aby ruch związany z replikacją nie działa lokalnie.
+Typowa konfiguracja klienta jest toodefine trasy domyślnej (0.0.0.0/0), która wymusza wychodzących tooflow ruchu internetowego za pośrednictwem lokalizacji lokalne powitania. Firma Microsoft nie jest to zalecane. ruch związany z replikacją Hello i komunikacji usługi Site Recovery nie opuszczaj hello Azure granic. Witaj rozwiązanie jest tooadd zdefiniowane przez użytkownika tras (Udr) dla [tych zakresów IP](#outbound-connectivity-for-azure-site-recovery-ip-ranges) tak, aby ruch związany z replikacją hello nie działa lokalnie.
 
-### <a name="connectivity-between-the-target-and-on-premises-location"></a>Łączność między lokalizacji docelowej i lokalnych
+### <a name="connectivity-between-hello-target-and-on-premises-location"></a>Łączność między hello lokalizacji docelowej i lokalnych
 
-Wykonaj te wytyczne dotyczące połączeń między lokalizacji docelowej i lokalizacji lokalnego:
-- Jeśli aplikacja wymaga połączyć się z komputerami lokalnymi lub w przypadku klientów, którzy łączą się z lokalnymi za pośrednictwem sieci VPN/ExpressRoute, upewnij się, że masz co najmniej [połączenie lokacja lokacja](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) między urządzenie docelowe region platformy Azure i lokalnego centrum danych.
+Wykonaj te wytyczne dotyczące połączeń między hello lokalizacji docelowej i hello lokalnej lokalizacji:
+- Jeśli aplikacja wymaga tooconnect toohello lokalnymi maszynami lub w przypadku klientów nawiązujących połączenie toohello aplikacji z lokalnej za pośrednictwem sieci VPN/ExpressRoute, upewnij się, że masz co najmniej [połączenie lokacja lokacja](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) między docelowy Azure regionu i hello lokalnego centrum danych.
 
-- Jeśli spodziewasz się dużej ilości na ruch między urządzenie docelowe region platformy Azure i lokalnego centrum danych, należy utworzyć inny [połączenia ExpressRoute](../expressroute/expressroute-introduction.md) między docelowy region platformy Azure i lokalnego centrum danych.
+- Jeśli spodziewasz się dużej ilości tooflow ruchu między docelowy region platformy Azure i hello lokalnego centrum danych, należy utworzyć inny [połączenia ExpressRoute](../expressroute/expressroute-introduction.md) między hello docelowy Azure regionu i hello lokalnie w centrum danych.
 
-- Jeśli chcesz zachować adresów IP dla maszyn wirtualnych, po ich w tryb failover, Zachowaj połączenia lokacja do witryny/ExpressRoute region docelowy w stanie rozłączenia. To jest upewnienie się, nie zakresu konflikt między region źródła zakresów adresów IP i zakresów adresów IP region docelowy nie istnieje.
+- Jeśli chcesz tooretain adresów IP dla maszyn wirtualnych powitania po ich w tryb failover, Zachowaj połączenia lokacja do witryny/ExpressRoute region docelowy hello w stanie rozłączenia. Jest to toomake się, że nie zakresu konflikt między hello źródła region zakresów adresów IP i zakresów adresów IP region docelowy nie istnieje.
 
 ### <a name="best-practices-for-expressroute-configuration"></a>Najlepsze rozwiązania dotyczące konfiguracji usługi ExpressRoute
 Wykonaj następujące najlepsze rozwiązania dla konfiguracji usługi ExpressRoute:
 
-- Należy utworzyć obwodu usługi ExpressRoute w regionach źródłowych i docelowych. Następnie musisz utworzyć połączenie między usługą:
-  - Sieć wirtualna źródła i obwodem usługi ExpressRoute.
-  - Sieć wirtualna docelowych i obwodem usługi ExpressRoute.
+- Należy toocreate obwodu usługi ExpressRoute w obu hello regionach źródłowe i docelowe. Następnie należy toocreate połączenie między usługą:
+  - sieć wirtualna Hello źródła i hello obwodu ExpressRoute.
+  - sieć wirtualna Hello docelowych i hello obwodu ExpressRoute.
 
-- W ramach standardowego ExpressRoute możesz utworzyć obwody w tym samym regionie geograficznymi. Aby utworzyć obwody usługi ExpressRoute w różnych regionach geograficznymi, Azure ExpressRoute — wersja Premium jest wymagana, która obejmuje przyrostowe kosztów. (Jeśli już używasz usługi ExpressRoute — wersja Premium, jest nie żadnymi dodatkowymi kosztami.) Aby uzyskać więcej informacji, zobacz [dokumentu lokalizacje ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) i [cennik usługi ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- W ramach standardowego ExpressRoute, możesz utworzyć obwody w hello tego samego regionu geograficznymi. obwody usługi ExpressRoute toocreate w różnych regionach geograficznymi, Azure ExpressRoute — wersja Premium jest wymagana, która obejmuje przyrostowe kosztów. (Jeśli już używasz usługi ExpressRoute — wersja Premium, jest nie żadnymi dodatkowymi kosztami.) Aby uzyskać więcej informacji, zobacz hello [dokumentu lokalizacje ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) i [cennik usługi ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 
-- Zalecane jest użycie różnych zakresów IP w regionach źródłowe i docelowe. Obwód usługi expressroute nie można nawiązać połączenia z dwóch sieci wirtualnych platformy Azure z tego samego zakresu adresów IP w tym samym czasie.
+- Zalecane jest użycie różnych zakresów IP w regionach źródłowe i docelowe. Witaj obwodu usługi expressroute nie będzie można z tego samego adresu IP zakresów na powitania tooconnect z dwóch sieci wirtualnych platformy Azure z hello tym samym czasie.
 
-- Możesz tworzenie sieci wirtualnych za pomocą tego samego zakresu adresów IP w obu regionach i następnie utwórz obwody usługi ExpressRoute w obu regionach. W przypadku wystąpieniu zdarzenia pracy awaryjnej rozłączyć obwodu źródła sieci wirtualnej, a następnie połącz obwód w docelowej sieci wirtualnej.
+- Można utworzyć sieci wirtualnych z hello tego samego adresu IP z zakresów w obu regionów, a następnie utwórz obwody usługi ExpressRoute w obu regionach. W przypadku hello zdarzenia pracy awaryjnej rozłączyć obwodu hello hello źródłowej sieci wirtualnej, a następnie połącz obwodu hello w sieci wirtualnej hello docelowej.
 
  >[!IMPORTANT]
- > Jeśli regionu podstawowego całkowicie jest wyłączony, operację rozłączania może zakończyć się niepowodzeniem. Która uniemożliwi docelowej sieci wirtualnej uzyskiwania połączenia ExpressRoute.
+ > W przypadku całkowicie dół regionu podstawowego hello operacji odłączenia hello może zakończyć się niepowodzeniem. Która uniemożliwi sieci wirtualnej docelowy hello uzyskiwanie połączenia ExpressRoute.
 
 ## <a name="next-steps"></a>Następne kroki
 Włączyć ochronę obciążeń przez [replikowanie maszyn wirtualnych platformy Azure](site-recovery-azure-to-azure.md).

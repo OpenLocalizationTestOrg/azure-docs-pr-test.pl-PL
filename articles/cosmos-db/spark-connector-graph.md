@@ -15,33 +15,33 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: khdang
-ms.openlocfilehash: 27c4d945e418b130c68cfde845571eb93658101e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0be5c9b12cdba4a428c809d00e1e68785a9ec1ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure DB rozwiązania Cosmos: Wykonywać analizy wykresu przy użyciu platformy Spark i Apache TinkerPop Gremlin
 
-[Azure DB rozwiązania Cosmos](introduction.md) globalnie rozproszone i wiele modeli bazy danych usługi firmy Microsoft. Można tworzyć i kwerend dokumentu, klucza i wartości i wykres baz danych, które korzystają z możliwości globalnego dystrybucji i skalowania poziomego Fundament bazy danych Azure rozwiązania Cosmos. Obciążenia graph (OLTP), które wykorzystują przetwarzania transakcji online obsługuje bazę danych systemu Azure rozwiązania Cosmos [Apache TinkerPop Gremlin](graph-introduction.md).
+[Azure DB rozwiązania Cosmos](introduction.md) jest hello globalnie rozproszone i wiele modeli bazy danych usługi firmy Microsoft. Można tworzyć i kwerend dokumentu, klucza i wartości i wykres baz danych, które korzystają z możliwości globalnego dystrybucji i skalowania poziomego hello na podstawowe hello Azure DB rozwiązania Cosmos. Obciążenia graph (OLTP), które wykorzystują przetwarzania transakcji online obsługuje bazę danych systemu Azure rozwiązania Cosmos [Apache TinkerPop Gremlin](graph-introduction.md).
 
-[Platforma Spark](http://spark.apache.org/) jest Apache Software Foundation projektu, który koncentruje się na przetwarzanie danych ogólnego przeznaczenia przetwarzania analitycznego online (OLAP). Spark zapewnia hybrydowych w pamięci/opartej na dysku rozproszonego przetwarzania danych model podobny do modelu MapReduce z Hadoop. Apache Spark w chmurze można wdrożyć za pomocą [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
+[Platforma Spark](http://spark.apache.org/) jest Apache Software Foundation projektu, który koncentruje się na przetwarzanie danych ogólnego przeznaczenia przetwarzania analitycznego online (OLAP). Platforma Spark zapewnia hybrydowych w pamięci/opartej na dysku rozproszonego przetwarzania danych modelu, który jest podobne toohello modelu MapReduce z Hadoop. Apache Spark w chmurze hello można wdrożyć za pomocą [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
 
-Połączenie bazy danych Azure rozwiązania Cosmos z Spark, możesz wykonać obciążeń zarówno OLTP i OLAP używania Gremlin. W tym artykule szybki start przedstawiono sposób wykonywania kwerend Gremlin do bazy danych Azure rozwiązania Cosmos w klastrze usługi Azure HDInsight Spark.
+Połączenie bazy danych Azure rozwiązania Cosmos z Spark, możesz wykonać obciążeń zarówno OLTP i OLAP używania Gremlin. W tym artykule szybki start przedstawiono, jak toorun Gremlin zapytania względem bazy danych Azure rozwiązania Cosmos w klastrze usługi Azure HDInsight Spark.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed uruchomieniem tego przykładu muszą być spełnione następujące wymagania wstępne:
+Przed uruchomieniem tego przykładu, musi mieć hello następujące wymagania wstępne:
 * Azure HDInsight Spark klastra 2.0
 * JDK 1.8 + (Jeśli nie masz JDK, uruchom `apt-get install default-jdk`.)
 * Maven (Jeśli nie masz Maven, uruchom `apt-get install maven`.)
 * Subskrypcja platformy Azure ([!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)])
 
-Aby uzyskać informacje o sposobie konfigurowania klastra Spark w usłudze HDInsight Azure, zobacz [klastrów inicjowania obsługi usługi HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+Aby uzyskać informacje na temat tooset zapasowej klastra Spark w usłudze HDInsight Azure, zobacz [klastrów inicjowania obsługi usługi HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="create-an-azure-cosmos-db-database-account"></a>Tworzenie konta bazy danych Azure DB rozwiązania Cosmos
 
-Najpierw utwórz konto bazy danych z interfejsu API programu Graph, wykonując następujące czynności:
+Najpierw utwórz konto bazy danych z interfejsu API programu Graph hello hello następujący:
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -51,11 +51,11 @@ Najpierw utwórz konto bazy danych z interfejsu API programu Graph, wykonując n
 
 ## <a name="get-apache-tinkerpop"></a>Pobierz Apache TinkerPop
 
-Pobierz Apache TinkerPop, wykonując następujące czynności:
+Pobierz Apache TinkerPop hello następujący:
 
-1. Zdalny do węzła głównego klastra usługi HDInsight `ssh tinkerpop3-cosmosdb-demo-ssh.azurehdinsight.net`.
+1. Zdalne toohello węzła głównego klastra usługi HDInsight hello `ssh tinkerpop3-cosmosdb-demo-ssh.azurehdinsight.net`.
 
-2. Klonowanie kodu źródłowego TinkerPop3, skompiluj go lokalnie i zainstaluj go w pamięci podręcznej Maven.
+2. Klonowanie kodu źródłowego TinkerPop3 hello, skompiluj go lokalnie i zainstalować ją w pamięci podręcznej tooMaven.
 
     ```bash
     git clone https://github.com/apache/tinkerpop.git
@@ -63,11 +63,11 @@ Pobierz Apache TinkerPop, wykonując następujące czynności:
     mvn clean install
     ```
 
-3. Zainstaluj Spark Gremlin wtyczki 
+3. Instalowanie wtyczki Spark Gremlin hello 
 
-    a. Instalacja dodatku jest obsługiwany przez moszcz. Wypełnij informacje repozytoria gronowego, można pobrać wtyczki i jego zależności. 
+    a. Hello instalacji dodatku plug-in hello jest obsługiwana przez moszcz. Wypełnij hello repozytoriów informacji gronowego, aby mógł pobrać hello wtyczki i jego zależności. 
 
-      Utwórz plik konfiguracji winogronowego, jeśli nie jest obecny w `~/.groovy/grapeConfig.xml`. Użyj następujących ustawień:
+      Utwórz plik konfiguracji winogronowego hello, jeśli nie jest obecny w `~/.groovy/grapeConfig.xml`. Użyj hello następujące ustawienia:
 
     ```xml
     <ivysettings>
@@ -91,7 +91,7 @@ Pobierz Apache TinkerPop, wykonując następujące czynności:
 
     b. Uruchom konsolę Gremlin `bin/gremlin.sh`.
         
-    c. Zainstaluj Spark Gremlin wtyczki z wersją 3.3.0-SNAPSHOT, które zostały utworzone w poprzednich krokach:
+    c. Instalowanie wtyczki Spark Gremlin hello z wersją 3.3.0-SNAPSHOT, które zostały utworzone w poprzednich krokach hello:
 
     ```bash
     $ bin/gremlin.sh
@@ -103,7 +103,7 @@ Pobierz Apache TinkerPop, wykonując następujące czynności:
     plugin activated: tinkerpop.utilities
     plugin activated: tinkerpop.tinkergraph
     gremlin> :install org.apache.tinkerpop spark-gremlin 3.3.0-SNAPSHOT
-    ==>loaded: [org.apache.tinkerpop, spark-gremlin, 3.3.0-SNAPSHOT] - restart the console to use [tinkerpop.spark]
+    ==>loaded: [org.apache.tinkerpop, spark-gremlin, 3.3.0-SNAPSHOT] - restart hello console toouse [tinkerpop.spark]
     gremlin> :q
     $ bin/gremlin.sh
 
@@ -117,17 +117,17 @@ Pobierz Apache TinkerPop, wykonując następujące czynności:
     ==>tinkerpop.spark activated
     ```
 
-4. Sprawdź, czy `Hadoop-Gremlin` jest aktywowany przy `:plugin list`. Wyłącz ten dodatek, ponieważ może zakłócać Spark Gremlin wtyczki `:plugin unuse tinkerpop.hadoop`.
+4. Sprawdź, czy toosee `Hadoop-Gremlin` jest aktywowany przy `:plugin list`. Wyłącz ten dodatek, ponieważ jego może zakłócać hello Spark Gremlin wtyczki `:plugin unuse tinkerpop.hadoop`.
 
 ## <a name="prepare-tinkerpop3-dependencies"></a>Przygotowanie TinkerPop3 zależności
 
-Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wszystkie zależności jar dla platformy Spark i Hadoop w katalogu docelowym. Użyj słoików, które są wstępnie zainstalowane z HDI i ściągnąć dodatkowe zależności tylko niezbędne.
+Gdy TinkerPop3 jest utworzony w poprzednim kroku hello, proces hello również pobierane wszystkie zależności jar Spark i Hadoop w katalogu docelowym hello. Użyj słoików hello, które są wstępnie zainstalowane z HDI i ściągnąć dodatkowe zależności tylko niezbędne.
 
-1. Przejdź do katalogu docelowego konsoli Gremlin na `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`. 
+1. Katalog docelowy Gremlin konsoli przejdź toohello na `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`. 
 
-2. Przenieś wszystkie słoików w obszarze `ext/` do `lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`.
+2. Przenieś wszystkie słoików w obszarze `ext/` za`lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`.
 
-3. Usuń wszystkie jar biblioteki w obszarze `lib/` nie znajdują się w następującej listy:
+3. Usuń wszystkie jar biblioteki w obszarze `lib/` czy hello nie znajdują się one listy:
 
     ```bash
     # TinkerPop3
@@ -174,13 +174,13 @@ Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wsz
     xml-apis-1.3.04.jar                        
     ```
 
-## <a name="get-the-azure-cosmos-db-spark-connector"></a>Pobierz łącznik usługi Azure Spark DB rozwiązania Cosmos
+## <a name="get-hello-azure-cosmos-db-spark-connector"></a>Pobierz hello łącznika usługi Azure Spark DB rozwiązania Cosmos
 
-1. Pobierz łącznik usługi Azure Spark DB rozwiązania Cosmos `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` i rozwiązania Cosmos DB Java SDK `azure-documentdb-1.10.0.jar` z [łącznika usługi Azure rozwiązania Cosmos DB Spark w usłudze GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
+1. Pobierz łącznik usługi Azure Spark DB rozwiązania Cosmos hello `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` i rozwiązania Cosmos DB Java SDK `azure-documentdb-1.10.0.jar` z [łącznika usługi Azure rozwiązania Cosmos DB Spark w usłudze GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
 
-2. Alternatywnie można utworzyć ją lokalnie. Ponieważ najnowsza wersja Spark Gremlin został skompilowany z Spark 1.6.1 i nie jest zgodny z Spark pkt 2.0.2, który jest obecnie używana w łączniku Spark DB rozwiązania Cosmos Azure, możesz skompilować kod TinkerPop3 najnowsze i ręcznie zainstalować słoików. Wykonaj następujące czynności:
+2. Alternatywnie można utworzyć ją lokalnie. Ponieważ hello najnowszą wersję Spark Gremlin został skompilowany z Spark 1.6.1 i nie jest zgodny z Spark pkt 2.0.2, który jest obecnie używana w łączniku Spark DB rozwiązania Cosmos Azure hello, możesz skompilować hello najnowsze TinkerPop3 kodu i ręcznie zainstalować słoików hello. Witaj, po:
 
-    a. Klonowanie łącznika usługi Azure Spark DB rozwiązania Cosmos.
+    a. Klonowanie hello łącznika usługi Azure Spark DB rozwiązania Cosmos.
 
     b. Tworzenie TinkerPop3 (już wykonane w poprzednich krokach). Zainstaluj wszystkie słoików TinkerPop 3.3.0-SNAPSHOT lokalnie.
 
@@ -193,9 +193,9 @@ Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wsz
     mvn install:install-file -Dfile="tinkergraph-gremlin-3.3.0-SNAPSHOT.jar" -DgroupId=org.apache.tinkerpop -DartifactId=tinkergraph-gremlin -Dversion=3.3.0-SNAPSHOT -Dpackaging=jar`
     ```
 
-    c. Aktualizacja `tinkerpop.version` `azure-documentdb-spark/pom.xml` do `3.3.0-SNAPSHOT`.
+    c. Aktualizacja `tinkerpop.version` `azure-documentdb-spark/pom.xml` zbyt`3.3.0-SNAPSHOT`.
     
-    d. Kompiluj z Maven. Słoików potrzebne są umieszczane w `target` i `target/alternateLocation`.
+    d. Kompiluj z Maven. Witaj słoików potrzebne są umieszczane w `target` i `target/alternateLocation`.
 
     ```bash
     git clone https://github.com/Azure/azure-cosmosdb-spark.git
@@ -203,7 +203,7 @@ Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wsz
     mvn clean package
     ```
 
-3. Skopiuj słoików wymienione wcześniej w lokalnym katalogu na ~ / azure-documentdb-spark:
+3. Hello kopiowania wcześniej wymienionymi słoików tooa lokalnego katalogu ~ / azure-documentdb-spark:
 
     ```bash
     $ azure-documentdb-spark:
@@ -212,22 +212,22 @@ Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wsz
     cp target/alternateLocation/azure-documentdb-1.10.0.jar ~/azure-documentdb-spark
     ```
 
-## <a name="distribute-the-dependencies-to-the-spark-worker-nodes"></a>Dystrybuuj zależności z węzłami procesu roboczego Spark 
+## <a name="distribute-hello-dependencies-toohello-spark-worker-nodes"></a>Dystrybuuj węzłów procesu roboczego Spark hello zależności toohello 
 
-1. Ponieważ przekształcania danych wykresu jest zależna od TinkerPop3, musisz przeprowadzić dystrybucję powiązane zależności do wszystkich węzłów procesu roboczego platformy Spark.
+1. Ponieważ hello przekształcania danych wykresu jest zależna od TinkerPop3, musisz przeprowadzić dystrybucję hello związane z węzłami procesów roboczych Spark tooall zależności.
 
-2. Skopiuj wymienione wcześniej zależności Gremlin, CosmosDB Spark jar łącznika i zestawu SDK Java CosmosDB do węzłów procesu roboczego w następujący sposób:
+2. Hello kopiowania wymienione wcześniej Gremlin zależności, hello jar łącznika CosmosDB Spark i węzłów procesu roboczego zestawu Java SDK CosmosDB toohello następujący hello:
 
-    a. Skopiuj wszystkie słoików do `~/azure-documentdb-spark`.
+    a. Skopiuj wszystkie słoików hello do `~/azure-documentdb-spark`.
 
     ```bash
     $ /home/sshuser/tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone:
     cp lib/* ~/azure-documentdb-spark
     ```
 
-    b. Pobierz listę wszystkich węzłów procesu roboczego Spark, które można znaleźć na pulpicie nawigacyjnym Ambari, w `Spark2 Clients` na liście `Spark2` sekcji.
+    b. Pobierz hello listę wszystkich węzłów procesu roboczego Spark, które można znaleźć na pulpicie nawigacyjnym Ambari, w hello `Spark2 Clients` liście hello `Spark2` sekcji.
 
-    c. Kopiowanie katalogu do każdego z węzłów.
+    c. Skopiuj ten katalog tooeach hello węzłów.
 
     ```bash
     scp -r ~/azure-documentdb-spark sshuser@wn0-cosmos:/home/sshuser
@@ -235,19 +235,19 @@ Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wsz
     ...
     ```
     
-## <a name="set-up-the-environment-variables"></a>Ustawianie zmiennych środowiskowych
+## <a name="set-up-hello-environment-variables"></a>Ustawianie zmiennych środowiskowych hello
 
-1. Znajdź wersję HDP klastra Spark. Jest to nazwa katalogu, w obszarze `/usr/hdp/` (na przykład 2.5.4.2-7).
+1. Znaleźć wersji HDP hello hello klastra Spark. To nazwa katalogu hello w obszarze `/usr/hdp/` (na przykład 2.5.4.2-7).
 
-2. Ustaw hdp.version dla wszystkich węzłów. Na pulpicie nawigacyjnym Ambari, przejdź do **sekcji YARN** > **Configs** > **zaawansowane**, a następnie wykonaj następujące czynności: 
+2. Ustaw hdp.version dla wszystkich węzłów. Na pulpicie nawigacyjnym Ambari, przejdź za**sekcji YARN** > **Configs** > **zaawansowane**, a następnie hello następujące: 
  
-    a. W `Custom yarn-site`, Dodaj nową właściwość `hdp.version` o wartości wersji HDP w węźle głównym. 
+    a. W `Custom yarn-site`, Dodaj nową właściwość `hdp.version` o wartości hello wersja HDP hello na powitania węzła głównego. 
      
-    b. Zapisz konfiguracje. Wystąpiły ostrzeżenia, które można zignorować. 
+    b. Zapisz konfiguracje hello. Wystąpiły ostrzeżenia, które można zignorować. 
      
-    c. Uruchom ponownie usługi YARN i Oozie, jak wskazują ikony powiadomień.
+    c. Ponownie uruchom usługi hello YARN oraz Oozie, jak wskazują hello ikony powiadomień.
 
-3. Ustaw następujące zmienne środowiskowe w węźle głównym (Zastąp wartości zależnie od potrzeb):
+3. Zestaw hello następujące zmienne środowiskowe w węźle głównym hello (Zastąp wartości hello zależnie od potrzeb):
 
     ```bash
     export HADOOP_GREMLIN_LIBS=/home/sshuser/tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/ext/spark-gremlin/lib
@@ -256,9 +256,9 @@ Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wsz
     export HADOOP_HOME=${HADOOP_HOME:-/usr/hdp/current/hadoop-client}
     ```
 
-## <a name="prepare-the-graph-configuration"></a>Przygotowanie konfiguracji wykresu
+## <a name="prepare-hello-graph-configuration"></a>Przygotowanie hello wykres konfiguracji
 
-1. Utwórz plik konfiguracji z ustawieniami Spark i parametry połączenia bazy danych Azure rozwiązania Cosmos i umieszcza je w `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.
+1. Utwórz plik konfiguracji zawierający hello parametry połączenia bazy danych rozwiązania Cosmos Azure Spark ustawienia i umieszcza je w `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.
 
     ```
     gremlin.graph=org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph
@@ -278,7 +278,7 @@ Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wsz
     spark.kryo.registrator=org.apache.tinkerpop.gremlin.spark.structure.io.gryo.GryoRegistrator
     gremlin.spark.persistContext=true
 
-    # Classpath for the driver and executors
+    # Classpath for hello driver and executors
     spark.driver.extraClassPath=/usr/hdp/current/spark2-client/jars/*:/home/sshuser/azure-documentdb-spark/*
     spark.executor.extraClassPath=/usr/hdp/current/spark2-client/jars/*:/home/sshuser/azure-documentdb-spark/*
     
@@ -294,9 +294,9 @@ Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wsz
     spark.documentdb.preferredRegions=FILLIN
     ```
 
-2. Aktualizacja `spark.driver.extraClassPath` i `spark.executor.extraClassPath` można dołączyć podanego katalogu słoików, rozproszonych w poprzednim kroku, w tym przypadku `/home/sshuser/azure-documentdb-spark/*`.
+2. Aktualizacja hello `spark.driver.extraClassPath` i `spark.executor.extraClassPath` tooinclude katalogu hello słoików hello, rozproszonych w poprzednim kroku hello, w tym przypadku `/home/sshuser/azure-documentdb-spark/*`.
 
-3. Dla bazy danych rozwiązania Cosmos platformy Azure, należy podać następujące dane:
+3. Podaj poniższe informacje dla bazy danych Azure rozwiązania Cosmos hello:
 
     ```
     spark.documentdb.Endpoint=https://FILLIN.documents.azure.com:443/
@@ -307,10 +307,10 @@ Gdy TinkerPop3 jest utworzony w poprzednim kroku, proces również pobierane wsz
     #spark.documentdb.preferredRegions=West\ US;West\ US\ 2
     ```
    
-## <a name="load-the-tinkerpop-graph-and-save-it-to-azure-cosmos-db"></a>Załadować wykresu TinkerPop i zapisać go do bazy danych Azure rozwiązania Cosmos
-Aby zademonstrować sposób utrwalić wykres do bazy danych z rozwiązania Cosmos platformy Azure, w tym przykładzie używa TinkerPop wstępnie zdefiniowane TinkerPop nowoczesnych wykresu. Wykres są przechowywane w formacie Kryo i jest dostępny w repozytorium TinkerPop.
+## <a name="load-hello-tinkerpop-graph-and-save-it-tooazure-cosmos-db"></a>Ładowanie hello TinkerPop wykresu, a następnie zapisz tooAzure DB rozwiązania Cosmos
+toodemonstrate jak toopersist wykres do bazy danych z rozwiązania Cosmos platformy Azure, w tym przykładzie używa hello TinkerPop wstępnie zdefiniowane TinkerPop nowoczesnych wykresu. Wykres Hello są przechowywane w formacie Kryo i jest dostępny w repozytorium TinkerPop hello.
 
-1. Ponieważ Gremlin działają w trybie YARN, należy udostępnić dane wykresu w systemie plików usługi Hadoop. Użyj następujących poleceń, aby udostępnić katalogu i skopiuj do niego pliku lokalnego wykresu. 
+1. Ponieważ Gremlin działają w trybie YARN, należy udostępnić dane wykresu hello w hello systemu plików usługi Hadoop. Użyj następujących hello polecenia toomake katalogu i kopiowania pliku wykres lokalne powitania do niego. 
 
     ```bash
     $ tinkerpop:
@@ -318,16 +318,16 @@ Aby zademonstrować sposób utrwalić wykres do bazy danych z rozwiązania Cosmo
     hadoop fs -copyFromLocal ~/tinkerpop/data/tinkerpop-modern.kryo /graphData/tinkerpop-modern.kryo
     ```
 
-2. Tymczasowo zaktualizować `gremlin-spark.properties` plik `GryoInputFormat` do odczytu na wykresie. Również wskazywać `inputLocation` jako katalog można utworzyć, co przedstawiono poniżej:
+2. Tymczasowo zaktualizować hello `gremlin-spark.properties` pliku toouse `GryoInputFormat` tooread hello wykresu. Również wskazywać `inputLocation` jako katalog hello tworzenia, tak jak poniżej hello:
 
     ```
     gremlin.hadoop.graphReader=org.apache.tinkerpop.gremlin.hadoop.structure.io.gryo.GryoInputFormat
     gremlin.hadoop.inputLocation=/graphData/tinkerpop-modern.kryo
     ```
 
-3. Uruchom konsolę Gremlin, a następnie utwórz następujące kroki obliczeń do utrwalenia danych do skonfigurowanej kolekcji bazy danych rozwiązania Cosmos Azure:  
+3. Uruchom konsolę Gremlin, a następnie utwórz powitania po obliczeń kroki toopersist toohello skonfigurowane bazy danych Azure rozwiązania Cosmos funkcji zbierania danych:  
 
-    a. Utwórz wykres `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.
+    a. Utwórz wykres hello `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.
 
     b. Użyj SparkGraphComputer do zapisu `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`.
 
@@ -346,25 +346,25 @@ Aby zademonstrować sposób utrwalić wykres do bazy danych z rozwiązania Cosmo
     ==>result[hadoopgraph[documentdbinputrdd->documentdboutputrdd],memory[size:1]]
     ```
 
-4. Z poziomu Eksploratora danych można sprawdzić utrwalone dane do bazy danych Azure rozwiązania Cosmos.
+4. W Eksploratorze danych możesz sprawdzić, czy ten powitalne dane zostały utrwalone tooAzure DB rozwiązania Cosmos.
 
-## <a name="load-the-graph-from-azure-cosmos-db-and-run-gremlin-queries"></a>Ładowanie wykres z bazy danych Azure rozwiązania Cosmos i uruchamiać zapytania Gremlin
+## <a name="load-hello-graph-from-azure-cosmos-db-and-run-gremlin-queries"></a>Załadować hello wykres z bazy danych Azure rozwiązania Cosmos i uruchamianie zapytań Gremlin
 
-1. Aby załadować wykresu, należy edytować `gremlin-spark.properties` można ustawić `graphReader` do `DocumentDBInputRDD`:
+1. Wykres hello tooload, Edytuj `gremlin-spark.properties` tooset `graphReader` zbyt`DocumentDBInputRDD`:
 
     ```
     gremlin.hadoop.graphReader=com.microsoft.azure.documentdb.spark.gremlin.DocumentDBInputRDD
     ```
 
-2. Załadować wykresu, przechodzenie przez dane i uruchamiać zapytania Gremlin z nim, wykonując następujące czynności:
+2. Wykres hello obciążenia, przenoszenie danych hello, a następnie uruchom zapytania Gremlin z nim hello następujący:
 
-    a. Uruchom konsolę Gremlin `bin/gremlin.sh`.
+    a. Uruchom hello konsoli Gremlin `bin/gremlin.sh`.
 
-    b. Utwórz wykres z konfiguracją `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
+    b. Utwórz wykres hello z konfiguracją hello `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
 
     c. Utwórz przechodzenie wykres z SparkGraphComputer `g = graph.traversal().withComputer(SparkGraphComputer)`.
 
-    d. Uruchom następujące kwerendy wykres Gremlin:
+    d. Uruchom powitania po Gremlin wykres zapytania:
 
     ```bash
     gremlin> graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")
@@ -397,11 +397,11 @@ Aby zademonstrować sposób utrwalić wykres do bazy danych z rozwiązania Cosmo
     ```
 
 > [!NOTE]
-> Aby wyświetlić bardziej szczegółowe rejestrowanie, należy ustawić dziennika w `conf/log4j-console.properties` na pełniejsze poziom.
+> toosee bardziej szczegółowe rejestrowanie, Ustaw poziom dziennika hello w `conf/log4j-console.properties` tooa pełniejsze poziom.
 >
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule szybki start kiedy znasz już sposób pracy z wykresy przez połączenie bazy danych Azure rozwiązania Cosmos i Spark.
+W tym artykule szybki start kiedy znasz już jak toowork z wykresach przez połączenie bazy danych Azure rozwiązania Cosmos i Spark.
 
 > [!div class="nextstepaction"]

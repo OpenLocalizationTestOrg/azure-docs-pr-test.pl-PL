@@ -1,6 +1,6 @@
 ---
-title: "Dostosowywanie oświadczeń wydanych w tokenie SAML dla wstępnie zintegrowanych aplikacji w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dostosowywanie oświadczeń wydanych w tokenie SAML dla wstępnie zintegrowanych aplikacji w usłudze Azure Active Directory"
+title: "aaaCustomizing oświadczeń wydanych w hello tokenu SAML dla wstępnie zintegrowanych aplikacji w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak wystawianie oświadczeń hello toocustomize w w hello tokenie SAML dla wstępnie zintegrowanych aplikacji w usłudze Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -15,66 +15,66 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6d232759630fcc567788a8326b566b659f89d17a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a376318929472403e799f02fdd3fbddc91d0a70c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Dostosowywanie oświadczeń wydanych w tokenie SAML dla wstępnie zintegrowanych aplikacji w usłudze Azure Active Directory
-Obecnie usługa Azure Active Directory obsługuje tysięcy wstępnie zintegrowanych aplikacji w Azure galerii aplikacji usługi AD, łącznie z ponad 360, która obsługuje logowanie jednokrotne przy użyciu protokołu SAML 2.0. Podczas uwierzytelniania użytkownika do aplikacji za pomocą usługi Azure AD za pomocą protokołu SAML, usługi Azure AD wysyła token do aplikacji (za pośrednictwem protokołu HTTP POST). A następnie aplikacja sprawdza poprawność tokenu i używa do logowania użytkownika zamiast monitowania o nazwę użytkownika i hasło. Te tokeny SAML zawierają informacje o użytkowniku, nazywany "oświadczeń".
+# <a name="customizing-claims-issued-in-hello-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Dostosowywanie oświadczeń wydanych w hello tokenie SAML dla wstępnie zintegrowanych aplikacji w usłudze Azure Active Directory
+Dzisiaj usługi Azure Active Directory obsługuje tysięcy wstępnie zintegrowanych aplikacji w galerii aplikacji usługi Azure AD, łącznie z ponad 360, która obsługuje logowanie jednokrotne hello przy użyciu protokołu hello SAML 2.0. Podczas uwierzytelniania użytkownika tooan aplikacji za pomocą usługi Azure AD za pomocą protokołu SAML, usługi Azure AD wysyła do aplikacji toohello tokenu (za pośrednictwem protokołu HTTP POST). A następnie, aplikacja hello weryfikuje i używa hello tokenu toolog hello użytkownika w zamiast monitowania o nazwę użytkownika i hasło. Te tokeny SAML zawierają informacje o użytkowniku hello znana jako "oświadczeń".
 
-W tożsamości mowy, "roszczenie" informacje stwierdzający przez dostawcę tożsamości użytkownika w tokenie wydawać się one dla tego użytkownika. W [tokenu SAML](http://en.wikipedia.org/wiki/SAML_2.0), dane te zwykle znajduje się w instrukcji atrybutu SAML. Unikatowy identyfikator użytkownika jest zazwyczaj reprezentowany w podmiocie SAML, nazywany również jako nazwy identyfikatora.
+W tożsamości mowy, "roszczenie" informacje stwierdzający przez dostawcę tożsamości użytkownika w tokenie hello wydawać się one dla tego użytkownika. W [tokenu SAML](http://en.wikipedia.org/wiki/SAML_2.0), dane te zwykle znajduje się w hello instrukcję Attribute SAML. Witaj Unikatowy identyfikator użytkownika jest zazwyczaj reprezentowany w powitalne skrót jako identyfikator nazwy SAML podmiotu.
 
-Domyślnie program Azure Active Directory wystawia SAML token do aplikacji, która zawiera oświadczenie NameIdentifier o wartości nazwy użytkownika (AKA główna nazwa użytkownika) w usłudze Azure AD. Ta wartość może jednoznacznie zidentyfikować użytkownika. SAML token zawiera również dodatkowe roszczenia, zawierające adres e-mail użytkownika, imię i nazwisko.
+Domyślnie program Azure Active Directory wystawia aplikacji tooyour tokenu SAML, która zawiera oświadczenie NameIdentifier o wartości hello użytkownika (AKA główna nazwa użytkownika) w usłudze Azure AD. Ta wartość może jednoznacznie zidentyfikować hello użytkownika. Hello SAML token zawiera również dodatkowe roszczenia, zawierające adres e-mail użytkownika hello, imię i nazwisko.
 
-Aby wyświetlić lub edytować oświadczeń wydanych w tokenie SAML do aplikacji, należy otworzyć aplikację w portalu Azure. Następnie wybierz **widoku i edytować wszystkie atrybuty użytkowników** checkbox w **atrybuty użytkownika** części aplikacji.
+wystawianie oświadczeń hello tooview lub edycji w hello aplikacji toohello tokenu SAML, otwórz hello aplikacji w portalu Azure. Następnie wybierz hello **widoku i edytować wszystkie atrybuty użytkowników** checkbox w hello **atrybuty użytkownika** części aplikacji hello.
 
 ![Użytkownik atrybutów sekcji][1]
 
-Istnieją dwie możliwe przyczyny, dlaczego konieczne może być Edycja oświadczeń wydanych w tokenie SAML:
-* Aplikacja została zapisana wymagają innego zestawu oświadczeń identyfikatorów URI lub wartości oświadczeń.
-* Aplikacja została wdrożona w taki sposób, który wymaga oświadczeń NameIdentifier inny niż nazwa użytkownika (nazwy głównej użytkownika AKA) przechowywanych w usłudze Azure Active Directory.
+Istnieją dwie możliwe przyczyny, dlaczego może być konieczne tooedit hello oświadczeń wydanych w tokenie SAML hello:
+* Aplikacja Hello została zapisana toorequire inny zestaw oświadczeń identyfikatorów URI lub wartości oświadczeń.
+* Aplikacja Hello została wdrożona w sposób, który wymaga hello NameIdentifier oświadczeń toobe inną niż hello username (AKA główna nazwa użytkownika) przechowywanych w usłudze Azure Active Directory.
 
-Możesz edytować dowolne domyślnych wartości oświadczenia. Zaznacz wiersz oświadczeń w tabeli atrybutów tokenu SAML. Spowoduje to otwarcie **atrybutu Edytuj** sekcji, a następnie możesz edytować nazwę oświadczenia, wartość oraz skojarzony z oświadczeniem przestrzeni nazw.
+Możesz edytować dowolne hello domyślnych wartości oświadczenia. Wybierz hello oświadczeń wiersza w tabeli atrybutów tokenu SAML hello. Spowoduje to otwarcie hello **atrybutu Edytuj** sekcji, a następnie możesz edytować nazwę oświadczenia, wartość oraz skojarzone z oświadczeń hello przestrzeni nazw.
 
 ![Edytuj atrybut użytkownika][2]
 
-Można również usunąć oświadczeń (inne niż NameIdentifier), za pomocą menu kontekstowego, który zostanie otwarty, klikając **...**  ikony.  Możesz także dodać nowe oświadczeń przy użyciu **Dodaj atrybut** przycisku.
+Można również usunąć oświadczeń (inne niż NameIdentifier) przy użyciu menu kontekstowe hello, który otwiera, klikając hello **...**  ikony.  Możesz także dodać nowe oświadczeń przy użyciu hello **Dodaj atrybut** przycisku.
 
 ![Edytuj atrybut użytkownika][3]
 
-## <a name="editing-the-nameidentifier-claim"></a>Edycja oświadczeń NameIdentifier
-Aby rozwiązać ten problem, na którym aplikacja została wdrożona przy użyciu innej nazwy użytkownika, kliknij **identyfikator użytkownika** listy rozwijanej **atrybuty użytkownika** sekcji. Ta akcja zawiera okno dialogowe z kilku różnych opcji:
+## <a name="editing-hello-nameidentifier-claim"></a>Edytowanie hello NameIdentifier oświadczeń
+problem hello toosolve, gdzie aplikacja hello została wdrożona przy użyciu innej nazwy użytkownika, kliknij na powitania **identyfikator użytkownika** listy rozwijanej w hello **atrybuty użytkownika** sekcji. Ta akcja zawiera okno dialogowe z kilku różnych opcji:
 
 ![Edytuj atrybut użytkownika][4]
 
-Z listy rozwijanej wybierz **user.mail** można ustawić NameIdentifier oświadczenie będzie adres e-mail użytkownika w katalogu. Lub wybierz **user.onpremisessamaccountname** ustawioną użytkownika jego nazwa konta SAM, które zostały zsynchronizowane z lokalnej usługi Azure AD.
+Witaj listy rozwijanej wybierz **user.mail** tooset hello NameIdentifier oświadczeń toobe hello adres e-mail użytkownika w katalogu hello. Lub wybierz **user.onpremisessamaccountname** nazwy konta SAM użytkownika toohello tooset, które zostały zsynchronizowane z lokalnej usługi Azure AD.
 
-Można również użyć specjalną **ExtractMailPrefix()** funkcji, aby usunąć sufiks domeny adresu e-mail, nazwa konta SAM lub główna nazwa użytkownika. Spowoduje to wyodrębnienie tylko pierwsza część nazwy użytkownika, są przekazywane (na przykład "joe_smith" zamiast joe_smith@contoso.com).
+Można również użyć hello specjalne **ExtractMailPrefix()** sufiks domeny hello tooremove funkcja hello adres e-mail, nazwa konta SAM lub hello głównej nazwy użytkownika. Spowoduje to wyodrębnienie tylko nazwa hello pierwsza część hello użytkownika są przekazywane (na przykład "joe_smith" zamiast joe_smith@contoso.com).
 
 ![Edytuj atrybut użytkownika][5]
 
-Mamy teraz również został dodany **join()** funkcji w celu przyłączenia do domeny zweryfikowane z wartością identyfikatora użytkownika. Po wybraniu funkcji join() w **identyfikator użytkownika** najpierw wybierz identyfikator użytkownika podobne wiadomości e-mail adres lub główna nazwa użytkownika, a następnie w drugiej listy rozwijanej wybierz swoją domenę zweryfikowaną. Jeśli wybierz adres e-mail z zweryfikowanej domeny, a następnie usługi Azure AD wyodrębnia nazwy użytkownika z pierwszego joe_smith wartości z joe_smith@contoso.com i dołącza go z contoso.onmicrosoft.com. Zobacz poniższy przykład:
+Teraz dodaliśmy również hello **join()** hello toojoin funkcja zweryfikowaną domeną z wartością identyfikatora użytkownika hello. Po wybraniu funkcji join() hello hello **identyfikator użytkownika** najpierw wybierz hello identyfikator użytkownika podobne wiadomości e-mail adres lub główna nazwa użytkownika, a następnie w w hello drugi rozwijanej wybierz zweryfikowanej domeny. Jeśli wybierz hello adres e-mail z hello zweryfikowanej domeny, a następnie usługi Azure AD wyodrębnia hello username z pierwszego joe_smith wartość hello z joe_smith@contoso.com i dołącza go z contoso.onmicrosoft.com. Zobacz poniższy przykład hello:
 
 ![Edytuj atrybut użytkownika][6]
 
 ## <a name="adding-claims"></a>Dodawanie oświadczeń
-Podczas dodawania oświadczenia, można określić nazwy atrybutu (co ściśle nie należy wykonywać wzorzec URI zgodnie z harmonogramem specyfikacji SAML). Ustaw wartość na dowolny atrybut użytkownika, który jest przechowywany w katalogu.
+Podczas dodawania oświadczenia, można określić nazwy atrybutu hello (co nie wymaga ściśle toofollow wzorzec URI zgodnie z harmonogramem hello specyfikacji SAML). Atrybut hello wartość tooany użytkownika, który jest przechowywany w katalogu hello.
 
 ![Dodaj atrybut użytkownika][7]
 
-Na przykład musisz wysłać działu, której należy użytkownik w organizacji jako oświadczeń (na przykład, sprzedaż). Wprowadź nazwę oświadczenia, zgodnie z oczekiwaniami przez aplikację, a następnie wybierz **user.department** jako wartość.
+Na przykład konieczne toosend dział hello hello użytkownika należy tooin organizacji jako oświadczeń (na przykład, sprzedaż). Wprowadź nazwę oświadczenia hello zgodnie z oczekiwaniami aplikacji hello, a następnie wybierz **user.department** jako wartość hello.
 
 > [!NOTE]
-> Jeśli dla danego użytkownika nie ma żadnej wartości przechowywanych dla wybranego atrybutu, następnie roszczenie nie został opublikowany w tokenie.
+> Jeśli dla danego użytkownika nie ma żadnej wartości przechowywanych dla wybranego atrybutu, następnie roszczenie nie został opublikowany w tokenie hello.
 
 > [!TIP]
-> **User.onpremisesecurityidentifier** i **user.onpremisesamaccountname** są obsługiwane tylko podczas synchronizowania danych użytkownika z lokalnej usługi Active Directory przy użyciu [usługi Azure AD Połączenia narzędzia](../active-directory-aadconnect.md).
+> Witaj **user.onpremisesecurityidentifier** i **user.onpremisesamaccountname** są obsługiwane tylko podczas synchronizowania danych użytkownika z lokalnej usługi Active Directory przy użyciu hello [Azure Narzędzie AD Connect](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Ograniczone oświadczeń
 
-Brak niektórych ograniczeniami oświadczeń w SAML. Jeśli dodasz te oświadczenia, następnie usługi Azure AD nie będzie wysyłać te oświadczenia. SAML ograniczony zestaw oświadczeń są następujące:
+Brak niektórych ograniczeniami oświadczeń w SAML. Jeśli dodasz te oświadczenia, następnie usługi Azure AD nie będzie wysyłać te oświadczenia. Poniżej przedstawiono hello SAML ograniczony zestaw oświadczeń:
 
     | Typ oświadczenia (URI) |
     | ------------------- |
@@ -127,7 +127,7 @@ Brak niektórych ograniczeniami oświadczeń w SAML. Jeśli dodasz te oświadcze
 
 ## <a name="next-steps"></a>Następne kroki
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](../active-directory-apps-index.md)
-* [Konfigurowanie logowania jednokrotnego do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory](../active-directory-saas-custom-apps.md)
+* [Konfigurowanie jednego logowania jednokrotnego tooapplications, które nie znajdują się w galerii aplikacji hello Azure Active Directory](../active-directory-saas-custom-apps.md)
 * [Rozwiązywanie problemów z systemem SAML logowania jednokrotnego](active-directory-saml-debugging.md)
 
 <!--Image references-->

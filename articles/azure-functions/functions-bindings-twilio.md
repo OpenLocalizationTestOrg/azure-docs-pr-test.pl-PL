@@ -1,6 +1,6 @@
 ---
-title: "Powiązanie usługi Twilio funkcji platformy Azure | Dokumentacja firmy Microsoft"
-description: "Zrozumienie sposobu korzystania z usługi Azure Functions powiązania usługi Twilio."
+title: "powiązanie funkcji usługi Twilio aaaAzure | Dokumentacja firmy Microsoft"
+description: "Zrozumienie sposobu powiązania usługi Twilio toouse z usługi Azure Functions."
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -17,32 +17,32 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 870e47ec7f8ce41ee4acadc7b8ed59298958acbe
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 882853947850e7d6795ca5b2f3fb6b9a83ede182
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>Wysyłanie SMS komunikaty z usługi Azure Functions przy użyciu usługi Twilio powiązania wyjściowego
+# <a name="send-sms-messages-from-azure-functions-using-hello-twilio-output-binding"></a>Wysyłanie wiadomości SMS z usługi Azure Functions przy użyciu hello usługi Twilio powiązania wyjściowego
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-W tym artykule opisano sposób konfigurowania i korzystania z usługi Azure Functions powiązania usługi Twilio. 
+W tym artykule opisano sposób powiązania usługi Twilio tooconfigure i korzystania z usługi Azure Functions. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Azure Functions obsługuje usługi Twilio output powiązań, aby umożliwić funkcji do wysyłania wiadomości SMS tekstu przy użyciu kilku wierszy kodu i [usługi Twilio](https://www.twilio.com/) konta. 
+Środowisko Azure Functions obsługuje tooenable powiązania danych wyjściowych usługi Twilio tekst wiadomości SMS toosend funkcji wiadomości przy użyciu kilku wierszy kodu i [usługi Twilio](https://www.twilio.com/) konta. 
 
-## <a name="functionjson-for-the-twilio-output-binding"></a>Function.JSON dla usługi Twilio powiązania wyjściowego
-Plik function.json zawiera następujące właściwości:
+## <a name="functionjson-for-hello-twilio-output-binding"></a>Powiązanie output usługi Twilio Function.JSON dla hello
+Plik function.json Hello zawiera hello następujące właściwości:
 
-* `name`: Nazwa zmiennej używane w kodzie funkcja wiadomości SMS usługi Twilio.
-* `type`: musi być ustawiona na *"twilioSms"*.
-* `accountSid`: Ta wartość musi mieć ustawioną nazwę ustawienia aplikacji obsługującej Twojego identyfikatora Sid konta usługi Twilio.
-* `authToken`: Ta wartość musi być równa Nazwa ustawienia aplikacji, który zawiera token uwierzytelniania usługi Twilio.
-* `to`: Ta wartość jest równa numer telefonu, który tekst wiadomości SMS są wysyłane do.
-* `from`: Ta wartość jest równa numer telefonu, który tekst wiadomości SMS są wysyłane z.
-* `direction`: musi być ustawiona na *"out"*.
-* `body`: Ta wartość może służyć do twardego kodu wiadomość SMS, jeśli nie trzeba ustawić ją dynamicznie w kodzie dla funkcji. 
+* `name`: Nazwa zmiennej używane w kodzie funkcja hello wiadomości SMS usługi Twilio.
+* `type`: musi być ustawiona zbyt*"twilioSms"*.
+* `accountSid`: Ta wartość musi być ustawiona nazwa toohello ustawienia aplikacji, które przechowuje Twojego identyfikatora Sid konta usługi Twilio.
+* `authToken`: Ta wartość musi być ustawiona nazwa toohello ustawienia aplikacji, który zawiera token uwierzytelniania usługi Twilio.
+* `to`: Ta wartość jest ustawiana toohello numer telefonu, który hello tekst wiadomości SMS są wysyłane do.
+* `from`: Ta wartość jest ustawiana toohello numer telefonu, który hello tekst wiadomości SMS są wysyłane z.
+* `direction`: musi być ustawiona zbyt*"out"*.
+* `body`: Ta wartość może być wiadomość SMS hello kodu toohard używane, jeśli nie ma potrzeby tooset dynamicznie w hello kodu dla funkcji. 
 
 Przykład function.json:
 
@@ -62,7 +62,7 @@ Przykład function.json:
 
 ## <a name="example-c-queue-trigger-with-twilio-output-binding"></a>Przykład C# kolejki wyzwalacza z usługi Twilio powiązania wyjściowego
 #### <a name="synchronous"></a>Synchroniczne
-Ten kod synchroniczne przykład wyzwalacza kolejki usługi Azure Storage używa parametru wyjściowego do wysyłania wiadomości SMS do klienta, który zamówienia.
+Ten synchroniczne przykładowy kod służący do wyzwalania kolejki usługi Azure Storage korzysta poza toosend parametr zamówienia klient tooa tekst wiadomości.
 
 ```cs
 #r "Newtonsoft.Json"
@@ -76,25 +76,25 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-    // In this example the queue item is a JSON string representing an order that contains the name of a 
-    // customer and a mobile number to send text updates to.
+    // In this example hello queue item is a JSON string representing an order that contains hello name of a 
+    // customer and a mobile number toosend text updates to.
     dynamic order = JsonConvert.DeserializeObject(myQueueItem);
     string msg = "Hello " + order.name + ", thank you for your order.";
 
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
+    // Even if you want toouse a hard coded message and number in hello binding, you must at least 
+    // initialize hello SMSMessage variable.
     message = new SMSMessage();
 
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use 
-    // the order information to personalize a text message to the mobile number provided for
+    // A dynamic message can be set instead of hello body in hello output binding. In this example, we use 
+    // hello order information toopersonalize a text message toohello mobile number provided for
     // order status updates.
     message.Body = msg;
-    message.To = order.mobileNumber;
+    message.too= order.mobileNumber;
 }
 ```
 
 #### <a name="asynchronous"></a>Asynchroniczne
-Tej asynchronicznej przykładowy kod służący do wyzwalacz kolejki usługi Azure Storage wysyła wiadomość SMS do klienta, który zamówienia.
+Ten asynchroniczne przykładowy kod służący do wyzwalania kolejki usługi Azure Storage wysyła zamówienia klient tooa tekst wiadomości.
 
 ```cs
 #r "Newtonsoft.Json"
@@ -108,46 +108,46 @@ public static async Task Run(string myQueueItem, IAsyncCollector<SMSMessage> mes
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-    // In this example the queue item is a JSON string representing an order that contains the name of a 
-    // customer and a mobile number to send text updates to.
+    // In this example hello queue item is a JSON string representing an order that contains hello name of a 
+    // customer and a mobile number toosend text updates to.
     dynamic order = JsonConvert.DeserializeObject(myQueueItem);
     string msg = "Hello " + order.name + ", thank you for your order.";
 
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
+    // Even if you want toouse a hard coded message and number in hello binding, you must at least 
+    // initialize hello SMSMessage variable.
     SMSMessage smsText = new SMSMessage();
 
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use 
-    // the order information to personalize a text message to the mobile number provided for
+    // A dynamic message can be set instead of hello body in hello output binding. In this example, we use 
+    // hello order information toopersonalize a text message toohello mobile number provided for
     // order status updates.
     smsText.Body = msg;
-    smsText.To = order.mobileNumber;
+    smsText.too= order.mobileNumber;
 
     await message.AddAsync(smsText);
 }
 ```
 
 ## <a name="example-nodejs-queue-trigger-with-twilio-output-binding"></a>Przykład Node.js kolejki wyzwalacza z usługi Twilio powiązania wyjściowego
-W tym przykładzie Node.js wysyła wiadomość SMS do klienta, który zamówienia.
+W tym przykładzie Node.js wysyła zamówienia klient tooa tekst wiadomości.
 
 ```javascript
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
 
-    // In this example the queue item is a JSON string representing an order that contains the name of a 
-    // customer and a mobile number to send text updates to.
+    // In this example hello queue item is a JSON string representing an order that contains hello name of a 
+    // customer and a mobile number toosend text updates to.
     var msg = "Hello " + myQueueItem.name + ", thank you for your order.";
 
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the message binding.
+    // Even if you want toouse a hard coded message and number in hello binding, you must at least 
+    // initialize hello message binding.
     context.bindings.message = {};
 
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use 
-    // the order information to personalize a text message to the mobile number provided for
+    // A dynamic message can be set instead of hello body in hello output binding. In this example, we use 
+    // hello order information toopersonalize a text message toohello mobile number provided for
     // order status updates.
     context.bindings.message = {
         body : msg,
-        to : myQueueItem.mobileNumber
+        too: myQueueItem.mobileNumber
     };
 
     context.done();

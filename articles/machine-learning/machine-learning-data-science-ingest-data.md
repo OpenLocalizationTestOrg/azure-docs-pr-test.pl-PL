@@ -1,6 +1,6 @@
 ---
-title: "Ładowanie danych do środowiska usługi Azure storage analytics | Dokumentacja firmy Microsoft"
-description: "Przenoszenie danych do oraz z usługi Azure Blob Storage"
+title: "aaaLoad danych do środowiska usługi Azure storage analytics | Dokumentacja firmy Microsoft"
+description: "Przenieś tooand danych z magazynu obiektów Blob platformy Azure"
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: 7fbf3bfedca8fa57a5e9428c9399558992b4acbd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0fea2290991f9fa63d9e46c3a657000e27d95289
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Ładowanie danych w środowiskach magazynowania do celów analizy
-Proces nauki zespołu danych wymaga danych można pozyskanych lub ładowane do różnych środowiskach innego magazynu do przetworzenia lub przeanalizowane w najlepszy sposób na każdym etapie procesu. Miejsca docelowe danych często używanych na potrzeby przetwarzania obejmują usługi Azure Blob Storage, baz danych SQL Azure, programu SQL Server na maszynie Wirtualnej platformy Azure, HDInsight (Hadoop) i usługi Azure Machine Learning. 
+Hello zespołu w procesie nauki danych wymaga, aby dane można pozyskanych lub ładowane do szerokiej gamy magazynu różnych środowiskach toobe przetworzenia lub przeanalizowane w najlepszy sposób hello na każdym etapie procesu hello. Miejsca docelowe danych często używanych na potrzeby przetwarzania obejmują usługi Azure Blob Storage, baz danych SQL Azure, programu SQL Server na maszynie Wirtualnej platformy Azure, HDInsight (Hadoop) i usługi Azure Machine Learning. 
 
 [!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-To **menu** linki do tematów opisujących sposób pozyskiwania danych w tych docelowe środowiska, w którym dane są przechowywane i przetwarzane.
+To **menu** łączy tootopics, które opisują sposób tooingest danych w tych docelowe środowiska, w którym hello dane są przechowywane i przetwarzane.
 
-Format techniczne i potrzeby biznesowe, a także początkową lokalizację oraz rozmiar danych określić środowiska docelowego, w których dane mają być pozyskanych w celach analizy. Nie jest nietypowe dla scenariusza wymaganych danych do przeniesienia między środowiskami kilka do osiągnięcia różnych zadań wymaganych do utworzenia modelu predykcyjnego. Ta sekwencja zadań może zawierać na przykład Eksploracja danych, przetwarzanie wstępne czyszczenia, próbkowania w dół i uczenia modelu.
+Format techniczne i potrzeby biznesowe, a także hello początkową lokalizację oraz rozmiar danych określić środowiska docelowego hello konieczne do których hello toobe pozyskanych tooachieve hello celów analizy danych. Nie jest nietypowe dla scenariusza toobe danych toorequire przenosić między kilka środowisk tooachieve hello różnych zadań wymaganych tooconstruct model predykcyjny. Ta sekwencja zadań może zawierać na przykład Eksploracja danych, przetwarzanie wstępne czyszczenia, próbkowania w dół i uczenia modelu.
 

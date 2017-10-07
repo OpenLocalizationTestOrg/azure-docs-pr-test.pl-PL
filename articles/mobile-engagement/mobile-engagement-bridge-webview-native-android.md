@@ -1,6 +1,6 @@
 ---
-title: Mostek Android widoku sieci Web z natywnego Mobile Engagement zestawu SDK systemu Android
-description: "Opisuje sposób tworzenia mostka między systemem obsługi języka Javascript i natywny zestaw Mobile Engagement Android SDK widoku sieci Web"
+title: aaaBridge Android widoku sieci Web z natywnego Mobile Engagement zestawu SDK systemu Android
+description: "Opisuje sposób toocreate mostka między WebView uruchomione Javascript i hello zestaw macierzysty Mobile Engagement Android SDK"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: f4fc7b3c81747ec80974a99084eeb1acc311f11f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a7a09bcc156490fe69ad29a67809745dcfc22da6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="bridge-android-webview-with-native-mobile-engagement-android-sdk"></a>Mostek Android widoku sieci Web z natywnego Mobile Engagement zestawu SDK systemu Android
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy aplikacja jest utworzony przy użyciu natywnych systemu Android, ale niektóre lub nawet wszystkich ekranów są renderowane w widoku sieci Web dla systemu Android. Może nadal używać zestaw Mobile Engagement Android SDK w ramach tych aplikacji i w tym samouczku opisano sposób Przejdź o tej czynności. Poniższy przykładowy kod jest oparta na dokumentację dla systemu Android [tutaj](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). Opisuje, jak takie podejście udokumentowane może posłużyć do wykonania takie same dla zestaw Mobile Engagement Android SDK dla często używanych metod tak, aby Webview z aplikacji hybrydowych można także zainicjować żądań śledzenia zdarzeń, zadań, błędów, informacje o aplikacji podczas ich przez przekazanie w potoku naszych Zestaw SDK systemu android. 
+Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy aplikacja hello jest utworzony przy użyciu natywnych systemu Android, ale niektóre lub nawet wszystkich ekranów powitalnych są renderowane w widoku sieci Web dla systemu Android. Może nadal używać zestaw Mobile Engagement Android SDK w ramach tych aplikacji i w tym samouczku opisano sposób toogo o tej czynności. Poniższy kod przykładowy Hello jest oparta na hello dokumentację dla systemu Android [tutaj](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). Opisuje, jak można użyć tej metody udokumentowane tooimplement hello takie same dla zestaw Mobile Engagement Android SDK dla często używanych metod tak, aby Webview z aplikacji hybrydowych można także zainicjować zdarzenia tootrack żądania, zadań, błędów, informacje o aplikacji, podczas ich przez przekazanie w potoku naszego zestawu SDK systemu Android. 
 
-1. Po pierwsze, należy się upewnić, że przeszły naszych [Wprowadzenie — samouczek](mobile-engagement-android-get-started.md) zintegrować zestaw Mobile Engagement Android SDK w aplikacji hybrydowych. Gdy to zrobisz, Twoje `OnCreate` metoda będzie wyglądać następująco.  
+1. Przede wszystkim należy tooensure, który ma przeszli naszych [Wprowadzenie — samouczek](mobile-engagement-android-get-started.md) toointegrate hello zestaw Mobile Engagement Android SDK w aplikacji hybrydowych. Gdy to zrobisz, Twoje `OnCreate` metoda będzie wyglądać hello poniżej.  
    
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy a
             engagementConfiguration.setConnectionString("<Mobile Engagement Conn String>");
             EngagementAgent.getInstance(this).init(engagementConfiguration);
         }
-2. Teraz upewnij się, że aplikacji hybrydowych ma ekran z widoku sieci Web na nim. Kod dla niego będzie podobny do następującego gdzie czy ładowanie lokalnego pliku **Sample.html** w widoku sieci Web w `onCreate` metodę ekranu. 
+2. Teraz upewnij się, że aplikacji hybrydowych ma ekran z widoku sieci Web na nim. Witaj kod dla niego będzie podobne następujące toohello gdzie czy ładowanie lokalnego pliku **Sample.html** w hello widoku sieci Web w hello `onCreate` metodę ekranu. 
    
         private void SetWebView() {
             WebView myWebView = (WebView) findViewById(R.id.webview);
@@ -52,7 +52,7 @@ Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy a
             ...
             SetWebView();
         }
-3. Teraz Utwórz plik Mostek o nazwie **WebAppInterface** który tworzy otokę w niektóre często używane przy użyciu metody zestaw Mobile Engagement Android SDK `@JavascriptInterface` podejścia opisanego w [Android dokumentacji](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript):
+3. Teraz Utwórz plik Mostek o nazwie **WebAppInterface** który tworzy otokę w niektóre często używane metody zestaw Mobile Engagement Android SDK za pomocą hello `@JavascriptInterface` podejścia opisanego w hello [dokumentację dla systemu Android ](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript):
    
         import android.content.Context;
         import android.os.Bundle;
@@ -67,7 +67,7 @@ Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy a
         public class WebAppInterface {
             Context mContext;
    
-            /** Instantiate the interface and set the context */
+            /** Instantiate hello interface and set hello context */
             WebAppInterface(Context c) {
                 mContext = c;
             }
@@ -110,7 +110,7 @@ Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy a
                 return extras;
             }
         }  
-4. Gdy utworzono plik Mostek powyżej, musimy upewnij się, że jest on skojarzony z naszych widoku sieci Web. W tym celu należy edytować Twojej `SetWebview` metody, dzięki czemu wygląda następująco:
+4. Gdy utworzono hello powyżej Mostek pliku, potrzebujemy tooensure, że jest on skojarzony z naszych widoku sieci Web. Dla tego toohappen należy tooedit Twojego `SetWebview` metodę, tak że wygląda hello:
    
         private void SetWebView() {
             WebView myWebView = (WebView) findViewById(R.id.webview);
@@ -119,8 +119,8 @@ Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy a
             webSettings.setJavaScriptEnabled(true);
             myWebView.addJavascriptInterface(new WebAppInterface(this), "EngagementJs");
         }
-5. We fragmencie powyżej dzwoniliśmy `addJavascriptInterface` do skojarzenia klasy Nasze mostek z naszych widoku sieci Web, a także utworzony uchwyt o nazwie **EngagementJs** do wywołania metody z pliku mostek. 
-6. Teraz utworzyć następującego pliku o nazwie **Sample.html** w projekcie w folderze o nazwie **zasoby** który jest ładowany do widoku sieci Web i gdzie możemy wywoływać metody z pliku mostek.
+5. W hello powyżej fragment, dzwoniliśmy `addJavascriptInterface` tooassociate naszych Mostek klasy z naszych widoku sieci Web, a także utworzony uchwyt o nazwie **EngagementJs** toocall hello metody z hello Mostek pliku. 
+6. Teraz utworzyć następującego pliku o nazwie hello **Sample.html** w projekcie w folderze o nazwie **zasoby** który jest ładowany do hello Webview i którym firma Microsoft będzie wywoływać metod hello z pliku Mostek hello.
    
         <!doctype html>
         <html>
@@ -144,7 +144,7 @@ Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy a
                         if(input)
                         {
                             var value = input.value;
-                            // Example of how extras info can be passed with the Engagement logs
+                            // Example of how extras info can be passed with hello Engagement logs
                             var extras = '{"CustomerId":"MS290011"}';
    
                             if(value && value.length > 0)
@@ -197,16 +197,16 @@ Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy a
                 </div>
             </body>
         </html>
-7. Należy uwzględnić następujące kwestie dotyczące pliku w formacie HTML powyżej:
+7. Uwaga hello następujące kwestie dotyczące pliku HTML hello powyżej:
    
-   * Zawiera zestaw wejściowy pól, w którym można podać dane mają być używane jako nazwy dla zdarzeń, zadania, błąd, AppInfo. Po kliknięciu przycisku Dalej, aby go połączenie jest nawiązywane w przypadku Javascript, który ostatecznie wywołuje metody z pliku mostek do przekazania to wywołanie zestaw Mobile Engagement Android SDK. 
-   * Firma Microsoft są znakowanie na niektórych statycznych dodatkowe informacje do zdarzeń, zadania i nawet błędów, aby zademonstrować, jak można to zrobić. Te dodatkowe informacje są wysyłane jako JSON ciąg, który w `WebAppInterface` pliku, jest analizowana i umieść w systemie Android `Bundle` i jest przekazywany wraz ze zdarzeń, zadań, błędy wysyłania. 
-   * Zadanie Mobile Engagement zostało rozpoczęte o nazwie określonej w polu wejściowym, uruchom na 10 sekund i zamknąć. 
-   * Usługa Mobile Engagement appinfo lub znacznik jest przekazywany z "customer_name" jako statyczny klucz i wartość wprowadzona w danych wejściowych jako wartość tagu. 
-8. Uruchom aplikację i pojawi się poniżej. Teraz niektóre nazwy zdarzenie testowe, podobnie jak poniżej i kliknij przycisk **wysyłania** poniżej. 
+   * Zawiera zestaw wejściowy pól, w którym można podać toobe danych używane jako nazwy dla zdarzeń, zadania, błąd, AppInfo. Po kliknięciu hello przycisku Dalej tooit toohello Javascript, który ostatecznie wywołuje metody hello z hello Mostek pliku toopass toohello tego wywołania zestaw Mobile Engagement Android SDK jest nawiązane połączenie. 
+   * Czy firma Microsoft znakowanie na niektóre zdarzenia toohello statycznych dodatkowe informacje, zadań i nawet błędy toodemonstrate jak można to zrobić. Te dodatkowe informacje są wysyłane jako JSON ciąg, który w hello `WebAppInterface` pliku, jest analizowana i umieść w systemie Android `Bundle` i jest przekazywany wraz ze zdarzeń, zadań, błędy wysyłania. 
+   * Zadanie Mobile Engagement zostało rozpoczęte o nazwie hello określonej w polu wejściowym hello, uruchom na 10 sekund i zamknąć. 
+   * Mobile Engagement appinfo lub znacznik jest przekazywany z "customer_name" hello statyczny klucz i wartość hello, wprowadzone w danych wejściowych hello jako wartość hello hello tagu. 
+8. Hello wykonywania aplikacji i zobaczą hello poniżej. Teraz niektóre nazwy zdarzenie testowe, takich jak powitania po i kliknij przycisk **wysyłania** poniżej. 
    
     ![][1]
-9. Teraz, jeśli przejdziesz do **Monitor** kartę aplikacji i wyglądu w obszarze **zdarzenia -> Szczegóły**, zobaczysz tego zdarzenia wyświetlane wraz ze statycznego aplikacji — informacje, które firma Microsoft wysyłania. 
+9. Obecnie przejście toohello **Monitor** kartę aplikacji i wyglądu w obszarze **zdarzenia -> Szczegóły**, zobaczysz tego zdarzenia wyświetlane wraz z hello statyczne informacje o aplikacji, które firma Microsoft wysyłania. 
    
    ![][2]
 

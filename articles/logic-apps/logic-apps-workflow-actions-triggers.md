@@ -1,5 +1,5 @@
 ---
-title: "Działania przepływu pracy i wyzwalaczy - Azure Logic Apps | Dokumentacja firmy Microsoft"
+title: "aaaWorkflow działań i wyzwalaczy - Azure Logic Apps | Dokumentacja firmy Microsoft"
 description: 
 services: logic-apps
 author: MandiOhlinger
@@ -14,25 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bd3f1d225b974ebde889738bb435825658d1e1e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 857927b7d7df3fc9cdc4931ffdb613efde0db9f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="workflow-actions-and-triggers-for-azure-logic-apps"></a>Działania przepływu pracy i Wyzwalacze dla usługi Azure Logic Apps
 
-Aplikacje logiki składają się z wyzwalacze i akcje. Istnieją typy sześciu wyzwalaczy. Każdy typ ma inny interfejs i inaczej. Możesz także dowiedzieć się inne szczegóły sprawdzając szczegóły [język definicji przepływu pracy](logic-apps-workflow-definition-language.md).  
+Aplikacje logiki składają się z wyzwalacze i akcje. Istnieją typy sześciu wyzwalaczy. Każdy typ ma inny interfejs i inaczej. Również informacje na temat innych szczegółów sprawdzając szczegóły hello hello [język definicji przepływu pracy](logic-apps-workflow-definition-language.md).  
   
-W dalszej Dowiedz się więcej o wyzwalacze i akcje i jak można ich używać do tworzenia aplikacji logiki, aby ulepszyć Twoje procesów biznesowych i przepływów pracy.  
+Poniżej toolearn więcej informacji na temat wyzwalacze i akcje i jak można ich używać toobuild logic apps tooimprove Twojego procesów biznesowych i przepływów pracy.  
   
 ### <a name="triggers"></a>Wyzwalacze  
 
-Wyzwalacz określa wywołania, które mogą inicjować uruchomienia przepływu pracy aplikacji logiki. Poniżej przedstawiono dwa różne sposoby, aby zainicjować do uruchomienia przepływu pracy:  
+Wyzwalacz określa hello wywołania, które mogą inicjować uruchomienia przepływu pracy aplikacji logiki. Poniżej przedstawiono hello tooinitiate dwa sposoby uruchomienia przepływu pracy:  
   
 -   Wyzwalacz sondowania  
 
--   Wyzwalacz wypychania - wywołując [interfejsu API REST usługi przepływu pracy](https://docs.microsoft.com/rest/api/logic/workflows)  
+-   Wyzwalacz wypychania - przez wywołanie hello [interfejsu API REST usługi przepływu pracy](https://docs.microsoft.com/rest/api/logic/workflows)  
   
 Wszystkich wyzwalaczy zawierać tych elementów najwyższego poziomu:  
   
@@ -45,8 +45,8 @@ Wszystkich wyzwalaczy zawierać tych elementów najwyższego poziomu:
         "interval": "<recurrence interval in units of frequency>"
     },
     "conditions": [ <array-of-required-conditions > ],
-    "splitOn" : "<property to create runs for>",
-    "operationOptions": "<operation options on the trigger>"
+    "splitOn" : "<property toocreate runs for>",
+    "operationOptions": "<operation options on hello trigger>"
 }
 ```
 
@@ -54,22 +54,22 @@ Wszystkich wyzwalaczy zawierać tych elementów najwyższego poziomu:
 
 Można używać tych typów wyzwalaczy:
   
--   **Żądanie** \- sprawia, że aplikację logiki punktu końcowego, aby wywołać  
+-   **Żądanie** \- sprawia, że aplikacja logiki hello punktu końcowego dla toocall możesz  
   
 -   **Cykl** \- uruchamiany zgodnie z harmonogramem zdefiniowanym  
   
--   **HTTP** \- sonduje punkt końcowy HTTP sieci web. Punkt końcowy HTTP musi być zgodna z określonym kontraktem wyzwalająca \- przy użyciu 202\-wzorca asynchronicznego, lub tablicę  
+-   **HTTP** \- sonduje punkt końcowy HTTP sieci web. Hello HTTP punktu końcowego musi być zgodna określonym kontraktem wyzwalająca tooa \- przy użyciu 202\-wzorca asynchronicznego, lub tablicę  
   
--   **ApiConnection** \- wyzwolenia ankiety, takich jak HTTP, jednak ją korzysta z [zarządzany przez firmę Microsoft interfejsy API](https://docs.microsoft.com/azure/connectors/apis-list)  
+-   **ApiConnection** \- wyzwolenia ankiety, takich jak hello HTTP, jednak jego zalet hello [zarządzany przez firmę Microsoft interfejsy API](https://docs.microsoft.com/azure/connectors/apis-list)  
   
--   **HTTPWebhook** \- otwiera jako punkt końcowy, podobnie jak ręczne wyzwalacza, jednak również wywołuje określony adres URL do rejestrowania i wyrejestrowania  
+-   **HTTPWebhook** \- otwiera jako punkt końcowy, podobne toohello ręczne wyzwalacza, jednak również wywołuje limit tooa określony adres URL tooregister i wyrejestrować  
   
--   **ApiConnectionWebhook** \- Operates, takich jak wyzwalacza HTTPWebhook dzięki wykorzystaniu interfejsów API zarządzany przez firmę Microsoft       
+-   **ApiConnectionWebhook** \- działa jak hello wyzwalacza HTTPWebhook dzięki wykorzystaniu hello zarządzany przez firmę Microsoft interfejsy API       
     Każdy typ wyzwalacza ma inny zestaw **dane wejściowe** definiuje zachowanie.  
   
 ## <a name="request-trigger"></a>Wyzwalacz żądania  
 
-Tego wyzwalacza służy jako punkt końcowy, który należy wywołać za pomocą żądania HTTP do wywołania aplikacji logiki. Wyzwalacz żądania wygląda następująco:  
+Tego wyzwalacza służy jako punkt końcowy, który należy wywołać za pomocą żądania HTTP tooinvoke aplikacji logiki. Wyzwalacz żądania wygląda następująco:  
   
 ```json
 "<name-of-the-trigger>" : {
@@ -92,9 +92,9 @@ Istnieje również opcjonalny właściwości o nazwie **schematu**:
   
 |Nazwa elementu|Wymagane|Opis|  
 |----------------|------------|---------------|  
-|Schemat|Nie|Schematu JSON, która weryfikuje żądanie przychodzące. Przydatne w przypadku myśl kolejnych kroków znać właściwości, które ma dotyczyć odwołanie.|
+|Schemat|Nie|Weryfikuje żądanie przychodzące hello schematu JSON. Przydatne w przypadku kolejnych kroków wiedzieć, który tooreference właściwości Pomoc.|
 
-Aby wywołać ten punkt końcowy, należy wywołać *listCallbackUrl* interfejsu API. Zobacz [interfejsu API REST usługi przepływu pracy](https://docs.microsoft.com/rest/api/logic/workflows).  
+tooinvoke ten punkt końcowy należy toocall hello *listCallbackUrl* interfejsu API. Zobacz [interfejsu API REST usługi przepływu pracy](https://docs.microsoft.com/rest/api/logic/workflows).  
   
 ## <a name="recurrence-trigger"></a>Wyzwalacz cyklu  
 
@@ -110,16 +110,16 @@ Wyzwalacz cyklu jest jedną, która będzie uruchamiana na zdefiniowanym harmono
 }
 ```
 
-Jak widać, jest prosty sposób, aby uruchomić przepływ pracy.  
+Jak widać, jest prosty sposób toorun przepływ pracy.  
   
 |Nazwa elementu|Wymagane|Opis|  
 |----------------|------------|---------------|  
-|częstotliwość|Tak|Jak często wykonuje wyzwalacza. Używać tylko jednej z następujących wartości: sekundy, minuty, godziny, dnia, tygodnia, miesiąc lub rok|  
-|Interwał|Tak|Interwał częstotliwości danego cyklu|  
+|frequency|Tak|Jak często hello wyzwalacza wykonuje. Używać tylko jednej z następujących wartości: sekundy, minuty, godziny, dnia, tygodnia, miesiąc lub rok|  
+|interval|Tak|Interwał hello podana częstotliwość cyklu hello|  
 |startTime|Nie|Jeśli czas rozpoczęcia jest dostarczany bez przesunięcie czasu UTC, zostanie użyta tej strefy czasowej.|  
 |Strefa czasowa|Brak|Jeśli czas rozpoczęcia jest dostarczany bez przesunięcie czasu UTC, zostanie użyta tej strefy czasowej.|  
   
-Można również zaplanować wyzwalacz można uruchomić wykonywania w pewnym momencie w przyszłości. Na przykład jeśli chcesz uruchomić raport co tydzień w każdy poniedziałek można zaplanować aplikację logiki, aby uruchomić każdy poniedziałek, tworząc następujące wyzwalacz:  
+Można również zaplanować toostart wyzwalacza w pewnym momencie w przyszłości hello wykonywania. Na przykład jeśli chcesz toostart co tydzień raport w każdy poniedziałek można zaplanować toostart aplikacji logiki hello w każdy poniedziałek, tworząc następujące wyzwalacza hello:  
 
 ```json
 "dailyReport" : {
@@ -134,46 +134,46 @@ Można również zaplanować wyzwalacz można uruchomić wykonywania w pewnym mo
 
 ## <a name="http-trigger"></a>Wyzwalacz HTTP  
 
-HTTP wyzwalacze sondowania określony punkt końcowy i sprawdź odpowiedzi, aby określić, czy można wykonać przepływu pracy. Obiekt dane wejściowe przyjmuje zbiór parametrów wymaganych do utworzenia połączenia HTTP:  
+HTTP wyzwalacze sondowania określony punkt końcowy i hello odpowiedzi toodetermine Sprawdź, czy mają zostać wykonane hello przepływu pracy. Obiekt danych wejściowych Hello przyjmuje hello zbiór tooconstruct wymagane parametry połączenia HTTP:  
   
 |Nazwa elementu|Wymagane|Opis|Typ|  
 |----------------|------------|---------------|--------|  
-|— Metoda|Tak|Może być jedną z następujących metod HTTP: GET, POST, PUT, DELETE, poprawki lub HEAD|Ciąg|  
-|Identyfikator URI|Tak|Końcowy http lub https, która jest wywoływana. Maksymalnie 2 kilobajtów.|Ciąg|  
-|— zapytania|Nie|Obiekt reprezentujący parametry zapytania, aby dodać do adresu URL. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL.|Obiekt|  
-|Nagłówki|Nie|Obiekt reprezentujący listę nagłówków, które są wysyłane do żądania. Na przykład, aby ustawić język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Obiekt|  
-|Treści|Nie|Obiekt reprezentujący ładunku, które są wysyłane do punktu końcowego.|Obiekt|  
-|retryPolicy|Nie|Obiekt, który można dostosować zachowanie ponownych prób dla 4xx lub 5xx błędów.|Obiekt|  
-|Uwierzytelnianie|Nie|Reprezentuje metodę uwierzytelniania żądania. Aby uzyskać więcej informacji na ten obiekt, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Poza harmonogramem, jest jedna właściwość więcej obsługiwanych: `authority` domyślnie ta wartość jest `https://login.windows.net` gdy nie jest określony, można używać różnych odbiorców, takich jak`https://login.windows\-ppe.net`|Obiekt|  
+|— Metoda|Tak|Może być jedną z następujących metod HTTP hello: GET, POST, PUT, DELETE, poprawki lub HEAD|Ciąg|  
+|Identyfikator URI|Tak|Witaj punkt końcowy http lub https, który jest wywoływana. Maksymalnie 2 kilobajtów.|Ciąg|  
+|— zapytania|Nie|Obiekt reprezentujący adres URL toohello tooadd hello kwerendy parametrów. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` toohello adresu URL.|Obiekt|  
+|Nagłówki|Nie|Obiekt reprezentujący każdego hello nagłówki, które są wysyłane żądania toohello. Na przykład tooset hello język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Obiekt|  
+|Treści|Nie|Obiekt reprezentujący ładunku hello, wysyłany toohello punktu końcowego.|Obiekt|  
+|retryPolicy|Nie|Obiekt, który można dostosować zachowanie przy ponownych prób hello 4xx lub 5xx błędów.|Obiekt|  
+|Uwierzytelnianie|Nie|Reprezentuje metodę hello hello żądania uwierzytelniania. Aby uzyskać więcej informacji na ten obiekt, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Poza harmonogramem, jest jedna właściwość więcej obsługiwanych: `authority` domyślnie ta wartość jest `https://login.windows.net` gdy nie jest określony, można używać różnych odbiorców, takich jak`https://login.windows\-ppe.net`|Obiekt|  
   
-Wyzwalacza HTTP wymaga interfejsu API HTTP był zgodny z określonym wzorcem do sprawnej współpracy z aplikacji logiki. Wymaga on następujące pola:  
+Witaj wyzwalacza HTTP wymaga hello tooconform HTTP API z określonym wzorcem toowork z aplikacji logiki. Wymaga hello następujące pola:  
   
 |Odpowiedź|Opis|  
 |------------|---------------|  
-|Kod stanu|Kod stanu 200 \(OK\) spowodować do uruchomienia. Każdy kod stanu nie powoduje uruchomienia.|  
-|Spróbuj ponownie\-po nagłówka|Liczba sekund do aplikacji logiki sonduje ponownie punkt końcowy.|  
-|Nagłówek lokalizacji|Adres URL do wywołania w następnym interwału sondowania. Jeśli nie zostanie określony, używany jest oryginalny adres URL.|  
+|Kod stanu|Kod stanu 200 \(OK\) toocause Uruchom. Każdy kod stanu nie powoduje uruchomienia.|  
+|Spróbuj ponownie\-po nagłówka|Liczba sekund do aplikacji logiki hello ponownie sonduje hello punktu końcowego.|  
+|Nagłówek lokalizacji|Witaj toocall adres URL na powitania dalej interwału sondowania. Jeśli nie zostanie określony, oryginalny adres URL hello jest używany.|  
   
 Oto kilka przykładów różne zachowania dla różnych typów żądań:  
   
 |Kod odpowiedzi|Spróbuj ponownie\-po|Zachowanie|  
 |-----------------|----------------|------------|  
-|200|\(Brak\)|Nie prawidłowy wyzwalacza, ponów próbę\-po jest wymagane, lub #else aparat nigdy nie sonduje dla następnego żądania.|  
-|202|60|Nie wyzwala przepływ pracy. Przy następnej próbie odbywa się w jednej minuty.|  
-|200|10|Uruchamianie przepływu pracy i sprawdź ponownie więcej zawartości za 10 sekund.|  
-|400|\(Brak\)|Nieprawidłowe żądanie, nie uruchamiaj przepływ pracy. W przypadku nie **ponów zasad** zdefiniowany, zostanie użyta domyślna zasada. Po osiągnięciu liczby ponownych prób wyzwalacz nie jest już prawidłowy.|  
-|500|\(Brak\)|Błąd serwera, nie uruchamiaj przepływ pracy.  W przypadku nie **ponów zasad** zdefiniowany, zostanie użyta domyślna zasada. Po osiągnięciu liczby ponownych prób wyzwalacz nie jest już prawidłowy.|  
+|200|\(Brak\)|Nie prawidłowy wyzwalacza, ponów próbę\-po sond dla następnego żądania hello jest nigdy nie hello wymagane lub inny aparat.|  
+|202|60|Nie wyzwalają hello przepływu pracy. Witaj następnej próbie odbywa się w jednej minuty.|  
+|200|10|Uruchamianie przepływu pracy hello i sprawdź ponownie więcej zawartości za 10 sekund.|  
+|400|\(Brak\)|Nieprawidłowe żądanie, nie uruchamiaj hello przepływu pracy. W przypadku nie **ponów zasad** zdefiniowany, zostanie użyty hello domyślne zasady. Po osiągnięciu hello liczby ponownych prób hello wyzwalacz nie jest już prawidłowy.|  
+|500|\(Brak\)|Błąd serwera, nie uruchamiaj hello przepływu pracy.  W przypadku nie **ponów zasad** zdefiniowany, zostanie użyty hello domyślne zasady. Po osiągnięciu hello liczby ponownych prób hello wyzwalacz nie jest już prawidłowy.|  
   
-Dane wyjściowe wyzwalacza HTTP wyglądać w tym przykładzie:  
+dane wyjściowe Hello wyzwalacza HTTP wyglądać w tym przykładzie:  
   
 |Nazwa elementu|Opis|Typ|  
 |----------------|---------------|--------|  
-|Nagłówki|Nagłówki odpowiedzi http.|Obiekt|  
-|Treści|Treść odpowiedzi http.|Obiekt|  
+|Nagłówki|Witaj nagłówki odpowiedzi http hello.|Obiekt|  
+|Treści|Treść Hello hello odpowiedzi http.|Obiekt|  
   
 ## <a name="api-connection-trigger"></a>Połączenie z interfejsem API wyzwalacza  
 
-Wyzwalacz połączenia interfejsu API jest podobny do wyzwalacza HTTP w jego podstawowych funkcji. Jednak parametry do identyfikacji akcji są różne. Oto przykład:  
+Witaj interfejsu API połączenia wyzwalacz jest podobne wyzwalacza HTTP toohello w jego podstawowych funkcji. Jednak parametry hello identyfikowanie akcji hello są różne. Oto przykład:  
   
 ```json
 "dailyReport" : {
@@ -197,31 +197,31 @@ Wyzwalacz połączenia interfejsu API jest podobny do wyzwalacza HTTP w jego pod
 
 |Nazwa elementu|Wymagane|Typ|Opis|  
 |----------------|------------|--------|---------------|  
-|Host|Tak||ApiApp hostowana bramy i identyfikator.|  
-|— Metoda|Tak|Ciąg|Może być jedną z następujących metod HTTP: **UZYSKAĆ**, **POST**, **PUT**, **usunąć**, **poprawka**, lub  **HEAD**|  
-|— zapytania|Nie|Obiekt|Reprezentuje parametry zapytania, które mają zostać dodane do adresu URL. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL.|  
-|Nagłówki|Nie|Obiekt|Reprezentuje listę nagłówków, które są wysyłane do żądania. Na przykład, aby ustawić język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Treści|Nie|Obiekt|Reprezentuje ładunek, które są wysyłane do punktu końcowego.|  
-|retryPolicy|Nie|Obiekt|Umożliwia dostosowanie zachowanie ponownych prób dla 4xx lub 5xx błędów.|  
-|Uwierzytelnianie|Nie|Obiekt|Reprezentuje metodę uwierzytelniania żądania. Aby uzyskać więcej informacji na ten obiekt, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)|  
+|Host|Tak||Witaj ApiApp hostowana bramy i identyfikator.|  
+|— Metoda|Tak|Ciąg|Może być jedną z następujących metod HTTP hello: **UZYSKAĆ**, **POST**, **PUT**, **usunąć**, **poprawka**, lub  **HEAD**|  
+|— zapytania|Nie|Obiekt|Reprezentuje hello zapytania parametry toobe dodać toohello adresu URL. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` toohello adresu URL.|  
+|Nagłówki|Nie|Obiekt|Reprezentuje wszystkich nagłówków hello, które są wysyłane żądania toohello. Na przykład tooset hello język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Treści|Nie|Obiekt|Reprezentuje ładunek hello, wysyłany toohello punktu końcowego.|  
+|retryPolicy|Nie|Obiekt|Umożliwia zachowanie ponawiania hello toocustomize 4xx lub 5xx błędów.|  
+|Uwierzytelnianie|Nie|Obiekt|Reprezentuje metodę hello hello żądania uwierzytelniania. Aby uzyskać więcej informacji na ten obiekt, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)|  
   
-Właściwości hosta są:  
+Witaj właściwości hosta są:  
   
 |Nazwa elementu|Wymagane|Opis|  
 |----------------|------------|---------------|  
-|runtimeUrl interfejsu API|Tak|Punkt końcowy zarządzanego interfejsu API.|  
-|Nazwa połączenia||Musi być odwołaniem do parametru o nazwie `$connection` , a to nazwa zarządzanego połączenia interfejsu API, używanych przez przepływ pracy.|
+|runtimeUrl interfejsu API|Tak|punkt końcowy Hello hello zarządzanego interfejsu API.|  
+|Nazwa połączenia||Musi być odwołanie tooa parametr o nazwie `$connection` i jest nazwą hello hello zarządzane połączenia interfejsu API, które hello używa przepływu pracy.|
   
-Dostępne są następujące dane wyjściowe wyzwalacza połączenia interfejsu API:
+dane wyjściowe Hello wyzwalacza połączenia interfejsu API są:
   
 |Nazwa elementu|Typ|Opis|  
 |----------------|--------|---------------|  
-|Nagłówki|Obiekt|Nagłówki odpowiedzi http.|  
-|Treści|Obiekt|Treść odpowiedzi http.|  
+|Nagłówki|Obiekt|Witaj nagłówki odpowiedzi http hello.|  
+|Treści|Obiekt|Treść Hello hello odpowiedzi http.|  
   
 ## <a name="httpwebhook-trigger"></a>Wyzwalacz HTTPWebhook  
 
-Wyzwalacz HTTPWebhook otwiera punkt końcowy jest podobny do ręcznego wyzwalacza, ale określony adres URL do rejestrowania i wyrejestrowania uwidacznia również HTTPWebhook wyzwalacza. Oto przykład co wyzwalacz HTTPWebhook może wyglądać tak:  
+Otwiera wyzwalacza HTTPWebhook Hello punktu końcowego, podobne toohello wyzwalacza ręczne, ale hello wyzwalacza HTTPWebhook również uwidacznia tooa określony adres URL tooregister i wyrejestrować. Oto przykład co wyzwalacz HTTPWebhook może wyglądać tak:  
 
 ```json
 "myappspottrigger": {
@@ -254,41 +254,41 @@ Wyzwalacz HTTPWebhook otwiera punkt końcowy jest podobny do ręcznego wyzwalacz
     }
 ```
 
-Wiele z tych sekcji są opcjonalne i zachowanie elementu Webhook jest zależna od sekcje są udostępniane lub pominięta.  
-Właściwości elementu Webhook są następujące:  
+Wiele z tych sekcji są opcjonalne i zachowanie hello hello elementu Webhook jest zależna od sekcje są udostępniane lub pominięta.  
+właściwości elementu Webhook Hello są następujące:  
   
 |Nazwa elementu|Wymagane|Opis|  
 |----------------|------------|---------------|  
-|Subskrypcja|Nie|Żądania wychodzącego jest wywoływane, gdy wyzwalacza jest tworzony i wykonuje początkowe rejestracyjny.|  
-|Anulowanie subskrypcji|Nie|Żądania wychodzącego po usunięciu wyzwalacza.|  
+|Subskrypcja|Nie|Witaj wychodzące żądania, które jest wywoływane, gdy wyzwalacz hello jest tworzony i wykonuje hello początkowej rejestracji.|  
+|Anulowanie subskrypcji|Nie|Witaj wychodzące żądanie usunięcia hello wyzwalacza.|  
   
--   **Subskrypcja** jest wywołanie wychodzących, które ma na celu rozpoczyna nasłuchiwanie zdarzeń. To wywołanie rozpoczyna się od tego samego zestawu parametrów, które wykonują normalnego działania protokołu HTTP. Ta wychodzących wywołanie żadnego zmianie przepływu pracy w dowolny sposób, na przykład, jeśli poświadczenia zostały wycofane, lub zmień parametry wejściowe tego wyzwalacza.
+-   **Subskrypcja** jest Witaj wychodzące połączenia, który wprowadził toostart tooevents nasłuchiwania. To wywołanie rozpoczyna się od hello są tego samego zestawu parametrów, które hello normalne akcji HTTP. Ten wychodzących wywołanie żadnych hello czas przepływu pracy zmiany w dowolny sposób, na przykład po każdej zmianie poświadczeń hello są wycofane lub zmiany parametrów wejściowych hello wyzwalacza.
   
-    Aby zapewnić obsługę tego wywołania, jest nowa funkcja: `@listCallbackUrl()`. Ta funkcja zwraca unikatowy adres URL dla tego wyzwalacza określonych w tym przepływie pracy. Reprezentuje unikatowy identyfikator dla punktów końcowych, które używają usługi REST.  
+    toosupport to wywołanie, jest nowa funkcja: `@listCallbackUrl()`. Ta funkcja zwraca unikatowy adres URL dla tego wyzwalacza określonych w tym przepływie pracy. Reprezentuje hello Unikatowy identyfikator dla punktów końcowych hello, używających hello usługi REST.  
   
 -   **Anulowanie subskrypcji** jest wywoływane, gdy operacja renderuje tego wyzwalacza nieprawidłowe, w tym:  
   
-    -   Usuwanie lub wyłączanie wyzwalacza  
+    -   Usuwanie lub wyłączanie hello wyzwalacza  
   
-    -   Usuwanie lub wyłączanie przepływu pracy  
+    -   Usuwanie lub wyłączanie hello przepływu pracy  
   
-    -   Usunięcie lub wyłączenie subskrypcji  
+    -   Usuwanie lub wyłączanie hello subskrypcji  
   
-    Aplikacja logiki automatycznie wywołuje akcję anulowania subskrypcji. Parametry tej funkcji są takie same jak wyzwalacza HTTP.  
+    Aplikacja logiki Hello automatycznie wywołuje hello subskrypcję akcji. Parametry Hello są funkcja toothis hello sam hello wyzwalacza HTTP.  
   
-    Dane wyjściowe wyzwalacza HTTPWebhook są zawartość żądania przychodzącego, jeśli:  
+    Witaj dane wyjściowe wyzwalacza HTTPWebhook hello są hello treść żądania przychodzące hello:  
   
 |Nazwa elementu|Typ|Opis|  
 |-----------------|--------|---------------|  
-|Nagłówki|Obiekt|Nagłówki żądania http.|  
-|Treści|Obiekt|Treść żądania http.|  
+|Nagłówki|Obiekt|nagłówki Hello hello żądania http.|  
+|Treści|Obiekt|Treść Hello hello żądania http.|  
 
-Można określić limity akcji elementu webhook w taki sam sposób jak [limity asynchroniczne HTTP](#asynchronous-limits).
+Można określić limity akcji elementu webhook w hello taki sam jak [limity asynchroniczne HTTP](#asynchronous-limits).
   
 
 ## <a name="conditions"></a>Warunki  
 
-Dla dowolnego wyzwalacza można użyć co najmniej jednego warunku można określić, czy przepływ pracy, należy uruchomić lub nie. Na przykład:  
+Dla dowolnego wyzwalacza można użyć co najmniej jeden toodetermine warunki czy uruchamiania przepływu pracy hello lub nie. Na przykład:  
 
 ```json
 "dailyReport" : {
@@ -303,7 +303,7 @@ Dla dowolnego wyzwalacza można użyć co najmniej jednego warunku można okreś
 }
 ```
 
-W takim przypadku tylko wyzwalacze raportu podczas przepływu pracy `sendReports` parametr ma wartość true. Na koniec warunków może odwoływać się kod stanu wyzwalacza. Na przykład należy można rozpocząć wyłączyć przepływ pracy tylko w przypadku witryny sieci Web zwraca kod stanu 500, w następujący sposób:
+W takim przypadku hello tylko wyzwalaczy raportu podczas przepływu hello `sendReports` parametr ma wartość tootrue. Na koniec warunków może odwoływać się hello kod stanu hello wyzwalacza. Na przykład należy można rozpocząć wyłączyć przepływ pracy tylko w przypadku witryny sieci Web zwraca kod stanu 500, w następujący sposób:
   
 ```  
 "conditions": [  
@@ -314,13 +314,13 @@ W takim przypadku tylko wyzwalacze raportu podczas przepływu pracy `sendReports
 ```  
   
 > [!NOTE]  
-> Jeśli dowolne wyrażenie odwołuje się kod stanu wyzwalacza \(w żaden sposób\), domyślne zachowanie \(wyzwalacza tylko na 200 \(OK\) \) zostanie zastąpiony. Na przykład, jeśli chcesz wyzwolić na kod stanu 201 i kodem stanu 200, użytkownik musi zawierać: `@or(equals(triggers().code, 200),equals(triggers().code,201))` jako warunek.  
+> Gdy dowolne wyrażenie odwołuje się kod stanu hello wyzwalacza hello \(w żaden sposób\), hello domyślne zachowanie \(wyzwalacza tylko na 200 \(OK\) \) zostanie zastąpiony. Na przykład, jeśli chcesz tootrigger na kod stanu 200 i kod stanu 201 masz tooinclude: `@or(equals(triggers().code, 200),equals(triggers().code,201))` jako warunek.  
   
 ## <a name="start-multiple-runs-for-a-request"></a>Uruchom wielu uruchomień dla żądania
 
-Aby rozpocząć poza wielu uruchomień dla pojedynczego żądania `splitOn` jest przydatne, na przykład, gdy chcesz przeprowadzać sondowanie punktu końcowego, który może mieć wiele nowych elementów między interwałami sondowania.
+tookick poza wielu uruchomień dla pojedynczego żądania `splitOn` jest przydatne, na przykład, jeśli chcesz toopoll punktu końcowego, który może mieć wiele nowych elementów między interwałami sondowania.
   
-Z `splitOn`, określ właściwość ładunku odpowiedzi, który zawiera tablicę elementów, z których każdy ma być używany do uruchamiania wykonywania wyzwalacza. Załóżmy na przykład, że masz interfejs API, który zwraca następującą odpowiedź:  
+Z `splitOn`, określ właściwość hello ładunku odpowiedzi hello zawierający hello tablicę elementów, z których każdy ma toostart toouse Uruchom hello wyzwalacza. Załóżmy na przykład, że masz interfejs API, który zwraca powitania po odpowiedzi:  
   
 ```json
 {
@@ -338,7 +338,7 @@ Z `splitOn`, określ właściwość ładunku odpowiedzi, który zawiera tablicę
 }
 ```
   
-Aplikację logiki musi tylko zawartość wierszy, można utworzyć wyzwalacz tak jak ten przykład:  
+Aplikację logiki tylko musi hello wierszy zawartości, więc można konstruować wyzwalacz tak jak ten przykład:  
   
 ```json
 "mysplitter" : {
@@ -355,7 +355,7 @@ Aplikację logiki musi tylko zawartość wierszy, można utworzyć wyzwalacz tak
 }
 ```
   
-Następnie w definicji przepływu pracy `@triggerBody().name` zwraca `mycoolrow` dla przy pierwszym uruchomieniu i `another row` dla drugiego przebiegu. Wygląd danych wyjściowych wyzwalacz tak jak ten przykład:  
+Następnie w definicji przepływu pracy hello, `@triggerBody().name` zwraca `mycoolrow` dla pierwszego uruchomienia hello i `another row` dla hello drugim przebiegu. wygląd danych wyjściowych wyzwalacza Hello tak jak ten przykład:  
   
 ```json
 {
@@ -366,16 +366,16 @@ Następnie w definicji przepływu pracy `@triggerBody().name` zwraca `mycoolrow`
 }
 ```
 
-Dlatego jeśli używasz `SplitOn`, nie można pobrać właściwości, które są poza tablicy, w tym przypadku `Status` pola.  
+Dlatego jeśli używasz `SplitOn`, nie można pobrać właściwości hello, które są poza hello tablicy, w tym przypadku hello `Status` pola.  
   
 > [!NOTE]  
-> W tym przykładzie używamy `?` operatora, aby można było uniknąć awarii, jeśli `Rows` nie ma właściwości. 
+> W tym przykładzie używamy hello `?` tooavoid stanie operator toobe awarii, jeśli hello `Rows` nie ma właściwości. 
   
 ## <a name="single-run-instance"></a>Pojedyncze wystąpienie wykonywania
 
-Można skonfigurować wyzwalacze, które mają właściwość cyklu uruchomienie tylko, jeśli wszystkie aktywnej przebiegi została ukończona. W przypadku podczas uruchamiania w trakcie zaplanowanego cyklu wyzwalacza pomija i czeka, aż do następnego interwał cyklu zaplanowane, aby ponownie sprawdzić.
+Można skonfigurować wyzwalacze, które ma fire tooonly właściwości cyklu, jeśli wszystkie aktywnej przebiegi została ukończona. W przypadku podczas uruchamiania w trakcie zaplanowanego cyklu wyzwalacz hello pomija i czekać na powitania następnego zaplanowanego cyklu interwału toocheck ponownie.
 
-Można to ustawienie można skonfigurować za pomocą opcji operacji:
+Można to ustawienie można skonfigurować za pomocą opcji operacji hello:
 
 ```json
 "triggers": {
@@ -396,9 +396,9 @@ Istnieje wiele typów działań, każde z nich unikatowe zachowanie. Akcje kolek
 
 -   **HTTP** ta akcja wymaga punktu końcowego HTTP sieci web.  
   
--   **ApiConnection** \- ta akcja działa jak akcja HTTP, ale korzysta z interfejsów API zarządzany przez firmę Microsoft.  
+-   **ApiConnection** \- ta akcja działa jak hello akcji HTTP, ale używa hello API zarządzany przez firmę Microsoft.  
   
--   **ApiConnectionWebhook** \- jak HTTPWebhook, ale używa interfejsów API zarządzany przez firmę Microsoft.  
+-   **ApiConnectionWebhook** \- jak HTTPWebhook, ale używa hello API zarządzany przez firmę Microsoft.  
   
 -   **Odpowiedź** \- tej akcji określa odpowiedzi dla połączenia przychodzącego.  
   
@@ -412,30 +412,30 @@ Istnieje wiele typów działań, każde z nich unikatowe zachowanie. Akcje kolek
 
 -   **Zakres** \- ta akcja jest logiczne grupowanie innych działań.
 
--   **Warunek** \- ta akcja oblicza wyrażenie i wykonuje odpowiednie gałęzi wynik.
+-   **Warunek** \- ta akcja oblicza wyrażenie i wykonuje hello odpowiednich wyników w oddziale firmy.
 
 -   **Instrukcja ForEach** \- ta akcja pętli iteruje tablicy i wykonuje akcje wewnętrzny dla każdego elementu.
 
--   **Dopóki** \- ta akcja pętli wykonuje działania wewnętrzne, dopóki warunek wyników do wartości true.
+-   **Dopóki** \- ta akcja pętli wykonuje działania wewnętrzny dopóki tootrue powoduje warunek.
   
 Każdy typ działania ma inny zestaw **dane wejściowe** definiującą zachowanie akcji.  
   
 ## <a name="http-action"></a>Akcja HTTP  
 
-Akcje HTTP wywołać określony punkt końcowy i sprawdź odpowiedzi, aby określić, czy należy uruchomić przepływ pracy. **Dane wejściowe** obiekt ma zestaw parametrów wymaganych do utworzenia połączenia HTTP:  
+HTTP działania Wywołaj określony punkt końcowy i toodetermine odpowiedzi hello Sprawdź, czy powinno być ono uruchomione hello przepływu pracy. Witaj **dane wejściowe** obiektu przyjmuje hello zbiór wywołania hello HTTP tooconstruct wymaganych parametrów:  
   
 |Nazwa elementu|Wymagane|Typ|Opis|  
 |----------------|------------|--------|---------------|  
-|— Metoda|Tak|Ciąg|Może być jedną z następujących metod HTTP: **UZYSKAĆ**, **POST**, **PUT**, **usunąć**, **poprawka**, lub  **HEAD**|  
-|Identyfikator URI|Tak|Ciąg|Końcowy http lub https, która jest wywoływana. Maksymalna długość wynosi 2 kilobajtów.|  
-|— zapytania|Nie|Obiekt|Reprezentuje parametry zapytania, aby dodać do adresu URL. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL.|  
-|Nagłówki|Nie|Obiekt|Reprezentuje listę nagłówków, które są wysyłane do żądania. Na przykład, aby ustawić język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Treści|Nie|Obiekt|Reprezentuje ładunek, które są wysyłane do punktu końcowego.|  
-|retryPolicy|Nie|Obiekt|Pozwala dostosować zachowanie ponownych prób dla 4xx lub 5xx błędów.|  
-|operationsOptions|Nie|Ciąg|Definiuje zestaw specjalnego zachowania do zastąpienia.|  
-|Uwierzytelnianie|Nie|Obiekt|Reprezentuje metodę uwierzytelniania żądania. Aby uzyskać więcej informacji na ten obiekt, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Poza harmonogramem, jest jedna właściwość więcej obsługiwanych: `authority`. Domyślnie jest to `https://login.windows.net` gdy nie jest określony, ale możesz użyć innych grup odbiorców, takich jak`https://login.windows\-ppe.net`|  
+|— Metoda|Tak|Ciąg|Może być jedną z następujących metod HTTP hello: **UZYSKAĆ**, **POST**, **PUT**, **usunąć**, **poprawka**, lub  **HEAD**|  
+|Identyfikator URI|Tak|Ciąg|Witaj punkt końcowy http lub https, który jest wywoływana. Maksymalna długość wynosi 2 kilobajtów.|  
+|— zapytania|Nie|Obiekt|Reprezentuje adres URL toohello tooadd hello kwerendy parametrów. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` toohello adresu URL.|  
+|Nagłówki|Nie|Obiekt|Reprezentuje wszystkich nagłówków hello, które są wysyłane żądania toohello. Na przykład tooset hello język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Treści|Nie|Obiekt|Reprezentuje ładunek hello, wysyłany toohello punktu końcowego.|  
+|retryPolicy|Nie|Obiekt|Umożliwia dostosowanie hello zachowanie ponownych prób dla 4xx lub 5xx błędów.|  
+|operationsOptions|Nie|Ciąg|Definiuje zestaw hello toooverride specjalnego zachowania.|  
+|Uwierzytelnianie|Nie|Obiekt|Reprezentuje metodę hello hello żądania uwierzytelniania. Aby uzyskać więcej informacji na ten obiekt, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Poza harmonogramem, jest jedna właściwość więcej obsługiwanych: `authority`. Domyślnie jest to `https://login.windows.net` gdy nie jest określony, ale możesz użyć innych grup odbiorców, takich jak`https://login.windows\-ppe.net`|  
   
-Akcje HTTP \(i połączenie z interfejsem API\) Obsługa akcji ponów zasad. Zasady ponawiania dotyczy sporadycznych błędów jest określony jako kodów stanu HTTP 408 429 i 5xx, oprócz wszelkie wyjątki łączności. Ta zasada jest opisana przy użyciu *retryPolicy* obiekt zdefiniowany w sposób pokazany poniżej:
+Akcje HTTP \(i połączenie z interfejsem API\) Obsługa akcji ponów zasad. Zasady ponawiania stosuje toointermittent błędów, jak stan HTTP jest określony kodów 408 429 i 5xx w wyjątki łączności tooany dodanie. Ta zasada jest opisana przy użyciu hello *retryPolicy* obiekt zdefiniowany w sposób pokazany poniżej:
   
 ```json
 "retryPolicy" : {
@@ -445,9 +445,9 @@ Akcje HTTP \(i połączenie z interfejsem API\) Obsługa akcji ponów zasad. Zas
 }
 ```
   
-Interwał ponawiania prób jest określona w formacie ISO 8601. Ten interwał ma wartości domyślnej i co najmniej 20 sekund, podczas gdy wartość maksymalna to jedna godzina. Domyślne i maksymalnej liczby ponownych prób odpowiada czterem godzinom. Jeśli nie określono definicji zasad ponawiania, `fixed` strategii jest używany z domyślnej wartości interwału i liczba ponownych prób. Aby wyłączyć zasady ponawiania, ustaw jej typ `None`.  
+Interwał ponawiania prób Hello jest określona w formacie ISO 8601 hello. Ten interwał ma domyślne i minimalna wartość 20 sekund, podczas hello wartość maksymalna to jedna godzina. Hello domyślne, a maksymalna liczba ponowień to cztery godziny. Jeśli nie określono definicji zasad ponawiania hello, `fixed` strategii jest używany z domyślnej wartości interwału i liczba ponownych prób. zasady ponawiania hello toodisable, ustaw jej typ zbyt`None`.  
   
-Na przykład następujące działania ponowne próby pobierania najnowsze dwa razy, jeśli występują sporadyczne awarie, dla wszystkich trzech wykonaniami, z 30-sekundowe opóźnienie między kolejnymi próbami:  
+Na przykład hello następującej akcji ponowi próbę pobrano najnowsze wiadomości powitania dwa razy, jeśli występują sporadyczne awarie, dla wszystkich trzech wykonaniami, z 30-sekundowe opóźnienie między kolejnymi próbami:  
   
 ```json
 "latestNews" : {
@@ -465,9 +465,9 @@ Na przykład następujące działania ponowne próby pobierania najnowsze dwa ra
 ```
 ### <a name="asynchronous-patterns"></a>Asynchroniczne wzorce
 
-Domyślnie wszystkie działania oparte na protokole HTTP obsługuje wzorzec standardowych operacji asynchronicznej. Dlatego w przypadku zdalnego serwera wskazuje, czy żądanie jest zaakceptowano do przetwarzania z 202 \(zaakceptowane\) odpowiedzi, aparat Logic Apps śledzi sondowania adres URL określony w odpowiedzi nagłówek lokalizacji do momentu osiągnięcia terminali stanu \(bez\-202 odpowiedzi\).  
+Domyślnie wszystkie działania oparte na protokole HTTP obsługuje hello wzorzec standardowych operacji asynchronicznej. Dlatego jeśli powitania serwera zdalnego wskazuje Żądanie hello jest zaakceptowano do przetwarzania z 202 \(zaakceptowane\) odpowiedzi, aparat Logic Apps hello śledzi sondowania hello adres URL określony w nagłówku lokalizacji odpowiedź hello aż do osiągnięcia terminal Stan \(bez\-202 odpowiedzi\).  
   
-Aby wyłączyć asynchroniczne zachowanie opisany powyżej, ustaw `DisableAsyncPattern` opcji w danych wejściowych działania. W takim przypadku dane wyjściowe działania jest oparty na początkowej 202 odpowiedzi z serwera.  
+zachowanie asynchroniczne hello toodisable wcześniej opisane, ustaw `DisableAsyncPattern` opcję hello akcji w danych wejściowych. W takim przypadku dane wyjściowe hello akcji hello jest oparta na hello początkowej 202 odpowiedzi z serwera hello.  
   
 ```json
 "invokeLongRunningOperation" : {
@@ -482,7 +482,7 @@ Aby wyłączyć asynchroniczne zachowanie opisany powyżej, ustaw `DisableAsyncP
 
 #### <a name="asynchronous-limits"></a>Limity asynchroniczne
 
-Asynchroniczny wzorzec może być ograniczone w jego czas trwania na określonym interwale.  Jeśli interwał czasu musi upłynąć bez osiągnięcia terminali stanu, zostaną oznaczone jako stan akcji `Cancelled` przy użyciu kodu `ActionTimedOut`.  Limit czasu został określony w formacie ISO 8601.  Limity można określić przy użyciu następującej składni:
+Asynchroniczny wzorzec może być ograniczone w jego czas trwania tooa określonego interwału czasu.  Jeśli hello czas upływający bez osiągnięcia terminali stanu, zostaną oznaczone jako hello stan akcji hello `Cancelled` przy użyciu kodu `ActionTimedOut`.  limit czasu limit Hello jest określony w formacie ISO 8601.  Można określić limity z hello następującej składni:
 
 ``` json
 "<action-name>": {
@@ -497,18 +497,18 @@ Asynchroniczny wzorzec może być ograniczone w jego czas trwania na określonym
 ## <a name="api-connection"></a>Połączenie z interfejsem API  
 
 Połączenie z interfejsem API jest akcja, która odwołuje się do łącznika zarządzany przez firmę Microsoft.
-Ta akcja wymaga odwołania do prawidłowe połączenie, a informacje na temat interfejsu API i parametrów wymaganych.
+Ta akcja wymaga odwołania tooa prawidłowe połączenie, a informacje o hello interfejsu API i parametrów wymaganych.
 
 |Nazwa elementu|Wymagane|Typ|Opis|  
 |----------------|------------|--------|---------------|  
-|Host|Tak|Obiekt|Reprezentuje informacje łącznika, takie jak runtimeUrl i odwołania do obiektu połączenia|
-|— Metoda|Tak|Ciąg|Może być jedną z następujących metod HTTP: **UZYSKAĆ**, **POST**, **PUT**, **usunąć**, **poprawka**, lub  **HEAD**|  
-|Ścieżka|Tak|Ciąg|Ścieżka operacji interfejsu API.|  
-|— zapytania|Nie|Obiekt|Reprezentuje parametry zapytania, aby dodać do adresu URL. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL.|  
-|Nagłówki|Nie|Obiekt|Reprezentuje listę nagłówków, które są wysyłane do żądania. Na przykład, aby ustawić język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Treści|Nie|Obiekt|Reprezentuje ładunek, które są wysyłane do punktu końcowego.|  
-|retryPolicy|Nie|Obiekt|Pozwala dostosować zachowanie ponownych prób dla 4xx lub 5xx błędów.|  
-|operationsOptions|Nie|Ciąg|Definiuje zestaw specjalnego zachowania do zastąpienia.|  
+|Host|Tak|Obiekt|Reprezentuje hello łącznika informacje, takie jak hello runtimeUrl i odwołanie toohello obiektu połączenia|
+|— Metoda|Tak|Ciąg|Może być jedną z następujących metod HTTP hello: **UZYSKAĆ**, **POST**, **PUT**, **usunąć**, **poprawka**, lub  **HEAD**|  
+|Ścieżka|Tak|Ciąg|Ścieżka Hello operacji hello interfejsu API.|  
+|— zapytania|Nie|Obiekt|Reprezentuje adres URL toohello tooadd hello kwerendy parametrów. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` toohello adresu URL.|  
+|Nagłówki|Nie|Obiekt|Reprezentuje wszystkich nagłówków hello, które są wysyłane żądania toohello. Na przykład tooset hello język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Treści|Nie|Obiekt|Reprezentuje ładunek hello, wysyłany toohello punktu końcowego.|  
+|retryPolicy|Nie|Obiekt|Umożliwia dostosowanie hello zachowanie ponownych prób dla 4xx lub 5xx błędów.|  
+|operationsOptions|Nie|Ciąg|Definiuje zestaw hello toooverride specjalnego zachowania.|  
 
 ```json
 "Send_Email": {
@@ -563,11 +563,11 @@ Ta akcja wymaga odwołania do prawidłowe połączenie, a informacje na temat in
 }
 ```
 
-Można określić limity akcji elementu webhook w taki sam sposób jak [limity asynchroniczne HTTP](#asynchronous-limits).
+Można określić limity akcji elementu webhook w hello taki sam jak [limity asynchroniczne HTTP](#asynchronous-limits).
   
 ## <a name="response-action"></a>Akcja odpowiedzi  
 
-Ten typ akcji zawiera ładunek całej odpowiedzi z żądania HTTP i obejmuje statusCode, treści i nagłówków:  
+Ten typ akcji zawiera hello ładunku całej odpowiedzi z żądania HTTP i obejmuje statusCode, treści i nagłówków:  
   
 ```json
 "myresponse" : {
@@ -587,17 +587,17 @@ Ten typ akcji zawiera ładunek całej odpowiedzi z żądania HTTP i obejmuje sta
 }
 ```
   
-Akcja odpowiedź ma specjalne ograniczenia, które nie dotyczą innych działań. W szczególności:  
+Akcja odpowiedzi Hello ma specjalne ograniczenia, które nie stosuje określone akcje tooother. W szczególności:  
   
--   Akcje reakcji nie może być równoległe w definicji deterministyczne odpowiedzi na żądania przychodzącego, jeśli jest wymagana.  
+-   Akcje reakcji nie może być równoległe w definicji, ponieważ wymagane jest żądanie przychodzące toohello deterministyczne odpowiedzi.  
   
--   Po osiągnięciu akcji odpowiedzi po otrzymaniu odpowiedzi żądania przychodzącego, jeśli akcja jest uznawany za nie powiodło się \(konflikt\), i w związku z tym jest uruchomienie `Failed`.  
+-   Po osiągnięciu akcji odpowiedzi po otrzymaniu odpowiedzi hello przychodzące żądanie akcji hello jest uznawany za nie powiodło się \(konflikt\), i w związku z tym jest hello Uruchom `Failed`.  
   
--   Przepływ pracy z akcjami odpowiedzi nie może mieć `splitOn` w jego wyzwalacza jedno wywołanie powoduje, że wiele przebiegów. W związku z tym to powinny być weryfikowane po przepływ, PUT i Przyczyna nieprawidłowe żądanie.  
+-   Przepływ pracy z akcjami odpowiedzi nie może mieć `splitOn` w jego wyzwalacza jedno wywołanie powoduje, że wiele przebiegów. W związku z tym to powinny być weryfikowane podczas przepływu hello jest PUT i Przyczyna nieprawidłowe żądanie.  
   
 ## <a name="wait-action"></a>Poczekaj akcji  
 
-`wait` Akcji wstrzymuje wykonywanie przepływu pracy dla określonego interwału. Na przykład aby poczekaj 15 minut, można użyć ta Wstawka kodu:  
+Witaj `wait` akcji wstrzymuje wykonywanie przepływu pracy dla hello określonego interwału. Na przykład toowait 15 minut, można użyć ta Wstawka kodu:  
   
 ```json
 "waitForFifteenMinutes" : {
@@ -611,7 +611,7 @@ Akcja odpowiedź ma specjalne ograniczenia, które nie dotyczą innych działań
 }
 ```  
   
-Można również czekać, aż do określonego momentu w czasie, można użyć w tym przykładzie:  
+Alternatywnie toowait do określonego momentu w czasie, można użyć w tym przykładzie:  
   
 ```json
 "waitUntilOctober" : {
@@ -625,19 +625,19 @@ Można również czekać, aż do określonego momentu w czasie, można użyć w 
 ```
   
 > [!NOTE]  
-> Czas oczekiwania albo można użyć **interwał** obiektu lub **do momentu** obiektu, ale nie oba.  
+> czas oczekiwania Hello albo można użyć hello **interwał** obiektu lub hello **do momentu** obiektu, ale nie oba.  
   
 |Nazwa|Wymagane|Typ|Opis|  
 |--------|------------|--------|---------------|  
-|Interwał|Nie|Obiekt|Czas oczekiwania, oparte na czas.|  
+|interval|Nie|Obiekt|Witaj poczekaj oparte na czas trwania.|  
 |Interwał|Tak|Ciąg|Jeden z tych przedziałów: sekundy, minuty, godziny, dnia, tygodnia, miesiąca, roku.|  
-|Liczba interwale|Tak|Ciąg|Czas trwania oparte na danej jednostce wewnętrznego.|  
-|do czasu|Nie|Obiekt|Czas oczekiwania na podstawie punktu w czasie.|  
-|do sygnatury czasowej|Tak|Ciąg|Ciąg &#124; Do punktu w czasie w formacie UTC wygaśnięcia czas oczekiwania.|  
+|Liczba interwale|Tak|Ciąg|Czas trwania oparte na powitania podane wewnętrzny jednostki.|  
+|do czasu|Nie|Obiekt|Witaj poczekaj oparte na punkt w czasie trwania.|  
+|do sygnatury czasowej|Tak|Ciąg|Ciąg &#124; hello punktu w czasie w formacie UTC wygaśnięcia hello oczekiwania.|  
 
 ## <a name="query-action"></a>Akcja kwerendy
 
-`query` Akcja umożliwia filtrowanie na podstawie warunku tablicy. Na przykład aby wybrać liczby większe niż 2, można:
+Witaj `query` akcja umożliwia filtrowanie na podstawie warunku tablicy. Na przykład numery tooselect jest większa niż 2, można:
 
 ```json
 "FilterNumbers" : {
@@ -649,20 +649,20 @@ Można również czekać, aż do określonego momentu w czasie, można użyć w 
 }
 ```
 
-Dane wyjściowe z `query` akcji jest tablicę, która ma elementy z tablicy wejściowej, które spełniają warunek.
+Witaj dane wyjściowe hello `query` tablicę, która ma elementy z tablicy wejściowej hello, które spełniają warunek hello jest akcja.
 
 > [!NOTE]
-> Jeśli spełniać żadnych wartości `where` warunek, wynik ma być pustą tablicą.
+> Jeśli wartości nie spełniają hello `where` warunku, hello wyniku jest pusta tablica.
 
 |Nazwa|Wymagane|Typ|Opis|
 |--------|------------|--------|---------------|
-|Z|Tak|Tablica|Tablica źródłowa.|
-|gdzie|Tak|Ciąg|Warunek, którego chcesz zastosować do każdego elementu tablicy źródłowej.|
+|Z|Tak|Tablica|Tablica źródłowa Hello.|
+|gdzie|Tak|Ciąg|Witaj warunku tooapply tooeach elementu tablicy źródłowej hello.|
 
 ## <a name="select-action"></a>Wybierz akcję
 
-`select` Pozwala projektów każdy element tablicy na nową wartość.
-Na przykład aby przekonwertować tablicy liczb znajdujących się na tablicę obiektów, można:
+Witaj `select` pozwala projektów każdy element tablicy na nową wartość.
+Na przykład tooconvert jako tablica liczb na tablicę obiektów, można użyć:
 
 ```json
 "SelectNumbers" : {
@@ -674,16 +674,16 @@ Na przykład aby przekonwertować tablicy liczb znajdujących się na tablicę o
 }
 ```
 
-Dane wyjściowe `select` akcji jest tablicą, który ma tego samego Kardynalność jako tablica wejściowa z każdym elementem przekształcone zgodnie z definicją w `select` właściwości. Jeśli dane wejściowe jest pusta tablica, dane wyjściowe jest również być pustą tablicą.
+Witaj dane wyjściowe hello `select` tablicę, która ma hello samą liczność hello tablicy wejściowej z każdym elementem przekształcone jako określone hello jest akcja `select` właściwości. Jeśli dane wejściowe hello jest pusta tablica, dane wyjściowe hello jest również pustą tablicę.
 
 |Nazwa|Wymagane|Typ|Opis|
 |--------|------------|--------|---------------|
-|Z|Tak|Tablica|Tablica źródłowa.|
-|Wybierz|Tak|Dowolne|Projekcji, które można zastosować do każdego elementu tablicy źródłowej.|
+|Z|Tak|Tablica|Tablica źródłowa Hello.|
+|Wybierz|Tak|Dowolne|Witaj projekcji tooapply tooeach elementu tablicy źródłowej hello.|
 
 ## <a name="terminate-action"></a>Zakończenie akcji
 
-Akcja zakończenia zatrzymuje wykonywanie uruchomienia przepływu pracy, przerywanie wszystkie akcje locie i pomija wszystkie pozostałe akcje. Na przykład, aby zakończyć wykonywania o stanie ****, można użyć następującego fragmentu kodu:
+Hello akcji Zakończenie zatrzymuje wykonywanie hello przepływu pracy, przerywanie wszystkie akcje locie i pomija wszystkie pozostałe akcje. Na przykład tooterminate Uruchom ze stanem ****, można użyć następującego fragmentu hello:
 
 ```json
 "HandleUnexpectedResponse" : {
@@ -699,18 +699,18 @@ Akcja zakończenia zatrzymuje wykonywanie uruchomienia przepływu pracy, przeryw
 ```
 
 > [!NOTE]
-> Akcja zakończenia nie dotyczy działania już zakończone.
+> Akcje już ukończone nie dotyczy hello przerwanie działania.
 
 |Nazwa|Wymagane|Typ|Opis|
 |--------|------------|--------|---------------|
-|runStatus|Tak|Ciąg|Obiekt docelowy stan uruchomienia. Albo **nie powiodło się** lub **anulowane**.|
-|runError|Nie|Obiekt|Szczegóły błędu. Tylko obsługiwane w przypadku **runStatus** ustawiono ****.|
-|Kod runError|Nie|Ciąg|Błąd podczas wykonywania kodu.|
-|komunikat runError|Nie|Ciąg|Komunikat uruchamiania.|
+|runStatus|Tak|Ciąg|obiekt docelowy Hello stan uruchomienia. Albo **nie powiodło się** lub **anulowane**.|
+|runError|Nie|Obiekt|Szczegóły błędu Hello. Tylko obsługiwane w przypadku **runStatus** ustawiono zbyt****.|
+|Kod runError|Nie|Ciąg|Witaj, uruchom kod błędu.|
+|komunikat runError|Nie|Ciąg|Witaj, uruchom komunikat o błędzie.|
 
 ## <a name="compose-action"></a>Redagowanie akcji
 
-Redaguj pozwala utworzenia dowolnego obiektu. Dane wyjściowe działania Redaguj jest wynikiem obliczenia wejścia. Na przykład umożliwia akcji tworzenia Scal dane wyjściowe z wielu czynności:
+Witaj akcji tworzenia umożliwia utworzenia dowolnego obiektu. dane wyjściowe Hello hello tworzą akcji jest wynikiem hello oceny jej danych wejściowych. Na przykład można użyć hello tworzą dane wyjściowe toomerge akcji wiele działań:
 
 ```json
 "composeUserRecord" : {
@@ -725,11 +725,11 @@ Redaguj pozwala utworzenia dowolnego obiektu. Dane wyjściowe działania Redaguj
 ```
 
 > [!NOTE]
-> **Redaguj** akcja może zostać użyta do skonstruowania żadnych danych wyjściowych, w tym obiektów, tablic i innego typu obsługiwane przez logikę aplikacji, takich jak XML i pliku binarnego.
+> Witaj **Redaguj** akcji mogą być używane tooconstruct żadnych danych wyjściowych, w tym obiektów, tablic i innego typu obsługiwane przez logikę aplikacji, takich jak XML i pliku binarnego.
 
 ## <a name="table-action"></a>Akcja tabeli
 
-`table` Umożliwia konwertowanie tablicę elementów do **CSV** lub **HTML** tabeli.
+Witaj `table` pozwala tooconvert jako tablicę elementów do **CSV** lub **HTML** tabeli.
 
 Załóżmy, że @triggerBodyjest)
 
@@ -743,7 +743,7 @@ Załóżmy, że @triggerBodyjest)
 }]
 ```
 
-Natomiast akcji można zdefiniować jako
+Natomiast akcja hello można zdefiniować jako
 
 ```json
 "ConvertToTable" : {
@@ -755,11 +755,11 @@ Natomiast akcji można zdefiniować jako
 }
 ```
 
-Powyższe dałby w efekcie
+dałby w efekcie Hello powyżej
 
 <table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>jabłek</td></tr><tr><td>1</td><td>Pomarańcze</td></tr></tbody></table>"
 
-Aby dostosować tabeli, należy określić kolumny jawnie. Na przykład:
+W tabeli hello toocustomize kolejności można określić kolumny hello jawnie. Na przykład:
 
 ```json
 "ConvertToTable" : {
@@ -778,29 +778,29 @@ Aby dostosować tabeli, należy określić kolumny jawnie. Na przykład:
 }
 ```
 
-Powyższe dałby w efekcie
+dałby w efekcie Hello powyżej
 
-<table><thead><tr><th>Tworzy identyfikator</th><th>Opis elementu</th></tr></thead><tbody><tr><td>0</td><td>Nowa jabłek</td></tr><tr><td>1</td><td>świeżych pomarańczy</td></tr></tbody></table>"
+<table><thead><tr><th>Tworzy identyfikator</th><th>description</th></tr></thead><tbody><tr><td>0</td><td>Nowa jabłek</td></tr><tr><td>1</td><td>świeżych pomarańczy</td></tr></tbody></table>"
 
-Jeśli `from` wartość właściwości jest pusta tablica, dane wyjściowe jest pusta tabela.
+Jeśli hello `from` wartość właściwości jest pusta tablica, dane wyjściowe hello jest pusta tabela.
 
 |Nazwa|Wymagane|Typ|Opis|
 |--------|------------|--------|---------------|
-|Z|Tak|Tablica|Tablica źródłowa.|
-|Format|Tak|Ciąg|Format, albo **CSV** lub **HTML**.|
-|kolumny|Nie|Tablica|Kolumny. Umożliwia zastąpienie domyślnego kształtu tabeli.|
-|Nagłówek kolumny|Nie|Ciąg|Nagłówek kolumny.|
-|wartość w kolumnie|Tak|Ciąg|Wartość kolumny.|
+|Z|Tak|Tablica|Tablica źródłowa Hello.|
+|Format|Tak|Ciąg|Witaj format, albo **CSV** lub **HTML**.|
+|kolumny|Nie|Tablica|Witaj kolumny. Umożliwia toooverride hello domyślnego kształtu hello tabeli.|
+|Nagłówek kolumny|Nie|Ciąg|Nagłówek Hello hello kolumny.|
+|wartość w kolumnie|Tak|Ciąg|wartość Hello hello kolumny.|
 
 ## <a name="workflow-action"></a>Działania przepływu pracy   
 
 |Nazwa|Wymagane|Typ|Opis|  
 |--------|------------|--------|---------------|  
-|Identyfikator hosta|Tak|Ciąg|Identyfikator zasobu przepływu pracy, który ma zostać wywołana.|  
-|Nazwa_wyzwalacza hosta|Tak|Ciąg|Nazwa wyzwalacza, który chcesz wywołać.|  
-|— zapytania|Nie|Obiekt|Reprezentuje parametry zapytania, aby dodać do adresu URL. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL.|  
-|Nagłówki|Nie|Obiekt|Reprezentuje listę nagłówków, które są wysyłane do żądania. Na przykład, aby ustawić język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Treści|Nie|Obiekt|Reprezentuje obciążenie wysyłane do punktu końcowego.|  
+|Identyfikator hosta|Tak|Ciąg|Identyfikator zasobu Hello hello przepływu pracy, które mają toocall.|  
+|Nazwa_wyzwalacza hosta|Tak|Ciąg|Nazwa Hello hello wyzwalacza, które mają tooinvoke.|  
+|— zapytania|Nie|Obiekt|Reprezentuje adres URL toohello tooadd hello kwerendy parametrów. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` toohello adresu URL.|  
+|Nagłówki|Nie|Obiekt|Reprezentuje wszystkich nagłówków hello, które są wysyłane żądania toohello. Na przykład tooset hello język i typ żądania:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Treści|Nie|Obiekt|Reprezentuje ładunek hello wysyłane toohello punktu końcowego.|  
   
 ```json
 "mynestedwf" : {
@@ -826,19 +826,19 @@ Jeśli `from` wartość właściwości jest pusta tablica, dane wyjściowe jest 
     }
 ```
   
-Sprawdzanie dostępu jest wprowadzone w przepływie pracy \(dokładniej, wyzwalacz\), co oznacza, potrzebny jest dostęp do przepływu pracy.  
+Sprawdzanie dostępu jest podejmowana hello przepływu pracy \(dokładniej, wyzwalacz hello\), co oznacza muszą uzyskać dostęp toohello przepływu pracy.  
   
-Dane wyjściowe z `workflow` akcji są oparte na zdefiniowane w `response` działania w przepływie pracy podrzędnych. Jeśli nie zdefiniowano żadnego `response` akcji, a następnie dane wyjściowe są puste.  
+Witaj danych wyjściowych ze hello `workflow` akcji są oparte na zdefiniowane w hello `response` działań w przepływie pracy podrzędny hello. Jeśli nie zdefiniowano żadnego `response` akcji, a następnie hello dane wyjściowe są puste.  
 
 ## <a name="function-action"></a>Akcja — funkcja   
 
 |Nazwa|Wymagane|Typ|Opis|  
 |--------|------------|--------|---------------|  
-|id — funkcja|Tak|Ciąg|Identyfikator zasobu do wywołania funkcji.|  
-|— Metoda|Nie|Ciąg|Metoda HTTP używana do wywołania funkcji. Domyślnie jest `POST` gdy nie został określony.|  
-|— zapytania|Nie|Obiekt|Reprezentuje parametry zapytania, aby dodać do adresu URL. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL.|  
-|Nagłówki|Nie|Obiekt|Reprezentuje listę nagłówków, które są wysyłane do żądania. Na przykład, aby ustawić język i typ na żądanie: `"headers" : { "Accept-Language": "en-us" }`.|  
-|Treści|Nie|Obiekt|Reprezentuje obciążenie wysyłane do punktu końcowego.|  
+|id — funkcja|Tak|Ciąg|Identyfikator zasobu Hello hello funkcji, które mają tooinvoke.|  
+|— Metoda|Nie|Ciąg|Hello metoda HTTP używana funkcja hello tooinvoke. Domyślnie jest `POST` gdy nie został określony.|  
+|— zapytania|Nie|Obiekt|Reprezentuje adres URL toohello tooadd hello kwerendy parametrów. Na przykład `"queries" : { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` toohello adresu URL.|  
+|Nagłówki|Nie|Obiekt|Reprezentuje wszystkich nagłówków hello, które są wysyłane żądania toohello. Na przykład tooset hello język i typ na żądanie: `"headers" : { "Accept-Language": "en-us" }`.|  
+|Treści|Nie|Obiekt|Reprezentuje ładunek hello wysyłane toohello punktu końcowego.|  
 
 ```json
 "myfunc" : {
@@ -863,25 +863,25 @@ Dane wyjściowe z `workflow` akcji są oparte na zdefiniowane w `response` dzia�
 }
 ```
 
-Podczas zapisywania aplikacji logiki, wykonujemy kontroli niektórych funkcji, do którego istnieje odwołanie:
--   Musisz mieć dostęp do funkcji.
+Podczas zapisywania aplikacji logiki hello wykonać testy na powitania odwołuje się do funkcji:
+-   Należy toohave dostępu toohello funkcji.
 -   Tylko standardowy wyzwalacza HTTP lub ogólny wyzwalacza elementu webhook JSON jest dozwolone.
 -   Nie powinna mieć żadnej trasy zdefiniowane.
 -   Tylko "funkcji" i "anonymous" autoryzacji na poziomie jest dozwolone.
 
-Adres URL wyzwalacza jest pobierana, w pamięci podręcznej i używany w czasie wykonywania. Dlatego jeśli żadnej operacji unieważnia pamięci podręcznej adres URL, akcja zakończy się niepowodzeniem w czasie wykonywania. Aby obejść ten problem, należy zapisać aplikację logiki, co spowoduje aplikację logiki, aby pobrać i ponownie pamięci podręcznej adres URL wyzwalacza.
+adres URL wyzwalacza Hello jest pobrać, w pamięci podręcznej i używany w czasie wykonywania. Dlatego jeśli żadnej operacji unieważnia URL hello w pamięci podręcznej, hello akcja zakończy się niepowodzeniem w czasie wykonywania. toowork wokół, Zapisz hello aplikacji logiki ponownie, co będzie powodować tooretrieve aplikacji logiki i pamięci podręcznej adres URL wyzwalacza hello ponownie.
 
 ## <a name="collection-actions-scopes-and-loops"></a>Akcje kolekcji (zakresy i pętle)
 
-Niektóre typy działań mogą zawierać działania w ramach samodzielnie. Odwołanie do działań w ramach kolekcji można odwoływać się bezpośrednio poza kolekcji. Jeśli zdefiniowano `http` w zakresie `@body('http')` jest nadal ważny w dowolnym miejscu w przepływie pracy. Akcje w ramach kolekcji można `runAfter` tylko innych działań w ramach tej samej kolekcji.
+Niektóre typy działań mogą zawierać działania w ramach samodzielnie. Odwołanie do działań w ramach kolekcji można odwoływać się bezpośrednio poza hello kolekcji. Jeśli zdefiniowano `http` w zakresie `@body('http')` jest nadal ważny w dowolnym miejscu w przepływie pracy. Akcje w ramach kolekcji można `runAfter` tylko innych działań w ramach hello tej samej kolekcji.
 
 ## <a name="scope-action"></a>Akcja zakresu
 
-`scope` Pozwala logicznie grupy działań w przepływie pracy.
+Witaj `scope` pozwala logicznie grupy działań w przepływie pracy.
 
 |Nazwa|Wymagane|Typ|Opis|  
 |--------|------------|--------|---------------|  
-|Akcje|Tak|Obiekt|Wewnętrzny akcje do wykonania w zakresie|
+|Akcje|Tak|Obiekt|Tooexecute wewnętrzny akcje w zakresie hello|
 
 ```json
 {
@@ -901,13 +901,13 @@ Niektóre typy działań mogą zawierać działania w ramach samodzielnie. Odwo�
 
 ## <a name="foreach-action"></a>Akcja ForEach
 
-Ta akcja pętli iteruje tablicy i wykonuje akcje wewnętrzny dla każdego elementu. Domyślnie pętli foreach wykonuje równoległe (20 wykonaniami równolegle w czasie). Można ustawić zasady wykonywania przy użyciu `operationOptions` parametru.
+Ta akcja pętli iteruje tablicy i wykonuje akcje wewnętrzny dla każdego elementu. Domyślnie program hello foreach pętla jest wykonywana równolegle (20 wykonaniami równolegle w czasie). Można ustawić zasady wykonywania przy użyciu hello `operationOptions` parametru.
 
 |Nazwa|Wymagane|Typ|Opis|  
 |--------|------------|--------|---------------|  
-|Akcje|Tak|Obiekt|Wewnętrzny akcje do wykonania w pętli|
-|Instrukcja foreach|Tak|Ciąg|Tablicy w celu wykonania iteracji|
-|operationOptions|Brak|Ciąg|Wszystkie opcje operacji zachowanie. Obsługuje obecnie tylko `sequential` do wykonywania iteracji sekwencyjnie (domyślne zachowanie to równoległych)|
+|Akcje|Tak|Obiekt|Tooexecute wewnętrzny akcje w ramach hello pętli|
+|Instrukcja foreach|Tak|Ciąg|Witaj tooiterate tablicy za pośrednictwem|
+|operationOptions|Brak|Ciąg|Wszystkie opcje operacji zachowanie. Aktualnie obsługuje tylko `sequential` iteracji tooexecute sekwencyjnie (domyślne zachowanie to równoległych)|
 
 ```json
 "forEach_email": {
@@ -938,15 +938,15 @@ Ta akcja pętli iteruje tablicy i wykonuje akcje wewnętrzny dla każdego elemen
 
 ## <a name="until-action"></a>Do działania
 
-Ta akcja pętli wykonuje akcje wewnętrzny dopóki warunek wyników do wartości true.
+Ta akcja pętli wykonuje akcje wewnętrzny dopóki tootrue powoduje warunek.
 
 |Nazwa|Wymagane|Typ|Opis|  
 |--------|------------|--------|---------------|  
-|Akcje|Tak|Obiekt|Wewnętrzny akcje do wykonania w pętli|
-|wyrażenie|Tak|Ciąg|Wyrażenie do oceny po każdej iteracji|
-|Limit|Tak|Obiekt|Limity dla pętli — co najmniej jeden limit musi być zdefiniowana|
-|Liczba|Brak|int|Limit liczby iteracji, które mogą być wykonywane|
-|Limit czasu|Brak|Ciąg|Limit czasu na czas powinien pętli.  Formacie ISO 8601|
+|Akcje|Tak|Obiekt|Tooexecute wewnętrzny akcje w ramach hello pętli|
+|wyrażenie|Tak|Ciąg|Witaj tooevaluate wyrażenie po każdej iteracji|
+|Limit|Tak|Obiekt|limity Hello hello pętli — co najmniej jeden limit musi być zdefiniowana|
+|Liczba|Brak|int|Hello limit toohello liczba iteracji, które mogą być wykonywane|
+|timeout|Brak|Ciąg|Witaj limitu czasu dla jak długo powinien pętli.  Formacie ISO 8601|
 
 
 ```json
@@ -973,13 +973,13 @@ Ta akcja pętli wykonuje akcje wewnętrzny dopóki warunek wyników do wartości
 
 ## <a name="conditions---if-action"></a>Warunki — Jeśli akcja
 
-`If` Pozwala ocenić warunku i wykonywanie gałęzi według tego, czy wyrażenie daje w wyniku `true`.
+Witaj `If` pozwala ocenić warunku i wykonywanie gałęzi oparte na czy hello wynikiem wyrażenia jest zbyt`true`.
 
 |Nazwa|Wymagane|Typ|Opis|  
 |--------|------------|--------|---------------|  
-|Akcje|Tak|Obiekt|Wewnętrzny akcje do wykonania, gdy wyrażenie daje w wyniku`true`|
-|wyrażenie|Tak|Ciąg|Wyrażenie do oceny|
-|else|Brak|Obiekt|Wewnętrzny akcje do wykonania, gdy wyrażenie daje w wyniku`false`|
+|Akcje|Tak|Obiekt|Tooexecute wewnętrzny akcje, gdy wyrażenie zbyt`true`|
+|wyrażenie|Tak|Ciąg|Witaj tooevaluate wyrażenia|
+|else|Brak|Obiekt|Tooexecute wewnętrzny akcje, gdy wyrażenie zbyt`false`|
   
 ```json
 "My_condition": {
@@ -1011,17 +1011,17 @@ Ta akcja pętli wykonuje akcje wewnętrzny dopóki warunek wyników do wartości
 }
 ```  
   
-W poniższej tabeli przedstawiono przykłady warunków użycia wyrażeń w akcji:  
+Witaj poniższej tabeli przedstawiono przykłady warunków użycia wyrażeń w akcji:  
   
 |Wartość JSON|wynik|  
 |--------------|----------|  
-|`"expression": "@parameters('hasSpecialAction')"`|Żadnej wartości, które są używane do oceny na wartość true powoduje, że ten stan do przekazania. Obsługiwane są tylko wyrażenia logiczne. Aby przekonwertować inne typy Boolean, użyj funkcji `empty`, `equals`.|  
-|`"expression": "@greater(actions('act1').output.value, parameters('threshold'))"`|Porównanie funkcji są obsługiwane. Na przykład tutaj Akcja wykonywana tylko po act1 danych wyjściowych jest większy niż próg.|  
-|`"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"`|Logika funkcje są również obsługiwane do tworzenia zagnieżdżonych wyrażeń logicznych. W takim przypadku operacja zostanie wykonana, gdy dane wyjściowe act1 jest powyżej wartości progowej lub poniżej 100.|  
-|`"expression": "@equals(length(actions('act1').outputs.errors), 0))"`|Możesz użyć funkcji tablicy, aby sprawdzić, czy wszystkie elementy tablicy. W takim przypadku operacja zostanie wykonana, gdy macierz błędów jest pusta.| 
+|`"expression": "@parameters('hasSpecialAction')"`|Żadnej wartości, które są używane do oceny tootrue powoduje, że toopass tego warunku. Obsługiwane są tylko wyrażenia logiczne. tooconvert innych typów tooBoolean, użyj funkcji `empty`, `equals`.|  
+|`"expression": "@greater(actions('act1').output.value, parameters('threshold'))"`|Porównanie funkcji są obsługiwane. Przykładowo hello tutaj hello akcji tylko wykonuje się, gdy dane wyjściowe hello act1 jest większy niż próg hello.|  
+|`"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"`|Funkcje logiki są również obsługiwane toocreate zagnieżdżonych wyrażeń logicznych. W takim przypadku hello operacja zostanie wykonana, gdy dane wyjściowe hello act1 jest powyżej wartości progowej hello lub poniżej 100.|  
+|`"expression": "@equals(length(actions('act1').outputs.errors), 0))"`|Toocheck funkcje tablicy można użyć, jeśli tablicy nie ma żadnych elementów. W takim przypadku hello operacja zostanie wykonana, gdy hello błędy tablica jest pusta.| 
 |`"expression": "parameters('hasSpecialAction')"`|Błąd — nie jest prawidłowym warunku, ponieważ @ jest wymagany dla warunków.|  
   
-Jeśli wynikiem warunku jest pomyślnie, warunek zostanie oznaczona jako `Succeeded`. Akcje w ramach jednej `actions` lub `else` obliczać obiektów `Succeeded` po wykonaniu i zakończyło się pomyślnie, `Failed` po wykonaniu i nie powiodło się, lub `Skipped` po gałąź, nie została wykonana.
+Jeśli wynikiem warunku jest pomyślnie, warunek hello jest oznaczony jako `Succeeded`. Akcje w ramach jednej hello `actions` lub `else` obiektów ocenić za`Succeeded` po wykonaniu i zakończyło się pomyślnie, `Failed` po wykonaniu i nie powiodło się, lub `Skipped` po gałąź, nie została wykonana.
 
 ## <a name="next-steps"></a>Następne kroki
 

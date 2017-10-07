@@ -1,5 +1,5 @@
 ---
-title: "Ustawianie i pobieranie metadanych w usłudze Azure Storage i właściwości obiektu | Dokumentacja firmy Microsoft"
+title: "aaaSet oraz pobrać obiekt właściwości i metadane w usłudze Azure Storage | Dokumentacja firmy Microsoft"
 description: "Przechowywania niestandardowych metadanych na obiektach w usłudze Azure Storage i ustawiania i pobierania właściwości systemu."
 services: storage
 documentationcenter: 
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: marsma
-ms.openlocfilehash: 6af66607478c58874f00bcf017a35abfc37888df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 44f9243183014845964f337b476a6b0069dc0902
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Ustawianie i pobieranie właściwości oraz metadanych
 
-W właściwości systemu pomocy technicznej usługi Azure Storage i metadanych zdefiniowanych przez użytkownika, oprócz danych, które zawierają obiekty. W tym artykule omówiono zarządzanie właściwości systemu i użytkownika metadanych z [biblioteki klienta magazynu Azure dla platformy .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
+Obiekty w właściwości systemu pomocy technicznej usługi Azure Storage i metadanych zdefiniowanych przez użytkownika, oprócz toohello nich danych. W tym artykule omówiono zarządzanie właściwości systemu i użytkownika metadanych z hello [biblioteki klienta magazynu Azure dla platformy .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-* **Właściwości systemu**: właściwości systemu istnieje dla każdego zasobu magazynu. Niektóre z nich można odczytać lub ustawić, podczas gdy inne dotyczą tylko do odczytu. W obszarze obejmuje niektóre właściwości systemu odpowiadają niektórych standardowymi nagłówkami HTTP. Biblioteka klienta magazynu Azure obsługuje są dla Ciebie.
+* **Właściwości systemu**: właściwości systemu istnieje dla każdego zasobu magazynu. Niektóre z nich można odczytać lub ustawić, podczas gdy inne dotyczą tylko do odczytu. W obszarze obejmuje hello niektórych właściwości systemu odpowiada toocertain standardowymi nagłówkami HTTP. Biblioteka klienta magazynu Azure Hello przechowuje są dla Ciebie.
 
-* **Zdefiniowane przez użytkownika metadanych**: metadane zdefiniowane przez użytkownika są metadane, które można określić dla danego zasobu w postaci pary nazwa wartość. Metadanych umożliwiają przechowywanie dodatkowe wartości zasobów magazynu. Wartości te dodatkowe metadane służą wyłącznie do własnych, a nie wpływają na zachowanie zasobu.
+* **Zdefiniowane przez użytkownika metadanych**: metadane zdefiniowane przez użytkownika są metadane, które można określić dla danego zasobu w postaci hello pary nazwa wartość. Możesz użyć wartości dodatkowe metadane toostore zasobów magazynu. Wartości te dodatkowe metadane służą wyłącznie do własnych, a nie wpływają na zachowanie hello zasobów.
 
-Podczas pobierania wartości właściwości i metadanych dla zasobu magazynu jest procesem dwuetapowym. Przed możesz przeczytać te wartości, użytkownik musi jawnie pobrać je przez wywołanie metody **FetchAttributes** metody.
+Podczas pobierania wartości właściwości i metadanych dla zasobu magazynu jest procesem dwuetapowym. Przed możesz przeczytać te wartości, użytkownik musi jawnie pobrać je przez wywołanie hello **FetchAttributes** metody.
 
 > [!IMPORTANT]
-> Wartości właściwości i metadanych dla zasobów magazynu nie są wypełniane, chyba że wywoływanie jednego z **FetchAttributes** metody.
+> Wartości właściwości i metadanych dla zasobów magazynu nie są wypełniane, chyba że należy wywołać hello **FetchAttributes** metody.
 >
-> Zostanie wyświetlony `400 Bad Request` Jeśli wszystkie pary nazwa/wartość zawiera znaki spoza zestawu ASCII. Pary nazwa/wartość metadanych są prawidłowe nagłówków HTTP, a więc muszą spełniać wszystkie ograniczenia dotyczące nagłówków HTTP. Dlatego zaleca się użycie kodowania adresu URL lub kodowania Base64 dla nazwy i wartości zawierające znaki spoza zestawu ASCII.
+> Zostanie wyświetlony `400 Bad Request` Jeśli wszystkie pary nazwa/wartość zawiera znaki spoza zestawu ASCII. Pary nazwa/wartość metadanych są prawidłowe nagłówków HTTP i dlatego musi być zgodne tooall ograniczenia dotyczące nagłówków HTTP. Dlatego zaleca się użycie kodowania adresu URL lub kodowania Base64 dla nazwy i wartości zawierające znaki spoza zestawu ASCII.
 >
 
 ## <a name="setting-and-retrieving-properties"></a>Ustawiania i pobierania właściwości
-Aby pobrać wartości właściwości, należy wywołać **FetchAttributes** metody na obiekt blob lub kontener, aby wypełnić właściwości, następnie odczytać wartości.
+wartości właściwości tooretrieve, wywołanie hello **FetchAttributes** metody dla obiekt blob lub kontener toopopulate hello właściwości, następnie odczytywane hello wartości.
 
-Aby ustawić właściwości dla obiektu, określ właściwość value, a następnie wywołaj **SetProperties** metody.
+tooset właściwości w obiekcie, określ wartość właściwości hello, a następnie wywołaj hello **SetProperties** metody.
 
-Poniższy przykład kodu tworzy kontener, a następnie zapisuje niektóre z jej wartości właściwości w oknie konsoli.
+Witaj poniższy przykład kodu tworzy kontener, a następnie zapisuje niektórych okna konsoli tooa wartości właściwości.
 
 ```csharp
-//Parse the connection string for the storage account.
+//Parse hello connection string for hello storage account.
 const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
-//Create the service client object for credentialed access to the Blob service.
+//Create hello service client object for credentialed access toohello Blob service.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve a reference to a container.
+// Retrieve a reference tooa container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Create the container if it does not already exist.
+// Create hello container if it does not already exist.
 container.CreateIfNotExists();
 
 // Fetch container properties and write out their values.
@@ -66,36 +66,36 @@ Console.WriteLine();
 ```
 
 ## <a name="setting-and-retrieving-metadata"></a>Ustawianie i pobieranie metadanych
-Metadane można określić jako pary nazwa wartość co najmniej jednego zasobu obiektów blob lub kontenera. Aby ustawić metadane, należy dodać pary nazwa wartość do **metadanych** kolekcji na zasobie, następnie wywołaj **SetMetadata** metody, aby zapisać wartości do usługi.
+Metadane można określić jako pary nazwa wartość co najmniej jednego zasobu obiektów blob lub kontenera. metadane tooset dodać pary nazwa wartość toohello **metadanych** kolekcji hello zasobu, a następnie wywołaj hello **SetMetadata** hello toosave metody wartości toohello usługi.
 
 > [!NOTE]
-> Nazwa metadanych musi być zgodna z konwencji nazewnictwa dla identyfikatorów języka C#.
+> Nazwa Hello metadanych musi być zgodna toohello konwencje nazewnictwa dla identyfikatorów języka C#.
 >
 >
 
-Poniższy przykład kodu Ustawia metadane do kontenera. Jedna wartość jest ustawiona przy użyciu kolekcji **Dodaj** metody. Inne ma wartość przy użyciu składni niejawne klucza i wartości. Zarówno są prawidłowe.
+Witaj Poniższy przykładowy kod ustawia metadane do kontenera. Jedna wartość jest ustawiona przy użyciu kolekcji hello **Dodaj** metody. Witaj innych wartość jest ustawiana za pomocą składni niejawne klucza i wartości. Zarówno są prawidłowe.
 
 ```csharp
 public static void AddContainerMetadata(CloudBlobContainer container)
 {
-    //Add some metadata to the container.
+    //Add some metadata toohello container.
     container.Metadata.Add("docType", "textDocuments");
     container.Metadata["category"] = "guidance";
 
-    //Set the container's metadata.
+    //Set hello container's metadata.
     container.SetMetadata();
 }
 ```
 
-Aby pobrać metadane, należy wywołać **FetchAttributes** metody na obiekt blob lub kontener, aby wypełnić **metadanych** kolekcji, następnie odczytać wartości, jak pokazano w poniższym przykładzie.
+metadane tooretrieve, wywołanie hello **FetchAttributes** metody na powitania toopopulate Twojego obiektów blob lub kontenera **metadanych** kolekcji, następnie odczytać wartości hello, jak pokazano w poniższym przykładzie hello.
 
 ```csharp
 public static void ListContainerMetadata(CloudBlobContainer container)
 {
-    //Fetch container attributes in order to populate the container's properties and metadata.
+    //Fetch container attributes in order toopopulate hello container's properties and metadata.
     container.FetchAttributes();
 
-    //Enumerate the container's metadata.
+    //Enumerate hello container's metadata.
     Console.WriteLine("Container metadata:");
     foreach (var metadataItem in container.Metadata)
     {

@@ -1,6 +1,6 @@
 ---
-title: "Azure zarządzanych aplikacji MultiStorageAccountCombo elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
-description: "Opis elementu Microsoft.Storage.MultiStorageAccountCombo interfejsu użytkownika dla aplikacji Azure"
+title: "aaaAzure zarządzanych aplikacji MultiStorageAccountCombo elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
+description: "Opisuje hello elementu Microsoft.Storage.MultiStorageAccountCombo interfejsu użytkownika dla aplikacji Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 27843b116d949899e4eae65f342324f77ebca70b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 765be145b61c3dbf0a035a7a00aa18eee464a3eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Element Microsoft.Storage.MultiStorageAccountCombo interfejsu użytkownika
 Grupa służy do tworzenia wielu kont magazynu, których nazwy rozpoczynają się typowe prefiksu. Użyj tego elementu po [tworzenie aplikacji zarządzanych Azure](managed-application-publishing.md).
@@ -52,12 +52,12 @@ Grupa służy do tworzenia wielu kont magazynu, których nazwy rozpoczynają si�
 ```
 
 ## <a name="remarks"></a>Uwagi
-- Wartość `defaultValue.prefix` jest połączony z co najmniej jeden liczb całkowitych na generowanie sekwencji nazw kont magazynu. Na przykład jeśli `defaultValue.prefix` jest **foobar** i `count` jest **2**, następnie nazwy konta magazynu **foobar1** i **foobar2** są generowane. Unikatowość nazw kont magazynu generowane są weryfikowane automatycznie.
-- Nazwy konta magazynu są generowane lexicographically na podstawie `count`. Na przykład jeśli `count` to 10, a następnie nazwy konta magazynu kończyć 2-cyfrowe liczby całkowite (01, 02, 03, itp.).
-- Wartość domyślna dla `defaultValue.prefix` jest **null**oraz `defaultValue.type` jest **Premium_LRS**.
+- Witaj wartość `defaultValue.prefix` jest połączony z co najmniej jeden liczb całkowitych toogenerate hello sekwencji nazw kont magazynu. Na przykład jeśli `defaultValue.prefix` jest **foobar** i `count` jest **2**, następnie nazwy konta magazynu **foobar1** i **foobar2** są generowane. Unikatowość nazw kont magazynu generowane są weryfikowane automatycznie.
+- nazwy kont magazynu Hello są generowane lexicographically na podstawie `count`. Na przykład jeśli `count` to 10, a następnie nazwy konta magazynu hello kończyć 2-cyfrowe liczby całkowite (01, 02, 03, itp.).
+- Witaj wartości domyślnej dla `defaultValue.prefix` jest **null**oraz `defaultValue.type` jest **Premium_LRS**.
 - Dowolnego typu nie jest określona w `constraints.allowedTypes` jest ukryta i dowolnego typu nie jest określona w `constraints.excludedTypes` jest wyświetlany.
 `constraints.allowedTypes`i `constraints.excludedTypes` są opcjonalne, ale nie mogą być używane jednocześnie.
-- Oprócz generowania nazw kont magazynu, `count` służy do ustawiania odpowiednich mnożnik dla elementu. Obsługuje ona wartość statyczną, takie jak **2**, lub wartość dynamiczną z innego elementu, tak jak `[steps('step1').storageAccountCount]`. Wartość domyślna to **1**.
+- W polu nazwy konta magazynu toogenerating dodanie `count` jest używane tooset odpowiednie mnożnik hello elementu. Obsługuje ona wartość statyczną, takie jak **2**, lub wartość dynamiczną z innego elementu, tak jak `[steps('step1').storageAccountCount]`. Witaj, wartość domyślna to **1**.
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
 ```json
@@ -70,6 +70,6 @@ Grupa służy do tworzenia wielu kont magazynu, których nazwy rozpoczynają si�
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
-* Aby obejrzeć wprowadzenie do tworzenia definicji interfejsu użytkownika, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Wprowadzenie toomanaged aplikacji, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
+* Definicje interfejsu użytkownika toocreating wprowadzenie, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Opis właściwości wspólnych elementów interfejsu użytkownika, zobacz [elementy CreateUiDefinition](managed-application-createuidefinition-elements.md).

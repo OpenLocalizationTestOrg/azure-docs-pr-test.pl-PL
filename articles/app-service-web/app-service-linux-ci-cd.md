@@ -1,6 +1,6 @@
 ---
-title: "Ciągłe wdrażanie w aplikacji sieci Web platformy Azure w systemie Linux | Dokumentacja firmy Microsoft"
-description: "Jak skonfigurować ciągłe wdrażanie w aplikacji sieci Web platformy Azure w systemie Linux."
+title: "aaaContinuous wdrożenie z aplikacji sieci Web platformy Azure w systemie Linux | Dokumentacja firmy Microsoft"
+description: "Jak toosetup ciągłe wdrażanie w aplikacji sieci Web platformy Azure w systemie Linux."
 keywords: "Usługa aplikacji Azure, linux, oss, acr"
 services: app-service
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: f8f7d51003f8a55b7f51e8cc2cea838e8e5a6196
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f94d837e27605da58428f507ab2b0eb3af3297e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Ciągłe wdrażanie z aplikacji sieci Web platformy Azure w systemie Linux
 
@@ -27,37 +27,37 @@ ms.lasthandoff: 08/29/2017
 
 W tym samouczku, skonfiguruj ciągłe wdrażanie dla kontenera niestandardowego obrazu z zarządzanego [rejestru kontenera Azure](https://azure.microsoft.com/en-us/services/container-registry/) repozytoria lub [Centrum Docker](https://hub.docker.com).
 
-## <a name="step-1---sign-in-to-azure"></a>Krok 1 — znak w na platformie Azure
+## <a name="step-1---sign-in-tooazure"></a>Krok 1 — Logowanie tooAzure
 
-Zaloguj się do portalu Azure pod adresem http://portal.azure.com
+Zaloguj się toohello portalu Azure w http://portal.azure.com
 
 ## <a name="step-2---enable-container-continuous-deployment-feature"></a>Krok 2 — Włączanie kontenera ciągłe wdrażanie funkcji
 
-Można włączyć za pomocą funkcji ciągłego wdrażania [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) i wykonując następujące polecenie
+Można włączyć za pomocą funkcji ciągłego wdrażania hello [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) i wykonywania hello następujące polecenie
 
 ```azurecli-interactive
 az webapp deployment container config -n sname -g rgname -e true
 ``` 
 
-W  **[portalu Azure](https://portal.azure.com/)**, kliknij przycisk **usługi aplikacji** opcję z lewej strony.
+W hello ** [portalu Azure](https://portal.azure.com/)**, kliknij przycisk hello **usługi aplikacji** opcję na powitania po lewej stronie hello.
 
-Kliknij nazwę aplikacji, który chcesz skonfigurować wdrożenie ciągłe Centrum Docker.
+Kliknij nazwę hello interesujące tooconfigure Centrum Docker ciągłe wdrażanie dla aplikacji.
 
-W **ustawień aplikacji**, dodaj aplikację nosi nazwę `DOCKER_ENABLE_CI` z wartością `true`.
+W hello **ustawień aplikacji**, dodaj aplikację nosi nazwę `DOCKER_ENABLE_CI` z wartością hello `true`.
 
 ![Wstaw obraz ustawienia aplikacji](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
 ## <a name="step-3---prepare-webhook-url"></a>Krok 3 — Przygotowanie adresu URL elementu Webhook
 
-Można uzyskać przy użyciu adresu URL elementu Webhook [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) i wykonując następujące polecenie
+Można uzyskać przy użyciu adresu URL elementu Webhook hello [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) i wykonywania hello następujące polecenie
 
 ```azurecli-interactive
 az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
 ``` 
 
-Adres URL elementu Webhook, musisz mieć następujący punkt końcowy: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+Dla adresu URL elementu Webhook hello, potrzebujesz hello toohave następującego punktu końcowego: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
-Można uzyskać z `publishingusername` i `publishingpwd` pobierając aplikacji sieci web Publikowanie profilu przy użyciu portalu Azure.
+Można uzyskać z `publishingusername` i `publishingpwd` pobierając hello aplikacji sieci web Publikowanie profilu przy użyciu hello portalu Azure.
 
 ![Wstaw obraz dodawania elementu webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
@@ -65,13 +65,13 @@ Można uzyskać z `publishingusername` i `publishingpwd` pobierając aplikacji s
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-W bloku portalu rejestru, kliknij **elementów Webhook**, Utwórz nowy element webhook, klikając **Dodaj**. W **tworzenia elementu webhook** bloku, nazwę użytkownika elementu webhook. Dla identyfikatora URI elementu Webhook, musisz podać adres URL uzyskane z **krok 3**
+W bloku portalu rejestru, kliknij **elementów Webhook**, Utwórz nowy element webhook, klikając **Dodaj**. W hello **tworzenia elementu webhook** bloku, nazwę użytkownika elementu webhook. Dla hello identyfikator URI elementu Webhook, potrzebujesz adresu URL hello tooprovide uzyskane z **krok 3**
 
-Upewnij się, zdefiniuj zakres jako repozytorium, który zawiera obraz kontenera.
+Upewnij się, zdefiniuj zakres hello, jak hello repozytorium, który zawiera obraz kontenera.
 
 ![Wstaw obraz elementu webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
 
-Gdy obraz zostanie zaktualizowany, aplikacji sieci web aktualizowany automatycznie z nowego obrazu.
+Obraz powitania jest aktualizowana, hello aplikacji sieci web zostać zaktualizowane automatycznie z hello nowy obraz.
 
 ### <a name="docker-hub"></a>Centrum docker
 
@@ -79,11 +79,11 @@ Na stronie Centrum Docker kliknij **elementów Webhook**, następnie **tworzenia
 
 ![Wstaw obraz dodawania elementu webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
 
-Dla adresu URL elementu Webhook, musisz podać adres URL uzyskane z **krok 3**
+Dla hello adresu URL elementu Webhook, potrzebujesz adresu URL hello tooprovide uzyskane z **krok 3**
 
 ![Wstaw obraz dodawania elementu webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
 
-Gdy obraz zostanie zaktualizowany, aplikacji sieci web aktualizowany automatycznie z nowego obrazu.
+Obraz powitania jest aktualizowana, hello aplikacji sieci web zostać zaktualizowane automatycznie z hello nowy obraz.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Co to jest aplikacja sieci Web Azure w systemie Linux?](./app-service-linux-intro.md)
@@ -91,7 +91,7 @@ Gdy obraz zostanie zaktualizowany, aplikacji sieci web aktualizowany automatyczn
 * [Za pomocą konfiguracji PM2 dla środowiska Node.js w aplikacji sieci Web platformy Azure w systemie Linux](app-service-linux-using-nodejs-pm2.md)
 * [W aplikacji sieci Web platformy Azure w systemie Linux przy użyciu platformy .NET Core](app-service-linux-using-dotnetcore.md)
 * [W aplikacji sieci Web platformy Azure w systemie Linux przy użyciu Ruby](app-service-linux-ruby-get-started.md)
-* [Sposób użycia niestandardowego obrazu Docker dla aplikacji sieci Web platformy Azure w systemie Linux](./app-service-linux-using-custom-docker-image.md)
+* [Jak toouse Docker niestandardowego obrazu dla aplikacji sieci Web platformy Azure w systemie Linux](./app-service-linux-using-custom-docker-image.md)
 * [Usługa aplikacji Azure aplikacji sieci Web w systemie Linux — często zadawane pytania](./app-service-linux-faq.md) 
 * [Zarządzanie aplikacją sieci Web w systemie Linux przy użyciu usługi Azure CLI 2.0](./app-service-linux-cli.md)
 

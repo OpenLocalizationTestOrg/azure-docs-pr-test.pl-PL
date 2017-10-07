@@ -1,6 +1,6 @@
 ---
-title: "Przewodnik po wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego | Microsoft Docs"
-description: "Opis wstępnie skonfigurowanego rozwiązania Azure IoT do monitorowania zdalnego wraz z informacjami dotyczącymi architektury rozwiązania."
+title: "aaaRemote monitorowanie wstępnie skonfigurowane rozwiązanie wskazówki | Dokumentacja firmy Microsoft"
+description: "Opis hello Azure IoT wstępnie skonfigurowane rozwiązanie monitorowania zdalnego i jego architektury."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,132 +15,132 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 57a336bd94938c2b9ee5d3456ea8e45446cf3d33
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Przewodnik po wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego
 
-[Wstępnie skonfigurowane rozwiązanie][lnk-preconfigured-solutions] do monitorowania zdalnego Pakietu IoT to implementacja kompleksowego rozwiązania do monitorowania wielu maszyn uruchomionych w lokalizacjach zdalnych. Rozwiązanie to łączy najważniejsze usługi platformy Azure, aby umożliwić ogólną implementację scenariusza biznesowego. Możesz go użyć jako punktu wyjścia dla Twojej własnej implementacji i je [dostosować][lnk-customize], aby spełniało Twoje własne określone wymagania biznesowe.
+Witaj, monitorowania zdalnego pakiet IoT [wstępnie skonfigurowane rozwiązanie] [ lnk-preconfigured-solutions] implementacja end-to-end monitoruje rozwiązanie dla wielu komputerów z systemem w lokalizacjach zdalnych. rozwiązanie Hello łączy tooprovide klucza usługi Azure ogólną implementację hello scenariusza biznesowego. Za pomocą hello rozwiązania jako punkt początkowy dla własnego implementacji i [dostosować] [ lnk-customize] on toomeet własnych konkretnych potrzeb biznesowych.
 
-Ten artykuł przeprowadzi Cię przez niektóre kluczowe elementy rozwiązania do monitorowania zdalnego, aby umożliwić Ci zrozumienie jego sposobu działania. Ta wiedza ułatwi Ci:
+W tym artykule przedstawiono niektóre z kluczowych elementów tooenable rozwiązanie monitorowania zdalnego hello hello toounderstand jej działania. Ta wiedza ułatwi Ci:
 
-* Rozwiązywanie problemów w rozwiązaniu.
-* Planowanie sposobu dostosowywania rozwiązania, aby spełniało Twoje wymagania. 
+* Rozwiązywanie problemów w rozwiązaniu hello.
+* Planowanie sposobu toocustomize toohello rozwiązania toomeet indywidualnymi wymaganiami. 
 * Projektowanie własnego rozwiązania IoT korzystającego z usług Azure.
 
 ## <a name="logical-architecture"></a>Architektura logiczna
 
-Poniższy diagram przedstawia składniki logiczne wstępnie skonfigurowanego rozwiązania:
+powitania po diagram przedstawia hello logiczne składniki hello wstępnie skonfigurowane rozwiązanie:
 
 ![Architektura logiczna](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="simulated-devices"></a>Symulowane urządzenia
 
-W tym wstępnie skonfigurowanym rozwiązaniu symulowane urządzenie odpowiada urządzeniu chłodzącemu (np. klimatyzatorowi lub centrali wentylacyjnej w budynku). Podczas wdrażania wstępnie skonfigurowanego rozwiązania przeprowadzisz też automatyczną aprowizację czterech symulowanych urządzeń działających w zadaniu [WebJob platformy Azure][lnk-webjobs]. Symulowane urządzenia ułatwiają badanie zachowania rozwiązania bez konieczności wdrażania jakichkolwiek urządzeń fizycznych. Aby wdrożyć rzeczywiste urządzenie fizyczne, zobacz samouczek [Łączenie urządzenia ze wstępnie skonfigurowanym rozwiązaniem do monitorowania zdalnego][lnk-connect-rm].
+W rozwiązaniu hello wstępnie hello symulowane urządzenie reprezentuje urządzenie chłodzące (na przykład klimatyzator budynku lub jednostki obsługi lotniczego zakładzie). Podczas wdrażania hello wstępnie skonfigurowane rozwiązanie automatycznie udostępnić cztery symulowanego urządzenia z systemem w [zadań WebJob Azure][lnk-webjobs]. urządzenia Hello symulowane ułatwiają możesz tooexplore hello zachowanie rozwiązania hello bez toodeploy potrzeby hello żadnych urządzeń fizycznych. toodeploy rzeczywistym fizyczne urządzenia, zobacz hello [połączyć Twoje toohello urządzenie zdalne monitorowanie wstępnie skonfigurowane rozwiązanie] [ lnk-connect-rm] samouczka.
 
 ### <a name="device-to-cloud-messages"></a>Komunikaty z urządzenia do chmury
 
-Każde symulowane urządzenie może wysyłać do usługi IoT Hub następujące typy wiadomości:
+Każdy symulowane urządzenie może wysyłać hello następującego komunikatu typy tooIoT Centrum:
 
 | Komunikat | Opis |
 | --- | --- |
-| Uruchamianie |Po uruchomieniu urządzenie wysyła do zaplecza komunikat **device-info** zawierający informacje o tym urządzeniu. Te dane obejmują identyfikator urządzenia oraz listę poleceń i metod obsługiwanych przez urządzenie. |
-| Obecność |Urządzenie okresowo wysyła komunikat **presence** w celu zgłoszenia, czy urządzenie może wykrywać obecność czujnika. |
-| Telemetria |Urządzenie okresowo wysyła komunikat **telemetry**, który zgłasza symulowane wartości temperatury i wilgotności zebrane z symulowanych czujników urządzenia. |
+| Uruchamianie |Po uruchomieniu urządzenia hello wysyła **informacje o urządzeniu** komunikat zawierający informacje o sobie toohello zaplecza. Te dane obejmują identyfikator urządzenia hello i listę poleceń hello i metod hello obsługuje urządzenia. |
+| Obecność |Urządzenie okresowo wysyła **obecności** komunikatu tooreport czy hello urządzenia można ustawić obecności hello czujnika. |
+| Telemetria |Urządzenie okresowo wysyła **telemetrii** komunikat, który zgłasza symulowane wartości hello temperatury i wilgotności zebrane z urządzeń hello na symulowane czujników. |
 
 > [!NOTE]
-> Rozwiązanie przechowuje listę poleceń obsługiwanych przez urządzenie w bazie danych Cosmos DB, a nie w bliźniaczej reprezentacji urządzenia.
+> rozwiązanie Hello przechowywana lista hello polecenia obsługiwane przez urządzenia hello w bazie danych rozwiązania Cosmos bazy danych, a nie w Witaj dwie urządzenia.
 
 ### <a name="properties-and-device-twins"></a>Właściwości i bliźniacze reprezentacje urządzeń
 
-Symulowane urządzenia wysyłają poniższe właściwości urządzenia do [bliźniaczej reprezentacji urządzenia][lnk-device-twins] w usłudze IoT Hub jako *zgłaszane właściwości*. Urządzenie wysyła zgłaszane właściwości podczas uruchamiania i w odpowiedzi na polecenie lub metodę **zmiany stanu urządzenia**.
+Witaj symulowanego urządzenia wysyłają hello następującego urządzenia właściwości toohello [dwie] [ lnk-device-twins] w Centrum IoT hello jako *zgłosił właściwości*. Witaj wysyła urządzenia zgłoszone właściwości podczas uruchamiania i w odpowiedzi tooa **zmiany stanu urządzenia** polecenia lub metody.
 
 | Właściwość | Przeznaczenie |
 | --- | --- |
-| Config.TelemetryInterval | Częstotliwość (w sekundach) wysłania przez urządzenie danych telemetrycznych |
-| Config.TemperatureMeanValue | Określa średnią wartość symulowanych danych telemetrycznych dotyczących temperatury |
-| Device.DeviceID |Ten identyfikator jest udostępniany lub przypisywany podczas tworzenia urządzenia w rozwiązaniu |
-| Device.DeviceState | Stan raportowany przez urządzenie |
-| Device.CreatedTime |Czas utworzenia urządzenia w rozwiązaniu |
-| Device.StartupTime |Czas uruchomienia urządzenia |
-| Device.LastDesiredPropertyChange |Numer wersji ostatniej zmiany żądanej właściwości |
-| Device.Location.Latitude |Współrzędna szerokości geograficznej lokalizacji urządzenia |
-| Device.Location.Longitude |Współrzędna długości geograficznej lokalizacji urządzenia |
+| Config.TelemetryInterval | Częstotliwość (w sekundach) hello urządzenie wysyła dane telemetryczne |
+| Config.TemperatureMeanValue | Określa średnią wartość hello hello symulowane temperatury telemetrii |
+| Device.DeviceID |Identyfikator, który jest podany lub przypisywana podczas tworzenia urządzenia w rozwiązaniu hello |
+| Device.DeviceState | Zgłoszone przez urządzenie hello stanu |
+| Device.CreatedTime |Czas hello urządzenie zostało utworzone w rozwiązaniu hello |
+| Device.StartupTime |Czas hello urządzenia została uruchomiona. |
+| Device.LastDesiredPropertyChange |Zmień numer wersji Hello hello ostatniego żądanej właściwości |
+| Device.Location.Latitude |Współrzędne lokalizacji hello urządzenia |
+| Device.Location.Longitude |Lokalizacji geograficznej hello urządzenia |
 | System.Manufacturer |Producent urządzenia |
-| System.ModelNumber |Numer modelu urządzenia |
-| System.SerialNumber |Numer seryjny urządzenia |
-| System.FirmwareVersion |Bieżąca wersja oprogramowania układowego na urządzeniu |
-| System.Platform |Architektura platformy urządzenia |
-| System.Processor |Procesor działający w urządzeniu |
-| System.InstalledRAM |Ilość pamięci RAM zainstalowanej w urządzeniu |
+| System.ModelNumber |Numer modelu urządzenia hello |
+| System.SerialNumber |Numer seryjny urządzenia hello |
+| System.FirmwareVersion |Bieżąca wersja oprogramowania układowego na urządzeniu hello |
+| System.Platform |Architektura platformy hello urządzenia |
+| System.Processor |Urządzenie hello uruchomionych procesora |
+| System.InstalledRAM |Ilość pamięci RAM na urządzeniu hello |
 
-W symulowanych urządzeniach te właściwości są wypełniane przykładowymi wartościami. Za każdym razem, gdy symulator inicjuje symulowane urządzenie, raportuje ono wstępnie zdefiniowane metadane do usługi IoT Hub jako zgłaszane właściwości. Zgłaszane właściwości mogą być aktualizowane tylko przez urządzenie. Aby zmienić zgłoszoną właściwość, należy ustawić żądaną właściwość w portalu rozwiązania. Na urządzeniu są wykonywane następujące czynności:
+Symulator Hello nasion tych właściwości w symulowanego urządzenia z wartości przykładowych. Zawsze symulatora hello inicjuje symulowane urządzenie, urządzenie hello raporty hello tooIoT metadanych wstępnie zdefiniowanego Centrum jako właściwości zgłoszony. Właściwości zgłoszonego można zaktualizować tylko przez urządzenia hello. toochange zgłoszone właściwości, ustaw właściwość żądaną w portalu rozwiązania. Jest odpowiedzialny za hello hello urządzenia:
 
-1. Okresowe pobieranie żądanych właściwości z usługi IoT Hub.
-2. Aktualizowanie swojej konfiguracji wartością żądanej właściwości.
-3. Wysyłanie nowej wartości z powrotem do usługi IoT Hub jako zgłaszanej właściwości.
+1. Okresowo pobrać żądanej właściwości z Centrum IoT hello.
+2. Zaktualizuj jego konfigurację z hello żądaną wartość właściwości.
+3. Wyślij hello nowe wartości toohello zapasowego Centrum jako właściwość zgłoszony.
 
-Z poziomu pulpitu nawigacyjnego rozwiązania możesz używać *żądanych właściwości* do ustawiania właściwości na urządzeniu za pomocą [bliźniaczej reprezentacji urządzenia][lnk-device-twins]. Zwykle urządzenie odczytuje wartość żądanej właściwości z usługi IoT Hub w celu zaktualizowania swojego stanu wewnętrznego i zgłoszenia tej zmiany z powrotem jako zgłaszanej właściwości.
+Z pulpitu nawigacyjnego rozwiązania hello, możesz użyć *żądanego właściwości* tooset we właściwościach urządzenia za pomocą hello [dwie urządzenia][lnk-device-twins]. Zazwyczaj urządzenia odczytuje wartość żądanej właściwości z hello tooupdate koncentratora, jego stan wewnętrzny i hello raportu zmiany jako właściwość zgłoszony.
 
 > [!NOTE]
-> W kodzie na symulowanym urządzeniu są używane wyłącznie żądane właściwości **Desired.Config.TemperatureMeanValue** i **Desired.Config.TelemetryInterval** do aktualizowania zgłaszanych właściwości wysyłanych z powrotem do usługi IoT Hub. Wszystkie inne żądania zmiany żądanych właściwości są ignorowane na symulowanym urządzeniu.
+> Witaj kodu symulowane urządzenie używa tylko hello **Desired.Config.TemperatureMeanValue** i **Desired.Config.TelemetryInterval** odpowiednie właściwości tooupdate hello zgłosił odesłał właściwości tooIoT koncentratora. Wszystkie inne żądanej właściwości żądania zmiany są ignorowane w hello symulowane urządzenie.
 
 ### <a name="methods"></a>Metody
 
-Symulowane urządzenia obsługują następujące metody ([metody bezpośrednie][lnk-direct-methods]) wywoływane z poziomu portalu rozwiązania za pomocą usługi IoT Hub:
+Witaj symulowanego urządzenia może obsłużyć hello następujące metody ([bezpośrednie metody][lnk-direct-methods]) wywoływane z portalu rozwiązania hello za pośrednictwem Centrum IoT hello:
 
 | Metoda | Opis |
 | --- | --- |
-| InitiateFirmwareUpdate |Powoduje, że urządzenie przeprowadza aktualizację oprogramowania układowego |
-| Ponowne uruchamianie |Powoduje ponowne uruchomienie urządzenia |
-| FactoryReset |Powoduje, że na urządzeniu są przywracane ustawienia fabryczne |
+| InitiateFirmwareUpdate |Powoduje, że hello tooperform urządzenia aktualizacji oprogramowania układowego |
+| Ponowne uruchamianie |Powoduje, że hello tooreboot urządzenia |
+| FactoryReset |Powoduje, że tooperform urządzenia hello fabrykę resetowania |
 
-Niektóre metody używają zgłaszanych właściwości do raportowania postępu. Na przykład metoda **InitiateFirmwareUpdate** symuluje asynchroniczne uruchomienie aktualizacji na urządzeniu. Efekty tej metody występują bezpośrednio na urządzeniu, natomiast zadanie asynchroniczne nadal wysyła aktualizacje stanu z powrotem na pulpit nawigacyjny rozwiązania za pomocą zgłaszanych właściwości.
+W przypadku niektórych metod Użyj tooreport właściwości zgłoszone w toku. Na przykład Witaj **InitiateFirmwareUpdate** metody symuluje uruchomionych aktualizacji hello asynchronicznie na urządzeniu hello. Metoda Hello natychmiast zwraca na urządzeniu hello zadanie asynchroniczne hello kontynuuje aktualizacje stanu toosend ponownie przy użyciu pulpitu nawigacyjnego rozwiązania toohello zgłosił właściwości.
 
 ### <a name="commands"></a>Polecenia
 
-Symulowane urządzenia obsługują następujące polecenia (komunikaty z chmury do urządzenia) wysyłane z portalu rozwiązania za pośrednictwem usługi IoT Hub:
+urządzenia Hello symulowane może obsłużyć hello następującego polecenia (chmury do urządzenia wiadomości) wysyłane z portalu rozwiązania hello za pośrednictwem Centrum IoT hello:
 
 | Polecenie | Opis |
 | --- | --- |
-| PingDevice |Sprawdza, czy urządzenie jest aktywne, za pomocą polecenia *ping*. |
-| StartTelemetry |Włącza przesyłanie danych telemetrycznych przez urządzenie. |
-| StopTelemetry |Wyłącza przesyłanie danych telemetrycznych przez urządzenie. |
-| ChangeSetPointTemp |Zmienia ustaloną wartość, na podstawie której są generowane dane losowe. |
-| DiagnosticTelemetry |Włącza wysyłanie dodatkowej wartości telemetrycznej (externalTemp — temperatura zewnętrzna) przez symulator urządzenia. |
-| ChangeDeviceState |Zmienia właściwość rozszerzonego stanu urządzenia i wysyła komunikat z informacjami o urządzeniu. |
+| PingDevice |Wysyła *ping* toohello toocheck urządzenie jest aktywne |
+| StartTelemetry |Urządzenie hello rozpoczyna wysyłanie danych telemetrycznych |
+| StopTelemetry |Zatrzymuje hello urządzenia z wysyłania danych telemetrycznych |
+| ChangeSetPointTemp |Ustaw punkt wartość hello zmiany, wokół którego hello jest generowany losowe dane |
+| DiagnosticTelemetry |Wyzwalacze hello toosend symulator urządzeń wartość dodatkowe dane telemetryczne (externalTemp) |
+| ChangeDeviceState |Zmienia właściwość rozszerzona stanu hello urządzenia i wysyła komunikat z informacjami o urządzeniu hello z hello urządzenia |
 
 > [!NOTE]
 > Porównanie tych poleceń (komunikatów wysyłanych z chmury do urządzenia) i metod (metod bezpośrednich) znajduje się w temacie [Wskazówki dotyczące komunikacji z chmury do urządzenia][lnk-c2d-guidance].
 
 ## <a name="iot-hub"></a>Usługa IoT Hub
 
-Usługa [IoT Hub][lnk-iothub] pozyskuje dane wysyłane z urządzeń do chmury i udostępnia je zadaniom usługi Azure Stream Analytics (ASA). Każde zadanie strumieniowe ASA odczytuje strumień komunikatów z urządzeń przy użyciu osobnej grupy konsumentów usługi IoT Hub.
+Witaj [Centrum IoT] [ lnk-iothub] wysyła strumień danych przesyłanych z urządzeń hello w chmurze hello i ułatwia toohello dostępne zadania usługi analiza strumienia Azure (ASA). Każde zadanie ASA strumienia używa oddzielnych Centrum IoT konsumenta grupy tooread hello strumienia komunikatów z urządzeń.
 
-Usługa IoT Hub w rozwiązaniu wykonuje ponadto następujące czynności:
+Witaj Centrum IoT w rozwiązaniu hello również:
 
-- Obsługuje rejestr tożsamości, w którym są przechowywane identyfikatory i klucze uwierzytelniania wszystkich urządzeń z uprawnieniami do nawiązywania połączeń z portalem. Za pomocą rejestru tożsamości możesz włączać i wyłączać urządzenia.
-- Wysyła polecenia do Twoich urządzeń w imieniu portalu rozwiązania.
-- Wywołuje metody na Twoich urządzeniach w imieniu portalu rozwiązania.
-- Obsługuje bliźniacze reprezentacje wszystkich zarejestrowanych urządzeń. W bliźniaczej reprezentacji urządzenia są przechowywane wartości właściwości zgłaszanych przez urządzenie. W bliźniaczej reprezentacji urządzenia są także przechowywane żądane właściwości ustawione w portalu rozwiązania, które mają zostać pobrane przez urządzanie podczas nawiązywania następnego połączenia.
-- Planuje zadania ustawiania właściwości dla wielu urządzeń lub wywoływania metod na wielu urządzeniach.
+- Przechowuje rejestr tożsamości, który przechowuje identyfikatory hello i klucze uwierzytelniania wszystkich urządzeń hello dozwolone tooconnect toohello portalu. Można włączyć lub wyłączyć urządzeniami za pomocą hello rejestru tożsamości.
+- Wysyła polecenia urządzeń tooyour imieniu hello rozwiązanie portalu.
+- Wywołuje metody na urządzeniach w imieniu hello rozwiązanie portalu.
+- Obsługuje bliźniacze reprezentacje wszystkich zarejestrowanych urządzeń. Dwie urządzeń są przechowywane wartości właściwości hello zgłoszone przez urządzenie. Dwie urządzenia przechowuje także żądanej właściwości, w portalu rozwiązania hello, hello tooretrieve urządzenia, gdy obok łączy.
+- Harmonogramy zadań właściwości tooset dla wielu urządzeń lub wywołanie metody na wielu urządzeniach.
 
 ## <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
 
-W rozwiązaniu do monitorowania zdalnego usługa [Azure Stream Analytics][lnk-asa] (ASA) wysyła komunikaty urządzeń odebrane przez usługę IoT Hub do innych składników zaplecza w celu ich przetwarzania lub magazynowania. Różne zadania ASA pełnią określone funkcje w zależności od zawartości komunikatów.
+W hello zdalne monitorowanie rozwiązania [Azure Stream Analytics] [ lnk-asa] (ASA) wywołuje urządzenia komunikatów odebranych przez składniki hello IoT hub tooother zaplecza do przetwarzania lub magazynu. Różne zadania ASA wykonywać określonych funkcji, na podstawie zawartości hello wiadomości powitania.
 
-**Zadanie 1: Informacje o urządzeniu** odfiltrowuje komunikaty z informacjami o urządzeniu ze strumienia komunikatów przychodzących i wysyła je do punktu końcowego Centrum zdarzeń. Komunikat z informacjami o urządzeniu jest wysyłany podczas uruchamiania urządzenia oraz w odpowiedzi na polecenie **SendDeviceInfo**. To zadanie identyfikuje komunikaty **device-info** przy użyciu następującej definicji zapytania:
+**Zadanie 1: Informacje o urządzeniu** filtruje komunikaty informacyjne urządzenia ze strumienia przychodzącego wiadomość hello i wysyła je punktu końcowego Centrum zdarzeń tooan. Urządzenie wysyła komunikaty informacyjne urządzenia podczas uruchamiania i w odpowiedzi tooa **SendDeviceInfo** polecenia. To zadanie używa powitania po tooidentify definicji zapytania **informacje o urządzeniu** wiadomości:
 
 ```
 SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
 ```
 
-To zadanie wysyła dane wyjściowe do centrum zdarzeń w celu dalszego przetwarzania.
+To zadanie wysyła tooan jego danych wyjściowych Centrum zdarzeń dla dalszego przetwarzania.
 
-**Zadanie 2: Reguły** porównuje przychodzące dane telemetryczne dotyczące temperatury i wilgotności z wartościami progowymi określonymi dla urządzenia. Wartości progowe są ustawiane za pomocą edytora reguł dostępnego w portalu rozwiązania. Poszczególne pary urządzenie/wartość są uporządkowane według sygnatur czasowych i przechowywane w obiekcie blob, który jest odczytywany przez usługę Stream Analytics jako **dane referencyjne**. W ramach zadania wszystkie niepuste wartości są porównywane względem progu ustalonego dla urządzenia. W przypadku przekroczenia warunku „>” zadanie generuje zdarzenie **alarmu** dotyczące przekroczenia wartości progowej, które udostępnia dane o urządzeniu, wartości i sygnaturze czasowej. To zadanie identyfikuje komunikaty telemetryczne, które powinny wyzwolić alarm, przy użyciu następującej definicji zapytania:
+**Zadanie 2: Reguły** porównuje przychodzące dane telemetryczne dotyczące temperatury i wilgotności z wartościami progowymi określonymi dla urządzenia. Próg wartości są ustawiane w edytorze zasad hello dostępne w portalu rozwiązania hello. Poszczególne pary urządzenie/wartość są uporządkowane według sygnatur czasowych i przechowywane w obiekcie blob, który jest odczytywany przez usługę Stream Analytics jako **dane referencyjne**. zadanie Hello porównuje wartości niepustym progiem zestaw hello hello urządzenia. W przypadku przekroczenia hello ">" warunek, danych wyjściowych zadania hello **alarm** zdarzenie wskazujące ten próg hello przekroczeniu i udostępnia hello urządzenia, wartość oraz wartości sygnatur czasowych. To zadanie używa następującej kwerendy definicji tooidentify telemetrii wiadomości, które powinny wyzwalać alarm hello:
 
 ```
 WITH AlarmsData AS 
@@ -181,9 +181,9 @@ INTO DeviceRulesHub
 FROM AlarmsData
 ```
 
-Zadanie wysyła dane wyjściowe do centrum zdarzeń w celu dalszego przetwarzania i zapisuje szczegóły każdego alertu w magazynie obiektów blob, z którego portal rozwiązania może odczytać informacje o alertach.
+Witaj zadanie wysyła tooan jego danych wyjściowych Centrum zdarzeń dla dalszego przetwarzania i zapisuje szczegóły każdego alertu tooblob magazynu, z którym hello rozwiązanie portalu może odczytać informacji o alertach hello.
 
-**Zadanie 3: Telemetria** przetwarza strumień przychodzących z urządzeń danych telemetrycznych przy użyciu dwóch procedur. Pierwsza z nich przesyła wszystkie komunikaty telemetryczne z urządzeń do trwałego magazynu obiektów blob w celu ich długotrwałego przechowywania. Druga procedura wyznacza średnią, minimalną i maksymalną wartość wilgotności w ramach przesuwającego się okna czasowego o wielkości pięciu minut i wysyła te dane do magazynu obiektów blob. Portal rozwiązania odczytuje dane telemetryczne z magazynu obiektów blob w celu wypełnienia wykresów. W tym zadaniu jest używana następująca definicja zapytania:
+**Zadanie 3: Telemetrii** działa na powitania przychodzących urządzenia telemetrii strumienia na dwa sposoby. Hello najpierw wysyła komunikaty dane telemetryczne z magazynu obiektów blob toopersistent hello urządzeń do długoterminowego przechowywania. Hello drugi oblicza średnią, minimalną i maksymalną wilgotność wartości na metodzie przesuwanego okna 5 minutową i wysyła ten tooblob pamięci masowej. portal rozwiązania Hello odczytuje dane telemetryczne hello z wykresy hello toopopulate magazynu obiektów blob. To zadanie używa powitania po definicji zapytania:
 
 ```
 WITH 
@@ -228,49 +228,49 @@ GROUP BY
 
 ## <a name="event-hubs"></a>Usługa Event Hubs
 
-Zadania ASA **informacje o urządzeniu** i **reguły** przesyłają dane wyjściowe do centrum zdarzeń w celu ich niezawodnego przekazania do **procesora zdarzeń** uruchomionego w zadaniu WebJob.
+Witaj **informacje o urządzeniu** i **reguły** ich danych tooEvent koncentratory tooreliably do przodu na toohello dane wyjściowe zadania ASA **procesora zdarzeń** uruchomionych w hello zadania WebJob.
 
 ## <a name="azure-storage"></a>Azure Storage
 
-Rozwiązanie korzysta z magazynu obiektów blob platformy Azure, aby utrwalić wszystkie nieprzetworzone i podsumowane dane telemetryczne z urządzeń w rozwiązaniu. Portal odczytuje dane telemetryczne z magazynu obiektów blob w celu wypełnienia wykresów. Aby wyświetlić alerty, portal rozwiązania odczytuje dane z magazynu obiektów blob, który rejestruje, kiedy wartości telemetryczne przekraczają skonfigurowane wartości progowe. Rozwiązanie używa również magazynu obiektów blob do rejestrowania wartości progowych określonych w portalu rozwiązania.
+rozwiązanie Hello używa toopersist magazynu obiektów blob platformy Azure wszystkich danych pierwotnych i podsumowują dane telemetryczne hello z hello urządzeń w rozwiązaniu hello. Hello portal odczytuje dane telemetryczne hello z wykresy hello toopopulate magazynu obiektów blob. alerty toodisplay hello rozwiązanie portalu odczytuje hello dane z magazynu obiektów blob zapisy podczas telemetrii hello wartości przekroczyła skonfigurowany wartości progowe. rozwiązanie Hello używa również obiektu blob magazynu toorecord hello wartości progowe ustawionych w portalu rozwiązania hello.
 
 ## <a name="webjobs"></a>Zadania WebJob
 
-Oprócz hostowania symulatorów urządzenia zadania WebJob w rozwiązaniu hostują także **procesor zdarzeń** uruchomiony w zadaniu WebJob platformy Azure, które obsługuje odpowiedzi na polecenia. Używa on komunikatów odpowiedzi na polecenia w celu aktualizacji historii poleceń urządzenia (przechowywanej w bazie danych Cosmos DB).
+Ponadto toohosting hello urządzenia symulatorów, hello zadań Webjob w rozwiązaniu hello również hello hosta **procesora zdarzeń** uruchomionych w zadania WebJob Azure, który obsługuje odpowiedzi polecenia. Używa polecenia odpowiedzi wiadomości tooupdate hello urządzenia historii poleceń (przechowywane w bazie danych DB rozwiązania Cosmos hello).
 
 ## <a name="cosmos-db"></a>Cosmos DB
 
-Rozwiązanie przechowuje informacje o połączonych z nim urządzeniach w bazie danych Cosmos DB. Te informacje uwzględniają historię poleceń wysłanych do urządzeń z portalu rozwiązania i metod wywołanych z portalu rozwiązania.
+rozwiązanie Hello używa informacje toostore bazy danych DB rozwiązania Cosmos hello urządzeń podłączonych toohello rozwiązania. Informacje te obejmują hello historii poleceń wysyłane toodevices hello rozwiązanie portalu i metody wywoływane z hello rozwiązanie portalu.
 
 ## <a name="solution-portal"></a>Portal rozwiązania
 
-Portal rozwiązania to aplikacja sieci Web wdrożona w ramach wstępnie skonfigurowanego rozwiązania. Najważniejsze strony w portalu rozwiązania to pulpit nawigacyjny i lista urządzeń.
+portal rozwiązania Hello jest wdrożony jako część hello wstępnie skonfigurowane rozwiązanie aplikacji sieci web. Hello klucza stron w portalu rozwiązania hello są hello pulpitu nawigacyjnego i hello listę urządzeń.
 
 ### <a name="dashboard"></a>Pulpit nawigacyjny
 
-Na tej stronie aplikacji sieci Web są używane kontrolki JavaScript usługi Power BI (zobacz [repozytorium PowerBI-visuals](https://www.github.com/Microsoft/PowerBI-visuals)), które umożliwiają wizualizację danych telemetrycznych z urządzeń. Rozwiązanie zapisuje dane telemetryczne w magazynie obiektów blob, używając zadań telemetrii usługi ASA.
+Formanty javascript usługi Power BI korzysta z tej strony w aplikacji sieci web hello (zobacz [repozytorium elementów wizualnych usługi Power BI](https://www.github.com/Microsoft/PowerBI-visuals)) dane telemetryczne hello toovisualize z hello urządzeń. rozwiązanie Hello korzysta z hello ASA telemetrii zadania toowrite hello telemetrii danych tooblob magazynu.
 
 ### <a name="device-list"></a>Lista urządzeń
 
-Na tej stronie w portalu rozwiązania możesz wykonywać następujące czynności:
+Na tej stronie w portalu rozwiązania hello można:
 
-* Aprowizacja nowego urządzenia. Ta czynność obejmuje określenie unikatowego identyfikatora urządzenia i wygenerowanie klucza uwierzytelniania. Zapisuje ona informacje o urządzeniu w rejestrze tożsamości usługi IoT Hub oraz w bazie danych Cosmos DB określonego rozwiązania.
+* Aprowizacja nowego urządzenia. Ta akcja określa hello Unikatowy identyfikator urządzenia i generuje klucz uwierzytelniania hello. Zapisuje informacje o hello urządzenia tooboth hello rejestru tożsamości Centrum IoT i hello określonego rozwiązania DB rozwiązania Cosmos w bazie danych.
 * Zarządzanie właściwościami urządzenia. Ta czynność obejmuje wyświetlanie istniejących właściwości i aktualizowanie ich.
-* Wysyłanie poleceń do urządzenia.
-* Wyświetlanie historii poleceń dla urządzenia.
+* Wysyłanie poleceń tooa urządzenia.
+* Wyświetl historię poleceń hello urządzenia.
 * Włączanie i wyłączanie urządzeń.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następujące wpisy na blogu w witrynie TechNet zawierają więcej informacji dotyczących wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego:
+Witaj następujących wpisach w blogu TechNet zawierają więcej szczegółów na temat zdalnego wstępnie skonfigurowane rozwiązanie monitorujące hello:
 
-* [IoT Suite - Under The Hood - Remote Monitoring (Za kulisami pakietu IoT — monitorowanie zdalne)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+* [Monitorowanie zdalne Suite — w obszarze hello maską - IoT](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 * [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (Pakiet IoT — monitorowanie zdalne — dodawanie rzeczywistych i symulowanych urządzeń)](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
-Możesz kontynuować poznawanie Pakietu IoT, czytając następujące artykuły:
+Aby kontynuować, wprowadzenie pakiet IoT odczytując hello następujące artykuły:
 
-* [Łączenie urządzenia ze wstępnie skonfigurowanym rozwiązaniem do monitorowania zdalnego][lnk-connect-rm]
-* [Uprawnienia w witrynie azureiotsuite.com][lnk-permissions]
+* [Połącz z toohello urządzenie zdalne monitorowanie wstępnie skonfigurowane rozwiązanie][lnk-connect-rm]
+* [Uprawnienia w witrynie azureiotsuite.com hello][lnk-permissions]
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md

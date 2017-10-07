@@ -1,6 +1,6 @@
 ---
-title: "Za pomocą szablonów usługi Azure Resource Manager do tworzenia i konfigurowania obszaru roboczego analizy dzienników | Dokumentacja firmy Microsoft"
-description: "Szablony usługi Azure Resource Manager umożliwia tworzenie i konfigurowanie analizy dzienników obszarów roboczych."
+title: "tooCreate szablonów usługi Azure Resource Manager aaaUse i konfigurowanie obszaru roboczego analizy dzienników | Dokumentacja firmy Microsoft"
+description: "Można użyć toocreate szablonów usługi Azure Resource Manager i skonfigurować analizy dzienników obszarów roboczych."
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -14,43 +14,43 @@ ms.devlang: json
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: richrund
-ms.openlocfilehash: 505b741d14c594b22108298466c646bf723ce2d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8f413e982f5eeed73f463524ff6f239f26c9127
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Zarządzanie za pomocą szablonów usługi Azure Resource Manager analizy dzienników
-Można użyć [szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) do tworzenia i konfigurowania analizy dzienników obszarów roboczych. Zadania, które można wykonywać za pomocą szablonów należą:
+Można użyć [szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) toocreate i konfigurowanie analizy dzienników obszarów roboczych. Przykłady hello zadań, które można wykonywać za pomocą szablonów:
 
 * Tworzenie obszaru roboczego
 * Dodaj rozwiązanie
 * Tworzenie zapisanych wyszukiwań
 * Tworzenie grupy komputerów
-* Włącz zbieranie dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows
+* Włącz zbieranie dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows hello
 * Zebrać liczników wydajności z komputerów z systemami Linux i Windows
 * Zbierać zdarzenia z dziennika systemowego na komputerach z systemem Linux 
 * Zbieranie zdarzeń z dzienników zdarzeń systemu Windows
 * Zbieranie dzienników zdarzeń niestandardowych
-* Dodaj agenta analizy dziennika do maszyny wirtualnej platformy Azure
-* Konfigurowanie analizy dzienników do indeksowania danych zbieranych za pomocą diagnostyki Azure
+* Dodaj hello dziennika analizy agenta tooan maszyny wirtualnej platformy Azure
+* Skonfiguruj tooindex dane analizy dziennika, zebrane przy użyciu diagnostyki Azure
 
-Ten artykuł zawiera szablon przykłady ilustrujące część konfiguracji, który można wykonać za pomocą szablonów.
+Ten artykuł zawiera szablon przykłady ilustrujące niektóre hello konfiguracji, który można wykonać za pomocą szablonów.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Tworzenie i konfigurowanie obszaru roboczego analizy dzienników
-Poniższy przykład szablonu ilustruje sposób:
+Hello Poniższy przykładowy szablon ilustruje sposób:
 
 1. Tworzenie obszaru roboczego, w tym ustawienia przechowywania danych
-2. Dodawanie rozwiązania do obszaru roboczego
+2. Dodaj obszar roboczy toohello rozwiązań
 3. Tworzenie zapisanych wyszukiwań
 4. Tworzenie grupy komputerów
-5. Włącz zbieranie dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows
+5. Włącz zbieranie dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows hello
 6. Zbierania z komputerów z systemem Linux liczników wydajności dysku logicznego (% użytych węzłów i; Wolne megabajty; % Używane miejsce; Transfery dyskowe/s; Odczyty dysku/s; Zapisy dysku/s)
 7. Zbieraj zdarzenia dziennika systemowego z komputerów z systemem Linux
-8. Zbieranie zdarzeń błędu i ostrzeżenia w dzienniku zdarzeń aplikacji z komputerów z systemem Windows
+8. Zbieranie zdarzeń błędu i ostrzeżenia z hello dziennik zdarzeń aplikacji z komputerów z systemem Windows
 9. Zbieraj dane licznika wydajności dostępna pamięć (MB) z komputerów z systemem Windows
 10. Zbieranie dzienników niestandardowych 
-11. Zbieranie dzienników usług IIS i dzienniki zdarzeń systemu Windows zapisywane przez diagnostycznych platformy Azure na konto magazynu
+11. Zbieranie dzienników usług IIS i napisane przez konto magazynu diagnostyki Azure tooa dzienniki zdarzeń systemu Windows
 
 ```
 {
@@ -95,13 +95,13 @@ Poniższy przykład szablonu ilustruje sposób:
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
         "metadata": {
-          "description": "Name of the storage account with Azure diagnostics output"
+          "description": "Name of hello storage account with Azure diagnostics output"
         }
     },
     "applicationDiagnosticsStorageAccountResourceGroup": {
         "type": "string",
         "metadata": {
-          "description": "The resource group name containing the storage account with Azure diagnostics output"
+          "description": "hello resource group name containing hello storage account with Azure diagnostics output"
         }
     }
   },
@@ -426,12 +426,12 @@ Poniższy przykład szablonu ilustruje sposób:
 }
 
 ```
-### <a name="deploying-the-sample-template"></a>Wdrażanie przykładowy szablon
-Aby wdrożyć przykładowy szablon:
+### <a name="deploying-hello-sample-template"></a>Wdrażanie hello przykładowy szablon
+toodeploy hello przykładowy szablon:
 
-1. Na przykład zapisać przykładowe dołączone w pliku,`azuredeploy.json` 
-2. Edytuj szablon do konfiguracji, który ma
-3. Użyj programu PowerShell lub wiersza polecenia do wdrożenia szablonu
+1. Na przykład zapisać przykładowe dołączone hello w pliku,`azuredeploy.json` 
+2. Edytuj hello szablonu toohave hello konfiguracji, który ma
+3. Użyj szablonu hello toodeploy wiersza polecenia programu PowerShell lub hello
 
 #### <a name="powershell"></a>PowerShell
 `New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
@@ -444,15 +444,15 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 
 ## <a name="example-resource-manager-templates"></a>Szablony przykład Resource Manager
-Galerii szablonów Szybki Start Azure zawiera kilka szablonów dla analizy dziennika, w tym:
+Galeria szablonów Szybki Start Azure Hello zawiera kilka szablonów dla analizy dziennika, w tym:
 
-* [Wdrażanie maszyny wirtualnej z systemem Windows z rozszerzeniem wirtualna analizy dzienników](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [Wdróż maszynę wirtualną z systemem Linux z rozszerzeniem wirtualna analizy dzienników](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Wdróż maszynę wirtualną z systemem Windows z hello rozszerzenia maszyny Wirtualnej analizy dzienników](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Wdróż maszynę wirtualną z systemem Linux z hello rozszerzenia maszyny Wirtualnej analizy dzienników](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Monitor usługi Azure Site Recovery przy użyciu istniejący obszar roboczy analizy dzienników](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Monitorowanie aplikacji sieci Web platformy Azure przy użyciu istniejący obszar roboczy analizy dzienników](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [Monitor SQL Azure za pomocą istniejący obszar roboczy analizy dzienników](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
 * [Wdrażanie klastra usługi sieć szkieletowa usług i monitorować je z istniejącym obszarem roboczym analizy dzienników](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Wdrażanie klastra usługi sieć szkieletowa usług i utworzyć obszaru roboczego analizy dzienników, aby ją monitorować](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Wdrażanie klastra usługi sieć szkieletowa usług i Utwórz toomonitor obszaru roboczego analizy dzienników go](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wdrażanie agentów w maszynach wirtualnych platformy Azure przy użyciu szablonów usługi Resource Manager](log-analytics-azure-vm-extension.md)

@@ -1,5 +1,5 @@
 ---
-title: Zestaw Azure SDK dla wersji platformy .NET
+title: aaaAzure zestawu SDK dla wersji platformy .NET
 description: Zestaw Azure SDK dla wersji platformy .NET
 services: app-service/web
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
-ms.openlocfilehash: 370f1d20baa6361924debfb1419d7ba4aeda75ef
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 11e3174b72c8786467a8fa4333deff5f8ad2a4da
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sdk-for-net-release-notes"></a>Zestaw Azure SDK dla wersji platformy .NET
-Ten temat zawiera łącza do zestawu Azure SDK dla wersji platformy .NET. 
+Ten temat zawiera linki tooAzure zestawu SDK dla wersji platformy .NET. 
 
 ## <a name="azure-sdk-for-net-29-release-notes"></a>Informacje o wersji zestawu Azure SDK dla platformy .NET 2.9
 [Informacje o wersji zestawu Azure SDK dla platformy .NET 2.9](azure-sdk-dotnet-release-notes-2-9.md)

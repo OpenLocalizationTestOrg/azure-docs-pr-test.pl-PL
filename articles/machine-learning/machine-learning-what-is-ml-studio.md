@@ -1,5 +1,5 @@
 ---
-title: "Co to jest usługa Azure Machine Learning Studio? | Microsoft Docs"
+title: aaaWhat jest Azure Machine Learning Studio? | Microsoft Docs
 description: "Omówienie usługi Azure ML Studio, narzędzia obsługiwanego metodą „przeciągnij i upuść” przeznaczonego do szybkiego budowania modeli z gotowej do użycia biblioteki algorytmów i modułów."
 keywords: azure machine learning, azure ml, ml studio
 services: machine-learning
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 70a1d0acb8ec9bbb591f696281ea5e975b443a15
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a25f2d9e75d088a37930de98240c6e14c9567fa4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Co to jest usługa Azure Machine Learning Studio?
-Microsoft Azure Machine Learning Studio to narzędzie do współpracy, obsługiwane metodą „przeciągnij i upuść”, które służy do budowania, testowania i wdrażania rozwiązań z zakresu analizy predykcyjnej na podstawie posiadanych danych. Usługa Machine Learning Studio publikuje modele jako usługi sieci Web, które mogą być łatwo używane w niestandardowych aplikacjach albo narzędziach do analiz biznesowych, takich jak program Excel.
+Microsoft Azure Machine Learning Studio to narzędzie współpracy, przeciągnij i upuść służy toobuild, testowania i wdrażania rozwiązań analizy predykcyjnej na podstawie danych. Usługa Machine Learning Studio publikuje modele jako usługi sieci Web, które mogą być łatwo używane w niestandardowych aplikacjach albo narzędziach do analiz biznesowych, takich jak program Excel.
 
 Usługa Machine Learning Studio to połączenie analiz danych, analiz predykcyjnych, zasobów w chmurze oraz samych danych.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="the-machine-learning-studio-interactive-workspace"></a>Interaktywny obszar roboczy usługi Machine Learning Studio
-W celu opracowania modelu analizy predykcyjnej zwykle należy użyć danych z co najmniej jednego źródła, przekształcać i analizować te dane przy użyciu różnych funkcji do manipulowania danymi i funkcji statystycznych, a następnie wygenerować zestaw wyników. Tworzenie modelu w ten sposób jest procesem iteracyjnym. Podczas modyfikowania różnych funkcji i ich parametrów wyniki stają się zbieżne, aż do uzyskania wyuczonego, skutecznego modelu.
+## <a name="hello-machine-learning-studio-interactive-workspace"></a>Witaj interaktywny obszar roboczy usługi Machine Learning Studio
+toodevelop modelu analizy predykcyjnej zwykle używane są dane z jednego lub więcej źródeł, przekształcania i analizować te dane przy użyciu różnych manipulowania danymi i funkcji statystycznych, a wygenerować zestaw wyników. Tworzenie modelu w ten sposób jest procesem iteracyjnym. Podczas modyfikowania hello różnych funkcji i ich parametry, wyniki stają się zbieżne aż do uzyskania czy masz wyuczonego, skutecznego modelu.
 
-Usługa **Azure Machine Learning Studio** zapewnia interaktywny, wizualny obszar roboczy, który pozwala na budowanie, testowanie i wykonywanie kolejnych iteracji modelu analizy predykcyjnej. Użytkownik przeciąga i upuszcza ***zestawy danych*** oraz ***moduły*** analityczne na interaktywną ***kanwę***, łącząc je ze sobą w celu przygotowania eksperymentu, który uruchamia w usłudze Machine Learning Studio. W celu wykonania iteracji projektu modelu należy przeprowadzić edycję eksperymentu, zapisując kopię w razie potrzeby, a następnie uruchomić eksperyment ponownie. Gdy nadejdzie odpowiedni moment, można przekształcić ***eksperyment uczenia*** w ***eksperyment predykcyjny***, a następnie ***opublikować*** go jako usługę sieci Web, dzięki czemu model będzie dostępny dla innych osób.
+**Azure Machine Learning Studio** zapewnia interaktywny, wizualny obszar roboczy tooeasily tworzenia, testowania i wykonywanie kolejnych iteracji modelu analizy predykcyjnej. Możesz przeciągać i upuszczać ***zestawów danych*** i analiza ***modułów*** na kanwę interaktywne, łącząc je razem tooform ***eksperymentu***, który jest uruchamiany w uczeniu maszynowym Studio. tooiterate projektu modelu, Edytuj hello eksperymentu, Zapisz kopię w razie potrzeby i uruchom go ponownie. Jeśli wszystko jest gotowe, możesz przekształcić Twojej ***eksperyment uczenia*** tooa ***eksperyment predykcyjny***, a następnie opublikować go jako ***usługi sieci web*** tak, aby uzyskiwał modelu inne osoby.
 
-Nie jest wymagane żadne programowanie — wystarczy tylko wizualne łączenie zestawów danych i modułów w celu utworzenia modelu analizy predykcyjnej.
+Nie jest wymagane żadne programowanie — wystarczy tylko wizualne łączenie zestawów danych i moduły tooconstruct modelu analizy predykcyjnej.
 
 > [!TIP]
-> Aby pobrać i wydrukować diagram, który zawiera przegląd możliwości usługi Machine Learning Studio, zobacz [Diagram przeglądowy możliwości usługi Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+> toodownload i Drukuj diagram, który zawiera omówienie funkcji hello usługi Machine Learning Studio, zobacz [diagram przeglądowy możliwości usługi Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 > 
 > 
 
 ![Diagram usługi Azure ML Studio: tworzenie eksperymentów, odczytywanie danych z wielu źródeł, zapis ocenianych danych, zapis modeli.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Wprowadzenie do usługi Machine Learning Studio
-Po przejściu do usługi [Machine Learning Studio](https://studio.azureml.net) widoczna jest strona **Home** (Strona główna). Z tego miejsca można wyświetlać dokumenty, materiały wideo i seminaria internetowe, a także znajdować wartościowe zasoby.
+Po przejściu [Machine Learning Studio](https://studio.azureml.net) Zobacz hello **Home** strony. Z tego miejsca można wyświetlać dokumenty, materiały wideo i seminaria internetowe, a także znajdować wartościowe zasoby.
 
-Kliknij lewe górne menu, ![Menu](media/machine-learning-what-is-ml-studio/menu.png) a zostanie wyświetlonych kilka opcji.
+Witaj w lewym górnym menu ![Menu](media/machine-learning-what-is-ml-studio/menu.png) a zostanie wyświetlonych kilka opcji.
 
 ### <a name="cortana-intelligence"></a>Cortana Intelligence
-Kliknij pozycję **Cortana Intelligence**. Nastąpi przekierowanie na stronę główną [pakietu Cortana Intelligence](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). Pakiet Cortana Intelligence to w pełni zarządzane rozwiązanie obsługujące dane big data i służące do przeprowadzania zaawansowanych analiz ułatwiających przekształcanie danych w inteligentne działanie. Zobacz stronę główną pakietu, aby uzyskać pełną dokumentację, w tym historie klientów.
+Kliknij przycisk **Cortana Intelligence** i spowoduje przekierowanie strony głównej toohello hello [pakietu Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). Hello pakietu Cortana Intelligence Suite jest w pełni zarządzana danych big data oraz zaawansowane analytics suite tootransform danych do inteligentnego akcji. Zobacz stronę główną Suite hello pełną dokumentację, łącznie z wątków klienta.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Są tu dostępne dwie opcje: **Home** (Strona główna), pierwsza wyświetlona strona, oraz **Studio**.
+Dostępne są dwie opcje w tym miejscu **Home**, strona hello, którym został uruchomiony, i **Studio**.
 
-Kliknij pozycję **Studio**, a nastąpi przekierowanie do usługi **Azure Machine Learning Studio**. Na początek pojawi się prośba o zalogowanie się z użyciem konta Microsoft albo konta służbowego. Po zalogowaniu po lewej stronie zostaną wyświetlone następujące karty:
+Kliknij przycisk **Studio** i spowoduje przekierowanie toohello **Azure Machine Learning Studio**. Najpierw zostanie zapytany toosign za pomocą konta Microsoft lub konta służbowego. Po zalogowaniu zobaczysz hello następujące karty po lewej stronie powitania:
 
 * **PROJECTS** (Projekty) — kolekcje eksperymentów, zestawów danych, notesów i innych zasobów reprezentujących pojedynczy projekt
 * **EXPERIMENTS** (Eksperymenty) — eksperymenty, które zostały utworzone i uruchomione lub zapisane jako wersje robocze
@@ -61,52 +61,52 @@ Kliknij pozycję **Studio**, a nastąpi przekierowanie do usługi **Azure Machin
 * **NOTEBOOKS** (Notesy) — utworzone notesy Jupyter
 * **DATASETS** (Zestawy danych) — zestawy danych, które zostały przekazane do Studia
 * **TRAINED MODELS** (Nauczone modele) — modele nauczone w eksperymentach i zapisane w Studio
-* **SETTINGS** (Ustawienia) — zbiór ustawień, które służą do konfigurowania Twoich zasobów oraz Twojego konta
+* **USTAWIENIA** — zbiór ustawień, można użyć tooconfigure zasobów oraz Twojego konta.
 
 ### <a name="gallery"></a>Galeria
-Kliknięcie pozycji **Gallery** (Galeria) powoduje przejście do witryny **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. Galeria jest miejscem, w którym społeczność programistów i analityków danych udostępnia rozwiązania utworzone przy użyciu składników pakietu Cortana Intelligence.
+Kliknij przycisk **galerii** i spowoduje przekierowanie toohello  **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. Hello Galeria jest miejscem, w którym społeczność programistów i analityków danych udostępniać rozwiązania utworzone przy użyciu składników pakietu Cortana Intelligence Suite hello.
 
-Aby uzyskać więcej informacji o galerii, zobacz [Share and discover solutions in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) (Udostępnianie i odnajdywanie rozwiązań w witrynie Cortana Intelligence Gallery).
+Aby uzyskać więcej informacji na temat hello galerii, zobacz [udziału i odnajdywanie rozwiązań w hello Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## <a name="components-of-an-experiment"></a>Składniki eksperymentu
-Eksperyment składa się z zestawów danych, które dostarczają dane do modułów analitycznych łączonych w celu utworzenia modelu analizy predykcyjnej. Prawidłowy eksperyment ma następujące cechy:
+Eksperyment składa się z zestawów danych, które zapewniają modułów tooanalytical danych, które można połączyć ze sobą tooconstruct modelu analizy predykcyjnej. Prawidłowy eksperyment ma następujące cechy:
 
-* Obejmuje co najmniej jeden zestaw danych i jeden moduł
-* Zestawy danych mogą być połączone tylko z modułami
-* Moduły mogą być połączone z zestawami danych lub innymi modułami
-* Wszystkie porty wejściowe modułów muszą mieć jakieś połączenie z przepływem danych
+* Witaj obejmuje co najmniej jeden zestaw danych i jeden moduł
+* Zestawy danych mogą być połączone tylko toomodules
+* Moduły mogą być zestawami tooeither połączonych danych lub inne moduły
+* Wszystkie porty wejściowe modułów muszą mieć określone dane toohello połączenia przepływu
 * Konieczne jest ustawienie wszystkich wymaganych parametrów dla każdego modułu
 
-Eksperymenty można tworzyć od podstaw albo przy użyciu przykładowego eksperymentu jako szablonu. Aby uzyskać więcej informacji, zobacz [Kopiowanie przykładowych eksperymentów w celu tworzenia nowych eksperymentów uczenia maszynowego](machine-learning-sample-experiments.md).
+Eksperymenty można tworzyć od podstaw albo przy użyciu przykładowego eksperymentu jako szablonu. Aby uzyskać więcej informacji, zobacz [przykład kopii experiments toocreate nowe uczeniem maszynowym](machine-learning-sample-experiments.md).
 
 Przykład tworzenia prostego eksperymentu zawiera temat [Tworzenie prostego eksperymentu w usłudze Azure Machine Learning Studio](machine-learning-create-experiment.md).
 
 Bardziej szczegółowy przewodnik tworzenia rozwiązania analizy predykcyjnej zawiera temat [Tworzenie rozwiązania predykcyjnego za pomocą usługi Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 ### <a name="datasets"></a>Zestawy danych
-Zestaw danych to dane przekazane do usługi Machine Learning Studio, dzięki czemu mogą być używane w procesie modelowania. W usłudze Machine Learning Studio dostępny jest szereg przykładowych zestawów danych, które mogą służyć do wykonywania eksperymentów, a dodatkowe zestawy danych można przekazywać w miarę potrzeby. Oto przykładowe zestawy danych dostępne w Studio:
+Zestaw danych jest danych, który został przekazany tooMachine Learning Studio, dzięki czemu można w hello modelowania procesu. Szereg przykładowych zestawów danych są dołączone do usługi Machine Learning Studio dla tooexperiment z, a dodatkowe zestawy danych w razie potrzeby możesz przekazać. Oto przykładowe zestawy danych dostępne w Studio:
 
 * **MPG data for various automobiles** (Dane MPG dotyczące różnych samochodów) — wartości przebiegu w milach na galon paliwa (MPG) dla samochodów zidentyfikowanych na podstawie liczby cylindrów, mocy itp.
 * **Breast cancer data** (Dane dot. raka piersi) — dane z diagnoz raka piersi.
 * **Forest fires data** (Dane dot. pożarów lasów) — rozmiary pożarów lasów w północno-wschodniej Portugalii.
 
-Podczas tworzenia eksperymentu można wybierać zestawy danych z listy dostępnej po lewej stronie kanwy.
+Podczas tworzenia eksperymentu można wybierać z hello listę dostępnych zestawów danych czy toohello pozostałych hello kanwy.
 
-Listę przykładowych zestawów danych dostępnych w usłudze Azure Machine Learning Studio zawiera temat [Use the sample data sets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md) (Korzystanie z przykładowych zestawów danych w usłudze Azure Machine Learning Studio).
+Aby uzyskać listę przykładowych zestawów danych w usłudze Machine Learning Studio, zobacz [korzystanie z zestawów danych przykładowych hello w usłudze Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
 
 ### <a name="modules"></a>Moduły
-Moduł jest algorytmem, który można wykonać na danych. Usługa Machine Learning Studio zawiera szereg modułów, które pełnią różne funkcje — począwszy od transferu danych przychodzących, aż po uczenie, ocenę i walidację. Oto przykładowe dołączone moduły:
+Moduł jest algorytmem, który można wykonać na danych. Machine Learning Studio zawiera szereg modułów od danych wejściowych funkcji tootraining, ocenę i sprawdzania poprawności procesów. Oto przykładowe dołączone moduły:
 
-* [Convert to ARFF][convert-to-arff] (Konwertowanie na ARFF) — konwertuje serializowany zestaw danych .NET na plik formatu Attribute-Relation File Format (ARFF).
+* [Konwertuj tooARFF] [ convert-to-arff] -Format pliku Konwertuje zestaw danych .NET serializacji tooAttribute relacji (ARFF).
 * [Compute Elementary Statistics][elementary-statistics] (Obliczanie statystyk podstawowych) — oblicza podstawowe statystyki, takie jak średnia, odchylenie standardowe itp.
 * [Linear Regression][linear-regression] (Regresja liniowa) — tworzy model regresji liniowej online na podstawie spadku gradientu.
 * [Score Model][score-model] (Ocena modelu) — ocenia nauczony model klasyfikacji lub regresji.
 
-Podczas tworzenia eksperymentu można wybierać moduły z listy dostępnej po lewej stronie kanwy.  
+Podczas tworzenia eksperymentu można wybierać z hello listy modułów, dostępny się, że toohello pozostałych hello kanwy.  
 
-Moduł może zawierać zestaw parametrów, za pomocą których można konfigurować wewnętrzne algorytmy modułu. Po wybraniu modułu na kanwie parametry tego modułu są wyświetlane w okienku **Properties** (Właściwości) po prawej stronie kanwy. Te parametry można modyfikować w okienku, aby dostosowywać model.
+Moduł może zawierać zestaw parametrów, których można używać wewnętrzne algorytmy modułu hello tooconfigure. Po wybraniu modułu na kanwie hello parametry modułu hello są wyświetlane w hello **właściwości** toohello okienko rogu hello kanwy. Można zmodyfikować parametry hello w tym okienku tootune modelu.
 
-Aby uzyskać pomoc w nawigowaniu po dużej bibliotece algorytmów uczenia maszynowego, zobacz [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) (Jak wybierać algorytmy w usłudze Microsoft Azure Machine Learning).
+Aby uzyskać pomoc w nawigowaniu hello dużej biblioteki algorytmów uczenia maszynowego, zobacz [jak Microsoft Azure Machine Learning algorytmów toochoose](machine-learning-algorithm-choice.md).
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Wdrażanie usługi sieci Web analizy predykcyjnej
 Gdy model analizy predykcyjnej jest gotowy, można go wdrożyć jako usługę sieci Web bezpośrednio z usługi Machine Learning Studio. Dodatkowe szczegóły dotyczące tego procesu zawiera temat [Wdrażanie usługi sieci Web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).

@@ -1,6 +1,6 @@
 ---
-title: "Wysyłanie zdarzeń do usługi Azure Event Hubs przy użyciu platformy .NET Standard | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie do wysyłania zdarzeń do usługi Event Hubs w .NET Standard"
+title: "aaaSend zdarzenia tooAzure Event Hubs przy użyciu platformy .NET Standard | Dokumentacja firmy Microsoft"
+description: "Rozpoczynanie pracy wysyłanie tooEvent centra zdarzeń w programie .NET Standard"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.openlocfilehash: 8af9d70965c1c9ad8c49b7d2bb04244fc207058d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: caa9747a8a72aa8e7aea1348a116f6e4b406460e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Rozpoczynanie pracy wysyłanie komunikatów do usługi Azure Event Hubs w .NET Standard
+# <a name="get-started-sending-messages-tooazure-event-hubs-in-net-standard"></a>Wprowadzenie do wysyłania wiadomości tooAzure centra zdarzeń w programie .NET Standard
 
 > [!NOTE]
 > Ten przykład jest dostępny na [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
 
-W tym samouczku przedstawiono sposób tworzenia aplikacji konsoli .NET Core wysyłanej zestaw komunikatów do Centrum zdarzeń. Można uruchomić [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) rozwiązania jako-zastępuje `EhConnectionString` i `EhEntityPath` ciągów, wartościami Centrum zdarzeń. Lub może wykonaj kroki opisane w tym samouczku, aby utworzyć własny.
+Ten samouczek pokazuje, jak toowrite aplikacji konsoli .NET Core, która wysyła zestaw komunikatów tooan Centrum zdarzeń. Możesz uruchomić hello [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) rozwiązania jako-zastępuje hello `EhConnectionString` i `EhEntityPath` ciągów, wartościami Centrum zdarzeń. Lub możesz wykonać hello czynnościach w ramach tego samouczka toocreate własnych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Microsoft Visual Studio 2015 lub 2017](http://www.visualstudio.com). Obsługiwane jest również przykłady tego samouczka użyj Visual Studio 2017, ale programu Visual Studio 2015.
+* [Microsoft Visual Studio 2015 lub 2017](http://www.visualstudio.com). obsługiwane jest również Hello przykłady w tym samouczku 2017 usługi Visual Studio, ale programu Visual Studio 2015.
 * [.NET core Visual Studio 2015 lub narzędzia 2017](http://www.microsoft.com/net/core).
 * Subskrypcja platformy Azure.
 * Koncentrator przestrzeni nazw zdarzenia.
 
-Do wysyłania komunikatów do Centrum zdarzeń, użyjemy programu Visual Studio do pisania aplikacji konsolowej C#.
+Centrum zdarzeń tooan wiadomości toosend, użyjemy toowrite Visual Studio aplikacji konsolowej C#.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Tworzenie przestrzeni nazw usługi Event Hubs i centrum zdarzeń
 
-Pierwszym krokiem jest użycie [portalu Azure](https://portal.azure.com) tworzenie przestrzeni nazw dla typu Centrum zdarzeń i uzyskać poświadczenia zarządzania, które aplikacja musi łączyć się z Centrum zdarzeń. Aby utworzyć przestrzeń nazw i Centrum zdarzeń, wykonaj procedurę opisaną w [w tym artykule](event-hubs-create.md), a następnie kontynuować następujące kroki.
+pierwszym krokiem Hello jest toouse hello [portalu Azure](https://portal.azure.com) toocreate przestrzeni nazw dla typu Centrum zdarzeń hello i uzyskać poświadczenia zarządzania, czy aplikacja wymaga toocommunicate z Centrum zdarzeń hello hello. toocreate przestrzeni nazw i Centrum zdarzeń, wykonaj procedurę hello w [w tym artykule](event-hubs-create.md), a następnie kontynuować hello następujące kroki.
 
 ## <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 
-Uruchom program Visual Studio. W menu **Plik** kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**. Tworzenie aplikacji konsoli .NET Core.
+Uruchom program Visual Studio. Z hello **pliku** menu, kliknij przycisk **nowy**, a następnie kliknij przycisk **projektu**. Tworzenie aplikacji konsoli .NET Core.
 
 ![Nowy projekt][1]
 
-## <a name="add-the-event-hubs-nuget-package"></a>Dodaj pakiet NuGet centra zdarzeń
+## <a name="add-hello-event-hubs-nuget-package"></a>Dodaj pakiet NuGet centra zdarzeń hello
 
-Dodaj [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Standard biblioteki pakiet NuGet do projektu, wykonując następujące czynności: 
+Dodaj hello [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Standard NuGet pakietu tooyour projektu biblioteki wykonaj następujące czynności: 
 
-1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
-2. Kliknij przycisk **Przeglądaj** kartę, a następnie wyszukaj "Microsoft.Azure.EventHubs" i wybierz **Microsoft.Azure.EventHubs** pakietu. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
+1. Kliknij prawym przyciskiem myszy hello nowo utworzonego projektu i wybierz **Zarządzaj pakietami NuGet**.
+2. Kliknij przycisk hello **Przeglądaj** kartę, a następnie wyszukaj "Microsoft.Azure.EventHubs" i wybierz hello **Microsoft.Azure.EventHubs** pakietu. Kliknij przycisk **zainstalować** toocomplete hello instalacji, a następnie zamknij to okno dialogowe.
 
-## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Napisanie kodu do wysyłania komunikatów do Centrum zdarzeń
+## <a name="write-some-code-toosend-messages-toohello-event-hub"></a>Niektóre Centrum zdarzeń kodu toosend wiadomości toohello zapisu
 
-1. Dodaj następujące instrukcje `using` w górnej części pliku Program.cs.
+1. Dodaj następujące hello `using` toohello instrukcje na początku pliku Program.cs hello.
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -63,7 +63,7 @@ Dodaj [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.A
     using System.Threading.Tasks;
     ```
 
-2. Dodaj, aby stałe `Program` klasy dla usługi Event Hubs połączenia ciągu i jednostek ścieżki (nazwa Centrum zdarzeń poszczególnych). Zastąp symbole zastępcze w nawiasach odpowiednie wartości, które zostały uzyskane podczas tworzenia Centrum zdarzeń.
+2. Dodaj toohello stałe `Program` klasy hello usługi Event Hubs połączenia ciągu i jednostek ścieżki (nazwa Centrum zdarzeń poszczególnych). Zastąp symbole zastępcze hello w nawiasach hello odpowiednie wartości, które zostały uzyskane podczas tworzenia Centrum zdarzeń hello.
 
     ```csharp
     private static EventHubClient eventHubClient;
@@ -71,14 +71,14 @@ Dodaj [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.A
     private const string EhEntityPath = "{Event Hub path/name}";
     ```
 
-3. Dodaj nową metodę o nazwie `MainAsync` do `Program` klasy, w następujący sposób:
+3. Dodaj nową metodę o nazwie `MainAsync` toohello `Program` klasy, w następujący sposób:
 
     ```csharp
     private static async Task MainAsync(string[] args)
     {
-        // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-        // we are using the connection string from the namespace.
+        // Creates an EventHubsConnectionStringBuilder object from hello connection string, and sets hello EntityPath.
+        // Typically, hello connection string should have hello entity path in it, but for hello sake of this simple scenario
+        // we are using hello connection string from hello namespace.
         var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
             EntityPath = EhEntityPath
@@ -90,15 +90,15 @@ Dodaj [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.A
 
         await eventHubClient.CloseAsync();
 
-        Console.WriteLine("Press ENTER to exit.");
+        Console.WriteLine("Press ENTER tooexit.");
         Console.ReadLine();
     }
     ```
 
-4. Dodaj nową metodę o nazwie `SendMessagesToEventHub` do `Program` klasy, w następujący sposób:
+4. Dodaj nową metodę o nazwie `SendMessagesToEventHub` toohello `Program` klasy, w następujący sposób:
 
     ```csharp
-    // Creates an event hub client and sends 100 messages to the event hub.
+    // Creates an event hub client and sends 100 messages toohello event hub.
     private static async Task SendMessagesToEventHub(int numMessagesToSend)
     {
         for (var i = 0; i < numMessagesToSend; i++)
@@ -121,7 +121,7 @@ Dodaj [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.A
     }
     ```
 
-5. Dodaj następujący kod do `Main` metoda `Program` klasy.
+5. Dodaj hello następującego kodu toohello `Main` w hello metody `Program` klasy.
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -150,9 +150,9 @@ Dodaj [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.A
 
             private static async Task MainAsync(string[] args)
             {
-                // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-                // we are using the connection string from the namespace.
+                // Creates an EventHubsConnectionStringBuilder object from hello connection string, and sets hello EntityPath.
+                // Typically, hello connection string should have hello entity path in it, but for hello sake of this simple scenario
+                // we are using hello connection string from hello namespace.
                 var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
                 {
                     EntityPath = EhEntityPath
@@ -164,11 +164,11 @@ Dodaj [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.A
 
                 await eventHubClient.CloseAsync();
 
-                Console.WriteLine("Press ENTER to exit.");
+                Console.WriteLine("Press ENTER tooexit.");
                 Console.ReadLine();
             }
 
-            // Creates an event hub client and sends 100 messages to the event hub.
+            // Creates an event hub client and sends 100 messages toohello event hub.
             private static async Task SendMessagesToEventHub(int numMessagesToSend)
             {
                 for (var i = 0; i < numMessagesToSend; i++)
@@ -193,12 +193,12 @@ Dodaj [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.A
     }
     ```
 
-6. Uruchom program i upewnij się, że nie ma w nim żadnych błędów.
+6. Uruchom hello program i upewnij się, że nie ma żadnych błędów.
 
-Gratulacje! Wysłano komunikaty do centrum zdarzeń.
+Gratulacje! Teraz zostały wysłane wiadomości tooan zdarzenia koncentratora.
 
 ## <a name="next-steps"></a>Następne kroki
-Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
+Więcej informacji na temat usługi Event Hubs można poznać, przechodząc na stronę hello następującego łącza:
 
 * [Odbieranie zdarzeń z usługi Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 * [Omówienie usługi Event Hubs](event-hubs-what-is-event-hubs.md)

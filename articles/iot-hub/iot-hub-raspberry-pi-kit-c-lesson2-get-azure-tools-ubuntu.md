@@ -1,5 +1,5 @@
 ---
-title: "Connect Raspberry pi (C) do Azure IoT — Lekcja 2: narzędzi platformy Azure (Ubuntu) | Dokumentacja firmy Microsoft"
+title: "Connect Raspberry pi (C) tooAzure IoT — Lekcja 2: narzędzi platformy Azure (Ubuntu) | Dokumentacja firmy Microsoft"
 description: "Zainstaluj środowisko Python i interfejsu wiersza polecenia platformy Azure (Azure CLI) na Ubuntu."
 services: iot-hub
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: be1506edf0e63190dbb85a3adb7897bd1cc84d38
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1af4848f9fe0508e362c15b36eec8a35aea9ac5b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-azure-tools-ubuntu-1604"></a>Pobierz narzędzia Azure (Ubuntu 16.04)
 > [!div class="op_single_selector"]
@@ -30,23 +30,23 @@ ms.lasthandoff: 07/11/2017
 > * [System macOS 10.10](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
 
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-Zainstaluj interfejs wiersza polecenia platformy Azure (Azure CLI). Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
+Zainstaluj hello interfejsu wiersza polecenia platformy Azure (Azure CLI). Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
 W tym artykule dowiesz się:
-* Jak zainstalować wiersza polecenia platformy Azure.
-* Jak dodać podgrupę IoT wiersza polecenia platformy Azure.
+* Jak tooinstall hello wiersza polecenia platformy Azure.
+* Jak tooadd podgrupę IoT hello wiersza polecenia platformy Azure.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 * Ubuntu komputera z połączeniem internetowym.
 * Aktywna subskrypcja platformy Azure. Jeśli nie masz konta, możesz utworzyć [bezpłatnego konta wersji próbnej](http://azure.microsoft.com/pricing/free-trial/) za kilka minut.
 
-## <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
-Interfejsu wiersza polecenia Azure zapewnia wiele platform wiersza polecenia platformy Azure, dzięki któremu można pracować bezpośrednio w wierszu polecenia do udostępniania zasobów i zarządzanie nimi.
+## <a name="install-hello-azure-cli"></a>Zainstaluj hello wiersza polecenia platformy Azure
+Hello interfejsu wiersza polecenia Azure zapewnia wiele platform wiersza polecenia platformy Azure, umożliwiając toowork bezpośrednio z tooprovision z wiersza polecenia i zarządzanie zasobami.
 
-Aby zainstalować najnowsze wiersza polecenia platformy Azure, wykonaj następujące kroki:
+tooinstall hello najnowsze wiersza polecenia platformy Azure, wykonaj następujące kroki:
 
-1. Uruchom następujące polecenia w oknie terminalu. Może upłynąć pięć minut na zainstalowanie wiersza polecenia platformy Azure.
+1. Uruchom następujące polecenia w oknie terminalu hello. Może upłynąć hello tooinstall pięć minut wiersza polecenia platformy Azure.
 
    ```bash
    sudo apt-get update
@@ -57,18 +57,18 @@ Aby zainstalować najnowsze wiersza polecenia platformy Azure, wykonaj następuj
    sudo pip install --upgrade azure-cli
    sudo pip install --upgrade azure-cli-iot
    ```
-2. Instalację można zweryfikować, uruchamiając następujące polecenie:
+2. Sprawdź hello instalacji, uruchamiając następujące polecenie hello:
 
    ```bash
    az iot -h
    ```
 
-Następujące dane wyjściowe powinny być widoczne, jeśli instalacja zakończy się pomyślnie.
+Powinien pojawić się następujące hello output, jeśli hello Instalacja powiodła się.
 
 ![Dane wyjściowe, co oznacza Powodzenie](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_ubuntu.png)
 
 ## <a name="summary"></a>Podsumowanie
-Po zainstalowaniu interfejsu wiersza polecenia Azure. Następnym zadaniem będzie można utworzyć tożsamości koncentratora i urządzenia Azure IoT przy użyciu wiersza polecenia platformy Azure.
+Po zainstalowaniu hello wiersza polecenia platformy Azure. Następnym zadaniem jest toocreate Centrum Azure IoT i urządzeniami przy użyciu tożsamości hello wiersza polecenia platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 [Utworzenie Centrum IoT i zarejestruj malina Pi 3](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)

@@ -1,12 +1,12 @@
 ---
-title: "Nawiązać Edison firmy Intel (węzeł) Azure IoT — lekcji 3: monitorowanie wiadomości | Dokumentacja firmy Microsoft"
-description: "Monitorowanie wiadomości urządzenia do chmury, ponieważ są one zapisywane do magazynu tabel Azure."
+title: "Połącz Edison firmy Intel (węzeł) tooAzure IoT — lekcji 3: monitorowanie wiadomości | Dokumentacja firmy Microsoft"
+description: "Monitorowanie wiadomości powitania od urządzenia do chmury, ponieważ są one zapisywane tooyour magazynu tabel Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "dane w chmurze, zbierania danych w chmurze, usługi w chmurze iot, dane iot"
+keywords: "dane w chmurze hello, zbierania danych w chmurze, usługi w chmurze iot, dane iot"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: fa2c7efe-7e34-4e39-bb70-015c15ac69ed
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: c1a59227cd2bf9d2c9bcaa4212dd5127a95e2779
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f6371482123bc9aa12db55b38d3e8863645f981
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="read-messages-persisted-in-azure-storage"></a>Odczytywanie wiadomości utrwalane w magazynie Azure
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-Monitorowanie komunikatów urządzenia do chmury, które są wysyłane z Intel Edison do Centrum IoT, jak komunikaty są zapisywane do magazynu tabel Azure. Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony][troubleshooting].
+Monitor hello urządzenia do chmury wiadomości, które są wysyłane z Centrum IoT tooyour Intel Edison jako wiadomości powitania są zapisywane tooyour magazynu tabel Azure. Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
-W tym artykule dowiesz się, jak używać zadań odczytu komunikatu gulp odczytywać komunikaty utrwalone w magazynie tabel Azure.
+W tym artykule dowiesz się, jak toouse wiadomości tooread zadanie odczytu wiadomości powitania od gulp utrwalone w magazynem tabel Azure.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
-Przed rozpoczęciem tego procesu, musi pomyślnie ukończył [Uruchom przykładową aplikację Azure migania na Intel Edison][run-the-azure-blink-sample-application-on-intel-edison].
+Przed rozpoczęciem tego procesu, musi pomyślnie ukończył [Uruchom hello Azure migania przykładowej aplikacji na Intel Edison][run-the-azure-blink-sample-application-on-intel-edison].
 
 ## <a name="read-new-messages-from-your-storage-account"></a>Odczytaj wiadomości z konta magazynu
-W poprzednim artykule uruchomiono na Edison przykładowej aplikacji. Komunikaty przykładowej aplikacji wysyłane do Centrum Azure IoT. Komunikaty wysyłane do Centrum IoT są przechowywane w magazynie tabel Azure przy użyciu aplikacji Azure — funkcja. Należy parametry połączenia magazynu Azure do czytania wiadomości z magazynu tabel Azure.
+W poprzednim artykule hello na Edison uruchomiono przykładowej aplikacji. aplikacja przykładowa Hello wysyłane Centrum Azure IoT tooyour wiadomości. Centrum IoT tooyour wysłane wiadomości powitania są przechowywane do magazynu tabel Azure za pomocą hello Azure funkcji aplikacji. Należy hello magazynu Azure połączenia ciąg tooread wiadomości z magazynu tabel Azure.
 
-Aby odczytać wiadomości przechowywanych w magazynie tabel Azure, wykonaj następujące kroki:
+tooread wiadomości przechowywanych w swoim magazynem tabel Azure, wykonaj następujące kroki:
 
-1. Pobierz ciąg połączenia, uruchamiając następujące polecenia:
+1. Pobierz ciąg połączenia hello, uruchamiając następujące polecenia hello:
 
    ```bash
    az storage account list -g iot-sample --query [].name
    az storage account show-connection-string -g iot-sample -n {storage name}
    ```
 
-   Pierwsze polecenie pobiera `storage name` używanej w drugiego polecenia można pobrać ciągu połączenia. Użyj `iot-sample` jako wartość `{resource group name}` Jeśli wartości nie można zmienić.
-2. Otwórz plik konfiguracji `config-edison.json` w programie Visual Studio Code, uruchamiając następujące polecenie:
+   Witaj pierwsze polecenie pobiera hello `storage name` używanej w hello drugiego polecenia tooget hello parametry połączenia. Użyj `iot-sample` jako wartość hello `{resource group name}` Jeśli hello wartość nie zostanie zmieniona.
+2. Plik konfiguracji Otwórz hello `config-edison.json` w programie Visual Studio Code, uruchamiając następujące polecenie hello:
 
    ```bash
    # For Windows command prompt
@@ -55,23 +55,23 @@ Aby odczytać wiadomości przechowywanych w magazynie tabel Azure, wykonaj nast�
    # For MacOS or Ubuntu
    code ~/.iot-hub-getting-started/config-edison.json
    ```
-3. Zastąp `[Azure storage connection string]` z parametrami połączenia uzyskano w kroku 1.
-4. Zapisz `config-edison.json` pliku.
-5. Ponowne wysłanie wiadomości i je odczytać z magazynu tabel Azure, uruchamiając następujące polecenie:
+3. Zastąp `[Azure storage connection string]` przy użyciu parametrów połączenia hello uzyskano w kroku 1.
+4. Zapisz hello `config-edison.json` pliku.
+5. Ponowne wysłanie wiadomości i je odczytać z magazynu tabel Azure, uruchamiając następujące polecenie hello:
 
    ```bash
    gulp run --read-storage
    ```
 
-   Logika do odczytu z magazynu tabel Azure znajduje się w `azure-table.js` pliku.
+   Witaj logiki odczytu z magazynu tabel Azure znajduje się w hello `azure-table.js` pliku.
 
    ![run--gulp odczytu magazynu][gulp run]
 
 ## <a name="summary"></a>Podsumowanie
-Został pomyślnie połączony Edison Centrum IoT w chmurze i używany migania przykładowej aplikacji do wysyłania wiadomości urządzenia do chmury. Aplikacji Azure — funkcja jest również używane do przechowywania wiadomości przychodzących Centrum IoT do magazynu tabel Azure. Teraz można wysłać wiadomości chmury do urządzenia z Centrum IoT na Edison.
+Pomyślnie zostały połączone z Centrum IoT tooyour Edison w chmurze hello i używane wiadomości powitania od migania przykładowej aplikacji toosend urządzenia do chmury. Możesz również hello Azure funkcji aplikacji toostore przychodzące IoT Centrum wiadomości tooyour magazynu tabel Azure. Teraz można wysłać wiadomości chmury do urządzenia z Twojej tooEdison Centrum IoT.
 
 ## <a name="next-steps"></a>Następne kroki
-[Uruchom przykładową aplikację do odbierania wiadomości chmury do urządzenia][receive-cloud-to-device-messages]
+[Uruchom tooreceive aplikacji przykładowej wiadomości chmury do urządzenia][receive-cloud-to-device-messages]
 <!-- Images and links -->
 
 [troubleshooting]: iot-hub-intel-edison-kit-node-troubleshooting.md

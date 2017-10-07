@@ -1,6 +1,6 @@
 ---
-title: "Monitorowanie użytkownika zapytania w usłudze Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Omówienie zagadnienia dotyczące najlepszych rozwiązań i zadania monitorowania kwerend użytkowników w usłudze Azure SQL Data Warehouse"
+title: "aaaMonitor kwerend użytkowników w usłudze Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
+description: "Omówienie zagadnień hello, najlepszych rozwiązań i zadania monitorowania kwerend użytkowników w usłudze Azure SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -15,22 +15,22 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 65509a65c2b34553822cc02d7a7fa5a614adc57f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 67639e81b04635452e1ed844fe2d7245aa96a4fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Monitor kwerend użytkowników w usłudze Azure SQL Data Warehouse
-Omówienie zagadnienia dotyczące najlepszych rozwiązań i zadania monitorowania kwerend użytkowników w usłudze SQL Data Warehouse.
+Omówienie zagadnień hello, najlepszych rozwiązań i zadania monitorowania kwerend użytkowników w usłudze SQL Data Warehouse.
 
 | Kategoria | Zadania lub brany pod uwagę | Opis |
 |:--- |:--- |:--- |
 | Niska wydajność |Znajdź zapytania długotrwałe użytkownika |[Znajdź kwerend][Find long-running queries] |
-| Współbieżność |Przydzielanie zasobów równoczesnych do zapytań użytkownika |[Zarządzanie współbieżności i obciążenia][Concurrency and workload management] |
+| Współbieżność |Przydzielanie zasobów równoczesnych zapytań toouser |[Zarządzanie współbieżności i obciążenia][Concurrency and workload management] |
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej porad zarządzania, przejdź do [omówienie zarządzania][Management overview].
+Aby uzyskać więcej porad zarządzania, odwiedź toohello [omówienie zarządzania][Management overview].
 
 <!--Image references-->
 

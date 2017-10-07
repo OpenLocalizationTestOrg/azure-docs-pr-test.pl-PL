@@ -1,6 +1,6 @@
 ---
-title: Format pliku manifestu Import/Eksport Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się więcej o formacie pliku manifestu dysku opisuje mapowanie między obiekty BLOB w magazynie obiektów Blob platformy Azure i plików na dysku podczas importowania lub eksportowania zadania w usłudze importu i eksportu."
+title: format pliku manifestu importu/eksportu aaaAzure | Dokumentacja firmy Microsoft
+description: "Informacje o hello format pliku manifestu hello dysku, który opisuje hello mapowanie między obiekty BLOB w magazynie obiektów Blob platformy Azure i plików na dysku w ramach zadania importu lub eksportu w usłudze Import/Eksport hello."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d7e5e1990482916f7ff5f891c97343b52e82b2f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure format pliku manifestu usługi Import/Eksport
-Plik manifestu dysku opisuje mapowanie między obiekty BLOB w magazynie obiektów Blob platformy Azure i plików na dysku obejmujące zadania importu lub eksportu. Dla operacji importowania pliku manifestu jest tworzony jako część procesu przygotowywania dysków i są przechowywane na dysku przed wysłaniem dysku do centrum danych Azure. Podczas operacji eksportowania manifestu jest tworzone i przechowywane na dysku przez usługę Azure importu/eksportu.  
+Plik manifestu dysku Hello opisuje hello mapowanie między obiekty BLOB w magazynie obiektów Blob platformy Azure i plików na dysku obejmujące zadania importu lub eksportu. Dla operacji importowania pliku manifestu hello jest tworzony jako część procesu przygotowywania dysku hello i jest przechowywana na dysku hello, przed wysłaniem dysku hello toohello centrum danych Azure. Podczas operacji eksportowania hello manifest jest tworzony i zapisywany na dysku hello w przez hello usługi Import/Eksport Azure.  
   
-Dla obu importowanie i eksportowanie zadań, pliku manifestu dysku jest przechowywana na dysku importu lub eksportu; nie jest przekazywane do usługi za pośrednictwem każdej operacji interfejsu API.  
+Dla importu i zadań eksportu, plik manifestu dysku hello jest przechowywana na powitania importowania lub eksportowania dysku; nie jest przesyłane toohello usługi za pośrednictwem każdej operacji interfejsu API.  
   
-Poniżej opisano ogólny format pliku manifestu dysku:  
+Witaj poniżej opisano ogólny format pliku manifestu dysku hello:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -36,7 +36,7 @@ Poniżej opisano ogólny format pliku manifestu dysku:
   
     <!-- First Blob List -->  
     <BlobList>  
-      <!-- Global properties and metadata that applies to all blobs -->  
+      <!-- Global properties and metadata that applies tooall blobs -->  
       [<MetadataPath Hash="md5-hash">global-metadata-file-path</MetadataPath>]  
       [<PropertiesPath   
         Hash="md5-hash">global-properties-file-path</PropertiesPath>]  
@@ -93,44 +93,44 @@ block-list ::=
 
 ## <a name="manifest-xml-elements-and-attributes"></a>Manifest elementów XML oraz atrybuty
 
-W poniższej tabeli podano danych elementów i atrybutów w formacie XML manifestu dysku.  
+Witaj danych elementów i atrybutów formatu XML manifestu dysku hello są określone w hello w poniższej tabeli.  
   
 |XML Element|Typ|Opis|  
 |-----------------|----------|-----------------|  
-|`DriveManifest`|Element główny|Element główny pliku manifestu. Wszystkie elementy w pliku są poniżej tego elementu.|  
-|`Version`|Atrybut ciągu|Wersja pliku manifestu.|  
-|`Drive`|Zagnieżdżone — element XML|Zawiera manifest dla każdego dysku.|  
-|`DriveId`|Ciąg|Identyfikator unikatowy dysku dla dysku. Identyfikator dysku znaleziono badając dysku dla jego numeru seryjnego. Numer seryjny dysku jest zazwyczaj wydrukowany na zewnątrz również dysku. `DriveID` Elementu musi występować przed każdą `BlobList` elementu w pliku manifestu.|  
-|`StorageAccountKey`|Ciąg|Wymagany dla zadania importu, jeśli, a tylko wtedy, gdy `ContainerSas` nie jest określona. Klucz konta dla konta magazynu platformy Azure skojarzone z zadaniem.<br /><br /> Ten element został pominięty manifestu dla operacji eksportowania.|  
-|`ContainerSas`|Ciąg|Wymagany dla zadania importu, jeśli, a tylko wtedy, gdy `StorageAccountKey` nie jest określona. Kontener SAS do uzyskiwania dostępu do obiektów blob skojarzony z zadaniem. Zobacz [zawiesić zadanie](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) dla jego format. Ten element został pominięty manifestu dla operacji eksportowania.|  
-|`ClientCreator`|Ciąg|Określa klienta, który utworzony plik XML. Ta wartość nie jest interpretowany przez usługę importu i eksportu.|  
-|`BlobList`|Zagnieżdżone — element XML|Zawiera listę obiektów blob, które są częścią importu lub eksportu zadania. Każdy obiekt blob w postaci listy obiektów blob może mieć te same właściwości i metadanych.|  
-|`BlobList/MetadataPath`|Ciąg|Opcjonalny. Określa względną ścieżkę pliku na dysku, który zawiera metadane domyślnej zostanie ustawiona na obiekty BLOB na liście obiektów blob dla operacji importowania. Te metadane można opcjonalnie zastąpić na podstawie obiektu blob przez obiekt blob.<br /><br /> Ten element został pominięty manifestu dla operacji eksportowania.|  
-|`BlobList/MetadataPath/@Hash`|Atrybut ciągu|Określa wartość skrótu kodowany w formacie Base16 MD5 dla pliku metadanych.|  
-|`BlobList/PropertiesPath`|Ciąg|Opcjonalny. Określa względną ścieżkę pliku na dysku, który zawiera właściwości domyślnych, które zostaną ustawione na obiekty BLOB na liście obiektów blob dla operacji importowania. Te właściwości można opcjonalnie zastąpić na podstawie obiektu blob przez obiekt blob.<br /><br /> Ten element został pominięty manifestu dla operacji eksportowania.|  
-|`BlobList/PropertiesPath/@Hash`|Atrybut ciągu|Określa wartość skrótu MD5 kodowany w formacie Base16 dla właściwości pliku.|  
+|`DriveManifest`|Element główny|element główny Hello hello pliku manifestu. Wszystkie elementy w pliku hello się poniżej tego elementu.|  
+|`Version`|Atrybut ciągu|Wersja Hello hello pliku manifestu.|  
+|`Drive`|Zagnieżdżone — element XML|Zawiera manifest powitania dla każdego dysku.|  
+|`DriveId`|Ciąg|identyfikator unikatowy dysku Hello hello dysku. Identyfikator dysku Hello znaleziono badając dysku hello jego numeru seryjnego. numer seryjny dysku Hello jest zazwyczaj wydrukowany hello poza również hello dysku. Witaj `DriveID` elementu musi występować przed każdą `BlobList` elementu w pliku manifestu hello.|  
+|`StorageAccountKey`|Ciąg|Wymagany dla zadania importu, jeśli, a tylko wtedy, gdy `ContainerSas` nie jest określona. klucz konta Hello hello kontem magazynu platformy Azure skojarzone z zadaniem hello.<br /><br /> Ten element został pominięty hello manifestu dla operacji eksportowania.|  
+|`ContainerSas`|Ciąg|Wymagany dla zadania importu, jeśli, a tylko wtedy, gdy `StorageAccountKey` nie jest określona. kontener Hello SAS do uzyskiwania dostępu do obiektów blob hello skojarzone z zadaniem hello. Zobacz [zawiesić zadanie](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) dla jego format. Ten element został pominięty hello manifestu dla operacji eksportowania.|  
+|`ClientCreator`|Ciąg|Określa powitania klienta, który utworzył hello plik XML. Ta wartość nie jest interpretowany przez hello usługi Import/Eksport.|  
+|`BlobList`|Zagnieżdżone — element XML|Zawiera listę obiektów blob, które są częścią hello importu lub eksportu zadania. Każdy obiekt blob w postaci listy obiektów blob udziałów hello tych samych metadanych i właściwości.|  
+|`BlobList/MetadataPath`|Ciąg|Opcjonalny. Określa ścieżkę względną hello pliku na dysku hello, który zawiera hello metadane domyślnej zostanie ustawiona na obiekty BLOB na liście hello obiektu blob dla operacji importowania. Te metadane można opcjonalnie zastąpić na podstawie obiektu blob przez obiekt blob.<br /><br /> Ten element został pominięty hello manifestu dla operacji eksportowania.|  
+|`BlobList/MetadataPath/@Hash`|Atrybut ciągu|Określa wartość skrótu MD5 kodowany w formacie Base16 hello hello pliku metadanych.|  
+|`BlobList/PropertiesPath`|Ciąg|Opcjonalny. Określa ścieżkę względną hello pliku na dysku hello, który zawiera właściwości domyślne hello, które zostaną ustawione na obiekty BLOB na liście hello obiektu blob dla operacji importowania. Te właściwości można opcjonalnie zastąpić na podstawie obiektu blob przez obiekt blob.<br /><br /> Ten element został pominięty hello manifestu dla operacji eksportowania.|  
+|`BlobList/PropertiesPath/@Hash`|Atrybut ciągu|Określa wartość skrótu MD5 kodowany w formacie Base16 hello hello właściwości pliku.|  
 |`Blob`|Zagnieżdżone — element XML|Zawiera informacje dotyczące każdego obiektu blob na wszystkich listach obiektów blob.|  
-|`Blob/BlobPath`|Ciąg|Względny identyfikator URI do obiektu blob, począwszy od nazwy kontenera. W przypadku obiektu blob w kontenerze głównego, musi zaczynać się od `$root`.|  
-|`Blob/FilePath`|Ciąg|Określa ścieżkę względną do pliku na dysku. Dla zadań eksportowania ścieżka obiektu blob będzie służyć do ścieżkę pliku, jeśli jest to możliwe. *np.*, `pictures/bob/wild/desert.jpg` zostaną wyeksportowane do `\pictures\bob\wild\desert.jpg`. Jednak ze względu na ograniczenia nazw systemu plików NTFS obiektu blob może zostać wyeksportowany do pliku za pomocą ścieżki, której nie przypominać ścieżka obiektu blob.|  
-|`Blob/ClientData`|Ciąg|Opcjonalny. Zawiera komentarz z klienta. Ta wartość nie jest interpretowany przez usługę importu i eksportu.|  
-|`Blob/Snapshot`|Data i godzina|Opcjonalny w przypadku zadań eksportu. Określa identyfikator migawki dla migawki wyeksportowany obiekt blob.|  
-|`Blob/Length`|Liczba całkowita|Określa całkowita długość obiektu blob w bajtach. Wartość może być maksymalnie 200 GB dla blokowych obiektów blob i do 1 TB dla stronicowych obiektów blob. Dla stronicowych obiektów blob ta wartość musi być wielokrotnością 512.|  
-|`Blob/ImportDisposition`|Ciąg|Opcjonalne dla zadania importu, pominąć w przypadku zadań eksportu. To ustawienie określa, jak usługa Import/Eksport powinna obsługiwać w przypadku zadania importu gdzie obiektu blob o takiej samej nazwie już istnieje. W przypadku pominięcia tej wartości z importu manifestu wartość domyślna to `rename`.<br /><br /> Wartości dla tego elementu:<br /><br /> -   `no-overwrite`: Jeśli docelowego obiektu blob jest już obecny o takiej samej nazwie, operacji importowania pominie importowania tego pliku.<br />-   `overwrite`: Wszystkie istniejące docelowego obiektu blob jest całkowicie zastąpiona nowo zaimportowany plik.<br />-   `rename`: Nowego obiektu blob zostanie przekazany z nazwą zmodyfikowane.<br /><br /> Zmiana nazwy reguły jest następujący:<br /><br /> — Jeśli nazwa obiektu blob nie zawiera kropkę, Nowa nazwa jest generowany przez dołączenie `(2)` oryginalną nazwę obiektu blob; Jeśli ta nowa nazwa również powoduje konflikt z istniejącą nazwą obiektu blob, następnie `(3)` jest dołączany zamiast `(2)`; i tak dalej.<br />— Jeśli nazwa obiektu blob zawiera kropkę, część po ostatnim kropki (.) jest uznawany za Nazwa rozszerzenia. Podobne do powyższej procedury `(2)` dodaje się przed ostatnim kropki (.) aby wygenerować nową nazwę; Jeśli nowa nazwa nadal powoduje konflikt z istniejącym obiektu blob nazwę, a następnie usługa próbuje `(3)`, `(4)`i tak dalej, aż do znalezienia niekolidujących nazwę.<br /><br /> Kilka przykładów:<br /><br /> Obiekt blob `BlobNameWithoutDot` zostanie zmieniona na:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> Obiekt blob `Seattle.jpg` zostanie zmieniona na:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
-|`PageRangeList`|Zagnieżdżone — element XML|Wymagany dla stronicowych obiektów blob.<br /><br /> Do zaimportowania operacji określa listę zakresów bajtów pliku do zaimportowania. Każdy zakres stron jest opisany przez przesunięcie i długość w plik źródłowy, który opisuje zakres strony, wraz z skrótu MD5 regionu. `Hash` Wymagany jest atrybut zakresu stron. Usługa zostanie przeprowadzona Weryfikacja, czy skrót danych w obiekcie blob odpowiada obliczoną wartość mieszania MD5 z zakresu stron. Dowolna liczba zakresów stron może służyć do opisują plik do zaimportowania, z łączny rozmiar maksymalnie 1 TB. Wszystkie zakresy strony musi zostać określona przez przesunięcie, a nie nakłada się jest niedozwolone.<br /><br /> Eksportu operacji określa zestaw zakresów bajtów obiektu blob, które zostały wyeksportowane do dysku.<br /><br /> Razem zakresów stron może obejmować tylko zakresy podrzędne obiektów blob lub pliku.  Oczekiwano pozostałej części pliku nie pasuje do żadnego zakresu żadnych stron i jego zawartość może być niezdefiniowana.|  
+|`Blob/BlobPath`|Ciąg|Hello względny identyfikator URI toohello obiektów blob, rozpoczynające się od nazwy kontenera hello. W przypadku hello obiektów blob w kontenerze głównego, musi zaczynać się od `$root`.|  
+|`Blob/FilePath`|Ciąg|Określa plik toohello ścieżki względnej hello na powitania dysku. Dla zadań eksportowania ścieżka obiektu blob hello będzie służyć do hello ścieżka pliku, jeśli jest to możliwe. *np.*, `pictures/bob/wild/desert.jpg` zostaną wyeksportowane zbyt`\pictures\bob\wild\desert.jpg`. Jednak ze względu na ograniczenia toohello nazw systemu plików NTFS, obiektu blob może być tooa wyeksportowany plik ze ścieżką nie przypominać hello ścieżka obiektu blob.|  
+|`Blob/ClientData`|Ciąg|Opcjonalny. Zawiera komentarz powitania klienta. Ta wartość nie jest interpretowany przez hello usługi Import/Eksport.|  
+|`Blob/Snapshot`|Data i godzina|Opcjonalny w przypadku zadań eksportu. Określa identyfikator migawki hello migawki wyeksportowany obiekt blob.|  
+|`Blob/Length`|Liczba całkowita|Określa hello całkowita długość obiektu hello blob w bajtach. wartość Hello może być too200 GB dla blokowych obiektów blob i zapasowej too1 TB dla stronicowych obiektów blob. Dla stronicowych obiektów blob ta wartość musi być wielokrotnością 512.|  
+|`Blob/ImportDisposition`|Ciąg|Opcjonalne dla zadania importu, pominąć w przypadku zadań eksportu. To ustawienie określa, jak hello usługi Import/Eksport powinna obsługiwać hello przypadku dla zadania importu gdzie obiektu blob z hello sam o tej nazwie już istnieje. W przypadku pominięcia tej wartości z hello importu manifestu hello wartość domyślna to `rename`.<br /><br /> Witaj wartości dla tego elementu:<br /><br /> -   `no-overwrite`: Jeśli docelowego obiektu blob jest już obecny razem z hello samą nazwę operacji importowania hello pominie importowania tego pliku.<br />-   `overwrite`: Wszystkie istniejące docelowego obiektu blob jest całkowicie zastąpiona hello nowo zaimportowany plik.<br />-   `rename`: hello nowego obiektu blob zostanie przekazany z nazwą zmodyfikowane.<br /><br /> Zmiana nazwy reguły Hello jest następujący:<br /><br /> — Jeśli hello nazwa obiektu blob nie zawiera kropkę, Nowa nazwa jest generowany przez dołączenie `(2)` toohello oryginalna nazwa obiektu blob; Jeśli ta nowa nazwa również powoduje konflikt z istniejącą nazwą obiektu blob, następnie `(3)` jest dołączany zamiast `(2)`; i tak dalej.<br />— Jeśli nazwa obiektu blob hello zawiera kropkę, część powitania po ostatniej kropka hello jest uważany za hello Nazwa rozszerzenia. Podobne toohello powyżej procedury `(2)` dodaje się przed hello ostatniego toogenerate kropka nową nazwę; Jeśli nadal hello Nowa nazwa powoduje konflikt z istniejącą nazwą obiektu blob, hello usługa próbuje `(3)`, `(4)`i tak dalej do niekolidujących znaleziono nazwy.<br /><br /> Kilka przykładów:<br /><br /> Obiekt blob Hello `BlobNameWithoutDot` zostanie zmieniona na:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> Obiekt blob Hello `Seattle.jpg` zostanie zmieniona na:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
+|`PageRangeList`|Zagnieżdżone — element XML|Wymagany dla stronicowych obiektów blob.<br /><br /> Do zaimportowania operacji określa listę zakresów bajtów toobe pliku, zaimportowane. Każdy zakres stron jest opisany przez przesunięcie i długość w pliku źródłowym hello opisujący hello zakres stron, wraz z wyznaczania wartości skrótu MD5 hello regionu. Witaj `Hash` wymagany jest atrybut zakresu stron. Usługa Hello zostanie przeprowadzona Weryfikacja hello skrót danych hello w obiekcie blob hello zgodność skrótu MD5 hello obliczana z zakresu stron hello. Dowolna liczba zakresów stron może być używane toodescribe plik do zaimportowania z hello całkowity rozmiar się too1 TB. Wszystkie zakresy strony musi zostać określona przez przesunięcie, a nie nakłada się jest niedozwolone.<br /><br /> W przypadku operacji eksportowania, określa zestaw zakresów bajtów obiektu blob, które zostały wyeksportowane toohello dysku.<br /><br /> razem zakresów stron Hello może obejmować tylko zakresy podrzędne obiektów blob lub pliku.  Oczekiwano Hello pozostałej części pliku hello nie pasuje do żadnego zakresu żadnych stron i jego zawartość może być niezdefiniowana.|  
 |`PageRange`|XML element|Reprezentuje zakres stron.|  
-|`PageRange/@Offset`|Atrybut, liczba całkowita|Określa przesunięcie w pliku transferu i obiektów blob, gdzie rozpoczyna się w zakresie określonej strony. Ta wartość musi być wielokrotnością 512.|  
-|`PageRange/@Length`|Atrybut, liczba całkowita|Określa długość zakresu stron. Ta wartość musi być wielokrotnością 512 i nie więcej niż 4 MB.|  
-|`PageRange/@Hash`|Atrybut ciągu|Określa wartość skrótu MD5 kodowany w formacie Base16 zakresu stron.|  
-|`BlockList`|Zagnieżdżone — element XML|Wymagany w przypadku blokowego obiektu blob z nazwanym bloków.<br /><br /> Dla operacji importowania listy zablokowanych określa zestaw bloków, które zostaną zaimportowane do magazynu Azure. W przypadku operacji eksportowania listy zablokowanych Określa, gdzie każdy blok przechowywanych w pliku na dysku eksportu. Każdy blok jest opisane przez przesunięcie w pliku i długość bloku; Każdy blok jest ponadto o nazwie atrybutu ID bloku i zawiera wyznaczania wartości skrótu MD5 dla bloku. Maksymalnie 50 000 bloków może służyć do opisu obiektu blob.  Wszystkie bloki muszą być uporządkowane przez przesunięcie, a jednocześnie powinno obejmować pełną gamę pliku *tj*, musi istnieć bez przerw między bloków. Jeśli obiekt blob jest nie więcej niż 64 MB, identyfikatory bloków dla każdego bloku musi być wszystkie nieobecne albo wszystkie. Identyfikatory bloku muszą być ciągami algorytmem Base64. Zobacz [Put bloku](/rest/api/storageservices/put-block) dodatkowe wymagania dotyczące identyfikatory bloków.|  
+|`PageRange/@Offset`|Atrybut, liczba całkowita|Określa, że rozpoczyna przesunięcie hello w hello transferu plików i obiektów blob hello gdzie hello określony zakres stron. Ta wartość musi być wielokrotnością 512.|  
+|`PageRange/@Length`|Atrybut, liczba całkowita|Określa długość hello hello strony zakresu. Ta wartość musi być wielokrotnością 512 i nie więcej niż 4 MB.|  
+|`PageRange/@Hash`|Atrybut ciągu|Określa wartość skrótu MD5 kodowany w formacie Base16 hello hello zakres stron.|  
+|`BlockList`|Zagnieżdżone — element XML|Wymagany w przypadku blokowego obiektu blob z nazwanym bloków.<br /><br /> Dla operacji importowania listy zablokowanych hello określa zestaw bloków, które zostaną zaimportowane do magazynu Azure. Dla operacji eksportowania listy zablokowanych hello Określa, gdzie każdy blok przechowywanych w pliku hello na powitania eksportu dysku. Każdy blok jest opisane przez przesunięcie w pliku hello i długość bloku; Każdy blok jest ponadto o nazwie atrybutu ID bloku i zawiera wyznaczania wartości skrótu MD5 hello bloku. Zapasowej too50 000 bloków mogą być używane toodescribe obiektu blob.  Wszystkie bloki muszą być uporządkowane przez przesunięcie, a jednocześnie powinno obejmować hello pełną gamę pliku hello *tj*, musi istnieć bez przerw między bloków. Jeśli obiekt blob hello jest nie więcej niż 64 MB, identyfikatory bloków hello każdy blok musi być wszystkie nieobecny lub przedstawia wszystkie. Identyfikatory bloku są wymagane toobe ciągów algorytmem Base64. Zobacz [Put bloku](/rest/api/storageservices/put-block) dodatkowe wymagania dotyczące identyfikatory bloków.|  
 |`Block`|XML element|Reprezentuje blok.|  
-|`Block/@Offset`|Atrybut, liczba całkowita|Określa przesunięcie, w którym rozpoczyna się określony blok.|  
-|`Block/@Length`|Atrybut, liczba całkowita|Określa liczbę bajtów w bloku; Ta wartość musi być nie więcej niż 4MB.|  
-|`Block/@Id`|Atrybut ciągu|Określa ciąg reprezentujący identyfikator bloku dla bloku.|  
-|`Block/@Hash`|Atrybut ciągu|Określa Skrót MD5 kodowany w formacie Base16 bloku.|  
-|`Blob/MetadataPath`|Ciąg|Opcjonalny. Względna ścieżka pliku metadanych. Podczas importowania metadanych jest ustawiona na docelowego obiektu blob. Podczas operacji eksportowania metadane obiektu blob są przechowywane w pliku metadanych na dysku.|  
-|`Blob/MetadataPath/@Hash`|Atrybut ciągu|Określa Skrót MD5 kodowany w formacie Base16 pliku metadanych obiektu blob.|  
-|`Blob/PropertiesPath`|Ciąg|Opcjonalny. Określa względną ścieżkę pliku właściwości. Podczas importowania właściwości są ustawiane na docelowego obiektu blob. Podczas operacji eksportowania właściwości obiektów blob są przechowywane w pliku właściwości na dysku.|  
-|`Blob/PropertiesPath/@Hash`|Atrybut ciągu|Określa Skrót MD5 kodowany w formacie Base16 plik właściwości obiektu blob.|  
+|`Block/@Offset`|Atrybut, liczba całkowita|Określa przesunięcie hello, w którym rozpoczyna się hello określony blok.|  
+|`Block/@Length`|Atrybut, liczba całkowita|Określa hello liczbę bajtów w bloku hello; Ta wartość musi być nie więcej niż 4MB.|  
+|`Block/@Id`|Atrybut ciągu|Określa ciąg reprezentujący identyfikator bloku hello hello bloku.|  
+|`Block/@Hash`|Atrybut ciągu|Określa Skrót MD5 kodowany w formacie Base16 hello hello bloku.|  
+|`Blob/MetadataPath`|Ciąg|Opcjonalny. Określa ścieżkę względną hello pliku metadanych. Podczas importowania metadanych hello jest ustawiona na powitania docelowego obiektu blob. Podczas operacji eksportowania hello obiektów blob metadane są przechowywane w pliku metadanych hello na powitania dysku.|  
+|`Blob/MetadataPath/@Hash`|Atrybut ciągu|Określa Skrót MD5 kodowany w formacie Base16 hello hello obiektów blob metadane pliku.|  
+|`Blob/PropertiesPath`|Ciąg|Opcjonalny. Określa ścieżkę względną hello właściwości pliku. Podczas importowania hello właściwości są ustawione na powitania docelowego obiektu blob. Podczas operacji eksportowania hello właściwości obiektów blob są przechowywane w pliku właściwości hello na powitania dysku.|  
+|`Blob/PropertiesPath/@Hash`|Atrybut ciągu|Określa Skrót MD5 kodowany w formacie Base16 hello hello blob właściwości pliku.|  
   
 ## <a name="next-steps"></a>Następne kroki
  

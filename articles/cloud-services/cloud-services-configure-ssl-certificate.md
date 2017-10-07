@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie protokołu SSL dla usługi w chmurze (klasyczne) | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak określić punkt końcowy HTTPS dla roli sieci web i jak można przekazać certyfikatu SSL do zabezpieczania aplikacji."
+title: "aaaConfigure protokołu SSL dla usługi w chmurze (klasyczne) | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toospecify punkt końcowy HTTPS dla roli sieci web i jak tooupload SSL certyfikatów toosecure aplikacji."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.openlocfilehash: edb9aaf6dae11c9b8a171b22bc8a17003f80d86b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a1ca031b98af49d371977a208ed24f6dc8ea2ac9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Konfigurowanie protokołu SSL dla aplikacji na platformie Azure
 > [!div class="op_single_selector"]
@@ -27,37 +27,37 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Szyfrowanie SSL (Secure Socket Layer) to najczęściej stosowana metoda zabezpieczania danych wysyłanych przez Internet. W ramach tego często wykonywanego zadania omówiono sposób określania punktu końcowego HTTPS dla roli sieci Web oraz przekazywania certyfikatu SSL w celu zabezpieczenia aplikacji.
+Metoda zabezpieczania danych przesyłanych między hello hello najczęściej używane jest szyfrowanie Secure Socket Layer (SSL) internet. To zadanie typowe omówiono sposób toospecify punkt końcowy HTTPS dla roli sieci web i jak tooupload SSL certyfikatów toosecure aplikacji.
 
 > [!NOTE]
-> Procedury w tym zadaniu mają zastosowanie do usług Azure Cloud Services; dla usług aplikacji, zobacz [to](../app-service-web/web-sites-configure-ssl-certificate.md) artykułu.
+> Usługi w chmurze tooAzure; Zastosuj Hello procedur w tym zadaniu dla usług aplikacji, zobacz [to](../app-service-web/web-sites-configure-ssl-certificate.md) artykułu.
 > 
 > 
 
-To zadanie używa wdrożenia produkcyjnego. Informacji na temat używania tymczasowej wdrożenia znajduje się na końcu tego tematu.
+To zadanie używa wdrożenia produkcyjnego. Informacji na temat używania tymczasowej wdrożenia znajduje się na powitania na końcu tego tematu.
 
 Odczyt [to](cloud-services-how-to-create-deploy.md) najpierw artykułu, jeśli nie utworzono jeszcze usługi w chmurze.
 
 [!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## <a name="step-1-get-an-ssl-certificate"></a>Krok 1: Uzyskiwanie certyfikatu SSL.
-Aby skonfigurować protokół SSL dla aplikacji, należy najpierw uzyskać certyfikat SSL, który został podpisany przez urząd certyfikacji, zaufanych innej firmy, który wystawia certyfikaty w tym celu. Jeśli nie masz już jeden, należy uzyskać go z firmą, która sprzedaje certyfikatów SSL.
+tooconfigure protokołu SSL dla aplikacji, należy najpierw tooget certyfikat SSL, który został podpisany przez urząd certyfikacji, zaufanych innej firmy, który wystawia certyfikaty w tym celu. Jeśli nie masz już jeden, należy tooobtain jedną z firmy, która sprzedaje certyfikatów SSL.
 
-Certyfikat musi spełniać następujące wymagania dotyczące certyfikatów SSL na platformie Azure:
+Hello certyfikatu musi spełniać następujące wymagania dotyczące certyfikatów SSL na platformie Azure hello:
 
-* Certyfikat musi zawierać klucz prywatny.
-* Certyfikat musi zostać utworzony dla wymiany kluczy, można eksportować do pliku wymiany informacji osobistych (pfx).
-* Nazwa podmiotu certyfikatu musi odpowiadać domeny używane do uzyskania dostępu do usługi w chmurze. Nie można uzyskać certyfikatu SSL z urzędu certyfikacji (CA) dla domeny cloudapp.net. Należy uzyskać niestandardowej nazwy domeny do użycia podczas połączenia się z usługą. Podczas żądania certyfikatu z urzędu certyfikacji, nazwa podmiotu certyfikatu musi odpowiadać nazwie domeny niestandardowej, umożliwiające dostęp do aplikacji. Na przykład jeśli nazwą domeny niestandardowej jest **contoso.com** może zażądać certyfikatu od urzędu certyfikacji dla ***. contoso.com** lub **www.contoso.com**.
-* Certyfikat należy użyć co najmniej 2048-bitowego szyfrowania.
+* Witaj, certyfikat musi zawierać klucz prywatny.
+* Witaj certyfikatu musi zostać utworzony dla wymiany kluczy, można eksportować tooa plik wymiany informacji osobistych (pfx).
+* Hello nazwa podmiotu certyfikatu musi odpowiadać usługi hello tooaccess hello domeny użytej w chmurze. Nie można uzyskać certyfikatu SSL z urzędu certyfikacji (CA) dla domeny cloudapp.net hello. Należy uzyskać toouse nazwy domeny niestandardowej podczas dostępu usługi. Podczas żądania certyfikatu z urzędu certyfikacji, nazwa podmiotu certyfikatu hello musi odpowiadać hello domenę niestandardową nazwę używaną tooaccess aplikacji. Na przykład jeśli nazwą domeny niestandardowej jest **contoso.com** może zażądać certyfikatu od urzędu certyfikacji dla ***. contoso.com** lub **www.contoso.com**.
+* Witaj certyfikatu należy użyć co najmniej 2048-bitowego szyfrowania.
 
-Do celów testowych możesz [utworzyć](cloud-services-certs-create.md) i użycia certyfikatu z podpisem własnym. Certyfikatu z podpisem własnym nie jest uwierzytelniony za pośrednictwem urzędu certyfikacji i może używać domeny cloudapp.net jako adres URL witryny sieci Web. Na przykład następujące zadanie używa certyfikatu z podpisem własnym jest nazwa pospolita (CN) użyta w certyfikacie **sslexample.cloudapp.net**.
+Do celów testowych możesz [utworzyć](cloud-services-certs-create.md) i użycia certyfikatu z podpisem własnym. Certyfikatu z podpisem własnym nie jest uwierzytelniony za pośrednictwem urzędu certyfikacji i używać jako adres URL witryny sieci Web hello hello cloudapp.net domeny. Na przykład hello następujące zadanie używa certyfikatu z podpisem własnym w których hello jest nazwa pospolita (CN) używane w certyfikacie hello **sslexample.cloudapp.net**.
 
-Następnie musi zawierać informacje o certyfikacie w definicji usługi oraz pliki konfiguracji usługi.
+Następnie musi zawierać informacje o certyfikacie hello w definicji usługi oraz pliki konfiguracji usługi.
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Krok 2: Modyfikowanie plików definicji i konfigurację usługi
-Aplikacji musi być skonfigurowana do używania certyfikatu, a punkt końcowy HTTPS muszą zostać dodane. W związku z tym definicji usługi i pliki konfiguracyjne usługi muszą zostać zaktualizowane.
+## <a name="step-2-modify-hello-service-definition-and-configuration-files"></a>Krok 2: Modyfikowanie plików definicji i konfiguracji usługi hello
+Aplikacja musi być skonfigurowany toouse hello certyfikatu, a punkt końcowy HTTPS muszą zostać dodane. W związku z tym hello definicji usługi i pliki konfiguracji usługi wymagają toobe aktualizacji.
 
-1. W środowisku projektowania, otwórz plik definicji usługi (CSDEF), Dodaj **certyfikaty** sekcji w **sieć Web** sekcji i obejmują następujące informacje dotyczące certyfikatu (i certyfikaty pośrednie):
+1. W środowisku projektowania, otwórz plik definicji hello usługi (CSDEF), Dodaj **certyfikaty** sekcji w hello **sieć Web** sekcji, a obejmują hello następujących informacji certyfikat (i certyfikaty pośrednie):
    
     ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -68,11 +68,11 @@ Aplikacji musi być skonfigurowana do używania certyfikatu, a punkt końcowy HT
                         storeName="My"
                         permissionLevel="limitedOrElevated" />
             <!-- IMPORTANT! Unless your certificate is either
-            self-signed or signed directly by the CA root, you
-            must include all the intermediate certificates
+            self-signed or signed directly by hello CA root, you
+            must include all hello intermediate certificates
             here. You must list them here, even if they are
-            not bound to any endpoints. Failing to list any of
-            the intermediate certificates may cause hard-to-reproduce
+            not bound tooany endpoints. Failing toolist any of
+            hello intermediate certificates may cause hard-to-reproduce
             interoperability problems on some clients.-->
             <Certificate name="CAForSampleCertificate"
                         storeLocation="LocalMachine"
@@ -83,15 +83,15 @@ Aplikacji musi być skonfigurowana do używania certyfikatu, a punkt końcowy HT
     </WebRole>
     ```
    
-   **Certyfikaty** sekcja definiuje nazwę naszych certyfikatu, jego lokalizację i nazwę magazynu, w którym znajduje się.
+   Witaj **certyfikaty** sekcja definiuje nazwę hello naszych certyfikatu, jego lokalizację i nazwę hello magazynu hello, w którym znajduje się.
    
-   Uprawnienia (`permisionLevel` atrybut) może być ustawione na jedną z następujących wartości:
+   Uprawnienia (`permisionLevel` atrybutów) mogą być tooone zestawu z hello następujące wartości:
    
    | Wartość uprawnienia | Opis |
    | --- | --- |
-   | limitedOrElevated |**(Ustawienie domyślne)**  Wszystkie procesy roli można uzyskać dostępu do klucza prywatnego. |
-   | z podwyższonym poziomem uprawnień |Tylko procesów z podwyższonym poziomem uprawnień można uzyskać dostępu do klucza prywatnego. |
-2. W pliku definicji usługi, dodać **InputEndpoint** w elemencie **punkty końcowe** sekcji, aby włączyć protokół HTTPS:
+   | limitedOrElevated |**(Ustawienie domyślne)**  Wszystkie procesy roli można uzyskać dostępu do klucza prywatnego hello. |
+   | z podwyższonym poziomem uprawnień |Tylko procesów z podwyższonym poziomem uprawnień można uzyskać dostępu do klucza prywatnego hello. |
+2. W pliku definicji usługi, dodać **InputEndpoint** elementu w obrębie hello **punkty końcowe** sekcji tooenable HTTPS:
    
     ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -104,7 +104,7 @@ Aplikacji musi być skonfigurowana do używania certyfikatu, a punkt końcowy HT
     </WebRole>
     ```
 
-3. W pliku definicji usługi, dodać **powiązanie** w elemencie **witryny** sekcji. W tej sekcji dodaje powiązanie HTTPS do mapowania punktu końcowego do swojej witryny:
+3. W pliku definicji usługi, dodać **powiązanie** elementu w obrębie hello **witryny** sekcji. W tej sekcji dodaje toomap powiązanie HTTPS lokacji tooyour punktu końcowego:
    
     ```xml   
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -120,8 +120,8 @@ Aplikacji musi być skonfigurowana do używania certyfikatu, a punkt końcowy HT
     </WebRole>
     ```
    
-   Wszystkie wymagane zmiany w pliku definicji usługi zostały ukończone, ale nadal konieczne jest dodanie informacji o certyfikacie w pliku konfiguracji usługi.
-4. W pliku konfiguracji usługi (CSCFG), ServiceConfiguration.Cloud.cscfg, Dodaj **certyfikaty** sekcji w **roli** sekcji, zastępując wartość odcisku palca przykładowych pokazano poniżej, z którego certyfikatu:
+   Wszystkie pliku definicji usługi toohello hello wymagane zmiany zostały ukończone, ale nadal potrzebujesz informacji o certyfikacie hello tooadd do pliku konfiguracji usługi hello.
+4. W pliku konfiguracji usługi (CSCFG), ServiceConfiguration.Cloud.cscfg, Dodaj **certyfikaty** sekcji w hello **roli** sekcji, zastępując hello wartość odcisku palca dla przykładowych pokazano poniżej z który certyfikatu:
    
     ```xml   
     <Role name="Deployment">
@@ -138,46 +138,46 @@ Aplikacji musi być skonfigurowana do używania certyfikatu, a punkt końcowy HT
     </Role>
     ```
 
-(W poprzednim przykładzie użyto **sha1** dla algorytmu odcisk palca. Określ wartość odpowiednią dla algorytmu odcisk palca certyfikatu).
+(hello poprzedzających przykładzie użyto **sha1** hello odcisku palca algorytmu. Określ hello odpowiednią wartość dla algorytmu odcisk palca certyfikatu).
 
-Teraz, definicji usługi i pliki konfiguracji usługi zostały zaktualizowane, pakiet wdrożenia do przekazywania do platformy Azure. Jeśli używasz **cspack**, nie używaj **/generateConfigurationFile** Flaga, jako który zastępuje wstawiono informacji o certyfikacie.
+Teraz, gdy hello definicji i usługa plików konfiguracyjnych usługi zostały zaktualizowane, pakiet wdrożenia do przekazywania tooAzure. Jeśli używasz **cspack**, nie używaj **/generateConfigurationFile** Flaga, jako który zastępuje wstawiono informacji o certyfikacie.
 
 ## <a name="step-3-upload-a-certificate"></a>Krok 3: Przekaż certyfikat
-Pakiet wdrażania została zaktualizowana do używania certyfikatu, a dodano punkt końcowy HTTPS. Możesz teraz przekazać certyfikatów i pakietów do platformy Azure z klasycznego portalu Azure.
+Pakiet wdrażania zostało zaktualizowane toouse hello certyfikatu, i dodano punkt końcowy HTTPS. Możesz teraz przekazać tooAzure certyfikatów i pakietów hello z hello klasycznego portalu Azure.
 
-1. Zaloguj się do [klasycznego portalu Azure][Azure classic portal]. 
-2. Kliknij przycisk **usługi w chmurze** w okienku nawigacji po lewej stronie.
-3. Kliknij usługę w chmurze żądany.
-4. Kliknij przycisk **certyfikaty** kartę.
+1. Zaloguj się za toohello [klasycznego portalu Azure][Azure classic portal]. 
+2. Kliknij przycisk **usługi w chmurze** w okienku nawigacji po lewej stronie powitania.
+3. Kliknij pozycję usługi w chmurze hello potrzebne.
+4. Kliknij przycisk hello **certyfikaty** kartę.
    
-    ![Kliknij kartę certyfikaty](./media/cloud-services-configure-ssl-certificate/click-cert.png)
+    ![Kliknij kartę certyfikaty hello](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
-5. Kliknij przycisk **Przekaż**.
+5. Kliknij przycisk hello **przekazać** przycisku.
    
     ![Upload](./media/cloud-services-configure-ssl-certificate/upload-button.png)
     
-6. Podaj **pliku**, **hasło**, następnie kliknij przycisk **Complete** (znacznikiem wyboru).
+6. Podaj hello **pliku**, **hasło**, następnie kliknij przycisk **Complete** (hello znacznikiem wyboru).
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Krok 4: Łączenie z wystąpienia roli przy użyciu protokołu HTTPS
-Teraz, że wdrożenie jest uruchomiona na platformie Azure, można połączyć się przy użyciu protokołu HTTPS.
+## <a name="step-4-connect-toohello-role-instance-by-using-https"></a>Krok 4: Łączenie toohello wystąpienia roli przy użyciu protokołu HTTPS
+Teraz, wdrożenie jest uruchomiona na platformie Azure, możesz połączyć tooit przy użyciu protokołu HTTPS.
 
-1. W klasycznym portalu Azure, wybierz wdrożenie, a następnie kliknij łącze w obszarze **adres URL witryny**.
+1. W hello klasycznego portalu Azure, wybierz wdrożenie, a następnie kliknij łącze hello w obszarze **adres URL witryny**.
    
    ![Określić adres URL witryny][2]
-2. W przeglądarce sieci web Zmień łącze do użycia **https** zamiast **http**, a następnie odwiedź stronę.
+2. W przeglądarce sieci web, należy zmodyfikować hello łącze toouse **https** zamiast **http**, a następnie odwiedź stronę hello.
    
    > [!NOTE]
-   > Jeśli używasz certyfikatu z podpisem własnym, po przejściu do punktu końcowego protokołu HTTPS, który został skojarzony z certyfikatu z podpisem własnym może zostać wyświetlony błąd certyfikatu w przeglądarce. Przy użyciu certyfikatu podpisanego przez zaufany urząd certyfikacji eliminuje ten problem. w międzyczasie możesz zignorować błąd. (Inną opcją jest można dodać certyfikatu z podpisem własnym do magazynu certyfikatów urzędu zaufanego certyfikatu użytkownika).
+   > Jeśli używasz certyfikatu z podpisem własnym, podczas przeglądania tooan punkt końcowy HTTPS skojarzoną z certyfikatu z podpisem własnym hello mogą pojawić się w przeglądarce hello błąd certyfikatu. Przy użyciu certyfikatu podpisanego przez zaufany urząd certyfikacji eliminuje ten problem. w hello międzyczasie, możesz zignorować błąd hello. (Inną możliwością jest tooadd hello certyfikatu z podpisem własnym toohello certyfikat zaufanego urzędu magazynu certyfikatów użytkownika).
    > 
    > 
    
    ![Przykład witryny sieci web protokołu SSL][3]
 
-Jeśli chcesz używać protokołu SSL dla tymczasowej wdrożenia zamiast wdrożenia produkcyjnego, należy najpierw ustalić adresu URL używany do wdrażania przejściowego. Wdrażanie usługi w chmurze do środowiska pomostowego, bez uwzględniania certyfikatu lub żadnych informacji o certyfikacie. Po wdrożeniu, można określić adres URL na podstawie identyfikatora GUID, która jest wyświetlana w klasycznym portalu Azure w **adres URL witryny** pola. Utwórz certyfikat z nazwa pospolita (CN) taki sam adres URL na podstawie identyfikatora GUID (na przykład **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**). Użyj klasycznego portalu Azure można dodać certyfikatu do usługi w chmurze przemieszczane. Następnie dodaj informacje o certyfikacie do pliki CSDEF i CSCFG, ponownie utworzyć pakiet aplikacji i aktualizacji przemieszczanego wdrożenia do użycia nowego pakietu.
+Jeśli chcesz toouse SSL przemieszczania wdrożenia zamiast wdrożenia produkcyjnego, należy najpierw toodetermine hello adres URL dla hello przemieszczania wdrożenia. Wdrażanie usługi toohello przemieszczania środowiska chmury bez uwzględniania certyfikatu lub żadnych informacji o certyfikacie. Po wdrożeniu, można określić adresu hello URL na podstawie identyfikatora GUID, który znajduje się na powitania klasycznego portalu Azure **adres URL witryny** pola. Utwórz certyfikat z hello typowych nazwa (CN) równy toohello oparta na identyfikatorze GUID adresem URL (na przykład **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**). Użyj hello Azure classic portal tooadd hello certyfikatu tooyour przemieszczane usługi w chmurze. Dodawaniu hello informacji tooyour CSDEF i CSCFG pliki certyfikatów, Spakuj ponownie aplikację i zaktualizować wdrożenia etapowego toouse hello nowego pakietu.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Konfiguracja ogólna usługi w chmurze](cloud-services-how-to-configure.md).
-* Dowiedz się, jak [wdrażania usługi w chmurze](cloud-services-how-to-create-deploy.md).
+* Dowiedz się, jak za[wdrażania usługi w chmurze](cloud-services-how-to-create-deploy.md).
 * Skonfiguruj [niestandardowej nazwy domeny](cloud-services-custom-domain-name.md).
 * [Usługi w chmurze zarządzanie](cloud-services-how-to-manage.md).
 

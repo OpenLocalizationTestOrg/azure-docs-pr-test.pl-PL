@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure CDN — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak za pomocą usługi Content Delivery Network (CDN) dostarczać zawartość z globalnych centrów danych na dowolne urządzenie. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+title: "aaaAzure dokumentacji CDN — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse zawartości toodeliver Content Delivery Network (CDN) z danych globalnych w centrach tooany urządzenia. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: cdn
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 8b7d2e7825fce74fad391e52dd423dec8f9a0e17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9d1a26398369233d75f3647a5a68f3e7f8698eb9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cdn-documentation"></a>Dokumentacja usługi CDN
 
-Dowiedz się, jak za pomocą usługi Content Delivery Network (CDN) dostarczać zawartość o wysokiej przepustowości, która jest hostowana na platformie Azure lub w innej lokalizacji. W samouczkach, dokumentacji interfejsu API i w pozostałych dokumentach pokazano, jak przy użyciu usługi CDN dostarczać zawartość z globalnych centrów danych na dowolne urządzenie.
+Dowiedz się, jak toouse Content Delivery Network (CDN) toodeliver wysokiej przepustowości zawartości hostowany na platformie Azure lub gdziekolwiek indziej. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób toouse CDN toodeliver zawartości z danych globalnych w centrach tooany urządzenia.
 
 <ul class="panelContent cardsFTitle">
     <li>

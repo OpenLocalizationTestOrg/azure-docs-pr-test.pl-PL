@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczynanie pracy z magazynu tabel platformy Azure i programu Visual Studio połączone usługi (ASP.NET) | Dokumentacja firmy Microsoft"
-description: "Jak rozpocząć korzystanie z magazynu tabel platformy Azure w projekcie platformy ASP.NET w programie Visual Studio po połączeniu z kontem magazynu przy użyciu programu Visual Studio usług połączonych"
+title: "aaaGet wprowadzenie do magazynu tabel platformy Azure i programu Visual Studio połączone usługi (ASP.NET) | Dokumentacja firmy Microsoft"
+description: "Jak tooget uruchamiane przy użyciu magazynu tabel platformy Azure w projekcie platformy ASP.NET w programie Visual Studio po połączeniu tooa konto magazynu przy użyciu programu Visual Studio usługami"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: tarcher
-ms.openlocfilehash: d9cb32483d3f582bbeb0ccc6a204a8b6d9ea5c96
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e7ed17098c8742954972dc9e1b50eca77221e327
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Rozpoczynanie pracy z magazynu tabel platformy Azure i programu Visual Studio połączone usługi (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Omówienie
 
-Magazyn tabel Azure umożliwia przechowywanie dużych ilości danych strukturalnych. Usługa jest magazynem danych NoSQL, który przyjmuje uwierzytelnione wywołania z wewnątrz lub na zewnątrz w chmurze Azure. Tabele Azure idealnie nadają się do przechowywania strukturalnych danych nierelacyjnych.
+Magazyn tabel Azure umożliwia toostore dużych ilości danych strukturalnych. Usługa Hello jest magazynem danych NoSQL, który przyjmuje uwierzytelnione wywołania z wewnątrz, jak i poza hello chmury Azure. Tabele Azure idealnie nadają się do przechowywania strukturalnych danych nierelacyjnych.
 
-Ten samouczek pokazuje, jak napisać kod ASP.NET dla niektórych typowych scenariuszy przy użyciu jednostek magazynu tabel Azure. Te scenariusze obejmują tworzenie tabeli i dodanie, wyszukiwanie i usuwania jednostek tabeli. 
+Ten samouczek pokazuje, jak kod toowrite ASP.NET dla niektórych typowych scenariuszy przy użyciu jednostek magazynu tabel Azure. Te scenariusze obejmują tworzenie tabeli i dodanie, wyszukiwanie i usuwania jednostek tabeli. 
 
 ##<a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,19 +42,19 @@ Ten samouczek pokazuje, jak napisać kod ASP.NET dla niektórych typowych scenar
 
 ### <a name="create-an-mvc-controller"></a>Tworzenie kontrolera MVC 
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **kontrolerów**i z menu kontekstowego wybierz **kontrolera -> Dodaj**.
+1. W hello **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **kontrolerów**i wybierz z menu kontekstowego hello **kontrolera -> Dodaj**.
 
-    ![Dodawanie kontrolera do aplikacji ASP.NET MVC](./media/vs-storage-aspnet-getting-started-tables/add-controller-menu.png)
+    ![Dodaj tooan kontrolera aplikacji ASP.NET MVC](./media/vs-storage-aspnet-getting-started-tables/add-controller-menu.png)
 
-1. Na **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontroler MVC 5 — pusty**i wybierz **Dodaj**.
+1. Na powitania **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontroler MVC 5 — pusty**i wybierz **Dodaj**.
 
     ![Określ typ kontrolera MVC](./media/vs-storage-aspnet-getting-started-tables/add-controller.png)
 
-1. Na **Dodaj kontroler** okna dialogowego, nazwy kontrolera *TablesController*i wybierz **Dodaj**.
+1. Na powitania **Dodaj kontroler** okno dialogowe, nazwy kontrolera hello *TablesController*i wybierz **Dodaj**.
 
-    ![Nazwa kontrolera MVC](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
+    ![Kontroler MVC hello nazwy](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
 
-1. Dodaj następujące *przy użyciu* dyrektywy `TablesController.cs` pliku:
+1. Dodaj następujące hello *przy użyciu* toohello dyrektywy `TablesController.cs` pliku:
 
     ```csharp
     using Microsoft.Azure;
@@ -65,19 +65,19 @@ Ten samouczek pokazuje, jak napisać kod ASP.NET dla niektórych typowych scenar
 
 ### <a name="create-a-model-class"></a>Utwórz klasę modelu
 
-Wiele przykładów w tym artykule użyj **TableEntity**-klasy o nazwie **CustomerEntity**. Poniższe kroki przedstawiono deklarowanie tę klasę jako klasę modelu:
+Wiele hello przykłady w tym artykule użyj **TableEntity**-klasy o nazwie **CustomerEntity**. następujące kroki Hello informacje pomocne przy deklarowanie tę klasę jako klasę modelu:
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **modele**i z menu kontekstowego wybierz **klasy -> Dodaj**.
+1. W hello **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **modele**i wybierz z menu kontekstowego hello **klasy -> Dodaj**.
 
-1. Na **Dodaj nowy element** okna dialogowego, nazwę klasy, **CustomerEntity**.
+1. Na powitania **Dodaj nowy element** okno dialogowe, nazwa klasy hello, **CustomerEntity**.
 
-1. Otwórz `CustomerEntity.cs` pliku i dodaj następującą **przy użyciu** dyrektywy:
+1. Otwórz hello `CustomerEntity.cs` pliku, a następnie dodaj poniższe hello **przy użyciu** dyrektywy:
 
     ```csharp
     using Microsoft.WindowsAzure.Storage.Table;
     ```
 
-1. Zmodyfikuj klasy, tak, aby po zakończeniu zadeklarowana jest klasa, zgodnie z poniższym kodem. Klasa deklaruje klasy jednostki o nazwie **CustomerEntity** używającej imienia klienta jako klucza wiersza i nazwiska jako klucza partycji.
+1. Zmodyfikuj hello klasy, tak, aby po zakończeniu klasy hello jest zadeklarowana tak jak hello następującego kodu. Klasa Hello deklaruje klasy jednostki o nazwie **CustomerEntity** imienia klienta jako hello klucz wiersza i nazwiska jako klucza partycji hello tekst hello zastosowań.
 
     ```csharp
     public class CustomerEntity : TableEntity
@@ -96,26 +96,26 @@ Wiele przykładów w tym artykule użyj **TableEntity**-klasy o nazwie **Custome
 
 ## <a name="create-a-table"></a>Tworzenie tabeli
 
-Poniższe kroki pokazano, jak utworzyć tabelę:
+Witaj poniższe kroki przedstawiają sposób toocreate tabeli:
 
 > [!NOTE]
 > 
-> W tej sekcji założono zostały wykonane kroki w [Konfigurowanie środowiska programowania](#set-up-the-development-environment). 
+> W tej sekcji założono zostały wykonane kroki hello w [Konfigurowanie środowiska deweloperskiego hello](#set-up-the-development-environment). 
 
-1. Otwórz plik `TablesController.cs`.
+1. Otwórz hello `TablesController.cs` pliku.
 
 1. Dodaj metodę o nazwie **CreateTable** zwracającą **ActionResult**.
 
     ```csharp
     public ActionResult CreateTable()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
 
-1. W ramach **CreateTable** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj następującego kodu można pobrać parametry połączenia magazynu i informacji o koncie magazynu z konfiguracji usługi platformy Azure: (zmiany  *&lt;nazwy konta magazynu >* do nazwy konta magazynu Azure uzyskujesz dostęp do.)
+1. W ramach hello **CreateTable** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj hello poniższy kod tooget hello połączenia ciągu i przechowywania informacji o koncie magazynu z konfiguracji usługi Azure hello: (zmiana  *&lt;nazwy konta magazynu >* toohello nazwę hello magazynu Azure konto, której masz dostęp.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -128,29 +128,29 @@ Poniższe kroki pokazano, jak utworzyć tabelę:
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Pobierz **CloudTable** obiekt, który reprezentuje odwołanie do nazwy żądanej tabeli. **CloudTableClient.GetTableReference** — metoda nie powoduje żądanie magazyn tabel. Czy tabela istnieje, zwracany jest odwołanie. 
+1. Pobierz **CloudTable** obiekt, który reprezentuje nazwę odwołania toohello żądanej tabeli. Witaj **CloudTableClient.GetTableReference** — metoda nie powoduje żądanie magazyn tabel. czy istnieje tabela hello, zwracane jest odwołanie Hello. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Wywołanie **CloudTable.CreateIfNotExists** metodę w celu utworzenia tabeli, jeśli jeszcze nie istnieje. **CloudTable.CreateIfNotExists** metoda zwraca **true** Jeśli tabela nie istnieje i został utworzony pomyślnie. W przeciwnym razie **false** jest zwracany.    
+1. Wywołaj hello **CloudTable.CreateIfNotExists** metody toocreate hello tabeli, jeśli jeszcze nie istnieje. Witaj **CloudTable.CreateIfNotExists** metoda zwraca **true** Jeśli hello tabela nie istnieje i został utworzony pomyślnie. W przeciwnym razie **false** jest zwracany.    
 
     ```csharp
     ViewBag.Success = table.CreateIfNotExists();
     ```
 
-1. Aktualizacja **obiekt ViewBag** z nazwą tabeli.
+1. Aktualizacja hello **obiekt ViewBag** o nazwie hello hello tabeli.
 
     ```csharp
     ViewBag.TableName = table.Name;
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**, a z menu kontekstowego wybierz **Dodaj -> Widok**.
+1. W hello **Eksploratora rozwiązań**, rozwiń hello **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**i wybierz z menu kontekstowego hello **Dodaj -> Widok**.
 
-1. Na **Dodaj widok** okna dialogowego, wprowadź **CreateTable** dla nazwy widoku i wybierz **Dodaj**.
+1. Na powitania **Dodaj widok** okna dialogowego, wprowadź **CreateTable** hello nazwy widoku i wybierz **Dodaj**.
 
-1. Otwórz `CreateTable.cshtml`i zmodyfikuj go, aby wygląda jak poniższy fragment kodu:
+1. Otwórz `CreateTable.cshtml`i zmodyfikuj go, aby wygląda hello następującego fragmentu kodu:
 
     ```csharp
     @{
@@ -162,32 +162,32 @@ Poniższe kroki pokazano, jak utworzyć tabelę:
     Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
+1. W hello **Eksploratora rozwiązań**, rozwiń węzeł hello **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
 
-1. Po wykonaniu ostatniego **Html.ActionLink**, Dodaj następujący **Html.ActionLink**:
+1. Po hello ostatniego **Html.ActionLink**, Dodaj następujące hello **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Uruchom aplikację i wybierz **Utwórz tabelę** aby zobaczyć wyniki, podobnie jak na poniższym zrzucie ekranu:
+1. Uruchamianie aplikacji hello, a następnie wybierz **Utwórz tabelę** toosee wyniki podobne toohello po zrzut ekranu:
   
     ![Tworzenie tabeli](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    Jak wspomniano wcześniej, **CloudTable.CreateIfNotExists** metoda zwraca **true** tylko po tabeli nie istnieje i jest tworzona. W związku z tym po uruchomieniu aplikacji, gdy tabela istnieje, metoda zwraca **false**. Aby uruchomić aplikację wiele razy, możesz usunąć tabeli przed ponownym uruchomieniem aplikacji. Usunięcie tabeli może odbywać się za pośrednictwem **CloudTable.Delete** metody. Możesz także usunąć za pomocą tabeli [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) lub [Eksploratora usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Jak wspomniano wcześniej, hello **CloudTable.CreateIfNotExists** metoda zwraca **true** tylko po tabeli hello nie istnieje i zostanie utworzony. W związku z tym po uruchomieniu aplikacji hello podczas hello tabela istnieje, metoda hello zwraca **false**. Aplikacja hello toorun wielokrotnie, należy usunąć tabeli hello przed ponownym uruchomieniem aplikacji hello. Usuwanie tabeli hello może odbywać się za pośrednictwem hello **CloudTable.Delete** metody. Możesz także usunąć za pomocą hello tabeli hello [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) lub hello [Eksploratora usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
-## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
+## <a name="add-an-entity-tooa-table"></a>Dodaj tabelę tooa jednostki
 
-*Jednostki* mapy w celu C\# obiektów przy użyciu niestandardowej klasy pochodzące z **TableEntity**. Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje właściwości jednostki. W tej sekcji pojawi się, jak zdefiniować klasę jednostki, która używa imienia klienta jako klucza wiersza i nazwiska jako klucza partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, niemniej użycie różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych. Dla właściwości, które mają być przechowywane w usłudze tabel właściwość musi być właściwością publiczną obsługiwanego typu, która ujawnia zarówno ustawiania i pobierania wartości.
-Klasa jednostki *musi* zadeklarować publicznego konstruktora bez parametrów.
+*Jednostki* mapy tooC\# obiektów przy użyciu niestandardowej klasy pochodzące z **TableEntity**. tooadd tabeli tooa jednostki, Utwórz klasę, która definiuje właściwości hello jednostki. W tej sekcji zobaczysz, jak toodefine klasę jednostki, która używa hello imienia klienta jako hello klucz wiersza i nazwiska jako klucza partycji hello. Razem klucz partycji i klucz wiersza jednoznacznie zidentyfikować hello jednostki w tabeli hello. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, niemniej użycie różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych. Dla właściwości, które mają być przechowywane w usłudze tabel hello właściwość hello musi być właściwością publiczną obsługiwanego typu, która ujawnia zarówno ustawiania i pobierania wartości.
+Witaj klasy jednostka *musi* zadeklarować publicznego konstruktora bez parametrów.
 
 > [!NOTE]
 > 
-> W tej sekcji założono zostały wykonane kroki w [Konfigurowanie środowiska programowania](#set-up-the-development-environment).
+> W tej sekcji założono zostały wykonane kroki hello w [Konfigurowanie środowiska deweloperskiego hello](#set-up-the-development-environment).
 
-1. Otwórz plik `TablesController.cs`.
+1. Otwórz hello `TablesController.cs` pliku.
 
-1. Dodaj następujące dyrektywy, aby kod w `TablesController.cs` mogą uzyskiwać dostęp do pliku **CustomerEntity** klasy:
+1. Dodaj następujące dyrektywy, które hello kodu w hello hello `TablesController.cs` pliku mogą uzyskiwać dostęp do hello **CustomerEntity** klasy:
 
     ```csharp
     using StorageAspnet.Models;
@@ -198,13 +198,13 @@ Klasa jednostki *musi* zadeklarować publicznego konstruktora bez parametrów.
     ```csharp
     public ActionResult AddEntity()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
 
-1. W ramach **AddEntity** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj następującego kodu można pobrać parametry połączenia magazynu i informacji o koncie magazynu z konfiguracji usługi platformy Azure: (zmiany  *&lt;nazwy konta magazynu >* do nazwy konta magazynu Azure uzyskujesz dostęp do.)
+1. W ramach hello **AddEntity** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj hello poniższy kod tooget hello połączenia ciągu i przechowywania informacji o koncie magazynu z konfiguracji usługi Azure hello: (zmiana  *&lt;nazwy konta magazynu >* toohello nazwę hello magazynu Azure konto, której masz dostęp.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -217,43 +217,43 @@ Klasa jednostki *musi* zadeklarować publicznego konstruktora bez parametrów.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Pobierz **CloudTable** obiekt, który reprezentuje odwołanie do tabeli, do której zamierzasz dodać nową jednostkę. 
+1. Pobierz **CloudTable** obiekt, który reprezentuje toowhich tabeli toohello odwołanie ma tooadd hello nowej jednostki. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Utwórz wystąpienie i zainicjować **CustomerEntity** klasy.
+1. Utwórz wystąpienie i zainicjować hello **CustomerEntity** klasy.
 
     ```csharp
     CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
     customer1.Email = "Walter@contoso.com";
     ```
 
-1. Utwórz **TableOperation** obiekt, który wstawia jednostki klienta.
+1. Utwórz **TableOperation** obiekt, który wstawia powitania klienta jednostki.
 
     ```csharp
     TableOperation insertOperation = TableOperation.Insert(customer1);
     ```
 
-1. Wykonywanie operacji insert, wywołując **CloudTable.Execute** metody. Sprawdź wynik operacji, sprawdzając **TableResult.HttpStatusCode** właściwości. Kod stanu 2xx wskazuje, że akcja żądanego przez klienta zostało przetworzone pomyślnie. Na przykład pomyślnie wstawienia nowych jednostek skutkuje kod stanu HTTP 204, co oznacza, że operacja została pomyślnie przetworzył i serwer nie zwrócił żadnej zawartości.
+1. Wykonanie operacji wstawiania hello przez wywołanie hello **CloudTable.Execute** metody. Sprawdź hello wynik operacji hello, sprawdzając hello **TableResult.HttpStatusCode** właściwości. Kod stanu 2xx wskazuje, że akcja hello żądany przez klienta na powitania zostało przetworzone pomyślnie. Na przykład pomyślnie wstawienia nowych jednostek powoduje kod stanu HTTP 204, co oznacza, że pomyślnie przetworzono hello operacji i powitania serwera nie zwróciło żadnej zawartości.
 
     ```csharp
     TableResult result = table.Execute(insertOperation);
     ```
 
-1. Aktualizacja **obiekt ViewBag** z nazwą tabeli i wyniki operacji insert.
+1. Aktualizacja hello **obiekt ViewBag** o nazwie tabeli hello i hello wyniki operacji insert hello.
 
     ```csharp
     ViewBag.TableName = table.Name;
     ViewBag.Result = result.HttpStatusCode;
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**, a z menu kontekstowego wybierz **Dodaj -> Widok**.
+1. W hello **Eksploratora rozwiązań**, rozwiń hello **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**i wybierz z menu kontekstowego hello **Dodaj -> Widok**.
 
-1. Na **Dodaj widok** okna dialogowego, wprowadź **AddEntity** dla nazwy widoku i wybierz **Dodaj**.
+1. Na powitania **Dodaj widok** okna dialogowego, wprowadź **AddEntity** hello nazwy widoku i wybierz **Dodaj**.
 
-1. Otwórz `AddEntity.cshtml`i zmodyfikuj go, aby wygląda jak poniższy fragment kodu:
+1. Otwórz `AddEntity.cshtml`i zmodyfikuj go, aby wygląda hello następującego fragmentu kodu:
 
     ```csharp
     @{
@@ -264,42 +264,42 @@ Klasa jednostki *musi* zadeklarować publicznego konstruktora bez parametrów.
 
     Insert of entity into @ViewBag.TableName @(ViewBag.Result == 204 ? "succeeded" : "failed")
     ```
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
+1. W hello **Eksploratora rozwiązań**, rozwiń węzeł hello **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
 
-1. Po wykonaniu ostatniego **Html.ActionLink**, Dodaj następujący **Html.ActionLink**:
+1. Po hello ostatniego **Html.ActionLink**, Dodaj następujące hello **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Uruchom aplikację i wybierz **dodania jednostki** aby zobaczyć wyniki, podobnie jak na poniższym zrzucie ekranu:
+1. Uruchamianie aplikacji hello, a następnie wybierz **dodania jednostki** toosee wyniki podobne toohello po zrzut ekranu:
   
     ![Dodawanie jednostki](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
-    Możesz sprawdzić, czy obiekt został dodany, wykonując kroki opisane w sekcji [pobrać pojedynczą jednostką](#get-a-single-entity). Można również użyć [Eksploratora usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) do wyświetlania wszystkich jednostek tabel.
+    Możesz sprawdzić, czy jednostki hello został dodany, wykonując kroki hello w sekcji hello [pobrać pojedynczą jednostką](#get-a-single-entity). Można również użyć hello [Eksploratora usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) tooview hello wszystkie jednostki dla tabel.
 
-## <a name="add-a-batch-of-entities-to-a-table"></a>Dodawanie partię jednostek do tabeli
+## <a name="add-a-batch-of-entities-tooa-table"></a>Dodaj partii jednostek tooa tabeli
 
-Oprócz możliwości [dodać jednostkę do jednej tabeli w czasie](#add-an-entity-to-a-table), możesz także dodać jednostek w partii. Dodawanie jednostek w partii zmniejsza liczbę przechodzenia między kodu i usługa tabel Azure. Następujące kroki przedstawiono sposób dodawania wielu jednostek do tabeli za pomocą jednej operacji wstawiania:
+W stanie toobeing dodanie zbyt[Dodaj tabelę tooa jednostki, co w czasie](#add-an-entity-to-a-table), możesz także dodać jednostek w partii. Dodawanie jednostek w partii zmniejsza hello częstotliwości przechodzenia między kod i hello usługi tabeli platformy Azure. Hello następujące kroki ilustrują sposób tooadd wiele jednostek tooa tabeli z operacją insert pojedynczego:
 
 > [!NOTE]
 > 
-> W tej sekcji założono zostały wykonane kroki w [Konfigurowanie środowiska programowania](#set-up-the-development-environment).
+> W tej sekcji założono zostały wykonane kroki hello w [Konfigurowanie środowiska deweloperskiego hello](#set-up-the-development-environment).
 
-1. Otwórz plik `TablesController.cs`.
+1. Otwórz hello `TablesController.cs` pliku.
 
 1. Dodaj metodę o nazwie **AddEntities** zwracającą **ActionResult**.
 
     ```csharp
     public ActionResult AddEntities()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
 
-1. W ramach **AddEntities** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj następującego kodu można pobrać parametry połączenia magazynu i informacji o koncie magazynu z konfiguracji usługi platformy Azure: (zmiany  *&lt;nazwy konta magazynu >* do nazwy konta magazynu Azure uzyskujesz dostęp do.)
+1. W ramach hello **AddEntities** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj hello poniższy kod tooget hello połączenia ciągu i przechowywania informacji o koncie magazynu z konfiguracji usługi Azure hello: (zmiana  *&lt;nazwy konta magazynu >* toohello nazwę hello magazynu Azure konto, której masz dostęp.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -312,13 +312,13 @@ Oprócz możliwości [dodać jednostkę do jednej tabeli w czasie](#add-an-entit
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Pobierz **CloudTable** obiekt, który reprezentuje odwołanie do tabeli, do której zamierzasz dodać nowe jednostki. 
+1. Pobierz **CloudTable** obiekt, który reprezentuje toowhich tabeli toohello odwołania są będzie tooadd hello nowych jednostek. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Utworzenie wystąpienia niektórych obiektów klienta na podstawie **CustomerEntity** klasa przedstawione w sekcji modelu [dodać jednostkę do tabeli](#add-an-entity-to-a-table).
+1. Utworzenie wystąpienia niektórych obiektów klienta oparte na powitania **CustomerEntity** klasa przedstawione w sekcji hello modelu [Dodaj tabelę tooa jednostki](#add-an-entity-to-a-table).
 
     ```csharp
     CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
@@ -334,30 +334,30 @@ Oprócz możliwości [dodać jednostkę do jednej tabeli w czasie](#add-an-entit
     TableBatchOperation batchOperation = new TableBatchOperation();
     ```
 
-1. Dodaj jednostki do obiektu operacji wstawiania wsadowego.
+1. Dodaj obiekt operacji wstawiania wsadowego toohello jednostek.
 
     ```csharp
     batchOperation.Insert(customer1);
     batchOperation.Insert(customer2);
     ```
 
-1. Wykonanie operacji wstawiania wsadowego przez wywołanie metody **CloudTable.ExecuteBatch** metody.   
+1. Wykonanie operacji wstawiania wsadowego hello przez wywołanie hello **CloudTable.ExecuteBatch** metody.   
 
     ```csharp
     IList<TableResult> results = table.ExecuteBatch(batchOperation);
     ```
 
-1. **CloudTable.ExecuteBatch** metoda zwraca listę **TableResult** obiektów gdzie każdy **TableResult** obiektu można zbadać do ustalenia powodzenia lub niepowodzenia poszczególnych działań. Na przykład przekazania do widoku listy i pozwól widoku wyświetlane wyniki każdego działania. 
+1. Witaj **CloudTable.ExecuteBatch** metoda zwraca listę **TableResult** obiektów gdzie każdy **TableResult** obiekt może być sprawdzone toodetermine hello powodzenie lub niepowodzenie poszczególnych działań. Na przykład przekazać widoku tooa listy hello i pozwól widoku hello wyświetlać wyniki hello każdej operacji. 
  
     ```csharp
     return View(results);
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**, a z menu kontekstowego wybierz **Dodaj -> Widok**.
+1. W hello **Eksploratora rozwiązań**, rozwiń hello **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**i wybierz z menu kontekstowego hello **Dodaj -> Widok**.
 
-1. Na **Dodaj widok** okna dialogowego, wprowadź **AddEntities** dla nazwy widoku i wybierz **Dodaj**.
+1. Na powitania **Dodaj widok** okna dialogowego, wprowadź **AddEntities** hello nazwy widoku i wybierz **Dodaj**.
 
-1. Otwórz `AddEntities.cshtml`i zmodyfikuj go, aby wygląda podobnie do poniższego.
+1. Otwórz `AddEntities.cshtml`i zmodyfikuj go, aby wygląda jak poniżej hello.
 
     ```csharp
     @model IEnumerable<Microsoft.WindowsAzure.Storage.Table.TableResult>
@@ -384,42 +384,42 @@ Oprócz możliwości [dodać jednostkę do jednej tabeli w czasie](#add-an-entit
     </table>
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
+1. W hello **Eksploratora rozwiązań**, rozwiń węzeł hello **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
 
-1. Po wykonaniu ostatniego **Html.ActionLink**, Dodaj następujący **Html.ActionLink**:
+1. Po hello ostatniego **Html.ActionLink**, Dodaj następujące hello **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Uruchom aplikację i wybierz **Dodaj jednostki** aby zobaczyć wyniki, podobnie jak na poniższym zrzucie ekranu:
+1. Uruchamianie aplikacji hello, a następnie wybierz **Dodaj jednostki** toosee wyniki podobne toohello po zrzut ekranu:
   
     ![Dodawanie jednostek](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
-    Możesz sprawdzić, czy obiekt został dodany, wykonując kroki opisane w sekcji [pobrać pojedynczą jednostką](#get-a-single-entity). Można również użyć [Eksploratora usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) do wyświetlania wszystkich jednostek tabel.
+    Możesz sprawdzić, czy jednostki hello został dodany, wykonując kroki hello w sekcji hello [pobrać pojedynczą jednostką](#get-a-single-entity). Można również użyć hello [Eksploratora usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) tooview hello wszystkie jednostki dla tabel.
 
 ## <a name="get-a-single-entity"></a>Pobierz pojedynczy element
 
-W tej części przedstawiono sposób pobierania pojedyncza jednostka z tabeli za pomocą klucz wiersza jednostki i klucz partycji. 
+W tej części przedstawiono, jak tooget pojedyncza jednostka z tabeli za pomocą hello klucz wiersza jednostki i klucz partycji. 
 
 > [!NOTE]
 > 
-> W tej sekcji założono zostały wykonane kroki w [Konfigurowanie środowiska programowania](#set-up-the-development-environment)i korzysta z danych [dodać partię jednostek do tabeli](#add-a-batch-of-entities-to-a-table). 
+> W tej sekcji założono zostały wykonane kroki hello w [Konfigurowanie środowiska deweloperskiego hello](#set-up-the-development-environment)i korzysta z danych [dodać partii jednostek tooa tabeli](#add-a-batch-of-entities-to-a-table). 
 
-1. Otwórz plik `TablesController.cs`.
+1. Otwórz hello `TablesController.cs` pliku.
 
 1. Dodaj metodę o nazwie **GetSingle** zwracającą **ActionResult**.
 
     ```csharp
     public ActionResult GetSingle()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
 
-1. W ramach **GetSingle** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj następującego kodu można pobrać parametry połączenia magazynu i informacji o koncie magazynu z konfiguracji usługi platformy Azure: (zmiany  *&lt;nazwy konta magazynu >* do nazwy konta magazynu Azure uzyskujesz dostęp do.)
+1. W ramach hello **GetSingle** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj hello poniższy kod tooget hello połączenia ciągu i przechowywania informacji o koncie magazynu z konfiguracji usługi Azure hello: (zmiana  *&lt;nazwy konta magazynu >* toohello nazwę hello magazynu Azure konto, której masz dostęp.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -432,35 +432,35 @@ W tej części przedstawiono sposób pobierania pojedyncza jednostka z tabeli za
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Pobierz **CloudTable** obiekt, który reprezentuje odwołanie do tabeli, z którego są pobierane jednostki. 
+1. Pobierz **CloudTable** obiekt, który reprezentuje tabelę toohello odwołanie, z którego są pobierane hello jednostki. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Utwórz obiekt operacji pobierania, który przyjmuje do obiektu jednostki pochodne **TableEntity**. Pierwszym parametrem jest *partitionKey*, a drugi parametr jest *rowKey*. Przy użyciu **CustomerEntity** klasy i dane podane w sekcji [dodać partię jednostek do tabeli](#add-a-batch-of-entities-to-a-table), poniższy fragment kodu wysyła zapytanie do tabeli dla **CustomerEntity**jednostki o *partitionKey* wartość "Smith" i *rowKey* wartość "Ben":
+1. Utwórz obiekt operacji pobierania, który przyjmuje do obiektu jednostki pochodne **TableEntity**. pierwszy parametr Hello jest hello *partitionKey*, a drugi parametr hello jest hello *rowKey*. Przy użyciu hello **CustomerEntity** klasy i dane podane w sekcji hello [dodać partii jednostek tabeli tooa](#add-a-batch-of-entities-to-a-table), hello następujący kod fragment zapytania hello tabeli **CustomerEntity** jednostki o *partitionKey* wartość "Smith" i *rowKey* wartość "Ben":
 
     ```csharp
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
     ```
 
-1. Wykonanie operacji pobierania.   
+1. Wykonanie operacji pobierania hello.   
 
     ```csharp
     TableResult result = table.Execute(retrieveOperation);
     ```
 
-1. Przekazać wynik do widoku do wyświetlenia.
+1. Przekaż hello widok toohello wyników do wyświetlenia.
 
     ```csharp
     return View(result);
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**, a z menu kontekstowego wybierz **Dodaj -> Widok**.
+1. W hello **Eksploratora rozwiązań**, rozwiń hello **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**i wybierz z menu kontekstowego hello **Dodaj -> Widok**.
 
-1. Na **Dodaj widok** okna dialogowego, wprowadź **GetSingle** dla nazwy widoku i wybierz **Dodaj**.
+1. Na powitania **Dodaj widok** okna dialogowego, wprowadź **GetSingle** hello nazwy widoku i wybierz **Dodaj**.
 
-1. Otwórz `GetSingle.cshtml`i zmodyfikuj go, aby wygląda jak poniższy fragment kodu:
+1. Otwórz `GetSingle.cshtml`i zmodyfikuj go, aby wygląda hello następującego fragmentu kodu:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -486,40 +486,40 @@ W tej części przedstawiono sposób pobierania pojedyncza jednostka z tabeli za
     </table>
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
+1. W hello **Eksploratora rozwiązań**, rozwiń węzeł hello **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
 
-1. Po wykonaniu ostatniego **Html.ActionLink**, Dodaj następujący **Html.ActionLink**:
+1. Po hello ostatniego **Html.ActionLink**, Dodaj następujące hello **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Uruchom aplikację i wybierz **Pobierz pojedynczy** aby zobaczyć wyniki, podobnie jak na poniższym zrzucie ekranu:
+1. Uruchamianie aplikacji hello, a następnie wybierz **Pobierz pojedynczy** toosee wyniki podobne toohello po zrzut ekranu:
   
     ![Pobierz pojedynczy](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
 ## <a name="get-all-entities-in-a-partition"></a>Pobieranie wszystkich jednostek w partycji
 
-Jak wspomniano w sekcji [dodać jednostkę do tabeli](#add-an-entity-to-a-table), partycji i klucz wiersza jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji. W tej części przedstawiono sposób tworzenia zapytań tabeli dla wszystkich obiektów z określonej partycji.  
+Jak wspomniano w sekcji hello [Dodaj tabelę tooa jednostki](#add-an-entity-to-a-table), kombinację hello partycji i klucz wiersza jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji. W tej części przedstawiono sposób tooquery tabeli dla wszystkich jednostek hello z określonej partycji.  
 
 > [!NOTE]
 > 
-> W tej sekcji założono zostały wykonane kroki w [Konfigurowanie środowiska programowania](#set-up-the-development-environment)i korzysta z danych [dodać partię jednostek do tabeli](#add-a-batch-of-entities-to-a-table). 
+> W tej sekcji założono zostały wykonane kroki hello w [Konfigurowanie środowiska deweloperskiego hello](#set-up-the-development-environment)i korzysta z danych [dodać partii jednostek tooa tabeli](#add-a-batch-of-entities-to-a-table). 
 
-1. Otwórz plik `TablesController.cs`.
+1. Otwórz hello `TablesController.cs` pliku.
 
 1. Dodaj metodę o nazwie **GetPartition** zwracającą **ActionResult**.
 
     ```csharp
     public ActionResult GetPartition()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
 
-1. W ramach **GetPartition** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj następującego kodu można pobrać parametry połączenia magazynu i informacji o koncie magazynu z konfiguracji usługi platformy Azure: (zmiany  *&lt;nazwy konta magazynu >* do nazwy konta magazynu Azure uzyskujesz dostęp do.)
+1. W ramach hello **GetPartition** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj hello poniższy kod tooget hello połączenia ciągu i przechowywania informacji o koncie magazynu z konfiguracji usługi Azure hello: (zmiana  *&lt;nazwy konta magazynu >* toohello nazwę hello magazynu Azure konto, której masz dostęp.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -532,13 +532,13 @@ Jak wspomniano w sekcji [dodać jednostkę do tabeli](#add-an-entity-to-a-table)
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Pobierz **CloudTable** obiekt, który reprezentuje odwołanie do tabeli, z którego są pobierane jednostek. 
+1. Pobierz **CloudTable** obiekt, który reprezentuje tabeli toohello odwołań, z którego są pobierane hello jednostek. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Utwórz wystąpienie **TableQuery** obiekt określający zapytanie w **gdzie** klauzuli. Przy użyciu **CustomerEntity** klasy i dane podane w sekcji [dodać partię jednostek do tabeli](#add-a-batch-of-entities-to-a-table), poniższy fragment kodu wysyła zapytanie do tabeli dla wszystkich jednostek gdzie  **PartitionKey** (nazwiska) ma wartość "Smith":
+1. Utwórz wystąpienie **TableQuery** obiektu określenie hello zapytania w hello **gdzie** klauzuli. Przy użyciu hello **CustomerEntity** klasy i dane podane w sekcji hello [dodać partii jednostek tabeli tooa](#add-a-batch-of-entities-to-a-table), hello poniższy kod fragment zapytania hello tabeli dla wszystkich jednostek, gdzie hello  **PartitionKey** (nazwiska) ma wartość "Smith":
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -546,7 +546,7 @@ Jak wspomniano w sekcji [dodać jednostkę do tabeli](#add-an-entity-to-a-table)
         .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
     ```
 
-1. W pętli, wywołaj **CloudTable.ExecuteQuerySegmented** metody przekazanie obiektu zapytanie utworzone w poprzednim kroku.  **CloudTable.ExecuteQuerySegmented** metoda zwraca **TableContinuationToken** obiekt, który — podczas **null** — wskazuje, że nie ma żadnych kolejnych jednostek do pobrania. W pętli Użyj innego pętli w celu wykonania iteracji zwrócone jednostki. W poniższym przykładzie kodu każdy zwrócony obiekt zostanie dodany do listy. Po zakończenia pętli, listy jest przekazywany do widoku do wyświetlenia: 
+1. W pętli, wywołaj hello **CloudTable.ExecuteQuerySegmented** metoda przekazywania można utworzyć wystąpienia obiektu query hello hello poprzedniego kroku.  Hello **CloudTable.ExecuteQuerySegmented** metoda zwraca **TableContinuationToken** obiekt – podczas **null** — wskazuje, że nie ma żadnych kolejnych jednostek tooretrieve. W pętli hello należy użyć innego tooiterate pętli za pośrednictwem hello zwracane jednostki. W hello poniższy przykład kodu każdy zwrócony obiekt jest dodawany tooa listy. Raz hello kończy pętlę, hello listy jest przekazywany tooa widoku do wyświetlenia: 
 
     ```csharp
     List<CustomerEntity> customers = new List<CustomerEntity>();
@@ -565,11 +565,11 @@ Jak wspomniano w sekcji [dodać jednostkę do tabeli](#add-an-entity-to-a-table)
     return View(customers);
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**, a z menu kontekstowego wybierz **Dodaj -> Widok**.
+1. W hello **Eksploratora rozwiązań**, rozwiń hello **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**i wybierz z menu kontekstowego hello **Dodaj -> Widok**.
 
-1. Na **Dodaj widok** okna dialogowego, wprowadź **GetPartition** dla nazwy widoku i wybierz **Dodaj**.
+1. Na powitania **Dodaj widok** okna dialogowego, wprowadź **GetPartition** hello nazwy widoku i wybierz **Dodaj**.
 
-1. Otwórz `GetPartition.cshtml`i zmodyfikuj go, aby wygląda jak poniższy fragment kodu:
+1. Otwórz `GetPartition.cshtml`i zmodyfikuj go, aby wygląda hello następującego fragmentu kodu:
 
     ```csharp
     @model IEnumerable<StorageAspnet.Models.CustomerEntity>
@@ -596,40 +596,40 @@ Jak wspomniano w sekcji [dodać jednostkę do tabeli](#add-an-entity-to-a-table)
     </table>
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
+1. W hello **Eksploratora rozwiązań**, rozwiń węzeł hello **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
 
-1. Po wykonaniu ostatniego **Html.ActionLink**, Dodaj następujący **Html.ActionLink**:
+1. Po hello ostatniego **Html.ActionLink**, Dodaj następujące hello **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Uruchom aplikację i wybierz **pobrać partycji** aby zobaczyć wyniki, podobnie jak na poniższym zrzucie ekranu:
+1. Uruchamianie aplikacji hello, a następnie wybierz **pobrać partycji** toosee wyniki podobne toohello po zrzut ekranu:
   
     ![Pobierz partycji](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
 ## <a name="delete-an-entity"></a>Usuwanie jednostki
 
-W tej części przedstawiono sposób usuwania jednostek z tabeli.
+W tej części przedstawiono sposób toodelete jednostki z tabeli.
 
 > [!NOTE]
 > 
-> W tej sekcji założono zostały wykonane kroki w [Konfigurowanie środowiska programowania](#set-up-the-development-environment)i korzysta z danych [dodać partię jednostek do tabeli](#add-a-batch-of-entities-to-a-table). 
+> W tej sekcji założono zostały wykonane kroki hello w [Konfigurowanie środowiska deweloperskiego hello](#set-up-the-development-environment)i korzysta z danych [dodać partii jednostek tooa tabeli](#add-a-batch-of-entities-to-a-table). 
 
-1. Otwórz plik `TablesController.cs`.
+1. Otwórz hello `TablesController.cs` pliku.
 
 1. Dodaj metodę o nazwie **DeleteEntity** zwracającą **ActionResult**.
 
     ```csharp
     public ActionResult DeleteEntity()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
 
-1. W ramach **DeleteEntity** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj następującego kodu można pobrać parametry połączenia magazynu i informacji o koncie magazynu z konfiguracji usługi platformy Azure: (zmiany  *&lt;nazwy konta magazynu >* do nazwy konta magazynu Azure uzyskujesz dostęp do.)
+1. W ramach hello **DeleteEntity** metody get **CloudStorageAccount** obiekt, który reprezentuje informacje o koncie magazynu. Użyj hello poniższy kod tooget hello połączenia ciągu i przechowywania informacji o koncie magazynu z konfiguracji usługi Azure hello: (zmiana  *&lt;nazwy konta magazynu >* toohello nazwę hello magazynu Azure konto, której masz dostęp.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -642,36 +642,36 @@ W tej części przedstawiono sposób usuwania jednostek z tabeli.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Pobierz **CloudTable** obiekt, który reprezentuje odwołanie do tabeli, z której po usunięciu jednostki. 
+1. Pobierz **CloudTable** obiekt, który reprezentuje odwołanie do tabeli toohello, z której po usunięciu jednostki hello. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Utwórz obiekt operacji delete, który przyjmuje do obiektu jednostki pochodne **TableEntity**. W takim przypadku stosujemy **CustomerEntity** klasy i dane podane w sekcji [dodać partię jednostek do tabeli](#add-a-batch-of-entities-to-a-table). Jednostki **ETag** musi mieć ustawioną prawidłową wartość.  
+1. Utwórz obiekt operacji delete, który przyjmuje do obiektu jednostki pochodne **TableEntity**. W takim przypadku stosujemy hello **CustomerEntity** klasy i dane podane w sekcji hello [dodać partii jednostek tooa tabeli](#add-a-batch-of-entities-to-a-table). Witaj jednostki **ETag** należy wybrać prawidłową wartość tooa.  
 
     ```csharp
     TableOperation deleteOperation = 
         TableOperation.Delete(new CustomerEntity("Smith", "Ben") { ETag = "*" } );
     ```
 
-1. Wykonanie operacji usuwania.   
+1. Wykonanie operacji usuwania hello.   
 
     ```csharp
     TableResult result = table.Execute(deleteOperation);
     ```
 
-1. Przekazać wynik do widoku do wyświetlenia.
+1. Przekaż hello widok toohello wyników do wyświetlenia.
 
     ```csharp
     return View(result);
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**, a z menu kontekstowego wybierz **Dodaj -> Widok**.
+1. W hello **Eksploratora rozwiązań**, rozwiń hello **widoków** folderu, kliknij prawym przyciskiem myszy **tabel**i wybierz z menu kontekstowego hello **Dodaj -> Widok**.
 
-1. Na **Dodaj widok** okna dialogowego, wprowadź **DeleteEntity** dla nazwy widoku i wybierz **Dodaj**.
+1. Na powitania **Dodaj widok** okna dialogowego, wprowadź **DeleteEntity** hello nazwy widoku i wybierz **Dodaj**.
 
-1. Otwórz `DeleteEntity.cshtml`i zmodyfikuj go, aby wygląda jak poniższy fragment kodu:
+1. Otwórz `DeleteEntity.cshtml`i zmodyfikuj go, aby wygląda hello następującego fragmentu kodu:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -696,20 +696,20 @@ W tej części przedstawiono sposób usuwania jednostek z tabeli.
 
     ```
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
+1. W hello **Eksploratora rozwiązań**, rozwiń węzeł hello **Shared -> widoki** folder, a następnie otwórz `_Layout.cshtml`.
 
-1. Po wykonaniu ostatniego **Html.ActionLink**, Dodaj następujący **Html.ActionLink**:
+1. Po hello ostatniego **Html.ActionLink**, Dodaj następujące hello **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Uruchom aplikację i wybierz **usuwanie jednostek** aby zobaczyć wyniki, podobnie jak na poniższym zrzucie ekranu:
+1. Uruchamianie aplikacji hello, a następnie wybierz **usuwanie jednostek** toosee wyniki podobne toohello po zrzut ekranu:
   
     ![Pobierz pojedynczy](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
+Wyświetl więcej funkcji toolearn przewodników o dodatkowych opcjach przechowywania danych na platformie Azure.
 
   * [Wprowadzenie do magazynu obiektów blob platformy Azure i programu Visual Studio połączone usługi (ASP.NET)](./vs-storage-aspnet-getting-started-blobs.md)
   * [Rozpoczynanie pracy z magazynem kolejek Azure i programu Visual Studio połączone usługi (ASP.NET)](./vs-storage-aspnet-getting-started-queues.md)

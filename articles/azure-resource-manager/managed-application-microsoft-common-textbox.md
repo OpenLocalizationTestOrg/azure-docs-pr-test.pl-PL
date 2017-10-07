@@ -1,6 +1,6 @@
 ---
-title: "Azure zarządzanych aplikacji pola tekstowego elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
-description: "Opis elementu Microsoft.Common.TextBox interfejsu użytkownika dla aplikacji Azure"
+title: "aaaAzure zarządzanych aplikacji pola tekstowego elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
+description: "Opisuje hello elementu Microsoft.Common.TextBox interfejsu użytkownika dla aplikacji Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 5a0ac5b811812c8c03f7f63aae12b8699d248ebf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 11771cd1d689b720384df98b8d1465703068af37
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Element Microsoft.Common.TextBox interfejsu użytkownika
-Formant, który może służyć do edycji niesformatowanego tekstu. Użyj tego elementu po [tworzenie aplikacji zarządzanych Azure](managed-application-publishing.md).
+Formant, który może być używane tooedit niesformatowanego tekstu. Użyj tego elementu po [tworzenie aplikacji zarządzanych Azure](managed-application-publishing.md).
 
 ## <a name="ui-sample"></a>Przykład interfejsu użytkownika
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
@@ -36,17 +36,17 @@ Formant, który może służyć do edycji niesformatowanego tekstu. Użyj tego e
   "constraints": {
     "required": true,
     "regex": "^[a-z0-9A-Z]{1,30}$",
-    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+    "validationMessage": "Only alphanumeric characters are allowed, and hello value must be 1-30 characters long."
   },
   "visible": true
 }
 ```
 
 ## <a name="remarks"></a>Uwagi
-- Jeśli `constraints.required` ustawiono **true**, a następnie w polu tekstowym musi zawierać wartość do zweryfikowania pomyślnie. Wartość domyślna to **false**.
-- `constraints.regex`jest wzorzec wyrażenia regularnego JavaScript. Jeśli jest określony, wartość pola tekstowego musi odpowiadać wzorzec można pomyślnie zweryfikować. Wartość domyślna to **null**.
-- `constraints.validationMessage`jest to ciąg wyświetlany, gdy wartość w polu tekstowym weryfikacji nie powiedzie się. Jeśli nie zostanie określony, komunikaty o błędach weryfikacji wbudowane pole tekstowe są używane. Wartość domyślna to **null**.
-- Można określić wartość dla `constraints.regex` podczas `constraints.required` ustawiono **false**. W tym scenariuszu wartość nie jest wymagane dla pola tekstowego sprawdzić poprawność pomyślnie. Jeśli jest określony, musi być zgodna ze wzorcem wyrażenia regularnego.
+- Jeśli `constraints.required` ustawiono zbyt**true**, a następnie w polu tekstowym hello musi zawierać toovalidate wartość pomyślnie. Witaj, wartość domyślna to **false**.
+- `constraints.regex`jest wzorzec wyrażenia regularnego JavaScript. Jeśli zostanie określona, to wartość w polu tekstowym hello muszą odpowiadać toovalidate wzorzec hello pomyślnie. Wartość domyślna to **null**.
+- `constraints.validationMessage`jest toodisplay ciągiem, gdy wartość w polu tekstowym hello weryfikacji nie powiedzie się. Jeśli nie określona, a następnie hello weryfikacji wbudowane pola tekstowego, komunikaty są używane. Witaj, wartość domyślna to **null**.
+- Jego możliwe toospecify wartość `constraints.regex` podczas `constraints.required` ustawiono zbyt**false**. W tym scenariuszu wartość nie jest wymagane dla toovalidate pole tekstowe hello pomyślnie. Jeśli jest określony, musi on być zgodny hello wzorzec wyrażenia regularnego.
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
 
@@ -55,6 +55,6 @@ Formant, który może służyć do edycji niesformatowanego tekstu. Użyj tego e
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
-* Aby obejrzeć wprowadzenie do tworzenia definicji interfejsu użytkownika, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Wprowadzenie toomanaged aplikacji, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
+* Definicje interfejsu użytkownika toocreating wprowadzenie, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Opis właściwości wspólnych elementów interfejsu użytkownika, zobacz [elementy CreateUiDefinition](managed-application-createuidefinition-elements.md).

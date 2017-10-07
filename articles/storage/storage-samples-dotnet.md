@@ -1,6 +1,6 @@
 ---
-title: "Przykładów dla magazynu platformy Azure przy użyciu platformy .NET | Dokumentacja firmy Microsoft"
-description: "Wyświetlanie, Pobierz i uruchom przykładowy kod i aplikacji usługi Azure Storage. Wykryj, wprowadzenie przykłady dla obiektów blob, kolejek, tabel i plików, za pomocą biblioteki klienta magazynu .NET."
+title: "Przykłady magazynu aaaAzure przy użyciu platformy .NET | Dokumentacja firmy Microsoft"
+description: "Wyświetlanie, Pobierz i uruchom przykładowy kod i aplikacji usługi Azure Storage. Wykryj, wprowadzenie przykłady dla obiektów blob, kolejek, tabel i plików, za pomocą biblioteki klienta magazynu .NET hello."
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: d2b6b3d9483f230ad25ae47255a4f28c1a67e064
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9a7055645b0f0658b850f024b8b19ab19840330e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-samples-using-net"></a>Przykładów dla magazynu platformy Azure przy użyciu platformy .NET
 
 ## <a name="net-sample-index"></a>Indeks przykładów .NET
 
-Poniższa tabela zawiera omówienie naszym repozytorium przykłady i scenariusze w każdej próbce. Kliknij łącza, aby wyświetlić odpowiednie przykładowy kod w serwisie GitHub.
+Witaj Poniższa tabela zawiera omówienie nasze przykłady scenariuszy repozytorium i hello objęte każdej próbki. Polecenie hello łącza tooview hello odpowiedniego przykładowy kod w serwisie GitHub.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenariusz</th><th style="font-size:110%">Przykładowy kod</th></tr></thead><tbody> 
 <tr> 
@@ -197,13 +197,13 @@ Poniższa tabela zawiera omówienie naszym repozytorium przykłady i scenariusze
 
 ## <a name="azure-code-samples-library"></a>Biblioteka przykłady kodu platformy Azure
 
-Aby wyświetlić biblioteki kompletnego przykładu, przejdź do [przykłady kodu Azure](https://azure.microsoft.com/resources/samples/?service=storage) biblioteki, która zawiera przykłady dla usługi Azure Storage, który można pobrać i uruchom lokalnie. Biblioteka przykładowy kod zawiera przykładowy kod w formacie zip. Alternatywnie można wybrać i klonowania repozytorium GitHub dla każdej próbki.
+tooview hello kompletnego przykładu biblioteki, przejdź toohello [przykłady kodu Azure](https://azure.microsoft.com/resources/samples/?service=storage) biblioteki, która zawiera przykłady dla usługi Azure Storage, który można pobrać i uruchom lokalnie. Witaj biblioteki przykładowy kod zawiera przykładowy kod w formacie zip. Alternatywnie można wybrać i klonowania repozytorium GitHub powitania dla każdej próbki.
 
 [!INCLUDE [storage-dotnet-samples-include](../../includes/storage-dotnet-samples-include.md)]
 
 ## <a name="getting-started-guides"></a>Przewodniki z wprowadzeniem pobierania
 
-Zapoznaj się z następujących przewodników, jeśli chcesz, aby uzyskać instrukcje dotyczące sposobu instalowania i rozpoczynanie pracy z biblioteki klienta magazynu Azure.
+Zapoznaj się z powitania po przewodnikach, jeśli chcesz, aby uzyskać instrukcje dotyczące tooinstall i rozpoczynanie pracy z hello biblioteki klienta magazynu Azure.
 
 * [Wprowadzenie do korzystania z usługi obiektów Blob platformy Azure w .NET](storage-dotnet-how-to-use-blobs.md)
 * [Wprowadzenie do korzystania z usługi kolejek platformy Azure w .NET](storage-dotnet-how-to-use-queues.md)

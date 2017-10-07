@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja zalecenia dotyczące interfejsu API uczenia maszynowego | Dokumentacja firmy Microsoft"
-description: "Dokumentacji platformy Azure Machine Learning API zalecenia dla aparatu zalecenia dostępne w portalu Microsoft Azure Marketplace."
+title: aaaMachine dokumentacji interfejsu API uczenia zalecenia | Dokumentacja firmy Microsoft
+description: "Dokumentacji platformy Azure Machine Learning API zalecenia dla aparatu zalecenia, dostępne w hello Microsoft Azure Marketplace."
 services: machine-learning
 documentationcenter: 
 author: LuisCabrer
@@ -16,17 +16,17 @@ ms.date: 03/31/2017
 ms.author: LuisCa
 ROBOTS: NOINDEX
 redirect_url: machine-learning-datamarket-deprecation
-redirect_document_id: TRUE
-ms.openlocfilehash: 1fba64d78d779344e2895b0d54419186b7584865
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: d1cec228bf23870c05c8ab8df2779b0c3c65b06d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-machine-learning-recommendations-api-documentation"></a>Dokumentacja dotycząca interfejsu API zaleceń usługi Azure Machine Learning
 > [!NOTE]
-> Należy rozpocząć korzystanie z usługi kognitywnych interfejsu API zalecenia zamiast tej wersji. Kognitywnych usługę rekomendacji spowoduje zastąpienie tej usługi, a opracowane zostaną nowe funkcje. Ma on nowe funkcje, takie jak przetwarzanie wsadowe pomocy technicznej, lepiej Explorer interfejsu API, czyszczący środowisko signup/rozliczeń powierzchni, bardziej spójny interfejs API,... itd.
-> Dowiedz się więcej o [migracji do nowej usługi kognitywnych](http://aka.ms/recomigrate)
+> Należy rozpocząć za pomocą hello usługi kognitywnych zalecenia dotyczące interfejsu API, zamiast tej wersji. Hello kognitywnych usługę rekomendacji spowoduje zastąpienie tej usługi, a opracowane zostaną wszystkie hello nowe funkcje. Ma on nowe funkcje, takie jak przetwarzanie wsadowe pomocy technicznej, lepiej Explorer interfejsu API, czyszczący środowisko signup/rozliczeń powierzchni, bardziej spójny interfejs API,... itd.
+> Dowiedz się więcej o [toohello Migrowanie nową usługę kognitywnych](http://aka.ms/recomigrate)
 > 
 > 
 
@@ -35,58 +35,58 @@ Ten dokument przedstawia interfejsów API firmy Microsoft usługi Azure Machine 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="1-general-overview"></a>1. Ogólne omówienie
-Ten dokument jest odwołanie do interfejsu API. Powinna zaczynać się znakiem "Azure Machine Learning zalecenie — Szybki Start" dokumentu.
+Ten dokument jest odwołanie do interfejsu API. Należy rozpocząć hello "Azure Machine Learning zalecenie — Szybki Start" dokumentu.
 
-Azure Machine Learning zalecenia API można podzielić na następujące grupy logiczne:
+Hello Azure Machine Learning zalecenia API można podzielić na następujące grupy logiczne hello:
 
 * <ins>Ograniczenia</ins> — ograniczenia interfejsu API zalecenia.
 * <ins>Informacje ogólne</ins> -informacji dotyczących uwierzytelniania, z identyfikatora URI i przechowywania wersji.
-* <ins>Model Basic</ins> -interfejsów API, które umożliwiają wykonanie podstawowe operacje na modelu (np. Tworzenie, aktualizowanie i usuwanie modelu).
-* <ins>Model zaawansowane</ins> -interfejsów API, które umożliwiają uzyskiwanie zaawansowanych wgląd w danych w modelu.
-* <ins>Model reguły biznesowe</ins> -interfejsów API, które umożliwiają zarządzanie regułami biznesowymi na wynikach zalecenie modelu.
-* <ins>Katalog</ins> -interfejsów API, które można wykonywać podstawowe operacje, w wykazie modelu. Katalog zawiera informacje o metadanych dla elementów danych użycia.
-* <ins>Funkcja</ins> -Włącz, aby uzyskać wgląd w elemencie w katalogu i jak te informacje służą do tworzenia zaleceń lepsze interfejsów API.
-* <ins>Dane użycia</ins> -interfejsów API, które umożliwiają wykonanie podstawowe operacje na danych użycia w modelu. Dane użycia w podstawowej postaci składa się z wierszy, które obejmują pary & #60; userId & #62; & #60; identyfikator elementu & #62;.
-* <ins>Tworzenie</ins> -interfejsów API, które umożliwiają wyzwolić kompilację modelu oraz wykonywać podstawowe operacje, które są powiązane z tą kompilacją. Po utworzeniu użycia cennych danych, można wyzwolić kompilację modelu.
-* <ins>Zalecenie</ins> -interfejsów API, które umożliwiają użycie zalecenia, po zakończeniu kompilacji modelu.
-* <ins>Dane użytkownika</ins> -interfejsów API, które umożliwiają pobieranie informacji na dane użycia użytkownika.
-* <ins>Powiadomienia</ins> -interfejsów API, które umożliwiają otrzymywać powiadomienia na problemy związane z operacje interfejsu API. (Na przykład możesz są raportowania danych użycia przez gromadzenia danych i większość zdarzeń przetwarzania kończą się niepowodzeniem. Powiadomienie o błędzie zostanie wygenerowany.)
+* <ins>Model Basic</ins> -interfejsów API, które umożliwiają toodo hello podstawowe operacje na modelu (np. Tworzenie, aktualizowanie i usuwanie modelu).
+* <ins>Model zaawansowane</ins> -interfejsów API, które umożliwiają tooget zaawansowane wgląd w danych na powitania modelu.
+* <ins>Model reguły biznesowe</ins> -interfejsów API, które umożliwiają toomanage reguły biznesowe na powitania modelu zalecenie wyniki.
+* <ins>Katalog</ins> -interfejsów API, które umożliwiają toodo podstawowe operacje w wykazie modelu. Katalog zawiera informacje o metadanych na elementach hello hello danych użycia.
+* <ins>Funkcja</ins> -interfejsy API umożliwiające tooget wgląd w elemencie do katalogu hello i w jaki sposób toouse zalecenia lepsze toobuild informacji.
+* <ins>Dane użycia</ins> -interfejsów API, które umożliwiają toodo podstawowe operacje na danych użycia hello modelu. Dane użycia w podstawowej postaci hello składa się z wierszy, które obejmują pary &#60; userId &#62; &#60; identyfikator elementu &#62;.
+* <ins>Tworzenie</ins> — Tworzenie interfejsów API, które umożliwiają tootrigger modelu i czy podstawowe operacje, które są powiązane toothis kompilacji. Po utworzeniu użycia cennych danych, można wyzwolić kompilację modelu.
+* <ins>Zalecenie</ins> -interfejsów API, które umożliwiają zalecenia tooconsume po zakończeniu kompilacji hello modelu.
+* <ins>Dane użytkownika</ins> -interfejsów API, które umożliwiają toofetch informacji na temat danych użycia hello użytkownika.
+* <ins>Powiadomienia</ins> -tooyour interfejsu API operacji związanych z interfejsów API, które umożliwiają powiadomienia tooreceive problemów. (Na przykład możesz są raportowania danych użycia przez gromadzenia danych i większość zdarzeń hello przetwarzania kończą się niepowodzeniem. Powiadomienie o błędzie zostanie wygenerowany.)
 
 ## <a name="2-limitations"></a>2. Ograniczenia
-* Maksymalna liczba modeli dla subskrypcji wynosi 10.
-* Maksymalna liczba kompilacji na modelu wynosi 20.
-* Maksymalna liczba elementów, które mogą zawierać wykaz wynosi 100 000.
-* Maksymalna liczba punktów użycia, które są zachowane jest ~ 5,000,000. Najstarszych zostanie usunięte, gdy nowe zostanie przekazany lub zgłaszane.
-* Maksymalny rozmiar danych, które mogą być wysyłane w POST (np. import wykazu danych, importowanie danych użycia) to 200MB.
-* Maksymalna liczba elementów, które może zostać wyświetlony monit o podanie podczas pobierania zalecenia wynosi 150.
+* Maksymalna liczba modeli na subskrypcję Hello wynosi 10.
+* Maksymalna liczba kompilacji na model w Hello wynosi 20.
+* Hello maksymalną liczbę elementów, które mogą zawierać wykaz wynosi 100 000.
+* Maksymalna liczba punktów użycia, które są zachowane w Hello jest ~ 5,000,000. Hello najstarsze zostanie usunięte, gdy nowe zostanie przekazany lub zgłaszane.
+* Maksymalny rozmiar danych, które mogą być wysyłane w POST (np. import wykazu danych, importowanie danych użycia) Hello jest 200MB.
+* Maksymalna liczba elementów, które może zostać wyświetlony monit o podanie podczas pobierania zalecenia Hello wynosi 150.
 
 ## <a name="3-apis---general-information"></a>3. Interfejsy API — informacje ogólne
 ### <a name="31-authentication"></a>3.1. Authentication
-Postępuj zgodnie z wytycznymi Microsoft Azure Marketplace dotyczące uwierzytelniania. Witryny marketplace obsługuje podstawowe lub OAuth metodę uwierzytelniania.
+Wykonaj hello Microsoft Azure Marketplace wytyczne dotyczące uwierzytelniania. Hello marketplace obsługuje każdej hello Basic lub OAuth z metod uwierzytelniania.
 
 ### <a name="32-service-uri"></a>3.2. Identyfikator URI usługi
-Identyfikator URI dla interfejsów API usługi Azure Machine Learning zalecenia katalogu głównego usługi jest [tutaj.](https://api.datamarket.azure.com/amla/recommendations/v3/)
+główny usługi Hello identyfikatora URI dla interfejsów API usługi Azure Machine Learning zalecenia hello jest [tutaj.](https://api.datamarket.azure.com/amla/recommendations/v3/)
 
-Pełny identyfikator URI usługi jest wyrażona za pomocą elementów ze specyfikacją OData.  
+Identyfikator URI usługi pełne Hello jest wyrażona za pomocą elementów hello specyfikację OData.  
 
 ### <a name="33-api-version"></a>3.3. Wersja interfejsu API
-Każde wywołanie interfejsu API będzie mieć na końcu, parametr zapytania o nazwie apiVersion, która powinna być równa 1.0.
+Każde wywołanie interfejsu API na końcu hello ma parametr zapytania o nazwie apiVersion, który powinien być ustawiony too1.0.
 
 ### <a name="34-ids-are-case-sensitive"></a>3.4. Identyfikatory jest uwzględniana wielkość liter
-Identyfikatory zwrócony przez żadnego z interfejsów API, jest uwzględniana wielkość liter i powinien być używany jako takie, gdy dane są przekazywane jako parametry w kolejnych wywołaniach interfejsu API. Na przykład identyfikatory modelu i identyfikatory katalogu jest uwzględniana wielkość liter.
+Identyfikatory zwrócony przez żadnego z interfejsów API, hello jest uwzględniana wielkość liter i powinien być używany jako takie, gdy dane są przekazywane jako parametry w kolejnych wywołaniach interfejsu API. Na przykład identyfikatory modelu i identyfikatory katalogu jest uwzględniana wielkość liter.
 
 ## <a name="4-recommendations-quality-and-cold-items"></a>4. Zalecenia dotyczące jakości i zimnych elementów
 ### <a name="41-recommendation-quality"></a>4.1. Zalecenie jakości
-Tworzenie modelu zalecenie jest zwykle wystarczająco, aby umożliwić systemowi próba udostępnienia zaleceń. Niemniej jednak jakości zalecenia w zależności od użycia przetwarzane i pokryciu katalogu. Na przykład jeśli masz wiele zimnych elementów (bez użycia znaczących), system ma trudności udostępnia zalecenia dla takiego elementu lub przy użyciu takiego elementu jako zalecana. Aby rozwiązać problem elementu zimnych, system zezwala na korzystanie z metadanych elementów w celu zwiększenia zalecenia. Te metadane jest określana jako funkcje. Typowe funkcje są książki autora lub filmu aktora. Funkcje są udostępniane za pośrednictwem katalogu w postaci ciągów klucza i wartości. Pełny format pliku katalogu można znaleźć na stronie [zaimportować sekcja katalogu](#81-import-catalog-data). 
+Tworzenie modelu zalecenie jest zwykle zalecenia tooprovide za mało tooallow hello systemu. Niemniej jednak jakości zalecenia w zależności od użycia hello przetwarzane i hello pokrycia hello katalogu. Na przykład jeśli masz wiele zimnych elementów (bez użycia znaczących) systemu hello będziesz mieć trudności udostępnia zalecenia dla takiego elementu lub przy użyciu takiego elementu jako zalecana. W kolejności tooovercome hello zimnych elementu problem hello systemu umożliwia wykorzystanie hello metadanych hello elementów tooenhance hello zalecenia. Te metadane stanowią tooas określonej funkcji. Typowe funkcje są książki autora lub filmu aktora. Funkcje są udostępniane za pośrednictwem katalogu hello w postaci hello klucza i wartości ciągów. Hello pełny format pliku wykazu hello, można znaleźć w artykule toohello [zaimportować sekcja katalogu](#81-import-catalog-data). 
 
 ### <a name="42-rank-build"></a>4.2. Rank kompilacji
-Funkcji można zwiększyć modelu zalecenie, ale w tym celu wymaga użycia funkcji łatwy do rozpoznania. W tym celu wprowadzono nową kompilację — rangi kompilacji. Ta kompilacja zostanie rank użyteczność funkcji. Funkcja łatwy do rozpoznania to funkcja z rangę 2 lub nowszej.
-Po zrozumienia, które funkcje są przydatne, wyzwolić kompilację zalecenie z listy (lub podlisty) łatwy do rozpoznania funkcji. Istnieje możliwość używania tych funkcji do rozszerzenia elementów ciepłych i zimnych elementów. Aby można było używać ich elementów ciepłych `UseFeatureInModel` parametru kompilacji powinny zostać skonfigurowane. Aby można było używać funkcji dla elementów zimnych `AllowColdItemPlacement` parametru kompilacji powinno być włączone.
-Uwaga: Nie jest możliwe do włączenia `AllowColdItemPlacement` bez włączania `UseFeatureInModel`.
+Funkcji można zwiększyć hello zalecenie modelu, ale toodo wymaga hello użycie funkcji łatwy do rozpoznania. W tym celu wprowadzono nową kompilację — rangi kompilacji. Ta kompilacja zostanie rank powitania użyteczność funkcji. Funkcja łatwy do rozpoznania to funkcja z rangę 2 lub nowszej.
+Po zrozumienia, które funkcji hello są przydatne, wyzwolić kompilację zalecenie z listy hello (lub podlisty) łatwy do rozpoznania funkcji. Jest to możliwe toouse, tych funkcji do rozszerzenia hello elementów ciepłych i zimnych elementów. W kolejności toouse ich elementów ciepłych hello `UseFeatureInModel` parametru kompilacji powinny zostać skonfigurowane. W funkcji toouse kolejność elementów zimnych, hello `AllowColdItemPlacement` parametru kompilacji powinno być włączone.
+Uwaga: Nie jest możliwe tooenable `AllowColdItemPlacement` bez włączania `UseFeatureInModel`.
 
 ### <a name="43-recommendation-reasoning"></a>4.3. Zalecenie logikę
-Rozsądkiem zalecenie jest innym aspektem użycie funkcji. W rzeczywistości aparat Azure Machine Learning zalecenia zapewnić można użyć funkcji wyjaśnienia zalecenie () uzasadnienie), prowadzące do większą pewność działania w elemencie zalecane od konsumenta zalecenia.
-Aby włączyć uzasadnienie, `AllowFeatureCorrelation` i `ReasoningFeatureList` parametry powinny mieć Instalatora przed żądanie kompilacji zalecenia.
+Rozsądkiem zalecenie jest innym aspektem użycie funkcji. W rzeczywistości hello Azure Machine Learning zalecenia aparat można użyć funkcji tooprovide zalecenie wyjaśnienia () uzasadnienie), prowadzące toomore zaufania w hello zalecane elementu z hello zalecenie konsumenta.
+tooenable uzasadnienie, hello `AllowFeatureCorrelation` i `ReasoningFeatureList` parametry powinny mieć toorequesting poprzednie ustawienia kompilacji zalecenia.
 
 ## <a name="5-model-basic"></a>5. Basic modelu
 ### <a name="51-create-model"></a>5.1. Tworzenie modelu
@@ -107,7 +107,7 @@ Tworzy żądanie "Tworzenie modelu".
 
 Kod stanu HTTP: 200
 
-* `feed/entry/content/properties/id`-Zawiera identyfikator modelu.
+* `feed/entry/content/properties/id`-Zawiera identyfikator hello modelu.
   **Uwaga**: identyfikator modelu jest rozróżniana wielkość liter.
 
 OData XML
@@ -149,7 +149,7 @@ Tworzy żądanie "get modelu".
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| id |Unikatowy identyfikator modelu (z uwzględnieniem wielkości liter) |
+| id |Unikatowy identyfikator modelu hello (z uwzględnieniem wielkości liter) |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -158,15 +158,15 @@ Tworzy żądanie "get modelu".
 
 Kod stanu HTTP: 200
 
-Model danych można znaleźć w następujących elementów:
+Witaj modelu danych można znaleźć w hello następujące elementy:
 
 * `feed/entry/content/properties/Id`-Model unikatowego identyfikatora.
 * `feed/entry/content/properties/Name`-Nazwa modelu.
 * `feed/entry/content/properties/Date`-Data utworzenia modelu.
-* `feed/entry/content/properties/Status`-Stan modelu. Jeden z następujących czynności:
+* `feed/entry/content/properties/Status`-Stan modelu. Jedną z następujących hello:
   * Utworzone — Model jest tworzony i nie zawiera katalogu i użycia.
   * ReadyForBuild — Model jest tworzony i zawiera katalog i użycia.
-* `feed/entry/content/properties/HasActiveBuild`-Wskazuje, jeśli model został pomyślnie utworzony.
+* `feed/entry/content/properties/HasActiveBuild`— Wskazuje, czy hello model został utworzony pomyślnie.
 * `feed/entry/content/properties/BuildId`-Identyfikator modelu active kompilacji.
 * `feed/entry/content/properties/Mpr`-Model klasyfikacji średniej percentyl (MPR — Aby uzyskać więcej informacji, zobacz ModelInsight).
 * `feed/entry/content/properties/UserName`-Nazwa użytkownika wewnętrznego modelu.
@@ -205,7 +205,7 @@ OData XML
     </feed>
 
 ### <a name="53----get-all-models"></a>5.3.    Pobierz wszystkie modele
-Pobiera wszystkie modele bieżącego użytkownika.
+Pobiera wszystkie modele hello bieżącego użytkownika.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -224,10 +224,10 @@ Kod stanu HTTP: 200
 * `feed/entry/content/properties/Id`-Model unikatowego identyfikatora.
 * `feed/entry/content/properties/Name`-Nazwa modelu.
 * `feed/entry/content/properties/Date`-Data utworzenia modelu.
-* `feed/entry/content/properties/Status`-Stan modelu. Jeden z następujących czynności:
+* `feed/entry/content/properties/Status`-Stan modelu. Jedną z następujących hello:
   * Utworzone — Model jest tworzony i nie zawiera katalogu i użycia.
   * ReadyForBuild — Model jest tworzony i zawiera katalog i użycia.
-* `feed/entry/content/properties/HasActiveBuild`-Wskazuje, jeśli model został pomyślnie utworzony.
+* `feed/entry/content/properties/HasActiveBuild`— Wskazuje, czy hello model został utworzony pomyślnie.
 * `feed/entry/content/properties/BuildId`-Identyfikator modelu active kompilacji.
 * `feed/entry/content/properties/Mpr`-Model MPR (więcej informacji zawiera ModelInsight).
 * `feed/entry/content/properties/UserName`-Nazwa użytkownika wewnętrznego modelu.
@@ -270,9 +270,9 @@ OData XML
     </feed>
 
 ### <a name="54----update-model"></a>5.4.    Aktualizuj Model
-Możesz zaktualizować opis modelu lub identyfikator active kompilacji.<br>
-<ins>Identyfikator kompilacji Active</ins> -każdej kompilacji dla każdego modelu ma identyfikator kompilacji. Identyfikator active kompilacji jest pomyślnego tworzenia pierwszej kompilacji każdego nowego modelu. Gdy masz identyfikator kompilacji active i wykonaniu dodatkowych kompilacji w ramach tego samego modelu, musisz jawnie ustaw go jako domyślny identyfikator kompilacji Jeśli chcesz. Gdy zalecenia, można korzystać, jeśli nie określisz identyfikator kompilacji, który ma być używany, domyślny zostanie użyty automatycznie.<br>
-Mechanizm ten umożliwia — po utworzeniu modelu zalecenia w środowisku produkcyjnym — do tworzenia nowych modeli i testowane przed Przenieś do produkcji.
+Możesz zaktualizować opis modelu hello lub hello identyfikator active kompilacji.<br>
+<ins>Identyfikator kompilacji Active</ins> -każdej kompilacji dla każdego modelu ma identyfikator kompilacji. Identyfikator kompilacji active Hello jest hello pierwszym pomyślnym kompilacji każdego nowego modelu. Gdy masz identyfikator active kompilacji i wykonaj dodatkowe kompilacje dla hello samego modelu należy tooexplicitly ustaw go jako hello domyślne kompilacji identyfikator aby. Jeśli zalecenia, korzystać w sytuacji, jeśli nie określono Identyfikatora kompilacji hello, który ma toouse, domyślne hello, co zostanie użyta automatycznie.<br>
+Mechanizm ten umożliwia — po modelu zalecenia w środowisku produkcyjnym — toobuild nowe modele i testowane przed podwyższeniem ich tooproduction.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -280,10 +280,10 @@ Mechanizm ten umożliwia — po utworzeniu modelu zalecenia w środowisku produk
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| id |Unikatowy identyfikator modelu (z uwzględnieniem wielkości liter) |
+| id |Unikatowy identyfikator modelu hello (z uwzględnieniem wielkości liter) |
 | apiVersion |1.0 |
 |  | |
-| Treść żądania |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Należy pamiętać, że tagi XML, opis i ActiveBuildId są opcjonalne. Jeśli nie chcesz ustawić opis lub ActiveBuildId, usuń cały tag. |
+| Treść żądania |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Należy pamiętać, że hello XML znaczniki opis i ActiveBuildId są opcjonalne. Jeśli nie chcesz, aby tooset opis lub ActiveBuildId, usuń cały tag hello. |
 
 **Odpowiedź**:
 
@@ -298,7 +298,7 @@ Usuwa istniejącego modelu według identyfikatora.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| id |Unikatowy identyfikator modelu (z uwzględnieniem wielkości liter) |
+| id |Unikatowy identyfikator modelu hello (z uwzględnieniem wielkości liter) |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -331,7 +331,7 @@ OData XML
 
 ## <a name="6-model-advanced"></a>6. Zaawansowane modelu
 ### <a name="61----model-data-insight"></a>6.1.    Szczegółowe informacje o modelu danych
-Zwraca dane statystyczne danych użycia, których ten model został skompilowany.
+Zwraca dane statystyczne hello użycia danych, których ten model został skompilowany.
 
 Dostępna tylko w przypadku kompilacji zalecenia.
 
@@ -341,7 +341,7 @@ Dostępna tylko w przypadku kompilacji zalecenia.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
+| modelId |Unikatowy identyfikator modelu hello |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -350,12 +350,12 @@ Dostępna tylko w przypadku kompilacji zalecenia.
 
 Kod stanu HTTP: 200
 
-Dane są zwracane jako zbiór właściwości.
+Witaj, dane są zwracane jako zbiór właściwości.
 
-* `feed/entry/id/content/properties/key`-Zawiera nazwę właściwości.
-* `feed/entry/id/content/properties/value`-Zawiera wartość właściwości.
+* `feed/entry/id/content/properties/key`-Zawiera nazwę właściwości hello.
+* `feed/entry/id/content/properties/value`-Zawiera wartość właściwości hello.
 
-W poniższej tabeli przedstawiono wartość, która reprezentuje każdego klucza.
+Witaj w poniższej tabeli przedstawiono hello wartość, która reprezentuje każdy klucz.
 
 | Klucz | Opis |
 |:--- |:--- |
@@ -364,11 +364,11 @@ W poniższej tabeli przedstawiono wartość, która reprezentuje każdego klucza
 | DensificationNumberOfItems |Liczba elementów po elementach oczyszczania, które nie mogą być modelowane. |
 | DensificationNumberOfUsers |Liczba punktów użycia po oczyszczania użytkowników i elementy, które nie mogą być modelowane. |
 | DensificationNumberOfRecords |Liczba punktów użycia po oczyszczania użytkowników i elementy, które nie mogą być modelowane. |
-| MaxItemLength |Liczba unikatowych użytkowników najpopularniejszych elementu. |
+| MaxItemLength |Liczba unikatowych użytkowników dla elementu najpopularniejszych hello. |
 | MaxUserLength |Maksymalna liczba unikatowych elementów dla użytkownika. |
 | MinItemLength |Maksymalna liczba różnych użytkowników dla elementu. |
 | MinUserLength |Minimalna liczba unikatowych elementów dla użytkownika. |
-| RawNumberOfItems |Liczba elementów w plikach użycia. |
+| RawNumberOfItems |Liczba elementów w plikach użycia hello. |
 | RawNumberOfUsers |Liczba punktów użycia przed żadnych oczyszczania. |
 | RawNumberOfRecords |Liczba punktów użycia przed żadnych oczyszczania. |
 | SamplingNumberOfItems |Nie dotyczy |
@@ -567,7 +567,7 @@ OData XML
     </feed>
 
 ### <a name="62----model-insight"></a>6.2.    Szczegółowe informacje o modelu
-Zwraca model szczegółowe informacje o kompilacji active lub (jeśli istnieje) w ramach określonej kompilacji.
+Zwraca model szczegółowe informacje o kompilacji active hello lub (jeśli istnieje) w ramach określonej kompilacji.
 
 Dostępna tylko w przypadku kompilacji zalecenia.
 
@@ -577,7 +577,7 @@ Dostępna tylko w przypadku kompilacji zalecenia.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
+| modelId |Unikatowy identyfikator modelu hello |
 | identyfikatora buildId |Opcjonalne — liczba, która identyfikuje pomyślnego utworzenia kompilacji. |
 | apiVersion |1.0 |
 |  | |
@@ -587,18 +587,18 @@ Dostępna tylko w przypadku kompilacji zalecenia.
 
 Kod stanu HTTP: 200
 
-Dane są zwracane jako zbiór właściwości.
+Witaj, dane są zwracane jako zbiór właściwości.
 
 * `feed/entry/id/content/properties/key`
 * `feed/entry/id/content/properties/value`
 
-W poniższej tabeli przedstawiono wartość, która reprezentuje każdego klucza.
+Witaj w poniższej tabeli przedstawiono hello wartość, która reprezentuje każdy klucz.
 
 | Klucz | Opis |
 |:--- |:--- |
-| CatalogCoverage |Jaka część katalogu może być modelowane z wzorców użycia. Pozostałe elementy należy funkcje na podstawie zawartości. |
-| MPR |Oznacza klasyfikacji percentyl modelu. Dolna jest lepszym rozwiązaniem. |
-| NumberOfDimensions |Liczba wymiarów używanych przez algorytm factorization macierzy. |
+| CatalogCoverage |Jaka część hello katalogu może być modelowane z wzorców użycia. Witaj pozostałe elementy hello należy funkcje na podstawie zawartości. |
+| MPR |Oznacza klasyfikacji percentyl hello modelu. Dolna jest lepszym rozwiązaniem. |
+| NumberOfDimensions |Liczba wymiarów używanych przez algorytm factorization macierzy hello. |
 
 OData XML
 
@@ -648,7 +648,7 @@ OData XML
     </feed>
 
 ### <a name="63----get-model-sample"></a>6.3.    Pobierz przykładowe modelu
-Pobiera próbkę modelu zalecenia.
+Pobiera próbkę hello zalecenie modelu.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -656,7 +656,7 @@ Pobiera próbkę modelu zalecenia.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
+| modelId |Unikatowy identyfikator modelu hello |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -684,115 +684,115 @@ Level 1
     fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions Rating: 0.5188
     8f5fe006-79e4-4679-816b-950989d1db4b, A Place I've Never Been (Contemporary American Fiction) Rating: 0.5156
     d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness: A Novel Rating: 0.5156
-50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path
-    cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel Rating: 0.5266
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5252
+50471eec-9aeb-4900-84d7-21567ab18546, If hello Buddha Dated: A Handbook for Finding Love on a Spiritual Path
+    cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of hello Ya-Ya Sisterhood: A Novel Rating: 0.5266
+    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, hello Poisonwood Bible: A Novel Rating: 0.5252
     973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5244
     e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams Rating: 0.5227
     6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister: A Novel Rating: 0.5222
-5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club)
-    5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) Rating: 0.537
+5e97148f-defb-4d74-af2d-80f4763bf531, hello Deep End of hello Ocean (Oprah's Book Club)
+    5e97148f-defb-4d74-af2d-80f4763bf531, hello Deep End of hello Ocean (Oprah's Book Club) Rating: 0.537
     5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel Rating: 0.5277
     bc5b69db-733b-4346-adde-3927544258f7, Downtown Rating: 0.5275
     31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day: A Tale of Blood and Sweatsocks Rating: 0.5252
-    0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5238
-68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived
-    68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived Rating: 0.5379
-    6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie Rating: 0.5345
-    cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods Rating: 0.5325
-    382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh Rating: 0.5309
-    6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek Rating: 0.5285
+    0adf981a-b65b-4c11-b36b-78aca2f948a2, hello Perfect Storm: A True Story of Men Against hello Sea Rating: 0.5238
+68f97068-ae1a-4163-9e94-396b800b743d, Modoc: hello True Story of hello Greatest Elephant That Ever Lived
+    68f97068-ae1a-4163-9e94-396b800b743d, Modoc: hello True Story of hello Greatest Elephant That Ever Lived Rating: 0.5379
+    6724862e-e4e7-4022-9614-1468d8b902ff, Little House on hello Prairie Rating: 0.5345
+    cdedb837-1620-496d-94c4-6ccfed888320, Little House in hello Big Woods Rating: 0.5325
+    382164ba-406b-4187-b726-d7a54b9d790d, hello Tao of Pooh Rating: 0.5309
+    6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On hello Banks of Plum Creek Rating: 0.5285
 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships
     37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars, Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships Rating: 0.5397
     f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times Rating: 0.5207
     ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves Rating: 0.5195
-    0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree Rating: 0.5194
-    883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark: Collected from American Folklore (Scary Stories) Rating: 0.5184
-ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball
-    d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956: An Experiment in Literary Investigation I-II Rating: 0.5416
-    ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball Rating: 0.5403
+    0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, hello Giving Tree Rating: 0.5194
+    883b360f-8b42-407f-b977-2f44ad840877, Scary Stories tooTell in hello Dark: Collected from American Folklore (Scary Stories) Rating: 0.5184
+ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: hello Craft of Baseball
+    d008dae9-c73a-40a1-9a9b-96d5cf546f36, hello Gulag Archipelago 1918-1956: An Experiment in Literary Investigation I-II Rating: 0.5416
+    ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: hello Craft of Baseball Rating: 0.5403
     49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland Rating: 0.5394
-    cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 Rating: 0.5379
-    8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should Rating: 0.5377
+    cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic hello Gathering: Arena Vol. 1 Rating: 0.5379
+    8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in hello Dictionary but Should Rating: 0.5377
 12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles
     07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5417
     e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.5416
-    1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family Rating: 0.5371
+    1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, hello Family Rating: 0.5371
     56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class Rating: 0.5366
     b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5366
 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish
-    56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero Rating: 0.5417
+    56d33036-dfda-46b9-8e2a-76cb03921bb0, hello X-Files: Ground Zero Rating: 0.5417
     0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings Rating: 0.5416
     df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish Rating: 0.5408
-    400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? Rating: 0.5383
+    400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell hello President? Rating: 0.5383
     f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace Rating: 0.5358
-de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology
-    de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology Rating: 0.5422
+de1f62a4-89e6-44d2-aaee-992a4bf093f1, hello Map That Changed hello World: William Smith and hello Birth of Modern Geology
+    de1f62a4-89e6-44d2-aaee-992a4bf093f1, hello Map That Changed hello World: William Smith and hello Birth of Modern Geology Rating: 0.5422
     b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald Rating: 0.5385
-    34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil Rating: 0.5379
-    306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer Rating: 0.5376
+    34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In hello Garden of Good and Evil Rating: 0.5379
+    306cbaa7-b1a8-4142-9d55-e11b5018a7a8, hello Street Lawyer Rating: 0.5376
     e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow Rating: 0.5367
 
 Level 2
 ---------------
-352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony)
-    352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) Rating: 0.5425
-    74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) Rating: 0.5387
-    9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl Rating: 0.5372
+352aaea1-6b12-454d-a3d5-46379d9e4eb2, hello Sinister Pig (Hillerman Tony)
+    352aaea1-6b12-454d-a3d5-46379d9e4eb2, hello Sinister Pig (Hillerman Tony) Rating: 0.5425
+    74c49398-bc10-4af5-a658-a996a1201254, Children of hello Storm (Peters Elizabeth) Rating: 0.5387
+    9ba80080-196e-43fd-8025-391d963f77e7, hello Floating Girl Rating: 0.5372
     e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) Rating: 0.5353
     b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5332
 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
-    0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5433
+    0adf981a-b65b-4c11-b36b-78aca2f948a2, hello Perfect Storm: A True Story of Men Against hello Sea Rating: 0.5433
     c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days Rating: 0.543
-    a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit: Any Word That Doesn't Appear in the Dictionary But Should) Rating: 0.5327
+    a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit: Any Word That Doesn't Appear in hello Dictionary But Should) Rating: 0.5327
     6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season Rating: 0.5307
     798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) Rating: 0.5301
 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics)
-    cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) Rating: 0.5434
+    cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (hello Official Guide toohello X-Files Vol. 2) Rating: 0.5434
     5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) Rating: 0.5406
     73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) Rating: 0.5403
-    d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic Rating: 0.539
-    b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) Rating: 0.5367
-271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings
-    271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings Rating: 0.5445
-    2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) Rating: 0.5329
+    d885b0bd-ae4b-452d-bdf2-faa90197dbc9, hello Color of Magic Rating: 0.539
+    b133a9c4-4784-4db3-b100-d0d6dffb94d2, hello Truth Is Out There (hello Official Guide toohello X-Files Vol. 1) Rating: 0.5367
+271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why hello Winged Whale Sings
+    271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why hello Winged Whale Sings Rating: 0.5445
+    2de1c354-90ff-47c5-a0db-1bad7d88ef94, hello Salaryman's Wife (Children of Violence Series) Rating: 0.5329
     d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude Rating: 0.5316
-    c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) Rating: 0.5305
-    8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are Rating: 0.5289
+    c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of hello Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) Rating: 0.5305
+    8ef4751c-7074-409e-a3ac-d49b222fc864, Where hello Wild Things Are Rating: 0.5289
 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God
     9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God Rating: 0.5446
-    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5389
-    65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things Rating: 0.5387
-    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5355
+    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, hello Bean Trees Rating: 0.5389
+    65ecbdd1-131c-40c3-a3d6-d86ca281377a, hello God of Small Things Rating: 0.5387
+    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, hello Stone Diaries Rating: 0.5355
     973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5344
-5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback))
-    5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) Rating: 0.5446
+5f17d90a-2604-4fe8-8977-1a280b9098b1, One for hello Money (Stephanie Plum Novels (Paperback))
+    5f17d90a-2604-4fe8-8977-1a280b9098b1, One for hello Money (Stephanie Plum Novels (Paperback)) Rating: 0.5446
     57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal Rating: 0.5332
     efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth Rating: 0.5329
     1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor Rating: 0.5309
-    24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (The Mitford Years) Rating: 0.5303
-4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl
-    4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl Rating: 0.5449
+    24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (hello Mitford Years) Rating: 0.5303
+4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: hello Boy Who Was Raised As a Girl
+    4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: hello Boy Who Was Raised As a Girl Rating: 0.5449
     cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven Rating: 0.5329
-    19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera (Penguin Great Books of the 20th Century) Rating: 0.5267
+    19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in hello Time of Cholera (Penguin Great Books of hello 20th Century) Rating: 0.5267
     15689d09-c711-4844-84d8-130a90237b26, Bel Canto Rating: 0.5245
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5235
+    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, hello Poisonwood Bible: A Novel Rating: 0.5235
 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories
-    f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises (A Scribner classic) Rating: 0.5451
+    f874b5a3-5d40-4436-94ff-0fa1c090ddf5, hello Sun Also Rises (A Scribner classic) Rating: 0.5451
     98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories Rating: 0.5442
     0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S. Unseen Rating: 0.5421
-    15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark Rating: 0.5409
-    329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth Rating: 0.54
+    15316ca6-1e38-425f-893d-691944a47000, More Scary Stories tooTell In hello Dark Rating: 0.5409
+    329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from hello Earth Rating: 0.54
 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover))
     5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover)) Rating: 0.5462
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5372
+    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, hello Poisonwood Bible: A Novel Rating: 0.5372
     604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel Rating: 0.5341
     8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5334
-    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5319
+    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, hello Bean Trees Rating: 0.5319
 d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
     d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven Rating: 0.5491
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5401
-    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5393
+    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, hello Poisonwood Bible: A Novel Rating: 0.5401
+    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, hello Stone Diaries Rating: 0.5393
     8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5382
     973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5367
 
@@ -800,17 +800,17 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 
 ## <a name="7-model-business-rules"></a>7. Reguły biznesowe modelu
-Są to typy reguł obsługiwane:
+Są to typy hello reguł obsługiwane:
 
-* <strong>BlockList</strong> -BlockList umożliwia podanie listy elementów, które nie mają być zwracane w wynikach zalecenia. 
-* <strong>FeatureBlockList</strong> -BlockList funkcja umożliwia blokowanie elementów na podstawie wartości jego funkcje.
+* <strong>BlockList</strong> -BlockList umożliwia tooprovide listę elementów, które chcesz tooreturn w wynikach zalecenie hello. 
+* <strong>FeatureBlockList</strong> — funkcja BlockList umożliwia możesz tooblock elementy na podstawie wartości hello jego funkcje.
 
-*Nie wysyłaj więcej niż 1000 pozycji w regule pojedynczego blocklist lub wywołania mogą limitu czasu. Jeśli potrzebujesz więcej niż 1000 pozycji zablokować, można wprowadzić kilka wywołań blocklist.*
+*Nie wysyłaj więcej niż 1000 pozycji w regule pojedynczego blocklist lub wywołania mogą limitu czasu. Jeśli potrzebujesz tooblock więcej niż 1000 pozycji, można wprowadzić kilka wywołań blocklist.*
 
-* <strong>Upsale</strong> -Upsale umożliwia wymuszanie elementów do zwracanych w wynikach zalecenia.
-* <strong>Lista dozwolonych adresów</strong> -białą listę umożliwia tylko Sugeruj zalecenia z listy elementów.
-* <strong>FeatureWhiteList</strong> — funkcja białą listę umożliwia zaleca się tylko elementy, które mają wartości określonych funkcji.
-* <strong>PerSeedBlockList</strong> — na liście zablokowanych inicjatora umożliwia podanie dla każdego elementu listy elementów, które nie może być zwracany jako wyniki zalecenia.
+* <strong>Upsale</strong> -Upsale umożliwia tooenforce tooreturn elementów w wynikach zalecenie hello.
+* <strong>Lista dozwolonych adresów</strong> — umożliwia białą listę tooonly możesz Sugeruj zalecenia z listy elementów.
+* <strong>FeatureWhiteList</strong> — funkcja białą listę umożliwia tooonly zaleca się elementy, które mają wartości określonych funkcji.
+* <strong>PerSeedBlockList</strong> — na zablokowanych inicjatora umożliwia tooprovide na element listę elementów, które nie może być zwracany jako wyniki zalecenie.
 
 ### <a name="71----get-model-rules"></a>7.1.    Pobieranie reguł modelu
 | Metoda HTTP | IDENTYFIKATOR URI |
@@ -819,7 +819,7 @@ Są to typy reguł obsługiwane:
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
+| modelId |Unikatowy identyfikator modelu hello |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -829,7 +829,7 @@ Są to typy reguł obsługiwane:
 Kod stanu HTTP: 200
 
 * `feed/entry/content/properties/Id`-Unikatowy identyfikator tej reguły.
-* `feed/entry/content/properties/Type`-Typ reguły.
+* `feed/entry/content/properties/Type`-Typ reguły hello.
 * `feed/entry/content/properties/Parameter`-Parametr reguły.
 
 OData XML
@@ -881,25 +881,25 @@ OData XML
 |  | |
 | Treść żądania | |
 
-<ins>Zawsze, gdy w przypadku reguł biznesowych, zapewniając identyfikatory elementów, upewnij się, że identyfikator zewnętrznego elementu (tym samym identyfikatorze używanego w pliku wykazu)</ins><br>
-<ins>Aby dodać regułę BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Aby dodać regułę FeatureBlockList:</ins><br>
+<ins>Zawsze, gdy w przypadku reguł biznesowych, zapewniając identyfikatory elementów, upewnij się, że toouse hello zewnętrznych identyfikator elementu hello (hello na tym samym identyfikatorze używanego w pliku wykazu hello)</ins><br>
+<ins>Reguła BlockList tooadd:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Reguła FeatureBlockList tooadd:</ins><br>
 <br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>Aby dodać regułę Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br>
-<ins>Aby dodać regułę listy dozwolonych adresów IP:</ins><br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>Reguła Upsale tooadd:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br>
+<ins>tooadd regułę listy dozwolonych adresów IP:</ins><br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Aby dodać regułę FeatureWhiteList:</ins><br>
+<ins>Reguła FeatureWhiteList tooadd:</ins><br>
 <br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>Aby dodać regułę PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>Reguła PerSeedBlockList tooadd:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Odpowiedź**:
 
 Kod stanu HTTP: 200
 
-Interfejs API zwraca nowo utworzona reguła z jego szczegółami. Właściwość reguły można pobrać z następujących ścieżek:
+Witaj interfejsu API zwraca hello nowo utworzona reguła z jego szczegółami. Właściwości reguł Hello mogą być pobierane z hello następującej ścieżki:
 
 * `feed/entry/content/properties/Id`-Unikatowy identyfikator tej reguły.
-* `feed/entry/content/properties/Type`-Typ reguły: BlockList lub Upsale.
+* `feed/entry/content/properties/Type`-Typ reguły hello: BlockList lub Upsale.
 * `feed/entry/content/properties/Parameter`-Parametr reguły.
 
 OData XML
@@ -933,8 +933,8 @@ OData XML
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| wartości filterId |Unikatowy identyfikator filtru |
+| modelId |Unikatowy identyfikator modelu hello |
+| wartości filterId |Unikatowy identyfikator hello filtru |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -950,7 +950,7 @@ Kod stanu HTTP: 200
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
+| modelId |Unikatowy identyfikator modelu hello |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -961,24 +961,24 @@ Kod stanu HTTP: 200
 
 ## <a name="8-catalog"></a>8. Katalogu
 ### <a name="81----import-catalog-data"></a>8.1.    Importuj dane katalogu
-Kilka plików wykazu podczas przesyłania do tego samego modelu z kilka wywołań, firma Microsoft będzie wstawić tylko nowych elementów katalogu. Istniejące elementy pozostanie z oryginalnych wartości. Nie można zaktualizować katalogu danych za pomocą tej metody.
+Po wysłaniu kilka katalogu plików toohello sam model z kilka wywołań możemy zostanie wstawiona tylko hello nowych elementów katalogu. Istniejące elementy pozostanie z hello oryginalnych wartości. Nie można zaktualizować katalogu danych za pomocą tej metody.
 
-Dane wykazu należy wykonać następujący format:
+dane wykazu Hello należy stosować hello następującego formatu:
 
 * Bez funkcji-`<Item Id>,<Item Name>,<Item Category>[,<Description>]`
 * Dzięki funkcjom-`<Item Id>,<Item Name>,<Item Category>,[<Description>],<Features list>`
 
-Uwaga: Maksymalny rozmiar pliku jest 200MB.
+Uwaga: hello maksymalny rozmiar pliku to 200MB.
 
 ** Formatuj szczegóły **
 
 | Nazwa | Obowiązkowy | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| Identyfikator elementu |Tak |[A-z], [a-z], [0-9] [_] & #40; Podkreślenie & #41; [-] & #40; Dash & #41;<br> Długość maksymalna: 50 |Unikatowy identyfikator elementu. |
+| Identyfikator elementu |Tak |[A-z], [a-z], [0-9] [_] &#40; Podkreślenie &#41; [-] &#40; Dash &#41;<br> Długość maksymalna: 50 |Unikatowy identyfikator elementu. |
 | Nazwa elementu |Tak |Dowolne znaki alfanumeryczne<br> Maksymalna długość: 255 |Nazwa elementu. |
-| Kategoria elementu |Tak |Dowolne znaki alfanumeryczne <br> Maksymalna długość: 255 |Kategoria, do którego ten element należy (np. gotowania książki teatralne...); może być pusta. |
+| Kategoria elementu |Tak |Dowolne znaki alfanumeryczne <br> Maksymalna długość: 255 |Kategoria toowhich ten element należy (np. gotowania książki teatralne...); może być pusta. |
 | Opis |Nie, chyba, że funkcje są istnieje (ale nie może być puste) |Dowolne znaki alfanumeryczne <br> Maksymalna długość: 4000 |Opis tego elementu. |
-| Lista funkcji |Nie |Dowolne znaki alfanumeryczne <br> Maksymalna długość: 4000; Maksymalna liczba funkcji: 20 |Rozdzielana przecinkami lista nazwy funkcji = wartość funkcji, która może służyć do zwiększenia zalecenia modelu; zobacz [Tematy zaawansowane](#2-advanced-topics) sekcji. |
+| Lista funkcji |Nie |Dowolne znaki alfanumeryczne <br> Maksymalna długość: 4000; Maksymalna liczba funkcji: 20 |Rozdzielana przecinkami lista nazwy funkcji = wartość funkcji, które mogą być używane tooenhance modelu zalecenia; zobacz [Tematy zaawansowane](#2-advanced-topics) sekcji. |
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -987,20 +987,20 @@ Uwaga: Maksymalny rozmiar pliku jest 200MB.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| Nazwa pliku |Tekstowy identyfikator katalogu.<br>Tylko litery (A-Z, a – z), cyfry (0 – 9), łączniki (-) i znak podkreślenia (_) są dozwolone.<br>Długość maksymalna: 50 |
+| modelId |Unikatowy identyfikator modelu hello |
+| Nazwa pliku |Identyfikator tekstową hello katalogu.<br>Tylko litery (A-Z, a – z), cyfry (0 – 9), łączniki (-) i znak podkreślenia (_) są dozwolone.<br>Długość maksymalna: 50 |
 | apiVersion |1.0 |
 |  | |
-| Treść żądania |Przykład: (funkcje):<br/>Tworzenie Clara Callan książki, opis książki 2406e770-769c-4189-89de-1c9283f93a96, = Richard Wright publisher = Kanady Flamingo Harper, roku = 2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, zapomniane pokoju: A fikcja (książka Byzantium), książki,, autora = Nick Bantock wydawcy = Harpercollins, rok = 1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, książki,, autora = Findley Tymotka publisher = Kanada HarperFlamingo roku = 2001<br>552a1940-21e4-4399-82bb-594b46d7ed54, ograniczenia bestii, książki, opis książki autora = młynów Magnus publisher = publikowania gier roku = 1998</pre> |
+| Treść żądania |Przykład: (funkcje):<br/>Tworzenie Clara Callan książki, opis książki hello, 2406e770-769c-4189-89de-1c9283f93a96, = Richard Wright publisher = Kanady Flamingo Harper, roku = 2001<br>hello 21bf8088-b6c0-4509-870c-e1c7ac78304a, miejsca Forgetting: A fikcja (książka Byzantium), książki,, autora = Nick Bantock wydawcy = Harpercollins, rok = 1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, książki,, autora = Findley Tymotka publisher = Kanada HarperFlamingo roku = 2001<br>552a1940-21e4-4399-82bb-594b46d7ed54, ograniczenia bestii, książki, opis książki hello, tworzyć = młynów Magnus publisher = publikowania gier roku = 1998</pre> |
 
 **Odpowiedź**:
 
 Kod stanu HTTP: 200
 
-Interfejs API zwraca raport importu.
+Witaj interfejsu API zwraca raportu hello importu.
 
 * `feed\entry\content\properties\LineCount`— Zaakceptowano liczba wierszy.
-* `feed\entry\content\properties\ErrorCount`-Liczba wierszy, które nie zostały wstawione z powodu błędu.
+* `feed\entry\content\properties\ErrorCount`-Liczba wierszy, które nie zostały wstawione ze względu na błąd tooan.
 
 OData XML
 
@@ -1027,7 +1027,7 @@ OData XML
 
 ### <a name="82----get-catalog"></a>8.2.    Pobierz katalogu
 Pobiera wszystkie elementy katalogu.
-Katalog będzie można pobrać jedną stronę w czasie. Jeśli chcesz pobrać elementów od określonego indeksu można użyć parametru odata $skip. Na przykład jeśli chcesz pobrać elementy, zaczynając od pozycji 100, Dodaj parametr $skip = 100 na żądanie.
+katalogu Hello będzie można pobrać jedną stronę w czasie. Jeśli chcesz elementów tooget od określonego indeksu można użyć parametru odata hello $skip. Na przykład elementów tooget, zaczynając od pozycji 100, należy dodać parametr hello $skip = 100 toohello żądania.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1035,7 +1035,7 @@ Katalog będzie można pobrać jedną stronę w czasie. Jeśli chcesz pobrać el
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
+| modelId |Unikatowy identyfikator modelu hello |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -1044,10 +1044,10 @@ Katalog będzie można pobrać jedną stronę w czasie. Jeśli chcesz pobrać el
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla każdego elementu katalogu. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla każdego elementu katalogu. Każdy wpis ma hello następujące dane:
 
-* `feed/entry/content/properties/ExternalId`— Identyfikator wykazu: element zewnętrznych, dostarczana przez klienta.
-* `feed/entry/content/properties/InternalId`-Wykazu element wewnętrzny identyfikator, który wygenerował Azure Machine Learning zalecenia.
+* `feed/entry/content/properties/ExternalId`— Identyfikator zewnętrznego elementu katalogu, hello dostarczonego przez powitania klienta.
+* `feed/entry/content/properties/InternalId`-Katalogu wewnętrzny identyfikator elementu hello generowany Azure Machine Learning zalecenia.
 * `feed/entry/content/properties/Name`-Nazwa elementu katalogu.
 * `feed/entry/content/properties/Category`-Kategoria elementu katalogu.
 * `feed/entry/content/properties/Description`-Opis elementu katalogu.
@@ -1119,7 +1119,7 @@ OData XML
             <m:properties>
                 <d:ExternalId m:type="Edm.String">21BF8088-B6C0-4509-870C-E1C7AC78304A</d:ExternalId>
                 <d:InternalId m:type="Edm.String">ea65e4fa-768c-40b4-92c3-69d3e8178691</d:InternalId>
-                <d:Name m:type="Edm.String">The Forgetting Room: A Fiction (Byzantium Book)</d:Name>
+                <d:Name m:type="Edm.String">hello Forgetting Room: A Fiction (Byzantium Book)</d:Name>
                 <d:Category m:type="Edm.String">Book</d:Category>
                 <d:Description m:type="Edm.String"></d:Description>
                 <d:Metadata m:type="Edm.String"></d:Metadata>
@@ -1135,8 +1135,8 @@ OData XML
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| Token |Token nazwy elementu katalogu. Powinien zawierać co najmniej 3 znaki. |
+| modelId |Unikatowy identyfikator modelu hello |
+| Token |Token nazwy element hello katalogu. Powinien zawierać co najmniej 3 znaki. |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -1145,9 +1145,9 @@ OData XML
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla każdego elementu katalogu. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla każdego elementu katalogu. Każdy wpis ma hello następujące dane:
 
-* `feed/entry/content/properties/InternalId`-Wykazu element wewnętrzny identyfikator, który wygenerował Azure Machine Learning zalecenia.
+* `feed/entry/content/properties/InternalId`-Katalogu wewnętrzny identyfikator elementu hello generowany Azure Machine Learning zalecenia.
 * `feed/entry/content/properties/Name`-Nazwa elementu katalogu.
 * `feed/entry/content/properties/Rating`-(do użytku w przyszłości)
 * `feed/entry/content/properties/Reasoning`-(do użytku w przyszłości)
@@ -1184,7 +1184,7 @@ OData XML
 ## <a name="9-usage-data"></a>9. Dane użycia
 ### <a name="91----import-usage-data"></a>9.1.    Importowanie danych użycia
 #### <a name="911-uploading-file"></a>9.1.1. Przekazywanie plików
-W tej sekcji pokazano, jak przekazywać dane użycia przy użyciu pliku. Można wywołać tego interfejsu API z danych użycia. Wszystkie dane użycia są zapisywane dla wszystkich wywołań.
+W tej sekcji przedstawiono sposób tooupload dane użycia przy użyciu pliku. Można wywołać tego interfejsu API z danych użycia. Wszystkie dane użycia są zapisywane dla wszystkich wywołań.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1192,18 +1192,18 @@ W tej sekcji pokazano, jak przekazywać dane użycia przy użyciu pliku. Można 
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| Nazwa pliku |Tekstowy identyfikator katalogu.<br>Tylko litery (A-Z, a – z), cyfry (0 – 9), łączniki (-) i znak podkreślenia (_) są dozwolone.<br>Długość maksymalna: 50 |
+| modelId |Unikatowy identyfikator modelu hello |
+| Nazwa pliku |Identyfikator tekstową hello katalogu.<br>Tylko litery (A-Z, a – z), cyfry (0 – 9), łączniki (-) i znak podkreślenia (_) są dozwolone.<br>Długość maksymalna: 50 |
 | apiVersion |1.0 |
 |  | |
-| Treść żądania |Dane użycia. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nazwa</th><th>Obowiązkowy</th><th>Typ</th><th>Opis</th></tr><tr><td>Identyfikator użytkownika</td><td>Tak</td><td>[A-z], [a-z], [0-9] [_] & #40; Podkreślenie & #41; [-] & #40; Dash & #41;<br> Maksymalna długość: 255 </td><td>Unikatowy identyfikator użytkownika.</td></tr><tr><td>Identyfikator elementu</td><td>Tak</td><td>[A-z], [a-z], [0-9] [& #95;] & #40; Podkreślenie & #41; [-] & #40; Dash & #41;<br> Długość maksymalna: 50</td><td>Unikatowy identyfikator elementu.</td></tr><tr><td>Time</td><td>Nie</td><td>Data w formacie: RRRR/MM/ddtgg (np. 2013/06/20T10:00:00)</td><td>Czas danych.</td></tr><tr><td>Wydarzenie</td><td>Brak; Jeśli podany również umieścić daty</td><td>Jeden z następujących czynności:<br>• Kliknij przycisk<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Zakupu</td><td></td></tr></table><br>Maksymalny rozmiar pliku: 200MB<br><br>Przykład:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Treść żądania |Dane użycia. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nazwa</th><th>Obowiązkowy</th><th>Typ</th><th>Opis</th></tr><tr><td>Identyfikator użytkownika</td><td>Tak</td><td>[A-z], [a-z], [0-9] [_] &#40; Podkreślenie &#41; [-] &#40; Dash &#41;<br> Maksymalna długość: 255 </td><td>Unikatowy identyfikator użytkownika.</td></tr><tr><td>Identyfikator elementu</td><td>Tak</td><td>[A-z], [a-z], [0-9] [&#95;] &#40; Podkreślenie &#41; [-] &#40; Dash &#41;<br> Długość maksymalna: 50</td><td>Unikatowy identyfikator elementu.</td></tr><tr><td>Time</td><td>Nie</td><td>Data w formacie: RRRR/MM/ddtgg (np. 2013/06/20T10:00:00)</td><td>Czas danych.</td></tr><tr><td>Wydarzenie</td><td>Brak; Jeśli podany również umieścić daty</td><td>Jedną z następujących hello:<br>• Kliknij przycisk<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Zakupu</td><td></td></tr></table><br>Maksymalny rozmiar pliku: 200MB<br><br>Przykład:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Odpowiedź**:
 
 Kod stanu HTTP: 200
 
 * `Feed\entry\content\properties\LineCount`— Zaakceptowano liczba wierszy.
-* `Feed\entry\content\properties\ErrorCount`-Liczba wierszy, które nie zostały wstawione z powodu błędu.
+* `Feed\entry\content\properties\ErrorCount`-Liczba wierszy, które nie zostały wstawione ze względu na błąd tooan.
 * `Feed\entry\content\properties\FileId`— Identyfikator pliku.
 
 OData XML
@@ -1232,7 +1232,7 @@ OData XML
 
 
 #### <a name="912-using-data-acquisition"></a>9.1.2. Przy użyciu danych
-W tej sekcji przedstawiono sposób wysyłania zdarzeń w czasie rzeczywistym do Azure Machine Learning zalecenia, zazwyczaj z witryny sieci Web.
+W tej sekcji przedstawiono, jak zdarzenia toosend w rzeczywistym czasu tooAzure Machine Learning zalecenia, zazwyczaj z witryny sieci Web.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1242,7 +1242,7 @@ W tej sekcji przedstawiono sposób wysyłania zdarzeń w czasie rzeczywistym do 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
 | apiVersion |1.0 |
-| Treść żądania |Wpis danych zdarzeń dla każdego zdarzenia, które chcesz wysyłać. Należy wysłać do tej samej sesji użytkownika lub przeglądarki ten sam identyfikator w polu identyfikatora sesji. (Zobacz przykład treści zdarzenia poniżej). |
+| Treść żądania |Wprowadzanie danych zdarzeń dla każdego zdarzenia mają toosend. Należy wysłać dla hello tej samej sesji użytkownika lub przeglądarki hello tym samym identyfikatorze hello SessionId pola. (Zobacz przykład treści zdarzenia poniżej). |
 
 * Przykład dla zdarzenia "Kliknij przycisk":
   
@@ -1337,7 +1337,7 @@ W tej sekcji przedstawiono sposób wysyłania zdarzeń w czasie rzeczywistym do 
 
 ### <a name="92----list-model-usage-files"></a>9.2.    Pliki użycia modelu listy
 Pobiera metadane wszystkie pliki użycia modelu.
-Użycia, które pliki są pobierane jedną stronę w czasie. Elementy kasowa 100 każdej strony. Jeśli chcesz pobrać elementów od określonego indeksu można użyć parametru odata $skip. Na przykład jeśli chcesz pobrać elementy, zaczynając od pozycji 100, Dodaj parametr $skip = 100 na żądanie.
+Witaj użycia, które pliki są pobierane jedną stronę w czasie. Elementy kasowa 100 każdej strony. Jeśli chcesz elementów tooget od określonego indeksu można użyć parametru odata hello $skip. Na przykład elementów tooget, zaczynając od pozycji 100, należy dodać parametr hello $skip = 100 toohello żądania.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1345,7 +1345,7 @@ Użycia, które pliki są pobierane jedną stronę w czasie. Elementy kasowa 100
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| forModelId |Unikatowy identyfikator modelu |
+| forModelId |Unikatowy identyfikator modelu hello |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -1354,12 +1354,12 @@ Użycia, które pliki są pobierane jedną stronę w czasie. Elementy kasowa 100
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jednego wpisu na użycie pliku. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jednego wpisu na użycie pliku. Każdy wpis ma hello następujące dane:
 
 * `feed\entry\content\properties\Id`-Identyfikator użycia pliku.
 * `feed\entry\content\properties\Length`— Długość pliku użycie w MB.
-* `feed\entry\content\properties\DateModified`-Data utworzenia pliku użycia.
-* `feed\entry\content\properties\UseInModel`— Czy plik użycia jest używany w modelu.
+* `feed\entry\content\properties\DateModified`-Data utworzenia pliku użycia hello.
+* `feed\entry\content\properties\UseInModel`— Czy plik użycia hello jest używany w hello modelu.
 
 OData XML
 
@@ -1409,10 +1409,10 @@ Pobiera statystyki użycia.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
+| modelId |Unikatowy identyfikator modelu hello |
 | datą rozpoczęcia |Data rozpoczęcia. Format: RRRR/MM/Ddtgg |
 | datą zakończenia |Data zakończenia. Format: RRRR/MM/Ddtgg |
-| eventTypes |Ciąg rozdzielony przecinkami typów zdarzeń lub wartość null, wszystkie zdarzenia |
+| eventTypes |Ciąg rozdzielony przecinkami zdarzenia typów lub wartość null tooget wszystkie zdarzenia |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -1421,9 +1421,9 @@ Pobiera statystyki użycia.
 
 Kod stanu HTTP: 200
 
-Kolekcja elementów klucza i wartości. Każda z nich zawiera sumę zdarzeń dla określonego typu zdarzenia pogrupowane wg godziny.
+Kolekcja elementów klucza i wartości. Każda z nich zawiera sumę hello zdarzeń dla określonego typu zdarzenia pogrupowane wg godziny.
 
-* `feed\entry[i]\content\properties\Key`-Zawiera czas (pogrupowane według godzin) i typ zdarzenia.
+* `feed\entry[i]\content\properties\Key`-Zawiera czas hello (pogrupowane według godzin) i hello typ zdarzenia.
 * `feed\entry[i]\content\properties\Value`— Licznik Całkowita liczba zdarzeń.
 
 OData XML
@@ -1486,7 +1486,7 @@ OData XML
     </feed>
 
 ### <a name="94----get-usage-file-sample"></a>9.4.    Pobierz przykładowy plik użycia
-Pobiera pierwszy 2KB użycia pliku zawartości.
+Pobiera hello 2KB pierwszego użycia pliku zawartości.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1494,8 +1494,8 @@ Pobiera pierwszy 2KB użycia pliku zawartości.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| fileId |Unikatowy identyfikator użycia pliku modelu |
+| modelId |Unikatowy identyfikator modelu hello |
+| fileId |Unikatowy identyfikator hello modelu użycia pliku |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -1526,7 +1526,7 @@ Odpowiedź zostanie zwrócona w formacie tekstowym raw:
 
 
 ### <a name="95----get-model-usage-file"></a>9.5.    Pobierz plik użycia modelu
-Pobiera pełnej zawartości pliku użycia.
+Pobiera hello pełnej zawartości hello użycia pliku.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1534,8 +1534,8 @@ Pobiera pełnej zawartości pliku użycia.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| MID |Unikatowy identyfikator modelu |
-| FID |Unikatowy identyfikator użycia pliku modelu |
+| MID |Unikatowy identyfikator modelu hello |
+| FID |Unikatowy identyfikator hello modelu użycia pliku |
 | Pobierz |1 |
 | apiVersion |1.0 |
 |  | |
@@ -1584,7 +1584,7 @@ Odpowiedź zostanie zwrócona w formacie tekstowym raw:
 </pre>
 
 ### <a name="96----delete-usage-file"></a>9.6.    Usuń plik użycia
-Usuwa plik użycia określonego modelu.
+Usuwa plik użycia określonego modelu hello.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1592,8 +1592,8 @@ Usuwa plik użycia określonego modelu.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| fileId |Unikatowy identyfikator pliku do usunięcia |
+| modelId |Unikatowy identyfikator modelu hello |
+| fileId |Unikatowy identyfikator hello toobe plik usunięty |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -1611,7 +1611,7 @@ Usuwa wszystkie pliki użycia modelu.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
+| modelId |Unikatowy identyfikator modelu hello |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -1621,12 +1621,12 @@ Usuwa wszystkie pliki użycia modelu.
 Kod stanu HTTP: 200
 
 ## <a name="10-features"></a>10. Funkcje
-W tej sekcji pokazano, jak można pobrać informacji o funkcji, takich jak funkcje zaimportowane i ich wartości, ich stopień i ta pozycja została przydzielona. Funkcje są importowane jako część danych katalogu, a następnie ich pozycja jest skojarzony, po zakończeniu kompilacji rangi.
-Funkcja rangę można zmienić zgodnie ze wzorca użycia danych i typ elementów. Ale rangę powinny mieć tylko małe wahania spójne użycia/elementów.
-Pozycja funkcji jest liczbą nieujemną. Numer 0 oznacza, że funkcja nie została wyznaczona ranga (się stanie w przypadku wywołać tego interfejsu API przed ukończeniem pierwszego rangi kompilacji). Data, jaką rangę został przypisany jest nazywany wynik świeżości.
+W tej sekcji przedstawiono sposób tooretrieve funkcji informacji, takich jak funkcje hello zaimportowane i ich wartości, ich stopień i gdy ta pozycja został przydzielony. Funkcje są importowane jako część hello wykazu danych, a następnie ich pozycja jest skojarzony, po zakończeniu kompilacji rangi.
+Funkcja rangę można zmienić zgodnie z toohello wzorca użycia danych i typ elementów. Ale rangę hello powinny mieć tylko małe wahania spójne użycia/elementów.
+Ranga Hello funkcji jest liczbą nieujemną. Witaj numer 0 oznacza, że nie zajęła tej funkcji hello (się stanie w przypadku wywołać tego interfejsu API zakończenia wcześniejszych toohello pierwszej kompilacji rank powitania). Data Hello jaką została przypisana rangę hello jest nazywany hello wynik świeżości.
 
 ### <a name="101-get-features-info-for-last-rank-build"></a>10.1. Uzyskać informacje o funkcji (Ostatnia kompilacja rangi)
-Pobiera informacje o funkcji, łącznie z klasyfikacji dla ostatniej zakończonej pomyślnie kompilacji rangi.
+Pobiera informacje funkcji hello, w tym klasyfikacji dla hello ostatniej kompilacji rangi powiodło się.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1634,8 +1634,8 @@ Pobiera informacje o funkcji, łącznie z klasyfikacji dla ostatniej zakończone
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| samplingSize |Liczba wartości do dołączenia dla każdej funkcji zgodnie z danych zawartych w katalogu. <br/>Możliwe wartości:<br> -1 - wszystkie próbki. <br>0 — próbkowanie nie. <br>N - Zwróć N przykłady dla każdej nazwy funkcji. |
+| modelId |Unikatowy identyfikator modelu hello |
+| samplingSize |Liczba wartości tooinclude dla każdej funkcji, zgodnie z toohello danych w katalogu hello. <br/>Możliwe wartości:<br> -1 - wszystkie próbki. <br>0 — próbkowanie nie. <br>N - Zwróć N przykłady dla każdej nazwy funkcji. |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -1644,18 +1644,18 @@ Pobiera informacje o funkcji, łącznie z klasyfikacji dla ostatniej zakończone
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera listę wpisów informacji o funkcji. Każdy wpis zawiera:
+odpowiedź Hello zawiera listę wpisów informacji o funkcji. Każdy wpis zawiera:
 
 * `feed/entry/content/m:properties/d:Name`-Funkcja nazwa.
-* `feed/entry/content/m:properties/d:RankUpdateDate`-Data jaką rangę została przydzielona do tej funkcji alias wynik świeżości funkcji. Historical Data ("0001-01-01T00:00:00") oznacza, że wykonano nie rangi kompilacji.
+* `feed/entry/content/m:properties/d:RankUpdateDate`-Data na które hello rangę funkcji przydzielone toothis alias wynik świeżości funkcji. Historical Data ("0001-01-01T00:00:00") oznacza, że wykonano nie rangi kompilacji.
 * `feed/entry/content/m:properties/d:Rank`— Ranga funkcja (float). Ranga 2.0 lub nowszej jest uznawane za funkcję dobra.
-* `feed/entry/content/m:properties/d:SampleValues`-Rozdzielana przecinkami lista wartości do żądany rozmiar próbkowania.
+* `feed/entry/content/m:properties/d:SampleValues`-Rozdzielana przecinkami lista wartości żądany rozmiar toohello próbkowania.
 
 OData XML
 
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
     <title type="text" />
-    <subtitle type="text">Get the features of a model</subtitle>
+    <subtitle type="text">Get hello features of a model</subtitle>
     <id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'</id>
     <rights type="text" />
     <updated>2015-01-08T13:15:02Z</updated>
@@ -1705,7 +1705,7 @@ OData XML
 </feed>
 
 ### <a name="102-get-features-info-for-specific-rank-build"></a>10.2. Pobierz informacje funkcji (dla określonej kompilacji rangi)
-Pobiera informacje o funkcji, łącznie z klasyfikacji w ramach określonej kompilacji rangi.
+Pobiera informacje o funkcji hello, w tym klasyfikacji w ramach określonej kompilacji rank powitania.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1713,9 +1713,9 @@ Pobiera informacje o funkcji, łącznie z klasyfikacji w ramach określonej komp
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| samplingSize |Liczba wartości do dołączenia dla każdej funkcji zgodnie z danych zawartych w katalogu.<br/> Możliwe wartości:<br> -1 - wszystkie próbki. <br>0 — próbkowanie nie. <br>N - Zwróć N przykłady dla każdej nazwy funkcji. |
-| rankBuildId |Unikatowy identyfikator rangi kompilacji lub wartość -1 rangi ostatniej kompilacji |
+| modelId |Unikatowy identyfikator modelu hello |
+| samplingSize |Liczba wartości tooinclude dla każdej funkcji, zgodnie z toohello danych w katalogu hello.<br/> Możliwe wartości:<br> -1 - wszystkie próbki. <br>0 — próbkowanie nie. <br>N - Zwróć N przykłady dla każdej nazwy funkcji. |
+| rankBuildId |Unikatowy identyfikator kompilacji rank powitania lub -1 dla ostatniej kompilacji rank powitania |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -1724,18 +1724,18 @@ Pobiera informacje o funkcji, łącznie z klasyfikacji w ramach określonej komp
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera listę wpisów informacji o funkcji. Każdy wpis zawiera:
+odpowiedź Hello zawiera listę wpisów informacji o funkcji. Każdy wpis zawiera:
 
 * `feed/entry/content/m:properties/d:Name`-Funkcja nazwa.
-* `feed/entry/content/m:properties/d:RankUpdateDate`-Data jaką rangę została przydzielona do tej funkcji alias wynik świeżości funkcji. Historical Data ("0001-01-01T00:00:00") oznacza, że wykonano nie rangi kompilacji.
+* `feed/entry/content/m:properties/d:RankUpdateDate`-Data na które hello rangę funkcji przydzielone toothis alias wynik świeżości funkcji. Historical Data ("0001-01-01T00:00:00") oznacza, że wykonano nie rangi kompilacji.
 * `feed/entry/content/m:properties/d:Rank`— Ranga funkcja (float). Ranga 2.0 lub nowszej jest uznawane za funkcję dobra.
-* `feed/entry/content/m:properties/d:SampleValues`-Rozdzielana przecinkami lista wartości do żądany rozmiar próbkowania.
+* `feed/entry/content/m:properties/d:SampleValues`-Rozdzielana przecinkami lista wartości żądany rozmiar toohello próbkowania.
 
 OData
 
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
         <title type="text" />
-        <subtitle type="text">Get the features of a model</subtitle>
+        <subtitle type="text">Get hello features of a model</subtitle>
         <id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'</id>
         <rights type="text" />
         <updated>2015-01-08T13:54:22Z</updated>
@@ -1786,82 +1786,82 @@ OData
 
 
 ## <a name="11-build"></a>11. Kompilacja
-  W tej sekcji opisano różne interfejsów API powiązane z kompilacji. Istnieją 3 typy kompilacji: kompilację zalecenie, rangi kompilacji i kompilacji zmianie wysokości progów (często zakupione razem).
+  W tej sekcji opisano hello toobuilds związane z różnych interfejsów API. Istnieją 3 typy kompilacji: kompilację zalecenie, rangi kompilacji i kompilacji zmianie wysokości progów (często zakupione razem).
 
-Kompilacja zalecenie ma na celu Generowanie modelu zalecenie używany dla prognoz. Prognoz (dla tego typu kompilacji) są dostępne w dwóch odmian:
+Celem Hello zalecenie kompilacji jest toogenerate model zalecenie używany do przewidywania. Prognoz (dla tego typu kompilacji) są dostępne w dwóch odmian:
 
-* I2I - alias Element do elementu zalecenia — element lub listę elementów, ta opcja będzie prognozowania listę elementów, które mogą być wysoki odsetek.
-* U2I - alias Użytkownik zalecenia elementu — podany identyfikator użytkownika (i opcjonalnie listę elementów) ta opcja prognozowania listę elementów, które mogą być wysoki odsetek dla danego użytkownika (i jego dodatkowe wybrane elementy). Zalecenia dotyczące U2I są oparte na historii elementów, które były istotnych dla użytkownika do chwili konstruowania modelu.
+* I2I - alias Element zalecenia tooItem - danego elementu lub listy elementów tej opcji spowoduje prognozowania listę elementów, które są prawdopodobnie toobe wysoki odsetek.
+* U2I - alias Zalecenia dotyczące tooItem użytkownika - podany identyfikator użytkownika (i opcjonalnie listę elementów) ta opcja będzie prognozowania listę elementów, które są prawdopodobnie toobe z niepodłączonych do hello danego użytkownika (i jego dodatkowe wybrane elementy). zalecenia dotyczące U2I Hello są oparte na powitania historii elementów, które były istotnych dla użytkownika hello czasu toohello, konstruowania modelu hello.
 
-Rank kompilacji jest techniczne kompilacji, która umożliwia Dowiedz się więcej o przydatność funkcje. Zwykle Aby uzyskać najlepsze wyniki dla modelu zalecenia dotyczące funkcji, należy wykonać następujące czynności:
+Rank kompilacji jest techniczne kompilacji, która pozwala toolearn o użyteczności hello funkcje. Zazwyczaj w kolejności tooget hello najlepszych wyników dla modelu zalecenia dotyczące funkcji, należy podjąć hello następujące kroki:
 
-* Wyzwalanie rangi kompilacji (o ile wynik funkcje jest stabilna), a następnie zaczekaj do oceny funkcji.
-* Pobierz pozycję Funkcje przez wywołanie metody [Get Info funkcji](#101-get-features-info-for-last-rank-build) interfejsu API.
-* Konfigurowanie kompilacji zalecenie z następującymi parametrami:
-  * `useFeatureInModel`— Wartość True.
-  * `ModelingFeatureList`-Ustawioną rozdzielana przecinkami lista funkcji z wynikiem 2.0 lub więcej (zgodnie z rangę pobierane w poprzednim kroku).
-  * `AllowColdItemPlacement`— Wartość True.
-  * Opcjonalnie można ustawić `EnableFeatureCorrelation` na wartość True i `ReasoningFeatureList` do listy funkcji chcesz użyć wyjaśnień (zwykle tę samą listę funkcji używanych w modelowania lub podlisty).
-* Wyzwalanie kompilacji zalecenie ze skonfigurowanymi parametrami.
+* Wyzwalanie rangi kompilacji (o ile wynik hello funkcje jest stabilna), a następnie zaczekaj do wyniku funkcji hello.
+* Pobrać rangę hello funkcje przez wywołanie hello [Get Info funkcji](#101-get-features-info-for-last-rank-build) interfejsu API.
+* Konfigurowanie kompilowania zalecenia za pomocą hello następujące parametry:
+  * `useFeatureInModel`-Set tooTrue.
+  * `ModelingFeatureList`-Set tooa rozdzielana przecinkami lista funkcji z wynikiem 2.0 lub więcej (według rangi toohello, pobierane w poprzednim kroku hello).
+  * `AllowColdItemPlacement`-Set tooTrue.
+  * Opcjonalnie można ustawić `EnableFeatureCorrelation` tooTrue i `ReasoningFeatureList` toohello lista funkcji, które chcesz toouse wyjaśnień (zazwyczaj hello tę samą listę funkcje używane w modelowania lub podlisty).
+* Wyzwalacz hello zalecenie kompilacji z hello skonfigurowane parametry.
 
-Uwaga: Jeśli nie skonfigurujesz żadnych parametrów (np. wywołanie kompilacji zalecenie bez parametrów) lub użycia funkcji nie zostanie jawnie wyłączone (np. `UseFeatureInModel` ustawiony na wartość False), system skonfiguruje związanych z funkcją parametry wyjaśniono powyższych wartości w przypadku pozycji kompilacji istnieje.
+Uwaga: Jeśli nie skonfigurujesz żadnych parametrów (np. wywołać budowania zalecenie hello bez parametrów) lub nie zostanie jawnie wyłączone hello użycia funkcji (np. `UseFeatureInModel` ustawić tooFalse), hello system skonfiguruje hello parametry dotyczące funkcji toohello wyjaśniono powyższych wartości w przypadku, gdy istnieje rangi kompilacji.
 
-Nie podlega ograniczeniom na uruchamianie rangi kompilacji i kompilację zalecenie jednocześnie dla tego samego modelu. Niemniej jednak nie można uruchomić dwie kompilacje tego samego typu na ten sam model równolegle.
+Nie podlega ograniczeniom na uruchomioną kompilację rangi i zalecenia kompilacji jednocześnie dla hello sam model. Niemniej jednak nie można uruchomić dwie kompilacje hello tego samego typu na powitania sam model równolegle.
 
 Kompilacja zmianie wysokości progów (często zakupione razem) jest jeszcze inny algorytm zalecenia nazywane czasami "zachowawcze" polecania, co ułatwia katalogi, które nie są jednorodne charakteru (jednorodnych: książek, filmów, niektóre żywności sposób; niejednorodnego: komputerów i urządzeń, między domenami, wysoce zróżnicowany).
 
-Uwaga: Jeśli pliki użycia, które zostało przez Ciebie przekazane zawiera pole opcjonalne "typ zdarzenia" następnie dla zmianie wysokości progów modelowania tylko zdarzenia "Zakupu" będzie można używać. Jeśli żaden typ zdarzenia jest pod warunkiem, że wszystkie zdarzenia są traktowane jako zakupu.
+Uwaga: Jeśli hello plików do użycia, które zostało przez Ciebie przekazane zawiera pole opcjonalne hello "typ zdarzenia" następnie dla zmianie wysokości progów modelowania tylko zdarzenia "Zakupu" będzie można używać. Jeśli żaden typ zdarzenia jest pod warunkiem, że wszystkie zdarzenia są traktowane jako zakupu.
 
 #### <a name="111-build-parameters"></a>11.1 kompilacji parametrów
-Każdy typ kompilacji mogą być konfigurowane przez zestaw parametrów (przedstawione poniżej). Jeśli nie skonfigurujesz parametrów, system automatycznie atrybutu wartości parametrów zgodnie z informacji w czasie wyzwolić kompilację.
+Każdy typ kompilacji mogą być konfigurowane przez zestaw parametrów (przedstawione poniżej). Jeśli nie skonfigurujesz parametry hello hello systemu zostanie automatycznie atrybutu wartości parametrów toohello zgodnie z toohello informacje obecnych w chwili hello wyzwolić kompilację.
 
 ##### <a name="1111-usage-condenser"></a>11.1.1. Zwrotną użycia
-Użytkowników lub elementy o kilka punktów użycia może zawierać więcej szumu niż informacji. System próbuje przewidzieć minimalna liczba punktów użycia na użytkownika/element do użycia w modelu. Ta liczba będzie w ramach zakresu określonego przez parametry ItemCutoffLowerBound i ItemCutoffUpperBound dla elementów, a zakres zdefiniowany przez parametry UserCutOffLowerBound i UserCutoffUpperBound dla użytkowników. Wpływ zwrotną na elementy lub użytkowników, można zminimalizować przez co najmniej jeden z granicami odpowiednie ustawienie na zero.
+Użytkowników lub elementy o kilka punktów użycia może zawierać więcej szumu niż informacji. Witaj system spróbuje toopredict hello minimalna liczba punktów użycia na użytkownika/elementu toobe używane w modelu. Ta liczba będzie zakresu hello zdefiniowany przez hello ItemCutoffLowerBound i parametrów ItemCutoffUpperBound elementów i hello zakresu zdefiniowanego przez hello UserCutOffLowerBound i UserCutoffUpperBound parametry dla użytkowników. Hello zwrotną wpływu na elementy lub użytkowników, można zminimalizować przez ustawienie co najmniej jeden z odpowiedniego toozero granice hello.
 
 ##### <a name="1112-rank-build-parameters"></a>11.1.2. Ranga kompilacji parametrów
-W poniższej tabeli przedstawiono parametry kompilacji dla kompilacji rangi.
+Witaj w poniższej tabeli przedstawiono hello parametry kompilacji dla kompilacji rangi.
 
 | Klucz | Opis | Typ | Nieprawidłowa wartość |
 |:--- |:--- |:--- |:--- |
-| NumberOfModelIterations |Liczba iteracji, które wykonuje modelu, sprawdzając całkowity czas obliczeń oraz dokładności modelu. Im większa liczba, większej dokładności otrzymasz, ale czasu obliczeniowego będzie trwać dłużej. |Liczba całkowita |10-50 |
-| NumberOfModelDimensions |Liczba wymiarów odnosi się do liczbę "funkcji" spróbuje znaleźć w danych modelu. Zwiększenie liczby wymiarów pozwoli lepiej Dostrajanie wyników w mniejszych klastrów. Jednak zbyt dużo wymiarów uniemożliwi modelu odnalezienie korelacji między elementami. |Liczba całkowita |10-40 |
-| ItemCutOffLowerBound |Definiuje dolna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
-| ItemCutOffUpperBound |Definiuje górna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
-| UserCutOffLowerBound |Definiuje użytkownika dolna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
-| UserCutOffUpperBound |Definiuje użytkownika górna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| NumberOfModelIterations |Hello liczby iteracji modelu hello wykonuje, sprawdzając hello obliczeniowe całkowity czas i hello dokładności modelu. większa liczba hello Hello, hello większej dokładności, zostanie wyświetlony, ale hello obliczeń czas będzie trwać dłużej. |Liczba całkowita |10-50 |
+| NumberOfModelDimensions |Hello liczby wymiarów wiąże się, że liczba toohello "funkcji" hello modelu spróbuje toofind w danych. Zwiększenie liczby hello wymiarów pozwoli lepiej dostrajanie hello wyniki w mniejszych klastrów. Jednak zbyt dużo wymiarów uniemożliwi modelu hello odnalezienie korelacji między elementami. |Liczba całkowita |10-40 |
+| ItemCutOffLowerBound |Definiuje element hello dolna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| ItemCutOffUpperBound |Definiuje element hello górna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| UserCutOffLowerBound |Definiuje hello użytkownika dolna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| UserCutOffUpperBound |Definiuje hello użytkownika górna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
 
 ##### <a name="1113-recommendation-build-parameters"></a>11.1.3. Parametry kompilacji zalecenia
-W poniższej tabeli przedstawiono parametry kompilacji dla kompilacji zalecenia.
+Witaj w poniższej tabeli przedstawiono hello parametry kompilacji dla kompilacji zalecenie.
 
 | Klucz | Opis | Typ | Nieprawidłowa wartość |
 |:--- |:--- |:--- |:--- |
-| NumberOfModelIterations |Liczba iteracji, które wykonuje modelu, sprawdzając całkowity czas obliczeń oraz dokładności modelu. Im większa liczba, większej dokładności otrzymasz, ale czasu obliczeniowego będzie trwać dłużej. |Liczba całkowita |10-50 |
-| NumberOfModelDimensions |Liczba wymiarów odnosi się do liczbę "funkcji" spróbuje znaleźć w danych modelu. Zwiększenie liczby wymiarów pozwoli lepiej Dostrajanie wyników w mniejszych klastrów. Jednak zbyt dużo wymiarów uniemożliwi modelu odnalezienie korelacji między elementami. |Liczba całkowita |10-40 |
-| ItemCutOffLowerBound |Definiuje dolna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
-| ItemCutOffUpperBound |Definiuje górna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
-| UserCutOffLowerBound |Definiuje użytkownika dolna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
-| UserCutOffUpperBound |Definiuje użytkownika górna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| NumberOfModelIterations |Hello liczby iteracji modelu hello wykonuje, sprawdzając hello obliczeniowe całkowity czas i hello dokładności modelu. większa liczba hello Hello, hello większej dokładności, zostanie wyświetlony, ale hello obliczeń czas będzie trwać dłużej. |Liczba całkowita |10-50 |
+| NumberOfModelDimensions |Hello liczby wymiarów wiąże się, że liczba toohello "funkcji" hello modelu spróbuje toofind w danych. Zwiększenie liczby hello wymiarów pozwoli lepiej dostrajanie hello wyniki w mniejszych klastrów. Jednak zbyt dużo wymiarów uniemożliwi modelu hello odnalezienie korelacji między elementami. |Liczba całkowita |10-40 |
+| ItemCutOffLowerBound |Definiuje element hello dolna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| ItemCutOffUpperBound |Definiuje element hello górna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| UserCutOffLowerBound |Definiuje hello użytkownika dolna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| UserCutOffUpperBound |Definiuje hello użytkownika górna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
 | Opis |Tworzenie opisu. |Ciąg |Dowolny tekst maksymalne 512 znaków |
-| EnableModelingInsights |Można obliczyć metryki dotyczące modelu zalecenie. |Wartość logiczna |PRAWDA/FAŁSZ |
-| UseFeaturesInModel |Wskazuje, czy funkcje mogą być używane w celu ulepszenia modelu zalecenia. |Wartość logiczna |PRAWDA/FAŁSZ |
-| ModelingFeatureList |Rozdzielana przecinkami lista nazw funkcji ma być używana podczas kompilacji zalecenie, aby poprawić zalecenie. |Ciąg |Funkcja nazwy maksymalnie 512 znaków. |
-| AllowColdItemPlacement |Wskazuje, czy zalecenie ma również wypychać zimnych elementów za pomocą funkcji podobieństwa. |Wartość logiczna |PRAWDA/FAŁSZ |
+| EnableModelingInsights |Umożliwia toocompute metryki na powitania zalecenie modelu. |Wartość logiczna |PRAWDA/FAŁSZ |
+| UseFeaturesInModel |Wskazuje, czy funkcje mogą być używane w kolejności tooenhance hello zalecenie modelu. |Wartość logiczna |PRAWDA/FAŁSZ |
+| ModelingFeatureList |Rozdzielana przecinkami lista toobe nazwy funkcji używane w hello zalecenie kompilacji, w kolejności tooenhance hello zalecenia. |Ciąg |Nazwy funkcji się too512 znaków |
+| AllowColdItemPlacement |Wskazuje, czy zalecenie hello ma również wypychać zimnych elementów za pomocą funkcji podobieństwa. |Wartość logiczna |PRAWDA/FAŁSZ |
 | EnableFeatureCorrelation |Wskazuje, czy funkcje mogą być używane w uzasadnienie. |Wartość logiczna |PRAWDA/FAŁSZ |
-| ReasoningFeatureList |Rozdzielana przecinkami lista nazw funkcji używanego do wnioskowania zdań (np. zalecenie wyjaśnienia). |Ciąg |Funkcja nazwy maksymalnie 512 znaków. |
-| EnableU2I |Zezwalaj na spersonalizowanych zalecenie alias U2I (użytkownikowi zalecenia elementu). |Wartość logiczna |PRAWDA/FAŁSZ (domyślna wartość true) |
+| ReasoningFeatureList |Rozdzielana przecinkami lista toobe nazwy funkcji używany do wnioskowania zdań (np. zalecenie wyjaśnienia). |Ciąg |Nazwy funkcji się too512 znaków |
+| EnableU2I |Zezwalaj na powitania spersonalizowanych zalecenie alias U2I (zalecenia tooitem użytkownika). |Wartość logiczna |PRAWDA/FAŁSZ (domyślna wartość true) |
 
 ##### <a name="1114-fbt-build-parameters"></a>11.1.4. Parametry kompilacji zmianie wysokości progów
-W poniższej tabeli przedstawiono parametry kompilacji dla kompilacji zalecenia.
+Witaj w poniższej tabeli przedstawiono hello parametry kompilacji dla kompilacji zalecenie.
 
 | Klucz | Opis | Typ | Nieprawidłowa wartość (ustawienie domyślne) |
 |:--- |:--- |:--- |:--- |
-| FbtSupportThreshold |Jak zachowawcze jest modelu. Liczba wystąpień wspólnej elementów, które mają zostać uwzględnione w modelowania. |Liczba całkowita |3-50 (6) |
-| FbtMaxItemSetSize |Zakresem liczba elementów w zestawie częste. |Liczba całkowita |2-3 (2) |
-| FbtMinimalScore |Minimalny wynik częste zestaw ma być uwzględniane w zwracanych wyników. Im wyższa tym lepiej. |O podwójnej precyzji |0 lub nowszym (0) |
-| FbtSimilarityFunction |Definiuje funkcję podobieństwa do użycia przez kompilację. Przyrostu objawach serendipity, wspólnej wystąpienie objawach przewidywalności i Jaccard stanowi dobry kompromis między nimi. |Ciąg |cooccurrence przyrostu, jaccard (przyrostu) |
+| FbtSupportThreshold |Jak model zachowawcze hello jest. Liczba wystąpień wspólnej toobe elementów brany pod uwagę podczas modelowania. |Liczba całkowita |3-50 (6) |
+| FbtMaxItemSetSize |Granice hello liczba elementów w zestawie częste. |Liczba całkowita |2-3 (2) |
+| FbtMinimalScore |Wynik minimalnego częste zestaw powinny mieć w kolejności toobe objęte hello zwrócone wyniki. Witaj wyższej Witaj lepiej. |O podwójnej precyzji |0 lub nowszym (0) |
+| FbtSimilarityFunction |Definiuje toobe funkcja podobieństwa hello używane przez hello kompilacji. Przyrostu objawach serendipity, wspólnej wystąpienie objawach przewidywalności i Jaccard stanowi dobry kompromis między hello dwa. |Ciąg |cooccurrence przyrostu, jaccard (przyrostu) |
 
 ### <a name="112-trigger-a-recommendation-build"></a>11.2. Wyzwalacz kompilacji zalecenia
-  Domyślnie ten interfejs API wyzwoli kompilacji modelu zalecenia. Aby wyzwolić rangi kompilacji (aby wynik funkcji), powinien być używany typ variant interfejsu API kompilacji z parametrem typu kompilacji.
+  Domyślnie ten interfejs API wyzwoli kompilacji modelu zalecenia. tootrigger rangę kompilacji (w kolejności tooscore funkcji), hello kompilacji interfejsu API wariant z parametrem typu kompilacji powinien być używany.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -1870,19 +1870,19 @@ W poniższej tabeli przedstawiono parametry kompilacji dla kompilacji zalecenia.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| userDescription |Tekstowy identyfikator katalogu. Należy zwrócić uwagę, jeśli używasz spacje musi kodowanie go % 20 zamiast tego. Zobacz przykład powyżej.<br>Długość maksymalna: 50 |
+| modelId |Unikatowy identyfikator modelu hello |
+| userDescription |Identyfikator tekstową hello katalogu. Należy zwrócić uwagę, jeśli używasz spacje musi kodowanie go % 20 zamiast tego. Zobacz przykład powyżej.<br>Długość maksymalna: 50 |
 | apiVersion |1.0 |
 |  | |
-| Treść żądania |Jeśli pole pozostanie puste kompilacja zostanie wykonana z parametrami kompilacji domyślnej.<br><br>Jeśli chcesz ustawić parametry kompilacji, Wyślij parametry jako XML w treści, jak w poniższym przykładzie. (Zobacz sekcja "Kompilacji parametrów" Aby uzyskać informacje o parametrach).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+| Treść żądania |Jeśli pole pozostanie puste hello kompilacji zostaną wykonane z hello domyślne parametry kompilacji.<br><br>Parametry kompilacji hello tooset, wysłać hello parametrów jako XML na treść hello jak hello następujące przykładowe. (Zobacz sekcji hello "Parametry kompilacji" Aby uzyskać informacje o parametrach hello).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Odpowiedź**:
 
 Kod stanu HTTP: 200
 
-Jest to interfejs API asynchronicznego. Otrzymasz identyfikator kompilacji w odpowiedzi. Aby wiedzieć, kiedy Kompilacja została zakończona, należy wywołać interfejs API "Pobierz kompilacje stan modelu" i zlokalizuj identyfikator tej kompilacji w odpowiedzi. Należy pamiętać, że kompilacji może potrwać od minut godzin w zależności od rozmiaru danych.
+Jest to interfejs API asynchronicznego. Otrzymasz identyfikator kompilacji w odpowiedzi. tooknow po zakończeniu kompilacji hello, należy wywołać interfejs API "Pobierz kompilacje stan modelu" hello i zlokalizuj identyfikator to kompilacji w hello odpowiedzi. Należy pamiętać, że kompilacja może trwać od toohours minut w zależności od wielkości hello hello danych.
 
-Nie można używać zalecenia do kompilacji kończy się.
+Nie można używać zalecenia, dopóki hello kompilacji kończy się.
 
 Stan prawidłowy kompilacji:
 
@@ -1892,9 +1892,9 @@ Stan prawidłowy kompilacji:
 * Sukces - kompilacja zakończyła się pomyślnie.
 * Błąd — Kompilacja została zakończona z błędem.
 * Anulowane — Kompilacja została anulowana.
-* Anulowanie — wysłano żądanie anulowania kompilacji.
+* Anulowanie — wysłano żądanie anulowania kompilacji hello.
 
-Należy pamiętać, że identyfikator kompilacji można znaleźć w następującej ścieżce:`Feed\entry\content\properties\Id`
+Należy zwrócić uwagę tej kompilacji hello identyfikator można znaleźć pod ścieżką hello:`Feed\entry\content\properties\Id`
 
 OData XML
 
@@ -1943,20 +1943,20 @@ OData XML
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| userDescription |Tekstowy identyfikator katalogu. Należy zwrócić uwagę, jeśli używasz spacje musi kodowanie go % 20 zamiast tego. Zobacz przykład powyżej.<br>Długość maksymalna: 50 |
-| buildType |Typ kompilacji do wywołania: <br/> -"Zalecenie" dla kompilacji zalecenia <br> -Klasyfikacji dla rangi kompilacji <br/> -Zmianie wysokości "progów" dla kompilacji zmianie wysokości progów |
+| modelId |Unikatowy identyfikator modelu hello |
+| userDescription |Identyfikator tekstową hello katalogu. Należy zwrócić uwagę, jeśli używasz spacje musi kodowanie go % 20 zamiast tego. Zobacz przykład powyżej.<br>Długość maksymalna: 50 |
+| buildType |Typ hello tooinvoke kompilacji: <br/> -"Zalecenie" dla kompilacji zalecenia <br> -Klasyfikacji dla rangi kompilacji <br/> -Zmianie wysokości "progów" dla kompilacji zmianie wysokości progów |
 | apiVersion |1.0 |
 |  | |
-| Treść żądania |Jeśli pole pozostanie puste kompilacja zostanie wykonana z parametrami kompilacji domyślnej.<br><br>Jeśli chcesz ustawić parametry kompilacji, wysyłać je jako XML na treść podobnie jak w poniższym przykładzie. (Zobacz sekcję "Kompilacji parametrów" wyjaśnienie i pełną listę parametrów.)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+| Treść żądania |Jeśli pole pozostanie puste hello kompilacji zostaną wykonane z hello domyślne parametry kompilacji.<br><br>Jeśli chcesz, aby parametry kompilacji tooset, wysyłać je jako XML na treść hello podobnie jak w hello następujące przykładowe. (W sekcji hello "Parametry kompilacji" wyjaśnienie i Pełna lista parametrów hello.)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Odpowiedź**:
 
 Kod stanu HTTP: 200
 
-Jest to interfejs API asynchronicznego. Otrzymasz identyfikator kompilacji w odpowiedzi. Aby wiedzieć, kiedy Kompilacja została zakończona, należy wywołać interfejs API "Pobierz kompilacje stan modelu" i zlokalizuj identyfikator tej kompilacji w odpowiedzi. Należy pamiętać, że kompilacji może potrwać od minut godzin w zależności od rozmiaru danych.
+Jest to interfejs API asynchronicznego. Otrzymasz identyfikator kompilacji w odpowiedzi. tooknow po zakończeniu kompilacji hello, należy wywołać interfejs API "Pobierz kompilacje stan modelu" hello i zlokalizuj identyfikator to kompilacji w hello odpowiedzi. Należy pamiętać, że kompilacja może trwać od toohours minut w zależności od wielkości hello hello danych.
 
-Nie można używać zalecenia do kompilacji kończy się.
+Nie można używać zalecenia, dopóki hello kompilacji kończy się.
 
 Stan prawidłowy kompilacji:
 
@@ -1968,7 +1968,7 @@ Stan prawidłowy kompilacji:
 * Anulowane — Kompilacja została anulowana.
 * Anulowanie - Trwa anulowanie kompilacji.
 
-Należy pamiętać, że identyfikator kompilacji można znaleźć w następującej ścieżce:`Feed\entry\content\properties\Id`
+Należy zwrócić uwagę tej kompilacji hello identyfikator można znaleźć pod ścieżką hello:`Feed\entry\content\properties\Id`
 
 OData XML
 
@@ -2021,29 +2021,29 @@ Pobiera kompilacji i ich stanu dla określonego modelu.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| onlyLastBuild |Wskazuje, czy mają być zwracane całą historię kompilacji modelu lub tylko stan ostatniej kompilacji |
+| modelId |Unikatowy identyfikator modelu hello |
+| onlyLastBuild |Wskazuje, czy wszystkie hello tooreturn kompilacji tylko stan hello hello ostatniej kompilacji lub historii hello modelu |
 | apiVersion |1.0 |
 
 **Odpowiedź**:
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jednego wpisu na kompilacji. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jednego wpisu na kompilacji. Każdy wpis ma hello następujące dane:
 
-* `feed/entry/content/properties/UserName`— Nazwa użytkownika.
-* `feed/entry/content/properties/ModelName`-Nazwa modelu.
+* `feed/entry/content/properties/UserName`-Nazwa hello użytkownika.
+* `feed/entry/content/properties/ModelName`-Nazwa hello modelu.
 * `feed/entry/content/properties/ModelId`-Unikatowy identyfikator modelu.
-* `feed/entry/content/properties/IsDeployed`— Czy kompilacja zostaje wdrożona () aktywne kompilacji).
+* `feed/entry/content/properties/IsDeployed`— Czy kompilacja hello jest wdrożona () aktywne kompilacji).
 * `feed/entry/content/properties/BuildId`-Utwórz unikatowy identyfikator.
-* `feed/entry/content/properties/BuildType`— Typ kompilacji.
-* `feed/entry/content/properties/Status`-Stan kompilacji. Może być jedną z następujących czynności: błąd, kompilowanie, w kolejce, Cancelling odwołania, Powodzenie.
-* `feed/entry/content/properties/StatusMessage`— Komunikat szczegółowy stan (dotyczy tylko określone stany).
+* `feed/entry/content/properties/BuildType`— Typ hello kompilacji.
+* `feed/entry/content/properties/Status`-Stan kompilacji. Może być jedną z następujących hello: błąd, kompilowanie, w kolejce, Cancelling odwołania, Powodzenie.
+* `feed/entry/content/properties/StatusMessage`— Komunikat o stanie szczegółowe (dotyczy tylko Stany toospecific).
 * `feed/entry/content/properties/Progress`-Kompilacji postępu (%).
 * `feed/entry/content/properties/StartTime`-Godzina rozpoczęcia kompilacji.
 * `feed/entry/content/properties/EndTime`-Czas zakończenia kompilacji.
 * `feed/entry/content/properties/ExecutionTime`— Czas trwania kompilacji.
-* `feed/entry/content/properties/ProgressStep`-Szczegóły dotyczące bieżącego etapu kompilacji w toku.
+* `feed/entry/content/properties/ProgressStep`— Szczegółowe informacje o hello bieżący etap kompilacji w toku.
 
 Stan prawidłowy kompilacji:
 
@@ -2105,28 +2105,28 @@ Pobiera kompilacji statusy wszystkich modeli użytkownika.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| onlyLastBuild |Wskazuje, czy mają być zwracane całą historię kompilacji modelu lub tylko stan ostatniej kompilacji. |
+| onlyLastBuild |Wskazuje, czy wszystkie hello tooreturn kompilacji tylko stan hello hello ostatniej kompilacji lub historii hello modelu. |
 | apiVersion |1.0 |
 
 **Odpowiedź**:
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jednego wpisu na kompilacji. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jednego wpisu na kompilacji. Każdy wpis ma hello następujące dane:
 
-* `feed/entry/content/properties/UserName`— Nazwa użytkownika.
-* `feed/entry/content/properties/ModelName`-Nazwa modelu.
+* `feed/entry/content/properties/UserName`-Nazwa hello użytkownika.
+* `feed/entry/content/properties/ModelName`-Nazwa hello modelu.
 * `feed/entry/content/properties/ModelId`-Unikatowy identyfikator modelu.
-* `feed/entry/content/properties/IsDeployed`— Czy kompilacja zostaje wdrożona.
+* `feed/entry/content/properties/IsDeployed`— Czy hello kompilacja zostaje wdrożona.
 * `feed/entry/content/properties/BuildId`-Utwórz unikatowy identyfikator.
-* `feed/entry/content/properties/BuildType`— Typ kompilacji.
-* `feed/entry/content/properties/Status`-Stan kompilacji. Może być jedną z następujących czynności: błąd, kompilowanie, w kolejce, odwołania, Cancelling, Powodzenie.
-* `feed/entry/content/properties/StatusMessage`— Komunikat szczegółowy stan (dotyczy tylko określone stany).
+* `feed/entry/content/properties/BuildType`— Typ hello kompilacji.
+* `feed/entry/content/properties/Status`-Stan kompilacji. Może być jedną z następujących hello: błąd, kompilowanie, w kolejce, odwołania, Cancelling, Powodzenie.
+* `feed/entry/content/properties/StatusMessage`— Komunikat o stanie szczegółowe (dotyczy tylko Stany toospecific).
 * `feed/entry/content/properties/Progress`-Kompilacji postępu (%).
 * `feed/entry/content/properties/StartTime`-Godzina rozpoczęcia kompilacji.
 * `feed/entry/content/properties/EndTime`-Czas zakończenia kompilacji.
 * `feed/entry/content/properties/ExecutionTime`— Czas trwania kompilacji.
-* `feed/entry/content/properties/ProgressStep`-Szczegóły dotyczące bieżącego etapu kompilacji w toku.
+* `feed/entry/content/properties/ProgressStep`— Szczegółowe informacje o hello bieżący etap kompilacji w toku.
 
 Stan prawidłowy kompilacji:
 
@@ -2182,7 +2182,7 @@ OData XML
 ### <a name="116-delete-build"></a>11.6. Usuń kompilacji
 Usuwa kompilacji.
 
-UWAGA: <br>Nie można usunąć aktywnej kompilacji. Model powinny zostać uaktualnione do różnych kompilacji active przed jego usunięciem.<br>Nie można usunąć kompilacji w toku. Należy anulować kompilację najpierw przez wywołanie metody <strong>anulowania kompilacji</strong>.
+UWAGA: <br>Nie można usunąć aktywnej kompilacji. Witaj model powinien być zaktualizowany inną kompilację active tooa przed jego usunięciem.<br>Nie można usunąć kompilacji w toku. Należy anulować kompilacji hello najpierw przez wywołanie metody <strong>anulowania kompilacji</strong>.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -2190,7 +2190,7 @@ UWAGA: <br>Nie można usunąć aktywnej kompilacji. Model powinny zostać uaktua
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| identyfikatora buildId |Unikatowy identyfikator kompilacji. |
+| identyfikatora buildId |Unikatowy identyfikator hello kompilacji. |
 | apiVersion |1.0 |
 
 **Odpowiedź:**
@@ -2206,7 +2206,7 @@ Anuluje kompilacji, która w budynku stanu.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| identyfikatora buildId |Unikatowy identyfikator kompilacji. |
+| identyfikatora buildId |Unikatowy identyfikator hello kompilacji. |
 | apiVersion |1.0 |
 
 **Odpowiedź:**
@@ -2222,7 +2222,7 @@ Pobiera kompilacji parametrów.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| identyfikatora buildId |Unikatowy identyfikator kompilacji. |
+| identyfikatora buildId |Unikatowy identyfikator hello kompilacji. |
 | apiVersion |1.0 |
 
 **Odpowiedź:**
@@ -2234,23 +2234,23 @@ Ten interfejs API zwraca kolekcję elementów klucza i wartości. Każdy element
 * `feed/entry/content/properties/Key`-Nazwa parametru kompilacji.
 * `feed/entry/content/properties/Value`— Wartość parametru kompilacji.
 
-W poniższej tabeli przedstawiono wartość, która reprezentuje każdego klucza.
+Witaj w poniższej tabeli przedstawiono hello wartość, która reprezentuje każdy klucz.
 
 | Klucz | Opis | Typ | Nieprawidłowa wartość |
 |:--- |:--- |:--- |:--- |
-| NumberOfModelIterations |Liczba iteracji, które wykonuje modelu, sprawdzając całkowity czas obliczeń oraz dokładności modelu. Im większa liczba, większej dokładności otrzymasz, ale czasu obliczeniowego będzie trwać dłużej. |Liczba całkowita |10-50 |
-| NumberOfModelDimensions |Liczba wymiarów odnosi się do liczbę "funkcji" spróbuje znaleźć w danych modelu. Zwiększenie liczby wymiarów pozwoli lepiej Dostrajanie wyników w mniejszych klastrów. Jednak zbyt dużo wymiarów uniemożliwi modelu odnalezienie korelacji między elementami. |Liczba całkowita |10-40 |
-| ItemCutOffLowerBound |Definiuje dolna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
-| ItemCutOffUpperBound |Definiuje górna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
-| UserCutOffLowerBound |Definiuje użytkownika dolna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
-| UserCutOffUpperBound |Definiuje użytkownika górna granica zwrotną. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| NumberOfModelIterations |Hello liczby iteracji modelu hello wykonuje, sprawdzając hello obliczeniowe całkowity czas i hello dokładności modelu. większa liczba hello Hello, hello większej dokładności, zostanie wyświetlony, ale hello obliczeń czas będzie trwać dłużej. |Liczba całkowita |10-50 |
+| NumberOfModelDimensions |Hello liczby wymiarów wiąże się, że liczba toohello "funkcji" hello modelu spróbuje toofind w danych. Zwiększenie liczby hello wymiarów pozwoli lepiej dostrajanie hello wyniki w mniejszych klastrów. Jednak zbyt dużo wymiarów uniemożliwi modelu hello odnalezienie korelacji między elementami. |Liczba całkowita |10-40 |
+| ItemCutOffLowerBound |Definiuje element hello dolna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| ItemCutOffUpperBound |Definiuje element hello górna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| UserCutOffLowerBound |Definiuje hello użytkownika dolna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
+| UserCutOffUpperBound |Definiuje hello użytkownika górna granica zwrotną hello. Zobacz użycie zwrotną powyżej. |Liczba całkowita |co najmniej 2 (zwrotną Wyłącz 0) |
 | Opis |Tworzenie opisu. |Ciąg |Dowolny tekst maksymalne 512 znaków |
-| EnableModelingInsights |Można obliczyć metryki dotyczące modelu zalecenie. |Wartość logiczna |PRAWDA/FAŁSZ |
-| UseFeaturesInModel |Wskazuje, czy funkcje mogą być używane w celu ulepszenia modelu zalecenia. |Wartość logiczna |PRAWDA/FAŁSZ |
-| ModelingFeatureList |Rozdzielana przecinkami lista nazw funkcji ma być używana podczas kompilacji zalecenie, aby poprawić zalecenie. |Ciąg |Funkcja nazwy maksymalnie 512 znaków. |
-| AllowColdItemPlacement |Wskazuje, czy zalecenie ma również wypychać zimnych elementów za pomocą funkcji podobieństwa. |Wartość logiczna |PRAWDA/FAŁSZ |
+| EnableModelingInsights |Umożliwia toocompute metryki na powitania zalecenie modelu. |Wartość logiczna |PRAWDA/FAŁSZ |
+| UseFeaturesInModel |Wskazuje, czy funkcje mogą być używane w kolejności tooenhance hello zalecenie modelu. |Wartość logiczna |PRAWDA/FAŁSZ |
+| ModelingFeatureList |Rozdzielana przecinkami lista toobe nazwy funkcji używane w hello zalecenie kompilacji, w kolejności tooenhance hello zalecenia. |Ciąg |Nazwy funkcji się too512 znaków |
+| AllowColdItemPlacement |Wskazuje, czy zalecenie hello ma również wypychać zimnych elementów za pomocą funkcji podobieństwa. |Wartość logiczna |PRAWDA/FAŁSZ |
 | EnableFeatureCorrelation |Wskazuje, czy funkcje mogą być używane w uzasadnienie. |Wartość logiczna |PRAWDA/FAŁSZ |
-| ReasoningFeatureList |Rozdzielana przecinkami lista nazw funkcji używanego do wnioskowania zdań (np. zalecenie wyjaśnienia). |Ciąg |Funkcja nazwy maksymalnie 512 znaków. |
+| ReasoningFeatureList |Rozdzielana przecinkami lista toobe nazwy funkcji używany do wnioskowania zdań (np. zalecenie wyjaśnienia). |Ciąg |Nazwy funkcji się too512 znaków |
 
 OData XML
 
@@ -2421,7 +2421,7 @@ OData XML
 
 ## <a name="12-recommendation"></a>12. Zalecenie
 ### <a name="121-get-item-recommendations-for-active-build"></a>12.1. Uzyskaj element zalecenia (dla active kompilacji)
-Uzyskaj zalecenia active kompilacji typu "Zalecenie" lub "Zmianie wysokości progów" na podstawie listy elementów (wejścia) ziarna.
+Pobierz zalecenia hello active kompilacji typu "Zalecenie" lub "Zmianie wysokości progów" na podstawie listy elementów ziarna (dane wejściowe).
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -2429,8 +2429,8 @@ Uzyskaj zalecenia active kompilacji typu "Zalecenie" lub "Zmianie wysokości pro
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| identyfikatory elementów |Rozdzielana przecinkami lista elementów zalecanie dla. <br>Jeśli jest aktywny kompilacji typu zmianie wysokości progów można wysłać tylko jeden element. <br>Maksymalna długość: 1024 |
+| modelId |Unikatowy identyfikator modelu hello |
+| identyfikatory elementów |Rozdzielana przecinkami lista hello elementów toorecommend dla. <br>Jeśli kompilacja active hello jest wpisz zmianie wysokości progów, a następnie wysłać tylko jeden element. <br>Maksymalna długość: 1024 |
 | numberOfResults |Liczba wymaganych wyników <br> Maksymalna liczba: 150 |
 | includeMetatadata |Użycia w przyszłości, zawsze false |
 | apiVersion |1.0 |
@@ -2439,14 +2439,14 @@ Uzyskaj zalecenia active kompilacji typu "Zalecenie" lub "Zmianie wysokości pro
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma hello następujące dane:
 
 * `Feed\entry\content\properties\Id`— Identyfikator elementu zalecane.
-* `Feed\entry\content\properties\Name`-Nazwa elementu.
-* `Feed\entry\content\properties\Rating`— Ocena zalecenia; większa liczba oznacza większą wiarą.
+* `Feed\entry\content\properties\Name`-Nazwa elementu hello.
+* `Feed\entry\content\properties\Rating`— Ocena zalecenia hello; większa liczba oznacza większą wiarą.
 * `Feed\entry\content\properties\Reasoning`-Zalecenie wnioskowania (np. zalecenie wyjaśnienia).
 
-Przykład odpowiedzi poniżej zawiera 10 elementów zalecane.
+odpowiedź przykład Hello poniżej zawiera 10 elementów zalecane.
 
 OData XML
 
@@ -2608,28 +2608,28 @@ Pobierz zalecenia określonej kompilacji typu "Zalecenie" lub "Zmianie wysokośc
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| identyfikatory elementów |Rozdzielana przecinkami lista elementów zalecanie dla. <br>Jeśli jest aktywny kompilacji typu zmianie wysokości progów można wysłać tylko jeden element. <br>Maksymalna długość: 1024 |
+| modelId |Unikatowy identyfikator modelu hello |
+| identyfikatory elementów |Rozdzielana przecinkami lista hello elementów toorecommend dla. <br>Jeśli kompilacja active hello jest wpisz zmianie wysokości progów, a następnie wysłać tylko jeden element. <br>Maksymalna długość: 1024 |
 | numberOfResults |Liczba wymaganych wyników <br> Maksymalna liczba: 150 |
 | includeMetatadata |Użycia w przyszłości, zawsze false |
-| identyfikatora buildId |Identyfikator kompilacji do użycia dla tego żądania zalecenia |
+| identyfikatora buildId |Witaj kompilacji toouse identyfikator dla tego żądania zalecenia |
 | apiVersion |1.0 |
 
 **Odpowiedź:**
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma hello następujące dane:
 
 * `Feed\entry\content\properties\Id`— Identyfikator elementu zalecane.
-* `Feed\entry\content\properties\Name`-Nazwa elementu.
-* `Feed\entry\content\properties\Rating`— Ocena zalecenia; większa liczba oznacza większą wiarą.
+* `Feed\entry\content\properties\Name`-Nazwa elementu hello.
+* `Feed\entry\content\properties\Rating`— Ocena zalecenia hello; większa liczba oznacza większą wiarą.
 * `Feed\entry\content\properties\Reasoning`-Zalecenie wnioskowania (np. zalecenie wyjaśnienia).
 
 Zobacz przykład odpowiedzi, 12.1
 
 ### <a name="123-get-fbt-recommendations-for-active-build"></a>12.3. Pobierz zalecenia zmianie wysokości progów (dla active kompilacji)
-Pobierz zalecenia active kompilacji typu "Zmianie wysokości progów" oparta na elemencie inicjatora (dane wejściowe).
+Pobierz zalecenia hello active kompilacji typu "Zmianie wysokości progów" oparta na elemencie inicjatora (dane wejściowe).
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -2637,10 +2637,10 @@ Pobierz zalecenia active kompilacji typu "Zmianie wysokości progów" oparta na 
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| Identyfikator elementu |Zaleca się dla elementu. <br>Maksymalna długość: 1024 |
+| modelId |Unikatowy identyfikator modelu hello |
+| Identyfikator elementu |Element toorecommend dla. <br>Maksymalna długość: 1024 |
 | numberOfResults |Liczba wymaganych wyników <br>Maksymalna liczba: 150 |
-| minimalScore |Wynik minimalnego częste zestaw ma być uwzględniane w zwracanych wyników |
+| minimalScore |Wynik minimalnego częste zestaw powinny mieć w kolejności toobe objęte hello zwrócone wyniki |
 | includeMetatadata |Użycia w przyszłości, zawsze false |
 | apiVersion |1.0 |
 
@@ -2648,16 +2648,16 @@ Pobierz zalecenia active kompilacji typu "Zmianie wysokości progów" oparta na 
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla danego zestawu elementu zalecane (zestaw elementów, które zwykle są kupowane wraz z elementu seed/input). Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla danego zestawu elementu zalecane (zestaw elementów, które zwykle są kupowane wraz z elementu seed/input hello). Każdy wpis ma hello następujące dane:
 
 * `Feed\entry\content\properties\Id1`— Identyfikator elementu zalecane.
-* `Feed\entry\content\properties\Name1`-Nazwa elementu.
+* `Feed\entry\content\properties\Name1`-Nazwa elementu hello.
 * `Feed\entry\content\properties\Id2`Identyfikator elementu zalecane - 2 (opcjonalnie).
-* `Feed\entry\content\properties\Name2`-Nazwa elementu 2 (opcjonalnie).
-* `Feed\entry\content\properties\Rating`— Ocena zalecenia; większa liczba oznacza większą wiarą.
+* `Feed\entry\content\properties\Name2`-Nazwa elementu hello 2 (opcjonalnie).
+* `Feed\entry\content\properties\Rating`— Ocena zalecenia hello; większa liczba oznacza większą wiarą.
 * `Feed\entry\content\properties\Reasoning`-Zalecenie wnioskowania (np. zalecenie wyjaśnienia).
 
-Przykład odpowiedzi poniżej obejmuje 3 zestawy zalecane elementu.
+przykład odpowiedzi Hello poniżej zawiera 3 zestawy zalecane elementu.
 
 OData XML
 
@@ -2727,25 +2727,25 @@ Pobierz zalecenia określonej kompilacji typu "Zmianie wysokości progów".
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| Identyfikator elementu |Zaleca się dla elementu. <br>Maksymalna długość: 1024 |
+| modelId |Unikatowy identyfikator modelu hello |
+| Identyfikator elementu |Element toorecommend dla. <br>Maksymalna długość: 1024 |
 | numberOfResults |Liczba wymaganych wyników <br>Maksymalna liczba: 150 |
-| minimalScore |Wynik minimalnego częste zestaw ma być uwzględniane w zwracanych wyników |
+| minimalScore |Wynik minimalnego częste zestaw powinny mieć w kolejności toobe objęte hello zwrócone wyniki |
 | includeMetatadata |Użycia w przyszłości, zawsze false |
-| identyfikatora buildId |Identyfikator kompilacji do użycia dla tego żądania zalecenia |
+| identyfikatora buildId |Witaj kompilacji toouse identyfikator dla tego żądania zalecenia |
 | apiVersion |1.0 |
 
 **Odpowiedź:**
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla danego zestawu elementu zalecane (zestaw elementów, które zwykle są kupowane wraz z elementu seed/input). Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla danego zestawu elementu zalecane (zestaw elementów, które zwykle są kupowane wraz z elementu seed/input hello). Każdy wpis ma hello następujące dane:
 
 * `Feed\entry\content\properties\Id1`— Identyfikator elementu zalecane.
-* `Feed\entry\content\properties\Name1`-Nazwa elementu.
+* `Feed\entry\content\properties\Name1`-Nazwa elementu hello.
 * `Feed\entry\content\properties\Id2`Identyfikator elementu zalecane - 2 (opcjonalnie).
-* `Feed\entry\content\properties\Name2`-Nazwa elementu 2 (opcjonalnie).
-* `Feed\entry\content\properties\Rating`— Ocena zalecenia; większa liczba oznacza większą wiarą.
+* `Feed\entry\content\properties\Name2`-Nazwa elementu hello 2 (opcjonalnie).
+* `Feed\entry\content\properties\Rating`— Ocena zalecenia hello; większa liczba oznacza większą wiarą.
 * `Feed\entry\content\properties\Reasoning`-Zalecenie wnioskowania (np. zalecenie wyjaśnienia).
 
 Zobacz przykład odpowiedzi, w 12.3
@@ -2753,12 +2753,12 @@ Zobacz przykład odpowiedzi, w 12.3
 ### <a name="125-get-user-recommendations-for-active-build"></a>12.5. Pobierz zalecenia użytkownika (dla active kompilacji)
 Pobierz zalecenia użytkownika kompilacji typu "Recommendation" oznaczona jako aktywny kompilacji.
 
-Interfejs API zwróci listę przewidywane elementu zgodnie z historii użycia użytkownika.
+Witaj interfejsu API zwróci listę przewidywane elementu zgodnie z historii użycia toohello hello użytkownika.
 
 Uwagi: 
 
 1. Nie ma żadnych zalecenie użytkownika dla kompilacji zmianie wysokości progów.
-2. Jeśli jest aktywny kompilacji zmianie wysokości progów będą ta metoda zwraca błąd.
+2. Jeśli hello active kompilacji jest zmianie wysokości progów będą ta metoda zwraca błąd.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -2766,8 +2766,8 @@ Uwagi:
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| Nazwa użytkownika |Unikatowy identyfikator użytkownika |
+| modelId |Unikatowy identyfikator modelu hello |
+| Nazwa użytkownika |Unikatowy identyfikator użytkownika hello |
 | numberOfResults |Liczba wymaganych wyników |
 | includeMetatadata |Użycia w przyszłości, zawsze false |
 | apiVersion |1.0 |
@@ -2776,11 +2776,11 @@ Uwagi:
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma hello następujące dane:
 
 * `Feed\entry\content\properties\Id`— Identyfikator elementu zalecane.
-* `Feed\entry\content\properties\Name`-Nazwa elementu.
-* `Feed\entry\content\properties\Rating`— Ocena zalecenia; większa liczba oznacza większą wiarą.
+* `Feed\entry\content\properties\Name`-Nazwa elementu hello.
+* `Feed\entry\content\properties\Rating`— Ocena zalecenia hello; większa liczba oznacza większą wiarą.
 * `Feed\entry\content\properties\Reasoning`-Zalecenie wnioskowania (np. zalecenie wyjaśnienia).
 
 Zobacz przykład odpowiedzi, 12.1
@@ -2788,12 +2788,12 @@ Zobacz przykład odpowiedzi, 12.1
 ### <a name="126-get-user-recommendations-with-item-list-for-active-build"></a>12.6. Pobierz zalecenia dotyczące użytkownika z listy elementów (dla active kompilacji)
 Uzyskaj zalecenia użytkownika kompilacji typu "Recommendation" oznaczona jako aktywny kompilacji z dodatkowych listy elementów
 
-Interfejs API zwróci listę przewidywane elementu zgodnie z historii użycia użytkownika i dodatkowe podane elementy.
+Hello interfejsu API zwróci listę przewidywane elementu zgodnie z historii użycia toohello hello użytkownika i hello dodatkowe podane elementy.
 
 Uwagi: 
 
 1. Nie ma żadnych zalecenie użytkownika dla kompilacji zmianie wysokości progów.
-2. Jeśli jest aktywny kompilacji zmianie wysokości progów będą ta metoda zwraca błąd.
+2. Jeśli hello active kompilacji jest zmianie wysokości progów będą ta metoda zwraca błąd.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -2801,9 +2801,9 @@ Uwagi:
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| Nazwa użytkownika |Unikatowy identyfikator użytkownika |
-| itemsIds |Rozdzielana przecinkami lista elementów zalecanie dla. Maksymalna długość: 1024 |
+| modelId |Unikatowy identyfikator modelu hello |
+| Nazwa użytkownika |Unikatowy identyfikator użytkownika hello |
+| itemsIds |Rozdzielana przecinkami lista hello elementów toorecommend dla. Maksymalna długość: 1024 |
 | numberOfResults |Liczba wymaganych wyników |
 | includeMetatadata |Użycia w przyszłości, zawsze false |
 | apiVersion |1.0 |
@@ -2812,11 +2812,11 @@ Uwagi:
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma hello następujące dane:
 
 * `Feed\entry\content\properties\Id`— Identyfikator elementu zalecane.
-* `Feed\entry\content\properties\Name`-Nazwa elementu.
-* `Feed\entry\content\properties\Rating`— Ocena zalecenia; większa liczba oznacza większą wiarą.
+* `Feed\entry\content\properties\Name`-Nazwa elementu hello.
+* `Feed\entry\content\properties\Rating`— Ocena zalecenia hello; większa liczba oznacza większą wiarą.
 * `Feed\entry\content\properties\Reasoning`-Zalecenie wnioskowania (np. zalecenie wyjaśnienia).
 
 Zobacz przykład odpowiedzi, 12.1
@@ -2824,7 +2824,7 @@ Zobacz przykład odpowiedzi, 12.1
 ### <a name="127-get-user-recommendations--of-a-specific-build"></a>12.7. Uzyskaj zalecenia użytkownika (od określonej kompilacji)
 Pobierz zalecenia użytkownika określonej kompilacji typu "Recommendation".
 
-Interfejs API zwróci listę przewidywane elementu zgodnie z historii użycia użytkownika (używane w określonej kompilacji).
+Witaj interfejsu API zwróci listę przewidywane elementu zgodnie z historii użycia toohello hello użytkownika (używane w określonej kompilacji hello).
 
 Uwaga: Jest Brak rekomendacji użytkownika dla kompilacji zmianie wysokości progów.
 
@@ -2834,30 +2834,30 @@ Uwaga: Jest Brak rekomendacji użytkownika dla kompilacji zmianie wysokości pro
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| Nazwa użytkownika |Unikatowy identyfikator użytkownika |
+| modelId |Unikatowy identyfikator modelu hello |
+| Nazwa użytkownika |Unikatowy identyfikator użytkownika hello |
 | numberOfResults |Liczba wymaganych wyników |
 | includeMetatadata |Użycia w przyszłości, zawsze false |
-| identyfikatora buildId |Identyfikator kompilacji do użycia dla tego żądania zalecenia |
+| identyfikatora buildId |Witaj kompilacji toouse identyfikator dla tego żądania zalecenia |
 | apiVersion |1.0 |
 
 **Odpowiedź:**
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma hello następujące dane:
 
 * `Feed\entry\content\properties\Id`— Identyfikator elementu zalecane.
-* `Feed\entry\content\properties\Name`-Nazwa elementu.
-* `Feed\entry\content\properties\Rating`— Ocena zalecenia; większa liczba oznacza większą wiarą.
+* `Feed\entry\content\properties\Name`-Nazwa elementu hello.
+* `Feed\entry\content\properties\Rating`— Ocena zalecenia hello; większa liczba oznacza większą wiarą.
 * `Feed\entry\content\properties\Reasoning`-Zalecenie wnioskowania (np. zalecenie wyjaśnienia).
 
 Zobacz przykład odpowiedzi, 12.1
 
 ### <a name="128-get-user-recommendations-with-item-list-of-a-specific-build"></a>12.8. Uzyskaj zalecenia użytkownika z listy elementów (o określonej kompilacji)
-Pobierz zalecenia użytkownika kompilacji określonego typu "Recommendation" i listę dodatkowych elementów.
+Pobierz zalecenia użytkownika określonej kompilacji typu "Recommendation" i hello listę dodatkowych elementów.
 
-Interfejs API zwróci listę przewidywane elementu zgodnie z historii użycia użytkownika oraz dodatkowe listy elementów.
+Hello interfejsu API zwróci listę przewidywane elementu zgodnie z historii użycia toohello hello użytkownika i hello dodatkowe listy elementów.
 
 Uwaga: Tthere jest Brak rekomendacji użytkownika dla kompilacji zmianie wysokości progów.
 
@@ -2867,55 +2867,55 @@ Uwaga: Tthere jest Brak rekomendacji użytkownika dla kompilacji zmianie wysoko�
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
-| Nazwa użytkownika |Unikatowy identyfikator użytkownika |
-| identyfikatory elementów |Rozdzielana przecinkami lista elementów zalecanie dla. Maksymalna długość: 1024 |
+| modelId |Unikatowy identyfikator modelu hello |
+| Nazwa użytkownika |Unikatowy identyfikator użytkownika hello |
+| identyfikatory elementów |Rozdzielana przecinkami lista hello elementów toorecommend dla. Maksymalna długość: 1024 |
 | numberOfResults |Liczba wymaganych wyników |
 | includeMetatadata |Użycia w przyszłości, zawsze false |
-| identyfikatora buildId |Identyfikator kompilacji do użycia dla tego żądania zalecenia |
+| identyfikatora buildId |Witaj kompilacji toouse identyfikator dla tego żądania zalecenia |
 | apiVersion |1.0 |
 
 **Odpowiedź:**
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma hello następujące dane:
 
 * `Feed\entry\content\properties\Id`— Identyfikator elementu zalecane.
-* `Feed\entry\content\properties\Name`-Nazwa elementu.
-* `Feed\entry\content\properties\Rating`— Ocena zalecenia; większa liczba oznacza większą wiarą.
+* `Feed\entry\content\properties\Name`-Nazwa elementu hello.
+* `Feed\entry\content\properties\Rating`— Ocena zalecenia hello; większa liczba oznacza większą wiarą.
 * `Feed\entry\content\properties\Reasoning`-Zalecenie wnioskowania (np. zalecenie wyjaśnienia).
 
 Zobacz przykład odpowiedzi, 12.1
 
 ## <a name="13-user-usage-history"></a>13. Historia użycia użytkownika
-Po modelu zalecenie został utworzony system zezwoli można pobrać historii użytkownika (elementy skojarzone dla określonego użytkownika) używany dla kompilacji.
-Ten interfejs API umożliwiają pobrać historii użytkownika
+Po modelu zalecenie został utworzony hello system zezwoli używany dla kompilacji hello tooretrieve hello historię użytkownika (elementy skojarzone tooa określonego użytkownika).
+Ten interfejs API umożliwia tooretrieve hello użytkownika historii
 
-Uwaga: Historia użytkownika jest obecnie dostępny tylko dla kompilacji zalecenia.
+Uwaga: hello historię użytkownika jest obecnie dostępny tylko dla kompilacji zalecenia.
 
 ### <a name="131-retrieve-user-history"></a>13.1 pobrać historii użytkownika
-Pobranie listy element używany w aktywnej kompilacji lub w określonej kompilacji dla danego użytkownika.
+Pobieranie listy hello element używany w hello active kompilacji lub w hello określonej kompilacji dla hello podany identyfikator użytkownika.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
-| POBIERZ |Pobierz historię użytkownika active kompilacji.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Podgląd historii użytkownika dla danej kompilacji`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Przykład:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277` |
+| POBIERZ |Pobierz historię użytkownika hello hello active kompilacji.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Pobierz historię użytkownika hello dla hello podane kompilacji`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Przykład:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277` |
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu. |
-| Nazwa użytkownika |Unikatowy identyfikator użytkownika. |
-| identyfikatora buildId |opcjonalny parametr Zezwalaj, aby wskazać, z których kompilacji historię użytkownika powinno być pobierania |
+| modelId |Unikatowy identyfikator Hello hello modelu. |
+| Nazwa użytkownika |Unikatowy identyfikator Hello hello użytkownika. |
+| identyfikatora buildId |opcjonalny parametr Zezwalaj tooindicate, z których kompilacji hello historię użytkownika powinno być pobierania |
 | apiVersion |1.0 |
 
 **Odpowiedź:**
 
 Kod stanu HTTP: 200
 
-Odpowiedź zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma następujące dane:
+odpowiedź Hello zawiera jeden wpis dla każdego elementu zalecane. Każdy wpis ma hello następujące dane:
 
 * `Feed\entry\content\properties\Id`— Identyfikator elementu zalecane.
-* `Feed\entry\content\properties\Name`-Nazwa elementu.
+* `Feed\entry\content\properties\Name`-Nazwa elementu hello.
 * `Feed\entry\content\properties\Rating`-NIE DOTYCZY.
 * `Feed\entry\content\properties\Reasoning`-NIE DOTYCZY.
 
@@ -2947,14 +2947,14 @@ OData XML
 </feed>
 
 ## <a name="14-notifications"></a>14. Powiadomienia
-Azure Machine Learning zalecenia tworzy powiadomienia, gdy wystąpi trwałe błędów w systemie. Istnieją 3 typy powiadomień:
+Azure Machine Learning zalecenia tworzy powiadomienia, gdy wystąpi trwałe błędów w systemie hello. Istnieją 3 typy powiadomień:
 
 1. Niepowodzenie kompilacji — to powiadomienie jest wyzwalany dla każdego błędu kompilacji.
-2. Uzyskiwanie danych przetwarzania niepowodzenie — powiadomienie jest wyzwalane, gdy będziemy mieć więcej niż 100 błędy w ciągu ostatnich 5 minut do przetworzenia zdarzeń użycia dla modelu.
-3. Niepowodzenie zużycie zalecenie — to powiadomienie jest wyzwalane, gdy będziemy mieć więcej niż 100 błędy w ciągu ostatnich 5 minut do przetworzenia żądania zalecenie na modelu.
+2. Uzyskiwanie danych przetwarzania niepowodzenie — to powiadomienie jest wyzwalane, gdy będziemy mieć więcej niż 100 błędów w hello ostatnich 5 minut hello przetwarzania zdarzeń użycia dla modelu.
+3. Niepowodzenie zużycie zalecenie — to powiadomienie jest wyzwalane, gdy będziemy mieć więcej niż 100 błędów w hello ostatnich 5 minut hello przetwarzania żądań zalecenie na modelu.
 
 ### <a name="141-get-notifications"></a>14.1. Otrzymywać powiadomień
-Pobiera wszystkie powiadomienia dla wszystkich modeli lub dla pojedynczego modelu.
+Pobiera wszystkie hello powiadomienia dla wszystkich modeli lub dla pojedynczego modelu.
 
 | Metoda HTTP | IDENTYFIKATOR URI |
 |:--- |:--- |
@@ -2962,7 +2962,7 @@ Pobiera wszystkie powiadomienia dla wszystkich modeli lub dla pojedynczego model
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Parametr opcjonalny. Gdy pominięty, będą wyświetlane wszystkie powiadomienia dla wszystkich modeli. <br>Prawidłowe wartości: Unikatowy identyfikator modelu. |
+| modelId |Parametr opcjonalny. Gdy pominięty, będą wyświetlane wszystkie powiadomienia dla wszystkich modeli. <br>Prawidłowe wartości: Unikatowy identyfikator hello modelu. |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -2973,7 +2973,7 @@ Kod stanu HTTP: 200
 
 OData XML
 
-    The response includes one entry per notification. Each entry has the following data:
+    hello response includes one entry per notification. Each entry has hello following data:
         * feed\entry\content\properties\UserName - Internal user name identification.
         * feed\entry\content\properties\ModelId - Model ID.
         * feed\entry\content\properties\Message - Notification message.
@@ -3013,7 +3013,7 @@ Usuwa wszystkie odczytu powiadomienia dla modelu.
 
 | Nazwa parametru | Prawidłowe wartości |
 |:--- |:--- |
-| modelId |Unikatowy identyfikator modelu |
+| modelId |Unikatowy identyfikator modelu hello |
 | apiVersion |1.0 |
 |  | |
 | Treść żądania |BRAK |
@@ -3042,6 +3042,6 @@ Kod stanu HTTP: 200
 ## <a name="15-legal"></a>15. Informacje prawne
 Niniejszy dokument jest udostępniany "jako — jest". Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i inne odsyłacze do witryn internetowych, mogą ulec zmianie bez uprzedzenia.<br><br>
 Niektóre przedstawione przykłady są udostępniane tylko do celów ilustracyjnych i są fikcyjne. Żadne rzeczywiste skojarzenia ani połączenia jest przeznaczony lub powinny być zakładane.<br><br>
-Ten dokument nie daje użytkownikowi żadnych praw do jakiejkolwiek własności intelektualnej związanej z jakimkolwiek produktem firmy Microsoft. Można kopiować i używać tego dokumentu do wewnętrznych celów referencyjnych.<br><br>
+Ten dokument nie daje użytkownikowi żadnych praw tooany własności intelektualnej związanej z jakimkolwiek produktem firmy Microsoft. Można kopiować i używać tego dokumentu do wewnętrznych celów referencyjnych.<br><br>
 © 2015 Microsoft. Wszelkie prawa zastrzeżone.
 

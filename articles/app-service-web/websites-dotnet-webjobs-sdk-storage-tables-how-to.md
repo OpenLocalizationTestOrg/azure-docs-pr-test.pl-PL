@@ -1,6 +1,6 @@
 ---
-title: "Jak używać usługi Azure Table Storage z zestawem SDK usługi WebJobs"
-description: "Dowiedz się, jak używać magazynu tabel Azure przy użyciu zestawu SDK zadań Webjob. Tworzenie tabel, Dodaj jednostki do tabel i istniejące tabele do odczytu."
+title: "toouse aaaHow magazynu tabel platformy Azure z hello zestaw SDK zadań Webjob"
+description: "Dowiedz się, jak toouse Azure tabeli magazynu z hello zestaw SDK zadań Webjob. Tworzenie tabel, Dodaj tootables jednostek, a istniejące tabele do odczytu."
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8e28c69df4a934646add9e50c6de28e76dca1636
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>Jak używać usługi Azure Table Storage z zestawem SDK usługi WebJobs
+# <a name="how-toouse-azure-table-storage-with-hello-webjobs-sdk"></a>Jak toouse Azure tabeli magazynu z hello zestaw SDK zadań Webjob
 ## <a name="overview"></a>Omówienie
-Ten przewodnik zawiera C# przykładów kodu przedstawiają sposób odczytu i zapisu przy użyciu tabel magazynu Azure [zestaw SDK zadań Webjob](websites-dotnet-webjobs-sdk.md) wersja 1.x.
+Ten przewodnik zawiera przykłady kodu w języku C# przedstawiające sposób zapisu magazynu Azure i tooread tabel za pomocą [zestaw SDK zadań Webjob](websites-dotnet-webjobs-sdk.md) wersja 1.x.
 
-Przewodnik zakłada wiesz, [Tworzenie projektu zadania WebJob w programie Visual Studio z połączeniem ciągi prowadzące do konta magazynu](websites-dotnet-webjobs-sdk-get-started.md) lub [wielu kont magazynu](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+Witaj przewodnika przyjęto założenia, wiadomo, [jak toocreate projektu zadania WebJob w programie Visual Studio z połączeniem ciągi konto magazynu punktu tooyour](websites-dotnet-webjobs-sdk-get-started.md) lub zbyt[wielu kont magazynu](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
-Niektóre Pokaż wstawki kodu `Table` atrybutu używanego w funkcje, które są [wywołuje ręcznie](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), oznacza to, nie za pomocą jednego z atrybutów wyzwalacza. 
+Niektóre fragmentów kodu hello widoczne hello `Table` atrybutu używanego w funkcje, które są [wywołuje ręcznie](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), oznacza to, nie za pomocą jednego z atrybutów wyzwalacza hello. 
 
-## <a id="ingress"></a>Jak dodać jednostek do tabeli
-Aby dodać jednostek do tabeli, należy użyć `Table` atrybutem `ICollector<T>` lub `IAsyncCollector<T>` parametru gdzie `T` Określa schemat jednostek, które chcesz dodać. Konstruktor atrybutu ma parametr typu string, który określa nazwę tabeli. 
+## <a id="ingress"></a>Jak tooadd jednostek tooa tabeli
+tooadd jednostek tooa tabeli, użyj hello `Table` atrybutem `ICollector<T>` lub `IAsyncCollector<T>` parametru gdzie `T` Określa schemat hello jednostek hello ma tooadd. Konstruktor atrybutu Hello przyjmuje parametr ciąg określający nazwę hello hello tabeli. 
 
-Poniższy przykładowy kod dodaje `Person` jednostek do tabeli o nazwie *wejściowych*.
+Witaj Poniższy przykładowy kod dodaje `Person` jednostek tooa tabeli o nazwie *wejściowych*.
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -48,7 +48,7 @@ Poniższy przykładowy kod dodaje `Person` jednostek do tabeli o nazwie *wejści
             }
         }
 
-Zwykle typ używających `ICollector` pochodną `TableEntity` lub implementuje `ITableEntity`, ale nie ma. Jedną z następujących `Person` klasy pracy kodem przedstawionym w poprzednim `Ingress` metody.
+Zwykle hello typu używających `ICollector` pochodną `TableEntity` lub implementuje `ITableEntity`, ale nie ma. Jedną z następujących hello `Person` klasy Praca z kodem hello pokazano w poprzednim hello `Ingress` metody.
 
         public class Person : TableEntity
         {
@@ -62,25 +62,25 @@ Zwykle typ używających `ICollector` pochodną `TableEntity` lub implementuje `
             public string Name { get; set; }
         }
 
-Jeśli chcesz pracować bezpośrednio za pomocą interfejsu API magazynu Azure, można dodać `CloudStorageAccount` parametru w podpisie metody.
+Jeśli chcesz toowork bezpośrednio z hello magazynu Azure, interfejsu API, można dodać `CloudStorageAccount` podpis metody toohello parametru.
 
 ## <a id="monitor"></a>Monitorowanie w czasie rzeczywistym
-Ponieważ danych wejściowych funkcji często przetwarzania dużych ilości danych, zestaw SDK zadań Webjob pulpitu nawigacyjnego zawiera dane monitorowania w czasie rzeczywistym. **Dziennika wywołania** sekcji informuje, czy funkcja jest nadal uruchomiony.
+Ponieważ danych wejściowych funkcji często przetwarzania dużych ilości danych, hello zestaw SDK zadań Webjob pulpitu nawigacyjnego zawiera dane monitorowania w czasie rzeczywistym. Witaj **dziennika wywołania** sekcji informuje, czy funkcja hello nadal działa.
 
 ![Transfer danych przychodzących systemem — funkcja](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
-**Szczegóły wywołania** raporty strony postępu funkcji (liczba jednostek zapisywane) jest uruchomiona, i daje możliwość jego przerwanie. 
+Hello **szczegóły wywołania** raporty strony hello funkcji postępu (liczba jednostek zapisywane) jest uruchomiona, i daje możliwość tooabort go. 
 
 ![Transfer danych przychodzących systemem — funkcja](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
-Po zakończeniu działania funkcji **szczegóły wywołania** liczbę wierszy, zapisany raporty strony.
+Gdy funkcja hello zakończeniu hello **szczegóły wywołania** hello liczbę wierszy, zapisany raporty strony.
 
 ![Transfer danych przychodzących Zakończono — funkcja](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
-## <a id="multiple"></a>Jak można odczytać wiele jednostek z tabeli
-Aby odczytać tabeli, należy użyć `Table` atrybutem `IQueryable<T>` parametru wpisuje `T` pochodną `TableEntity` lub implementuje `ITableEntity`.
+## <a id="multiple"></a>Jak tooread wiele jednostek z tabeli
+tooread tabelę, użyj hello `Table` atrybutem `IQueryable<T>` parametru wpisuje `T` pochodną `TableEntity` lub implementuje `ITableEntity`.
 
-Poniższy przykładowy kod odczytuje i rejestruje wszystkie wiersze z `Ingress` tabeli:
+Witaj Poniższy przykładowy kod odczytuje i rejestruje wszystkie wiersze z hello `Ingress` tabeli:
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -94,10 +94,10 @@ Poniższy przykładowy kod odczytuje i rejestruje wszystkie wiersze z `Ingress` 
             }
         }
 
-### <a id="readone"></a>Jak można odczytać pojedyncza jednostka z tabeli
-Brak `Table` konstruktora atrybutu z dwóch dodatkowych parametrów, które pozwalają określić klucz partycji i klucz wiersza, jeśli chcesz powiązać jednostki pojedynczej tabeli.
+### <a id="readone"></a>Jak tooread pojedyncza jednostka z tabeli
+Brak `Table` konstruktora atrybutu z dwóch dodatkowych parametrów, które umożliwiają określenie hello klucz partycji i klucz wiersza, jeśli chcesz toobind tooa pojedynczej tabeli jednostki.
 
-Poniższy przykładowy kod odczytuje wiersz tabeli `Person` jednostki na podstawie partycji klucza i wiersz klucza wartości otrzymane w wiadomości w kolejce:  
+Witaj Poniższy przykładowy kod odczytuje wiersz tabeli `Person` jednostki na podstawie partycji klucza i wiersz klucza wartości otrzymane w wiadomości w kolejce:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -117,12 +117,12 @@ Poniższy przykładowy kod odczytuje wiersz tabeli `Person` jednostki na podstaw
         }
 
 
-`Person` Klasy w tym przykładzie nie musi implementować `ITableEntity`.
+Witaj `Person` klasy w tym przykładzie nie ma tooimplement `ITableEntity`.
 
-## <a id="storageapi"></a>Sposób użycia interfejsu API programu .NET magazynu bezpośrednio do pracy z tabeli
-Można również użyć `Table` atrybutem `CloudTable` obiektu dla większą elastyczność podczas pracy z tabelą.
+## <a id="storageapi"></a>Jak toouse hello interfejsu API magazynu .NET bezpośrednio toowork z tabeli
+Można również użyć hello `Table` atrybutem `CloudTable` obiektu dla większą elastyczność podczas pracy z tabelą.
 
-Poniższy kod przykładowy używa `CloudTable` obiekt do dodania do pojedynczej jednostki *wejściowych* tabeli. 
+Witaj poniższy kod używa próbki `CloudTable` obiekt tooadd toohello pojedynczej jednostki *wejściowych* tabeli. 
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -138,22 +138,22 @@ Poniższy kod przykładowy używa `CloudTable` obiekt do dodania do pojedynczej 
             tableBinding.Execute(insertOperation);
         }
 
-Aby uzyskać więcej informacji o sposobie używania `CloudTable` obiektów, zobacz [jak używać magazynu tabel w .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
+Aby uzyskać więcej informacji na temat toouse hello `CloudTable` obiektów, zobacz [jak toouse magazynu tabel w .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
 
-## <a id="queues"></a>Tematy pokrewne objętych artykule kolejek
-Informacje o sposobie obsługi przetwarzania tabeli wyzwalane przez komunikatu w kolejce, lub zestaw SDK zadań Webjob scenariusze nie są typowe dla przetwarzania tabeli, zobacz [jak używać magazynu kolejek Azure przy użyciu zestawu SDK zadań Webjob](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+## <a id="queues"></a>Tematy pokrewne objętych kolejek hello jak tooarticle
+Uzyskać informacji na temat sposobu przetwarzania tabeli toohandle wyzwalane komunikatu w kolejce, lub dla zadań Webjob scenariusze zestawu SDK nie określonych tootable przetwarzania, zobacz [jak toouse Azure kolejki magazynu z hello zestaw SDK zadań Webjob](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
-Tematy w tym artykule są następujące:
+Tematy w tym artykule Uwzględnij hello następujące elementy:
 
 * Funkcje asynchroniczne
 * Wiele wystąpień
 * Łagodne zamykanie
-* Użyj zestawu SDK zadań Webjob atrybutów w treści funkcji
-* Ustaw parametry połączenia SDK w kodzie
+* Użyj zestawu SDK zadań Webjob atrybutów w hello treści funkcji
+* Ustawianie parametrów połączenia SDK hello w kodzie
 * Ustawianie wartości dla zestawu SDK zadań Webjob parametrami konstruktora w kodzie
 * Wyzwalanie funkcji ręcznie
 * Zapisywanie dzienników
 
 ## <a id="nextsteps"></a> Następne kroki
-W tym przewodniku udostępnił przykłady kodu, które przedstawiają sposób obsługi typowe scenariusze dotyczące pracy z tabel Azure. Aby uzyskać więcej informacji o sposobie używania zadań Webjob Azure i zestaw SDK zadań Webjob, zobacz [zasobów zalecane zadań Webjob Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+W tym przewodniku dostarczył kodu przykłady przedstawiające sposób toohandle typowe scenariusze dotyczące pracy z tabel Azure. Aby uzyskać więcej informacji na temat sposobu toouse zadań Webjob Azure i hello zestaw SDK zadań Webjob, zobacz [zasobów zalecane zadań Webjob Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 

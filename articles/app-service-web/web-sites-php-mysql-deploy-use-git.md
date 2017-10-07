@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji sieci Web PHP-MySQL w usłudze Azure App Service i wdrażanie jej za pomocą usługi Git"
-description: "Samouczek, który demonstruje sposób tworzenia aplikacji sieci web PHP, która przechowuje dane w MySQL i używania wdrożenia usługi Git do platformy Azure."
+title: "aaaCreate MySQL PHP sieci web aplikacji w usłudze Azure App Service i wdrażanie przy użyciu narzędzia Git"
+description: "Samouczek, który demonstruje sposób toocreate PHP sieci web aplikacji, która przechowuje dane w MySQL i użyj tooAzure wdrożenia Git."
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
@@ -15,36 +15,36 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: aa845eb474dbd42ae2c31880690d4ced059eb448
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9c22946777598cc973cd9dfc8d2a258bd08cc39a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>Tworzenie aplikacji sieci Web PHP-MySQL w usłudze Azure App Service i wdrażanie jej za pomocą usługi Git
-W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web PHP MySQL i jak wdrożyć ją [usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714) przy użyciu narzędzia Git. Użyjesz [PHP][install-php], narzędzie wiersza polecenia MySQL (część [MySQL][install-mysql]), i [Git] [ install-git] zainstalowany na tym komputerze. Instrukcje w tym samouczku można wykonać w dowolnym systemie operacyjnym, w tym systemu Windows, Mac i Linux. Po ukończeniu tego przewodnika, będziesz mieć aplikację sieci web PHP/MySQL działające na platformie Azure.
+Ten samouczek pokazuje, jak aplikacji sieci web toocreate PHP-MySQL i jak toodeploy on zbyt[usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714) przy użyciu narzędzia Git. Użyjesz [PHP][install-php], hello MySQL narzędzia wiersza polecenia (część [MySQL][install-mysql]), i [Git] [ install-git] zainstalowany na tym komputerze. Witaj instrukcje w tym samouczku można wykonać w dowolnym systemie operacyjnym, w tym systemu Windows, Mac i Linux. Po ukończeniu tego przewodnika, będziesz mieć aplikację sieci web PHP/MySQL działające na platformie Azure.
 
 Dowiesz się:
 
-* Jak utworzyć aplikację sieci web i bazy danych MySQL przy użyciu [Azure Portal][management-portal]. Ponieważ PHP jest włączona w [aplikacji usługi sieci Web aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714) domyślnie segmentami jest wymagana do uruchamiania kodu PHP.
-* Jak opublikować i ponownie opublikować aplikację na platformie Azure przy użyciu narzędzia Git.
-* Jak włączyć rozszerzenie Composer można zautomatyzować Composer zadań w każdym `git push`.
+* Jak toocreate aplikacji sieci web i bazy danych MySQL bazy danych przy użyciu hello [Azure Portal][management-portal]. Ponieważ PHP jest włączona w [aplikacji usługi sieci Web aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714) domyślnie segmentami jest wymagana toorun kodzie PHP.
+* Jak toopublish i opublikuj go ponownie z tooAzure aplikacji przy użyciu narzędzia Git.
+* Jak tooenable hello Composer rozszerzenia tooautomate Composer zadań w każdym `git push`.
 
-W ramach tego samouczka, utworzysz aplikację sieci web rejestracji proste w kodzie PHP. Aplikacja będzie hostowana w aplikacjach sieci Web. Zrzut ekranu przedstawiający ukończona aplikacja znajduje się poniżej:
+W ramach tego samouczka, utworzysz aplikację sieci web rejestracji proste w kodzie PHP. Aplikacja Hello będzie obsługiwana w aplikacjach sieci Web. Zrzut ekranu aplikacji hello ukończone znajduje się poniżej:
 
 ![Witryny sieci web w usłudze Azure PHP][running-app]
 
-## <a name="set-up-the-development-environment"></a>Konfigurowanie środowiska deweloperskiego
-Ten samouczek zakłada masz [PHP][install-php], narzędzie wiersza polecenia MySQL (część [MySQL][install-mysql]), i [Git] [ install-git] zainstalowany na tym komputerze.
+## <a name="set-up-hello-development-environment"></a>Konfigurowanie środowiska deweloperskiego hello
+Ten samouczek zakłada masz [PHP][install-php], hello MySQL narzędzia wiersza polecenia (część [MySQL][install-mysql]), i [Git] [ install-git] zainstalowany na tym komputerze.
 
 <a id="create-web-site-and-set-up-git"></a>
 
 ## <a name="create-a-web-app-and-set-up-git-publishing"></a>Tworzenie aplikacji sieci web i skonfigurować publikowanie w usłudze Git
-Wykonaj następujące kroki, aby utworzyć aplikację sieci web i bazy danych MySQL:
+Wykonaj te kroki toocreate aplikacji sieci web i bazy danych MySQL:
 
-1. Zaloguj się do [portalu Azure][management-portal].
-2. Kliknij przycisk **nowy** ikony.
-3. Kliknij przycisk **Zobacz wszystkie** obok **Marketplace**. 
+1. Toohello logowania [Azure Portal][management-portal].
+2. Kliknij przycisk hello **nowy** ikony.
+3. Kliknij przycisk **Zobacz wszystkie** dalej zbyt**Marketplace**. 
 4. Kliknij przycisk **sieci Web i mobilność**, następnie **aplikacja sieci Web i MySQL**. Następnie kliknij pozycję **Utwórz**.
 5. Wprowadź prawidłową nazwę grupy zasobów.
    
@@ -52,53 +52,53 @@ Wykonaj następujące kroki, aby utworzyć aplikację sieci web i bazy danych My
 6. Wprowadź wartości dla nowej aplikacji sieci web.
    
     ![Tworzenie aplikacji sieci Web][new-web-app]
-7. Wprowadź wartości dla nowej bazy danych, w tym wyrażenie zgody na postanowienia prawne.
+7. Wprowadź wartości dla nowej bazy danych, w tym uzgodnienia toohello postanowienia prawne.
    
     ![Utwórz nową bazę danych MySQL][new-mysql-db]
-8. Po utworzeniu aplikacji sieci web, pojawi się nowy blok aplikacji sieci web.
+8. Podczas tworzenia aplikacji sieci web hello zobaczysz hello nowego bloku aplikacja sieci web.
 9. W **ustawienia** kliknij **ciągłe wdrażanie**, następnie kliknij polecenie *Skonfiguruj wymagane ustawienia*.
    
     ![Konfigurowanie publikowania Git][setup-publishing]
-10. Wybierz **lokalnego repozytorium Git** źródła.
+10. Wybierz **lokalnego repozytorium Git** hello źródła.
     
      ![Konfigurowanie repozytorium Git][setup-repository]
-11. Aby włączyć publikowanie w usłudze Git, podaj nazwę użytkownika i hasło. Zanotuj nazwę użytkownika i hasło, które można utworzyć. (Jeśli w repozytorium Git przed, ten krok zostanie pominięty).
+11. tooenable Git publikowania, musisz podać nazwę użytkownika i hasło. Zanotuj hello nazwę użytkownika i hasło, które można utworzyć. (Jeśli w repozytorium Git przed, ten krok zostanie pominięty).
     
      ![Tworzenie poświadczeń publikowania][credentials]
 
 ## <a name="get-remote-mysql-connection-information"></a>Pobierz informacje o połączeniu zdalnym MySQL
-Do połączenia z bazą danych MySQL, działającej w aplikacji sieci Web, sieci będą potrzebne informacje o połączeniu. Aby uzyskać informacje o połączeniu MySQL, wykonaj następujące kroki:
+tooconnect toohello baza danych MySQL działającej w aplikacji sieci Web, z będzie konieczne hello informacje o połączeniu. tooget MySQL informacje dotyczące połączenia, wykonaj następujące kroki:
 
-1. Z grupy zasobów kliknij bazę danych:
+1. Z grupy zasobów kliknij przycisk hello bazy danych:
    
     ![Wybierz bazę danych][select-database]
-2. Z bazy danych **ustawienia**, wybierz pozycję **właściwości**.
+2. Z bazy danych hello **ustawienia**, wybierz pozycję **właściwości**.
    
     ![Wybieranie właściwości][select-properties]
-3. Zanotuj wartości `Database`, `Host`, `User Id`, i `Password`.
+3. Zanotuj wartości hello `Database`, `Host`, `User Id`, i `Password`.
    
     ![Uwaga Właściwości][note-properties]
 
 ## <a name="build-and-test-your-app-locally"></a>Tworzenie i testowanie aplikacji lokalnie
 Teraz, po utworzeniu aplikacji sieci web, możesz utworzyć aplikację lokalnie, a następnie wdrożyć ją po zakończeniu testowania.
 
-Aplikacja rejestracji jest prostą aplikację PHP, która służy do rejestrowania zdarzenia podając adres nazwę i adres e-mail. Informacje o poprzednim dokonującymi są wyświetlane w tabeli. Informacje rejestracyjne są przechowywane w bazie danych MySQL. Aplikacja składa się z jednego pliku (skopiuj i Wklej kod dostępne poniżej):
+Rejestracja aplikacji Hello jest prostą aplikację PHP, która pozwala tooregister zdarzenia, podając adres nazwę i adres e-mail. Informacje o poprzednim dokonującymi są wyświetlane w tabeli. Informacje rejestracyjne są przechowywane w bazie danych MySQL. Aplikacja Hello składa się z jednego pliku (skopiuj i Wklej kod dostępne poniżej):
 
 * **index.php**: Wyświetla formularz rejestracji i tabelę zawierającą informacje rejestrującego.
 
-Aby skompilować i uruchomić aplikację lokalnie, wykonaj poniższe kroki. Należy pamiętać, że tych krokach przyjęto założenie, PHP i MySQL narzędzia wiersza polecenia (część MySQL) na komputerze lokalnym, a włączono [PDO rozszerzenia dla programu MySQL][pdo-mysql].
+toobuild i hello Uruchom aplikację lokalnie, wykonaj poniższe kroki hello. Należy pamiętać, że tych krokach przyjęto założenie hello PHP i MySQL narzędzia wiersza polecenia (część MySQL) na komputerze lokalnym i włączono hello [PDO rozszerzenia dla programu MySQL][pdo-mysql].
 
-1. Połącz z serwerem zdalnym MySQL, przy użyciu wartości dla `Data Source`, `User Id`, `Password`, i `Database` , który został wcześniej pobrany:
+1. Połącz toohello MySQL serwera zdalnego, za pomocą wartości hello `Data Source`, `User Id`, `Password`, i `Database` , który został wcześniej pobrany:
    
         mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
-2. Pojawi się wiersz polecenia MySQL:
+2. pojawi się wiersz polecenia MySQL Hello:
    
         mysql>
-3. Wklej poniżej `CREATE TABLE` polecenie, aby utworzyć `registration_tbl` tabeli w bazie danych:
+3. Wklej w następujących hello `CREATE TABLE` hello toocreate polecenia `registration_tbl` tabeli w bazie danych:
    
         CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
-4. W folderze głównym folderu lokalnego aplikacji Utwórz **index.php** pliku.
-5. Otwórz **index.php** plik w edytorze tekstów lub IDE i Dodaj następujący kod, a następnie ukończ niezbędne zmiany oznaczonych `//TODO:` komentarze.
+4. W głównym folderze lokalnym aplikacji hello utworzyć **index.php** pliku.
+5. Otwórz hello **index.php** plik w edytorze tekstów lub IDE, a następnie dodać hello następującego kodu i oznaczone pełną hello niezbędne zmiany `//TODO:` komentarze.
 
         <html>
         <head>
@@ -119,7 +119,7 @@ Aby skompilować i uruchomić aplikację lokalnie, wykonaj poniższe kroki. Nale
         </head>
         <body>
         <h1>Register here!</h1>
-        <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+        <p>Fill in your name and email address, then click <strong>Submit</strong> tooregister.</p>
         <form method="post" action="index.php" enctype="multipart/form-data" >
               Name  <input type="text" name="name" id="name"/></br>
               Email <input type="text" name="email" id="email"/></br>
@@ -127,13 +127,13 @@ Aby skompilować i uruchomić aplikację lokalnie, wykonaj poniższe kroki. Nale
         </form>
         <?php
             // DB connection info
-            //TODO: Update the values for $host, $user, $pwd, and $db
-            //using the values you retrieved earlier from the Azure Portal.
+            //TODO: Update hello values for $host, $user, $pwd, and $db
+            //using hello values you retrieved earlier from hello Azure Portal.
             $host = "value of Data Source";
             $user = "value of User Id";
             $pwd = "value of Password";
             $db = "value of Database";
-            // Connect to database.
+            // Connect toodatabase.
             try {
                 $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
                 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -184,22 +184,22 @@ Aby skompilować i uruchomić aplikację lokalnie, wykonaj poniższe kroki. Nale
         </body>
         </html>
 
-1. W terminalu przejdź do folderu aplikacji i wpisz następujące polecenie:
+1. W terminalu Przejdź tooyour aplikacji folderu i typ hello następujące polecenie:
    
        php -S localhost:8000
 
-Możesz teraz przejść do **http://localhost: 8000 /** do testowania aplikacji.
+Użytkownik może przeglądać zbyt**http://localhost: 8000 /** tootest hello aplikacji.
 
 ## <a name="publish-your-app"></a>Publikowanie aplikacji
-Po przetestowaniu aplikacji lokalnie, można opublikować aplikacje sieci Web przy użyciu narzędzia Git. Zostanie zainicjowania lokalnego repozytorium Git i Opublikuj aplikację.
+Po przetestowaniu aplikacji lokalnie, można publikować aplikacje tooWeb przy użyciu narzędzia Git. Zostanie zainicjowania lokalnego repozytorium Git i publikowanie aplikacji hello.
 
 > [!NOTE]
-> Są to te same kroki wyświetlana w portalu Azure na końcu się Git publikowania powyższej sekcji Tworzenie aplikacji sieci web i zestawu.
+> Te są hello same kroki opisane w hello portalu Azure na końcu hello hello tworzenie aplikacji sieci web i zestaw się Git publikowania powyższej sekcji.
 > 
 > 
 
-1. (Opcjonalnie)  Jeśli zostały zapomniane lub adres URL zdalnego repostitory Git zagubione, przejdź do właściwości aplikacji sieci web w portalu Azure.
-2. Otwórz GitBash (lub terminal, jeśli Git znajduje się w sieci `PATH`), przejdź do katalogu głównego aplikacji i uruchom następujące polecenia:
+1. (Opcjonalnie)  Jeśli zostały zapomniane lub adres URL zdalnego repostitory Git zagubione, przejdź toohello właściwości aplikacji sieci web na powitania portalu Azure.
+2. Otwórz GitBash (lub terminal, jeśli Git znajduje się w sieci `PATH`), a następnie zmień katalogi toohello katalogu aplikacji i uruchom następujące polecenia hello:
    
         git init
         git add .
@@ -207,58 +207,58 @@ Po przetestowaniu aplikacji lokalnie, można opublikować aplikacje sieci Web pr
         git remote add azure [URL for remote repository]
         git push azure master
    
-    Pojawi się monit o podanie hasła utworzonego wcześniej.
+    Pojawi się monit o hasło hello, utworzony wcześniej.
    
-    ![Początkowa wypychanych na platformie Azure za pomocą narzędzia Git][git-initial-push]
-3. Przejdź do **http://[site name].azurewebsites.net/index.php** aby rozpocząć korzystanie z aplikacji (te informacje będą przechowywane na pulpicie nawigacyjnym konta):
+    ![Początkowa tooAzure wypychanych za pomocą narzędzia Git][git-initial-push]
+3. Przeglądaj zbyt**http://[site name].azurewebsites.net/index.php** toobegin przy użyciu aplikacji hello (te informacje będą przechowywane na pulpicie nawigacyjnym konta):
    
     ![Witryny sieci web w usłudze Azure PHP][running-app]
 
-Po opublikowaniu aplikacji, można rozpocząć wprowadzania zmian i publikowanie ich przy użyciu narzędzia Git.
+Po opublikowaniu aplikacji, możesz rozpocząć tworzenie tooit zmian i użyć Git toopublish je.
 
-## <a name="publish-changes-to-your-app"></a>Publikowanie zmian w aplikacji
-Aby opublikować zmian w aplikacji, wykonaj następujące kroki:
+## <a name="publish-changes-tooyour-app"></a>Publikowanie aplikacji tooyour zmiany
+toopublish zmiany tooyour aplikacji, wykonaj następujące kroki:
 
-1. Wprowadzanie zmian do aplikacji lokalnie.
-2. Otwórz GitBash (lub terminal, it Git jest w Twojej `PATH`), przejdź do katalogu głównego aplikacji i uruchom następujące polecenia:
+1. Wprowadź zmiany tooyour lokalnie aplikacji.
+2. Otwórz GitBash (lub terminal, it Git jest w Twojej `PATH`), a następnie zmień katalogi toohello katalogu głównego aplikacji i uruchom następujące polecenia hello:
    
         git add .
         git commit -m "comment describing changes"
         git push azure master
    
-    Pojawi się monit o podanie hasła utworzonego wcześniej.
+    Pojawi się monit o hasło hello, utworzony wcześniej.
    
-    ![Wypychanie zmiany witryny na platformie Azure za pomocą narzędzia Git][git-change-push]
-3. Przejdź do **http://[site name].azurewebsites.net/index.php** do aplikacji i wszelkie zmiany wprowadzone w temacie:
+    ![Wypychanie lokacji zmienia się tooAzure za pomocą narzędzia Git][git-change-push]
+3. Przeglądaj zbyt**http://[site name].azurewebsites.net/index.php** toosee aplikacji oraz wszelkie zmiany wprowadzone:
    
     ![Witryny sieci web w usłudze Azure PHP][running-app]
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Tooget wprowadzenie do usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź zbyt[Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), gdzie możesz od razu utworzyć krótkotrwałą, początkową aplikację sieci web w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
 <a name="composer"></a>
 
-## <a name="enable-composer-automation-with-the-composer-extension"></a>Automatyzowanie Composer rozszerzenie Composer
-Domyślnie proces wdrażania narzędzia git w usłudze App Service nie są wykonywane z composer.json, jeśli istnieje w projekcie PHP. Można włączyć composer.json przetwarzania podczas `git push` , należy włączyć rozszerzenie Composer.
+## <a name="enable-composer-automation-with-hello-composer-extension"></a>Automatyzowanie Composer z hello rozszerzenie Composer
+Domyślnie program hello procesu wdrażania narzędzia git w usłudze App Service nie są wykonywane z composer.json, jeśli istnieje w projekcie PHP. Można włączyć composer.json przetwarzania podczas `git push` , należy włączyć rozszerzenie Composer hello.
 
-1. W przypadku programu PHP sieci web bloku aplikacji w [portalu Azure][management-portal], kliknij przycisk **narzędzia** > **rozszerzenia**.
+1. W przypadku programu PHP sieci web bloku aplikacji w hello [portalu Azure][management-portal], kliknij przycisk **narzędzia** > **rozszerzenia**.
    
     ![Ustawienia rozszerzenie Composer][composer-extension-settings]
 2. Kliknij przycisk **Dodaj**, następnie kliknij przycisk **Composer**.
    
     ![Dodaj rozszerzenie Composer][composer-extension-add]
-3. Kliknij przycisk **OK** zaakceptować postanowienia prawne. Kliknij przycisk **OK** ponownie, aby dodać rozszerzenie.
+3. Kliknij przycisk **OK** tooaccept postanowienia prawne. Kliknij przycisk **OK** ponownie tooadd hello rozszerzenia.
    
-    **Zainstalowanych rozszerzeń** bloku będzie zawierać teraz rozszerzenie Composer.  
+    Witaj **zainstalowanych rozszerzeń** bloku będzie zawierać teraz rozszerzenie Composer hello.  
     ![Widok rozszerzenie Composer][composer-extension-view]
-4. Teraz, wykonywać `git add`, `git commit`, i `git push` , takich jak w poprzedniej sekcji. Pojawi się, czy Composer jest instalowany zdefiniowane w composer.json zależności.
+4. Teraz, wykonywać `git add`, `git commit`, i `git push` podobnie jak w poprzedniej sekcji hello. Pojawi się, czy Composer jest instalowany zdefiniowane w composer.json zależności.
    
     ![Powodzenie rozszerzenie Composer][composer-extension-success]
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, zobacz [Centrum deweloperów języka PHP](/develop/php/).
+Aby uzyskać więcej informacji, zobacz hello [Centrum deweloperów języka PHP](/develop/php/).
 
 <!-- URL List -->
 

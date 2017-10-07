@@ -1,6 +1,6 @@
 ---
-title: "Włącz koligacji sesji przy użyciu zestawu narzędzi platformy Azure dla programu Eclipse"
-description: "Dowiedz się, jak włączyć koligacji sesji przy użyciu zestawu narzędzi platformy Azure dla programu Eclipse."
+title: "za pomocą koligacji sesji aaaEnable hello zestawu narzędzi platformy Azure dla programu Eclipse"
+description: "Dowiedz się, jak za pomocą koligacji sesji tooenable hello zestawu narzędzi platformy Azure dla programu Eclipse."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,40 +14,40 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: ab8623d6f9751ed6d71d9a5b1c0d5e939c442862
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 523e728c58bda95e7af4b242e831694eb6d75cb6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-session-affinity"></a>Włącz koligacji sesji
-W ramach zestawu narzędzi platformy Azure dla programu Eclipse można włączyć koligacji sesji HTTP, lub "trwałe sesje", dla poszczególnych ról. Poniższy obraz przedstawia **równoważenia obciążenia** używane do włączania funkcji koligacji sesji okno dialogowe właściwości:
+W ramach hello zestawu narzędzi platformy Azure dla programu Eclipse można włączyć koligacji sesji HTTP, lub "trwałe sesje", dla poszczególnych ról. Witaj poniższy obraz przedstawia hello **równoważenia obciążenia** funkcji koligacji sesji hello tooenable użyć okna dialogowego właściwości:
 
 ![][ic719492]
 
-## <a name="to-enable-session-affinity-for-your-role"></a>Aby włączyć koligacji sesji dla roli użytkownika
-1. Kliknij prawym przyciskiem myszy rolę, w obszarze Eksplorator projektów programu Eclipse na, kliknij przycisk **Azure**, a następnie kliknij przycisk **równoważenia obciążenia**.
+## <a name="tooenable-session-affinity-for-your-role"></a>tooenable koligacji sesji dla roli użytkownika
+1. Kliknij prawym przyciskiem myszy rolę hello w obszarze Eksplorator projektów programu Eclipse na, kliknij przycisk **Azure**, a następnie kliknij przycisk **równoważenia obciążenia**.
 
-2. W **właściwości WorkerRole1 Równoważenie obciążenia sieciowego** okna dialogowego:
+2. W hello **właściwości WorkerRole1 Równoważenie obciążenia sieciowego** okna dialogowego:
 
    a. Sprawdź **koligacji sesji HTTP włączyć (trwałe sesje) dla tej roli.**
 
-   b. Aby uzyskać **wejściowy punkt końcowy do użycia**, wybierz wejściowy punkt końcowy do użycia, na przykład **http (publicznego: 80, private: 8080)**. Aplikacja musi używać tego punktu końcowego, jako jego punkt końcowy HTTP. Można włączyć wiele punktów końcowych dla roli użytkownika, ale można wybrać tylko jeden z nich do obsługi trwałe sesje.
+   b. Dla **wejściowy punkt końcowy toouse**, na przykład wybierz toouse wejściowy punkt końcowy **http (publicznego: 80, private: 8080)**. Aplikacja musi używać tego punktu końcowego, jako jego punkt końcowy HTTP. Można włączyć wiele punktów końcowych dla roli użytkownika, ale można wybrać tylko jedną z nich toosupport trwałe sesje.
 
    c. Aplikacja jest ponownie kompilowana.
 
-Po włączeniu, jeśli masz więcej niż jedno wystąpienie roli, pochodzących z określonego klienta żądań HTTP będą nadal obsługiwane przez tego samego wystąpienia roli.
+Po włączeniu, jeśli masz więcej niż jedno wystąpienie roli, pochodzących z określonego klienta żądań HTTP będą nadal obsługiwane przez hello takie same wystąpienia roli.
 
-Zestaw narzędzi Eclipse umożliwia to przez zainstalowanie specjalne moduł usług IIS do każdego wystąpienia roli o nazwie Routing żądań aplikacji (ARR). Moduł ARR zmienia trasę żądania HTTP do wystąpienia odpowiedniej roli. Zestaw narzędzi automatycznie skonfiguruje wybranego punktu końcowego, tak aby ruch przychodzący HTTP najpierw jest kierowane do oprogramowania ARR. Zestaw narzędzi również tworzy nowy wewnętrzny punkt końcowy który serwer Java jest skonfigurowany do nasłuchiwania. To punktowi końcowemu używanemu przez moduł ARR do przekierowywania ruchu HTTP do wystąpienia odpowiedniej roli. W ten sposób każde wystąpienie roli we wdrożeniu w wielu wystąpieniach służy jako zwrotny serwer proxy dla wszystkich innych przypadkach włączenie trwałe sesje.
+Hello Eclipse Toolkit umożliwia to przez zainstalowanie specjalne moduł usług IIS do każdego wystąpienia roli o nazwie Routing żądań aplikacji (ARR). Moduł ARR zmienia trasę wystąpienia odpowiedniej roli toohello żądania HTTP. zestaw narzędzi Hello automatycznie skonfiguruje hello wybrany punkt końcowy tak, aby ruch przychodzący HTTP hello pierwszy routingiem toohello ARR oprogramowania. Hello toolkit tworzy nowy wewnętrzny punkt końcowy, który serwer Java jest skonfigurowany toolisten do. To jest punkt końcowy hello używane przez wystąpienie odpowiedniej roli toohello ruch HTTP ARR tooreroute hello. W ten sposób każde wystąpienie roli we wdrożeniu w wielu wystąpieniach służy jako zwrotny serwer proxy dla wszystkich hello innych przypadkach włączenie trwałe sesje.
 
 ## <a name="notes-about-session-affinity"></a>Uwagi dotyczące koligacji sesji
-* Koligacja sesji nie działa w emulatorze obliczeń. Ustawienia mogą być stosowane w emulatorze obliczeń bez zakłócania w procesie kompilacji lub wykonywania emulatora obliczeniowe, ale sama ta funkcja nie działa w ramach emulatora obliczeń.
+* Koligacji sesji nie działa w emulatorze obliczeń hello. Ustawienia Hello mogą być stosowane w emulatorze obliczeń hello bez zakłócania w procesie kompilacji lub wykonywania emulatora obliczeniowe, ale funkcja hello nie działa w ramach hello emulatora obliczeń.
 
-* Włączenie koligacji sesji spowoduje zwiększenie ilości miejsca na dysku zajmowanego przez wdrożenia na platformie Azure jako dodatkowego oprogramowania zostanie pobrany i zainstalowany w wystąpienia roli, po uruchomieniu usługi w chmurze Azure.
+* Włączenie koligacji sesji spowoduje zwiększenie hello ilość miejsca na dysku zajmowanego przez wdrożenia na platformie Azure jako dodatkowego oprogramowania zostanie pobrany i zainstalowany w wystąpienia roli, po uruchomieniu usługi w hello chmury Azure.
 
-* Czas inicjowania każdej roli będzie trwać dłużej.
+* tooinitialize czasu Hello każdej roli będzie trwać dłużej.
 
-* Wewnętrzny punkt końcowy, do działania jako rerouter ruchu, jak wspomniano powyżej, zostaną dodane.
+* Wewnętrzny punkt końcowy toofunction jako rerouter ruchu, jak wspomniano powyżej, zostaną dodane.
 
 
 ## <a name="see-also"></a>Zobacz też
@@ -55,17 +55,17 @@ Zestaw narzędzi Eclipse umożliwia to przez zainstalowanie specjalne moduł us�
 
 [Tworzenie aplikacji Hello World na platformie Azure w programie Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Instalowanie zestawu narzędzi platformy Azure dla programu Eclipse][Installing the Azure Toolkit for Eclipse] 
+[Instalowanie hello zestawu narzędzi platformy Azure dla programu Eclipse][Installing hello Azure Toolkit for Eclipse] 
 
-Aby uzyskać więcej informacji o korzystaniu z językiem Java Azure, zobacz [Azure Java Developer Center][Azure Java Developer Center].
+Aby uzyskać więcej informacji o korzystaniu z językiem Java Azure, zobacz hello [Azure Java Developer Center][Azure Java Developer Center].
 
 <!-- URL List -->
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[How tooMaintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

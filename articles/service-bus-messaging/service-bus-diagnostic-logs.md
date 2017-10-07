@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Bus dzienników diagnostycznych | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania dzienników diagnostycznych dla usługi Service Bus na platformie Azure."
+title: "dzienniki diagnostyczne aaaAzure usługi Service Bus | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooset zapasowe dzienników diagnostycznych dla usługi Service Bus na platformie Azure."
 keywords: 
 documentationcenter: .net
 services: service-bus-messaging
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: babanisa;sethm
-ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e48d6eaba6e865ae39f5b07ed6cd53d74c92e2ff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-bus-diagnostic-logs"></a>Dzienniki diagnostyczne usługi Service Bus
 
 Dla usługi Azure Service Bus, można wyświetlić dwa typy dzienników:
-* **[Dzienniki aktywności](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Dzienniki te zawierają informacje o operacji wykonywanych w zadaniu. Dzienniki są zawsze włączone.
-* **[Dzienniki diagnostyczne](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Można skonfigurować dziennika diagnostycznego bardziej rozbudowane informacje o wszystko, co się stanie w ramach danego zadania. Dzienniki diagnostyczne obejmują działania, od czasu utworzenia zadania do momentu usunięcia zadania, w tym aktualizacje i działania, które są wykonywane, gdy zadanie jest uruchomione.
+* **[Dzienniki aktywności](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Dzienniki te zawierają informacje o operacji wykonywanych w zadaniu. Dzienniki Hello są zawsze włączone.
+* **[Dzienniki diagnostyczne](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Można skonfigurować dziennika diagnostycznego bardziej rozbudowane informacje o wszystko, co się stanie w ramach danego zadania. Dzienniki diagnostyczne obejmują działania, od czasu hello, utworzenia zadania hello do momentu usunięcia zadania hello, w tym aktualizacje i działania, które są wykonywane, gdy jest wykonywane zadanie hello.
 
 ## <a name="turn-on-diagnostic-logs"></a>Włączanie dzienników diagnostycznych
 
-Dzienniki diagnostyczne są domyślnie wyłączone. Aby włączyć dzienniki diagnostyczne, wykonaj następujące czynności:
+Dzienniki diagnostyczne są domyślnie wyłączone. tooenable dzienników diagnostycznych, wykonaj następujące kroki hello:
 
-1.  W [portalu Azure](https://portal.azure.com)w obszarze **monitorowanie i zarządzanie**, kliknij przycisk **dzienników diagnostycznych**.
+1.  W hello [portalu Azure](https://portal.azure.com)w obszarze **monitorowanie i zarządzanie**, kliknij przycisk **dzienników diagnostycznych**.
 
-    ![Nawigacja bloku do dzienników diagnostycznych](./media/service-bus-diagnostic-logs/image1.png)
+    ![Dzienniki toodiagnostic nawigacji bloku](./media/service-bus-diagnostic-logs/image1.png)
 
-2. Kliknij zasób, który chcesz monitorować.  
+2. Kliknij zasób hello ma toomonitor.  
 
 3.  Kliknij przycisk **Włącz diagnostykę**.
 
@@ -45,23 +45,23 @@ Dzienniki diagnostyczne są domyślnie wyłączone. Aby włączyć dzienniki dia
 
     ![Zmień stan dzienników diagnostycznych](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Ustaw element docelowy archiwum, które mają; na przykład konto magazynu, Centrum zdarzeń lub Analiza dzienników Azure.
+5.  Zestaw docelowy archiwum hello, który ma; na przykład konto magazynu, Centrum zdarzeń lub Analiza dzienników Azure.
 
-6.  Zapisz nowe ustawienia diagnostyki.
+6.  Zapisz hello nowe ustawienia diagnostyki.
 
-Nowe ustawienia zaczęły obowiązywać w ciągu około 10 minut. Po wykonaniu tej dzienników pojawia się w celu archiwizacji skonfigurowane, na **dzienników diagnostycznych** bloku.
+Nowe ustawienia zaczęły obowiązywać w ciągu około 10 minut. Po wykonaniu tej dzienników pojawia się w celu archiwizacji hello skonfigurowane, na powitania **dzienników diagnostycznych** bloku.
 
-Aby uzyskać więcej informacji na temat konfigurowania diagnostyki, zobacz [omówienie Azure dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Aby uzyskać więcej informacji na temat konfigurowania diagnostyki, zobacz hello [omówienie Azure dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-schema"></a>Dzienniki diagnostyczne schematu
 
-Wszystkie dzienniki są przechowywane w formacie JavaScript Object Notation (JSON). Każdy wpis ma pól ciągów, które używają formatu opisane w poniższej sekcji.
+Wszystkie dzienniki są przechowywane w formacie JavaScript Object Notation (JSON). Każdy wpis ma pól ciągów, w formacie hello opisane w następujących sekcji hello.
 
 ## <a name="operational-logs-schema"></a>Schemat operacyjne dzienniki
 
-Loguje **OperationalLogs** kategorii przechwytywania, co się dzieje podczas operacji usługi Service Bus. W szczególności te dzienniki przechwytywania typ operacji, łącznie z tworzeniem kolejki, zasoby używane i stan operacji.
+Loguje hello **OperationalLogs** kategorii przechwytywania, co się dzieje podczas operacji usługi Service Bus. W szczególności te dzienniki przechwytywania hello operacji typu, w tym tworzenie kolejek, zasoby używane i hello stan hello operacji.
 
-Dziennik operacyjny JSON ciągi zawierać elementy wymienione w poniższej tabeli:
+Dziennik operacyjny JSON ciągi zawierać elementy wymienione w poniższej tabeli hello:
 
 Nazwa | Opis
 ------- | -------
@@ -93,7 +93,7 @@ Poniżej przedstawiono przykładowy dziennik operacyjny ciągu JSON:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Odwiedź poniższe łącza, aby dowiedzieć się więcej na temat magistrali usług:
+Odwiedź powitania po toolearn łącza więcej o magistrali usług:
 
-* [Wprowadzenie do usługi Service Bus](service-bus-messaging-overview.md)
+* [Wprowadzenie tooService magistrali](service-bus-messaging-overview.md)
 * [Rozpoczynanie pracy z usługą Service Bus](service-bus-dotnet-get-started-with-queues.md)

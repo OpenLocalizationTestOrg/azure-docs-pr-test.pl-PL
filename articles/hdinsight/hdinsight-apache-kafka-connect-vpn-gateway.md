@@ -1,6 +1,6 @@
 ---
-title: "Nawiązać połączenie przy użyciu sieci wirtualnych - Azure HDInsight Kafka | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak nawiązać bezpośrednie Kafka w usłudze HDInsight przy użyciu sieci wirtualnej platformy Azure. Dowiedz się, jak połączyć się z Kafka z klientów Programowanie przy użyciu bramy sieci VPN lub klienci w sieci lokalnej za pomocą urządzenia bramy sieci VPN."
+title: "przy użyciu sieci wirtualnych - Azure HDInsight tooKafka aaaConnect | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak połączyć toodirectly tooKafka w usłudze HDInsight przy użyciu sieci wirtualnej platformy Azure. Dowiedz się, jak tooKafka tooconnect od klientów Programowanie przy użyciu bramy sieci VPN lub z klientów w lokalnej sieci przy użyciu urządzenia bramy sieci VPN."
 services: hdinsight
 documentationCenter: 
 author: Blackmist
@@ -15,100 +15,100 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 245bee7c1dbb0236afdc2506e7ab84b5573cbc85
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 03542fe14b9a1d010dffa22a8f8d96b098a1576e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Nawiązać Kafka w usłudze HDInsight (wersja zapoznawcza) za pośrednictwem sieci wirtualnej platformy Azure
+# <a name="connect-tookafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Łączenie się tooKafka w usłudze HDInsight (wersja zapoznawcza) za pośrednictwem sieci wirtualnej platformy Azure
 
-Dowiedz się, jak nawiązać bezpośrednie Kafka w usłudze HDInsight przy użyciu sieci wirtualnych Azure. Ten dokument zawiera informacje dotyczące nawiązywania połączenia Kafka przy użyciu następujących konfiguracji:
+Dowiedz się, jak toodirectly łączyć tooKafka w usłudze HDInsight przy użyciu sieci wirtualnych Azure. Ten dokument zawiera informacje dotyczące łączenia tooKafka przy użyciu hello następujące konfiguracje:
 
 * Z zasobów w sieci lokalnej. To połączenie zostanie nawiązane za pomocą urządzenia sieci VPN (oprogramowania lub sprzętu) w sieci lokalnej.
 * Środowiska programowania przy użyciu oprogramowania klienta sieci VPN.
 
 ## <a name="architecture-and-planning"></a>Planowanie i architektura
 
-HDInsight nie zezwala na bezpośrednie połączenie Kafka za pośrednictwem publicznej sieci internet. Zamiast tego Kafka klientów (producenci i konsumenci) muszą używać jednej z następujących metod połączenia:
+HDInsight nie zezwala na bezpośrednie połączenie tooKafka za pośrednictwem hello publicznej sieci internet. Zamiast tego Kafka klientów (producenci i konsumenci) muszą używać jednej z hello następujących metod:
 
-* Uruchom klienta w tej samej sieci wirtualnej, jak Kafka w usłudze HDInsight. Ta konfiguracja jest używana w [rozpoczynać Apache Kafka (wersja zapoznawcza) w usłudze HDInsight](hdinsight-apache-kafka-get-started.md) dokumentu. Klient uruchamia bezpośrednio na węzłach klastra usługi HDInsight lub inną maszynę wirtualną w tej samej sieci.
+* Uruchom powitania klienta w hello tej samej sieci wirtualnej, jak Kafka w usłudze HDInsight. Ta konfiguracja jest używana w hello [rozpoczynać Apache Kafka (wersja zapoznawcza) w usłudze HDInsight](hdinsight-apache-kafka-get-started.md) dokumentu. Hello bezpośrednio uruchamia klienta na powitania HDInsight węzły klastra lub na inną maszynę wirtualną w hello sam sieci.
 
-* Połączenie sieci prywatnej, takich jak sieci lokalnej do sieci wirtualnej. Ta konfiguracja pozwala klientom w sieci lokalnej pracować bezpośrednio z Kafka. Aby włączyć tę konfigurację, wykonaj następujące czynności:
+* Połączenie sieci prywatnej, takich jak sieci lokalnej, toohello sieci wirtualnej. Ta konfiguracja umożliwia klientom w sieci lokalnej toodirectly pracy z Kafka. tooenable tę konfigurację, wykonaj następujące zadania hello:
 
     1. Tworzenie sieci wirtualnej.
-    2. Tworzenie bramy sieci VPN, która używa konfiguracji lokacja lokacja. Konfiguracja użyta w tym dokumencie łączy się urządzenie bramy sieci VPN w sieci lokalnej.
-    3. Utwórz serwer DNS w sieci wirtualnej.
-    4. Konfiguruj przekazywanie między serwer DNS w każdej sieci.
-    5. Zainstaluj Kafka w usłudze HDInsight w sieci wirtualnej.
+    2. Tworzenie bramy sieci VPN, która używa konfiguracji lokacja lokacja. Konfiguracja Hello używana w tym dokumencie łączy tooa urządzenia bramy sieci VPN w sieci lokalnej.
+    3. Utwórz serwer DNS w sieci wirtualnej hello.
+    4. Konfiguruj przekazywanie między powitania serwera DNS w każdej sieci.
+    5. Zainstaluj Kafka w usłudze HDInsight w sieci wirtualnej hello.
 
-    Aby uzyskać więcej informacji, zobacz [nawiązywanie Kafka z sieci lokalnej](#on-premises) sekcji. 
+    Aby uzyskać więcej informacji, zobacz hello [połączenia z siecią lokalną tooKafka](#on-premises) sekcji. 
 
-* Połączenie poszczególnych maszyn z sieci wirtualnej przy użyciu bramy sieci VPN i klienta sieci VPN. Aby włączyć tę konfigurację, wykonaj następujące czynności:
+* Połącz poszczególnych maszyn toohello sieci wirtualnej przy użyciu bramy sieci VPN i klienta sieci VPN. tooenable tę konfigurację, wykonaj następujące zadania hello:
 
     1. Tworzenie sieci wirtualnej.
     2. Tworzenie bramy sieci VPN, która używa konfiguracji punkt lokacja. Ta konfiguracja zapewnia klienta sieci VPN, który może zostać zainstalowany na komputerach klienckich z systemem Windows.
-    3. Zainstaluj Kafka w usłudze HDInsight w sieci wirtualnej.
-    4. Skonfiguruj Kafka IP reklamy. Ta konfiguracja umożliwia klientowi łączyć się przy użyciu adresów IP zamiast nazwy domeny.
-    5. Pobranie i użycie klienta sieci VPN w systemie deweloperskim.
+    3. Zainstaluj Kafka w usłudze HDInsight w sieci wirtualnej hello.
+    4. Skonfiguruj Kafka IP reklamy. Ta konfiguracja pozwala powitania klienta tooconnect przy użyciu protokołu IP adresowania zamiast nazwy domeny.
+    5. Pobranie i użycie powitania klienta sieci VPN w systemie deweloperskim hello.
 
-    Aby uzyskać więcej informacji, zobacz [nawiązywanie Kafka za pomocą klienta VPN](#vpnclient) sekcji.
+    Aby uzyskać więcej informacji, zobacz hello [tooKafka Uzyskuj dostęp do klienta sieci VPN](#vpnclient) sekcji.
 
     > [!WARNING]
-    > Ta konfiguracja jest zalecana tylko do celów programistycznych, ze względu na następujące ograniczenia:
+    > Ta konfiguracja jest zalecana tylko do celów programistycznych, ze względu na powitania następujące ograniczenia:
     >
     > * Każdy klient musi połączyć za pomocą oprogramowania klienta sieci VPN. Platforma Azure udostępnia tylko klient z systemem Windows.
-    > * Klient nie zostały spełnione żądań rozpoznawania nazw do sieci wirtualnej, należy użyć do komunikacji z Kafka o adresowaniu IP. Komunikacja IP wymaga dodatkowej konfiguracji klastra Kafka.
+    > * powitania klienta nie zostały spełnione Nazwa rozwiązania żądań toohello sieci wirtualnej, trzeba używać adresów toocommunicate z Kafka IP. Komunikacja IP wymaga dodatkowej konfiguracji hello Kafka klastra.
 
 Aby uzyskać więcej informacji na temat używania usługi HDInsight w sieci wirtualnej, zobacz [rozszerzyć HDInsight przy użyciu sieci wirtualnych Azure](./hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a>Nawiązywanie połączenia z siecią lokalną do Kafka
+## <a id="on-premises"></a>Łączenie z tooKafka z sieci lokalnej
 
-Aby utworzyć klaster Kafka, który komunikuje się z sieci lokalnej, postępuj zgodnie z instrukcjami [HDInsight połączyć się z siecią lokalną](./connect-on-premises-network.md) dokumentu.
+toocreate klastra Kafka, który komunikuje się z sieci lokalnej, wykonaj kroki hello hello [sieć lokalną tooyour połączyć HDInsight](./connect-on-premises-network.md) dokumentu.
 
 > [!IMPORTANT]
-> Podczas tworzenia klastra usługi HDInsight, wybierz __Kafka__ typ klastra.
+> Podczas tworzenia klastra usługi HDInsight hello, wybierz hello __Kafka__ typ klastra.
 
-Te kroki Utwórz następującą konfigurację:
+Te kroki tworzenia hello następującej konfiguracji:
 
 * Azure Virtual Network
 * Brama VPN lokacja lokacja
 * Konto usługi Azure Storage (używane przez usługi HDInsight)
 * Kafka w usłudze HDInsight
 
-Aby sprawdzić, czy klient Kafka łączy do klastra z lokalnych, wykonaj czynności w [przykład: Python klienta](#python-client) sekcji.
+tooverify klienta Kafka połączyć z klastra toohello z lokalnymi, użyj kroków hello hello [przykład: Python klienta](#python-client) sekcji.
 
-## <a id="vpnclient"></a>Połączenie z Kafka z klienta sieci VPN
+## <a id="vpnclient"></a>TooKafka Uzyskuj dostęp do klienta sieci VPN
 
-Wykonaj kroki w tej sekcji, aby utworzyć następującej konfiguracji:
+Wykonaj kroki hello w tym hello toocreate sekcji następującej konfiguracji:
 
 * Azure Virtual Network
 * Brama sieci VPN punkt lokacja
 * Konto usługi Azure Storage (używane przez usługi HDInsight)
 * Kafka w usłudze HDInsight
 
-1. Postępuj zgodnie z instrukcjami [Praca z certyfikatów z podpisem własnym dla połączenia punkt lokacja](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) dokumentu. Ten dokument tworzy certyfikaty wymagane dla bramy.
+1. Wykonaj kroki hello hello [Praca z certyfikatów z podpisem własnym dla połączenia punkt lokacja](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) dokumentu. Ten dokument tworzy niezbędne hello bramy certyfikaty hello.
 
-2. Otwórz wiersz programu PowerShell i użyć poniższego kodu, aby zalogować się do subskrypcji platformy Azure:
+2. Otwórz wiersz programu PowerShell i użyj powitania po toolog kodu w tooyour subskrypcji platformy Azure:
 
     ```powershell
     Add-AzureRmAccount
-    # If you have multiple subscriptions, uncomment to set the subscription
+    # If you have multiple subscriptions, uncomment tooset hello subscription
     #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
     ```
 
-3. Aby utworzyć zmienne, które zawierają informacje o konfiguracji, należy użyć poniższego kodu:
+3. Użyj następującego kodu toocreate zmiennych, które zawierają informacje o konfiguracji hello:
 
     ```powershell
     # Prompt for generic information
-    $resourceGroupName = Read-Host "What is the resource group name?"
-    $baseName = Read-Host "What is the base name? It is used to create names for resources, such as 'net-basename' and 'kafka-basename':"
-    $location = Read-Host "What Azure Region do you want to create the resources in?"
-    $rootCert = Read-Host "What is the file path to the root certificate? It is used to secure the VPN gateway."
+    $resourceGroupName = Read-Host "What is hello resource group name?"
+    $baseName = Read-Host "What is hello base name? It is used toocreate names for resources, such as 'net-basename' and 'kafka-basename':"
+    $location = Read-Host "What Azure Region do you want toocreate hello resources in?"
+    $rootCert = Read-Host "What is hello file path toohello root certificate? It is used toosecure hello VPN gateway."
 
     # Prompt for HDInsight credentials
-    $adminCreds = Get-Credential -Message "Enter the HTTPS user name and password for the HDInsight cluster" -UserName "admin"
-    $sshCreds = Get-Credential -Message "Enter the SSH user name and password for the HDInsight cluster" -UserName "sshuser"
+    $adminCreds = Get-Credential -Message "Enter hello HTTPS user name and password for hello HDInsight cluster" -UserName "admin"
+    $sshCreds = Get-Credential -Message "Enter hello SSH user name and password for hello HDInsight cluster" -UserName "sshuser"
 
     # Names for Azure resources
     $networkName = "net-$baseName"
@@ -134,26 +134,26 @@ Wykonaj kroki w tej sekcji, aby utworzyć następującej konfiguracji:
     $hdiType = "Kafka"
     ```
 
-4. Aby utworzyć grupy zasobów platformy Azure i siecią wirtualną, należy użyć poniższego kodu:
+4. Użyj hello poniższy kod grupy zasobów platformy Azure hello toocreate i siecią wirtualną:
 
     ```powershell
-    # Create the resource group that contains everything
+    # Create hello resource group that contains everything
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-    # Create the subnet configuration
+    # Create hello subnet configuration
     $defaultSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
         -AddressPrefix $defaultSubnetPrefix
     $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
         -AddressPrefix $gatewaySubnetPrefix
 
-    # Create the subnet
+    # Create hello subnet
     New-AzureRmVirtualNetwork -Name $networkName `
         -ResourceGroupName $resourceGroupName `
         -Location $location `
         -AddressPrefix $networkAddressPrefix `
         -Subnet $defaultSubnetConfig, $gatewaySubnetConfig
 
-    # Get the network & subnet that were created
+    # Get hello network & subnet that were created
     $network = Get-AzureRmVirtualNetwork -Name $networkName `
         -ResourceGroupName $resourceGroupName
     $gatewaySubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
@@ -161,7 +161,7 @@ Wykonaj kroki w tej sekcji, aby utworzyć następującej konfiguracji:
     $defaultSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
         -VirtualNetwork $network
 
-    # Set a dynamic public IP address for the gateway subnet
+    # Set a dynamic public IP address for hello gateway subnet
     $gatewayPublicIp = New-AzureRmPublicIpAddress -Name $gatewayPublicIpName `
         -ResourceGroupName $resourceGroupName `
         -Location $location `
@@ -170,15 +170,15 @@ Wykonaj kroki w tej sekcji, aby utworzyć następującej konfiguracji:
         -Subnet $gatewaySubnet `
         -PublicIpAddress $gatewayPublicIp
 
-    # Get the certificate info
-    # Get the full path in case a relative path was passed
+    # Get hello certificate info
+    # Get hello full path in case a relative path was passed
     $rootCertFile = Get-ChildItem $rootCert
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($rootCertFile)
     $certBase64 = [System.Convert]::ToBase64String($cert.RawData)
     $p2sRootCert = New-AzureRmVpnClientRootCertificate -Name $vpnRootCertName `
         -PublicCertData $certBase64
 
-    # Create the VPN gateway
+    # Create hello VPN gateway
     New-AzureRmVirtualNetworkGateway -Name $vpnName `
         -ResourceGroupName $resourceGroupName `
         -Location $location `
@@ -192,33 +192,33 @@ Wykonaj kroki w tej sekcji, aby utworzyć następującej konfiguracji:
     ```
 
     > [!WARNING]
-    > Może upłynąć kilka minut na zakończenie danego procesu.
+    > Może upłynąć kilka minut toocomplete tego procesu.
 
-5. Aby utworzyć kontener konto magazynu Azure i obiektów blob, należy użyć poniższego kodu:
+5. Użyj następującego kodu toocreate hello konto magazynu Azure i obiektów blob kontenera hello:
 
     ```powershell
-    # Create the storage account
+    # Create hello storage account
     New-AzureRmStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
         -Type Standard_GRS `
         -Location $location
 
-    # Get the storage account keys and create a context
+    # Get hello storage account keys and create a context
     $defaultStorageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName `
         -Name $storageName)[0].Value
     $storageContext = New-AzureStorageContext -StorageAccountName $storageName `
         -StorageAccountKey $defaultStorageKey
 
-    # Create the default storage container
+    # Create hello default storage container
     New-AzureStorageContainer -Name $defaultContainerName `
         -Context $storageContext
     ```
 
-6. Poniższy kod umożliwia utworzenie klastra usługi HDInsight:
+6. Użyj powitania po klastra usługi HDInsight hello toocreate kodu:
 
     ```powershell
-    # Create the HDInsight cluster
+    # Create hello HDInsight cluster
     New-AzureRmHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
@@ -237,9 +237,9 @@ Wykonaj kroki w tej sekcji, aby utworzyć następującej konfiguracji:
     ```
 
   > [!WARNING]
-  > Ten proces trwa około 20 minut, aby zakończyć.
+  > Ten proces trwa około 20 minut toocomplete.
 
-8. Aby pobrać adres URL dla klienta VPN systemu Windows dla sieci wirtualnej, użyj następującego polecenia cmdlet:
+8. Użyj następującego polecenia cmdlet tooretrieve hello adres URL klienta VPN systemu Windows hello dla sieci wirtualnej hello hello:
 
     ```powershell
     Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
@@ -247,68 +247,68 @@ Wykonaj kroki w tej sekcji, aby utworzyć następującej konfiguracji:
         -ProcessorArchitecture Amd64
     ```
 
-    Aby pobrać klienta VPN systemu Windows, należy użyć zwracane identyfikatora URI w przeglądarce sieci web.
+    toodownload powitania klienta VPN systemu Windows, użyj hello zwracane identyfikatora URI w przeglądarce sieci web.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Skonfiguruj Kafka do celów reklamowych IP
 
-Domyślnie dozorcy zwraca nazwę domeny brokerzy Kafka do klientów. Ta konfiguracja nie działa z oprogramowania klienta sieci VPN, ponieważ nie może używać rozpoznawania nazw dla jednostek w sieci wirtualnej. W przypadku tej konfiguracji umożliwia skonfigurowanie Kafka anonsowanie adresów IP zamiast nazwy domeny następujące czynności:
+Domyślnie dozorcy zwraca nazwę domeny hello hello tooclients brokerzy Kafka. Ta konfiguracja nie działa z powitania klienta oprogramowania sieci VPN, jako nie może używać rozpoznawania nazw dla jednostek w sieci wirtualnej hello. W przypadku tej konfiguracji należy użyć następujących hello adresów Kafka tooadvertise IP tooconfigure kroki zamiast nazwy domeny:
 
-1. Przy użyciu przeglądarki sieci web, przejdź do https://CLUSTERNAME.azurehdinsight.net. Zastąp __CLUSTERNAME__ o nazwie Kafka w klastrze usługi HDInsight.
+1. W przeglądarce sieci web przejdź toohttps://CLUSTERNAME.azurehdinsight.net. Zastąp __CLUSTERNAME__ o nazwie hello hello Kafka w klastrze usługi HDInsight.
 
-    Po wyświetleniu monitu użyj protokołu HTTPS, nazwę użytkownika i hasło dla klastra. Zostanie wyświetlony interfejs użytkownika sieci Web Ambari dla klastra.
+    Po wyświetleniu monitu użyj hello HTTPS nazwę i hasło użytkownika hello klastra. Hello Interfejsu sieci Web Ambari hello klastra jest wyświetlana.
 
-2. Aby wyświetlić informacje o Kafka, wybierz __Kafka__ na liście z lewej strony.
+2. Wybierz tooview informacji na temat Kafka, __Kafka__ z listy hello powitania po lewej stronie.
 
     ![Lista usług z Kafka wyróżnione](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
-3. Zaznacz, aby wyświetlić konfigurację Kafka __Configs__ ze środka top.
+3. Wybierz tooview konfiguracji Kafka __Configs__ w środku górnej hello.
 
     ![Łącza Configs Kafka](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-config.png)
 
-4. Aby znaleźć __kafka env__ konfiguracji, wprowadź `kafka-env` w __filtru__ w prawym górnym rogu.
+4. Witaj toofind __kafka env__ konfiguracji, wprowadź `kafka-env` w hello __filtru__ w prawym górnym rogu hello.
 
     ![Konfiguracja Kafka, kafka env](./media/hdinsight-apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
 
-5. Aby skonfigurować Kafka anonsowanie adresów IP, Dodaj poniższy tekst do dołu __kafka env szablonów__ pola:
+5. adresy Kafka tooadvertise IP tooconfigure, Dodaj powitania od dołu toohello tekst hello __kafka env szablonów__ pola:
 
     ```
-    # Configure Kafka to advertise IP addresses instead of FQDN
+    # Configure Kafka tooadvertise IP addresses instead of FQDN
     IP_ADDRESS=$(hostname -i)
     echo advertised.listeners=$IP_ADDRESS
     sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. Aby skonfigurować interfejs, który nasłuchuje Kafka, wprowadź `listeners` w __filtru__ w prawym górnym rogu.
+6. Wprowadź tooconfigure hello interfejs, który nasłuchuje Kafka `listeners` w hello __filtru__ w prawym górnym rogu hello.
 
-7. Aby skonfigurować Kafka do nasłuchiwania na wszystkich interfejsach sieciowych, zmień wartość w __odbiorników__ do `PLAINTEXT://0.0.0.0:9092`.
+7. tooconfigure toolisten Kafka na wszystkich interfejsach sieciowych, zmień wartość hello w hello __odbiorników__ pola zbyt`PLAINTEXT://0.0.0.0:9092`.
 
-8. Aby zapisać zmiany konfiguracji, użyj __zapisać__ przycisku. Wprowadź wiadomość tekstową opisujące zmiany. Wybierz __OK__ po zapisaniu zmian.
+8. zmiany konfiguracji hello toosave, użyj hello __zapisać__ przycisku. Wprowadź wiadomość tekstową opisujące hello zmiany. Wybierz __OK__ po hello zmiany zostały zapisane.
 
     ![Konfiguracja przyciskiem Zapisz](./media/hdinsight-apache-kafka-connect-vpn-gateway/save-button.png)
 
-9. Aby zapobiec błędom podczas ponownego uruchamiania Kafka, należy użyć __akcji usługi__ i wybrać __włączyć w trybie konserwacji__. Wybierz przycisk OK, aby wykonać tę operację.
+9. błędy tooprevent po ponownym uruchomieniu Kafka, użyj hello __akcji usługi__ i wybrać __włączyć w trybie konserwacji__. Wybierz OK toocomplete tej operacji.
 
     ![Włącz funkcję obsługi wyróżnione akcje usługi](./media/hdinsight-apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
 
-10. Aby ponownie uruchomić Kafka, należy użyć __Uruchom ponownie__ i wybrać __ponowne uruchomienie wszystkich wpływ__. Upewnij się, ponowne uruchomienie, a następnie użyj __OK__ przycisku po ukończeniu tej operacji.
+10. toorestart Kafka, użyj hello __Uruchom ponownie__ i wybrać __ponowne uruchomienie wszystkich wpływ__. Potwierdź hello ponownego uruchomienia, a następnie użyj hello __OK__ przycisku po wykonaniu operacji hello.
 
     ![Uruchom ponownie przycisk o ponowne uruchomienie wszystkich wpływ wyróżnione](./media/hdinsight-apache-kafka-connect-vpn-gateway/restart-button.png)
 
-11. Aby wyłączyć tryb konserwacji, użyj __akcji usługi__ i wybrać __włączyć Wyłącz tryb konserwacji__. Wybierz **OK** do ukończenia tej operacji.
+11. toodisable tryb konserwacji, użyj hello __akcji usługi__ i wybrać __włączyć Wyłącz tryb konserwacji__. Wybierz **OK** toocomplete tej operacji.
 
-### <a name="connect-to-the-vpn-gateway"></a>Łączenie się z bramą sieci VPN
+### <a name="connect-toohello-vpn-gateway"></a>Połączenie bramy sieci VPN toohello
 
-Aby połączyć się z bramą sieci VPN z __klienta systemu Windows__, użyj __nawiązywanie połączenia z usługi Azure__ sekcji [skonfigurować połączenie punkt-lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) dokumentu.
+Brama sieci VPN toohello tooconnect z __klienta systemu Windows__, użyj hello __połączyć tooAzure__ sekcji hello [skonfigurować połączenie punkt-lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) dokumentu.
 
 ## <a id="python-client"></a>Przykład: Python klienta
 
-Do sprawdzania poprawności łączności Kafka, należy użyć do tworzenia i uruchamiania producent Python i konsumentów następujące czynności:
+toovalidate tooKafka łączności, użyj hello następujące kroki toocreate i uruchom producent Python i klienta:
 
-1. Można pobrać w pełni kwalifikowanej nazwy domeny (FQDN) i adresy IP w węzłach klastra Kafka, użyj jednej z następujących metod:
+1. Użyj hello następujące metody tooretrieve hello w pełni kwalifikowana nazwa domeny (FQDN) i adresy IP hello węzłów klastra Kafka hello:
 
     ```powershell
-    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = "hello resource group that contains hello virtual network used with HDInsight"
 
     $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
@@ -327,65 +327,65 @@ Do sprawdzania poprawności łączności Kafka, należy użyć do tworzenia i ur
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    Ten skrypt, przy założeniu, że `$resourceGroupName` to nazwa grupy zasobów platformy Azure, która zawiera sieci wirtualnej.
+    Ten skrypt, przy założeniu, że `$resourceGroupName` jest nazwą hello hello grupy zasobów platformy Azure, która zawiera hello sieci wirtualnej.
 
-    Zapisz informacje zwrócone do użycia w następnych krokach.
+    Zapisz hello zwrócił informacji do użycia w następnych krokach hello.
 
-2. Należy zainstalować następujące [kafka python](http://kafka-python.readthedocs.io/) klienta:
+2. Użyj powitania po tooinstall hello [kafka python](http://kafka-python.readthedocs.io/) klienta:
 
         pip install kafka-python
 
-3. Aby wysłać dane do Kafka, należy użyć poniższego kodu Python:
+3. toosend danych tooKafka hello Użyj następującego kodu Python:
 
   ```python
   from kafka import KafkaProducer
-  # Replace the `ip_address` entries with the IP address of your worker nodes
-  # NOTE: you don't need the full list of worker nodes, just one or two.
+  # Replace hello `ip_address` entries with hello IP address of your worker nodes
+  # NOTE: you don't need hello full list of worker nodes, just one or two.
   producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
   for _ in range(50):
       producer.send('testtopic', b'test message')
   ```
 
-    Zastąp `'kafka_broker'` wpisów z adresami zwrócony z kroku 1 w tej sekcji:
+    Zastąp hello `'kafka_broker'` wpisów z adresami hello zwrócony z kroku 1 w tej sekcji:
 
-    * Jeśli używasz __klienta VPN oprogramowania__, Zastąp `kafka_broker` wpisów z adresu IP z węzłami procesów roboczych.
+    * Jeśli używasz __klienta VPN oprogramowania__, Zastąp hello `kafka_broker` wpisów z adresem IP hello węzły procesu roboczego.
 
-    * Jeśli masz __włączone rozpoznawanie nazw za pomocą niestandardowy serwer DNS__, Zastąp `kafka_broker` wpisów z nazwą FQDN węzłów procesu roboczego.
+    * Jeśli masz __włączone rozpoznawanie nazw za pomocą niestandardowy serwer DNS__, Zastąp hello `kafka_broker` wpisów z hello FQDN hello węzłów procesu roboczego.
 
     > [!NOTE]
-    > Ten kod wysyła ciąg `test message` do tematu `testtopic`. Domyślna konfiguracja Kafka w usłudze HDInsight jest tworzenie tematu, jeśli nie istnieje.
+    > Ten kod wysyła ciąg hello `test message` tematu toohello `testtopic`. Hello domyślną konfigurację Kafka w usłudze HDInsight jest toocreate hello tematu, jeśli nie istnieje.
 
-4. Aby pobrać komunikaty z Kafka, należy użyć poniższego kodu Python:
+4. wiadomości powitania tooretrieve z Kafka, użyj następującego kodu Python hello:
 
    ```python
    from kafka import KafkaConsumer
-   # Replace the `ip_address` entries with the IP address of your worker nodes
-   # Again, you only need one or two, not the full list.
-   # Note: auto_offset_reset='earliest' resets the starting offset to the beginning
-   #       of the topic
+   # Replace hello `ip_address` entries with hello IP address of your worker nodes
+   # Again, you only need one or two, not hello full list.
+   # Note: auto_offset_reset='earliest' resets hello starting offset toohello beginning
+   #       of hello topic
    consumer = KafkaConsumer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'],auto_offset_reset='earliest')
    consumer.subscribe(['testtopic'])
    for msg in consumer:
      print (msg)
    ```
 
-    Zastąp `'kafka_broker'` wpisów z adresami zwrócony z kroku 1 w tej sekcji:
+    Zastąp hello `'kafka_broker'` wpisów z adresami hello zwrócony z kroku 1 w tej sekcji:
 
-    * Jeśli używasz __klienta VPN oprogramowania__, Zastąp `kafka_broker` wpisów z adresu IP z węzłami procesów roboczych.
+    * Jeśli używasz __klienta VPN oprogramowania__, Zastąp hello `kafka_broker` wpisów z adresem IP hello węzły procesu roboczego.
 
-    * Jeśli masz __włączone rozpoznawanie nazw za pomocą niestandardowy serwer DNS__, Zastąp `kafka_broker` wpisów z nazwą FQDN węzłów procesu roboczego.
+    * Jeśli masz __włączone rozpoznawanie nazw za pomocą niestandardowy serwer DNS__, Zastąp hello `kafka_broker` wpisów z hello FQDN hello węzłów procesu roboczego.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji o korzystaniu z usługi HDInsight z sieci wirtualnej, zobacz [rozszerzenie Azure HDInsight przy użyciu sieci wirtualnej platformy Azure](hdinsight-extend-hadoop-virtual-network.md) dokumentu.
+Aby uzyskać więcej informacji o korzystaniu z usługi HDInsight z sieci wirtualnej, zobacz hello [rozszerzenie Azure HDInsight przy użyciu sieci wirtualnej platformy Azure](hdinsight-extend-hadoop-virtual-network.md) dokumentu.
 
-Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej platformy Azure z bramą sieci VPN typu punkt-lokacja można znaleźć w następujących dokumentach:
+Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej platformy Azure z bramą sieci VPN typu punkt-lokacja Zobacz hello w następujących dokumentach:
 
-* [Skonfiguruj połączenie punkt-lokacja za pomocą portalu Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Skonfiguruj połączenie punkt-lokacja za pomocą hello portalu Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 
 * [Skonfiguruj połączenie punkt-lokacja za pomocą programu Azure PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-Więcej informacji na temat pracy z klastrem Kafka w usłudze HDInsight można znaleźć w następujących dokumentach:
+Aby uzyskać więcej informacji na temat pracy z Kafka w usłudze HDInsight Zobacz hello w następujących dokumentach:
 
 * [Wprowadzenie do platformy Kafka w usłudze HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Użyj funkcji dublowania z Kafka w usłudze HDInsight](hdinsight-apache-kafka-mirroring.md)

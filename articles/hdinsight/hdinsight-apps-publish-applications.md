@@ -1,6 +1,6 @@
 ---
-title: "Publikowanie aplikacji usługi HDInsight - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tworzyć i publikować aplikacje usługi HDInsight."
+title: "aplikacje usługi HDInsight aaaPublish - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate i publikowanie aplikacji usługi HDInsight."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -16,31 +16,31 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: 6aa66cac35bc317fc87003e6c3d824544c53de88
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7da0aa53828563e50ef372df901e1ba541fb40be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
-Aplikacja usługi HDInsight to aplikacja, którą użytkownicy mogą zainstalować w klastrze usługi HDInsight opartym na systemie Linux. Te aplikacje mogą być opracowane przez firmę Microsoft, niezależnych dostawców oprogramowania (ISV) lub samodzielnie. W tym artykule Dowiedz się jak opublikować aplikację usługi HDInsight w portalu Azure Marketplace.  Aby uzyskać ogólne informacje o publikowaniu w portalu Azure Marketplace, zobacz temat [Publikowanie oferty w portalu Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+# <a name="publish-hdinsight-applications-into-hello-azure-marketplace"></a>Publikowanie aplikacji usługi HDInsight w hello Azure Marketplace
+Aplikacja usługi HDInsight to aplikacja, którą użytkownicy mogą zainstalować w klastrze usługi HDInsight opartym na systemie Linux. Te aplikacje mogą być opracowane przez firmę Microsoft, niezależnych dostawców oprogramowania (ISV) lub samodzielnie. W tym artykule dowiesz się, jak toopublish aplikację usługi HDInsight w hello Azure Marketplace.  Aby uzyskać ogólne informacje o publikowaniu w hello Azure Marketplace, zobacz [publikowania toohello oferta portalu Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
 
-Aplikacje usługi HDInsight korzystają z modelu *Bring your own license (BYOL)*, w którym dostawca aplikacji jest odpowiedzialny za licencjonowanie aplikacji dla użytkowników końcowych, a użytkownicy końcowi są obciążani przez platformę Azure jedynie opłatami za tworzone zasoby, takie jak klaster usługi HDInsight i jego maszyny wirtualne/węzły. Obecnie rozliczenia dotyczące samej aplikacji nie odbywa się za pośrednictwem platformy Azure.
+Aplikacje usługi HDInsight korzystają hello *Bring Your Own License (BYOL)* modelu, w którym dostawca aplikacji jest odpowiedzialny za Licencjonowanie aplikacji hello tooend — użytkownicy i użytkownicy końcowi są naliczane tylko wtedy przez platformę Azure zasobów hello one Utwórz, takich jak klaster usługi HDInsight hello i jej maszyny wirtualne/węzły. Obecnie rozliczenia dotyczące samej aplikacji hello nie odbywa się za pośrednictwem platformy Azure.
 
 Inny artykuł z powiązanych aplikacji usługi HDInsight:
 
-* [Instalowanie aplikacji usługi HDInsight](hdinsight-apps-install-applications.md): dowiedz się, jak instalować aplikacje usługi HDInsight w klastrach.
-* [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): dowiedz się, jak instalować i testować niestandardowe aplikacje usługi HDInsight.
+* [Instalowanie aplikacji usługi HDInsight](hdinsight-apps-install-applications.md): Dowiedz się, jak klastrów tooinstall tooyour aplikacji usługi HDInsight.
+* [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): Dowiedz się, jak tooinstall i testowania niestandardowych aplikacji usługi HDInsight.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby przesłać niestandardową aplikację do witryny marketplace, musi utworzeniu i przetestować. Zobacz następujące artykuły:
+toosubmit Twojej aplikacji niestandardowej toohello witryny marketplace, musisz mieć utworzone i przetestowane niestandardową aplikację. Zobacz następujące artykuły hello:
 
-* [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): dowiedz się, jak instalować i testować niestandardowe aplikacje usługi HDInsight.
+* [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): Dowiedz się, jak tooinstall i testowania niestandardowych aplikacji usługi HDInsight.
 
-Należy również zarejestrowano konta dewelopera. Zobacz temat [Publikowanie oferty w portalu Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) i [Tworzenie konta dewelopera Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Należy również zarejestrowano konta dewelopera. Zobacz [publikowania toohello oferta portalu Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) i [Utwórz konto Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
 ## <a name="define-application"></a>Definiowanie aplikacji
-Publikowanie aplikacji w portalu Azure Marketplace odbywa się w dwóch krokach.  Najpierw należy zdefiniować plik **createUiDef.json**, aby określić, z którymi klastrami dana aplikacja jest zgodna. Następnie należy opublikować szablon z witryny Azure Portal. Poniższa sekcja jest przykładowy plik createUiDef.json.
+Obejmuje dwa kroki publikowania aplikacji toohello portalu Azure Marketplace.  Najpierw należy zdefiniować **createUiDef.json** tooindicate pliku, który klastrami dana aplikacja jest zgodna z; a następnie opublikować hello szablonu z hello portalu Azure. Po sekcji Hello jest przykładowy plik createUiDef.json.
 
     {
         "handler": "Microsoft.HDInsight",
@@ -55,60 +55,60 @@ Publikowanie aplikacji w portalu Azure Marketplace odbywa się w dwóch krokach.
 
 | Pole | Opis | Możliwe wartości |
 | --- | --- | --- |
-| types (typy) |Typy klastrów, z którymi dana aplikacja jest zgodna. |Hadoop, HBase, Storm, Spark (lub dowolna ich kombinacja) |
-| tiers (warstwy) |Warstwy klastrów, z którymi dana aplikacja jest zgodna. |Standard, Premium (lub obie) |
-| versions (wersje) |Typy klastrów usługi HDInsight, z którymi dana aplikacja jest zgodna. |3.4 |
+| types (typy) |typy klastrów Hello, które aplikacja hello jest zgodna z. |Hadoop, HBase, Storm, Spark (lub dowolna ich kombinacja) |
+| tiers (warstwy) |Witaj warstwy klastrów, z którymi aplikacja hello jest zgodna z. |Standard, Premium (lub obie) |
+| versions (wersje) |Witaj typy klastrów usługi HDInsight, z którymi aplikacja hello jest zgodna z. |3.4 |
 
 ## <a name="application-install-script"></a>Skrypt instalacji aplikacji
-Zawsze, gdy aplikacja jest zainstalowana w klastrze (istniejącego lub nowego), jest tworzony węzeł krawędzi i skrypt instalacji aplikacji jest uruchamiany na nim.
+Zawsze, gdy aplikacja jest zainstalowana w klastrze (istniejącego lub nowego), jest tworzony węzeł krawędzi i skrypt instalacji aplikacji hello jest uruchamiany na nim.
   > [!IMPORTANT]
-  > Nazwa nazwy skryptu instalacji aplikacji musi być unikatowa dla danego klastra i mieć następujący format.
+  > Nazwa Hello nazw skryptu instalacji aplikacji hello musi być unikatowa dla danego klastra z hello zgodny z formatem.
   > 
   > nazwa": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
-  > Warto zauważyć, że nazwa skryptu ma trzy części:
+  > Należy zauważyć, że istnieją trzy Nazwa skryptu toohello części:
   > 
-  > 1. Prefiks nazwy skryptu, który powinien zawierać nazwę aplikacji lub nazwę związaną z aplikacją.
+  > 1. Prefiks nazwy skryptu, który powinien zawierać nazwę aplikacji hello lub aplikacji toohello odpowiednie nazwy.
   > 2. Łącznik "-" dla czytelności.
-  > 3. Funkcję unikatowego ciągu z nazwą aplikacji podaną jako parametr.
+  > 3. Funkcję unikatowego ciągu z nazwą aplikacji hello jako hello parametru.
   > 
-  > W wyniku zastosowania przedstawionego przykładu otrzymujemy: hue-install-v0-4wkahss55hlas na utrwalonej liście akcji skryptu. Przykładowy ładunek JSON można znaleźć pod adresem [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+  > Przykładem jest hello powyżej kończy się stać się: hue-install-v0-4wkahss55hlas hello utrwalone liście akcji skryptu. Przykładowy ładunek JSON można znaleźć pod adresem [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
-Skrypt instalacji musi mieć następujące właściwości:
-1. Upewnij się, że skrypt jest idempotentności. Wiele wywołań do skryptu powinny być ten sam rezultat.
-2. Skrypt powinien być prawidłowo numerów wersji. Użyj innej lokalizacji dla skryptu podczas uaktualniania i testowanie zmian, aby nie dotyczy użytkowników, które próbujesz zainstalować aplikację. 
-3. Dodaj odpowiednie rejestrowania do skryptów w każdym punkcie. Zazwyczaj dzienniki skryptu są jedynym sposobem debugowania problemów z instalacją aplikacji.
-4. Sprawdź, czy wywołania usług zewnętrznych lub zasoby mają odpowiednie ponownych prób, tak, aby instalacja nie ma wpływu na przejściowe problemy z siecią.
-5. Jeśli skrypt jest uruchamiany usługi na węzłach, upewnij się, czy usługi są monitorowane i skonfigurowane do automatycznego uruchamiania w przypadku ponownego uruchomienia węzłów.
+skrypt instalacji Hello musi mieć hello następujące cechy:
+1. Upewnij się, że skrypt hello jest idempotentności. Wiele wywołań toohello skryptu powinny wywoływać hello takiego samego wyniku.
+2. skrypt Hello powinna być poprawnie numerów wersji. Użyj innej lokalizacji dla skryptu hello podczas uaktualniania i testowanie zmian, aby nie dotyczy użytkowników, które próbujesz tooinstall hello aplikacji. 
+3. Dodaj odpowiednie rejestrowania toohello skryptów w każdym punkcie. Zazwyczaj hello skryptu dzienniki są hello tylko sposób toodebug problemy z instalacją aplikacji.
+4. Sprawdź, czy usługi tooexternal wywołania lub zasoby mają odpowiednie ponownych prób tak, aby instalacja hello nie ma wpływu na przejściowe problemy z siecią.
+5. Jeśli skrypt jest uruchamiany usługi na węzłach hello, upewnij się, czy usługi hello są monitorowane i skonfigurować toostart automatycznie w przypadku ponownego uruchomienia węzłów.
 
 ## <a name="package-application"></a>Tworzenie pakietu aplikacji
-Utwórz plik zip, który zawiera wszystkie wymagane pliki instalacyjne aplikacji usługi HDInsight. Potrzebujesz w pliku zip [publikowanie aplikacji](#publish-application).
+Utwórz plik zip, który zawiera wszystkie wymagane pliki instalacyjne aplikacji usługi HDInsight. Należy hello pliku zip w [publikowanie aplikacji](#publish-application).
 
 * [createUiDefinition.json](#define-application).
 * mainTemplate.json. Zobacz przykład w artykule [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md).
 * Wszystkie wymagane skrypty.
 
 > [!NOTE]
-> Pliki aplikacji (w tym pliki aplikacji sieci Web, jeśli istnieją) mogą znajdować się w dowolnym publicznie dostępnym punkcie końcowym.
+> Witaj pliki aplikacji (w tym pliki aplikacji sieci web, jeśli istnieje) może znajdować się na dowolnym publicznie dostępnym punkcie końcowym.
 > 
 
 ## <a name="publish-application"></a>Publikowanie aplikacji
-Wykonaj poniższe kroki, aby opublikować aplikację usługi HDInsight:
+Wykonaj następujące kroki toopublish aplikacji usługi HDInsight hello:
 
-1. Zaloguj się w [portalu Azure Publishing](https://publish.windowsazure.com/).
-2. Kliknij pozycję **Solution templates** (Szablony rozwiązań) z lewej strony, aby utworzyć nowy szablon rozwiązania.
+1. Zaloguj się na toohello [portalu Azure Publishing](https://publish.windowsazure.com/).
+2. Kliknij przycisk **szablony rozwiązań** z toocreate po lewej stronie powitania nowy szablon rozwiązania.
 3. Wprowadź tytuł, a następnie kliknij pozycję **Create a new solution template** (Utwórz nowy szablon rozwiązania).
-4. Kliknij opcję **Create Dev Center account and join the Azure program** (Utwórz konto Centrum deweloperów i dołącz do programu Azure), aby zarejestrować firmę, jeśli nie zostało to jeszcze zrobione.  Zobacz temat [Tworzenie konta dewelopera Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
-5. Kliknij opcję **Define some Topologies to get Started** (Zdefiniuj topologie, aby rozpocząć). Szablon rozwiązania jest "nadrzędnej" do wszystkich jego topologii. Można zdefiniować wiele topologii w jednym szablonie oferty/rozwiązania. Gdy oferta zostanie przeniesiona do etapu przemieszczania, spoczywa z jego topologii. 
-6. Wprowadź nazwę topologii, a następnie kliknij znak plus.
-7. Wprowadź nową wersję, a następnie kliknij znak plus.
-8. Przekaż plik zip przygotowany w części [Tworzenie pakietu aplikacji](#package-application).  
-9. Kliknij opcję **Request Certification** (Żądanie certyfikacji). Zespół certyfikacji Microsoft zweryfikuje pliki i wystawi certyfikat topologii.
+4. Kliknij przycisk **konto Centrum deweloperów Utwórz i Dołącz do programu Azure hello** tooregister firmy, jeśli nie zostało to jeszcze zrobione.  Zobacz temat [Tworzenie konta dewelopera Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+5. Kliknij przycisk **zdefiniować niektóre topologiami tooget uruchomiono**. Szablon rozwiązania jest tooall "nadrzędnej" jego topologii. Można zdefiniować wiele topologii w jednym szablonie oferty/rozwiązania. Gdy oferta zostanie przeniesiona toostaging, spoczywa z jego topologii. 
+6. Wprowadź nazwę topologii, a następnie kliknij znak plus hello.
+7. Wprowadź nową wersję, a następnie kliknij znak Plus hello.
+8. Plik zip hello przekazywania przygotowany w [pakietu aplikacji](#package-application).  
+9. Kliknij opcję **Request Certification** (Żądanie certyfikacji). zespół certyfikacji Microsoft Hello będzie Przejrzyj hello pliki i wystawi certyfikat topologii hello.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Instalowanie aplikacji usługi HDInsight](hdinsight-apps-install-applications.md): dowiedz się, jak instalować aplikacje usługi HDInsight w klastrach.
-* [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): Dowiedz się, jak wdrożyć aplikację usługi HDInsight nieopublikowane do usługi HDInsight.
-* [Dostosowywanie klastrów usługi HDInsight opartych na systemie Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md): dowiedz się, jak instalować dodatkowe aplikacje za pomocą akcji skryptu.
-* [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager): dowiedz się, jak wywoływać szablony usługi Resource Manager w celu tworzenia klastrów usługi HDInsight.
-* [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Używanie pustych węzłów krawędzi w usłudze HDInsight): dowiedz się, jak za pomocą pustego węzła krawędzi uzyskiwać dostęp do klastra usługi HDInsight oraz testować i hostować aplikacje usługi HDInsight.
+* [Instalowanie aplikacji usługi HDInsight](hdinsight-apps-install-applications.md): Dowiedz się, jak klastrów tooinstall tooyour aplikacji usługi HDInsight.
+* [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): Dowiedz się, jak toodeploy nieopublikowane tooHDInsight aplikacji usługi HDInsight.
+* [Dostosowywanie klastrów usługi HDInsight opartej na systemie Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md): Dowiedz się, jak toouse akcji skryptu tooinstall dodatkowe aplikacje.
+* [Tworzenie klastrów opartych na systemie Linux platformą Hadoop w usłudze HDInsight przy użyciu szablonów usługi Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Dowiedz się, jak toocreate szablony Menedżera zasobów toocall HDInsight clusters.
+* [Użyj węzłami pusty krawędzi w usłudze HDInsight](hdinsight-apps-use-edge-node.md): Dowiedz się, jak toouse pustą krawędzi węzła w celu uzyskiwania dostępu do klastra usługi HDInsight, testowanie aplikacji usługi HDInsight i hosting aplikacji usługi HDInsight.
 

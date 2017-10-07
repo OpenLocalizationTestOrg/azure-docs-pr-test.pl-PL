@@ -1,6 +1,6 @@
 ---
-title: "Connect Raspberry pi (C) do Azure IoT — Lekcja 1: Pobierz narzędzia (system Windows) | Dokumentacja firmy Microsoft"
-description: "Pobierz i zainstaluj niezbędne narzędzia i oprogramowania dla pierwszej aplikacji przykładowej pi w systemie Windows 7 i nowszych wersjach."
+title: "Connect Raspberry pi (C) tooAzure IoT — Lekcja 1: Pobierz narzędzia (system Windows) | Dokumentacja firmy Microsoft"
+description: "Pobierz i zainstaluj hello niezbędne narzędzia i oprogramowania dla pierwszej aplikacji przykładowej hello pi w systemie Windows 7 i nowszych wersjach."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,13 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 0e58975f4411f97223b2c4374bdd746fe6628c42
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 70ae6d15f9d6af116ff065a79a30d99afc67bffd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-tools-windows-7-or-later"></a>Pobierz narzędzia (z systemem Windows 7 lub nowszy)
+# <a name="get-hello-tools-windows-7-or-later"></a>Pobierz narzędzia hello (z systemem Windows 7 lub nowszy)
 
 > [!div class="op_single_selector"]
 > * [Windows 7 lub nowszy](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -31,55 +31,55 @@ ms.lasthandoff: 07/11/2017
 > * [System macOS 10.10](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
 
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-Pobierz narzędzia deweloperskie i oprogramowania dla pierwszego Przykładowa aplikacja dla malina Pi 3. Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
+Pobierz oprogramowanie hello hello pierwszy przykładowej aplikacji malina Pi 3 i narzędzia deweloperskie hello. Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 > [!NOTE]
-> Mimo że logiki główny język programowania C, narzędzia Node.js są używane w wnioski do odnajdywania urządzeń i tworzenia i wdrażania przykładowej aplikacji.
+> Mimo że hello język logiki główny hello programowania C, narzędzia Node.js są używane w hello — lekcje toodiscover urządzeń i tworzenia i wdrażania aplikacji przykładowej.
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
 W tym artykule dowiesz się:
 
-* Jak zainstalować usługi Git i Node.js.
-  * [Git](https://git-scm.com) jest typu open source rozproszonego systemu kontroli wersji. Przykładowa aplikacja dla tego artykułu znajduje się na Git.
+* Jak tooinstall Git i Node.js.
+  * [Git](https://git-scm.com) jest typu open source rozproszonego systemu kontroli wersji. Witaj Przykładowa aplikacja dla tego artykułu znajduje się na Git.
   * [Node.js](https://nodejs.org/en/) jest środowiska wykonawczego języka JavaScript z ekosystemem sformatowanego pakietu.
-* Sposób instalowania dodatkowych narzędzi do tworzenia środowiska Node.js za pomocą programu NPM.
-  * Minimalne wymagania wersji środowiska node.js jest 4.5 LTS.
-  * [NPM](https://www.npmjs.com) jest jednym z wybranych menedżerów pakietu dla środowiska Node.js.
+* Jak toouse NPM tooinstall dodatkowe Node.js narzędzia deweloperskie.
+  * Witaj minimalne wymagania wersji środowiska Node.js jest 4.5 LTS.
+  * [NPM](https://www.npmjs.com) jest jednym z hello menedżerów pakietu dla środowiska Node.js.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 
-Aby wykonać tę operację, potrzebne będą:
+toocomplete tej operacji, należy:
 
-* Połączenie internetowe, aby pobrać oprogramowanie i narzędzia deweloperskie.
+* Toodownload połączenia internetowego hello narzędzia deweloperskie i hello oprogramowania.
 * Komputer z systemem Windows.
 
 ## <a name="install-git-and-nodejs"></a>Zainstaluj usługi Git i Node.js
 
-Kliknij poniższe łącza, aby pobrać i zainstalować usługi Git i LTS Node.js dla systemu Windows.
+Kliknij łącza hello poniżej toodownload i zainstaluj usługi Git i LTS Node.js dla systemu Windows.
 
 * [Pobierz Git dla systemu Windows](https://git-scm.com/download/win/)
 * [Pobierz Node.js LTS dla systemu Windows](https://nodejs.org/en/)
 
 ## <a name="install-additional-nodejs-development-tools"></a>Instalowania dodatkowych narzędzi do tworzenia środowiska Node.js
 
-Użyj [gulp.js](http://gulpjs.com) do automatyzowania wdrażania przykładowej aplikacji do Pi. Użyj [urządzenia odnajdywania cli](https://github.com/Azure/device-discovery-cli) można pobrać informacji o sieci o urządzenia IoT.
+Użyj [gulp.js](http://gulpjs.com) tooautomate wdrożenie hello hello przykładowej aplikacji tooPi. Użyj hello [urządzenia odnajdywania cli](https://github.com/Azure/device-discovery-cli) tooretrieve sieci informacje o urządzeniach IoT.
 
-Uruchom wiersz polecenia jako administrator. Zainstaluj `gulp` i `device-discovery-cli` , uruchamiając następujące polecenie:
+Uruchom wiersz polecenia jako administrator. Zainstaluj `gulp` i `device-discovery-cli` , uruchamiając następujące polecenie hello:
 
 ```bash
 npm install -g device-discovery-cli gulp
 ```
 
-Jeśli występują problemy z instalacją środowiska Node.js i te dodatkowe narzędzia programistyczne Node.js na komputerze, zobacz [przewodnik rozwiązywania problemów](iot-hub-raspberry-pi-kit-c-troubleshooting.md) dla rozwiązania typowych problemów.
+Jeśli występują problemy z instalacją środowiska Node.js i te dodatkowe narzędzia programistyczne Node.js na komputerze, zobacz hello [przewodnik rozwiązywania problemów](iot-hub-raspberry-pi-kit-c-troubleshooting.md) dla rozwiązania toocommon problemów.
 
 ## <a name="install-visual-studio-code"></a>Zainstaluj kod programu Visual Studio
 
-[Pobierz](https://code.visualstudio.com/docs/setup/windows) i zainstalować Visual Studio Code. Visual Studio Code to lekkie, ale jednocześnie wydajną źródła Edytor kodu dla systemu Windows, Linux i macOS. Umożliwia to edytor później w samouczku Edytuj przykładowy kod.
+[Pobierz](https://code.visualstudio.com/docs/setup/windows) i zainstalować Visual Studio Code. Visual Studio Code to lekkie, ale jednocześnie wydajną źródła Edytor kodu dla systemu Windows, Linux i macOS. Edytor w dalszej części hello samouczek tooedit hello przykładowy kod.
 
 ## <a name="summary"></a>Podsumowanie
 
-Po zainstalowaniu narzędzi do tworzenia wymaganych i oprogramowania dla pierwszej aplikacji przykładowej. Następnym zadaniem jest tworzenie, wdrażanie i uruchom przykładową aplikację na Pi.
+Po zainstalowaniu oprogramowania hello pierwszy przykładowej aplikacji i narzędzia deweloperskie hello wymagane. następne zadanie Hello jest toocreate, wdrażanie i uruchamianie hello przykładowej aplikacji na Pi.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie i wdrażanie aplikacji blink](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
+[Tworzenie i wdrażanie aplikacji migania hello](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)

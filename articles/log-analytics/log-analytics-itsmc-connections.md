@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie usługami IT — połączeń w łączniku zarządzania usługi IT OMS | Dokumentacja firmy Microsoft"
-description: "Zarządzanie usługami IT — produktów/usług Uzyskuj dostęp do łącznika zarządzania usługi IT w OMS centralnie monitorować i zarządzać zarządzanie usługami IT — elementów roboczych."
+title: "połączenia aaaITSM w OMS IT usługi zarządzania łącznika | Dokumentacja firmy Microsoft"
+description: "Połączenie Zarządzanie usługami IT — produktów/usług z łącznika zarządzania usługi IT w monitorze toocentrally OMS i elementy robocze hello Zarządzanie usługami IT — zarządzanie."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,64 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 53ef51bf75fb8ed15ea3ce5072d9365c221f9f4f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Zarządzanie usługami IT — produktów/usług Uzyskuj dostęp do łącznika zarządzania usługi IT (wersja zapoznawcza)
-Ten artykuł zawiera informacje na temat łączenia usługi Zarządzanie usługami IT — produktów/z łącznika zarządzania usługi IT w OMS oraz centralne zarządzanie elementami pracy. Więcej informacji na temat łącznika zarządzania usługi IT, zobacz [omówienie](log-analytics-itsmc-overview.md).
+Ten artykuł zawiera informacje o tym, jak tooconnect Twojego tooIT produktów i usług Zarządzanie usługami IT — usługi zarządzania łącznika w OMS i centralnie zarządzać elementami pracy. Więcej informacji na temat łącznika zarządzania usługi IT, zobacz [omówienie](log-analytics-itsmc-overview.md).
 
-Obsługiwane są następujące produktów/usług:
+obsługiwane są Hello następujących produktów i usług:
 
 - [Program System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [Usługi ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
 - [Provance](#connect-provance-to-it-service-management-connector-in-oms)
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-oms)
 
-## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-oms"></a>Łączenie programu System Center Service Manager do usługi IT łącznika zarządzania w OMS
+## <a name="connect-system-center-service-manager-tooit-service-management-connector-in-oms"></a>Połącz tooIT System Center Service Manager łącznik usługi zarządzania w OMS
 
-Poniższe sekcje zawierają szczegółowe informacje na temat nawiązywania połączenia z łącznika zarządzania usługi IT w OMS produktu System Center Service Manager.
+Witaj poniższe sekcje zawierają szczegółowe informacje na temat tooconnect Twojego toohello produktu System Center Service Manager Łącznik zarządzania usługi IT w OMS.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że następujące wymagania wstępne zostały spełnione:
+Upewnij się, że masz hello następujące wymagania wstępne zostały spełnione:
 
 - Zainstalowany łącznik zarządzania usługi IT.
 Więcej informacji: [konfiguracji](log-analytics-itsmc-overview.md#configuration).
-- Aplikacja sieci Web programu Service Manager (aplikacja sieci Web) jest wdrożone i skonfigurowane. Informacje dotyczące aplikacji sieci Web jest [tutaj](#create-and-deploy-service-manager-web-app-service).
-- Połączenia hybrydowe utworzone i skonfigurowane. Więcej informacji: [skonfiguruj hybrydowych połączenia](#configure-the-hybrid-connection).
+- Witaj aplikacji sieci Web programu Service Manager (aplikacja sieci Web) jest wdrożone i skonfigurowane. Informacje dotyczące aplikacji sieci Web jest [tutaj](#create-and-deploy-service-manager-web-app-service).
+- Połączenia hybrydowe utworzone i skonfigurowane. Więcej informacji: [skonfiguruj hybrydowych hello połączenia](#configure-the-hybrid-connection).
 - Obsługiwane wersje programu Service Manager: 2012 R2 lub 2016.
 - Rola użytkownika: [operator zaawansowany](https://technet.microsoft.com/library/ff461054.aspx).
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 
-Użyj poniższej procedury do połączenia wystąpienie programu System Center Service Manager do zarządzania łącznika usługi IT:
+Użyj programu System Center Service Manager toohello wystąpienia łącznika zarządzania usługi IT powitania po tooconnect procedury:
 
-1. Przejdź do **OMS** >**ustawienia** > **połączone źródła**.
+1. Przejdź za**OMS** >**ustawienia** > **połączonych źródeł**.
 2. Wybierz **łącznika Zarządzanie usługami IT —** kliknij **Dodawanie nowego połączenia**.
 
     ![Programu Service manager ](./media/log-analytics-itsmc/itsmc-service-manager-connection.png)
-3. Podaj informacje zgodnie z opisem w poniższej tabeli, a następnie kliknij przycisk **zapisać** do utworzenia połączenia:
+3. Podaj informacje hello, zgodnie z opisem w poniższej tabeli hello, a następnie kliknij przycisk **zapisać** toocreate hello połączenia:
 
 > [!NOTE]
 > Te parametry są obowiązkowe.
 
 | **Pole** | **Opis** |
 | --- | --- |
-| **Nazwa**   | Wpisz nazwę dla wystąpienia programu System Center Service Manager, który chcesz połączyć z łącznikiem zarządzania usługi IT.  Możesz użyć tej nazwy później skonfigurować elementy robocze w tym wystąpieniu / wyświetlić szczegółowy dziennik analizy. |
+| **Nazwa**   | Wpisz nazwę wystąpienia programu System Center Service Manager hello, które mają tooconnect z hello łącznika zarządzania usługi IT.  Możesz użyć tej nazwy później skonfigurować elementy robocze w tym wystąpieniu / wyświetlić szczegółowy dziennik analizy. |
 | **Wybierz typ połączenia**   | Wybierz **programu System Center Service Manager**. |
-| **Adres URL serwera**   | Wpisz adres URL aplikacji sieci Web programu Service Manager. Więcej informacji na temat aplikacji sieci Web programu Service Manager jest [tutaj](#create-and-deploy-service-manager-web-app-service).
-| **Identyfikator klienta**   | Wpisz identyfikator klienta, generowany (przy użyciu skryptu automatyczne) w celu uwierzytelniania aplikacji sieci Web. Więcej informacji na temat zautomatyzowanego skryptu [tutaj.](log-analytics-itsmc-service-manager-script.md)|
-| **Klucz tajny klienta**   | Wpisz klucz tajny klienta, generowany dla tego identyfikatora.   |
-| **Zakres synchronizacji danych**   | Wybierz elementy pracy programu Service Manager, które mają być synchronizowane za pośrednictwem łącznika zarządzania usługi IT.  Pracy, te elementy są importowane do analizy dzienników. **Opcje:** incydenty, żądania zmiany.|
-| **Synchronizowanie danych** | Wpisz liczbę ostatnich dni, które mają dane z. **Maksymalny limit**: 120 dni. |
-| **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz utworzyć elementy konfiguracji w produkcie Zarządzanie usługami IT —. Po wybraniu pakietu OMS tworzy dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w obsługiwany system Zarządzanie usługami IT —. **Domyślna**: wyłączone. |
+| **Adres URL serwera**   | Wpisz adres URL hello hello aplikacji sieci Web programu Service Manager. Więcej informacji na temat aplikacji sieci Web programu Service Manager jest [tutaj](#create-and-deploy-service-manager-web-app-service).
+| **Identyfikator klienta**   | Wpisz identyfikator klienta hello możesz wygenerowania (przy użyciu skryptu automatycznego hello) w celu uwierzytelniania aplikacji sieci Web hello. Więcej informacji na temat skryptu automatycznego hello jest [tutaj.](log-analytics-itsmc-service-manager-script.md)|
+| **Klucz tajny klienta**   | Typ klucza tajnego klienta hello, generowany dla tego identyfikatora.   |
+| **Zakres synchronizacji danych**   | Wybierz elementy robocze programu Service Manager hello, które mają toosync za pośrednictwem hello łącznika zarządzania usługi IT.  Pracy, te elementy są importowane do analizy dzienników. **Opcje:** incydenty, żądania zmiany.|
+| **Synchronizowanie danych** | Wpisz numer hello hello dane z ostatnich dni. **Maksymalny limit**: 120 dni. |
+| **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz, aby elementy konfiguracji hello toocreate w produkcie Zarządzanie usługami IT — Witaj. Po wybraniu pakietu OMS tworzy hello dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w hello obsługiwane zarządzanie usługami IT — system. **Domyślna**: wyłączone. |
 
 Gdy pomyślnie nawiązano połączenie i zsynchronizowane:
 
-- Wybrane elementy robocze z programu Service Manager są importowane do OMS **analizy dzienników.** Można wyświetlić podsumowanie tych elementów roboczych na kafelku łącznika zarządzania usługi IT.
+- Wybrane elementy robocze z programu Service Manager są importowane do OMS **analizy dzienników.** Można wyświetlić podsumowanie hello tych elementów roboczych na powitania kafelka łącznika zarządzania usługi IT.
 
 - Z usługą OMS można utworzyć zdarzenia z alertów OMS lub wyszukiwania dziennika, w tym wystąpieniu programu Service Manager.
 
@@ -78,17 +78,17 @@ Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczyc
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Tworzenie i wdrażanie aplikacji sieci web programu Service Manager
 
-Aby połączyć lokalnymi Service Manager z łącznika zarządzania usługi IT na OMS, firma Microsoft opracowała aplikacji sieci Web programu Service Manager w witrynie GitHub.
+tooconnect hello lokalnymi Service Manager z hello IT usługi zarządzania łącznika na OMS, firma Microsoft opracowała aplikację sieci Web programu Service Manager na powitania GitHub.
 
-Aby skonfigurować aplikację sieci Web Zarządzanie usługami IT — dla programu Service Manager, wykonaj następujące czynności:
+tooset zapasowej aplikacji sieci Web Zarządzanie usługami IT — Witaj dla programu Service Manager, hello następujące:
 
-- **Wdrażanie aplikacji sieci Web** — wdrażanie aplikacji sieci Web, ustaw właściwości i uwierzytelniania za pomocą usługi Azure AD. Możesz wdrożyć aplikację sieci web za pomocą [zautomatyzowanego skryptu](log-analytics-itsmc-service-manager-script.md) że firma Microsoft udostępnia użytkownik.
-- **Skonfiguruj połączenie hybrydowe** - [Skonfiguruj połączenie z tym](#configure-the-hybrid-connection), ręcznie.
+- **Aplikacja sieci Web Deploy hello** — wdrażanie aplikacji sieci Web hello, ustaw właściwości hello i uwierzytelniania za pomocą usługi Azure AD. Możesz wdrożyć aplikację sieci web hello przy użyciu hello [zautomatyzowanego skryptu](log-analytics-itsmc-service-manager-script.md) że firma Microsoft udostępnia należy.
+- **Skonfiguruj połączenie hybrydowe hello** - [Skonfiguruj połączenie z tym](#configure-the-hybrid-connection), ręcznie.
 
-#### <a name="deploy-the-web-app"></a>Wdrażanie aplikacji sieci web
-Użyj automatycznego [skryptu](log-analytics-itsmc-service-manager-script.md) Aby wdrożyć aplikację sieci Web, ustaw właściwości oraz uwierzytelniania za pomocą usługi Azure AD.
+#### <a name="deploy-hello-web-app"></a>Wdrażanie aplikacji sieci web hello
+Użyj hello automatycznego [skryptu](log-analytics-itsmc-service-manager-script.md) toodeploy hello aplikacji sieci Web, ustaw właściwości hello i uwierzytelniania za pomocą usługi Azure AD.
 
-Uruchom skrypt, podając następujące wymagane szczegóły:
+Uruchom skrypt hello zapewniając hello następujące wymagane szczegóły:
 
 - Szczegóły subskrypcji platformy Azure
 - Nazwa grupy zasobów
@@ -97,62 +97,62 @@ Uruchom skrypt, podając następujące wymagane szczegóły:
 - Prefiks nazwy witryny dla aplikacji sieci Web
 - Namespace magistrali usług.
 
-Skrypt tworzy aplikacji sieci Web przy użyciu nazwy określonej (wraz z kilku dodatkowe ciągi go). Generuje on **adres URL aplikacji sieci Web**, **identyfikator klienta** i **klucz tajny klienta**.
+Witaj skrypt tworzy hello aplikacji sieci Web przy użyciu podanej nazwy hello (wraz z kilku toomake dodatkowe ciągi on unikatowy). Generuje hello **adres URL aplikacji sieci Web**, **identyfikator klienta** i **klucz tajny klienta**.
 
-Zapisywanie wartości możesz użyć ich podczas tworzenia połączenia z łącznikiem zarządzania usługi IT.
+Zapisz hello wartości możesz użyć ich podczas tworzenia połączenia z łącznikiem zarządzania usługi IT.
 
-**Sprawdź instalację aplikacji sieci Web**
+**Sprawdź instalację aplikacji sieci Web hello**
 
-1. Przejdź do **portalu Azure** > **zasobów**.
-2. Wybierz aplikację sieci Web, kliknij przycisk **ustawienia** > **ustawienia aplikacji**.
-3. Potwierdź informacje podane w czasie wdrażania aplikacji za pomocą skryptu wystąpienia programu Service Manager.
+1. Przejdź za**portalu Azure** > **zasobów**.
+2. Wybierz aplikację sieci Web hello, kliknij przycisk **ustawienia** > **ustawienia aplikacji**.
+3. Potwierdź hello informacji na temat wystąpienia programu Service Manager hello podane w czasie hello wdrażania aplikacji hello za pośrednictwem hello skryptu.
 
-### <a name="configure-the-hybrid-connection"></a>Skonfiguruj połączenie hybrydowe
+### <a name="configure-hello-hybrid-connection"></a>Skonfiguruj połączenie hybrydowe hello
 
-Poniższa procedura umożliwia skonfigurowanie połączenie hybrydowe, które łączy wystąpienia programu Service Manager łącznik IT usługi zarządzania w OMS.
+Użyj hello następujące procedury tooconfigure hello hybrydowego połączenie, które łączy hello wystąpienia programu Service Manager z hello łącznika zarządzania usługi IT w OMS.
 
-1. Znajdź aplikację sieci Web programu Service Manager w obszarze **zasobów Azure**.
+1. Znajdź hello aplikacji sieci Web programu Service Manager w obszarze **zasobów Azure**.
 2. Kliknij przycisk **ustawienia** > **sieci**.
 3. W obszarze **połączeń hybrydowych**, kliknij przycisk **skonfiguruj punkty końcowe połączenia hybrydowego**.
 
     ![Sieciowe połączenie hybrydowe](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
-4. W **połączeń hybrydowych** bloku, kliknij przycisk **Dodaj połączenie hybrydowe**.
+4. W hello **połączeń hybrydowych** bloku, kliknij przycisk **Dodaj połączenie hybrydowe**.
 
     ![Dodaj połączenie hybrydowe](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
 
-5. W **dodać połączeń hybrydowych** bloku, kliknij przycisk **tworzenie hybrydowych nowego połączenia**.
+5. W hello **dodać połączeń hybrydowych** bloku, kliknij przycisk **tworzenie hybrydowych nowego połączenia**.
 
     ![Nowe połączenie hybrydowe](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
 
-6. Wpisz następujące wartości:
+6. Wpisz hello następujące wartości:
 
-    - **Nazwa punktu końcowego**: Określ nazwę nowego połączenia hybrydowego.
-    -  **Punkt końcowy hosta**: nazwa FQDN serwera zarządzania programu Service Manager.
+    - **Nazwa punktu końcowego**: Określ nazwę dla nowego połączenia hybrydowe hello.
+    -  **Punkt końcowy hosta**: nazwa FQDN serwera zarządzania programu Service Manager hello.
     - **Port punktu końcowego**: wpisz 5724
     - **Przestrzeń nazw magistrali usług**: Użyj istniejącej przestrzeni nazw magistrali usług lub Utwórz nową.
-    - **Lokalizacja**: Wybierz lokalizację.
-    -  **Nazwa**: Określ nazwę do magistrali usług, jeśli jej tworzenia.
+    - **Lokalizacja**: Wybierz lokalizację hello.
+    -  **Nazwa**: Określ magistrali toohello nazwę, jeśli jej tworzenia.
 
     ![Wartości połączenia hybrydowego](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
-6. Kliknij przycisk **OK** zamknąć **Tworzenie połączenia hybrydowego** bloku i rozpocząć tworzenie połączenia hybrydowego.
+6. Kliknij przycisk **OK** tooclose hello **Tworzenie połączenia hybrydowego** bloku i rozpocząć tworzenie połączenia hybrydowego hello.
 
-    Po utworzeniu połączenia hybrydowego jest wyświetlany w bloku.
+    Po utworzeniu połączenia hybrydowego hello jest wyświetlany w obszarze hello bloku.
 
-7. Po utworzeniu połączenia hybrydowe, wybierz połączenie i kliknij przycisk **Dodaj wybrane połączenie hybrydowe**.
+7. Po utworzeniu połączenia hybrydowego hello wybierz hello połączeń i kliknij przycisk **Dodaj wybrane połączenie hybrydowe**.
 
     ![Nowe połączenie hybrydowe](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
 
-#### <a name="configure-the-listener-setup"></a>Skonfiguruj ustawienia odbiornika
+#### <a name="configure-hello-listener-setup"></a>Skonfiguruj ustawienia odbiornika hello
 
-Poniższa procedura umożliwia skonfigurowanie ustawień odbiornika połączenia hybrydowego.
+Po zakończeniu instalacji odbiornika hello tooconfigure procedury połączenia hybrydowego hello hello użycia.
 
-1. W **połączeń hybrydowych** bloku, kliknij przycisk **pobrać Menedżera połączeń** i zainstaluj go na komputerze, na którym jest uruchomione wystąpienie programu System Center Service Manager.
+1. W hello **połączeń hybrydowych** bloku, kliknij przycisk **hello pobierania Menedżera połączeń** i zainstaluj go na komputerze hello, w którym jest uruchomione wystąpienie programu System Center Service Manager.
 
-    Po zakończeniu instalacji **interfejsu użytkownika Menedżera połączeń hybrydowych** opcja jest dostępna w obszarze **Start** menu.
+    Po zakończeniu instalacji hello **interfejsu użytkownika Menedżera połączeń hybrydowych** opcja jest dostępna w obszarze **Start** menu.
 
 2. Kliknij przycisk **interfejsu użytkownika Menedżera połączeń hybrydowych** , zostanie wyświetlony monit o podanie poświadczeń platformy Azure.
 
-3. Logowanie przy użyciu poświadczeń platformy Azure i wybierz subskrypcję, w której utworzono połączenie hybrydowe.
+3. Logowanie przy użyciu poświadczeń platformy Azure i wybierz subskrypcję, w której został utworzony hello połączenia hybrydowego.
 
 4. Kliknij pozycję **Zapisz**.
 
@@ -161,60 +161,60 @@ Połączenia hybrydowe został pomyślnie połączony.
 ![połączenia hybrydowe powiodło się](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
-> Po hybrydowego tworzone jest połączenie, sprawdzić i przetestować połączenie, przechodząc na stronę wdrożonej aplikacji sieci Web programu Service Manager. Upewnij się, że połączenie zostanie nawiązane, przed podjęciem próby nawiązania połączenia łącznika zarządzania usługi IT w OMS.
+> Po utworzeniu połączenia hybrydowego hello Sprawdź i Testuj połączenie hello odwiedzając hello wdrożonych aplikacji sieci Web programu Service Manager. Upewnij się, że połączenie hello zostanie nawiązane, przed podjęciem próby toohello tooconnect łącznika zarządzania usługi IT w OMS.
 
-Na poniższej ilustracji przedstawiono szczegóły połączenia:
+Witaj poniższy obraz przedstawia szczegóły hello połączenia:
 
 ![Testowanie połączenia hybrydowego](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 
-## <a name="connect-servicenow-to-it-service-management-connector-in-oms"></a>Połączenie usługi ServiceNow z usługi IT łącznika zarządzania w OMS
+## <a name="connect-servicenow-tooit-service-management-connector-in-oms"></a>Połączenie usługi ServiceNow tooIT łącznika usługi zarządzania w OMS
 
-Poniższe sekcje zawierają szczegółowe informacje na temat nawiązywania połączenia z łącznika zarządzania usługi IT w OMS produktu usługi ServiceNow.
+Witaj poniższe sekcje zawierają szczegółowe informacje na temat tooconnect Twojego toohello produktu usługi ServiceNow łącznika zarządzania usługi IT w OMS.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że następujące wymagania wstępne zostały spełnione:
+Upewnij się, że masz hello następujące wymagania wstępne zostały spełnione:
 
 - Zainstalowany łącznik zarządzania usługi IT. Więcej informacji: [konfiguracji.](log-analytics-itsmc-overview.md#configuration)
 - Usługi ServiceNow obsługiwane wersje — Fuji, serwera Geneva, Helsinkach.
 
-Administratorzy usługi ServiceNow należy wykonać następujące opcje w ich wystąpienia usługi ServiceNow:
-- Generują identyfikator klienta i klucz tajny klienta usługi ServiceNow produktu. Aby uzyskać informacje na temat generowania identyfikator klienta i klucz tajny, zobacz [instalacji uwierzytelniania OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Zainstaluj aplikację użytkownika integracji OMS firmy Microsoft (usługi ServiceNow aplikacji). [Dowiedz się więcej](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
-- Utworzenie roli użytkownika integracji dla zainstalowanej aplikacji użytkownika. Informacje dotyczące sposobu tworzenia roli użytkownika integracji [tutaj](#create-integration-user-role-in-servicenow-app).
+Administratorzy usługi ServiceNow należy wykonać hello następujący po ich wystąpienia usługi ServiceNow:
+- Generuj identyfikator klienta i klucz tajny klienta hello usługi ServiceNow produktu. Aby uzyskać informacje dotyczące sposobu toogenerate identyfikator klienta i klucz tajny, zobacz [instalacji uwierzytelniania OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
+- Zainstaluj hello użytkownika aplikacji do integracji OMS firmy Microsoft (usługi ServiceNow aplikacji). [Dowiedz się więcej](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+- Utworzenie roli użytkownika integracji dla hello użytkownika aplikacja jest zainstalowana. Informacje o jak rola użytkownika integracji hello toocreate jest [tutaj](#create-integration-user-role-in-servicenow-app).
 
 
 ### <a name="connection-procedure"></a>**Procedura połączenia**
 
-Użyj poniższej procedury, aby utworzyć połączenie usługi ServiceNow:
+Użyj hello następujące procedury toocreate połączenie usługi ServiceNow:
 
-1. Przejdź do **OMS** > **ustawienia** > **połączone źródła**.
+1. Przejdź za**OMS** > **ustawienia** > **połączonych źródeł**.
 2. Wybierz **łącznika Zarządzanie usługami IT —** kliknij **Dodawanie nowego połączenia**.
 
     ![Połączenie usługi ServiceNow](./media/log-analytics-itsmc/itsmc-servicenow-connection.png)
 
-3. Podaj informacje zgodnie z opisem w poniższej tabeli, a następnie kliknij przycisk **zapisać** do utworzenia połączenia:
+3. Podaj informacje hello, zgodnie z opisem w poniższej tabeli hello, a następnie kliknij przycisk **zapisać** toocreate hello połączenia:
 
 > [!NOTE]
 > Te parametry są obowiązkowe.
 
 | **Pole** | **Opis** |
 | --- | --- |
-| **Nazwa**   | Wpisz nazwę wystąpienia usługi ServiceNow, który chcesz połączyć z łącznikiem IT usługi zarządzania.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
+| **Nazwa**   | Wpisz nazwę wystąpienia usługi ServiceNow hello, które mają tooconnect z hello łącznika zarządzania usługi IT.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
 | **Wybierz typ połączenia**   | Wybierz **ServiceNow**. |
-| **Nazwa użytkownika**   | Wpisz nazwę użytkownika integracji, który został utworzony w aplikacji usługi ServiceNow obsługuje połączenia z łącznikiem zarządzania usługi IT. Więcej informacji: [roli użytkownika aplikacji tworzenia usługi ServiceNow](#create-integration-user-role-in-servicenow-app).|
-| **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga**: nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania tylko, a nie są przechowywane w dowolnym miejscu w usługę.  |
-| **Adres URL serwera**   | Wpisz adres URL wystąpienia usługi ServiceNow, który chcesz połączyć się łącznika zarządzania usługi IT. |
-| **Identyfikator klienta**   | Wpisz identyfikator klienta, który ma być używany do uwierzytelniania protokołu OAuth2, który można wygenerować wcześniej.  Więcej informacji na temat generowania identyfikator klienta i klucz tajny: [instalacji uwierzytelniania OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
-| **Klucz tajny klienta**   | Wpisz klucz tajny klienta, generowany dla tego identyfikatora.   |
-| **Zakres synchronizacji danych**   | Wybierz elementy robocze usługi ServiceNow, które mają być synchronizowane z usługą OMS za pośrednictwem łącznika zarządzania usługi IT.  Wybrane wartości są importowane do analizy dzienników.   **Opcje:** zdarzenia i żądania zmiany.|
-| **Synchronizowanie danych** | Wpisz liczbę ostatnich dni, które mają dane z. **Maksymalny limit**: 120 dni. |
-| **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz utworzyć elementy konfiguracji w produkcie Zarządzanie usługami IT —. Po wybraniu pakietu OMS tworzy dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w obsługiwany system Zarządzanie usługami IT —. **Domyślna**: wyłączone. |
+| **Nazwa użytkownika**   | Wpisz nazwę użytkownika integracji hello utworzony w hello usługi ServiceNow aplikacji toosupport hello połączenia toohello łącznika zarządzania usługi IT. Więcej informacji: [roli użytkownika aplikacji tworzenia usługi ServiceNow](#create-integration-user-role-in-servicenow-app).|
+| **Hasło**   | Wpisz hasło hello skojarzone z tą nazwą użytkownika. **Uwaga**: nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania tylko, a nie są przechowywane w dowolnym miejscu w hello usługę.  |
+| **Adres URL serwera**   | Wpisz adres URL hello hello wystąpienia usługi ServiceNow, które mają tooIT tooconnect łącznika usługi zarządzania. |
+| **Identyfikator klienta**   | Wpisz identyfikator klienta hello, który ma toouse do uwierzytelniania protokołu OAuth2, który można wygenerować wcześniej.  Więcej informacji na temat generowania identyfikator klienta i klucz tajny: [instalacji uwierzytelniania OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **Klucz tajny klienta**   | Typ klucza tajnego klienta hello, generowany dla tego identyfikatora.   |
+| **Zakres synchronizacji danych**   | Wybierz elementy robocze usługi ServiceNow hello, które mają tooOMS toosync, za pośrednictwem hello łącznika zarządzania usługi IT.  Witaj wybrane wartości są importowane do analizy dzienników.   **Opcje:** zdarzenia i żądania zmiany.|
+| **Synchronizowanie danych** | Wpisz numer hello hello dane z ostatnich dni. **Maksymalny limit**: 120 dni. |
+| **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz, aby elementy konfiguracji hello toocreate w produkcie Zarządzanie usługami IT — Witaj. Po wybraniu pakietu OMS tworzy hello dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w hello obsługiwane zarządzanie usługami IT — system. **Domyślna**: wyłączone. |
 
 
 Gdy pomyślnie nawiązano połączenie i zsynchronizowane:
 
-- Wybrane elementy z połączenia usługi ServiceNow są importowane do analizy dzienników OMS pracy.  Można wyświetlić podsumowanie tych elementów roboczych na kafelku łącznika zarządzania usługi IT.
+- Wybrane elementy z połączenia usługi ServiceNow są importowane do analizy dzienników OMS pracy.  Można wyświetlić podsumowanie hello tych elementów roboczych na powitania kafelka łącznika zarządzania usługi IT.
 - Można utworzyć zdarzenia, alerty i zdarzenia z alertów OMS lub dziennik wyszukiwania w tym wystąpieniu usługi ServiceNow.  
 
 
@@ -222,22 +222,22 @@ Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczyc
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Utworzenie roli użytkownika integracji usługi ServiceNow aplikacji
 
-Użytkownik następującej procedury:
+Witaj użytkownika następujące procedury:
 
-1.  Odwiedź stronę [magazynu usługi ServiceNow](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0) i zainstaluj **użytkownika aplikacji dla usługi ServiceNow i integracja z usługą OMS Microsoft** do swojego wystąpienia usługi ServiceNow.
-2.  Po instalacji można znaleźć na pasku nawigacyjnym po lewej stronie wystąpienia usługi ServiceNow, wyszukaj i wybierz integrator OMS firmy Microsoft.  
+1.  Odwiedź hello [magazynu usługi ServiceNow](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0) i zainstaluj hello **użytkownika aplikacji dla usługi ServiceNow i integracja z usługą OMS Microsoft** do swojego wystąpienia usługi ServiceNow.
+2.  Po zakończeniu instalacji odwiedź stronę hello pozostałych pasku nawigacyjnym hello wystąpienia usługi ServiceNow, wyszukaj i wybierz integrator OMS firmy Microsoft.  
 3.  Kliknij przycisk **listy kontrolnej instalacji**.
 
-    Stan jest wyświetlany jako **nie zakończyć** Jeśli jeszcze rola użytkownika ma być utworzony.
+    zostanie wyświetlony stan Hello **nie zakończyć** Jeśli hello roli użytkownika jest jeszcze utworzone toobe.
 
-4.  W polach tekstowych obok **tworzenia integracji użytkownika**, wprowadź nazwę użytkownika dla użytkownika, który może łączyć się łącznika zarządzania usługi IT w OMS.
-5.  Wprowadź hasło dla tego użytkownika, a następnie kliknij przycisk **OK**.  
+4.  W tekście hello pola, obok zbyt**tworzenia integracji użytkownika**, wprowadź nazwę użytkownika hello hello użytkownik, który można połączyć toohello łącznika zarządzania usługi IT w OMS.
+5.  Wprowadź hasło powitania dla tego użytkownika, a następnie kliknij przycisk **OK**.  
 
 >[!NOTE]
 
-> Można używać tych poświadczeń do nawiązania połączenia usługi ServiceNow w OMS.
+> Połączenia te poświadczenia toomake hello usługi ServiceNow w OMS.
 
-Nowo utworzony użytkownik zostanie wyświetlony z domyślne role przypisane.
+Witaj nowo utworzony użytkownik zostanie wyświetlony z hello domyślne role przypisane.
 
 Domyślne role:
 - personalize_choices
@@ -247,70 +247,70 @@ Domyślne role:
 -   template_editor
 -   view_changer
 
-Po pomyślnym utworzeniu użytkownika, stan **Sprawdź listę kontrolną instalacji** przenosi zakończony, wyświetlania szczegółów roli użytkownika utworzone dla aplikacji.
+Po pomyślnym utworzeniu użytkownika hello hello stan **Sprawdź listę kontrolną instalacji** tooCompleted, wyświetlania szczegółów hello hello roli użytkownika utworzone dla aplikacji hello są przenoszone.
 
 > [!NOTE]
 
-> Aby zezwolić użytkownikowi na tworzenie **alerty** i **zdarzenia** w usługi ServiceNow z usługą OMS:
+> tooallow toocreate użytkownika **alerty** i **zdarzenia** w usługi ServiceNow z usługą OMS:
 
-> - Upewnij się, że moduł zarządzania zdarzeniami zainstalowane w wystąpieniu usługi ServiceNow.
+> - Upewnij się, że moduł zarządzania zdarzeniami hello zainstalowane w wystąpieniu usługi ServiceNow.
 
-> - Dodaj następujące role użytkownika integracji:
+> - Dodaj następujące role toohello integracji użytkownika hello:
 >      - evt_mgmt_integration
 >      - evt_mgmt_operator  
 
 
-## <a name="connect-provance-to-it-service-management-connector-in-oms"></a>Połącz Provance usługi IT łącznika zarządzania w OMS
+## <a name="connect-provance-tooit-service-management-connector-in-oms"></a>Połącz tooIT Provance łącznika usługi zarządzania w OMS
 
-Poniższe sekcje zawierają szczegółowe informacje na temat nawiązać produktu Provance łącznika zarządzania usługi IT w OMS.
+Witaj poniższe sekcje zawierają szczegółowe informacje na temat tooconnect Twojego toohello produktu Provance łącznika zarządzania usługi IT w OMS.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że następujące wymagania wstępne zostały spełnione:
+Upewnij się, że masz hello następujące wymagania wstępne zostały spełnione:
 
 - Zainstalowany łącznik zarządzania usługi IT. Więcej informacji: [konfiguracji](log-analytics-itsmc-overview.md#configuration).
-- Provance aplikacji powinny zostać zarejestrowane w usłudze Azure AD - oraz Identyfikatora klienta jest dostępna. Aby uzyskać szczegółowe informacje, zobacz [jak skonfigurować uwierzytelnianie usługi active directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Provance aplikacji powinny zostać zarejestrowane w usłudze Azure AD - oraz Identyfikatora klienta jest dostępna. Aby uzyskać szczegółowe informacje, zobacz [sposób uwierzytelniania usługi active directory tooconfigure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 - Rola: Administrator.
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 
-Użyj poniższej procedury, aby utworzyć połączenie Provance:
+Użyj hello następujące procedury toocreate połączenia Provance:
 
-1. Przejdź do **OMS** > **ustawienia** > **połączone źródła**.
+1. Przejdź za**OMS** > **ustawienia** > **połączonych źródeł**.
 2. Wybierz **łącznika Zarządzanie usługami IT —** kliknij **Dodawanie nowego połączenia**.  
 
     ![Provance połączenia](./media/log-analytics-itsmc/itsmc-provance-connection.png)
-3. Podaj informacje zgodnie z opisem w poniższej tabeli, a następnie kliknij przycisk **zapisać** do utworzenia połączenia.
+3. Podaj informacje hello, zgodnie z opisem w poniższej tabeli hello, a następnie kliknij przycisk **zapisać** toocreate hello połączenia.
 
 > [!NOTE]
 > Te parametry są obowiązkowe.
 
 | **Pole** | **Opis** |
 | --- | --- |
-| **Nazwa**   | Wpisz nazwę wystąpienia Provance, który chcesz połączyć z łącznikiem zarządzania usługi IT.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
+| **Nazwa**   | Wpisz nazwę wystąpienia Provance hello, które mają tooconnect z hello łącznika zarządzania usługi IT.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
 | **Wybierz typ połączenia**   | Wybierz **Provance**. |
-| **Nazwa użytkownika**   | Wpisz nazwę użytkownika, który może łączyć się łącznika zarządzania usługi IT.    |
-| **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** nazwę użytkownika i hasło są używane do generowania tokenów uwierzytelniania tylko, a nie są przechowywane w dowolnym miejscu w ramach usługi OMS. _|
-| **Adres URL serwera**   | Wpisz adres URL wystąpienia Provance, który chcesz połączyć się łącznika zarządzania usługi IT. |
-| **Identyfikator klienta**   | Wpisz identyfikator klienta do uwierzytelniania połączenia, który można wygenerować wystąpienia Provance.  Więcej informacji na temat Identyfikatora klienta, zobacz [jak skonfigurować uwierzytelnianie usługi active directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
-| **Zakres synchronizacji danych**   | Wybierz elementy robocze Provance, które mają być synchronizowane z usługą OMS za pośrednictwem łącznika zarządzania usługi IT.  Pracy, te elementy są importowane do analizy dzienników.   **Opcje:** incydenty, żądania zmiany.|
-| **Synchronizowanie danych** | Wpisz liczbę ostatnich dni, które mają dane z. **Maksymalny limit**: 120 dni. |
-| **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz utworzyć elementy konfiguracji w produkcie Zarządzanie usługami IT —. Po wybraniu pakietu OMS tworzy dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w obsługiwany system Zarządzanie usługami IT —. **Domyślna**: wyłączone.|
+| **Nazwa użytkownika**   | Wpisz nazwę użytkownika hello podłączoną toohello łącznika zarządzania usługi IT.    |
+| **Hasło**   | Wpisz hasło hello skojarzone z tą nazwą użytkownika. **Uwaga:** nazwę użytkownika i hasło są używane do generowania tokenów uwierzytelniania tylko, a nie są przechowywane w dowolnym miejscu w usługę hello. _|
+| **Adres URL serwera**   | Wpisz adres URL hello Provance wystąpienia, które mają tooIT tooconnect łącznika usługi zarządzania. |
+| **Identyfikator klienta**   | Wpisz identyfikator klienta hello do uwierzytelniania połączenia, który można wygenerować wystąpienia Provance.  Więcej informacji na temat Identyfikatora klienta, zobacz [sposób uwierzytelniania usługi active directory tooconfigure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **Zakres synchronizacji danych**   | Wybierz elementy robocze Provance hello, które mają tooOMS toosync, za pośrednictwem hello łącznika zarządzania usługi IT.  Pracy, te elementy są importowane do analizy dzienników.   **Opcje:** incydenty, żądania zmiany.|
+| **Synchronizowanie danych** | Wpisz numer hello hello dane z ostatnich dni. **Maksymalny limit**: 120 dni. |
+| **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz, aby elementy konfiguracji hello toocreate w produkcie Zarządzanie usługami IT — Witaj. Po wybraniu pakietu OMS tworzy hello dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w hello obsługiwane zarządzanie usługami IT — system. **Domyślna**: wyłączone.|
 
 Gdy pomyślnie nawiązano połączenie i zsynchronizowane:
 
-- Wybrane elementy robocze z połączenia Provance są importowane do OMS **analizy dzienników.**  Można wyświetlić podsumowanie tych elementów roboczych na kafelku łącznika zarządzania usługi IT.
+- Wybrane elementy robocze z połączenia Provance są importowane do OMS **analizy dzienników.**  Można wyświetlić podsumowanie hello tych elementów roboczych na powitania kafelka łącznika zarządzania usługi IT.
 - W tym wystąpieniu Provance można utworzyć zdarzenia i zdarzenia z alertów OMS lub dziennik wyszukiwania.
 
 Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) i [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
 
-## <a name="connect-cherwell-to-it-service-management-connector-in-oms"></a>Połącz Cherwell usługi IT łącznika zarządzania w OMS
+## <a name="connect-cherwell-tooit-service-management-connector-in-oms"></a>Połącz tooIT Cherwell łącznika usługi zarządzania w OMS
 
-Poniższe sekcje zawierają szczegółowe informacje na temat nawiązać produktu Cherwell łącznika zarządzania usługi IT w OMS.
+Witaj poniższe sekcje zawierają szczegółowe informacje na temat tooconnect Twojego toohello produktu Cherwell łącznika zarządzania usługi IT w OMS.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że następujące wymagania wstępne zostały spełnione:
+Upewnij się, że masz hello następujące wymagania wstępne zostały spełnione:
 
 - Zainstalowany łącznik zarządzania usługi IT. Więcej informacji: [konfiguracji](log-analytics-itsmc-overview.md#configuration).
 - Wygenerowany identyfikator klienta. Więcej informacji: [generowania Identyfikatora klienta dla Cherwell](#generate-client-id-for-cherwell).
@@ -318,42 +318,42 @@ Upewnij się, że następujące wymagania wstępne zostały spełnione:
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 
-Użyj poniższej procedury, aby utworzyć połączenie Cherwell:
+Użyj hello następujące procedury toocreate połączenia Cherwell:
 
-1. Przejdź do **OMS** >  **ustawienia** > **połączone źródła**.
+1. Przejdź za**OMS** >  **ustawienia** > **połączonych źródeł**.
 2. Wybierz **łącznika Zarządzanie usługami IT —** kliknij **Dodawanie nowego połączenia**.  
 
     ![Identyfikator użytkownika Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-connection.png)
 
-3. Podaj informacje zgodnie z opisem w poniższej tabeli, a następnie kliknij przycisk **zapisać** do utworzenia połączenia.
+3. Podaj informacje hello, zgodnie z opisem w poniższej tabeli hello, a następnie kliknij przycisk **zapisać** toocreate hello połączenia.
 
 > [!NOTE]
 > Te parametry są obowiązkowe.
 
 | **Pole** | **Opis** |
 | --- | --- |
-| **Nazwa**   | Wpisz nazwę wystąpienia Cherwell, który chcesz połączyć z łącznikiem zarządzania usługi IT.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
+| **Nazwa**   | Wpisz nazwę wystąpienia Cherwell hello, które mają toohello tooconnect łącznika zarządzania usługi IT.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
 | **Wybierz typ połączenia**   | Wybierz **Cherwell.** |
-| **Nazwa użytkownika**   | Wpisz nazwę użytkownika Cherwell, który może łączyć się łącznika zarządzania usługi IT. |
-| **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** nazwę użytkownika i hasło są używane do generowania tylko tokeny uwierzytelniania i nie są przechowywane w dowolnym miejscu w usługę.|
-| **Adres URL serwera**   | Wpisz adres URL wystąpienia Cherwell, który chcesz połączyć się łącznika zarządzania usługi IT. |
-| **Identyfikator klienta**   | Wpisz identyfikator klienta do uwierzytelniania połączenia, który można wygenerować wystąpienia Cherwell.   |
-| **Zakres synchronizacji danych**   | Wybierz elementy robocze Cherwell, które mają być synchronizowane za pośrednictwem łącznika zarządzania usługi IT.  Pracy, te elementy są importowane do analizy dzienników.   **Opcje:** incydenty, żądania zmiany. |
-| **Synchronizowanie danych** | Wpisz liczbę ostatnich dni, które mają dane z. **Maksymalny limit**: 120 dni. |
-| **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz utworzyć elementy konfiguracji w produkcie Zarządzanie usługami IT —. Po wybraniu pakietu OMS tworzy dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w obsługiwany system Zarządzanie usługami IT —. **Domyślna**: wyłączone. |
+| **Nazwa użytkownika**   | Wpisz nazwę użytkownika Cherwell hello podłączoną toohello łącznika zarządzania usługi IT. |
+| **Hasło**   | Wpisz hasło hello skojarzone z tą nazwą użytkownika. **Uwaga:** nazwę użytkownika i hasło są używane do generowania tokenów uwierzytelniania tylko, a nie są przechowywane w dowolnym miejscu w hello usługę.|
+| **Adres URL serwera**   | Wpisz adres URL hello Cherwell wystąpienia, które mają tooIT tooconnect łącznika usługi zarządzania. |
+| **Identyfikator klienta**   | Wpisz identyfikator klienta hello do uwierzytelniania połączenia, który można wygenerować wystąpienia Cherwell.   |
+| **Zakres synchronizacji danych**   | Wybierz elementy robocze Cherwell hello, które mają toosync za pośrednictwem hello łącznika zarządzania usługi IT.  Pracy, te elementy są importowane do analizy dzienników.   **Opcje:** incydenty, żądania zmiany. |
+| **Synchronizowanie danych** | Wpisz numer hello hello dane z ostatnich dni. **Maksymalny limit**: 120 dni. |
+| **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz, aby elementy konfiguracji hello toocreate w produkcie Zarządzanie usługami IT — Witaj. Po wybraniu pakietu OMS tworzy hello dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w hello obsługiwane zarządzanie usługami IT — system. **Domyślna**: wyłączone. |
 
 Gdy pomyślnie nawiązano połączenie i zsynchronizowane:
 
-- Wybrane elementy z tego połączenia Cherwell są importowane do analizy dzienników OMS pracy. Można wyświetlić podsumowanie tych elementów roboczych na kafelku łącznika zarządzania usługi IT.
+- Wybrane elementy z tego połączenia Cherwell są importowane do analizy dzienników OMS pracy. Można wyświetlić podsumowanie hello tych elementów roboczych na powitania kafelka łącznika zarządzania usługi IT.
 - Można utworzyć zdarzenia i zdarzeń w tym wystąpieniu Cherwell z usługą OMS. Więcej informacji: tworzenie elementów roboczych Zarządzanie usługami IT — OMS alertów i zarządzanie usługami IT — tworzenie elementach z dzienników OMS.
 
 Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) i [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
 
 ### <a name="generate-client-id-for-cherwell"></a>Generuj identyfikator klienta dla Cherwell
 
-Aby wygenerować identyfikator/klucz klienta dla Cherwell, użyj następującej procedury:
+toogenerate powitania klienta identyfikator/klucz Cherwell, hello użyj następującej procedury:
 
-1. Zaloguj się do swojego wystąpienia Cherwell jako administrator.
+1. Zaloguj się w tooyour Cherwell wystąpienia jako administrator.
 2. Kliknij przycisk **zabezpieczeń** > **ustawień klienta interfejsu API REST Edytuj**.
 3. Wybierz **Utwórz nowy klient** > **klucz tajny klienta**.
 

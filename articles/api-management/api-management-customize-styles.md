@@ -1,6 +1,6 @@
 ---
-title: "Dostosowywanie stylów w portalu deweloperów w usłudze Azure API Management | Microsoft Docs"
-description: "Dowiedz się, jak zmodyfikować style używane dla dowolnej strony w portalu deweloperów w usłudze Azure API Management."
+title: "style aaaCustomize w portalu dla deweloperów hello w usłudze Azure API Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak używane style hello toomodify dla dowolnej strony w portalu dla deweloperów hello w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,62 +14,62 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aaaa86527992ba43e64eab5fd35c7f57b573c812
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Dostosowywanie stylu portalu deweloperów w usłudze Azure API Management
-Istnieją trzy podstawowe sposoby dostosowywania portalu deweloperów w usłudze Azure API Management:
+# <a name="customize-hello-styling-of-hello-developer-portal-in-azure-api-management"></a>Dostosowywanie stylów hello portalu deweloperów hello w usłudze Azure API Management
+Istnieją trzy podstawowe sposoby toocustomize hello portalu dla deweloperów usługi Azure API Management:
 
-* [Edycja zawartości stron statycznych i elementów układu strony][modify-content-layout]
-* [Aktualizacja stylów używanych dla elementów strony w portalu deweloperów][customize-styles] (opisana w tym przewodniku)
-* [Zmodyfikowanie szablonów używanych dla stron wygenerowanych przez portal][portal-templates] (np. dokumentacji interfejsu API, produktów, uwierzytelniania użytkowników itp.)
+* [Edytuj zawartość hello strony statyczne i elementy układ strony][modify-content-layout]
+* [Aktualizuj style hello używany do elementów strony w portalu dla deweloperów hello] [ customize-styles] (co omówiono w tym przewodniku)
+* [Modyfikowanie szablonów hello używany dla stron wygenerowanych przez hello portal] [ portal-templates] (Dokumentacja interfejsu API, produktów, uwierzytelnianie użytkowników, itp.)
 
-## <a name="change-headers-styling"> </a>Zmienianie stylu elementów strony
+## <a name="change-headers-styling"></a>Zmienianie stylów hello elementów na stronie
 
-Kolory, czcionki, rozmiary, odstępy i inne elementy stylu związane z dowolną stroną portalu są definiowane przez reguły stylów. 
+Witaj kolory, czcionki rozmiary, długości i inne elementy style związane z dowolnej strony w portalu hello są definiowane przez reguły stylu. 
 
-Edytowanie reguły stylów odbywa się w **portalu deweloperów**, przy użyciu konta administratora. Aby do niego przejść, otwórz witrynę Azure Portal i kliknij pozycję **Portal wydawcy** na pasku narzędzi wystąpienia usługi API Management.
+Edytowanie reguły stylu hello jest wykonywane od hello **portalu dla deweloperów** podczas jest zalogowany jako administrator. Brak tooget najpierw otwórz hello portalu Azure i kliknij polecenie **wydawcy portalu** z paska narzędzi usługi hello wystąpienia interfejsu API zarządzania.
 
-![Publisher portal][api-management-management-console]
+![Portal wydawcy][api-management-management-console]
 
-Następnie kliknij polecenie **Portal deweloperów** w prawym górnym rogu. 
+Następnie kliknij polecenie **portalu dla deweloperów** na powitania prawym górnym rogu. 
 
-![Link do portalu deweloperów w portalu wydawcy][api-management-pp-dp-link]
+![Łącze portalu dewelopera na hello wydawcy portalu][api-management-pp-dp-link]
 
-Aby otworzyć pasek narzędzi dostosowywania, umieść wskaźnik myszy na ikonie dostosowywania (lub wybierz ją), a następnie kliknij pozycję „style” na pasku narzędzi.
+tooopen hello Dostosowywanie narzędzi myszą ikony dostosowania hello (lub wybierz ją) i następnie kliknij przycisk "style" hello narzędzi.
 
 ![Przycisk paska narzędzi do dostosowywania][api-management-customization-toolbar-button]
 
-Istnieją dwa główne sposób edycji reguł stylów — można przeglądać listę wszystkich reguł stylów używanych w dowolnym miejscu (która jest wyświetlana domyślnie) i modyfikować styl zgodnie z potrzebami lub można wybrać pozycję **Wybierz element na stronie**, a następnie kliknąć dowolne miejsce na stronie, aby wyświetlić tylko style odpowiednie dla tego elementu.
+Istnieją dwa główne sposób edycji reguły stylów — można przeglądać hello listy wszystkich reguł stylu hello używane w dowolnym miejscu, co jest wyświetlane domyślnie i modyfikowanie stylu, zgodnie z potrzebami, lub możesz wybrać **wybierz element na stronie powitania** , a następnie Kliknij w dowolnym miejscu na powitania strony toosee tylko hello style dla tego elementu.
 
 ![Pasek narzędzi do dostosowywania][api-management-customization-toolbar]
 
-Na potrzeby tego przykładu kliknij opcję **Wybierz element na stronie**.  Teraz umieszczenie kursora myszy nad elementami powoduje ich wyróżnienie, a kliknięcie wyróżnionego elementu pozwala rozpocząć edycję jego stylów. Przenieś wskaźnik myszy na tekst w nagłówku (zazwyczaj jest tam nazwa firmy), a następnie kliknij go. W edytorze stylów pojawi się zestaw nazwanych i podzielonych na kategorie reguł stylów. Każda reguła reprezentuje właściwość stylu wybranego elementu. Na przykład w wybranym powyżej tekście nagłówka rozmiar tekstu to @font-size-h1, a nazwa czcionki z alternatywami to @headings-font-family.
+Kliknij przycisk hello **wybierz element na stronie powitania** opcji, w tym przykładzie.  Elementy teraz wyróżniony po aktywowaniu nad nimi z toosignify myszy hello jakie elementu style, należy uruchomić, edytowania, jeśli kliknięto. Witaj Przenieś wskaźnik myszy na hello tekst w nagłówku hello (zazwyczaj użytkownik ma nazwę firmy hello tutaj), a następnie kliknij go. Zestaw reguł stylów nazwane i kategorie pojawia się w edytorze stylów hello. Każda reguła reprezentuje właściwość style hello wybranego elementu. Na przykład dla hello tekst nagłówka wybranej powyżej, hello rozmiar tekstu hello jest @font-size-h1 w trakcie hello nazwę czcionki hello z alternatyw @headings-font-family.
 
-> Jeśli znasz środowisko [bootstrap][bootstrap], zauważysz, że te reguły są w rzeczywistości [zmiennymi LESS][LESS variables] w motywie bootstrap używanym w portalu dla deweloperów.
+> Jeśli znasz [bootstrap][bootstrap], te reguły są w istocie [mniej zmienne] [ LESS variables] w hello motywu bootstrap używane przez hello portalu dla deweloperów.
 > 
 > 
 
-Zmienimy teraz kolor tekstu nagłówka. Zaznacz zawartość pola **@headings-color** i wpisz **#000000**. Jest to kod szesnastkowy koloru czarnego. Wtedy na końcu pola tekstowego pojawi się wskaźnik koloru w kształcie kwadratu. Po kliknięciu tego wskaźnika można wybrać kolor z selektora kolorów.
+Zmieńmy hello kolor tekstu nagłówka hello. Zaznacz wpis hello hello  **@headings-color**  pole i wpisz **#000000**. To jest kod szesnastkowych hello hello kolor czarny. Zgodnie z tym, możesz sprawdzić, czy wskaźnik koloru kwadratowych jest wyświetlany na końcu hello hello pola tekstowego. Jeśli klikniesz ten wskaźnik próbnika kolorów umożliwia toochoose koloru.
 
 ![Selektor kolorów][api-management-customization-toolbar-color-picker]
 
-Zmiany można podglądać w czasie rzeczywistym podczas ich wprowadzania, ale są one widoczne tylko dla administratorów. Aby zmiany stały się widoczne dla wszystkich użytkowników, kliknij przycisk **Publikuj** znajdujący się w edytorze stylów i zatwierdź zmiany.
+Zmiany są przeglądany w czasie rzeczywistym, jak to zrobić, ale są widoczne tylko tooadministrators. toomake te zmiany tooeveryone widoczne, kliknij przycisk hello **publikowania** przycisk w edytorze stylów hello i Potwierdź hello zmiany.
 
-![Menu Publikuj][api-management-customization-toolbar-publish-form]
+![Menu Publikowanie][api-management-customization-toolbar-publish-form]
 
-> Aby zmienić reguły stylów, które są stosowane do innego elementu na stronie, wykonaj tę samą procedurę co dla nagłówka. Kliknij pozycję **Wybierz element na stronie** w edytorze stylów, wybierz interesujący Cię element i zacznij modyfikować wartości reguł stylu wyświetlanych na ekranie.
+> toochange hello stylu reguł, które są stosowane tooany innego elementu na stronie powitania, wykonaj hello same procedury jak została ona hello nagłówka. Kliknij przycisk **wybierz element na stronie powitania** z edytora stylów hello, hello wybierz element w i zmodyfikowanie wartości hello reguł stylu hello wyświetlany na ekranie powitania start.
 > 
 > 
 
 
 ## <a name="next-steps"> </a>Następne kroki
-* Dowiedz się, w jaki sposób dostosować zawartość portalu dla deweloperów przy użyciu [szablonów portalu dla deweloperów](api-management-developer-portal-templates.md).
+* Dowiedz się, jak zawartość hello toocustomize portalu dla deweloperów strony przy użyciu [szablony portalu deweloperów](api-management-developer-portal-templates.md).
 
-[Change the styling of the headers]: #change-headers-styling
+[Change hello styling of hello headers]: #change-headers-styling
 [Next steps]: #next-steps
 
 [Azure Classic Portal]: https://manage.windowsazure.com/

@@ -1,6 +1,6 @@
 ---
-title: "Techniczne wymagania wstępne dotyczące tworzenia szablonu rozwiązania dla witryny Marketplace | Dokumentacja firmy Microsoft"
-description: "Poznaj wymagania dotyczące tworzenia szablonu rozwiązania do wdrożenia i sprzedawać w witrynie Azure Marketplace"
+title: "wymagania wstępne aaaTechnical dotyczące tworzenia szablonu rozwiązania dla hello Marketplace | Dokumentacja firmy Microsoft"
+description: "Zrozumienie wymagań hello tworzenia toodeploy szablon rozwiązania i sprzedawać w hello Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 13fe586ab822e6a9340cd28d873bf0217400aa73
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Techniczne wymagania wstępne dotyczące tworzenia szablonu rozwiązania dla portalu Azure Marketplace
-Przeczytaj dokładnie przed rozpoczęciem procesu i zrozumienie, dlaczego i w którym każdy krok jest wykonywane. Jak to możliwe, należy należy przygotować informacji o swojej firmie i innych danych, Pobierz niezbędne narzędzia i/lub tworzenia składników techniczne przed rozpoczęciem procesu tworzenia oferty.  
+# <a name="technical-prerequisites-for-creating-a-solution-template-for-hello-azure-marketplace"></a>Techniczne wymagania wstępne dotyczące tworzenia szablonu rozwiązania dla hello Azure Marketplace
+Proces hello dokładnie przed rozpoczęciem należy dokładnie zapoznać się gdzie i dlaczego jest wykonywane każdego kroku. Jak to możliwe, należy należy przygotować informacji o swojej firmie i innych danych, Pobierz niezbędne narzędzia i/lub tworzenia składników techniczne przed rozpoczęciem procesu tworzenia oferty hello.  
 
 ## <a name="developing-building-blocks"></a>Tworzenie bloki konstrukcyjne
-Bloki konstrukcyjne rozwiązania musi określić przed rozpoczęciem pracy z szablonem rozwiązanie portalu publikowania. Poniżej przedstawiono niektóre linki do dokumentów, które mogą pomóc w procesie:
+Bloki konstrukcyjne hello rozwiązania musi określić przed przystąpieniem do szablonu rozwiązania na powitania Portal publikowania. Poniżej przedstawiono niektóre łącza toohello dokumenty, które mogą pomóc w procesie hello:
 
 1. [Najlepsze rozwiązania dotyczące projektowania szablonów usługi Azure Resource Manager](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
 2. [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
@@ -33,6 +33,6 @@ Bloki konstrukcyjne rozwiązania musi określić przed rozpoczęciem pracy z sza
    * [https://github.com/Azure/Azure-quickstart-Templates](https://github.com/azure/azure-quickstart-templates)
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, przejrzeć wymagania wstępne i wykonać niezbędne zadania można przenieść do przodu w tworzeniu ofert szablon rozwiązania zgodnie z opisem w [tworzenia szablon rozwiązania](marketplace-publishing-solution-template-creation.md). Aby powrócić do strony głównej wydawcy zadań, zobacz [wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md).
+Teraz, należy przejrzeć hello warunki wstępne i ukończone hello niezbędnych zadań, można przenieść do przodu z tworzeniem ofertę szablon rozwiązania jako hello szczegółowe w [toocreating przewodnik szablon rozwiązania](marketplace-publishing-solution-template-creation.md). Strona główna toohello tooreturn wydawcy zadań, zobacz [wprowadzenie: jak toopublish toohello oferta portalu Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md

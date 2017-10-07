@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do usługi Azure Mobile Engagement na potrzeby uniwersalnych aplikacji systemu Windows"
-description: "Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby uniwersalnych aplikacji systemu Windows"
+title: "wprowadzenie do systemu Windows Universal aplikacji usługi Azure Mobile Engagement aaaGet"
+description: "Dowiedz się, jak toouse usługi Azure Mobile Engagement z analizy i powiadomieniami wypychanymi dla aplikacji uniwersalnych systemu Windows."
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
@@ -14,20 +14,20 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8224a6d3789cfe4784bbc9472005f9eddb94a8b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Wprowadzenie do usługi Azure Mobile Engagement na potrzeby uniwersalnych aplikacji systemu Windows
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-W tym temacie pokazano, jak za pomocą usługi Azure Mobile Engagement można określić sposób użycia aplikacji oraz wysyłać powiadomienia wypychane do segmentowanych użytkowników uniwersalnej aplikacji systemu Windows.
-W tym samouczku został omówiony prosty scenariusz emisji przy użyciu usługi Mobile Engagement. Utworzysz pustą uniwersalną aplikację systemu Windows, za pomocą której będą zbierane dane dotyczące zużycia i odbierane powiadomienia wypychane przy użyciu Usługi powiadomień systemu Windows.
+W tym temacie opisano sposób toounderstand usługi Azure Mobile Engagement toouse użycia aplikacji, a wysłać wypychanie powiadomień użytkowników toosegmented aplikacji uniwersalnych systemu Windows.
+W tym samouczku przedstawiono hello Prosty scenariusz emisji przy użyciu usługi Mobile Engagement. Utworzysz pustą uniwersalną aplikację systemu Windows, za pomocą której będą zbierane dane dotyczące zużycia i odbierane powiadomienia wypychane przy użyciu Usługi powiadomień systemu Windows.
 
 > [!NOTE]
-> Usługa Azure Mobile Engagement zostanie wycofana w marcu 2018 r. i jest obecnie dostępna wyłącznie dla dotychczasowych klientów. Aby uzyskać więcej informacji, zobacz [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> Usługa Azure Mobile Engagement Hello zostaną wycofane 2018 marca i jest obecnie tylko dostępne tooexisting klientów. Aby uzyskać więcej informacji, zobacz [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
@@ -35,107 +35,107 @@ W tym samouczku został omówiony prosty scenariusz emisji przy użyciu usługi 
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji uniwersalnej systemu Windows
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
-Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych. Kompletna dokumentacja integracji znajduje się w sekcji [Mobile Engagement Windows Universal SDK integration](mobile-engagement-windows-store-sdk-overview.md) (Integracja uniwersalnego zestawu SDK systemu Windows usługi Mobile Engagement).
+## <a id="connecting-app"></a>Połączenie z zapleczem usługi Mobile Engagement toohello aplikacji
+Ten samouczek przedstawia "podstawową integrację", który czy hello minimalny wymagany toocollect danych i wysyłania powiadomień wypychanych. Witaj kompletna dokumentacja integracji znajduje się w hello [integracja zestawu Mobile Engagement Windows Universal SDK](mobile-engagement-windows-store-sdk-overview.md).
 
-Aby zademonstrować integrację, utworzysz podstawową aplikację za pomocą programu Visual Studio.
+Utworzeniu Podstawowa aplikacja za pomocą programu Visual Studio toodemonstrate hello integracji.
 
 ### <a name="create-a-windows-universal-app-project"></a>Tworzenie projektu aplikacji uniwersalnej systemu Windows
-W następujących krokach założono korzystanie z programu Visual Studio 2015, chociaż kroki są podobne także w przypadku wcześniejszych wersji programu Visual Studio.
+Hello następujących krokach założono użycie hello programu Visual Studio 2015 chociaż hello kroki są podobne we wcześniejszych wersjach programu Visual Studio.
 
-1. Uruchom program Visual Studio i na ekranie **Strona główna** wybierz pozycję **Nowy projekt**.
-2. W oknie podręcznym wybierz pozycję **Windows** -> **Aplikacja uniwersalna** -> **Pusta aplikacja (aplikacja uniwersalna systemu Windows)**. Wypełnij pola **Nazwa** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
+1. Uruchom program Visual Studio w hello **Home** ekranu wybierz **nowy projekt**.
+2. W oknie podręcznym hello wybierz **Windows** -> **uniwersalnych** -> **pusta aplikacja (uniwersalna systemu Windows)**. Wypełnij aplikacji hello **nazwa** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
 
     ![][1]
 
-Został utworzony projekt aplikacji uniwersalnej systemu Windows, z którym następnie zintegrujesz zestaw SDK usługi Azure Mobile Engagement.
+Został utworzony projekt aplikacji uniwersalnej systemu Windows, do którego obok integracji hello zestaw SDK usługi Azure Mobile Engagement.
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement 
-1. Zainstaluj pakiet NuGet [MicrosoftAzure.MobileEngagement] w projekcie. Jeśli aplikacja ma być przeznaczona zarówno dla platformy Windows, jak i Windows Phone, należy to zrobić w obu projektach. W przypadku systemu Windows 8.x i Windows Phone 8.1 ten sam pakiet NuGet umieszcza poprawne pliki binarne specyficzne dla platformy w każdym projekcie.
-2. Otwórz plik **Package.appxmanifest** i upewnij się, że dodano w nim następującą funkcję:
+### <a name="connect-your-app-toomobile-engagement-backend"></a>Połącz zapleczu swojej aplikacji tooMobile zaangażowania
+1. Zainstaluj hello [MicrosoftAzure.MobileEngagement] pakietu Nuget w projekcie. Jeśli ma być przeznaczona dla platform systemów Windows i Windows Phone, musisz toodo to dla obu tych projektów. Dla systemu Windows 8.x i Windows Phone 8.1, hello tego samego Nuget pakietu miejsca hello poprawne specyficzne dla platformy pliki binarne w każdym projekcie.
+2. Otwórz **Package.appxmanifest** i upewnij się, że dodano tego hello następujące możliwości:
 
         Internet (Client)
 
     ![][2]
-3. Teraz skopiuj parametry połączenia, które wcześniej zostały skopiowane dla aplikacji usługi Mobile Engagement, a następnie wklej je do pliku `Resources\EngagementConfiguration.xml` między znaczniki `<connectionString>` i `</connectionString>`:
+3. Teraz skopiuj parametry połączenia hello, które wcześniej zostały skopiowane dla aplikacji usługi Mobile Engagement i wklej go w hello `Resources\EngagementConfiguration.xml` plików między hello `<connectionString>` i `</connectionString>` tagów:
 
     ![][3]
 
     > [!TIP]
-    > Jeśli aplikacja jest przeznaczona zarówno dla platformy Windows, jak i Windows Phone, nadal powinny zostać utworzone dwie aplikacje usługi Mobile Engagement — jedna dla każdej z obsługiwanych platform. Dzięki dwóm aplikacjom możliwe będzie tworzenie poprawnej segmentacji odbiorców i wysyłanie odpowiednio skierowanych powiadomień dla każdej platformy.
+    > Jeśli aplikacja jest przeznaczona zarówno dla platformy Windows, jak i Windows Phone, nadal powinny zostać utworzone dwie aplikacje usługi Mobile Engagement — jedna dla każdej z obsługiwanych platform. Mając dwie aplikacje gwarantuje, że można utworzyć poprawnej segmentacji odbiorców hello i można wysyłanie odpowiednio skierowanych powiadomień dla każdej platformy.
 
     > [!IMPORTANT]
-    > Menedżer NuGet nie kopiuje automatycznie zasobów zestawu SDK do aplikacji UWP systemu Windows 10. Należy to zrobić ręcznie, postępując zgodnie z wyświetlonymi instrukcjami (plik readme.txt) podczas instalacji pakietu Nuget.  
+    > NuGet nie kopiuje automatycznie hello zasobów zestawu SDK w aplikacji platformy uniwersalnej systemu Windows do systemu Windows 10. Masz toodo go ręcznie następujące kroki hello, które widać (readme.txt) jest zainstalowany pakiet Nuget hello.  
 
-1. W pliku `App.xaml.cs`:
+1. W hello `App.xaml.cs` pliku:
 
-    a. Dodaj instrukcję `using`:
+    a. Dodaj hello `using` instrukcji:
 
             using Microsoft.Azure.Engagement;
 
-    b. Dodaj metodę inicjowania usługi Engagement:
+    b. Dodaj metodę, która inicjuje hello Engagement:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
              EngagementAgent.Instance.Init(e);
 
-             //... rest of the code
+             //... rest of hello code
            }
 
-    c. Zainicjuj zestaw SDK w metodzie **OnLaunched**:
+    c. Inicjowanie hello zestawu SDK w hello **OnLaunched** metody:
 
             protected override void OnLaunched(LaunchActivatedEventArgs e)
             {
               InitEngagement(e);
 
-              //... rest of the code
+              //... rest of hello code
             }
 
-    d. Wstaw następujący kod w metodzie **OnActivated**, a następnie dodaj metodę, jeśli została już dodana:
+    c. Wstaw następujące hello w hello **OnActivated** — metoda i Dodawanie metody hello, jeśli nie jest już istnieje:
 
             protected override void OnActivated(IActivatedEventArgs e)
             {
               InitEngagement(e);
 
-              //... rest of the code
+              //... rest of hello code
             }
 
 ## <a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
-Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni, konieczne jest wysłanie co najmniej jednego ekranu (Działanie) do zaplecza usługi Mobile Engagement.
+toostart wysyłanie danych i zapewnienia, że hello użytkownicy są aktywni, konieczne jest wysłanie co najmniej jeden zapleczem usługi Mobile Engagement toohello ekranu (działanie).
 
-1. W pliku **MainPage.xaml.cs** dodaj następującą instrukcję `using`:
+1. W hello **MainPage.xaml.cs**, Dodaj następujące hello `using` instrukcji:
 
     using Microsoft.Azure.Engagement.Overlay;
-2. Zmień klasę podstawową **MainPage** z **Page** na **EngagementPageOverlay**:
+2. Zmień klasę podstawową hello **MainPage** z **strony** za**EngagementPageOverlay**:
 
         class MainPage : EngagementPageOverlay
-3. W pliku `MainPage.xaml`:
+3. W hello `MainPage.xaml` pliku:
 
-    a. Dodaj deklaracje przestrzeni nazw:
+    a. Dodaj deklaracje przestrzeni nazw tooyour:
 
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-    b. Zastąp wartość **Page** w nazwie tagu XML wartością **engagement:EngagementPageOverlay**
+    b. Zastąp hello **strony** w nazwie tagu XML hello z **engagement: EngagementPageOverlay**
 
 > [!IMPORTANT]
-> Jeśli strona zastępuje metodę `OnNavigatedTo`, nie zapomnij wywołać metody `base.OnNavigatedTo(e)`. W przeciwnym razie działanie nie zostanie zgłoszone (element `EngagementPage` wywołuje metodę `StartActivity` wewnątrz jego metody `OnNavigatedTo`). Jest to szczególnie ważne w projekcie systemu Windows Phone, w którym szablon domyślny zawiera metodę `OnNavigatedTo`.
+> Jeśli strona zastępuje hello `OnNavigatedTo` metody, należy się toocall `base.OnNavigatedTo(e)`. W przeciwnym razie hello działania nie został zgłoszony `EngagementPage` wywołania `StartActivity` wewnątrz jego `OnNavigatedTo` metody). Jest to szczególnie ważne w projekcie Windows Phone, gdzie ma hello domyślny szablon `OnNavigatedTo` metody.
 >
-> W **aplikacjach uniwersalnych systemu Windows 10** użyj metody zalecanej w sekcji „Recommended method: overload your Page classes” (Zalecana metoda: przeciążenie klas Page) tematu [Advanced Reporting with the Windows Universal Apps Engagement SDK](mobile-engagement-windows-store-advanced-reporting.md) (Zaawansowane raportowanie za pomocą zestawu SDK zaangażowania aplikacji uniwersalnych systemu Windows), a nie wymienionej powyżej.
+> Dla **aplikacji uniwersalnych systemu Windows 10**, należy użyć metody hello zalecane w hello "zalecana metoda: przeciążenia klas strony" sekcji [zaawansowane raporty dzięki hello Windows Universal SDK zaangażowania aplikacji](mobile-engagement-windows-store-advanced-reporting.md) , zamiast hello jedną wymienionych powyżej.
 
 ## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
-Usługa Mobile Engagement umożliwia wchodzenie w interakcję z użytkownikami przy użyciu powiadomień wypychanych i komunikatów w aplikacji w kontekście kampanii. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
-W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
+Usługa Mobile Engagement umożliwia toointeract i użytkownikami przy użyciu powiadomień wypychanych i komunikatów w kontekście kampanii hello w aplikacji. Ten moduł ma nazwę REACH w portalu Mobile Engagement hello.
+Witaj sekcje skonfigurować tooreceive Twojej aplikacji je.
 
-### <a name="enable-your-app-to-receive-wns-push-notifications"></a>Umożliwianie aplikacji otrzymywanie powiadomień wypychanych Usługi powiadomień systemu Windows
-1. W pliku `Package.appxmanifest` na karcie **Aplikacja** w obszarze **Powiadomienia** ustaw pozycję **Możliwe do wyświetlania na pasku przewijania:** na wartość **Tak**
+### <a name="enable-your-app-tooreceive-wns-push-notifications"></a>Włącz tooreceive Twojej aplikacji powiadomień wypychanych usługi WNS
+1. W hello `Package.appxmanifest` pliku w hello **aplikacji** , w obszarze **powiadomienia**ustaw **wyskakujące funkcją:** zbyt**tak**
 
     ![][5]
 
-### <a name="initialize-the-reach-sdk"></a>Inicjowanie zestawu SDK modułu REACH
-W pliku `App.xaml.cs` wywołaj metodę **EngagementReach.Instance.Init(e);** w funkcji **InitEngagement** bezpośrednio po zainicjowaniu agenta:
+### <a name="initialize-hello-reach-sdk"></a>Inicjowanie hello OSIĄGNĄĆ zestawu SDK
+W `App.xaml.cs`, wywołaj **EngagementReach.Instance.Init(e);** w hello **InitEngagement** bezpośrednio po zainicjowaniu agenta hello:
 
         private void InitEngagement(IActivatedEventArgs e)
         {
@@ -143,37 +143,37 @@ W pliku `App.xaml.cs` wywołaj metodę **EngagementReach.Instance.Init(e);** w f
            EngagementReach.Instance.Init(e);
         }
 
-Wszystko jest gotowe do wysłania wyskakującego powiadomienia. Następnie zweryfikujemy, czy podstawowa integracja została przeprowadzona prawidłowo.
+Wszystko jest gotowe toosend wyskakującego powiadomienia. Następnie zweryfikujemy, czy podstawowa integracja została przeprowadzona prawidłowo.
 
-### <a name="grant-access-to-mobile-engagement-to-send-notifications"></a>Udzielanie dostępu do usługi Mobile Engagement w celu wysyłania powiadomień
+### <a name="grant-access-toomobile-engagement-toosend-notifications"></a>Udziel dostępu tooMobile zaangażowania toosend powiadomienia
 1. Otwórz [Centrum deweloperów Sklepu Windows] w przeglądarce internetowej, a następnie zaloguj się i utwórz konto, jeśli to konieczne.
-2. Kliknij pozycję **Pulpit nawigacyjny** w prawym górnym rogu, a następnie kliknij pozycję **Utwórz nową aplikację** z menu lewego panelu.
+2. Kliknij przycisk **pulpitu nawigacyjnego** na powitania prawym górnym rogu, a następnie kliknij przycisk **Utwórz nową aplikację** z menu lewego panelu hello.
 
     ![][9]
 3. Utwórz aplikację przez zarezerwowanie jej nazwy.
 
     ![][10]
-4. Po utworzeniu aplikacji przejdź do pozycji **Usługi -> Powiadomienia wypychane** z menu po lewej stronie.
+4. Po utworzeniu aplikacji hello Przejdź zbyt**usługi -> powiadomienia wypychane** z menu po lewej stronie powitania.
 
     ![][11]
-5. W sekcji Powiadomienia wypychane kliknij link **Witryna usług Live**.
+5. W hello Push sekcji powiadomień, kliknij przycisk hello **witryna usług Live** łącza.
 
     ![][12]
-6. Nastąpi przejście do sekcji poświadczeń wypychania. Upewnij się, że jesteś w sekcji **Ustawienia aplikacji**, a następnie skopiuj swój **identyfikator SID pakietu** i **klucz tajny klienta**.
+6. Możesz przejść sekcji poświadczeń wypychania toohello. Upewnij się, że jesteś w hello **ustawień aplikacji** sekcji, a następnie skopiuj z **identyfikatora SID pakietu** i **klucz tajny klienta**
 
     ![][13]
-7. Przejdź do obszaru **Ustawienia** portalu Mobile Engagement, a następnie kliknij sekcję **Natywne powiadomienia wypychane** po lewej stronie. Następnie kliknij przycisk **Edytuj**, aby wprowadzić swój **identyfikator zabezpieczeń (SID) pakietu** i **klucz tajny** w przedstawiony sposób:
+7. Przejdź toohello **ustawienia** z portalu usługi Mobile Engagement i kliknij przycisk hello **natywnych powiadomień wypychanych** sekcji powitania po lewej stronie. Kliknięcie hello **Edytuj** tooenter przycisk z **identyfikator zabezpieczeń (SID) pakietu** i **klucz tajny** pokazany:
 
     ![][6]
-8. Na końcu upewnij się, że aplikacja programu Visual Studio została skojarzona z tą utworzoną aplikacją w sklepie z aplikacjami. W programie Visual Studio kliknij pozycję **Skojarz aplikację ze sklepem**.
+8. Na koniec upewnij się, że aplikacja programu Visual Studio został skojarzony z tą utworzoną aplikacją w sklepie z aplikacjami hello. W programie Visual Studio kliknij pozycję **Skojarz aplikację ze sklepem**.
 
     ![][7]
 
-## <a id="send"></a>Wysyłanie powiadomienia do aplikacji
+## <a id="send"></a>Wyślij aplikacji tooyour powiadomień
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Jeśli aplikacja jest uruchomiona, zobaczysz powiadomienie w aplikacji. W przeciwnym razie (jeśli aplikacja jest zamknięta) zobaczysz powiadomienie wyskakujące.
-Jeśli widzisz powiadomienie w aplikacji, ale nie powiadomienie wyskakujące, a aplikacja jest uruchomiona w trybie debugowania w programie Visual Studio, spróbuj użyć pozycji **Zdarzenia cyklu życia -> Wstrzymaj** na pasku narzędzi, aby upewnić się, że aplikacja została wstrzymana. Jeśli kliknięto przycisk Strona główna podczas debugowania aplikacji w programie Visual Studio, to aplikacja nie zawsze zostanie wstrzymana, a w związku z tym, że powiadomienie jest wyświetlane w aplikacji, to nie jest wyświetlane powiadomienie wyskakujące.  
+Jeśli aplikacja hello jest uruchomiona, zobaczysz powiadomienie w aplikacji. Jeśli aplikacja hello są zamknięte, w przeciwnym razie Zobacz wyskakujące powiadomienie.
+Jeśli zobaczysz powiadomienie w aplikacji, ale nie powiadomienie wyskakujące, a aplikacja hello są uruchomione w trybie debugowania w programie Visual Studio, spróbuj **zdarzenia cyklu życia -> Wstrzymaj** w tooensure narzędzi hello jest wstrzymana, aplikacja hello. Jeśli kliknięto przycisk Strona główna hello podczas debugowania aplikacji hello w programie Visual Studio, następnie go nie zawsze zostanie wstrzymana, a gdy zostanie wyświetlone powiadomienie hello w aplikacji, nie wyświetla jako powiadomienie wyskakujące.  
 
 ![][8]
 

@@ -1,6 +1,6 @@
 ---
-title: "Przenoszenia danych z Cassandra przy użyciu fabryki danych | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu przenoszenia danych z Cassandra lokalną bazą danych przy użyciu fabryki danych Azure."
+title: "dane aaaMove z Cassandra przy użyciu fabryki danych | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat sposobu toomove danych z Cassandra lokalnej bazy danych przy użyciu fabryki danych Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jingwang
-ms.openlocfilehash: f2b225bdbdf2880d26a6ab5f992301bf0a804b0d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0e265d3a8439d0a2cb2a5c32e5ea8348a1617621
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Przenoszenia danych z Cassandra lokalną bazą danych przy użyciu fabryki danych Azure
-W tym artykule opisano sposób używania działania kopiowania w fabryce danych Azure do przenoszenia danych z lokalną bazą danych Cassandra. Opiera się na [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z działania kopiowania.
+W tym artykule opisano, jak toouse hello działanie kopiowania w fabryce danych Azure toomove danych z lokalną bazą danych Cassandra. Opiera się na powitania [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z hello działanie kopiowania.
 
-Można skopiować danych z lokalnego magazynu danych Cassandra żadnych obsługiwanych ujścia magazynu danych. Lista magazynów danych obsługiwane jako wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. Fabryka danych aktualnie obsługuje tylko dane przenoszenie, z magazynu danych Cassandra do innych magazynów danych, ale nie do przenoszenia danych z innych magazynów danych w magazynie danych Cassandra. 
+Można skopiować danych z lokalnego Cassandra magazynu tooany obsługiwane ujścia danych magazynu danych. Lista danych obsługiwane magazyny wychwytywanie przez działanie kopiowania hello, zobacz hello [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. Fabryka danych aktualnie obsługuje tylko przeniesienie magazynu danych z danych Cassandra tooother magazyny danych, ale nie do przenoszenia danych z magazynu magazynów danych Cassandra tooa innych danych. 
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
-Łącznik Cassandra obsługuje następujące wersje Cassandra: 2.X.
+Łącznik Cassandra Hello obsługuje następujące wersje Cassandra hello: 2.X.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Dla usługi fabryka danych Azure można było nawiązać połączenia z lokalną bazą danych Cassandra należy zainstalować bramę zarządzania danymi na tym samym komputerze, który jest hostem bazy danych lub na osobnym komputerze, aby uniknąć konkurowanie o zasoby z bazą danych. Brama zarządzania danymi jest składnikiem, który łączy lokalnych źródeł danych do usługi w chmurze w sposób bezpieczny i zarządzanie nimi. Zobacz [brama zarządzania danymi](data-factory-data-management-gateway.md) artykułu, aby uzyskać więcej informacji dotyczących bramy zarządzania danymi. Zobacz [przenoszenia danych z lokalnymi do chmury](data-factory-move-data-between-onprem-and-cloud.md) artykułu, aby uzyskać instrukcje krok po kroku dotyczące konfigurowania bramy danych potoku do przenoszenia danych.
+Witaj fabryki danych Azure toobe stanie tooconnect tooyour lokalnymi Cassandra bazy danych usługi, należy zainstalować bramę zarządzania danymi na powitania sam komputera bazy danych hostów hello lub tooavoid osobnym komputerze fizycznym, konkurowanie o zasoby z hello Baza danych. Brama zarządzania danymi jest składnikiem, który łączy usługi toocloud źródeł danych lokalnych w sposób bezpieczny i zarządzanie nimi. Zobacz [brama zarządzania danymi](data-factory-data-management-gateway.md) artykułu, aby uzyskać więcej informacji dotyczących bramy zarządzania danymi. Zobacz [przenoszenia danych z lokalnego toocloud](data-factory-move-data-between-onprem-and-cloud.md) artykułu, aby uzyskać instrukcje krok po kroku dotyczące konfigurowania bramy hello toomove potoku danych.
 
-Należy używać bramy do połączenia z bazą danych Cassandra nawet wtedy, gdy baza danych znajduje się w chmurze, na przykład na maszynie Wirtualnej platformy Azure IaaS. Y może masz bramy na tej samej maszyny Wirtualnej, który jest hostem bazy danych lub na oddzielnych maszynie Wirtualnej tak długo, jak bramy można połączyć z bazą danych.  
+Należy użyć bazy danych hello bramy tooconnect tooa Cassandra, nawet jeśli hello baza danych znajduje się w chmurze hello, na przykład na maszynie Wirtualnej platformy Azure IaaS. Y, do których masz hello bramy na hello tej bazy danych hello hostów w tej samej maszyny Wirtualnej lub na oddzielnym maszynie Wirtualnej tak długo, jak bramy hello połączyć toohello bazy danych.  
 
-Po zainstalowaniu bramy, automatycznie instaluje sterownik Microsoft Cassandra ODBC używane do łączenia z bazą danych Cassandra. W związku z tym nie trzeba ręcznie zainstalowania sterownika na komputerze bramy, podczas kopiowania danych z bazy danych Cassandra. 
+Po zainstalowaniu bramy hello automatycznie instaluje bazę tooCassandra tooconnect sterownik ODBC Cassandra firmy Microsoft. W związku z tym nie ma potrzeby toomanually zainstalowania sterownika na komputerze bramy hello podczas kopiowania danych z bazy danych Cassandra hello. 
 
 > [!NOTE]
 > Zobacz [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) porady dotyczące rozwiązywania problemów z bramy/połączenia problemy związane z.
@@ -41,62 +41,62 @@ Po zainstalowaniu bramy, automatycznie instaluje sterownik Microsoft Cassandra O
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok z działania kopiowania, który przenosi dane z magazynu lokalnego Cassandra danych przy użyciu różnych narzędzi/interfejsów API. 
 
-- Najprostszym sposobem, aby utworzyć potok jest użycie **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora kopiowania danych. 
-- Umożliwia także następujące narzędzia do tworzenia potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager**, **interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania. 
+- Witaj Najprostszym sposobem toocreate potoku jest toouse hello **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora dane Kopiuj hello. 
+- Można również użyć hello następujące narzędzia toocreate potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager** , **Interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) dla toocreate instrukcje krok po kroku potoku z działaniem kopiowania. 
 
-Czy można użyć narzędzia i interfejsy API, należy wykonać następujące kroki, aby utworzyć potok, który przenosi dane z magazynu danych źródła do ujścia magazynu danych:
+Czy za pomocą narzędzia hello lub interfejsów API, należy wykonać następujące kroki toocreate potok, który przenosi się, że magazyn danych ze źródła danych magazynu danych zbiornika tooa hello:
 
-1. Utwórz **połączone usługi** Aby połączyć dane wejściowe i wyjściowe są przechowywane w fabryce danych.
-2. Utwórz **zestawów danych** do reprezentowania danych wejściowych i wyjściowych operacji kopiowania. 
+1. Utwórz **połączone usługi** toolink usługi fabryka danych tooyour magazynów danych wejściowych i wyjściowych.
+2. Utwórz **zestawów danych** toorepresent wejściowe i wyjściowe dane hello operacji kopiowania. 
 3. Utwórz **potoku** aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. 
 
-Korzystając z kreatora, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoki) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować tych jednostek fabryki danych w formacie JSON.  Dla przykładu z definicji JSON dla jednostek fabryki danych, które służą do kopiowania danych z magazynu danych Cassandra lokalnych, zobacz [przykład JSON: kopiowanie danych z Cassandra do obiektów Blob platformy Azure](#json-example-copy-data-from-cassandra-to-azure-blob) sekcji tego artykułu. 
+Korzystając z Kreatora hello, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoku hello) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować za pomocą formatu JSON hello tych jednostek fabryki danych.  Przykładowy z definicji JSON dla jednostek fabryki danych, które są używane toocopy danych z lokalnego magazynu danych Cassandra [przykład JSON: kopiowanie danych z tooAzure Cassandra obiektu Blob](#json-example-copy-data-from-cassandra-to-azure-blob) sekcji tego artykułu. 
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane do definiowania jednostek fabryki danych określonej w magazynie danych Cassandra:
+Witaj następujące sekcje zawierają szczegółowe informacje o właściwości JSON, które są magazynu danych Cassandra tooa określonych jednostek fabryki danych używanych toodefine:
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
-Poniższa tabela zawiera opis specyficzne dla usługi Cassandra połączone elementy JSON.
+Hello w poniższej tabeli przedstawiono opis usługi określonego tooCassandra połączone elementy JSON.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesCassandra** |Tak |
-| Host |Jeden lub więcej adresów IP lub nazw hostów serwerów Cassandra.<br/><br/>Określ rozdzielaną przecinkami listę adresów IP lub nazw hostów, aby nawiązać połączenie wszystkie serwery jednocześnie. |Tak |
-| port |Port TCP używany przez serwer Cassandra nasłuchiwanie dla połączeń klienta. |Nie, wartość domyślna: 9042 |
+| type |musi mieć ustawioną właściwość type Hello: **OnPremisesCassandra** |Tak |
+| Host |Jeden lub więcej adresów IP lub nazw hostów serwerów Cassandra.<br/><br/>Określ rozdzielaną przecinkami listę adresów IP lub serwerów tooall tooconnect nazwy hosta jednocześnie. |Tak |
+| port |Hello port TCP, którego hello Cassandra serwer używa toolisten dla połączeń klienta. |Nie, wartość domyślna: 9042 |
 | Typ authenticationType |Podstawowa lub anonimowe |Tak |
-| nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak, jeśli authenticationType ustawiany jest podstawowy. |
-| hasło |Określ hasło dla konta użytkownika. |Tak, jeśli authenticationType ustawiany jest podstawowy. |
-| gatewayName |Nazwa bramy, która służy do łączenia z bazą danych Cassandra lokalnymi. |Tak |
-| encryptedCredential |Poświadczenie szyfrowane przez bramę. |Nie |
+| nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika hello. |Tak, jeśli authenticationType ustawiono tooBasic. |
+| hasło |Określ hasło dla konta użytkownika hello. |Tak, jeśli authenticationType ustawiono tooBasic. |
+| gatewayName |Nazwa Hello hello bramy, która jest używana tooconnect toohello lokalnymi Cassandra w bazie danych. |Tak |
+| encryptedCredential |Poświadczenie szyfrowane przez bramę hello. |Nie |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
+Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz hello [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
 
-**TypeProperties** sekcja jest różne dla każdego typu zestawu danych i zawiera informacje o lokalizacji danych w magazynie danych. TypeProperties sekcja dla zestawu danych typu **CassandraTable** ma następujące właściwości
+Witaj **typeProperties** sekcja zawiera informacje o lokalizacji hello hello danych w magazynie danych hello i różni się dla każdego typu zestawu danych. Witaj typeProperties sekcja dla zestawu danych typu **CassandraTable** ma następujące właściwości hello
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| przestrzeni kluczy |Nazwa schematu bazy danych Cassandra lub przestrzeni kluczy. |Tak (Jeśli **zapytania** dla **CassandraSource** nie jest zdefiniowana). |
-| tableName |Nazwa tabeli w bazie danych Cassandra. |Tak (Jeśli **zapytania** dla **CassandraSource** nie jest zdefiniowana). |
+| przestrzeni kluczy |Nazwa schematu bazy danych Cassandra lub hello przestrzeni kluczy. |Tak (Jeśli **zapytania** dla **CassandraSource** nie jest zdefiniowana). |
+| tableName |Nazwa tabeli hello Cassandra bazy danych. |Tak (Jeśli **zapytania** dla **CassandraSource** nie jest zdefiniowana). |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
+Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz hello [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
 
-Właściwości, które są dostępne w sekcji typeProperties działania różnić się z każdym typem działania. Dla działania kopiowania różnią się w zależności od typów źródeł i sink.
+Właściwości, które są dostępne w sekcji typeProperties hello działania hello różnić się z każdym typem działania. Dla działania kopiowania różnią się w zależności od typów hello źródeł i sink.
 
-Jeśli źródło jest typu **CassandraSource**, w sekcji typeProperties dostępne są następujące właściwości:
+Jeśli źródło jest typu **CassandraSource**, hello następujące właściwości są dostępne w sekcji typeProperties:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj niestandardowych zapytania można odczytać danych. |Zapytania SQL 92 lub CQL zapytania. Zobacz [odwołania CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Korzystając z zapytania SQL, określ **przestrzeni kluczy name.table nazwy** do reprezentowania tabeli ma dotyczyć zapytanie. |Nie (jeśli są zdefiniowane tableName oraz przestrzeni kluczy w zestawie danych). |
-| consistencyLevel |Poziom spójności Określa, jak wiele replik musi odpowiedzieć na żądanie odczytu przed zwróceniem danych do aplikacji klienckiej. Cassandra sprawdza określonej liczby replik danych do spełnienia żądania odczytu. |JEDNĄ, DWIE, TRZY, KWORUM, WSZYSTKIE, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Zobacz [Konfigurowanie spójność danych](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) szczegółowe informacje. |Nie. Domyślna wartość to jeden. |
+| query |Użyj hello zapytanie niestandardowe tooread danych. |Zapytania SQL 92 lub CQL zapytania. Zobacz [odwołania CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Korzystając z zapytania SQL, określ **nazwa name.table przestrzeni kluczy** toorepresent hello tabelę, która ma tooquery. |Nie (jeśli są zdefiniowane tableName oraz przestrzeni kluczy w zestawie danych). |
+| consistencyLevel |poziomu spójności Hello Określa, ile replik musi odpowiadać żądanie odczytu tooa przed zwróceniem aplikacji klienckiej toohello danych. Sprawdzanie Cassandra hello określonej liczby replik dla żądania odczytu hello toosatisfy danych. |JEDNĄ, DWIE, TRZY, KWORUM, WSZYSTKIE, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Zobacz [Konfigurowanie spójność danych](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) szczegółowe informacje. |Nie. Domyślna wartość to jeden. |
 
-## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Przykład JSON: kopiowanie danych z Cassandra do obiektów Blob platformy Azure
-W poniższym przykładzie przedstawiono przykładowe definicje JSON, które można użyć, aby utworzyć potok przy użyciu [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Widoczny jest sposób kopiowania danych z lokalną bazą danych Cassandra do magazynu obiektów Blob Azure. Jednak można skopiować danych do dowolnego wychwytywanie podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w fabryce danych Azure.
+## <a name="json-example-copy-data-from-cassandra-tooazure-blob"></a>Przykład JSON: kopiowanie danych z tooAzure Cassandra obiektów Blob
+W poniższym przykładzie przedstawiono przykładowe definicje JSON przy użyciu można toocreate potoku [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Pokazuje, jak dane toocopy z Cassandra lokalnej bazy danych tooan magazynu obiektów Blob Azure. Jednak dane mogą być tooany skopiowanych z wychwytywanie hello podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) przy użyciu hello działanie kopiowania w fabryce danych Azure.
 
 > [!IMPORTANT]
-> W tym przykładzie przedstawiono fragmenty kodu JSON. Zawiera instrukcje krok po kroku dotyczące tworzenia fabryki danych. Zobacz [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu, aby uzyskać instrukcje krok po kroku.
+> W tym przykładzie przedstawiono fragmenty kodu JSON. Zawiera instrukcje krok po kroku dotyczące tworzenia hello fabryki danych. Zobacz [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu, aby uzyskać instrukcje krok po kroku.
 
-Przykład zawiera następujące obiekty fabryki danych:
+przykład Witaj ma hello następujące obiekty fabryki danych:
 
 * Połączonej usługi typu [OnPremisesCassandra](#linked-service-properties).
 * Połączonej usługi typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -106,7 +106,7 @@ Przykład zawiera następujące obiekty fabryki danych:
 
 **Cassandra połączonej usługi:**
 
-W tym przykładzie użyto **Cassandra** połączonej usługi. Zobacz [Cassandra połączona usługa](#linked-service-properties) sekcji właściwości obsługiwanych przez tej połączonej usługi.  
+W tym przykładzie użyto hello **Cassandra** połączonej usługi. Zobacz [Cassandra połączona usługa](#linked-service-properties) sekcji właściwości hello obsługiwane przez tej połączonej usługi.  
 
 ```json
 {
@@ -169,11 +169,11 @@ W tym przykładzie użyto **Cassandra** połączonej usługi. Zobacz [Cassandra 
 }
 ```
 
-Ustawienie **zewnętrznych** do **true** usługi fabryka danych informuje, czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w fabryce danych.
+Ustawienie **zewnętrznych** za**true** informuje hello usługi fabryka danych tego elementu dataset hello zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello.
 
 **Azure Blob wyjściowy zestaw danych:**
 
-Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1).
+Dane są zapisywane tooa nowych obiektów blob, co godzinę (częstotliwość: godziny, interwał: 1).
 
 ```json
 {
@@ -197,9 +197,9 @@ Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godzin
 
 **Aktywność kopiowania w potoku z Cassandra źródłowy i odbiorczy obiektów Blob:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wejściowe i wyjściowe zestawy danych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **CassandraSource** i **zbiornika** ustawiono typ **BlobSink**.
+Witaj potoku zawiera działanie kopiowania, który jest skonfigurowany toouse hello wejściowych i wyjściowych zestawów danych i jest toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**CassandraSource** i **zbiornika** typu ustawiono zbyt**BlobSink**.
 
-Zobacz [właściwości typu RelationalSource](#copy-activity-properties) listę obsługiwanych przez RelationalSource właściwości.
+Zobacz [właściwości typu RelationalSource](#copy-activity-properties) hello listę obsługiwanych przez hello RelationalSource właściwości.
 
 ```json
 {  
@@ -211,7 +211,7 @@ Zobacz [właściwości typu RelationalSource](#copy-activity-properties) listę 
         "activities":[  
         {
             "name": "CassandraToAzureBlob",
-            "description": "Copy from Cassandra to an Azure blob",
+            "description": "Copy from Cassandra tooan Azure blob",
             "type": "Copy",
             "inputs": [
             {
@@ -269,42 +269,42 @@ Zobacz [właściwości typu RelationalSource](#copy-activity-properties) listę 
 | VARINT |Decimal |
 
 > [!NOTE]
-> Kolekcja typów (mapy, zestaw, listy itp.), można znaleźć w [współpracy z typami kolekcji Cassandra za pomocą tabeli wirtualnej](#work-with-collections-using-virtual-table) sekcji.
+> Kolekcja typów (mapy, zestaw, listy itp.), można znaleźć zbyt[współpracy z typami kolekcji Cassandra za pomocą tabeli wirtualnej](#work-with-collections-using-virtual-table) sekcji.
 >
 > Typy definiowane przez użytkownika nie są obsługiwane.
 >
-> Długość kolumny typu Binary i kolumny typu String długości nie może być większa niż 4000.
+> Długość Hello długości kolumny typu Binary i kolumny typu String nie może być większa niż 4000.
 >
 >
 
 ## <a name="work-with-collections-using-virtual-table"></a>Praca z kolekcji za pomocą tabeli wirtualnej
-Fabryka danych Azure używa wbudowanego sterownika ODBC do nawiązania połączenia, a następnie skopiować dane z bazy danych Cassandra. Dla typów kolekcji, w tym mapy, zestaw i listy sterownik renormalizes dane w odpowiadających jej tabel wirtualnego. W szczególności jeśli tabela zawiera wszystkie kolumny w kolekcji, sterownik generuje następujące tabele wirtualne:
+Fabryka danych Azure korzysta z wbudowanej ODBC sterownika tooconnect tooand kopiowania danych z bazy danych Cassandra. Dla typów kolekcji, w tym mapy, zestaw i listy sterownik hello renormalizes hello danych do odpowiednich tabel wirtualnego. W szczególności jeśli tabela zawiera wszystkie kolumny w kolekcji, sterownik hello generuje hello następujące tabele wirtualne:
 
-* A **tabeli podstawowej**, który zawiera te same dane jako prawdziwe tabeli z wyjątkiem kolumny kolekcji. Tabela podstawowa używa tej samej nazwie jako prawdziwe tabeli, która reprezentuje.
-* A **tabeli wirtualnej** dla każdej kolekcji kolumny, która rozszerza zagnieżdżone dane. Wirtualny tabel, które reprezentują kolekcje są nazywane przy użyciu nazwy tabeli rzeczywistych separator "*vt*" i nazwę kolumny.
+* A **tabeli podstawowej**, który zawiera hello tych samych danych co hello rzeczywistych tabeli, z wyjątkiem hello kolekcji kolumn. tabeli podstawowej Hello używa hello takie same nazwy jako hello rzeczywistych tabeli, która reprezentuje.
+* A **tabeli wirtualnej** dla każdej kolekcji kolumny, która rozszerza hello zagnieżdżone dane. tabele wirtualne Hello reprezentujących kolekcje są nazywane przy użyciu nazwy hello hello rzeczywistych tabeli separator "*vt*" i nazwę hello hello kolumny.
 
-Tabele wirtualne odwołują się do danych w tabeli prawdziwe, włączanie dostępu do danych nieznormalizowany sterownika. Zobacz sekcję przykład, aby uzyskać szczegółowe informacje. Ma dostęp do zawartości Cassandra kolekcji, zapytań i przyłączanie tabel wirtualnego.
+Tabele wirtualne odnoszą się toohello dane w tabeli rzeczywistych hello, włączanie tooaccess sterownika hello hello nieznormalizowany danych. Zobacz sekcję przykład, aby uzyskać szczegółowe informacje. Dostęp z zawartości hello Cassandra kolekcji, zapytań i przyłączanie tabel wirtualnego hello.
 
-Można użyć [kreatora kopiowania](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) intuicyjnie wyświetlić listę tabel w bazie danych Cassandra tym tabele wirtualne i przeglądać dane wewnątrz. Można również utworzyć zapytanie w kreatorze kopiowania i weryfikacji, aby zobaczyć wynik.
+Można użyć hello [kreatora kopiowania](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) widoku toointuitively hello listy tabel w bazie danych Cassandra tym tabele wirtualne hello i wyświetlić podgląd danych hello wewnątrz. Można również utworzyć zapytanie w hello kreatora kopiowania i sprawdź poprawność toosee hello wyniku.
 
 ### <a name="example"></a>Przykład
-Na przykład następujące "ExampleTable" jest Cassandra tabeli bazy danych, która zawiera całkowitą kolumna klucza podstawowego o nazwie "pk_int", kolumna tekst o nazwie wartość kolumny listy, kolumny mapy i zestawu kolumn (o nazwie "StringSet").
+Na przykład hello następujące "ExampleTable" jest Cassandra tabeli bazy danych, która zawiera całkowitą kolumna klucza podstawowego o nazwie "pk_int", kolumna tekst o nazwie wartość kolumny listy, kolumny mapy i zestawu kolumn (o nazwie "StringSet").
 
 | pk_int | Wartość | List | mapy | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"Przykładowa wartość 1" |["1", "2", "3"] |{"S1": "", "S2": "b"} |{"", "B", "C"} |
 | 3 |"przykład value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"", "E"} |
 
-Sterownik przetwarzający generuje wiele tabel wirtualnego do reprezentowania tej pojedynczej tabeli. Kolumny klucza obcego w tabeli wirtualnej odwołania kolumn klucza podstawowego w tabeli rzeczywistych i wskazać, który odpowiada wiersz tabeli wirtualnej wiersz tabeli prawdziwe.
+Sterownik Hello powoduje wygenerowanie wielu toorepresent tabele wirtualne to pojedynczej tabeli. Witaj kolumny klucza obcego w tabelach wirtualnych hello odwoływania się do hello kolumn klucza podstawowego w tabeli rzeczywistych hello i wskazywać rzeczywistych, które odpowiada wiersza tabeli wirtualnej hello wiersza tabeli.
 
-Pierwsza tabela wirtualnego jest tabeli podstawowej o nazwie "ExampleTable" przedstawiono w poniższej tabeli. Podstawowa tabela zawiera te same dane jako oryginalnej tabeli bazy danych, z wyjątkiem kolekcje, które są pominięte w tej tabeli i rozwinięty w innych tabelach wirtualnych.
+pierwszy tabeli wirtualnej Hello jest hello tabeli podstawowej o nazwie "ExampleTable" jest wyświetlany w obszarze hello w poniższej tabeli. Tabela bazowa Hello zawiera hello tych samych danych co hello oryginalnej tabeli bazy danych, z wyjątkiem hello kolekcje, które są pominięte w tej tabeli i rozwinięty w innych tabelach wirtualnych.
 
 | pk_int | Wartość |
 | --- | --- |
 | 1 |"Przykładowa wartość 1" |
 | 3 |"przykład value 3" |
 
-W poniższych tabelach przedstawiono wirtualnego tabel, które renormalize danych z listy, mapy i StringSet kolumn. Kolumny o nazwach kończyć "_index" lub "_klucza" wskazać pozycję danych w oryginalnej listy lub mapy. Kolumny o nazwach kończących się znakiem "_value" zawierają rozszerzonych danych z kolekcji.
+Witaj w poniższych tabelach hello tabel wirtualnych, które renormalize hello dane z kolumny listy, mapy i StringSet hello. Witaj kolumny o nazwach kończyć "_index" lub "_klucza" wskazać pozycję hello hello danych w oryginalnej listy hello lub mapy. Witaj kolumny o nazwach kończących się znakiem "_value" zawierają dane hello rozwinięty z kolekcji hello.
 
 #### <a name="table-exampletablevtlist"></a>Tabela "ExampleTable_vt_List":
 | pk_int | List_index | List_value |
@@ -333,11 +333,11 @@ W poniższych tabelach przedstawiono wirtualnego tabel, które renormalize danyc
 | 3 |A |
 | 3 |E |
 
-## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła
-Aby uzyskać informacje dotyczące mapowania kolumn w zestawie źródła danych do kolumn w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
+## <a name="map-source-toosink-columns"></a>Mapowanie kolumny toosink źródłowe
+toolearn o mapowanie kolumn w źródłowej toocolumns zestawu danych w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Odczyt powtarzalny ze źródłami relacyjnymi
-Podczas kopiowania danych z danych relacyjnych przechowuje, należy pamiętać, aby uniknąć niezamierzone wyniki powtarzalności. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek jest uruchamiany ponownie, gdy wystąpi błąd. Podczas wycinek zostanie uruchomiona ponownie w obu przypadkach, należy się upewnić, że te same dane jest do odczytu niezależnie od tego, ile razy wycinek jest uruchamiany. Zobacz [Repeatable odczytywać źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Podczas kopiowania danych z baz danych relacyjnych, zachowania powtarzalności w uwadze tooavoid niezamierzone wyników. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek jest uruchamiany ponownie, gdy wystąpi błąd. W przypadku wycinek zostanie uruchomiona ponownie w obu przypadkach, należy się upewnić, że hello tych samych danych toomake jest do odczytu niezależnie od tego, jak często wycinek jest uruchamiany. Zobacz [Repeatable odczytywać źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Wydajność i dostrajania
-Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) Aby dowiedzieć się więcej o kluczowych czynników tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i zoptymalizować ją na różne sposoby.
+Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) toolearn o kluczu czynniki tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i różne sposoby toooptimize go.

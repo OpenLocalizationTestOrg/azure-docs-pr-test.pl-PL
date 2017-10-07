@@ -1,6 +1,6 @@
 ---
-title: "Nawiązać Edison firmy Intel (węzeł) Azure IoT — Lekcja 2: narzędzi platformy Azure (system Windows) | Dokumentacja firmy Microsoft"
-description: Zainstaluj Python i interfejsu wiersza polecenia platformy Azure (Azure CLI) w systemie Windows 7 i nowszych wersjach.
+title: "Połącz Edison firmy Intel (węzeł) tooAzure IoT — Lekcja 2: narzędzi platformy Azure (system Windows) | Dokumentacja firmy Microsoft"
+description: Zainstaluj Python i hello interfejsu wiersza polecenia platformy Azure (Azure CLI) w systemie Windows 7 i nowszych wersjach.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 7257fe98fa1075456de620ca46b4e10c34e06574
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0a2e941119f9106add708591d52f32eb9ed08451
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-azure-tools-windows-7-and-later"></a>Pobierz narzędzia Azure (z systemem Windows 7 i nowsze)
 > [!div class="op_single_selector"]
@@ -30,46 +30,46 @@ ms.lasthandoff: 07/11/2017
 > * [System macOS 10.10][macos]
 
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-Zainstaluj Python i interfejsu wiersza polecenia platformy Azure (Azure CLI). Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony][troubleshooting].
+Zainstaluj Python i hello interfejsu wiersza polecenia platformy Azure (Azure CLI). Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
 W tym artykule dowiesz się:
-* Jak zainstalować Python.
-* Jak zainstalować wiersza polecenia platformy Azure.
+* Jak tooinstall języka Python.
+* Jak tooinstall hello wiersza polecenia platformy Azure.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 * Komputer z systemem Windows z połączeniem internetowym.
 * Aktywna subskrypcja platformy Azure. Jeśli nie masz konta platformy Azure, Utwórz [bezpłatnego konta wersji próbnej Azure](http://azure.microsoft.com/pricing/free-trial/) za kilka minut.
 
 ## <a name="install-python"></a>Instalowanie języka Python
-[Instalowanie języka Python](https://www.python.org/downloads/) na komputerze z systemem Windows. Można zainstalować środowisko Python 2.7 3.4 lub 3.5. W tym samouczku jest oparty na języku Python 2.7. Jeśli po zainstalowaniu języka Python, przejdź do następnej sekcji i zainstaluj interfejs wiersza polecenia platformy Azure.
+[Instalowanie języka Python](https://www.python.org/downloads/) na komputerze z systemem Windows. Można zainstalować środowisko Python 2.7 3.4 lub 3.5. W tym samouczku jest oparty na języku Python 2.7. Po zainstalowaniu języka Python, przejdź do następnej sekcji toohello i zainstalować hello wiersza polecenia platformy Azure.
 
-Należy również dodać ścieżkę do folderów, w którym python.exe i pip.exe są zainstalowane w systemie `PATH` zmiennej środowiskowej. Domyślnie python.exe jest zainstalowany w `C:\Python27` i pip.exe jest instalowany w `C:\Python27\Scripts`.
+Należy również tooadd hello ścieżki folderów hello skutkującej systemu zainstalowanych toohello python.exe i pip.exe `PATH` zmiennej środowiskowej. Domyślnie python.exe jest zainstalowany w `C:\Python27` i pip.exe jest instalowany w `C:\Python27\Scripts`.
 
-## <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
-Interfejsu wiersza polecenia Azure zapewnia wiele platform wiersza polecenia platformy Azure. Praca bezpośrednio w wierszu polecenia do udostępniania i zarządzania zasobami.
+## <a name="install-hello-azure-cli"></a>Zainstaluj hello wiersza polecenia platformy Azure
+Witaj interfejsu wiersza polecenia Azure zapewnia wiele platform wiersza polecenia platformy Azure. Praca bezpośrednio z tooprovision z wiersza polecenia i zarządzanie zasobami.
 
-Aby zainstalować interfejs wiersza polecenia Azure, wykonaj następujące kroki:
+Witaj tooinstall wiersza polecenia platformy Azure, wykonaj następujące kroki:
 
 1. Otwórz okno wiersza polecenia z uprawnieniami administratora.
-2. Uruchom następujące polecenia:
+2. Uruchom następujące polecenia hello:
 
    ```cmd
    pip install --upgrade azure-cli
    pip install --upgrade azure-cli-iot
    ```
-3. Instalację można zweryfikować, uruchamiając następujące polecenie:
+3. Sprawdź hello instalacji, uruchamiając następujące polecenie hello:
 
    ```cmd
    az iot -h
    ```
 
-Następujące dane wyjściowe zostanie wyświetlony, jeśli instalacja zakończy się pomyślnie.
+Zobaczysz, że hello następujących danych wyjściowych, jeśli hello Instalacja powiodła się.
 
 ![Dane wyjściowe, co oznacza Powodzenie](media/iot-hub-intel-edison-lessons/lesson2/az_iot_help_win.png)
 
 ## <a name="summary"></a>Podsumowanie
-Po zainstalowaniu interfejsu wiersza polecenia Azure. Następnym zadaniem do tworzenia tożsamości koncentratora i urządzenia Azure IoT przy użyciu wiersza polecenia platformy Azure.
+Po zainstalowaniu hello wiersza polecenia platformy Azure. Następnego zadań toocreate tożsamości koncentratora i urządzenia Azure IoT przy użyciu hello wiersza polecenia platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 [Utworzenie Centrum IoT i zarejestruj Intel Edison][create-your-iot-hub-and-register-intel-edison]

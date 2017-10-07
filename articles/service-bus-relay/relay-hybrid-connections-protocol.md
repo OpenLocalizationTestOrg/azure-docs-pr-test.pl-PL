@@ -1,5 +1,5 @@
 ---
-title: "Azure połączeń hybrydowych przekazywania protokołu przewodnik | Dokumentacja firmy Microsoft"
+title: "Połączenia hybrydowe przekazywania aaaAzure protokołu przewodnik | Dokumentacja firmy Microsoft"
 description: "Przewodnik protokołu Azure przekazywania połączeń hybrydowych było możliwe."
 services: service-bus-relay
 documentationcenter: na
@@ -14,109 +14,109 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d145d919d606ae4722b063e1baf39fb845a600a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # Azure protokołu przekazywania połączeń hybrydowych
-Przekazywania Azure to jedna z kolumn klucza możliwości platformy Azure Service Bus. Nowy *połączeń hybrydowych* możliwość przekazywania jest bezpieczne, protokołu open zmiany, na podstawie HTTP i protokołu WebSockets. Zastępuje ona poprzedniego jednakowo o nazwie *usługi BizTalk Services* funkcji, który został utworzony na podstawie zastrzeżonym protokołem. Integrację usługi aplikacji Azure połączeń hybrydowych było możliwe będzie działać jako — jest.
+Azure przekazywania jest jednym z słupków kluczowych możliwości hello hello platformy Azure Service Bus. nowe Hello *połączeń hybrydowych* możliwość przekazywania jest bezpieczne, protokołu open zmiany, na podstawie HTTP i protokołu WebSockets. Zastępuje ona pierwsze hello, jednakowo o nazwie *usługi BizTalk Services* funkcji, który został utworzony na podstawie zastrzeżonym protokołem. integracji Hello połączeń hybrydowych usługi aplikacji Azure będzie toofunction jako — jest.
 
-Połączeń hybrydowych umożliwia strumienia dwukierunkowe, binarnych komunikacji między dwiema aplikacjami sieciowym, w których jedną lub obie strony może znajdować się za NAT lub zaporą. W tym artykule opisano interakcje przekazywania połączeń hybrydowych nawiązywania połączeń klientów w odbiornik i ról nadawcy i jak odbiorników akceptować nowych połączeń po stronie klienta.
+Połączeń hybrydowych umożliwia strumienia dwukierunkowe, binarnych komunikacji między dwiema aplikacjami sieciowym, w których jedną lub obie strony może znajdować się za NAT lub zaporą. W tym artykule opisano powitania klienta interakcji z przekaźnika połączeń hybrydowych hello nawiązywania połączeń klientów w odbiornik i ról nadawcy i jak odbiorników akceptować nowych połączeń.
 
 ## Model interakcji
-Przekazywania połączeń hybrydowych łączy dwie strony zapewniając punkt spotkania w chmurze Azure, który zarówno strony mogą odnaleźć i nawiązać połączenie z punktu widzenia własnych sieci. Tego punktu spotkania nazywa się "Połączenia hybrydowego" w tym i innych dokumentacji interfejsy API, a także w portalu Azure. Punkt końcowy usługi połączeń hybrydowych było możliwe jest określana jako "Usługa" dla pozostałej części tego artykułu. Model interakcji leans na nomenklaturę wyznaczane przez wiele innych sieci interfejsów API.
+przekazywania połączeń hybrydowych Hello łączy dwie strony zapewniając punktem spotkania w hello chmury Azure, który zarówno strony mogą odnaleźć i połączyć toofrom perspektywy własnych sieci. Tego punktu spotkania nazywa się "Połączenia hybrydowego" w tym i innych dokumentacji hello interfejsów API, a także w hello portalu Azure. Hello połączeń hybrydowych punktu końcowego usługi jest określane tooas hello "Usługa" hello pozostałej części tego artykułu. model interakcji Hello leans na nomenklaturę hello wyznaczane przez wiele innych sieci interfejsów API.
 
-Brak odbiornika, najpierw wskazuje gotowości do obsługi połączeń przychodzących, a następnie akceptuje, zgodnie z ich odbierania. Z drugiej strony Brak połączenia klienta, który łączy do odbiornika, oczekiwano takiego połączenia akceptację ustalania ścieżki komunikacja dwukierunkowa.
-"Połącz", "Nasłuchiwania" i "Zaakceptuj" są tego samego postanowienia, które możesz znaleźć w gnieździe większość interfejsów API.
+Brak odbiornika, najpierw wskazuje połączenia przychodzące toohandle gotowości, a następnie akceptuje, zgodnie z ich odbierania. Na hello druga Strona, brak połączenia klienta, który łączy do odbiornika hello, oczekiwano tego toobe połączenia zaakceptowane ustalania ścieżki komunikacja dwukierunkowa.
+"Połącz", "Nasłuchiwania," i "Zaakceptuj", hello są takie same terminy znajdziesz w większości gniazda interfejsów API.
 
-Każdy model komunikacji obsługiwanych przez przekaźnik ma albo strony wykonywania połączeń wychodzących na punkt końcowy usługi, co sprawia, że "odbiornika" również "client" w użyciu potocznej i może również spowodować inne przeciążenia terminologii. Terminologia dokładne, w związku z tym używanych dla połączeń hybrydowych było możliwe jest następujący:
+Każdy model komunikacji obsługiwanych przez przekaźnik ma albo strony wykonywania połączeń wychodzących na punkt końcowy usługi, co sprawia, że odbiornika"hello" również "client" w użyciu potocznej i może również spowodować inne przeciążenia terminologii. terminologia dokładne Hello, w związku z tym używanych dla połączeń hybrydowych było możliwe jest następujący:
 
-Programy po obu stronach połączenia są nazywane "klientów", ponieważ są one klientów do usługi. Czeka, który akceptuje połączenia klienta jest "odbiornika" lub jest określany jako "roli odbiornika." Klienta, który inicjuje nowe połączenie do odbiornika za pomocą usługi jest nazywany "sender" lub "rolą nadawcy."
+programy powitania po obu stronach połączenia są nazywane "klientów", ponieważ są one usługi toohello klientów. Hello klienta, który oczekuje na i akceptuje połączenia "odbiornik" lub jest nazywany toobe rolę hello"odbiornika." powitania klienta, który inicjuje nowe połączenie do odbiornika za pomocą usługi hello jest nazywany hello "sender" lub "rolą nadawcy."
 
 ### Odbiornik interakcji
-Odbiornik ma cztery interakcji z usługą; w dalszej części tego artykułu zamieszczone w tej sekcji opisano wszystkie szczegóły danych przesyłanych w sieci.
+odbiornik Hello ma cztery interakcji z usługą hello; wszystkie szczegóły danych przesyłanych w sieci są opisane w dalszej części tego artykułu w sekcji odwołania hello.
 
 #### Nasłuchiwanie
-Aby wskazać gotowość do usługi, która jest odbiornik gotowy do akceptowania połączeń, tworzy wychodzące połączenia obiektu WebSocket. Uzgadnianie połączenia przyjmuje nazwę połączenie hybrydowe skonfigurowany na przestrzeń nazw przekazywania i token zabezpieczający, który przyznaje "Nasłuchiwania" zgodny z nazwą.
-Gdy protokół WebSocket jest akceptowane przez usługę, rejestracja została zakończona i ustalonych sieci web protokołu WebSocket jest utrzymywane jako "kanał kontrolny" włączania wszystkich kolejnych interakcji. Usługa umożliwia połączenie hybrydowe maksymalnie 25 równoczesnych odbiorników. W przypadku co najmniej dwa odbiorniki aktywnego połączenia przychodzące są równoważone między je w kolejności losowej. odpowiedni dystrybucji nie jest gwarantowana.
+czy odbiornik jest gotowy tooaccept połączeń usługi toohello gotowości tooindicate, tworzy wychodzące połączenia obiektu WebSocket. Uzgadnianie połączenia Hello niesie hello nazwa połączenia hybrydowe skonfigurowany na powitania przekazywania w przestrzeni nazw i token zabezpieczający, który przyznaje hello "Nasłuchiwania" zgodny z nazwą.
+Gdy hello protokołu WebSocket została zaakceptowana przez usługę hello, rejestracja hello jest zakończona i hello ustanowić protokołu WebSocket jest utrzymywane jako hello "kanał kontrolny" włączania wszystkich kolejnych interakcjach sieci web. Usługa Hello umożliwia się too25 odbiorników równoczesnych na połączenie hybrydowe. W przypadku co najmniej dwa odbiorniki aktywnego połączenia przychodzące są równoważone między je w kolejności losowej. odpowiedni dystrybucji nie jest gwarantowana.
 
 #### Zaakceptuj
-Po otwarciu nowego połączenia w usłudze nadawcy usługa wybierze i powiadamia jednej aktywnej odbiorników na połączenia hybrydowego. To powiadomienie jest wysyłane do odbiornika za pośrednictwem kanału open kontroli jako wiadomość JSON zawierający adres URL punktu końcowego protokołu WebSocket, który odbiornika należy nawiązać połączenie do akceptowania połączeń.
+Po otwarciu nowego połączenia w usłudze hello nadawcy usługi hello wybiera i powiadamia jednej aktywnej odbiorników hello na powitania połączenia hybrydowego. To powiadomienie jest wysyłane za pośrednictwem kanału open kontroli hello odbiornika toohello jako wiadomości JSON zawierający hello adres URL punktu końcowego protokołu WebSocket hello, który hello odbiornika musi połączyć toofor akceptować połączenia hello.
 
-Adres URL może i mogą być używane bezpośrednio przez odbiornik bez konieczności wykonywania dodatkowych działań.
-Dane zakodowane jest prawidłowa tylko krótki okres czasu, zasadniczo tak długo, jak nadawca jest gotowa oczekiwania dla połączenia nawiązane end-to-end można, ale maksymalnie 30 sekund. Adres URL można używać tylko dla jednego pomyślnego połączenia. Natychmiast po nawiązaniu połączenia obiektu WebSocket z adresem URL spotkania wszystkich dalszych działań w tym protokołu WebSocket jest przekazywany z i do nadawcy, bez konieczności interwencji lub interpretacji przez usługę.
+adres URL Hello można i mogą być używane bezpośrednio przez odbiornik hello bez konieczności wykonywania dodatkowych działań.
+informacje Hello zakodowane jest prawidłowy tylko wtedy krótki okres czasu, zasadniczo tak długo, nadawcę hello chce toowait hello połączenia toobe ustanowić end-to-end, ale się tooa maksymalnie 30 sekund. Hello adres URL może służyć tylko dla jednego pomyślnego połączenia. Najszybciej, jak hello połączenia z hello spotkania nawiązuje adres URL, wszystkich dalszych działań w tym protokołu WebSocket jest przekazywany z protokołu WebSocket i toohello nadawcy, bez konieczności interwencji lub interpretacji przez usługę hello.
 
 #### Renew
-Token zabezpieczający, który musi być używany do rejestrowania odbiornika i obsługa kanał kontrolny może wygaśnie, gdy odbiornika jest aktywny. Wygaśnięcia tokenu nie ma wpływu na bieżące połączenia, ale powodować kanału kontroli ma być przerwane przez usługę w lub wkrótce po chwili wygaśnięcia. Operacja "odnowić" jest komunikat JSON, który odbiornika można wysyłać do Zamień token skojarzony z kanału kontroli, tak aby kanał kontrolny mogą być obsługiwane przez dłuższy czas.
+token zabezpieczający Hello, który należy odbiornika hello tooregister używane i obsługa kanał kontrolny może wygaśnie, gdy odbiornika hello jest aktywny. Witaj wygaśnięcia tokenu nie ma wpływu na bieżące połączenia, ale powodować toobe kanału kontroli hello porzuconych przez usługę hello na lub wkrótce po chwili hello wygaśnięcia. Operacja "odnowić" Hello jest JSON wiadomość hello odbiornika można tooreplace hello token skojarzony z hello kanału kontroli, aby wysłać hello kanału kontrolnego mogą być obsługiwane przez dłuższy czas.
 
 #### Ping
-Jeśli kanał kontrolny pozostanie bezczynny przez długi czas pośredników w taki sposób, takie jak obciążenia równoważenia lub NAT może porzucić połączenie TCP. Operacja "ping" pozwala uniknąć który wysyłając niewielką ilość danych w kanale, który przypomina o tym, wszyscy członkowie trasę sieciową, która ma być aktywne połączenie i służy również jako "na żywo" testu dla odbiornika. Jeśli polecenie ping nie powiedzie się, kanał kontrolny należy traktować jako bezużyteczne i odbiornika powinni połączyć się ponownie.
+Jeśli kanał kontrolny hello pozostanie bezczynny przez długi czas pośredników w sposób hello, takich jak obciążenia równoważenia lub NAT może porzucić hello połączenie TCP. Operacja "ping" Hello, pozwala uniknąć który wysyłając niewielką ilość danych kanałem hello przypomina o tym, wszyscy członkowie trasę sieciową hello tego połączenia hello oznacza toobe aktywności, i służy również jako "na żywo" testu dla odbiornika hello. Jeśli hello ping nie powiedzie się, kanał kontrolny hello należy traktować jako bezużyteczne i odbiornika hello powinni połączyć się ponownie.
 
 ### Nadawca interakcji
-Nadawca ma tylko jeden interakcji z usługą: nawiązuje połączenie.
+nadawca Hello ma tylko jeden interakcji z usługą hello: nawiązuje połączenie.
 
 #### Połączenie
-Operacja "Połącz" otwiera WebSocket w usłudze podanie nazwy połączenia hybrydowego i (opcjonalnie, ale wymagane domyślnie) tokenu zabezpieczeń przyznania uprawnień "Send" w ciągu zapytania. Usługa użyje odbiornika w sposób opisany wcześniej, a odbiornik tworzy połączenie spotkania, który jest połączony z tym protokołu WebSocket. Po zaakceptowaniu żądania WebSocket wszystkich dalszych interakcji, w tym protokołu WebSocket są połączone odbiornika.
+operacji "Połącz" Hello otwiera WebSocket w usłudze hello, udostępnienie nazwa hello hello połączenia hybrydowego i (opcjonalnie, ale wymagane domyślnie) przyznanie uprawnień "Wyślij" w ciągu zapytania hello tokenu zabezpieczającego. Usługa Hello użyje odbiornika hello w sposób opisany wcześniej hello i odbiornika hello tworzy połączenie spotkania, który jest połączony z tym protokołu WebSocket. Po zaakceptowaniu hello protokołu WebSocket wszystkich dalszych interakcji, w tym protokołu WebSocket są połączone odbiornika.
 
 ### Interakcja podsumowania
-Wynik tego modelu interakcji jest, czy klient nadawcy pochodzą poza uzgadnianie z WebSocket "Wyczyść", która jest połączona z odbiornik i wymaga nie dalsze preambles lub przygotowania. Ten model umożliwia praktycznie dowolnego istniejącego implementacja klienta WebSocket łatwo korzystać z usługi połączeń hybrydowych było możliwe, podając adres URL poprawnie skonstruowany do ich warstwy klienta protokołu WebSocket.
+wynik Hello tego modelu interakcji jest powitania klienta nadawcy jest dostarczany z uzgadniania z WebSocket "Wyczyść", który jest połączony tooa odbiornika i wymaga nie dalsze preambles lub przygotowania. Ten model umożliwia praktycznie dowolny istniejącego obiektu WebSocket klienta implementacji tooreadily korzystanie z zalet hello usługi połączeń hybrydowych było możliwe, podając adres URL poprawnie skonstruowany do ich warstwy klienta protokołu WebSocket.
 
-Połączenie WebSocket, który odbiornika uzyskuje się za pośrednictwem interakcji Akceptuj spotkania również jest czysty i można przekazać do istniejącej implementacji serwera protokołu WebSocket z niektórych minimalnego abstrakcji dodatkowe odróżniająca między operacjami "Akceptuj" w ich ramach odbiorników sieci lokalnej i połączeń hybrydowych było możliwe operacje zdalnego "Akceptuj".
+Hello spotkania połączenie WebSocket, który hello odbiornika uzyskuje się za pośrednictwem interakcji Akceptuj również jest czysty i można przekazać tooany istniejącego protokołu WebSocket serwera wdrażania z niektórych minimalnego dodatkowe abstrakcji, która odróżnia między "Akceptuj" operacje na ich framework odbiorników sieci lokalnej i zdalnej połączeń hybrydowych "Zaakceptuj" operacji.
 
 ## Odwołanie do protokołu
 
-W tej sekcji opisano interakcji protokołu opisanych powyżej.
+W tej sekcji opisano szczegóły hello interakcji protokołu hello opisanych powyżej.
 
 Wszystkie połączenia obiektu WebSocket są wykonane na porcie 443 uaktualnienie z 1.1 HTTPS, który jest powszechnie usunięte przez niektóre framework WebSocket lub interfejsu API. Opis w tym miejscu jest przechowywana implementacji neutralne, bez sugerowanie dla określonej platformy.
 
 ### Protokół odbiornika
-Protokół odbiornika składa się z dwóch gestów połączenia i trzy operacje dotyczące komunikatów.
+Protokół odbiornika Hello składa się z dwóch gestów połączenia i trzy operacje dotyczące komunikatów.
 
 #### Połączenie kanału kontroli odbiornika
-Kanał kontrolny jest otwarty z tworzenia połączenia obiektu WebSocket:
+kanał kontrolny Hello jest otwarty z tworzenia połączenia obiektu WebSocket:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
 ```
 
-`namespace-address` Jest w pełni kwalifikowaną nazwę przestrzeni nazw przekazywania Azure obsługującym połączenia hybrydowego, zazwyczaj formę `{myname}.servicebus.windows.net`.
+Witaj `namespace-address` jest nazwą FQDN hello nazw przekazywania Azure hello czy hosty hello połączenia hybrydowego zazwyczaj formę hello `{myname}.servicebus.windows.net`.
 
-Dostępne są następujące opcje parametru ciągu zapytania.
+dostępne są następujące opcje parametru ciągu zapytania Hello.
 
 | Parametr | Wymagane | Opis |
 | --- | --- | --- |
-| `sb-hc-action` |Tak |Dla roli odbiornika parametr musi być **sb hc akcji = nasłuchiwania** |
-| `{path}` |Tak |Ścieżka zakodowane w adresie URL przestrzeni nazw połączenia hybrydowego wstępnie skonfigurowane, aby zarejestrować się w tym odbiorniku. To wyrażenie jest dołączany do stałej `$hc/` części ścieżki. |
-| `sb-hc-token` |Tak\* |Odbiornik Podaj prawidłową, zakodowane w adresie URL usługi magistrali udostępnionych Token dostępu dla przestrzeni nazw lub połączenie hybrydowe, który przyznaje **nasłuchiwania** prawo. |
+| `sb-hc-action` |Tak |Witaj odbiornika roli Witaj parametru musi być **sb hc akcji = nasłuchiwania** |
+| `{path}` |Tak |Witaj zakodowane w adresie URL ścieżki przestrzeni nazw z hello wstępnie tooregister połączenia hybrydowego tym odbiorniku na. To wyrażenie jest dołączany toohello stałej `$hc/` części ścieżki. |
+| `sb-hc-token` |Tak\* |Witaj odbiornika należy podać prawidłową, zakodowane w adresie URL usługi magistrali udostępnionych Token dostępu hello przestrzeni nazw lub połączenie hybrydowe, który przyznaje hello **nasłuchiwania** prawo. |
 | `sb-hc-id` |Nie |Ten identyfikator opcjonalne dostarczonych przez klienta umożliwia śledzenie diagnostyczne end-to-end. |
 
-Jeśli połączenia obiektu WebSocket nie powiodło się z powodu ścieżka połączenia hybrydowego nie jest zarejestrowany lub token nieprawidłowe lub brakujące lub inny błąd, błąd opinii jest realizowane przy użyciu modelu regularne opinii stanu HTTP 1.1. Opis stanu zawiera błąd — identyfikator śledzenia być przekazane do personelu pomocy technicznej platformy Azure:
+W przypadku niepowodzenia wykonania toohello ścieżka połączenia hybrydowego nie jest zarejestrowany lub token nieprawidłowe lub brakujące lub inny błąd hello połączenia obiektu WebSocket opinii błąd hello jest realizowane przy użyciu modelu opinii stanu HTTP 1.1 hello regularne. Opis stanu zawiera błąd — identyfikator śledzenia być przekazane do personelu pomocy technicznej platformy Azure:
 
 | Kod | Błąd | Opis |
 | --- | --- | --- |
-| 404 |Nie można odnaleźć |Ścieżka połączenia hybrydowego jest nieprawidłowa lub podstawowy adres URL jest nieprawidłowo sformułowany. |
-| 401 |Brak autoryzacji |Token zabezpieczający jest brak lub źle sformułowany lub nieprawidłowy. |
-| 403 |Dostęp zabroniony |Token zabezpieczający nie jest prawidłowy dla tej ścieżki do wykonania tej akcji. |
-| 500 |Błąd wewnętrzny |Wystąpił problem w usłudze. |
+| 404 |Nie można odnaleźć |Ścieżka połączenia hybrydowego Hello jest nieprawidłowa lub hello podstawowy adres URL jest nieprawidłowo sformułowany. |
+| 401 |Brak autoryzacji |token zabezpieczający Hello jest brak lub źle sformułowany lub nieprawidłowy. |
+| 403 |Dostęp zabroniony |token zabezpieczający Hello jest nieprawidłowa dla tej ścieżki do wykonania tej akcji. |
+| 500 |Błąd wewnętrzny |Wystąpił problem w usłudze hello. |
 
-Wyłączenie połączenia obiektu WebSocket celowo przez usługę po jego został początkowo, przyczyna to przesyłane przy użyciu odpowiednich kod błędu protokołu WebSocket wraz z komunikat z opisem błędu, który obejmuje również identyfikator śledzenia Usługa nie wyłączy kanału kontroli bez napotkania warunek błędu. Wszelkie czystego zamknięcia jest kontrolowane przez klienta.
+Wyłączenie hello połączenia obiektu WebSocket celowo przez usługę powitania po jego został początkowo, hello przyczyna to przesyłane przy użyciu odpowiednich kod błędu protokołu WebSocket wraz z komunikat z opisem błędu, który również uwzględnia śledzenia IDENTYFIKATOR. Usługa Hello nie wyłączy kanału kontroli bez napotkania warunek błędu. Wszelkie czystego zamknięcia jest kontrolowane przez klienta.
 
 | Stan WS | Opis |
 | --- | --- |
-| 1001 |Ścieżka połączenia hybrydowego została usunięta lub wyłączona. |
-| 1008 |Token zabezpieczeń wygasł, w związku z tym naruszenia zasad autoryzacji. |
-| 1011 |Wystąpił problem w usłudze. |
+| 1001 |Ścieżka połączenia hybrydowego Hello została usunięta lub wyłączona. |
+| 1008 |token zabezpieczający Hello wygasł, w związku z tym naruszenia zasad autoryzacji hello. |
+| 1011 |Wystąpił problem w usłudze hello. |
 
 ### Zaakceptuj uzgadniania
-"Zaakceptuj" powiadomienie jest wysyłane przez usługę do odbiornika w kanale kontroli uprzednio ustanowionym w jako wiadomość JSON do ramki protokołu WebSocket. Brak odpowiedzi na tę wiadomość nie istnieje.
+Witaj "zaakceptować" powiadomienie jest wysyłane przez odbiornik toohello usługi hello w kanale kontroli uprzednio ustanowionym jako wiadomość JSON do ramki protokołu WebSocket. Nie ma odpowiedzi toothis.
 
-Komunikat zawiera obiekt JSON o nazwie "Zaakceptuj", który definiuje następujące właściwości w tym momencie:
+wiadomość Hello zawiera obiekt JSON o nazwie "Zaakceptuj", który definiuje następujące właściwości w tym momencie hello:
 
-* **adres** — ciąg adresu URL używanego do utworzenia obiektu WebSocket do usługi do akceptowania połączeń przychodzących.
-* **Identyfikator** — Unikatowy identyfikator dla tego połączenia. Jeśli identyfikator został podany przez klienta nadawcy, jest nadawca podana wartość, w przeciwnym razie wartość wygenerowana przez system.
-* **connectHeaders** — wszystkie nagłówki HTTP, które zostały dostarczone z punktem końcowym przekazywania przez nadawcę, który obejmuje również protokół WebSocket s i nagłówków rozszerzeń-s-protokołu WebSocket.
+* **adres** — Witaj toobe ciągu adresu URL używany do ustanawiania hello protokołu WebSocket toothe usługi tooaccept połączenia przychodzącego.
+* **Identyfikator** — Witaj Unikatowy identyfikator dla tego połączenia. Jeśli identyfikator hello zostało dostarczone przez powitania klienta nadawcy, jest hello nadawcy podana wartość, w przeciwnym razie wartość wygenerowana przez system.
+* **connectHeaders** — wszystkie nagłówki HTTP, które zostały dostarczone punktu końcowego przekazywania toohello przez nadawcę hello, który obejmuje również hello protokół s-WebSocket i nagłówków rozszerzeń-s-protokołu WebSocket.
 
 #### Akceptowanie komunikatu
 
@@ -134,70 +134,70 @@ Komunikat zawiera obiekt JSON o nazwie "Zaakceptuj", który definiuje następuj�
 }
 ```
 
-Adres URL zawarty w wiadomości JSON jest używany przez odbiornik do ustanawiania protokołu WebSocket dla akceptowanie lub odrzucanie gniazda nadawcy.
+Hello adres URL podany w hello komunikat JSON jest używany przez odbiornik hello ustanowienie tekst hello protokołu WebSocket dla akceptowanie lub odrzucanie hello nadawcy gniazda.
 
-#### Akceptowania gniazda
-Aby zaakceptować, odbiornika ustanawia połączenie obiektu WebSocket na podany adres.
+#### Akceptowanie hello gniazda
+tooaccept, odbiornika hello ustanawia adresem toohello podane połączenia obiektu WebSocket.
 
-Jeśli wiadomość "Zaakceptuj" przenosi `Sec-WebSocket-Protocol` nagłówka, oczekuje się, że odbiornika akceptuje tylko protokół WebSocket Jeśli obsługuje tego protokołu. Ponadto ustawia nagłówek ustalonych protokołu WebSocket.
+Jeśli hello "Zaakceptuj" komunikatów posiada `Sec-WebSocket-Protocol` nagłówka, oczekiwano tego odbiornika hello akceptuje tylko hello protokołu WebSocket Jeśli obsługuje tego protokołu. Ponadto ustawia nagłówek hello jako hello nawiązuje protokołu WebSocket.
 
-To samo dotyczy `Sec-WebSocket-Extensions` nagłówka. Jeśli platforma obsługuje rozszerzenie, należy ustawić nagłówek odpowiedź po stronie serwera wymaganego `Sec-WebSocket-Extensions` uzgadniania dla rozszerzenia.
+Witaj dotyczy to również toohello `Sec-WebSocket-Extensions` nagłówka. Jeśli struktura hello obsługuje rozszerzenie, należy ustawić hello nagłówka toohello po stronie serwera odpowiedzi hello wymagane `Sec-WebSocket-Extensions` uzgadniania hello rozszerzenia.
 
-Adres URL musi być używany jako — jest ustalania gniazda Akceptuj, ale zawiera następujące parametry:
+adres URL Hello musi być używany jako — jest ustalania hello akceptowania gniazda, ale zawiera następujące parametry:
 
 | Parametr | Wymagane | Opis |
 | --- | --- | --- |
-| `sb-hc-action` |Tak |Akceptowania gniazda, parametr musi być`sb-hc-action=accept` |
-| `{path}` |Tak |(zobacz następujący ustęp) |
+| `sb-hc-action` |Tak |Akceptowania gniazda, musi być parametrem hello`sb-hc-action=accept` |
+| `{path}` |Tak |(zobacz następny akapit hello) |
 | `sb-hc-id` |Nie |Zobacz opis poprzedniego **identyfikator**. |
 
-`{path}`to ścieżka zakodowane w adresie URL przestrzeni nazw wstępnie skonfigurowane połączenia hybrydowego, w którym można zarejestrować tego odbiornika. To wyrażenie jest dołączany do stałej `$hc/` części ścieżki. 
+`{path}`jest hello zakodowane w adresie URL ścieżki przestrzeni nazw z hello wstępnie połączenia hybrydowego, w których tooregister tego odbiornika. To wyrażenie jest dołączany toothe stałej `$hc/` części ścieżki. 
 
-`path` Wyrażenie może zostać rozszerzona z sufiksem i następującym po oddzielający ukośnik zarejestrowaną nazwę wyrażenia ciągu zapytania. Dzięki temu klient nadawcy przekazać argumenty wysyłania akceptują odbiornika, gdy nie jest możliwe podanie nagłówków HTTP. Oczekuje się, że framework odbiornika analizuje części stałym ścieżki i nazwy zarejestrowane ze ścieżki i sprawia, że pozostała, prawdopodobnie bez żadnych argumentów ciągu zapytania poprzedzony `sb-`, dostępne dla aplikacji dotyczących decydowania, czy akceptować połączenia.
+Witaj `path` wyrażenie może zostać rozszerzona z sufiksem i znajdujący się po oddzielający ukośnik hello zarejestrowaną nazwę wyrażenia ciągu zapytania. Pozwala to hello nadawcy klienta toopass wysyłania argumenty toohello akceptują odbiornika, gdy nie jest możliwe tooinclude HTTP nagłówków. Hello oczekiwania jest tego odbiornika hello analizuje framework części ścieżki stałym hello i zarejestrowana nazwa hello ze ścieżki i sprawia, że reszta hello prawdopodobnie bez żadnych argumentów ciągu zapytania poprzedzony `sb-`, aplikacja toohello dostępne dla przy wyborze czy tooaccept hello połączenia.
 
-Aby uzyskać więcej informacji zobacz sekcję "Nadawcy protokół" poniżej.
+Aby uzyskać więcej informacji zobacz następujące sekcji "Nadawcy protokół" hello.
 
-Jeśli występuje błąd, usługa może odpowiedzieć w następujący sposób:
+Jeśli występuje błąd, hello usługa może odpowiedzieć w następujący sposób:
 
 | Kod | Błąd | Opis |
 | --- | --- | --- |
-| 403 |Dostęp zabroniony |Adres URL jest nieprawidłowy. |
-| 500 |Błąd wewnętrzny |Wystąpił problem w usłudze |
+| 403 |Dostęp zabroniony |Witaj adres URL jest nieprawidłowy. |
+| 500 |Błąd wewnętrzny |Wystąpił problem w usłudze hello |
 
-Po ustanowieniu połączenia serwera zamknięty, protokół WebSocket kiedy nadawcy WebSocket przebiega w dół lub z następujących stanów:
+Po ustanowieniu połączenia hello powitania serwera zamknięty, hello protokołu WebSocket kiedy nadawcy hello protokołu WebSocket przebiega w dół lub z powitania po stanu:
 
 | Stan WS | Opis |
 | --- | --- |
-| 1001 |Nadawca klient zamyka połączenie. |
-| 1001 |Ścieżka połączenia hybrydowego została usunięta lub wyłączona. |
-| 1008 |Token zabezpieczeń wygasł, w związku z tym naruszenia zasad autoryzacji. |
-| 1011 |Wystąpił problem w usłudze. |
+| 1001 |powitania klienta nadawcy zamyka hello połączenia. |
+| 1001 |Ścieżka połączenia hybrydowego Hello została usunięta lub wyłączona. |
+| 1008 |token zabezpieczający Hello wygasł, w związku z tym naruszenia zasad autoryzacji hello. |
+| 1011 |Wystąpił problem w usłudze hello. |
 
-#### Odrzucanie gniazda
-Odrzucanie gniazda po sprawdzeniu komunikat "Zaakceptuj" wymaga uzgadniania podobny kod stanu i opis stanu komunikacji przyczynę odrzucenia może przepływać do nadawcy.
+#### Odrzucanie hello gniazda
+Odrzuca gniazda powitania po komunikat kontrolny "Zaakceptuj" hello wymaga uzgadniania podobne, tak aby hello kod stanu i opis stanu przekazywania przyczynę odrzucenia hello mogą przepływać z powrotem toohello nadawcy.
 
-Protokół wyboru tych elementów w tym miejscu jest użycie uzgadniania protokołu WebSocket (opracowaną w celu zakończenia w stanie błędu zdefiniowanych), aby implementacjach klienta odbiornika mogą w dalszym ciągu polegać na kliencie protokołu WebSocket i nie trzeba stosować dodatkowe, bez systemu operacyjnego klienta HTTP.
+Wybór projektu protokołu Hello tutaj jest toouse uzgadniania protokołu WebSocket (która jest zaprojektowana tooend w stanie błędu zdefiniowanych), implementacjach klienta odbiornika można kontynuować toorely na kliencie protokołu WebSocket i nie trzeba stosować dodatkowe, bez systemu operacyjnego klienta HTTP.
 
-Aby odrzucić gniazda, klient pobiera adres URI z komunikatu "Zaakceptuj" i dołącza dwóch parametrów ciągu zapytania, w następujący sposób:
+gniazdo hello tooreject powitania klienta przyjmuje hello adres URI z komunikatu "Zaakceptuj" hello i dołącza dwa tooit parametry ciągu zapytania, w następujący sposób:
 
 | Param | Wymagane | Opis |
 | --- | --- | --- |
 | statusCode |Tak |Kod stanu HTTP. |
-| StatusDescription |Tak |Człowieka czytelny przyczynę odrzucenia. |
+| StatusDescription |Tak |Człowieka czytelny przyczynę odrzucenia hello. |
 
-Wynikowy identyfikatora URI jest następnie używany do ustanawiania połączenia obiektu WebSocket.
+powitalne wynikowy identyfikator URI jest następnie używany tooestablish połączenia obiektu WebSocket.
 
-Po zakończeniu poprawnie, to uzgadnianie celowo kończy się niepowodzeniem z kodem błędu HTTP 410, ponieważ WebSocket nie została ustanowiona. Jeśli jakaś nieprawidłowość, następujące kody opis błędu:
+Po zakończeniu poprawnie, to uzgadnianie celowo kończy się niepowodzeniem z kodem błędu HTTP 410, ponieważ WebSocket nie została ustanowiona. Jeśli jakaś nieprawidłowość, hello następujące kody opisano hello błąd:
 
 | Kod | Błąd | Opis |
 | --- | --- | --- |
-| 403 |Dostęp zabroniony |Adres URL jest nieprawidłowy. |
-| 500 |Błąd wewnętrzny |Wystąpił problem w usłudze. |
+| 403 |Dostęp zabroniony |Witaj adres URL jest nieprawidłowy. |
+| 500 |Błąd wewnętrzny |Wystąpił problem w usłudze hello. |
 
 ### Odbiornik odnowienia tokenu
-Gdy token odbiornika jest wygaśnie, go można zastąpić, wysyłając wiadomość SMS ramki za pośrednictwem kanału kontroli ustanowionych z usługą. Komunikat zawiera obiekt JSON o nazwie `renewToken`, który definiuje następującą właściwość w tym czasie:
+Po hello odbiornika token o tooexpire go można zastąpić, wysyłając usługi toohello wiadomości tekstowych ramki za pośrednictwem hello ustanowić kanał kontrolny. Komunikat zawiera obiekt JSON o nazwie `renewToken`, który definiuje następujące właściwości w tym momencie hello:
 
-* **Token** — tokenu dostępu udostępnionego magistrali usługi prawidłowy, zakodowane w adresie URL dla przestrzeni nazw lub połączenie hybrydowe, który przyznaje **nasłuchiwania** prawo.
+* **Token** — tokenu dostępu udostępnionego magistrali usługi prawidłowy, zakodowane w adresie URL dla przestrzeni nazw lub połączenie hybrydowe, który przyznaje hello **nasłuchiwania** prawo.
 
 #### komunikat renewToken
 
@@ -209,58 +209,58 @@ Gdy token odbiornika jest wygaśnie, go można zastąpić, wysyłając wiadomoś
 }
 ```
 
-W przypadku niepowodzenia weryfikacji tokenu dostępu, a usługa w chmurze zamyka kanał kontrolny protokołu WebSocket z powodu błędu. W przeciwnym razie jest żadnej odpowiedzi.
+W przypadku niepowodzenia weryfikacji tokenu hello odmowa dostępu, a usługa w chmurze hello zamyka kanał kontrolny hello protokołu WebSocket z powodu błędu. W przeciwnym razie jest żadnej odpowiedzi.
 
 | Stan WS | Opis |
 | --- | --- |
-| 1008 |Token zabezpieczeń wygasł, w związku z tym naruszenia zasad autoryzacji. |
+| 1008 |token zabezpieczający Hello wygasł, w związku z tym naruszenia zasad autoryzacji hello. |
 
 ## Protokół nadawcy
-Protokół nadawcy jest identyczne jak odbiornik zostanie nawiązane.
-Celem jest maksymalną przezroczystość WebSocket end-to-end. Adres do nawiązania połączenia jest taki sam, jak w przypadku odbiornika, ale "Akcja" różni się i token musi różne uprawnienia:
+Protokół nadawcy Hello jest identyczne toohello sposobu odbiornik zostanie nawiązane.
+Celem Hello jest maksymalną przezroczystość hello end-to-end protokołu WebSocket. adres Hello nawiązać hello toois, który różni się takie same jak w przypadku hello odbiornika, ale hello "Akcja" i tokenu musi różne uprawnienia:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
 ```
 
-*Przestrzeń nazw adresów* jest w pełni kwalifikowaną nazwę przestrzeni nazw przekazywania Azure obsługującym połączenia hybrydowego, zazwyczaj formę `{myname}.servicebus.windows.net`.
+Witaj *przestrzeń nazw adresów* hello pełni kwalifikowanej nazwy domeny czy hosty hello połączenia hybrydowego zazwyczaj formę hello nazw przekaźnika usługi Azure hello jest `{myname}.servicebus.windows.net`.
 
-Żądanie może zawierać dowolne dodatkowe nagłówków HTTP, w tym te zdefiniowane przez aplikację. Wszystkie podane nagłówki przepływać do odbiornika i znajduje się na `connectHeader` obiektu **zaakceptować** komunikatu kontroli.
+Żądanie hello może zawierać dowolne dodatkowe nagłówków HTTP, w tym te zdefiniowane przez aplikację. Wszystkie podane nagłówki przepływu toohello odbiornika i znajduje się na powitania `connectHeader` obiektu hello **zaakceptować** komunikatu kontroli.
 
-Dostępne są następujące opcje parametru ciągu zapytania:
+Opcje parametru ciągu zapytania Hello są następujące:
 
-| Param | Wymagane? | Opis |
+| Param | Wymagana? | Opis |
 | --- | --- | --- |
-| `sb-hc-action` |Tak |Dla roli nadawcy parametr musi być `action=connect`. |
-| `{path}` |Tak |(zobacz następujący ustęp) |
-| `sb-hc-token` |Tak\* |Odbiornik Podaj prawidłową, zakodowane w adresie URL usługi magistrali udostępnionych Token dostępu dla przestrzeni nazw lub połączenie hybrydowe, który przyznaje **wysyłania** prawo. |
-| `sb-hc-id` |Nie |Opcjonalny identyfikator umożliwia śledzenie diagnostyczne end-to-end, który ma zostać udostępnione do odbiornika podczas uzgadniania accept. |
+| `sb-hc-action` |Tak |Dla roli nadawcy hello hello parametr musi być `action=connect`. |
+| `{path}` |Tak |(zobacz następny akapit hello) |
+| `sb-hc-token` |Tak\* |Witaj odbiornika należy podać prawidłową, zakodowane w adresie URL usługi magistrali udostępnionych Token dostępu hello przestrzeni nazw lub połączenie hybrydowe, który przyznaje hello **wysyłania** prawo. |
+| `sb-hc-id` |Nie |Opcjonalny identyfikator, który umożliwia śledzenie diagnostyczne end-to-end i staje się dostępna toohello odbiornika podczas hello zaakceptować uzgadniania. |
 
-`{path}` Jest ścieżką zakodowane w adresie URL przestrzeni nazw wstępnie skonfigurowane połączenia hybrydowego, w którym można zarejestrować tego odbiornika. `path` Wyrażenie można rozszerzyć z sufiksem i wyrażenia ciągu zapytania do dalszej komunikacji. Jeśli połączenie hybrydowe jest zarejestrowany w ścieżce `hyco`, `path` wyrażenie może być `hyco/suffix?param=value&...` następuje parametrów ciągu zapytania, które są zdefiniowane w tym miejscu. Pełne wyrażenie może wyglądać następująco:
+Witaj `{path}` jest hello zakodowane w adresie URL ścieżki przestrzeni nazw z hello wstępnie połączenia hybrydowego, w których tooregister tego odbiornika. Witaj `path` wyrażenie można rozszerzyć z sufiksem i toocommunicate wyrażenia ciągu zapytania dalej. Jeśli hello połączenia hybrydowego jest zarejestrowany w ścieżce hello `hyco`, hello `path` wyrażenie może być `hyco/suffix?param=value&...` następuje parametrów ciągu zapytania hello zdefiniowane w tym miejscu. Pełne wyrażenie może wyglądać następująco:
 
 ```
 wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
 ```
 
-`path` Wyrażenie jest przekazywana do odbiornika dla adresu URI zawarte w komunikacie kontroli "Zaakceptuj".
+Witaj `path` wyrażenie jest przekazywana odbiornika toohello hello adresu URI zawarte w komunikat kontrolny "Zaakceptuj" hello.
 
-Jeśli połączenia obiektu WebSocket nie powiodło się z powodu ścieżka połączenia hybrydowego nie jest zarejestrowany, token nieprawidłowe lub brakujące lub inny błąd, błąd opinii jest realizowane przy użyciu modelu regularne opinii stanu HTTP 1.1. Opis stanu zawiera błąd śledzenia identyfikator, który może być przekazywane do personelu pomocy technicznej platformy Azure:
+W przypadku niepowodzenia wykonania toohello ścieżka połączenia hybrydowego nie jest zarejestrowany, token nieprawidłowe lub brakujące lub inny błąd hello połączenia obiektu WebSocket opinii błąd hello jest realizowane przy użyciu modelu opinii stanu HTTP 1.1 hello regularne. Opis stanu zawiera błąd śledzenia identyfikator, który może być przekazywane do personelu pomocy technicznej platformy Azure:
 
 | Kod | Błąd | Opis |
 | --- | --- | --- |
-| 404 |Nie można odnaleźć |Ścieżka połączenia hybrydowego jest nieprawidłowa lub podstawowy adres URL jest nieprawidłowo sformułowany. |
-| 401 |Brak autoryzacji |Token zabezpieczający jest brak lub źle sformułowany lub nieprawidłowy. |
-| 403 |Dostęp zabroniony |Token zabezpieczający nie jest prawidłowy dla tej ścieżki, a dla tej akcji. |
-| 500 |Błąd wewnętrzny |Wystąpił problem w usłudze. |
+| 404 |Nie można odnaleźć |Ścieżka połączenia hybrydowego Hello jest nieprawidłowa lub hello podstawowy adres URL jest nieprawidłowo sformułowany. |
+| 401 |Brak autoryzacji |token zabezpieczający Hello jest brak lub źle sformułowany lub nieprawidłowy. |
+| 403 |Dostęp zabroniony |token zabezpieczający Hello jest nieprawidłowy dla tej ścieżki, a dla tej akcji. |
+| 500 |Błąd wewnętrzny |Wystąpił problem w usłudze hello. |
 
-Wyłączenie połączenia obiektu WebSocket celowo przez usługę po została początkowo prawidłowo skonfigurowana przyczyna to przesyłane przy użyciu odpowiednich kod błędu protokołu WebSocket wraz z komunikat z opisem błędu, który obejmuje również identyfikator śledzenia
+Jeśli celowo hello połączenia obiektu WebSocket zostanie zamknięta przez usługę powitania po jego został wstępnie skonfigurowany, powodem hello jest przekazane za pomocą odpowiednich kod błędu protokołu WebSocket wraz z komunikat z opisem błędu, który również uwzględnia Identyfikator śledzenia.
 
 | Stan WS | Opis |
 | --- | --- |
-| 1000 |Odbiornik zamknąć gniazda. |
-| 1001 |Ścieżka połączenia hybrydowego została usunięta lub wyłączona. |
-| 1008 |Token zabezpieczeń wygasł, w związku z tym naruszenia zasad autoryzacji. |
-| 1011 |Wystąpił problem w usłudze. |
+| 1000 |odbiornik Hello Zamknij hello gniazda. |
+| 1001 |Ścieżka połączenia hybrydowego Hello została usunięta lub wyłączona. |
+| 1008 |token zabezpieczający Hello wygasł, w związku z tym naruszenia zasad autoryzacji hello. |
+| 1011 |Wystąpił problem w usłudze hello. |
 
 ## Następne kroki
 * [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)

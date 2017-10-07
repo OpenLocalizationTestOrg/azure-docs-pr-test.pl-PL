@@ -1,6 +1,6 @@
 ---
-title: "Korzystanie z języka Ruby do wykonywania zapytań w bazie danych Azure SQL | Microsoft Docs"
-description: "W tym temacie przedstawiono sposób użycia języka Ruby do utworzenia programu, który nawiązuje połączenie z bazą danych SQL Azure i wykonuje zapytania za pomocą instrukcji języka Transact-SQL."
+title: "aaaUse dopisków fonetycznych tooquery bazy danych SQL Azure | Dokumentacja firmy Microsoft"
+description: "W tym temacie opisano sposób toouse dopisków fonetycznych toocreate program, który łączy tooan bazy danych SQL Azure i zapytania za pomocą instrukcji języka Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,51 +15,51 @@ ms.devlang: ruby
 ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 25ff9a9cfaa5494dbb006c84e235099fe51e6545
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0d4b16b8aacb5e376ab80cbe37569130f2fd52b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-ruby-to-query-an-azure-sql-database"></a>Korzystanie z języka Ruby do wykonywania zapytań w bazie danych Azure SQL
+# <a name="use-ruby-tooquery-an-azure-sql-database"></a>Użyj dopisków fonetycznych tooquery bazy danych Azure SQL
 
-W tym przewodniku Szybki start pokazano, jak używać języka [Ruby](https://www.ruby-lang.org) w celu utworzenia programu służącego do nawiązywania połączenia z bazą danych Azure SQL, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.
+Tego samouczka szybkiego startu przedstawia sposób toouse [Ruby](https://www.ruby-lang.org) toocreate tooan tooconnect programu Azure SQL bazy danych, a następnie użyć danych tooquery instrukcji języka Transact-SQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten samouczek Szybki start, upewnij się, że dysponujesz następującymi elementami:
+toocomplete tym szybki start samouczka, upewnij się, że masz hello następujące wymagania wstępne:
 
-- Baza danych Azure SQL. Ten przewodnik Szybki start używa zasobów utworzonych w jednym z poniższych przewodników Szybki start: 
+- Baza danych Azure SQL. To szybki start używa zasobów hello tworzony w jednej z tych Szybki Start: 
 
    - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
    - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
    - [Tworzenie bazy danych — PowerShell](sql-database-get-started-powershell.md)
 
-- [Reguła zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) dla publicznego adresu IP komputera, który będzie używany w tym samouczku Szybki start.
+- A [regułę zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) dla hello publiczny adres IP komputera hello, możesz użyć w tym samouczku szybki start.
 - W systemie operacyjnym zainstalowano język Ruby i związane z nim oprogramowanie.
     - **System MacOS**: zainstaluj pakiet Homebrew, zainstaluj oprogramowanie rbenv i ruby-build, zainstaluj język Ruby, a następnie zainstaluj pakiet FreeTDS. Zobacz [kroki 1.2, 1.3 1.4 i 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
     - **System Ubuntu**: zainstaluj oprogramowanie wymagane przez język Ruby, zainstaluj oprogramowanie rbenv i ruby-build, zainstaluj język Ruby, a następnie zainstaluj pakiet FreeTDS. Zobacz [kroki 1.2, 1.3 1.4 i 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
 
 ## <a name="sql-server-connection-information"></a>Informacje o połączeniu z serwerem SQL
 
-Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera, nazwa bazy danych i informacje logowania.
+Pobierz hello połączenia potrzebnych tooconnect toohello usługa Azure SQL database. Konieczne będzie hello pełni kwalifikowaną nazwę serwera, nazwa bazy danych i informacji o logowaniu w hello kolejnych procedur.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
-3. Na stronie **Przegląd** bazy danych sprawdź w pełni kwalifikowaną nazwę serwera. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**, jak pokazano na poniższym rysunku:
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
+2. Wybierz **baz danych SQL** z menu po lewej stronie powitania i kliknij bazę danych na powitania **baz danych SQL** strony. 
+3. Na powitania **omówienie** stron dla bazy danych, przejrzyj hello pełni kwalifikowaną nazwę serwera. Ustawieniu kursora toobring nazwy serwera hello zapasowej hello **kliknij toocopy** opcji, jak pokazano w powitania po obrazu:
 
    ![nazwa-serwera](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Jeśli nie pamiętasz informacji logowania dla serwera Azure SQL Database, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora oraz, w razie konieczności, zresetować hasło.
+4. Jeśli pamiętasz hello informacje logowania dla serwera bazy danych SQL Azure, przejdź toohello bazy danych SQL strony tooview powitania serwera nazwa administratora serwera i, w razie potrzeby zresetowania hasła hello.
 
 > [!IMPORTANT]
-> W przypadku publicznego adresu IP komputera, na którym jest wykonywany ten samouczek, niezbędne jest posiadanie reguły zapory. Jeśli pracujesz na innym komputerze lub masz inny publiczny adres IP, utwórz [regułę zapory poziomu serwera przy użyciu portalu Azure](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+> W przypadku hello publiczny adres IP komputera hello, na którym jest wykonywana w tym samouczku, musi mieć reguły zapory. Jeśli na innym komputerze lub inny publiczny adres IP, należy utworzyć [reguły zapory poziomu serwera przy użyciu hello portalu Azure](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
 
-## <a name="insert-code-to-query-sql-database"></a>Wstawianie kodu zapytania bazy danych SQL
+## <a name="insert-code-tooquery-sql-database"></a>Wstaw baza danych SQL tooquery kodu
 
 1. W swoim ulubionym edytorze tekstów utwórz nowy plik o nazwie **sqltest.rb**
 
-2. Zastąp jego zawartość następującym kodem i dodaj odpowiednie wartości dla serwera, bazy danych, użytkownika i hasła.
+2. Zamień zawartość hello hello następujący kod i dodaj odpowiednie wartości powitania serwera, bazy danych, użytkownika i hasło.
 
 ```ruby
 require 'tiny_tds'
@@ -81,15 +81,15 @@ result.each do |row|
 end
 ```
 
-## <a name="run-the-code"></a>Uruchamianie kodu
+## <a name="run-hello-code"></a>Uruchamianie hello kodu
 
-1. W wierszu polecenia uruchom następujące polecenia:
+1. W wierszu polecenia hello uruchom następujące polecenia hello:
 
    ```bash
    ruby sqltest.rb
    ```
 
-2. Sprawdź, czy zostało zwróconych 20 pierwszych wierszy, a następnie zamknij okno aplikacji.
+2. Sprawdź, czy górnych wierszy 20 hello są zwracane, a następnie zamknij okno aplikacji hello.
 
 
 ## <a name="next-steps"></a>Następne kroki

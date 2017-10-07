@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB: Budowanie aplikacji sieci Web za pomocą oprogramowania Xamarin z uwierzytelnianiem serwisu Facebook | Microsoft Docs"
-description: "Przykładowy kod programu .NET, którego można używać do nawiązywania połączeń z usługą Azure Cosmos DB i wykonywania w niej zapytań"
+description: "Przedstawia przykładowy kod .NET, można użyć tooconnect tooand zapytania bazy danych Azure rozwiązania Cosmos"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,21 +15,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 4ea97c2aca6769843d0210ffeae6f95531a21f10
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5f71dddd2b2f5bd117e481c96c17915fc58d2119
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: Budowanie aplikacji sieci Web za pomocą oprogramowania .NET, Xamarin i uwierzytelniania serwisu Facebook
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Można szybko utworzyć i wyszukiwać dokumentu, klucza i wartości i wykres baz danych, które korzystają z dystrybucji globalne hello i możliwości skalowanie w poziomie na podstawowe hello Azure DB rozwiązania Cosmos. 
 
-Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych dokumentów i kolekcji przy użyciu witryny Azure Portal. Następnie zbudujesz i wdrożysz aplikację sieci Web z listą zadań do wykonania bazującą na [interfejsie API usługi DocumentDB platformy .NET](documentdb-sdk-dotnet.md), oprogramowaniu [Xamarin](https://www.xamarin.com/) oraz aparacie uwierzytelniania usługi Azure Cosmos DB. Aplikacja sieci Web z listą zadań do wykonania implementuje wzorzec danych dla poszczególnych użytkowników, który umożliwia użytkownikom zalogowanie się przy użyciu uwierzytelniania serwisu Facebook i zarządzanie własnymi zadaniami do wykonania.
+To szybki start pokazano, jak toocreate konta bazy danych Azure rozwiązania Cosmos, bazą danych dokumentów i przy użyciu kolekcji hello portalu Azure. Będzie tworzenie i wdrażanie aplikacji sieci web listy todo oparty na powitania [interfejsu API platformy .NET usługi DocumentDB](documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/)i hello Azure DB rozwiązania Cosmos autoryzacji aparatu. Aplikacja sieci web listy rzeczy do zrobienia Hello implementuje wzorzec danych użytkownika, który umożliwia toologin użytkowników przy użyciu uwierzytelniania serwisu Facebook i zarządzaj nimi własnych elementów toodo.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pobrać program [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) i używać go **bezpłatnie**. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+Jeśli nie masz jeszcze programu Visual Studio 2017 r zainstalowany, możesz pobrać i użyć hello **wolnego** [programu Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Upewnij się, że możesz włączyć **Azure programowanie** podczas instalacji programu Visual Studio hello.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,89 +41,89 @@ Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pob
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
+## <a name="clone-hello-sample-application"></a>Klonowanie hello przykładowej aplikacji
 
-Teraz sklonujemy aplikację interfejsu API usługi DocumentDB z repozytorium github, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
+Teraz załóżmy aplikacji w klonowania interfejs API usługi DocumentDB z serwisu github, Ustaw ciąg połączenia hello i uruchom go. Zobaczysz, jak łatwo jest toowork z danymi programowo. 
 
-1. Otwórz okno terminalu usługi Git, na przykład git bash, i za pomocą polecenia `cd` przejdź do katalogu roboczego.  
+1. Otwórz okno terminala git, np. git bash, i `cd` tooa katalog roboczy.  
 
-2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. 
+2. Hello uruchom następujące polecenie tooclone hello próbki repozytorium. 
 
     ```bash
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Następnie w programie Visual Studio otwórz plik DocumentDBTodo.sln z folderu samples/xamarin/UserItems/xamarin.forms. 
+3. Następnie otwórz plik DocumentDBTodo.sln hello z folderu samples/xamarin/UserItems/xamarin.forms hello w programie Visual Studio. 
 
-## <a name="review-the-code"></a>Przeglądanie kodu
+## <a name="review-hello-code"></a>Przejrzyj hello kodu
 
-Kod w folderze Xamarin zawiera następujące elementy:
+Witaj w folderze Xamarin hello w kodzie:
 
-* Aplikacja platformy Xamarin. Ta aplikacja przechowuje zadania do wykonania użytkownika w partycjonowanej kolekcji o nazwie UserItems.
-* Interfejs API brokera tokenu zasobów. Prosty interfejs API ASP.NET sieci Web brokera tokenów zasobów usługi Azure Cosmos DB dla zalogowanych użytkowników aplikacji. Tokeny zasobów to krótkotrwałe tokeny dostępu zapewniające aplikacji dostęp do danych zalogowanego użytkownika.
+* Aplikacja platformy Xamarin. Aplikacja Hello przechowuje elementy hello użytkownika w podzielonym na partycje kolekcję o nazwie UserItems.
+* Interfejs API brokera tokenu zasobów. Proste zasobów bazy danych Azure rozwiązania Cosmos toobroker ASP.NET Web API tokeny toohello zalogowani użytkownicy aplikacji hello. Tokeny zasobu to tokeny dostępu krótkim okresie udostępnianie aplikacji hello hello toohello dostęp zalogowany danych użytkownika.
 
-Proces uwierzytelniania i przepływu danych zilustrowano na poniższym diagramie.
+Przepływ uwierzytelniania i danych Hello przedstawiono na poniższym diagramie hello.
 
-* Kolekcja UserItems została utworzona za pomocą klucza partycji „/userid”. Określenie klucza partycji dla kolekcji umożliwia usłudze Azure Cosmos DB skalowanie w nieskończoność w miarę zwiększania się liczby użytkowników i zadań.
-* Aplikacja Xamarin umożliwia użytkownikom logowanie się przy użyciu poświadczeń serwisu Facebook.
-* Aplikacja Xamarin używa tokenu dostępu serwisu Facebook do uwierzytelniania za pomocą interfejsu API ResourceTokenBroker.
-* Interfejs API brokera tokenu zasobów uwierzytelnia żądanie przy użyciu funkcji uwierzytelniania usługi App Service i żąda tokenu zasobów usługi Azure Cosmos DB z dostępem do odczytu i zapisu do wszystkich dokumentów korzystających z klucza partycji uwierzytelnionego użytkownika.
-* Broker tokenu zasobów zwraca token zasobów dla aplikacji klienckiej.
-* Aplikacja uzyskuje dostęp do zadań do wykonania użytkownika przy użyciu tokenu zasobów.
+* Witaj UserItems kolekcji jest tworzony z kluczem partycji hello "/ Nazwa użytkownika". Określanie klucza partycji dla kolekcji umożliwia tooscale bazy danych Azure rozwiązania Cosmos nieograniczonej jako hello wielu użytkowników oraz elementy rozwoju.
+* Aplikacja Xamarin Hello umożliwia toologin użytkowników przy użyciu poświadczeń usługi Facebook.
+* Aplikacja Xamarin Hello używa tooauthenticate token dostępu usługi Facebook z interfejsem API ResourceTokenBroker
+* broker tokenu Hello zasobu interfejsu API uwierzytelnia hello żądania przy użyciu funkcji uwierzytelniania usługi aplikacji i żądania tokenu zasobów bazy danych Azure rozwiązania Cosmos z dokumentami tooall dostęp do odczytu/zapisu udostępniania klucza partycji hello uwierzytelnionego użytkownika.
+* Zasób brokera tokenu zwraca hello zasobów toohello tokenu klienta aplikacji.
+* Aplikacja Hello uzyskuje dostęp do elementów todo hello użytkownika za pomocą hello token zasobu.
 
 ![Aplikacja z listą zadań do wykonania z przykładowymi danymi](./media/create-documentdb-xamarin-dotnet/tokenbroker.png)
     
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
-Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji.
+Teraz przejdź wstecz toohello Azure tooget portalu użytkownika informacje o parametrach połączenia i skopiuj go do aplikacji hello.
 
-1. W witrynie [Azure Portal](http://portal.azure.com/), korzystając ze swojego konta usługi Azure Cosmos DB, kliknij na lewym panelu nawigacyjnym pozycję **Klucze**, a następnie pozycję **Klucze odczytu i zapisu**. W następnym kroku, korzystając z przycisków kopiowania dostępnych po prawej stronie ekranu, skopiujesz identyfikator URI i klucz podstawowy do pliku Web.config.
+1. W hello [portalu Azure](http://portal.azure.com/), w Azure rozwiązania Cosmos DB konta, na powitania lewy pasek nawigacyjny kliknij **klucze**, a następnie kliknij przycisk **odczytu i zapisu kluczy**. W pliku Web.config hello w następnym kroku hello użyjesz przyciski Kopia powitania po prawej stronie powitania hello toocopy ekranie powitania identyfikatora URI oraz Primary Key.
 
-    ![Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, blok Klucze](./media/create-documentdb-xamarin-dotnet/keys.png)
+    ![Wyświetlanie i kopiowanie klucza dostępu w hello portalu Azure, w bloku klucze](./media/create-documentdb-xamarin-dotnet/keys.png)
 
-2. W programie Visual Studio 2017 otwórz plik Web.config z folderu azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker. 
+2. W programie Visual Studio 2017 r Otwórz plik Web.config hello hello azure-documentdb-dotnet/przykłady/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker folderu. 
 
-3. Skopiuj wartość identyfikatora URI z portalu (przy użyciu przycisku kopiowania) i przypisz ją do klucza accountUrl w pliku Web.config. 
+3. Skopiuj wartość identyfikatora URI z portalu hello (przy użyciu przycisku Kopiuj hello) i przydzielić mu hello wartość accountUrl hello w pliku Web.config. 
 
     `<add key="accountUrl" value="{Azure Cosmos DB account URL}"/>`
 
-4. Następnie skopiuj wartość klucza podstawowego z portalu i przypisz ją do klucza accountKey w pliku Web.config. 
+4. Skopiuj wartość klucza podstawowego z portalu hello i stał się hello wartość accountKey hello w Web.congif. 
 
     `<add key="accountKey" value="{Azure Cosmos DB secret}"/>`
 
-Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
+Użytkownik zaktualizował teraz aplikacji z wszystkie informacje hello musi toocommunicate z bazy danych Azure rozwiązania Cosmos. 
 
-## <a name="build-and-deploy-the-web-app"></a>Budowanie i wdrażanie aplikacji sieci Web
+## <a name="build-and-deploy-hello-web-app"></a>Tworzenie i wdrażanie aplikacji sieci web hello
 
-1. W witrynie Azure Portal utwórz witrynę sieci Web usługi App Service, która będzie hostowała interfejs API brokera tokenu zasobów.
-2. W witrynie Azure Portal otwórz blok Ustawienia aplikacji witryny sieci Web interfejsu API brokera tokenu zasobów. Wypełnij następujące ustawienia aplikacji:
+1. Tworzenie aplikacji witryny sieci Web toohost hello zasobów tokenu brokera usług interfejsu API hello portalu Azure.
+2. Hello portalu Azure Otwórz blok ustawień aplikacji hello brokera tokenu hello zasobów witryny sieci Web interfejsu API. Wypełnij następujące ustawienia aplikacji hello:
 
-    * accountUrl — adres URL konta usługi Azure Cosmos DB z karty Klucze konta usługi Azure Cosmos DB.
-    * accountKey — klucz główny konta usługi Azure Cosmos DB z karty Klucze konta usługi Azure Cosmos DB.
+    * accountUrl — adres URL konta bazy danych Azure rozwiązania Cosmos hello klucze hello na karcie Konto bazy danych Azure rozwiązania Cosmos.
+    * accountKey - klucza głównego konta bazy danych Azure rozwiązania Cosmos hello klucze hello na karcie Konto bazy danych Azure rozwiązania Cosmos.
     * Identyfikatory databaseId i collectionId utworzonej bazy danych oraz kolekcji.
 
-3. Opublikuj rozwiązanie ResourceTokenBroker w utworzonej witrynie sieci Web.
+3. Opublikuj hello tooyour rozwiązania ResourceTokenBroker utworzyć witryny sieci Web.
 
-4. Otwórz projekt Xamarin i przejdź do pliku TodoItemManager.cs. Podaj wartości dla właściwości accountURL, collectionId i databaseId, a także dla właściwości resourceTokenBrokerURL będącej podstawowym adresem URL HTTPS witryny sieci Web brokera tokenu zasobów.
+4. Otwórz projekt Xamarin hello, a następnie przejdź tooTodoItemManager.cs. Podaj wartości hello accountURL, collectionId, databaseId, a także resourceTokenBrokerURL jako adres url https podstawowej hello hello zasobu brokera tokenu witryny sieci Web.
 
-5. Ukończ samouczek [Jak skonfigurować aplikację App Service, aby używała logowania do usługi Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md), aby skonfigurować uwierzytelnianie serwisu Facebook i witrynę sieci Web ResourceTokenBroker.
+5. Pełną hello [jak tooconfigure logowanie Facebook toouse aplikacji usługi App Service](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) toosetup samouczka uwierzytelniania serwisu Facebook i konfigurować witrynę ResourceTokenBroker hello.
 
-    Uruchom aplikację platformy Xamarin.
+    Uruchamianie aplikacji platformy Xamarin hello.
 
-## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
+## <a name="review-slas-in-hello-azure-portal"></a>Przejrzyj umowy SLA w hello portalu Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego przewodnika Szybki start: 
+Jeśli nie będzie toocontinue toouse tej aplikacji, należy usunąć wszystkie zasoby utworzone przez tego przewodnika Szybki Start w hello portalu Azure z hello następujące kroki: 
 
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego właśnie zasobu. 
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. Z menu po lewej stronie powitania w hello portalu Azure, kliknij przycisk **grup zasobów** a następnie kliknij nazwę hello zasobu hello właśnie utworzony. 
+2. Na stronie grupy zasobów, kliknij przycisk **usunąć**, wpisz nazwę hello toodelete zasobów hello w polu tekstowym hello, a następnie kliknij **usunąć**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia kolekcji za pomocą Eksploratora danych i budowania oraz wdrażania aplikacji platformy Xamarin. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB. 
+W tym szybkiego startu kiedy znasz już jak toocreate konto bazy danych Azure rozwiązania Cosmos Utwórz kolekcję przy użyciu hello Eksploratora danych i tworzenia i wdrażania aplikacji platformy Xamarin. Teraz można importować konto bazy danych rozwiązania Cosmos tooyour dodatkowe dane. 
 
 > [!div class="nextstepaction"]
 > [Importowanie danych do usługi Azure Cosmos DB](import-data.md)

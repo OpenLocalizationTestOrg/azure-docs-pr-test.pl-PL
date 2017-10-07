@@ -1,6 +1,6 @@
 ---
-title: "Należy użyć programu PowerShell i MapReduce z Hadoop — usługa Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zdalne uruchamianie zadań MapReduce z Hadoop w usłudze HDInsight przy użyciu programu PowerShell."
+title: "aaaUse MapReduce i programu PowerShell z usługą Hadoop - Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse PowerShell tooremotely Uruchom zadań MapReduce z Hadoop w usłudze HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,56 +16,56 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/16/2017
 ms.author: larryfr
-ms.openlocfilehash: c3801573808709f29cb1e563ac803f225a28cafc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 59524f0e8813d4c017f92bccb2e50d4c018acf71
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Uruchamianie zadań MapReduce z Hadoop w usłudze HDInsight przy użyciu programu PowerShell
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Ten dokument zawiera przykładowy uruchomienie zadania MapReduce w usługi Hadoop w klastrze usługi HDInsight przy użyciu programu Azure PowerShell.
+Ten dokument zawiera przykładowy przy użyciu programu Azure PowerShell toorun zadania MapReduce w usługi Hadoop w klastrze usługi HDInsight.
 
 ## <a id="prereq"></a>Wymagania wstępne
 
 * **Klaster usługi Azure HDInsight (Hadoop w usłudze HDInsight)**
 
   > [!IMPORTANT]
-  > Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+  > Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 * **Stacja robocza z programem Azure PowerShell**.
 
 ## <a id="powershell"></a>Uruchomienie zadania MapReduce przy użyciu programu Azure PowerShell
 
-Udostępnia program Azure PowerShell *poleceń cmdlet* umożliwiającą zdalne uruchamianie zadań MapReduce w usłudze HDInsight. Wewnętrznie, jest to zrobić za pomocą wywołania REST [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (nazywanych Templeton) uruchomionego w klastrze usługi HDInsight.
+Udostępnia program Azure PowerShell *poleceń cmdlet* umożliwiającą tooremotely uruchomienie zadania MapReduce w usłudze HDInsight. Wewnętrznie, w tym celu za pomocą wywołania REST[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (nazywanych Templeton) systemem hello klastra usługi HDInsight.
 
-Następujące polecenia cmdlet są używane podczas uruchamiania zadań MapReduce w zdalnym klastrze usługi HDInsight.
+Witaj następujące polecenia cmdlet są używane podczas uruchamiania zadań MapReduce w zdalnym klastrze usługi HDInsight.
 
-* **Login-AzureRmAccount**: uwierzytelnianie programu Azure PowerShell do subskrypcji platformy Azure.
+* **Login-AzureRmAccount**: tooyour uwierzytelnia programu Azure PowerShell subskrypcji platformy Azure.
 
-* **Nowy AzureRmHDInsightMapReduceJobDefinition**: tworzy nowy *definicji zadania* przy użyciu określonych informacji MapReduce.
+* **Nowy AzureRmHDInsightMapReduceJobDefinition**: tworzy nowy *definicji zadania* przy użyciu hello określone informacje o MapReduce.
 
-* **Start-AzureRmHDInsightJob**: wysyła definicji zadania w usłudze HDInsight, uruchamia zadanie, a następnie zwraca *zadania* obiektu, który może służyć do sprawdzania stanu zadania.
+* **Start-AzureRmHDInsightJob**: wysyła tooHDInsight definicji zadania hello, uruchamia zadanie hello i zwraca *zadania* obiektów, które mogą być używane toocheck hello stan zadania hello.
 
-* **Czekaj-AzureRmHDInsightJob**: używa obiektu zadania, aby sprawdzić stan zadania. Oczekuje, aż do ukończenia zadania lub przekroczono czas oczekiwania.
+* **Czekaj-AzureRmHDInsightJob**: używa stan obiektu zadania hello hello toocheck hello zadania. Oczekuje, aż do ukończenia zadania hello lub przekroczono czas oczekiwania hello.
 
-* **Get-AzureRmHDInsightJobOutput**: służy do pobierania danych wyjściowych zadania.
+* **Get-AzureRmHDInsightJobOutput**: używane dane wyjściowe hello tooretrieve hello zadania.
 
-Poniższe kroki pokazują, jak używać tych poleceń cmdlet, aby uruchomić zadanie w klastrze usługi HDInsight.
+Witaj następująca procedura przedstawia sposób toouse toorun te polecenia cmdlet zadania w klastrze usługi HDInsight.
 
-1. Za pomocą edytora, Zapisz poniższy kod jako **mapreducejob.ps1**.
+1. Za pomocą edytora, Zapisz hello następującego kodu jako **mapreducejob.ps1**.
 
-    [!code-powershell[główne](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
+    [!code-powershell[main](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
-2. Otwórz nowe **programu Azure PowerShell** wiersza polecenia. Zmień katalogi na lokalizację **mapreducejob.ps1** pliku, a następnie użyj następującego polecenia, aby uruchomić skrypt:
+2. Otwórz nowe **programu Azure PowerShell** wiersza polecenia. Zmień lokalizację toohello katalogów hello **mapreducejob.ps1** pliku, a następnie użyj następującego skryptu hello toorun polecenia hello:
 
         .\mapreducejob.ps1
 
-    Po uruchomieniu skryptu, monit o nazwę klastra usługi HDInsight i HTTPS/Admin nazwę konta i hasło dla klastra. Może też pojawić się prośba do uwierzytelniania do subskrypcji platformy Azure.
+    Po uruchomieniu skryptu hello monit o nazwę hello hello klastra usługi HDInsight i hello HTTPS/Admin konta nazwę i hasło dla klastra hello. Mogą być również zostanie wyświetlony monit o tooauthenticate tooyour subskrypcji platformy Azure.
 
-3. Po zakończeniu zadania, pojawi się dane wyjściowe podobne do następującego tekstu:
+3. Po zakończeniu zadania hello, pojawi się toohello podobne dane wyjściowe następującego tekstu:
 
         Cluster         : CLUSTERNAME
         ExitCode        : 0
@@ -77,27 +77,27 @@ Poniższe kroki pokazują, jak używać tych poleceń cmdlet, aby uruchomić zad
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
 
-    Te dane wyjściowe wskazuje, czy zadanie zakończone pomyślnie.
+    Te dane wyjściowe wskazuje zadania hello ukończona pomyślnie.
 
     > [!NOTE]
-    > Jeśli **ExitCode** jest wartością innego niż 0, zobacz [Rozwiązywanie problemów](#troubleshooting).
+    > Jeśli hello **ExitCode** jest wartością innego niż 0, zobacz [Rozwiązywanie problemów](#troubleshooting).
 
-    W tym przykładzie przechowuje także pliki pobrane do **output.txt** pliku w katalogu, w którym należy uruchomić skrypt.
+    W tym przykładzie przechowuje także hello pobrane pliki tooan **output.txt** pliku w katalogu hello Uruchom skrypt hello.
 
 ### <a name="view-output"></a>Widok danych wyjściowych
 
-Otwórz **output.txt** plik w edytorze tekstów, aby zobaczyć słów i liczby utworzonej przez zadanie.
+Otwórz hello **output.txt** pliku w hello toosee Edytor tekstu liczby utworzonych przez zadanie hello i wyrazów.
 
 > [!NOTE]
-> Pliki wyjściowe zadania MapReduce są niezmienne. Dlatego jeśli uruchomisz tego przykładu musisz zmienić nazwę pliku wyjściowego.
+> pliki wyjściowe Hello zadania MapReduce są niezmienne. Jeśli uruchomisz tego przykładu należy więc toochange hello nazwa pliku wyjściowego hello.
 
 ## <a id="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli żadne informacje nie zostanie zwrócone, po zakończeniu zadania, może mieć wystąpił błąd podczas przetwarzania. Aby wyświetlić informacje o błędzie dla tego zadania, należy dodać następujące polecenie na końcu **mapreducejob.ps1** , zapisz go, a następnie uruchomić.
+Jeśli żadne informacje nie zostanie zwrócone, po zakończeniu zadania hello, może mieć wystąpił błąd podczas przetwarzania. informacje o błędzie tooview dla tego zadania, Dodaj polecenie toohello końca hello hello **mapreducejob.ps1** , zapisz go, a następnie uruchomić.
 
 ```powershell
-# Print the output of the WordCount job.
-Write-Host "Display the standard output ..." -ForegroundColor Green
+# Print hello output of hello WordCount job.
+Write-Host "Display hello standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
@@ -105,11 +105,11 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-To polecenie cmdlet zwraca informacje, które zostało zapisane STDERR na serwerze po uruchomieniu zadania i może pomóc ustalić, dlaczego zadanie kończy się niepowodzeniem.
+To polecenie cmdlet zwraca informacje hello, które zostało zapisane tooSTDERR na powitania serwera po uruchomieniu zadania hello i może pomóc ustalić, dlaczego zadania hello kończy się niepowodzeniem.
 
 ## <a id="summary"></a>Podsumowanie
 
-Jak widać, programu Azure PowerShell zapewnia prosty sposób uruchamiania zadań MapReduce na klaster usługi HDInsight, monitorować stan zadania i pobrać dane wyjściowe.
+Jak widać, Azure PowerShell oferuje toorun łatwy sposób na klaster usługi HDInsight, stan zadania hello monitora i pobrać hello w danych wyjściowych zadań MapReduce.
 
 ## <a id="nextsteps"></a>Następne kroki
 

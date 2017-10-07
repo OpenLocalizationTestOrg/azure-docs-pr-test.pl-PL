@@ -1,6 +1,6 @@
 ---
-title: "Środowisko Azure Functions kolejki magazynu powiązania | Dokumentacja firmy Microsoft"
-description: "Zrozumienie, jak używać usługi Azure Storage wyzwalaczy i powiązań w funkcji platformy Azure."
+title: "aaaAzure funkcje kolejki magazynu powiązania | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak wyzwala toouse usługi Azure Storage i powiązania usługi Azure Functions."
 services: functions
 documentationcenter: na
 author: lindydonna
@@ -16,49 +16,49 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: e007acd75a2210d54f512e2c6698c90919f0fcd2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 438b4f63e823149072c86fdefa7e15bfd2a2c4df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Powiązania funkcji magazynu kolejek Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-W tym artykule opisano sposób konfigurowania i powiązania magazynu kolejek Azure kodu usługi Azure Functions. Usługi Azure Functions obsługuje uruchomić i dane wyjściowe powiązań dla kolejek platformy Azure. Na temat funkcji, które są dostępne w wszystkie powiązania [usługi Azure Functions wyzwalaczy i powiązań pojęcia](functions-triggers-bindings.md).
+W tym artykule opisano sposób tooconfigure i kod powiązania magazynu kolejek Azure w funkcji platformy Azure. Usługi Azure Functions obsługuje uruchomić i dane wyjściowe powiązań dla kolejek platformy Azure. Na temat funkcji, które są dostępne w wszystkie powiązania [usługi Azure Functions wyzwalaczy i powiązań pojęcia](functions-triggers-bindings.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a name="trigger"></a>
 
 ## <a name="queue-storage-trigger"></a>Kolejki magazynu wyzwalacza
-Wyzwalacz magazynu kolejek Azure umożliwia monitorowanie magazynu kolejek, nowe wiadomości i szybkiego reagowania na. 
+wyzwalacz magazynu kolejek Azure Hello umożliwia toomonitor magazynu kolejek, nowe wiadomości i reagowania toothem. 
 
-Zdefiniuj wyzwalacza kolejki przy użyciu **integracji** kartę w portalu funkcji. Portal tworzy następującą definicję w **powiązania** sekcji *function.json*:
+Zdefiniuj wyzwalacz kolejki przy użyciu hello **integracji** kartę w hello funkcje portalu. Witaj portal tworzy powitania po definicji w hello **powiązania** sekcji *function.json*:
 
 ```json
 {
     "type": "queueTrigger",
     "direction": "in",
-    "name": "<The name used to identify the trigger data in your code>",
-    "queueName": "<Name of queue to poll>",
+    "name": "<hello name used tooidentify hello trigger data in your code>",
+    "queueName": "<Name of queue toopoll>",
     "connection":"<Name of app setting - see below>"
 }
 ```
 
-* `connection` Właściwości musi zawierać nazwę ustawienia aplikacji, która zawiera parametry połączenia magazynu. W portalu Azure, standardowego edytora w **integracji** kartę konfiguruje to ustawienie aplikacji, można wybrać konto magazynu.
+* Witaj `connection` właściwości musi zawierać nazwę hello ustawienia aplikacji, która zawiera parametry połączenia magazynu. W portalu Azure hello, hello standardowego edytora w hello **integracji** kartę konfiguruje to ustawienie aplikacji, można wybrać konto magazynu.
 
-Można podać dodatkowe ustawienia w [pliku host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) dopasować kolejki magazynu wyzwalaczy. Na przykład można zmienić interwał w host.json sondowania kolejki.
+Można podać dodatkowe ustawienia w [pliku host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) toofurther dostosowywać kolejki magazynu wyzwalaczy. Na przykład można zmienić interwał sondowania kolejki hello w host.json.
 
 <a name="triggerusage"></a>
 
 ## <a name="using-a-queue-trigger"></a>Użycie wyzwalacza kolejki
-W przypadku funkcji Node.js uzyskiwać dostęp za pomocą danych kolejki `context.bindings.<name>`.
+W przypadku funkcji Node.js uzyskiwać dostęp za pomocą danych kolejki hello `context.bindings.<name>`.
 
 
-W przypadku funkcji .NET dostępu ładunku kolejki przy użyciu parametru metody, takich jak `CloudQueueMessage paramName`. W tym miejscu `paramName` jest wartością określoną w [konfiguracji wyzwalacza](#trigger). Komunikat z kolejki może być zdeserializowany do żadnej z następujących typów:
+W funkcji .NET dostęp hello ładunku kolejki przy użyciu parametru metody, takich jak `CloudQueueMessage paramName`. W tym miejscu `paramName` jest wartością hello określone w hello [konfiguracji wyzwalacza](#trigger). wiadomości powitania kolejki może być zdeserializowany tooany z hello następujące typy:
 
-* Obiekt POCO. Użyj, jeśli ładunek kolejki jest obiekt JSON. Środowisko uruchomieniowe Functions deserializuje ładunku w obiekcie POCO. 
+* Obiekt POCO. Użyj, jeśli ładunek kolejki hello jest obiekt JSON. środowisko uruchomieniowe Functions Hello deserializuje hello ładunku w obiekcie POCO hello. 
 * `string`
 * `byte[]`
 * [`CloudQueueMessage`]
@@ -66,22 +66,22 @@ W przypadku funkcji .NET dostępu ładunku kolejki przy użyciu parametru metody
 <a name="meta"></a>
 
 ### <a name="queue-trigger-metadata"></a>Metadane wyzwalacza kolejki
-Wyzwalacz kolejki zawiera kilka właściwości metadanych. Te właściwości mogą służyć jako część wyrażenia powiązania w pozostałych powiązaniach lub parametrów w kodzie. Wartości mają tej samej semantyki jako [ `CloudQueueMessage` ].
+wyzwalacz kolejki Hello udostępnia kilka właściwości metadanych. Te właściwości mogą służyć jako część wyrażenia powiązania w pozostałych powiązaniach lub parametrów w kodzie. wartości Hello mają hello tej samej semantyki jako [ `CloudQueueMessage` ].
 
 * **QueueTrigger** -ładunku kolejki (jeśli prawidłowy ciąg)
-* **DequeueCount** — typ `int`. Ile razy ten komunikat został usuniętej.
-* **ExpirationTime** — typ `DateTimeOffset?`. Czas wygaśnięcia wiadomości.
+* **DequeueCount** — typ `int`. Witaj, ile razy ten komunikat został usuniętej.
+* **ExpirationTime** — typ `DateTimeOffset?`. Witaj czas wygaśnięcia wiadomości powitania.
 * **Identyfikator** — typ `string`. Identyfikator kolejki wiadomości.
-* **InsertionTime** — typ `DateTimeOffset?`. Godzina dodania wiadomości do kolejki.
-* **NextVisibleTime** — typ `DateTimeOffset?`. Czas, który następnie będzie widoczny komunikat.
-* **Elementu PopReceipt** — typ `string`. Pop odbieranie komunikatu.
+* **InsertionTime** — typ `DateTimeOffset?`. czas Hello tę wiadomość hello dodano toohello kolejki.
+* **NextVisibleTime** — typ `DateTimeOffset?`. czas Hello tę wiadomość hello obok będą widoczne.
+* **Elementu PopReceipt** — typ `string`. wiadomości powitania pop potwierdzenia.
 
-Jak używać metadanych kolejki w [próbki wyzwalacza](#triggersample).
+Zobacz, jak toouse hello metadanych kolejki w [próbki wyzwalacza](#triggersample).
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Przykładowe wyzwalacza
-Załóżmy, że masz następujące function.json, który definiuje wyzwalacz kolejki:
+Załóżmy, że masz powitania po function.json, który definiuje wyzwalacz kolejki:
 
 ```json
 {
@@ -98,7 +98,7 @@ Załóżmy, że masz następujące function.json, który definiuje wyzwalacz kol
 }
 ```
 
-Przykładu specyficzny dla języka, które są pobierane i dzienniki kolejka metadanych.
+Zobacz przykład specyficzny dla języka hello, który pobiera i rejestruje metadanych kolejki.
 
 * [C#](#triggercsharp)
 * [Node.js](#triggernodejs)
@@ -160,35 +160,35 @@ module.exports = function (context) {
 ```
 
 ### <a name="handling-poison-queue-messages"></a>Obsługa wiadomości w kolejce skażone
-Gdy funkcja wyzwalacza kolejki nie powiodło się, usługi Azure Functions ponowi próbę funkcji maksymalnie pięć razy dla danej kolejki wiadomości, czyli pierwszej próby. Jeśli wszystkie próby pięć zakończą się niepowodzeniem, środowisko uruchomieniowe functions dodaje komunikat do kolejki magazynu o nazwie  *&lt;originalqueuename >-skażone*. Można wpisać funkcji do przetwarzania komunikatów z kolejki skażone przez rejestrowania ich lub wysyłania powiadomienia tej uwagi ręczne jest wymagane. 
+W przypadku awarii funkcja wyzwalacza kolejki usługi Azure Functions ponowi próbę tej funkcji w górę toofive razy dla danej kolejki wiadomości, tym hello najpierw spróbować. Jeśli nie wszystkie próby pięć, środowisko uruchomieniowe functions hello dodaje magazynu kolejek tooa komunikatu o nazwie  *&lt;originalqueuename >-skażone*. Można napisać tooprocess funkcji wiadomości z kolejki skażone hello rejestrowania ich lub wysyłania powiadomienia, że wymagana jest ręczne uwagi. 
 
-Do obsługi wiadomości, ręcznie, sprawdź `dequeueCount` wiadomości w kolejce (zobacz [kolejki wyzwalacza metadanych](#meta)).
+skażone wiadomości toohandle ręcznie, sprawdź hello `dequeueCount` hello kolejki wiadomości (zobacz [kolejki wyzwalacza metadanych](#meta)).
 
 <a name="output"></a>
 
 ## <a name="queue-storage-output-binding"></a>Magazyn kolejek powiązania wyjściowego
-Magazyn kolejek Azure powiązania danych wyjściowych umożliwia pisanie wiadomości do kolejki. 
+Powiązanie umożliwia toowrite wiadomości tooa kolejki danych wyjściowych Hello magazynu kolejek Azure. 
 
-Zdefiniuj kolejki danych wyjściowych powiązanie using **integracji** kartę w portalu funkcji. Portal tworzy następującą definicję w **powiązania** sekcji *function.json*:
+Zdefiniuj kolejki powiązania wyjściowego przy użyciu hello **integracji** kartę w hello funkcje portalu. Witaj portal tworzy powitania po definicji w hello **powiązania** sekcji *function.json*:
 
 ```json
 {
    "type": "queue",
    "direction": "out",
-   "name": "<The name used to identify the trigger data in your code>",
-   "queueName": "<Name of queue to write to>",
+   "name": "<hello name used tooidentify hello trigger data in your code>",
+   "queueName": "<Name of queue toowrite to>",
    "connection":"<Name of app setting - see below>"
 }
 ```
 
-* `connection` Właściwości musi zawierać nazwę ustawienia aplikacji, która zawiera parametry połączenia magazynu. W portalu Azure, standardowego edytora w **integracji** kartę konfiguruje to ustawienie aplikacji, można wybrać konto magazynu.
+* Witaj `connection` właściwości musi zawierać nazwę hello ustawienia aplikacji, która zawiera parametry połączenia magazynu. W portalu Azure hello, hello standardowego edytora w hello **integracji** kartę konfiguruje to ustawienie aplikacji, można wybrać konto magazynu.
 
 <a name="outputusage"></a>
 
 ## <a name="using-a-queue-output-binding"></a>Przy użyciu kolejki powiązania wyjściowego
-W przypadku funkcji Node.js dostęp przy użyciu kolejki danych wyjściowych `context.bindings.<name>`.
+W przypadku funkcji Node.js dostęp przy użyciu kolejki danych wyjściowych hello `context.bindings.<name>`.
 
-W przypadku funkcji .NET można dane wyjściowe do żadnego z następujących typów. Po parametrze typu `T`, `T` musi być jednego z typów obsługiwanych wyjścia, takich jak `string` lub POCO.
+W przypadku funkcji .NET dane wyjściowe tooany hello następujące typy. Po parametrze typu `T`, `T` musi mieć jedną z hello obsługiwane typy danych wyjściowych, takich jak `string` lub POCO.
 
 * `out T`(zserializowanym w formacie JSON)
 * `out string`
@@ -198,12 +198,12 @@ W przypadku funkcji .NET można dane wyjściowe do żadnego z następujących ty
 * `IAsyncCollector<T>`
 * [`CloudQueue`](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
-Umożliwia także typ zwracany metody w powiązaniu danych wyjściowych.
+Zwracany typ metody hello można także używać jako hello powiązania wyjściowego.
 
 <a name="outputsample"></a>
 
 ## <a name="queue-output-sample"></a>Przykładowe dane wyjściowe kolejki
-Następujące *function.json* definiuje wyzwalacza HTTP z kolejki powiązania wyjściowego:
+następujące Hello *function.json* definiuje wyzwalacza HTTP z kolejki powiązania wyjściowego:
 
 ```json
 {
@@ -230,7 +230,7 @@ Następujące *function.json* definiuje wyzwalacza HTTP z kolejki powiązania wy
 }
 ``` 
 
-Zobacz przykładowe specyficzny dla języka, który wyprowadza komunikatu w kolejce Przychodzące ładunek HTTP.
+Zobacz hello próbki specyficzny dla języka, który wyprowadza kolejki wiadomość hello przychodzące ładunku HTTP.
 
 * [C#](#outcsharp)
 * [Node.js](#outnodejs)
@@ -240,7 +240,7 @@ Zobacz przykładowe specyficzny dla języka, który wyprowadza komunikatu w kole
 ### <a name="queue-output-sample-in-c"></a>Przykładowe dane wyjściowe kolejek w języku C# #
 
 ```cs
-// C# example of HTTP trigger binding to a custom POCO, with a queue output binding
+// C# example of HTTP trigger binding tooa custom POCO, with a queue output binding
 public class CustomQueueMessage
 {
     public string PersonName { get; set; }
@@ -253,7 +253,7 @@ public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
 }
 ```
 
-Aby wysłać wiele wiadomości, należy użyć `ICollector`:
+Użyj wielu wiadomości toosend `ICollector`:
 
 ```cs
 public static void Run(CustomQueueMessage input, ICollector<CustomQueueMessage> myQueueItem, TraceWriter log)
@@ -273,11 +273,11 @@ module.exports = function (context, input) {
 };
 ```
 
-Lub, w celu wysłania wiele komunikatów
+Lub toosend wiele komunikatów
 
 ```javascript
 module.exports = function(context) {
-    // Define a message array for the myQueueItem output binding. 
+    // Define a message array for hello myQueueItem output binding. 
     context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
@@ -285,7 +285,7 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Następne kroki
 
-Na przykład funkcja, która używa kolejki magazynu wyzwalaczy i powiązań zobacz [Tworzenie funkcji platformy Azure jest podłączony do usługi Azure](functions-create-an-azure-connected-function.md).
+Na przykład funkcja, która używa kolejki magazynu wyzwalaczy i powiązań zobacz [utworzyć tooan funkcji platformy Azure połączona usługa Azure](functions-create-an-azure-connected-function.md).
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

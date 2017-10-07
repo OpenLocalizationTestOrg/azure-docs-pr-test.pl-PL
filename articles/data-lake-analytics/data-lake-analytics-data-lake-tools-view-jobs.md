@@ -1,6 +1,6 @@
 ---
-title: "Użyj przeglądarki zadania i widoku zadania dla zadań usługi Azure Data Lake Analytics | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać przeglądarki zadania i widoku zadania dla zadań usługi Azure Data Lake Analytics. "
+title: "aaaUse przeglądarki zadania i zadania dla zadań usługi Azure Data Lake Analytics | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse przeglądarki zadania i zadania dla zadań usługi Azure Data Lake Analytics. "
 services: data-lake-analytics
 documentationcenter: 
 author: mumian
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c45e618426808349ca380b1bcfaefd4c947ce7ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Użyj przeglądarki zadania i widoku zadania dla zadań usługi Azure Data lake Analytics
-Usługa Azure Data Lake Analytics archiwa przesłanych zadania w [magazyn zapytań](#query-store). W tym artykule Dowiedz się jak używać przeglądarki zadania i widoku zadania w Azure Data Lake Tools dla programu Visual Studio można znaleźć informacje o zadaniu historycznych. 
+Witaj archiwa usługi Azure Data Lake Analytics przesłać zadania w [magazyn zapytań](#query-store). W tym artykule dowiesz się, jak toouse przeglądarki zadania i widoku zadania w narzędzia Azure Data Lake Tools dla Visual Studio toofind hello historycznych zadanie informacji. 
 
-Domyślnie usługi Data Lake Analytics archiwa zadania przez 30 dni. Okres wygaśnięcia można skonfigurować w portalu Azure Konfigurując zasady wygasania dostosowane. Nie można uzyskać dostępu do informacji zadania po wygaśnięciu. 
+Domyślnie program hello usługi Data Lake Analytics archiwa hello zadania przez 30 dni. Konfigurując zasady wygasania hello dostosowane z hello portalu Azure można skonfigurować okres ważności Hello. Nie będzie możliwe tooaccess informacje o zadaniu powitania po wygaśnięciu. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Zobacz [narzędzi Data Lake Tools dla Visual Studio wymagania wstępne](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
-## <a name="open-the-job-browser"></a>Otwórz przeglądarkę z zadania
-Dostęp przeglądarki zadania za pomocą **Eksploratora serwera > Azure > usługi Data Lake Analytics > zadań** w programie Visual Studio.  Za pomocą przeglądarki zadania, można uzyskać dostępu do magazynu zapytań konta usługi Data Lake Analytics. Przeglądarka zadania są magazynu zapytań po lewej stronie, wyświetlane informacje podstawowe zadania, a widoku zadania w prawo Wyświetlanie szczegółowych informacji zadania.
+## <a name="open-hello-job-browser"></a>Otwórz hello przeglądarki zadania
+Dostęp hello przeglądarki zadania za pomocą **Eksploratora serwera > Azure > Data Lake Analytics > zadań** w programie Visual Studio.  Witaj przeglądarki zadania są dostępne magazynu zapytań hello konta usługi Data Lake Analytics. Przeglądarki zadania są magazynu zapytań na powitania po lewej, wyświetlane informacje podstawowe zadania, a następnie Wyświetl zadania na powitania prawo przedstawiający szczegółowe informacje o zadania.
 
 ## <a name="job-view"></a>Zadania widoku
-Zadania widoku przedstawia szczegółowe informacje o zadaniu. Aby otworzyć zadania, kliknij dwukrotnie pozycję zadania w przeglądarce zadania lub otworzyć z menu usługi Data Lake, klikając widoku zadania. Powinny zostać wyświetlone okno dialogowe wypełniane przy użyciu adresu URL zadania.
+Zadania widoku przedstawia hello szczegółowe informacje o zadaniu. tooopen zadania, kliknij dwukrotnie pozycję zadania w hello zadania przeglądarki lub otworzyć z menu usługi Data Lake hello, klikając widoku zadania. Powinny zostać wyświetlone okno dialogowe wypełniane przy użyciu adresu URL zadania hello.
 
 ![Data Lake Tools przeglądarki zadania programu Visual Studio](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
 
@@ -40,101 +40,101 @@ Zadania widoku zawiera:
 
 * Podsumowanie zadania
   
-    Odśwież widok zadań, aby wyświetlić nowszą informacji o uruchomionych zadań.
+    Odśwież hello widoku zadania toosee hello nowych informacji o uruchomionych zadań.
   
   * Stan zadania (wykres):
     
-      Stan zadania zawiera opis etapów zadania.
+      Stan zadania zawiera opis etapów zadania hello:
     
       ![Fazy stan zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
-    * Przygotowanie: Prześlij skrypt do chmury, kompilowania i optymalizowanie skryptu, za pomocą usługi kompilacji.
-    * W kolejce: Zadania są serwatki umieszczonych w kolejce, które czekają za mało zasobów lub zadania przekracza maksymalną zadań jednoczesnych na ograniczenie konta. Ustawienia priorytetu określa sekwencji zadań w kolejce - im niższy numer, tym wyższy priorytet.
-    * Uruchomiona: Zadanie rzeczywiście jest uruchomiona na koncie usługi Data Lake Analytics.
-    * Finalizowanie: Kończy zadanie (na przykład: Trwa kończenie pliku).
+    * Przygotowanie: Przekaż chmury toohello skryptu, kompilowania i optymalizowanie przy użyciu usługi kompilacji hello skryptu hello.
+    * W kolejce: Zadania są serwatki umieszczonych w kolejce, które czekają za mało zasobów lub zadania hello przekracza maksymalną równoczesnych zadań hello na ograniczenie konta. ustawienia priorytetu Hello określa hello sekwencji zadań w kolejce - hello mniejszą liczbę hello, wyższy priorytet hello hello.
+    * Uruchomiona: zadanie hello rzeczywiście jest uruchomiona na koncie usługi Data Lake Analytics.
+    * Finalizowanie: kończy zadanie hello (na przykład finalizowanie hello pliku).
       
-      Zadanie może zakończyć się niepowodzeniem na każdym etapie. Na przykład błędy kompilacji w fazie Preparing, błędy przekroczenia limitu czasu w fazie w kolejce i błędy wykonania w fazie uruchomione itd.
+      zadanie Hello może zakończyć się niepowodzeniem na każdym etapie. Na przykład błędy kompilacji hello Preparing fazy, błędy przekroczenia limitu czasu w fazie w kolejce hello i wykonywania błędów w fazie uruchamiania hello itp.
   * Podstawowe informacje
     
-      Przedstawia informacje o zadaniu podstawowe w dolnej części panel Podsumowanie zadania.
+      Pokazuje informacje podstawowe zadania Hello w dolnej części hello hello panel Podsumowanie zadania.
     
       ![Fazy stan zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
-    * Wynik zadania: Powodzeniem lub niepowodzeniem. Zadania mogą nie działać na każdym etapie.
+    * Wynik zadania: Powodzeniem lub niepowodzeniem. zadanie Hello może zakończyć się niepowodzeniem na każdym etapie.
     * Łączny czas trwania: Ścian czasu zegara (czas trwania) między przesyłanie czas i czas zakończenia.
-    * Łączny czas obliczeniowe: Suma czas wykonywania każdego wierzchołka, można rozważyć go jako czas, który zadania są wykonywane w tylko jednego wierzchołka. Zapoznaj się łącznie wierzchołków można znaleźć więcej informacji na temat wierzchołka.
-    * Czas przesyłania/rozpoczęcia/zakończenia: Czas po usługa Data Lake Analytics odbiera zadania przesyłania/zaczyna Uruchom zadanie zadania/kończy się powodzeniem lub niepowodzeniem.
-    * Kompilacji/w kolejce/uruchomiona: Czas zegarowy spędzony w fazie uruchamiania-Preparing/w kolejce.
-    * Konto: Konto usługi Data Lake Analytics używane do uruchamiania zadania.
-    * Autor: Użytkownik, który przesłał zadanie, może to być konto tworzy prawdziwa osoba lub konta system.
-    * Priorytet: Priorytet zadania. Im niższy numer, tym wyższy priorytet. Wpływa tylko na sekwencji zadań w kolejce. Ustawienie wyższy priorytet nie zastępują uruchomionych zadań.
-    * Równoległość: Żądany maksymalną liczbę równoczesnych Azure Lake Analytics jednostki danych (ADLAUs), alias wierzchołków. Obecnie jednego wierzchołka jest równy jedną maszynę Wirtualną z dwa podstawowe wirtualnego i 6 GB pamięci RAM, ale można jej uaktualnić w przyszłości usługi Data Lake Analytics aktualizacji.
-    * Pozostało bajtów: Bajtów, które mają być przetwarzane dopiero po zakończeniu zadania.
-    * Odczyt/zapisanych bajtów: bajtów, które zostały odczytana/zapisana od uruchomienia zadania.
-    * Łącznie wierzchołków: zadanie jest podzielony na wiele elementów pracy, każdy element pracy jest nazywany wierzchołka. Ta wartość opisuje liczbę fragmentów zadań zadanie składa się z. Należy rozważyć wierzchołek jako jednostka podstawowy proces alias Azure Data Lake Analytics jednostki (ADLAU), i wierzchołków mogą być uruchamiane w równoległości. 
-    * Ukończono/uruchomiona/nie powiodło się: Liczba wierzchołków zakończone lub uruchomiona/nie powiodła się. Wierzchołki może zakończyć się niepowodzeniem z powodu błędów kodu i systemu zarówno użytkowników, ale ponownych prób systemu nie wierzchołków automatycznie kilka razy. Jeśli wierzchołka nadal nie powiodło się po ponowieniu próby, całą pracę zakończy się niepowodzeniem.
+    * Łączny czas obliczeniowe: hello sumę czas wykonywania każdego wierzchołka, można rozważyć się, że jej jako hello czasu hello zadania są wykonywane w tylko jednego wierzchołka. Toofind wierzchołków tooTotal można znaleźć więcej informacji na temat wierzchołka.
+    * Czas przesyłania/rozpoczęcia/zakończenia: hello czas, kiedy hello usługi Data Lake Analytics otrzyma hello toorun przesyłanie/uruchamia zadanie zadania/zakończenia zadania hello pomyślnie lub nie.
+    * Kompilacji/w kolejce/uruchomiona: Czas zegarowy spędzony w fazie Preparing/w kolejce/uruchomiony hello.
+    * Konto: konto usługi Data Lake Analytics hello używane do uruchamiania zadania hello.
+    * Autor: hello użytkownika, który przesłał zadanie hello, może to być konto tworzy prawdziwa osoba lub konta system.
+    * Priorytet: priorytet hello hello zadania. Witaj hello niższą, wyższy priorytet hello hello. Wpływa tylko na powitania sekwencji zadań hello w kolejce hello. Ustawienie wyższy priorytet nie zastępują uruchomionych zadań.
+    * Równoległość: hello zażądał maksymalną liczbę równoczesnych Azure danych Lake Analytics jednostek (ADLAUs), alias wierzchołków. Obecnie jednego wierzchołka jest równy tooone maszyny Wirtualnej z dwóch wirtualnego rdzeni i 6 GB pamięci RAM, ale można jej uaktualnić w przyszłości usługi Data Lake Analytics aktualizacji.
+    * Bajtów w lewo: Bajtów wymagające toobe przetwarzane dopiero po zakończeniu zadania hello.
+    * Odczyt/zapisanych bajtów: bajtów, które zostały odczytana/zapisana, od momentu uruchomienia zadania hello.
+    * Łącznie wierzchołków: hello zadania został podzielony na wiele elementów pracy, każdy element pracy jest nazywany wierzchołka. Ta wartość opisuje, ile zadania hello elementów pracy składa się z. Należy rozważyć wierzchołek jako jednostka podstawowy proces alias Azure Data Lake Analytics jednostki (ADLAU), i wierzchołków mogą być uruchamiane w równoległości. 
+    * Ukończono/uruchomiona/nie powiodło się: hello liczba wierzchołków zakończone lub uruchomiona/nie powiodła się. Wierzchołki może zakończyć się niepowodzeniem ze względu na błędy użytkowników tooboth kodu i systemu, ale system hello liczbę ponownych prób nie wierzchołków automatycznie kilka razy. Jeśli wierzchołków hello nadal nie powiodło się po ponowieniu próby, całą pracę hello zakończy się niepowodzeniem.
 * Wykres zadania
   
-    Skrypt U-SQL reprezentuje logiki przekształcania danych wejściowych w danych wyjściowych. Skrypt jest kompilowane i optymalizowane w ramach planu wykonywania fizycznych w fazie Preparing. Wykres zadania jest Pokaż plan wykonania fizycznego.  Na poniższym diagramie przedstawiono proces:
+    Skrypt U-SQL reprezentuje logiki hello przekształcania danych toooutput danych wejściowych. skrypt Hello jest kompilowane i optymalizowane plan wykonania fizycznego tooa w fazie Preparing hello. Wykres zadania jest plan wykonania fizycznego hello tooshow.  powitania po diagram przedstawia proces hello:
   
     ![Fazy stan zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Zadanie jest podzielony na wiele elementów pracy. Każdy element pracy jest nazywany wierzchołka. Wierzchołki są zgrupowane jako Super wierzchołków (alias etap) i wizualizowane jako wykres zadania. Tabliczek zielony etap na wykresie zadanie Pokaż etapów.
+    Zadanie jest podzielony na wiele elementów pracy. Każdy element pracy jest nazywany wierzchołka. wierzchołki Hello są zgrupowane jako Super wierzchołków (alias etap) i wizualizowane jako wykres zadania. tabliczek zielony etap Hello wykresie zadania hello Pokaż hello etapach.
   
-    Każdy wierzchołek w fazie wykonuje ten sam rodzaj korzystają z różnych części tych samych danych. Na przykład jeśli plik z jednego TB danych, a setki wierzchołków odczytywania z niego, każde z nich jest odczytu fragmentu. Te wierzchołków są grupowane w tym samym etapie i to samo działają w różnych części tego samego pliku wejściowego.
+    Każdy wierzchołek w fazie wykonuje hello sam rodzaj pracy z różnych części hello same dane. Na przykład jeśli plik z jednego TB danych, a setki wierzchołków odczytywania z niego, każde z nich jest odczytu fragmentu. Te wierzchołków są pogrupowane w hello tego samego etapu i ten sam działają w różnych części tego samego pliku wejściowego.
   
   * <a name="state-information"></a>Etap informacji
     
-      W szczególności etapie w plakietkę przedstawiono niektóre liczby.
+      W szczególności etapie w plakietkę hello przedstawiono niektóre liczby.
     
       ![Wykres etap zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
     
-    * SV1 Wyodrębnij: Nazwa etapu, o nazwie liczbą oraz metody operacji.
-    * 84 wierzchołków: łączna liczba wierzchołki na tym etapie. Rysunek wskazuje, ile elementów pracy jest podzielona na tym etapie.
-    * 12.90 s/wierzchołków: wierzchołków Średni czas wykonania dla tego etapu. Liczba ta jest obliczana na podstawie sumy (co czas wykonania wierzchołka) / (całkowita liczba wierzchołków). Co oznacza, że jeśli można przypisać wszystkich wierzchołków wykonywane w równoległości, etap całego zostało zakończone w 12.90 s. Oznacza to również w przypadku całą pracę na tym etapie jest wykonywane szeregowo, kosztów będzie #vertices * Średni czas.
+    * SV1 Wyodrębnij: Nazwa hello etapu, o nazwie za pomocą numeru i hello metody operacji.
+    * 84 wierzchołków: hello łączna liczba wierzchołki na tym etapie. Rysunek Hello wskazuje, ile elementów pracy jest podzielona na tym etapie.
+    * 12.90 s/wierzchołków: hello wierzchołków Średni czas wykonania dla tego etapu. Liczba ta jest obliczana na podstawie sumy (co czas wykonania wierzchołka) / (całkowita liczba wierzchołków). Co oznacza, że jeśli można przypisać wszystkich wierzchołków hello wykonywane w równoległości, hello całej operacji w 12.90 s. Oznacza to również, jeśli wszystkie hello w pracy tego etapu jest wykonywane szeregowo, hello koszt wyniesie #vertices * Średni czas.
     * 850,895 wierszy, zapisany: łączna liczba wierszy, zapisany na tym etapie.
     * R/W: ilość danych odczytu/Written na tym etapie w bajtach.
-    * Kolory: Kolory w fazie wskazuje stan różnych wierzchołka.
+    * Kolory: Kolory hello etap tooindicate wierzchołków inny stan.
       
-      * Zielony oznacza, że zakończyło się pomyślnie wierzchołka.
-      * Kolor pomarańczowy wskazuje, że próba zostanie ponowiona wierzchołka. Ponawiane wierzchołka nie powiodło się, ale próba zostanie ponowiona pomyślnie i automatycznie przez system, a ogólną etap zakończyło się powodzeniem. Jeśli wierzchołka ponowione, ale nadal nie powiodło się, kolor włącza czerwony i całego zadania nie powiodło się.
-      * Czerwony oznacza nie powiodło się, co oznacza, że niektóre wierzchołek ma zostały ponowione kilka razy w systemie, ale nadal nie powiodło się. W tym scenariuszu powoduje niepowodzenie całego zadania.
+      * Zielony oznacza, że wierzchołków hello jest zakończyło się pomyślnie.
+      * Kolor pomarańczowy wskazuje, że próba zostanie ponowiona hello wierzchołka. wierzchołków Hello ponowione nie powiodło się, ale próba zostanie ponowiona automatycznie i pomyślnie systemu hello i hello ogólną etap zakończyło się powodzeniem. Jeśli wierzchołków hello ponowione, ale nadal nie powiodło się, kolor hello włącza czerwony i hello całego zadania nie powiodło się.
+      * Czerwony oznacza nie powiodło się, co oznacza, że niektóre wierzchołek ma została podjęta przez hello system kilka razy, ale nadal nie powiodło się. Ten scenariusz powoduje hello toofail całego zadania.
       * Niebieski oznacza, że niektóre wierzchołek jest uruchomiona.
-      * Białe wskazuje wierzchołka oczekuje. Wierzchołka może być oczekujących na zaplanowanie po udostępnieniu ADLAU lub może go oczekuje na dane wejściowe od czasu jej danych wejściowych może nie być gotowy.
+      * Białe wskazuje hello oczekuje wierzchołka. wierzchołków Hello może być oczekiwanie toobe zaplanowane po udostępnieniu ADLAU lub może go oczekuje na dane wejściowe od czasu jej danych wejściowych może nie być gotowy.
       
-      Więcej informacji można znaleźć w etapie, ustawiając kursor kursor myszy przez jednego stanu:
+      Więcej szczegółów można znaleźć na etapie hello, ustawiając kursor kursor myszy przez jednego stanu:
       
       ![Wykres etap szczegóły zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
-  * Wierzchołków: Opisano wierzchołków, na przykład, ile wierzchołków łączną liczbę wierzchołków zostały ukończone, są nie powiodło się lub jest nadal uruchomiona/oczekiwanie itp.
-  * Dane odczytane pod między/wewnątrz: pliki i dane są przechowywane w wielu stanowiskami w rozproszonym systemie plików. W tym miejscu wartość opisano, jak dużo danych został odczytany pod tym samym lub między pod.
-  * Całkowity czas obliczeniowe: Suma każdy wierzchołek czas wykonywania na etapie, można rozważyć go jako czas wymagałoby wszystkie pracuje w fazie są wykonywane w tylko jednego wierzchołka.
-  * Dane i zapisywane odczytu wierszy: wskazuje, ile danych wierszy zostać odczytana/zapisana lub odczytywania.
+  * Wierzchołków: Opisuje hello wierzchołków uzyskać szczegółowe informacje, na przykład, ile wierzchołków łączną liczbę wierzchołków zostały ukończone, są nie powiodło się lub jest nadal uruchomiona/oczekiwanie itp.
+  * Dane odczytane pod między/wewnątrz: pliki i dane są przechowywane w wielu stanowiskami w rozproszonym systemie plików. tutaj wartość Hello opisano, jak dużo danych został odczytany w hello tej samej pod lub granic pod.
+  * Całkowity czas obliczeniowe: Suma hello co czas wykonywania wierzchołków w etapie hello, można rozważyć go jako czas hello zajmie, jeśli wszystkie działają na etapie hello są wykonywane w tylko jednego wierzchołka.
+  * Dane i zapisywane odczytu wierszy: wskazuje, ile danych wierszy zostać odczytana/zapisana lub wymagają toobe odczytu.
   * Wierzchołka odczytywać błędów: w tym artykule opisano, jak wiele wierzchołków są nie powiodło się podczas odczytu danych.
-  * Odrzuca wierzchołków zduplikowane: w przypadku wierzchołek działa zbyt wolno, system może planować wielu wierzchołków do uruchamiania tej samej element pracy. Wierzchołki reductant zostaną odrzucone po jednej wierzchołków pomyślnie. Odrzucenia zduplikowane wierzchołków rejestruje liczbę wierzchołków, które zostaną odrzucone jako powtórzeń na etapie.
-  * Odwołania wierzchołków: wierzchołka powiodła się, ale uzyskać Uruchom ponownie później z określonych przyczyn. Na przykład jeśli podrzędne wierzchołków utraci pośrednich danych wejściowych, jest pytanie nadrzędnego wierzchołka do ponownego uruchomienia.
-  * Wierzchołków harmonogram wykonaniami: całkowity czas, który zaplanowano wierzchołków.
-  * Dane wierzchołków średni/min/Max odczytane: minimalna/średnia/maksymalna każdego wierzchołka odczytywać dane.
-  * Czas trwania: Czas zegarowy etap przyjmuje, należy załadować profilu, aby zobaczyć tę wartość.
+  * Odrzuca wierzchołków zduplikowane: w przypadku wierzchołek działa zbyt wolno, hello systemu może planować wierzchołków wielu toorun hello sam element pracy. Wierzchołki reductant zostaną odrzucone po jednej wierzchołków hello pomyślnie. Zduplikowane wierzchołków odrzuca rekordy hello liczbę wierzchołków, które zostaną odrzucone jako powtórzeń na etapie hello.
+  * Odwołania wierzchołków: hello wierzchołków powiodła się, ale uzyskać ponownie uruchomić później powodu toosome powodów. Na przykład jeśli podrzędne wierzchołków utraci pośrednich danych wejściowych, jest pytanie hello toorerun wierzchołków nadrzędnego.
+  * Wierzchołków harmonogram wykonaniami: hello całkowity czas, który zaplanowano hello wierzchołków.
+  * Dane wierzchołków średni/min/Max odczytane: hello średni/minimum/maksimum każdego wierzchołka odczytywać dane.
+  * Czas trwania: hello czas zegarowy podejmowaną etap, należy toosee profilu tooload tej wartości.
   * Odtwarzanie zadania
     
-      Data Lake Analytics uruchamia zadania i archiwa wierzchołków uruchomione informacji zadania, takie jak przy uruchamianiu wierzchołki, zatrzymana, nie powiodło się i jak są zwalniane itp. Wszystkie informacje jest automatycznie rejestrowane w magazynie zapytań i przechowywane w profilu zadania. Można pobrać profilu zadania za pomocą "Załaduj profil" w widoku zadania, a po pobraniu profilu zadania można wyświetlić odtwarzania zadania.
+      Data Lake Analytics uruchamia zadania i archiwa hello wierzchołków systemem informacji hello zadań, takich jak uruchomienia wierzchołków hello, zatrzymana, nie powiodło się i jak są zwalniane itp. Wszystkie informacje hello jest automatycznie rejestrowane w magazynie zapytań hello i przechowywane w profilu zadania. Możesz pobrać hello profilu zadania za pomocą "Załaduj profil" w widoku zadania i można wyświetlić hello odtwarzania zadania po pobraniu hello profilu zadania.
     
-      Odtwarzanie zadania jest wizualizację epitome co się stało w klastrze. Pomaga obserwowanie postępu wykonywania zadania oraz wzrokowe wykrycie anomalii wydajności i wąskich gardeł w krótkim czasie (mniej niż 30s zwykle).
+      Odtwarzanie zadania jest wizualizację epitome co się stało hello klastra. Pomaga obserwowanie postępu wykonywania zadania oraz wzrokowe wykrycie anomalii wydajności i wąskich gardeł w krótkim czasie (mniej niż 30s zwykle).
   * Ekran mapy interakcji zadania 
     
-      Mapa cieplna zadania można określić za pomocą listy rozwijanej wyświetlanej na wykresie zadania. 
+      Mapa cieplna zadania można określić za pomocą listy rozwijanej wyświetlanej hello wykresie zadania. 
     
       ![Ekran mapy sterty wykresu zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-display.png)
     
-      Przedstawia on Mapa cieplna we/wy, czas i przepływności zadania, za pomocą których można znaleźć gdzie zadanie zużywa większość czasu oraz czy zadanie zadania granic We/Wy i tak dalej.
+      Przedstawia on hello Mapa cieplna we/wy, czas i przepływności zadania, za pomocą których można znaleźć gdzie zadania hello spędza w większości przypadków hello lub czy zadanie jest zadaniem granic We/Wy i tak dalej.
     
       ![Przykład mapy sterty wykresu zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * Postęp: Wykonanie zadania postępu, zobacz informacje w [przemieszczanie informacji](#stage-information).
-    * Dane odczytana/zapisana: Mapa cieplna całkowita danych odczytana/zapisana na każdym etapie.
-    * Godziny obliczeniowe: Mapa cieplna SUM (co czas wykonania wierzchołka), można rozważyć to jak długo zajmie, jeśli wszystkie prace w fazie jest wykonywane z tylko 1 wierzchołka.
-    * Średni czas wykonania węzła: Mapa cieplna sum (co czas wykonania wierzchołka) / (liczba wierzchołków). Co oznacza, jeżeli można przypisać wszystkich wierzchołków wykonywane w równoległości, całe etapie zostaną wykonane w tym przedziale czasu.
-    * Przepływność wejścia/wyjścia: Mapa cieplna przepustowość operacji We/Wy każdego etapu, można potwierdzić, jeśli zadanie jest powiązane zadanie we/wy przez to.
+    * Postęp: hello postęp wykonywania zadania, zobacz informacje w [przemieszczanie informacji](#stage-information).
+    * Dane odczytana/zapisana: hello Mapa cieplna całkowita danych odczytana/zapisana na każdym etapie.
+    * Godziny obliczeniowe: hello Mapa cieplna sum (co czas wykonania wierzchołka), można rozważyć to jak długo zajmie, jeśli wszystkie prace na etapie hello jest wykonywane z tylko 1 wierzchołka.
+    * Średni czas wykonania węzła: hello Mapa cieplna sum (co czas wykonania wierzchołka) / (liczba wierzchołków). Co oznacza, jeżeli można przypisać wszystkich wierzchołków hello wykonywane w równoległości, etap całego hello zostaną wykonane, w tym przedziale czasu.
+    * Przepływność wejścia/wyjścia: hello Mapa cieplna przepustowość operacji We/Wy każdego etapu, można potwierdzić, jeśli zadanie jest powiązane zadanie we/wy przez to.
 * Operacji na metadanych
   
     Można wykonać operacji na metadanych za pomocą skryptu U-SQL, takich jak tworzenie bazy danych, drop table itd. Te operacje są wyświetlane w metadanych operacji po kompilacji. Może znaleźć potwierdzeń, Utwórz jednostki, w tym miejscu upuść jednostek.
@@ -142,37 +142,37 @@ Zadania widoku zawiera:
     ![Azure Data Lake Analytics zadania widoku operacji na metadanych](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
 * Historia stanu
   
-    Historia stanu również wizualizacji w Podsumowanie zadania, ale w tym miejscu więcej informacji można uzyskać. Można znaleźć szczegółowe informacje, takie jak podczas przygotowywania zadania, w kolejce, wprowadzenie uruchomiona została zakończona. Również można znaleźć ile razy został skompilowany zadania (CcsAttempts: 1), gdy jest zadanie wysyłane do klastra faktycznie (szczegółu: podczas wysyłania zadań do klastra) itp.
+    Hello historii stanu również wizualizacji w Podsumowanie zadania, ale można uzyskać więcej informacji w tym miejscu. Można znaleźć hello szczegółowe informacje, takie jak kiedy zadanie hello jest gotowa, kolejce uruchomienia, została zakończona. Również można znaleźć ile razy został skompilowany hello zadania (hello CcsAttempts: 1), gdy jest rzeczywiście hello zadania wysłane toohello klastra (hello szczegółów: wysyłki toocluster zadania) itp.
   
     ![Historia stanu usługi Azure Data Lake Analytics zadania widoku](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
 * Diagnostyka
   
-    Narzędzie automatycznie diagnozuje wykonywania zadania. W przypadku błędów lub problemów z wydajnością w zadaniach zostaną wysłane alerty. Należy pamiętać, należy pobrać profilu, aby uzyskać pełne informacje w tym miejscu. 
+    Narzędzie Hello automatycznie diagnozuje wykonywania zadania. W przypadku błędów lub problemów z wydajnością w zadaniach zostaną wysłane alerty. Należy pamiętać, należy toodownload profilu tooget pełne informacje w tym miejscu. 
   
     ![Diagnostyka Azure Data Lake Analytics zadania widoku](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
   
-  * Ostrzeżenia: Alertu zostaną wyświetlone tutaj z ostrzeżeniem kompilatora. Możesz kliknąć łącze "x problemów" ma więcej szczegółów, gdy pojawi się alert.
+  * Ostrzeżenia: Alertu zostaną wyświetlone tutaj z ostrzeżeniem kompilatora. Możesz kliknąć toohave link "x problemów" szczegółowe po wyświetleniu alertu hello.
   * Wierzchołków Uruchom za długa: Jeśli dowolny z wierzchołków przekroczyły limit czasu (np. 5 godzin), problemy zostaną znalezione w tym miejscu.
-  * Użycie zasobów: Jeżeli równoległości więcej lub za mało są przydzielone niż konieczne, problemów będzie można znaleźć tutaj. Można również kliknąć pozycję użycia zasobów, aby zobaczyć więcej szczegółów i wykonywać warunkowej scenariuszami, aby znaleźć lepsze alokacji zasobów (Aby uzyskać więcej informacji, zobacz w tym przewodniku).
+  * Użycie zasobów: Jeżeli równoległości więcej lub za mało są przydzielone niż konieczne, problemów będzie można znaleźć tutaj. Również kliknij toosee użycia zasobów więcej szczegółowych informacji i wykonać toofind scenariusze warunkowej lepsze alokacji zasobów (Aby uzyskać więcej informacji, zobacz w tym przewodniku).
   * Sprawdzanie pamięci: Jeśli dowolny z wierzchołków korzysta z więcej niż 5 GB pamięci, problemy zostaną znalezione w tym miejscu. Wykonanie zadania może pobrać przerwany przez system, gdy jest używana większa ilość pamięci niż ograniczenie systemu.
 
 ## <a name="job-detail"></a>Szczegóły zadania
-Szczegóły zadania przedstawiono szczegółowe informacje o zadania, w tym skryptu, zasobów i widoku wykonania wierzchołka.
+Szczegóły zadania pokazuje hello szczegółowe informacje hello zadania, w tym skryptu, zasobów i widoku wykonania wierzchołka.
 
 ![Szczegóły zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
 
 * Skrypt
   
-    Skrypt U-SQL zadania są przechowywane w magazynie zapytań. Można wyświetlić oryginalny skrypt U-SQL i ponownie prześlij, jeśli to konieczne.
+    Witaj skryptu U-SQL zadania hello jest przechowywany w magazynie zapytań hello. Można wyświetlać hello oryginalny skrypt U-SQL i ponownie prześlij, jeśli to konieczne.
 * Zasoby
   
-    Dane wyjściowe zadania kompilacji przechowywane w magazynie zapytań przy użyciu zasobów można znaleźć. Na przykład można znaleźć "algebra.xml", który służy do wyświetlenia wykresu zadania, zestawy, który został zarejestrowany, itp. w tym miejscu.
+    Można znaleźć hello: zadanie dane wyjściowe kompilacji przechowywane w magazynie zapytań hello przy użyciu zasobów. Na przykład można znaleźć "algebra.xml", które jest używane tooshow hello wykres zadania, zestawy hello, który został zarejestrowany, itp. w tym miejscu.
 * Widoku wykonania wierzchołka
   
-    Zawiera on wierzchołków szczegóły wykonywania. Profil zadania archiwa co dziennika wykonywania wierzchołków, takie jak łączna ilość danych odczytana/zapisana, runtime, stan itd. Za pomocą tego widoku można uzyskać więcej informacji na temat sposobu uruchomienia zadania. Aby uzyskać więcej informacji, zobacz [użyć widoku wykonania wierzchołka w narzędzi Data Lake Tools dla programu Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+    Zawiera on wierzchołków szczegóły wykonywania. Witaj profilu zadania archiwa co dziennika wykonywania wierzchołków, takie jak łączna ilość danych odczytana/zapisana, runtime, stan itd. Za pomocą tego widoku można uzyskać więcej informacji na temat sposobu uruchomienia zadania. Aby uzyskać więcej informacji, zobacz [hello użyj widoku wykonania wierzchołka w narzędzi Data Lake Tools dla programu Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby rejestrować informacje diagnostyczne, zobacz [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)
-* Aby uzyskać informacje na temat bardziej złożonego zapytania, zobacz temat [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* Aby użyć widoku wykonania wierzchołka, zobacz [użyć widoku wykonania wierzchołka w narzędzi Data Lake Tools dla programu Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+* informacje diagnostyczne toolog, zobacz [uzyskiwanie dostępu do dzienników diagnostycznych dla usługi Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
+* toosee bardziej złożonego zapytania, zobacz [witryny sieci Web analizowanie dzienników przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+* widoku wykonania wierzchołka toouse, zobacz [hello użyj widoku wykonania wierzchołka w narzędzi Data Lake Tools dla programu Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 

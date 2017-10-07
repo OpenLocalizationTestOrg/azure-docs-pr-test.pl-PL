@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie Twojej oferty w portalu Azure Marketplace | Dokumentacja firmy Microsoft"
-description: "Dowiedz się więcej o i przeprowadzenie instrukcje, aby wdrożyć ofertę — obraz maszyny wirtualnej, deweloperów usługi, Usługa danych itd. — w portalu Azure Marketplace."
+title: aaaDeploy toohello Twojej oferty Azure Marketplace | Dokumentacja firmy Microsoft
+description: "Dowiedz się więcej o i przeprowadzenie toodeploy instrukcje hello oferta — obraz maszyny wirtualnej, dewelopera usługi, Usługa danych itp.--toohello portalu Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ab0bb7c78020187505c2d5f09c4de246987ecd97
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-your-offer-to-the-azure-marketplace"></a>Wdrażanie Twojej oferty w portalu Azure Marketplace
-Po zakończeniu Twojej oferty (to znaczy zostały przetestowane scenariuszy, marketingu zawartości, itp.) i wszystko jest gotowe do uruchomienia, żądań **wypychania do produkcji** na **publikowania** kartę.  
+# <a name="deploy-your-offer-toohello-azure-marketplace"></a>Wdrażanie toohello Twojej oferty Azure Marketplace
+Po zakończeniu Twojej oferty (to znaczy zostały przetestowane scenariuszy, marketingu zawartości, itp.) i są gotowe toolaunch żądania **Push tooproduction** na powitania **publikowania** kartę.  
 
-1. Cztery kroki opisane w tym PRZEWODNIKIEM strony publikowania portalu powinna być została zakończona i zielony. W przypadku ofert maszyny wirtualnej upewnij się, że zostaną wykonane następujące wytyczne.
+1. Witaj cztery kroki w obszarze strony wskazówki hello hello publikowania portalu powinien być została zakończona i zielony. W przypadku ofert maszyny wirtualnej upewnij się, że hello następujące wytyczne zostaną wykonane.
    
     ![Rysowanie][img-pubportal-walkthru-checked]
-2. Wybierz **publikowania** kartę na liście z lewej strony.
+2. Wybierz hello **publikowania** kartę liście hello na powitania po lewej stronie.
    
     ![Rysowanie][img-pubportal-menu-publish]
-3. Kliknij przycisk **zażądać zatwierdzenia do produkcji**. Po wysłaniu żądania, zespół zatwierdzenia wykonuje końcowej oceny, a następnie ofertę będą dostępne w portalu Azure Marketplace.
+3. Kliknij przycisk hello **żądania zatwierdzenia toopush tooproduction**. Po wysłaniu żądania hello, zespół zatwierdzenia hello wykonuje końcowej oceny, a następnie ofertę będą dostępne w portalu Azure Marketplace hello.
    
     ![Rysowanie][img-pubportal-publish-pushproduction]
 
 > [!IMPORTANT]
-> W przypadku maszyn wirtualnych po kliknięciu przycisku żądania zatwierdzenia do środowiska produkcyjnego, następujące czynności są wykonywane za sceny. Można wyświetlić postęp każdego kroku na karcie PUBLIKUJ w publikacji portalu. Należy sprawdzić tę stronę w regularnych odstępach czasu (do czasu stanu wyświetlany jest "Lista") Aby uzyskać informacje o błędzie, który konieczne korekty użytkownika końcowego.
+> W przypadku maszyn wirtualnych po kliknięciu hello przycisk żądania zatwierdzenia toopush tooproduction hello następujące kroki są wykonywane za hello sceny. Będziesz w stanie tooview postęp hello każdego kroku karcie publikowania hello w hello publikowania portalu. Należy sprawdzić tę stronę w regularnych odstępach czasu (do czasu hello stanu wyświetlany jest "Lista") Aby uzyskać informacje o błędzie, który konieczne korekty użytkownika końcowego.
 > 
-> * Na początku żądanie produkcyjnej prowadzi do zespołu certyfikacji, który zweryfikować dysku vhd. Jednak Jeśli aktualizujesz już wymienionych ofertę i żądania otrzymano tylko marketingu zmiany, następnie certyfikacji krok zostanie pominięty.
-> * W następnym kroku żądania pochodzą z zespołem weryfikacji zawartości, który Sprawdź zawartość marketing oferty.
-> * Jeśli powyższe kroki zostały wykonane pomyślnie, oferty jest zatwierdzona w środowisku produkcyjnym. W tej chwili stan stają się "na liście" portal publikowania. Jednak ten stan "Lista" oznacza zakończeniu procesu. Następujące kroki muszą być ukończone, zanim oferta jest dostępna w portalu Azure Marketplace.
-> * Gdy oferta zostanie zatwierdzone w środowisku produkcyjnym w poprzednim kroku, rozpoczęcia replikacji oferty, we wszystkich centrach danych platformy Azure. Zazwyczaj zajmuje 24-48hours na zakończenie replikacji ale może potrwać do tygodnia, w zależności od rozmiaru wirtualnego dysku twardego. Jednak Jeśli aktualizujesz już wymienionych ofertę i otrzymano tylko marketingu zmiany, następnie replikacji jest szybsze.
-> * Po ukończeniu replikacji jest to oferta, dla której będą dostępne w portalu Azure Marketplace.
+> * Na początku żądanie produkcyjnej przechodzi toohello zespołu certyfikacji, który zweryfikować hello wirtualnego dysku twardego. Jednak aktualizujesz już wymienionych ofertę żądania hello otrzymano tylko marketingu zmiany, następnie hello certyfikacji krok zostanie pominięty.
+> * W następnym krokiem hello hello żądania wejścia toohello zespołu weryfikacji zawartości, który Sprawdź hello marketingu zawartości hello oferty.
+> * Jeśli hello powyżej kroki zostały wykonane pomyślnie, oferty hello jest zatwierdzona w środowisku produkcyjnym. W tej chwili stan hello stają się "na liście" hello portal publikowania. Jednak ten stan "Lista" oznacza o ukończeniu procesu hello. następujące kroki należy toobe ukończone przed oferta hello Hello jest dostępna w hello Azure Marketplace.
+> * Oferta hello zatwierdzone w środowisku produkcyjnym w poprzednim kroku hello replikacji rozpoczęcia oferty hello we wszystkich hello centrach danych platformy Azure. Zazwyczaj zajmuje 24-48hours dla toocomplete replikacji hello ale może potrwać tooa tygodnia, w zależności od rozmiaru hello hello wirtualnego dysku twardego. Jednak Jeśli aktualizujesz już wymienionych ofertę i otrzymano tylko marketingu zmiany, następnie replikacji hello jest szybsze.
+> * Po ukończeniu replikacji hello jest to oferta hello będą dostępne w hello Azure Marketplace.
 > 
-> Zawsze można usunąć ofertę, gdy jest on w **projekt** stanu (tj., nigdy nie **wypychania do przemieszczania** lub **wypychania do środowiska produkcyjnego**). Na **historii** , kliknij pozycję **Odrzuć wersję roboczą** znajdujący się u dołu strony, aby usunąć projekt.
+> Zawsze można usunąć oferta hello w **projekt** stanu (tj., nigdy nie **Push toostaging** lub **Push tooproduction**). Na powitania **historii** , kliknij pozycję hello **Odrzuć wersję roboczą** przycisk u dołu hello hello strony toodelete wersję roboczą.
 > 
 > 
 
 ## <a name="production-checklist-for-all-virtual-machine-offers"></a>Lista kontrolna produkcyjnych w przypadku wszystkich ofert maszyny wirtualnej
 * Upewnij się, że jesteś partnerem certyfikowane systemu Microsoft Azure
-* Na karcie jednostki SKU opcję "Ukryj tej jednostki SKU z witryny Marketplace ponieważ zawsze powinna zostać zakupione za pośrednictwem szablon rozwiązania" powinien być oznaczony jako tak tylko wtedy, gdy jednostka SKU jest częścią szablonu rozwiązania. We wszystkich innych przypadkach ta opcja zawsze powinien być oznaczony jako nie.
-* Pamiętaj: Nie należy zmieniać ustawienie widoczności SKU gdy jednostka SKU jest wyświetlany. Ta funkcja nie jest obsługiwana.
-* Upewnij się, że logo przestrzegają wytycznych dotyczących logo portalu Azure Marketplace, które zostały podane poniżej.
+* Karcie jednostki SKU hello hello opcję "Ukryj tej jednostki SKU z witryny Marketplace hello ponieważ zawsze powinna zostać zakupione za pośrednictwem szablon rozwiązania" powinno być oznaczone jako tak tylko jeśli hello jednostka SKU jest częścią szablonu rozwiązania. We wszystkich hello innych przypadkach, ta opcja zawsze powinien być oznaczony jako nie.
+* Pamiętaj: Nie należy zmieniać ustawienie widoczności SKU hello gdy hello jednostka SKU jest wyświetlany. Ta funkcja nie jest obsługiwana.
+* Upewnij się, że logo hello odpowiednia toohello: Azure Marketplace wytycznych dotyczących logo podane poniżej.
 * Opis oferta, jednostka SKU nie powinny być takie same.
 * W jednostce SKU tytuł i oferują długie podsumowanie nie powinna być taka sama.
 * Tytuł jednostki SKU i Podsumowanie oferty nie powinna być taka sama.
@@ -58,29 +58,29 @@ Po zakończeniu Twojej oferty (to znaczy zostały przetestowane scenariuszy, mar
 
 **Wytycznych dotyczących logo Azure Marketplace**
 
-* Projekt platformy Azure ma paletę kolorów proste. Zachowaj numer podstawowy i pomocniczy kolory na logo niski.
-* Motyw kolorów portalu Azure są białe i czarne. Dlatego należy unikać kolorów te jako kolor tła swoje logo. Użyj niektórych koloru, która swoje logo widoczne w portalu Azure. Zaleca się proste kolorów podstawowych. Jeśli używasz przezroczyste tło, a następnie upewnij się, że logo/tekstu nie jest białe lub czarny.
-* Nie należy używać gradientu tła na logo.
-* Należy unikać wprowadzania tekstu, nawet Twoja firma lub marką, na logo.
-* Wygląd i działanie logo powinno być "prosty" i unikać gradienty.
-* Logo nie powinny być skalowane.
+* Hello Azure projekt ma paletę kolorów proste. Zachowaj hello liczba podstawowy i pomocniczy kolory na logo niski.
+* motyw kolorów Hello hello portalu Azure są białe i czarne. Dlatego należy unikać kolorów te jako kolor tła hello swoje logo. Użyj niektórych koloru, która swoje logo widocznym w hello portalu Azure. Zaleca się proste kolorów podstawowych. Jeśli używasz przezroczyste tło, upewnij się, że logo hello/tekst nie jest białe lub czarny.
+* Nie używaj gradientu tła na powitania logo.
+* Należy unikać wprowadzania tekstu, nawet Twoja firma lub marką, na powitania logo.
+* Hello wygląd i działanie logo powinno być "prosty" i unikać gradienty.
+* nie powinny być skalowane Hello logo.
 
-**Dodatkowe wskazówki dotyczące bohater logo:**
+**Dodatkowe wskazówki dotyczące hello bohater logo:**
 
-* Logo bohater jest opcjonalna. Wydawcy można zrezygnować z przekazać logo bohater. **Jednak po przekazane ikona bohater nie można usunąć z publikowania portalu. W tym czasie partnera musi postępuj zgodnie z wytycznymi portalu Azure Marketplace ikon bohater else oferta nie zostanie zatwierdzona do środowiska produkcyjnego.**
-* Nazwa wyświetlana wydawcy, nazwa jednostki SKU i długie Podsumowanie oferty są wyświetlane w kolorze białym znakiem. Dlatego należy unikać zachowuje żadnych jasny kolor w tle ikona bohater. Czarne, białe i przezroczystego tła ikon bohater jest niedozwolone.
-* Wydawca Nazwa wyświetlana, nazwa jednostki SKU, długie Podsumowanie oferty i przycisk Utwórz są osadzone programowo wewnątrz logo bohater po oferty przejdzie do listy. Nie należy więc wprowadzić dowolny tekst, podczas projektowania bohater logo. Po prostu pozostaw puste miejsce po prawej stronie, ponieważ tekst (tj.) Wydawca Nazwa wyświetlana, nazwa jednostki SKU długie Podsumowanie oferty) zostaną uwzględnione programowo przez nas nad nim. Puste miejsce na tekst powinien być 415 x 100 po prawej stronie (i przesunięty 370px z lewej strony).
+* logo bohater Hello jest opcjonalna. Wydawca Hello można nie tooupload logo bohater. **Jednak raz przekazane ikona bohater hello nie można usunąć z hello publikowania portalu. W tym czasie partnera hello wykonaj hello Azure Marketplace wytyczne dla ikony bohater else oferta hello nie będą tooproduction zatwierdzone.**
+* Witaj wyświetlaną nazwę wydawcy, nazwa jednostki SKU i hello oferują długie podsumowanie są wyświetlane w kolorze białym znakiem. Dlatego należy unikać zachowuje żadnych jasny kolor hello tło hello bohater ikony. Czarne, białe i przezroczystego tła ikon bohater jest niedozwolone.
+* Hello wydawcy, nazwa wyświetlana, jednostki SKU tytuł oferty hello długie Podsumowanie i hello utworzyć przycisk są programowo osadzone wewnątrz logo bohater powitania po oferta hello przejdzie do listy. Nie należy więc wprowadzić dowolny tekst, podczas projektowania hello bohater logo. Pozostawienia puste miejsce po prawej stronie powitania, ponieważ tekst hello (tj. wydawcy, nazwa wyświetlana, nazwa jednostki SKU, długie Podsumowanie oferty hello) zostanie uwzględniona programowo przez nas nad nim. puste miejsce Hello hello tekstu powinno być 415 x 100 na powitania prawym (i przesunięty 370px od lewej hello).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Oferuje dodatkowe produkcji Lista kontrolna już wymienionych maszyny wirtualnej
-* Sprawdź, czy jest już ofertę o takiej samej nazwie oferta w firmie. Jeśli tak, należy dodać nowej wersji jednostki SKU w istniejących oferta zamiast tworzenia nowej oferty zduplikowane.
-* Dysk danych nie należy zmieniać między dwoma wersjami tej samej jednostki SKU.
-* Portalu Azure Marketplace nie obsługuje cenową zmiany listy jednostki SKU zgodnie z ich wpływ rozliczeń istniejących odbiorców. Upewnij się, że nie zmienisz cennik wymienionych jednostki SKU w regionach, gdzie dostępna jest opcja jednostki SKU. Możesz jednak dodawać nowe jednostki SKU lub dodawanie nowych regionów do istniejącej jednostki SKU.
+* Sprawdź, jeśli istnieje już ofertę z hello oferują takie same nazwy w firmie. Jeśli tak, należy dodać nową wersję hello jednostki SKU w istniejących oferta hello zamiast tworzenia nowej oferty zduplikowane.
+* Dysk danych nie należy zmieniać między dwoma wersjami hello same jednostki SKU.
+* Hello Azure Marketplace nie obsługuje zmiany hello cennika wymienionych jednostki SKU ma wpływ na rozliczenia hello hello istniejących odbiorców. Upewnij się, że nie zmienisz hello cen jednostki SKU hello wymienionych w hello regionach, gdzie dostępna jest opcja hello jednostki SKU. Możesz jednak dodawać nowe jednostki SKU lub Dodaj nowe tooan regionów istniejący jednostce SKU.
 
 ## <a name="next-steps"></a>Następne kroki
-Gdy oferta odbywa się na żywo, testu scenariuszy, aby sprawdzić wszystkie kontrakty i funkcje działają poprawnie w środowisku produkcyjnym jako przetestowany i zweryfikowany w środowisku przemieszczania.
+Gdy oferta hello odbywa się na żywo, testowanie hello klienta scenariusze toovalidate, że wszystkie kontrakty hello i funkcje działają poprawnie w środowisku produkcyjnym hello jako hello przetestowane i zatwierdzone w środowisku przemieszczania.
 
 ## <a name="see-also"></a>Zobacz też
-* [Wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Wprowadzenie: jak toopublish toohello oferta portalu Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

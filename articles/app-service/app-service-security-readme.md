@@ -1,6 +1,6 @@
 ---
-title: "Zabezpieczenia usługi aplikacji Azure"
-description: "Dowiedz się, jak zabezpieczyć aplikacji sieci Web, mobilnych i interfejsu API logiki w usłudze Azure App Service."
+title: "aaaAzure zabezpieczenia usługi aplikacji"
+description: "Dowiedz się, jak aplikacje sieci Web, mobilnych i interfejsu API logiki toosecure w usłudze Azure App Service."
 services: app-service
 documentationcenter: 
 author: naziml
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2015
 ms.author: naziml
-ms.openlocfilehash: 7d26d52ad04bd4158a1450ae0f49fc7c1f8a04e8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8a0bff7d9665abadd70c1cfd07dca265ea057596
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-security"></a>Zabezpieczenia usługi aplikacji Azure
-Usługa Azure App Service jest zgodny ze standardami branżowymi klucza dla bezpieczeństwa i niezawodności, aby zapewnić naszym klientom platformą. Mamy kilka funkcji łatwy w użyciu w celu zabezpieczania ruchu przychodzącego i wychodzącego dla aplikacji. Możemy pomóc również klientów bezpiecznego ich kodu aplikacji, zapewniając zewnętrznie realizować funkcje do skanowania luk w zabezpieczeniach aplikacji sieci web.
+Usługa Azure App Service jest zgodna z hello standardy branżowe klucza dla bezpieczeństwa i niezawodności tooprovide klientów platformą. Mamy kilka toohelp łatwy w użyciu funkcji zabezpieczania ruchu przychodzącego i wychodzącego dla aplikacji. Możemy pomóc również klientów bezpiecznego ich kodu aplikacji, zapewniając zewnętrznie podane tooscan funkcjonalność aplikacji sieci web dla luk w zabezpieczeniach.
 
 [!INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-Usługa aplikacji Azure korzysta z tego samego rozwiązania chroniące przed złośliwym kodem przez usług Azure Cloud Services i maszyny wirtualne. Aby dowiedzieć się więcej o tym odwoływać się do naszej [dokumentacji ochrony przed złośliwym kodem](../security/azure-security-antimalware.md). 
+Azure korzysta z usługi aplikacji hello tego samego rozwiązania chroniące przed złośliwym kodem przez usług Azure Cloud Services i maszyny wirtualne. toolearn więcej na ten temat można znaleźć tooour [dokumentacji ochrony przed złośliwym kodem](../security/azure-security-antimalware.md). 
 

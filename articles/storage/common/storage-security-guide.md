@@ -1,6 +1,6 @@
 ---
-title: Przewodnik po zabezpieczeniach magazynu platformy Azure | Dokumentacja firmy Microsoft
-description: "Szczegóły wiele metod zabezpieczania usługi Azure Storage, w tym między innymi RBAC, szyfrowanie usługi Magazyn szyfrowania po stronie klienta, SMB 3.0 i szyfrowania dysków Azure."
+title: Przewodnik po zabezpieczeniach magazynu aaaAzure | Dokumentacja firmy Microsoft
+description: "Szczegóły hello wiele metod zabezpieczania usługi Azure Storage, w tym między innymi tooRBAC, szyfrowanie usługi Magazyn szyfrowania po stronie klienta, SMB 3.0 i szyfrowania dysków Azure."
 services: storage
 documentationcenter: .net
 author: robinsh
@@ -14,132 +14,132 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.openlocfilehash: e71d9baf36ea7acb8dc8fa1daf9ddde3a2856f85
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1f5a4e724e00ea6d16f5511b9120154f89441758
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-security-guide"></a>Przewodnik po zabezpieczeniach magazynu Azure
 ## <a name="overview"></a>Omówienie
-Magazyn Azure oferuje rozbudowany zestaw funkcji zabezpieczeń, które razem umożliwiają deweloperom tworzenie bezpiecznych aplikacji. Samo konto magazynu mogą być chronione przy użyciu kontroli dostępu opartej na rolach i Azure Active Directory. Dane mogą być chronione przy użyciu przesyłanych między aplikacją a Azure [szyfrowania po stronie klienta](../storage-client-side-encryption.md), HTTPS lub SMB 3.0. Dane można ustawić automatycznie szyfrowane zapisane przy użyciu usługi Azure Storage [szyfrowanie usługi Magazyn (SSE)](storage-service-encryption.md). Można ustawić systemu operacyjnego i dysków z danymi używanych przez maszyny wirtualne będą szyfrowane przy użyciu [szyfrowania dysków Azure](../../security/azure-security-disk-encryption.md). Delegowany dostęp do obiektów danych w usłudze Azure Storage można otrzymać za pomocą [sygnatury dostępu współdzielonego](../storage-dotnet-shared-access-signature-part-1.md).
+Usługa Azure Storage zapewnia rozbudowany zestaw funkcji zabezpieczeń, które razem umożliwiają deweloperom toobuild bezpiecznych aplikacji. samo konto magazynu Hello mogą być chronione przy użyciu kontroli dostępu opartej na rolach i Azure Active Directory. Dane mogą być chronione przy użyciu przesyłanych między aplikacją a Azure [szyfrowania po stronie klienta](../storage-client-side-encryption.md), HTTPS lub SMB 3.0. Dane można ustawić toobe automatycznie szyfrowane, gdy zapisywane tooAzure magazynu za pomocą [szyfrowanie usługi Magazyn (SSE)](storage-service-encryption.md). Systemu operacyjnego i dysków z danymi używanych przez maszyny wirtualne można ustawić toobe zaszyfrowane za pomocą [szyfrowania dysków Azure](../../security/azure-security-disk-encryption.md). Obiekty danych toohello delegowanego dostępu w usłudze Azure Storage można otrzymać za pomocą [sygnatury dostępu współdzielonego](../storage-dotnet-shared-access-signature-part-1.md).
 
-W tym artykule zapewni omówienie każdego z tych funkcji zabezpieczeń, które mogą być używane z usługą Azure Storage. Łącza są dostarczane do artykułów, które zapewni szczegóły dotyczące każdej funkcji, można w prosty sposób dalszych badań na każdego tematu.
+W tym artykule zapewni omówienie każdego z tych funkcji zabezpieczeń, które mogą być używane z usługą Azure Storage. Łącza są udostępniane tooarticles, która zapewni szczegóły dotyczące każdej funkcji, można w prosty sposób dalszych badań na każdego tematu.
 
-Tematy, które mają być uwzględnione w tym artykule są:
+Poniżej przedstawiono toobe tematy hello omówione w tym artykule:
 
 * [Zabezpieczenia płaszczyzny Management](#management-plane-security) — zabezpieczanie konta magazynu
 
-  Płaszczyzny zarządzania składa się z zasobami umożliwiają zarządzanie kontem magazynu. W tej sekcji będziesz omawianiu modelu wdrażania usługi Azure Resource Manager oraz sposób korzystania z kontroli dostępu opartej na rolach (RBAC) do kontrolowania dostępu do kont magazynu. Zostanie również są omawiane zarządzania kluczami konta magazynu i jak można ponownie wygenerować je.
-* [Dane płaszczyzny zabezpieczeń](#data-plane-security) — zabezpieczanie dostępu do danych
+  płaszczyzny zarządzania Hello składa się z toomanage zasoby używane hello konta magazynu. W tej sekcji będziesz omawianiu modelu wdrażania usługi Azure Resource Manager hello i jak toocontrol kontroli dostępu opartej na rolach (RBAC) toouse uzyskują dostęp do kont magazynu tooyour. Firma Microsoft będzie również porozmawiać na temat zarządzania kluczami konta magazynu i w jaki sposób tooregenerate je.
+* [Bezpieczeństwo danych w płaszczyźnie](#data-plane-security) — tooYour zabezpieczanie dostępu do danych
 
-  W tej sekcji wyjaśniono zezwalania na dostęp do danych rzeczywistych obiektów na koncie magazynu obiektów blob, plików, kolejek i tabel, np. przy użyciu sygnatury dostępu współdzielonego i przechowywane zasad dostępu. Omówimy SAS poziomu usług i poziomie konta sygnatury dostępu Współdzielonego. Firma Microsoft będzie również sprawdzić, jak ograniczyć dostęp do określonego adresu IP (lub zakres adresów IP), jak ograniczyć protokół używany do HTTPS i jak odwołać sygnaturę dostępu współdzielonego bez oczekiwania na jej wygaśnięcie.
+  W tej sekcji wyjaśniono zezwalania na dostęp toohello rzeczywiste dane obiektów na koncie magazynu obiektów blob, plików, kolejek i tabel, przy użyciu sygnatury dostępu współdzielonego i przechowywane zasad dostępu. Omówimy SAS poziomu usług i poziomie konta sygnatury dostępu Współdzielonego. Firma Microsoft sekcji omówiono również, jak toolimit dostępu tooa określonego adresu IP (lub zakres adresów IP), jak używany protokół hello toolimit tooHTTPS i jak toorevoke a Shared Access Signature nie oczekuje na tooexpire.
 * [Szyfrowanie podczas transferu](#encryption-in-transit)
 
-  W tej sekcji omówiono sposób do zabezpieczania danych podczas transferu do lub z usługi Azure Storage. Będzie omawianiu zalecane użycie protokołu HTTPS i szyfrowania używany przez protokół SMB 3.0 do udziały plików platformy Azure. Firma Microsoft będzie także Spójrz na szyfrowanie po stronie klienta, co umożliwia szyfrowanie danych, zanim zostanie przekazany do magazynu w aplikacji klienckiej oraz do odszyfrowania danych po przeniesieniu poza magazynu.
+  W tej sekcji omówiono sposób toosecure danych podczas transferu do lub z usługi Azure Storage. Będzie omawianiu hello zalecane użycie protokołu HTTPS i hello szyfrowania używany przez protokół SMB 3.0 do udziały plików platformy Azure. Firma Microsoft będzie także Spójrz na szyfrowanie po stronie klienta, co umożliwia tooencrypt hello dane przed przeniesieniem do magazynu w aplikacji klienckiej i toodecrypt powitania po przeniesieniu poza magazynu.
 * [Szyfrowanie w spoczynku](#encryption-at-rest)
 
-  Zostanie omawianiu szyfrowanie usługi Magazyn (SSE) i jak można ją włączyć dla konta magazynu, co powoduje blokowe, stronicowe obiekty BLOB i uzupełnialnych obiektów blob są szyfrowane automatycznie, gdy zapisany w magazynie Azure. Ponadto przedstawiono sposób użycia szyfrowania dysków Azure i poznać różnice podstawowych i przypadków szyfrowania dysku i SSE i szyfrowania po stronie klienta. Krótko przedstawiono zgodności ze standardem FIPS dla Stanów Zjednoczonych Komputery dla instytucji rządowych.
-* Przy użyciu [analityka magazynu](#storage-analytics) inspekcji dostępu do magazynu Azure
+  Zostanie omawianiu szyfrowanie usługi Magazyn (SSE) i jak można ją włączyć dla konta magazynu, co powoduje blokowe, stronicowe obiekty BLOB i uzupełnialnych obiektów blob, są szyfrowane automatycznie, gdy zapisywane tooAzure magazynu. Ponadto przedstawiono sposób użycia szyfrowania dysków Azure i Poznaj podstawowe różnice hello i przypadków szyfrowania dysku i SSE i szyfrowania po stronie klienta. Krótko przedstawiono zgodności ze standardem FIPS dla Stanów Zjednoczonych Komputery dla instytucji rządowych.
+* Przy użyciu [analityka magazynu](#storage-analytics) tooaudit dostęp do usługi Azure Storage
 
-  W tej sekcji omówiono informacje można znaleźć w dziennikach analityka magazynu dla żądania. Firma Microsoft będzie Spójrz na analityka magazynu rzeczywiste dane dziennika i zobacz, jak do wykrycia, czy żądanie kluczem konta magazynu, za pomocą podpisu dostęp współdzielony lub anonimowo oraz tego, czy powodzeniem lub niepowodzeniem.
+  W tej sekcji omówiono sposób toofind informacji w module analiz magazynu hello rejestrowania dla żądania. Firma Microsoft będzie Spójrz na analityka magazynu rzeczywiste dane dziennika i zobacz, jak toodiscern czy żądań z hello magazynu klucza za pomocą podpisu dostępu udostępnionego konta lub anonimowo oraz tego, czy powodzeniem lub niepowodzeniem.
 * [Włączanie przeglądarki klientów przy użyciu mechanizmu CORS](#Cross-Origin-Resource-Sharing-CORS)
 
-  Ta sekcja zawiera informacje o sposobu zezwalania współużytkowanie zasobów między źródłami (CORS) do udostępniania. Będzie omawianiu międzydomenowy dostęp i sposobie jego obsługa z CORS wbudowanych funkcji na magazyn Azure.
+  Ta sekcja zawiera informacje o jak tooallow współużytkowanie zasobów między źródłami (CORS) do udostępniania. Będzie omawianiu dostęp z innych domen i jak toohandle go przy użyciu funkcji CORS hello wbudowane usługi Azure Storage.
 
 ## <a name="management-plane-security"></a>Zarządzanie płaszczyzny zabezpieczeń
-Płaszczyzny zarządzania składa się z operacji, które mają wpływ na samo konto magazynu. Na przykład można utworzyć lub usuwania konta magazynu, Pobierz listę kont magazynu w ramach subskrypcji, pobrać klucze konta magazynu lub ponownie wygenerować kluczy konta magazynu.
+płaszczyzny zarządzania Hello składa się z operacji, które mają wpływ na konto magazynu hello sam. Na przykład można utworzyć lub usuwania konta magazynu, Pobierz listę kont magazynu w ramach subskrypcji, pobrać klucze konta magazynu hello lub ponownie wygenerować kluczy konta magazynu hello.
 
-Podczas tworzenia nowego konta magazynu jest wybierz model wdrożenia klasycznego lub Menedżera zasobów. Klasycznego modelu tworzenie zasobów na platformie Azure umożliwia tylko all-or-nothing dostępu do subskrypcji, a więc konta magazynu.
+Podczas tworzenia nowego konta magazynu jest wybierz model wdrożenia klasycznego lub Menedżera zasobów. Witaj klasycznego modelu tworzenie zasobów na platformie Azure tylko umożliwia subskrypcji toohello all-or-nothing dostępu i z kolei hello konta magazynu.
 
-Ten przewodnik koncentruje się na modelu Resource Manager, który jest zalecany sposób tworzenia kont magazynu. Za pomocą Menedżera zasobów konta magazynu, zamiast dające dostęp do całej subskrypcji można kontrolować dostęp na poziomie bardziej ograniczone do płaszczyzny zarządzania za pomocą kontroli dostępu opartej na rolach (RBAC).
+Ten przewodnik koncentruje się na powitania modelu Resource Manager, który jest hello zalecany sposób tworzenia kont magazynu. Za pomocą kont magazynu hello Resource Manager, a nie dające dostęp toohello całej subskrypcji można kontrolować dostęp na płaszczyźnie bardziej ograniczone Zarządzanie toohello poziomu przy użyciu kontroli dostępu opartej na rolach (RBAC).
 
-### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Jak zabezpieczyć konto magazynu z kontroli dostępu opartej na rolach (RBAC)
-Załóżmy porozmawiać na temat RBAC jest i jak można go użyć. Każda subskrypcja platformy Azure zawiera usługę Azure Active Directory. Użytkownicy, grupy i aplikacje z katalogu może otrzymać dostęp do zarządzania zasobami w subskrypcji platformy Azure, które używają modelu wdrażania usługi Resource Manager. Jest to określane jako kontroli dostępu opartej na rolach (RBAC). Aby zarządzać dostępem, można użyć [portalu Azure](https://portal.azure.com/), [narzędzia wiersza polecenia platformy Azure](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), lub [interfejsów API REST dostawcy zasobów magazynu Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+### <a name="how-toosecure-your-storage-account-with-role-based-access-control-rbac"></a>Jak toosecure, konto magazynu, z kontroli dostępu opartej na rolach (RBAC)
+Załóżmy porozmawiać na temat RBAC jest i jak można go użyć. Każda subskrypcja platformy Azure zawiera usługę Azure Active Directory. Dostęp do toomanage zasobów w subskrypcji platformy Azure hello korzystających z modelu wdrażania usługi Resource Manager hello można udzielić użytkowników, grup i aplikacji z tego katalogu. Jest to określony tooas kontroli dostępu opartej na rolach (RBAC). toomanage tego dostępu, można użyć hello [portalu Azure](https://portal.azure.com/), hello [narzędzia wiersza polecenia platformy Azure](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), lub hello [interfejsów API REST dostawcy zasobów magazynu Azure ](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
-W modelu Resource Manager należy umieścić konta magazynu w zasobów grupy i kontroli dostępu do tego konta określonego magazynu przy użyciu usługi Azure Active Directory płaszczyzny zarządzania. Na przykład można udzielić określonym użytkownikom możliwość dostępu klucze konta magazynu, podczas gdy inni użytkownicy mogą wyświetlać informacje o koncie magazynu, ale nie ma dostępu do kluczy konta magazynu.
+Witaj modelu Resource Manager należy umieścić w zasobów grupy i kontroli dostępu toohello zarządzania płaszczyźnie tego konta określonego magazynu przy użyciu usługi Azure Active Directory hello konta magazynu. Na przykład możesz zapewnić określonych użytkowników hello możliwości tooaccess hello klucze konta magazynu, podczas gdy inni użytkownicy mogą wyświetlać informacje o koncie magazynu hello, ale nie ma dostępu do kluczy konta magazynu hello.
 
 #### <a name="granting-access"></a>Udzielanie dostępu
-Dostęp przez przypisanie odpowiednie role RBAC dla użytkowników, grup i aplikacji, w zakresie prawo. Aby udzielić dostępu do całej subskrypcji, możesz przypisać rolę na poziomie subskrypcji. Dostęp do wszystkich zasobów w grupie zasobów można przyznać za udzielanie uprawnień grupy zasobów. Można również przypisać określonych ról do określonych zasobów, takich jak konta magazynu.
+Dostęp przez przypisanie hello odpowiednie RBAC roli toousers, grup i aplikacji, w zakresie prawo hello. toogrant dostępu toohello całej subskrypcji, możesz przypisać rolę na poziomie subskrypcji hello. Można przyznać dostęp tooall hello zasobów w grupie zasobów przez udzielanie uprawnień toohello zasobów grupy. Można także przypisać określonych ról toospecific zasobów, takich jak konta magazynu.
 
-Poniżej przedstawiono główne punkty, które musisz wiedzieć o dostęp do operacji zarządzania konta usługi Azure Storage za pomocą RBAC:
+Poniżej przedstawiono główne punkty hello konieczność tooknow dotyczące korzystania z operacji zarządzania hello tooaccess RBAC konta magazynu Azure:
 
-* Po przypisaniu dostępu zasadniczo przypisać rolę do konta, które chcesz mieć dostęp. Można kontrolować dostęp do operacji umożliwia zarządzanie tym kontem magazynu, ale nie do obiektów danych w ramach konta. Na przykład można udzielić uprawnienia do pobierania właściwości konta magazynu (na przykład nadmiarowość), ale nie do kontenera lub dane w kontenerze wewnątrz magazynu obiektów Blob.
-* Osoba, która ma uprawnienia dostępu do danych obiektów na koncie magazynu można nadać im uprawnienia do odczytu klucze konta magazynu, a ten użytkownik mógł następnie użyć tych kluczy można uzyskać dostępu do obiektów blob, kolejek, tabel i plików.
-* Role można przypisać do określonego konta użytkownika, grupy użytkowników lub do określonej aplikacji.
-* Każda rola ma listę działania i nie działania. Na przykład Rola współautora maszyny wirtualnej ma akcję "listKeys", która umożliwia odczyt kluczy konta magazynu. Współautor ma "Nie akcje" jak aktualizowanie dostępu dla użytkowników w usłudze Active Directory.
-* Role dla magazynu obejmują (ale nie są ograniczone do) następujących czynności:
+* Po przypisaniu dostępu przypisaniu zasadniczo konta toohello roli, które ma dostęp toohave. Można kontrolować toomanage operacje używane toohello dostępu do tego konta magazynu, ale nie toohello danych obiektów na koncie hello. Na przykład można przyznać uprawnień właściwości hello tooretrieve hello konta magazynu (na przykład nadmiarowość), ale nie tooa kontenera lub dane w kontenerze wewnątrz magazynu obiektów Blob.
+* Osoba, która tooaccess uprawnienia toohave hello obiektów danych na koncie magazynu hello, nadać im klucze konta magazynu hello tooread uprawnień i użytkownik może następnie użyć tych kluczy tooaccess hello blob, kolejek, tabel i plików.
+* Role można przypisywać tooa określonego konta użytkownika, grupy użytkowników lub tooa określonej aplikacji.
+* Każda rola ma listę działania i nie działania. Na przykład Rola współautora maszyny wirtualnej hello ma akcję "listKeys", która umożliwia toobe klucze konta magazynu hello do odczytu. Witaj współautora ma "Nie akcje" jak aktualizowanie hello dostępu dla użytkowników w hello usługi Active Directory.
+* Role dla magazynu obejmują (ale nie są ograniczone do) hello następujące czynności:
 
   * Właściciel — mogą zarządzać wszystkim łącznie z dostępem.
-  * Współautor — Administratorzy mogą wykonywać żadnych czynności właściciela oprócz przypisywanie dostępu. Ktoś z tą rolą mogą wyświetlać i ponownie wygenerować kluczy konta magazynu. Klucze konta magazynu ich umożliwia dostęp do obiektów danych.
-  * Czytnik — mogą wyświetlać informacje o koncie magazynu, z wyjątkiem kluczy tajnych. Na przykład jeśli zostaną przypisane roli z uprawnieniami czytnika na koncie magazynu, mogą wyświetlać właściwości konta magazynu, ale nie mogą wprowadzać żadnych zmian właściwości lub Wyświetl klucze konta magazynu.
-  * Współautor konta magazynu — mogą zarządzać konta magazynu — może odczytywać subskrypcji grup zasobów i zasobów, tworzenie i zarządzanie wdrożeniami grup zasobów subskrypcji. Można także przejść klucze konta magazynu, które z kolei oznacza, że będą mieć dostępu do warstwy danych.
-  * Administrator dostępu użytkowników — one zarządzanie dostępem użytkowników do konta magazynu. Na przykład można przyznają dostęp czytelnika do określonego użytkownika.
-  * Współautor maszyny wirtualnej — mogą zarządzać maszyn wirtualnych, ale nie na koncie magazynu, do którego jest podłączony. Tę rolę można wyświetlić listę kluczy konta magazynu, co oznacza, że użytkownik, któremu można przypisać tej roli można aktualizować płaszczyzna danych.
+  * Współautor — Administratorzy mogą wykonywać żadnych czynności właściciela hello oprócz przypisywanie dostępu. Ktoś z tą rolą mogą wyświetlać i ponownie wygenerować kluczy konta magazynu hello. Z hello klucze konta magazynu uzyskać dostęp do obiektów danych hello.
+  * Czytnik — mogą wyświetlać informacje o koncie magazynu hello, z wyjątkiem kluczy tajnych. Na przykład po przypisaniu roli z uprawnieniami czytnika toosomeone konta magazynu hello mogą wyświetlać właściwości hello hello konta magazynu, ale nie mogą wprowadzać żadnych zmian właściwości toohello lub Wyświetl klucze konta magazynu hello.
+  * Współautor konta magazynu — mogą zarządzać konta magazynu hello — może odczytywać hello subskrypcji grup zasobów i zasobów, tworzenie i zarządzanie wdrożeniami grup zasobów subskrypcji. Można także przejść klucze konta magazynu hello, co z kolei oznacza, że mogą uzyskiwać dostęp do hello płaszczyzna danych.
+  * Administrator dostępu użytkowników — mogą zarządzać konto magazynu toohello dostępu użytkownika. Na przykład można udzielać czytnika dostępu tooa określonego użytkownika.
+  * Maszyna wirtualna współautora — mogą zarządzać maszyn wirtualnych, ale nie hello magazynu konta toowhich gdy są połączeni. Tę rolę można wyświetlić listę hello klucze konta magazynu, co oznacza, że hello toowhom użytkownika przypisać tę rolę można aktualizować hello płaszczyzna danych.
 
-    Użytkownika, aby utworzyć maszynę wirtualną, muszą mieć możliwość utworzenia odpowiedniego pliku VHD na koncie magazynu. W tym celu muszą być w stanie pobrać klucz konta magazynu i przekaż go do interfejsu API tworzenia maszyny Wirtualnej. W związku z tym muszą mieć te uprawnienia, można wyświetlić listę kluczy konta magazynu.
-* Możliwość definiowania ról niestandardowych jest funkcją, która umożliwia utworzenie zestaw akcji z listy dostępnych akcji, które mogą być wykonywane na zasobów platformy Azure.
-* Użytkownik musi zostać skonfigurowane w usłudze Azure Active Directory przed rolę można przypisać do nich.
-* Można utworzyć raport, który przyznane/odwołany jakiego rodzaju dostępu do i z którego i na jakie zakresu przy użyciu programu PowerShell lub interfejsu wiersza polecenia Azure.
+    Aby toocreate użytkownika maszyny wirtualnej mają one toobe toocreate stanie hello odpowiedniego pliku VHD na koncie magazynu. toodo, że powinni toobe tooretrieve stanie hello magazynu klucz konta i przekaż go toohello interfejsu API tworzenia hello maszyny Wirtualnej. W związku z tym, można wyświetlić listę kluczy konta magazynu hello muszą mieć te uprawnienia.
+* role niestandardowe toodefine możliwości Hello jest funkcją, która pozwala toocompose zestaw akcji z listy dostępnych akcji, które mogą być wykonywane na zasobów platformy Azure.
+* Użytkownik Hello ma toobe zdefiniować przed przypisaniem toothem roli w usłudze Azure Active Directory.
+* Można utworzyć raport, który przyznane/odwołany jakiego rodzaju dostępu do i z którego i na jakie zakresu przy użyciu programu PowerShell lub hello wiersza polecenia platformy Azure.
 
 #### <a name="resources"></a>Zasoby
 * [Kontrola dostępu oparta na rolach w usłudze Azure Active Directory](../../active-directory/role-based-access-control-configure.md)
 
-  W tym artykule objaśniono funkcję kontroli dostępu opartej na rolach w usłudze Azure Active Directory i sposób jej działania.
+  W tym artykule opisano hello kontroli dostępu opartej na roli Azure Active Directory i jej działania.
 * [Kontrola dostępu oparta na rolach (RBAC): wbudowane role](../../active-directory/role-based-access-built-in-roles.md)
 
-  Ten artykuł zawiera szczegóły dotyczące wszystkich dostępnych w RBAC ról wbudowanych.
+  Ten artykuł zawiera szczegóły dotyczące wszystkich ról wbudowanych hello dostępne w RBAC.
 * [Omówienie wdrażania przy użyciu usługi Resource Manager oraz wdrażania klasycznego](../../azure-resource-manager/resource-manager-deployment-model.md)
 
-  W tym artykule opisano wdrożenie usługi Resource Manager i klasycznych modeli wdrażania, a opis korzyści przy użyciu grup Resource Manager i zasobów. Wyjaśniono, jak działają rozwiązań usługi obliczenia Azure, sieci i dostawcy magazynu w modelu Resource Manager.
-* [Zarządzanie kontrolą dostępu opartą na rolach za pomocą interfejsu API REST](../../active-directory/role-based-access-control-manage-access-rest.md)
+  W tym artykule opisano hello wdrożenie usługi Resource Manager i klasycznych modeli wdrażania, a ponadto wyjaśniono hello zalety korzystania z grup hello Resource Manager i zasobów. Wyjaśniono, jak działają hello rozwiązań usługi obliczenia Azure, sieci i dostawcy magazynu pod hello modelu Resource Manager.
+* [Zarządzanie oparte na rolach kontrola dostępu przy użyciu hello interfejsu API REST](../../active-directory/role-based-access-control-manage-access-rest.md)
 
-  W tym artykule przedstawiono sposób zarządzania kontrolą dostępu opartą na rolach (RBAC) za pomocą interfejsu API REST.
+  W tym artykule opisano, jak toouse hello toomanage interfejsu API REST RBAC.
 * [Dokumentacja interfejsu API REST dostawcy zasobów magazynu Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
-  To odwołanie dla interfejsów API, można programowo zarządzać konta magazynu.
-* [Przewodnik dewelopera do uwierzytelniania z interfejsu API usługi Azure Resource Manager](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+  To odwołanie hello hello interfejsów API służy toomanage Twojego konta magazynu programowo.
+* [Tooauth przewodnik dewelopera programu z interfejsu API usługi Azure Resource Manager](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
 
-  W tym artykule przedstawiono sposób uwierzytelniania przy użyciu interfejsów API Menedżera zasobów.
+  W tym artykule opisano, jak za pomocą tooauthenticate hello interfejsów API Menedżera zasobów.
 * [Kontrola dostępu oparta na rolach dla platformy Microsoft Azure — konferencja Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
-  To jest link do filmu wideo w witrynie Channel 9 z konferencji Microsoft Ignite 2015. W tej sesji rozmawiamy o możliwościach zarządzania dostępem i raportowania na platformie Azure i eksplorujemy najlepsze rozwiązania dotyczące zabezpieczania dostępu do subskrypcji Azure za pomocą usługi Azure Active Directory.
+  To jest łącze tooa wideo w witrynie Channel 9 z konferencji Ignite 2015 MS hello. W tej sesji porozmawiać o dostęp do zarządzania i możliwości raportowania w programie Azure i eksplorowanie najlepsze rozwiązania dotyczące zabezpieczania dostępu tooAzure subskrypcji przy użyciu usługi Azure Active Directory.
 
 ### <a name="managing-your-storage-account-keys"></a>Zarządzanie kluczami konta magazynu
-Klucze konta magazynu są ciągami 512-bitowe utworzone przez platformę Azure, która wraz z nazwy konta magazynu mogą być używane do dostępu do obiektów danych przechowywanych w ramach konta magazynu, np. obiekty BLOB, jednostek w tabeli, kolejki komunikatów i plików w udziale plików Azure. Kontrolowanie dostępu do magazynu konta klucze kontroli dostępu do płaszczyzna danych dla tego konta magazynu.
+Konto magazynu, że klucze są ciągami 512-bitowe utworzone przez platformę Azure, które wraz z magazynu hello nazwa, konta mogą być obiekty danych hello używane tooaccess przechowywane na koncie magazynu hello, np. obiekty BLOB, jednostek w tabeli, kolejki komunikatów i plików w udziale plików Azure. Kontrolowanie kontroli klucze konta magazynu dostępu toohello dostępu toohello płaszczyzna danych dla tego konta magazynu.
 
-Każde konto magazynu ma dwa klucze określane jako "Klucz 1" i "Klucz 2" w [portalu Azure](http://portal.azure.com/) i polecenia cmdlet programu PowerShell. Te mogą zostać wygenerowane ponownie ręcznie przy użyciu jednej z kilku metod, w tym między innymi przy użyciu [portalu Azure](https://portal.azure.com/), programu PowerShell, interfejsu wiersza polecenia Azure albo programowo z użyciem biblioteki klienta usługi Storage platformy .NET lub interfejsu API REST usług magazynu Azure.
+Każde konto magazynu ma dwa klucze określonego tooas "Klucz 1" i "Klucz 2" w hello [portalu Azure](http://portal.azure.com/) w hello poleceń cmdlet programu PowerShell. Te mogą zostać wygenerowane ponownie ręcznie przy użyciu jednej z kilku metod, w tym, ale nie wyłącznie toousing hello [portalu Azure](https://portal.azure.com/), programu PowerShell, interfejsu wiersza polecenia Azure hello lub programowo przy użyciu hello biblioteki klienta usługi Storage platformy .NET lub hello Azure Interfejs API REST usług magazynu.
 
-Istnieje wielu sytuacjach można ponownie wygenerować kluczy konta magazynu.
+Istnieje wiele przyczyn tooregenerate kluczy konta magazynu.
 
 * Użytkownik może ponownie wygenerować ich regularnie ze względów bezpieczeństwa.
-* Jeśli ktoś zarządzane hack do aplikacji i pobierania klucza, który zostało zapisane na stałe lub zapisany w pliku konfiguracji, zapewniając im dostęp do konta magazynu będzie ponownie wygenerować kluczy konta magazynu.
-* Innym przypadku ponowne generowanie klucza jest Jeśli zespół używa aplikacji Eksploratora magazynu, który zachowuje klucz konta magazynu, a jeden z członków zespołu pozostawia. Aplikacja będzie nadal działać, udzieleniem im dostępu do konta magazynu po zrobi to ktoś inny. Jest to rzeczywiście głównej przyczyny, dla której one utworzone sygnatury dostępu współdzielonego poziomie konta — SAS poziomie konta można użyć zamiast przechowywanie kluczy dostępu w pliku konfiguracji.
+* Jeśli ktoś zarządzane toohack do aplikacji i pobrać klucz hello zostało zapisane na stałe lub zapisany w pliku konfiguracji, zapewniając im konta magazynu tooyour pełny dostęp, czy ponownie wygenerować kluczy konta magazynu.
+* Innym przypadku ponowne generowanie klucza jest zespołem używa aplikacji Eksploratora magazynu, który zachowuje klucz konta magazynu hello, jeden z członków zespołu hello pozostawia. Aplikacja Hello będzie nadal toowork, zapewniając im konta magazynu tooyour dostępu po zrobi to ktoś inny. Jest rzeczywiście hello głównej przyczyny one utworzone sygnatury dostępu współdzielonego konta poziom — SAS poziomie konta można użyć zamiast przechowywanie kluczy dostępu hello w pliku konfiguracji.
 
 #### <a name="key-regeneration-plan"></a>Ponowne generowanie klucza planu
-Nie chcesz ponownie wygenerować klucz używanego bez niektóre planowania. Dostęp może można to zrobić, obcięty, do tego konta magazynu, który może spowodować przestoje głównych. Jest to, dlatego dostępne są dwa klucze. Należy ponownie wygenerować jeden klucz w czasie.
+Nie chcesz, aby klucz regenerate hello toojust używasz bez niektóre planowania. Można to zrobić, można odcięte wszystkich dostępu toothat konta magazynu, która może spowodować przestoje głównych. Jest to, dlatego dostępne są dwa klucze. Należy ponownie wygenerować jeden klucz w czasie.
 
-Wygenerować klucze, upewnij się, że masz listę wszystkich aplikacji, które są zależne od konta magazynu, a także innych usług używanych na platformie Azure. Na przykład jeśli używasz usługi Azure Media Services, które są zależne od konta magazynu, musisz ponownie zsynchronizować klucze dostępu z usługą multimediów po ponownym wygenerowaniu klucza. Jeśli używasz dowolnej aplikacji, takich jak Eksplorator magazynu należy podać nowe klucze do tych aplikacji, jak również. Należy pamiętać, że jeśli masz maszyny wirtualne, których pliki VHD są przechowywane na koncie magazynu, ich nie dotyczy ponowne generowanie kluczy konta magazynu.
+Wygenerować klucze, upewnij się, że masz listę wszystkich aplikacji, które są zależne od konta magazynu hello, a także innych usług używanych na platformie Azure. Na przykład jeśli używasz usługi Azure Media Services, które są zależne od konta magazynu, musisz ponownie zsynchronizować klucze dostępu hello z usługą multimediów po ponownym wygenerowaniu klucza hello. Jeśli używane są wszystkie aplikacje, takie jak Eksploratora magazynu, należy tooprovide hello nowych kluczy toothose aplikacji oraz. Należy pamiętać, że jeśli masz maszyny wirtualne, których pliki VHD są przechowywane na koncie magazynu hello ich nie dotyczy ponowne generowanie kluczy konta magazynu hello.
 
-Można ponownie wygenerować klucze w portalu Azure. Gdy klucze są generowane one mieć mają być synchronizowane między usługi magazynu do 10 minut.
+Można ponownie wygenerować klucze w hello portalu Azure. Po klucze są generowane może potrwać too10 toobe minut synchronizację usługi magazynu.
 
-Jeśli wszystko jest gotowe, Oto ogólny proces opisujące, jak należy zmienić klucz. W takim przypadku założeniu jest obecnie używasz klucz 1, a użytkownik chce zmienić wszystkie informacje niezbędne do zamiast tego Użyj klucza 2.
+Jeśli wszystko jest gotowe, Oto ogólny proces hello opisujące, jak należy zmienić klucz. W takim przypadku hello zakłada się, że obecnie używasz klucz 1 i ma toochange wszystko toouse klucz 2 zamiast tego.
 
-1. Wygeneruj ponownie klucz 2, aby upewnić się, że jest bezpieczne. Można to zrobić w portalu Azure.
-2. We wszystkich aplikacjach przechowywania klucza magazynu należy zmienić wartość klucza magazynu do użycia nowej wartości klucza 2. Testowanie i publikowanie aplikacji.
-3. Po wszystkich aplikacji i usług są włączone i uruchomiony pomyślnie, należy ponownie wygenerować klucz 1. Dzięki temu, że każdy, komu nie wyraźnie mają nowy klucz zostanie nie ma dostępu do konta magazynu.
+1. Wygeneruj ponownie klucz 2 tooensure jest bezpieczne. Można to zrobić w hello portalu Azure.
+2. We wszystkich aplikacji hello przechowywania klucza magazynu hello zmienić hello magazynu kluczy toouse klucza 2 nową wartość. Testowanie i publikowanie aplikacji hello.
+3. Po wszystkich hello aplikacje i usługi są uruchomione i uruchomiony pomyślnie, należy ponownie wygenerować klucz 1. Gwarantuje to, że każdy toowhom nie mają wyraźnie hello nowy klucz nie będą mieć dostęp do konta magazynu toohello.
 
-Jeśli obecnie używasz 2 klucza, można użyć tego samego procesu, ale odwrotnej nazwy kluczy.
+Jeśli obecnie używasz 2 klucza, można użyć tego samego procesu, ale hello odwrotnej nazwy kluczy hello.
 
-Przez kilka dni, można migrować Zmiana użycia nowego klucza dla każdej aplikacji i publikowania. Po wykonaniu wszystkich z nich czynności należy wrócić do poprzedniej strony i ponownie wygenerować starego klucza, ale nie działa.
+Przez kilka dni, można migrować zmiana każdego toouse hello nowy klucz aplikacji i jej opublikowaniem. Po wykonaniu wszystkich z nich czynności należy wrócić do poprzedniej strony i ponownie wygenerować hello starego klucza, ale nie działa.
 
-Innym rozwiązaniem jest umieszczenie klucz konta magazynu [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/) jako klucz tajny i mieć aplikacji pobrać klucza z tego miejsca. Następnie po ponownie wygenerować klucz aktualizacji usługi Azure Key Vault, aplikacje nie będzie jej ponownego wdrożenia, ponieważ ich pobierze nowy klucz z magazynu kluczy Azure automatycznie. Zauważ, że masz aplikacji, trzeba go do odczytu klucza, lub można ją buforują w pamięci i w przypadku niepowodzenia podczas korzystania z niego, Pobierz klucz ponownie z usługi Azure Key Vault.
+Innym rozwiązaniem jest klucz konta magazynu hello tooput w [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/) jako klucz tajny i mają klucz hello pobierania aplikacji z tego miejsca. Następnie po ponownie wygenerować klucz hello i zaktualizować hello Azure Key Vault aplikacji hello nie będzie konieczne toobe ponownego wdrożenia, ponieważ ich przejmą hello nowy klucz ze hello Azure Key Vault automatycznie. Należy pamiętać, że program może odczytać klucza hello trzeba go aplikacji hello lub można ją buforują w pamięci i w przypadku niepowodzenia podczas korzystania z niego, klucz hello ponownego pobrania z hello Azure Key Vault.
 
-Również przy użyciu usługi Azure Key Vault dodaje kolejny poziom zabezpieczeń dla kluczy magazynu. Jeśli używasz tej metody, nigdy nie należy ustalony klucza magazynu w pliku konfiguracji, co spowoduje usunięcie tego ścieżek ktoś uzyskiwanie dostępu do kluczy bez odpowiedniego uprawnienia.
+Również przy użyciu usługi Azure Key Vault dodaje kolejny poziom zabezpieczeń dla kluczy magazynu. Jeśli używasz tej metody, nigdy nie należy hello magazynu kluczy ustalony w pliku konfiguracji, co spowoduje usunięcie tego ścieżek ktoś uzyskiwania dostępu do kluczy toohello bez odpowiedniego uprawnienia.
 
-Inną zaletą używania usługi Azure Key Vault jest można też kontrolować dostęp do kluczy przy użyciu usługi Azure Active Directory. Oznacza to, że można udzielać dostępu do grupy aplikacji, które należy pobrać klucze z usługi Azure Key Vault i dowiedzieć się, że inne aplikacje nie będą mogli uzyskać dostęp do kluczy bez przyznania im uprawnień w szczególności.
+Inną zaletą używania usługi Azure Key Vault jest można też kontrolować dostęp tooyour kluczy przy użyciu usługi Azure Active Directory. Oznacza to, że można udzielać dostępu toohello kilku aplikacji, które są wymagane klucze hello tooretrieve z usługi Azure Key Vault i wiedzieć, że inne aplikacje nie będą tooaccess stanie hello kluczy bez przyznania im uprawnień w szczególności.
 
-Uwaga: zalecane jest tylko jeden z kluczy Użyj we wszystkich aplikacji, w tym samym czasie. Jeśli używasz klucz 1 w niektórych miejscach i 2 klucza w innych nie można obrócić klucze bez utraty dostępu do aplikacji.
+Uwaga: zalecane jest toouse tylko jedną hello kluczy we wszystkich aplikacjach na powitania sam czas. Jeśli używasz klucz 1 w niektórych miejscach i 2 klucza w innych, nie będzie można toorotate stanie klucze bez utraty dostępu do aplikacji.
 
 #### <a name="resources"></a>Zasoby
 * [Informacji o kontach magazynu Azure](storage-create-storage-account.md#regenerate-storage-access-keys)
@@ -147,49 +147,49 @@ Uwaga: zalecane jest tylko jeden z kluczy Użyj we wszystkich aplikacji, w tym s
   Ten artykuł zawiera omówienie kont magazynu i wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu do magazynu.
 * [Dokumentacja interfejsu API REST dostawcy zasobów magazynu Azure](https://msdn.microsoft.com/library/mt163683.aspx)
 
-  Ten artykuł zawiera łącza do artykułów na temat pobierania kluczy konta magazynu i Trwa ponowne generowanie kluczy konta magazynu dla konta platformy Azure przy użyciu interfejsu API REST. Uwaga: Jest to w przypadku kont magazynu Menedżera zasobów.
+  Ten artykuł zawiera łącza toospecific artykułów na temat pobierania kluczy konta magazynu hello i Trwa ponowne generowanie kluczy konta magazynu hello konta platformy Azure przy użyciu hello interfejsu API REST. Uwaga: Jest to w przypadku kont magazynu Menedżera zasobów.
 * [Operacje na kontach magazynu](https://msdn.microsoft.com/library/ee460790.aspx)
 
-  W tym artykule w dokumentacji interfejsu API REST magazynu Service Manager zawiera łącza do określonych artykułów na pobieranie i Trwa ponowne generowanie kluczy konta magazynu przy użyciu interfejsu API REST. Uwaga: Jest to w przypadku kont magazynu Classic.
-* [Koniec z zarządzanie kluczami — zarządzanie dostępem do danych usługi Azure Storage za pomocą usługi Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
+  W tym artykule w hello dokumentacja interfejsu API REST magazynu Service Manager zawiera artykuł toospecific łącza na pobieranie i Trwa ponowne generowanie kluczy konta magazynu hello przy użyciu hello interfejsu API REST. Uwaga: Jest to w przypadku kont magazynu Classic hello.
+* [Powiedzieć praktyczny brak jakichkolwiek tookey management — Zarządzanie dostępu tooAzure magazynu danych, przy użyciu usługi Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
-  W tym artykule pokazano, jak używać usługi Active Directory do kontrolowania dostępu do kluczy magazynu Azure w usłudze Azure Key Vault. Widoczny jest również sposób zadanie usługi Automatyzacja Azure umożliwia ponowne generowanie kluczy co godzinę.
+  W tym artykule przedstawiono sposób tooyour usługi Azure Storage klucze w usłudze Azure Key Vault dostępu toouse toocontrol usługi Active Directory. Pokazuje też, jak toouse usługi Automatyzacja Azure zadania tooregenerate hello kluczy co godzinę.
 
 ## <a name="data-plane-security"></a>Zabezpieczenia warstwy danych
-Bezpieczeństwo płaszczyzna danych odwołuje się do metody używane do zabezpieczania obiektów danych przechowywanych w usłudze Azure Storage — obiekty BLOB, kolejek, tabel i plików. Firma Microsoft w tym samouczku metod do szyfrowania danych i zabezpieczeń podczas przesyłania danych, ale jak uzyskać informacje umożliwiające dostęp do obiektów?
+Bezpieczeństwo płaszczyzna danych odwołuje się metody toohello toosecure używane hello danych obiektów przechowywanych w magazynie Azure — hello obiektów blob, kolejek, tabel i plików. Firma Microsoft przedstawiono metody tooencrypt hello danych i bezpieczeństwo podczas przesyłania danych hello, ale jak uzyskać informacje umożliwiające dostęp do obiektów toohello?
 
-Istnieją dwie metody kontrolowania dostępu do danych same obiekty. Pierwszy jest kontrolowanie dostępu do kluczy konta magazynu, a drugi używa sygnatur dostępu współdzielonego Aby udzielić dostępu do obiektów dane specyficzne dla określonego przedziału czasu.
+Istnieją dwie metody kontrolowania dostępu toohello danych same obiekty. Hello jest najpierw klucze konta magazynu toohello kontroli dostępu i hello drugi jest przy użyciu sygnatury dostępu współdzielonego toogrant dostępu toospecific dane obiektów dla określonego przedziału czasu.
 
-Jednym wyjątkiem należy pamiętać, jest, aby ustawić poziom dostępu dla kontener, który zawiera obiekty BLOB w związku z tym można zezwolić dostępu publicznego obiektów blob. Jeśli ustawisz dostępu do kontenera obiektów Blob lub kontenera, umożliwia publiczny dostęp do odczytu obiektów blob w tym kontenerze. Oznacza to, że każdy użytkownik z adresem URL wskazującym na obiekt blob w tym kontenerze otworzyć go w przeglądarce bez przy użyciu sygnaturę dostępu współdzielonego lub posiadanie kluczy konta magazynu.
+Jeden wyjątek toonote jest ustawienie poziomu dostępu hello hello kontener obiektów blob hello odpowiednio umożliwia obiekty BLOB tooyour dostępu publicznego. Jeśli ustawisz dostępu tooBlob kontenera lub kontenera, umożliwia publiczny dostęp do odczytu obiektów blob hello w danym kontenerze. Oznacza to, że każdy użytkownik z adresem URL wskazującym blob tooa w danym kontenerze otworzyć go w przeglądarce bez przy użyciu sygnaturę dostępu współdzielonego i klucze konta magazynu hello o.
 
 ### <a name="storage-account-keys"></a>Klucze kont magazynu
-Klucze konta magazynu są ciągami 512-bitowe utworzone przez platformę Azure, którego wraz z nazwy konta magazynu, można uzyskać dostęp do obiektów danych przechowywanych w ramach konta magazynu.
+Klucze konta magazynu są tworzone przez platformę Azure, która wraz z nazwą konta magazynu hello, może być obiektów danych hello używane tooaccess przechowywane na koncie magazynu hello ciągi 512-bitowe.
 
-Można na przykład obiekty BLOB do odczytu, zapisu do kolejek, tworzenie tabel i modyfikowanie plików. Wiele z tych akcji mogą być wykonywane za pośrednictwem portalu Azure lub przy użyciu jednej z wielu aplikacji Eksploratora magazynu. Można również napisać kod do wykonania tych operacji za pomocą interfejsu API REST lub jednej z bibliotek klienckich magazynu.
+Można na przykład obiekty BLOB do odczytu, zapisu tooqueues, tworzenie tabel i modyfikowanie plików. Wiele z tych akcji mogą być wykonywane za pośrednictwem hello Azure portalu lub przy użyciu jednej z wielu aplikacji Eksploratora magazynu. Można również napisać kod toouse hello interfejsu API REST lub jednego z tooperform biblioteki klienta magazynu hello te operacje.
 
-Zgodnie z opisem w sekcji na [zabezpieczeń płaszczyzny zarządzania](#management-plane-security), dostęp do magazynu kluczy dla konta magazynu Classic można otrzymać, zapewniając dostęp do subskrypcji platformy Azure. Dostęp do magazynu kluczy dla konta magazynu przy użyciu modelu usługi Azure Resource Manager można sterować za pośrednictwem kontroli dostępu opartej na rolach (RBAC).
+Zgodnie z opisem w sekcji hello na powitania [zabezpieczeń płaszczyzny zarządzania](#management-plane-security), dostęp toohello magazynu kluczy dla konta magazynu Classic można otrzymać, zapewniając toohello pełnego dostępu do subskrypcji platformy Azure. Dostęp toohello magazynu kluczy dla konta magazynu przy użyciu modelu usługi Azure Resource Manager hello można sterować za pośrednictwem kontroli dostępu opartej na rolach (RBAC).
 
-### <a name="how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies"></a>Jak delegować dostęp do obiektów na koncie przy użyciu sygnatury dostępu współdzielonego i przechowywane zasad dostępu
-Sygnaturę dostępu współdzielonego jest ciąg zawierający token zabezpieczający, który można dołączyć do identyfikatora URI, który umożliwia delegowanie dostępu do magazynu obiektów i określić ograniczeń, takich jak uprawnienia i zakres dostępu daty/godziny.
+### <a name="how-toodelegate-access-tooobjects-in-your-account-using-shared-access-signatures-and-stored-access-policies"></a>Jak toodelegate dostępu tooobjects na koncie przy użyciu sygnatury dostępu współdzielonego i przechowywane zasad dostępu
+Sygnaturę dostępu współdzielonego jest ciąg zawierający token zabezpieczający, który może być dołączony tooa identyfikator URI, który pozwala toodelegate dostępu toostorage obiektów i określić ograniczeń, takich jak uprawnienia hello i hello daty/godziny zakresu dostępu.
 
-Mogą udzielać dostępu do obiektów blob, kontenery wiadomości w kolejce, plików i tabele. W tabelach faktycznie można przyznać uprawnień dostępu zakresu jednostek w tabeli, określając zakresami kluczy partycji i wiersza do których mają użytkownik miał dostęp do. Na przykład, jeśli masz dane przechowywane z użyciem klucza partycji geograficzne stanu, możesz podać ktoś dostęp do tylko te dane, Polski.
+Można przyznać dostęp tooblobs, kontenery wiadomości w kolejce, plików i tabele. Tabel można faktycznie przyznać uprawnienia tooaccess zakresu jednostek w tabeli hello określając hello partycji i wiersza zakresami kluczy toowhich program access toohave użytkownika hello. Na przykład jeśli masz dane przechowywane z użyciem klucza partycji geograficzne stanu nadać ktoś dane hello toojust dostępu dla Polski.
 
-W kolejnym przykładzie może udzielić aplikacji sieci web token sygnatury dostępu Współdzielonego, który umożliwia zapisywanie wpisów do kolejki i nadaj roboczy aplikacji roli tokenu sygnatury dostępu Współdzielonego, aby pobrać wiadomości z kolejki i przetwarzanie ich. Lub jednego klienta można nadać tokenu sygnatury dostępu Współdzielonego, można użyć w celu przekazania obrazów do kontenera w magazynie obiektów Blob i nadaj uprawnienia aplikacji sieci web do odczytu tych obrazów. W obu przypadkach jest separacji — każdej aplikacji można przydzielić tylko dostępu, które są wymagane w celu wykonywania swoich zadań. Jest to możliwe przy użyciu sygnatury dostępu współdzielonego.
+W kolejnym przykładzie może dać tokenu sygnatury dostępu Współdzielonego, umożliwiający toowrite wpisy tooa kolejki aplikacji sieci web i nadaj pracownik roli aplikacji komunikaty tooget tokenu sygnatury dostępu Współdzielonego z hello kolejka i przetwarzanie ich. Lub jednego klienta można nadać tokenu sygnatury dostępu Współdzielonego, można użyć tooupload obrazy tooa kontenera w magazynie obiektów Blob i zapewniają te obrazy tooread uprawnienia aplikacji sieci web. W obu przypadkach jest separacji — każdej aplikacji można przyznać dostęp tylko hello, które są wymagane w kolejności tooperform ich zadań. Jest to możliwe przy użyciu hello sygnatury dostępu współdzielonego.
 
-#### <a name="why-you-want-to-use-shared-access-signatures"></a>Dlaczego chcesz użyć sygnatury dostępu współdzielonego
-Dlaczego czy chcesz użyć SAS zamiast tylko nadawania klucz konta magazynu jest dużo łatwiejszy? Nadawania klucz konta magazynu jest podobne do udostępniania kluczy Królestwo Twojego magazynu. Udziela uprawnień pełny dostęp. Ktoś może użycie klawiszy i przekazywanie ich całej biblioteki utworów muzycznych na koncie magazynu. One można również zastąpić pliki wersjami zainfekowany wirusów lub kradzieży danych. Przekazywanie nieograniczony dostęp do konta magazynu to element, którego nie powinny być uwzględniane w niewielkim stopniu.
+#### <a name="why-you-want-toouse-shared-access-signatures"></a>Dlaczego chcesz sygnatury dostępu współdzielonego toouse
+Dlaczego chcesz toouse SAS, a nie tylko nadawania klucz konta magazynu jest dużo łatwiejszy? Nadawania klucz konta magazynu jest podobne do udostępniania kluczy hello Królestwo Twojego magazynu. Udziela uprawnień pełny dostęp. Ktoś może użycie klawiszy i przekazać swoje konto magazynu całą biblioteki tooyour. One można również zastąpić pliki wersjami zainfekowany wirusów lub kradzieży danych. Przekazywanie konta magazynu tooyour nieograniczony dostęp, to element, którego nie powinny być uwzględniane w niewielkim stopniu.
 
-Z sygnatury dostępu współdzielonego można nadać klienta tylko uprawnień wymaganych przez ograniczony czas. Na przykład jeśli ktoś jest przekazywanie obiektu blob na koncie, można przyznać im dostęp do zapisu wystarczającego czasu do przekazania obiektu blob (w zależności od rozmiaru obiektu blob, oczywiście). A jeśli zmienisz zdanie, że dostęp można odwołać.
+Z sygnatury dostępu współdzielonego można nadać klienta tylko hello uprawnienia wymagane przez ograniczony czas. Na przykład jeśli ktoś przekazuje konta tooyour obiektów blob, można przyznać im dostęp do zapisu dla wystarczającego czasu tooupload hello obiektów blob (w zależności od rozmiaru hello hello obiektu blob, oczywiście). A jeśli zmienisz zdanie, że dostęp można odwołać.
 
-Ponadto można określić, że żądania przy użyciu sygnatury dostępu Współdzielonego są ograniczone do niektórych adresów IP lub zakres adresów IP zewnętrznego do platformy Azure. Możesz również wymagać, że żądania są wykonywane przy użyciu określonego protokołu (HTTPS lub HTTP/HTTPS). Oznacza to, jeśli chcesz zezwolić na ruch protokołu HTTPS, wymagany protokół HTTPS można ustawić tylko i ruchu HTTP zostanie zablokowana.
+Ponadto można określić, że żądania przy użyciu sygnatury dostępu Współdzielonego są ograniczone tooa niektórych adres IP lub adres IP zewnętrznego tooAzure zakresu adresów. Możesz również wymagać, że żądania są wykonywane przy użyciu określonego protokołu (HTTPS lub HTTP/HTTPS). Oznacza to, jeśli mają tooallow ruchu HTTPS, można ustawić tylko tooHTTPS protokołu hello wymagane, a ruch HTTP będzie zablokowany.
 
 #### <a name="definition-of-a-shared-access-signature"></a>Definicja sygnatury dostępu współdzielonego
-Sygnaturę dostępu współdzielonego to zestaw parametrów zapytania dołączone do adresu URL, wskazując zasobu
+Sygnaturę dostępu współdzielonego jest zestaw parametrów zapytania dołączany toohello adres URL, wskazując hello zasobów
 
-zawierające informacje o dozwolony dostęp do i czas, dla których dostęp jest dozwolony. Oto przykład; Ten identyfikator URI zapewnia dostęp do odczytu do obiektu blob na pięć minut. Uwaga SAS parametry zapytania musi być zakodowanych jako adres URL, takich jak 3A % dwukropka (:) lub % 20 spacją.
+zapewnia informacje o dostępie do hello dozwolone i hello długość czasu, dla których hello dostęp jest dozwolony. Oto przykład; Ten identyfikator URI zawiera blob tooa dostęp do odczytu przez pięć minut. Uwaga SAS parametry zapytania musi być zakodowanych jako adres URL, takich jak 3A % dwukropka (:) lub % 20 spacją.
 
 ```
-http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
+http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL toohello blob)
 ?sv=2015-04-05 (storage service version)
 &st=2015-12-10T22%3A18%3A26Z (start time, in UTC time and URL encoded)
 &se=2015-12-10T22%3A23%3A26Z (end time, in UTC time and URL encoded)
@@ -197,139 +197,139 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sp=r (read access)
 &sip=168.1.5.60-168.1.5.70 (requests can only come from this range of IP addresses)
 &spr=https (only allow HTTPS requests)
-&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
+&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for hello authentication of hello SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Jak sygnatura dostępu współdzielonego zostanie uwierzytelniony przez usługi Azure Storage
-Gdy Usługa magazynu odbiera żądanie, przyjmuje parametry zapytania i tworzy podpis przy użyciu tej samej metody co program wywołujący. Porównuje dwa podpisów. Jeśli użytkownik wyrazi zgodę, usługa Magazyn można sprawdzić wersji usług magazynu, upewnij się, że jest prawidłowy, sprawdź, czy bieżąca data i godzina są w określonym przedziale, upewnij się, że dostęp zażądał odpowiada żądania itp.
+#### <a name="how-hello-shared-access-signature-is-authenticated-by-hello-azure-storage-service"></a>Jak powitalne sygnatura dostępu współdzielonego jest uwierzytelniany przez hello usługi magazynu Azure
+Usługa Magazyn hello odebrania żądania hello przyjmuje parametry zapytania hello i tworzy podpis przy użyciu hello tę samą metodę jak hello program wywołujący. Porównuje dwa podpisów hello. Jeśli zgadzają się następnie hello usługi magazynu można Sprawdź się, że jest on prawidłowy toomake wersji usług magazynu hello, sprawdź, czy hello aktualnej daty i godziny są w określonym przedziale czasu hello, upewnij się, że hello dostępu odpowiada żądania toohello itp.
 
-Na przykład z naszych powyżej adresu URL, jeśli adres URL został wskazuje plik zamiast obiektu blob to żądanie nie powiedzie się, ponieważ określa ona, że sygnatura dostępu współdzielonego jest dla obiekt blob. Jeśli polecenie REST wywoływana nie można zaktualizować obiektu blob, będą się kończyć niepowodzeniem, ponieważ sygnatura dostępu współdzielonego Określa, czy jest dozwolony dostęp tylko do odczytu.
+Na przykład z naszych powyżej adresu URL, jeśli adres URL hello został wskazuje plik tooa zamiast obiektu blob to żądanie nie powiedzie się, ponieważ określa on tego hello jest sygnatura dostępu współdzielonego dla obiekt blob. Jeśli hello polecenia REST wywoływana tooupdate obiektu blob, będą się kończyć niepowodzeniem, ponieważ hello sygnatura dostępu współdzielonego Określa, czy jest dozwolony dostęp tylko do odczytu.
 
 #### <a name="types-of-shared-access-signatures"></a>Rodzaje sygnatur dostępu współdzielonego
-* SAS poziomu usług może służyć do dostępu do określonych zasobów na koncie magazynu. Niektóre przykłady są pobiera listę obiektów blob w kontenerze, pobieranie obiektu blob, aktualizowania jednostki w tabeli, dodawanie wiadomości do kolejki lub przekazywanie pliku do udziału plików.
-* SAS poziomie konta można uzyskać dostępu do wszystkich elementów, które SAS poziomu usług może służyć do. Ponadto zapewnia opcje z zasobami, które nie są dozwolone z poziomu usługi sygnatury dostępu Współdzielonego, takie jak możliwość tworzenia kontenerów, tabel, kolejek i udziałów plików. Dostęp do wielu usług można także określić jednocześnie. Na przykład może być ktoś udzielić dostępu do obiektów blob i plików na Twoim koncie magazynu.
+* SAS poziomu usług mogą być używane tooaccess określonych zasobów na koncie magazynu. Przykłady to pobiera listę obiektów blob w kontenerze, pobieranie obiektu blob, aktualizowania jednostki w tabeli, dodawanie kolejka tooa wiadomości lub przekazywanie pliku tooa udziału plików.
+* Sygnatury dostępu Współdzielonego z poziomu konta mogą być używane tooaccess wszystko, co umożliwia SAS poziomu usług. Ponadto pozwala tooresources opcje, które nie są dozwolone z poziomu usługi sygnatury dostępu Współdzielonego, takich jak hello możliwości toocreate kontenerów, tabel, kolejek i udziałów plików. Można również określić usługi toomultiple dostęp na raz. Na przykład może przekażesz ktoś dostęp do obiektów blob tooboth i plików na Twoim koncie magazynu.
 
 #### <a name="creating-an-sas-uri"></a>Tworzenie identyfikatora URI połączenia SAS
-1. Na żądanie, definiujący wszystkie parametry zapytania każdorazowo, można utworzyć ad hoc identyfikatora URI.
+1. Można utworzyć URI ad hoc na żądanie, zdefiniowania wszystkich parametrów zapytania hello zawsze.
 
    Jest to naprawdę elastycznych, ale jeśli masz logiczne zestaw parametrów, które są podobne za każdym razem, za pomocą zasad dostępu przechowywany jest zorientować się.
-2. Można utworzyć zasady dostępu do przechowywanych dla całego kontenera, udziału plików, tabel lub kolejek. Można to podstawę dla identyfikatorów URI sygnatury dostępu Współdzielonego, można utworzyć. Łatwo można odwołać uprawnień na podstawie zasad dostępu przechowywane. Może mieć maksymalnie 5 zasady zdefiniowane dla każdego kontenera, kolejki, tabeli lub udziału plików.
+2. Można utworzyć zasady dostępu do przechowywanych dla całego kontenera, udziału plików, tabel lub kolejek. Można to podstawę hello dla hello tworzenia URI sygnatury dostępu Współdzielonego. Łatwo można odwołać uprawnień na podstawie zasad dostępu przechowywane. Może mieć up too5 zasady zdefiniowane dla każdego kontenera, kolejki, tabeli lub udziału plików.
 
-   Na przykład jeśli zostały będą mieć wiele osób do odczytu obiektów blob w określonym kontenerze, można utworzyć przechowywane zasad dostępu, stwierdzający "zapewniają dostęp do odczytu" i inne ustawienia, które będą takie same zawsze. Następnie można utworzyć identyfikatora URI połączenia SAS za pomocą ustawień zasad dostępu przechowywane i określając Data/godzina wygaśnięcia. Dzięki temu jest, że nie trzeba określać wszystkich parametrów zapytania zawsze.
+   Na przykład zostały ma toohave wiele osób do odczytu obiektów blob hello w określonym kontenerze, można utworzyć zasady dostępu przechowywane informacją "zapewniają dostęp do odczytu" i inne ustawienia, które będą hello sam zawsze. Następnie można utworzyć identyfikatora URI połączenia SAS za pomocą ustawienia hello hello przechowywane zasady dostępu i określając wygaśnięcia hello daty/godziny. Witaj dzięki temu będzie masz toospecify wszystkie hello parametry zapytania zawsze.
 
 #### <a name="revocation"></a>Odwołania
-Załóżmy, że naruszono bezpieczeństwo sieci SAS lub chcesz zmienić go z powodu zabezpieczeń firmy lub wymagania dotyczące zgodności z przepisami. Jak można odwołać dostęp do zasobów, przy użyciu tego skojarzenia zabezpieczeń? To zależy od sposobu tworzenia identyfikatora URI połączenia SAS.
+Załóżmy, że naruszono bezpieczeństwo sieci SAS lub ma toochange go z powodu zabezpieczeń firmy lub wymagania dotyczące zgodności z przepisami. Jak odwołać zasób tooa dostępu za pomocą tego skojarzenia zabezpieczeń? To zależy od sposobu tworzenia hello identyfikatora URI połączenia SAS.
 
-Jeśli używasz ad hoc identyfikatora URI, masz trzy opcje. Może wystawiać tokeny sygnatury dostępu Współdzielonego z zasadami wygasania krótki i po prostu poczekaj na sygnatury dostępu Współdzielonego wygaśnie. Można zmienić lub usunąć zasób (przy założeniu, że token zostało ograniczone do pojedynczego obiektu). Klucze konta magazynu, można zmienić. Ta opcja ostatniego może mieć duży wpływ, w zależności od tego, jak wiele usług korzystają z tego konta magazynu i prawdopodobnie nie jest coś, co chcesz zrobić bez niektóre planowania.
+Jeśli używasz ad hoc identyfikatora URI, masz trzy opcje. Można wystawiać tokeny sygnatury dostępu Współdzielonego z zasadami wygasania krótki i po prostu poczekaj, aż hello tooexpire sygnatury dostępu Współdzielonego. Można zmienić lub usunąć hello zasobów (przy założeniu, że hello token był tooa zakresie pojedynczego obiektu). Klucze konta magazynu hello, można zmienić. Ta opcja ostatniego może mieć duży wpływ, w zależności od tego, jak wiele usług korzystają z tego konta magazynu i prawdopodobnie nie oczekiwał toodo bez niektóre planowania.
 
-Jeśli używasz sygnatury dostępu Współdzielonego uzyskane z zasad dostępu przechowywany, można usunąć dostęp, odwołując zasad dostępu przechowywany — Zmień go tak, aby już wygasł, albo usuń go całkowicie. Aktywne natychmiast i unieważnia co SAS utworzone za pomocą tego przechowywane zasad dostępu. Aktualizowania lub usuwania zasad dostępu przechowywane może tabela osób wpływ uzyskuje dostęp do tego kontenera określonego udziału plików lub kolejki przy użyciu sygnatury dostępu Współdzielonego, ale jeśli klienci są zapisywane, więc żądają nowe skojarzenia zabezpieczeń, gdy stary staje się nieprawidłowy, to będzie działać prawidłowo.
+Jeśli używasz sygnatury dostępu Współdzielonego uzyskane z zasad dostępu przechowywany, można usunąć dostęp, odwołując hello przechowywane zasady dostępu — Zmień go tak, aby już wygasł, albo usuń go całkowicie. Aktywne natychmiast i unieważnia co SAS utworzone za pomocą tego przechowywane zasad dostępu. Aktualizowanie lub usuwanie hello przechowywane zasady dostępu może mieć wpływ na osób uzyskuje dostęp do tego określonego kontenera, udziału plików, tabel lub kolejek za pomocą sygnatury dostępu Współdzielonego, ale jeśli hello klientów są zapisywane, dzięki czemu żądają nowe skojarzenia zabezpieczeń, gdy hello stary staje się nieprawidłowy, to będzie działać prawidłowo.
 
-Ponieważ przy użyciu sygnatury dostępu Współdzielonego uzyskane z zasad dostępu do przechowywanych daje możliwość natychmiast odwołać tego SAS, jest zalecanym najlepszym rozwiązaniem jest zawsze używaj przechowywane zasad dostępu, gdy jest to możliwe.
+Ponieważ przy użyciu sygnatury dostępu Współdzielonego uzyskane z zasad dostępu do przechowywanych umożliwia toorevoke możliwości hello czy SAS, jest ona hello zalecane najlepsze praktyki tooalways Użyj przechowywane zasad dostępu, gdy jest to możliwe.
 
 #### <a name="resources"></a>Zasoby
-Aby uzyskać szczegółowe informacje na temat używania sygnatur dostępu współdzielonego i przechowywane zasad dostępu, wraz z przykładami można znaleźć w następujących artykułach:
+Aby uzyskać szczegółowe informacje na temat używania sygnatur dostępu współdzielonego i przechowywane zasad dostępu, wraz z przykładami zapoznaj się z toohello następujące artykuły:
 
-* Są to artykuły odwołania.
+* Są to hello odwołanie artykułów.
 
   * [Usługa SAS](https://msdn.microsoft.com/library/dn140256.aspx)
 
     Ten artykuł zawiera przykłady użycia SAS poziomu usług z obiektów blob, kolejki komunikatów, zakresy tabeli i plików.
   * [Utworzenie sygnatury dostępu Współdzielonego usługi](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Utworzenie konta SAS](https://msdn.microsoft.com/library/mt584140.aspx)
-* Są to samouczków dotyczących za pomocą biblioteki klienta .NET można utworzyć sygnatury dostępu współdzielonego i przechowywane zasad dostępu.
+* Są to samouczki dotyczące użycia hello .NET klienta biblioteki toocreate sygnatur dostępu współużytkowanego i przechowywane zasad dostępu.
 
   * [Przy użyciu sygnatury dostępu współdzielonego (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Udostępnione sygnatur dostępu, część 2: Tworzenie i sygnatury dostępu Współdzielonego za pomocą usługi Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Udostępnione sygnatur dostępu, część 2: Tworzenie i sygnatury dostępu Współdzielonego za pomocą hello usługi Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
-    Ten artykuł zawiera opis modelu sygnatur dostępu Współdzielonego, przykłady sygnatury dostępu współdzielonego i zalecenia dotyczące najlepszych praktyk Użyj SAS. Opisano również jest odwołania uprawnienia przyznane.
+    Ten artykuł zawiera wyjaśnienie hello modelu sygnatur dostępu Współdzielonego, przykłady sygnatury dostępu współdzielonego i zalecenia dotyczące najlepszych praktyk hello Użyj SAS. Opisano również jest odwołanie hello hello uprawnienia przyznane.
 * Ograniczanie dostępu według adresu IP (IP ACL)
 
   * [Co to jest punkt końcowy listy kontroli dostępu (ACL)?](../../virtual-network/virtual-networks-acl.md)
   * [Utworzenie sygnatury dostępu Współdzielonego usługi](https://msdn.microsoft.com/library/azure/dn140255.aspx)
 
-    To jest artykuł odwołania dla skojarzeń zabezpieczeń poziomu usługi; składa się z przykładem IP ACLing.
+    To jest hello odwołanie artykułem dla skojarzeń zabezpieczeń poziomu usługi; składa się z przykładem IP ACLing.
   * [Utworzenie konta SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx)
 
-    To jest artykuł odwołania na poziomie konta SAS; składa się z przykładem IP ACLing.
+    To jest artykuł odwołanie hello na poziomie konta SAS; składa się z przykładem IP ACLing.
 * Authentication
 
-  * [Uwierzytelnianie dla usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+  * [Uwierzytelnianie dla hello usług magazynu Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Pierwsze kroki samouczka sygnatury dostępu współdzielonego
 
   * [Pierwsze kroki samouczka SAS](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>Szyfrowanie podczas przesyłania
 ### <a name="transport-level-encryption--using-https"></a>Szyfrowanie na poziomie transportu — przy użyciu protokołu HTTPS
-Kolejny krok, które należy podjąć w celu zapewnienia bezpieczeństwa danych usługi Azure Storage jest szyfrowanie danych między klientem a usługą Azure Storage. Pierwszy zalecane jest zawsze używaj [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protokołu, który zapewnia bezpieczną komunikację za pośrednictwem publicznej sieci Internet.
+Kolejny krok należy wykonać tooensure hello bezpieczeństwa danych usługi Azure Storage jest tooencrypt hello danych między powitania klienta i usługi Azure Storage. zalecenie pierwszy Hello jest tooalways Użyj hello [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protokołu, który zapewnia bezpieczną komunikację za pośrednictwem hello publicznej sieci Internet.
 
-Aby bezpieczny kanał komunikacyjny, zawsze należy używać protokołu HTTPS podczas wywoływania interfejsów API REST lub uzyskiwanie dostępu do obiektów w magazynie. Ponadto **sygnatury dostępu współdzielonego**, które mogą służyć do delegować dostęp do obiektów usługi Azure Storage, obejmują opcję, aby określić, że mogą być używane tylko z protokołu HTTPS przy użyciu sygnatury dostępu współdzielonego, zapewniając każdy wysyłanie linków z tokenami SAS użyje odpowiedni protokół.
+bezpieczny kanał komunikacyjny toohave, zawsze należy używać protokołu HTTPS podczas wywoływania hello interfejsów API REST lub uzyskiwanie dostępu do obiektów w magazynie. Ponadto **sygnatury dostępu współdzielonego**, które mogą być używane toodelegate dostępu tooAzure magazynu obiektów, obejmują toospecify opcji tego hello tylko przy użyciu sygnatury dostępu współdzielonego, upewniając się, że każdy można użyć protokołu HTTPS Wysyłanie linków z tokenami SAS użyje hello odpowiedni protokół.
 
-Można wymusić użycie protokołu HTTPS podczas wywoływania interfejsów API REST, aby uzyskać dostęp do obiektów na kontach magazynu przez włączenie [bezpieczny transfer wymagane](../storage-require-secure-transfer.md) dla konta magazynu. Połączenia przy użyciu protokołu HTTP będą przyjmowane, gdy ta opcja jest włączona.
+Można wymusić hello korzystanie z protokołu HTTPS podczas wywoływania metody hello interfejsów API REST tooaccess obiektów na kontach magazynu przez włączenie [bezpieczny transfer wymagane](../storage-require-secure-transfer.md) dla konta magazynu hello. Połączenia przy użyciu protokołu HTTP będą przyjmowane, gdy ta opcja jest włączona.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Szyfrowanie podczas przesyłania z udziałami plików Azure
-Magazyn plików Azure obsługuje protokół HTTPS przy użyciu interfejsu API REST, ale jest więcej powszechnie używany jako udział plików SMB dołączony do maszyny Wirtualnej. Protokół SMB 2.1 nie obsługuje szyfrowania, więc połączeń są dozwolone tylko w obrębie tego samego regionu platformy Azure. Jednak protokół SMB 3.0 obsługuje szyfrowanie i jest dostępna w systemie Windows Server 2012 R2, Windows 8, Windows 8.1 i Windows 10, umożliwiając między region dostępu, a nawet dostępu na pulpicie.
+Magazyn plików Azure obsługuje protokołu HTTPS, używając hello interfejsu API REST, ale jest najczęściej używany jako udział plików SMB dołączony tooa maszyny Wirtualnej. Protokół SMB 2.1 nie obsługuje szyfrowania, więc połączeń są dozwolone jedynie w ramach hello sam region platformy Azure. Jednak protokół SMB 3.0 obsługuje szyfrowanie i jest dostępna w systemie Windows Server 2012 R2, Windows 8, Windows 8.1 i Windows 10, umożliwiając między region dostępu, a nawet dostępu na pulpicie hello.
 
-Należy pamiętać, że chociaż udziały plików platformy Azure mogą być używane w systemie Unix, klient protokołu SMB w systemie Linux nie obsługuje jeszcze szyfrowania, więc dostęp jest dozwolony tylko w obrębie regionu platformy Azure. Obsługa szyfrowania dla systemu Linux znajduje się na plan deweloperów Linux odpowiedzialny za funkcje protokołu SMB. Podczas dodawania szyfrowania, będziesz mieć możliwości samej do uzyskiwania dostępu do udziału plików Azure w systemie Linux, podobnie jak w przypadku systemu Windows.
+Należy pamiętać, że chociaż udziały plików platformy Azure mogą być używane w systemie Unix, powitania klienta SMB w systemie Linux jeszcze nie obsługuje szyfrowania, więc dostęp jest dozwolony tylko w obrębie regionu platformy Azure. Obsługa szyfrowania dla systemu Linux znajduje się na plan hello deweloperów Linux odpowiedzialny za funkcje protokołu SMB. Podczas dodawania szyfrowania, konieczne będzie hello tej samej możliwości dostępu do udziału plików Azure w systemie Linux, podobnie jak w przypadku systemu Windows.
 
-Przez włączenie mogą wymusić użycie szyfrowania w usłudze Azure pliki [bezpieczny transfer wymagane](../storage-require-secure-transfer.md) dla konta magazynu. Jeśli przy użyciu interfejsów API REST, wymagany jest protokół HTTPs. Dla protokołu SMB tylko połączenia protokołu SMB, które obsługuje szyfrowanie połączenie zostanie nawiązane pomyślnie.
+Można wymusić użycie hello szyfrowania z hello usługi pliki Azure przez włączenie [bezpieczny transfer wymagane](../storage-require-secure-transfer.md) dla konta magazynu hello. Jeśli przy użyciu hello interfejsów API REST, wymagany jest protokół HTTPs. Dla protokołu SMB tylko połączenia protokołu SMB, które obsługuje szyfrowanie połączenie zostanie nawiązane pomyślnie.
 
 #### <a name="resources"></a>Zasoby
-* [Jak używać usługi Azure File Storage z systemem Linux](../storage-how-to-use-files-linux.md)
+* [Jak toouse magazyn plików Azure z systemem Linux](../storage-how-to-use-files-linux.md)
 
-  W tym artykule przedstawiono sposób instalacji udziału plików platformy Azure na pliki systemu i przekaż/Pobierz systemu Linux.
+  W tym artykule opisano, jak toomount plików Azure udostępnianie plików systemu i przekaż/Pobierz systemu Linux.
 * [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](../storage-dotnet-how-to-use-files.md)
 
-  Ten artykuł zawiera omówienie udziały plików platformy Azure oraz jak zainstalować i używać ich przy użyciu programu PowerShell i .NET.
+  Ten artykuł zawiera omówienie udziały plików platformy Azure i w jaki sposób toomount i używać ich przy użyciu programu PowerShell i .NET.
 * [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) (Za kulisami usługi Azure File Storage)
 
-  W tym artykule ogłasza ogólnej dostępności usługi Magazyn plików Azure i zawiera szczegółowe informacje techniczne dotyczące szyfrowania protokołu SMB 3.0.
+  W tym artykule ogłasza hello ogólnej dostępności usługi Magazyn plików Azure i zawiera szczegółowe informacje techniczne dotyczące szyfrowania hello protokołu SMB 3.0.
 
-### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Za pomocą szyfrowania po stronie klienta w celu zabezpieczenia danych, który możesz wysłać do magazynu
-Inną opcją, która pomaga zagwarantować, że dane są bezpieczne podczas ich przesyłania między aplikacją klienta i magazynu jest szyfrowanie po stronie klienta. Dane są szyfrowane przed przesyłane do usługi Azure Storage. Podczas pobierania danych z usługi Azure Storage, dane zostaną odszyfrowane po odebraniu po stronie klienta. Nawet jeśli dane są szyfrowane, przechodzi przez sieć, zalecamy również używać protokołu HTTPS, ponieważ ta kolumna ma wbudowane zmniejszenia którego błędy sieciowe wpływających na integralność danych, sprawdzania integralności danych.
+### <a name="using-client-side-encryption-toosecure-data-that-you-send-toostorage"></a>Przy użyciu toosecure danych szyfrowania po stronie klienta, wysyłanie toostorage
+Inną opcją, która pomaga zagwarantować, że dane są bezpieczne podczas ich przesyłania między aplikacją klienta i magazynu jest szyfrowanie po stronie klienta. Witaj, dane są szyfrowane przed przesyłane do usługi Azure Storage. Podczas pobierania danych hello z usługi Azure Storage, hello dane zostaną odszyfrowane, po odebraniu na powitania po stronie klienta. Mimo że hello dane są szyfrowane, przechodzi przez sieć hello, zalecamy również używać protokołu HTTPS, ponieważ ta kolumna ma wbudowane którego zmniejszenia wpływu na powitania integralność danych hello błędy sieciowe sprawdzania integralności danych.
 
-Szyfrowanie po stronie klienta jest również szyfrowanie danych magazynowanych, ponieważ dane są przechowywane w postaci zaszyfrowanej. Będzie omawianiu to bardziej szczegółowo w sekcji na [szyfrowanie magazynowanych](#encryption-at-rest).
+Szyfrowanie po stronie klienta jest również szyfrowanie danych magazynowanych, jak hello dane są przechowywane w postaci zaszyfrowanej. Będzie omawianiu to bardziej szczegółowo w sekcji hello na [szyfrowanie magazynowanych](#encryption-at-rest).
 
 ## <a name="encryption-at-rest"></a>Szyfrowanie magazynowanych
-Istnieją trzy funkcje platformy Azure umożliwiających szyfrowanie przechowywanych. Szyfrowanie dysków Azure jest używany do szyfrowania dysków systemu operacyjnego i danych w maszynach wirtualnych IaaS. Inne dwa — są szyfrowania po stronie klienta i SSE — zarówno używany do szyfrowania danych w usłudze Azure Storage. Umożliwia każdy z nich, a następnie wykonaj porównanie i zobacz, gdy każda z nich może służyć.
+Istnieją trzy funkcje platformy Azure umożliwiających szyfrowanie przechowywanych. Szyfrowanie dysków Azure jest hello tooencrypt używanego systemu operacyjnego i dysków z danymi w maszyny wirtualne IaaS. Witaj innych dwa — są szyfrowania po stronie klienta i SSE — zarówno dane tooencrypt używanych w usłudze Azure Storage. Umożliwia każdy z nich, a następnie wykonaj porównanie i zobacz, gdy każda z nich może służyć.
 
-Podczas szyfrowania po stronie klienta można używać do szyfrowania danych podczas przesyłania (które są także przechowywane w postaci zaszyfrowanej w magazynie), można po prostu używania protokołu HTTPS podczas transferu i niektóre sposób dla danych mają być szyfrowane automatycznie, gdy jest on przechowywany. Istnieją dwa sposoby w tym--szyfrowania dysków Azure i SSE. Jeden służy do bezpośredniego szyfrowania danych na dyskach systemu operacyjnego i danych używany przez maszyny wirtualne, a drugi jest używany do szyfrowania danych zapisywane do magazynu obiektów Blob Azure.
+Za pomocą szyfrowania po stronie klienta tooencrypt hello danych podczas przesyłania (które są także przechowywane w postaci zaszyfrowanej w magazynie), mogą preferować toosimply użycie protokołu HTTPS podczas transferu hello i ma niewłaściwy dla toobe danych hello automatycznie szyfrowane, gdy jest przechowywane. Istnieją dwa sposoby toodo to--szyfrowania dysków Azure i SSE. Co najmniej jedna jest używana toodirectly szyfrowania hello danych na dyskach systemu operacyjnego i danych używany przez maszyny wirtualne i hello innych jest używane tooencrypt danymi zapisywanymi tooAzure magazynu obiektów Blob.
 
 ### <a name="storage-service-encryption-sse"></a>Szyfrowanie usługi Magazyn (SSE)
-SSE umożliwia zażądanie, że Usługa magazynu automatycznie szyfrowania danych podczas zapisywania go do magazynu Azure. Gdy odczytać danych z usługi Azure Storage, będzie można odszyfrować przez usługę magazynu przed zwróceniem. Dzięki temu można zabezpieczyć dane bez konieczności modyfikowania kodu lub Dodaj kod, aby wszystkie aplikacje.
+SSE umożliwia toorequest, że Usługa magazynu hello automatycznie szyfrowania danych hello podczas jej pisania tooAzure magazynu. Po przeczytaniu hello danych z usługi Magazyn Azure zostanie odszyfrowany przez usługę magazynu hello przed zwróceniem. Dzięki temu toosecure danych bez konieczności toomodify kod lub Dodaj aplikacje tooany kodu.
 
-To ustawienie, które stosuje się kontem całego magazynu. Można włączyć i wyłączyć tę funkcję, zmieniając wartość ustawienia. Aby to zrobić, można użyć portalu Azure, programu PowerShell, interfejsu wiersza polecenia Azure, interfejsu API REST dostawcy zasobów magazynu lub biblioteki klienta usługi Storage platformy .NET. SSE jest domyślnie wyłączona.
+To ustawienie, które stosuje toohello konta całego magazynu. Można włączyć i wyłączyć tę funkcję, zmieniając wartość hello hello ustawienia. toodo, można użyć hello hello portalu Azure, programu PowerShell, interfejsu wiersza polecenia Azure, interfejsu API REST dostawcy zasobów magazynu hello lub hello biblioteki klienta usługi Storage platformy .NET. SSE jest domyślnie wyłączona.
 
-W tej chwili klucze szyfrowania są zarządzane przez firmę Microsoft. Firma Microsoft pierwotnie generowania kluczy i zarządzaj nimi bezpieczny magazyn kluczy, a także regularne obrót, zgodnie z definicją w wewnętrznych zasad firmy Microsoft. W przyszłości będzie umożliwia zarządzanie kluczami szyfrowania i podaj ścieżkę migracji z kluczy zarządzany przez firmę Microsoft do kluczy zarządzany przez klienta.
+W tej chwili hello klucze szyfrowania hello są zarządzane przez firmę Microsoft. Firma Microsoft pierwotnie Generuj klucze hello i zarządzaj nimi hello bezpiecznego magazynu kluczy hello, a także regularne obrotu hello, zgodnie z definicją w wewnętrznych zasad firmy Microsoft. W przyszłości hello będzie pobrać toomanage możliwości hello kluczy szyfrowania i podaj ścieżkę migracji z kluczy zarządzany przez firmę Microsoft toocustomer zarządzanych kluczy.
 
-Ta funkcja jest dostępna dla kont Standard i Premium Storage utworzonych przy użyciu modelu wdrażania usługi Resource Manager. SSE dotyczy tylko blokowe obiekty BLOB, stronicowe obiekty BLOB i uzupełnialnych obiektów blob. Typy danych, w tym tabel, kolejek i plików, nie będą szyfrowane.
+Ta funkcja jest dostępna dla kont Standard i Premium Storage utworzonych przy użyciu modelu wdrażania usługi Resource Manager hello. SSE stosuje tylko tooblock obiektów blob, stronicowe obiekty BLOB i uzupełnialnych obiektów blob. Witaj innych typów danych, w tym tabel, kolejek i plików, nie będą szyfrowane.
 
-Dane są szyfrowane tylko wtedy, gdy jest włączone SSE i zapisywania danych do magazynu obiektów Blob. Włączanie lub wyłączanie SSE nie wpływa na istniejących danych. Innymi słowy włączenie szyfrowania nie wrócić do poprzedniej strony i szyfrowania danych, która już istnieje; nie powoduje odszyfrowania danych, która już istnieje po wyłączeniu SSE.
+Dane są szyfrowane tylko wtedy, gdy jest włączone SSE i zapisywania danych hello tooBlob magazynu. Włączanie lub wyłączanie SSE nie wpływa na istniejących danych. Innymi słowy włączenie szyfrowania nie wrócić do poprzedniej strony i szyfrowania danych, która już istnieje; nie powoduje odszyfrowania danych hello, która już istnieje po wyłączeniu SSE.
 
-Jeśli chcesz użyć tej funkcji z kontem magazynu Classic, możesz utworzyć nowe konto magazynu Menedżera zasobów i użyj narzędzia AzCopy, aby skopiować dane do nowego konta.
+Chcąc toouse tej funkcji w programie klasycznym konta magazynu, można utworzyć nowe konto magazynu Menedżera zasobów i używanie narzędzia AzCopy toocopy hello danych toohello nowego konta.
 
 ### <a name="client-side-encryption"></a>Szyfrowanie po stronie klienta
-Wspomniano szyfrowania po stronie klienta przy omawianiu szyfrowanie danych podczas przesyłania. Ta funkcja umożliwia programowo szyfrowania danych w aplikacji klienta przed wysłaniem przez sieć do zapisania do magazynu Azure i programowo odszyfrować danych po pobraniu go z magazynu Azure.
+Wspomniano szyfrowania po stronie klienta przy omawianiu hello szyfrowania hello danych podczas przesyłania. Ta funkcja umożliwia tooprogrammatically należy szyfrować danych w aplikacji klienta przed wysłaniem przez toobe przewodowy hello zapisywane tooAzure magazynu i tooprogrammatically odszyfrowywania danych po pobraniu go z magazynu Azure.
 
-To zapewnia szyfrowanie podczas przesyłania, ale oferuje także funkcję do szyfrowania w stanie spoczynku. Należy pamiętać, że mimo że dane są szyfrowane podczas przesyłania, nadal zaleca się przy użyciu protokołu HTTPS, aby móc korzystać z kontroli integralności danych wbudowanych, które zmniejszenia błędy sieciowe wpływających na integralność danych.
+To zapewnia szyfrowanie podczas przesyłania, ale także hello funkcji szyfrowania w stanie spoczynku. Należy pamiętać o tym, mimo że hello dane są szyfrowane podczas przesyłania, nadal zaleca się przy użyciu protokołu HTTPS tootake zaletą hello kontroli integralności danych wbudowanych, które zmniejszenia wpływu na powitania integralność danych hello błędy sieci.
 
-Przykład gdzie tej opcji można użyć, to jeśli masz aplikację sieci web przechowuje obiekty BLOB i pobiera obiekty BLOB i ma być należycie zabezpieczone aplikacji i danych. W takim przypadku użyje szyfrowania po stronie klienta. Ruch między klientem a usługą Blob Azure zawiera zaszyfrowane zasobów, a nikt nie mogą interpretować dane przesyłane i przywróć ją do prywatnego obiektów blob.
+Przykładem gdzie tej opcji można użyć jest, jeśli masz aplikację sieci web przechowuje obiekty BLOB i pobiera obiekty BLOB i chcesz toobe danych i aplikacji hello należycie zabezpieczone. W takim przypadku użyje szyfrowania po stronie klienta. Hello ruch między powitania klienta i hello usługi obiektów Blob Azure zawiera zasób hello szyfrowane, a nikt nie można zinterpretować hello danych podczas przesyłania i przywróć ją do prywatnego obiektów blob.
 
-Szyfrowanie po stronie klienta jest oparty na języku Java i biblioteki klienta magazynu .NET, które z kolei używają klucza magazynu interfejsów API usługi Azure, dzięki czemu można bardzo łatwo zaimplementować. Proces szyfrowania i odszyfrowywania danych używa techniki koperty i są przechowywane metadane używane przez szyfrowanie w każdym obiekcie magazynu. Na przykład dla obiektów blob, przechowuje go w metadane obiektu blob, natomiast w przypadku kolejek, dodanie go do każdej kolejki wiadomości.
+Szyfrowanie po stronie klienta jest wbudowana w hello Java i biblioteki klienta magazynu .NET hello, które z kolei używają hello klucza magazynu interfejsów API usługi Azure, dzięki czemu pretty tooimplement można. proces szyfrowania i odszyfrowywania danych hello Hello stosowana metoda koperty hello i przechowuje metadane używane przez szyfrowanie hello w każdym obiekcie magazynu. Na przykład dla obiektów blob, przechowuje go w hello metadane obiektu blob, natomiast w przypadku kolejek, dodanie go tooeach kolejki wiadomości.
 
-Sam szyfrowania można wygenerować i zarządzanie kluczami szyfrowania. Umożliwia także klucze generowane przez bibliotekę klienta usługi Azure Storage lub masz usługi Azure Key Vault generowania kluczy. Można przechowywać kluczy szyfrowania w Twoim magazynie kluczy lokalnymi lub można przechowywać w usłudze Azure Key Vault. Usługa Azure Key Vault umożliwia udzielenie dostępu do kluczy tajnych w magazynie kluczy Azure do konkretnych użytkowników przy użyciu usługi Azure Active Directory. Oznacza to, że nie tylko każdy może odczytywać usługi Azure Key Vault i pobieranie kluczy, którego używasz do szyfrowania po stronie klienta.
+Do szyfrowania hello się można wygenerować i zarządzanie kluczami szyfrowania. Umożliwia także klucze generowane przez hello biblioteki klienta magazynu Azure lub program hello Azure Key Vault Generuj klucze hello. Można przechowywać kluczy szyfrowania w Twoim magazynie kluczy lokalnymi lub można przechowywać w usłudze Azure Key Vault. Usługa Azure Key Vault umożliwia kluczy tajnych toohello dostępu toogrant z usługi Azure Key Vault toospecific użytkowników przy użyciu usługi Azure Active Directory. Oznacza to, że nie tylko każdy może odczytywać hello Azure Key Vault i pobieranie kluczy hello, używanego do szyfrowania po stronie klienta.
 
 #### <a name="resources"></a>Zasoby
 * [Szyfrowanie i odszyfrowywanie obiektów blob w magazynie platformy Microsoft Azure przy użyciu usługi Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 
-  W tym artykule przedstawiono sposób szyfrowania po stronie klienta za pomocą usługi Azure Key Vault, łącznie ze sposobem tworzenia klucza KEK i zapisze go w magazynie przy użyciu programu PowerShell.
+  W tym artykule przedstawiono sposób toouse szyfrowania po stronie klienta z usługi Azure Key Vault, w tym jak toocreate hello KEK i zapisz go w magazynie hello przy użyciu programu PowerShell.
 * [Magazyn kluczy szyfrowania po stronie klienta i Azure dla magazynu Microsoft Azure](../storage-client-side-encryption.md)
 
-  Ten artykuł zawiera wyjaśnienie szyfrowania po stronie klienta i zawiera przykłady za pomocą biblioteki klienta magazynu do szyfrowania i odszyfrowywania zasobów z czterech usług magazynu. Zawiera ona również informacje o usługi Azure Key Vault.
+  W tym artykule podaje wyjaśnienie szyfrowania po stronie klienta i zawiera przykłady użycia powitania klienta biblioteki tooencrypt i odszyfrowywania zasobów magazynu z hello cztery usługi magazynu. Zawiera ona również informacje o usługi Azure Key Vault.
 
-### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Przy użyciu szyfrowania dysków Azure do szyfrowania dysków używanych przez maszyny wirtualne
-Szyfrowanie dysków Azure to nowa funkcja. Ta funkcja umożliwia szyfrowanie dysków systemu operacyjnego i dysków danych używanych przez maszyny wirtualne IaaS. W systemie Windows dyski są szyfrowane za pomocą technologii szyfrowania BitLocker standardowych. Dla systemu Linux dyski są szyfrowane za pomocą technologii DM-Crypt. To jest zintegrowany z usługą Azure Key Vault, co pozwala na kontrolowanie i zarządzać kluczami szyfrowania dysku.
+### <a name="using-azure-disk-encryption-tooencrypt-disks-used-by-your-virtual-machines"></a>Przy użyciu szyfrowania dysków Azure dysków tooencrypt używany przez maszyny wirtualne
+Szyfrowanie dysków Azure to nowa funkcja. Ta funkcja umożliwia dysków systemu operacyjnego hello tooencrypt i dysków danych używanych przez maszyny wirtualne IaaS. W systemie Windows hello dyski są szyfrowane za pomocą technologii szyfrowania BitLocker standardowych. Dla systemu Linux dyski hello są szyfrowane za pomocą technologii hello DM-Crypt. To jest zintegrowany z usługą Azure Key Vault tooallow możesz toocontrol i zarządzać kluczami szyfrowania dysku hello.
 
-Rozwiązanie obsługuje następujące scenariusze dla maszyn wirtualnych IaaS, jeśli są włączone w systemie Microsoft Azure:
+rozwiązanie Hello obsługuje następujące scenariusze dla maszyn wirtualnych IaaS, jeśli są włączone w systemie Microsoft Azure hello:
 
 * Integracja z usługi Azure Key Vault
 * Maszyny wirtualne warstwy standardowa: [A, D DS, G, GS i itp szeregów maszyn wirtualnych IaaS](https://azure.microsoft.com/pricing/details/virtual-machines/)
@@ -343,17 +343,17 @@ Rozwiązanie obsługuje następujące scenariusze dla maszyn wirtualnych IaaS, j
 * Włączenie szyfrowania na maszynach wirtualnych systemu Windows, które są skonfigurowane przy użyciu funkcji miejsca do magazynowania
 * Wszystkie publiczne regiony platformy Azure są obsługiwane.
 
-Rozwiązanie nie obsługuje następujące scenariusze, funkcje i technologie w wersji:
+rozwiązanie Hello nie obsługuje następujące scenariusze, funkcje i technologie w wersji hello hello:
 
 * Maszyny wirtualne IaaS warstwa podstawowa
 * Wyłączenie szyfrowania na dysku systemu operacyjnego dla maszyn wirtualnych systemu Linux IaaS
-* Maszyny wirtualne IaaS, które są tworzone za pomocą klasycznego metodę tworzenia maszyny Wirtualnej
+* Maszyny wirtualne IaaS, utworzony przy użyciu hello klasycznego metodę tworzenia maszyny Wirtualnej
 * Integracja z lokalnej usługi zarządzania kluczami
 * Magazyn plików Azure (udostępnionego systemu plików), sieciowego systemu plików (NFS), dynamiczne woluminy i maszyn wirtualnych systemu Windows, które są skonfigurowane przy użyciu systemów opartych na oprogramowaniu RAID
 
 
 > [!NOTE]
-> Szyfrowanie dysków systemu operacyjnego Linux jest aktualnie obsługiwana w następujących dystrybucje systemu Linux: RHEL 7.2, CentOS 7.2n i Ubuntu 16.04.
+> Szyfrowanie dysków systemu operacyjnego Linux jest obecnie obsługiwany na powitania po dystrybucje systemu Linux: RHEL 7.2, CentOS 7.2n i Ubuntu 16.04.
 >
 >
 
@@ -364,115 +364,115 @@ Ta funkcja zapewnia, że wszystkie dane na dyskach maszyny wirtualnej jest szyfr
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Porównanie szyfrowania dysków Azure, SSE i szyfrowania po stronie klienta
 #### <a name="iaas-vms-and-their-vhd-files"></a>Maszyny wirtualne IaaS i swoich plików wirtualnego dysku twardego
-W przypadku dysków używanych przez maszyny wirtualne IaaS zaleca się przy użyciu szyfrowania dysków Azure. Można włączyć SSE do szyfrowania plików VHD, które są używane, aby utworzyć kopię tych dysków w magazynie Azure, ale są szyfrowane tylko nowo napisanych danych. Oznacza to, że jeśli możesz utworzyć Maszynę wirtualną, a następnie włączyć SSE na koncie magazynu, który zawiera plik wirtualnego dysku twardego, będą szyfrowane tylko zmiany, nie oryginalny plik wirtualnego dysku twardego.
+W przypadku dysków używanych przez maszyny wirtualne IaaS zaleca się przy użyciu szyfrowania dysków Azure. Można włączyć plików VHD hello tooencrypt SSE, które są używane tooback tych dysków w magazynie Azure, ale są szyfrowane tylko nowo napisanych danych. Oznacza to, że jeśli możesz utworzyć Maszynę wirtualną, a następnie włączyć SSE na powitania konta magazynu, które znajduje się plik VHD hello, tylko hello zmiany będą szyfrowane, nie hello oryginalny plik wirtualnego dysku twardego.
 
-Jeśli tworzysz Maszynę wirtualną przy użyciu obrazu z portalu Azure Marketplace, platforma Azure stosuje [skrócona kopiowania](https://en.wikipedia.org/wiki/Object_copying) obrazu do magazynu konta w usłudze Azure Storage, a nie są szyfrowane, nawet jeśli masz SSE włączone. Po tworzy maszynę Wirtualną i uruchamia aktualizacji obrazu, SSE rozpocznie się zaszyfrowanie danych. Z tego powodu najlepiej jest używać szyfrowania dysków Azure na maszyny wirtualne utworzone z obrazów w portalu Azure Marketplace, jeśli chcesz, w pełni szyfrowane.
+Jeśli tworzysz Maszynę wirtualną przy użyciu obrazu z portalu Azure Marketplace hello Azure wykonuje [skrócona kopiowania](https://en.wikipedia.org/wiki/Object_copying) z hello tooyour obraz konta magazynu w usłudze Azure Storage, a nie są szyfrowane nawet wtedy, gdy SSE włączone. Po tworzy hello maszyny Wirtualnej i uruchamia aktualizacji obrazu hello, szyfrowanie danych hello SSE zostanie uruchomiony. Z tego powodu jest najlepszym toouse, szyfrowania dysków Azure na maszyny wirtualne utworzone na podstawie obrazów w portalu Azure Marketplace hello należy je w pełni szyfrowane.
 
-W przypadku przeniesienia zaszyfrowane wstępnie maszyny Wirtualnej na platformie Azure z lokalnymi, można przekazać do usługi Azure Key Vault kluczy szyfrowania i kontynuować korzystanie z szyfrowania dla tej maszyny Wirtualnej, aby były używane lokalnie. Szyfrowanie dysków Azure jest włączona do obsługi tego scenariusza.
+Przełączeniem zaszyfrowane wstępnie maszyny Wirtualnej na platformie Azure z lokalnej będzie można tooupload stanie hello szyfrowania kluczy tooAzure magazyn kluczy i nadal korzystać z szyfrowania hello tej maszyny Wirtualnej, aby były używane lokalnie. Szyfrowanie dysków Azure jest włączone toohandle tego scenariusza.
 
-Jeśli masz niezaszyfrowane wirtualnego dysku twardego z lokalnej, należy przekazać go do galerii jako obraz niestandardowy i udostępnić Maszynę wirtualną z niego. Jeśli możesz to zrobić za pomocą szablonów usługi Resource Manager, poproś go o włączenie szyfrowania dysków Azure po jego rozruchu maszyny Wirtualnej.
+Jeśli masz niezaszyfrowane wirtualnego dysku twardego z lokalnej, należy przekazać go do galerii hello jako obraz niestandardowy i udostępnić Maszynę wirtualną z niego. Jeśli możesz to zrobić za pomocą szablonów usługi Resource Manager hello, poproś go tooturn na szyfrowania dysków Azure po jego rozruchu hello maszyny Wirtualnej.
 
-Podczas dodawania dysku danych i zainstalować go na maszynie Wirtualnej, można włączyć szyfrowania dysków Azure na tym dysku danych. Go zostanie najpierw szyfrowania dysku danych lokalnie, a następnie warstwy usług zarządzania będzie wykonaj opóźnieniem zapisu względem magazynu, zawartość magazynu jest zaszyfrowana.
+Podczas dodawania dysku danych i zainstalować go na powitania maszyny Wirtualnej, można włączyć szyfrowania dysków Azure na tym dysku danych. Go zostanie najpierw szyfrowania dysku danych lokalnie, a następnie warstwa zarządzania usługi hello będzie wykonaj opóźnieniem zapisu względem magazynu, zawartość magazynu hello jest zaszyfrowana.
 
 #### <a name="client-side-encryption"></a>Szyfrowania po stronie klienta
-Szyfrowanie po stronie klienta jest najbezpieczniejszą metodą szyfrowania danych, ponieważ szyfruje go przed przesyłania i szyfruje dane przechowywane. Jednak wymaga Dodaj kod aplikacji przy użyciu magazynu, który może chcesz zrobić. W takich przypadkach można użyć protokołu HTTPs dla danych przesyłanych i SSE do szyfrowania danych magazynowanych.
+Szyfrowanie po stronie klienta jest hello najbezpieczniejszą metodą szyfrowania danych, ponieważ szyfruje go przed przesyłania i szyfruje hello przechowywanych danych. Jednak wymagają, aby dodać aplikacje tooyour kodu przy użyciu magazynu, który może nie być toodo. W takich przypadkach można użyć HTTPs dla danych podczas przesyłania i SSE tooencrypt hello przechowywanych danych.
 
-Szyfrowanie po stronie klienta można zaszyfrować jednostek tabeli, kolejki komunikatów i obiekty BLOB. Z SSE można szyfrować obiektów blob. Jeśli potrzebujesz kolejek i tabel do szyfrowania danych, należy używać szyfrowania po stronie klienta.
+Szyfrowanie po stronie klienta można zaszyfrować jednostek tabeli, kolejki komunikatów i obiekty BLOB. Z SSE można szyfrować obiektów blob. Jeśli potrzebujesz kolejek i tabel toobe dane zaszyfrowane, należy używać szyfrowania po stronie klienta.
 
-Szyfrowanie po stronie klienta odbywa się wyłącznie przez aplikację. Jest to najbezpieczniejsza metoda, ale wymagają zmian programowy do aplikacji i wprowadzenia procesy zarządzania kluczami. Należy użyć to dodatkowe bezpieczeństwo podczas przesyłania, i przechowywane dane do zaszyfrowania.
+Szyfrowanie po stronie klienta zarządza całkowicie aplikacji hello. Jest to najbezpieczniejsza metoda hello, ale wymaga toomake programowe zmiany tooyour aplikacji i wprowadzone procesy zarządzania kluczami. Spowoduje to używać, gdy chce hello dodatkowych zabezpieczeń podczas przesyłania, a chcesz Twojej toobe przechowywane dane zaszyfrowane.
 
-Szyfrowanie po stronie klienta jest większe obciążenie na kliencie, a muszą to uwzględniać w planów skalowalność, zwłaszcza, jeśli są szyfrowania i przesyłania dużych ilości danych.
+Szyfrowanie po stronie klienta jest większe obciążenie na powitania klienta i masz tooaccount tego w planów skalowalność, zwłaszcza, jeśli są szyfrowania i przesyłania dużych ilości danych.
 
 #### <a name="storage-service-encryption-sse"></a>Szyfrowanie usługi Magazyn (SSE)
-SSE jest zarządzana przez usługi Azure Storage. Przy użyciu SSE nie zapewniają bezpieczeństwo danych podczas przesyłania, ale szyfrowania danych, ponieważ jest ona zapisywana w usłudze Azure Storage. Nie ma żadnych wpływu na wydajność podczas używania tej funkcji.
+SSE jest zarządzana przez usługi Azure Storage. Przy użyciu SSE nie zapewnia bezpieczeństwa hello hello danych podczas przesyłania, ale jego szyfrowania danych hello są zapisywane tooAzure magazynu. Nie ma żadnych wpływu na wydajność hello podczas używania tej funkcji.
 
-Można tylko szyfrowania blokowych obiektów blob, uzupełnialnych obiektów blob i stronicowe przy użyciu SSE. Jeśli potrzebujesz do szyfrowania danych, tabeli lub kolejki, należy rozważyć przy użyciu szyfrowania po stronie klienta.
+Można tylko szyfrowania blokowych obiektów blob, uzupełnialnych obiektów blob i stronicowe przy użyciu SSE. Jeśli potrzebujesz danych tabeli tooencrypt lub kolejki, należy rozważyć przy użyciu szyfrowania po stronie klienta.
 
-Jeśli masz archiwum lub biblioteka plików VHD, które używa jako podstawy do tworzenia nowych maszyn wirtualnych, Utwórz nowe konto magazynu, włączyć SSE, a następnie przekazać pliki wirtualnego dysku twardego do tego konta. Te pliki VHD będą szyfrowane przez Magazyn Azure.
+Jeśli archiwum lub biblioteka plików VHD, które używa jako podstawy do tworzenia nowych maszyn wirtualnych, Utwórz nowe konto magazynu, włączyć SSE, a następnie przekaż konta toothat pliki VHD hello. Te pliki VHD będą szyfrowane przez Magazyn Azure.
 
-Jeśli masz dysków maszyny Wirtualnej i SSE włączone na koncie magazynu swoich plików wirtualnego dysku twardego jest włączone szyfrowanie dysków Azure, będzie działać prawidłowo; spowoduje danych nowo zapisywane szyfrowany dwa razy.
+Jeśli masz szyfrowania dysków Azure włączone hello dysków maszyny Wirtualnej i włączona na koncie magazynu hello zawierający pliki VHD hello SSE będzie działać prawidłowo; spowoduje danych nowo zapisywane szyfrowany dwa razy.
 
 ## <a name="storage-analytics"></a>Analityka magazynu
-### <a name="using-storage-analytics-to-monitor-authorization-type"></a>Przy użyciu magazynu Analytics można monitorować typu autoryzacji
-Dla każdego konta magazynu można włączyć analityka magazynu Azure do przechowywania danych metryki i wykonywać rejestrowanie. Jest to doskonałe narzędzie do użycia podczas sprawdzania metryki wydajności konta magazynu lub konieczne rozwiązywanie problemów z konta magazynu, ponieważ występują problemy z wydajnością.
+### <a name="using-storage-analytics-toomonitor-authorization-type"></a>Przy użyciu typu autoryzacji toomonitor analityka magazynu
+Dla każdego konta magazynu należy włączyć rejestrowanie tooperform analityka magazynu Azure i zapisania danych metryki. Jest to toouse doskonałe narzędzie, gdy mają metryki wydajności hello toocheck konta magazynu, lub potrzeby tootroubleshoot konta magazynu, ponieważ występują problemy z wydajnością.
 
-Inny element danych, można znaleźć w dziennikach analityka magazynu jest metodę uwierzytelniania używaną przez osobę przy uzyskiwaniu dostępu do magazynu. Na przykład z magazynem obiektów Blob widać, użycie sygnaturę dostępu współdzielonego i klucze konta magazynu lub jeśli publiczny dostęp do obiektu blob.
+Inny element danych wyświetlanych w dziennikach analityka magazynu hello jest hello metoda uwierzytelniania używana przez inną przy uzyskiwaniu dostępu do magazynu. Na przykład z magazynem obiektów Blob widać, użycie sygnaturę dostępu współdzielonego i klucze konta magazynu hello lub jeśli blob hello dostęp publiczny.
 
-Może to być naprawdę pomocne, jeśli są ściśle ochrona dostępu do magazynu. Na przykład w magazynie obiektów Blob można ustawić opcję prywatne dla wszystkich kontenerów i implementować korzystania z usługi SAS w całej aplikacji. Następnie można sprawdzić dzienniki regularnie, aby sprawdzić, czy obiektów blob są dostępne przy użyciu kluczy konta magazynu, które mogą wskazywać naruszenia zabezpieczeń, lub jeśli obiekty BLOB są publiczne, ale nie powinny być one.
+Może to być naprawdę pomocne, jeśli są ściśle ochrona toostorage dostępu. Na przykład w magazynie obiektów Blob można ustawić dla wszystkich tooprivate kontenery hello i zaimplementować hello korzystania z usługi SAS w całej aplikacji. Następnie można sprawdzić dzienniki hello regularnie toosee czy obiektów blob są dostępne przy użyciu kluczy konta magazynu hello, które mogą wskazywać naruszenia zabezpieczeń, czy obiekty BLOB hello są publiczne, ale nie powinny być one.
 
-#### <a name="what-do-the-logs-look-like"></a>Jak wyglądają dzienniki?
-Po włączeniu metryki konta magazynu i rejestrowanie za pośrednictwem portalu Azure, dane analityczne rozpocznie się szybko. Rejestrowanie i metryki dla każdej usługi jest oddzielona; Rejestrowanie są zapisywane tylko w przypadku działania na tym koncie magazynu, gdy metryki będą rejestrowane co minutę, co godzinę lub codziennie, w zależności od sposobu skonfigurowania.
+#### <a name="what-do-hello-logs-look-like"></a>Jak hello dzienniki wyglądają?
+Po włączyć metryki konta magazynu hello i rejestrowanie za pośrednictwem hello portalu Azure, dane analityczne rozpocznie tooaccumulate szybko. Rejestrowanie Hello i metryki dla każdej usługi jest oddzielona; Rejestrowanie Hello tylko są zapisywane w przypadku działania na tym koncie magazynu podczas metryki hello będą rejestrowane co minutę, co godzinę lub codziennie, w zależności od sposobu skonfigurowania.
 
-Dzienniki są przechowywane w blokowych obiektów blob w kontenerze o nazwie $logs na koncie magazynu. Ten kontener jest tworzony automatycznie, gdy analityka magazynu jest włączona. Po utworzeniu tego kontenera nie można usunąć, mimo że można usunąć jego zawartość.
+Witaj dzienniki są przechowywane w blokowych obiektów blob w kontenerze o nazwie $logs hello koncie magazynu. Ten kontener jest tworzony automatycznie, gdy analityka magazynu jest włączona. Po utworzeniu tego kontenera nie można usunąć, mimo że można usunąć jego zawartość.
 
-W kontenerze $logs znajduje się tam folder dla każdej usługi, a następnie istnieją podfoldery roku/miesiąc/dzień/godzinę. W obszarze godzin po prostu są numerowane dzienniki. Jest to, jak będzie wyglądać strukturę katalogów:
+W ramach kontenera hello $logs znajduje się tam folder dla każdej usługi, a następnie istnieją podfoldery dla hello roku miesiąc/dzień/na godzinę. W obszarze godzinę po prostu są numerowane hello dzienniki. Jest to jakie hello będzie wyglądać strukturę katalogów:
 
 ![Wyświetl pliki dziennika](./media/storage-security-guide/image1.png)
 
-Każde żądanie do usługi Azure Storage jest rejestrowane. Oto migawki pliku dziennika, przedstawiający pierwsze kilka pola.
+Jest rejestrowane co tooAzure żądania magazynu. Oto migawki pliku dziennika, przedstawiający hello pierwszy mało pól.
 
 ![Migawki pliku dziennika](./media/storage-security-guide/image2.png)
 
-Widać, że umożliwia dzienniki śledzenia dowolnego rodzaju wywołań konta magazynu.
+Widać, których można używać tootrack dzienniki hello dowolnego rodzaju konto magazynu tooa wywołania.
 
 #### <a name="what-are-all-of-those-fields-for"></a>Co to są wszystkich tych pól?
-Brak wymienionym w zasobach poniżej zawiera listę wiele pól w dziennikach i ich używać. Oto lista pól w kolejności:
+Istnieje na liście poniżej zasobów hello artykułu, który zawiera listę hello hello wiele pól w hello dzienników i ich używać. Oto hello Lista pól w kolejności:
 
 ![Migawki pól w pliku dziennika](./media/storage-security-guide/image3.png)
 
-Interesuje nas wpisy GetBlob i sposób ich uwierzytelniania, dlatego musimy Wyszukaj wpisy z operacji typu "Get-obiektu Blob" i sprawdź stan żądania (4<sup>th</sup> kolumny) i typ autoryzacji (8<sup>th</sup> kolumny).
+Interesuje nas hello wpisy GetBlob i sposób ich uwierzytelniania, dlatego firma Microsoft muszą toolook dla wpisów z operacji typu "Get-obiektu Blob", a sprawdzić stan żądania hello (4<sup>th</sup> kolumny) i typ autoryzacji hello (8<sup>th</sup> kolumny).
 
-Na przykład w kilka pierwszych wierszy na liście powyżej, stan żądania jest "Powodzenie" i typ autoryzacji "uwierzytelnieniu". Oznacza to, że żądania została zweryfikowana przy użyciu klucza konta magazynu.
+Na przykład w hello najpierw kilka wierszy na powyższej liście hello, stan żądania hello jest "Powodzenie" i typ autoryzacji hello "uwierzytelnieniu". Oznacza to, że hello żądania została zweryfikowana przy użyciu klucza konta magazynu hello.
 
 #### <a name="how-are-my-blobs-being-authenticated"></a>Jak są jest uwierzytelniane Moje obiektów blob?
 Mamy trzech przypadkach, w których Dbamy o.
 
-1. Obiekt blob jest publiczny i jest on dostępny przy użyciu adresu URL bez sygnaturę dostępu współdzielonego. W takim przypadku stan żądania jest "AnonymousSuccess" i "anonymous" jest typ autoryzacji.
+1. Witaj obiektu blob jest publiczny i jest on dostępny przy użyciu adresu URL bez sygnaturę dostępu współdzielonego. W takim przypadku stan żądania hello jest "AnonymousSuccess" i "anonymous" jest typ autoryzacji hello.
 
    1.0; 2015-11-17T02:01:29.0488963Z; GetBlob; **AnonymousSuccess**200 124; 37; **anonimowe**; mystorage...
-2. Obiekt blob jest prywatny i została użyta z sygnaturą dostępu współdzielonego. W takim przypadku stan żądania jest "SASSuccess" i "sas" jest typ autoryzacji.
+2. Obiekt blob Hello jest prywatny i została użyta z sygnaturą dostępu współdzielonego. W takim przypadku stan żądania hello jest "SASSuccess" i typ autoryzacji hello jest "sas".
 
    1.0; 2015-11-16T18:30:05.6556115Z; GetBlob; **SASSuccess**200 416; 64; **sygnatury dostępu współdzielonego**; mystorage...
-3. Obiekt blob jest prywatny i klucz magazynu został użyty do niego dostęp. W tym przypadku jest stan żądania "**Powodzenie**"i typ autoryzacji jest"**uwierzytelniony**".
+3. Hello blob jest prywatny i klucz magazynu hello był używany tooaccess go. W takim przypadku stan żądania hello jest "**Powodzenie**"i typ autoryzacji hello jest"**uwierzytelniony**".
 
    1.0; 2015-11-16T18:32:24.3174537Z; GetBlob; **Powodzenie**206 59; 22; **uwierzytelniony**; mystorage...
 
-Aby przeglądać i analizować te dzienniki, można użyć programu Microsoft Message Analyzer. Obejmuje on możliwości wyszukiwania i filtrowania. Na przykład można wyszukać wystąpienia GetBlob czy użycie jest oczekiwań, tj. Aby się upewnić, że ktoś jest nie uzyskiwanie dostępu do konta magazynu niewłaściwie.
+Można użyć hello tooview programu Microsoft Message Analyzer i analizować te dzienniki. Obejmuje on możliwości wyszukiwania i filtrowania. Na przykład może być toosearch dla wystąpień toosee GetBlob w przypadku użycia hello oczekiwań, tj. toomake się, że ktoś jest nie uzyskiwanie dostępu do konta magazynu niewłaściwie.
 
 #### <a name="resources"></a>Zasoby
 * [Analityka magazynu](../storage-analytics.md)
 
-  W tym artykule przedstawiono analityka magazynu oraz jak je włączyć.
+  Ten artykuł zawiera omówienie analityka magazynu i w jaki sposób tooenable je.
 * [Format dziennika analityka magazynu](https://msdn.microsoft.com/library/azure/hh343259.aspx)
 
-  W tym artykule przedstawiono Format dziennika analityka magazynu i zawiera szczegóły dostępnych pól, tym — typ uwierzytelniania, który wskazuje typ uwierzytelniania dla żądania.
-* [Monitor konta magazynu w portalu Azure](../storage-monitor-storage-account.md)
+  W tym artykule przedstawiono hello Format dziennika analityka magazynu, a szczegóły hello dostępnych pól, w tym — typ uwierzytelniania, co oznacza hello typu uwierzytelniania używanego dla żądania hello.
+* [Monitor konta magazynu w hello portalu Azure](../storage-monitor-storage-account.md)
 
-  W tym artykule przedstawiono sposób konfigurowania monitorowania metryki i logowania dla konta magazynu.
+  W tym artykule przedstawiono sposób tooconfigure monitorowanie metryki i rejestrowania dla konta magazynu.
 * [Rozwiązywanie problemów na trasie przy użyciu metryk usługi Azure Storage i rejestrowania, AzCopy i analizatora komunikatów](../storage-e2e-troubleshooting.md)
 
-  Ten artykuł zawiera informacje o Rozwiązywanie problemów przy użyciu analityka magazynu i przedstawia sposób użycia programu Microsoft Message Analyzer.
+  Ten artykuł zawiera informacje o Rozwiązywanie problemów przy użyciu hello analityka magazynu i pokazuje, jak toouse hello programu Microsoft Message Analyzer.
 * [Przewodnik operacyjny analizatora wiadomości firmy Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
 
-  W tym artykule jest odwołaniem do programu Microsoft Message Analyzer oraz linki do samouczek szybki start i Podsumowanie funkcji.
+  W tym artykule jest odwołanie hello hello programu Microsoft Message Analyzer i zawiera łącza tooa samouczek szybki start i Podsumowanie funkcji.
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Współużytkowanie zasobów między źródłami (CORS)
 ### <a name="cross-domain-access-of-resources"></a>Dostęp z innych domen zasobów
-Gdy przeglądarki sieci web działa w jednej domenie wysyła żądanie HTTP dla zasobu z innej domeny, jest to żądanie HTTP cross-origin. Na przykład strona HTML z contoso.com zażąda hostowanych na fabrikam.blob.core.windows.net jpeg. Ze względów bezpieczeństwa przeglądarki ograniczanie żądań HTTP cross-origin inicjowane przy użyciu skryptów, takich jak JavaScript. Oznacza to, że jeśli kod JavaScript na stronie sieci web w domenie contoso.com zażąda tej jpeg na fabrikam.blob.core.windows.net, przeglądarka nie zezwoli żądania.
+Gdy przeglądarki sieci web działa w jednej domenie wysyła żądanie HTTP dla zasobu z innej domeny, jest to żądanie HTTP cross-origin. Na przykład strona HTML z contoso.com zażąda hostowanych na fabrikam.blob.core.windows.net jpeg. Ze względów bezpieczeństwa przeglądarki ograniczanie żądań HTTP cross-origin inicjowane przy użyciu skryptów, takich jak JavaScript. Oznacza to, że jeśli kod JavaScript na stronie sieci web w domenie contoso.com zażąda tej jpeg na fabrikam.blob.core.windows.net, przeglądarki hello nie zezwoli hello żądania.
 
-Co to ma sposób korzystania z usługi Azure Storage Dobrze, jeśli przechowujesz statycznych zasobów, takich jak pliki danych JSON i XML w magazynie obiektów Blob przy użyciu konta magazynu o nazwie firmy Fabrikam, domeny zasobów będzie fabrikam.blob.core.windows.net i contoso.com aplikacji sieci web nie będzie można uzyskiwać do nich dostęp przy użyciu języka JavaScript, ponieważ różnią się domen. Jest to również wartość true, jeśli próbujesz wywoływanie jednego z usług magazynu Azure — takie jak magazyn tabel — które zwracają dane JSON do przetworzenia przez klienta języka JavaScript.
+Co to oznacza ma toodo z usługą Azure Storage? Dobrze, jeśli przechowujesz statycznych zasobów, takich jak pliki danych JSON i XML w magazynie obiektów Blob przy użyciu konta magazynu o nazwie firmy Fabrikam, domena hello trwałych hello będzie fabrikam.blob.core.windows.net i aplikacji sieci web contoso.com hello nie będą mogli tooaccess je przy użyciu języka JavaScript, ponieważ różnią się hello domen. Jest to również wartość true, jeśli próbujesz toocall jedną z usług magazynu Azure — takie jak magazyn tabel — Witaj zwracających toobe danych JSON przetworzonych przez program hello JavaScript klienta.
 
 #### <a name="possible-solutions"></a>Możliwe rozwiązania
-Jednym ze sposobów rozwiązania tego problemu jest przypisywany domeny niestandardowej, takie jak "storage.contoso.com" fabrikam.blob.core.windows.net. Problem polega na tym, że można przypisać tylko tej domeny niestandardowe na jedno konto magazynu. Co zrobić, jeśli zasoby są przechowywane w wielu kont magazynu?
+Jednym ze sposobów tooresolve jest tooassign domeny niestandardowej, takich jak toofabrikam.blob.core.windows.net "storage.contoso.com". Hello problem jest, że konto domeny niestandardowej tooone magazynu można przypisać tylko. Co zrobić, jeśli zasoby hello są przechowywane w wielu kont magazynu?
 
-Innym sposobem rozwiązania tego problemu ma działać jako serwer proxy dla wywołań Magazyn aplikacji sieci web. Oznacza to, czy plik jest przekazywany do magazynu obiektów Blob, aplikacji sieci web będzie zapisywany lokalnie i skopiuj go do magazynu obiektów Blob lub zostaną odczytać wszystkich go do pamięci, a następnie zapisz je do magazynu obiektów Blob. Alternatywnie można zapisać dedykowanych aplikacji sieci web (np. interfejsu API sieci Web) przekazuje plików lokalnie i zapisuje je w magazynie obiektów Blob. W obu przypadkach należy konta dla tej funkcji, gdy wymaga określenia skalowalność.
+Inny sposób tooresolve to działanie aplikacji sieci web hello toohave jako serwer proxy dla połączenia magazynu hello. Oznacza to, podczas przekazywania pliku tooBlob pamięci masowej, aplikacji sieci web hello czy albo Zapisz lokalnie, a następnie skopiować go tooBlob magazynu lub zostaną odczytać wszystkich go do pamięci, a następnie zapisz je tooBlob magazynu. Alternatywnie można zapisać dedykowanych aplikacji sieci web (np. interfejsu API sieci Web) przekazuje hello plików lokalnie i zapisuje je tooBlob magazynu. W obu przypadkach należy tooaccount dla tej funkcji podczas określania skalowalność hello musi.
 
 #### <a name="how-can-cors-help"></a>Jak może pomóc CORS
-Magazyn Azure umożliwia CORS — Cross udostępniania zasobów pochodzenia. Dla każdego konta magazynu można określić domeny, które mogą uzyskiwać dostęp do zasobów na tym koncie magazynu. Na przykład w tym przypadku opisanych powyżej, możemy włączyć mechanizm CORS w fabrikam.blob.core.windows.net konta magazynu i skonfigurować go, aby zezwolić na dostęp do domeny contoso.com. Następnie contoso.com aplikacji sieci web może bezpośrednio uzyskać dostęp do zasobów w fabrikam.blob.core.windows.net.
+Magazyn Azure umożliwia tooenable CORS — Cross udostępniania zasobów pochodzenia. Dla każdego konta magazynu można określić domeny, które mogą uzyskiwać dostęp do zasobów hello na tym koncie magazynu. Na przykład w tym przypadku opisanych powyżej firma Microsoft można włączyć mechanizm CORS na koncie magazynu fabrikam.blob.core.windows.net hello i skonfigurować tooallow toocontoso.com dostępu. Następnie contoso.com aplikacji sieci web hello bezpośrednio dostęp do zasobów hello w fabrikam.blob.core.windows.net.
 
-Jedyną operacją, należy pamiętać, to czy CORS zezwala na dostęp, ale nie zapewnia uwierzytelniania, który jest wymagany dla wszystkich dostępu publicznego zasobów magazynu. Oznacza to, że można tylko dostęp do obiektów blob, jeśli są one publiczne lub zawierać umożliwiając odpowiednich uprawnień sygnaturę dostępu współdzielonego. Tabel, kolejek i plików nie mają publicznego dostępu i wymagają sygnatury dostępu Współdzielonego.
+Jeden element toonote jest czy CORS zezwala na dostęp, ale nie zapewnia uwierzytelniania, który jest wymagany dla wszystkich dostępu publicznego zasobów magazynu. To oznacza, że użytkownik ma dostęp tylko do obiektów blob, jeśli są one publiczne lub dołączeniu zapewniając sygnaturę dostępu współdzielonego hello odpowiednich uprawnień. Tabel, kolejek i plików nie mają publicznego dostępu i wymagają sygnatury dostępu Współdzielonego.
 
-Domyślnie CORS jest wyłączona na wszystkich usług. Mechanizm CORS można włączyć za pomocą interfejsu API REST lub biblioteka klienta magazynu do wywoływania jednej z metod, aby ustawić zasady usługi. Po wykonaniu tej czynności, możesz dołączyć regułę CORS, która jest w formacie XML. Oto przykład reguły CORS, która została ustawiona przy użyciu operacji ustawić właściwości usługi dla usługi obiektów Blob dla konta magazynu. Można wykonać tej operacji za pomocą biblioteki klienta usługi storage lub interfejsów API REST usługi Azure Storage.
+Domyślnie CORS jest wyłączona na wszystkich usług. Mechanizm CORS można włączyć, używając hello interfejsu API REST lub hello magazynu klienta biblioteki toocall jedną z hello metody tooset hello usługi zasad. Po wykonaniu tej czynności, możesz dołączyć regułę CORS, która jest w formacie XML. Oto przykład reguły CORS, która została ustawiona przy użyciu operacji ustawić właściwości usługi hello hello usługa Blob dla konta magazynu. Można wykonać tej operacji za pomocą biblioteki klienta usługi storage hello lub hello interfejsów API REST usługi Azure Storage.
 
 ```xml
 <Cors>    
@@ -488,38 +488,38 @@ Domyślnie CORS jest wyłączona na wszystkich usług. Mechanizm CORS można wł
 
 Oto, co oznacza każdy wiersz:
 
-* **AllowedOrigins** informuje domen niezgodny żądać i odbierać dane z usługi magazynowania. To mówi, że zarówno contoso.com i fabrikam.com można zażądać danych z magazynu obiektów Blob na koncie magazynu określonym. Możesz również ustawić do symbolu wieloznacznego (\*) umożliwia wszystkich domen do żądań dostępu.
-* **AllowedMethods** jest to lista metod (zleceń HTTP żądania), które mogą być używane podczas tworzenia żądania. W tym przykładzie są dozwolone tylko PUT i GET. Możesz ustawić do symbolu wieloznacznego (\*) zezwalająca na wszystkie metody mają być używane.
-* **AllowedHeaders** to nagłówków żądań, które domeny pochodzenia można określić podczas zgłaszania żądania. W tym przykładzie wszystkie nagłówki metadanych, począwszy od x-ms-meta-data x-ms-meta docelowego, a x-ms-meta-abc są dozwolone. Symbol wieloznaczny (\*) wskazuje, że wszystkie nagłówka, począwszy od określonego prefiksu jest dozwolone.
-* **ExposedHeaders** informuje nagłówki odpowiedzi, które powinny zostać ujawnione przez przeglądarkę, aby wystawcy żądania. W tym przykładzie wszystkie nagłówka, począwszy od "x-ms - meta-" mają być widoczne.
-* **MaxAgeInSeconds** jest maksymalną ilość czasu, czy żądania wstępnego opcje zostaną zbuforowane przez przeglądarkę. (Aby uzyskać więcej informacji na temat żądania wstępnego Sprawdź pierwszego artykułu poniżej).
+* **AllowedOrigins** informuje żądać i odbierać dane z usługi magazynowania hello niezgodny domen. To mówi, że zarówno contoso.com i fabrikam.com można zażądać danych z magazynu obiektów Blob na koncie magazynu określonym. Można również ustawić tego symbolu wieloznacznego tooa (\*) tooallow tooaccess domen wszystkich żądań.
+* **AllowedMethods** to hello listę metod (zleceń HTTP żądania), które mogą być używane podczas tworzenia żądania hello. W tym przykładzie są dozwolone tylko PUT i GET. Można ustawić tego symbolu wieloznacznego tooa (\*) tooallow używane wszystkie toobe metody.
+* **AllowedHeaders** to Żądanie hello nagłówki, które hello domeny pochodzenia można określić podczas tworzenia żądania hello. W tym przykładzie wszystkie nagłówki metadanych, począwszy od x-ms-meta-data x-ms-meta docelowego, a x-ms-meta-abc są dozwolone. Witaj wieloznacznego (\*) wskazuje, że wszystkie nagłówka, począwszy od hello określić prefiks jest dozwolone.
+* **ExposedHeaders** informuje nagłówki odpowiedzi, które powinny zostać ujawnione przez emitenta żądania toohello hello w przeglądarce. W tym przykładzie wszystkie nagłówka, począwszy od "x-ms - meta-" mają być widoczne.
+* **MaxAgeInSeconds** to hello maksymalną ilość czasu, w przeglądarce zostanie buforowania przez żądania wstępnego opcje hello. (Aby uzyskać więcej informacji na temat żądania wstępnego hello Sprawdź hello pierwszego artykułu poniżej).
 
 #### <a name="resources"></a>Zasoby
-Aby uzyskać więcej informacji na temat CORS oraz jak je włączyć można znaleźć na te zasoby.
+Aby uzyskać więcej informacji na temat mechanizmu CORS i w jaki sposób tooenable, zapoznaj się z tych zasobów.
 
-* [Współużytkowanie zasobów między źródłami (CORS) obsługę usług Azure Storage w witrynie Azure.com do udostępniania](../storage-cors-support.md)
+* [Obsługa udostępniania zasobów między źródłami (CORS) hello usług magazynu Azure w witrynie Azure.com](../storage-cors-support.md)
 
-  Ten artykuł zawiera omówienie mechanizmu CORS i sposobu ustawiania zasad dla różnych usług.
-* [Cross-Origin Resource Sharing (CORS) obsługę usług Azure Storage w witrynie MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
+  Ten artykuł zawiera omówienie mechanizmu CORS i jak tooset hello zasady hello innego magazynu usługi.
+* [Obsługa udostępniania zasobów między źródłami (CORS) hello usług magazynu Azure w witrynie MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
-  Jest to dokumentacji dla obsługi mechanizmu CORS dla usług magazynu Azure. Zawiera łącza do artykułów na stosowanie dla wszystkich usług magazynu i przedstawiono przykład i opisano każdy element w pliku CORS.
+  Jest to hello dokumentacji dla obsługi mechanizmu CORS dla usług magazynu Azure hello. Ma tooarticles łącza stosowania tooeach usługi magazynu i przedstawiono przykład i opisano każdy element hello CORS pliku.
 * [Usługi Microsoft Azure Storage: Wprowadzenie CORS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
-  To łącze do artykułu początkowej blog o mechanizmu CORS i przedstawiający jak z niego korzystać.
+  To jest łącze artykuł początkowej blog toohello announcing CORS i przedstawiający sposób toouse go.
 
 ## <a name="frequently-asked-questions-about-azure-storage-security"></a>Często zadawane pytania dotyczące zabezpieczeń usługi Azure Storage
-1. **Jak można zweryfikować integralność obiektów blob, który I używam transferu do lub z usługi Azure Storage gdy nie jest używany protokół HTTPS?**
+1. **Jak można sprawdzić integralności hello hello obiektów blob, który I używam transferu do lub z usługi Azure Storage, jeśli nie można użyć protokołu HTTPS hello?**
 
-   Przyczyn potrzebnych do obsługi protokołu HTTP zamiast HTTPS i pracy z blokowych obiektów blob, umożliwia sprawdzanie MD5 weryfikowania integralności transferowanych obiektów blob. Pomoże to ochrony z sieci/transport layer błędów, ale niekoniecznie pośredniczące ataków.
+   Jeśli z jakiegokolwiek powodu potrzebne toouse HTTP zamiast HTTPS, a użytkownik pracuje z blokowych obiektów blob, można użyć sprawdzanie MD5 toohelp Sprawdź integralność hello obiektów blob hello przesyłane. Pomoże to ochrony z sieci/transport layer błędów, ale niekoniecznie pośredniczące ataków.
 
    Jeśli używasz protokołu HTTPS, który zapewnia zabezpieczeń na poziomie transportu, następnie przy użyciu algorytmu MD5 sprawdzanie jest nadmiarowe i niepotrzebne.
 
-   Aby uzyskać więcej informacji, zapoznaj się [Przegląd MD5 obiektów Blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
-2. **Informacje o zgodności ze standardem FIPS dla Stanów Zjednoczonych Rządowych Stanów Zjednoczonych?**
+   Aby uzyskać więcej informacji można znaleźć na powitania [Przegląd MD5 obiektów Blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
+2. **Informacje o zgodności FIPS dla hello stany USA Rządowych Stanów Zjednoczonych?**
 
-   Stany Zjednoczone informacji przetwarzania Standard FIPS (Federal) definiuje algorytmy kryptograficzne zatwierdzone do użycia przez amerykański Federalnych systemów komputerowych do ochrony danych poufnych. Włączanie FIPS tryb na serwerze z systemem Windows lub pulpitu informuje system operacyjny powinien być używany tylko standardem FIPS algorytmów kryptograficznych. Jeśli aplikacja używa algorytmów niezgodnych, aplikacje zostaną przerwane. With.NET Framework w wersji 4.5.2 lub nowszym, aplikacja automatycznie przełącza algorytmy kryptografii użyj zgodnych algorytmów FIPS, gdy komputer jest w trybie FIPS.
+   Witaj Stanów Zjednoczonych informacji przetwarzania Standard FIPS (Federal) definiuje algorytmy kryptograficzne zatwierdzone do użycia przez amerykański Systemów komputerowych federalnych hello ochrony poufnych danych. Włączanie FIPS tryb na serwerze z systemem Windows lub pulpitu informuje hello systemu operacyjnego należy używać tylko standardem FIPS algorytmów kryptograficznych. Jeśli aplikacja używa algorytmów niezgodnych, aplikacji hello zostaną przerwane. With.NET Framework w wersji 4.5.2 lub nowszego, aplikacja hello automatycznie przełącza algorytmów toouse zgodne ze standardem FIPS algorytmów kryptograficznych hello podczas hello komputer jest w trybie FIPS.
 
-   Microsoft pozostawia go do każdego klienta w celu podjęcie decyzji o włączeniu w trybie FIPS. Mamy nadzieję, że to nie ma powodu istotnych dla klientów, którzy nie podlegają dla instytucji rządowych przepisy, aby włączyć tryb FIPS domyślnie.
+   Microsoft pozostawia jej w górę toodecide klienta tooeach czy tooenable trybie FIPS. Mamy nadzieję, że to nie ma powodu istotnych dla klientów, którzy nie są w trybie FIPS podmiotu toogovernment wykonawcze tooenable domyślnie.
 
    **Zasoby**
 
@@ -528,7 +528,7 @@ Aby uzyskać więcej informacji na temat CORS oraz jak je włączyć można znal
   W tym artykule na blogu powinien zawierać omówienie FIPS i objaśniono, dlaczego nie umożliwiają one trybie FIPS domyślnie.
 * [FIPS 140 sprawdzania poprawności](https://technet.microsoft.com/library/cc750357.aspx)
 
-  Ten artykuł zawiera informacje dotyczące sposobu produktów firmy Microsoft i modułów kryptograficznych zgodne ze standardem FIPS dla Stanów Zjednoczonych Federalnych.
+  Ten artykuł zawiera informacje dotyczące sposobu produktów firmy Microsoft i modułów kryptograficznych zgodne ze standardem FIPS hello hello USA Federalnych.
 * ["Kryptografia systemu: Użyj FIPS algorytmów szyfrowania, mieszania i podpisywania" efekty ustawienia zabezpieczeń w systemie Windows XP i w nowszych wersjach systemu Windows](https://support.microsoft.com/kb/811833)
 
-  Ten artykuł zawiera informacje o trybu FIPS w starszych komputerów z systemem Windows.
+  Ten artykuł zawiera informacje o użycie hello w trybie FIPS w starszych komputerów z systemem Windows.

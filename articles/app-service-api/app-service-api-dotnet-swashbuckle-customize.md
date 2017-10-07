@@ -1,6 +1,6 @@
 ---
-title: Dostosowywanie definicji wygenerowanych przez pakiet Swashbuckle interfejsu API
-description: "Dowiedz się, jak dostosowywanie definicji interfejsu API programu Swagger, które są generowane przez pakiet Swashbuckle dla aplikacji interfejsu API w usłudze Azure App Service."
+title: definicje aaaCustomize generowanych przez pakiet Swashbuckle interfejsu API
+description: "Dowiedz się, jak toocustomize definicji interfejsu API programu Swagger, które są generowane przez pakiet Swashbuckle dla aplikacji interfejsu API w usłudze Azure App Service."
 services: app-service\api
 documentationcenter: .net
 author: bradygaster
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: rachelap
-ms.openlocfilehash: c83905a97fb2ee988fe06fc1f9a7379c1741fd02
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e31c665f8993533c5ec9a935e42cce34f86a5ade
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="customize-swashbuckle-generated-api-definitions"></a>Dostosowywanie definicji wygenerowanych przez pakiet Swashbuckle interfejsu API
 ## <a name="overview"></a>Omówienie
-W tym artykule opisano sposób dostosowywania Swashbuckle do obsługi typowych scenariuszy, w którym może zajść potrzeba zmiany domyślnego zachowania:
+W tym artykule opisano sposób toocustomize Swashbuckle toohandle typowych scenariuszy może miejscu tooalter hello domyślne zachowanie:
 
 * Pakiet Swashbuckle generuje operacji zduplikowane identyfikatory przeciążenia metody kontrolera
-* Pakiet Swashbuckle zakłada, że tylko prawidłowej odpowiedzi z metody 200 protokołu HTTP (OK) 
+* Pakiet Swashbuckle zakłada tego hello tylko prawidłowej odpowiedzi z metody jest 200 protokołu HTTP (OK) 
 
 ## <a name="customize-operation-identifier-generation"></a>Dostosowywanie generowania identyfikatora operacji
 Swashbuckle generuje identyfikatory operacji programu Swagger, łącząc nazwy kontrolera i nazwy metody. Ten wzorzec tworzy problem, jeśli masz wiele przeciążenia metody: Swashbuckle generuje operacji zduplikowane identyfikatory, która jest nieprawidłowa JSON programu Swagger.
 
-Na przykład następujący kod kontrolera powoduje, że pakiet Swashbuckle do generowania trzech identyfikatorów operacji Contact_Get.
+Na przykład hello następującego kodu kontrolera powoduje Swashbuckle toogenerate trzy Contact_Get identyfikatory operacji.
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/multiplegetsincode.png)
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/multiplegetsinjson.png)
 
-Problem można rozwiązać ręcznie, zapewniając metody unikatowe nazwy, takie jak wymienione poniżej w tym przykładzie:
+Witaj problem można rozwiązać ręcznie, zapewniając metody hello unikatowe nazwy, takie jak następujące hello w tym przykładzie:
 
 * Get
 * GetById
 * GetPage
 
-Alternatywą jest rozszerzenie Swashbuckle, aby automatycznie wygenerować operacji unikatowych identyfikatorów.
+Alternatywą Hello jest toomake Swashbuckle tooextend automatycznego generowania operacji unikatowych identyfikatorów.
 
-W poniższej procedurze pokazano sposób dostosowywania Swashbuckle za pomocą *SwaggerConfig.cs* pliku, który jest dołączony do projektu przez szablon projektu Visual Studio Preview aplikacji interfejsu API.  Można również dostosować Swashbuckle w projekcie interfejsu API sieci Web skonfigurowana dla wdrażania aplikacji interfejsu API.
+Witaj poniższej procedurze pokazano, jak hello toocustomize Swashbuckle za pomocą *SwaggerConfig.cs* pliku, który znajduje się w projekcie hello przez szablon projektu Visual Studio interfejsu API Apps Preview hello.  Można również dostosować Swashbuckle w projekcie interfejsu API sieci Web skonfigurowana dla wdrażania aplikacji interfejsu API.
 
 1. Utworzenie niestandardowego `IOperationFilter` implementacji 
    
-    `IOperationFilter` Interfejs zapewnia punkt rozszerzeń dla użytkowników Swashbuckle, którzy chcą dostosować różnych aspektów procesu metadanych struktury Swagger. Poniższy kod przedstawia jedną z metod zmiany zachowania operacji identyfikatora generacji. Kod dołącza nazwy parametrów na nazwę identyfikatora operacji.  
+    Witaj `IOperationFilter` interfejsu udostępnia punkt rozszerzalności dla Swashbuckle użytkowników, którzy chcą toocustomize różnych aspektów procesu metadanych struktury Swagger hello. Witaj poniższy kod przedstawia jedną z metod zmiany zachowania operacji identyfikator generacji hello. Kod Hello dołącza nazwy identyfikatora operacji toohello nazwy parametru.  
    
         using Swashbuckle.Swagger;
         using System.Web.Http.Description;
@@ -73,22 +73,22 @@ W poniższej procedurze pokazano sposób dostosowywania Swashbuckle za pomocą *
                 }
             }
         }
-2. W *App_Start\SwaggerConfig.cs* plików, należy wywołać `OperationFilter` metodę, aby spowodować, że pakiet Swashbuckle do używania nowych `IOperationFilter` implementacji.
+2. W *App_Start\SwaggerConfig.cs* plik, hello wywołania `OperationFilter` metody toocause Swashbuckle toouse hello nowe `IOperationFilter` implementacji.
    
         c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
    
     ![](./media/app-service-api-dotnet-swashbuckle-customize/usefilter.png)
    
-    *SwaggerConfig.cs* plików, które są przenoszone przez pakiet Swashbuckle NuGet zawiera wiele przykładów poza komentarzem punkty rozszerzeń. Dodatkowe komentarze nie są wyświetlane tutaj. 
+    Witaj *SwaggerConfig.cs* plików, które są przenoszone przez hello pakietu Swashbuckle NuGet zawiera wiele przykładów poza komentarzem punkty rozszerzeń. dodatkowe uwagi Hello nie są wyświetlane tutaj. 
    
-    Po wprowadzeniu tej zmiany z `IOperationFilter` implementacji jest używana i powoduje, że operacji unikatowych identyfikatorów do wygenerowania.
+    Po wprowadzeniu tej zmiany z `IOperationFilter` implementacji jest używana i powoduje, że operacja unikatowe identyfikatory toobe generowane.
    
     ![](./media/app-service-api-dotnet-swashbuckle-customize/uniqueids.png)
 
 <a id="multiple-response-codes" name="multiple-response-codes"></a>
 
 ## <a name="allow-response-codes-other-than-200"></a>Zezwalaj na kody odpowiedzi innych niż 200
-Domyślnie pakiet Swashbuckle zakłada, że odpowiedź 200 protokołu HTTP (OK) *tylko* prawnie odpowiedzi z metody interfejsu API sieci Web. W niektórych przypadkach warto zwrócić innych kodów odpowiedzi bez powodowania klienta zgłosić wyjątek.  Na przykład w poniższym kodzie interfejsu API sieci Web przedstawiono scenariusz, w którym ma czy klient akceptuje 200 lub 404 jako prawidłowy odpowiedzi.
+Domyślnie pakiet Swashbuckle zakłada, że odpowiedź 200 protokołu HTTP (OK) hello *tylko* prawnie odpowiedzi z metody interfejsu API sieci Web. W niektórych przypadkach może być tooreturn innych kodów odpowiedzi bez powodowania powitania klienta tooraise Wystąpił wyjątek.  Na przykład hello następującego kodu interfejsu API sieci Web przedstawiono scenariusz, w którym można powitania klienta tooaccept 200 lub 404 jako prawidłowy odpowiedzi.
 
     [ResponseType(typeof(Contact))]
     public HttpResponseMessage Get(int id)
@@ -107,11 +107,11 @@ Domyślnie pakiet Swashbuckle zakłada, że odpowiedź 200 protokołu HTTP (OK) 
         }
     }
 
-W tym scenariuszu Swagger, który Swashbuckle generuje domyślnie określa tylko jeden uzasadnionych kod stanu HTTP, 200 protokołu HTTP.
+W tym scenariuszu hello programu Swagger, który Swashbuckle generuje domyślnie określa tylko jeden uzasadnionych kod stanu HTTP, 200 protokołu HTTP.
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/http-200-output-only.png)
 
-Ponieważ program Visual Studio korzysta definicji interfejsu API programu Swagger do generowania kodu klienta, tworzy kod klienta, który zgłasza wyjątek dla odpowiedzi innych niż 200 protokołu HTTP. Poniższy kod jest w kliencie C# wygenerowany dla tej próbki metody interfejsu API sieci Web.
+Ponieważ program Visual Studio korzysta hello kodu toogenerate definicji interfejsu API programu Swagger dla powitania klienta, tworzy kod klienta, który zgłasza wyjątek dla odpowiedzi innych niż 200 protokołu HTTP. Poniższy kod Hello jest w kliencie C# wygenerowany dla tej próbki metody interfejsu API sieci Web.
 
     if (statusCode != HttpStatusCode.OK)
     {
@@ -126,17 +126,17 @@ Ponieważ program Visual Studio korzysta definicji interfejsu API programu Swagg
         throw ex;
     } 
 
-Pakiet Swashbuckle oferuje dwa sposoby dostosowywania Lista oczekiwanych kody odpowiedzi HTTP, które generuje za pomocą komentarze XML lub `SwaggerResponse` atrybutu. Ten atrybut jest łatwiejsze, ale tylko jest dostępna w Swashbuckle 5.1.5 lub nowszej. Szablon aplikacji interfejsu API w wersji zapoznawczej nowy projekt w programie Visual Studio 2013 zawiera Swashbuckle wersji 5.0.0, więc jeśli używany szablon i nie chcesz zaktualizować pakiet Swashbuckle, jedyną opcją jest użycie komentarze XML. 
+Pakiet Swashbuckle udostępnia dwa sposoby dostosowywania hello Lista oczekiwanych kody odpowiedzi HTTP, które generuje przy użyciu komentarze XML lub hello `SwaggerResponse` atrybutu. Atrybut Hello jest łatwiejsze, ale tylko jest dostępna w Swashbuckle 5.1.5 lub nowszej. Hello aplikacje interfejsu API Podgląd nowego projektu szablon programu Visual Studio 2013 zawiera Swashbuckle wersji 5.0.0, jeśli więc użyć szablonu hello i nie mają tooupdate Swashbuckle, jedyną opcją toouse komentarze XML. 
 
 ### <a name="customize-expected-response-codes-using-xml-comments"></a>Dostosowywanie kodów odpowiedzi oczekiwanego przy użyciu komentarze XML
-Ta metoda umożliwia określenie kody odpowiedzi, jeśli pakiet Swashbuckle wersja jest wcześniejsza niż 5.1.5.
+Kody odpowiedzi toospecify tej metody należy używać, jeśli pakiet Swashbuckle wersja jest wcześniejsza niż 5.1.5.
 
-1. Najpierw dodaj komentarze dokumentacji XML za pośrednictwem metody, które chcesz określić kody odpowiedzi HTTP. Pobieranie próbki interfejsu API sieci Web akcji pokazanym powyżej i zastosowanie dokumentacji XML do niej spowoduje kodu, jak w następującym przykładzie. 
+1. Najpierw dodaj komentarze dokumentacji XML zamiast metod hello, które mają toospecify kodów odpowiedzi HTTP. Biorąc hello przykładowy interfejs API sieci Web działania, które spowoduje tooit dokumentacji XML hello przedstawionych powyżej i mające zastosowanie w kodzie, takich jak hello poniższy przykład. 
    
         /// <summary>
-        /// Returns the specified contact.
+        /// Returns hello specified contact.
         /// </summary>
-        /// <param name="id">The ID of the contact.</param>
+        /// <param name="id">hello ID of hello contact.</param>
         /// <returns>A contact record with an HTTP 200, or null with an HTTP 404.</returns>
         /// <response code="200">OK</response>
         /// <response code="404">Not Found</response>
@@ -156,30 +156,30 @@ Ta metoda umożliwia określenie kody odpowiedzi, jeśli pakiet Swashbuckle wers
                 return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
             }
         }
-2. Dodaj instrukcje w *SwaggerConfig.cs* pliku przekierować Swashbuckle, aby użyć pliku XML dokumentacji pliku.
+2. Dodaj instrukcje w hello *SwaggerConfig.cs* toodirect Swashbuckle toomake użycie pliku dokumentacji XML hello pliku.
    
-   * Otwórz *SwaggerConfig.cs* i utworzyć metodę na *SwaggerConfig* klasę, aby określić ścieżkę do pliku dokumentacji XML. 
+   * Otwórz *SwaggerConfig.cs* i utworzyć metodę na powitania *SwaggerConfig* hello toospecify klasy ścieżka pliku XML dokumentacji toohello. 
      
            private static string GetXmlCommentsPath()
            {
                return string.Format(@"{0}\XmlComments.xml", 
                    System.AppDomain.CurrentDomain.BaseDirectory);
            }
-   * Przewiń w dół *SwaggerConfig.cs* pliku, aż zostanie wyświetlony wiersz poza komentarzem kodu przypominającą zrzut poniżej ekranu. 
+   * Przewiń w dół w hello *SwaggerConfig.cs* pliku, aż zostanie wyświetlony wiersz poza komentarzem hello kodu przypominającą ekranie powitania zrzut poniżej. 
      
        ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-commented-out.png)
-   * Usuń komentarz linii, aby włączyć komentarze XML przetwarzania podczas generowania struktury Swagger. 
+   * Usuń znaczniki komentarza hello wiersz tooenable hello XML komentarze przetwarzania podczas generowania struktury Swagger. 
      
        ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-uncommented.png)
-3. Aby wygenerować plik dokumentacji XML, przejdź do właściwości projektu i Włącz pliku dokumentacji XML, jak pokazano na poniższym zrzucie ekranu. 
+3. W kolejności toogenerate hello pliku XML dokumentacji przejdź do właściwości projektu hello i Włącz hello pliku dokumentacji XML jak pokazano na poniższym zrzucie ekranu hello. 
    
     ![](./media/app-service-api-dotnet-swashbuckle-customize/enable-xml-documentation-file.png) 
 
-Po wykonaniu tych kroków JSON programu Swagger generowane przez pakiet Swashbuckle, zostaną one zastosowane kody odpowiedzi HTTP, które zostały określone w komentarzach XML. Na poniższym zrzucie ekranu przedstawiono ten nowy ładunek JSON. 
+Po wykonaniu tych kroków hello JSON programu Swagger generowane przez pakiet Swashbuckle, zostaną one zastosowane hello kody odpowiedzi HTTP, określonych w komentarzach XML hello. Poniższy zrzut ekranu Hello przedstawiono ten nowy ładunek JSON. 
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/swagger-multiple-responses.png)
 
-Korzystając z programu Visual Studio można ponownie wygenerować kod klienta dla interfejsu API REST, kodu C# akceptuje kodów stanu HTTP OK i nie można odnaleźć bez podnoszenia wyjątek, dzięki czemu kod odbierającą do podejmowania decyzji o sposobie obsługi zwracany rekord skontaktuj się z wartości null. 
+Korzystając z programu Visual Studio tooregenerate powitania klienta kodu do interfejsu API REST, hello kod w języku C# akceptuje zarówno hello HTTP OK i nie można odnaleźć stanu kody bez podnoszenia wyjątek, umożliwiając odbierającą decyzji dotyczących toomake kodu, w sposób toohandle hello zwracają wartość null Skontaktuj się z rekordu. 
 
         if (statusCode != HttpStatusCode.OK && statusCode != HttpStatusCode.NotFound)
         {
@@ -194,18 +194,18 @@ Korzystając z programu Visual Studio można ponownie wygenerować kod klienta d
                 throw ex;
         }
 
-Kod używany w tej prezentacji można znaleźć w [to repozytorium GitHub](https://github.com/Azure-Samples/app-service-api-dotnet-swashbuckle-swaggerresponse). Wraz z interfejsu API sieci Web projektu oznaczonych komentarze dokumentacji XML jest projekt aplikacji konsoli, który zawiera wygenerowanego klienta dla tego interfejsu API. 
+Kod Hello tej prezentacji można znaleźć w [to repozytorium GitHub](https://github.com/Azure-Samples/app-service-api-dotnet-swashbuckle-swaggerresponse). Wraz z hello interfejsu API sieci Web projektu oznaczonych komentarze dokumentacji XML jest projekt aplikacji konsoli, który zawiera wygenerowanego klienta dla tego interfejsu API. 
 
-### <a name="customize-expected-response-codes-using-the-swaggerresponse-attribute"></a>Dostosowywanie kodów odpowiedzi oczekiwanego przy użyciu atrybutu SwaggerResponse
-[SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs) atrybutu jest dostępna w Swashbuckle 5.1.5 lub nowszej. W przypadku, gdy w projekcie jest zainstalowana starsza wersja tej sekcji rozpoczyna się od wyjaśniający, jak zaktualizować pakiet Swashbuckle NuGet, dzięki czemu można użyć tego atrybutu.
+### <a name="customize-expected-response-codes-using-hello-swaggerresponse-attribute"></a>Dostosowywanie kodów odpowiedzi oczekiwanego przy użyciu atrybutu SwaggerResponse hello
+Witaj [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs) atrybutu jest dostępna w Swashbuckle 5.1.5 lub nowszej. W przypadku, gdy w projekcie jest zainstalowana starsza wersja tej sekcji rozpoczyna się od wyjaśniający, jak hello tooupdate Swashbuckle NuGet pakietu, dzięki czemu można użyć tego atrybutu.
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt interfejsu API sieci Web i kliknij przycisk **Zarządzaj pakietami NuGet**. 
    
     ![](./media/app-service-api-dotnet-swashbuckle-customize/manage-nuget-packages.png)
-2. Kliknij przycisk *aktualizacji* znajdujący się obok *Swashbuckle* pakietu NuGet. 
+2. Kliknij przycisk hello *aktualizacji* przycisku Dalej toohello *Swashbuckle* pakietu NuGet. 
    
     ![](./media/app-service-api-dotnet-swashbuckle-customize/update-nuget-dialog.png)
-3. Dodaj *SwaggerResponse* atrybuty do metod akcji interfejsu API sieci Web, dla których chcesz określić prawidłowy kody odpowiedzi HTTP. 
+3. Dodaj hello *SwaggerResponse* atrybuty akcji metody interfejsu API sieci Web toohello, dla których chcesz toospecify prawidłowe kody odpowiedzi HTTP. 
    
         [SwaggerResponse(HttpStatusCode.OK)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
@@ -224,15 +224,15 @@ Kod używany w tej prezentacji można znaleźć w [to repozytorium GitHub](https
                 return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
             }
         }
-4. Dodaj `using` instrukcji dla atrybutu przestrzeni nazw:
+4. Dodaj `using` instrukcji hello atrybutu przestrzeni nazw:
    
         using Swashbuckle.Swagger.Annotations;
-5. Przejdź do */swagger/docs/v1* adres URL projektu i różnych kodów odpowiedzi HTTP będzie widoczny w formacie JSON programu Swagger. 
+5. Przeglądaj toohello */swagger/docs/v1* adres URL projektu i hello różnych kodów odpowiedzi HTTP będzie widoczny w hello JSON programu Swagger. 
    
     ![](./media/app-service-api-dotnet-swashbuckle-customize/multiple-responses-post-attributes.png)
 
-Kod używany w tej prezentacji można znaleźć w [to repozytorium GitHub](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes-With-Attributes). Wraz z projektu interfejsu API sieci Web ozdobione *SwaggerResponse* atrybut jest projekt aplikacji konsoli, który zawiera wygenerowanego klienta dla tego interfejsu API. 
+Kod Hello tej prezentacji można znaleźć w [to repozytorium GitHub](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes-With-Attributes). Wraz z hello projekt interfejsu API sieci Web ozdobione hello *SwaggerResponse* atrybut jest projekt aplikacji konsoli, który zawiera wygenerowanego klienta dla tego interfejsu API. 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule pokazuje, jak dostosować Swashbuckle generuje identyfikatorów operacji i kody prawidłowej odpowiedzi. Aby uzyskać więcej informacji, zobacz [Swashbuckle w serwisie GitHub](https://github.com/domaindrivendev/Swashbuckle).
+W tym artykule pokazuje, jak sposób hello toocustomize Swashbuckle generuje identyfikatorów operacji i kody prawidłowej odpowiedzi. Aby uzyskać więcej informacji, zobacz [Swashbuckle w serwisie GitHub](https://github.com/domaindrivendev/Swashbuckle).
 

@@ -1,6 +1,6 @@
 ---
-title: "Utwórz moduł Azure IoT krawędzi z językiem Java | Dokumentacja firmy Microsoft"
-description: "W tym samouczku ilustrację jak napisać cz modułu konwertera danych przy użyciu najnowszych pakietów Azure IoT krawędzi Maven."
+title: "aaaCreate moduł Azure IoT krawędzi z językiem Java | Dokumentacja firmy Microsoft"
+description: "W tym samouczku ilustrację, jak toowrite cz danych konwertera modułu przy użyciu hello najnowszych pakietów Azure IoT krawędzi Maven."
 services: iot-hub
 author: junyi
 manager: timlt
@@ -11,53 +11,53 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
-ms.openlocfilehash: 0c430272225d79737baec2be15ed7c93991cdeac
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: abb560933d13d133ae9a1da08b503d5735b230e0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>Utwórz moduł Azure IoT krawędzi z językiem Java
 
 W tym samouczku ilustrację, jak jeden może zbudować modułu Azure IoT Edge w języku Java.
 
-W tym samouczku opisano konfiguracji środowiska i jak napisać [cz](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) modułu konwertera danych przy użyciu najnowszych pakietów Azure IoT krawędzi Maven.
+W tym samouczku opisano konfigurowanie środowiska i w jaki sposób toowrite [cz](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) przy użyciu najnowszych pakietów Azure IoT krawędzi Maven hello modułu konwertera danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tej sekcji zostanie skonfigurowany środowiska do tworzenia modułu IoT krawędzi. Dotyczy ona obu *64-bitowym systemie Windows* i *64-bitowego systemu Linux (8 Ubuntu/Debian)* systemów operacyjnych.
+W tej sekcji zostanie skonfigurowany środowiska do tworzenia modułu IoT krawędzi. Ma to zastosowanie tooboth *64-bitowym systemie Windows* i *64-bitowego systemu Linux (8 Ubuntu/Debian)* systemów operacyjnych.
 
-Następujące oprogramowanie jest wymagane:
+wymagane jest Hello następującego oprogramowania:
 
 * [Klient Git](https://git-scm.com/downloads).
 * [**x64** JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * [Maven](https://maven.apache.org/install.html).
 
-Otwórz okno terminala wiersza polecenia i klonowania repozytorium na następujący:
+Otwieranie wiersza polecenia terminali okna i klonowania hello następujące repozytorium:
 
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
 2. `cd iot-edge-samples/java/simulated_ble`
 
 ## <a name="overall-architecture"></a>Ogólna architektura
 
-Platforma Azure IoT krawędzi silnie przyjmuje [architektura Neumanna Von](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Co oznacza, że całej architektury Azure IoT krawędzi system, który przetwarza dane wejściowe i generuje dane wyjściowe; i każdego pojedynczego modułu jest również niewielki rozmiar podsystemu wejścia/wyjścia. W tym samouczku wprowadzeniu dwóch następujących modułów:
+Platforma Azure IoT krawędzi Hello silnie przyjmuje hello [architektura Neumanna Von](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Co oznacza, że cały danej hello Azure IoT krawędzi architektury jest system, który przetwarza dane wejściowe i generuje dane wyjściowe; i każdego pojedynczego modułu jest również niewielki rozmiar podsystemu wejścia/wyjścia. W tym samouczku wprowadzeniu hello następujące dwa moduły:
 
 1. Moduł, który odbiera symulowanego [cz](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) sygnału i konwertuje ją na sformatowany [JSON](https://en.wikipedia.org/wiki/JSON) wiadomości.
-2. Moduł, który wyświetla odebranej [JSON](https://en.wikipedia.org/wiki/JSON) wiadomości.
+2. Moduł, który wyświetla hello Odebrano [JSON](https://en.wikipedia.org/wiki/JSON) wiadomości.
 
-Poniższa ilustracja przedstawia typowego przepływu end-to-end danych dla tego projektu:
+Witaj poniższy obraz przedstawia hello typowe end-to-end przepływu danych dla tego projektu:
 
 ![Przepływ danych między modułami trzy](media/iot-hub-iot-edge-create-module/dataflow.png "dane wejściowe: symulowane cz modułu; Procesor: Konwertera modułu; Dane wyjściowe: Moduł drukarki")
 
-## <a name="understanding-the-code"></a>Opis kodu
+## <a name="understanding-hello-code"></a>Znajomość hello kodu
 
 ### <a name="maven-project-structure"></a>Struktura projekt maven
 
-Ponieważ pakiety krawędzi IoT Azure są oparte na Maven, należy utworzyć typowe struktury projekt Maven, która zawiera `pom.xml` pliku.
+Ponieważ pakiety krawędzi IoT Azure są oparte na Maven, potrzebujemy toocreate typowe struktury projekt Maven, która zawiera `pom.xml` pliku.
 
-Dziedziczy POM `com.microsoft.azure.gateway.gateway-module-base` pakiet, który deklaruje wszystkie zależności wymagane przez projekt moduł, który zawiera pliki binarne środowiska wykonawczego, ścieżka pliku konfiguracji bramy i sposób wykonywania. To możemy zaoszczędzić wiele czasu i wyeliminować potrzebę zapisać i ponownie setki wierszy kodu wielokrotnie.
+Witaj POM dziedziczy hello `com.microsoft.azure.gateway.gateway-module-base` pakiet, który deklaruje wszystkie zależności hello wymaganej przez projekt moduł, który zawiera pliki binarne środowiska wykonawczego hello, ścieżka pliku konfiguracji bramy hello oraz sposób wykonywania hello. Możemy zaoszczędzić wiele czasu i wyeliminować toowrite potrzeby hello i wielokrotnie przepisywania setki wierszy kodu.
 
-Należy zaktualizować plik pom.xml przez zadeklarowanie wymagane zależności/dodatków plug-in i nazwę pliku konfiguracji, które mają być używane przez naszych modułu, jak pokazano w poniższy fragment kodu.
+Potrzebujemy tooupdate plik pom.xml przez zadeklarowanie hello wymagane zależności/wtyczki i nazwę hello toobe pliku konfiguracji hello używany przez naszych modułu, jak pokazano w hello następującego fragmentu kodu.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -77,7 +77,7 @@ Należy zaktualizować plik pom.xml przez zadeklarowanie wymagane zależności/d
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <!-- Set the filename of the Azure IoT Edge configuration located
+  <!-- Set hello filename of hello Azure IoT Edge configuration located
        under ./src/main/resources/gateway/ which is used in parent -->
   <properties>
     <gw.config.fileName>gw-config.json</gw.config.fileName>
@@ -123,13 +123,13 @@ Należy zaktualizować plik pom.xml przez zadeklarowanie wymagane zależności/d
 
 Moduł Azure IoT krawędzi można traktować jako procesor danych, którego zadaniem jest: wejściowych go przetworzyć i generowania danych wyjściowych.
 
-Dane wejściowe mogą być danych z urządzenia (takie jak czujnik ruchu), wiadomości z innymi modułami lub jakikolwiek inny (na przykład liczba okresowo generowane przez czasomierz).
+dane wejściowe Hello może być danych z urządzenia (takie jak czujnik ruchu), wiadomości z innymi modułami lub jakikolwiek inny (na przykład liczba okresowo generowane przez czasomierz).
 
-Wynik jest podobny do danych wejściowych, może ją wywołać zachowanie sprzętu (na przykład migający LED), wiadomości do innych modułów lub jakikolwiek inny (na przykład drukowanie do konsoli).
+Hello jest podobne toohello danych wejściowych, może ją wywołać zachowanie sprzętu (na przykład hello migający LED), moduły tooother wiadomości lub jakikolwiek inny (na przykład konsola toohello drukowania).
 
-Moduły komunikują się ze sobą przy użyciu `com.microsoft.azure.gateway.messaging.Message` klasy. **Zawartości** z `Message` jest tablica bajtów, które jest w stanie reprezentujący każdego typu danych, które chcesz. **Właściwości** dostępne są również `Message` i są po prostu mapowania ciąg ciąg. Można traktować **właściwości** jako nagłówków żądań HTTP lub metadane pliku.
+Moduły komunikują się ze sobą przy użyciu `com.microsoft.azure.gateway.messaging.Message` klasy. Witaj **zawartości** z `Message` jest tablica bajtów, które jest w stanie reprezentujący każdego typu danych, które chcesz. **Właściwości** są również dostępne w hello `Message` i są po prostu mapowania ciąg ciąg. Można traktować **właściwości** hello nagłówki żądania HTTP lub hello metadane pliku.
 
-Aby opracować modułu Azure IoT krawędzi w języku Java, należy utworzyć nowe klasy modułu, która dziedziczy `com.microsoft.azure.gateway.core.GatewayModule` i wdrożenie wymaganych metody abstrakcyjne `receive()` i `destroy()`. W tym momencie można też do zaimplementowania opcjonalny `start()` lub `create()` również metody. Poniższy fragment kodu pokazano, jak rozpocząć tworzenie modułu Azure IoT krawędzi.
+W kolejności toodevelop modułu Azure IoT krawędzi w języku Java, należy toocreate nowe klasy modułu, która dziedziczy `com.microsoft.azure.gateway.core.GatewayModule` i implementację metody abstrakcyjne hello wymagane `receive()` i `destroy()`. W tym momencie możesz również opcjonalne hello tooimplement `start()` lub `create()` również metody. Witaj następującego fragmentu kodu pokazuje sposób tooget uruchamiania, tworzenia modułu Azure IoT krawędzi.
 
 ```java
 import com.microsoft.azure.gateway.core.Broker;
@@ -138,29 +138,29 @@ import com.microsoft.azure.gateway.messaging.Message;
 
 public class MyEdgeModule extends GatewayModule {
   public MyEdgeModule(long address, Broker broker, String configuration) {
-    /* Let the GatewayModule do the dirty work of initialization. It's also
-       a good time to parse your own configuration defined in Azure IoT Edge
+    /* Let hello GatewayModule do hello dirty work of initialization. It's also
+       a good time tooparse your own configuration defined in Azure IoT Edge
        configuration file (typically ./src/main/resources/gateway/gw-config.json) */
     super(address, broker, configuration);
   }
 
   @Override
   public void start() {
-    /* Acquire the resources you need. If you don't
+    /* Acquire hello resources you need. If you don't
        need any resources, you may omit this method. */
   }
 
   @Override
   public void destroy() {
-    /* It's time to release all resources. This method is required. */
+    /* It's time toorelease all resources. This method is required. */
   }
 
   @Override
   public void receive(Message message) {
-    /* Logic to process the input message. This method is required. */
+    /* Logic tooprocess hello input message. This method is required. */
     // ...
-    /* Use publish() method to do the output. You are
-       allowed to publish your new Message instance. */
+    /* Use publish() method toodo hello output. You are
+       allowed toopublish your new Message instance. */
     this.publish(message);
   }
 }
@@ -172,7 +172,7 @@ public class MyEdgeModule extends GatewayModule {
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
 | Komunikat danych temperatury | Analizowanie i utworzyć nowy komunikat JSON | Komunikat JSON struktury | `ConverterModule.java` |
 
-Jest to typowe moduł Azure IoT krawędzi. Akceptuje temperatury komunikaty z innymi modułami (sprzętowy moduł, lub w tym przypadku naszej symulowane modułu cz); a następnie normalizowane komunikatu temperatury w strukturze komunikat JSON (w tym dołączanie identyfikator komunikatu ustawienie właściwości czy musimy wyzwolenia alertu temperatury i tak dalej).
+Jest to typowe moduł Azure IoT krawędzi. Akceptuje temperatury komunikaty z innymi modułami (sprzętowy moduł, lub w tym przypadku naszej symulowane modułu cz); a następnie normalizowane wiadomości powitania temperatury tooa strukturę JSON wiadomości (w tym dołączanie identyfikator wiadomości powitania, ustawienie właściwości hello czy potrzebujemy tootrigger hello temperatury alertu i tak dalej).
 
 ```java
 @Override
@@ -202,9 +202,9 @@ public void receive(Message message) {
 
 | Dane wejściowe                          | Procesor | Dane wyjściowe                     | Plik źródłowy          |
 | ------------------------------ | --------- | -------------------------- | -------------------- |
-| Dowolny komunikat z innymi modułami | Nie dotyczy       | Zaloguj się do konsoli wiadomości | `PrinterModule.java` |
+| Dowolny komunikat z innymi modułami | Nie dotyczy       | Zaloguj się tooconsole wiadomość hello | `PrinterModule.java` |
 
-Jest to proste i nie wymaga objaśnień, moduł, który generuje odebrane wiadomości do okna terminala.
+Jest to proste i nie wymaga objaśnień, moduł, który wyświetla okno terminalu toohello wiadomości powitania odebrane.
 
 ```java
 @Override
@@ -215,9 +215,9 @@ public void receive(Message message) {
 
 ### <a name="azure-iot-edge-configuration"></a>Konfiguracja programu Azure IoT krawędzi
 
-Ostatnim krokiem przed uruchomieniem modułów jest skonfigurowanie krawędzi IoT Azure oraz do zestawiania połączeń między modułami.
+Hello ostatnim krokiem przed uruchomieniem modułów hello jest tooestablish hello połączenia między modułami i tooconfigure hello Azure IoT krawędzi.
 
-Najpierw należy zadeklarować naszych ładujący Java (od momentu krawędzi IoT Azure obsługuje modułów ładujących różnych języków), którego można odwoływać się jego `name` w sekcjach później.
+Najpierw musimy toodeclare naszych ładujący Java (od momentu krawędzi IoT Azure obsługuje modułów ładujących różnych języków), którego można odwoływać się jego `name` w sekcjach hello później.
 
 ```json
 "loaders": [{
@@ -231,7 +231,7 @@ Najpierw należy zadeklarować naszych ładujący Java (od momentu krawędzi IoT
 }]
 ```
 
-Po zadeklarowaniu możemy naszych ładowarki, potrzebujemy będzie zadeklarować również naszych modułów. Podobnie jak deklarowanie ładowarki, ich mogą się też odwoływać linie ich `name` atrybutu. Przy deklarowaniu modułu, należy określić moduł ładujący on powinien używać (który powinien być zdefiniowanego przed) i punktu wejścia (powinna być nazwa klasy znormalizowane naszych modułu) dla każdego modułu. `simulated_device` Modułu jest uwzględniony w pakiecie Azure IoT krawędzi core czasu wykonywania modułu macierzystego. Zawsze należy uwzględnić `args` w formacie JSON plików, nawet jeśli jest ona `null`.
+Po zadeklarowaniu możemy naszych ładowarki, firma Microsoft będzie również konieczne toodeclare również naszych modułów. Podobne ładowarki hello toodeclaring, ich mogą się też odwoływać linie ich `name` atrybutu. Przy deklarowaniu modułu, potrzebujemy toospecify hello modułu ładującego on powinien używać (która powinna być hello jedną zdefiniowanego przed) i hello punktu wejścia (powinna być nazwą klasy znormalizowane hello naszych modułu) dla każdego modułu. Witaj `simulated_device` jest natywny moduł, który jest dostępny w hello Azure IoT krawędzi podstawowe środowisko uruchomieniowe pakietu. Zawsze należy uwzględnić `args` w pliku JSON, nawet jeśli jest ona hello `null`.
 
 ```json
 "modules": [
@@ -273,7 +273,7 @@ Po zadeklarowaniu możemy naszych ładowarki, potrzebujemy będzie zadeklarować
 ]
 ```
 
-Po zakończeniu konfiguracji nawiązanie połączenia. Każde połączenie jest wyrażona w `source` i `sink`. Powinna zarówno odwołujących się wstępnie zdefiniowanych modułów. Komunikat dane wyjściowe z `source` modułu zostaną przekazane w danych wejściowych `sink` modułu.
+Na końcu hello konfiguracji hello nawiązanie połączenia hello. Każde połączenie jest wyrażona w `source` i `sink`. Powinna zarówno odwołujących się wstępnie zdefiniowanych modułów. wiadomości powitania dane wyjściowe z `source` modułu zostaną przekazane wprowadzania toohello `sink` modułu.
 
 ```json
 "links": [
@@ -288,14 +288,14 @@ Po zakończeniu konfiguracji nawiązanie połączenia. Każde połączenie jest 
 ]
 ```
 
-## <a name="running-the-modules"></a>Uruchomione moduły
+## <a name="running-hello-modules"></a>Uruchomione moduły hello
 
-Użyj `mvn package` do tworzenia wszystko do `target/` folderu. `mvn clean package`jest także zalecana dla czystego kompilacji.
+Użyj `mvn package` toobuild wszystko do hello `target/` folderu. `mvn clean package`jest także zalecana dla czystego kompilacji.
 
-Użyj `mvn exec:exec` do uruchomienia krawędzi IoT Azure i powinno uwzględniać dane temperatury i wszystkie właściwości są podane w konsoli według stałej stawki.
+Użyj `mvn exec:exec` toorun hello Azure IoT Edge i przestrzegać wszystkich właściwości hello hello temperatury danych i czy konsoli drukowanej toohello według stałej stawki.
 
-Jeśli chcesz zakończyć tę aplikację, naciśnij klawisz `<Enter>` klucza.
+Jeśli chcesz, aby aplikacja hello tooterminate, naciśnij klawisz `<Enter>` klucza.
 
 > [!IMPORTANT]
-> Użyj klawiszy Ctrl + C, aby przerwać aplikacji bramy krawędzi IoT jest niezalecane. Ponieważ może to spowodować przerwanie wyjątkowo procesu.
+> Nie zaleca się toouse Ctrl + C tooterminate hello krawędzi IoT bramy aplikacji. Ponieważ może to spowodować tooterminate procesu hello nieprawidłowo.
 

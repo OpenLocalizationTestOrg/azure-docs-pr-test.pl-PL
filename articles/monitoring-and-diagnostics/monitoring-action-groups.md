@@ -1,6 +1,6 @@
 ---
-title: "Utwórz i Zarządzaj grupami akcji w portalu Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie tworzenia i obsługi grup działań w portalu Azure."
+title: "aaaCreate i Zarządzaj grupami akcji w hello portalu Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate grup działań w hello portalu Azure i zarządzanie nimi."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: ea15705bf02d9773507c6cb59f2da4c1dd0f9d77
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 97e0b22bea7787fff6856f895a7e6256c177efd9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Utwórz i Zarządzaj grupami akcji w portalu Azure
+# <a name="create-and-manage-action-groups-in-hello-azure-portal"></a>Utwórz i Zarządzaj grupami akcji w hello portalu Azure
 ## <a name="overview"></a>Omówienie ##
-W tym artykule przedstawiono sposób tworzenia i obsługi grup działań w portalu Azure.
+W tym artykule opisano sposób toocreate grup działań w hello portalu Azure i zarządzanie nimi.
 
-Można skonfigurować listę akcji przy użyciu grup działań. Te grupy następnie mogą być używane podczas definiowania alertów dotyczących działań w dzienniku. Następnie te grupy mogą być ponownie używane przez każdy alert dziennika aktywności, zdefiniowane przez użytkownika, zapewniając podjęcie te same akcje każdym razem, gdy zostanie wyzwolony alert dziennika aktywności.
+Można skonfigurować listę akcji przy użyciu grup działań. Te grupy następnie mogą być używane podczas definiowania alertów dotyczących działań w dzienniku. Następnie te grupy mogą być ponownie używane przez każdy alert dziennika aktywności, zdefiniowane przez użytkownika, zapewnienie, że powitalne same akcje podejmowane są zawsze, gdy zostanie wyzwolony alert dziennika aktywności hello.
 
-Grupy akcji może mieć maksymalnie 10 każdego typu akcji. Każda akcja składa się z następującymi właściwościami:
+Grupy akcji może zawierać maksymalnie too10 każdego typu akcji. Każda akcja składa się z hello następujące właściwości:
 
-* **Nazwa**: Unikatowy identyfikator grupy działań.  
+* **Nazwa**: Unikatowy identyfikator grupy hello akcji.  
 * **Typ akcji**: Wyślij wiadomość SMS, Wyślij wiadomość e-mail lub wywołanie elementu webhook.  
-* **Szczegóły**: odpowiadającego phone numer, adres e-mail lub identyfikator URI elementu webhook.
+* **Szczegóły**: hello odpowiedni numer telefonu, adres e-mail lub identyfikator URI elementu webhook.
 
-Aby uzyskać informacje na temat sposobu konfigurowania grup akcji za pomocą szablonów usługi Azure Resource Manager, zobacz [szablony Menedżera zasobów grupy akcji](monitoring-create-action-group-with-resource-manager-template.md).
+Aby uzyskać informacje na temat toouse usługi Azure Resource Manager szablony tooconfigure akcji grupy, zobacz [szablony Menedżera zasobów grupy akcji](monitoring-create-action-group-with-resource-manager-template.md).
 
-## <a name="create-an-action-group-by-using-the-azure-portal"></a>Utwórz grupę akcji przy użyciu portalu Azure ##
-1. W [portal](https://portal.azure.com), wybierz pozycję **Monitor**. **Monitor** bloku konsoliduje wszystkich monitorowania ustawień i danych w jednym widoku.
+## <a name="create-an-action-group-by-using-hello-azure-portal"></a>Utwórz grupy akcji, używając hello portalu Azure ##
+1. W hello [portal](https://portal.azure.com), wybierz pozycję **Monitor**. Witaj **Monitor** bloku konsoliduje wszystkich monitorowania ustawień i danych w jednym widoku.
 
-    ![Usługa "Monitora"](./media/monitoring-action-groups/home-monitor.png)
-2. W **dziennik aktywności** zaznacz **grupy akcji**.
+    ![Witaj "Monitora" usługi](./media/monitoring-action-groups/home-monitor.png)
+2. W hello **dziennik aktywności** zaznacz **grupy akcji**.
 
-    ![Na karcie "Grup akcji"](./media/monitoring-action-groups/action-groups-blade.png)
-3. Wybierz **Dodaj grupę akcji**, a następnie wypełnij pola.
+    ![Witaj "Akcji grupy" karta](./media/monitoring-action-groups/action-groups-blade.png)
+3. Wybierz **Dodaj grupę akcji**i wypełnij pola hello.
 
-    ![Polecenie "Dodaj grupę akcji"](./media/monitoring-action-groups/add-action-group.png)
-4. Wprowadź nazwę w **nazwy grupy akcji** i wprowadzić nazwę w **krótką nazwę** pole. Krótka nazwa jest używana zamiast akcji Pełna nazwa grupy, podczas powiadomienia są wysyłane przy użyciu tej grupy.
+    ![Witaj polecenie "Dodaj grupę akcji"](./media/monitoring-action-groups/add-action-group.png)
+4. Wprowadź nazwę w hello **nazwy grupy akcji** i wpisz nazwę w hello **krótką nazwę** pole. Krótka nazwa Hello jest używany zamiast akcji pełną nazwę grupy, podczas powiadomienia są wysyłane przy użyciu tej grupy.
 
-      ![Okno dialogowe Dodawanie grupy akcji"](./media/monitoring-action-groups/action-group-define.png)
+      ![okno dialogowe Hello Dodawanie grupy akcji"](./media/monitoring-action-groups/action-group-define.png)
 
-5. **Subskrypcji** polu autofills z Twojej bieżącej subskrypcji. Ta subskrypcja jest jeden, w którym jest zapisany grupy akcji.
+5. Witaj **subskrypcji** polu autofills z Twojej bieżącej subskrypcji. Ta subskrypcja jest hello jedną grupy akcji hello, do której jest zapisywany.
 
-6. Wybierz **grupy zasobów** w jest zapisywany grupy akcji.
+6. Wybierz hello **grupy zasobów** w akcję hello jest zapisywana grupy.
 
 7. Zdefiniuj listę działań, zapewniając każdej akcji:
 
@@ -58,19 +58,19 @@ Aby uzyskać informacje na temat sposobu konfigurowania grup akcji za pomocą sz
 
     b. **Typ akcji**: Wybierz SMS, wiadomości e-mail lub elementu webhook.
 
-    c. **Szczegóły**: oparte na typ akcji, wprowadź numer telefonu, adres e-mail lub identyfikator URI elementu webhook.
+    c. **Szczegóły**: oparte na typ akcji hello, wprowadź numer telefonu, adres e-mail lub identyfikator URI elementu webhook.
 
-8. Wybierz **OK** można utworzyć grupy działań.
+8. Wybierz **OK** toocreate hello akcji grupy.
 
 ## <a name="manage-your-action-groups"></a>Zarządzanie grupami akcji ##
-Po utworzeniu grupy akcji jest widoczna w **grupy akcji** sekcji **Monitor** bloku. Wybierz grupę akcji, którą chcesz zarządzać, aby:
+Po utworzeniu grupy akcji nie jest widoczna hello **grupy akcji** sekcji hello **Monitor** bloku. Wybierz grupę akcji hello, który ma toomanage do:
 
 * Dodawanie, edytowanie lub usuwanie akcji.
-* Usuwanie grupy działań.
+* Usuwanie grupy akcji hello.
 
 ## <a name="next-steps"></a>Następne kroki ##
 * Dowiedz się więcej o [SMS alertów zachowanie](monitoring-sms-alert-behavior.md).  
-* Uzyskaj [zrozumienia schemat alertu elementu webhook dziennika aktywności](monitoring-activity-log-alerts-webhook.md).  
+* Uzyskaj [zrozumienia schemat alertu elementu webhook dziennika aktywności hello](monitoring-activity-log-alerts-webhook.md).  
 * Dowiedz się więcej o [limitów szybkości](monitoring-alerts-rate-limiting.md) alertów. 
-* Pobierz [Przegląd alertów dotyczących działań w dzienniku](monitoring-overview-alerts.md)i dowiedzieć się, jak otrzymywać alerty.  
-* Dowiedz się, jak [skonfigurować alerty, gdy powiadomienie usługi kondycji jest przesyłana](monitoring-activity-log-alerts-on-service-notifications.md).
+* Pobierz [Przegląd alertów dotyczących działań w dzienniku](monitoring-overview-alerts.md)i Dowiedz się, jak tooreceive alertów.  
+* Dowiedz się, jak za[skonfigurować alerty, gdy powiadomienie usługi kondycji jest przesyłana](monitoring-activity-log-alerts-on-service-notifications.md).

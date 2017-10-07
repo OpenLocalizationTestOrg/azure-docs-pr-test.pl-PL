@@ -1,6 +1,6 @@
 ---
-title: "Dodawanie bibliotek technologii Hive podczas tworzenia klastra usługi HDInsight - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dodać biblioteki gałąź (pliki jar), do klastra usługi HDInsight podczas tworzenia klastra."
+title: "Tworzenie - Azure klastra aaaAdd bibliotek technologii Hive w usłudze HDInsight | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak bibliotek technologii Hive tooadd (pliki jar) tooan HDInsight klastra podczas tworzenia klastra."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,29 +15,29 @@ ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 3412864384961e8820d6700c1bf22a4cae64ba4b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2e028a07c3248205def0789af2c262a0774a8f19
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Dodawanie niestandardowych bibliotek technologii Hive, podczas tworzenia klastra usługi HDInsight
 
-Jeśli masz bibliotek, które są często używane z Hive w usłudze HDInsight ten dokument zawiera informacje o wstępnie załadować biblioteki podczas tworzenia klastra przy użyciu akcji skryptu. Biblioteki dodane przy użyciu kroków w tym dokumencie są globalnie dostępną w gałęzi — nie trzeba używać [dodać JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) załadować je.
+Jeśli masz bibliotek, które są często używane z Hive w usłudze HDInsight ten dokument zawiera informacji na temat używania biblioteki hello obciążenia toopre akcji skryptu podczas tworzenia klastra. Biblioteki dodane przy użyciu hello kroków w tym dokumencie są globalnie dostępną w gałęzi — nie toouse bez konieczności [dodać JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) tooload je.
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Podczas tworzenia klastra, można opcjonalnie określić akcję skryptu, który uruchamia skrypt w węzłach klastra podczas ich tworzenia. Skrypt w tym dokumencie akceptuje pojedynczy parametr to lokalizacja WASB zawierający bibliotek (przechowywane jako pliki jar), aby być wstępnie ładowane.
+Podczas tworzenia klastra, można opcjonalnie określić akcję skryptu, który uruchamia skrypt w węzłach klastra hello podczas ich tworzenia. skrypt Hello w tym dokumencie akceptuje pojedynczy parametr to lokalizacja WASB zawierający toobe bibliotek (przechowywane jako pliki jar) hello wstępnie załadowane.
 
-Podczas tworzenia klastra, skrypt wylicza pliki, kopiuje je do `/usr/lib/customhivelibs/` katalogu w węzłach head i proces roboczy, następnie dodanie ich do `hive.aux.jars.path` właściwości w `core-site.xml` pliku. W klastrach opartych na systemie Linux, aktualizuje również `hive-env.sh` pliku z lokalizacji plików.
+Podczas tworzenia klastra skryptu hello wylicza hello pliki, kopiuje je toohello `/usr/lib/customhivelibs/` katalogu w węzłach head i proces roboczy, następnie dodanie ich toohello `hive.aux.jars.path` właściwości w hello `core-site.xml` pliku. W klastrach opartych na systemie Linux, aktualizuje również hello `hive-env.sh` pliku z lokalizacji hello hello plików.
 
 > [!NOTE]
-> Za pomocą akcji skryptu w tym artykule udostępnia biblioteki w następujących scenariuszach:
+> Za pomocą akcji skryptu hello w tym artykule udostępnia biblioteki hello w hello następujące scenariusze:
 >
-> * **HDInsight opartych na systemie Linux** — w przypadku korzystania z klienta Hive, **WebHCat**, i **serwera HiveServer2**.
-> * **HDInsight opartych na systemie Windows** — za pomocą klienta programu Hive i **WebHCat**.
+> * **HDInsight opartych na systemie Linux** — przy użyciu hello klientowi Hive **WebHCat**, i **serwera HiveServer2**.
+> * **HDInsight opartych na systemie Windows** — za pomocą powitania klienta Hive i **WebHCat**.
 
-## <a name="the-script"></a>Skrypt
+## <a name="hello-script"></a>Witaj skryptu
 
 **Lokalizacja skryptu**
 
@@ -46,35 +46,35 @@ Aby uzyskać **opartych na systemie Linux klastrów**: [https://hdiconfigactions
 Aby uzyskać **klastry z systemem Windows**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
 > [!IMPORTANT]
-> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+> Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 **Wymagania**
 
-* Skrypty należy zastosować do obu **węzły główne** i **węzłów procesu roboczego**.
+* skrypty Hello musi być zastosowany tooboth hello **węzły główne** i **węzłów procesu roboczego**.
 
-* Słoików chcesz zainstalować musi być przechowywany w magazynie obiektów Blob Azure w **jeden kontener**.
+* Witaj słoików mają tooinstall musi być przechowywany w magazynie obiektów Blob Azure w **jeden kontener**.
 
-* Konto magazynu zawierające biblioteki pliki jar **musi** można połączyć się z klastrem usługi HDInsight podczas tworzenia. Musi być domyślne konto magazynu, lub dodać konta za pośrednictwem __konfiguracji opcjonalnej__.
+* Konto magazynu Hello zawierające biblioteki hello plików jar **musi** się podczas tworzenia klastra usługi HDInsight toohello połączone. Musi być hello domyślne konto magazynu lub dodać konta za pośrednictwem __konfiguracji opcjonalnej__.
 
-* Jako parametr akcji skryptu można określić ścieżkę WASB do kontenera. Na przykład, jeśli słoików są przechowywane w kontenerze o nazwie **libs** na konto magazynu o nazwie **mystorage**, będzie parametr  **wasb://libs@mystorage.blob.core.windows.net/** .
+* Witaj WASB ścieżka toohello kontenera muszą być określone jako parametr toohello akcji skryptu. Na przykład, jeśli hello słoików są przechowywane w kontenerze o nazwie **libs** na konto magazynu o nazwie **mystorage**, będzie parametru hello  **wasb://libs@mystorage.blob.core.windows.net/** .
 
   > [!NOTE]
-  > Tym dokumencie przyjęto założenie, masz już tworzenia konta magazynu, kontenera obiektów blob i przekazać pliki do niego.
+  > Tym dokumencie przyjęto założenie, ma już utworzenie konta magazynu, kontenera obiektów blob i przekazane hello tooit plików.
   >
-  > Jeśli nie utworzono konto magazynu, możesz to zrobić za pomocą programu tak [portalu Azure](https://portal.azure.com). Następnie można użyć narzędzia takie jak [Eksploratora usługi Storage Azure](http://storageexplorer.com/) utworzyć kontener w ramach konta i przekazać pliki do niego.
+  > Jeśli nie utworzono konto magazynu, możesz to zrobić za pomocą hello [portalu Azure](https://portal.azure.com). Następnie można użyć narzędzia takie jak [Eksploratora usługi Storage Azure](http://storageexplorer.com/) toocreate kontenera w hello konta i przekazywanie plików tooit.
 
-## <a name="create-a-cluster-using-the-script"></a>Tworzenie klastra przy użyciu skryptu
+## <a name="create-a-cluster-using-hello-script"></a>Tworzenie klastra przy użyciu skryptu hello
 
 > [!NOTE]
-> Poniższe kroki tworzenia klastra usługi HDInsight opartej na systemie Linux. Do utworzenia klastra z systemem Windows, zaznacz **Windows** jako klaster systemu operacyjnego podczas tworzenia klastra, a następnie użyj skryptu systemu Windows (PowerShell) zamiast skryptu bash.
+> Hello następujące kroki tworzenia klastra usługi HDInsight opartej na systemie Linux. Wybierz toocreate klastra z systemem Windows, **Windows** jako hello klastra systemu operacyjnego, podczas tworzenia klastra hello, a następnie użyć skryptu systemu Windows (PowerShell) hello zamiast hello bash skryptu.
 >
-> Aby utworzyć klaster przy użyciu tego skryptu, można użyć programu Azure PowerShell lub zestawu .NET SDK usługi HDInsight. Aby uzyskać więcej informacji o używaniu tych metod, zobacz [Dostosowywanie klastrów usługi HDInsight z akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
+> Można również użyć programu Azure PowerShell lub hello zestawu .NET SDK HDInsight toocreate klastra przy użyciu tego skryptu. Aby uzyskać więcej informacji o używaniu tych metod, zobacz [Dostosowywanie klastrów usługi HDInsight z akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Uruchom inicjowania obsługi klastra, wykonując kroki opisane w [Obsługa administracyjna klastrów HDInsight w systemie Linux](hdinsight-hadoop-provision-linux-clusters.md), kroków inicjowania obsługi administracyjnej.
+1. Uruchom inicjowania obsługi klastra za pomocą kroków hello w [Obsługa administracyjna klastrów HDInsight w systemie Linux](hdinsight-hadoop-provision-linux-clusters.md), kroków inicjowania obsługi administracyjnej.
 
-2. Na **konfiguracji opcjonalnej** bloku, wybierz opcję **akcji skryptu**i podaj następujące informacje:
+2. Na powitania **konfiguracji opcjonalnej** bloku, wybierz opcję **akcji skryptu**i podaj hello następujących informacji:
 
-   * **Nazwa**: Wprowadź przyjazną nazwę dla akcji skryptu.
+   * **Nazwa**: Wprowadź przyjazną nazwę dla hello akcji skryptu.
 
    * **Identyfikator URI skryptu**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
@@ -84,17 +84,17 @@ Aby uzyskać **klastry z systemem Windows**: [https://hdiconfigactions.blob.core
 
    * **DOZORCY**: to pole pozostanie puste.
 
-   * **Parametry**: Wprowadź adres WASB do wybranego konta magazynu i kontenera zawiera słoików. Na przykład  **wasb://libs@mystorage.blob.core.windows.net/** .
+   * **Parametry**: Wprowadź hello WASB adres toohello kontenera i konto magazynu zawierającego słoików hello. Na przykład  **wasb://libs@mystorage.blob.core.windows.net/** .
 
-3. W dolnej części **akcji skryptu**, użyj **wybierz** przycisk, aby zapisać konfigurację.
+3. U dołu hello hello **akcji skryptu**, użyj hello **wybierz** przycisk toosave hello konfiguracji.
 
-4. Na **konfiguracji opcjonalnej** bloku, wybierz opcję **połączonych kontach magazynu** i wybierz **Dodaj klucz magazynu** łącza. Wybierz konto magazynu, który zawiera słoików, a następnie użyj **wybierz** przycisków, aby zapisać ustawienia i wrócić **konfiguracji opcjonalnej** bloku.
+4. Na powitania **konfiguracji opcjonalnej** bloku, wybierz opcję **połączonych kontach magazynu** i wybierz hello **Dodaj klucz magazynu** łącza. Wybierz konto magazynu hello, który zawiera słoików hello, a następnie użyj hello **wybierz** ustawienia toosave przycisków i zwracany hello **konfiguracji opcjonalnej** bloku.
 
-5. Użyj **wybierz** przycisk w dolnej części **konfiguracji opcjonalnej** bloku, aby zapisać informacje o konfiguracji opcjonalnej.
+5. Użyj hello **wybierz** u dołu hello hello **konfiguracji opcjonalnej** bloku toosave hello konfiguracji opcjonalnej informacji.
 
-6. Kontynuuj, inicjowania obsługi klastra, zgodnie z opisem w [Obsługa administracyjna klastrów HDInsight w systemie Linux](hdinsight-hadoop-provision-linux-clusters.md).
+6. Kontynuuj, inicjowania obsługi klastra hello zgodnie z opisem w [Obsługa administracyjna klastrów HDInsight w systemie Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-Po zakończeniu tworzenia klastra, będą mogli używać słoików dodane za pomocą tego skryptu z Hive, bez konieczności używania `ADD JAR` instrukcji.
+Po zakończeniu tworzenia klastra są słoików hello toouse stanie dodane za pomocą tego skryptu z gałęzi bez konieczności toouse hello `ADD JAR` instrukcji.
 
 ## <a name="next-steps"></a>Następne kroki
 

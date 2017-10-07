@@ -1,6 +1,6 @@
 ---
-title: "Możliwości techniczne zabezpieczeń platformy Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat przetwarzania danych usług w chmurze zawierających szeroką gamę wystąpienia obliczeniowe i usług, które można skalować w górę i w dół automatycznie na potrzeby aplikacji lub przedsiębiorstwa."
+title: "możliwości techniczne zabezpieczeń aaaAzure | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat przetwarzania danych usług w chmurze zawierających szeroką gamę wystąpienia obliczeniowe i usług, które można skalować w górę i w dół automatycznie toomeet hello potrzeb aplikacji lub przedsiębiorstwa."
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
-ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a0ef17883be54dab4cb6b597204f3197dc05c28c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 
-Ułatwienie Azure bieżących i przyszłych klientów zrozumieć i korzystanie z różnych funkcji zabezpieczeń dostępnych w i otaczającego platformy Azure, firma Microsoft wprowadziła szereg oficjalne dokumenty, omówienie zabezpieczeń najlepsze rozwiązania i listy kontrolne. Tematy zakresu pod względem szerokości i głębokość i są okresowo aktualizowane. Ten dokument jest częścią tej serii, zgodnie z opisem w poniższej sekcji abstrakcyjny. Więcej informacji na temat tej serii zabezpieczeń Azure można znaleźć pod adresem (URL).
+informacje o tooassist aktualnych i potencjalnych klientów platformy Azure i wykorzystywać hello różnych funkcjach zabezpieczeń dostępnych w i otaczającego je hello platformy Azure, firma Microsoft opracowała serii oficjalne dokumenty, omówienie zabezpieczeń, najlepsze rozwiązania i Listy kontrolne. Tematy Hello zakresu pod względem szerokości i głębokość i są okresowo aktualizowane. Ten dokument jest częścią tej serii, zgodnie z opisem w poniższej sekcji abstrakcyjny hello. Więcej informacji na temat tej serii zabezpieczeń Azure można znaleźć pod adresem (URL).
 
 ## <a name="azure-platform"></a>Platforma Azure
 
-[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) platformy w chmurze składa się z infrastrukturą i usług aplikacji, z usług zintegrowanych danych i zaawansowane metody analizy i narzędzia deweloperskie i usług, obsługiwana w danych firmy Microsoft w chmurze publicznej centrów. Klienci używać platformy Azure dla wiele różnych możliwości i scenariusze z podstawowych obliczeniowych, sieci i magazynu, dla urządzeń przenośnych i aplikacji usługi sieci web, pełna chmury różnych scenariuszy, takich jak Internet rzeczy i można używany z technologiami typu open source i wdrożony jako chmura hybrydowa lub hostowanych w ramach centrum danych klienta. Platforma Azure udostępnia technologii w chmurze, jak bloki konstrukcyjne w celu ograniczenia kosztów, które ułatwiają innowacji szybko i aktywne zarządzanie systemami. Podczas tworzenia lub migracji zasobów informatycznych do dostawcy usług w chmurze są zależne możliwości Twojej organizacji do ochrony aplikacji i danych z usług i formanty zapewniają do zarządzania zabezpieczeniami elementów zawartości opartej na chmurze.
+[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) platformy w chmurze składa się z infrastrukturą i usług aplikacji, z usług zintegrowanych danych i zaawansowane metody analizy i narzędzia deweloperskie i usług, obsługiwana w danych firmy Microsoft w chmurze publicznej centrów. Klienci używać platformy Azure dla wiele różnych możliwości i scenariusze z podstawowych obliczeniowych, sieci i magazynu, sieci web i toomobile aplikacji usług, toofull scenariusze chmury, takich jak Internet rzeczy i może być używany z technologiami typu open source i wdrożony jako hybrydowe w chmurze lub umieszczony w obrębie centrum danych klienta. Platforma Azure udostępnia technologii w chmurze jako bloków konstrukcyjnych toohelp firmy ograniczenia kosztów, innowacji szybko i aktywne zarządzanie systemami. Podczas tworzenia lub migracji dostawcy chmury tooa zasoby IT są zależne tooprotect możliwości organizacji w aplikacji i danych za pomocą usługi hello i formanty hello zapewniają bezpieczeństwo hello toomanage zasobów opartych na chmurze.
 
-Microsoft Azure jest to jedyny dostawca obliczeniowych chmury, który oferuje platformę aplikacji bezpiecznego, spójne i infrastruktury jako usługi dla zespołów do pracy w ramach ich skillsets inną chmurę i poziom złożoności projektu, z usługami zintegrowanych danych i analitycznych odkrywanie analizy danych wszędzie tam, gdzie istnieje, przez firmę Microsoft, jak i platform firmy Microsoft, otwórz struktur i narzędzi, zapewniając wyboru do integracji z lokalnymi również wdrażanie usług w chmurze Azure w ramach lokalnych centrów danych chmury. W ramach firmy Microsoft w chmurze zaufane klienci polegać na platformie Azure dla branży zabezpieczeń, zgodności, prywatności i niezawodność sieci przeważająca osób, partnerzy i procesów obsługuje organizacji w chmurze.
+Microsoft Azure to hello tylko chmury obliczeniowej dostawcy, który zapewnia platformę aplikacji bezpiecznego, spójne i infrastruktury jako usługi dla zespołów toowork w ramach ich skillsets inną chmurę i poziomy złożoność projektu, zintegrowanych danych usługi i analitycznych odkrywanie analizy danych wszędzie tam, gdzie istnieje, przez firmę Microsoft, jak i platform firmy Microsoft, otwórz struktur i narzędzi, zapewniając wyboru do integracji z lokalnymi również wdrażanie usług w chmurze Azure w chmurze lokalnych centrów danych. W ramach hello zaufane firmy Microsoft w chmurze klienci polegać na platformie Azure dla branży zabezpieczeń, zgodności, prywatności i niezawodność sieci przeważająca hello osób, partnerzy i organizacji toosupport procesy w chmurze hello.
 
 Microsoft Azure możesz:
 
-- Przyspieszenie innowacji z chmurą.
+- Przyspieszenie innowacji hello chmury.
 
 - Decyzje biznesowe zasilania i aplikacji z informacjami.
 
@@ -42,40 +42,40 @@ Microsoft Azure możesz:
 
 ## <a name="scope"></a>Zakres
 
-Centralny punkt tego dokumentu dotyczy funkcji zabezpieczeń i funkcji pomocniczych — podstawowe składniki Microsoft Azure, czyli [magazyn Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [baz danych SQL Azure Microsoft](https://docs.microsoft.com/azure/sql-database/), [modelu maszyny wirtualnej Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/    )i infrastruktura i narzędzia zarządzania ich wszystkich. Oficjalny dokument fokus na Microsoft Azure możliwości techniczne dostępne jako klientów do wypełnienia ich rolę w ochronie zabezpieczenia i prywatność danych.
+Witaj centralny punkt tego dokumentu dotyczy funkcji zabezpieczeń i funkcji pomocniczych — podstawowe składniki Microsoft Azure, czyli [magazyn Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [baz danych SQL Azure Microsoft](https://docs.microsoft.com/azure/sql-database/), [Modelu maszyny wirtualnej Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/  )i narzędzi hello, jak i zarządzać nim wszystkie infrastruktury. Ten dokument skupić się na tooyou dostępne technicznych Microsoft Azure jako klienci toofulfil ich rolę w ochronie hello zabezpieczenia i prywatność ich danych.
 
-Opis tego modelu udostępnionego odpowiedzialność znaczenie jest niezbędne dla klientów, którzy są przenoszeniu do chmury. Dostawcy chmury oferują znaczące korzyści dla zabezpieczeń i zgodności, ale te zalety zwalnia klienta z ochrony swoich użytkowników, aplikacji i ofert usług.
+opis tego modelu udostępnionego odpowiedzialność znaczenie Hello jest istotne dla klientów, którzy są przenoszone toohello chmury. Dostawcy chmury oferują znaczące korzyści dla zabezpieczeń i zgodności, ale te zalety zwalnia powitania klienta z ochrony swoich użytkowników, aplikacji i ofert usług.
 
-Rozwiązania IaaS klienta jest odpowiedzialny lub odpowiada udostępnionego do zabezpieczania i zarządzania nimi systemu operacyjnego, konfigurację sieci, aplikacje, tożsamości, klientów i danych.  PaaS kompilacji rozwiązania w przypadku wdrożenia IaaS, klient nadal odpowiada lub ma wspólnej odpowiedzialności za zabezpieczania i zarządzanie aplikacjami, tożsamości, klientów i danych. Rozwiązania SaaS, Nonetheless, klient w dalszym ciągu odpowiada. One zapewnić, że dane są poprawnie klasyfikowane, i ich współodpowiedzialne, do zarządzania ich użytkowników i urządzeń punktu końcowego.
+Rozwiązania IaaS powitania klienta jest odpowiedzialny lub odpowiada udostępnionego do zabezpieczania i zarządzania nimi hello systemu operacyjnego, konfigurację sieci, aplikacji, tożsamości, klientów i danych.  Tworzenie rozwiązań PaaS w wdrożenia IaaS, hello klient nadal odpowiada lub ma wspólnej odpowiedzialności za zabezpieczania i zarządzanie aplikacjami, tożsamości, klientów i danych. Rozwiązania SaaS, Nonetheless, klient hello nadal toobe odpowiedzialny. One zapewnić, że dane są poprawnie klasyfikowane, i mają toomanage odpowiedzialność ich użytkowników i urządzeń punktu końcowego.
 
-Ten dokument nie zawiera szczegółowych pokrycia dowolnego powiązane składniki platformy Microsoft Azure, takich jak witryny sieci Web platformy Azure, Azure Active Directory, HDInsight, Media Services i innych usług, które są warstwie nad podstawowe składniki. Mimo że podano minimalny poziom informacje ogólne, czytników uznaje, że znasz podstawowe pojęcia Azure zgodnie z opisem w inne odwołania obsługiwane przez firmę Microsoft i zawarte w łączy w tym oficjalnym dokumencie.
+Ten dokument nie daje szczegółowy pokrycia dowolnego hello powiązane składniki platformy Microsoft Azure, takich jak witryny sieci Web platformy Azure, Azure Active Directory, HDInsight, Media Services i innych usług, które są warstwie nad hello podstawowe składniki. Mimo że podano minimalny poziom informacje ogólne, czytników uznaje, że znasz podstawowe pojęcia Azure zgodnie z opisem w inne odwołania obsługiwane przez firmę Microsoft i zawarte w łączy w tym oficjalnym dokumencie.
 
 
-## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>Możliwości techniczne zabezpieczeń dostępne do wypełnienia odpowiedzialności użytkowników (klienta) - duży obraz
+## <a name="available-security-technical-capabilities-toofulfil-user-customer-responsibility---big-picture"></a>Odpowiedzialność użytkownika (klienta) zabezpieczeń dostępne możliwości techniczne toofulfil - duży obraz
 
-Microsoft Azure oferuje usługi, które mogą pomóc klientów do potrzeb zabezpieczeń, prywatności i zgodności. Na poniższej ilustracji pomaga opisano różne usługi platformy Azure dostępna dla użytkowników do utworzenia infrastruktury aplikacji bezpieczne i zgodne, oparte na standardach.
+Microsoft Azure oferuje usługi, które mogą pomóc klientom spełnia hello zabezpieczeń, prywatności i zgodności potrzeb. Witaj, stosując obraz, który pomaga opisano różne usługi platformy Azure dostępne dla użytkowników toobuild infrastruktury aplikacji bezpieczne i zgodne oparte na standardach.
 
 ![Techniczne obraz Big możliwości dostępnych zabezpieczeń](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
 ## <a name="manage-and-control-identity-and-user-access-protect"></a>Zarządzanie i sterowanie tożsamości i dostęp użytkownika (Chroń)
 
-Azure pomaga chronić działalności biznesowej i informacje osobiste, należy włączyć zarządzanie tożsamościami użytkowników i poświadczeń i kontroli dostępu.
+Azure pomaga chronić biznesowych i danych osobowych przez włączenie możesz toomanage tożsamości użytkownika i poświadczeń i kontroli dostępu.
 
 ### <a name="azure-active-directory"></a>Usługa Azure active directory
 
-Pomocy firmy Microsoft tożsamościami i dostępem zarządzania rozwiązań IT ochrony dostępu do aplikacji i zasobów w firmowym centrum danych i w chmurze, włączanie dodatkowe poziomy sprawdzania poprawności, takich jak uwierzytelnianie wieloskładnikowe i zasady dostępu warunkowego. Monitorowania podejrzanych działań przez zaawansowane zabezpieczenia raportowania, inspekcji i alerty, pomaga ograniczyć potencjalne problemy. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) zapewnia jednokrotnego do tysięcy chmury aplikacji (SaaS) i dostęp do aplikacji sieci web, możesz uruchomić lokalnie.
+Pomocy firmy Microsoft tożsamościami i dostępem zarządzania rozwiązań IT ochronę tooapplications dostępu i zasobów na powitania firmowym centrum danych i w chmurze hello włączenie dodatkowe poziomy sprawdzania poprawności, takich jak uwierzytelnianie wieloskładnikowe i warunkowe zasady dostępu. Monitorowania podejrzanych działań przez zaawansowane zabezpieczenia raportowania, inspekcji i alerty, pomaga ograniczyć potencjalne problemy. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) zapewnia toothousands znak pojedynczego aplikacji w chmurze (SaaS) i uruchom lokalnie aplikacje tooweb dostępu.
 
-Korzyści w zakresie zabezpieczeń dla usługi Azure Active Directory (AD) mogą być następujące:
+Korzyści w zakresie zabezpieczeń dla usługi Azure Active Directory (AD) obejmują możliwość hello:
 
 - Utwórz i Zarządzaj jednej tożsamości dla każdego użytkownika w przedsiębiorstwie hybrydowego Synchronizacja użytkowników, grup i urządzeń.
 
-- Podaj pojedynczy logowania jednokrotnego dostęp do aplikacji w tym tysięcy wstępnie zintegrowanych aplikacji SaaS.
+- Podaj dostępu rejestracji jednokrotnej tooyour aplikacji, w tym tysięcy wstępnie zintegrowanych aplikacji SaaS.
 
 - Włącz zabezpieczenia dostępu do aplikacji, wymuszając uwierzytelnianie wieloskładnikowe opartych na regułach, które zarówno lokalnie i aplikacji w chmurze.
 
-- Udostępnić bezpieczny dostęp zdalny do lokalnych aplikacji sieci web za pośrednictwem serwera Proxy aplikacji usługi Azure AD.
+- Lokalne tooon bezpieczny dostęp zdalny należy sieci web aplikacji za pośrednictwem serwera Proxy aplikacji usługi Azure AD.
 
-[Portal usługi Azure active directory](http://aad.portal.azure.com/) jest dostępna części portalu azure. Z tego pulpitu nawigacyjnego zapoznaj się z omówieniem stanu Twojej organizacji i Poznaj łatwe zarządzanie katalogu, użytkowników lub dostęp do aplikacji.
+[Portal usługi Azure active directory](http://aad.portal.azure.com/) jest dostępna części portalu azure. Z tego pulpitu nawigacyjnego zapoznaj się z omówieniem stanu hello organizacji i Poznaj łatwe zarządzanie hello katalogu, użytkowników lub dostęp do aplikacji.
 
 ![Usługa Azure active directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -97,63 +97,63 @@ Poniżej są podstawowe możliwości zarządzania tożsamość platformy Azure:
 
 #### <a name="single-sign-on"></a>Logowanie jednokrotne
 
-[Logowanie jednokrotne (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) oznacza dostępowi do wszystkich aplikacji i zasobów potrzebnych do prowadzenia działalności, logując się tylko raz przy użyciu jednego konta użytkownika. Po zalogowaniu możesz dostęp do wszystkich aplikacji, należy nie są wymagane do uwierzytelniania (na przykład wpisz hasło) po raz drugi.
+[Logowanie jednokrotne (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) oznacza, że jest w stanie tooaccess wszystkich aplikacji hello i zasobów potrzebnych firm toodo, logując się tylko raz przy użyciu jednego konta użytkownika. Po zalogowaniu może uzyskiwać dostęp do wszystkich aplikacji hello należy nie jest wymagane tooauthenticate (na przykład wpisz hasło) po raz drugi.
 
-W wielu organizacjach opierają się na oprogramowania jako aplikacje usługi (SaaS), takich jak Office 365, pole i Salesforce na produktywność użytkownika końcowego. W przeszłości personel działu informatycznego jest niezbędne do indywidualnie tworzenie i aktualizowanie kont użytkowników w każdej aplikacji SaaS, a użytkownicy będą musieli Zapamiętaj hasło dla każdej aplikacji SaaS.
+W wielu organizacjach opierają się na oprogramowania jako aplikacje usługi (SaaS), takich jak Office 365, pole i Salesforce na produktywność użytkownika końcowego. W przeszłości tooindividually potrzebne personelu IT tworzenie i aktualizowanie kont użytkowników w każdej aplikacji SaaS, a użytkownicy mieli tooremember hasła dla każdej aplikacji SaaS.
 
-[Usługi Azure AD rozszerza lokalnej usługi Active Directory do chmury](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), umożliwiając użytkownikom używanie ich podstawowego konta organizacyjnego, nie tylko Zaloguj się do swoich urządzeń dołączonych do domeny i zasobów firmy, ale również wszystkich aplikacji sieci web i aplikacji SaaS potrzebne do ich pracy.
+[Usługi Azure AD rozszerza w lokalnej usłudze Active Directory w chmurze hello](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), włączanie toouse użytkownikom ich podstawowej organizacji konta logowania tylko toonot tootheir urządzeń przyłączonych do domeny i zasobów firmy, ale również wszystkich hello sieci web i aplikacji SaaS potrzebne do ich pracy.
 
-Nie tylko użytkowników nie trzeba zarządzać wiele zestawów nazwy użytkowników i hasła, dostęp do aplikacji mogą być automatycznie udostępnione lub cofnąć elastycznie na podstawie grupy organizacyjne i ich stan jako pracownika. [Usługi Azure AD wprowadza formanty Zarządzanie zabezpieczeniami i dostępem](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) umożliwiające centralne zarządzanie dostępem użytkowników do aplikacji SaaS.
+Nie tylko użytkownicy bez toomanage wiele zestawów nazwy użytkowników i hasła, dostęp do aplikacji mogą być automatycznie udostępnione lub cofnąć elastycznie na podstawie grupy organizacyjne i ich stan jako pracownika. [Usługi Azure AD wprowadza formanty Zarządzanie zabezpieczeniami i dostępem](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) pozwalające toocentrally zarządzanie dostępem użytkowników do aplikacji SaaS.
 
 #### <a name="multi-factor-authentication"></a>Uwierzytelnianie wieloskładnikowe
 
-[Usługa Azure Multi-Factor authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) jest metoda uwierzytelniania, która wymaga użycia więcej niż jednej metody weryfikacji i dodaje kluczową drugą warstwę zabezpieczeń do logowania użytkowników i transakcji. [MFA ułatwia zabezpieczenie](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) dostęp do danych i aplikacji, spełniając zapotrzebowanie na prosty proces logowania. Zapewnia silne uwierzytelnianie za pomocą różnych opcji weryfikacji — połączenie telefoniczne, wiadomość tekstowa lub aplikacja mobilna weryfikacji lub powiadamiania o kodzie i innych firm tokenów OAuth.
+[Usługa Azure Multi-Factor authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) jest metoda uwierzytelniania, która wymaga użycia hello więcej niż jednej metody weryfikacji i dodaje kluczową drugą warstwę logowania toouser zabezpieczeń i transakcji. [MFA ułatwia zabezpieczenie](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) dostęp do toodata i aplikacji, spełniając zapotrzebowanie na prosty proces logowania. Zapewnia silne uwierzytelnianie za pomocą różnych opcji weryfikacji — połączenie telefoniczne, wiadomość tekstowa lub aplikacja mobilna weryfikacji lub powiadamiania o kodzie i innych firm tokenów OAuth.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Monitorowanie zabezpieczeń, alertów i raportów na podstawie learning maszyny
 
-Monitorowanie zabezpieczeń i alertów i machine learning raportów na podstawie identyfikujące niespójne wzorce dostępu ułatwia ochronę firmy. Dostęp do usługi Azure Active Directory i raporty użycia umożliwia wgląd we integralności i bezpieczeństwa katalogu organizacji. Dzięki tym informacjom administratora katalogu można lepiej określić, gdzie może znajdować się możliwe zagrożenia bezpieczeństwa, tak aby ich odpowiednio zaplanować ich eliminowania.
+Monitorowanie zabezpieczeń i alertów i machine learning raportów na podstawie identyfikujące niespójne wzorce dostępu ułatwia ochronę firmy. Umożliwia dostęp do usługi Azure Active Directory i użycia raporty toogain widoczność hello integralności i bezpieczeństwa w katalogu organizacji. Dzięki tym informacjom administratora katalogu można lepiej określić, gdzie może znajdować się możliwe zagrożenia bezpieczeństwa, tak aby ich odpowiednio zaplanować toomitigate te zagrożenia.
 
-W klasycznym portalu Azure lub za pomocą [portalu usługi Azure Active directory](http://aad.portal.azure.com/), [raporty](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) są podzielone na następujące sposoby:
+Witaj klasycznego portalu Azure lub za pośrednictwem [portalu usługi Azure Active directory](http://aad.portal.azure.com/), [raporty](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) są podzielone na powitania następujące sposoby:
 
-- Raporty anomalii — zawiera zdarzenia znajdujące się nietypowe logowania. Naszym celem jest uświadomić możesz takiego działania i umożliwiają zdecydować, czy jest podejrzane zdarzenia.
+- Raporty anomalii — zawierają logowania czy znaleziono toobe nietypowe zdarzenia. Naszym celem jest toomake należy pamiętać o tych działań oraz pozwalające użytkownikowi toobe stanie toodecide o tym, czy jest podejrzane zdarzenia.
 
 - Raporty aplikacji zintegrowanego — wgląd w sposób aplikacji w chmurze są używane w organizacji. Usługa Azure Active Directory oferuje integrację z tysiącami aplikacji w chmurze.
 
-- Raporty o błędach — wskazują błędy, które mogą wystąpić podczas inicjowania obsługi administracyjnej kont do aplikacji zewnętrznych.
+- Raporty o błędach — wskazują błędy, które mogą wystąpić podczas inicjowania obsługi administracyjnej kont tooexternal aplikacji.
 
 - Raporty dotyczące użytkownika — wyświetlać urządzenia/symbol w dane o aktywności dla określonego użytkownika.
 
-- Dzienniki aktywności — zawiera rekord wszystkich zdarzeń inspekcji w ostatnich 24 godzinach, ostatnich 7 dni lub ostatnich 30 dni i grupy działania zmiany i działanie resetowania i rejestracji hasła.
+- Dzienniki aktywności — zawiera rekord wszystkich zdarzeń inspekcji w ramach hello ostatnich 24 godzinach, ostatnie 7 dni, lub ostatnich 30 dni i grupy działania zmiany oraz działania resetowania i rejestracji hasła.
 
 #### <a name="consumer-identity-and-access-management"></a>Zarządzanie tożsamościami i dostępem klientów
 
-[Usługa Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) jest tożsamość wysokiej dostępności, globalnych, zarządzanie usługą w aplikacjach użytkownika, która może obsłużyć setki milionów tożsamości. Można ją łatwo integrować z platformami mobilnymi i platformami sieci Web. Konsumenci mogą logować się do wszystkich aplikacji przy użyciu w pełni dostosowywanego procesu, używając istniejących kont sieci społecznościowych lub tworząc nowe poświadczenia.
+[Usługa Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) jest tożsamość wysokiej dostępności, globalnych, zarządzanie usługą w aplikacjach użytkownika która może obsłużyć toohundreds milionów tożsamości. Można ją łatwo integrować z platformami mobilnymi i platformami sieci Web. Użytkownicy mogą logować tooall aplikacji za pomocą środowiska można dostosować przy użyciu istniejących kont społecznościowych lub tworząc nowe poświadczenia.
 
-W przeszłości, deweloperzy aplikacji, którzy chcieli [i zalogują się konsumentów](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview) w swoich aplikacjach, musieli napisać własny kod. Musieli korzystać z lokalnych baz danych lub systemów do przechowywania nazw i haseł użytkowników. Usługa Azure Active Directory B2C oferuje organizacji lepszy sposób integracji zarządzania tożsamością użytkowników w aplikacjach za pomocą bezpiecznej, spełniającej standardy platformy i dużego zestawu rozszerzalnych zasad.
+W hello przeszłości deweloperzy aplikacji, którzy chciał zbyt[i zalogują się konsumentów](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview) w swoich aplikacjach, musieli napisać własny kod. I musieli korzystać z lokalnych baz danych lub systemów toostore nazwy użytkowników i hasła. Usługa Azure Active Directory B2C oferuje organizacji lepszą sposób toointegrate zarządzania tożsamością użytkowników do aplikacji za pomocą hello bezpiecznej, spełniającej standardy platformy i dużego zestawu rozszerzalnych zasad.
 
 Gdy używasz usługi Azure Active Directory B2C użytkownicy mogą rejestrować dla aplikacji, przy użyciu istniejących kont społecznościowych (Facebook, Google, Amazon, LinkedIn) lub tworząc nowe poświadczenia (adres e-mail i hasło lub nazwa użytkownika i hasło).
 
 Rejestracja urządzenia
 
-[Rejestracja urządzenia w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) stanowi podstawę opartego na urządzeniach [dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) scenariuszy. Po zarejestrowaniu urządzenia rejestracji urządzeń usługi Azure Active Directory zapewnia urządzenia przy użyciu tożsamości, który służy do uwierzytelniania urządzenia podczas logowania się użytkownika. Uwierzytelnionego urządzenia i atrybutów urządzenia można następnie użyć do wymuszania zasad dostępu warunkowego dla aplikacji hostowanych w chmurze i lokalnych.
+[Rejestracja urządzenia w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) podstawę hello jest oparta na urządzeniach [dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) scenariuszy. Po zarejestrowaniu urządzenia rejestracji urządzeń usługi Azure Active Directory zapewnia hello urządzenia przy użyciu tożsamości, który jest używany tooauthenticate hello urządzenia po zalogowaniu użytkownika hello. urządzenie Hello uwierzytelniony i atrybuty hello hello urządzenia, można następnie tooenforce używane zasady dostępu warunkowego dla aplikacji, które znajdują się w chmurze hello i lokalnych.
 
-W połączeniu z [zarządzania urządzeniami przenośnymi (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) rozwiązania, takie jak usługi Intune, atrybuty urządzenia w usłudze Azure Active Directory są aktualizowane przy użyciu dodatkowych informacji o urządzeniu. Umożliwia to tworzenie reguł dostępu warunkowego, które wymuszają dostęp z urządzeń spełniających określone standardy zabezpieczeń i zgodności.
+W połączeniu z [zarządzania urządzeniami przenośnymi (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) rozwiązania, takie jak usługi Intune, atrybuty urządzenia hello w usłudze Azure Active Directory są aktualizowane przy użyciu dodatkowych informacji o urządzeniu hello. Dzięki temu można toocreate zasady dostępu warunkowego, które wymuszają dostęp z urządzeń toomeet standardy zabezpieczeń i zgodności.
 
 #### <a name="privileged-identity-management"></a>Zarządzanie tożsamościami uprzywilejowanymi
 
-[Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) umożliwia zarządzanie, kontrolowania i monitorowanie tożsamości uprzywilejowanych oraz uzyskać dostęp do zasobów w usłudze Azure AD, jak również inne usługi online firmy Microsoft, takich jak usługi Office 365 lub Microsoft Intune.
+[Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) umożliwia zarządzanie, sterowanie i monitorowanie tożsamości uprzywilejowanych oraz dostęp tooresources w usłudze Azure AD, jak również inne usługi online firmy Microsoft, takich jak usługi Office 365 lub Microsoft Intune.
 
-Czasami użytkownicy muszą wykonać operacje uprzywilejowane w zasobów platformy Azure lub usługi Office 365 lub innych aplikacji SaaS. Często oznacza to, że organizacje mają nadanie im stałe uprzywilejowanego dostępu w usłudze Azure AD. Jest to zagrożenie bezpieczeństwa rosnącym zasobów hostowanych w chmurze, ponieważ organizacje wystarczająco nie można monitorować, co robią tych użytkowników, używając swoich uprawnień administratora. Ponadto w przypadku złamania zabezpieczeń konta użytkownika z dostępem uprzywilejowanym tego naruszenia co może mieć wpływ na ich ogólne bezpieczeństwo chmury. Azure AD Privileged Identity Management pomaga rozwiązywać to ryzyko.
+Czasami użytkownicy muszą toocarry operacje uprzywilejowane w zasobów platformy Azure lub usługi Office 365 lub innych aplikacji SaaS. Często oznacza to, organizacje mają toogive ich stałe uprzywilejowanego dostępu w usłudze Azure AD. Jest to zagrożenie bezpieczeństwa rosnącym zasobów hostowanych w chmurze, ponieważ organizacje wystarczająco nie można monitorować, co robią tych użytkowników, używając swoich uprawnień administratora. Ponadto w przypadku złamania zabezpieczeń konta użytkownika z dostępem uprzywilejowanym tego naruszenia co może mieć wpływ na ich ogólne bezpieczeństwo chmury. Azure AD Privileged Identity Management pomaga tooresolve to ryzyko.
 
 Azure AD Privileged Identity Management umożliwia:
 
 - Zobacz użytkowników, którzy są administratorami usługi Azure AD
 
-- Włącz na żądanie "just in time" dostęp administracyjny do usługi Online firmy Microsoft, takich jak Office 365 i Intune
+- Włącz na żądanie "just in time" tooMicrosoft dostępu administracyjnego usług Online, takich jak Office 365 i Intune
 
 - Uzyskaj raporty dotyczące historii dostępu administratora i zmian w przypisaniach administratora
 
-- Uzyskiwanie alertów dotyczących dostępu do ról uprzywilejowanych
+- Uzyskiwanie alertów dotyczących ról uprzywilejowanych tooa dostępu
 
 #### <a name="identity-protection"></a>Ochrona tożsamości
 
@@ -161,60 +161,60 @@ Azure AD Privileged Identity Management umożliwia:
 
 ## <a name="secured-resource-access-in-azure"></a>Dostęp do zabezpieczonych zasobów na platformie Azure
 
-Kontrola dostępu na platformie Azure rozpoczyna się z punktu widzenia rozliczeń. Właściciel konta platformy Azure, dostępne po przejściu na stronę [Centrum konta platformy Azure](https://account.windowsazure.com/subscriptions), jest kontem administratora (AA). Subskrypcje są kontener rozliczeń, ale również działają jako granic zabezpieczeń: Każda subskrypcja ma usługi administratora kto dodawania, usuwania i modyfikowania zasobów platformy Azure w ramach tej subskrypcji przy użyciu [klasycznego portalu Azure](https://manage.windowsazure.com/). SA domyślne nowej subskrypcji jest AA, ale AA można zmienić SA w Centrum konta platformy Azure.
+Kontrola dostępu na platformie Azure rozpoczyna się z punktu widzenia rozliczeń. Witaj właściciela konta platformy Azure, dostęp, przechodząc na stronę hello [Centrum konta platformy Azure](https://account.windowsazure.com/subscriptions), jest hello konta administratora (AA). Subskrypcje są kontener rozliczeń, ale również działają jako granic zabezpieczeń: Każda subskrypcja ma usługi administratora kto dodawania, usuwania i modyfikowania zasobów platformy Azure w ramach tej subskrypcji przy użyciu hello [klasycznego portalu Azure](https://manage.windowsazure.com/). SA domyślne Hello nowej subskrypcji jest hello AA, ale hello AA można zmienić hello SA w hello Centrum konta platformy Azure.
 
 ![Dostęp do zabezpieczonych zasobów na platformie Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
-Subskrypcje mają również skojarzenie z katalogiem. Katalog definiuje zestaw użytkowników. Mogą to być użytkownikom pracy lub nauki, który utworzył katalog lub można je użytkowników zewnętrznych (to znaczy Accounts firmy Microsoft). Subskrypcje są dostępne dla podzbioru użytkowników katalogu, na których został przypisany jako usługi administratora lub administratora współpracującego (CA); Jedynym wyjątkiem jest w starszej wersji ze względu na Accounts Microsoft (dawniej identyfikator Windows Live ID) można przypisać jako administratora systemu lub urzędu certyfikacji nie jest obecny w katalogu.
+Subskrypcje mają również skojarzenie z katalogiem. katalog Hello definiuje zestaw użytkowników. Mogą to być użytkownicy z hello pracy lub nauki, który utworzył katalog hello, lub mogą być użytkownicy zewnętrzni (to znaczy Accounts firmy Microsoft). Subskrypcje są dostępne dla podzbioru użytkowników katalogu, na których został przypisany jako usługi administratora lub administratora współpracującego (CA); Witaj tylko wyjątek to, że dla starszych powodów Accounts firmy Microsoft (dawniej identyfikator Windows Live ID) można przypisać jako administratora systemu lub urzędu certyfikacji nie jest obecny w katalogu hello.
 
-Nastawionych zabezpieczeń należy skoncentrować się na zapewniając pracownikom dokładne uprawnienia potrzebne. Za dużo uprawnienia mogą uwidaczniać konta na ataki. Za mało uprawnienia oznacza, że pracownicy nie można pobrać ich pracować wydajnie. [Azure opartej na rolach kontroli dostępu (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) pomaga rozwiązać ten problem, oferując precyzyjne zarządzanie dostępem dla platformy Azure.
+Nastawionych zabezpieczeń skoncentrować się nadanie uprawnień dokładne hello potrzebnych im pracowników. Za dużo uprawnienia mogą uwidaczniać tooattackers konta. Za mało uprawnienia oznacza, że pracownicy nie można pobrać ich pracować wydajnie. [Azure opartej na rolach kontroli dostępu (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) pomaga rozwiązać ten problem, oferując precyzyjne zarządzanie dostępem dla platformy Azure.
 
 ![Dostęp do zabezpieczonych zasobów ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-Przy użyciu funkcji RBAC, można rozdzielenie obowiązków w obrębie organizacji i udzielić tylko takiego dostępu dla użytkowników, które są niezbędne do wykonywania swoich zadań. Zamiast nadanie każdy nieograniczonych uprawnień w Twojej subskrypcji platformy Azure lub zasobów, można zezwolić tylko pewne akcje. Na przykład użycie funkcji RBAC, aby umożliwić jednego pracownika zarządzać maszyn wirtualnych w ramach subskrypcji, gdy inny można zarządzać baz danych w ramach tej samej subskrypcji.
+Przy użyciu funkcji RBAC, można rozdzielenie obowiązków w obrębie organizacji i udzielić tylko hello ilość toousers dostępu do potrzebnych tooperform swoich zadań. Zamiast nadanie każdy nieograniczonych uprawnień w Twojej subskrypcji platformy Azure lub zasobów, można zezwolić tylko pewne akcje. Na przykład użyj RBAC toolet jednego pracownika zarządzania maszynami wirtualnymi w ramach subskrypcji, podczas gdy inny można zarządzać baz danych SQL w ramach hello takie same subskrypcji.
 
 ![Dostęp do zasobów zabezpieczonych w Azure(RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="azure-data-security-and-encryption-protect"></a>Bezpieczeństwo danych platformy Azure i szyfrowania (Ochrona)
 
-Jeden z kluczy do ochrony danych w chmurze jest księgowanie możliwe stany, w których może wystąpić danych oraz kontrolki są dostępne dla tego stanu. Dla danych Azure zabezpieczeń i szyfrowania najlepsze rozwiązania zalecenia można wokół stanów następujące dane.
+Jeden z ochrony toodata klucze hello w chmurze hello jest księgowanie hello możliwe stany, w których może wystąpić danych oraz kontrolki są dostępne dla tego stanu. Bezpieczeństwo danych platformy Azure i szyfrowania hello zaleceniach się wokół hello następujące stany danych.
 
 - W pozostałych: W tym wszystkie informacje, które typy, statycznie występujących na nośnik fizyczny, kontenerów i obiektów magazynu można go magnetyczne lub optyczne dysku.
 
-- Podczas przesyłania: Podczas transferu danych między składnikami, lokalizacji lub programy, takie jak przez sieć, przez usługi service bus (z lokalnymi do chmury i odwrotnie, łącznie z połączeń hybrydowych, takie jak ExpressRoute) lub w trakcie operacji wejścia/wyjścia on jest traktować jako w ruchu.
+- Podczas przesyłania: Podczas transferu danych między składnikami, lokalizacji lub programy, takie jak sieci hello przez usługi service bus (z toocloud lokalnie i na odwrót, łącznie z połączeń hybrydowych, takich jak usługi ExpressRoute), lub w trakcie operacji We/Wy proces, jego jest traktować jako w ruchu.
 
 ### <a name="encryption--rest"></a>Szyfrowanie @ rest
 
-Umożliwia szyfrowanie przechowywanych z następujących czynności:
+tooachieve szyfrowanie przechowywanych hello następującego:
 
-Obsługuje co najmniej jeden z modeli zalecane szyfrowania szczegółowo w poniższej tabeli do szyfrowania danych.
+Obsługuje co najmniej jeden z hello zalecane modeli szyfrowania szczegółowo w hello następujące dane tooencrypt tabeli.
 
 | Modele szyfrowania |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Szyfrowanie serwera | Szyfrowanie serwera | Szyfrowanie serwera | Szyfrowanie klienta
 | Przy użyciu usługi zarządzane klucze szyfrowania po stronie serwera | W usłudze Azure Key Vault za pomocą Customer-Managed klucze szyfrowania po stronie serwera | Przy użyciu lokalnego klienta zarządzane klucze szyfrowania po stronie serwera |
-| • Dostawców zasobów azure wykonywać operacje szyfrowania i odszyfrowywania <br> • Firma Microsoft zarządza kluczy <br>• Chmury pełna funkcjonalność | • Dostawców zasobów azure wykonywać operacje szyfrowania i odszyfrowywania<br>• Klient kontroluje klucze za pomocą usługi Azure Key Vault<br>• Chmury pełna funkcjonalność | • Dostawców zasobów azure wykonywać operacje szyfrowania i odszyfrowywania <br>• Klient kontroluje klucze lokalnego <br> • Chmury pełna funkcjonalność| • Usług azure nie widzi odszyfrowane dane <br>• Klienci przechowywać klucze lokalnie lub w innych secure magazynów. Klucze nie są dostępne do usług platformy Azure <br>• Zmniejszona funkcji chmury|
+| • Azure dostawcy zasobów operacji hello szyfrowania i odszyfrowywania <br> • Firma Microsoft zarządza hello kluczy <br>• Chmury pełna funkcjonalność | • Azure dostawcy zasobów operacji hello szyfrowania i odszyfrowywania<br>• Klient kontroluje klucze za pomocą usługi Azure Key Vault<br>• Chmury pełna funkcjonalność | • Azure dostawcy zasobów operacji hello szyfrowania i odszyfrowywania <br>• Klient kontroluje klucze lokalnego <br> • Chmury pełna funkcjonalność| • Usług azure nie widzi odszyfrowane dane <br>• Klienci przechowywać klucze lokalnie lub w innych secure magazynów. Klucze nie są dostępne tooAzure usług <br>• Zmniejszona funkcji chmury|
 
 ### <a name="enabling-encryption-at-rest"></a>Włączenie szyfrowania magazynowane
 
 **Zidentyfikuj wszystkie lokalizacje magazyny danych**
 
-Celem szyfrowanie magazynowanych jest do szyfrowania wszystkich danych. W ten sposób unika się Brak ważnych danych lub wszystkich lokalizacji utrwalonych. Wyświetla wszystkie dane przechowywane przez aplikację. 
+Celem Hello szyfrowanie magazynowanych jest tooencrypt wszystkie dane. Dzięki temu eliminuje możliwość hello Brak ważnych danych lub wszystkich lokalizacji utrwalonych. Wyświetla wszystkie dane przechowywane przez aplikację. 
 
 > [!Note] 
-> Nie tylko "application data" lub "dane osobowe", ale wszystkie dane związane z tym aplikacji konta metadanych (mapowania subskrypcji, informacje kontraktu danych osobowych).
+> Nie tylko "application data" lub "dane osobowe", ale żadnych danych związanych z tym tooapplication konta metadanych (mapowania subskrypcji, informacje kontraktu danych osobowych).
 
-Należy wziąć pod uwagę jakie magazynów jest używany do przechowywania danych. Na przykład:
+Należy wziąć pod uwagę, jakie są przechowywane są przy użyciu toostore danych. Na przykład:
 
 - Magazynu zewnętrznego (na przykład SQL Azure, bazie danych dokumentów, HDInsights, Data Lake, itp.)
 
 - Magazyn tymczasowy (żadnych lokalnej pamięci podręcznej zawierającego dane dzierżawcy)
 
-- W pamięci podręcznej (mogą znajdować się w pliku stronicowania.)
+- W pamięci podręcznej (mogą znajdować się w pliku stronicowania hello.)
 
-### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Wykorzystywanie istniejących szyfrowania w witrynie pomocy technicznej rest na platformie Azure
+### <a name="leverage-hello-existing-encryption-at-rest-support-in-azure"></a>Korzystać z szyfrowania istniejących hello w witrynie pomocy technicznej rest na platformie Azure
 
-Dla każdego używanego sklepu wykorzystać istniejące szyfrowania w witrynie pomocy technicznej Rest.
+Dla każdego używanego sklepu wykorzystać hello istniejących szyfrowania w witrynie pomocy technicznej Rest.
 
 - Magazyn Azure: Zobacz [szyfrowanie usługi Magazyn Azure dla danych magazynowanych](https://docs.microsoft.com/azure/storage/storage-service-encryption),
 
@@ -226,77 +226,77 @@ Dla maszyny Wirtualnej i lokalny magazyn dyskowy Użyj szyfrowania dysków Azure
 
 IaaS
 
-Usługi z maszyn wirtualnych IaaS (Windows lub Linux) powinny używać [szyfrowania dysków Azure](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) do szyfrowania woluminy zawierające dane klienta.
+Usługi z maszyn wirtualnych IaaS (Windows lub Linux) powinny używać [szyfrowania dysków Azure](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) tooencrypt woluminy zawierające dane klienta.
 
 PaaS w wersji 2
 
-Usługi uruchomione na PaaS v2 przy użyciu usługi Service Fabric szyfrowania dysków Azure dla zestawu skalowania maszyn wirtualnych [VMSS] do szyfrowania można używać ich maszyny wirtualne w wersji 2 PaaS.
+Usługi uruchomione na PaaS v2 korzystania z usługi sieć szkieletowa można używać szyfrowania dysków Azure dla zestawu skalowania maszyn wirtualnych [VMSS] tooencrypt ich maszyny wirtualne w wersji 2 PaaS.
 
 PaaS v1
 
-Szyfrowanie dysków Azure aktualnie nie jest obsługiwane na PaaS v1. W związku z tym należy użyć do szyfrowania danych magazynowanych: szyfrowanie na poziomie aplikacji.  Obejmuje, ale nie jest ograniczona do danych aplikacji, plików tymczasowych, dzienniki i zrzuty awaryjne.
+Szyfrowanie dysków Azure aktualnie nie jest obsługiwane na PaaS v1. W związku z tym należy użyć aplikacji poziom szyfrowania tooencrypt istniejących danych w stanie spoczynku.  Obejmuje, ale nie jest ograniczona do danych aplikacji, plików tymczasowych, dzienniki i zrzuty awaryjne.
 
-Większość usług powinien próbować korzystać z szyfrowania dostawcy zasobów magazynu. Niektóre usługi konieczne przeprowadzenie jawne szyfrowania, na przykład żadnego utrwalonego materiału klucza (certyfikaty, głównego / wzorca kluczy) musi być przechowywany w magazynie kluczy.
+Większość usług mają podejmować próbę tooleverage hello szyfrowania dostawcy zasobów magazynu. Niektóre usługi mają toodo jawne szyfrowania, na przykład żadnego utrwalonego materiału klucza (certyfikaty, głównego / wzorca kluczy) musi być przechowywany w magazynie kluczy.
 
-Jeśli szyfrowanie po stronie serwera za pomocą kluczy zarządzany przez klienta musi istnieć sposób dla klienta pobrać klucz do nas. Obsługiwane i zalecany sposób dzięki integracji z magazynu kluczy Azure (AKV). W takim przypadku klientów, można dodać i zarządzać swoimi kluczami w usłudze Azure Key Vault. Klienta można dowiedzieć się, jak używać AKV za pośrednictwem [wprowadzenie do korzystania z usługi Key Vault](http://go.microsoft.com/fwlink/?linkid=521402).
+Jeśli szyfrowanie po stronie serwera za pomocą kluczy zarządzany przez klienta musi toobe sposób powitania klienta tooget hello klucza toous. Witaj obsługiwane i zalecane toodo sposób dzięki integracji z magazynu kluczy Azure (AKV). W takim przypadku klientów, można dodać i zarządzać swoimi kluczami w usłudze Azure Key Vault. Klienta można dowiedzieć się jak toouse AKV za pośrednictwem [wprowadzenie do korzystania z usługi Key Vault](http://go.microsoft.com/fwlink/?linkid=521402).
 
-Aby zintegrować z usługą Azure Key Vault, należy dodać kodu poprosić klucz AKV, gdy są potrzebne do odszyfrowywania.
+toointegrate z usługi Azure Key Vault, należy dodać kodu toorequest klucza z AKV, gdy są potrzebne do odszyfrowywania.
 
-- Zobacz [usługi Azure Key Vault — krok po kroku](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) uzyskać informacje dotyczące sposobu integracji z AKV.
+- Zobacz [usługi Azure Key Vault — krok po kroku](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) informacji na temat toointegrate z AKV.
 
-Jeśli obsługuje klientów zarządzanych kluczy, musisz podać UX dla klienta, aby określić magazynu kluczy (lub identyfikator URI magazynu klucza) do użycia.
+Obsługuje klientów zarządzanych kluczy, należy najpierw tooprovide UX na powitania klienta toospecify które toouse magazynu kluczy (lub identyfikator URI magazynu kluczy).
 
-Szyfrowanie magazynowanych obejmuje szyfrowania hosta, infrastruktury i dzierżawcy danych, utratę klucze z powodu awarii systemu lub złośliwych działań może oznaczać wszystkie zaszyfrowane dane zostaną utracone. W związku z tym jest krytyczny, że szyfrowania rozwiązania Rest ma scenariusza odzyskiwania po awarii kompleksowe odporność na awarie systemu i złośliwych działań.
+Jak szyfrowanie magazynowanych obejmuje hello szyfrowania danych hosta, infrastruktury i dzierżawcy, utraty hello kluczy hello ukończenia lub niepowodzenia toosystem złośliwych działań może oznaczać wszystkich hello zaszyfrowane dane zostaną utracone. W związku z tym jest krytyczny, że szyfrowania rozwiązania Rest ma odzyskiwania po awarii kompleksowe wątek błędów toosystem odporne i złośliwych działań.
 
-Zazwyczaj są nadal podatne na kluczy szyfrowania usług, które implementuje szyfrowanie przechowywanych lub danych pozostaje w postaci niezaszyfrowanej na dysku hosta (na przykład w pliku stronicowania systemu operacyjnego hosta.) W związku z tym usługi należy zapewnić, że wolumin hosta dla swoich usług są szyfrowane. Ułatwia to obliczeń zespołu włączył wdrożenia szyfrowania hosta, który używa [funkcji Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP i rozszerzeń usługi DCM i agenta do szyfrowania woluminu hosta.
+Usług, które implementuje szyfrowanie magazynowanych zwykle są nadal podatne toohello kluczy szyfrowania lub danych pozostaje w postaci niezaszyfrowanej na powitania dysku hosta (na przykład w hello pliku strony hello hosta systemu operacyjnego.) W związku z tym usługi należy zapewnić, że hello woluminu hosta dla swoich usług są szyfrowane. toofacilitate tego zespołu obliczeń włączył hello wdrożenia szyfrowania hosta, który używa [funkcji Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP i rozszerzenia toohello DCM agent i usługi tooencrypt hello woluminu hosta.
 
 Większość usług są implementowane na maszynach wirtualnych Azure standard. Tych usług należy uzyskać [szyfrowania hosta](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automatycznie podczas obliczeń włączy ją. Dla usług uruchomionych w obliczeń zarządzane klastry hosta szyfrowanie jest włączane automatycznie, zgodnie z systemu Windows Server 2016 jest wdrażana.
 
 ### <a name="encryption-in-transit"></a>Szyfrowanie podczas przesyłania danych
 
-Ochrona danych podczas przesyłania powinien być integralną część strategii ochrony danych. Ponieważ dane są przenoszone i z powrotem w wielu lokalizacjach, ogólne zalecenie jest zawsze używają protokołów SSL/TLS do wymiany danych w różnych lokalizacjach. W niektórych sytuacjach można odizolować kanału całej komunikacji między lokalnymi i w chmurze infrastruktury przy użyciu wirtualnej sieci prywatnej (VPN).
+Ochrona danych podczas przesyłania powinien być integralną część strategii ochrony danych. Ponieważ dane są przenoszone i z powrotem w wielu lokalizacjach, ogólne zalecenie hello jest zawsze używaj danych tooexchange protokołów SSL/TLS w różnych lokalizacjach. W niektórych sytuacjach może być tooisolate hello całej komunikacji kanału między lokalnymi i w chmurze infrastruktury przy użyciu wirtualnej sieci prywatnej (VPN).
 
 Przenoszenie między lokalną infrastrukturą i Azure danych należy rozważyć odpowiednie zabezpieczenia, takie jak HTTPS lub sieci VPN.
 
-Dla organizacji, które trzeba bezpieczny dostęp z wielu stacji roboczych lokalnego do platformy Azure, użyj [Azure VPN lokacja lokacja](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
+Dla organizacji, które wymagają dostępu toosecure z wielu stacjach roboczych znajdujących się lokalnie tooAzure, użyj [Azure VPN lokacja lokacja](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
 
-Dla organizacji, które trzeba bezpieczny dostęp z jednej stacji roboczej znajdujących się lokalnie do platformy Azure, użyj [punkt-lokacja sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
+Dla organizacji, które wymagają dostępu toosecure z jednej stacji roboczej znajdujących się lokalnie tooAzure, użyj [punkt-lokacja sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
-Większych zestawów danych można przenieść za pośrednictwem dedykowanej o dużej szybkości łącza sieci WAN takich jak [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Jeśli chcesz używać usługi ExpressRoute, można także szyfrowanie danych na poziomie aplikacji przy użyciu [SSL/TLS](https://support.microsoft.com/kb/257591) lub innymi protokołami zapewnia dodatkową ochronę.
+Większych zestawów danych można przenieść za pośrednictwem dedykowanej o dużej szybkości łącza sieci WAN takich jak [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Jeśli wybierzesz toouse ExpressRoute, można również szyfrowanie danych hello przy użyciu poziomu aplikacji hello [SSL/TLS](https://support.microsoft.com/kb/257591) lub innymi protokołami zapewnia dodatkową ochronę.
 
-Jeśli użytkownik korzysta z usługi Azure Storage za pośrednictwem portalu Azure, wszystkich transakcji jest realizowana za pośrednictwem protokołu HTTPS. [Interfejs API REST magazynu](https://msdn.microsoft.com/library/azure/dd179355.aspx) over HTTPS można również wchodzić w interakcje z [usługi Azure Storage](https://azure.microsoft.com/services/storage/) i [bazy danych SQL Azure](https://azure.microsoft.com/services/sql-database/).
+Jeśli użytkownik korzysta z usługi Azure Storage za pomocą portalu Azure hello, wszystkich transakcji jest realizowana za pośrednictwem protokołu HTTPS. [Interfejs API REST magazynu](https://msdn.microsoft.com/library/azure/dd179355.aspx) za pośrednictwem protokołu HTTPS może być również używane toointeract z [usługi Azure Storage](https://azure.microsoft.com/services/storage/) i [bazy danych SQL Azure](https://azure.microsoft.com/services/sql-database/).
 
-Organizacje, które się nie powieść, aby chronić przesyłane dane są bardziej narażony na [ataków man-in--middle](https://technet.microsoft.com/library/gg195821.aspx), [podsłuchiwaniu](https://technet.microsoft.com/library/gg195641.aspx)i przejęcie kontroli sesji. Tego rodzaju ataki może być pierwszym krokiem w uzyskiwaniu dostępu do poufnych danych.
+Organizacje, które nie są przesyłane dane tooprotect są bardziej narażony na [ataków man-in--middle](https://technet.microsoft.com/library/gg195821.aspx), [podsłuchiwaniu](https://technet.microsoft.com/library/gg195641.aspx)i przejęcie kontroli sesji. Tego rodzaju ataki może być pierwszym krokiem hello w uzyskiwaniu dostępu do danych tooconfidential.
 
-Możesz można dowiedzieć się więcej o sieci VPN platformy Azure opcja przeczytaj artykuł [planowania i projektowania dla bramy sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
+Możesz można dowiedzieć się więcej o sieci VPN platformy Azure opcja od przeczytania artykułu hello [planowania i projektowania dla bramy sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ### <a name="enforce-file-level-data-encryption"></a>Wymuszanie szyfrowania danych na poziomie plików
 
-[Usługa Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) używa zasad szyfrowania, tożsamości i autoryzacji, aby ułatwić zabezpieczanie plików i wiadomości e-mail. Usługa Azure RMS działa na wielu urządzeniach — telefonach, tablety i komputery, aby chronić w obrębie organizacji i poza organizacją. Ta funkcja jest możliwa, ponieważ usługa Azure RMS dodaje poziom ochrony, która jest powiązana z danymi nawet wtedy, gdy opuszczą teren organizacji.
+[Usługa Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) toohelp zasad szyfrowania, tożsamości i autoryzacji używa Zabezpieczanie plików i wiadomości e-mail. Usługa Azure RMS działa na wielu urządzeniach — telefonach, tablety i komputery, aby chronić w obrębie organizacji i poza organizacją. Ta funkcja jest możliwa, ponieważ usługa Azure RMS dodaje poziom ochrony, który pozostaje hello danych, nawet wtedy, gdy opuszczą teren organizacji.
 
-Jeśli używasz usługi Azure RMS do ochrony plików za pomocą branżowego standardu kryptografii pełnej obsługi [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Podczas ochrony danych należy korzystać z usługi Azure RMS, masz gwarantują, że ta ochrona pozostanie z plikiem, nawet jeśli zostanie skopiowany do magazynu, które nie są pod kontrolą IT, takich jak Usługa magazynu w chmurze. Taki sam występuje w przypadku plików udostępnianych za pośrednictwem poczty e-mail, plik jest chroniony jako załącznik do wiadomości e-mail z instrukcjami sposobu otwierania chronionego załącznika.
-Podczas planowania wdrożenia usługi Azure RMS firma Microsoft zaleca następujące czynności:
+Gdy używasz usługi Azure RMS tooprotect plików za pomocą branżowego standardu kryptografii pełnej obsługi [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Podczas ochrony danych należy korzystać z usługi Azure RMS, masz hello gwarantują, że ochrona powitalnych pozostanie z plikiem hello, nawet jeśli jest skopiowany toostorage, który nie jest pod kontrolą hello IT, takich jak Usługa magazynu w chmurze. Hello sam występuje w przypadku plików udostępnianych za pośrednictwem poczty e-mail, hello plik jest chroniony jako załącznik tooan wiadomość e-mail, jak z instrukcjami tooopen hello chronionego załącznika.
+Podczas planowania wdrożenia usługi Azure RMS firma Microsoft zaleca hello następujące czynności:
 
-- Zainstaluj [aplikacji RMS sharing](https://technet.microsoft.com/library/dn339006.aspx). Ta aplikacja jest zintegrowany z pakietu Office aplikacji przez zainstalowanie pakietu Office dodatek tak, aby użytkownikom ochronę plików bezpośrednio.
+- Zainstaluj hello [aplikacji RMS sharing](https://technet.microsoft.com/library/dn339006.aspx). Ta aplikacja jest zintegrowany z pakietu Office aplikacji przez zainstalowanie pakietu Office dodatek tak, aby użytkownikom ochronę plików bezpośrednio.
 
-- Skonfiguruj aplikacje i usługi obsługują usługę Azure RMS
+- Skonfiguruj aplikacje i toosupport usług Azure RMS
 
 - Utwórz [szablonów niestandardowych](https://technet.microsoft.com/library/dn642472.aspx) która odzwierciedla wymagania firmy. Na przykład: szablon do górnej poufne dane, które powinny być stosowane w wszystkich ściśle tajne związane z wiadomości e-mail.
 
-Organizacje, które są słabe na [klasyfikacji danych](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) i ochrona plików może być bardziej narażony na wycieku danych. Bez ochrony prawidłowego pliku organizacji nie będzie można uzyskiwać cenne informacje biznesowe, monitorować nadużycia i uniemożliwić nieautoryzowanym dostępem do plików.
+Organizacje, które są słabe na [klasyfikacji danych](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) i ochrona plików może być bardziej narażony wycieku toodata. Bez ochrony prawidłowego pliku organizacji nie będą mogli tooobtain informacje biznesowe, monitorowanie nadużyć należy również uniemożliwić toofiles nieautoryzowanym dostępem.
 
 > [!Note]
-> Dodatkowe informacje na temat usługi Azure RMS od przeczytania artykułu [wprowadzenie do korzystania z usługi Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
+> Dodatkowe informacje na temat usługi Azure RMS od przeczytania artykułu hello [wprowadzenie do korzystania z usługi Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
 
 ## <a name="secure-your-application-protect"></a>Zabezpieczanie aplikacji (Ochrona)
-Gdy platforma Azure jest odpowiedzialny za bezpieczeństwo infrastruktury i platformy, która aplikacja działa na, jest obowiązek secure samej aplikacji. Innymi słowy musisz tworzenie, wdrażanie i zarządzanie kodem aplikacji i zawartości w bezpieczny sposób. W przeciwnym razie z kodu aplikacji lub zawartość nadal może być narażony na zagrożenia.
+Azure jest odpowiedzialny za bezpieczeństwo infrastruktury hello i platformy, która aplikacja działa na, ale jest toosecure Twojego odpowiedzialność samej aplikacji. Innymi słowy, należy toodevelop, wdrażania i zarządzania kod aplikacji i zawartości w bezpieczny sposób. W przeciwnym razie z kodu aplikacji lub zawartość nadal można toothreats narażone.
 
 ### <a name="web-application-firewall-waf"></a>Zapora aplikacji sieci Web
 [Zapora aplikacji sieci Web (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) jest funkcją [brama aplikacji w](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) zapewnia scentralizowane ochrony aplikacji sieci web z najczęściej luki w zabezpieczeniach i luk w zabezpieczeniach.
 
-Zapora aplikacji sieci Web zapewnia ochronę na podstawie reguł z [podstawowych zestawów reguł OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) w wersji 3.0 lub 2.2.9. Aplikacje sieci Web coraz częściej stają się obiektami złośliwych ataków wykorzystujących znane luki w zabezpieczeniach. Wśród nich często zdarzają się np. ataki polegające na iniekcji SQL i ataki z użyciem skryptów wykorzystywanych w wielu witrynach. Zapobieganie takim atakom z poziomu kodu aplikacji może być trudne. Może też wymagać rygorystycznego przestrzegania harmonogramu konserwacji, poprawek i monitorowania na poziomie wielu warstw topologii aplikacji. Scentralizowana zapora aplikacji sieci Web ułatwia zarządzanie zabezpieczeniami oraz zapewnia lepszą ochronę administratorów aplikacji przed zagrożeniami i intruzami. Zapora aplikacji sieci Web może reagować na zagrożenia bezpieczeństwa szybciej — poprzez wdrażanie poprawek zapobiegających wykorzystaniu znanych luk w zabezpieczeniach w centralnej lokalizacji zamiast w poszczególnych aplikacjach sieci Web. Istniejące bramy Application Gateway można łatwo przekonwertować na bramę Application Gateway obsługującą zaporę aplikacji sieci Web.
+Zapora aplikacji sieci Web jest na podstawie reguł z hello [zestawów reguł core OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 lub 2.2.9. Aplikacje sieci Web coraz częściej stają się obiektami złośliwych ataków wykorzystujących znane luki w zabezpieczeniach. Typowe te luki w zabezpieczeniach ataki, skryptów krzyżowych ataków tooname kilka. Zapobieganie takich ataków w kodzie aplikacji może być trudne i może wymagać rygorystyczne konserwacji, monitorowanie w wielu warstw Topologia aplikacji hello i stosowanie poprawek. Zapora aplikacji sieci web scentralizowane ułatwia zarządzanie zabezpieczeniami znacznie prostsza i zapewnia lepsze zapewnienia administratorom tooapplication przed zagrożeniami lub wtargnięcia. Rozwiązanie zapory aplikacji sieci Web można reagować zagrożeniem bezpieczeństwa tooa szybsze przez stosowanie poprawek znane luki w zabezpieczeniach w centralnej lokalizacji i zabezpieczanie wszystkich aplikacji sieci web indywidualnych. Brama aplikacji w włączona jest Zapora aplikacji sieci web przekonwertowanego tooa można łatwo istniejącej bramy aplikacji.
 
-Oto niektóre typowe luki w zabezpieczeniach sieci Web, przed którymi chroni zapora aplikacji sieci Web:
+Niektóre hello zapory aplikacji sieci web, która chroni przed znanych luk w sieci web obejmuje:
 
 - Ochrona przed atakami polegającymi na iniekcji SQL
 
@@ -313,62 +313,62 @@ Oto niektóre typowe luki w zabezpieczeniach sieci Web, przed którymi chroni za
 - Wykrycie typowych błędów konfiguracji aplikacji (czyli Apache usług IIS, itp.)
 
 > [!Note]
-> Aby bardziej szczegółową listę reguł i ich ochrony, zobacz następujące [podstawowe zestawy reguł](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets):
+> Aby bardziej szczegółową listę reguł i ich ochrony, zobacz następujące hello [podstawowe zestawy reguł](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets):
 
-Platforma Azure udostępnia również kilka funkcji łatwy w użyciu w celu zabezpieczania ruchu przychodzącego i wychodzącego dla aplikacji. Azure również pomaga klientom zabezpieczyć ich kodu aplikacji przez zapewnienie zewnętrznie realizować funkcje do skanowania luk w zabezpieczeniach aplikacji sieci web.
+Platforma Azure oferuje również kilka toohelp łatwy w użyciu funkcji zabezpieczania ruchu przychodzącego i wychodzącego dla aplikacji. Azure umożliwia klientom zabezpieczyć ich kodu aplikacji przez zapewnienie zewnętrznie dostępne również tooscan funkcji luk w zabezpieczeniach aplikacji sieci web.
 
 - [Zabezpieczenia aplikacji sieci web przy użyciu różne metody uwierzytelniania i autoryzacji](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization)
 
     - [Konfiguracja uwierzytelniania aplikacji usługi Azure Active Directory](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
 
-- [Bezpieczny ruch do aplikacji przez włączenie Transport Layer Security (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
+- [Bezpieczny ruch tooyour aplikacji przez włączenie Transport Layer Security (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
 
     - [Wymuś cały ruch przychodzący za pośrednictwem połączenia HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 
   - [Włącz zabezpieczenie Transport ograniczeniami (HSTS)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
 
 
-- [Ograniczanie dostępu do aplikacji za pomocą adresu IP klienta](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
+- [Ograniczanie dostępu do aplikacji tooyour według adresu IP klienta](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
 
-- [Ograniczanie dostępu do aplikacji przez zachowanie klienta - częstotliwość żądania i współbieżność](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
+- [Ograniczenie dostępu do aplikacji tooyour przez zachowanie klienta - częstotliwość żądania i współbieżność](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
 
 - [Skanowanie kodu aplikacji sieci web dla luk w zabezpieczeniach za pomocą skanowania przy użyciu usługi Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
-- [Skonfiguruj uwierzytelnianie wzajemne TLS, aby wymagać certyfikaty klienta do nawiązania połączenia aplikacji sieci web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
+- [Konfigurowanie protokołu TLS wzajemnego uwierzytelniania toorequire klienta certyfikaty tooconnect tooyour sieci web aplikacji](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
 
-- [Skonfiguruj certyfikat klienta do użycia z aplikacji w celu nawiązania bezpiecznego połączenia z zasobów zewnętrznych](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
+- [Skonfiguruj certyfikat klienta do użycia z Twojej aplikacji toosecurely łączenie zasobów tooexternal](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 
-- [Usuń nagłówków standard server, aby uniknąć narzędzi z odcisków aplikacji](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
+- [Usuń narzędzia tooavoid nagłówki standardowe serwera z odcisków aplikacji](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
 - [Bezpieczne łączenie aplikacji z zasobami w sieci prywatnej przy użyciu sieci VPN typu punkt-lokacja](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
 
 - [Bezpieczne łączenie z zasobami w sieci prywatnej przy użyciu połączeń hybrydowych aplikacji](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
 
-Usługa aplikacji Azure korzysta z tego samego rozwiązania chroniące przed złośliwym kodem przez usług Azure Cloud Services i maszyny wirtualne. Aby dowiedzieć się więcej o tym odwoływać się do naszej [dokumentacji ochrony przed złośliwym kodem](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+Azure korzysta z usługi aplikacji hello tego samego rozwiązania chroniące przed złośliwym kodem przez usług Azure Cloud Services i maszyny wirtualne. toolearn więcej na ten temat można znaleźć tooour [dokumentacji ochrony przed złośliwym kodem](https://docs.microsoft.com/azure/security/azure-security-antimalware).
 
 ## <a name="secure-your-network-protect"></a>Zabezpieczenia sieci (Ochrona)
-Microsoft Azure obejmuje to niezawodna infrastruktura sieci do obsługi aplikacji i wymaganiami dotyczącymi łączności usługi. Łączność sieciowa będzie możliwe między zasobami znajdującymi się na platformie Azure, między lokalnymi i Azure hostowanych zasobów oraz do i z Internetu i Azure.
+Microsoft Azure obejmuje niezawodne toosupport infrastruktury sieci, aplikacji i wymaganiami dotyczącymi łączności usługi. Łączność sieciowa będzie możliwe między zasobami znajdującymi się na platformie Azure, między lokalnymi i Azure hostowanej zasobów oraz tooand z hello Internet i Azure.
 
-[Infrastruktury sieci platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) umożliwia bezpieczne łączenie z zasobów platformy Azure za pomocą [sieci wirtualnych (sieci wirtualne)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Sieci wirtualnej jest odzwierciedla w chmurze Twoją sieć. Sieci wirtualnej jest logiczną izolacją sieci chmury Azure przeznaczoną dla Twojej subskrypcji. Możesz połączyć sieci wirtualnych do sieci lokalnej.
+Witaj [infrastruktury sieci platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) umożliwia toosecurely możesz połączyć zasoby platformy Azure tooeach innych z [sieci wirtualnych (sieci wirtualne)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Sieci wirtualnej jest reprezentację sieci w chmurze hello. Sieci wirtualnej jest logiczną izolacją hello chmury Azure w wersji dedykowanej sieci tooyour subskrypcji. Możesz połączyć sieci lokalnej tooyour sieci wirtualnych.
 
 ![Zabezpieczenia sieci (Ochrona)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
-Jeśli potrzebujesz kontroli dostępu na poziomie sieci podstawowej (na podstawie adresu IP i protokoły TCP lub UDP), a następnie można użyć [grup zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg). Grupy zabezpieczeń sieci (NSG) jest filtrowanie Zapora podstawowa pakietów stanowe i umożliwia kontrolowanie dostępu na podstawie [5-elementowej](https://www.techopedia.com/definition/28190/5-tuple).
+Jeśli potrzebujesz kontroli dostępu na poziomie sieci podstawowej (oparte na adres i hello TCP lub UDP protokołów IP), a następnie można użyć [grup zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg). Grupy zabezpieczeń sieci (NSG) jest filtrowanie Zapora podstawowa pakietów stanowe i umożliwia toocontrol dostępu na podstawie [5-elementowej](https://www.techopedia.com/definition/28190/5-tuple).
 
-Sieć platformy Azure obsługuje możliwość dostosowania zachowania routingu ruchu w sieci dla sieci wirtualne platformy Azure. Można to zrobić przez skonfigurowanie [trasy zdefiniowane przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) na platformie Azure.
+Sieć platformy Azure obsługuje zachowania routingu hello toocustomize możliwości hello ruchu w sieci dla sieci wirtualne platformy Azure. Można to zrobić przez skonfigurowanie [trasy zdefiniowane przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) na platformie Azure.
 
-[Wymuszone tunelowanie](https://www.petri.com/azure-forced-tunneling) mechanizm służy do zapewnienia usług nie są dozwolone do nawiązania połączenia z urządzeniami przez Internet.
+[Wymuszone tunelowanie](https://www.petri.com/azure-forced-tunneling) jest mechanizm służy tooensure, że usługi nie są dozwolone tooinitiate toodevices połączenia na powitania Internet.
 
-Obsługuje platformy Azure w wersji dedykowanej łącza sieci WAN łączność z siecią lokalną i sieci wirtualnej platformy Azure z [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). Powiązanie Azure i witryny sieci Web używa dedykowane połączenie, które nie przechodzi przez publicznej sieci Internet. Jeśli aplikacja Azure jest uruchomiona w wielu centrach danych, możesz użyć [usługi Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) rozsyłanie żądań od użytkowników inteligentnie między wystąpieniami aplikacji. Można również kierować ruchem do usługi nie są uruchomione na platformie Azure, jeśli są one dostępne z Internetu.
+Obsługuje platformy Azure w wersji dedykowanej sieci lokalnej tooyour łączności łącza sieci WAN i sieci wirtualnej platformy Azure z [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). Powiązanie Hello Azure i witryny sieci Web używa dedykowanego połączenia nie przechodzi przez hello publicznej sieci Internet. Jeśli aplikacja Azure jest uruchomiona w wielu centrach danych, możesz użyć [usługi Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) tooroute żądania od użytkowników inteligentnie między wystąpieniami aplikacji hello. Można również przekierować tooservices ruchu nie działa na platformie Azure, jeśli są one dostępne z hello Internet.
 
 ## <a name="virtual-machine-security-protect"></a>Zabezpieczeń maszyny wirtualnej (Ochrona)
 
 [Maszyny wirtualne platformy Azure](https://docs.microsoft.com/azure/virtual-machines/) umożliwia wdrażanie szeroką gamę rozwiązań opartych na przetwarzaniu w sposób elastyczne. Dzięki obsłudze rozwiązań Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM i SAP oraz usługi BizTalk Services na platformie Azure możesz wdrożyć dowolne obciążenie w dowolnym języku i w prawie każdym systemie operacyjnym.
 
-Przy użyciu platformy Azure, można użyć [ochrony przed złośliwym oprogramowaniem](https://docs.microsoft.com/azure/security/azure-security-antimalware) od dostawców zabezpieczeń, takie jak Microsoft, firmy Symantec, Trend Micro i Kaspersky, aby chronić maszyny wirtualne z złośliwych plików, adware i innymi zagrożeniami.
+Przy użyciu platformy Azure, można użyć [ochrony przed złośliwym oprogramowaniem](https://docs.microsoft.com/azure/security/azure-security-antimalware) od dostawców zabezpieczeń, takich jak Microsoft, firmy Symantec, Trend Micro i Kaspersky tooprotect maszyn wirtualnych z złośliwych plików, adware i innymi zagrożeniami.
 
-Antimalware firmy Microsoft dla usług Azure Cloud Services i maszyn wirtualnych jest możliwość ochrony w czasie rzeczywistym, która pomaga w identyfikacji i usuwania wirusy, programy szpiegujące lub inne złośliwe oprogramowanie. Microsoft Antimalware udostępnia można skonfigurować alerty, gdy wiadomo, że złośliwego lub niechcianego oprogramowania próbuje się zainstalować lub uruchomić w systemie Azure.
+Antimalware firmy Microsoft dla usług Azure Cloud Services i maszyn wirtualnych jest możliwość ochrony w czasie rzeczywistym, która pomaga w identyfikacji i usuwania wirusy, programy szpiegujące lub inne złośliwe oprogramowanie. Microsoft Antimalware udostępnia można skonfigurować alerty, gdy znane tooinstall prób złośliwego lub niechcianego oprogramowania, się lub uruchomić w systemie Azure.
 
 [Kopia zapasowa Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) jest skalowalna, która chroni dane aplikacji z zero inwestycji kapitału i minimalne kosztów operacyjnych. Błędy aplikacji mogą powodować uszkodzenia danych, a błędy użytkowników — usterki aplikacji. Kopia zapasowa Azure maszynach wirtualnych z systemem Windows i Linux są chronione.
 
@@ -376,67 +376,67 @@ Antimalware firmy Microsoft dla usług Azure Cloud Services i maszyn wirtualnych
 
 ## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Zapewnianie zgodności: usługi powodu starannością listy kontrolnej w chmurze (Ochrona)
 
-Microsoft opracowała [z chmury usługi z powodu starannością listy kontrolnej](https://aka.ms/cloudchecklist.download) może pomóc organizacji korzystają z powodu starannością zgodnie z ich należy wziąć pod uwagę przeniesienie do chmury. Zapewnia to struktura dla organizacji, rozmiar i typ — prywatnej firmy i organizacje sektora publicznego, w tym dla instytucji rządowych na wszystkich poziomach oraz organizacjom — Aby zidentyfikować ich wydajności, usługi, zarządzanie danymi i ładu cele i wymagania. Pozwala na porównanie oferowanych przez różnych dostawców usługi w chmurze ostatecznie stanowiący podstawę umowy usługi chmury.
+Microsoft opracowała [hello Lista kontrolna starannością na chmurze usługi](https://aka.ms/cloudchecklist.download) organizacji toohelp stosowny starannością jako uznają chmury toohello przenoszenia. Zapewnia to struktura dla organizacji, rozmiar i typ — prywatnej firmy i organizacje sektora publicznego, w tym dla instytucji rządowych na wszystkich poziomach oraz organizacjom — tooidentify ich wydajności, usługi Zarządzanie danymi i cele ładu i wymagania. Dzięki temu są toocompare hello oferowanych przez różnych dostawców usługi w chmurze ostatecznie stanowiący podstawę hello umowy usługi chmury.
 
-Lista kontrolna zawiera platforma, która wyrównuje klauzuli przez klauzulę o nowy standard międzynarodowych umów usługi chmury, ISO/IEC 19086. Ten standard udostępnia zestaw połączonych uwagi dla organizacji ułatwić im podejmowania decyzji o przyjęciu chmury, a następnie utwórz podstawą typowe porównanie ofert usług w chmurze.
+Lista kontrolna Hello zapewniają strukturę, która wyrównuje klauzuli przez klauzulę o nowy standard międzynarodowych umów usługi chmury, ISO/IEC 19086. Ten standard udostępnia zestaw połączonych uwag dotyczących organizacji toohelp ich podejmowania decyzji o przyjęciu chmury i utworzyć podstawą typowe porównanie ofert usług w chmurze.
 
-Lista kontrolna zamienia dokładnie sprawdzonych i doświadczonych przeniesienia do chmury, podając wskazówki strukturalnych i podejście spójne i powtarzalnej Wybieranie dostawcy usług w chmurze.
+Lista kontrolna Hello zamienia chmury toohello dokładnie sprawdzonych i doświadczonych przenoszenia, podając wskazówki strukturalnych i podejście spójne i powtarzalnej Wybieranie dostawcy usług w chmurze.
 
-Wdrożenia chmury nie jest już po prostu decyzji technologii. Ponieważ lista kontrolna wymagania touch na wszystkie aspekty organizacji, udostępniają zwołać wszystkich kluczy wewnętrzny-podejmujące — CIO i CISO, jak również prawnych, ryzyka specjalistom ds. zarządzania, nabywania i zgodności. Powoduje to zwiększenie wydajności proces podejmowania decyzji i podstaw decyzji w rozsądkiem dźwięku, co zmniejsza prawdopodobieństwo nieprzewidzianego roadblocks do przyjęcia.
+Wdrożenia chmury nie jest już po prostu decyzji technologii. Ponieważ lista kontrolna wymagania touch na wszystkie aspekty organizacji, służą tooconvene wszystkich kluczy wewnętrzny-podejmujące — Witaj CIO i CISO, a także prawnych, ryzyka specjalistom ds. zarządzania, nabywania i zgodności. Powoduje to zwiększenie wydajności hello hello proces podejmowania decyzji i podstaw decyzji w dźwięk uzasadnienie, co zmniejsza prawdopodobieństwo hello tooadoption nieprzewidzianego roadblocks.
 
-Ponadto lista kontrolna:
+Ponadto hello Lista kontrolna:
 
-- Udostępnia tematy dyskusji klucza dla decydentów na początku procesu wdrażania chmury.
+- Udostępnia tematy dyskusji klucza dla decydentów początku hello hello chmury przyjęcia procesu.
 
-- Obsługuje dokładnego firm dyskusji związanych z przepisami i cele w organizacji prywatności, dane osobowe (dane osobowe) i bezpieczeństwo danych.
+- Obsługuje dokładnego firm dyskusjach na temat wykonawcze i cele w organizacji hello prywatności, dane osobowe (dane osobowe) i bezpieczeństwo danych.
 
 - Pomaga organizacjom Zidentyfikuj potencjalne problemy, które mogą wpłynąć na projekt w chmurze.
 
-- Zapewnia spójny zestaw pytań, samych warunków, definicje, metryki i materiałów dla każdego dostawcy, aby uprościć proces porównanie ofert od dostawcy usług w innej chmurze.
+- Zapewnia spójny zestaw pytań z hello samych warunków, definicje, metryki i materiałów dla każdego dostawcy, proces hello toosimplify porównanie ofert od dostawcy usług w innej chmurze.
 
 ## <a name="azure-infrastructure-and-application-security-validation-detect"></a>Azure walidacji infrastruktury i aplikacji (wykrywa)
 
-[Azure bezpieczeństwa operacyjnego](https://docs.microsoft.com/azure/security/azure-operational-security) odwołuje się do usług, formanty i funkcje dostępne dla użytkowników do ochrony danych, aplikacji i innych zasobów na platformie Microsoft Azure.
+[Azure bezpieczeństwa operacyjnego](https://docs.microsoft.com/azure/security/azure-operational-security) odwołuje się toohello usług, kontrolek i toousers dostępnych funkcji ochrony danych, aplikacji i innych zasobów na platformie Microsoft Azure.
 
 ![Sprawdzanie poprawności zabezpieczeń (wykrywa)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
-Operacyjne zabezpieczeń platformy Azure w oparciu o strukturę, która zawiera wiedzę za pośrednictwem różnych funkcji, które są unikatowe dla firmy Microsoft, w tym Microsoft Security Development Lifecycle (SDL), program Microsoft Security odpowiedzi Centrum i głębokie pogłębianie wiedzy na temat zagrożeń bezpieczeństwa.
+Azure bezpieczeństwa operacyjnego w oparciu framework, która będzie zawierała wiedzę hello za pośrednictwem różnych funkcji, które są unikatowe tooMicrosoft, w tym hello Microsoft Security Development Lifecycle (SDL), hello Centrum odpowiedź zabezpieczeń firmy Microsoft Program i głębokie świadomości hello bezpieczeństwa zagrożeń.
 
 ### <a name="microsoft-operations-management-suiteoms"></a>Microsoft operations management suite(OMS)
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) rozwiązanie do zarządzania IT dla chmur hybrydowych. Użyte bez parametrów lub rozszerzyć Twoje istniejące wdrożenie programu System Center, OMS umożliwia maksymalną elastyczność i kontroli do zarządzania infrastruktury w chmurze.
+[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) jest hello IT rozwiązania do zarządzania hello chmura hybrydowa. Użyte bez parametrów lub tooextend, który zapewnia istniejącego wdrożenia programu System Center, OMS hello maksymalną elastyczność i kontrola zarządzania infrastruktury w chmurze.
 
 ![Microsoft operations management suite(OMS)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Dzięki OMS mogą zarządzać wystąpienie w żadną chmurą, tym lokalnymi, Azure AWS, Windows Server, Linux, VMware i OpenStack, na niższe koszty niż konkurencyjnych rozwiązania. Utworzony na świecie pierwszy chmury, OMS oferuje nowe podejście do zarządzania oznacza to najszybsze i najbardziej ekonomiczny sposób spełniają wyzwania biznesowe i uwzględnić nowe obciążenia, aplikacji i środowisk chmury przedsiębiorstwa.
+Dzięki OMS mogą zarządzać wystąpienie w żadną chmurą, tym lokalnymi, Azure AWS, Windows Server, Linux, VMware i OpenStack, na niższe koszty niż konkurencyjnych rozwiązania. Skompilowany dla Witaj świecie pierwszy chmury, OMS oferuje nowe toomanaging podejście przedsiębiorstwie hello najszybsze i najbardziej ekonomiczny sposób toomeet nowych transakcji będzie wymagał i uwzględnić nowe obciążenia, aplikacji i środowisk chmury.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Usługa [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) umożliwia monitorowanie pakietu OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Te dane mogą obejmować zdarzenia, dane wydajności i niestandardowe dane dostarczane przez interfejs API. Zebrane dane są dostępne na potrzeby alertów, analizy i eksportu.
+Usługa [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) umożliwia monitorowanie pakietu OMS przez zbieranie danych z zarządzanych zasobów w centralnym repozytorium. Te dane mogą obejmować zdarzeń, danych wydajności lub niestandardowe dane przekazane za pośrednictwem hello interfejsu API. Po zebraniu danych, danych hello jest dostępna dla alertów, analizy i eksportowanie.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
-Ta metoda umożliwia konsolidowanie danych z różnych źródeł, więc można połączyć dane z usługami Azure z istniejącą lokalnego środowiska. Ponadto wprowadza wyraźny podział między zbieraniem danych a akcjami wykonanymi na tych danych, tak aby wszystkie akcje były dostępne dla wszystkich typów danych.
+Ta metoda umożliwia tooconsolidate danych z różnych źródeł, więc można połączyć dane z usługami Azure z istniejącą lokalnego środowiska. Oddziela również wyraźnie hello zbierania danych hello hello akcję podejmowaną w odniesieniu do danych tak, aby wszystkie akcje są dostępne tooall rodzajów danych z.
 
 ### <a name="azure-security-center"></a>Centrum zabezpieczeń Azure
 
-Usługa [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) ułatwia zapobieganie zagrożeniom, ich wykrywanie i reagowanie na nie, a przy tym zapewnia lepszy wgląd i większą kontrolę w zakresie bezpieczeństwa zasobów na platformie Azure. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby pozostać niezauważone, a także współpracuje z szerokim ekosystemem rozwiązań z zakresu zabezpieczeń.
+[Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) pomaga zapobiegania, wykrywania i odpowie toothreats lepszy wgląd w i kontroli nad hello zabezpieczeń zasobów platformy Azure. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby pozostać niezauważone, a także współpracuje z szerokim ekosystemem rozwiązań z zakresu zabezpieczeń.
 
-Centrum zabezpieczeń analizuje stan zabezpieczeń zasobów platformy Azure w celu identyfikowania potencjalnych luk w zabezpieczeniach. Lista zaleceń prowadzi użytkownika przez proces konfigurowania wymaganych elementów sterujących.
+Centrum zabezpieczeń analizuje stan zabezpieczeń hello z zasobów platformy Azure tooidentify potencjalnych luk w zabezpieczeniach. Lista zaleceń prowadzi użytkownika przez proces konfigurowania wymaganych elementów sterujących hello.
 
-Przykłady obejmują:
+Przykłady:
 
-- Inicjowanie ochrony przed złośliwym oprogramowaniem w celu identyfikacji i usuwania złośliwego oprogramowania
+- Inicjowanie obsługi ochrony przed złośliwym kodem toohelp identyfikacji i usuwania złośliwego oprogramowania
 
-- Konfigurowanie grup zabezpieczeń sieci i reguł sterujących ruchem do maszyn wirtualnych
+- Konfigurowanie sieci zabezpieczeń grup i reguł toocontrol ruchu tooVMs
 
-- Inicjowanie zapór aplikacji sieci web pomagających chronić przed atakami na aplikacje sieci web użytkownika
+- Inicjowanie obsługi administracyjnej zapór aplikacji sieci web toohelp chronić przed atakami, które odnoszą się do aplikacji sieci web
 
 - Wdrażanie brakujących aktualizacji systemu
 
-- Modyfikowanie konfiguracji systemu operacyjnego, które odbiegają od zalecanych standardów
+- Modyfikowanie konfiguracji systemu operacyjnego, które nie odpowiadają hello zalecanych planów bazowych
 
-Centrum zabezpieczeń automatycznie gromadzi, analizuje i integruje dane dzienników z zasobów platformy Azure, sieci i rozwiązań partnerskich, takich jak programy chroniące przed złośliwym oprogramowaniem i zapory. Po wykryciu zagrożenia tworzony jest alert zabezpieczeń. Przykłady obejmują wykrywanie:
+Centrum zabezpieczeń automatycznie gromadzi, analizuje i integruje dane dzienników z zasobów platformy Azure, hello sieci i rozwiązań partnerskich, takich jak programy ochrony przed złośliwym oprogramowaniem i zapory. Po wykryciu zagrożenia tworzony jest alert zabezpieczeń. Przykłady obejmują wykrywanie:
 
 - Złamany maszyny wirtualnej komunikowania się ze znanymi złośliwymi adresami IP
 
@@ -448,25 +448,25 @@ Centrum zabezpieczeń automatycznie gromadzi, analizuje i integruje dane dzienni
 
 ### <a name="azure-monitor"></a>Monitor systemu Azure
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) zawiera wskaźniki do informacje dotyczące określonych typów zasobów. Zapewnia ona wizualizacji, zapytania, routingu, alerty, automatyczne skalowanie i automatyzacji na dane zarówno z infrastrukturą systemu Azure (dziennik) i każdego pojedynczego zasobu platformy Azure (dzienników diagnostycznych).
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) zawiera tooinformation wskaźniki dotyczące określonych typów zasobów. Zapewnia ona wizualizacji, zapytania, routingu, alerty, automatyczne skalowanie i automatyzacji na dane zarówno z hello infrastruktury platformy Azure (dziennik) i każdego pojedynczego zasobu platformy Azure (dzienników diagnostycznych).
 
-Aplikacje w chmurze są złożonych z wielu części ruchu. Monitorowanie zawiera danych, aby upewnić się, że aplikacja pozostaje w górę i działa w dobrej kondycji. Pomaga również umożliwia stave potencjalne problemy i rozwiązywanie problemów w przeszłości te.
+Aplikacje w chmurze są złożonych z wielu części ruchu. Monitorowania udostępnia tooensure danych, która aplikacja pozostaje w górę i uruchomiona w dobrej kondycji. Pomaga również należy toostave wyłączone potencjalne problemy lub Rozwiązywanie problemów z przeszłości te.
 
-![Azure monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig10.png) Ponadto dane monitorowania można użyć w celu uzyskania szczegółowych informacji o aplikacji. Wiedzy może pomóc zwiększyć wydajność aplikacji lub utrzymania lub automatyzować czynności, które w przeciwnym razie wymagają ręcznej interwencji.
+![Azure monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig10.png) Ponadto można użyć monitorowania danych toogain szczegółowych informacji o aplikacji. Wiedzy może pomóc tooimprove wydajność aplikacji lub utrzymania lub automatyzować czynności, które w przeciwnym razie wymagają ręcznej interwencji.
 
-Inspekcja zabezpieczeń sieci jest niezbędne do wykrycia luk w zabezpieczeniach sieci i zapewniania zgodności z przepisami ładu modelu i zabezpieczeń IT. Widok grupy zabezpieczeń można pobrać skonfigurowanej grupy zabezpieczeń sieci i reguły zabezpieczeń, a także reguły zabezpieczeń skuteczne. Z listą zasady zastosowane należy określić się, że porty są otwarte i ss luki w zabezpieczeniach sieci.
+Inspekcja zabezpieczeń sieci jest niezbędne do wykrycia luk w zabezpieczeniach sieci i zapewniania zgodności z przepisami ładu modelu i zabezpieczeń IT. Z widokiem grupy zabezpieczeń możesz można pobrać hello skonfigurowane reguły grupy zabezpieczeń sieci i zabezpieczeń, a także hello reguły efektywnym elementem systemu zabezpieczeń. Z listą hello zasady zastosowane należy określić się, że są otwarte porty hello i ss luki w zabezpieczeniach sieci.
 
 ### <a name="network-watcher"></a>Obserwatora sieciowego
 
-[Monitor sieci](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) to regionalnych usługa, która umożliwia monitorowanie i diagnozowanie warunki na poziomie sieci w, do i z platformy Azure. Diagnostyka sieci i narzędzi wizualizacji dostępnych z obserwatora sieciowego pomagają zrozumieć, diagnozowanie i Uzyskaj wgląd do sieci na platformie Azure. Ta usługa obejmuje przechwytywania pakietów, następnego przeskoku, przepływ IP Sprawdź widok grupy zabezpieczeń, dzienniki przepływu NSG. Scenariusz poziomu monitorowania udostępnia widok pełnego zasobów sieciowych, w przeciwieństwie do monitorowania zasobów poszczególnych sieci.
+[Monitor sieci](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) to regionalnych usługa, która umożliwia toomonitor i diagnozowanie warunki na poziomie sieci w, do i z platformy Azure. Diagnostyka sieci i narzędzi wizualizacji dostępnych z obserwatora sieciowego pomagają zrozumieć, diagnozowanie i uzyskać informacje na temat technologii sieci tooyour na platformie Azure. Ta usługa obejmuje przechwytywania pakietów, następnego przeskoku, przepływ IP Sprawdź widok grupy zabezpieczeń, dzienniki przepływu NSG. Scenariusz poziomu monitorowania udostępnia widok tooend zakończenia zasobów sieciowych w monitorowania zasobów sieciowych tooindividual kontrastu.
 
 ### <a name="storage-analytics"></a>Analityka magazynu
 
-[Analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) może przechowywać metryki, które obejmują statystyk i pojemności dane zagregowane transakcji dotyczące żądań do usługi magazynu. Transakcje są raportowane zarówno na poziomie operacji interfejsu API, a także na poziomie usługi magazynu, a pojemność jest zgłaszany na poziomie usługi magazynu. Dane metryk można analizować wykorzystanie usługi magazynu, diagnozowanie problemów z żądań wysyłanych z usługą magazynu i poprawić wydajność aplikacji, które używają usługi.
+[Analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) może przechowywać metryki, które zawierają zagregowane transakcji statystyk i pojemności dane dotyczące usługi Magazyn tooa żądań. Transakcje są raportowane zarówno na poziomie operacji hello interfejsu API, a także na poziomie usługi magazynu hello i pojemności jest zgłaszany na poziomie usługi hello magazynu. Dane metryk można wykorzystania usługi magazynu używanych tooanalyze, diagnozowanie problemów z żądania wysyłane przed hello usługi magazynu i tooimprove hello wydajności aplikacji korzystających z usługi.
 
 ### <a name="application-insights"></a>Usługa Application insights
 
-[Usługa Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) jest rozszerzalną usługę zarządzania wydajności aplikacji (APM) dla deweloperów sieci web na wielu platformach. Użyj tej usługi do monitorowania aplikacji sieci Web na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Zawiera on zaawansowane analizy narzędzia ułatwiające diagnozowanie problemów i zrozumieć, co zrobić użytkownicy, z aplikacją. Usługa ta pomaga w ciągłym udoskonalaniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js i J2EE, hostowanych lokalnie lub w chmurze. Integruje się z procesu opracowywania oprogramowania, a ma punkty połączenia do różnych narzędzi programistycznych.
+[Usługa Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) jest rozszerzalną usługę zarządzania wydajności aplikacji (APM) dla deweloperów sieci web na wielu platformach. Użyj go toomonitor aplikacji sieci web na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Obejmuje on analytics zaawansowanych narzędzi toohelp diagnozować problemy i toounderstand co użytkownicy wykonać za pomocą aplikacji. Zaprojektowano go toohelp stale zwiększyć wydajność i użyteczność. Działa w przypadku aplikacji na różnych platformach w tym .NET, Node.js i J2EE obsługiwanego lokalnie lub w chmurze hello. Integruje się z procesu opracowywania oprogramowania, a ma tooa punktów połączenia różnych narzędzi programistycznych.
 
 Monitoruje ona:
 
@@ -474,7 +474,7 @@ Monitoruje ona:
 
 - **Współczynniki zależności, czasy reakcji i współczynniki błędów** — dowiedz się, czy usługi zewnętrzne nie spowalniają pracy.
 
-- **Wyjątki** — analizy zagregowanych danych statystycznych, lub wybierz określone wystąpienia i przejść do szczegółów w powiązanych żądań i ślad stosu. Są zgłaszane zarówno wyjątki serwera, jak i przeglądarki.
+- **Wyjątki** — analizowania statystyk zagregowane hello, lub wybierz określone wystąpienia i przejść do szczegółów w hello ślad stosu i powiązane żądań. Są zgłaszane zarówno wyjątki serwera, jak i przeglądarki.
 
 - **Wydajność ładowania i wyświetleń stron** — zgłoszona przez przeglądarki użytkowników.
 
@@ -488,31 +488,31 @@ Monitoruje ona:
 
 - **Diagnostyczne dzienniki śledzenia** z Twojej aplikacji — dzięki temu możesz skorelować zdarzenia śledzenia z żądaniami.
 
-- **Niestandardowe zdarzenia i metryki** zapisu samodzielnie w kodzie serwera lub klienta, do śledzenia zdarzeń biznesowych, takich jak towarów sprzedanych, lub gry won.
-Infrastruktura aplikacji zwykle obejmuje wiele składników — może to być maszyna wirtualna, konto magazynu i sieć wirtualna albo aplikacja sieci Web, baza danych, serwer bazy danych i usługi zewnętrzne. Te składniki nie są widoczne jako osobne jednostki, tylko jako powiązane i zależne od siebie nawzajem części jednej całości. Dlatego najlepiej wdrażać i monitorować je oraz zarządzać nimi grupowo. [Usługa Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) umożliwia pracę z zasobami w rozwiązaniu jako grupa.
+- **Niestandardowe zdarzenia i metryki** napisać samodzielnie w kodzie powitania klienta lub serwera, tootrack zdarzenia biznesowe, takie jak towarów sprzedanych lub gry won.
+Hello infrastruktura aplikacji zwykle obejmuje wiele składników — może być maszynę wirtualną, konta magazynu i sieci wirtualnej lub aplikacji sieci web, bazy danych, serwer bazy danych i 3 usług firm. Te składniki nie są widoczne jako osobne jednostki, tylko jako powiązane i zależne od siebie nawzajem części jednej całości. Mają toodeploy, zarządzanie i monitorowanie ich jako grupa. [Usługa Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pozwala toowork z zasobami hello w rozwiązaniu jako grupa.
 
-Wszystkie zasoby danego rozwiązania można wdrożyć, zaktualizować lub usunąć w ramach jednej skoordynowanej operacji. Wdrażanie wykonuje się przy użyciu szablonu, którego można następnie używać w różnych środowiskach (testowanie, etap przejściowy i produkcja). Usługa Resource Manager zapewnia funkcje zabezpieczeń, inspekcji i tagowania ułatwiające zarządzanie zasobami po wdrożeniu.
+Można wdrożyć, zaktualizować lub usunąć wszystkie zasoby powitania dla danego rozwiązania w jednej, skoordynowanej operacji. Wdrażanie wykonuje się przy użyciu szablonu, którego można następnie używać w różnych środowiskach (testowanie, etap przejściowy i produkcja). Usługa Resource Manager zapewnia zabezpieczeń, inspekcji i znakowanie toohelp funkcje zarządzania zasobami po wdrożeniu.
 
-**Korzyści wynikające ze stosowania usługi Resource Manager**
+**Zalety Hello za pomocą Menedżera zasobów**
 
 Usługa Resource Manager zapewnia kilka korzyści:
 
-- Możliwość grupowego wdrożenia i monitorowania wszystkich zasobów w ramach rozwiązania oraz zarządzania nimi (zamiast obsługiwania zasobów pojedynczo).
+- Można wdrożyć, zarządzanie i monitorowanie wszystkich zasobów hello do rozwiązania jako grupy zamiast obsługiwania zasobów pojedynczo.
 
-- Możliwość wielokrotnego wdrażania rozwiązania w całym cyklu programistycznym z gwarancją spójnego stanu zasobów po każdym wdrożeniu.
+- Można wielokrotnie wdrażania rozwiązania w całym cyklu programistycznym hello i mieć pewność, zasoby są wdrażane w spójnym stanie.
 
 - Możliwość zarządzania infrastrukturą przy użyciu szablonów deklaratywnych zamiast skryptów.
 
-- Możliwość definiowania zależności między zasobami, aby wdrażać je w odpowiedniej kolejności.
+- Można zdefiniować hello zależności między zasobami, aby wdrażać je w odpowiedniej kolejności hello.
 
-- Możliwość stosowania kontroli dostępu do wszystkich usług w grupie zasobów dzięki natywnej integracji funkcji kontroli dostępu na podstawie ról z platformą zarządzania.
+- Można zastosować usług tooall kontroli dostępu w grupie zasobów, ponieważ na platformie zarządzania hello natywnej integracji funkcji kontroli dostępu opartej na rolach (RBAC).
 
-- Możliwość dodawania tagów do zasobów w celu logicznego uporządkowania wszystkich zasobów w ramach subskrypcji.
+- Możliwość dodawania tagów tooresources toologically organizowanie wszystkie zasoby hello w ramach subskrypcji.
 
-- Możliwość wyjaśniania rozliczeń w organizacji przez wyświetlanie kosztów dla grupy zasobów korzystających z tego samego tagu.
+- Można również uprościć rozliczenia w organizacji, wyświetlając kosztów dla grupy zasobów udostępnianie hello na tym samym tagiem.
 
 > [!Note]
-> Usługa Resource Manager udostępnia nową metodę wdrażania rozwiązań i zarządzania nimi. Jeśli używasz wcześniejszy model wdrażania i chcesz, aby dowiedzieć się więcej o zmianach, zobacz [wdrożenia Understanding Resource Manager oraz wdrażania klasycznego](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+> Menedżer zasobów udostępnia nowe toodeploy sposób rozwiązań i zarządzania nimi. Jeśli używasz hello wcześniejszego modelu wdrożenia i mają toolearn o zmianach hello, zobacz [wdrożenia Understanding Resource Manager oraz wdrażania klasycznego](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
 ## <a name="next-steps"></a>Następne kroki
 

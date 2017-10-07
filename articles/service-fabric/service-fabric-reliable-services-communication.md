@@ -1,6 +1,6 @@
 ---
-title: "Komunikacji niezawodnej usługi — omówienie | Dokumentacja firmy Microsoft"
-description: "Omówienie modelu komunikacji niezawodnej usługi, tym odbiorników otwierania w usługach, rozpoznawania punktów końcowych i komunikacji między usługami."
+title: "Omówienie komunikacji usług aaaReliable | Dokumentacja firmy Microsoft"
+description: "Przegląd hello niezawodne usługi komunikacji modelu, tym odbiorników otwierania w usługach, rozpoznawania punktów końcowych i komunikacji między usługami."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
 ms.author: vturecek
-ms.openlocfilehash: b418904f50b772c12bfcdbb95beb9312c8b9fb00
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 93a7017b50df0822969daa5ad78302c73e8ba641
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-reliable-services-communication-apis"></a>Jak używać komunikacji niezawodnej usługi interfejsów API
-Azure Service Fabric jako platformę jest całkowicie niezależny o komunikacji między usługami. Wszystkie protokoły i stosy są dopuszczalne, z UDP HTTP. To dewelopera usługi, aby wybrać komunikowania usług. Struktura aplikacji niezawodne usługi zawiera komunikacji wbudowanej stosach, a także interfejsów API, który można wykorzystać do tworzenia składników niestandardowych komunikacji.
+# <a name="how-toouse-hello-reliable-services-communication-apis"></a>Jak toouse hello komunikacji niezawodnej usługi interfejsów API
+Azure Service Fabric jako platformę jest całkowicie niezależny o komunikacji między usługami. Wszystkie protokoły i stosy są dopuszczalne, z UDP tooHTTP. Jest zapasowej toochoose dewelopera usługi toohello komunikowania usług. Struktura aplikacji Hello niezawodne usługi zawiera komunikacji wbudowanej stosów oraz interfejsów API, których można używać toobuild składniki niestandardowe komunikacji w sieci.
 
 ## <a name="set-up-service-communication"></a>Konfigurowanie komunikacji usługi
-Niezawodne interfejsu API usług używa prosty interfejs do komunikacji usługi. Aby otworzyć punktu końcowego usługi, po prostu zaimplementować ten interfejs:
+Hello niezawodnej usługi interfejsu API używa prosty interfejs do komunikacji usługi. tooopen punktu końcowego usługi, po prostu zaimplementować ten interfejs.
 
 ```csharp
 
@@ -92,9 +92,9 @@ class MyStatefulService : StatefulService
 }
 ```
 
-W obu przypadkach należy zwracać kolekcja odbiorników. Dzięki temu usługi do nasłuchiwania na wiele punktów końcowych potencjalnie przy użyciu różnych protokołów, za pomocą wielu odbiorników. Na przykład może mieć odbiornik HTTP i oddzielne odbiornika protokołu WebSocket. Każdy odbiornik pobiera nazwę, a wynikowy zbiór *Nazwa: adres* pary są reprezentowane jako obiekt JSON, gdy klient żąda nasłuchiwania adresów dla wystąpienia usługi lub partycji.
+W obu przypadkach należy zwracać kolekcja odbiorników. Dzięki temu toolisten Twojego usługi na wiele punktów końcowych potencjalnie przy użyciu różnych protokołów, za pomocą wielu odbiorników. Na przykład może mieć odbiornik HTTP i oddzielne odbiornika protokołu WebSocket. Każdy odbiornik pobiera nazwę i hello wynikowy zbiór *Nazwa: adres* pary są reprezentowane jako obiekt JSON, gdy klient żąda hello adres nasłuchiwania dla wystąpienia usługi lub partycji.
 
-Usługi bezstanowej zastąpienie zwraca kolekcję ServiceInstanceListeners. A `ServiceInstanceListener` zawiera funkcję, aby utworzyć `ICommunicationListener(C#) / CommunicationListener(Java)` i nadaje mu nazwę. W przypadku usług stanowych zastąpienie zwraca kolekcję ServiceReplicaListeners. To jest nieco inne niż jego odpowiednik bezstanowych, ponieważ `ServiceReplicaListener` ma opcję, aby otworzyć `ICommunicationListener` w replikach pomocniczych. Nie można użyć wielu odbiorników komunikacji w usłudze tylko można również określić które odbiorników akceptowania żądań w replikach pomocniczych i te, które nasłuchuje repliki podstawowej.
+Usługi bezstanowej zastąpienie hello zwraca kolekcję ServiceInstanceListeners. A `ServiceInstanceListener` zawiera toocreate funkcja `ICommunicationListener(C#) / CommunicationListener(Java)` i nadaje mu nazwę. W przypadku usług stanowych zastąpienie hello zwraca kolekcję ServiceReplicaListeners. To jest nieco inne niż jego odpowiednik bezstanowych, ponieważ `ServiceReplicaListener` ma tooopen opcji `ICommunicationListener` w replikach pomocniczych. Nie można użyć wielu odbiorników komunikacji w usłudze tylko można również określić które odbiorników akceptowania żądań w replikach pomocniczych i te, które nasłuchuje repliki podstawowej.
 
 Na przykład może mieć ServiceRemotingListener, pobierającej wywołania RPC tylko na podstawowym repliki, a drugi, niestandardowe odbiornik, który przyjmuje odczytu żądań w replikach pomocniczych za pośrednictwem protokołu HTTP:
 
@@ -121,7 +121,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-Ponadto opisano punkty końcowe, które są wymagane dla usługi w [manifestu usługi](service-fabric-application-model.md) w sekcji dla punktów końcowych.
+Ponadto opisano hello punktów końcowych, które są wymagane dla usługi hello w hello [manifestu usługi](service-fabric-application-model.md) sekcji hello w punktach końcowych.
 
 ```xml
 <Resources>
@@ -133,7 +133,7 @@ Ponadto opisano punkty końcowe, które są wymagane dla usługi w [manifestu us
 
 ```
 
-Odbiornik komunikacji może uzyskać dostęp do zasobów punktu końcowego przydzielone z nim `CodePackageActivationContext` w `ServiceContext`. Odbiornik może następnie uruchom nasłuchiwanie żądań, gdy jest otwarty.
+odbiornik komunikacji Hello dostęp do zasobów punktu końcowego hello przydzielony tooit z hello `CodePackageActivationContext` w hello `ServiceContext`. odbiornik Hello następnie można uruchomić nasłuchiwanie żądań, gdy jest otwarty.
 
 ```csharp
 var codePackageActivationContext = serviceContext.CodePackageActivationContext;
@@ -147,12 +147,12 @@ int port = codePackageActivationContext.getEndpoint("ServiceEndpoint").getPort()
 ```
 
 > [!NOTE]
-> Zasoby punktu końcowego są wspólne dla pakietu całej usługi, a po aktywowaniu pakiet usługi są przydzielone przez sieć szkieletowa usług. Wiele replik usługi hostowanej w tej samej ServiceHost może udostępniać tego samego portu. Oznacza to, że odbiornik komunikacji powinny obsługiwać Udostępnianie portów. Zalecanym sposobem w ten sposób dotyczy odbiornik komunikacji do używania partycji identyfikator i identyfikator repliki i wystąpienia podczas generowania adresu nasłuchiwania.
+> Punkt końcowy zasoby są typowe toohello całej usługi pakietu, a po aktywowaniu pakiet usługi hello są przydzielone przez sieć szkieletowa usług. Wiele replik usługi hostowanej w hello tego samego elementu ServiceHost może udostępniać hello sam port. Oznacza to, że odbiornik komunikacji hello powinna obsługiwać Udostępnianie portów. Hello zaleca się, jak to zrobić to dla hello komunikacji odbiornika toouse hello partycji identyfikator i identyfikator repliki i wystąpienia podczas generowania hello nasłuchiwania adresów.
 >
 >
 
 ### <a name="service-address-registration"></a>Rejestracja adres usługi
-Wywołuje się, usługa systemowa *Naming Service* działa w klastrze usługi sieć szkieletowa usług. Usługa nazewnictwa jest rejestratora dla usług i ich adresów, które każdego wystąpienia lub repliki usługi nasłuchuje. Gdy `OpenAsync(C#) / openAsync(Java)` metody `ICommunicationListener(C#) / CommunicationListener(Java)` zakończeniu jego powrotu wartość pobiera zarejestrowane w usłudze nazw. Zwrócona wartość, która została opublikowana w usłudze nazewnictwa jest ciąg, którego wartość może być dowolna wcale. Ta wartość ciągu jest co klientów podczas ich poprosić o adres usługi z usługi nazw.
+Usługa systemowa o nazwie hello *Naming Service* działa w klastrze usługi sieć szkieletowa usług. Witaj Naming Service jest rejestratora dla usług i ich adresów, które każdego wystąpienia lub repliki usługi hello nasłuchuje. Gdy hello `OpenAsync(C#) / openAsync(Java)` metody `ICommunicationListener(C#) / CommunicationListener(Java)` zakończeniu jego powrotu wartość pobiera zarejestrowane w hello Naming Service. To zwrócić wartość, która pobiera ciąg, którego wartość może być dowolna na wszystkich opublikowanych w powitalne jest Naming Service. Ta wartość ciągu jest, jakie klientów wyświetlać, gdy został poproszony o adres dla usługi hello z hello Naming Service.
 
 ```csharp
 public Task<string> OpenAsync(CancellationToken cancellationToken)
@@ -169,7 +169,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
     this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
 
-    // the string returned here will be published in the Naming Service.
+    // hello string returned here will be published in hello Naming Service.
     return Task.FromResult(this.publishAddress);
 }
 ```
@@ -184,26 +184,26 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
     this.webApp = new WebApp(port);
     this.webApp.start();
 
-    /* the string returned here will be published in the Naming Service.
+    /* hello string returned here will be published in hello Naming Service.
      */
     return CompletableFuture.completedFuture(this.publishAddress);
 }
 ```
 
-Usługa Service Fabric realizuje interfejsów API, która pozwala klientów i innych usług, a następnie poprosić dla tego adresu według nazwy usługi. Jest to ważne, ponieważ adres usługi nie jest statyczne. Usługi są przenoszone w klastrze do celów dostępności i równoważenia zasobów. Jest to mechanizm, który zezwala klientom na rozpoznawanie adresu nasłuchiwania dla usługi.
+Sieć szkieletowa usług zawiera interfejsy API umożliwiające klientów i innych usług toothen poprosić dla tego adresu według nazwy usługi. Jest to ważne, ponieważ adres usługi hello nie jest statyczne. Usługi są przenoszone w klastrze hello do celów dostępności i równoważenia zasobów. Jest to mechanizm hello Zezwalaj klientom Witaj tooresolve nasłuchiwania adresów dla usługi.
 
 > [!NOTE]
-> Aby uzyskać pełny przewodnik sposobu pisania odbiornik komunikacji, zobacz [usług interfejsu API sieci Web sieci szkieletowej usług za pomocą hostingu samodzielnego OWIN](service-fabric-reliable-services-communication-webapi.md) dla C#, natomiast dla języka Java można napisać własny implementację serwera HTTP, zobacz EchoServer aplikacji przykład: w https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> Do ukończenia toowrite odbiornik komunikacji, zobacz temat Omówienie [usług interfejsu API sieci Web sieci szkieletowej usług za pomocą hostingu samodzielnego OWIN](service-fabric-reliable-services-communication-webapi.md) dla C#, natomiast dla języka Java można napisać własny implementację serwera HTTP, zobacz EchoServer aplikacji przykład: w https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
 ## <a name="communicating-with-a-service"></a>Podczas komunikacji z usługą
-Niezawodne interfejsu API usług zawiera następujące biblioteki do zapisania klientów komunikujących się z usługami.
+Hello niezawodnej interfejsu API usług zawiera hello następujące biblioteki toowrite klientów, które komunikują się z usługami.
 
 ### <a name="service-endpoint-resolution"></a>Rozpoznanie punktu końcowego usługi
-Pierwszy krok w celu komunikacji z usługą jest do rozpoznania adresu punktu końcowego, partycji lub wystąpienia usługi, którą chcesz rozmawiać z. `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` Klasy narzędzie jest właściwością pierwotną podstawowe, ułatwiająca klientów określić punkt końcowy usługi w czasie wykonywania. W terminologii usługi sieć szkieletowa proces określania punktu końcowego usługi jest określana jako *usługi rozpoznawania punktu końcowego*.
+Witaj pierwszy krok toocommunication z usługą jest tooresolve adresu punktu końcowego hello partycji lub wystąpienie usługi hello, który ma tootalk do. Witaj `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` klasy narzędzie jest właściwością pierwotną podstawowe, ułatwiająca klientów, określenia hello punkt końcowy usługi w czasie wykonywania. W terminologii usługi sieć szkieletowa hello proces określania hello punkt końcowy usługi jest hello określonego tooas *usługi rozpoznawania punktu końcowego*.
 
-Aby połączyć się z usługami w klastrze, ServicePartitionResolver mogą być tworzone przy użyciu ustawień domyślnych. Jest to zalecane użycie w większości sytuacji:
+tooservices tooconnect w klastrze, ServicePartitionResolver mogą być tworzone przy użyciu ustawień domyślnych. Jest to zalecane użycie w większości sytuacji hello:
 
 ```csharp
 ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
@@ -212,7 +212,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Aby połączyć się z usługami w innym klastrze, ServicePartitionResolver mogą być tworzone przy użyciu zestawu punktów końcowych klastra bramy. Należy pamiętać, że punkty końcowe bramy są po prostu różnych punktów końcowych do łączenia się z tym samym klastrze. Na przykład:
+tooservices tooconnect w innym klastrze, ServicePartitionResolver mogą być tworzone przy użyciu zestawu punktów końcowych klastra bramy. Pamiętaj, że punkty końcowe bramy jest po prostu różnych punktów końcowych do łączenia toohello tego samego klastra. Na przykład:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
@@ -221,7 +221,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.clo
 FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
 
-Alternatywnie `ServicePartitionResolver` można przydzielić funkcję do tworzenia `FabricClient` do wewnętrznego użycia:
+Alternatywnie `ServicePartitionResolver` można przydzielić funkcję do tworzenia `FabricClient` toouse wewnętrznie:
 
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
@@ -236,7 +236,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient`jest obiekt, który jest używany do komunikacji z klastrem usługi sieć szkieletowa usług dla różnych operacji zarządzania w klastrze. Jest to przydatne, jeśli chcesz mieć większą kontrolę nad jak program rozpoznawania nazw partycji usługi współdziała z klastra. `FabricClient`buforuje wewnętrznie i jest zwykle kosztowne, dlatego ważne jest, aby ponownie wykorzystać `FabricClient` wystąpień, jak to możliwe.
+`FabricClient`jest hello obiekt, który jest używany toocommunicate z klastrem usługi sieć szkieletowa hello różnych operacji zarządzania w klastrze hello. Jest to przydatne, jeśli chcesz mieć większą kontrolę nad jak program rozpoznawania nazw partycji usługi współdziała z klastra. `FabricClient`buforuje wewnętrznie i jest zwykle kosztowne toocreate, dlatego jest ważne tooreuse `FabricClient` wystąpień, jak to możliwe.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -245,7 +245,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMy
 FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver(() -> new CreateFabricClientImpl());
 ```
 
-Metoda resolve należy pobrać adres usługi lub partycji usługi dla usług podzielonym na partycje.
+Metody rozpoznawania jest używane tooretrieve hello adresu usługi lub partycji usługi dla usług podzielonym na partycje.
 
 ```csharp
 ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
@@ -260,16 +260,16 @@ CompletableFuture<ResolvedServicePartition> partition =
     resolver.resolveAsync(new URI("fabric:/MyApp/MyService"), new ServicePartitionKey());
 ```
 
-Adres usługi można rozwiązać za pomocą ServicePartitionResolver, ale więcej pracy wymagane jest zapewnienie, że poprawnie można rozpoznać adresu. Klient musi wykryć, czy próba połączenia nie powiodła się z powodu błędu przejściowego i można ponowić (np. usługi przenieść lub jest tymczasowo niedostępny), lub trwały błąd (np. usługa została usunięta lub żądany zasób nie istnieje już). Wystąpienie usługi lub repliki można przenosić z węzła do węzła w dowolnym momencie kilka przyczyn. Adres usługi rozpoznawane za pomocą ServicePartitionResolver może być przestarzały przez kod klienta podejmuje próbę nawiązania połączenia czas. W takim przypadku ponownie klient musi ponownie rozpoznania adresu. Zapewnianie poprzedniej `ResolvedServicePartition` wskazuje, że program rozpoznawania nazw wymaga ponownej próby zamiast po prostu pobrać adres pamięci podręcznej.
+Adres usługi można rozwiązać za pomocą ServicePartitionResolver, ale wymagane jest więcej pracy tooensure hello rozpoznać adresu można poprawnie. Klient musi toodetect czy hello próba połączenia nie powiodła się z powodu błędu przejściowego i można ponowić (np. usługi przenieść lub jest tymczasowo niedostępny), lub trwały błąd (np. usługa została usunięta lub hello żądany zasób nie istnieje). Wystąpienie usługi lub repliki można przenosić z węzła toonode w dowolnym momencie kilka przyczyn. adres usługi Hello rozpoznawane za pomocą ServicePartitionResolver może być przestarzały czasu hello tooconnect prób kodu klienta. W takim przypadku ponownie powitania klienta wymaga adresu hello toore rozwiązanie. Zapewnianie hello poprzedniej `ResolvedServicePartition` wskazuje, że Witaj ponownie program rozpoznawania nazw musi tootry zamiast po prostu pobrać adres pamięci podręcznej.
 
-Zazwyczaj kod klienta należy działa z ServicePartitionResolver bezpośrednio. Jest tworzony i przekazywane do fabryki klienta komunikacji niezawodnej usługi interfejsu API. Fabryk korzystanie z tym programem rozpoznawania nazw można wygenerować obiektu klienta, który może służyć do komunikacji z usługami.
+Zazwyczaj powitania klienta kodu muszą działa z hello ServicePartitionResolver bezpośrednio. Jest tworzony i przekazywane fabryki klienta toocommunication w hello niezawodnej usługi interfejsu API. fabryki Hello korzystanie z mechanizmu rozpoznawania hello toogenerate obiektu klienta, które mogą być używane toocommunicate z usługami.
 
 ### <a name="communication-clients-and-factories"></a>Komunikacja klientów i fabryki
-Biblioteka fabryki komunikacji zawiera typowe wzorzec ponownych prób obsługi błędów, który ułatwia ponawianie połączeń z punktami końcowymi usług rozwiązane. Biblioteka fabryki zapewnia mechanizm ponów próbę, gdy Podaj programy obsługi błędów.
+Witaj komunikacji fabryki biblioteka zawiera typowy wzorzec ponownych prób obsługi błędów, który ułatwia ponawianie punktów końcowych usługi tooresolved połączenia. Biblioteka fabryki Hello zapewnia mechanizm ponawiania hello podczas Podaj hello programy obsługi błędów.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`definiuje interfejs podstawowy zaimplementowana przez fabrykę klienta komunikacji, który spowoduje utworzenie klientów, którzy mogą komunikować się z usługą sieci szkieletowej usług. Implementacja CommunicationClientFactory zależy od stosu komunikacji używane przez usługę sieć szkieletowa usług, których chce komunikacji klienta. Zapewnia niezawodne interfejsu API usług `CommunicationClientFactoryBase<TCommunicationClient>`. Udostępnia podstawową implementację interfejsu CommunicationClientFactory i wykonuje zadania, które są wspólne dla wszystkich stosy komunikacji. (Te zadania obejmują przy użyciu ServicePartitionResolver w celu określenia punktu końcowego usługi). Klienci zwykle zaimplementować klasy abstrakcyjnej CommunicationClientFactoryBase do obsługi logiki, które dotyczą stosu komunikacji.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`definiuje interfejs podstawowy hello zaimplementowana przez fabrykę klienta komunikacji, który spowoduje utworzenie klientów, którzy mogą komunikować tooa usługi sieć szkieletowa usług. Witaj implementacji powitalne CommunicationClientFactory zależy od stosu komunikacji hello używane przez usługę sieć szkieletowa usług hello, w którym powitania klienta chce toocommunicate. Hello niezawodnej interfejsu API usług zawiera `CommunicationClientFactoryBase<TCommunicationClient>`. Udostępnia podstawową implementację interfejsu CommunicationClientFactory hello i wykonuje zadania, które są typowe tooall hello komunikacji stosów. (Te zadania obejmują przy użyciu punktu końcowego usługi hello toodetermine ServicePartitionResolver). Klienci implementuje zwykle hello abstrakcyjny CommunicationClientFactoryBase klasy toohandle logiki określonej toohello stosu komunikacji.
 
-Komunikacja klienta po prostu otrzymuje adres i używa go do łączenia się z usługą. Klient może używać dowolnego protokołu chce.
+Hello komunikacji klienta po prostu odbiera adres i używa go tooconnect tooa usługi. Witaj, klient może używać niezależnie od protokołu chce.
 
 ```csharp
 class MyCommunicationClient : ICommunicationClient
@@ -294,7 +294,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-Fabryka klientów jest głównie odpowiedzialną za tworzenie komunikacji klientów. Dla klientów, którzy nie Obsługa połączenie trwałe, takich jak klient HTTP fabryka tylko musi utworzyć i zwracany do klienta. Inne protokoły zapewniające połączenie trwałe, takie jak niektóre protokoły binarnego, również powinny zostać zatwierdzone przez fabrykę, aby określić, czy połączenie musi zostać ponownie utworzone.  
+Fabryka klientów Hello jest głównie odpowiedzialną za tworzenie komunikacji klientów. Dla klientów, którzy nie Obsługa połączenie trwałe, takich jak klient HTTP fabryki hello musi tylko toocreate i zwracany powitania klienta. Inne protokoły zapewniające połączenie trwałe, takie jak niektóre protokoły binarnego, również powinny zostać zatwierdzone przez toodetermine fabryki hello czy połączenia hello wymaga toobe utworzony ponownie.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
@@ -337,14 +337,14 @@ public class MyCommunicationClientFactory extends CommunicationClientFactoryBase
 }
 ```
 
-Ponadto program obsługi wyjątku jest odpowiedzialny za określenie, jakie działania w sytuacji, gdy wystąpi wyjątek. Wyjątki są podzielone na **powtarzający operację** i **niepowtarzającego**.
+Ponadto program obsługi wyjątku jest odpowiedzialny za określenie, jakie tootake działania po wystąpieniu wyjątku. Wyjątki są podzielone na **powtarzający operację** i **niepowtarzającego**.
 
-* **Niepowtarzającego** wyjątki po prostu pobrać zgłoszony do obiektu wywołującego.
+* **Niepowtarzającego** wyjątki po prostu pobrać zgłoszony wstecz toohello wywołującego.
 * **powtarzający operację** dalsze wyjątki są dzielone na kategorie **przejściowa** i **nieprzejściowego**.
-  * **Przejściowa** wyjątki są tymi, które można po prostu ponowione bez ponowne rozpoznanie adres punktu końcowego usługi. Obejmują one przejściowe problemy z siecią lub odpowiedzi na błędy usług innych niż te, które wskazują, że adres punktu końcowego usługi nie istnieje.
-  * **Inne niż przejściowy** wyjątki są te, które wymagają adres punktu końcowego usługi mają zostać rozwiązane ponownie. Obejmują one wyjątki, które wskazują, że nie można osiągnąć punktu końcowego usługi, wskazującą usługi została przeniesiona do innego węzła.
+  * **Przejściowa** wyjątki są tymi, które można po prostu ponowione bez ponowne rozpoznanie adres punktu końcowego usługi hello. Obejmują one przejściowych problemów z siecią lub odpowiedzi na błędy usług innych niż te, które wskazują adres punktu końcowego usługi hello nie istnieje.
+  * **Inne niż przejściowy** wyjątki są te, które wymagają hello usługi punktu końcowego adresu toobe ponownie rozwiązane. Obejmują one wyjątki, które wskazują, że punkt końcowy usługi hello jest nieosiągalny, wskazujący, że usługa hello przeniósł tooa innego węzła.
 
-`TryHandleException` Sprawia, że decyzja o danego wyjątku. Jeśli go **nie zna** jakie należy podjąć decyzje dotyczące wyjątek, powinien on zwrócić **false**. Jeśli go **wiedzieć** jakie decyzja podejmowana, należy odpowiednio ustawić wynik i zwróć **true**.
+Witaj `TryHandleException` sprawia, że decyzja o danego wyjątku. Jeśli go **nie zna** jakie toomake decyzji o wyjątku, powinien on zwrócić **false**. Jeśli go **wiedzieć** jakie toomake decyzja powinna odpowiednio ustawić wynik hello i zwracać **true**.
 
 ```csharp
 class MyExceptionHandler : IExceptionHandler
@@ -360,7 +360,7 @@ class MyExceptionHandler : IExceptionHandler
         result = new ExceptionHandlingRetryResult(exceptionInformation.Exception, false, retrySettings, retrySettings.DefaultMaxRetryCount);
         return true;
 
-        // if exceptionInformation.Exception is unknown (let the next IExceptionHandler attempt to handle it)
+        // if exceptionInformation.Exception is unknown (let hello next IExceptionHandler attempt toohandle it)
         result = null;
         return false;
     }
@@ -383,7 +383,7 @@ public class MyExceptionHandler implements ExceptionHandler {
         result = new ExceptionHandlingRetryResult(exceptionInformation.getException(), false, retrySettings, retrySettings.getDefaultMaxRetryCount());
         return true;
 
-        /* if exceptionInformation.getException() is unknown (let the next ExceptionHandler attempt to handle it)
+        /* if exceptionInformation.getException() is unknown (let hello next ExceptionHandler attempt toohandle it)
          */
         result = null;
         return false;
@@ -392,7 +392,7 @@ public class MyExceptionHandler implements ExceptionHandler {
 }
 ```
 ### <a name="putting-it-all-together"></a>Składanie wszystkiego razem
-Z `ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`, i `IExceptionHandler(C#) / ExceptionHandler(Java)` zbudowana wokół protokołu komunikacyjnego, `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` umieszczeniu wszystkich elementów i zawiera pętlę rozpoznawania adresów partycji usługi i obsługi błędów wokół tych składników.
+Z `ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`, i `IExceptionHandler(C#) / ExceptionHandler(Java)` zbudowana wokół protokołu komunikacyjnego, `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` umieszczeniu wszystkich elementów i zapewnia odporność obsługi hello i usługi partycji adres rozpoznawania pętlę wokół tych składników.
 
 ```csharp
 private MyCommunicationClientFactory myCommunicationClientFactory;
@@ -405,7 +405,7 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 
 var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) =>
    {
-      // Communicate with the service using the client.
+      // Communicate with hello service using hello client.
    },
    CancellationToken.None);
 
@@ -420,7 +420,7 @@ FabricServicePartitionClient myServicePartitionClient = new FabricServicePartiti
     myPartitionKey);
 
 CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(client -> {
-      /* Communicate with the service using the client.
+      /* Communicate with hello service using hello client.
        */
    });
 

@@ -1,6 +1,6 @@
 ---
-title: "Migracji active nazwy DNS w usłudze Azure App Service | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak przeprowadzić migrację niestandardowej nazwy domeny DNS, który jest już przypisany do lokacji na żywo w usłudze Azure App Service bez żadnego przestoju."
+title: "aaaMigrate DNS usługi active nazwa tooAzure App Service | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toomigrate niestandardowej nazwy domeny DNS, który jest już przypisany tooa live tooAzure witryny usługi aplikacji bez żadnego przestoju."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: 89308c1c684a639950467b72d26703cc07c50c14
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fbc4cc30dcb87efb2e867cb65c5404b667661e62
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migracji active nazwy DNS w usłudze Azure App Service
+# <a name="migrate-an-active-dns-name-tooazure-app-service"></a>Migrowanie active tooAzure nazwę DNS usługi aplikacji
 
-W tym artykule przedstawiono sposób migracji active nazwy DNS [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md) bez żadnego przestoju.
+W tym artykule opisano, jak nazwa toomigrate DNS usługi active zbyt[usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md) bez żadnego przestoju.
 
-Podczas migracji na żywo lokacji i nazwy domeny DNS do usługi App Service, tej nazwy DNS jest już obsługujące ruch na żywo. Aby uniknąć przestój w przypadku rozpoznawania nazw DNS podczas migracji, można preemptively powiązanie nazwy DNS active aplikację usługi aplikacji.
+Podczas migracji na żywo lokacji i jej tooApp nazwy domeny DNS usługi, tej nazwy DNS jest już obsługujące ruch na żywo. Można uniknąć przestoju w rozpoznawania nazw DNS podczas migracji hello przez powiązanie preemptively hello active DNS nazwy tooyour aplikacji usługi app Service.
 
-Jeśli nie możesz Obawiamy o przestój w przypadku rozpoznawania nazw DNS, zobacz [mapowania istniejącej nazwy DNS niestandardowej aplikacji sieci Web Azure](app-service-web-tutorial-custom-domain.md).
+Jeśli nie możesz Obawiamy o przestój w przypadku rozpoznawania nazw DNS, zobacz [mapowanie istniejących niestandardowe DNS nazwy tooAzure aplikacje sieci Web](app-service-web-tutorial-custom-domain.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten Porada:
+toocomplete tym porad:
 
 - [Upewnij się, że aplikację usługi aplikacji nie znajduje się w warstwie bezpłatna](app-service-web-tutorial-custom-domain.md#checkpricing).
 
-## <a name="bind-the-domain-name-preemptively"></a>Powiąż preemptively nazwy domeny
+## <a name="bind-hello-domain-name-preemptively"></a>Powiąż preemptively hello nazwy domeny
 
-Gdy powiąże preemptively niestandardową domenę, wykonywać następujące przed wprowadzeniem jakichkolwiek zmian w rekordach DNS:
+Gdy powiąże preemptively niestandardową domenę, osiągnąć obu z następujących hello przed wprowadzeniem jakichkolwiek zmian w rekordach DNS:
 
 - Zweryfikuj prawo własności do domeny
-- Włącz nazwy domeny dla aplikacji
+- Włącz hello nazwę domeny aplikacji
 
-Na koniec migracji nazwę DNS niestandardowych ze starej witryny do aplikacji usługi app Service, nie będzie bez przestojów w rozpoznawania nazw DNS.
+Podczas migracji na koniec nazwę DNS niestandardowych z hello starego lokacji toohello aplikacji usługi app Service, nie będzie bez przestojów w rozpoznawania nazw DNS.
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-domain-verification-record"></a>Utwórz rekord weryfikacji domeny
 
-Aby zweryfikować prawo własności do domeny, Dodaj rekord TXT. Rekord TXT mapy z _awverify.&lt; Poddomena >_ do  _&lt;nazwa_aplikacji >. azurewebsites.net_. 
+rekord tooverify własność domeny, Dodaj TXT. mapuje Hello rekord TXT z _awverify.&lt; Poddomena >_ too_&lt;nazwa_aplikacji >. azurewebsites.net_. 
 
-Rekord TXT, które są potrzebne, zależy od rekord DNS, który chcesz przeprowadzić migrację. Aby uzyskać przykłady, zobacz poniższą tabelę (`@` zazwyczaj reprezentuje domeny katalogu głównego):  
+Hello rekord TXT, które są potrzebne, zależy od hello rekord DNS ma toomigrate. Przykłady można znaleźć w poniższej tabeli hello (`@` zazwyczaj reprezentuje hello domeny katalogu głównego):  
 
 | Przykładowy rekord DNS | TXT Host | Wartość TXT |
 | - | - | - |
@@ -58,73 +58,73 @@ Rekord TXT, które są potrzebne, zależy od rekord DNS, który chcesz przeprowa
 | WWW (sub) | _awverify.www_ | _&lt;Nazwa aplikacji >. azurewebsites.net_ |
 | \*(symbol wieloznaczny) | _awverify.\*_ | _&lt;Nazwa aplikacji >. azurewebsites.net_ |
 
-Na stronie rekordy DNS należy pamiętać, typ rekordu nazwy DNS, które chcesz migrować. Usługa aplikacji obsługuje mapowania z CNAME i.
+Na stronie rekordy DNS należy pamiętać, typ rekordu hello hello ma toomigrate nazwy DNS. Usługa aplikacji obsługuje mapowania z CNAME i.
 
-### <a name="enable-the-domain-for-your-app"></a>Włącz domeny aplikacji
+### <a name="enable-hello-domain-for-your-app"></a>Włącz hello domeny aplikacji
 
-W [portalu Azure](https://portal.azure.com), w lewym obszarze nawigacji strony aplikacji, wybierz **domen niestandardowych**. 
+W hello [portalu Azure](https://portal.azure.com), w lewym obszarze nawigacji strony aplikacji hello Witaj, wybierz **domen niestandardowych**. 
 
 ![Menu domeny niestandardowej](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-W **domen niestandardowych** wybierz pozycję  **+**  obok opcji **dodać nazwę hosta**.
+W hello **domen niestandardowych** strona, wybierz hello ** + ** ikona dalej zbyt**dodać nazwę hosta**.
 
 ![Dodaj nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Wpisz w pełni kwalifikowaną nazwę domeny dodaje rekord TXT, takich jak `www.contoso.com`. Dla domeny symbolu wieloznacznego (takich jak \*. contoso.com), można użyć dowolnej nazwy DNS, która pasuje do domeny symboli wieloznacznych. 
+Typ hello pełną nazwę domeny dodaje rekord TXT hello, takich jak `www.contoso.com`. Dla domeny symbolu wieloznacznego (takich jak \*. contoso.com), można użyć dowolnej nazwy DNS, odpowiadający hello domenie symboli wieloznacznych. 
 
 Wybierz **zweryfikować**.
 
-**Dodać nazwę hosta** przycisk jest aktywny. 
+Witaj **dodać nazwę hosta** przycisk jest aktywny. 
 
-Upewnij się, że **typu rekordu Hostname** ustawiono typ rekordu DNS chcesz migrować.
+Upewnij się, że **typu rekordu Hostname** ustawiono typ rekordu DNS toohello ma toomigrate.
 
 Wybierz **dodać nazwę hosta**.
 
-![Dodaj nazwę DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+![Dodaj aplikację toohello nazwy DNS](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Może upłynąć trochę czasu, zanim nowej nazwy hosta zostaną odzwierciedlone w aplikacji **domen niestandardowych** strony. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
+Może upłynąć trochę czasu, zanim hello nowe toobe hostname odzwierciedlone w aplikacji hello **domen niestandardowych** strony. Spróbuj odświeżyć dane hello tooupdate przeglądarki hello.
 
 ![Dodaje rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 Niestandardowe nazwę DNS jest teraz włączone w aplikacji Azure. 
 
-## <a name="remap-the-active-dns-name"></a>Ponowne mapowanie active nazwy DNS
+## <a name="remap-hello-active-dns-name"></a>Ponowne mapowanie hello active nazwy DNS
 
-Tylko po lewej co zrobić jest ponowne mapowanie sieci active rekord DNS, aby wskazywał usługi aplikacji. Prawo teraz, nadal wskazuje stare witryny.
+Witaj tylko element toodo po lewej stronie jest ponowne mapowanie użytkownika active tooApp toopoint rekordów DNS usługi. Prawo teraz, nadal wskazuje tooyour starej lokacji.
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address-a-record-only"></a>Skopiuj adres IP aplikacji (tylko rekord)
+### <a name="copy-hello-apps-ip-address-a-record-only"></a>Skopiuj adres IP aplikacji hello (rekord tylko)
 
 Jeśli są ponowne mapowanie rekord CNAME, Pomiń tę sekcję. 
 
-Aby ponownie zamapować rekord A, należy zewnętrzny adres IP aplikację usługi aplikacji, który jest wyświetlany w **domen niestandardowych** strony.
+rekord A tooremap należy zewnętrznego adresu IP aplikacji usługi aplikacji hello, który jest wyświetlany w hello **domen niestandardowych** strony.
 
-Zamknij **dodać nazwę hosta** strony, wybierając **X** w prawym górnym rogu. 
+Zamknij hello **dodać nazwę hosta** strony, wybierając **X** w prawym górnym rogu hello. 
 
-W **domen niestandardowych** strony, skopiuj adres IP aplikacji.
+W hello **domen niestandardowych** pozycję Kopiuj aplikacji hello adres IP.
 
-![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Aplikacja tooAzure nawigacji w portalu](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="update-the-dns-record"></a>Zaktualizuj rekord DNS
+### <a name="update-hello-dns-record"></a>Zaktualizuj rekord DNS hello
 
-Ponownie na stronie rekordy DNS dostawcy domeny wybierz rekord DNS, aby ponownie zamapować.
+Ponownie hello stronie rekordy DNS dostawcy domeny, wybierz tooremap rekordów DNS hello.
 
-Aby uzyskać `contoso.com` przykładowa domena główna, ponownie zamapować rekord A lub CNAME, podobnie jak w przykładach w poniższej tabeli: 
+Dla hello `contoso.com` przykładowa domena główna, ponownie zamapować rekord A lub CNAME hello jak przykłady hello w hello w poniższej tabeli: 
 
 | Przykład nazwy FQDN | Typ rekordu | Host | Wartość |
 | - | - | - | - |
-| contoso.com (root) | A | `@` | Adres IP z [skopiuj adres IP aplikacji](#info) |
+| contoso.com (root) | A | `@` | Adres IP z [aplikacji hello kopiowania adresu IP](#info) |
 | www.contoso.com (sub) | CNAME | `www` | _&lt;Nazwa aplikacji >. azurewebsites.net_ |
 | \*. contoso.com (symbol wieloznaczny) | CNAME | _\*_ | _&lt;Nazwa aplikacji >. azurewebsites.net_ |
 
 Zapisz ustawienia.
 
-Zapytania DNS powinien rozpocząć rozpoznawania aplikację usługi aplikacji natychmiast po sytuacji propagacji DNS.
+Zapytania DNS należy zacząć rozwiązywanie tooyour aplikacji usługi app Service, natychmiast po sytuacji propagacji DNS.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak powiązać niestandardowego certyfikatu SSL z usługi aplikacji.
+Dowiedz się, jak toobind SSL niestandardowych certyfikatów tooApp usługi.
 
 > [!div class="nextstepaction"]
-> [Powiąż istniejący certyfikat SSL niestandardowych do aplikacji sieci Web Azure](app-service-web-tutorial-custom-ssl.md)
+> [Powiąż istniejący niestandardowy SSL certyfikatu tooAzure aplikacji sieci Web](app-service-web-tutorial-custom-ssl.md)

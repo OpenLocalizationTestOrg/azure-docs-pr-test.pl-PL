@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie iteracjami eksperymentów w usłudze Machine Learning Studio | Dokumentacja firmy Microsoft"
-description: "Zarządzanie iteracjami eksperymentów w usłudze Azure Machine Learning Studio"
+title: "aaaManage eksperymentu iteracji w usłudze Machine Learning Studio | Dokumentacja firmy Microsoft"
+description: "Jak toomanage eksperymentu iteracji w usłudze Azure Machine Learning Studio"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 0e32a02358d1901bb80f356b0289b02b8e98afdb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bd30c048ce063811b1b2de8ce6d71e99ba975713
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Zarządzanie iteracjami eksperymentów w usłudze Azure Machine Learning Studio
-Tworzenie modelu analizy predykcyjnej jest procesem iteracyjnym - podczas modyfikowania różnych funkcji i parametry eksperymentu, wyniki stają się zbieżne aż do uzyskania czy masz wyuczonego, skutecznego modelu. Klucz do tego procesu służy do śledzenia różne iteracje eksperymentu parametrów i konfiguracji.
+Podczas modyfikowania hello opracowywania modelu analizy predykcyjnej jest procesem iteracyjnym — różne funkcje i parametry eksperymentu, wyniki stają się zbieżne aż do uzyskania czy masz wyuczonego, skutecznego modelu. Proces toothis klucza jest hello śledzenia różnych iteracje eksperymentu parametrów i konfiguracji.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Możesz przejrzeć poprzedniej uruchomień eksperymentów w dowolnym momencie w celu testu, ponownie i ostatecznie albo upewnij się lub uściślić poprzedniej założeń. Po uruchomieniu eksperymentu Machine Learning Studio zawiera historię uruchomienia, w tym zestaw danych, modułu, port połączenia i parametry. Ta historia przechwytuje także wyniki, informacje środowiska uruchomieniowego start i czasy zatrzymania, komunikaty dziennika i stan wykonania. Można przyjrzeć się wstecz żadnego z tych działa w dowolnym momencie można przejrzeć chronologii eksperymentu, a wyniki pośrednie. Nawet służy poprzedniego uruchomienia eksperymencie można uruchomić w nowej fazy zapytania i odnajdowanie ścieżki do tworzenia prostego, złożonych lub nawet rozwiązania modelowania zespół.
+Możesz przejrzeć poprzedniej działa z eksperymentów w dowolnym momencie w kolejności toochallenge, ponownie i ostatecznie potwierdzić lub uściślić założenia poprzedniej. Po uruchomieniu eksperymentu Machine Learning Studio zawiera historię hello Uruchom, w tym zestaw danych, modułu, port połączenia i parametry. Ta historia przechwytuje także wyniki, informacje środowiska uruchomieniowego start i czasy zatrzymania, komunikaty dziennika i stan wykonania. Można przyjrzeć się wstecz żadnego z tych działa z dowolnego czasu tooreview hello chronologii eksperymentu, a wyniki pośrednie. Nawet służy poprzedniego uruchomienia toolaunch Twojego eksperymentu w nowej fazy zapytania i odnajdywania na Twoje ścieżki toocreating proste, złożonych lub nawet zespół modelowania rozwiązania.
 
 > [!NOTE]
-> Po wyświetleniu poprzedniego uruchomienia eksperymentu tej wersji eksperymentu jest zablokowany i nie można edytować. Można jednak zapisać kopię, klikając **SAVE AS** i podając nazwę nowej kopii. Usługa Machine Learning Studio otwiera nową kopię, które mogą edytować i uruchamiać. Jest dostępna w tym kopia eksperymentu **EKSPERYMENTY** listy oraz wszystkich innych eksperymentów.
+> Po wyświetleniu poprzedniego uruchomienia eksperymentu tej wersji eksperymentu hello jest zablokowany i nie można edytować. Można jednak zapisać kopię, klikając **SAVE AS** i podając nazwę hello kopiowania. Usługa Machine Learning Studio otwiera nową kopię hello, który można edytować i uruchomić. Ta kopia eksperymentu jest dostępna w hello **EKSPERYMENTY** listy oraz wszystkich innych eksperymentów.
 > 
 > 
 
-## <a name="viewing-the-prior-run"></a>Wyświetlanie poprzedniego uruchomienia
-Jeśli masz otwarty eksperymentu uruchamianego co najmniej raz, uruchom poprzedniego doświadczenia można wyświetlić, klikając **uprzedniego uruchomienia** w okienku właściwości.
+## <a name="viewing-hello-prior-run"></a>Wyświetlanie hello poprzedniego uruchomienia
+Masz otwarty eksperymentu uruchamianego co najmniej raz, można wyświetlić hello poprzedzających Uruchom hello eksperyment, klikając **uprzedniego uruchomienia** w okienku properties hello.
 
-Załóżmy na przykład, tworzenie eksperymentu, a jednocześnie wersje 11:23 11:42 i 11:55. Otwórz po ostatnim uruchomieniu eksperymentu (11:55) i kliknięcie **wcześniejszego uruchomienia**, wersja było uruchomione 11:42 jest otwarty.
+Załóżmy na przykład, tworzenie eksperymentu, a jednocześnie wersje 11:23 11:42 i 11:55. Otwórz hello ostatnim uruchomieniu eksperymentu hello (11:55) i kliknięcie **uprzedniego uruchomienia**, uruchomiono na 11:42 wersji hello jest otwarty.
 
-## <a name="viewing-the-run-history"></a>Wyświetlanie historii wykonywania
-Można wyświetlić wszystkich poprzednich uruchomień eksperyment, klikając **Wyświetl historię uruchamiania** w eksperymencie otwarte.
+## <a name="viewing-hello-run-history"></a>Wyświetlanie hello Uruchom historii
+Można wyświetlić wszystkich poprzednich uruchomień hello eksperyment, klikając **Wyświetl historię uruchamiania** w eksperymencie otwarte.
 
-Na przykład załóżmy tworzenie eksperymentów z [regresji liniowej] [ linear-regression] modułu i chcesz obserwować wpływ zmiana wartości **tempo uczenia** na użytkownika wyniki eksperymentu. Możesz uruchomić eksperyment wiele razy z różnych wartości tego parametru, w następujący sposób:
+Na przykład załóżmy tworzenie eksperymentów z hello [regresji liniowej] [ linear-regression] modułu, a ma tooobserve hello wpływu zmiany wartości hello **tempo uczenia** na wyniki eksperymentu. Możesz uruchomić eksperyment hello wiele razy z różnych wartości tego parametru, w następujący sposób:
 
 | Wartość współczynnika Learning | Czas rozpoczęcia wykonywania |
 | --- | --- |
@@ -53,29 +53,29 @@ Jeśli klikniesz przycisk **WYŚWIETL HISTORIĘ URUCHAMIANIA**, wyświetlić lis
 
 ![Przykład Historia uruchomień][runhistory]
 
-Kliknij dowolny z tych działa, aby wyświetlić migawki doświadczenia w czasie jej uruchomienia. Konfiguracja, wartości parametrów, komentarze i wyniki są zachowywane daje pełny rekord z programem eksperymentu.
+Kliknij dowolny z tych tooview uruchamia migawkę hello eksperymentu w czasie hello, który został on uruchomiony. Witaj konfiguracji, wartości parametrów, komentarze i wyniki są wszystkie zachowanego toogive możesz zarejestrować całe uruchamiane eksperymentu.
 
 > [!TIP]
-> Do dokumentu programu iteracje eksperymentu, możesz zmodyfikować tytuł zawsze zostanie uruchomiony, możesz zaktualizować **Podsumowanie** doświadczenia we właściwościach okienku, a można dodać lub zaktualizować komentarze dotyczące poszczególnych modułów do rejestrowania programu zmiany. Tytuł, podsumowanie i moduł komentarze są zapisywane przy każdym uruchomieniu eksperymentu.
+> toodocument Twojego iteracje eksperymentu hello można zmodyfikować tytuł hello każdym uruchomieniu, można zaktualizować hello **Podsumowanie** hello eksperymentu w okienku properties hello oraz można dodać lub zaktualizować komentarze dotyczące poszczególnych modułów toorecord zmiany. komentarze tytuł, podsumowanie i moduł Hello są zapisywane przy każdym uruchomieniu hello eksperymentu.
 > 
 > 
 
-Lista eksperymenty w **EKSPERYMENTY** karty w usłudze Machine Learning Studio zawsze zawiera najnowszą wersję eksperymentu. Po otwarciu poprzedniego uruchomienia eksperyment (przy użyciu **uprzedniego uruchomienia** lub **WYŚWIETL HISTORIĘ URUCHAMIANIA**), można powrócić do wersji roboczej, klikając **WYŚWIETL HISTORIĘ URUCHAMIANIA** i wybierając polecenie iteracji, które ma **stanu** z **edytowalna**.
+Lista Hello eksperymenty w hello **EKSPERYMENTY** karty w usłudze Machine Learning Studio zawsze wyświetla hello najnowszą wersję eksperymentu. Po otwarciu poprzedniego uruchomienia eksperymentu hello (przy użyciu **uprzedniego uruchomienia** lub **WYŚWIETL HISTORIĘ URUCHAMIANIA**), można powrócić toohello wersję roboczą, klikając **WYŚWIETL HISTORIĘ URUCHAMIANIA** i wybierając polecenie Witaj iteracji, które ma **stanu** z **edytowalna**.
 
 ## <a name="iterating-on-a-previous-run"></a>Iteracja na poprzedniego działania
 Po kliknięciu **uprzedniego uruchomienia** lub **WYŚWIETL HISTORIĘ URUCHAMIANIA** i otwórz poprzedniego uruchomienia, Zakończono eksperymentu można wyświetlić w trybie tylko do odczytu.
 
-Jeśli chcesz rozpocząć iterację eksperymentu począwszy od skonfigurowanych dla poprzedniego uruchomienia sposób, aby to zrobić, otwierając Uruchom i klikając pozycję **SAVE AS**. To tworzy nowy eksperyment z nowy tytuł pustą, uruchom historii, i wszystkich składników i wartości parametrów poprzedniego uruchomienia. Ten nowy eksperyment ma na liście **EXPERIMENTS** można zmodyfikować karty w usłudze Machine Learning Studio strony głównej, a i uruchom go, inicjowanie nowy Uruchom historii dla tej iteracji eksperymentu. 
+Jeśli chcesz toobegin iterację eksperymentu począwszy sposób hello skonfigurowanych dla poprzedniego uruchomienia, można to zrobić otwierania hello Uruchom i klikając przycisk **SAVE AS**. Spowoduje to utworzenie nowy eksperyment z nowy tytuł pusty Historia uruchomień i wszystkie składniki hello i wartości parametrów hello poprzedniego uruchomienia. Ten nowy eksperyment ma na liście hello **EXPERIMENTS** karcie Strona główna hello Machine Learning Studio, a można modyfikować i ją uruchomić, inicjowanie nowy Uruchom historii dla tej iteracji eksperymentu. 
 
-Załóżmy na przykład uruchomienie historii wyświetlone w poprzedniej sekcji eksperymentu. Chcesz obserwować, co się stanie w przypadku ustawienia **tempo uczenia** parametru 0,4 i spróbuj różnych wartości **liczba epok szkolenia** parametru.
+Załóżmy na przykład uruchomienie historii wyświetlone w poprzedniej sekcji hello hello eksperymentu. Ma tooobserve co się stanie, gdy wartość hello **tempo uczenia** too0.4 parametr i spróbuj różnych wartości hello **liczba epok szkolenia** parametru.
 
-1. Kliknij przycisk **WYŚWIETL HISTORIĘ URUCHAMIANIA** , a następnie otwórz iterację eksperymentu, uruchomionego godzinie 4:28:36 (w którym wartość parametru do 0,4).
+1. Kliknij przycisk **WYŚWIETL HISTORIĘ URUCHAMIANIA** , a następnie otwórz hello iterację eksperymentu hello, uruchomionego godzinie 4:28:36 (w którym można ustawić too0.4 wartość parametru hello).
 2. Kliknij przycisk **SAVE AS**.
-3. Wprowadź nowy tytuł, a następnie kliknij przycisk **OK** znacznik wyboru. Utworzono nową kopię eksperymentu.
-4. Modyfikowanie **liczba epok szkolenia** parametru.
+3. Wprowadź nowy tytuł, a następnie kliknij przycisk hello **OK** znacznik wyboru. Utworzono nową kopię hello eksperymentu.
+4. Modyfikowanie hello **liczba epok szkolenia** parametru.
 5. Kliknij przycisk **Uruchom**.
 
-Teraz możesz zmodyfikować i uruchomić tej wersji eksperymentu, tworzenie nowych Historia uruchomień, aby zapisać swoją pracę.
+Można teraz kontynuować toomodify i będzie działać ta wersja eksperymentu, tworzenie nowych toorecord Historia uruchomień swoją pracę.
 
 <!-- Images -->
 [runhistory]:./media/machine-learning-manage-experiment-iterations/viewrunhistory.jpg

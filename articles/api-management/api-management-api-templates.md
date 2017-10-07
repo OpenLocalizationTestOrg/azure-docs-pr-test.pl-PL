@@ -1,6 +1,6 @@
 ---
-title: "Szablony interfejsu API w usłudze Azure API Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dostosować zawartość strony interfejsu API w portalu dla deweloperów w usłudze Azure API Management."
+title: "Szablony aaaAPI w usłudze Azure API Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocustomize hello zawartość stron hello interfejsu API w portalu dla deweloperów hello w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 3802868470f0f74cd1f895a00195259861ea16f8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fdfa76167cfaf3b23b22d6321904f34da077fecb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-templates-in-azure-api-management"></a>Szablony interfejsu API w usłudze Azure API Management
-Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartość strony portalu dewelopera przy użyciu zestawu szablonów, które skonfigurować ich zawartości. Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) składni i Edytor wybranych przez użytkownika, takie jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i zestaw udostępnionego zlokalizowane [zasoby ciągu](api-management-template-resources.md#strings), [symboli zasobów](api-management-template-resources.md#glyphs), i [strony kontrolki](api-management-page-controls.md), ma dużą elastyczność konfigurowania zawartości stron, zgodnie z własnymi potrzebami, za pomocą tych szablonów.  
+Zarządzanie interfejsami API Azure oferuje hello możliwości toocustomize hello zawartości strony portalu dewelopera przy użyciu zestawu szablonów, które skonfigurować ich zawartości. Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) edytora składni i hello wybranych przez użytkownika, takie jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i zestaw udostępnionego zlokalizowane [zasoby ciągu](api-management-template-resources.md#strings), [ Zasoby symbolu](api-management-template-resources.md#glyphs), i [strony kontrolki](api-management-page-controls.md), masz dużą elastyczność tooconfigure hello zawartość stron hello zgodnie z własnymi potrzebami, za pomocą tych szablonów.  
   
- Szablony w tej sekcji umożliwiają dostosowanie zawartości strony interfejsu API w portalu dla deweloperów.  
+ Szablony Hello w tej sekcji pozwalają toocustomize zawartość hello hello interfejsu API stron w portalu dla deweloperów hello.  
   
 -   [Lista interfejsu API](#APIList)  
 -   [Operacja](#Product)  
@@ -38,10 +38,10 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  Przykładowe domyślnych szablonów znajdują się w następującej dokumentacji, ale mogą ulec zmianie z powodu ciągłe ulepszenia. Szablonów domyślnych na żywo można wyświetlić w portalu dla deweloperów, przechodząc do żądanego szablony osobno. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [dostosowywaniu portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Przykładowe domyślnych szablonów znajdują się w następującej dokumentacji hello, ale są toochange podmiotu powodu toocontinuous ulepszenia. Hello na żywo domyślnych szablonów można wyświetlić w portalu dla deweloperów hello, przechodząc toohello potrzeby poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [jak toocustomize hello portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="APIList"></a>Lista interfejsu API  
- **Interfejsu API listy** szablonu umożliwia dostosowanie treści strony listy interfejsu API w portalu dla deweloperów.  
+ Witaj **interfejsu API listy** szablonu pozwala toocustomize hello treści strony listy hello interfejsu API w portalu dla deweloperów hello.  
   
  ![Lista API portalu deweloperów](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal szablony interfejsu API listy")  
   
@@ -76,7 +76,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ### <a name="controls"></a>Kontrolki  
- `API list` Szablonu może korzystać z następujących [strony kontrolki](api-management-page-controls.md).  
+ Witaj `API list` szablonu może używać następujących hello [strony kontrolki](api-management-page-controls.md).  
   
 -   [Formant stronicowania](api-management-page-controls.md#paging-control)  
   
@@ -86,7 +86,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|Interfejsy API|Kolekcja [podsumowanie interfejsu API](api-management-template-data-model-reference.md#APISummary) jednostek.|Interfejsy API są widoczne dla bieżącego użytkownika.|  
+|Interfejsy API|Kolekcja [podsumowanie interfejsu API](api-management-template-data-model-reference.md#APISummary) jednostek.|Witaj interfejsów API toohello widoczne bieżącego użytkownika.|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -109,7 +109,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ##  <a name="Product"></a>Operacja  
- **Operacji** szablonu umożliwia dostosowanie treści strony operacji w portalu dla deweloperów.  
+ Witaj **operacji** szablonu pozwala toocustomize treści hello hello operacji strony w portalu dla deweloperów hello.  
   
  ![Strona operacji portalu dewelopera](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "strona operacji szablony APIM portalu dla deweloperów")  
   
@@ -335,21 +335,21 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ### <a name="controls"></a>Kontrolki  
- `Operation` Szablonu nie zezwala na używanie [strony kontrolki](api-management-page-controls.md).  
+ Witaj `Operation` szablonu nie zezwala na używanie hello [strony kontrolki](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Model danych  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|apiId|Ciąg|Identyfikator bieżącego interfejsu API.|  
-|Nazwa_funkcji_api|Ciąg|Nazwa interfejsu API.|  
-|apiDescription|Ciąg|Opis interfejsu API.|  
-|api|[Podsumowanie interfejsu API](api-management-template-data-model-reference.md#APISummary) jednostki.|Bieżący interfejsu API.|  
-|Operacja|[Operacja](api-management-template-data-model-reference.md#Operation)|Operacja aktualnie wyświetlany.|  
-|sampleUrl|Ciąg|Adres URL dla bieżącej operacji.|  
+|apiId|Ciąg|Identyfikator Hello hello bieżącego interfejsu API.|  
+|Nazwa_funkcji_api|Ciąg|Nazwa Hello hello interfejsu API.|  
+|apiDescription|Ciąg|Opis hello interfejsu API.|  
+|api|[Podsumowanie interfejsu API](api-management-template-data-model-reference.md#APISummary) jednostki.|Witaj bieżącego interfejsu API.|  
+|Operacja|[Operacja](api-management-template-data-model-reference.md#Operation)|Operacja Hello aktualnie wyświetlany.|  
+|sampleUrl|Ciąg|adres URL Hello hello bieżącej operacji.|  
 |operationMenu|[Operacja menu](api-management-template-data-model-reference.md#Menu)|Menu operacji dla tego interfejsu API.|  
-|consoleUrl|IDENTYFIKATOR URI|Identyfikator URI dla **wypróbuj** przycisku.|  
-|Przykłady|Kolekcja [przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostek.|Przykłady kodu dla bieżącej operacji...|  
+|consoleUrl|IDENTYFIKATOR URI|Witaj identyfikatora URI dla hello **wypróbuj** przycisku.|  
+|Przykłady|Kolekcja [przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostek.|Przykłady kodu Hello hello bieżącej operacji...|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -376,7 +376,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -456,7 +456,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -480,7 +480,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -504,7 +504,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -528,7 +528,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -552,7 +552,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -576,7 +576,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -600,7 +600,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -624,7 +624,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -639,7 +639,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ##  <a name="CodeSamples"></a>Przykłady kodu  
- Następujące szablony umożliwiają dostosowanie treści przykładów kodu poszczególnych na stronie operacji.  
+ Witaj następujące szablony pozwalają treści hello toocustomize przykładów kodu poszczególnych hello na stronie operacji hello.  
   
  ![Przykłady kodu szablony portalu dewelopera](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "przykłady APIM Developer Portal szablony kodu")  
   
@@ -660,7 +660,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 -   [Ruby](#Ruby)  
   
 ###  <a name="Curl"></a>Narzędzie curl  
- **DocumentationSamplesCurl** szablonu umożliwia dostosowanie tym przykładowym kodzie w sekcji przykładów kodu strony operacji.  
+ Witaj **DocumentationSamplesCurl** szablon umożliwia toocustomize, że kod przykładowy w sekcji przykładów kodu hello hello operacji strony.  
   
 #### <a name="default-template"></a>Szablon domyślny  
   
@@ -678,7 +678,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 #### <a name="controls"></a>Kontrolki  
- Szablony przykładowy kod nie zezwalaj na używanie [strony kontrolki](api-management-page-controls.md).  
+ Witaj szablony przykładowy kod nie zezwalaj na używanie hello [strony kontrolki](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Model danych  
  [Przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostki.  
@@ -700,7 +700,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -713,7 +713,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 ###  <a name="CSharp"></a>C#  
- **DocumentationSamplesCsharp** szablonu umożliwia dostosowanie tym przykładowym kodzie w sekcji przykładów kodu strony operacji.  
+ Witaj **DocumentationSamplesCsharp** szablon umożliwia toocustomize, że kod przykładowy w sekcji przykładów kodu hello hello operacji strony.  
   
 #### <a name="default-template"></a>Szablon domyślny  
   
@@ -731,7 +731,7 @@ namespace CSHttpClientSample
         static void Main()  
         {  
             MakeRequest();  
-            Console.WriteLine("Hit ENTER to exit...");  
+            Console.WriteLine("Hit ENTER tooexit...");  
             Console.ReadLine();  
         }  
   
@@ -857,7 +857,7 @@ namespace CSHttpClientSample
 ```  
   
 #### <a name="controls"></a>Kontrolki  
- Szablony przykładowy kod nie zezwalaj na używanie [strony kontrolki](api-management-page-controls.md).  
+ Witaj szablony przykładowy kod nie zezwalaj na używanie hello [strony kontrolki](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Model danych  
  [Przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostki.  
@@ -879,7 +879,7 @@ namespace CSHttpClientSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -892,12 +892,12 @@ namespace CSHttpClientSample
 ```  
   
 ###  <a name="Stub"></a>Java  
- **DocumentationSamplesJava** szablonu umożliwia dostosowanie tym przykładowym kodzie w sekcji przykładów kodu strony operacji.  
+ Witaj **DocumentationSamplesJava** szablon umożliwia toocustomize, że kod przykładowy w sekcji przykładów kodu hello hello operacji strony.  
   
 #### <a name="default-template"></a>Szablon domyślny  
   
 ```xml  
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// // This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
 import org.apache.http.HttpResponse;  
@@ -953,7 +953,7 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Kontrolki  
- Szablony przykładowy kod nie zezwalaj na używanie [strony kontrolki](api-management-page-controls.md).  
+ Witaj szablony przykładowy kod nie zezwalaj na używanie hello [strony kontrolki](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Model danych  
  [Przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostki.  
@@ -975,7 +975,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -988,7 +988,7 @@ public class JavaSample
 ```  
   
 ###  <a name="JavaScript"></a>JavaScript  
- **DocumentationSamplesJs** szablonu umożliwia dostosowanie tym przykładowym kodzie w sekcji przykładów kodu strony operacji.  
+ Witaj **DocumentationSamplesJs** szablon umożliwia toocustomize, że kod przykładowy w sekcji przykładów kodu hello hello operacji strony.  
   
 #### <a name="default-template"></a>Szablon domyślny  
   
@@ -1042,7 +1042,7 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Kontrolki  
- Szablony przykładowy kod nie zezwalaj na używanie [strony kontrolki](api-management-page-controls.md).  
+ Witaj szablony przykładowy kod nie zezwalaj na używanie hello [strony kontrolki](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Model danych  
  [Przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostki.  
@@ -1064,7 +1064,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1077,7 +1077,7 @@ public class JavaSample
 ```  
   
 ###  <a name="ObjectiveC"></a>Objective C  
- **DocumentationSamplesObjc** szablonu umożliwia dostosowanie tym przykładowym kodzie w sekcji przykładów kodu strony operacji.  
+ Witaj **DocumentationSamplesObjc** szablon umożliwia toocustomize, że kod przykładowy w sekcji przykładów kodu hello hello operacji strony.  
   
 #### <a name="default-template"></a>Szablon domyślny  
   
@@ -1154,7 +1154,7 @@ int main(int argc, const char * argv[])
 ```  
   
 #### <a name="controls"></a>Kontrolki  
- Szablony przykładowy kod nie zezwalaj na używanie [strony kontrolki](api-management-page-controls.md).  
+ Witaj szablony przykładowy kod nie zezwalaj na używanie hello [strony kontrolki](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Model danych  
  [Przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostki.  
@@ -1176,7 +1176,7 @@ int main(int argc, const char * argv[])
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1189,13 +1189,13 @@ int main(int argc, const char * argv[])
 ```  
   
 ###  <a name="PHP"></a>PHP  
- **DocumentationSamplesPhp** szablonu umożliwia dostosowanie tym przykładowym kodzie w sekcji przykładów kodu strony operacji.  
+ Witaj **DocumentationSamplesPhp** szablon umożliwia toocustomize, że kod przykładowy w sekcji przykładów kodu hello hello operacji strony.  
   
 #### <a name="default-template"></a>Szablon domyślny  
   
 ```xml  
 <?php  
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 require_once 'HTTP/Request2.php';  
   
 $request = new Http_Request2('{{scheme}}://{{host}}{{path}}');  
@@ -1244,7 +1244,7 @@ catch (HttpException $ex)
 ```  
   
 #### <a name="controls"></a>Kontrolki  
- Szablony przykładowy kod nie zezwalaj na używanie [strony kontrolki](api-management-page-controls.md).  
+ Witaj szablony przykładowy kod nie zezwalaj na używanie hello [strony kontrolki](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Model danych  
  [Przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostki.  
@@ -1266,7 +1266,7 @@ catch (HttpException $ex)
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1279,7 +1279,7 @@ catch (HttpException $ex)
 ```  
   
 ###  <a name="Python"></a>Python  
- **DocumentationSamplesPython** szablonu umożliwia dostosowanie tym przykładowym kodzie w sekcji przykładów kodu strony operacji.  
+ Witaj **DocumentationSamplesPython** szablon umożliwia toocustomize, że kod przykładowy w sekcji przykładów kodu hello hello operacji strony.  
   
 #### <a name="default-template"></a>Szablon domyślny  
   
@@ -1362,7 +1362,7 @@ except Exception as e:
 ```  
   
 #### <a name="controls"></a>Kontrolki  
- Szablony przykładowy kod nie zezwalaj na używanie [strony kontrolki](api-management-page-controls.md).  
+ Witaj szablony przykładowy kod nie zezwalaj na używanie hello [strony kontrolki](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Model danych  
  [Przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostki.  
@@ -1384,7 +1384,7 @@ except Exception as e:
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1397,7 +1397,7 @@ except Exception as e:
 ```  
   
 ###  <a name="Ruby"></a>Ruby  
- **DocumentationSamplesRuby** szablonu umożliwia dostosowanie tym przykładowym kodzie w sekcji przykładów kodu strony operacji.  
+ Witaj **DocumentationSamplesRuby** szablon umożliwia toocustomize, że kod przykładowy w sekcji przykładów kodu hello hello operacji strony.  
   
 #### <a name="default-template"></a>Szablon domyślny  
   
@@ -1433,7 +1433,7 @@ puts response.body
 ```  
   
 #### <a name="controls"></a>Kontrolki  
- Szablony przykładowy kod nie zezwalaj na używanie [strony kontrolki](api-management-page-controls.md).  
+ Witaj szablony przykładowy kod nie zezwalaj na używanie hello [strony kontrolki](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Model danych  
  [Przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostki.  
@@ -1455,7 +1455,7 @@ puts response.body
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1468,4 +1468,4 @@ puts response.body
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [dostosowywaniu portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](api-management-developer-portal-templates.md).
+Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [jak toocustomize hello portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](api-management-developer-portal-templates.md).

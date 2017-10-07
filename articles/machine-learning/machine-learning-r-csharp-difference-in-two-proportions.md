@@ -1,5 +1,5 @@
 ---
-title: "(przestarzałe) Różnica w teście proporcje - Azure | Dokumentacja firmy Microsoft"
+title: "Różnica w teście proporcje - Azure aaa(deprecated) | Dokumentacja firmy Microsoft"
 description: "(przestarzałe) Różnica w teście proporcji"
 services: machine-learning
 documentationcenter: 
@@ -16,47 +16,47 @@ ms.date: 01/06/2017
 ms.author: aniedea
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: a08f91ca76eef2562caeb9eb64cec5e549ed2f5f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 820aad377f9dec12b0ef455974aaa95f6e8d723a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-difference-in-proportions-test"></a>(przestarzałe) Różnica w teście proporcji
 
 > [!NOTE]
-> Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
+> Witaj Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
 > 
-> Możesz znaleźć wiele eksperymenty przykład przydatne i interfejsów API w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji o galerii, zobacz [udziału i odnajdywania zasobów w Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Możesz znaleźć wiele interfejsów API i przydatne przykład eksperymenty w hello [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji na temat hello galerii, zobacz [udziału i odnajdywania zasobów w hello Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Różnią się dwóch proporcji statystycznie? Załóżmy, że użytkownik chce, aby porównać dwa filmów, aby sprawdzić, czy jeden film jest znacznie wyższa część "lubi" Kiedy w porównaniu do drugiego. Z przykładowym duży może być statystycznie znacząca różnica między proporcje 0,50 i 0,51. Przy małej przykładowej prawdopodobnie za mało danych do ustalenia, czy te proporcje są faktycznie różnych. 
+Różnią się dwóch proporcji statystycznie? Załóżmy, że użytkownik chce, aby toodetermine filmy toocompare dwa, jeśli jeden film jest znacznie wyższa część "lubi" kiedy porównaniu toohello innych. Z przykładowym duży może być statystycznie znacząca różnica między proporcje hello 0,50 i 0,51. Z małej przykładowej prawdopodobnie toodetermine wystarczającej ilości danych jeśli proporcje te są faktycznie różne. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-To [usługi sieci web](https://datamarket.azure.com/dataset/aml_labs/prop_test) przeprowadza test hipoteza różnica dwóch proporcji oparte na danych wejściowych użytkownika liczbę sukcesów i łączna liczba prób dla grupy 2 porównania. Możliwy scenariusz tej usługi sieci web może być wywołana z poziomu movie app porównania, informujący użytkownika, czy jeden filmów jest naprawdę "zbędne" częściej niż inne, na podstawie filmu klasyfikacji.
+To [usługi sieci web](https://datamarket.azure.com/dataset/aml_labs/prop_test) przeprowadza test hipoteza hello różnica dwóch proporcji oparte na danych wejściowych użytkownika hello liczbę sukcesów i hello łączna liczba prób dla grup porównania hello 2. Możliwy scenariusz tej usługi sieci web może być wywołana z poziomu movie app porównania, informuje użytkownika hello czy jedną filmy hello jest naprawdę "zbędne" częściej niż hello inne, na podstawie filmu klasyfikacji.
 
-> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale celem usługi sieci web jest również służyć jako przykład sposobu użycia usługi Azure Machine Learning do tworzenia usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. Usługi sieci web może następnie opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w całym świecie bez ustawień infrastruktury przez autora usługi sieci web.
+> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale hello hello usługi sieci web służy również tooserve, na przykład jak usługi Azure Machine Learning można toocreate używanych usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. usługi sieci web Hello można następnie toohello opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w Witaj świecie bez ustawień infrastruktury przez autora hello hello usługi sieci web.
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Użycie usługi sieci web
 Ta usługa akceptuje argumenty 4, i jest hipoteza testowych proporcji.
 
-Argumenty wejściowe są:
+argumenty wejściowe Hello są:
 
 * Successes1 — liczba zdarzeń pomyślnego w przykładzie 1.
 * Successes2 — liczba zdarzeń pomyślnego w przykładzie 2.
 * Total1 — rozmiar próbki 1.
 * Total2 — rozmiar próbki 2.
 
-Dane wyjściowe usługi jest wynikiem hipotezę test wraz z chi-square Statystyka, df, p wartość, a udział procentowy w granice 1/2 i przedział ufności próbki.
+dane wyjściowe Hello usługi hello jest wynikiem hello hipoteza hello test wraz z hello chi-square Statystyka, df, p wartość, a udział procentowy w granice 1/2 i przedział ufności próbki.
 
-> Ta usługa hostowana w portalu Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
+> Ta usługa hostowana na hello Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
 > 
 > 
 
-Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)).
+Istnieje wiele sposobów używania usługi hello w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Rozpoczynanie korzystania z usług sieci web kod C#:
     public class Input
@@ -90,11 +90,11 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 
 
 ## <a name="creation-of-web-service"></a>Tworzenie usługi sieci web
-> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu doświadczenia utworzony kod przykład i usługi sieci web dla każdego z modułów w ramach eksperymentu.
+> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu hello eksperymentu, utworzona hello kod przykład i usługi sieci web dla każdego z modułów hello w ramach eksperymentu hello.
 > 
 > 
 
-Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona przy użyciu dwóch [wykonanie skryptu języka R] [ execute-r-script] modułów. W pierwszym moduł, który jest zdefiniowany schemat danych a druga modułu używa prop.test polecenia w R do przeprowadzenia testu hipoteza proporcje 2. 
+Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona przy użyciu dwóch [wykonanie skryptu języka R] [ execute-r-script] modułów. W module pierwszy hello hello schemat danych jest zdefiniowana, gdy drugi moduł hello używa polecenia prop.test hello R tooperform hello hipotetyczny test proporcje 2. 
 
 ### <a name="experiment-flow"></a>Przepływ eksperymentu:
 ![Przepływ eksperymentu][2]
@@ -102,7 +102,7 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
 #### <a name="module-1"></a>Moduł 1:
     ####Schema definition  
     data.set=data.frame(successes1=50,successes2=60,total1=100,total2=100);
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
     dataset1 = maml.mapInputPort(1) #read data from input port
 
 
@@ -110,8 +110,8 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
     test=prop.test(c(dataset1$successes1[1],dataset1$successes2[1]),c(dataset1$total1[1],dataset1$total2[1])) #conduct hypothesis test
 
     result=data.frame(
-    result=ifelse(test$p.value<0.05,"The proportions are different!",
-    "The proportions aren't different statistically."),
+    result=ifelse(test$p.value<0.05,"hello proportions are different!",
+    "hello proportions aren't different statistically."),
     ChiSquarestatistic=round(test$statistic,2),df=test$parameter,
     pvalue=round(test$p.value,4),
     proportion1=round(test$estimate[1],4),
@@ -123,10 +123,10 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
 
 
 ## <a name="limitations"></a>Ograniczenia
-Jest bardzo prosty przykład dla testu różnicy w proporcjach 2. Jak wynika z przykładowy kod powyżej, nie błąd Przechwytywanie jest zaimplementowany i usługa zakłada, że wszystkie zmienne są ciągłe.
+Jest bardzo prosty przykład dla testu różnicy w proporcjach 2. Jak wynika z powyższych hello przykładowy kod, nie błąd Przechwytywanie jest zaimplementowany i usługi hello zakłada, że wszystkie zmienne hello są ciągłe.
 
 ## <a name="faq"></a>Często zadawane pytania
-Często zadawane pytania dotyczące wykorzystania usługi sieci web i publikowanie w portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
+Często zadawane pytania dotyczące wykorzystania hello usługi sieci web lub toohello publikowania portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
 [2]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img2.png

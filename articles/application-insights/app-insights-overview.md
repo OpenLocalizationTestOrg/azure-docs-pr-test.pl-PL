@@ -1,5 +1,5 @@
 ---
-title: "Co to jest usługa Azure Application Insights? | Microsoft Docs"
+title: Co to jest Azure Application Insights aaa? | Microsoft Docs
 description: "Zarządzanie wydajnością aplikacji i śledzenie użycia działającej aplikacji sieci Web.  Wykrywanie, klasyfikacja i diagnozowanie problemów, rozumienie, jak użytkownicy używają Twojej aplikacji."
 services: application-insights
 documentationcenter: 
@@ -13,79 +13,79 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/14/2017
 ms.author: bwren
-ms.openlocfilehash: 4b863f7421488a76aab60729286b48b65055d8f4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d2596f53a36991fcd08551e6395ece68a5801e39
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-application-insights"></a>Co to jest usługa Application Insights?
-Usługa Application Insights jest rozszerzalną usługą zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj tej usługi do monitorowania aplikacji sieci Web na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Obejmuje ona zaawansowane narzędzia analityczne, dzięki którym możesz diagnozować problemy i zrozumieć sposób korzystania z aplikacji przez użytkowników.  Usługa ta pomaga w ciągłym doskonaleniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js i J2EE, hostowanych lokalnie lub w chmurze. Integruje się ona z procesem devOps i ma punkty połączenia z szeroką gamą narzędzi programistycznych.
+Usługa Application Insights jest rozszerzalną usługą zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj go toomonitor aplikacji sieci web na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Obejmuje on analytics zaawansowanych narzędzi toohelp diagnozować problemy i toounderstand co użytkownicy faktycznie wykonać za pomocą aplikacji.  Zaprojektowano go toohelp stale zwiększyć wydajność i użyteczność. Działa w przypadku aplikacji na różnych platformach w tym .NET, Node.js i J2EE obsługiwanego lokalnie lub w chmurze hello. Integruje się z procesu opracowywania oprogramowania i zawiera punkty połączenia tooa różnych narzędzi programistycznych.
 
 ![Udostępnia wykresy statystyki działań użytkownika lub przejście do szczegółów określonych zdarzeń.](./media/app-insights-overview/00-sample.png)
 
-[Obejrzyj animację wprowadzającą](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
+[Spójrz na powitania wprowadzenie animacji](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## <a name="how-does-application-insights-work"></a>Jak działa usługa Application Insights?
-Zainstaluj mały pakiet instrumentacji w swojej aplikacji i skonfiguruj zasób usługi Application Insights w witrynie Microsoft Azure Portal. Instrumentacja monitoruje Twoją aplikację i wysyła dane telemetryczne do portalu. (Aplikację można uruchomić gdziekolwiek — nie musi być ona hostowana na platformie Azure).
+Instalowanie pakietu małych Instrumentacji w aplikacji i skonfigurować zasobu usługi Application Insights w portalu Microsoft Azure hello. Instrumentacja Hello monitoruje aplikację i wysyła portalu toohello danych telemetrycznych. (aplikacji hello można uruchamiane w dowolnym miejscu — nie ma toobe hostowana na platformie Azure).
 
-Instrumentacja może obejmować nie tylko aplikację usługi sieci Web, ale również wszystkie składniki tła i skrypty JavaScript na samych stronach sieci Web. 
+Instrumentacja nie tylko aplikacji usługi sieci web hello, ale również wszystkich składników tła i hello JavaScript na stronach sieci web hello samodzielnie. 
 
-![Instrumentacja usługi Application Insights w Twojej aplikacji wysyła dane telemetryczne do zasobu usługi Application Insights.](./media/app-insights-overview/01-scheme.png)
-
-
-Ponadto możesz ściągnąć dane telemetryczne ze środowisk hostów, takich jak liczniki wydajności, diagnostyka platformy Azure lub dzienniki platformy Docker. Możesz też skonfigurować testy sieci Web, które okresowo wysyłają syntetyczne żądania do usługi sieci Web.
-
-Wszystkie te strumienie telemetrii są zintegrowane w witrynie Azure Portal, gdzie możesz zastosować zaawansowane narzędzia do analizy i wyszukiwania do danych pierwotnych.
+![Instrumentacji aplikacji wgląd w aplikację wysyła dane telemetryczne tooyour zasobu usługi Application Insights.](./media/app-insights-overview/01-scheme.png)
 
 
-### <a name="whats-the-overhead"></a>Co to jest narzut?
-Wpływ na wydajność Twojej aplikacji jest bardzo mały. Wywołania śledzenia nie powodują blokowania oraz są łączone w partie i wysłane w oddzielnym wątku.
+Ponadto można umieścić w danych telemetrycznych ze środowisk hosta hello, takie jak liczniki wydajności, Diagnostyka Azure lub dzienniki Docker. Można również skonfigurować testów sieci web, które okresowo wysyłają żądania syntetycznych tooyour usługi sieci web.
+
+Witaj wszystkich tych strumieni dane telemetryczne są zintegrowane w portalu Azure, w którym możesz zastosować zaawansowane analityczne i danych pierwotnych toohello narzędzia wyszukiwania.
+
+
+### <a name="whats-hello-overhead"></a>Co to jest zmniejszenie hello?
+Witaj wpływ na wydajność aplikacji jest bardzo mała. Wywołania śledzenia nie powodują blokowania oraz są łączone w partie i wysłane w oddzielnym wątku.
 
 ## <a name="what-does-application-insights-monitor"></a>Co monitoruje usługa Application Insights?
 
-Usługa Application Insights jest przeznaczona dla zespołu deweloperów po to, aby pomóc zrozumieć, jak działa Twoja aplikacja i jak jest używana. Monitoruje ona:
+Usługa Application Insights jest celem hello zespół deweloperów, toohelp zrozumieć, jak aplikacja działa prawidłowo, i jak jest używany. Monitoruje ona:
 
 * **Liczby żądań, czasy reakcji i współczynniki błędów** — dowiedz się, które strony są najbardziej popularne, o jakiej porze dnia i gdzie są Twoi użytkownicy. Zobacz, które strony działają najlepiej. Jeśli Twoje czasy odpowiedzi i częstotliwości awarii są duże, gdy jest więcej żądań, być może masz problem z zasobami. 
 * **Współczynniki zależności, czasy reakcji i współczynniki błędów** — dowiedz się, czy usługi zewnętrzne nie spowalniają pracy.
-* **Wyjątki** — analizowanie zagregowanych danych statystycznych lub wybieranie określonych wystąpień i przechodzenie do szczegółów śladu stosu i powiązanych żądań. Są zgłaszane zarówno wyjątki serwera, jak i przeglądarki.
+* **Wyjątki** — analizuje statystyki hello zagregowane, lub wybierz określone wystąpienia i przejść do szczegółów w hello ślad stosu i powiązane żądań. Są zgłaszane zarówno wyjątki serwera, jak i przeglądarki.
 * **Wydajność ładowania i wyświetleń stron** — zgłoszona przez przeglądarki użytkowników.
 * **Wywołania AJAX** ze stron sieci Web — liczba, czasy reakcji i współczynniki błędów.
 * **Liczby użytkowników i sesji**.
 * **Liczniki wydajności** z serwerów systemu Windows lub Linux, takie jak użycie procesora CPU, pamięci i sieci. 
 * **Diagnostyka hosta** z platformy Docker lub Azure. 
 * **Diagnostyczne dzienniki śledzenia** z Twojej aplikacji — dzięki temu możesz skorelować zdarzenia śledzenia z żądaniami.
-* **Niestandardowe zdarzenia i metryki**, które samodzielnie zapisujesz w kodzie klienta lub serwera, do śledzenia zdarzeń biznesowych, takich jak sprzedane towary lub wygrane gry.
+* **Niestandardowe zdarzenia i metryki** napisanie samodzielnie powitania klienta lub serwera kodu tootrack zdarzeń biznesowych takich jak elementy sprzedaży lub gier kupione.
 
 ## <a name="where-do-i-see-my-telemetry"></a>Gdzie mogę zobaczyć swoją telemetrię?
 
-Istnieje wiele sposobów eksploracji danych. Zapoznaj się z następującymi artykułami:
+Istnieje wiele sposobów tooexplore danych. Zapoznaj się z następującymi artykułami:
 
 |  |  |
 | --- | --- |
-| [**Inteligentne wykrywanie i ręczne alerty**](app-insights-proactive-diagnostics.md)<br/>Alerty automatyczne dostosowują się do normalnych wzorców telemetrii Twojej aplikacji i są wyzwalane, gdy wystąpi coś poza zwykłym wzorcem. Możesz też [ustawić alerty](app-insights-alerts.md) dla konkretnych poziomów metryk niestandardowych lub standardowych. |![Przykładowy alert](./media/app-insights-overview/alerts-tn.png) |
-| [**Mapa aplikacji**](app-insights-app-map.md)<br/>Składniki Twojej aplikacji wraz z kluczowymi metrykami i alertami. |![Mapa aplikacji](./media/app-insights-overview/appmap-tn.png)  |
-| [**Profiler**](app-insights-profiler.md)<br/>Inspekcja profilów wykonania próbek żądań. |![Profiler](./media/app-insights-overview/profiler.png) |
+| [**Inteligentne wykrywanie i ręczne alerty**](app-insights-proactive-diagnostics.md)<br/>Automatyczne alerty dostosowania aplikacji tooyour normalne wzorców telemetrii i wyzwalacza, gdy coś poza wzorzec zwykle hello jest. Możesz też [ustawić alerty](app-insights-alerts.md) dla konkretnych poziomów metryk niestandardowych lub standardowych. |![Przykładowy alert](./media/app-insights-overview/alerts-tn.png) |
+| [**Mapa aplikacji**](app-insights-app-map.md)<br/>składniki Hello aplikacji, za pomocą kluczowych metryk i alerty. |![Mapa aplikacji](./media/app-insights-overview/appmap-tn.png)  |
+| [**Profiler**](app-insights-profiler.md)<br/>Sprawdź, czy profile wykonywania hello próbki żądań. |![Profiler](./media/app-insights-overview/profiler.png) |
 | [**Analiza użycia**](app-insights-usage-overview.md)<br/>Analiza segmentacji i utrzymywania użytkowników.|![Narzędzie utrzymywania](./media/app-insights-overview/retention.png) |
 | [**Wyszukiwanie diagnostyczne danych dla wystąpienia**](app-insights-diagnostic-search.md)<br/>Wyszukiwanie i filtrowanie zdarzeń, takich jak żądania, wyjątki, wywołania zależności, dzienniki śledzenia i wyświetlenia stron.  |![Wyszukiwanie telemetrii](./media/app-insights-overview/search-tn.png) |
 | [**Eksplorator metryk dla danych zagregowanych**](app-insights-metrics-explorer.md)<br/>Eksploruj, filtruj i segmentuj zagregowane dane, takie jak liczby żądań, błędów i wyjątków, czasy reakcji, czasy ładowania stron. |![Metryki](./media/app-insights-overview/metrics-tn.png) |
-| [**Pulpity nawigacyjne**](app-insights-dashboards.md#dashboards)<br/>Połącz dane z wielu zasobów i udostępnij innym osobom. Opcja ta doskonale nadaje się dla aplikacji wieloskładnikowych i ciągłego wyświetlania w pomieszczeniu zespołu. |![Przykładowy pulpit nawigacyjny](./media/app-insights-overview/dashboard-tn.png) |
-| [**Transmisja strumieniowa metryk na żywo**](app-insights-live-stream.md)<br/>Podczas wdrażania nowej kompilacji obejrzyj te wskaźniki wydajności prawie w czasie rzeczywistym, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. |![Przykładowe metryki na żywo](./media/app-insights-overview/live-metrics-tn.png) |
+| [**Pulpity nawigacyjne**](app-insights-dashboards.md#dashboards)<br/>Połącz dane z wielu zasobów i udostępnij innym osobom. Doskonały dla wielu składnika aplikacji i ciągłe wyświetlaną w pokoju zespołu hello. |![Przykładowy pulpit nawigacyjny](./media/app-insights-overview/dashboard-tn.png) |
+| [**Transmisja strumieniowa metryk na żywo**](app-insights-live-stream.md)<br/>Podczas wdrażania nowej kompilacji, obejrzyj te wskaźniki wydajności w pobliżu czasie rzeczywistym toomake się, że wszystko działa zgodnie z oczekiwaniami. |![Przykładowe metryki na żywo](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analiza**](app-insights-analytics.md)<br/>Odpowiedz na trudne pytania dotyczące wydajności i użycia Twojej aplikacji za pomocą tego zaawansowanego języka zapytań. |![Przykładowa analiza](./media/app-insights-overview/analytics-tn.png) |
-| [**Program Visual Studio**](app-insights-visual-studio.md)<br/>Zobacz dane dotyczące wydajności w kodzie. Przejdź do kodu ze śladów stosu.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Program Visual Studio**](app-insights-visual-studio.md)<br/>Dane wydajności w kodzie hello widoczne. Przechodzenie toocode z śladów stosu.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Debuger migawek**](app-insights-snapshot-debugger.md)<br/>Debuguje próbki migawek pobrane z operacji na żywo, używając wartości parametrów.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Integruje metryki użycia z innymi analizami biznesowymi.| ![Power BI](./media/app-insights-overview/power-bi.png)|
-| [**Interfejs API REST**](https://dev.applicationinsights.io/)<br/>Napisz kod, aby uruchamiać zapytania dla swoich metryk i danych pierwotnych.| ![Interfejs API REST](./media/app-insights-overview/rest-tn.png) |
-| [**Eksport ciągły**](app-insights-export-telemetry.md)<br/>Zbiorczy eksport danych pierwotnych do magazynu zaraz po ich odebraniu. |![Eksportowanie](./media/app-insights-overview/export-tn.png) |
+| [**Interfejs API REST**](https://dev.applicationinsights.io/)<br/>Napisać kod zapytania toorun nad metryki i dane pierwotne.| ![Interfejs API REST](./media/app-insights-overview/rest-tn.png) |
+| [**Eksport ciągły**](app-insights-export-telemetry.md)<br/>Zbiorcze eksportu toostorage danych pierwotnych, natychmiast po dostarczeniu. |![Eksportowanie](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Jak mogę używać usługi Application Insights?
 
 ### <a name="monitor"></a>Monitorowanie
 Zainstaluj usługę Application Insights w swojej aplikacji, skonfiguruj [testy sieci Web dostępności](app-insights-monitor-web-app-availability.md) oraz:
 
-* Skonfiguruj [pulpit nawigacyjny](app-insights-dashboards.md) dla pomieszczenia zespołu, aby śledzić obciążenie, elastyczność i wydajność zależności, ładowania stron i wywołania AJAX.
-* Wykryj, jakie żądania są najwolniejsze i najczęściej kończą się niepowodzeniem.
-* Obejrzyj [transmisję strumieniową na żywo](app-insights-live-stream.md) podczas wdrażania nowej wersji, aby od razu dowiedzieć się o wszelkich pogorszeniach.
+* Konfigurowanie [pulpitu nawigacyjnego](app-insights-dashboards.md) w Twojej tookeep pokoju zespołu usługi oka na obciążenia, elastyczność i wydajność hello zależności stronie obciążenia i wywołania AJAX.
+* Odnajdywanie hello najwolniejsze i większość Niepowodzenie żądania.
+* Obejrzyj [strumień na żywo](app-insights-live-stream.md) podczas wdrażania nowej wersji tooknow natychmiast o obniżenia.
 
 ### <a name="detect-diagnose"></a>Wykrywanie, diagnozowanie
 Po odebraniu alertu lub odnalezieniu problemu:
@@ -95,22 +95,22 @@ Po odebraniu alertu lub odnalezieniu problemu:
 * Sprawdź profilera, migawki, zrzuty stosu i dzienniki śledzenia.
 
 ### <a name="build-measure-learn"></a>Kompilowanie, mierzenie, poznawanie
-[Zmierz efektywność](app-insights-usage-overview.md) każdej nowo wdrażanej funkcji.
+[Przeszukiwarki hello](app-insights-usage-overview.md) każdej nowej funkcji wdrażania.
 
-* Zaplanuj pomiar sposobu używania nowych funkcji środowiska użytkownika lub biznesowych przez klientów.
+* Planowanie toomeasure używania nowego środowiska użytkownika lub funkcji biznesowych.
 * Zapisz niestandardową telemetrię do kodu.
-* Oprzyj następny cyklu rozwoju na twardych dowodach ze swojej telemetrii.
+* Programowanie dalej hello podstawowy cykl na dowód twardym z telemetrii.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
-Usługa Application Insights jest jedną z wielu usług hostowanych na platformie Microsoft Azure, a dane telemetryczne są przesyłane do analizy i prezentacji. Dlatego przed wykonaniem jakichkolwiek innych czynności będzie potrzebna subskrypcja platformy [Microsoft Azure](http://azure.com). Rejestracja jest bezpłatna, a jeśli wybierzesz podstawowy [plan cenowy](https://azure.microsoft.com/pricing/details/application-insights/) usługi Application Insights, nie będzie opłat do chwili, gdy aplikacja rozrośnie się na tyle, aby mieć znaczne wykorzystanie. Jeśli Twoja organizacja ma już subskrypcję, może ona dodać do niej Twoje konto Microsoft.
+Usługa Application Insights jest jedną z wielu usług hostowanych w Microsoft Azure i dane telemetryczne są wysyłane analizy i prezentacji hello. Dlatego przed wykonaniem jakichkolwiek innych czynności potrzebujesz subskrypcji zbyt[Microsoft Azure](http://azure.com). Jest bezpłatna toosign i wybranie opcji hello podstawowe [cenową planu](https://azure.microsoft.com/pricing/details/application-insights/) z usługi Application Insights jest bezpłatna dopóki aplikacja zwiększył toohave znaczne obciążenie. Jeśli Twoja organizacja już ma subskrypcję, ich można dodać użytkownika tooit konta Microsoft.
 
-Istnieje kilka sposobów, aby rozpocząć. Zacznij od tego, co najlepiej sprawdza się w Twoim przypadku. Resztę możesz dodać później.
+Istnieje kilka sposobów tooget uruchomiona. Zacznij od tego, co najlepiej sprawdza się w Twoim przypadku. Można dodać inne hello później.
 
-* **W czasie wykonywania: wdróż instrumentację aplikacji sieci Web na serwerze.** Pozwala uniknąć wszelkich aktualizacji kodu. Musisz mieć dostęp administracyjny do serwera.
+* **W czasie wykonywania: Instrumentacja aplikacji sieci web na powitania serwera.** Unika się dowolny kod toohello aktualizacji. Należy serwera tooyour dostępu administracyjnego.
   * [**Usługi IIS lokalnie lub na maszynie wirtualnej**](app-insights-monitor-performance-live-website-now.md)
   * [**Aplikacja sieci Web lub maszyna wirtualna na platformie Azure**](app-insights-monitor-performance-live-website-now.md)
   * [**J2EE**](app-insights-java-live.md)
-* **W czasie tworzenia: dodaj usługę Application Insights do swojego kodu.** Umożliwia pisanie niestandardowych telemetrii oraz instrumentację zaplecza i aplikacji komputerowych.
+* **W czasie opracowywania: Dodaj kod tooyour usługi Application Insights.** Umożliwia toowrite telemetrii i tooinstrument zaplecza i klasycznych aplikacji niestandardowych.
   * [Program Visual Studio](app-insights-asp-net.md) 2013 Update 2 lub nowszy.
   * Język Java w środowisku [Eclipse](app-insights-java-eclipse.md) lub [innych narzędziach](app-insights-java-get-started.md)
   * [Node.js](app-insights-nodejs.md)

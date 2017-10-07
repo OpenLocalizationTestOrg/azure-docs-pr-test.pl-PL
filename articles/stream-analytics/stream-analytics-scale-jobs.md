@@ -1,6 +1,6 @@
 ---
-title: "Skalowanie zadania usługi analiza strumienia w celu zwiększenia przepływności | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skalować zadania usługi analiza strumienia Konfigurowanie partycji wejściowych, dostosowywanie definicji zapytania i ustawiając zadania jednostki przesyłania strumieniowego."
+title: "Przepływność tooincrease zadania usługi analiza strumienia aaaScale | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak zadania usługi analiza strumienia tooscale Konfigurowanie partycji wejściowych, dostrajanie hello definicji zapytania i ustawiając zadania jednostki przesyłania strumieniowego."
 keywords: "przesyłanie strumieniowe, danych przesyłania strumieniowego przetwarzania danych, dostroić analityka"
 services: stream-analytics
 documentationcenter: 
@@ -15,51 +15,51 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeffstok
-ms.openlocfilehash: ab894976c72ea3785d7f58e51b3dd64511e1e8e3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4ba8f6b2f8bfebd52cfa07696b501b42cda21f75
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>Skalowanie zadania usługi analiza strumienia Azure w celu zwiększenia przepływności przetwarzania danych strumienia
-W tym artykule przedstawiono sposób dostrajania Stream Analytics zapytanie w celu zwiększenia przepływności zadań przesyłania strumieniowego usługi Analytics. Dowiesz się, jak skalowanie zadania usługi analiza strumienia przez konfigurowanie partycji wejściowych, dostosowywanie definicji zapytania analytics i obliczanie i ustawiania zadania *jednostki przesyłania strumieniowego* (SUs). 
+# <a name="scale-azure-stream-analytics-jobs-tooincrease-stream-data-processing-throughput"></a>Skalowanie usługi Azure Stream Analytics zadania tooincrease strumienia przetwarzania danych przepływności
+W tym artykule opisano, jak tootune Stream Analytics zapytania tooincrease przepływność dla zadań przesyłania strumieniowego usługi Analytics. Dowiedz się, jak tooscale analiza strumienia zadania przez skonfigurowanie wejściowych partycji, dostrajania analytics hello zapytania definicji i obliczanie i ustawiania zadania *jednostki przesyłania strumieniowego* (SUs). 
 
-## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Co to są elementy zadania Stream Analytics?
-Definicji zadania Stream Analytics zawiera dane wejściowe, zapytań i danych wyjściowych. Dane wejściowe są, gdy zadanie odczytuje strumienia danych z. Zapytanie jest używany do transformacji strumienia danych wejściowych, a dane wyjściowe są, gdy zadanie wysyła wyników zadania do.  
+## <a name="what-are-hello-parts-of-a-stream-analytics-job"></a>Co to są hello części zadanie usługi Stream Analytics?
+Definicji zadania Stream Analytics zawiera dane wejściowe, zapytań i danych wyjściowych. Dane wejściowe są, gdzie hello zadania odczytuje hello strumień danych. Hello zapytania jest strumienia danych wejściowych hello tootransform używane, a dane wyjściowe hello jest gdzie zadanie hello wysyła hello wyniki zadania do.  
 
-Zadanie wymaga co najmniej jedno źródło danych wejściowych do strumieniowego przesyłania danych. Źródło dla wejścia strumienia danych mogą być przechowywane w Centrum zdarzeń platformy Azure lub w magazynie obiektów blob Azure. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md) i [rozpocząć korzystanie z usługi Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
+Zadanie wymaga co najmniej jedno źródło danych wejściowych do strumieniowego przesyłania danych. Witaj źródło wejścia strumienia danych mogą być przechowywane w Centrum zdarzeń platformy Azure lub w magazynie obiektów blob Azure. Aby uzyskać więcej informacji, zobacz [tooAzure wprowadzenie Stream Analytics](stream-analytics-introduction.md) i [rozpocząć korzystanie z usługi Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
 
 ## <a name="partitions-in-event-hubs-and-azure-storage"></a>Partycje w centra zdarzeń i magazynu systemu Azure
-Skalowanie zadania Stream Analytics korzysta z partycjami w danych wejściowych lub wyjściowych. Partycjonowanie umożliwia dzielenia danych na podzestawy oparte na kluczu partycji. Proces, który używa danych (na przykład zadanie analizy przesyłania strumieniowego) może wykorzystywać i zapisać różnych partycji równolegle, co zwiększa przepustowość. Podczas pracy z analizy przesyłania strumieniowego, możesz korzystać z partycjonowania usługi event hubs i w magazynie obiektów Blob. 
+Skalowanie zadania Stream Analytics korzysta z partycji w hello wejściowych lub wyjściowych. Partycjonowanie umożliwia dzielenia danych na podzestawy oparte na kluczu partycji. Proces, który używa danych hello (na przykład zadanie analizy przesyłania strumieniowego) może wykorzystywać i zapisać różnych partycji równolegle, co zwiększa przepustowość. Podczas pracy z analizy przesyłania strumieniowego, możesz korzystać z partycjonowania usługi event hubs i w magazynie obiektów Blob. 
 
-Aby uzyskać więcej informacji o partycjach zobacz następujące artykuły:
+Aby uzyskać więcej informacji o partycjach zobacz następujące artykuły hello:
 
 * [Omówienie funkcji usługi Event Hubs](../event-hubs/event-hubs-features.md#partitions)
 * [Partycjonowanie danych](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
 
 
 ## <a name="streaming-units-sus"></a>Jednostki przesyłania strumieniowego (SUs)
-Jednostki przesyłania strumieniowego (SUs) reprezentuje zasobów i mocy obliczeniowej, które są wymagane w celu wykonania zadanie usługi analiza strumienia Azure. Jednostki przesyłania strumieniowego to sposób opisywania względnych możliwości obliczeniowych dotyczących przetwarzania na podstawie mieszanego pomiaru wydajności procesora CPU, pamięci i operacji odczytu oraz zapisu. Każdy SU odpowiada około 1 MB/s przepustowości. 
+Przesyłanie strumieniowe jednostki (SUs) reprezentuje hello zasobów i przetwarzania danych zasilania, które są wymagane w kolejności tooexecute zadanie usługi analiza strumienia Azure. Usługi SUs zapewniają sposób toodescribe hello względną przetwarzania zdarzeń pojemności oparte na mieszanych pomiarach Procesora, pamięci, Odczyt i zapis stawki. Każdy SU odpowiada tooroughly 1 MB/s przepustowości. 
 
-Wybranie liczby SUs są wymagane dla określonego zadania zależy od konfiguracji partycji dla danych wejściowych oraz zapytania zdefiniowanych dla tego zadania. Można wybrać do limitu przydziału w SUs dla zadania. Domyślnie każdej subskrypcji platformy Azure ma limit przydziału wynoszący maksymalnie 50 SUs dla wszystkich zadań analityka w określonym regionie. Aby zwiększyć SUs dla Twojej subskrypcji po przekroczeniu tego przydziału, skontaktuj się z [Microsoft Support](http://support.microsoft.com). Prawidłowe wartości SUs na zadanie to 1, 3, 6 oraz w przyrostach 6.
+Wybranie liczby SUs są wymagane dla określonego zadania zależy od hello konfiguracji partycji dla danych wejściowych hello kwerendy hello zdefiniowanej dla hello zadania. Możesz wybrać zapasowej przydziału tooyour w SUs dla zadania. Domyślnie każdej subskrypcji platformy Azure ma przydziału zapasowej SUs too50 dla wszystkich zadań analizy hello w określonym regionie. tooincrease SUs dla subskrypcji przekracza ten limit przydziału, skontaktuj się z [Microsoft Support](http://support.microsoft.com). Prawidłowe wartości SUs na zadanie to 1, 3, 6 oraz w przyrostach 6.
 
 ## <a name="embarrassingly-parallel-jobs"></a>Embarrassingly równoległych zadań
-*Embarrassingly równoległych* zadanie jest najbardziej skalowalny scenariusza mamy w Azure Stream Analytics. Jedna partycja danych wejściowych do jednego wystąpienia zapytania łączy się jedną partycję w danych wyjściowych. Równoległość ten ma następujące wymagania:
+*Embarrassingly równoległych* zadania jest scenariusz najbardziej skalowalny hello mamy w Azure Stream Analytics. Łączy jedną partycję hello wejściowych tooone wystąpienia partycji tooone kwerendy hello hello danych wyjściowych. Równoległość ten ma hello następujące wymagania:
 
-1. Logika zapytania zależy od tego samego klucza przetwarzanych przez to samo wystąpienie zapytania, należy się upewnić, że zdarzenia przejdź do tej samej partycji dane wejściowe. Usługi event hubs, oznacza to, że dane zdarzeń muszą mieć **PartitionKey** zestawu wartości. Alternatywnie można użyć nadawców podzielonym na partycje. W przypadku magazynu obiektów blob oznacza to, że zdarzenia są wysyłane do tego samego folderu partycji. Jeśli logika zapytania nie wymaga tego samego klucza do przetworzenia przez to samo wystąpienie zapytania, możesz zignorować to wymaganie. Przykładem tego logiki może być prostego zapytania wybierz projekt filtru.  
+1. Logika zapytania jest zależna od hello klucza przetwarzanych przez hello sam kwerendy wystąpienia, należy upewnić się, że zdarzenia hello Przejdź toohello tej samej partycji dane wejściowe. Usługi event hubs, oznacza to, że hello zdarzeń danych muszą mieć hello **PartitionKey** zestawu wartości. Alternatywnie można użyć nadawców podzielonym na partycje. W przypadku magazynu obiektów blob, oznacza to, że hello zdarzenia są wysyłane toohello tego samego folderu partycji. Logiki kwerendy nie wymaga hello klucza toobe przetworzone przez hello sam kwerendy wystąpienia, możesz zignorować to wymaganie. Przykładem tego logiki może być prostego zapytania wybierz projekt filtru.  
 
-2. Po danych jest rozmieszczona na stronie wprowadzania, to należy się upewnić, że zapytanie jest podzielona na partycje. Wymaga to użycia **Partition By** wszystkich kroków. Wiele kroków są dozwolone, ale wszystkie muszą podzielone na partycje przy użyciu tego samego klucza. Obecnie, podziału klucza musi być ustawiona na **PartitionId** aby pełni równoległe zadania.  
+2. Po danych hello jest rozmieszczona na powitania strony wejściowej, to należy się upewnić, że zapytanie jest podzielona na partycje. Wymaga to toouse **Partition By** wszystkie kroki hello w. Wiele kroków są dozwolone, ale wszystkie muszą partycjonowanego hello tego samego klucza. Obecnie hello klucz partycjonowania musi ustawić także**PartitionId** aby toobe zadania hello pełni równoległych.  
 
-3. Obecnie tylko centra zdarzeń i magazynu obiektów blob obsługują partycjonowanej danych wyjściowych. W przypadku danych wyjściowych Centrum zdarzeń, należy skonfigurować klucz partycji, który ma być **PartitionId**. Dla danych wyjściowych z magazynu obiektów blob nie trzeba wykonywać żadnych czynności.  
+3. Obecnie tylko centra zdarzeń i magazynu obiektów blob obsługują partycjonowanej danych wyjściowych. W przypadku danych wyjściowych Centrum zdarzeń, należy skonfigurować toobe klucza partycji hello **PartitionId**. Dla danych wyjściowych z magazynu obiektów blob nie masz toodo żadnych czynności.  
 
-4. Liczby partycji wejściowych musi być równa liczbie partycji danych wyjściowych. Dane wyjściowe z magazynu obiektów blob nie obsługuje obecnie partycji. Ale nie szkodzi, ponieważ dziedziczy ona schemat partycjonowania nadrzędnego zapytania. Poniżej przedstawiono przykładowe wartości partycji, umożliwiających pełni równoległe zadania:  
+4. Hello liczby partycji wejściowy musi być równa hello liczby partycji danych wyjściowych. Dane wyjściowe z magazynu obiektów blob nie obsługuje obecnie partycji. Ale nie szkodzi, ponieważ dziedziczy on hello schemat nadrzędny zapytania hello partycji. Poniżej przedstawiono przykładowe wartości partycji, umożliwiających pełni równoległe zadania:  
 
    * 8 partycje wejściowych Centrum zdarzeń i Centrum zdarzeń 8 output partycji
    * 8 partycje wejściowych Centrum zdarzeń i danych wyjściowych z magazynu obiektów blob  
    * 8 partycje wejściowych magazynu obiektów blob i dane wyjściowe z magazynu obiektów blob  
    * 8 obiektu blob magazynu wejściowego partycji i 8 partycje danych wyjściowych Centrum zdarzeń  
 
-W poniższych sekcjach omówiono niektóre przykładowe scenariusze, które są embarrassingly równoległe.
+Witaj poniższych sekcjach omówiono niektóre przykładowe scenariusze, które są embarrassingly równoległe.
 
 ### <a name="simple-query"></a>Prostego zapytania
 
@@ -72,7 +72,7 @@ Zapytanie:
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
 
-To zapytanie jest proste filtru. W związku z tym firma Microsoft nie trzeba martwić partycjonowanie danych wejściowych, który jest wysyłany do Centrum zdarzeń. Należy zauważyć, że kwerenda zawiera **partycji przez PartitionId**, więc jego spełnia wymagania #2 z wcześniej. Dla danych wyjściowych, należy skonfigurować zadania zawiera zestaw klucza partycjonowania do danych wyjściowych Centrum zdarzeń **PartitionId**. Jeden ostatni test jest upewnij się, że liczba partycji wejściowy jest równa liczbie partycji danych wyjściowych.
+To zapytanie jest proste filtru. W związku z tym nie należy tooworry o partycjonowaniu hello danych wejściowych, który jest wysyłany toohello Centrum zdarzeń. Zwróć uwagę, zawiera zapytania hello **partycji przez PartitionId**, więc jego spełnia wymagania #2 z wcześniej. Dla danych wyjściowych hello, potrzebujemy danych wyjściowych Centrum zdarzeń hello tooconfigure hello zadania toohave hello partycjonowania klucza zestawu, zbyt**PartitionId**. Jeden ostatni test jest toomake się, że hello liczby partycji wejściowy jest równy toohello liczby partycji danych wyjściowych.
 
 ### <a name="query-with-a-grouping-key"></a>Zapytanie z kluczem grupowania
 
@@ -85,7 +85,7 @@ Zapytanie:
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Ta kwerenda zawiera klucz grupowania. W związku z tym samym kluczem musi być przetwarzane przez to samo wystąpienie kwerendy, co oznacza, że zdarzenia musi być wysyłane do Centrum zdarzeń w sposób podzielonym na partycje. Ale klucz, do którego należy używać? **PartitionId** to pojęcie logiczne zadania. Klucz faktycznie Szanujemy jest **TollBoothId**, więc **PartitionKey** musi mieć wartość dane zdarzenia **TollBoothId**. Firma Microsoft to zrobić w zapytaniu przez ustawienie **Partition By** do **PartitionId**. Ponieważ dane wyjściowe magazynu obiektów blob, firma Microsoft nie trzeba martwić się o konfigurowaniu wartość klucza partycji, zgodnie z harmonogramem wymaganie #4.
+Ta kwerenda zawiera klucz grupowania. Witaj w związku z tym samym toobe klucza potrzeb przetworzonych przez program hello takie same zapytanie wystąpienia, co oznacza, że zdarzenia musi być wysyłane toohello Centrum zdarzeń w sposób podzielonym na partycje. Ale klucz, do którego należy używać? **PartitionId** to pojęcie logiczne zadania. klucz Hello faktycznie Szanujemy jest **TollBoothId**, więc hello **PartitionKey** musi mieć wartość dane zdarzeń hello **TollBoothId**. Firma Microsoft to zrobić w zapytaniu hello przez ustawienie **Partition By** za**PartitionId**. Ponieważ dane wyjściowe hello jest magazyn obiektów blob, nie musisz tooworry o konfigurowaniu wartość klucza partycji, zgodnie z harmonogramem wymaganie #4.
 
 ### <a name="multi-step-query-with-a-grouping-key"></a>Zapytanie wieloetapowych kluczem grupowania
 * Wejście: Centrum zdarzeń z partycjami 8
@@ -103,17 +103,17 @@ Zapytanie:
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Ta kwerenda zawiera klucz grupowania, więc ten sam klucz musi być przetwarzane przez to samo wystąpienie zapytania. Możemy użyć tej samej strategii co w poprzednim przykładzie. W takim przypadku zapytanie ma wiele kroków. Ma każdego kroku **partycji przez PartitionId**? Tak, aby zapytanie spełnia wymagania #3. Dla danych wyjściowych, należy ustawić klucz partycji **PartitionId**, zgodnie z wcześniejszym opisem. Można zobaczyć, że ma taką samą liczbę partycji jako dane wejściowe.
+Ta kwerenda zawiera klucz grupowania, więc hello tego samego toobe klucza potrzeb przetworzonych przez program hello tego samego wystąpienia zapytania. Możemy użyć tej samej strategii jak w poprzednim przykładzie hello hello. W takim przypadku hello zapytania ma wiele kroków. Ma każdego kroku **partycji przez PartitionId**? Tak więc zapytania hello spełnia wymagania #3. Dla danych wyjściowych hello, potrzebujemy klucza partycji hello tooset, zbyt**PartitionId**, zgodnie z wcześniejszym opisem. Można zobaczyć, czy ma ona hello tej samej liczby partycji jako dane wejściowe hello.
 
 ## <a name="example-scenarios-that-are-not-embarrassingly-parallel"></a>Przykładowe scenariusze, które są *nie* embarrassingly równoległych
 
-W poprzedniej sekcji możemy pokazano kilka scenariuszy embarrassingly równoległych. W tej sekcji omówiono scenariusze, które nie spełniają wszystkie wymagania dotyczące być embarrassingly równoległe. 
+W poprzedniej sekcji hello możemy pokazano kilka scenariuszy embarrassingly równoległych. W tej sekcji omówiono scenariusze, które nie spełniają wszystkie hello wymagania toobe embarrassingly równoległych. 
 
 ### <a name="mismatched-partition-count"></a>Liczba partycji niezgodne
 * Wejście: Centrum zdarzeń z partycjami 8
 * Dane wyjściowe: Centrum zdarzeń z partycjami 32
 
-W takim przypadku nie ma znaczenia, zapytanie jest. Jeśli liczba partycji wejściowych nie odpowiada liczba partycji danych wyjściowych, topologia nie jest embarrassingly równoległych.
+W takim przypadku nie ma znaczenia, jakie zapytanie hello jest. Jeśli liczba partycji wejściowych hello nie odpowiada liczba partycji hello danych wyjściowych, topologii hello nie jest embarrassingly równoległych.
 
 ### <a name="not-using-event-hubs-or-blob-storage-as-output"></a>Nie używa usługi event hubs lub magazynu obiektów blob jako dane wyjściowe
 * Wejście: Centrum zdarzeń z partycjami 8
@@ -137,15 +137,15 @@ Zapytanie:
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 
-Jak widać, drugi etap używa **TollBoothId** jako klucza partycji. Ten krok nie jest taka sama, co w pierwszym kroku i dlatego wymaga do zrobienia losowa. 
+Jak widać, drugi etap hello używa **TollBoothId** jako hello klucz partycjonowania. Ten krok jest hello sam nie jako pierwsze hello i dlatego wymaga nam toodo losowa. 
 
-W poprzednich przykładach pokazano, niektóre zadania Stream Analytics, które odpowiadają (lub nie) embarrassingly równoległych topologii. Jeśli są one zgodne, mają one potencjalnie maksymalną skalę. Aktualizacje dla zadania, które nie pasują do jednego z tych profilów skalowania wskazówki będą dostępne w przyszłości. Na razie użyj ogólne wskazówki w poniższych sekcjach.
+Witaj poprzednich przykładach niektóre zadania usługi analiza strumienia, które są zbyt (lub nie) embarrassingly równoległych topologii. Jeśli są one zgodne, mają możliwość hello maksymalną skalę. Aktualizacje dla zadania, które nie pasują do jednego z tych profilów skalowania wskazówki będą dostępne w przyszłości. Na razie użyj hello ogólne wskazówki w hello następujące sekcje.
 
-## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Oblicz maksymalną jednostki zadania przesyłania strumieniowego
-Całkowita liczba jednostek przesyłania strumieniowego, które mogą być używane przez zadanie usługi Stream Analytics zależy od liczby kroków w zapytaniu zdefiniowane dla zadania i liczby partycji dla każdego kroku.
+## <a name="calculate-hello-maximum-streaming-units-of-a-job"></a>Oblicz maksymalną liczbę jednostek przesyłania strumieniowego hello zadania
+Hello całkowita liczba jednostek przesyłania strumieniowego, które mogą być używane przez zadanie usługi Stream Analytics zależy od hello liczbę kroków w zapytaniu hello zdefiniowane dla zadania hello i hello liczby partycji dla każdego kroku.
 
 ### <a name="steps-in-a-query"></a>Kroki w kwerendzie
-Kwerenda może mieć jeden lub wiele kroków. Każdy krok jest zdefiniowane przez podzapytania **WITH** — słowo kluczowe. Zapytanie, które znajduje się poza **WITH** — słowo kluczowe (tylko w jednej kwerendzie) również będzie traktowany jako krok, na przykład **wybierz** instrukcji w następującym zapytaniu:
+Kwerenda może mieć jeden lub wiele kroków. Każdy krok jest zdefiniowane przez hello podzapytania **WITH** — słowo kluczowe. Hello kwerendę, która znajduje się poza hello **WITH** — słowo kluczowe (tylko w jednej kwerendzie) również jest traktowane jako krok, takich jak hello **wybierz** instrukcji w hello następujące zapytania:
 
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
@@ -160,54 +160,54 @@ Kwerenda może mieć jeden lub wiele kroków. Każdy krok jest zdefiniowane prze
 Ta kwerenda zawiera dwa kroki.
 
 > [!NOTE]
-> To zapytanie jest omówiona bardziej szczegółowo w dalszej części tego artykułu.
+> To zapytanie jest omówiona bardziej szczegółowo w dalszej części artykułu hello.
 >  
 
 ### <a name="partition-a-step"></a>Krok partycji
-Partycjonowanie krok wymaga spełnienia następujących warunków:
+Partycjonowanie krok wymaga hello następujące warunki:
 
-* Źródło danych wejściowych musi być partycjonowane. 
-* **Wybierz** instrukcji zapytania musi odczytywać partycjonowanej źródło danych wejściowych.
-* Zapytanie w ramach kroku musi mieć **Partition By** — słowo kluczowe.
+* musi być dzielony na partycje Hello źródło danych wejściowych. 
+* Witaj **wybierz** instrukcji kwerendy hello musi odczytywać partycjonowanej źródło danych wejściowych.
+* Zapytanie Hello w ramach kroku hello musi mieć hello **Partition By** — słowo kluczowe.
 
-Jeśli zapytanie jest podzielona na partycje, zdarzenia wejściowe są przetwarzane i zagregowane w oddzielnej partycji grupy, a dane wyjściowe zdarzenia są generowane dla poszczególnych grup. Jeśli chcesz połączonych agregacja, należy utworzyć drugi etap niepartycjonowany do zagregowania.
+Gdy zapytanie jest podzielona na partycje, zdarzenia wejściowe hello są przetwarzane i zagregowane w oddzielnej partycji grupy, a dane wyjściowe zdarzenia są generowane dla poszczególnych grup hello. Jeśli chcesz połączonych Agregacja należy utworzyć drugi tooaggregate niepartycjonowany kroku.
 
-### <a name="calculate-the-max-streaming-units-for-a-job"></a>Obliczenia maksymalnej liczby jednostek w zadaniu przesyłania strumieniowego
-Wszystkie kroki niepartycjonowany razem można skalować do sześciu jednostki przesyłania strumieniowego (SUs) dla zadania usługi analiza strumienia. Aby dodać SUs, musi być dzielony na partycje kroku. Każda partycja może mieć sześć SUs.
+### <a name="calculate-hello-max-streaming-units-for-a-job"></a>Oblicz max hello jednostki zadania przesyłania strumieniowego
+Wszystkie kroki niepartycjonowany razem można skalować toosix jednostki (SUs) dla zadania usługi analiza strumienia przesyłania strumieniowego. musi być dzielony na partycje SUs tooadd, krok. Każda partycja może mieć sześć SUs.
 
 <table border="1">
-<tr><th>Zapytanie</th><th>Maksymalna liczba SUs zadania</th></td>
+<tr><th>Zapytanie</th><th>Maksymalna liczba SUs hello zadania</th></td>
 
 <tr><td>
 <ul>
-<li>Zapytanie zawiera w jednym kroku.</li>
-<li>Krok nie jest podzielona na partycje.</li>
+<li>Zapytanie Hello zawiera jeden krok.</li>
+<li>Witaj krok nie jest podzielona na partycje.</li>
 </ul>
 </td>
 <td>6</td></tr>
 
 <tr><td>
 <ul>
-<li>Strumień danych wejściowych jest podzielona na partycje przez 3.</li>
-<li>Zapytanie zawiera w jednym kroku.</li>
-<li>Krok jest podzielona na partycje.</li>
+<li>strumień danych wejściowych Hello jest podzielona na partycje przez 3.</li>
+<li>Zapytanie Hello zawiera jeden krok.</li>
+<li>krok Hello jest podzielona na partycje.</li>
 </ul>
 </td>
 <td>18</td></tr>
 
 <tr><td>
 <ul>
-<li>Zapytanie zawiera dwa kroki.</li>
-<li>Żadne kroki są podzielone na partycje.</li>
+<li>Zapytanie Hello zawiera dwa kroki.</li>
+<li>Żadne czynności hello jest podzielona na partycje.</li>
 </ul>
 </td>
 <td>6</td></tr>
 
 <tr><td>
 <ul>
-<li>Strumień danych wejściowych jest podzielona na partycje przez 3.</li>
-<li>Zapytanie zawiera dwa kroki. Wejściowych kroku jest podzielona na partycje, a drugi etap nie.</li>
-<li><strong>Wybierz</strong> instrukcji odczytuje z podzielonym na partycje danych wejściowych.</li>
+<li>strumień danych wejściowych Hello jest podzielona na partycje przez 3.</li>
+<li>Zapytanie Hello zawiera dwa kroki. wejściowych kroku Hello jest podzielona na partycje, a drugi etap hello nie.</li>
+<li>Witaj <strong>wybierz</strong> instrukcji odczytuje z danych wejściowych hello podzielona na partycje.</li>
 </ul>
 </td>
 <td>24 (18 partycjonowanej kroki) + 6 niepartycjonowany czynności</td></tr>
@@ -215,21 +215,21 @@ Wszystkie kroki niepartycjonowany razem można skalować do sześciu jednostki p
 
 ### <a name="examples-of-scaling"></a>Przykłady skalowania
 
-Następujące zapytanie oblicza liczbę samochodów w ramach pośrednictwa stacji przez, który ma trzy tollbooths okna trzy minuty. To zapytanie może być skalowana maksymalnie sześć SUs.
+Witaj następujące zapytanie oblicza hello liczba samochodów w ramach pośrednictwa stacji przez, który ma trzy tollbooths okna trzy minuty. To zapytanie może być skalowana w górę toosix SUs.
 
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Aby użyć więcej SUs dla zapytania, musi być podzielony zarówno strumienia danych wejściowych, jak i zapytania. Ponieważ partycji strumień danych jest ustawiona na 3, następujące zmodyfikowanej zapytania mogą być skalowane maksymalnie 18 SUs:
+toouse więcej SUs dla hello zapytania, zarówno hello strumienia danych wejściowych i musi być dzielony na partycje hello zapytania. Ponieważ partycja strumienia danych hello jest ustawiona too3, hello następujące zmodyfikowanej zapytanie umożliwia skalowanie too18 SUs:
 
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Zapytanie jest podzielona na partycje, zdarzenia wejściowe są przetwarzane i zagregowane w oddzielnej partycji grup. Dane wyjściowe zdarzenia są także generowane dla poszczególnych grup. Partycjonowanie może powodować pewne nieoczekiwane wyniki podczas **GROUP BY** pole nie jest częścią klucza partycji w strumieniu danych wejściowych. Na przykład **TollBoothId** pole w poprzednich zapytań nie jest klucz partycji **Input1**. Wynik jest, że dane z budki #1 może rozprzestrzeniać się w wielu partycji.
+Zapytanie jest podzielona na partycje, zdarzenia wejściowe hello są przetwarzane i zagregowane w oddzielnej partycji grup. Dane wyjściowe zdarzenia są także generowane dla poszczególnych grup hello. Partycjonowanie może powodować pewne nieoczekiwane wyniki hello **GROUP BY** pole nie jest kluczem partycji hello w strumieniu danych wejściowych hello. Na przykład Witaj **TollBoothId** pole w hello poprzednie zapytanie nie jest klucz partycji hello **Input1**. wynik Hello jest hello, że dane z budki #1 mogą rozprzestrzeniać się, w wielu partycji.
 
-Każdy z **Input1** partycje będą przetwarzane oddzielnie przez Stream Analytics. W związku z tym wiele rekordów liczba samochodów dla tego samego budki w tym samym oknie wirowania zostanie utworzony. Jeśli nie można zmienić klucza partycji wejściowych, można naprawić ten problem, dodając krok z systemem innym niż partycji, jak w poniższym przykładzie:
+Każdy z hello **Input1** partycje będą przetwarzane oddzielnie przez Stream Analytics. W związku z tym wiele rekordów liczby hello samochodu hello tego samego budki w powitalne okno wirowania tego samego zostanie utworzony. Jeśli nie można zmienić klucza partycji wejściowych hello, można naprawić ten problem, dodając krok-partition, tak jak hello poniższy przykład:
 
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
@@ -241,42 +241,42 @@ Każdy z **Input1** partycje będą przetwarzane oddzielnie przez Stream Analyti
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 
-To zapytanie może być skalowana do 24 SUs.
+To zapytanie może być skalowana too24 SUs.
 
 > [!NOTE]
-> Jeśli są Sprzęganie dwóch strumieni, upewnij się, że strumienie są dzielone przez klucz partycji kolumny, która służy do tworzenia sprzężenia. Upewnij się również mieć taką samą liczbę partycji w obu strumieni.
+> Jeśli są Sprzęganie dwóch strumieni, upewnij się, że strumienie hello są podzielone na partycje według klucza partycji hello kolumny hello użycie toocreate hello sprzężenia. Upewnij się, że masz hello również tej samej liczby partycji w obu strumieni.
 > 
 > 
 
 ## <a name="configure-stream-analytics-streaming-units"></a>Konfigurowanie usługi Stream Analytics jednostki przesyłania strumieniowego
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Na liście zasobów można znaleźć zadania usługi analiza strumienia, który chcesz skalować, a następnie otwórz go.
-3. W bloku zadania w obszarze **Konfiguruj**, kliknij przycisk **skali**.
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
+2. Hello listy zasobów Znajdź zadanie usługi Stream Analytics hello mają tooscale, a następnie otwórz go.
+3. W hello zadania bloku, w obszarze **Konfiguruj**, kliknij przycisk **skali**.
 
     ![Konfiguracja zadania usługi analiza strumienia portalu Azure][img.stream.analytics.preview.portal.settings.scale]
 
-4. Aby ustawić SUs zadania za pomocą suwaka. Zwróć uwagę, że jest ograniczona do określonych ustawień SU.
+4. Użyj hello suwaka tooset hello SUs hello zadania. Zwróć uwagę, czy ustawienia SU toospecific ograniczone.
 
 
 ## <a name="monitor-job-performance"></a>Monitor wydajności zadania
-Przy użyciu portalu Azure, można śledzić przepływności zadania:
+Witaj portalu Azure można śledzić przepływności hello zadania:
 
 ![Azure Stream Analytics monitorowanie zadań][img.stream.analytics.monitor.job]
 
-Oblicz przepływność oczekiwanego obciążenia. Jeśli przepustowość jest mniejsza niż oczekiwano, dostroić wejściowych partycji, ulepszenia zapytania i dodać SUs do zadania.
+Oblicz przepływności hello oczekiwano hello obciążenia. Przepływności hello jest mniejsza niż oczekiwano, dostroić hello wejściowych partycji, dostroić hello zapytania i dodać SUs tooyour zadania.
 
 
-## <a name="visualize-stream-analytics-throughput-at-scale-the-raspberry-pi-scenario"></a>Wizualizuj Stream Analytics przepustowość na dużą skalę: w scenariuszu Pi malina
-Aby ułatwić zrozumienie, jak skalować zadania usługi analiza strumienia, wykonane eksperyment na podstawie danych wprowadzonych z urządzenia malina Pi. Tego eksperymentu poinformować nas, zobacz wpływu na przepustowość wiele jednostek przesyłania strumieniowego i partycje.
+## <a name="visualize-stream-analytics-throughput-at-scale-hello-raspberry-pi-scenario"></a>Wizualizuj Stream Analytics przepustowość na dużą skalę: hello Pi malina scenariusza
+toohelp zrozumieć, jak skalować zadania usługi analiza strumienia, wykonane eksperyment na podstawie danych wprowadzonych z urządzenia malina Pi. Tego eksperymentu poinformować nas, zobacz hello wpływu na przepustowość wiele jednostek przesyłania strumieniowego i partycje.
 
-W tym scenariuszu urządzenie wysyła dane czujników (klienci) do Centrum zdarzeń. Przesyłanie strumieniowe Analytics przetwarza dane i wysyła alert ani w statystyce jako dane wyjściowe do innego Centrum zdarzeń. 
+W tym scenariuszu urządzenie hello wysyła czujnik danych (klienci) tooan zdarzenia koncentratora. Przesyłanie strumieniowe Analytics przetwarza dane hello i wysyła alert ani w statystyce jako Centrum zdarzeń tooanother danych wyjściowych. 
 
-Klient wysyła dane czujników w formacie JSON. Dane wyjściowe jest również w formacie JSON. Dane wygląda następująco:
+powitania klienta wysyła dane czujników w formacie JSON. Witaj danych wyjściowych jest również w formacie JSON. dane Hello wygląda następująco:
 
     {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
 
-Następujące zapytanie służy do wysyłania alertu po wyłączeniu światło:
+Hello następującego zapytania jest używana toosend alert po wyłączeniu światło:
 
     SELECT AVG(lght),
      "LightOff" as AlertText
@@ -287,9 +287,9 @@ Następujące zapytanie służy do wysyłania alertu po wyłączeniu światło:
 
 ### <a name="measure-throughput"></a>Miara przepływności
 
-W tym kontekście przepływność wynosi ilość danych wejściowych przetworzone przez usługę Stream Analytics w stałej ilości czasu. (Firma Microsoft mierzy przez 10 minut.) Aby uzyskać najlepsze przepływności przetwarzania danych wejściowych, zarówno wejściowego strumienia danych i zapytania zostały podzielone na partycje. Jest dostępna **COUNT()** do mierzenia, ile zdarzenia wejściowe były przetwarzane w kwerendzie. Aby upewnij się, że zadania nie oczekiwał po prostu dla zdarzenia wejściowe przejdzie, każdej partycji Centrum zdarzeń wejściowych został wstępnie ładowane z około 300 MB danych wejściowych.
+W tym kontekście przepływność wynosi hello ilość danych wejściowych przetworzone przez usługę Stream Analytics w stałej ilości czasu. (Firma Microsoft mierzy przez 10 minut.) dane wejściowe tooachieve hello najlepsze przetwarzania przepływności hello, zarówno dane hello strumienia danych wejściowych i zapytania hello zostały podzielone na partycje. Jest dostępna **COUNT()** w toomeasure zapytania hello przetworzono ile zdarzenia wejściowe. czy zadania hello toomake nie oczekiwał po prostu dla zdarzenia wejściowe toocome, każdej partycji Centrum zdarzeń wejściowych hello są załadowane z około 300 MB danych wejściowych.
 
-W poniższej tabeli przedstawiono wyniki, którą widzieliśmy, gdy firma Microsoft zwiększyć liczbę jednostek przesyłania strumieniowego i odpowiadająca mu partycja liczby w usłudze event hubs.  
+Witaj poniższej tabeli przedstawiono wyniki hello, którą widzieliśmy, gdy firma Microsoft zwiększyć hello liczbę jednostek przesyłania strumieniowego i odpowiadająca mu partycja hello liczby w usługi event hubs.  
 
 <table border="1">
 <tr><th>Partycje wejściowych</th><th>Partycje danych wyjściowych</th><th>Jednostki przesyłania strumieniowego</th><th>Długoterminowa przepustowość
@@ -332,7 +332,7 @@ W poniższej tabeli przedstawiono wyniki, którą widzieliśmy, gdy firma Micros
 </tr>
 </table>
 
-I Wykres ukazuje wizualizacji relacji między usługami SUs i przepływności.
+I hello Wykres ukazuje wizualizacji hello relacji między usługami SUs i przepływności.
 
 ![img.stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
 
@@ -340,7 +340,7 @@ I Wykres ukazuje wizualizacji relacji między usługami SUs i przepływności.
 Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
+* [Wprowadzenie tooAzure analiza strumienia](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835031.aspx)

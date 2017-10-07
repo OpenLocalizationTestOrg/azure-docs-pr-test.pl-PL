@@ -1,6 +1,6 @@
 ---
-title: "Nawiązać Arduino (C) Azure IoT — lekcji 4: modyfikowanie aplikacji | Dokumentacja firmy Microsoft"
-description: "Dostosowywanie wiadomości, aby zmienić LED włączać i wyłączać zachowanie."
+title: 'Connect Arduino (C) tooAzure IoT - 4 lekcji: modyfikowanie aplikacji | Dokumentacja firmy Microsoft'
+description: "Dostosowywanie hello toochange wiadomości powitania LED elementu lub wyłączyć zachowanie."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,30 +17,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 5009a0466f2c5689b8ab426049f4c4f02272512b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8cc438650f01ae4335d91c94df6a29e0ffbdc508
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>Zmień włączenia i wyłączenia zachowanie LED
+# <a name="change-hello-on-and-off-behavior-of-hello-led"></a>Zmień hello włączać i wyłączać zachowanie hello LED
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-Dostosowywanie wiadomości, aby zmienić LED włączać i wyłączać zachowanie. Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md) dla tablicy Adafruit piór M0 sieci Wi-Fi Arduino.
+Dostosowywanie hello toochange wiadomości powitania LED elementu lub wyłączyć zachowanie. Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md) dla tablicy Adafruit piór M0 sieci Wi-Fi Arduino.
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
-Dodatkowe funkcje Arduino umożliwia zmianę LED włączać i wyłączać zachowanie.
+Użyj dodatkowych hello Arduino funkcje toochange, LED elementu lub wyłączyć zachowanie.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
-Pomyślnie zakończono [Uruchom przykładową aplikację na tablicy Arduino do odbierania chmury do urządzenia wiadomości][receive-cloud-to-device-messages].
+Pomyślnie zakończono [Uruchom przykładową aplikację w chmurze tooreceive tablicy Arduino wiadomości toodevice][receive-cloud-to-device-messages].
 
-## <a name="add-functions-to-mainc-and-gulpfilejs"></a>Dodawanie funkcji do main.c i gulpfile.js
-1. Otwórz aplikację przykładową kodu programu Visual Studio, uruchamiając następujące polecenia:
+## <a name="add-functions-toomainc-and-gulpfilejs"></a>Dodawanie funkcji toomain.c i gulpfile.js
+1. Otwórz aplikację przykładową hello kodu programu Visual Studio, uruchamiając następujące polecenia hello:
 
    ```bash
    cd Lesson4
    code .
    ```
-2. Otwórz `app.ino` pliku, a następnie dodaj następujące funkcje po blinkLED() funkcji:
+2. Otwórz hello `app.ino` pliku, a następnie dodaj następujące funkcje po funkcji blinkLED() hello:
 
    ```arduino
    static void turnOnLED()
@@ -55,7 +55,7 @@ Pomyślnie zakończono [Uruchom przykładową aplikację na tablicy Arduino do o
    ```
 
    ![Plik App.Ino dodane funkcje][app-ino-file]
-3. Dodaj następujące warunki przed `else if` zablokować z `receiveMessageCallback` funkcji:
+3. Dodaj następujące warunki przed hello hello `else if` bloku hello `receiveMessageCallback` funkcji:
 
    ```arduino
    else if (strcmp((const char*)value, "\"on\"") == 0)
@@ -68,8 +68,8 @@ Pomyślnie zakończono [Uruchom przykładową aplikację na tablicy Arduino do o
    }
    ```
 
-   Przykładowa aplikacja odpowiedzieć na dodatkowe instrukcje za pośrednictwem wiadomości został skonfigurowany. Instrukcje "on" powoduje włączenie LED i instrukcji "off" powoduje wyłączenie LED.
-4. Otwórz plik gulpfile.js, a następnie dodaj nową funkcję przed funkcji `sendMessage`:
+   Teraz skonfigurowaniu hello przykładowej aplikacji toorespond toomore instrukcje za pośrednictwem wiadomości. Witaj, "włączone" instrukcji włącza hello LED i hello "instrukcji off" wyłącza hello LED.
+4. Otwórz plik gulpfile.js hello, a następnie dodaj nową funkcję przed funkcją hello `sendMessage`:
 
    ```javascript
    var buildCustomMessage = function (messageId) {
@@ -84,33 +84,33 @@ Pomyślnie zakończono [Uruchom przykładową aplikację na tablicy Arduino do o
    ```
 
    ![Plik Gulpfile.js o funkcja dodana][gulp-file-js]
-5. W `sendMessage` działać, Zastąp linię `var message = buildMessage(sentMessageCount);` z nowego wiersza wyświetlany w następujący fragment kodu:
+5. W hello `sendMessage` działać, Zastąp wiersza hello `var message = buildMessage(sentMessageCount);` z nowego wiersza hello pokazano hello następującego fragmentu:
 
    ```javascript
    var message = buildCustomMessage(sentMessageCount);
    ```
-6. Zapisz wszystkie zmiany.
+6. Zapisz wszystkie zmiany hello.
 
-### <a name="deploy-and-run-the-sample-application"></a>Wdrażanie i uruchamianie przykładowej aplikacji
-Wdrażanie i uruchamianie przykładowej aplikacji na tablicy Arduino, uruchamiając następujące polecenie:
+### <a name="deploy-and-run-hello-sample-application"></a>Wdrażanie i uruchamianie hello przykładowej aplikacji
+Wdrażanie i uruchamianie aplikacji przykładowej hello na tablicy Arduino, uruchamiając następujące polecenie hello:
 
 ```bash
 gulp run
-# You can monitor the serial port by running listen task:
+# You can monitor hello serial port by running listen task:
 gulp listen
 
 # Or you can combine above two gulp tasks into one:
 gulp run --listen
 ```
 
-Powinna zostać wyświetlona LED Włącz dla dwóch sekund, a następnie wyłącz dla innego dwie sekundy. Ostatni komunikat "stop" zatrzymuje uruchomienie aplikacji przykładowej.
+Powinna zostać wyświetlona hello LED Włącz dla dwóch sekund, a następnie włącz poza dla innego dwie sekundy. Ostatni komunikat "stop" Hello zatrzymuje hello przykładowej aplikacji.
 
 ![włączać i wyłączać][on-and-off]
 
-Gratulacje! Pomyślnie zostały dostosowane komunikaty, które są wysyłane do tablicy Arduino z Centrum IoT.
+Gratulacje! Wiadomości powitania, które są wysyłane tooyour Arduino tablicy z Centrum IoT pomyślnie zostały dostosowane.
 
 ### <a name="summary"></a>Podsumowanie
-Ta sekcja opcjonalna pokazano, jak dostosować wiadomości, dzięki czemu można kontrolować w przykładowej aplikacji w inny sposób włączenia i wyłączenia zachowanie LED.
+Ta sekcja opcjonalna pokazano, jak toocustomize wiadomości, dzięki czemu hello przykładowej aplikacji może kontrolować hello włączać i wyłączać zachowanie hello LED w inny sposób.
 
 <!-- Images and links -->
 

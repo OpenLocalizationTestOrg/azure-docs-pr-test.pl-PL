@@ -1,6 +1,6 @@
 ---
 title: 'Portalu Azure: replikacja geograficzna bazy danych SQL | Dokumentacja firmy Microsoft'
-description: "Skonfiguruj — replikacja geograficzna bazy danych SQL Azure w portalu Azure i zainicjuj tryb failover"
+description: "Skonfiguruj — replikacja geograficzna bazy danych SQL Azure w hello portalu Azure i zainicjuj tryb failover"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,85 +15,85 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/06/2016
 ms.author: carlrab
-ms.openlocfilehash: db90fad2fe397f0c8466db6bdc1bd8c8d1cf8f15
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09cbbdb040f36c42593e3be87ce6db2238f36656
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Skonfiguruj aktywna replikacja geograficzna bazy danych SQL Azure w portalu Azure i zainicjuj tryb failover
+# <a name="configure-active-geo-replication-for-azure-sql-database-in-hello-azure-portal-and-initiate-failover"></a>Skonfiguruj aktywna replikacja geograficzna bazy danych SQL Azure w hello portalu Azure i zainicjuj tryb failover
 
-W tym artykule przedstawiono sposób konfigurowania bazy danych SQL w aktywna replikacja geograficzna [portalu Azure](http://portal.azure.com) i rozpoczęcie pracy awaryjnej.
+W tym artykule opisano sposób tooconfigure aktywna replikacja geograficzna bazy danych SQL w hello [portalu Azure](http://portal.azure.com) i tooinitiate trybu failover.
 
-Aby zainicjować trybu failover przy użyciu portalu Azure, zobacz [zainicjowanie planowanego lub nieplanowanego trybu failover dla bazy danych SQL Azure przy użyciu portalu Azure](sql-database-geo-replication-portal.md).
+tryb failover tooinitiate z hello portalu Azure, zobacz [zainicjować planowanego lub nieplanowanego trybu failover dla bazy danych SQL Azure z portalu Azure hello](sql-database-geo-replication-portal.md).
 
-Aktywna replikacja geograficzna należy skonfigurować przy użyciu portalu Azure, potrzebne są następujące zasoby:
+tooconfigure aktywna replikacja geograficzna przy użyciu hello portalu Azure, należy hello następujących zasobów:
 
-* Baza danych Azure SQL: podstawowej bazy danych, które mają być replikowane w innym regionie geograficznym.
+* Baza danych Azure SQL: podstawowej bazy danych hello, które mają tooreplicate tooa inny region geograficzny.
 
 > [!Note]
-Aktywna replikacja geograficzna musi należeć do zakresu od bazy danych w tej samej subskrypcji.
+Aktywna replikacja geograficzna musi należeć do zakresu od baz danych w hello tej samej subskrypcji.
 
 ## <a name="add-a-secondary-database"></a>Dodać pomocniczą bazę danych
-Następujące kroki tworzenia nowego pomocniczej bazy danych współpracują — replikacja geograficzna.  
+Hello następujące kroki tworzenia nowego pomocniczej bazy danych współpracują — replikacja geograficzna.  
 
-Aby dodać pomocniczą bazę danych, musi być właścicielem subskrypcji lub współwłaściciel.
+tooadd pomocniczej bazy danych musi być właścicielem subskrypcji hello lub współwłaściciel.
 
-Dodatkowej bazy danych ma taką samą nazwę co podstawowa baza danych i ma domyślnie na tym samym poziomie usługi. Dodatkowej bazy danych może być pojedynczą bazę danych lub bazy danych w puli elastycznej. Aby uzyskać więcej informacji, zobacz [warstw usług](sql-database-service-tiers.md).
-Po utworzeniu i rozpoczęta pomocniczej, danych rozpoczyna replikację z podstawowej bazy danych do nowej dodatkowej bazy danych.
+Hello dodatkowej bazy danych ma takie same nazwy co podstawowa baza danych: hello hello i domyślnie ma hello tego samego poziomu usług. Witaj dodatkowej bazy danych może być pojedynczą bazę danych lub bazę danych w puli elastycznej. Aby uzyskać więcej informacji, zobacz [warstw usług](sql-database-service-tiers.md).
+Po utworzeniu i rozpoczęta hello dodatkowej, rozpoczyna się danych replikacji z hello podstawowej bazy danych toohello nowe pomocnicze bazy danych.
 
 > [!NOTE]
-> Jeśli baza danych partnera już istnieje (na przykład w wyniku zakończenia dotychczasowej relacji replikacji geograficznej) polecenie kończy się niepowodzeniem.
+> (Na przykład w wyniku zakończenia dotychczasowej relacji replikacji geograficznej) istnieje już baza danych partnera hello hello polecenie kończy się niepowodzeniem.
 > 
 
-1. W [portalu Azure](http://portal.azure.com), przejdź do bazy danych, który ma zostać skonfigurowany do replikacji geograficznej.
-2. Na stronie bazy danych SQL, wybierz **— replikacja geograficzna**, a następnie wybierz region do tworzenia pomocniczej bazy danych. Można wybrać dowolny region inny niż region podstawowy bazę danych, ale zaleca się [sparowanego region](../best-practices-availability-paired-regions.md).
+1. W hello [portalu Azure](http://portal.azure.com), Przeglądaj toohello bazy danych, które mają tooset dla replikacji geograficznej.
+2. Na stronie bazy danych SQL hello zaznacz **— replikacja geograficzna**, a następnie wybierz hello region toocreate hello dodatkowej bazy danych. Można wybrać dowolny region niż region hello hosting hello podstawowej bazy danych, ale zaleca się hello [sparowanego region](../best-practices-availability-paired-regions.md).
    
     ![Konfigurowanie replikacji geograficznej](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
-3. Wybierz i skonfiguruj serwer i warstwę cenową dla pomocniczej bazy danych.
+3. Wybierz lub skonfiguruj serwer hello i warstwę cenową dla hello pomocniczej bazy danych.
    
     ![Konfigurowanie dodatkowej](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. Opcjonalnie można dodać pomocniczą bazę danych z puli elastycznej. Aby utworzyć dodatkowej bazy danych w puli, kliknij przycisk **puli elastycznej** i wybierz pulę na serwerze docelowym. Pula musi już istnieć na serwerze docelowym. Ten przepływ pracy nie powoduje utworzenia puli.
-5. Kliknij przycisk **Utwórz** można dodać pomocniczy.
-6. Utworzono dodatkowej bazy danych i rozpocznie się proces rozmieszczania.
+4. Opcjonalnie można dodać puli elastycznej tooan dodatkowej bazy danych. toocreate hello dodatkowej bazy danych w puli, kliknij przycisk **puli elastycznej** i wybierz pulę na powitania serwera docelowego. Pula musi już istnieć na serwerze docelowym hello. Ten przepływ pracy nie powoduje utworzenia puli.
+5. Kliknij przycisk **Utwórz** tooadd hello dodatkowej.
+6. Witaj dodatkowej baza danych została utworzona i rozpocznie się hello wstępne wypełnianie procesu.
    
     ![Konfigurowanie dodatkowej](./media/sql-database-geo-replication-portal/seeding0.png)
-7. Po zakończeniu procesu rozmieszczania dodatkowej bazy danych wyświetla jego stan.
+7. Po zakończeniu hello wstępne wypełnianie procesu hello dodatkowej bazy danych wyświetla jego stan.
    
     ![Wstępne wypełnianie ukończone](./media/sql-database-geo-replication-portal/seeding-complete.png)
 
 ## <a name="initiate-a-failover"></a>Zainicjuj tryb failover
 
-Dodatkowej bazy danych mogą być przełączane do stają się serwerem podstawowym.  
+Hello dodatkowej bazy danych mogą być wyłączone toobecome hello podstawowego.  
 
-1. W [portalu Azure](http://portal.azure.com), przejdź do podstawowej bazy danych — replikacja geograficzna wspólnie.
-2. W bloku bazy danych SQL, wybierz **wszystkie ustawienia** > **— replikacja geograficzna**.
-3. W **pomocniczych** listy, wybierz bazę danych, aby stać się nową podstawową, a następnie kliknij przycisk **pracy awaryjnej**.
+1. W hello [portalu Azure](http://portal.azure.com), Przeglądaj toohello podstawowej bazy danych w partnerstwie — replikacja geograficzna hello.
+2. W bloku bazy danych SQL hello, wybierz **wszystkie ustawienia** > **— replikacja geograficzna**.
+3. W hello **pomocniczych** listy, wybierz opcję hello bazy danych ma toobecome hello nową podstawową, a następnie kliknij przycisk **pracy awaryjnej**.
    
     ![tryb failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
-4. Kliknij przycisk **tak** do rozpoczęcia pracy awaryjnej.
+4. Kliknij przycisk **tak** toobegin hello w tryb failover.
 
-Polecenie natychmiast zmienia dodatkowej bazy danych do roli podstawowego. 
+polecenie Hello natychmiast przełącza hello dodatkowej bazy danych do roli podstawowego hello. 
 
-Istnieje krótki okres, podczas którego obie bazy danych są niedostępne (rzędu 0 do 25 sekund), podczas przełączania ról. Jeśli podstawowa baza danych ma wiele baz danych w dodatkowej, polecenie automatycznie skonfiguruje replik pomocniczych do nawiązania połączenia nową podstawową. Cała operacja powinny zająć mniej niż minutę w normalnych okolicznościach. 
+Istnieje krótki okres, podczas którego obie bazy danych są niedostępne (w kolejności hello 0 sekund too25) podczas przełączania hello ról. Jeśli hello podstawowej bazy danych ma wiele baz danych w dodatkowej, polecenie hello automatycznie Rekonfiguruj hello innych pomocniczych tooconnect toohello nową podstawową. cała operacja Hello powinno zająć mniej niż minutę toocomplete w normalnych okolicznościach. 
 
 > [!NOTE]
-> To polecenie jest przeznaczona dla Szybkie odzyskiwanie bazy danych w przypadku awarii. Wyzwala trybu failover bez synchronizacji danych (wymuszone trybu failover).  Jeśli podstawowy jest w trybie online i może wystąpić, zatwierdzania transakcji, gdy wydano polecenie utratę danych. 
+> To polecenie jest przeznaczona dla Szybkie odzyskiwanie bazy danych hello w razie awarii. Wyzwala trybu failover bez synchronizacji danych (wymuszone trybu failover).  Jeśli podstawowy hello jest w trybie online i zatwierdzania transakcji po wydaniu polecenia hello utratę danych mogą wystąpić. 
 > 
 > 
 
 ## <a name="remove-secondary-database"></a>Usuń z dodatkowej bazy danych
-Ta operacja trwale kończy replikację do dodatkowej bazy danych i zmiany roli pomocniczej zwykłej odczytu i zapisu bazy danych. Łączność z dodatkowej bazy danych jest uszkodzona, polecenie powiedzie się, ale ma dodatkowej, staje się odczytu i zapisu, dopóki łączność zostanie przywrócona.  
+Ta operacja kończy trwale hello replikacji toohello dodatkowej bazy danych, i zmiany hello roli hello dodatkowej tooa zwykłej bazy danych do odczytu / zapisu. Jeśli hello łączności toohello dodatkowej bazy danych jest uszkodzona, polecenie hello zakończy się pomyślnie, ale hello dodatkowej ma staje się odczytu i zapisu do po przywróceniu łączności.  
 
-1. W [portalu Azure](http://portal.azure.com), przejdź do podstawowej bazy danych — replikacja geograficzna wspólnie.
-2. Na stronie bazy danych SQL, wybierz **— replikacja geograficzna**.
-3. W **pomocniczych** listy, wybierz bazę danych, aby usunąć z powiązania — replikacja geograficzna.
+1. W hello [portalu Azure](http://portal.azure.com), Przeglądaj toohello podstawowej bazy danych w partnerstwie — replikacja geograficzna hello.
+2. Na stronie bazy danych SQL hello zaznacz **— replikacja geograficzna**.
+3. W hello **pomocniczych** listy, wybierz hello bazy danych ma tooremove z hello — replikacja geograficzna powiązania.
 4. Kliknij przycisk **Zatrzymaj replikację,**.
    
     ![Usuń pomocniczej](./media/sql-database-geo-replication-portal/remove-secondary.png)
-5. Zostanie wyświetlone okno potwierdzenia. Kliknij przycisk **tak** usunąć bazę danych z powiązania — replikacja geograficzna. (Ustawia go do odczytu i zapisu bazy danych nie jest częścią replikacji).
+5. Zostanie wyświetlone okno potwierdzenia. Kliknij przycisk **tak** tooremove hello z bazy danych z hello — replikacja geograficzna powiązania. (Ustaw tooa Odczyt i zapis z bazy danych nie jest częścią replikacji.)
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się więcej na temat aktywna replikacja geograficzna, zobacz [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md).
+* toolearn więcej informacji na temat aktywna replikacja geograficzna, zobacz [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md).
 * Omówienie ciągłości działalności biznesowej i scenariuszy, zobacz [omówienie ciągłości działalności biznesowej](sql-database-business-continuity.md).
 

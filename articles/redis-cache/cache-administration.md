@@ -1,6 +1,6 @@
 ---
-title: "Administrowanie pamięć podręczna Redis Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak wykonywać zadania administracyjne, takie jak ponowne uruchomienie i harmonogram aktualizacji dla pamięci podręcznej Redis Azure"
+title: "tooadminister aaaHow pamięć podręczna Redis Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak ponownie takich jak tooperform zadań administracyjnych i Zaplanuj aktualizacje dla pamięci podręcznej Redis Azure"
 services: redis-cache
 documentationcenter: na
 author: steved0x
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: sdanie
-ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eb24668a3f6264444e7d4daf1ac43b41b12dfe66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-administer-azure-redis-cache"></a>Administrowanie pamięć podręczna Redis Azure
-W tym temacie opisano sposób wykonywania zadań administracyjnych, takich jak [ponowny rozruch](#reboot) i [Planowanie aktualizacji](#schedule-updates) dla swoich wystąpień w pamięci podręcznej Redis Azure.
+# <a name="how-tooadminister-azure-redis-cache"></a>Jak tooadminister Azure pamięci podręcznej Redis
+W tym temacie opisano, jak administracja tooperform zadań takich jak [ponowny rozruch](#reboot) i [Planowanie aktualizacji](#schedule-updates) dla swoich wystąpień w pamięci podręcznej Redis Azure.
 
 ## <a name="reboot"></a>Ponowne uruchamianie
-**Ponowny rozruch** blok służy do ponownego uruchamiania co najmniej jeden węzeł z pamięci podręcznej. Ta możliwość ponownego uruchomienia pozwala testować aplikację odporności w przypadku awarii węzła pamięci podręcznej.
+Witaj **ponowny rozruch** bloku umożliwia tooreboot co najmniej jeden węzeł z pamięci podręcznej. Ta możliwość ponownego uruchomienia umożliwia tootest możesz aplikacji zapewnia odporność na awarie w przypadku awarii węzła pamięci podręcznej.
 
 ![Ponowne uruchamianie](./media/cache-administration/redis-cache-administration-reboot.png)
 
-Wybierz węzeł, aby ponownie uruchomić system, a następnie kliknij przycisk **ponowny rozruch**.
+Wybierz hello tooreboot węzłów, a następnie kliknij przycisk **ponowny rozruch**.
 
 ![Ponowne uruchamianie](./media/cache-administration/redis-cache-reboot.png)
 
-Jeśli pamięć podręczna premium z włączoną funkcją klastrowania, można wybrać, które odłamków pamięci podręcznej, aby ponownie uruchomić system.
+Jeśli pamięć podręczna premium z włączoną funkcją klastrowania, można wybrać, które odłamków hello tooreboot pamięci podręcznej.
 
 ![Ponowne uruchamianie](./media/cache-administration/redis-cache-reboot-cluster.png)
 
-Ponownie uruchomić co najmniej jeden węzeł z pamięci podręcznej, wybierz żądany węzeł i kliknij przycisk **ponowny rozruch**. Jeśli masz usługi pamięć podręczna premium z włączoną funkcją klastrowania, wybierz żądany odłamków ponowny rozruch, a następnie kliknij przycisk **ponowny rozruch**. Po kilku minutach ponowne uruchomienie wybranych węzłów i można je do trybu online później za kilka minut.
+tooreboot co najmniej jeden węzeł z pamięci podręcznej, wybierz węzeł hello potrzebne i kliknij przycisk **ponowny rozruch**. Jeśli masz usługi pamięć podręczna premium z włączoną funkcją klastrowania, wybierz tooreboot odłamków hello potrzebne, a następnie kliknij przycisk **ponowny rozruch**. Po kilku minutach hello ponownego uruchomienia wybranych węzłów i jest znowu w trybie online później za kilka minut.
 
-Wpływ na aplikacje klienckie różni się w zależności od węzły, które, ponowne uruchomienie.
+Witaj wpływ na aplikacje klienckie różni się w zależności od węzły, które, ponowne uruchomienie.
 
-* **Wzorzec** — węzła głównego umieszczeniu kończy się niepowodzeniem po ponownym rozruchu, Azure pamięć podręczna Redis do węzła repliki i zamienia ją do wzorca. Podczas tego trybu failover może być przez krótki czas, w którym połączenia może zakończyć się niepowodzeniem w pamięci podręcznej.
-* **Podrzędny** — po ponownym uruchomieniu węzła podrzędny nie zwykle ma to wpływu na klientach pamięci podręcznej.
-* **Zarówno i podrzędna** — zarówno węzły pamięci podręcznej są ponownie uruchamiane, wszystkie dane zostaną utracone w pamięci podręcznej po awarii połączeń do pamięci podręcznej aż do węzła podstawowego wraca do trybu online. Jeśli skonfigurowano [trwałości danych](cache-how-to-premium-persistence.md), najbardziej ostatniej kopii zapasowej jest przywracany pamięci podręcznej wraca do trybu online, ale wszystkie zapisy pamięci podręcznej, które wystąpiły po utworzeniu ostatniej kopii zapasowej zostaną utracone.
-* **Węzły w warstwie premium pamięci podręcznej z włączoną funkcją klastrowania** — po ponownym uruchomieniu co najmniej jeden węzeł pamięci podręcznej premium z usługą klastrowania włączone, zachowanie dla wybranych węzłów jest taka sama jak po ponownym uruchomieniu odpowiedniego węzła lub węzłów pamięci podręcznej niedziałającego w klastrze.
+* **Wzorzec** — w przypadku węzła głównego hello jest kończy się niepowodzeniem po ponownym rozruchu, Azure pamięć podręczna Redis nad węzłem repliki toohello i zamienia ją toomaster. Podczas tego trybu failover może być przez krótki czas, w którym połączenia może zakończyć się niepowodzeniem toohello pamięci podręcznej.
+* **Podrzędny** — po ponownym uruchomieniu węzła podrzędna hello jest zwykle ma wpływ toocache klientów.
+* **Zarówno i podrzędna** — w przypadku obu węzłów pamięci podręcznej są ponownie uruchamiane, wszystkie dane zostaną utracone w hello połączenia i pamięci podręcznej toohello pamięci podręcznej kończyć się niepowodzeniem, dopóki węzła podstawowego hello wraca do trybu online. Jeśli skonfigurowano [trwałości danych](cache-how-to-premium-persistence.md), hello najnowszej kopii zapasowej jest przywracany pamięci podręcznej hello wraca do trybu online, ale wszystkie zapisy pamięci podręcznej, które wystąpiły po utworzeniu ostatniej kopii zapasowej hello zostaną utracone.
+* **Węzły w warstwie premium pamięci podręcznej z włączoną funkcją klastrowania** — w przypadku ponownego uruchamiania jednego lub więcej węzłów z klastra usługi pamięć podręczna premium włączone, hello zachowanie hello wybrane węzły są takie same hello jako po ponownym uruchomieniu węzła odpowiedniego hello lub w węzłach nieklastrowanych pamięć podręczna.
 
 > [!IMPORTANT]
 > Ponowne uruchomienie jest teraz dostępna dla wszystkich warstw cenowych.
@@ -51,73 +51,73 @@ Wpływ na aplikacje klienckie różni się w zależności od węzły, które, po
 > 
 
 ## <a name="reboot-faq"></a>Ponowny rozruch — często zadawane pytania
-* [Węzły ponownie do testowania Moja aplikacja](#which-node-should-i-reboot-to-test-my-application)
-* [Czy można ponownie pamięci podręcznej, aby wyczyścić połączeń klienta?](#can-i-reboot-the-cache-to-clear-client-connections)
+* [Wybór węzła powinna I ponowny rozruch tootest Moja aplikacja?](#which-node-should-i-reboot-to-test-my-application)
+* [Czy można ponownie połączeń klienckich tooclear hello w pamięci podręcznej?](#can-i-reboot-the-cache-to-clear-client-connections)
 * [Spowoduje utratę danych z mojej pamięci podręcznej, jeśli I wykonaj ponowny rozruch?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 * [Czy można ponownie moje pamięci podręcznej przy użyciu programu PowerShell, interfejsu wiersza polecenia lub innych narzędzi do zarządzania?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
-* [Warstw cenowych, jakie można korzystać z funkcji ponowny rozruch?](#what-pricing-tiers-can-use-the-reboot-functionality)
+* [Warstw cenowych, jakie może korzystać z funkcji ponownego uruchomienia hello?](#what-pricing-tiers-can-use-the-reboot-functionality)
 
-### <a name="which-node-should-i-reboot-to-test-my-application"></a>Węzły ponownie do testowania Moja aplikacja
-Aby przetestować odporność aplikacji przed awarią węzła podstawowego pamięć podręczną, uruchom ponownie **wzorca** węzła. Aby przetestować odporność aplikacji przed awarią węzła pomocniczego, ponowny rozruch **podrzędna** węzła. Aby przetestować odporność aplikacji przed całkowitą awarią pamięci podręcznej, ponowny rozruch **zarówno** węzłów.
+### <a name="which-node-should-i-reboot-tootest-my-application"></a>Wybór węzła powinna I ponowny rozruch tootest Moja aplikacja?
+odporności hello tootest aplikację przed awarią węzła podstawowego hello pamięci podręcznej, ponowne uruchomienie hello **wzorca** węzła. odporność hello tootest aplikację przed awariami hello węzła pomocniczego, ponowne uruchomienie hello **podrzędna** węzła. odporność hello tootest aplikacji przed całkowitą awarią hello pamięci podręcznej, ponowny rozruch **zarówno** węzłów.
 
-### <a name="can-i-reboot-the-cache-to-clear-client-connections"></a>Czy można ponownie pamięci podręcznej, aby wyczyścić połączeń klienta?
-Tak, jeśli ponowne uruchomienie z pamięci podręcznej są usuwane wszystkich połączeń klientów. Ponowne uruchomienie może być przydatne w przypadku wszystkich połączeń klientów są ze względu na błąd logiczny lub błędem w aplikacji klienta. Każda warstwa cenowa ma inną [limitów połączeń klienta](cache-configure.md#default-redis-server-configuration) dla różnych rozmiarach i raz te limity osiągnięciu nie więcej połączeń klienta są akceptowane. Ponowny rozruch pamięci podręcznej umożliwia wyczyszczenie wszystkich połączeń klientów.
+### <a name="can-i-reboot-hello-cache-tooclear-client-connections"></a>Czy można ponownie połączeń klienckich tooclear hello w pamięci podręcznej?
+Tak, jeśli ponowne uruchomienie z pamięci podręcznej hello wszystkich połączeń klientów zostały wyczyszczone. Może być przydatne w przypadku hello gdzie wszystkich połączeń klientów wyczerpaniu błąd logiczny tooa lub błędem w aplikacji klienckiej hello ponowny rozruch. Każda warstwa cenowa ma inną [limitów połączeń klienta](cache-configure.md#default-redis-server-configuration) dla hello różnych rozmiarach i po osiągnięciu tych limitów nie więcej połączeń klienta są akceptowane. Ponowny rozruch hello pamięci podręcznej zawiera tooclear sposób wszystkich połączeń klientów.
 
 > [!IMPORTANT]
-> Jeśli ponowne uruchomienie pamięć podręczną, aby wyczyścić połączeń klienckich programie StackExchange.Redis automatycznie ponownie nawiąże połączenie po powrocie do trybu online w węźle Redis. Jeśli problem nie zostanie rozwiązany, połączeń klientów może nadal być wykorzystane.
+> Jeśli ponowne uruchomienie połączenia klienta pamięci podręcznej tooclear programie StackExchange.Redis automatycznie ponownie nawiąże połączenie po powrocie do trybu online hello węzeł pamięci podręcznej Redis. Gdy hello podstawowy problem nie zostanie rozwiązany, hello połączenia klienckie może nadal toobe wykorzystane.
 > 
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Spowoduje utratę danych z mojej pamięci podręcznej, jeśli I wykonaj ponowny rozruch?
-Jeśli ponowne uruchomienie zarówno **wzorca** i **podrzędna** węzłów, wszystkie dane w pamięci podręcznej (lub w tym niezależnych korzystania z usługi pamięć podręczna premium z włączoną funkcją klastrowania) zostaną utracone. Jeśli skonfigurowano [trwałości danych](cache-how-to-premium-persistence.md), najbardziej ostatniej kopii zapasowej zostaną przywrócone, gdy pamięci podręcznej wraca do trybu online, ale wszystkie zapisy pamięci podręcznej, które wystąpiły po utworzenia kopii zapasowej zostaną utracone.
+Jeśli ponowne uruchomienie obu hello **wzorca** i **podrzędna** węzłów, wszystkie dane w pamięci podręcznej hello (lub w tym niezależnych korzystania z usługi pamięć podręczna premium z włączoną funkcją klastrowania) zostaną utracone. Jeśli skonfigurowano [trwałości danych](cache-how-to-premium-persistence.md), hello najnowszej kopii zapasowej zostanie przywrócone, kiedy pamięci podręcznej hello wraca do trybu online, ale wszystkie zapisy pamięci podręcznej, które wystąpiły po kopii zapasowej hello zostaną utracone.
 
-Jeśli ponowne uruchomienie tylko jeden z węzłów, dane nie są zwykle utracone, ale nadal może być. Na przykład jeśli ponownym uruchomieniu węzła głównego i pamięć podręczna zapisu jest w toku, dane z pamięci podręcznej zapisu zostaną utracone. Inny scenariusz utraty danych będzie, jeśli ponowne uruchomienie jeden węzeł i innym węźle stanie się przestaną działać z powodu błędu w tym samym czasie. Aby uzyskać więcej informacji na temat możliwych przyczyn utraty danych, zobacz [co się stało z danych w pamięci podręcznej Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
+Jeśli ponowne uruchomienie tylko jednego z węzłów hello, dane nie są zwykle utracone, ale nadal może być. Na przykład, jeśli jest ponowny rozruch węzła głównego hello i pamięć podręczna zapisu jest w toku, hello danych z hello pamięć podręczna zapisu jest utracone. Będzie inny scenariusz utraty danych, jeśli ponownie jeden węzeł i innych hello węzła sytuacji toogo dół powodu niepowodzenia tooa na powitania tym samym czasie. Aby uzyskać więcej informacji na temat możliwych przyczyn utraty danych, zobacz [wystąpił toomy danych w pamięci podręcznej Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Czy można ponownie moje pamięci podręcznej przy użyciu programu PowerShell, interfejsu wiersza polecenia lub innych narzędzi do zarządzania?
-Tak, dla środowiska PowerShell instrukcje można znaleźć [ponownego uruchomienia pamięci podręcznej Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
+Tak, dla środowiska PowerShell instrukcje można znaleźć [tooreboot pamięci podręcznej Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
-### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>Warstw cenowych, jakie można korzystać z funkcji ponowny rozruch?
+### <a name="what-pricing-tiers-can-use-hello-reboot-functionality"></a>Warstw cenowych, jakie może korzystać z funkcji ponownego uruchomienia hello?
 Ponowne uruchomienie jest dostępna dla wszystkich warstw cenowych.
 
 ## <a name="schedule-updates"></a>Aktualizacje harmonogramu
-**Zaplanuj aktualizacje** bloku umożliwia wyznaczenie okno obsługi pamięci podręcznej warstwy Premium. Okno obsługi zostanie określona, wszystkie aktualizacje serwera Redis są wprowadzane podczas tego okna. 
+Witaj **Zaplanuj aktualizacje** bloku umożliwia toodesignate okno obsługi pamięci podręcznej warstwy Premium. Okna obsługi hello jest określona, wszystkie aktualizacje serwera Redis są wprowadzane podczas tego okna. 
 
 > [!NOTE] 
-> Okna obsługi dotyczą tylko aktualizacje serwera Redis i nie do dowolnego Azure aktualizacji lub aktualizuje systemowi operacyjnemu maszyn wirtualnych, które hostują pamięci podręcznej.
+> okna obsługi Hello stosuje tylko aktualizacje serwera tooRedis i nie tooany Azure aktualizacji lub aktualizacji systemu operacyjnego toohello hello maszyn wirtualnych, obsługujące hello pamięci podręcznej.
 > 
 > 
 
 ![Aktualizacje harmonogramu](./media/cache-administration/redis-schedule-updates.png)
 
-Aby określić okna obsługi, sprawdź odpowiednią dni i określ godzina rozpoczęcia okna konserwacji codziennie i kliknij **OK**. Należy pamiętać, że czas okna obsługi w formacie UTC. 
+Sprawdź dni hello potrzeby toospecify okna konserwacji i określ hello godzina rozpoczęcia okna konserwacji dla każdego dnia i kliknij **OK**. Należy pamiętać, że czas okna obsługi hello jest w formacie UTC. 
 
 > [!NOTE]
-> Oknie domyślnej konserwacji dla aktualizacji jest pięć godzin. Ta wartość nie jest konfigurowalne z portalu Azure, ale można go skonfigurować za pomocą programu PowerShell `MaintenanceWindow` parametr [AzureRmRedisCacheScheduleEntry nowy](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) polecenia cmdlet. Aby uzyskać więcej informacji, zobacz [zaplanowanych aktualizacji przy użyciu programu PowerShell, interfejsu wiersza polecenia lub innych narzędzi do zarządzania można zarządzać?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+> Witaj oknie domyślnej konserwacji aktualizacji jest pięć godzin. Ta wartość nie jest konfigurowalne z hello portalu Azure, ale można go skonfigurować w programie PowerShell przy użyciu hello `MaintenanceWindow` parametru hello [AzureRmRedisCacheScheduleEntry nowy](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) polecenia cmdlet. Aby uzyskać więcej informacji, zobacz [zaplanowanych aktualizacji przy użyciu programu PowerShell, interfejsu wiersza polecenia lub innych narzędzi do zarządzania można zarządzać?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 > 
 > 
 
 ## <a name="schedule-updates-faq"></a>Zaplanuj aktualizacje — często zadawane pytania
-* [Gdy aktualizacje wystąpić, jeśli funkcja Aktualizacje harmonogramu nie jest używany?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
-* [Jakiego rodzaju aktualizacje są wprowadzane podczas czasu zaplanowanego okna obsługi?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
+* [Gdy aktualizacje wystąpić, jeśli nie jest używany hello harmonogram aktualizacji funkcji?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
+* [Jakiego rodzaju aktualizacje są wprowadzane podczas hello zaplanowane okna obsługi?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
 * [Zaplanowane aktualizacje przy użyciu programu PowerShell, interfejsu wiersza polecenia lub innych narzędzi do zarządzania można zarządzać?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
-* [Warstw cenowych, jakie można korzystać z funkcji aktualizacji harmonogram?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
+* [Warstw cenowych, jakie może korzystać z funkcji aktualizacji harmonogram hello?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
-### <a name="when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature"></a>Gdy aktualizacje wystąpić, jeśli funkcja Aktualizacje harmonogramu nie jest używany?
+### <a name="when-do-updates-occur-if-i-dont-use-hello-schedule-updates-feature"></a>Gdy aktualizacje wystąpić, jeśli nie jest używany hello harmonogram aktualizacji funkcji?
 Jeśli nie określisz okna obsługi, aktualizacje mogą być dokonywane w dowolnym momencie.
 
-### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window"></a>Jakiego rodzaju aktualizacje są wprowadzane podczas czasu zaplanowanego okna obsługi?
-Tylko pamięci podręcznej Redis serwera wprowadzone aktualizacji podczas czasu zaplanowanego okna obsługi. Okna obsługi nie ma zastosowania do aktualizacji platformy Azure lub aktualizacje systemu operacyjnego maszyny Wirtualnej.
+### <a name="what-type-of-updates-are-made-during-hello-scheduled-maintenance-window"></a>Jakiego rodzaju aktualizacje są wprowadzane podczas hello zaplanowane okna obsługi?
+Tylko pamięci podręcznej Redis serwera wprowadzone aktualizacje hello zaplanowanym oknie obsługi. okna obsługi Hello aktualizacji systemu operacyjnego maszyny Wirtualnej toohello lub nie ma zastosowania aktualizacji tooAzure.
 
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Czy mogę zarządzanego, zaplanowanych aktualizacji przy użyciu programu PowerShell, interfejsu wiersza polecenia lub innych narzędzi do zarządzania?
-Tak, można zarządzać zaplanowane aktualizacje za pomocą następujących poleceń cmdlet programu PowerShell:
+Tak, można zarządzać za pomocą następującego polecenia cmdlet programu PowerShell hello zaplanowane aktualizacje:
 
 * [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
 * [Nowe AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
 * [Nowe AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
 * [Usuń AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
 
-### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Warstw cenowych, jakie można korzystać z funkcji aktualizacji harmonogram?
-**Zaplanuj aktualizacje** funkcja jest dostępna tylko w warstwie cenowej premium.
+### <a name="what-pricing-tiers-can-use-hello-schedule-updates-functionality"></a>Warstw cenowych, jakie może korzystać z funkcji aktualizacji harmonogram hello?
+Witaj **Zaplanuj aktualizacje** funkcja jest dostępna tylko w warstwie cenowej premium hello.
 
 ## <a name="next-steps"></a>Następne kroki
 * Poznaj więcej [warstwy premium usługi pamięć podręczna Redis Azure](cache-premium-tier-intro.md) funkcji.

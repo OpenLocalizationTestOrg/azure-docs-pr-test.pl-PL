@@ -1,6 +1,6 @@
 ---
-title: "Diagnostyka Azure dzienniki obsługiwane usługi i schematów | Dokumentacja firmy Microsoft"
-description: "Zrozumienie obsługiwanych schematu usług i zdarzeń do dzienników diagnostycznych platformy Azure."
+title: "aaaAzure usługi obsługiwane dzienniki diagnostyczne i schematów | Dokumentacja firmy Microsoft"
+description: "Zrozumienie hello obsługiwanych usług oraz schematu zdarzeń dla dzienników diagnostycznych platformy Azure."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.openlocfilehash: aa4fa6e0310b2725005dfa34e3225c89fb4282d6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a3cbf5267e1bd0dc257f4fb4f42c323644046a6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Obsługiwane usługi, schematy i kategorie dzienników diagnostycznych platformy Azure
 
-[Dzienniki diagnostyczne zasobów platformy Azure](monitoring-overview-of-diagnostic-logs.md) są dzienniki emitowane przez zasobów platformy Azure, opisujących operacji tego zasobu. Te dzienniki są typu zasobu określonego. W tym artykule firma Microsoft konspektu zestaw obsługiwanych usług i schematu zdarzeń dla zdarzenia emitowane przez poszczególnych usług. Ten artykuł zawiera także pełną listę kategorie dziennika dostępne na typ zasobu.
+[Dzienniki diagnostyczne zasobów platformy Azure](monitoring-overview-of-diagnostic-logs.md) są dzienniki emitowane przez zasobów platformy Azure, opisujących operacji hello tego zasobu. Te dzienniki są typu zasobu określonego. W tym artykule firma Microsoft konspektu hello zestaw obsługiwanych schematu usług i zdarzeń dla zdarzenia emitowane przez poszczególnych usług. Ten artykuł zawiera także pełną listę kategorie dziennika dostępne na typ zasobu.
 
 ## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>Obsługiwane usługi i schematy do dzienników diagnostycznych zasobu
-Schemat dla dzienników diagnostycznych zasobu różni się w zależności od kategorii zasobów i dziennika.   
+Witaj schematu dla dzienników diagnostycznych zasobu różni się w zależności od kategorii hello zasobów i dziennika.   
 
 | Usługa | Schemat & dokumentów |
 | --- | --- |
@@ -52,12 +52,12 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 ## <a name="supported-log-categories-per-resource-type"></a>Obsługiwane kategorie dziennika na typ zasobu
 |Typ zasobu|Kategoria|Nazwa wyświetlana kategorii|
 |---|---|---|
-|Microsoft.ApiManagement/service|GatewayLogs|Dzienniki związane z ApiManagement bramy|
+|Microsoft.ApiManagement/service|GatewayLogs|Dzienniki powiązane tooApiManagement bramy|
 |Microsoft.Automation/automationAccounts|JobLogs|Rejestruje zadania|
 |Microsoft.Automation/automationAccounts|JobStreams|Strumienie zadania|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Stan węzła DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Dzienniki usługi|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Pobiera metryki punktu końcowego, np. przepustowości, transfer danych wychodzących,... itd.|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Pobiera metryki hello hello punktu końcowego, np. przepustowości, transfer danych wychodzących,... itd.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataLakeAnalytics/accounts|Inspekcja|Dzienniki inspekcji|
 |Microsoft.DataLakeAnalytics/accounts|Żądania|Dzienniki żądań|
@@ -89,6 +89,6 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się więcej o dzienników diagnostycznych](monitoring-overview-of-diagnostic-logs.md)
-* [Strumień zasobu dzienników diagnostycznych do **centra zdarzeń**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Zmień ustawienia diagnostyczne zasobu przy użyciu interfejsu API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Zbyt strumienia dzienników diagnostycznych zasobu**centra zdarzeń**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Zmień ustawienia diagnostyczne zasobu przy użyciu interfejsu API REST Monitor Azure hello](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analizowanie dzienników z usługi Azure storage z analizy dzienników](../log-analytics/log-analytics-azure-storage.md)

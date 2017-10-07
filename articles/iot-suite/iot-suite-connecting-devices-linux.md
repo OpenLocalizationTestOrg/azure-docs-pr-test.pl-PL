@@ -1,6 +1,6 @@
 ---
-title: "Podłącz urządzenie za pomocą C w systemie Linux | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób podłącz urządzenie do wstępnie pakiet IoT Azure zdalnego monitorowania rozwiązania przy użyciu Aplikacja napisana w języku C uruchomiony w systemie Linux."
+title: "aaaConnect urządzenia za pomocą C w systemie Linux | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak tooconnect toohello urządzenia pakiet IoT Azure wstępnie zdalnego rozwiązanie monitorowania przy użyciu Aplikacja napisana w języku C uruchomiony w systemie Linux."
 services: 
 suite: iot-suite
 documentationcenter: na
@@ -15,55 +15,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: 9adbc9cc13f0b4cafa3a3a7703c46f8085b15232
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 57393817d40d3555177956a01fa71058bc256988
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Podłącz urządzenie do zdalnego wstępnie skonfigurowane rozwiązanie monitorowania (Linux)
+# <a name="connect-your-device-toohello-remote-monitoring-preconfigured-solution-linux"></a>Połącz z toohello urządzenie zdalne monitorowanie wstępnie skonfigurowane rozwiązanie (Linux)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## <a name="build-and-run-a-sample-c-client-linux"></a>Tworzenie i uruchamianie przykładowych C klient systemu Linux
-Poniższe kroki pokazują, jak utworzyć aplikację klienta, który komunikuje się ze zdalnym wstępnie skonfigurowane rozwiązanie monitorowania. Ta aplikacja jest napisany w języku C i wbudowane i uruchom na Ubuntu Linux.
+Witaj następujące kroki pokazują, jak toocreate aplikacji klienckiej, która komunikuje się z monitorowania zdalnego hello wstępnie skonfigurowane rozwiązanie. Ta aplikacja jest napisany w języku C i wbudowane i uruchom na Ubuntu Linux.
 
-Aby wykonać te kroki, należy na urządzenie z systemem Ubuntu wersji 15.04 lub 15.10. Przed kontynuowaniem należy zainstalować wstępnie wymagane pakiety na urządzenie Ubuntu przy użyciu następującego polecenia:
+toocomplete tych kroków, należy na urządzenie z systemem Ubuntu wersji 15.04 lub 15.10. Przed kontynuowaniem należy zainstalować pakiety wymagań wstępnych hello na urządzeniu Ubuntu przy użyciu hello następujące polecenie:
 
 ```
 sudo apt-get install cmake gcc g++
 ```
 
-## <a name="install-the-client-libraries-on-your-device"></a>Zainstaluj biblioteki klienta na urządzeniu
-Biblioteki klienta Centrum IoT Azure są dostępne w pakiecie można zainstalować przy użyciu urządzenia Ubuntu **stanie get** polecenia. Wykonaj poniższe kroki, aby zainstalować pakiet, który zawiera Centrum IoT biblioteki i nagłówek pliki klienta na komputerze Ubuntu:
+## <a name="install-hello-client-libraries-on-your-device"></a>Zainstaluj bibliotek klienckich hello na urządzeniu
+Witaj bibliotek klienckich Centrum IoT Azure są dostępne w pakiecie można zainstalować na urządzeniu Ubuntu przy użyciu hello **stanie get** polecenia. Wykonaj następujące kroki tooinstall hello pakiet, który zawiera hello biblioteki klienta Centrum IoT i pliki nagłówkowe na komputerze Ubuntu hello:
 
-1. W powłoce Dodaj repozytorium AzureIoT do komputera:
+1. W powłoce Dodaj hello AzureIoT repozytorium tooyour komputera:
    
     ```
     sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
     sudo apt-get update
     ```
-2. Zainstaluj pakiet azure-iot-sdk-c deweloperów
+2. Zainstaluj pakiet azure-iot-sdk-c deweloperów hello
    
     ```
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
 
-## <a name="install-the-parson-json-parser"></a>Zainstaluj analizatora składni Parson JSON
-Centrum IoT bibliotek klienckich użyć analizatora składni Parson JSON do analizowania ładunek komunikatu. W odpowiednich folderu na komputerze klonowanie repozytorium Parson GitHub przy użyciu następującego polecenia:
+## <a name="install-hello-parson-json-parser"></a>Zainstaluj hello analizatora składni Parson JSON
+powitania klienta Centrum IoT bibliotek używają hello ładunków komunikat tooparse analizator Parson JSON. Odpowiedniego folderu na komputerze klonowanie repozytorium Parson GitHub hello przy użyciu hello następujące polecenie:
 
 ```
 git clone https://github.com/kgabis/parson.git
 ```
 
 ## <a name="prepare-your-project"></a>Przygotowanie projektu
-Na komputerze Ubuntu Utwórz folder o nazwie **zdalnego\_monitorowania**. W **zdalnego\_monitorowania** folderu:
+Na komputerze Ubuntu Utwórz folder o nazwie **zdalnego\_monitorowania**. W hello **zdalnego\_monitorowania** folderu:
 
-- Utwórz cztery pliki **main.c**, **zdalnego\_monitoring.c**, **zdalnego\_monitoring.h**, i **CMakeLists.txt**.
+- Utwórz cztery pliki hello **main.c**, **zdalnego\_monitoring.c**, **zdalnego\_monitoring.h**, i **CMakeLists.txt**.
 - Utwórz folder o nazwie **parson**.
 
-Skopiuj pliki **parson.c** i **parson.h** z kopii lokalnej do repozytorium Parson **zdalnego\_monitorowania parson** folderu.
+Skopiuj pliki hello **parson.c** i **parson.h** z lokalną kopię hello Parson repozytorium do hello **zdalnego\_monitorowania parson** folderu.
 
-W edytorze tekstu Otwórz **zdalnego\_monitoring.c** pliku. Dodaj następujące instrukcje `#include`:
+W edytorze tekstu Otwórz hello **zdalnego\_monitoring.c** pliku. Dodaj następujące hello `#include` instrukcji:
    
 ```
 #include "iothubtransportmqtt.h"
@@ -78,14 +78,14 @@ W edytorze tekstu Otwórz **zdalnego\_monitoring.c** pliku. Dodaj następujące 
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-## <a name="call-the-remotemonitoringrun-function"></a>Wywołanie elementu zdalnego\_monitorowania\_uruchamiania funkcji
-W edytorze tekstu Otwórz **remote_monitoring.h** pliku. Dodaj następujący kod:
+## <a name="call-hello-remotemonitoringrun-function"></a>Wywołaj hello zdalnego\_monitorowania\_uruchamiania funkcji
+W edytorze tekstu Otwórz hello **remote_monitoring.h** pliku. Dodaj hello następującego kodu:
 
 ```
 void remote_monitoring_run(void);
 ```
 
-W edytorze tekstu Otwórz **main.c** pliku. Dodaj następujący kod:
+W edytorze tekstu Otwórz hello **main.c** pliku. Dodaj hello następującego kodu:
 
 ```
 #include "remote_monitoring.h"
@@ -98,12 +98,12 @@ int main(void)
 }
 ```
 
-## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
-W poniższych krokach opisano sposób użycia *CMake* do tworzenia aplikacji klienckiej.
+## <a name="build-and-run-hello-application"></a>Tworzenie i uruchamianie aplikacji hello
+Witaj poniższych krokach opisano sposób toouse *CMake* toobuild aplikacji klienta.
 
-1. W edytorze tekstu Otwórz **CMakeLists.txt** w pliku **remote_monitoring** folderu.
+1. W edytorze tekstu Otwórz hello **CMakeLists.txt** pliku w hello **remote_monitoring** folderu.
 
-1. Dodaj następujące instrukcje, aby zdefiniować sposób kompilowania aplikacji klienta:
+1. Dodaj następujące instrukcje toodefine jak hello toobuild aplikacji klienta:
    
     ```
     macro(compileAsC99)
@@ -151,7 +151,7 @@ W poniższych krokach opisano sposób użycia *CMake* do tworzenia aplikacji kli
         m
     )
     ```
-1. W **remote_monitoring** folderu, Utwórz folder do przechowywania *upewnij* pliki, które generuje CMake, a następnie uruchomić **cmake** i **upewnij** polecenia w następujący sposób:
+1. W hello **remote_monitoring** folderu, Utwórz hello toostore folderu *upewnij* pliki tego CMake generuje, a następnie uruchom hello **cmake** i **należy** polecenia w następujący sposób:
    
     ```
     mkdir cmake
@@ -160,7 +160,7 @@ W poniższych krokach opisano sposób użycia *CMake* do tworzenia aplikacji kli
     make
     ```
 
-1. Uruchom aplikację klienta oraz wysyłania danych telemetrycznych do Centrum IoT:
+1. Uruchom aplikację kliencką hello i wysyłania danych telemetrycznych tooIoT Centrum:
    
     ```
     ./sample_app

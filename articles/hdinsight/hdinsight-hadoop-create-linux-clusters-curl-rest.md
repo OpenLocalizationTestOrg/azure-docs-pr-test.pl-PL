@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie klastrów platformy Hadoop za pomocą usługi Azure API REST - Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie tworzenia klastrów usługi HDInsight poprzez przesłanie szablonów usługi Azure Resource Manager w interfejsie API REST Azure."
+title: "za pomocą usługi Azure API REST - Azure klastrów Hadoop aaaCreate | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate HDInsight clusters poprzez przesłanie toohello szablonów usługi Azure Resource Manager interfejsu API REST Azure."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,31 +16,31 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.openlocfilehash: a36a41c231472ceeeb46d02ddb65549b1c79728a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 87b585e5084eccdc3d7c57483deabb4ad6e32597
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Tworzenie klastrów Hadoop przy użyciu interfejsu API REST Azure
+# <a name="create-hadoop-clusters-using-hello-azure-rest-api"></a>Tworzenie klastrów Hadoop przy użyciu interfejsu API REST Azure hello
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Informacje o sposobie tworzenia klastra usługi HDInsight przy użyciu szablonu usługi Azure Resource Manager i interfejsu API REST Azure.
+Dowiedz się, jak toocreate HDInsight klastra przy użyciu szablonu usługi Azure Resource Manager i hello interfejsu API REST Azure.
 
-Interfejs API REST Azure umożliwia wykonywanie operacji zarządzania na usługi hostowanej na platformie Azure, w tym tworzenie nowych zasobów, takich jak klastry usługi HDInsight.
+Witaj interfejsu API REST Azure umożliwia tooperform operacji zarządzania na usług hostowanych w hello platformy Azure, w tym hello tworzenia nowych zasobów, takich jak klastry usługi HDInsight.
 
 > [!IMPORTANT]
-> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+> Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 > [!NOTE]
-> Użyj dokumentów z krokami w tym [curl (https://curl.haxx.se/)](https://curl.haxx.se/) narzędzie do komunikowania się z interfejsu API REST Azure.
+> Hello czynnościach w ramach tego dokumentu Użyj hello [curl (https://curl.haxx.se/)](https://curl.haxx.se/) toocommunicate narzędzie z hello interfejsu API REST Azure.
 
 ## <a name="create-a-template"></a>Tworzenie szablonu
 
-Szablony usługi Azure Resource Manager są dokumentów JSON, które opisują **grupy zasobów** i wszystkie zasoby w niej (np. usługi HDInsight). Takie podejście oparty na szablonie można zdefiniować zasoby potrzebne dla usługi HDInsight w jednym szablonie.
+Szablony usługi Azure Resource Manager są dokumentów JSON, które opisują **grupy zasobów** i wszystkie zasoby w niej (np. usługi HDInsight). To rozwiązanie oparte na szablonach umożliwia toodefine hello zasoby, które należy dla usługi HDInsight w jednym szablonie.
 
-Następujący dokument JSON jest połączenie z plików szablonu i parametry [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), który jest tworzony klaster opartych na systemie Linux przy użyciu hasła, aby zabezpieczyć konto użytkownika SSH.
+Hello następującego dokumentu JSON jest połączenie hello plików szablonu i parametry [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), co powoduje opartych na systemie Linux klaster przy użyciu hello toosecure hasło konta użytkownika SSH.
 
    ```json
    {
@@ -56,50 +56,50 @@ Następujący dokument JSON jest połączenie z plików szablonu i parametry [ht
                        "storm",
                        "spark"],
                        "metadata": {
-                           "description": "The type of the HDInsight cluster to create."
+                           "description": "hello type of hello HDInsight cluster toocreate."
                        }
                    },
                    "clusterName": {
                        "type": "string",
                        "metadata": {
-                           "description": "The name of the HDInsight cluster to create."
+                           "description": "hello name of hello HDInsight cluster toocreate."
                        }
                    },
                    "clusterLoginUserName": {
                        "type": "string",
                        "metadata": {
-                           "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+                           "description": "These credentials can be used toosubmit jobs toohello cluster and toolog into cluster dashboards."
                        }
                    },
                    "clusterLoginPassword": {
                        "type": "securestring",
                        "metadata": {
-                           "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                           "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
                        }
                    },
                    "sshUserName": {
                        "type": "string",
                        "metadata": {
-                           "description": "These credentials can be used to remotely access the cluster."
+                           "description": "These credentials can be used tooremotely access hello cluster."
                        }
                    },
                    "sshPassword": {
                        "type": "securestring",
                        "metadata": {
-                           "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                           "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
                        }
                    },
                    "clusterStorageAccountName": {
                        "type": "string",
                        "metadata": {
-                           "description": "The name of the storage account to be created and be used as the cluster's storage."
+                           "description": "hello name of hello storage account toobe created and be used as hello cluster's storage."
                        }
                    },
                    "clusterWorkerNodeCount": {
                        "type": "int",
                        "defaultValue": 4,
                        "metadata": {
-                           "description": "The number of nodes in the HDInsight cluster."
+                           "description": "hello number of nodes in hello HDInsight cluster."
                        }
                    }
                },
@@ -215,52 +215,52 @@ Następujący dokument JSON jest połączenie z plików szablonu i parametry [ht
    }
    ```
 
-W tym przykładzie jest używany w procedurze w tym dokumencie. Zastąp przykładzie *wartości* w **parametry** sekcji z wartościami dla klastra.
+Ten przykład jest używany w procedurze hello w tym dokumencie. Przykład Witaj Zastąp *wartości* w hello **parametry** sekcji hello wartościami dla klastra.
 
 > [!IMPORTANT]
-> Szablon używa domyślna liczba węzłów procesu roboczego (4) do klastra usługi HDInsight. Jeśli planujesz na więcej niż 32 węzłami procesów roboczych, musi wybierz rozmiar węzła głównego z co najmniej 8 rdzeni i 14 GB pamięci ram.
+> Szablon Hello używa hello domyślna liczba węzłów procesu roboczego (4) dla klastra usługi HDInsight. Jeśli planujesz na więcej niż 32 węzłami procesów roboczych, musi wybierz rozmiar węzła głównego z co najmniej 8 rdzeni i 14 GB pamięci ram.
 >
 > Aby uzyskać więcej informacji na węzeł rozmiary i koszty, zobacz [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="log-in-to-your-azure-subscription"></a>Logowanie się do subskrypcji platformy Azure
+## <a name="log-in-tooyour-azure-subscription"></a>Zaloguj się za tooyour subskrypcji platformy Azure
 
-Wykonaj kroki opisane w temacie [wprowadzenie Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) i nawiązać połączenia z subskrypcją za pomocą `az login` polecenia.
+Wykonaj kroki hello udokumentowane w [wprowadzenie Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) i nawiąż połączenie przy użyciu hello subskrypcji tooyour `az login` polecenia.
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
 > [!NOTE]
-> Te kroki są skróconej wersji *Tworzenie nazwy głównej usługi z hasłem* sekcji [Użyj wiersza polecenia platformy Azure można utworzyć nazwy głównej usługi dostępu do zasobów](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) dokumentu. Te kroki tworzenia nazwy głównej usługi, który jest używany do uwierzytelniania interfejsu API REST Azure.
+> Te kroki są skróconej wersji hello *Tworzenie nazwy głównej usługi z hasłem* sekcji hello [toocreate wiersza polecenia platformy Azure Użyj nazwy głównej usługi zasobów tooaccess](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) dokumentu. Te kroki tworzenia nazwy głównej usługi, która jest używana tooauthenticate toohello interfejsu API REST usługi Azure.
 
-1. Z wiersza polecenia użyj następującego polecenia, aby wyświetlić listę subskrypcji platformy Azure.
+1. Z wiersza polecenia użyj hello następujące polecenia toolist subskrypcji platformy Azure.
 
    ```bash
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    Na liście, wybierz subskrypcję, którą chcesz używać i zanotuj **IDENTYFIKATOR_SUBSKRYPCJI** i __Tenant_ID__ kolumn. Zapisz te wartości.
+    Na liście hello, wybierz subskrypcję hello, że mają toouse i zanotuj hello **IDENTYFIKATOR_SUBSKRYPCJI** i __Tenant_ID__ kolumn. Zapisz te wartości.
 
-2. Użyj następującego polecenia, aby utworzyć aplikację w usłudze Azure Active Directory.
+2. Użyj hello następujące polecenia toocreate aplikacji w usłudze Azure Active Directory.
 
    ```bash
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    Zastąp wartości `--display-name`, `--homepage`, i `--identifier-uris` z własne wartości. Podaj hasło dla nowego wpisu usługi Active Directory.
+    Zastąp wartości hello hello `--display-name`, `--homepage`, i `--identifier-uris` z własne wartości. Podaj hasło dla hello nowy wpis usługi Active Directory.
 
    > [!NOTE]
-   > `--home-page` i `--identifier-uris` wartości nie ma potrzeby odwołać rzeczywistej stronie sieci web hostowanych w Internecie. Klienci muszą mieć unikatowe identyfikatory URI.
+   > Witaj `--home-page` i `--identifier-uris` wartości nie ma potrzeby tooreference rzeczywistej stronie sieci web hostowanej na powitania internet. Klienci muszą mieć unikatowe identyfikatory URI.
 
-   Wartość zwracana z tego polecenia jest __identyfikator aplikacji__ nowej aplikacji. Zapisz tę wartość.
+   Witaj wartość zwracana z tego polecenia jest hello __identyfikator aplikacji__ dla nowej aplikacji hello. Zapisz tę wartość.
 
-3. Użyj następującego polecenia, aby utworzyć przy użyciu nazwy głównej usługi **identyfikator aplikacji**.
+3. Użyj hello następujące polecenie toocreate nazwy głównej usługi przy użyciu hello **identyfikator aplikacji**.
 
    ```bash
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     Wartość zwracana z tego polecenia jest __obiektu o identyfikatorze__. Zapisz tę wartość.
+     Witaj wartość zwracana z tego polecenia jest hello __obiektu o identyfikatorze__. Zapisz tę wartość.
 
-4. Przypisz **właściciela** roli do głównej usługi przy użyciu **obiektu o identyfikatorze** wartość. Użyj **identyfikator subskrypcji** uzyskanymi wcześniej.
+4. Przypisz hello **właściciela** roli: toohello nazwy głównej usługi przy użyciu hello **obiektu o identyfikatorze** wartość. Użyj hello **identyfikator subskrypcji** uzyskanymi wcześniej.
 
    ```bash
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -268,7 +268,7 @@ Wykonaj kroki opisane w temacie [wprowadzenie Azure CLI 2.0](https://docs.micros
 
 ## <a name="get-an-authentication-token"></a>Uzyskiwanie tokenu uwierzytelniania
 
-Użyj następującego polecenia, aby pobrać tokenu uwierzytelniania:
+Użyj hello następujące polecenia tooretrieve tokenu uwierzytelniania:
 
 ```bash
 curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
@@ -280,11 +280,11 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 --data-urlencode "resource=https://management.azure.com/"
 ```
 
-Ustaw `$TENANTID`, `$APPID`, i `$PASSWORD` wartości uzyskane lub użyte wcześniej.
+Ustaw `$TENANTID`, `$APPID`, i `$PASSWORD` wartości toohello uzyskany lub użyte wcześniej.
 
-Jeśli to żądanie zakończy się pomyślnie, otrzymasz odpowiedź 200 serii i treść odpowiedzi zawiera dokument JSON.
+Jeśli to żądanie zakończy się pomyślnie, otrzymasz odpowiedź 200 serii i hello treść odpowiedzi zawiera dokument JSON.
 
-Dokument JSON zwróconych przez to żądanie zawiera element o nazwie **' access_token '**. Wartość **' access_token '** jest używany do uwierzytelniania żądań interfejsu API REST.
+Witaj dokumentu JSON zwróconych przez to żądanie zawiera element o nazwie **' access_token '**. Witaj wartość **' access_token '** jest używane tooauthentication toohello żądania interfejsu API REST.
 
 ```json
 {
@@ -298,12 +298,12 @@ Dokument JSON zwróconych przez to żądanie zawiera element o nazwie **' access
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Aby utworzyć grupę zasobów, należy użyć następującego.
+Użyj powitania po toocreate grupę zasobów.
 
-* Ustaw `$SUBSCRIPTIONID` subskrypcji identyfikator otrzymane podczas tworzenia nazwy głównej usługi.
-* Ustaw `$ACCESSTOKEN` do tokena dostępu została odebrana w poprzednim kroku.
-* Zastąp `DATACENTERLOCATION` przy użyciu chcesz utworzyć grupę zasobów i zasobów, w centrum danych. Na przykład "południowo-środkowe Stany".
-* Ustaw `$RESOURCEGROUPNAME` na nazwę chcesz użyć dla tej grupy:
+* Ustaw `$SUBSCRIPTIONID` toohello identyfikator subskrypcji otrzymanych podczas tworzenia hello nazwy głównej usługi.
+* Ustaw `$ACCESSTOKEN` token dostępu toohello Odebrano hello poprzedniego kroku.
+* Zastąp `DATACENTERLOCATION` z centrum danych hello ma grupy zasobów hello toocreate i zasobów, w. Na przykład "południowo-środkowe Stany".
+* Ustaw `$RESOURCEGROUPNAME` nazwę toohello, mają toouse dla tej grupy:
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME?api-version=2015-01-01" \
@@ -314,34 +314,34 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 }'
 ```
 
-Jeśli to żądanie zakończy się pomyślnie, otrzymasz odpowiedź 200 serii i treść odpowiedzi zawiera dokument JSON zawierający informacje o grupie. `"provisioningState"` Element zawiera wartość `"Succeeded"`.
+Jeśli to żądanie zakończy się pomyślnie, otrzymasz odpowiedź 200 serii i hello treść odpowiedzi zawiera dokument JSON zawierający informacje o grupie hello. Witaj `"provisioningState"` element zawiera wartość `"Succeeded"`.
 
 ## <a name="create-a-deployment"></a>Tworzenie wdrożenia
 
-Użyj następującego polecenia, aby wdrożyć szablon do grupy zasobów.
+Użyj hello następujące polecenie grupy zasobów toohello toodeploy hello szablonu.
 
-* Ustaw `$DEPLOYMENTNAME` nazwa ma zostać użyty dla tego wdrożenia.
+* Ustaw `$DEPLOYMENTNAME` nazwę toohello, mają toouse dla tego wdrożenia.
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
 -H "Authorization: Bearer $ACCESSTOKEN" \
 -H "Content-Type: application/json" \
--d "{set your body string to the template and parameters}"
+-d "{set your body string toohello template and parameters}"
 ```
 
 > [!NOTE]
-> Jeśli szablon został zapisany do pliku, można użyć następującego polecenia zamiast `-d "{ template and parameters}"`:
+> Zapisanie pliku tooa szablonu hello, można użyć hello następujące polecenie, a nie `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
-Jeśli to żądanie zakończy się pomyślnie, otrzymasz odpowiedź 200 serii i treść odpowiedzi zawiera dokument JSON zawierający informacje o operacji wdrażania.
+Jeśli to żądanie zakończy się pomyślnie, otrzymasz odpowiedź 200 serii i hello treść odpowiedzi zawiera dokument JSON zawierający informacje o operacji wdrażania hello.
 
 > [!IMPORTANT]
-> Wdrożenie zostało przesłane, ale nie zostało ukończone. Może upłynąć kilka minut, zazwyczaj około 15 dla wdrożenia, aby zakończyć.
+> wdrożenie Hello zostało przesłane, ale nie zostało ukończone. Może upłynąć kilka minut, zazwyczaj około 15 hello toocomplete wdrożenia.
 
-## <a name="check-the-status-of-a-deployment"></a>Sprawdź stan wdrożenia
+## <a name="check-hello-status-of-a-deployment"></a>Sprawdź stan hello wdrożenia
 
-Aby sprawdzić stan wdrożenia, użyj następującego polecenia:
+Stan hello toocheck hello wdrożenia, hello Użyj następującego polecenia:
 
 ```bash
 curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
@@ -349,7 +349,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -H "Content-Type: application/json"
 ```
 
-To polecenie zwraca dokument JSON zawierający informacje o operacji wdrażania. `"provisioningState"` Element zawiera stan wdrożenia. Jeśli ten element zawiera wartość `"Succeeded"`, a następnie wdrożenie zostało ukończone pomyślnie.
+To polecenie zwraca zawierający informacje o operacji wdrażania hello dokumentu JSON. Witaj `"provisioningState"` element zawiera stan hello hello wdrożenia. Jeśli ten element zawiera wartość `"Succeeded"`, następnie hello wdrożenia została pomyślnie ukończona.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -357,7 +357,7 @@ W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, że pomyślnie utworzono klaster usługi HDInsight, użyj następującego polecenia, aby dowiedzieć się, jak pracować z klastra.
+Po pomyślnym utworzeniu klastra usługi HDInsight, za pomocą powitania po toolearn jak toowork z klastrem.
 
 ### <a name="hadoop-clusters"></a>Klastry Hadoop
 

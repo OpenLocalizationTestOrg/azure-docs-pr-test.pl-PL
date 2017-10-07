@@ -1,5 +1,5 @@
 ---
-title: "Korzystanie z usługi sieci Web Machine Learning z programu Excel | Dokumentacja firmy Microsoft"
+title: "Usługa sieci Web Machine Learning z programu Excel aaaConsume | Dokumentacja firmy Microsoft"
 description: "Korzystanie z usługi sieci Web Azure Machine Learning z programu Excel"
 services: machine-learning
 documentationcenter: 
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/13/2017
 ms.author: tedway
-ms.openlocfilehash: 9f1aac04d54221888ee9374317be339400dcf085
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e2e8bbf7ba75b6618a0285539555ce175ec03c1a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Korzystanie z usługi sieci Web Azure Machine Learning z poziomu programu Excel
- Azure Machine Learning Studio ułatwia wywołują usługi sieci web bezpośrednio z programu Excel, bez konieczności pisania kodu.
+ Azure Machine Learning Studio umożliwia łatwe toocall usług sieci web bezpośrednio z programu Excel bez hello muszą toowrite żadnego kodu.
 
-Jeśli używasz programu Excel 2013 (lub nowszy) lub aplikacji Excel Online, firma Microsoft zaleca użycie programu Excel [dodatek programu Excel](machine-learning-excel-add-in-for-web-services.md).
+Jeśli używasz programu Excel 2013 (lub nowszy) lub aplikacji Excel Online, a następnie zalecane jest użycie hello Excel [dodatek programu Excel](machine-learning-excel-add-in-for-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="steps"></a>Kroki
-Publikowanie usługi sieci web. [Ta strona](machine-learning-walkthrough-5-publish-web-service.md) wyjaśniono, jak to zrobić. Funkcja skoroszytu programu Excel jest obecnie obsługiwana tylko dla usług żądań i odpowiedzi, które mają jeden z (to znaczy pojedynczej oceniania etykiety). 
+Publikowanie usługi sieci web. [Ta strona](machine-learning-walkthrough-5-publish-web-service.md) wyjaśniono, jak toodo go. Obecnie funkcja skoroszytu programu Excel hello jest obsługiwana tylko dla usług żądań i odpowiedzi, które mają jeden z (to znaczy pojedynczej oceniania etykiety). 
 
-Po utworzeniu usługi sieci web, kliknij **usług sieci WEB** studio po lewej stronie, a następnie wybierz usługę sieci web, aby korzystać z programu Excel.
+Po utworzeniu usługi sieci web, kliknij na powitania **usług sieci WEB** po lewej stronie powitania hello Studio, a następnie wybierz tooconsume usługi sieci web hello z programu Excel.
 
 **Usługa sieci Web klasycznego**
 
-1. Na **pulpitu NAWIGACYJNEGO** karcie dla usługi sieci web jest wiersz **żądanie/odpowiedź** usługi. Jeśli ta usługa miała pojedynczego wyjścia, powinny pojawić się **Pobierz skoroszyt programu Excel** łącza w tym wierszu.
+1. Na powitania **pulpitu NAWIGACYJNEGO** karcie dla usługi sieci web hello jest wiersz hello **żądanie/odpowiedź** usługi. Jeśli ta usługa miała pojedynczego wyjścia, powinny pojawić się hello **Pobierz skoroszyt programu Excel** łącza w tym wierszu.
    
     ![][1]
 2. Polecenie **Pobierz skoroszyt programu Excel**.
 
 **Nowa usługa sieci Web**
 
-1. W portalu Azure Machine Learning sieci Web usługi wybierz **Consume**.
-2. Na stronie Consume w **opcje przez usługę sieci Web** sekcji, kliknij ikonę programu Excel.
+1. Hello Azure Machine Learning sieci Web portalu, wybierz **Consume**.
+2. Na stronie Consume hello na powitania **opcje przez usługę sieci Web** kliknij ikonę hello w programie Excel.
 
-**Używaj skoroszytu**
+**Przy użyciu hello skoroszytu**
 
-1. Otwórz skoroszyt.
-2. Zostanie wyświetlone ostrzeżenie o zabezpieczeniach; polecenie **Włącz edytowanie** przycisku.
+1. Otwórz hello skoroszytu.
+2. Zostanie wyświetlone ostrzeżenie o zabezpieczeniach; polecenie hello **Włącz edytowanie** przycisku.
    
     ![][2]
-3. Zostanie wyświetlone ostrzeżenie o zabezpieczeniach. Polecenie **Włącz zawartość** przycisk, aby uruchomić makra w arkuszu kalkulacyjnym.
+3. Zostanie wyświetlone ostrzeżenie o zabezpieczeniach. Polecenie hello **Włącz zawartość** przycisk toorun makra w arkuszu kalkulacyjnym.
    
     ![][3]
-4. Po włączeniu makra, jest generowany tabeli. Kolumny w niebieski są wymagane jako dane wejściowe do rekordów zasobów usługi sieci web, lub **parametry**. Należy pamiętać, dane wyjściowe usługi RRS **PROGNOZOWANE wartości** na zielono. Po wprowadzeniu są wszystkie kolumny dla danego wiersza, skoroszyt automatycznie wywołuje interfejs API oceniania i wyświetla wyniki scored.
+4. Po włączeniu makra, jest generowany tabeli. Kolumny w niebieski są wymagane jako dane wejściowe do hello rekordy zasobów usługi sieci web, lub **parametry**. Należy pamiętać, dane wyjściowe hello hello usługi RRS **PROGNOZOWANE wartości** na zielono. Jeśli są wszystkie kolumny dla danego wiersza, skoroszytu hello automatycznie wywołuje hello oceniania interfejsu API i wyświetla hello oceniane wyniki.
    
     ![][4]
-5. Aby otrzymać więcej niż jeden wiersz, wypełnienie drugiego wiersza z danymi i przewidywane wartości są tworzone. Jednocześnie można wkleić nawet kilka wierszy.
+5. tooscore więcej niż jeden wiersz, wypełnienie hello drugiego wiersza z danymi i hello przewidzieć, że wartości. Jednocześnie można wkleić nawet kilka wierszy.
 
-Możesz ułatwiają dowolnej funkcji programu Excel (wykresy, mapy zasilania, warunkowego formatowania, itp.) z wartościami przewidywane wizualizacji danych.    
+Można użyć dowolnego z funkcji programu Excel hello (wykresy, mapy zasilania, warunkowego formatowania itp.) z hello przewidzieć toohelp wartości wizualizacji danych hello.    
 
 ## <a name="sharing-your-workbook"></a>Udostępnianie skoroszytu
-Makra do pracy klucz interfejsu API musi być częścią arkusza kalkulacyjnego. Oznacza to, że tylko z jednostek/osób, którym ufa powinny współużytkować skoroszytu.
+Dla hello toowork makra klucz interfejsu API musi być częścią hello w arkuszu kalkulacyjnym. Oznacza to, że tylko z jednostek/osób, którym ufa powinny współużytkować hello skoroszytu.
 
 ## <a name="automatic-updates"></a>Automatyczne aktualizacje
 Rekordy zasobów wywołanie w tych dwóch sytuacji:
 
-1. Po raz pierwszy wiersz ma zawartość we wszystkich jego **parametrów**
-2. Wtedy żadnego z **parametry** zmiany w wierszu, który ma wszystkie jego **parametry** wprowadzona.
+1. Witaj po raz pierwszy wiersz ma zawartość we wszystkich jego **parametrów**
+2. Wtedy żadnego hello **parametry** zmiany w wierszu, który ma wszystkie jego **parametry** wprowadzona.
 
 [1]: ./media/machine-learning-consuming-from-excel/excellink.png
 [2]: ./media/machine-learning-consuming-from-excel/enableeditting.png

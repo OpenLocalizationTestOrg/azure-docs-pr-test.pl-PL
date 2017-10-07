@@ -1,6 +1,6 @@
 ---
-title: "Używanie programu Outlook w usłudze Azure RemoteApp | Microsoft Docs"
-description: "Dowiedz się, jak skonfigurować program Outlook i używać go w usłudze Azure RemoteApp | Microsoft Azure"
+title: "aaaUsing programu Outlook w usłudze Azure RemoteApp | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooconfigure i korzystać z programu Outlook w usłudze Azure RemoteApp | Microsoft Azure"
 services: remoteapp
 documentationcenter: 
 author: pavithir
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 3feb21385a8b7fa219153c16181887e34d6ea41a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 119d2629ac47bd8d20d617985a9b488068aa959f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Używanie programu Microsoft Outlook w usłudze Azure RemoteApp
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Witaj odczytu [anonsu](https://go.microsoft.com/fwlink/?linkid=821148) szczegółowe informacje.
 > 
 > 
 
 Usługa Azure RemoteApp obsługuje program Microsoft Outlook usługi O365. Dowiedz się więcej na temat [działania pakietu Office w usłudze Azure RemoteApp](remoteapp-officesubscription.md). Istnieje kilka zalecanych ustawień dla programu Outlook używanego w usłudze Azure RemoteApp.
 
 ## <a name="cached-mode"></a>Tryb buforowany
-Tryb buforowany jest zalecaną konfiguracją w przypadku korzystania z programu Outlook w usłudze Azure RemoteApp. Po skonfigurowaniu konta programu Outlook 2013 do używania trybu buforowanej wymiany program Outlook 2013 współpracuje z lokalną kopią należącej do użytkownika skrzynki pocztowej programu Microsoft Exchange, która jest przechowywana w pliku danych w trybie offline (pliku OST) na komputerze użytkownika wraz z książką adresową trybu offline (OAB). Buforowana skrzynka pocztowa i książka adresowa offline są okresowo aktualizowane danymi z usługi O365. Przeczytaj więcej na temat [różnic między trybem buforowanym a trybem online](https://technet.microsoft.com/library/jj683103.aspx).
+Tryb buforowany jest zalecaną konfiguracją w przypadku korzystania z programu Outlook w usłudze Azure RemoteApp. Podczas konfigurowania programu Outlook 2013 konta toouse tryb buforowanej wymiany, Outlook 2013 współpracuje z lokalną kopią hello użytkownika skrzynki pocztowej programu Microsoft Exchange, który jest przechowywany w pliku danych w trybie offline (pliku OST) na komputerze użytkownika hello, wraz z hello książki adresowej Offline (OAB). Witaj buforowana Skrzynka pocztowa i Książka adresowa offline są okresowo aktualizowane danymi z hello usługi O365. Przeczytaj więcej na temat [hello różnice między buforowanym a trybem online](https://technet.microsoft.com/library/jj683103.aspx).
 
-Użytkownik może wybrać **tryb buforowanej wymiany** lub **tryb online** podczas konfigurowania konta lub zmieniania jego ustawień. Można także wdrożyć jeden z tych trybów przy użyciu narzędzia dostosowywania pakietu Office (OCT) lub zasad grupy.  
+Witaj, użytkownik może wybrać **trybu buforowanej wymiany** lub **trybu Online** podczas konfigurowania konta lub zmienić ustawienia konta hello. Można także wdrożyć jeden tryb lub hello innych za pomocą hello narzędzia dostosowywania pakietu Office (OCT) lub zasad grupy.  
 
 Przeczytaj [instrukcje krok po kroku dotyczące włączania trybu buforowanego](https://technet.microsoft.com/library/c6f4cad9-c918-420e-bab3-8b49e1885034#proc).
 
 ## <a name="search"></a>Wyszukiwanie
-Wyszukiwanie w programie Outlook w usłudze Azure RemoteApp ma pewne ograniczenia. Usługa Azure RemoteApp używa puli maszyn wirtualnych na potrzeby sesji użytkownika. Indeksowanie wyszukiwania zależy od identyfikatora komputera, który jest różny na różnych maszynach wirtualnych. Użytkownicy logujący się do usługi Azure RemoteApp mogą być za każdym razem przekierowywani do nowej maszyny wirtualnej. Oznacza to, że jeśli pozwolimy na wyszukiwanie lokalne, indeksator będzie uruchamiany przy każdej zmianie identyfikatora komputera (użyciu innej maszyny wirtualnej). W zależności od rozmiaru pliku OST działanie indeksatora może zajmować dużo czasu i zużywać zasoby potrzebne dla innych aplikacji. Wyszukiwanie nie tylko jest powolne, ale może nie dawać wyników. Ten problem można obejść, używając profilu konta w trybie online, ale mogłoby to spowodować obniżenie ogólnej wydajności z powodu braku lokalnej pamięci podręcznej (aby uzyskać więcej informacji o różnicach między trybem online i trybem pamięci podręcznej, zobacz powyższy link). Niestety, nie można wyłączyć indeksowanego/lokalnego wyszukiwania ani włączyć wyszukiwania w trybie online jako domyślnego w programie Outlook 2013.
+Wyszukiwanie w programie Outlook w usłudze Azure RemoteApp ma pewne ograniczenia. Usługa Azure RemoteApp używa puli sesji użytkownika tooaccommodate maszyn wirtualnych. Indeksowanie wyszukiwania zależy od Identyfikatora komputera hello, która jest różna dla różnych maszyn wirtualnych. Istnieje możliwość, że za każdym razem, gdy użytkownik loguje się do usługi Azure RemoteApp, są one ukierunkowanej tooa nowej maszyny Wirtualnej. Oznacza to, czy włączyliśmy Wyszukiwanie lokalne powitania indeksator będzie uruchamiany przy każdej zmianie Identyfikatora komputera hello (gdy hello użytkownika znajduje się w innej maszyny Wirtualnej). W zależności od wielkości hello hello. Pliku OST indeksatora hello może potrwać toocomplete dużo czasu i zużywać zasoby potrzebne dla innych aplikacji. Wyszukiwanie nie tylko jest powolne, ale może nie dawać wyników. Przy użyciu profilu konta w trybie Online czy obejść ten problem, ale ogólną wydajność może się pogorszyć ze względu na brak toohello lokalnej pamięci podręcznej (zobacz hello link powyżej, aby uzyskać więcej informacji o hello różnica między buforowanym a trybem online). Niestety, nie można wyłączyć indeksowanego/lokalnego wyszukiwania ani włączyć wyszukiwania w trybie online jako domyślnego w programie Outlook 2013.
 

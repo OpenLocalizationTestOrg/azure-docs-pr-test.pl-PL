@@ -1,6 +1,6 @@
 ---
-title: "Omówienie typowe wzorce skalowania automatycznego | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, niektóre typowe wzorce do automatycznego skalowania zasobu na platformie Azure."
+title: aaaOverview typowe wzorce skalowania automatycznego | Dokumentacja firmy Microsoft
+description: "Dowiedz się, że niektóre hello typowe wzorce tooauto skalowania zasobu na platformie Azure."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: ancav
-ms.openlocfilehash: fce51546e041c8989d813c3935e058c52b38ba77
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fc5bd97852e0af01aa32940c99721ab8e21033ad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Omówienie typowe wzorce skalowania automatycznego
-W tym artykule opisano niektóre typowe wzorce skalowania zasobu na platformie Azure.
+W tym artykule opisano niektóre typowe tooscale wzorce hello zasobu na platformie Azure.
 
-Azure automatyczne skalowanie monitora dotyczy tylko zestawów skali maszyny wirtualnej (VMSS), usługi w chmurze, planów usługi aplikacji i środowiska usługi app service. 
+Azure automatyczne skalowanie monitora dotyczy tylko tooVirtual zestawy skalowania maszyny (VMSS), usługi w chmurze, planów usługi aplikacji i środowiska usługi app service. 
 
 # <a name="lets-get-started"></a>Umożliwia wprowadzenie
 
-W tym artykule przyjęto założenie, że czytelnik zna automatyczne skalowanie. Możesz [tutaj wprowadzenie do skalowania zasobu][1]. Poniżej przedstawiono niektóre typowe wzorce skali.
+W tym artykule przyjęto założenie, że czytelnik zna automatyczne skalowanie. Możesz [Pobierz wprowadzenie tooscale tutaj zasobu][1]. Witaj poniżej przedstawiono niektóre typowe wzorce skali hello.
 
 ## <a name="scale-based-on-cpu"></a>Oparte na Procesorze skali
 
 Aplikacja sieci web (/ VMSS/chmury usługi roli) i 
 
-- Aby skalowania w poziomie/skali w na podstawie procesora CPU.
-- Ponadto chcesz upewnij się, że minimalna liczba wystąpień. 
-- Ponadto chcesz zapewnić ustawienie limitu maksymalnej liczby wystąpień, które można skalować.
+- Ma tooscale poza/skali w na podstawie procesora CPU.
+- Ponadto chcesz tooensure jest minimalna liczba wystąpień. 
+- Ponadto chcesz tooensure ustawioną maksymalny limit toohello liczba wystąpień, które można skalować.
 
 ![Oparte na Procesorze skali][2]
 
@@ -44,7 +44,7 @@ Aplikacja sieci web (/ VMSS/chmury usługi roli) i
 Aplikacja sieci web (/ VMSS/chmury usługi roli) i
 
 - Ma domyślnie wystąpień 3 (w dni robocze)
-- Nieoczekiwanie ruchu w weekendy, i dlatego ma być skalowana do 1 wystąpienie w weekendy.
+- Nieoczekiwanie ruchu w weekendy, i dlatego należy tooscale dół too1 wystąpienia w weekendy.
 
 ![Skalowanie inaczej w weekendy vs dni tygodnia][3]
 
@@ -52,16 +52,16 @@ Aplikacja sieci web (/ VMSS/chmury usługi roli) i
 
 Aplikacja sieci web (/ VMSS/chmury usługi roli) i 
 
-- Chcesz skalować w górę/dół oparte na użycie procesora CPU domyślnie
-- Jednak podczas świąt (lub określone dni, które są ważne dla biznesu) chcesz zastąpić wartości domyślne i mieć większej pojemności do Twojej dyspozycji.
+- Ma tooscale góra/dół oparte na użycie procesora CPU domyślnie
+- Jednak podczas świąt (lub określone dni, które są ważne dla biznesu) ma domyślne hello toooverride i mieć większej pojemności do Twojej dyspozycji.
 
 ![Święta inaczej w skali][4]
 
 ## <a name="scale-based-on-custom-metric"></a>Skalowanie w oparciu metryki niestandardowe
 
-Masz frontonu sieci web i warstwy interfejsu API, który komunikuje się z wewnętrznej bazy danych. 
+Masz frontonu sieci web i warstwy interfejsu API, który komunikuje się z hello wewnętrznej bazy danych. 
 
-- Aby skalować warstwę interfejsu API na podstawie niestandardowych zdarzeń frontonu (przykład: chcesz skalować procesu wyewidencjonowania na podstawie liczby elementów w koszyku)
+- Ma tooscale hello interfejsu API warstwy na podstawie zdarzeń niestandardowych w frontonu hello (przykład: chcesz tooscale procesu wyewidencjonowania na podstawie hello liczby elementów w koszyku hello)
 
 ![Skalowanie w oparciu metryki niestandardowe][5]
 

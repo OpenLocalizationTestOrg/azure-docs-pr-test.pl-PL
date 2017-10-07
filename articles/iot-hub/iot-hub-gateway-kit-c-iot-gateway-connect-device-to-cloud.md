@@ -1,12 +1,12 @@
 ---
-title: "Użyj bramy IoT połączenia z urządzeniem z Centrum IoT Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać Intel NUC jako brama IoT łączenia Sensor tag analizy czasowej oraz wysyłania danych czujnika do Centrum IoT Azure w chmurze."
+title: "aaaUse tooconnect bramy IoT tooAzure urządzenia IoT Hub | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse NUC Intel jako tooconnect bramy IoT Sensor tag analizy czasowej i tooAzure danych czujnika wysyłania Centrum IoT w hello chmury."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timlt
 tags: 
-keywords: "Brama iot Podłącz urządzenie do chmury"
+keywords: "Brama iot połączyć toocloud urządzenia"
 ms.assetid: cb851648-018c-4a7e-860f-b62ed3b493a5
 ms.service: iot-hub
 ms.devlang: c
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/25/2017
 ms.author: xshi
-ms.openlocfilehash: 4fb77ed0241d15338c2574fd22828507c3e40cb3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 418af34bf29992d46b76ae59ef548744808664c3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-iot-gateway-to-connect-things-to-the-cloud---sensortag-to-azure-iot-hub"></a>Użyj bramy IoT nawiązać rzeczy cloud - Sensor tag do Centrum IoT Azure
+# <a name="use-iot-gateway-tooconnect-things-toohello-cloud---sensortag-tooazure-iot-hub"></a>Użyj IoT bramy tooconnect rzeczy toohello cloud - tooAzure Sensor tag Centrum IoT
 
 > [!NOTE]
-> Przed rozpoczęciem tego samouczka, upewnij się, przeprowadzisz [Konfigurowanie NUC Intel jako brama IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md). W [Konfigurowanie NUC Intel jako brama IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md), skonfiguruj urządzenie Intel NUC jako brama IoT.
+> Przed rozpoczęciem tego samouczka, upewnij się, przeprowadzisz [Konfigurowanie NUC Intel jako brama IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md). W [Konfigurowanie NUC Intel jako brama IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md), konfigurowanie urządzenia Intel NUC hello jako bramę IoT.
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
 
-Sposób łączenia Texas Instruments Sensor tag (CC2650STK) z Centrum IoT Azure za pomocą bramy IoT. Brama IoT wysyła temperatury i wilgotności dane zbierane z Sensor tag do Centrum IoT Azure.
+Dowiesz się, jak toouse tooconnect bramy IoT tooAzure Sensor Texas Instruments tag (CC2650STK) Centrum IoT. Brama IoT Hello wysyła temperatury i wilgotności dane zbierane z hello Sensor tag tooAzure Centrum IoT.
 
 ## <a name="what-you-will-do"></a>Będzie wykonywać
 
 - Tworzenie Centrum IoT.
-- Zarejestruj urządzenie w Centrum IoT dla Sensor tag.
-- Włącz połączenie między bramą IoT i Sensor tag.
-- Uruchom przykładową aplikację cz wysyłać dane Sensor tag do Centrum IoT.
+- Zarejestruj urządzenie w Centrum IoT hello hello Sensor tag.
+- Włącz hello połączenie między bramą IoT hello i hello Sensor tag.
+- Uruchom cz przykładowej aplikacji toosend Sensor tag danych tooyour Centrum IoT.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 
 - Samouczek [Konfigurowanie NUC Intel jako brama IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) zakończone, w której skonfigurowaniu NUC Intel jako brama IoT.
 - * Aktywna subskrypcja platformy Azure. Jeśli nie masz konta platformy Azure, [utworzyć bezpłatne konto próbne Azure](https://azure.microsoft.com/free/) za kilka minut.
 - Klient SSH, który jest uruchamiany na komputerze hosta. PuTTY jest zalecane w systemie Windows. Linux i macOS już dostarczane za pomocą klienta SSH.
-- Adres IP i nazwy użytkownika i hasło, aby uzyskać dostęp do bramy z klienta SSH.
+- adres IP Hello i hello nazwy użytkownika i hasła tooaccess hello bramy z powitania klienta SSH.
 - Połączenie internetowe.
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
@@ -50,38 +50,38 @@ Sposób łączenia Texas Instruments Sensor tag (CC2650STK) z Centrum IoT Azure 
 > [!NOTE]
 > Tutaj możesz zarejestrować to nowe urządzenie dla użytkownika Sensor tag
 
-## <a name="enable-the-connection-between-the-iot-gateway-and-the-sensortag"></a>Włącz połączenie między bramą IoT i Sensor tag
+## <a name="enable-hello-connection-between-hello-iot-gateway-and-hello-sensortag"></a>Włącz hello połączenie między bramą IoT hello i hello Sensor tag
 
-W tej sekcji należy wykonać następujące zadania:
+W tej sekcji należy wykonać następujące zadania hello:
 
-- Pobierz adres MAC Sensor tag dla połączenia Bluetooth.
-- Inicjowanie połączenia Bluetooth z bramy IoT do Sensor tag.
+- Pobierz adres MAC hello hello Sensor tag dla połączenia Bluetooth.
+- Inicjowanie połączenia Bluetooth z hello IoT bramy toohello Sensor tag.
 
-### <a name="get-the-mac-address-of-the-sensortag-for-bluetooth-connection"></a>Pobierz adres MAC Sensor tag połączenia Bluetooth
+### <a name="get-hello-mac-address-of-hello-sensortag-for-bluetooth-connection"></a>Pobierz adres MAC hello hello Sensor tag połączenia Bluetooth
 
-1. Na komputerze hosta z klientem SSH i połączyć się z bramą IoT.
-1. Odblokuj Bluetooth, uruchamiając następujące polecenie:
+1. Na komputerze hosta hello Uruchom klienta SSH hello i połącz toohello IoT bramy.
+1. Odblokuj Bluetooth, uruchamiając następujące polecenie hello:
 
    ```bash
    sudo rfkill unblock bluetooth
    ```
 
-1. Uruchom usługę Bluetooth na bramie IoT i wprowadź powłoki Bluetooth, aby konfigurować funkcję Bluetooth, uruchamiając następujące polecenia:
+1. Uruchom usługę Bluetooth hello na powitania IoT bramy, a następnie wprowadź tooconfigure powłoki Bluetooth, hello Bluetooth, uruchamiając następujące polecenia:
 
    ```bash
    sudo systemctl start bluetooth
    bluetoothctl
    ```
 
-1. Włącz kontrolera Bluetooth, uruchamiając następujące polecenie w powłoce Bluetooth:
+1. Włącz hello Bluetooth kontrolera, uruchamiając hello następujące polecenia na powitania powłoki Bluetooth:
 
    ```bash
    power on
    ```
 
-   ![Włącz kontrolera Bluetooth na bramie IoT z bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/8_power-on-bluetooth-controller-at-bluetooth-shell-bluetoothctl.png)
+   ![Włącz hello kontrolera Bluetooth na powitania IoT bramy z bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/8_power-on-bluetooth-controller-at-bluetooth-shell-bluetoothctl.png)
 
-1. Uruchom skanowanie w poszukiwaniu pobliskimi urządzeniami Bluetooth, uruchamiając następujące polecenie:
+1. Uruchom skanowanie w poszukiwaniu w pobliżu urządzenia Bluetooth, uruchamiając następujące polecenie hello:
 
    ```bash
    scan on
@@ -89,9 +89,9 @@ W tej sekcji należy wykonać następujące zadania:
 
    ![Skanowanie w pobliżu urządzenia Bluetooth z bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/9_start-scan-nearby-bluetooth-devices-at-bluetooth-shell-bluetoothctl.png)
 
-1. Naciśnij przycisk parowania na Sensor tag. Zielony PRZEPROWADZONY na błysków Sensor tag.
-1. W powłoce Bluetooth powinien pojawić się Sensor tag został znaleziony. Zanotuj adres MAC Sensor tag. W tym przykładzie jest to adres MAC Sensor tag `24:71:89:C0:7F:82`.
-1. Wyłącz skanowanie za pomocą następującego polecenia:
+1. Naciśnij klawisz hello parowanie przycisk na powitania Sensor tag. zielony Hello PRZEPROWADZONY na powitania błysków Sensor tag.
+1. Na powitania powłoki Bluetooth powinna zostać wyświetlona hello znalezionych Sensor tag. Zanotuj hello adres MAC hello Sensor tag. W tym przykładzie hello hello Sensor tag adresu MAC jest `24:71:89:C0:7F:82`.
+1. Wyłącz skanowanie hello, uruchamiając następujące polecenie hello:
 
    ```bash
    scan off
@@ -99,70 +99,70 @@ W tej sekcji należy wykonać następujące zadania:
 
    ![Zatrzymuje skanowanie w pobliżu urządzenia Bluetooth z bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/10_stop-scanning-nearby-bluetooth-devices-at-bluetooth-shell-bluetoothctl.png)
 
-### <a name="initiate-a-bluetooth-connection-from-the-iot-gateway-to-the-sensortag"></a>Inicjowanie połączenia Bluetooth z bramy IoT do Sensor tag
+### <a name="initiate-a-bluetooth-connection-from-hello-iot-gateway-toohello-sensortag"></a>Inicjowanie połączenia Bluetooth z hello IoT bramy toohello Sensor tag
 
-1. Podłącz do Sensor tag, uruchamiając następujące polecenie:
+1. Połącz toohello Sensor tag, uruchamiając następujące polecenie hello:
 
    ```bash
    connect <MAC address>
    ```
 
-   ![Nawiązać Sensor tag z bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/11_connect-to-sensortag-at-bluetooth-shell-bluetoothctl.png)
+   ![Połącz z bluetoothctl toohello Sensor tag](./media/iot-hub-iot-gateway-connect-device-to-cloud/11_connect-to-sensortag-at-bluetooth-shell-bluetoothctl.png)
 
-1. Odłącz od Sensor tag, a Wyjdź z powłoki Bluetooth, uruchamiając następujące polecenia:
+1. Odłącz od hello Sensor tag, a następnie zakończyć hello Bluetooth powłoki, uruchamiając następujące polecenia hello:
 
    ```bash
    disconnect
    exit
    ```
 
-   ![Odłącz od Sensor tag z bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/12_disconnect-from-sensortag-at-bluetooth-shell-bluetoothctl.png)
+   ![Odłącz od hello Sensor tag z bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/12_disconnect-from-sensortag-at-bluetooth-shell-bluetoothctl.png)
 
-Pomyślnie włączono połączenie między Sensor tag, a brama IoT.
+Pomyślnie włączono hello połączenie między hello Sensor tag i hello IoT bramy.
 
-## <a name="run-a-ble-sample-application-to-send-sensortag-data-to-your-iot-hub"></a>Uruchom przykładową aplikację cz wysyłać dane Sensor tag do Centrum IoT
+## <a name="run-a-ble-sample-application-toosend-sensortag-data-tooyour-iot-hub"></a>Uruchom cz przykładowej aplikacji toosend Sensor tag danych tooyour Centrum IoT
 
-Przykładowa aplikacja energii małej Bluetooth (cz) są udostępniane przez Azure IoT krawędzi. Przykładowa aplikacja zbiera dane z połączenia cz i wysyłać dane do Centrum IoT. Aby uruchomić przykładową aplikację, musisz:
+Energii małej Bluetooth (cz) Przykładowa aplikacja Hello są udostępniane przez Azure IoT krawędzi. Witaj przykładowej aplikacji zbiera dane z połączenia cz i Wyślij Centrum IoT tooyou danych hello. toorun hello przykładowej aplikacji, musisz:
 
-1. Konfigurowanie przykładowej aplikacji.
-1. Uruchom przykładową aplikację w bramie IoT.
+1. Skonfiguruj hello przykładowej aplikacji.
+1. Uruchom hello Przykładowa aplikacja hello IoT bramy.
 
-### <a name="configure-the-sample-application"></a>Konfigurowanie przykładowej aplikacji
+### <a name="configure-hello-sample-application"></a>Skonfiguruj hello przykładowej aplikacji
 
-1. Przejdź do folderu przykładowej aplikacji, uruchamiając następujące polecenie:
+1. Folder przejdź toohello hello przykładowej aplikacji, uruchamiając następujące polecenie hello:
 
    ```bash
    cd /usr/share/azureiotgatewaysdk/samples/ble_gateway
    ```
 
-1. Otwórz plik konfiguracyjny, uruchamiając następujące polecenie:
+1. Otwórz plik konfiguracji hello, uruchamiając następujące polecenie hello:
 
    ```bash
    vi ble_gateway.json
    ```
 
-1. Wypełnij następujące wartości w pliku konfiguracji:
+1. W pliku konfiguracyjnym hello Wypełnij hello następujące wartości:
 
-   **IoTHubName**: Nazwa centrum IoT.
+   **IoTHubName**: hello nazwę Centrum IoT.
 
-   **IoTHubSuffix**: Pobierz IoTHubSuffix z klucza podstawowego ciąg połączenia urządzenia zanotowaną w dół. Upewnij się, że uzyskać klucz podstawowy ciąg połączenia urządzenia nie klucz podstawowy parametry połączenia Centrum IoT. Klucz podstawowy urządzenia ciągu połączenia jest w formacie `HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY`.
+   **IoTHubSuffix**: Pobierz IoTHubSuffix z hello klucz podstawowy ciąg połączenia urządzenia hello zanotowaną w dół. Upewnij się, możesz pobrać klucz podstawowy hello ciąg połączenia urządzenia hello, nie hello klucz podstawowy parametry połączenia Centrum IoT. klucz podstawowy Hello ciąg połączenia urządzenia hello jest w formacie hello `HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY`.
 
-   **Transport**: wartość domyślna to `amqp`. Ta wartość przedstawia protokołu podczas transpotation. Może to być `http`, `amqp`, lub `mqtt`.
+   **Transport**: hello wartość domyślna to `amqp`. Ta wartość przedstawia hello protokołu podczas transpotation. Może to być `http`, `amqp`, lub `mqtt`.
 
-   **macAddress**: adres MAC Sensor tag, zanotowaną w dół.
+   **macAddress**: hello adres MAC hello Sensor tag zanotowaną w dół.
 
-   **deviceID**: identyfikator urządzenia, który został utworzony w Centrum IoT.
+   **deviceID**: identyfikator urządzenia hello, który został utworzony w Centrum IoT.
 
-   **deviceKey**: klucz podstawowy ciąg połączenia urządzenia.
+   **deviceKey**: hello klucz podstawowy ciąg połączenia urządzenia hello.
 
-   ![Zakończenie pliku konfiguracji cz przykładowej aplikacji](./media/iot-hub-iot-gateway-connect-device-to-cloud/13_edit-config-file-of-ble-sample.png)
+   ![Plik konfiguracji pełną hello hello cz przykładowej aplikacji](./media/iot-hub-iot-gateway-connect-device-to-cloud/13_edit-config-file-of-ble-sample.png)
 
-1. Naciśnij klawisz `ESC` i typ `:wq` można zapisać pliku.
+1. Naciśnij klawisz `ESC` i typ `:wq` toosave hello pliku.
 
-### <a name="run-the-sample-application"></a>Uruchom przykładową aplikację
+### <a name="run-hello-sample-application"></a>Uruchom hello przykładowej aplikacji
 
-1. Upewnij się, że Sensor tag jest włączona.
-1. Uruchom następujące polecenie:
+1. Upewnij się, że powitalne Sensor tag jest włączona.
+1. Uruchom następujące polecenie hello:
 
    ```bash
    ./ble_gateway ble_gateway.json

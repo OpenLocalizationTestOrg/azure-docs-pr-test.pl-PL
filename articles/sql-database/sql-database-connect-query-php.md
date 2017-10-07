@@ -1,6 +1,6 @@
 ---
-title: "Korzystanie z języka PHP do wykonywania zapytań w bazie danych Azure SQL | Microsoft Docs"
-description: "W tym temacie przedstawiono sposób użycia języka PHP do utworzenia programu, który nawiązuje połączenie z bazą danych SQL Azure i wykonuje zapytania za pomocą instrukcji języka Transact-SQL."
+title: aaaUse PHP tooquery bazy danych SQL Azure | Dokumentacja firmy Microsoft
+description: "W tym temacie opisano sposób toouse PHP toocreate program, który łączy tooan bazy danych SQL Azure i zapytania za pomocą instrukcji języka Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,51 +15,51 @@ ms.devlang: php
 ms.topic: hero-article
 ms.date: 08/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 3a43472ad2be4a0fd6f7126f72433acd8b5f25fd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5fc49dcc42ab07cc1bec554be39bdf08dbd6f75e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-php-to-query-an-azure-sql-database"></a>Korzystanie z języka PHP do wykonywania zapytań w bazie danych Azure SQL
+# <a name="use-php-tooquery-an-azure-sql-database"></a>Użyj tooquery PHP bazy danych Azure SQL
 
-W tym przewodniku Szybki start pokazano, jak używać języka [PHP](http://php.net/manual/en/intro-whatis.php) w celu utworzenia programu służącego do nawiązywania połączenia z bazą danych Azure SQL, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.
+Tego samouczka szybkiego startu przedstawia sposób toouse [PHP](http://php.net/manual/en/intro-whatis.php) toocreate tooan tooconnect programu Azure SQL bazy danych, a następnie użyć danych tooquery instrukcji języka Transact-SQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten samouczek Szybki start, upewnij się, że dysponujesz następującymi elementami:
+toocomplete tym szybki start samouczka, upewnij się, że masz następujące hello:
 
-- Baza danych Azure SQL. Ten przewodnik Szybki start używa zasobów utworzonych w jednym z poniższych przewodników Szybki start: 
+- Baza danych Azure SQL. To szybki start używa zasobów hello tworzony w jednej z tych Szybki Start: 
 
    - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
    - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
    - [Tworzenie bazy danych — PowerShell](sql-database-get-started-powershell.md)
 
-- [Reguła zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) dla publicznego adresu IP komputera, który będzie używany w tym samouczku Szybki start.
+- A [regułę zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) dla hello publiczny adres IP komputera hello, możesz użyć w tym samouczku szybki start.
 
 - W systemie operacyjnym zainstalowano język PHP i związane z nim oprogramowanie.
 
-    - **System MacOS**: zainstaluj oprogramowania Homebrew i PHP, zainstaluj sterownik ODBC i pakiet SQLCMD, a następnie zainstaluj sterownik języka PHP dla programu SQL Server. Zobacz [kroki 1.2, 1.3 i 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
-    - **System Ubuntu**: zainstaluj język PHP i inne wymagane pakiety, a następnie zainstaluj sterownik języka PHP dla programu SQL Server. Zobacz [kroki 1.2 i 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
-    - **System Windows**: zainstaluj najnowszą wersję programu PHP dla usług IIS Express, najnowszą wersja sterowników firmy Microsoft dla programu SQL Server w usługach IIS Express, Chocolatey, sterownik ODBC i pakiet SQLCMD. Zobacz [kroki 1.2 i 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
+    - **System MacOS**: zainstalowania oprogramowania Homebrew i PHP, instalowania sterownika ODBC: hello i SQLCMD, a następnie zainstaluj hello sterowników PHP dla programu SQL Server. Zobacz [kroki 1.2, 1.3 i 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **Ubuntu**: zainstalować PHP i inne wymagane pakiety i hello instalacji sterowników PHP dla programu SQL Server. Zobacz [kroki 1.2 i 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Windows**: Zainstaluj hello najnowszą wersję PHP dla usług IIS Express, najnowsza wersja hello Drivers firmy Microsoft dla programu SQL Server w usługi IIS Express, Chocolatey hello sterownika ODBC i SQLCMD. Zobacz [kroki 1.2 i 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 
 ## <a name="sql-server-connection-information"></a>Informacje o połączeniu z serwerem SQL
 
-Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera, nazwa bazy danych i informacje logowania.
+Pobierz hello połączenia potrzebnych tooconnect toohello usługa Azure SQL database. Konieczne będzie hello pełni kwalifikowaną nazwę serwera, nazwa bazy danych i informacji o logowaniu w hello kolejnych procedur.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
-3. Na stronie **Przegląd** bazy danych zweryfikuj w pełni kwalifikowaną nazwę serwera, jak pokazano na poniższej ilustracji. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**.  
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
+2. Wybierz **baz danych SQL** z menu po lewej stronie powitania i kliknij bazę danych na powitania **baz danych SQL** strony. 
+3. Na powitania **omówienie** stron dla bazy danych, przejrzyj hello w pełni kwalifikowana nazwa serwera, pokazane na powitania po obrazu. Ustawieniu kursora toobring nazwy serwera hello zapasowej hello **kliknij toocopy** opcji.  
 
    ![nazwa-serwera](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony serwera usługi SQL Database, aby wyświetlić nazwę administratora serwera oraz, w razie konieczności, zresetować hasło.     
+4. Jeśli zapomnisz informacje logowania serwera, przejdź toohello bazy danych SQL strony tooview powitania serwera nazwa administratora serwera i, w razie potrzeby zresetowania hasła hello.     
     
-## <a name="insert-code-to-query-sql-database"></a>Wstawianie kodu zapytania bazy danych SQL
+## <a name="insert-code-tooquery-sql-database"></a>Wstaw baza danych SQL tooquery kodu
 
 1. W swoim ulubionym edytorze tekstów utwórz nowy plik o nazwie **sqltest.php**.  
 
-2. Zastąp jego zawartość następującym kodem i dodaj odpowiednie wartości dla serwera, bazy danych, użytkownika i hasła.
+2. Zamień zawartość hello hello następujący kod i dodaj odpowiednie wartości powitania serwera, bazy danych, użytkownika i hasło.
 
    ```PHP
    <?php
@@ -69,7 +69,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą dan
        "Uid" => "your_username",
        "PWD" => "your_password"
    );
-   //Establishes the connection
+   //Establishes hello connection
    $conn = sqlsrv_connect($serverName, $connectionOptions);
    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
            FROM [SalesLT].[ProductCategory] pc
@@ -86,15 +86,15 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą dan
    ?>
    ```
 
-## <a name="run-the-code"></a>Uruchamianie kodu
+## <a name="run-hello-code"></a>Uruchamianie hello kodu
 
-1. W wierszu polecenia uruchom następujące polecenia:
+1. W wierszu polecenia hello uruchom następujące polecenia hello:
 
    ```php
    php sqltest.php
    ```
 
-2. Sprawdź, czy zostało zwróconych 20 pierwszych wierszy, a następnie zamknij okno aplikacji.
+2. Sprawdź, czy górnych wierszy 20 hello są zwracane, a następnie zamknij okno aplikacji hello.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Projektowanie pierwszej bazy danych SQL na platformie Azure](sql-database-design-first-database.md)

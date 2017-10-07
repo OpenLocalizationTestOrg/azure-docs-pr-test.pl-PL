@@ -1,6 +1,6 @@
 ---
-title: "Dowiedz się więcej o najnowszych wersjach systemu operacyjnego gościa Azure | Dokumentacja firmy Microsoft"
-description: "Najnowsze informacje o wersji i zestawu SDK zgodności w systemie operacyjnym gościa usługi w chmurze Azure."
+title: "najnowsze wersje systemu operacyjnego gościa Azure hello aaaLearn o | Dokumentacja firmy Microsoft"
+description: "Witaj najnowsze informacje o wersji i zestawu SDK zgodności w systemie operacyjnym gościa usługi w chmurze Azure."
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/24/2017
 ms.author: raiye
-ms.openlocfilehash: a4439346817df9223c032abc1405a7cf9cbe780b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7274f5a68a32ce91bdede77e1443cdb8053c07ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure wersji systemu operacyjnego gościa i zgodność pakietu SDK
-Zapewnia użytkownikowi aktualne informacje o najnowszych systemu operacyjnego gościa Azure wersje usługi w chmurze. Informacje te pomagają sobie planowanie uaktualnienia przed wyłączeniem systemu operacyjnego gościa. Jeśli konfigurujesz role do użycia *automatyczne* aktualizacji systemu operacyjnego gościa, zgodnie z opisem w [ustawienia aktualizacji systemu operacyjnego gościa Azure][Azure Guest OS Update Settings], nie jest istotne, aby odczytać tę stronę.
+Zapewnia aktualne informacje na temat powitalne systemu operacyjnego gościa Azure najnowsze wersje usługi w chmurze. Informacje te pomagają sobie planowanie uaktualnienia przed wyłączeniem systemu operacyjnego gościa. Jeśli skonfigurujesz toouse Twojego ról *automatyczne* aktualizacji systemu operacyjnego gościa, zgodnie z opisem w [ustawienia aktualizacji systemu operacyjnego gościa Azure][Azure Guest OS Update Settings], nie jest istotne, aby odczytać tę stronę.
 
 > [!IMPORTANT]
-> Ta strona dotyczy ról usługi w chmurze sieci web i proces roboczy, które działają ponad systemu operacyjnego gościa. Robi **nie stosuje się** do maszyn wirtualnych IaaS.
+> Ta strona dotyczy tooCloud usług sieci web i proces roboczy ról, które działają ponad systemu operacyjnego gościa. Robi **nie stosuje się** tooIaaS maszyn wirtualnych.
 >
 >
 
 
 > [!NOTE]
-> Źródło danych RSS niedawno została zastąpiona. Śledzenie aktualizacji na nowe źródło danych wkrótce!
+> źródło danych RSS Hello niedawno została uznana za przestarzałą. Śledzenie aktualizacji na nowe źródło danych wkrótce!
 >
 >
 
-Nie wiesz, o jaką systemu operacyjnego gościa jest lub jak systemu operacyjnego gościa wersje robocze? Odczyt [to](#how-it-works) sekcji.
+Nie wiesz, o jaką hello systemu operacyjnego gościa jest lub jak hello wersje systemu operacyjnego gościa pracy? Odczyt [to](#how-it-works) sekcji.
 
 ## <a name="news-updates"></a>Wiadomości
 
@@ -57,7 +57,7 @@ Wdrożenie systemu operacyjnego gościa czerwca uruchamia 16 czerwca i ma planow
 Może wydała systemu operacyjnego gościa.
 
 ###### <a name="may-17-2017"></a>**17 maja 2017 r.**
-Z powodu błędu zabezpieczeń, możemy wyłączania następujące grudnia 2016 i stycznia 2017 r poszczególnych wersji systemu operacyjnego, które nie mają [rozwiązać] z portalu: WA — GOŚCIA — systemu operacyjnego — 5.4_201612 — WA 01, — GOŚCIA — systemu operacyjnego — 4.39_201612-01, WA — GOŚCIA — systemu operacyjnego — 3.46_201612-01, WA-GOŚCIA-OS-2.59_201701-01
+Ze względu na błąd zabezpieczeń tooa, możemy wyłączenie hello grudnia 2016 i stycznia 2017 r poszczególnych wersji systemu operacyjnego, które nie mają hello [rozwiązać] z portalu hello: WA — GOŚCIA — systemu operacyjnego — 5.4_201612 — WA 01, — GOŚCIA — systemu operacyjnego — 4.39_201612-01, WA-GOŚCIA — systemu operacyjnego — 3.46_ WA 201612-01-GOŚCIA-OS-2.59_201701-01
 
 ###### <a name="may-12-2017"></a>**12 maja 2017 r.**
 Wdrożenie systemu operacyjnego gościa może rozpoczyna maja 12 i ma planowanego wersji 13 czerwca.
@@ -69,7 +69,7 @@ Wdrożenie systemu operacyjnego gościa kwietnia rozpoczyna 18 kwietnia i ma pla
 Wdrożenie systemu operacyjnego gościa marca uruchomiona 14 marca 2017 r i wydanej w dniu 10 kwietnia 2017 r.
 
 ###### <a name="january-10-2017"></a>**10 stycznia 2017 r.**
-System operacyjny gościa stycznia zawiera poprawki, których wpływ tylko na rodziny systemów operacyjnych 2 (Windows Server 2008 R2). Dlatego firma Microsoft wydała tylko obraz systemu operacyjnego z rodziny 2 (WA-GOŚCIA-OS-2.59_201701-01) w tym miesiącu. Dla wszystkich innych rodzin systemu operacyjnego, systemu operacyjnego grudnia (201612 - 01) pozostaje najnowszą.
+Witaj stycznia systemu operacyjnego gościa zawiera poprawki, których wpływ tylko na rodziny systemów operacyjnych 2 (Windows Server 2008 R2). Dlatego firma Microsoft wydała tylko obraz systemu operacyjnego z rodziny 2 hello (WA-GOŚCIA-OS-2.59_201701-01) w tym miesiącu. Dla wszystkich innych rodzin systemu operacyjnego hello grudnia systemu operacyjnego (201612 - 01) pozostaje hello najnowsza wersja.
 
 
 ## <a name="releases"></a>Wersje
@@ -79,9 +79,9 @@ System operacyjny gościa stycznia zawiera poprawki, których wpływ tylko na ro
 Zainstalowany program .NET framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> Daty z * są może ulec zmianie.
+> Daty z * są toochange podmiotu.
 >
-> Hasło RDP 5 rodziny systemu operacyjnego musi mieć co najmniej 10 znaków.
+> Witaj hasło RDP 5 rodziny systemu operacyjnego musi mieć co najmniej 10 znaków.
 >
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
@@ -102,7 +102,7 @@ Zainstalowany program .NET framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 Obsługuje platformy .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
-> Daty z * są może ulec zmianie
+> Daty z * są toochange podmiotu
 >
 >
 
@@ -128,7 +128,7 @@ Obsługuje platformy .NET 4.0, 4.5, 4.5.1, 4.5.2
 Obsługuje platformy .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
-> Daty z * są może ulec zmianie
+> Daty z * są toochange podmiotu
 >
 >
 
@@ -154,7 +154,7 @@ Obsługuje platformy .NET 4.0, 4.5, 4.5.1, 4.5.2
 Obsługuje .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
-> Daty z * są może ulec zmianie
+> Daty z * są toochange podmiotu
 >
 >
 
@@ -177,10 +177,10 @@ Obsługuje .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 
 ## <a name="msrc-patch-updates"></a>MSRC poprawek i aktualizacji
-Lista poprawek, które są dołączone do każdej miesięcznej wersji systemu operacyjnego gościa jest dostępna [tutaj][patches].
+Witaj listę poprawek, które są dołączone do każdej miesięcznej wersji systemu operacyjnego gościa jest dostępna [tutaj][patches].
 
 ## <a name="sdk-support"></a>Obsługa w zestawie SDK
-Mimo że [wycofywania zasad dla zestawu Azure SDK] [ retire policy sdk] wskazuje, czy tylko wersje powyżej 2.2 są obsługiwane, określonych rodzin systemu operacyjnego gościa umożliwiają używanie wcześniejszych wersji. Należy zawsze używać najnowszej obsługiwanym zestawem SDK.
+Mimo że hello [zasady wycofania dla hello Azure SDK] [ retire policy sdk] wskazuje, czy tylko wersje powyżej 2.2 są obsługiwane, określonych rodzin systemu operacyjnego gościa pozwalają toouse wcześniejszych wersji. Zawsze należy używać hello najnowszej obsługiwane zestawu SDK.
 
 | Rodzina systemów operacyjnych gościa | Wersje zgodne zestawu SDK |
 | --- | --- |
@@ -191,45 +191,45 @@ Mimo że [wycofywania zasad dla zestawu Azure SDK] [ retire policy sdk] wskazuje
 | 1 |W wersji 1.0 + |
 
 ## <a name="guest-os-release-information"></a>Informacje o wersji systemu operacyjnego gościa
-Istnieją trzy daty, które są ważne dla poszczególnych wersji systemu operacyjnego gościa: **wersji** daty, **wyłączone** daty, i **wygaśnięcia** daty. Systemu operacyjnego gościa jest uważany za dostępny, gdy znajduje się w portalu, a jako element docelowy systemu operacyjnego gościa można wybrać. Gdy osiągnie systemu operacyjnego gościa **wyłączone** daty, zostanie ono usunięte z platformy Azure. Jednak wszystkie usługi w chmurze przeznaczonych dla tego systemu operacyjnego gościa nadal będzie działać jako standardowa.
+Istnieją trzy daty, które są ważne zwalnia tooGuest systemu operacyjnego: **wersji** daty, **wyłączone** daty, i **wygaśnięcia** daty. Systemu operacyjnego gościa jest uważany za dostępne, kiedy znajduje się w portalu hello i można wybrać jako cel hello systemu operacyjnego gościa. Gdy system operacyjny gościa osiągnie hello **wyłączone** daty, zostanie ono usunięte z platformy Azure. Jednak wszystkie usługi w chmurze przeznaczonych dla tego systemu operacyjnego gościa nadal będzie działać jako standardowa.
 
-Okno między **wyłączone** daty i **wygaśnięcia** Data zawiera buforu do łatwe przejście z jednego systemu operacyjnego gościa do jednego nowsza. Jeśli używasz *automatyczne* jako system operacyjny gościa, zawsze będzie w najnowszej wersji i nie trzeba martwić się o jego wygaśnięcia.
+Okno Hello między hello **wyłączone** daty i hello **wygaśnięcia** Data zapewnia przejście tooeasily buforu z jednego systemu operacyjnego gościa tooone nowsza. Jeśli używasz *automatyczne* jako system operacyjny gościa, zawsze będzie hello najnowszej wersji i nie ma tooworry o wygaśnięciu.
 
-Gdy **wygaśnięcia** data przekazuje wszystkie usługi w chmurze w dalszym ciągu używają tego systemu operacyjnego gościa będzie można zatrzymać, usunięty lub zmuszony do uaktualnienia. Więcej o zasadach wycofania [tutaj][retirepolicy].
+Gdy hello **wygaśnięcia** data przekazuje wszystkie usługi w chmurze w dalszym ciągu używają tego systemu operacyjnego gościa zostanie zatrzymana, usunięte lub wymuszonego tooupgrade. Więcej o zasadach wycofania hello [tutaj][retirepolicy].
 
 ## <a name="guest-os-family-version-explanation"></a>Wyjaśnienie rodziny wersja systemu operacyjnego gościa
-Rodzin systemu operacyjnego gościa są oparte na wersji systemu Microsoft Windows Server. System operacyjny gościa jest system operacyjny, działającą z usługi w chmurze Azure. Każdego systemu operacyjnego gościa ma rodziny, wersji i wydania numer.
+rodzin systemu operacyjnego gościa Hello są oparte na wersji systemu Microsoft Windows Server. Witaj systemu operacyjnego gościa jest hello system operacyjny działającą z usług Azure Cloud Services. Każdego systemu operacyjnego gościa ma rodziny, wersji i wydania numer.
 
 * **Rodzina systemów operacyjnych gościa**  
   Wersja systemu operacyjnego Windows Server, na podstawie systemu operacyjnego gościa. Na przykład *rodziny 3* jest oparta na systemie Windows Server 2012.
 * **Wersja systemu operacyjnego gościa**  
-  Specyficzne dla rodziny obraz systemu operacyjnego gościa oraz odpowiednie [Microsoft Security odpowiedzi Center (MSRC)] [ msrc] poprawki, które są dostępne w dniu powstaje nowej wersji systemu operacyjnego gościa. Nie wszystkie poprawki można uwzględnić.
+  Obraz tooa określonej rodziny systemów operacyjnych gościa oraz odpowiednie [Microsoft Security odpowiedzi Center (MSRC)] [ msrc] poprawki, które są dostępne pod adresem hello Data hello nowego systemu operacyjnego gościa wersja jest generowany. Nie wszystkie poprawki można uwzględnić.
 
     Numery rozpoczynają się od 0 i 1 zwiększenia zawsze, gdy zostanie dodany nowy zestaw aktualizacji. Końcowe zero są wyświetlane tylko jeśli jest to ważne. Wersja 2.10 jest inny, kiedy wersję niż wersja 2.1.
 * **Wersja systemu operacyjnego gościa**  
-  Ponowne wydanie wersji systemu operacyjnego gościa. Ponowne wydanie występuje, gdy zauważamy problemów podczas testowania; wymagające zmiany. Najnowsza wersja zawsze zastępuje wszystkie poprzednie wersje, publiczny lub nie. Azure portal tylko pozwoli użytkownikom do pobrania najnowszej wersji dla danej wersji. Wdrożenia z poprzedniej wersji nie są zwykle życie uaktualnienia w zależności od ważności usterki.
+  Ponowne wydanie wersji systemu operacyjnego gościa. Ponowne wydanie występuje, gdy zauważamy problemów podczas testowania; wymagające zmiany. Witaj najnowszej wersji zawsze zastępuje wszystkie poprzednie wersje, publiczny lub nie. Hello portalu Azure będzie tylko użytkownicy toopick hello najnowszej wersji dla danej wersji. Wdrożenia z poprzedniej wersji nie są zwykle życie uaktualnienia w zależności od hello ważność hello usterki.
 
-W poniższym przykładzie 2 to rodzina, 12, jest to wersja i "rel2" jest wersją.
+W poniższym przykładzie hello 2 to rodzina hello, 12 jest hello wersji i wydania hello jest "rel2".
 
 **Wersji systemu operacyjnego gościa** — 2.12 rel2
 
 **Ciągu konfiguracji dla tej wersji** — WA-GOŚCIA-OS-2.12_201208-02
 
-Ciąg konfiguracji dla systemu operacyjnego gościa ma te same informacje osadzone w nim, oraz datę przedstawiający poprawki MSRC, które zostały uznane za w tej wersji. W tym przykładzie MSRC poprawek dla systemu Windows Server 2008 R2 do klasy i, w tym — sierpień 2012 zostały uwzględnione w. Uwzględniane są tylko poprawek, w szczególności stosowania do tej wersji systemu Windows Server. Na przykład jeśli poprawka MSRC odnosi się do programu Microsoft Office, nie zostanie on uwzględniony ponieważ tego produktu nie jest częścią obrazu podstawowego systemu Windows Server.
+ciąg Hello konfiguracji systemu operacyjnego gościa ma te same informacje osadzone w nim, oraz datę przedstawiający poprawki MSRC, które zostały uznane za w tej wersji. W tym przykładzie MSRC poprawek dla systemu Windows Server 2008 R2 klasy się tooand tym — sierpień 2012 zostały uwzględnione w. Uwzględniane są tylko poprawek, w szczególności stosowania toothat wersji systemu Windows Server. Na przykład jeśli poprawka MSRC odnosi się tooMicrosoft pakietu Office, nie zostanie on uwzględniony ponieważ tego produktu nie jest częścią obrazu podstawowego serwera Windows hello.
 
 ## <a name="guest-os-system-update-process"></a>Proces aktualizacji systemu systemu operacyjnego gościa
-Ta strona zawiera informacje o kolejnych wersjach systemu operacyjnego gościa. Klienci wskazał, czy chce wiedzieć, kiedy zlecenia występuje, ponieważ ich role usługi w chmurze zostanie ponownie uruchomiony, jeśli są ustawione na "Automatyczny" aktualizacji. Wersje systemu operacyjnego gościa zwykle występuje co najmniej pięć (5) dni po MSRC aktualizacji wersji, która występuje w drugi wtorek każdego miesiąca. Nowości obejmują wszystkie odpowiednie poprawki MSRC dla każdej rodziny systemów operacyjnych gościa.
+Ta strona zawiera informacje o kolejnych wersjach systemu operacyjnego gościa. Klienci wskazał, że chcą tooknow sytuacji zlecenia, ponieważ ich role usługi w chmurze zostanie ponownie uruchomiony w przypadku ustawienia aktualizacji zbyt "Automatyczny". Wersje systemu operacyjnego gościa zwykle występuje co najmniej pięć (5) dni po hello MSRC aktualizacji wersji, która występuje na powitania w drugi wtorek każdego miesiąca. Nowości zawiera wszystkie hello odpowiednich MSRC poprawek dla każdej rodziny systemów operacyjnych gościa.
 
-Microsoft Azure stale udostępnia aktualizacji. System operacyjny gościa jest tylko jeden taki aktualizacji w potoku. Zlecenia może niekorzystnie wpływać wiele czynników zbyt duża, aby wyświetlić w tym miejscu. Ponadto Azure wykorzystuje dosłownie setki tysięcy komputerów. Oznacza to, czy jest możliwe umieszczenie dokładnej dacie i godzinie, gdy zostanie ponownie uruchomiony z rolami. Pracujemy nad planu w celu ograniczenia lub czas ponownego uruchomienia.
+Microsoft Azure stale udostępnia aktualizacji. Witaj systemu operacyjnego gościa jest tylko jeden taki aktualizacji w potoku hello. Zlecenia może niekorzystnie wpływać wiele czynników zbyt wiele toolist tutaj. Ponadto Azure wykorzystuje dosłownie setki tysięcy komputerów. Oznacza to, czy jest możliwe toogive dokładnej dacie i godzinie, gdy zostanie ponownie uruchomiony z rolami. Firma Microsoft pracuje toolimit planu lub do czasu ponownego uruchomienia.
 
-Po opublikowaniu nowej wersji systemu operacyjnego gościa może upłynąć czas pełni są propagowane na platformie Azure. Ponieważ usługi są aktualizowane do nowego systemu operacyjnego gościa, ich są ponownie uruchamiane ramach domen aktualizacji. Usługi skonfigurowane do korzystania z aktualizacji "Automatyczny" otrzyma zlecenia pierwszy. Po aktualizacji zostanie wyświetlone na liście usługi w portalu Azure nowej wersji systemu operacyjnego gościa. Ponownych wydań mogą wystąpić podczas tego okresu. Niektóre wersje może wdrożyć przez dłuższy czas i automatyczne ponowne uruchomienie uaktualnienia nie może wystąpić wiele tygodni po dacie oficjalnego wydania. Po udostępnieniu systemu operacyjnego gościa, można jawnie wybrać tej wersji w portalu lub w pliku konfiguracji.
+Gdy nowej wersji systemu operacyjnego gościa jest publikowany powitalne może trwać czas toofully są propagowane na platformie Azure. Ponieważ usługi są zaktualizowane toohello nowego systemu operacyjnego gościa, są one domen aktualizacji ramach został uruchomiony ponownie. Aktualizacje "Automatyczny" toouse zestaw usług otrzyma zlecenia pierwszy. Po zaktualizowaniu hello znajdą się nowej wersji systemu operacyjnego gościa hello wymienione usługi w hello portalu Azure. Ponownych wydań mogą wystąpić podczas tego okresu. Niektóre wersje może wdrożyć przez dłuższy czas i automatyczne ponowne uruchomienie uaktualnienia nie może wystąpić wiele tygodni po hello Data oficjalnego wydania. Po udostępnieniu systemu operacyjnego gościa, można jawnie wybrać tej wersji portalu hello lub w pliku konfiguracji.
 
-Dla dużą cennych informacji na temat ponownego uruchomienia i wskaźniki, aby uzyskać więcej informacji technicznych szczegółów aktualizacji systemu operacyjnego hosta i gościa, zobacz blog MSDN post zatytułowany [roli wystąpienia uruchamia ponownie z powodu uaktualnienia systemu operacyjnego] [ restarts].
+Dla dużą cennych informacji na temat ponownego uruchomienia i wskaźniki toomore informacje szczegółowe informacje techniczne aktualizacji systemu operacyjnego hosta i gościa, zobacz blog MSDN hello post zatytułowany [roli wystąpienia uruchamia ponownie z powodu uaktualnienia tooOS] [ restarts].
 
-Jeśli ręcznie zaktualizować system operacyjny gościa, zobacz [systemu operacyjnego gościa wycofywania zasad] [ retirepolicy] Aby uzyskać dodatkowe informacje.
+Jeśli ręcznie zaktualizować system operacyjny gościa, zobacz hello [systemu operacyjnego gościa wycofywania zasad] [ retirepolicy] Aby uzyskać dodatkowe informacje.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Możliwość obsługi systemu operacyjnego gościa i wycofywania zasad
-Zasady obsługi i wycofania systemu operacyjnego gościa jest wyjaśniono [tutaj][retirepolicy].
+objaśniono Hello zasady dotyczące obsługi i wycofania systemu operacyjnego gościa [tutaj][retirepolicy].
 
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md

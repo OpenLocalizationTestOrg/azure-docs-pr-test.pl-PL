@@ -1,5 +1,5 @@
 ---
-title: "Przewodnik dla przy użyciu programu PolyBase w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
+title: "aaaGuide dla przy użyciu programu PolyBase w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
 description: "Wskazówki i zalecenia dotyczące przy użyciu programu PolyBase w scenariuszach SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,36 +15,36 @@ ms.workload: data-services
 ms.date: 6/5/2016
 ms.custom: loading
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b05e4c5d528f2fe1c60d6855b5333065f0c908ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Przewodnik dla przy użyciu programu PolyBase w usłudze SQL Data Warehouse
 Ten przewodnik zawiera informacje praktyczne dla przy użyciu programu PolyBase w usłudze SQL Data Warehouse.
 
-Aby rozpocząć, zobacz [ładowanie danych przy użyciu programu PolyBase] [ Load data with PolyBase] samouczka.
+tooget pracę, zobacz hello [ładowanie danych przy użyciu programu PolyBase] [ Load data with PolyBase] samouczka.
 
 ## <a name="rotating-storage-keys"></a>Obracanie magazynu kluczy
-Od czasu do czasu można zmienić klucza dostępu do usługi magazynu obiektów blob ze względów bezpieczeństwa.
+Od czasu tootime można magazynu obiektów blob klucza tooyour toochange hello dostęp ze względów bezpieczeństwa.
 
-Najbardziej elegancki sposób wykonania tego zadania jest procedura jest znana jako "obracanie kluczy". Można zauważyć ma dwa klucze magazynu dla konta magazynu obiektów blob. Jest to, aby można przejść
+Witaj najbardziej elegancki tooperform sposób, to zadanie jest toofollow w ramach procesu nazywanego "obracanie klucze hello". Można zauważyć ma dwa klucze magazynu dla konta magazynu obiektów blob. Jest to, aby można przejść
 
 Obracanie klucze konta magazynu platformy Azure jest procesem prosty krok trzy
 
-1. Utworzyć drugi poświadczeń o zakresie bazy danych na podstawie magazynu pomocniczego klucza dostępu
+1. Utworzyć drugi poświadczeń o zakresie bazy danych na podstawie klucza dostępu do magazynu pomocniczego hello
 2. Utworzyć drugi zewnętrznego źródła danych poza tym nowe poświadczenie
-3. Usunąć i utworzyć tabel zewnętrznych, wskazujący nowe źródło danych zewnętrznych
+3. Usunąć i utworzyć tabel zewnętrznych hello wskazanie toohello nowego zewnętrznego źródła danych
 
-Po dokonaniu migracji że zewnętrzne tabel do nowego zewnętrznego źródła danych, a następnie można wykonać zadania czyszczenia:
+Po dokonaniu migracji wszystkich tabel zewnętrznych toohello nowego zewnętrznego źródła danych, a następnie można wykonać hello wyczyścić zadań:
 
 1. Usuń pierwszy zewnętrznego źródła danych
-2. Poświadczenia magazynu podstawowy klucz dostępu w oparciu o zakresie pierwszy Porzuć bazę danych
-3. Zaloguj się do platformy Azure i ponownie wygenerować podstawowy klucz dostępu gotowy do następnego
+2. Poświadczeń, klucz dostępu do magazynu podstawowego hello w oparciu o zakresie pierwszy Porzuć bazę danych
+3. Zaloguj się do platformy Azure i ponownie wygenerować klucza dostępu podstawowy hello gotowe do hello następnym
 
 ## <a name="query-azure-blob-storage-data"></a>Zapytania na danych magazynu obiektów blob platformy Azure
-Zapytania dotyczące tabel zewnętrznych po prostu użyć nazwy tabeli tak, jakby był relacyjne tabeli.
+Zapytania dotyczące tabel zewnętrznych po prostu użyć nazwy tabeli hello tak, jakby był relacyjne tabeli.
 
 ```sql
 -- Query Azure storage resident data via external table.
@@ -53,21 +53,21 @@ SELECT * FROM [ext].[CarSensor_Data]
 ```
 
 > [!NOTE]
-> Zapytania w tabeli zewnętrznej może zakończyć się niepowodzeniem z powodu błędu *"zapytanie zostało przerwane — Osiągnięto próg maksymalnej Odrzuć podczas odczytu z zewnętrznego źródła"*. Oznacza to, że dane zewnętrzne zawiera *zanieczyszczone* rekordów. Rekord danych jest uznawany za "zakłócone", jeśli dane rzeczywiste typy/liczba kolumn nie są zgodne z definicji kolumn tabeli zewnętrznej lub nie jest zgodny z określonego pliku zewnętrznego formatu danych. Aby rozwiązać ten problem, sprawdź poprawność tabeli zewnętrznej i definicje format pliku zewnętrznego i zgodne dane zewnętrzne z tych definicji. W przypadku, gdy podzbiór rekordów danych zewnętrznych zostały zmienione, można odrzucić tych rekordów dla zapytania przy użyciu opcji Odrzuć utworzyć DDL tabeli zewnętrznej.
+> Zapytania w tabeli zewnętrznej może zakończyć się niepowodzeniem z powodu błędu hello *"zapytanie zostało przerwane — podczas odczytu z zewnętrznego źródła Osiągnięto próg maksymalnej Odrzuć hello"*. Oznacza to, że dane zewnętrzne zawiera *zanieczyszczone* rekordów. Rekord danych jest uznawany za "zakłócone", jeśli hello rzeczywiste dane typy/liczba kolumn nie zgadzają hello definicje kolumn z tabeli zewnętrznej hello lub hello danych nie jest zgodna z toohello określonego zewnętrznego formatu pliku. toofix, sprawdź, czy poprawność tabeli zewnętrznej i definicje format pliku zewnętrznego, jak i dane zewnętrzne zgodne toothese definicje. W przypadku, gdy podzbiór rekordów danych zewnętrznych zostały zmienione, możesz wybrać tooreject te rekordy zapytań przy użyciu opcji Odrzuć hello utworzyć DDL tabeli zewnętrznej.
 > 
 > 
 
 ## <a name="load-data-from-azure-blob-storage"></a>Ładowanie danych usługi Azure Blob Storage
-W tym przykładzie ładuje dane z magazynu obiektów blob platformy Azure do bazy danych magazynu danych SQL.
+W tym przykładzie ładuje dane z bazy danych Data Warehouse tooSQL magazynu obiektów blob platformy Azure.
 
-Zapisywanie danych bezpośrednio usuwa czas transferu danych zapytań. Przechowywanie danych z indeksem magazynu kolumn poprawia wydajność kwerend analizy zapytań przez maksymalnie 10 x.
+Zapisywanie danych bezpośrednio usuwa hello czas transferu danych zapytań. Przechowywanie danych z indeksem magazynu kolumn poprawia wydajność kwerendy analizy zapytań przez się too10x.
 
-W tym przykładzie używa instrukcji CREATE TABLE AS SELECT do wczytywania danych. Nowa tabela dziedziczy kolumny o nazwie w zapytaniu. Typy danych tych kolumn dziedziczy z definicji tabeli zewnętrznej.
+W tym przykładzie używane dane tooload instrukcji CREATE TABLE AS SELECT hello. Nowa tabela Hello dziedziczy hello kolumny o nazwie w zapytaniu hello. W definicji tabeli zewnętrznej hello dziedziczy hello typy danych tych kolumn.
 
-CREATE TABLE AS SELECT jest wysokiej wydajności instrukcji języka Transact-SQL, który ładuje dane jednocześnie do wszystkich węzłów obliczeniowych SQL Data Warehouse.  Pierwotnie został opracowany dla aparatu masowego przetwarzania równoległego (MPP) w Analytics Platform System, a jest teraz w usłudze SQL Data Warehouse.
+CREATE TABLE AS SELECT jest wysokiej wydajności instrukcji języka Transact-SQL, która ładuje dane hello w hello równoległych tooall obliczeniowe węzłów magazynu danych SQL.  Pierwotnie został opracowany dla aparatu masowego przetwarzania równoległego (MPP) hello w Analytics Platform System, a jest teraz w usłudze SQL Data Warehouse.
 
 ```sql
--- Load data from Azure blob storage to SQL Data Warehouse
+-- Load data from Azure blob storage tooSQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
 WITH
@@ -84,7 +84,7 @@ FROM   [ext].[CarSensor_Data]
 Zobacz [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
 ## <a name="create-statistics-on-newly-loaded-data"></a>Tworzenie statystyk na nowo załadowanych danych
-Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk.  W celu uzyskania najlepszej wydajności zapytań należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie.  Szczegółowy opis statystyk znajduje się w temacie [Statystyki][Statistics] w grupie artykułów dla deweloperów.  Poniżej przedstawiono prosty przykład tworzenia statystyk dotyczących tabeli załadowanej w tym przykładzie.
+Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk.  W kolejności tooget hello najlepszą wydajność zapytań należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu hello lub każdej istotnej zmianie występują w danych hello.  Aby uzyskać szczegółowy opis statystyk, zobacz hello [statystyki] [ Statistics] tematu w hello grupie artykułów dla programistów.  Poniżej przedstawiono sposób toocreate statystyk na powitania przedłożenia załadowany w tym przykładzie przedstawiono prosty przykład.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -94,10 +94,10 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>Eksportuj dane do magazynu obiektów blob platformy Azure
-W tej sekcji przedstawiono sposób eksportowania danych z magazynu danych SQL do magazynu obiektów blob platformy Azure. W tym przykładzie użyto, tworzenie zewnętrznych TABLE AS SELECT czyli wysokiej wydajności instrukcję Transact-SQL, aby wyeksportować dane równolegle z węzłów obliczeniowych.
+## <a name="export-data-tooazure-blob-storage"></a>Eksportowanie danych tooAzure obiektu blob magazynu
+W tej sekcji przedstawiono, jak magazynu obiektów blob danych tooexport z tooAzure SQL Data Warehouse. W tym przykładzie użyto, tworzenie zewnętrznych TABLE AS SELECT czyli wysokiej wydajności języka Transact-SQL instrukcji tooexport hello danych równolegle z dowolnych węzłów obliczeniowych hello.
 
-Poniższy przykład tworzy tabelę zewnętrzną Weblogs2014 przy użyciu definicje kolumn i danych z dbo. Tabela dzienników sieci Web. W definicji tabeli zewnętrznej jest przechowywany w usłudze SQL Data Warehouse i wyników w instrukcji SELECT są eksportowane do katalogu "/ archiwum/log2014 /" w kontenerze obiektów blob, określony przez źródło danych. Dane są eksportowane w formacie pliku określony tekst.
+Witaj poniższy przykład tworzy tabelę zewnętrzną Weblogs2014 przy użyciu definicje kolumn i danych z dbo. Tabela dzienników sieci Web. definicji tabeli zewnętrznej hello są przechowywane w magazynie danych SQL i wyniki hello instrukcji SELECT hello są wyeksportowanego toohello określony przez źródło danych hello kontener obiektów blob hello do katalogu "/ archiwum/log2014 /". Witaj dane są eksportowane w formacie pliku hello określony tekst.
 
 ```sql
 CREATE EXTERNAL TABLE Weblogs2014 WITH
@@ -118,21 +118,21 @@ WHERE
     AND DateRequested < '01/01/2015';
 ```
 ## <a name="isolate-loading-users"></a>Izolowanie podczas ładowania użytkowników
-Często jest potrzeba wielu użytkowników, które można załadować danych do magazynu danych SQL. Ponieważ [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] wymaga uprawnienia kontroli bazy danych, spowoduje utworzenie z wieloma użytkownikami z kontroli dostępu za pośrednictwem wszystkich schematów. To ograniczenie, można użyć instrukcji sterowania ODMÓW.
+Brak często toohave potrzeba wielu użytkowników, które można załadować danych do magazynu danych SQL. Ponieważ hello [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] wymaga uprawnienia kontroli hello bazy danych, spowoduje utworzenie z wieloma użytkownikami z kontroli dostępu za pośrednictwem wszystkich schematów. toolimit, można użyć instrukcji sterowania ODMÓW hello.
 
 Przykład: Należy wziąć pod uwagę schema_A schematów bazy danych dla działu A i schema_B dla działu B Let bazy danych użytkowników user_A i user_B można użytkowników dla ładowanie w Dział A i B, odpowiednio PolyBase. Oba przyznano uprawnienia kontroli bazy danych.
-Twórcy blokady teraz A i B schematu w dół ich schematów przy użyciu odmowy:
+twórcy Hello schematu, A i B teraz zablokowanie ich schematów przy użyciu odmowy:
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A toouser_B;
+   DENY CONTROL ON SCHEMA :: schema_B toouser_A;
 ```   
- O tym user_A i user_B powinna teraz zostać zablokowane ze schematu innego działu.
+ O tym, user_A i user_B powinna teraz zostać zablokowane z hello schematu innego działu.
  
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat przenoszenia danych do usługi SQL Data Warehouse, zobacz [Omówienie migracji danych][data migration overview].
+toolearn więcej informacji na temat przenoszenia tooSQL danych magazynu danych, zobacz hello [Omówienie migracji danych][data migration overview].
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie klastrów Hadoop na żądanie przy użyciu fabryki danych - Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć na żądanie klastrów platformy Hadoop w usłudze HDInsight przy użyciu fabryki danych Azure."
+title: "klastry Hadoop na żądanie przy użyciu fabryki danych - Azure HDInsight aaaCreate | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate, klastrów Hadoop na żądanie, w usłudze HDInsight przy użyciu fabryki danych Azure."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,36 +16,36 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: e68f1d72965d9516e0552c84d03d234c21739390
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c869776ac270e37dec710b5fc8d2a792d9263129
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tworzenie na żądanie klastrów platformy Hadoop w usłudze HDInsight przy użyciu fabryki danych Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-[Fabryka danych Azure](../data-factory/data-factory-introduction.md) to usługa integracji danych opartych na chmurze, która organizuje i automatyzuje przepływu i przekształcania danych. Można go utworzyć HDInsight Hadoop klastra just-in-time do przetwarzania wycinka danych wejściowych i usunąć klaster, po zakończeniu przetwarzania. Korzyści wynikające ze stosowania klastra usługi Hadoop w HDInsight na żądanie, należą:
+[Fabryka danych Azure](../data-factory/data-factory-introduction.md) to usługa integracji danych opartych na chmurze, która organizuje i zautomatyzować przepływ hello i przekształcania danych. On można tworzyć HDInsight Hadoop tooprocess just in time klastra wycinek danych wejściowych i usunąć hello klastra po zakończeniu przetwarzania hello. Zalety hello przy użyciu klastra usługi Hadoop w HDInsight na żądanie, należą:
 
-- Tylko płatności dla zadania czasu jest zasilany z klastra usługi HDInsight Hadoop (oraz krótki czas bezczynności można konfigurować). Rozliczenia dla klastrów usługi HDInsight jest proporcjonalnie za minutę, czy są używane lub nie. Gdy używasz usługi HDInsight połączony na żądanie w fabryce danych klastry są tworzone na żądanie. I klastrów są automatycznie usuwane po zakończeniu zadania. W związku z tym płacisz tylko za uruchomione czasu i krótki czas bezczynności (ustawienie time-to-live) zadanie.
-- Można utworzyć przepływu pracy za pomocą potoku fabryki danych. Na przykład można mieć potoku, aby skopiować dane z lokalnego programu SQL Server do magazynu obiektów blob platformy Azure, przetwarzania danych przez uruchomienie skryptu Hive i Pig skrypt w klastrze usługi HDInsight Hadoop na żądanie. Następnie skopiuj dane wynikowe do magazyn danych SQL Azure dla aplikacji korzystających ze BI.
-- Można zaplanować uruchamianie okresowo (co godzinę, codziennie, co tydzień, co miesiąc, itp.) przepływu pracy.
+- Tylko płatności dla zadania czas hello jest uruchomiona na powitania klastra usługi HDInsight Hadoop (oraz można skonfigurować krótki czas bezczynności). Witaj rozliczeń dla klastrów usługi HDInsight jest proporcjonalnie za minutę, czy są używane lub nie. Gdy używasz usługi HDInsight połączony na żądanie w fabryce danych klastrów hello są tworzone na żądanie. I klastrów hello są usuwane automatycznie po zakończeniu zadania hello. W związku z tym płacisz tylko za uruchomione czasu i krótki czas bezczynności (ustawienie time-to-live) hello zadanie hello.
+- Można utworzyć przepływu pracy za pomocą potoku fabryki danych. Na przykład można mieć hello potoku toocopy danych z lokalnego programu SQL Server tooan magazynu obiektów blob platformy Azure, dane hello proces przez uruchomienie skryptu Hive i Pig skrypt w klastrze usługi HDInsight Hadoop na żądanie. Następnie skopiuj hello wynik tooan danych Azure SQL Data Warehouse dla tooconsume aplikacji analizy Biznesowej.
+- Można zaplanować hello przepływu pracy toorun okresowo (co godzinę, codziennie, co tydzień, co miesiąc, itp.).
 
-W fabryce danych Azure fabryki danych może mieć co najmniej jeden potoki danych. Potoku danych ma co najmniej jednego działania. Istnieją dwa typy działań: [działań przepływu danych](../data-factory/data-factory-data-movement-activities.md) i [działań przekształcania danych](../data-factory/data-factory-data-transformation-activities.md). Działania przepływu danych (obecnie tylko działanie kopiowania) służy do przenoszenia danych z magazynu danych źródłowych w magazynie danych docelowym. Działania przekształcania danych służy do procesu przekształcenia danych. Działanie Hive HDInsight jest jednym z działania przekształcania obsługiwane przez fabryki danych. Działanie przekształcania Hive jest służy w tym samouczku.
+W fabryce danych Azure fabryki danych może mieć co najmniej jeden potoki danych. Potoku danych ma co najmniej jednego działania. Istnieją dwa typy działań: [działań przepływu danych](../data-factory/data-factory-data-movement-activities.md) i [działań przekształcania danych](../data-factory/data-factory-data-transformation-activities.md). Używasz danych toomove działania (obecnie tylko działanie kopiowania) przeniesienia danych z magazynu danych źródła danych magazynu tooa docelowego. Możesz użyć danych przekształcania działania tootransform/przetwarzania danych. Działanie Hive HDInsight jest jednym z hello transformacji działania obsługiwane przez fabryki danych. Używasz hello Hive transformacji działania w tym samouczku.
 
-Można skonfigurować działanie gałęzi do używania klastra usługi HDInsight Hadoop lub klastra usługi Hadoop w HDInsight na żądanie. W tym samouczku Hive działania w potoku fabryki danych jest skonfigurowany do używania klastra usługi HDInsight na żądanie. W związku z tym po uruchomieniu działania do przetwarzania wycinka danych, Oto co się stanie:
+Toouse działania hive można skonfigurować klaster usługi HDInsight Hadoop lub klastra usługi Hadoop w HDInsight na żądanie. W tym samouczku hello Hive działania w potoku fabryki danych hello jest toouse skonfigurowany klaster usługi HDInsight na żądanie. W związku z tym hello działanie zostanie uruchomione tooprocess wycinka danych, po co się stanie:
 
-1. Klastra usługi HDInsight Hadoop jest tworzona automatycznie dla możesz just-in-time przetwarzania wycinka.  
-2. Dane wejściowe są przetwarzane przez uruchomienie skryptu HiveQL w klastrze.
-3. Klaster usługi HDInsight Hadoop jest usuwany po zakończeniu przetwarzania i klastra jest w stanie bezczynności skonfigurowanych ilość czasu (ustawienie timeToLive). Jeśli dalej wycinek danych jest dostępne do przetwarzania z tego czasu bezczynności timeToLive, tego samego klastra służy do przetwarzania wycinka.  
+1. Klastra usługi HDInsight Hadoop jest tworzony automatycznie dla możesz tooprocess just in time hello wycinka.  
+2. dane wejściowe Hello są przetwarzane, uruchamiając skrypt HiveQL na powitania klastra.
+3. Witaj klastra usługi HDInsight Hadoop jest usuwany po zakończeniu przetwarzania hello i hello klastra jest w stanie bezczynności hello skonfigurowane ilość czasu (ustawienie timeToLive). Jeśli hello dalej wycinek danych jest dostępna do przetwarzania z tego czasu bezczynności timeToLive, hello tego samego klastra jest używany tooprocess hello wycinka.  
 
-W tym samouczku skrypt HiveQL skojarzone z działaniem hive wykonuje następujące czynności:
+W tym samouczku hello skrypt HiveQL skojarzone z działaniem hive hello wykonuje hello następujące akcje:
 
-1. Tworzy tabelę zewnętrzną, który odwołuje się do danych dziennika raw sieci web przechowywany w magazynie obiektów Blob platformy Azure.
-2. Partycje nieprzetworzone dane przez rok i miesiąc.
-3. Przechowuje dane podzielone na partycje w magazynie obiektów blob Azure.
+1. Tworzy tabelę zewnętrzną odwołania hello web nieprzetworzone dane dziennika przechowywanych w magazynie obiektów Blob platformy Azure.
+2. Partycje hello nieprzetworzone dane przez rok i miesiąc.
+3. Magazyny hello danych podzielonej na partycje w hello magazynu obiektów blob platformy Azure.
 
-W tym samouczku skrypt HiveQL skojarzone z działaniem hive tworzy tabelę zewnętrzną, który odwołuje się do danych dziennika raw sieci web przechowywany w magazynie obiektów Blob Azure. Poniżej przedstawiono przykładowe wiersze dla każdego miesiąca w pliku wejściowym.
+W tym samouczku hello skrypt HiveQL skojarzone z działaniem hive hello tworzy tabelę zewnętrzną odwołania hello raw web dziennika danych przechowywanych w hello magazynu obiektów Blob Azure. Poniżej przedstawiono hello Przykładowe wiersze dla każdego miesiąca w pliku wejściowym hello.
 
 ```
 2014-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871
@@ -53,7 +53,7 @@ W tym samouczku skrypt HiveQL skojarzone z działaniem hive tworzy tabelę zewn�
 2014-03-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
 ```
 
-Skrypt HiveQL partycje nieprzetworzone dane przez rok i miesiąc. Tworzy trzech plików oparte na poprzednie dane wejściowe. Każdy folder zawiera plik z wpisów z każdego miesiąca.
+partycje skrypt HiveQL Hello hello nieprzetworzone dane przez rok i miesiąc. Tworzy trzy foldery dane wyjściowe na podstawie danych wprowadzonych z poprzednich hello. Każdy folder zawiera plik z wpisów z każdego miesiąca.
 
 ```
 adfgetstarted/partitioneddata/year=2014/month=1/000000_0
@@ -61,13 +61,13 @@ adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 ```
 
-Aby uzyskać listę działań przekształcania danych fabryki danych oprócz działania Hive, zobacz [transformacji i analizy przy użyciu fabryki danych Azure](../data-factory/data-factory-data-transformation-activities.md).
+Aby uzyskać listę działań przekształcania danych fabryki danych w działaniu tooHive dodanie, zobacz [transformacji i analizy przy użyciu fabryki danych Azure](../data-factory/data-factory-data-transformation-activities.md).
 
 > [!NOTE]
 > Obecnie można tworzyć tylko klastra usługi HDInsight w wersji 3.2 z fabryki danych Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed rozpoczęciem instrukcje w tym artykule, musi mieć następujące elementy:
+Przed rozpoczęciem powitalne instrukcje w tym artykule, musi mieć hello następujące elementy:
 
 * [Subskrypcja platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell.
@@ -75,19 +75,19 @@ Przed rozpoczęciem instrukcje w tym artykule, musi mieć następujące elementy
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 ### <a name="prepare-storage-account"></a>Przygotowanie konta magazynu
-W tym scenariuszu można użyć do trzech kont magazynu:
+Możesz użyć toothree kont magazynu w tym scenariuszu:
 
-- domyślne konto magazynu dla klastra usługi HDInsight
-- Konto magazynu dla danych wejściowych
-- Konto magazynu dla danych wyjściowych
+- domyślne konto magazynu dla klastra usługi HDInsight hello
+- Konto magazynu dla danych wejściowych hello
+- Konto magazynu dla danych wyjściowych hello
 
-Aby uprościć samouczek, służy do służą do celów trzy jedno konto magazynu. Przykładowy skrypt programu PowerShell systemu Azure w tej sekcji wykonuje następujące zadania:
+Samouczek hello toosimplify, możesz użyć jednego magazynu konta tooserve hello trzy funkcje. Przykładowy skrypt programu Azure PowerShell Hello, w tej sekcji wykonuje hello następujące zadania:
 
-1. Logowanie do platformy Azure.
+1. Zaloguj się za tooAzure.
 2. Utwórz grupę zasobów platformy Azure.
 3. Tworzenie konta usługi Azure Storage.
-4. Tworzenie kontenera obiektów Blob na koncie magazynu
-5. Skopiuj następujące dwa pliki do kontenera obiektów Blob:
+4. Tworzenie kontenera obiektów Blob na koncie magazynu hello
+5. Skopiuj następujące dwa pliki toohello obiektów Blob kontenera hello:
 
    * Plik danych wejściowych: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
    * Skrypt HiveQL: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
@@ -95,10 +95,10 @@ Aby uprościć samouczek, służy do służą do celów trzy jedno konto magazyn
      Oba pliki są przechowywane w publicznego kontenera obiektów Blob.
 
 
-**Aby przygotować magazyn i skopiować pliki przy użyciu programu Azure PowerShell:**
+**tooprepare hello magazynu i skopiuj hello plików przy użyciu programu Azure PowerShell:**
 > [!IMPORTANT]
-> Określ nazwy grupy zasobów platformy Azure i konto magazynu Azure, który zostanie utworzony przez skrypt.
-> Zapisz **Nazwa grupy zasobów**, **nazwy konta magazynu**, i **klucz konta magazynu** wyjściowych przez skrypt. Należy je w następnej sekcji.
+> Określ nazwy grupy zasobów platformy Azure hello i hello kontem magazynu platformy Azure, który zostanie utworzony przez skrypt hello.
+> Zapisz **Nazwa grupy zasobów**, **nazwy konta magazynu**, i **klucz konta magazynu** wyjściowych przez skrypt hello. Należy je w następnej sekcji hello.
 
 ```powershell
 $resourceGroupName = "<Azure Resource Group Name>"
@@ -112,10 +112,10 @@ $destStorageAccountName = $storageAccountName
 $destContainerName = "adfgetstarted" # don't change this value.
 
 ####################################
-# Connect to Azure
+# Connect tooAzure
 ####################################
-#region - Connect to Azure subscription
-Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+#region - Connect tooAzure subscription
+Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
 catch{Login-AzureRmAccount}
 #endregion
@@ -166,7 +166,7 @@ Write-Host "`nCopied files ..." -ForegroundColor Green
 Get-AzureStorageBlob -Context $destContext -Container $destContainerName
 #endregion
 
-Write-host "`nYou will use the following values:" -ForegroundColor Green
+Write-host "`nYou will use hello following values:" -ForegroundColor Green
 write-host "`nResource group name: $resourceGroupName"
 Write-host "Storage Account Name: $destStorageAccountName"
 write-host "Storage Account Key: $destStorageAccountKey"
@@ -174,59 +174,59 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-Jeśli potrzebujesz pomocy przy użyciu skryptu programu PowerShell, zobacz [przy użyciu programu Azure PowerShell z usługą Azure Storage](../storage/common/storage-powershell-guide-full.md). Jeśli chcesz użyć wiersza polecenia platformy Azure, zobacz [dodatku](#appendix) sekcji skryptu wiersza polecenia platformy Azure.
+Jeśli potrzebujesz pomocy dotyczącej hello skrypt programu PowerShell, zobacz [hello Using Azure PowerShell z usługą Azure Storage](../storage/common/storage-powershell-guide-full.md). Jeśli chcesz toouse wiersza polecenia platformy Azure, zobacz hello [dodatku](#appendix) sekcji hello skryptu wiersza polecenia platformy Azure.
 
-**Aby sprawdzić konto magazynu i zawartość**
+**tooexamine hello magazynu konto i hello zawartość**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij przycisk **grup zasobów** w lewym okienku.
-3. Kliknij dwukrotnie nazwę grupy zasobów utworzonej za pomocą skryptu programu PowerShell. Jeśli masz zbyt wiele grup zasobów na liście, użyj filtru.
-4. Na **zasobów** kafelka, powinna mieć jeden zasób z listy, chyba że współużytkować grupy zasobów z innymi projektami. Ten zasób jest konto magazynu o nazwie określone wcześniej. Kliknij nazwę konta magazynu.
-5. Kliknij przycisk **obiekty BLOB** Kafelki.
-6. Kliknij przycisk **adfgetstarted** kontenera. Zobacz dwa foldery: **inputdata** i **skryptu**.
-7. Otwórz folder, a następnie sprawdź pliki w folderach. Inputdata zawiera plik input.log z danych wejściowych i folder skryptu zawiera plik skrypt HiveQL.
+1. Zaloguj się na toohello [portalu Azure](https://portal.azure.com).
+2. Kliknij przycisk **grup zasobów** w okienku po lewej stronie powitania.
+3. Kliknij dwukrotnie nazwę grupy zasobów hello utworzone za pomocą skryptu programu PowerShell. Użyj filtru hello, jeśli masz zbyt wiele grup zasobów na liście.
+4. Na powitania **zasobów** kafelka, powinna mieć jeden zasób z listy, chyba że współużytkować hello grupy zasobów z innymi projektami. Ten zasób jest hello konta magazynu o nazwie hello określone wcześniej. Kliknij nazwę konta magazynu hello.
+5. Kliknij przycisk hello **obiekty BLOB** Kafelki.
+6. Kliknij przycisk hello **adfgetstarted** kontenera. Zobacz dwa foldery: **inputdata** i **skryptu**.
+7. Otwórz hello folder i sprawdź hello plików w folderach hello. Hello inputdata zawiera plik input.log hello z danych wejściowych i hello skryptu folder zawiera plik skryptu hello HiveQL.
 
 ## <a name="create-a-data-factory-using-resource-manager-template"></a>Tworzenie fabryki danych przy użyciu szablonu usługi Resource Manager
-Konto magazynu, dane wejściowe i skrypt HiveQL przygotowany można przystąpić do utworzenia fabryki danych Azure. Istnieje kilka metod tworzenia fabryki danych. Przez wdrożenie szablonu usługi Azure Resource Manager przy użyciu portalu Azure, w tym samouczku tworzenie fabryki danych. Można także wdrożyć przy użyciu szablonu usługi Resource Manager [interfejsu wiersza polecenia Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) i [programu Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template). Dla innych metod tworzenia fabryki danych, zobacz [samouczek: Tworzenie pierwszego fabrykę danych](../data-factory/data-factory-build-your-first-pipeline.md).
+Konta magazynu hello, hello danych wejściowych i hello skrypt HiveQL przygotowane są gotowe toocreate fabryki danych Azure. Istnieje kilka metod tworzenia fabryki danych. Przez wdrożenie szablonu usługi Azure Resource Manager przy użyciu hello portalu Azure, w tym samouczku tworzenie fabryki danych. Można także wdrożyć przy użyciu szablonu usługi Resource Manager [interfejsu wiersza polecenia Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) i [programu Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template). Dla innych metod tworzenia fabryki danych, zobacz [samouczek: Tworzenie pierwszego fabrykę danych](../data-factory/data-factory-build-your-first-pipeline.md).
 
-1. Kliknij poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon usługi Resource Manager w witrynie Azure Portal. Szablon znajduje się w https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Zobacz [jednostek fabryki danych w szablonie](#data-factory-entities-in-the-template) sekcji, aby uzyskać szczegółowe informacje na temat jednostek zdefiniowanych w szablonie. 
+1. Kliknij przycisk hello toosign obrazu w tooAzure i otwórz hello szablonu usługi Resource Manager w hello portalu Azure. Szablon Hello znajduje się w https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Zobacz hello [jednostek fabryki danych w szablonie hello](#data-factory-entities-in-the-template) sekcji, aby uzyskać szczegółowe informacje na temat jednostek zdefiniowanych w szablonie hello. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Wybierz **Użyj istniejącego** opcja dla **grupy zasobów** ustawienie i wybierz nazwę grupy zasobów utworzonej w poprzednim kroku (przy użyciu skryptu programu PowerShell).
-3. Wprowadź nazwę dla fabryki danych (**nazwa fabryki danych**). Ta nazwa musi być globalnie unikatowa.
-4. Wprowadź **nazwy konta magazynu** i **klucz konta magazynu** zapisanej w poprzednim kroku.
-5. Wybierz **akceptuję warunki i postanowienia** powyższych po odczytaniu za pośrednictwem **warunków i postanowień**.
-6. Wybierz **Przypnij do pulpitu nawigacyjnego** opcji.
-6. Kliknij przycisk **zakupu/utworzyć**. Zostanie wyświetlony na pulpicie nawigacyjnym kafelka o nazwie **wdrażanie szablonu wdrożenia**. Poczekaj na **grupy zasobów** zostanie otwarty blok grupy zasobów. Możesz również kliknąć Kafelek zatytułowany jako nazwę grupy zasobów można otworzyć bloku grupy zasobów.
-6. Kliknij Kafelek, aby otworzyć grupę zasobów, jeśli bloku grupy zasobów nie jest już otwarty. Teraz zostanie wyświetlona jeden zasób fabryki więcej danych na liście oprócz zasobów konta magazynu.
-7. Kliknij nazwę fabrykę danych (wartość podana dla **nazwa fabryki danych** parametru).
-8. W bloku fabryki danych, kliknij przycisk **Diagram** kafelka. Na diagramie przedstawiono jedno działanie z zestawem danych wejściowych i wyjściowy zestaw danych:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy tooAzure"></a>
+2. Wybierz **Użyj istniejącego** opcję hello **grupy zasobów** ustawienie i wybierz hello nazwę grupy zasobów hello utworzony w poprzednim kroku hello (przy użyciu skryptu programu PowerShell).
+3. Wprowadź nazwę dla fabryki danych hello (**nazwa fabryki danych**). Ta nazwa musi być globalnie unikatowa.
+4. Wprowadź hello **nazwy konta magazynu** i **klucz konta magazynu** zapisanej w poprzednim kroku hello.
+5. Wybierz **akceptuję warunki toohello** powyższych po odczytaniu za pośrednictwem **warunków i postanowień**.
+6. Wybierz **toodashboard numeru Pin** opcji.
+6. Kliknij przycisk **zakupu/utworzyć**. Zobacz kafelka na powitania pulpit nawigacyjny o nazwie **wdrażanie szablonu wdrożenia**. Poczekaj na powitania **grupy zasobów** zostanie otwarty blok grupy zasobów. Możesz również kliknąć Kafelek hello pod nazwą Twojej grupy nazwa tooopen hello zasobów bloku grupy zasobów.
+6. Kliknięcie grupy zasobów hello hello kafelka tooopen bloku grupy zasobów hello nie jest jeszcze otwarty. Teraz powinien zostać wyświetlony zasobów fabryki danych więcej oprócz wymienionych zasobów konta magazynu toohello.
+7. Kliknij nazwę hello w fabryce danych (wartość określona dla hello **nazwa fabryki danych** parametru).
+8. W bloku fabryki danych powitania kliknij hello **Diagram** kafelka. Witaj diagram przedstawia jedno działanie z zestawem danych wejściowych i wyjściowy zestaw danych:
 
     ![Azure diagram potoku działania Hive HDInsight fabryki danych na żądanie](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
 
-    Nazwy są definiowane w szablonie usługi Resource Manager.
+    nazwy Hello są definiowane w szablonie usługi Resource Manager hello.
 9. Kliknij dwukrotnie **AzureBlobOutput**.
-10. Na **ostatnie zaktualizowane wycinków**, powinien zostać wyświetlony jeden wycinek typu. Jeśli stan jest **w toku**, poczekaj, aż zostanie zmieniona na **gotowe**. Zwykle trwa około **20 minut** do tworzenia klastra usługi HDInsight.
+10. Na powitania **ostatnie zaktualizowane wycinków**, powinien zostać wyświetlony jeden wycinek typu. Jeśli jest w stanie hello **w toku**, poczekaj, aż zostanie on zmieniony zbyt**gotowe**. Zwykle trwa około **20 minut** toocreate klastra usługi HDInsight.
 
-### <a name="check-the-data-factory-output"></a>Sprawdź dane wyjściowe z fabryki danych
+### <a name="check-hello-data-factory-output"></a>Sprawdź dane wyjściowe fabryki danych hello
 
-1. Użyj tej samej procedury podczas ostatniej sesji, aby sprawdzić kontenery adfgetstarted kontenera. Istnieją dwa nowe kontenery oprócz **adfgetsarted**:
+1. Użyj hello same procedury w programie hello ostatniej sesji toocheck hello kontenery hello adfgetstarted kontenera. Istnieją dwa nowe kontenery dodatkowo zbyt**adfgetsarted**:
 
-   * Kontener o nazwie, który jest zgodny ze wzorcem: `adf<yourdatafactoryname>-linkedservicename-datetimestamp`. Ten kontener jest domyślnym kontenerem dla klastra usługi HDInsight.
-   * adfjobs: ten kontener jest kontenerem dla dzienników zadania ADF.
+   * Kontener o nazwie następującym wzorzec hello: `adf<yourdatafactoryname>-linkedservicename-datetimestamp`. Ten kontener jest hello domyślny kontener dla klastra usługi HDInsight hello.
+   * adfjobs: ten kontener jest kontener hello ADF hello z dziennikami zadań.
 
-     Fabryka danych wyjściowych jest przechowywany w **afgetstarted** zgodnie z konfiguracją w szablonie usługi Resource Manager.
+     dane wyjściowe fabryki danych Hello są przechowywane w **afgetstarted** zgodnie z konfiguracją w hello szablonu usługi Resource Manager.
 2. Kliknij przycisk **adfgetstarted**.
-3. Kliknij dwukrotnie **partitioneddata**. Zostanie wyświetlony **roku = 2014** folderu, ponieważ wszystkie dzienniki sieci web są dniu 2014 roku.
+3. Kliknij dwukrotnie **partitioneddata**. Zostanie wyświetlony **roku = 2014** folderu, ponieważ wszystkie dzienniki sieci web hello są dniu 2014 roku.
 
     ![Azure HDInsight fabryki danych na żądanie Hive potoku dane wyjściowe działania](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
-    Jeśli możesz przejść do szczegółów listy, zostanie wyświetlona trzy foldery stycznia, lutego i marca. I ma dziennika dla każdego miesiąca.
+    Jeśli możesz przejść do szczegółów listy hello, zostanie wyświetlona trzy foldery stycznia, lutego i marca. I ma dziennika dla każdego miesiąca.
 
     ![Azure HDInsight fabryki danych na żądanie Hive potoku dane wyjściowe działania](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 
-## <a name="data-factory-entities-in-the-template"></a>Jednostki usługi Data Factory w szablonie
-Oto, jak szablon Menedżera zasobów najwyższego poziomu dla fabryki danych wygląda następująco:
+## <a name="data-factory-entities-in-hello-template"></a>Obiekty fabryki danych w szablonie hello
+Oto, jak hello najwyższego poziomu szablonu usługi Resource Manager dla fabryki danych wygląda następująco:
 
 ```json
 {
@@ -254,7 +254,7 @@ Oto, jak szablon Menedżera zasobów najwyższego poziomu dla fabryki danych wyg
 ```
 
 ### <a name="define-data-factory"></a>Definiowanie fabryki danych
-Fabrykę danych definiuje się w szablonie usługi Resource Manager jak pokazano w następującym przykładzie:  
+Fabryka danych definiuje się w szablonie usługi Resource Manager hello pokazane na powitania następujące przykładowe:  
 
 ```json
 "resources": [
@@ -265,10 +265,10 @@ Fabrykę danych definiuje się w szablonie usługi Resource Manager jak pokazano
     "location": "westus",
 }
 ```
-DataFactoryName to nazwa fabryki danych, które można określić podczas wdrażania szablonu. Fabryka danych jest obecnie obsługiwane tylko w regionach wschodnie stany USA, zachodnie stany USA i Europa Północna, Europa.
+Hello dataFactoryName jest hello nazwa fabryki danych hello przez użytkownika podczas wdrażania szablonu hello. Fabryka danych jest obecnie obsługiwane tylko w regionach wschodnie stany USA, zachodnie stany USA i Europa Północna, Europa hello.
 
-### <a name="defining-entities-within-the-data-factory"></a>Definiowanie jednostek w fabryce danych
-Następujące jednostki usługi Data Factory są zdefiniowane w szablonie JSON:
+### <a name="defining-entities-within-hello-data-factory"></a>Definiowanie jednostek w fabryce danych hello
+Hello następujące jednostek fabryki danych są definiowane w szablonie JSON hello:
 
 * [Połączona usługa Azure Storage](#azure-storage-linked-service)
 * [Połączona usługa HDInsight na żądanie](#hdinsight-on-demand-linked-service)
@@ -277,7 +277,7 @@ Następujące jednostki usługi Data Factory są zdefiniowane w szablonie JSON:
 * [Potok danych z działaniem kopiowania](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Połączona usługa Azure Storage
-Połączona usługa Azure Storage łączy konto magazynu Azure z fabryką danych. W tym samouczku tego samego konta magazynu jest używany jako domyślne konto magazynu usługi HDInsight, Magazyn danych wejściowych i przechowywania danych wyjściowych. W związku z tym można zdefiniować tylko jednego magazynu Azure połączonej usługi. W definicji połączonej usługi Określ nazwę i klucza konta magazynu Azure. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure Storage zawiera temat [Połączona usługa Azure Storage](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service).
+Hello Azure Storage połączone usługi łączy fabrykę danych toohello konta magazynu platformy Azure. W tym samouczku hello tego samego konta magazynu jest używany jako hello domyślne konto magazynu usługi HDInsight, Magazyn danych wejściowych i przechowywania danych wyjściowych. W związku z tym można zdefiniować tylko jednego magazynu Azure połączonej usługi. W definicji usługi hello połączone Określ nazwę hello i klucza konta magazynu Azure. Zobacz [połączonej usługi magazynu Azure](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service) szczegółowe informacje o toodefine właściwości używane w formacie JSON połączonej usługi magazynu Azure.
 
 ```json
 {
@@ -293,10 +293,10 @@ Połączona usługa Azure Storage łączy konto magazynu Azure z fabryką danych
     }
 }
 ```
-Parametr **connectionString** używa parametrów storageAccountName i storageAccountKey. Możesz określić wartości dla parametrów podczas wdrażania szablonu.  
+Witaj **connectionString** używa hello parametry storageAccountName i storageAccountKey. Podczas wdrażania szablonu hello można określić wartości tych parametrów.  
 
 #### <a name="hdinsight-on-demand-linked-service"></a>Połączona usługa HDInsight na żądanie
-W definicji usługi HDInsight połączony na żądanie można określić wartości parametrów konfiguracyjnych, które są używane przez usługi fabryka danych do tworzenia klastra usługi HDInsight Hadoop w czasie wykonywania. Szczegółowe informacje o właściwościach JSON używanych do definiowania połączonej usługi HDInsight na żądanie zawiera temat [Usługi połączone usługi Compute](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).  
+W hello HDInsight na żądanie połączone definicji usługi, można określić wartości parametrów konfiguracji, które są używane przez toocreate usługi fabryka danych hello klastra usługi HDInsight Hadoop w czasie wykonywania. Zobacz [obliczeniowe połączonych usług](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) artykuł szczegółowe informacje o toodefine właściwości używane w formacie JSON na żądanie połączoną usługą usługi HDInsight.  
 
 ```json
 
@@ -322,20 +322,20 @@ W definicji usługi HDInsight połączony na żądanie można określić wartoś
     }
 }
 ```
-Pamiętaj o następujących kwestiach:
+Należy zwrócić uwagę hello następujące punkty:
 
-* Tworzy fabrykę danych **opartych na systemie Linux** klastra usługi HDInsight dla Ciebie.
-* Klaster usługi HDInsight Hadoop jest tworzony w tym samym regionie co konto magazynu.
-* Powiadomienie *timeToLive* ustawienie. Fabryka danych automatycznie usuwa klastra, po bezczynności klastra przez 30 minut.
-* Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**) — i zostaje usunięty po zakończeniu przetwarzania.
+* Witaj fabryki danych tworzy **opartych na systemie Linux** klastra usługi HDInsight dla Ciebie.
+* Witaj klastra usługi HDInsight Hadoop jest tworzony w hello sam regionu co konto magazynu hello.
+* Powiadomienie hello *timeToLive* ustawienie. fabryki danych Hello automatycznie usuwa hello klastra, po bezczynności hello klastra przez 30 minut.
+* Tworzy klaster usługi HDInsight Hello **domyślny kontener** w magazynie obiektów blob hello określone w hello JSON (**linkedServiceName**). Po usunięciu klastra hello HDInsight nie usunie tego kontenera. To zachowanie jest celowe. Z usługą HDInsight połączony na żądanie, klastra usługi HDInsight jest tworzony za każdym razem, gdy wycinek musi toobe przetwarzane, o ile istnieje istniejącego klastra na żywo (**timeToLive**) i zostaną usunięte po zakończeniu przetwarzania hello.
 
 Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
 
 > [!IMPORTANT]
-> Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: „adf**twojanazwafabrykidanych**-**nazwapołączonejusługi**-znacznikdatygodziny”. Aby usunąć kontenery z usługi Azure Blob Storage, użyj takich narzędzi, jak [Microsoft Storage Explorer](http://storageexplorer.com/).
+> Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie ma potrzeby do rozwiązywania problemów hello zadań, możesz toodelete ich magazynu hello tooreduce kosztów. nazwy Hello kontenery wykonaj wzorca: "adf**yourdatafactoryname**-**linkedservicename**- datetimestamp". Użyj narzędzia takiego jak [Eksploratora magazynu](http://storageexplorer.com/) magazynu obiektów blob toodelete kontenerów w platformy Azure.
 
 #### <a name="azure-blob-input-dataset"></a>Wejściowy zestaw danych obiektów blob platformy Azure
-W definicji zestawu danych wejściowych należy określić nazwy kontenera obiektów blob, folderu i pliku zawierającego dane wejściowe. Szczegóły dotyczące właściwości JSON używanych do definiowania zestawu danych obiektów blob platformy Azure zawiera temat [Azure Blob dataset properties](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) (Właściwości zestawu danych obiektów blob plaformy Azure).
+W definicji zestawu danych wejściowych hello należy określić nazwy hello folder, plik zawierający dane wejściowe hello i kontener obiektów blob. Zobacz [właściwości zestawu danych obiektów Blob platformy Azure](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) szczegółowe informacje o toodefine właściwości używane JSON zestawu danych obiektów Blob platformy Azure.
 
 ```json
 
@@ -369,7 +369,7 @@ W definicji zestawu danych wejściowych należy określić nazwy kontenera obiek
 
 ```
 
-Zwróć uwagę poniższe ustawienia określone w definicji JSON:
+Zwróć uwagę hello następujące ustawienia określone w definicji JSON hello:
 
 ```json
 "fileName": "input.log",
@@ -377,7 +377,7 @@ Zwróć uwagę poniższe ustawienia określone w definicji JSON:
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Wyjściowy zestaw danych obiektów blob platformy Azure
-W definicji zestawu danych wyjściowych należy określić nazwy kontenera obiektów blob i folder, który przechowuje danych wyjściowych. Szczegóły dotyczące właściwości JSON używanych do definiowania zestawu danych obiektów blob platformy Azure zawiera temat [Azure Blob dataset properties](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) (Właściwości zestawu danych obiektów blob plaformy Azure).  
+W definicji zestawu danych wyjściowych hello należy określić nazwy hello kontenera obiektów blob i folderu, która przechowuje dane wyjściowe hello. Zobacz [właściwości zestawu danych obiektów Blob platformy Azure](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) szczegółowe informacje o toodefine właściwości używane JSON zestawu danych obiektów Blob platformy Azure.  
 
 ```json
 
@@ -408,13 +408,13 @@ W definicji zestawu danych wyjściowych należy określić nazwy kontenera obiek
 }
 ```
 
-FolderPath Określa ścieżkę do folderu, który przechowuje danych wyjściowych:
+Witaj folderPath określa hello folder toohello ścieżki, która przechowuje dane wyjściowe hello:
 
 ```json
 "folderPath": "adfgetstarted/partitioneddata",
 ```
 
-[Dostępności zestawu danych](../data-factory/data-factory-create-datasets.md#dataset-availability) ustawienie wygląda następująco:
+Witaj [dostępności zestawu danych](../data-factory/data-factory-create-datasets.md#dataset-availability) ustawienie wygląda następująco:
 
 ```json
 "availability": {
@@ -424,10 +424,10 @@ FolderPath Określa ścieżkę do folderu, który przechowuje danych wyjściowyc
 },
 ```
 
-W fabryce danych Azure dostępności zestawu danych wyjściowych dysków potoku. W tym przykładzie wycinek jest tworzony co miesiąc ostatniego dnia miesiąca (EndOfInterval). Aby uzyskać więcej informacji, zobacz [planowania fabryki danych i wykonywania](../data-factory/data-factory-scheduling-and-execution.md).
+W fabryce danych Azure wyjściowej potoku hello dysków dostępności zestawu danych. W tym przykładzie wycinek hello jest tworzony co miesiąc na powitania ostatni dzień miesiąca (EndOfInterval). Aby uzyskać więcej informacji, zobacz [planowania fabryki danych i wykonywania](../data-factory/data-factory-scheduling-and-execution.md).
 
 #### <a name="data-pipeline"></a>Potok danych
-Należy zdefiniować potok, który przekształca danych przez uruchomienie skryptu Hive w klastrze usługi Azure HDInsight na żądanie. Opisy elementów JSON używanych do definiowania potoku w tym przykładzie zawiera temat [Pipeline JSON](../data-factory/data-factory-create-pipelines.md#pipeline-json) (Kod JSON potoku).
+Należy zdefiniować potok, który przekształca danych przez uruchomienie skryptu Hive w klastrze usługi Azure HDInsight na żądanie. Zobacz [JSON potoku](../data-factory/data-factory-create-pipelines.md#pipeline-json) opisy toodefine elementów JSON potoku, w tym przykładzie.
 
 ```json
 {
@@ -479,28 +479,28 @@ Należy zdefiniować potok, który przekształca danych przez uruchomienie skryp
 }
 ```
 
-Potok zawiera jedno działanie, HDInsightHive działania. Jak zarówno rozpoczęcia i zakończenia daty są styczeń 2016 r., dane tylko jeden miesiąc (wycinek) jest przetwarzane. Zarówno *start* i *zakończenia* działania mają datę przeszłą, więc fabryki danych przetwarza dane bezpośrednio w miesiącu. Jeśli punkt końcowy jest datą przyszłą, fabryki danych tworzy wycinek innym czasie. Aby uzyskać więcej informacji, zobacz [planowania fabryki danych i wykonywania](../data-factory/data-factory-scheduling-and-execution.md).
+potok Hello zawiera jedno działanie, HDInsightHive działania. Jak zarówno rozpoczęcia i zakończenia daty są styczeń 2016 r., dane tylko jeden miesiąc (wycinek) jest przetwarzane. Zarówno *start* i *zakończenia* hello działania mają datę przeszłą, więc hello fabryki danych przetwarza dane dla miesiąca hello natychmiast. Jeśli zakończenie hello jest datą przyszłą, fabryki danych hello tworzy innego wycinek hello nastąpi. Aby uzyskać więcej informacji, zobacz [planowania fabryki danych i wykonywania](../data-factory/data-factory-scheduling-and-execution.md).
 
-## <a name="clean-up-the-tutorial"></a>Czyszczenie na koniec samouczka
+## <a name="clean-up-hello-tutorial"></a>Wyczyść hello samouczka
 
-### <a name="delete-the-blob-containers-created-by-on-demand-hdinsight-cluster"></a>Usuń kontenerów obiektów blob utworzoną przez klaster usługi HDInsight na żądanie
-Z usługą HDInsight połączony na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy wycinek ma zostać przetworzony, chyba że istnieje istniejącego klastra na żywo (timeToLive); i klastra jest usuwany po zakończeniu przetwarzania. Dla każdego klastra fabryki danych Azure tworzy kontener obiektów blob w magazynie obiektów blob platformy Azure, używane jako konto domyślne stroage dla klastra. Nawet po usunięciu klastra usługi HDInsight domyślnego kontenera magazynu obiektów blob i skojarzonego konta magazynu nie zostaną usunięte. To zachowanie jest celowe. Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne z następującym wzorcem: `adfyourdatafactoryname-linkedservicename-datetimestamp`.
+### <a name="delete-hello-blob-containers-created-by-on-demand-hdinsight-cluster"></a>Usuń kontenerów obiektów blob hello utworzoną przez klaster usługi HDInsight na żądanie
+Z usługą HDInsight połączony na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy wycinek musi toobe przetwarzane, o ile istnieje istniejącego klastra na żywo (timeToLive); i hello klastra zostaną usunięte po zakończeniu przetwarzania hello. Dla każdego klastra fabryki danych Azure tworzy kontener obiektów blob w hello używane jako konto stroage domyślne powitania dla klastra hello magazynu obiektów blob platformy Azure. Nawet po usunięciu klastra usługi HDInsight hello domyślnego kontenera magazynu obiektów blob i hello skojarzone konto magazynu nie zostaną usunięte. To zachowanie jest celowe. Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie ma potrzeby do rozwiązywania problemów hello zadań, możesz toodelete ich magazynu hello tooreduce kosztów. nazwy Hello kontenery wykonaj wzorca: `adfyourdatafactoryname-linkedservicename-datetimestamp`.
 
-Usuń **adfjobs** i **adfyourdatafactoryname-linkedservicename-datetimestamp** folderów. Kontener adfjobs zawiera z fabryki danych Azure z dziennikami zadań.
+Usuń hello **adfjobs** i **adfyourdatafactoryname-linkedservicename-datetimestamp** folderów. kontener adfjobs Hello zawiera z fabryki danych Azure z dziennikami zadań.
 
-### <a name="delete-the-resource-group"></a>Usuń grupę zasobów
-[Usługa Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) służy do wdrażania, zarządzania i monitorowania rozwiązanie w formie grupy.  Usunięcie grupy zasobów powoduje usunięcie wszystkich składników w grupie.  
+### <a name="delete-hello-resource-group"></a>Usuń grupę zasobów hello
+[Usługa Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) jest używane toodeploy, zarządzanie i monitorowanie rozwiązania jako grupa.  Usunięcie grupy zasobów powoduje usunięcie wszystkich składników hello wewnątrz hello grupy.  
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij przycisk **grup zasobów** w lewym okienku.
-3. Kliknij nazwę grupy zasobów utworzonej za pomocą skryptu programu PowerShell. Jeśli masz zbyt wiele grup zasobów na liście, użyj filtru. Nazwa grupy zasobów zostanie otwarty w nowym bloku.
-4. Na **zasobów** kafelka, użytkownik ma domyślne konto magazynu i fabryki danych, chyba że współużytkować grupy zasobów z innymi projektami na liście.
-5. Kliknij przycisk **usunąć** górnej części bloku. To spowoduje usunięcie konta magazynu i dane przechowywane na koncie magazynu.
-6. Wprowadź nazwę grupy zasobów, aby potwierdzić usunięcie, a następnie kliknij przycisk **usunąć**.
+1. Zaloguj się na toohello [portalu Azure](https://portal.azure.com).
+2. Kliknij przycisk **grup zasobów** w okienku po lewej stronie powitania.
+3. Kliknij nazwę grupy zasobów hello utworzone za pomocą skryptu programu PowerShell. Użyj filtru hello, jeśli masz zbyt wiele grup zasobów na liście. Witaj, grupy zasobów zostanie otwarty w nowym bloku.
+4. Na powitania **zasobów** kafelka, użytkownik ma hello domyślne konto magazynu i fabryki danych hello, chyba że współużytkować hello grupy zasobów z innymi projektami na liście.
+5. Kliknij przycisk **usunąć** u góry hello hello bloku. To spowoduje usunięcie konta magazynu hello i hello dane przechowywane na koncie magazynu hello.
+6. Wprowadź hello zasobów grupy nazwa tooconfirm usunięcia, a następnie kliknij przycisk **usunąć**.
 
-W przypadku, gdy nie chcesz usunąć konto magazynu podczas usuwania grupy zasobów, należy wziąć pod uwagę następujące architektury, oddzielając danych biznesowych z domyślnego konta magazynu. W takim przypadku jedna grupa zasobów dla konta magazynu danych biznesowych, i inne grupy zasobów dla domyślnego konta magazynu dla usługi HDInsight połączone usługi i fabryki danych. Po usunięciu drugiej grupy zasobów nie ma wpływu na koncie magazynu danych biznesowych. W tym celu:
+W przypadku, gdy nie ma konta magazynu hello toodelete podczas usuwania grupy zasobów hello, należy wziąć pod uwagę powitania po architektura oddzielając hello danych biznesowych z hello domyślne konto magazynu. W takim przypadku jedna grupa zasobów dla konta magazynu hello hello danych biznesowych i hello innej grupie zasobów dla hello domyślne konto magazynu dla usługi HDInsight połączonej usługi i hello fabryki danych. Po usunięciu hello drugiej grupy zasobów nie wpływa na konto magazynu danych biznesowych hello. toodo tak:
 
-* Dodaj następujący element do grupy zasobów najwyższego poziomu, wraz z zasobów Microsoft.DataFactory/datafactories w szablonie usługi Resource Manager. Tworzy konto magazynu:
+* Dodaj hello następujące grupy zasobów najwyższego poziomu toohello wraz z hello Microsoft.DataFactory/datafactories zasobów w szablonie usługi Resource Manager. Tworzy konto magazynu:
 
     ```json
     {
@@ -517,7 +517,7 @@ W przypadku, gdy nie chcesz usunąć konto magazynu podczas usuwania grupy zasob
         }
     },
     ```
-* Dodaj nowy punkt połączonej usługi do nowego konta magazynu:
+* Dodaj nowe konto nowego magazynu punktu toohello połączonej usługi:
 
     ```json
     {
@@ -533,7 +533,7 @@ W przypadku, gdy nie chcesz usunąć konto magazynu podczas usuwania grupy zasob
         }
     },
     ```
-* Skonfiguruj usługą usługi HDInsight na żądanie, połączony z dodatkowych dependsOn i additionalLinkedServiceNames:
+* Skonfiguruj hello HDInsight na żądanie połączone usługi z dodatkowych dependsOn i additionalLinkedServiceNames:
 
     ```json
     {
@@ -562,7 +562,7 @@ W przypadku, gdy nie chcesz usunąć konto magazynu podczas usuwania grupy zasob
     },            
     ```
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule ma przedstawiono sposób tworzenia klastra usługi HDInsight na żądanie do przetworzenia zadań Hive za pomocą fabryki danych Azure. Aby dowiedzieć się więcej:
+W tym artykule wiesz już, jak tooprocess klastra usługi HDInsight toouse fabryki danych Azure toocreate na żądanie zadań Hive. tooread więcej:
 
 * [Samouczek Hadoop: rozpoczynanie pracy z opartą na systemie Linux platformą Hadoop w usłudze HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Tworzenie klastrów opartych na systemie Linux platformą Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
@@ -572,11 +572,11 @@ W tym artykule ma przedstawiono sposób tworzenia klastra usługi HDInsight na �
 ## <a name="appendix"></a>Dodatek
 
 ### <a name="azure-cli-script"></a>Skryptu interfejsu wiersza polecenia platformy Azure
-Zamiast tego samouczka należy za pomocą programu Azure PowerShell można użyć wiersza polecenia platformy Azure. Aby użyć wiersza polecenia platformy Azure, należy najpierw zainstalować wiersza polecenia platformy Azure, zgodnie z poniższych instrukcji:
+Można użyć interfejsu wiersza polecenia Azure, zamiast przy użyciu programu Azure PowerShell toodo hello samouczka. toouse wiersza polecenia platformy Azure, najpierw zainstaluj wiersza polecenia platformy Azure zgodnie z instrukcjami hello:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-#### <a name="use-azure-cli-to-prepare-the-storage-and-copy-the-files"></a>Przygotuj magazyn i skopiować pliki za pomocą wiersza polecenia platformy Azure
+#### <a name="use-azure-cli-tooprepare-hello-storage-and-copy-hello-files"></a>Użyj interfejsu wiersza polecenia Azure tooprepare hello magazynu i skopiuj pliki hello
 
 ```
 azure login
@@ -594,4 +594,4 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 ```
 
-Nazwa kontenera jest *adfgetstarted*. Zachować, ponieważ jest on. W przeciwnym razie należy zaktualizować szablonu usługi Resource Manager. Aby uzyskać pomoc dotyczącą tego skryptu interfejsu wiersza polecenia, zobacz [przy użyciu wiersza polecenia platformy Azure z usługą Azure Storage](../storage/common/storage-azure-cli.md).
+Nazwa kontenera Hello jest *adfgetstarted*. Zachować, ponieważ jest on. W przeciwnym razie należy szablonu usługi Resource Manager hello tooupdate. Aby uzyskać pomoc dotyczącą tego skryptu interfejsu wiersza polecenia, zobacz [hello używanie interfejsu wiersza polecenia Azure z usługą Azure Storage](../storage/common/storage-azure-cli.md).

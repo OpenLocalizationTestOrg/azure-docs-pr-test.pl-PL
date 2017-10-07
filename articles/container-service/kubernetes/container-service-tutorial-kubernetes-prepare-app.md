@@ -1,5 +1,5 @@
 ---
-title: "Samouczek usługi kontenera platformy Azure — przygotowanie aplikacji | Dokumentacja firmy Microsoft"
+title: "Samouczek usługi kontenera aaaAzure — przygotowanie aplikacji | Dokumentacja firmy Microsoft"
 description: "Samouczek usługi kontenera platformy Azure — przygotowanie aplikacji"
 services: container-service
 documentationcenter: 
@@ -17,62 +17,62 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b537ecc9ff50358fb65b128bfe6eb894dd088cc4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-container-images-to-be-used-with-azure-container-service"></a>Tworzenie kontenera obrazów do użycia z usługą kontenera Azure
+# <a name="create-container-images-toobe-used-with-azure-container-service"></a>Tworzenie kontenera toobe obrazy używane z usługą kontenera Azure
 
 W tym samouczku, część 7, pierwsza aplikacji kontenera wielu jest gotowy do użycia w Kubernetes. Ukończono kroki obejmują:  
 
 > [!div class="checklist"]
 > * Klonowanie źródła aplikacji z usługi GitHub  
-> * Tworzenie obrazu kontenera ze źródła aplikacji
-> * Testowanie aplikacji w środowisku lokalnym Docker
+> * Tworzenie obrazu kontenera ze źródła aplikacji hello
+> * Testowanie aplikacji hello w lokalnym środowisku Docker
 
-Po wykonaniu następującej aplikacji jest dostępny w środowisku projektowania lokalnego.
+Po ukończeniu po aplikacji hello jest dostępny w środowisku projektowania lokalnego.
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-W kolejnych samouczkach obrazu kontenera jest przekazywany do rejestru kontenera platformy Azure, a następnie uruchom na platformie Azure hostowanej Kubernetes klastra.
+W kolejnych samouczkach obraz kontenera hello jest przekazany tooan rejestru kontenera platformy Azure, a następnie uruchom na platformie Azure hostowanej Kubernetes klastra.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Ten samouczek zakłada, że masz podstawową wiedzę na temat bazowych koncepcji usługi Docker, takich jak kontenery, obrazy kontenerów i podstawowe polecenia usługi Docker. W razie potrzeby zapoznaj się z tematem [Get starter with Docker (Rozpoczynanie pracy z platformą Docker)]( https://docs.docker.com/get-started/), aby uzyskać podstawowe informacje na temat kontenerów. 
 
-Do ukończenia tego samouczka konieczne będzie środowisko programowania Docker. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) lub [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+toocomplete tego samouczka potrzebne jest środowisko rozwoju Docker. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) lub [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
 ## <a name="get-application-code"></a>Pobieranie kodu aplikacji
 
-Przykładowa aplikacja używana w tym samouczku jest podstawowa aplikacja głosu. Aplikacja składa się z składników frontonu sieci web oraz wystąpienia pamięci podręcznej Redis zaplecza. Części sieci web jest dostarczana w obraz niestandardowy kontenera. Wystąpienie pamięci podręcznej Redis używa niezmodyfikowanego obrazu z Centrum Docker.  
+Witaj przykładowej aplikacji używanych w tym samouczku jest podstawowa aplikacja głosu. Aplikacja Hello składa się z składników frontonu sieci web oraz wystąpienia pamięci podręcznej Redis zaplecza. składnik web Hello jest umieszczone w obrazu niestandardowego kontenera. wystąpienie pamięci podręcznej Redis Hello używa niezmodyfikowanego obrazu z Centrum Docker.  
 
-Użyj git, aby pobrać kopię aplikacji w środowisku deweloperskim.
+Użyj narzędzia git toodownload kopię środowisko projektowe tooyour aplikacji hello.
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-W katalogu sklonowany jest kodu źródłowego aplikacji, wstępnie utworzone rozwiązania Docker compose plików i Kubernetes pliku manifestu. Te pliki służą do tworzenia zasobów w całym zestawie samouczka. 
+Katalog sklonowany hello wewnątrz kodu źródłowego aplikacji hello, wstępnie utworzone rozwiązania Docker compose plików i Kubernetes pliku manifestu. Te pliki są zasoby toocreate używanych w całym hello samouczek zestawu. 
 
 ## <a name="create-container-images"></a>Tworzenie kontenera obrazów
 
-[Rozwiązania docker Compose](https://docs.docker.com/compose/) może służyć do automatyzowania kompilacji poza kontener obrazów i wdrożenia usługi kontenera aplikacji.
+[Rozwiązania docker Compose](https://docs.docker.com/compose/) może być używany kompilacji hello tooautomate poza kontener obrazów i hello wdrożenia usługi kontenera aplikacji.
 
-Uruchom plik docker-compose.yml, aby utworzyć obraz kontenera, pobranie obrazu do pamięci podręcznej Redis i uruchomić aplikację.
+Uruchom hello docker-compose.yml pliku toocreate hello kontener obrazu, pobierania hello Redis obrazu i uruchomić aplikacji hello.
 
 ```bash
 docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
 ```
 
-Po zakończeniu użyj [obrazy usługi docker](https://docs.docker.com/engine/reference/commandline/images/) polecenie, aby wyświetlić utworzony obrazów.
+Po zakończeniu Użyj hello [obrazy usługi docker](https://docs.docker.com/engine/reference/commandline/images/) polecenia toosee hello utworzyć obrazy.
 
 ```bash
 docker images
 ```
 
-Zwróć uwagę, że zostały pobrane lub utworzone trzy obrazy. *Azure głos początku* obraz zawiera aplikację. Został uzyskany z *nginx flask* obrazu. Obraz Redis pobranego z Centrum Docker.
+Zwróć uwagę, że zostały pobrane lub utworzone trzy obrazy. Witaj *azure głos początku* obraz zawiera hello aplikacji. Został utworzony z hello *nginx flask* obrazu. Obraz Redis Hello pobranego z Centrum Docker.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Uruchom [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) polecenie, aby wyświetlić uruchomionych kontenerów.
+Uruchom hello [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) hello toosee polecenia uruchomionych kontenerów.
 
 ```bash
 docker ps
@@ -97,38 +97,38 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Testowanie aplikacji lokalnie
 
-Przejdź do adresem http://localhost: 8080, aby zobaczyć działającej aplikacji.
+Przeglądaj hello toosee toohttp://localhost:8080 uruchomiona aplikacja.
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Teraz, funkcjonalność aplikacji została zweryfikowana, uruchomionych kontenerów można zatrzymać i usunięte. Nie należy usuwać obrazy kontenera. *Azure głos początku* obraz jest przekazywany do wystąpienia rejestru kontenera platformy Azure w następnym samouczku.
+Teraz, gdy została zweryfikowana funkcjonalność aplikacji hello uruchomionych kontenerów można zatrzymana i usunięta. Nie należy usuwać hello kontener obrazów. Witaj *azure głos początku* obrazu jest wystąpieniem rejestru kontenera Azure tooan przekazanego w następnym samouczku hello.
 
-Uruchom następujące polecenie, aby zatrzymać uruchomionych kontenerów.
+Uruchom powitania po hello toostop uruchomionych kontenerów.
 
 ```bash
 docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
 ```
 
-Usuń zatrzymane kontenerów przy użyciu następującego polecenia.
+Usuń kontenery hello zatrzymana z hello następujące polecenia.
 
 ```bash
 docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
 ```
 
-Po ukończeniu masz obraz kontenera, który zawiera aplikację Azure głos.
+Po ukończeniu masz obraz kontenera, który zawiera hello Azure głos aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przetestowano aplikacji i kontener obrazów utworzonych dla aplikacji. Wykonano następujące czynności:
+W tym samouczku przetestowano aplikacji i kontener obrazów utworzonych dla aplikacji hello. Zakończono Hello następujące kroki:
 
 > [!div class="checklist"]
-> * Klonowanie źródła aplikacji z usługi GitHub  
+> * Klonowanie źródła aplikacji hello z usługi GitHub  
 > * Utworzony obraz kontenera ze źródła aplikacji
-> * Przetestowany aplikacji w lokalnym środowisku Docker
+> * Hello przetestowanej aplikacji w środowisku lokalnym Docker
 
-Przejdź do kolejnego samouczka, aby dowiedzieć się więcej o przechowywaniu obrazów kontenera w usłudze Azure Container Registry.
+Przejdź dalej toolearn samouczka toohello o przechowywania obrazów kontenera w rejestrze kontenera platformy Azure.
 
 > [!div class="nextstepaction"]
-> [Wypychanie obrazów do usługi Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)
+> [Wypychanie tooAzure obrazów rejestru kontenera](./container-service-tutorial-kubernetes-prepare-acr.md)

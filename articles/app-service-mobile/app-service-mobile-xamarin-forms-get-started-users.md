@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do uwierzytelniania dla aplikacji mobilnej w aplikacji platformy Xamarin Forms | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak korzystać z aplikacji mobilnej uwierzytelniać użytkowników aplikacji platformy Xamarin Forms za pomocą różnych dostawców tożsamości, obejmującej AAD, Google, Facebook, Twitter i Microsoft."
+title: aaaGet uruchomiono z uwierzytelniania dla aplikacji mobilnej w aplikacji platformy Xamarin Forms | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toouse Mobile Apps tooauthenticate użytkowników aplikacji platformy Xamarin Forms za pomocą różnych dostawców tożsamości, obejmującej AAD, Google, Facebook, Twitter i firmy Microsoft."
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
@@ -14,60 +14,60 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7f6716619f33d9cc4f866c41effba8f048dc49fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-authentication-to-your-xamarin-forms-app"></a>Dodawanie uwierzytelniania do aplikacji platformy Xamarin Forms
+# <a name="add-authentication-tooyour-xamarin-forms-app"></a>Dodaj aplikację platformy Xamarin Forms tooyour uwierzytelniania
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym temacie przedstawiono, jak uwierzytelniać użytkowników aplikacji usługi Mobile aplikacji z poziomu aplikacji klienta. W tym samouczku Dodawanie uwierzytelniania do projektu szybkiego startu Xamarin Forms przy użyciu dostawcy tożsamości, która jest obsługiwana przez usługę App Service. Po pomyślnie trwa uwierzytelnieniu i autoryzacji w aplikacji mobilnej, jest wyświetlana wartość Identyfikatora użytkownika i będzie można uzyskać dostęp do danych tabeli ograniczone.
+W tym temacie opisano sposób tooauthenticate użytkowników aplikację usługi Mobile aplikacji z poziomu aplikacji klienta. W tym samouczku Dodawanie uwierzytelniania do projektu szybkiego startu Xamarin Forms hello przy użyciu dostawcy tożsamości, która jest obsługiwana przez usługę App Service. Po pomyślnie trwa uwierzytelnieniu i autoryzacji w aplikacji mobilnej, jest wyświetlana wartość Identyfikatora użytkownika hello i będą mogli tooaccess ograniczone tabeli danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby uzyskać najlepsze wyniki z tego samouczka, zaleca się wykonanie [tworzenie aplikacji platformy Xamarin Forms] [ 1] samouczka. Po ukończeniu tego samouczka, konieczne będzie projektu Xamarin Forms aplikacji TodoList wielu platform.
+Witaj najlepszych wyników z tego samouczka, zaleca się wykonanie hello [tworzenie aplikacji platformy Xamarin Forms] [ 1] samouczka. Po ukończeniu tego samouczka, konieczne będzie projektu Xamarin Forms aplikacji TodoList wielu platform.
 
-Jeśli nie używasz szybki start pobrany Projekt serwera, należy dodać pakietu rozszerzenia uwierzytelniania do projektu. Aby uzyskać więcej informacji na temat pakietów rozszerzenia serwera, zobacz [pracować z serwera wewnętrznej bazy danych .NET SDK usługi Azure Mobile Apps][2].
+Jeśli nie używasz hello pobrany Projekt serwera szybki start, należy dodać projekt tooyour hello uwierzytelniania rozszerzenie pakietu. Aby uzyskać więcej informacji na temat pakietów rozszerzenia serwera, zobacz [pracować z serwera wewnętrznej bazy danych hello .NET SDK usługi Azure Mobile Apps][2].
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Zarejestrować aplikację do uwierzytelniania i konfigurowanie usługi aplikacji
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Dodaj aplikację do dozwolonych przekierowania zewnętrzne adresy URL
+## <a name="redirecturl"></a>Dodaj adresy URL przekierowania zewnętrznych dozwolone Twojej aplikacji toohello
 
-Bezpieczne uwierzytelnianie wymaga Zdefiniuj nowy schemat adresu URL dla aplikacji. Dzięki temu system uwierzytelniania przekierować z powrotem do aplikacji po zakończeniu procesu uwierzytelniania. W tym samouczku używamy schemat adresu URL _appname_ w ciągu. Można jednak użyć dowolnego wybranego schematu URL. Powinien być unikatowy w aplikacji mobilnej. Aby włączyć przekierowywanie po stronie serwera:
+Bezpieczne uwierzytelnianie wymaga Zdefiniuj nowy schemat adresu URL dla aplikacji. Po zakończeniu procesu uwierzytelniania hello dzięki temu hello uwierzytelniania systemu tooredirect wstecz tooyour aplikacji. W tym samouczku używamy schemat adresu URL hello _appname_ w ciągu. Można jednak użyć dowolnego wybranego schematu URL. Powinna być unikatowa tooyour aplikacji mobilnej. Przekierowanie hello tooenable na powitania po stronie serwera:
 
-1. W [portalu Azure] wybierz usługę aplikacji.
+1. W hello [portalu Azure] wybierz usługę aplikacji.
 
-2. Kliknij przycisk **uwierzytelniania / autoryzacji** opcji menu.
+2. Kliknij przycisk hello **uwierzytelniania / autoryzacji** opcji menu.
 
-3. W **dozwolone zewnętrznych adresów URL przekierowań**, wprowadź `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** w tym ciągu jest schemat adresu URL dla aplikacji mobilnej.  Musi on być zgodny normalne Specyfikacja adresu URL dla protokołu (Użyj litery i tylko cyfry i rozpoczyna się od litery).  Należy zanotuj ciąg, który wybrany jako trzeba będzie dostosować kodu aplikacji mobilnej przy użyciu schemat adresu URL w kilku miejscach.
+3. W hello **dozwolone zewnętrznych adresów URL przekierowań**, wprowadź `url_scheme_of_your_app://easyauth.callback`.  Witaj **url_scheme_of_your_app** w tym ciągu jest hello schemat adresu URL aplikacji mobilnej.  Musi on być zgodny normalne Specyfikacja adresu URL dla protokołu (Użyj litery i tylko cyfry i rozpoczyna się od litery).  Należy zanotuj ciąg hello, który możesz wybrać, ponieważ będzie potrzebny tooadjust kodu aplikacji mobilnej przy użyciu hello schemat adresu URL w kilku miejscach.
 
 4. Kliknij przycisk **OK**.
 
 5. Kliknij pozycję **Zapisz**.
 
-## <a name="restrict-permissions-to-authenticated-users"></a>Ogranicz uprawnienia dla uwierzytelnionych użytkowników
+## <a name="restrict-permissions-tooauthenticated-users"></a>Ogranicz uprawnienia tooauthenticated użytkowników
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-## <a name="add-authentication-to-the-portable-class-library"></a>Dodawanie uwierzytelniania do biblioteki klas przenośnych
-Aplikacje mobilne używa [LoginAsync] [ 3] — metoda rozszerzenia na [MobileServiceClient] [ 4] do logowania użytkownika z usługi aplikacji uwierzytelniania. W przykładzie użyto przepływ uwierzytelniania serwer zarządzany, który wyświetla dostawcy w interfejsie logowania w aplikacji. Aby uzyskać więcej informacji, zobacz [serwer zarządzany uwierzytelniania][5]. Aby zapewnić lepsze środowisko użytkownika w aplikacji produkcyjnej, należy rozważyć zamiast za pomocą [zarządzanych przez klienta uwierzytelniania][6].
+## <a name="add-authentication-toohello-portable-class-library"></a>Dodawanie biblioteki klas przenośnych toohello uwierzytelniania
+Aplikacje mobilne używa hello [LoginAsync] [ 3] — metoda rozszerzenia na powitania [MobileServiceClient] [ 4] toosign użytkownika z usługi aplikacji uwierzytelnianie. W przykładzie użyto przepływ uwierzytelniania serwer zarządzany, który wyświetla dostawcy hello w interfejsie logowania w aplikacji hello. Aby uzyskać więcej informacji, zobacz [serwer zarządzany uwierzytelniania][5]. Aby zapewnić lepsze środowisko użytkownika w aplikacji produkcyjnej, należy rozważyć zamiast za pomocą [zarządzanych przez klienta uwierzytelniania][6].
 
-Do uwierzytelniania za pomocą projektu Xamarin Forms, zdefiniuj **IAuthenticate** interfejsu przenośnej biblioteki klas dla aplikacji. Następnie dodaj **logowania** przycisk interfejsu użytkownika zdefiniowane w przenośną bibliotekę klas kliknij, aby uruchomić uwierzytelniania. Dane są ładowane z zaplecza aplikacji mobilnej po pomyślnym uwierzytelnieniu.
+Zdefiniuj tooauthenticate z projektem Xamarin Forms **IAuthenticate** interfejsu w hello przenośnej biblioteki klas dla aplikacji hello. Następnie dodaj **logowania** interfejsu użytkownika toohello przycisk zdefiniowane w hello przenośną bibliotekę klas, którego kliknięcie toostart uwierzytelniania. Dane są ładowane z zaplecza aplikacji mobilnej powitania po pomyślnym uwierzytelnieniu.
 
-Implementowanie **IAuthenticate** interfejs dla każdej platformy obsługiwane przez aplikację.
+Implementowanie hello **IAuthenticate** interfejs dla każdej platformy obsługiwane przez aplikację.
 
-1. W programie Visual Studio lub Xamarin Studio Otwórz App.cs z projektu o **przenośne** w nazwie, czyli projektu biblioteki przenośnej klasy, a następnie dodaj następujące `using` instrukcji:
+1. W programie Visual Studio lub Xamarin Studio Otwórz App.cs z projektu hello z **przenośne** w polu Nazwa hello jest projektu biblioteki przenośnej klasy, a następnie dodaj następujące hello `using` instrukcji:
 
         using System.Threading.Tasks;
-2. W App.cs, Dodaj następujący `IAuthenticate` definicji interfejsu bezpośrednio przed `App` definicji klasy.
+2. W App.cs, Dodaj następujące hello `IAuthenticate` definicji bezpośrednio przed hello interfejsu `App` definicji klasy.
 
         public interface IAuthenticate
         {
             Task<bool> Authenticate();
         }
-3. Można zainicjować interfejsu z implementacją specyficzne dla platformy, należy dodać następujące statyczne elementy członkowskie do **aplikacji** klasy.
+3. Interfejs hello tooinitialize z implementacją specyficzne dla platformy, Dodaj powitania po toohello statyczne elementy członkowskie **aplikacji** klasy.
 
         public static IAuthenticate Authenticator { get; private set; }
 
@@ -75,17 +75,17 @@ Implementowanie **IAuthenticate** interfejs dla każdej platformy obsługiwane p
         {
             Authenticator = authenticator;
         }
-4. Otwórz TodoList.xaml z projektu biblioteki klas przenośnych, należy dodać następujące **przycisk** element *buttonsPanel* elementu układu po istniejącego przycisku:
+4. Otwórz TodoList.xaml z projektu biblioteki klas przenośnych hello, Dodaj następujące hello **przycisk** element hello *buttonsPanel* elementu układu po istniejącego przycisku hello:
 
           <Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30"
             Clicked="loginButton_Clicked"/>
 
     Ten przycisk wyzwala serwer zarządzany uwierzytelniania za pomocą zaplecza aplikacji mobilnej.
-5. Otwórz TodoList.xaml.cs z projektu biblioteki klas przenośnych, a następnie dodaj poniższe pole, aby `TodoList` klasy:
+5. Otwórz TodoList.xaml.cs z projektu biblioteki klas przenośnych hello, a następnie dodaj następujące pola toohello hello `TodoList` klasy:
 
-        // Track whether the user has authenticated.
+        // Track whether hello user has authenticated.
         bool authenticated = false;
-6. Zastąp **OnAppearing** metodę z następującym kodem:
+6. Zastąp hello **OnAppearing** metody z hello następującego kodu:
 
         protected override async void OnAppearing()
         {
@@ -94,42 +94,42 @@ Implementowanie **IAuthenticate** interfejs dla każdej platformy obsługiwane p
             // Refresh items only when authenticated.
             if (authenticated == true)
             {
-                // Set syncItems to true in order to synchronize the data
+                // Set syncItems tootrue in order toosynchronize hello data
                 // on startup when running in offline mode.
                 await RefreshItems(true, syncItems: false);
 
-                // Hide the Sign-in button.
+                // Hide hello Sign-in button.
                 this.loginButton.IsVisible = false;
             }
         }
 
-    Ten kod upewnia się, że tylko odświeżania danych z usługi po Cię uwierzytelniono.
-7. Dodaj następujące obsługę **kliknięto element** zdarzenia **TodoList** klasy:
+    Ten kod upewnia się, że tylko odświeżania danych z usługi powitania po Cię uwierzytelniono.
+7. Dodaj powitania po obsługę hello **kliknięto element** toohello zdarzeń **TodoList** klasy:
 
         async void loginButton_Clicked(object sender, EventArgs e)
         {
             if (App.Authenticator != null)
                 authenticated = await App.Authenticator.Authenticate();
 
-            // Set syncItems to true to synchronize the data on startup when offline is enabled.
+            // Set syncItems tootrue toosynchronize hello data on startup when offline is enabled.
             if (authenticated == true)
                 await RefreshItems(true, syncItems: false);
         }
-8. Zapisz zmiany i ponownie skompilować projekt przenośnej biblioteki klas weryfikowanie żadne błędy.
+8. Zapisz zmiany i skompiluj ponownie projektu biblioteki klas przenośnych hello weryfikowanie żadne błędy.
 
-## <a name="add-authentication-to-the-android-app"></a>Dodawanie uwierzytelniania do aplikacji systemu Android
-W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejs w projekcie aplikacji systemu Android. Pomiń tę sekcję, jeśli urządzenia z systemem Android nie są obsługiwane.
+## <a name="add-authentication-toohello-android-app"></a>Dodawanie aplikacji dla systemu Android toohello uwierzytelniania
+W tej sekcji przedstawiono sposób tooimplement hello **IAuthenticate** interfejs w projekcie aplikacji systemu Android hello. Pomiń tę sekcję, jeśli urządzenia z systemem Android nie są obsługiwane.
 
-1. W programie Visual Studio lub Xamarin Studio kliknij prawym przyciskiem myszy **droid** projektu, następnie **Ustaw jako projekt startowy**.
-2. Naciśnij klawisz F5, aby uruchomić projekt w debugerze, a następnie sprawdź, czy wystąpił nieobsługiwany wyjątek przy użyciu kodu stanu 401 (bez autoryzacji) jest wywoływane po uruchomieniu aplikacji. 401 kod jest generowany, ponieważ dostęp do wewnętrznej bazy danych jest ograniczony tylko autoryzowanym użytkownikom.
-3. Otwórz MainActivity.cs w projekcie systemu Android i dodaj następujące `using` instrukcji:
+1. W programie Visual Studio lub Xamarin Studio kliknij prawym przyciskiem myszy hello **droid** projektu, następnie **Ustaw jako projekt startowy**.
+2. Naciśnij klawisz F5 toostart hello projektu w debugerze hello, a następnie sprawdź, czy wystąpił nieobsługiwany wyjątek przy użyciu kodu stanu 401 (bez autoryzacji) jest wywoływane po uruchomieniu aplikacji. Kod 401 Hello jest generowany, ponieważ dostęp hello wewnętrznej bazy danych jest tylko użytkownicy tooauthorized ograniczone.
+3. Otwórz MainActivity.cs w hello projekt systemu Android i dodaj następujące hello `using` instrukcji:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
-4. Aktualizacja **MainActivity** klasy do zaimplementowania **IAuthenticate** interfejsu, w następujący sposób:
+4. Aktualizacja hello **MainActivity** hello tooimplement klasy **IAuthenticate** interfejsu, w następujący sposób:
 
         public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
-5. Aktualizacja **MainActivity** klasy, dodając **MobileServiceUser** pola i **Uwierzytelnij** metodę, która jest wymagana przez **IAuthenticate** interfejsu, w następujący sposób:
+5. Aktualizacja hello **MainActivity** klasy, dodając **MobileServiceUser** pola i **Uwierzytelnij** metodę, która jest wymagana przez hello **IAuthenticate ** interfejsu, w następujący sposób:
 
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -155,7 +155,7 @@ W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejs w proje
                 message = ex.Message;
             }
 
-            // Display the success or failure message.
+            // Display hello success or failure message.
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.SetMessage(message);
             builder.SetTitle("Sign-in result");
@@ -166,7 +166,7 @@ W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejs w proje
 
     Jeśli używasz dostawcy tożsamości innego niż usługi Facebook, wybierz inną wartość dla [MobileServiceAuthenticationProvider][7].
 
-6. Dodaj następujący kod wewnątrz <application> węzła AndroidManifest.xml:
+6. Dodaj następujące kodu wewnątrz hello <application> węzła AndroidManifest.xml:
 
 ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
@@ -179,27 +179,27 @@ W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejs w proje
     </activity>
 ```
 
-1. Dodaj następujący kod do **OnCreate** metody **MainActivity** klasy przed wywołaniem do `LoadApplication()`:
+1. Dodaj hello następującego kodu toohello **OnCreate** metody hello **MainActivity** klasy przed wywołaniem hello zbyt`LoadApplication()`:
 
-        // Initialize the authenticator before loading the app.
+        // Initialize hello authenticator before loading hello app.
         App.Init((IAuthenticate)this);
 
-    Ten kod gwarantuje, że wystawca uwierzytelnienia jest inicjowana przed obciążeń aplikacji.
-2. Skompiluj ponownie aplikację, uruchom go, a następnie zaloguj się przy użyciu dostawcy uwierzytelniania wybraną i sprawdź, czy można uzyskać dostępu do danych jako użytkownik uwierzytelniony.
+    Ten kod gwarantuje, że wystawca uwierzytelnienia hello jest inicjowana przed obciążeń aplikacji hello.
+2. Odbuduj aplikacji hello, uruchom go, a następnie zaloguj się przy użyciu dostawcy uwierzytelniania hello wybranego i sprawdź, czy są możliwe tooaccess danych jako użytkownik uwierzytelniony.
 
-## <a name="add-authentication-to-the-ios-app"></a>Dodawanie uwierzytelniania do aplikacji systemu iOS
-W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejs w projekcie aplikacji systemu iOS. Pomiń tę sekcję, jeśli urządzenia z systemem iOS nie są obsługiwane.
+## <a name="add-authentication-toohello-ios-app"></a>Dodawanie aplikacji dla systemu iOS toohello uwierzytelniania
+W tej sekcji przedstawiono sposób tooimplement hello **IAuthenticate** interfejs w projekcie aplikacji systemu iOS hello. Pomiń tę sekcję, jeśli urządzenia z systemem iOS nie są obsługiwane.
 
-1. W programie Visual Studio lub Xamarin Studio kliknij prawym przyciskiem myszy **iOS** projektu, następnie **Ustaw jako projekt startowy**.
-2. Naciśnij klawisz F5, aby uruchomić projekt w debugerze, a następnie sprawdź, czy wystąpił nieobsługiwany wyjątek przy użyciu kodu stanu 401 (bez autoryzacji) jest wywoływane po uruchomieniu aplikacji. Odpowiedzi 401 jest generowany, ponieważ dostęp do wewnętrznej bazy danych jest ograniczony tylko autoryzowanym użytkownikom.
-3. Otwórz AppDelegate.cs w projekcie systemu iOS i dodaj następujące `using` instrukcji:
+1. W programie Visual Studio lub Xamarin Studio kliknij prawym przyciskiem myszy hello **iOS** projektu, następnie **Ustaw jako projekt startowy**.
+2. Naciśnij klawisz F5 toostart hello projektu w debugerze hello, a następnie sprawdź, czy wystąpił nieobsługiwany wyjątek przy użyciu kodu stanu 401 (bez autoryzacji) jest wywoływane po uruchomieniu aplikacji hello. odpowiedzi 401 Hello jest generowany, ponieważ dostęp hello wewnętrznej bazy danych jest tylko użytkownicy tooauthorized ograniczone.
+3. Otwórz AppDelegate.cs w projekcie systemu iOS hello i dodaj następujące hello `using` instrukcji:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
-4. Aktualizacja **AppDelegate** klasy do zaimplementowania **IAuthenticate** interfejsu, w następujący sposób:
+4. Aktualizacja hello **AppDelegate** hello tooimplement klasy **IAuthenticate** interfejsu, w następujący sposób:
 
         public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
-5. Aktualizacja **AppDelegate** klasy, dodając **MobileServiceUser** pola i **Uwierzytelnij** metodę, która jest wymagana przez **IAuthenticate** interfejsu, w następujący sposób:
+5. Aktualizacja hello **AppDelegate** klasy, dodając **MobileServiceUser** pola i **Uwierzytelnij** metodę, która jest wymagana przez hello **IAuthenticate ** interfejsu, w następujący sposób:
 
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -228,7 +228,7 @@ W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejs w proje
                message = ex.Message;
             }
 
-            // Display the success or failure message.
+            // Display hello success or failure message.
             UIAlertView avAlert = new UIAlertView("Sign-in result", message, null, "OK", null);
             avAlert.Show();
 
@@ -237,40 +237,40 @@ W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejs w proje
 
     Jeśli używasz dostawcy tożsamości innego niż usługi Facebook, wybierz inną wartość dla [MobileServiceAuthenticationProvider].
 
-6. Aktualizacja klasy AppDelegate przez dodanie przeciążenie metody OpenUrl (Opcje NSDictionary aplikacji, nsurl oczekiwanego adresu url, UIApplication)
+6. Aktualizacja klasy AppDelegate hello przez dodanie przeciążenie metody OpenUrl (Opcje NSDictionary aplikacji, nsurl oczekiwanego adresu url, UIApplication)
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
 
-6. Dodaj następujący wiersz kodu w celu **FinishedLaunching** metody przed wywołanie `LoadApplication()`:
+6. Dodaj powitania po wierszu kodu toohello **FinishedLaunching** za wywołanie metody przed hello`LoadApplication()`:
 
         App.Init(this);
 
-    Ten kod gwarantuje, że wystawca uwierzytelnienia jest zainicjowany przed załadowaniem aplikacji.
+    Ten kod gwarantuje, że wystawca uwierzytelnienia hello jest zainicjowany przed załadowaniem aplikacji hello.
 
-6. Dodaj **{url_scheme_of_your_app}** do Schematy adresów URL w pliku Info.plist.
+6. Dodaj **{url_scheme_of_your_app}** tooURL programów w pliku Info.plist.
 
-7. Skompiluj ponownie aplikację, uruchom go, a następnie zaloguj się przy użyciu dostawcy uwierzytelniania wybraną i sprawdź, czy można uzyskać dostępu do danych jako użytkownik uwierzytelniony.
+7. Odbuduj aplikacji hello, uruchom go, a następnie zaloguj się przy użyciu dostawcy uwierzytelniania hello wybranego i sprawdź, czy są możliwe tooaccess danych jako użytkownik uwierzytelniony.
 
-## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Dodawanie uwierzytelniania do projektów aplikacji systemu Windows 10 (w tym telefon)
-W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejsu w projektach aplikacji systemu Windows 10. Zastosuj te same kroki dla projektów uniwersalnych platformy systemu Windows (UWP), ale przy użyciu **UWP** projektu (ze zmianami dostrzeżone). Pomiń tę sekcję, jeśli urządzenia z systemem Windows nie są obsługiwane.
+## <a name="add-authentication-toowindows-10-including-phone-app-projects"></a>Dodawanie uwierzytelniania tooWindows 10 (takie jak telefon) projekty aplikacji
+W tej sekcji przedstawiono sposób tooimplement hello **IAuthenticate** interfejsu w projektach aplikacji hello systemu Windows 10. Zastosuj te same czynności dla projektów uniwersalnych platformy systemu Windows (UWP), ale przy użyciu hello Hello **platformy uniwersalnej systemu Windows** projektu (ze zmianami dostrzeżone). Pomiń tę sekcję, jeśli urządzenia z systemem Windows nie są obsługiwane.
 
-1. "W programie Visual Studio, kliknij prawym przyciskiem myszy albo **UWP** projektu, następnie **Ustaw jako projekt startowy**.
-2. Naciśnij klawisz F5, aby uruchomić projekt w debugerze, a następnie sprawdź, czy wystąpił nieobsługiwany wyjątek przy użyciu kodu stanu 401 (bez autoryzacji) jest wywoływane po uruchomieniu aplikacji. Odpowiedzi 401 odbywa się, ponieważ dostęp do wewnętrznej bazy danych jest ograniczony tylko autoryzowanym użytkownikom.
-3. Otwórz MainPage.xaml.cs dla projektu aplikacji systemu Windows i dodaj następujące `using` instrukcji:
+1. "W programie Visual Studio, kliknij prawym przyciskiem myszy albo hello **UWP** projektu, następnie **Ustaw jako projekt startowy**.
+2. Naciśnij klawisz F5 toostart hello projektu w debugerze hello, a następnie sprawdź, czy wystąpił nieobsługiwany wyjątek przy użyciu kodu stanu 401 (bez autoryzacji) jest wywoływane po uruchomieniu aplikacji hello. odpowiedzi 401 Hello odbywa się, ponieważ dostęp hello wewnętrznej bazy danych jest ograniczone tooauthorized tylko użytkownicy.
+3. Otwórz MainPage.xaml.cs dla projektu aplikacji Windows hello i dodaj następujące hello `using` instrukcji:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
         using Windows.UI.Popups;
         using <your_Portable_Class_Library_namespace>;
 
-    Zastąp `<your_Portable_Class_Library_namespace>` z przestrzenią nazw biblioteki klas przenośnych.
-4. Aktualizacja **MainPage** klasy do zaimplementowania **IAuthenticate** interfejsu, w następujący sposób:
+    Zastąp `<your_Portable_Class_Library_namespace>` z przestrzenią nazw hello biblioteki klas przenośnych.
+4. Aktualizacja hello **MainPage** hello tooimplement klasy **IAuthenticate** interfejsu, w następujący sposób:
 
         public sealed partial class MainPage : IAuthenticate
-5. Aktualizacja **MainPage** klasy, dodając **MobileServiceUser** pola i **Uwierzytelnij** metodę, która jest wymagana przez **IAuthenticate**interfejsu, w następujący sposób:
+5. Aktualizacja hello **MainPage** klasy, dodając **MobileServiceUser** pola i **Uwierzytelnij** metodę, która jest wymagana przez hello **IAuthenticate** interfejsu, w następujący sposób:
 
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -300,7 +300,7 @@ W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejsu w proj
                 message = string.Format("Authentication Failed: {0}", ex.Message);
             }
 
-            // Display the success or failure message.
+            // Display hello success or failure message.
             await new MessageDialog(message, "Sign-in result").ShowAsync();
 
             return success;
@@ -308,14 +308,14 @@ W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejsu w proj
 
     Jeśli używasz dostawcy tożsamości innego niż usługi Facebook, wybierz inną wartość dla [MobileServiceAuthenticationProvider].
 
-1. Dodaj następujący wiersz kodu w Konstruktorze **MainPage** klasy przed wywołaniem do `LoadApplication()`:
+1. Dodaj następującego wiersza kodu w Konstruktorze hello hello hello **MainPage** klasy przed wywołaniem hello zbyt`LoadApplication()`:
 
-        // Initialize the authenticator before loading the app.
+        // Initialize hello authenticator before loading hello app.
         <your_Portable_Class_Library_namespace>.App.Init(this);
 
-    Zastąp `<your_Portable_Class_Library_namespace>` z przestrzenią nazw biblioteki klas przenośnych.
+    Zastąp `<your_Portable_Class_Library_namespace>` z przestrzenią nazw hello biblioteki klas przenośnych.
 
-3. Jeśli używasz **platformy uniwersalnej systemu Windows**, Dodaj następujący **OnActivated** zastąpienie metody **aplikacji** klasy:
+3. Jeśli używasz **platformy uniwersalnej systemu Windows**, Dodaj następujące hello **OnActivated** metoda przesłania toohello **aplikacji** klasy:
 
        protected override void OnActivated(IActivatedEventArgs args)
        {
@@ -329,21 +329,21 @@ W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejsu w proj
 
        }
 
-   Jeśli zastąpienie metody już istnieje, Dodaj warunkowego kod z poprzedniego fragmentu.  Ten kod nie jest wymagane dla projektów uniwersalnych systemu Windows.
+   Zastąpienie metody hello już istnieje, należy dodać kodu warunkowego hello z hello poprzedzających fragment.  Ten kod nie jest wymagane dla projektów uniwersalnych systemu Windows.
 
 3. Dodaj **{url_scheme_of_your_app}** w Package.appxmanifest. 
 
-4. Skompiluj ponownie aplikację, uruchom go, a następnie zaloguj się przy użyciu dostawcy uwierzytelniania wybraną i sprawdź, czy można uzyskać dostępu do danych jako użytkownik uwierzytelniony.
+4. Odbuduj aplikacji hello, uruchom go, a następnie zaloguj się przy użyciu dostawcy uwierzytelniania hello wybranego i sprawdź, czy są możliwe tooaccess danych jako użytkownik uwierzytelniony.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, aby ukończyć w tym samouczku uwierzytelnianie podstawowe, należy wziąć pod uwagę kontynuowanie na jedno z następujących samouczków:
+Teraz, aby ukończyć w tym samouczku uwierzytelnianie podstawowe, należy wziąć pod uwagę kontynuować tooone hello następujące samouczki:
 
-* [Dodawanie powiadomień wypychanych do aplikacji](app-service-mobile-xamarin-forms-get-started-push.md)
+* [Dodaj aplikację tooyour powiadomień wypychanych](app-service-mobile-xamarin-forms-get-started-push.md)
 
-  Dowiedz się, jak dodać obsługę powiadomień wypychanych do aplikacji i skonfigurować zaplecze Aplikacji mobilnej na potrzeby wysyłania powiadomień wypychanych przy użyciu usługi Azure Notification Hubs.
+  Dowiedz się, jak powiadomień wypychanych tooadd obsługują tooyour aplikacji i Konfigurowanie powiadomień wypychanych toosend usługi Azure Notification Hubs toouse aplikacji mobilnej wewnętrznej bazy danych.
 * [Włączanie synchronizacji w trybie offline dla aplikacji](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 
-  Dowiedz się, jak dodać aplikację przy użyciu zaplecza aplikacji mobilnej obsługi w trybie offline. Synchronizacja w trybie offline umożliwia użytkownikom końcowym interakcję z aplikacji mobilnej — przeglądanie, dodawanie lub modyfikowanie danych — nawet wtedy, gdy istnieje połączenie sieciowe.
+  Dowiedz się, jak w trybie offline tooadd obsługują aplikację przy użyciu zaplecza aplikacji mobilnej. Synchronizacja w trybie offline umożliwia toointeract użytkowników końcowych z aplikacji mobilnej — przeglądanie, dodawanie lub modyfikowanie danych — nawet wtedy, gdy istnieje połączenie sieciowe.
 
 <!-- Images. -->
 

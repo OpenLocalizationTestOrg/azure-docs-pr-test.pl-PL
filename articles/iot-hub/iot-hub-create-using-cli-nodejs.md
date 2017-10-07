@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie Centrum IoT przy użyciu wiersza polecenia platformy Azure (azure.js) | Dokumentacja firmy Microsoft"
-description: "Jak utworzyć Centrum Azure IoT przy użyciu wiersza polecenia platformy Azure i platform (azure.js)."
+title: "aaaCreate Centrum IoT przy użyciu wiersza polecenia platformy Azure (azure.js) | Dokumentacja firmy Microsoft"
+description: "Jak toocreate Centrum Azure IoT przy użyciu hello wiersza polecenia platformy Azure i platform (azure.js)."
 services: iot-hub
 documentationcenter: .net
 author: BeatriceOltean
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c2a7ea98500b0a0e55a39f4cdfea4605c92add94
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-iot-hub-using-the-azure-cli"></a>Tworzenie Centrum IoT przy użyciu wiersza polecenia platformy Azure
+# <a name="create-an-iot-hub-using-hello-azure-cli"></a>Tworzenie Centrum IoT przy użyciu hello wiersza polecenia platformy Azure
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Tworzenie i zarządzanie nimi centra Azure IoT programowo, można użyć wiersza polecenia platformy Azure (azure.js). W tym artykule przedstawiono sposób użycia interfejsu wiersza polecenia Azure (azure.js) do tworzenia Centrum IoT.
+Można użyć wiersza polecenia platformy Azure (azure.js) toocreate i programowe zarządzanie centra Azure IoT. W tym artykule opisano, jak toouse hello Azure CLI (azure.js) toocreate Centrum IoT.
 
-Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
+Można ukończyć powitalnych zadań przy użyciu jednej z hello następujące wersje interfejsu wiersza polecenia:
 
-* Azure CLI (azure.js) — interfejsu wiersza polecenia dla klasycznego i zasobów zarządzania modeli wdrażania zgodnie z opisem w tym artykule.
-* [Azure CLI 2.0 (az.py)](iot-hub-create-using-cli.md) — generacji interfejsu wiersza polecenia do zarządzania model wdrażania zasobów.
+* Azure CLI (azure.js) — Witaj interfejsu wiersza polecenia dla hello klasycznego i modeli wdrażania, zarządzania zasobów zgodnie z opisem w tym artykule.
+* [Azure CLI 2.0 (az.py)](iot-hub-create-using-cli.md) — Witaj generacji interfejsu wiersza polecenia dla modelu wdrażania zarządzania zasobów hello.
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+toocomplete tego samouczka należy hello następujące:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto][lnk-free-trial] w zaledwie kilka minut.
-* [Azure CLI 0.10.4] [ lnk-CLI-install] lub nowszym. Jeśli masz już zainstalowany interfejsu wiersza polecenia Azure, możesz sprawdzić bieżącą wersję za pomocą następującego polecenia w wierszu polecenia:
+* [Azure CLI 0.10.4] [ lnk-CLI-install] lub nowszym. Jeśli masz już hello Azure CLI zainstalowana, można sprawdzić poprawność hello bieżącej wersji w wierszu polecenia hello z hello następujące polecenie:
 
 ```azurecli
 azure --version
 ```
 
 > [!NOTE]
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [usługi Azure Resource Manager i Model Klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). Azure CLI musi być w trybie Azure Resource Manager:
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [usługi Azure Resource Manager i Model Klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). Hello Azure CLI musi być w trybie Azure Resource Manager:
 >
 > ```azurecli
 > azure config mode arm
@@ -51,20 +51,20 @@ azure --version
 
 ## <a name="set-your-azure-account-and-subscription"></a>Ustawianie konta i subskrypcji platformy Azure
 
-1. W wierszu polecenia, logowania, wpisując następujące polecenie:
+1. W wierszu polecenia hello hello logowania, wpisując następujące polecenie:
 
    ```azurecli
     azure login
    ```
 
-   Użyj przeglądarki sieci web sugerowane i kod do uwierzytelniania.
-1. Jeśli masz wiele subskrypcji Azure, nawiązywania Azure udziela dostępu do subskrypcji platformy Azure skojarzone z poświadczeń. Wyświetlanie subskrypcji platformy Azure i określenie, co jest ustawieniem domyślnym, za pomocą polecenia:
+   Za pomocą przeglądarki sieci web sugerowane hello i tooauthenticate kodu.
+1. Jeśli masz wiele subskrypcji Azure, łączenie tooAzure udziela dostępu tooall hello subskrypcji platformy Azure skojarzonych z poświadczeniami użytkownika. Możesz wyświetlić hello subskrypcji platformy Azure i określenie, który jest domyślnym hello, za pomocą polecenia hello:
 
    ```azurecli
     azure account list
    ```
 
-   Aby ustawić kontekst subskrypcji, w którym chcesz uruchomić rest, użyj polecenia:
+   kontekst subskrypcji hello tooset pod którym ma zostać toorun hello reszty hello, użyj polecenia:
 
    ```azurecli
     azure account set <subscription name>
@@ -77,7 +77,7 @@ azure --version
    ```
 
 > [!TIP]
-> Artykuł [użyć wiersza polecenia platformy Azure do zarządzania zasobami Azure i grup zasobów] [ lnk-CLI-arm] zawiera więcej informacji o sposobie używania interfejsu wiersza polecenia Azure do zarządzania zasobami Azure.
+> Artykuł Hello [Użyj toomanage interfejsu wiersza polecenia Azure hello Azure zasobów i grup zasobów] [ lnk-CLI-arm] zawiera więcej informacji na temat sposobu toouse hello Azure CLI toomanage Azure zasobów.
 
 ## <a name="create-an-iot-hub"></a>Tworzenie Centrum IoT
 
@@ -87,28 +87,28 @@ Wymagane parametry:
 azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>
 ```
 
-* **Grupa zasobów**. Nazwa grupy zasobów. Format jest bez uwzględniania wielkości liter alfanumeryczne, podkreślenia i łączniki, długość 1-64.
-* **name**. Nazwa centrum IoT, który ma zostać utworzony. Format jest bez uwzględniania wielkości liter alfanumeryczne, podkreślenia i łączniki, 3 – 50 długości.
-* **Lokalizacja**. Lokalizacja (region/centrum danych azure) do obsługi administracyjnej Centrum IoT.
-* **Nazwa jednostki SKU**. Nazwa jednostki sku, jeden z: [F1, S1, S2, S3]. Aby uzyskać pełną listę najnowszych można znaleźć na stronie cenowa Centrum IoT.
-* **jednostki**. Liczba jednostek elastycznie. Zakres: F1 [1-1]: S1, S2 [1 – 200]: [1 – 10] S3. Jednostki Centrum IoT bazują na łącznej liczbie komunikatów i liczbę urządzeń, którymi chcesz się połączyć.
+* **Grupa zasobów**. Nazwa grupy zasobów Hello. Hello format jest bez uwzględniania wielkości liter alfanumeryczne, podkreślenia i łączniki, długość 1-64.
+* **name**. Nazwa Hello toobe Centrum IoT hello utworzony. Hello format jest bez uwzględniania wielkości liter alfanumeryczne, podkreślenia i łączniki, 3 – 50 długości.
+* **Lokalizacja**. Witaj lokalizacji (region/centrum danych azure) tooprovision hello Centrum IoT.
+* **Nazwa jednostki SKU**. Nazwa Hello sku hello, jeden z: [F1, S1, S2, S3]. Hello najnowsze pełną listę można znaleźć toohello stronie dotyczącej cen Centrum IoT.
+* **jednostki**. Liczba Hello elastycznie jednostki. Zakres: F1 [1-1]: S1, S2 [1 – 200]: [1 – 10] S3. Jednostki Centrum IoT bazują na całkowita wiadomość hello i liczba liczby urządzeń ma tooconnect.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-Aby wyświetlić wszystkie dostępne na potrzeby tworzenia parametry, można użyć polecenia Pomoc w wierszu polecenia:
+toosee hello wszystkie dostępne na potrzeby tworzenia parametrów, możesz użyć polecenia pomocy hello w wierszu polecenia:
 
 ```azurecli
 azure iothub create -h
 ```
 
-Prosty przykład: do tworzenia Centrum IoT o nazwie **exampleIoTHubName** w grupie zasobów **exampleResourceGroup**, uruchom następujące polecenie:
+Prosty przykład: toocreate Centrum IoT o nazwie **exampleIoTHubName** w grupie zasobów hello **exampleResourceGroup**Uruchom hello następujące polecenie:
 
 ```azurecli
 azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
-> To polecenie interfejsu wiersza polecenia Azure umożliwia utworzenie Centrum IoT standardowe S1 dla której są rozliczane. Centrum IoT można usunąć **exampleIoTHubName** za pomocą następujących poleceń:
+> To polecenie interfejsu wiersza polecenia Azure umożliwia utworzenie Centrum IoT standardowe S1 dla której są rozliczane. Można usunąć Centrum IoT hello **exampleIoTHubName** za pomocą następujących poleceń:
 >
 > ```azurecli
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
@@ -116,13 +116,13 @@ azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o tworzeniu aplikacji Centrum IoT, zobacz następujący artykuł:
+toolearn więcej informacji na temat tworzenia Centrum IoT, zobacz hello poniższego artykułu:
 
 * [Zestawy SDK IoT][lnk-sdks]
 
-Aby dokładniej analizować możliwości Centrum IoT, zobacz:
+toofurther Poznaj możliwości hello Centrum IoT, zobacz:
 
-* [Przy użyciu portalu Azure do zarządzania Centrum IoT][lnk-portal]
+* [Przy użyciu hello toomanage portalu Azure IoT Hub][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

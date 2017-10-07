@@ -1,5 +1,5 @@
 ---
-title: "Najlepsze rozwiązania bazy danych platformy Azure | Dokumentacja firmy Microsoft"
+title: "najlepsze rozwiązania zabezpieczeń bazy danych aaaAzure | Dokumentacja firmy Microsoft"
 description: "Ten artykuł zawiera zestaw najlepsze rozwiązania dotyczące zabezpieczeń bazy danych platformy Azure."
 services: security
 documentationcenter: na
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 5bd6fe0dd369b3bbc7ca0d697c964badda557cb8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 78984291e8f74879c7f738e2ce3176c4be18d154
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Najlepsze rozwiązania Azure bazy danych
 
-Zabezpieczeń jest szczególnie ważne w przypadku zarządzania bazami danych i zawsze było priorytet bazy danych SQL Azure. Baz danych mogą być ściśle chronione w celu zaspokojenia najbardziej przepisami lub wymaganiami zabezpieczeń, w tym HIPAA, ISO 27001/27002 i PCI DSS poziom 1, między innymi. Bieżącą listę certyfikaty zgodności zabezpieczeń jest dostępne pod adresem [witryny Microsoft Trust Center](http://azure.microsoft.com/support/trust-center/services/). Możesz również umieścić baz danych w określonych centrach danych platformy Azure, na podstawie przepisów wymagań.
+Zabezpieczeń jest szczególnie ważne w przypadku zarządzania bazami danych i zawsze było priorytet bazy danych SQL Azure. Baz danych może być ściśle zabezpieczonych toohelp spełniają najbardziej przepisami lub wymaganiami zabezpieczeń, w tym HIPAA, ISO 27001/27002 i PCI DSS poziom 1, między innymi. Bieżącą listę certyfikaty zgodności zabezpieczeń znajduje się w temacie hello [witryny Microsoft Trust Center](http://azure.microsoft.com/support/trust-center/services/). Możesz również wybrać tooplace baz danych w określonych centrach danych platformy Azure na podstawie przepisów wymagań.
 
-W tym artykule omówiono kolekcja najlepszych rozwiązań dotyczących zabezpieczeń bazy danych platformy Azure. Następujące najlepsze rozwiązania są uzyskiwane z wiemy z doświadczenia z zabezpieczeń bazy danych platformy Azure i doświadczenia klientów, takich jak samodzielnie.
+W tym artykule omówiono kolekcja najlepszych rozwiązań dotyczących zabezpieczeń bazy danych platformy Azure. Następujące najlepsze rozwiązania są uzyskiwane z wiemy z doświadczenia z zabezpieczeń bazy danych platformy Azure i doświadczenia hello klientów, takich jak samodzielnie.
 
 Dla każdego najlepszym rozwiązaniem prezentujemy zasady:
 
--   Co to jest najlepszym rozwiązaniem
--   Dlaczego chcesz włączyć tej najlepsze praktyki
--   Jeśli nie zostanie włączone najlepszym rozwiązaniem, co może być skutkiem
--   Jak można znaleźć umożliwiające najlepsze praktyki
+-   Jakie hello najlepszym rozwiązaniem jest
+-   Dlaczego chcesz tooenable tej najlepsze praktyki
+-   Co może wynikać hello tooenable hello najlepszym rozwiązaniem w przeciwnym przypadku
+-   Jak można znaleźć tooenable hello najlepsze praktyki
 
-W tym artykule najlepsze rozwiązania zabezpieczeń bazy danych Azure na podstawie opinii konsensu i funkcji platformy Azure i funkcja ustawia istniejących w chwili ten artykuł dotyczy. Opinie i technologie ulegną zmianom, a ten artykuł będzie aktualizowany na bieżąco w celu odzwierciedlenia tych zmian.
+W tym artykule najlepsze rozwiązania zabezpieczeń bazy danych Azure na podstawie opinii konsensu i funkcji platformy Azure i funkcja ustawia istniejących w chwili hello, który został zapisany w tym artykule. Opinie i technologie ulegną zmianom i będą w tym artykule zaktualizowane na tooreflect regularnie tych zmian.
 
 Bazy danych platformy Azure najlepsze rozwiązania omówione w tym artykule obejmują:
 
--   Użyj reguł zapory, aby ograniczyć dostęp do bazy danych
+-   Użyj dostępu bazy danych toorestrict reguły zapory
 -   Włącz uwierzytelnianie bazy danych
 -   Ochrona danych przy użyciu szyfrowania
 -   Ochrona danych podczas przesyłania
@@ -45,15 +45,15 @@ Bazy danych platformy Azure najlepsze rozwiązania omówione w tym artykule obej
 -   Włączyć wykrywanie zagrożeń bazy danych
 
 
-## <a name="use-firewall-rules-to-restrict-database-access"></a>Użyj reguł zapory, aby ograniczyć dostęp do bazy danych
+## <a name="use-firewall-rules-toorestrict-database-access"></a>Użyj dostępu bazy danych toorestrict reguły zapory
 
-Usługa Microsoft Azure SQL Database udostępnia usługę relacyjnej bazy danych dla platformy Azure i innych aplikacji internetowych. Aby zabezpieczyć dostęp do bazy danych SQL kontroluje dostęp przy użyciu reguł zapory ograniczenie łączności według adresu IP, mechanizmów uwierzytelniania wymaganie od użytkowników w celu potwierdzenia ich tożsamości i mechanizmów autoryzacji ograniczanie użytkowników do określonych akcji i dane. Zapory uniemożliwić dostęp do serwera bazy danych do chwili określenia komputery, które ma uprawnienia. Zapora udziela dostępu do bazy danych na podstawie źródłowego adresu IP każdego żądania.
+Usługa Microsoft Azure SQL Database udostępnia usługę relacyjnej bazy danych dla platformy Azure i innych aplikacji internetowych. zabezpieczenia dostępu tooprovide, baza danych SQL kontroluje dostęp przy użyciu reguł zapory ograniczenie łączności za pomocą adresu IP mechanizmów uwierzytelniania wymagające tooprove użytkowników tożsamości i ograniczanie użytkowników toospecific akcji i dane mechanizmów autoryzacji. Zapory uniemożliwiają wszystkich serwera bazy danych tooyour dostępu do chwili określenia komputery, które ma uprawnienia. Zapora Hello przyznaje toodatabases dostępu oparte na powitania pochodzące z adresu IP dla każdego żądania.
 
 ![Reguły zapory](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
 
-Usługa Azure SQL Database jest dostępna tylko za pośrednictwem portu TCP 1433. Aby uzyskać dostęp do usługi SQL Database z komputera, upewnij się, że zapora komputera klienta umożliwia wychodzący ruch TCP na porcie TCP 1433. Jeśli nie jest to wymagane przez inne aplikacje, należy go zablokować połączenia przychodzące na porcie TCP 1433 przy użyciu reguł zapory.
+Witaj usługi baza danych SQL Azure jest dostępna tylko za pośrednictwem portu TCP 1433. tooaccess bazy danych SQL z komputera, sprawdź, czy zapory komputera klienta pozwalają wychodzących komunikacji TCP na porcie TCP 1433. Jeśli nie jest to wymagane przez inne aplikacje, należy go zablokować połączenia przychodzące na porcie TCP 1433 przy użyciu reguł zapory.
 
-W ramach procesu łączenia wszystkie połączenia przychodzące z maszyny wirtualnej platformy Azure są przekierowywane na inny adres IP i port, unikatowy dla każdej roli procesu roboczego. Numer portu należy do zakresu od 11000 do 11999. Aby uzyskać więcej informacji na temat portów TCP, zobacz [porty inne niż 1433 ADO.NET 4.5 i SQL Database2](https://docs.microsoft.com/azure/sql-database/sql-database-develop-direct-route-ports-adonet-v12).
+W trakcie procesu połączenia hello połączenia z maszyn wirtualnych platformy Azure są tooa przekierowane na inny adres IP i port unikatowa dla każdej roli procesu roboczego. numer portu Hello jest poza zakresem powitania od 11000 too11999. Aby uzyskać więcej informacji na temat portów TCP, zobacz [porty inne niż 1433 ADO.NET 4.5 i SQL Database2](https://docs.microsoft.com/azure/sql-database/sql-database-develop-direct-route-ports-adonet-v12).
 
 > [!Note]
 > Aby uzyskać więcej informacji na temat reguł zapory w usłudze SQL Database, zobacz [Omówienie reguł zapory usługi SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
@@ -63,110 +63,110 @@ Baza danych SQL obsługuje dwa typy uwierzytelniania, uwierzytelnianie SQL i Azu
 
 **Uwierzytelnianie SQL** jest zalecane w następujących przypadkach:
 
--   Dzięki temu SQL Azure do obsługi środowisk mieszanych systemach operacyjnych, gdzie wszyscy użytkownicy nie są uwierzytelniane przez domeny systemu Windows.
--   Umożliwia SQL Azure do obsługi starszych aplikacji i aplikacji dostarczanych przez osoby trzecie, które wymagają uwierzytelniania programu SQL Server.
--   Zezwala użytkownikom na łączenie się z nieznanej lub niezaufanej domeny. Na przykład aplikacji, których klienci ustalonych nawiązuje połączenie z przypisane logowania do programu SQL Server do otrzymywania stanu ich zleceń.
--   Umożliwia SQL Azure na potrzeby obsługi aplikacji sieci Web, gdzie użytkownicy tworzyć własne tożsamości.
--   Umożliwia programistom dystrybucja aplikacji przy użyciu hierarchii złożonych uprawnienia oparte na znane, wstępnie zdefiniowane identyfikatory logowania programu SQL Server.
+-   Dzięki temu środowiskach toosupport SQL Azure przy użyciu mieszane systemy operacyjne, gdzie wszyscy użytkownicy nie są uwierzytelniane przez domeny systemu Windows.
+-   Umożliwia starsze aplikacje toosupport SQL Azure i aplikacji dostarczanych przez osoby trzecie, które wymagają uwierzytelniania programu SQL Server.
+-   Umożliwia użytkownikom tooconnect z nieznanej lub niezaufanej domeny. Na przykład aplikacji, których klienci ustalonych nawiązuje połączenie z przypisywany logowania do programu SQL Server tooreceive hello ich zleceń.
+-   Umożliwia toosupport SQL Azure aplikacje sieci Web gdzie użytkownicy tworzyć własne tożsamości.
+-   Umożliwia deweloperom toodistribute na podstawie swoich aplikacji przy użyciu uprawnień złożonych hierarchii znane, ustawienia wstępnego logowania do programu SQL Server.
 
 > [!Note]
 > Jednak uwierzytelnianie programu SQL Server nie może używać protokołu zabezpieczeń protokołu Kerberos.
 
 Jeśli używasz **uwierzytelniania SQL** należy:
 
--   Zarządzanie silnych poświadczeń użytkownika.
--   Ochrona poświadczeń w parametrach połączenia.
--   (Potencjalnie) chronić poświadczenia przekazywane za pośrednictwem sieci z serwera sieci Web do bazy danych. Aby uzyskać więcej informacji, zobacz [porady: nawiązać połączenie przy użyciu SQL uwierzytelniania programu SQL Server w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
+-   Zarządzanie hello silnych poświadczeń użytkownika.
+-   Ochrona poświadczeń hello w parametrach połączenia hello.
+-   (Potencjalnie) chronić hello poświadczenia przekazywane za pośrednictwem sieci hello z hello Web server toohello w bazie danych. Aby uzyskać więcej informacji, zobacz [porady: łączenie tooSQL serwera przy użyciu uwierzytelniania SQL w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
 
-**Usługa Azure Active Directory authentication** mechanizm nawiązywać połączenia z bazą danych SQL Azure Microsoft i [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) przy użyciu tożsamości w usłudze Azure Active Directory (Azure AD). Przy użyciu uwierzytelniania usługi Azure AD mogą centralnie zarządzać tożsamości użytkowników bazy danych i innych usług firmy Microsoft w jednej centralnej lokalizacji. Centralne zarządzanie identyfikator udostępnia jedno miejsce do zarządzania użytkownikami bazy danych i upraszcza zarządzanie uprawnieniami. Następujące korzyści:
+**Usługa Azure Active Directory authentication** mechanizm łączący tooMicrosoft bazy danych SQL Azure i [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) przy użyciu tożsamości w usłudze Azure Active Directory (Azure AD). Przy użyciu uwierzytelniania usługi Azure AD mogą centralnie zarządzać hello tożsamości użytkowników bazy danych i innych usług firmy Microsoft w jednej centralnej lokalizacji. Centralne zarządzanie identyfikator udostępnia jedno miejsce toomanage bazy danych użytkowników i upraszcza zarządzanie uprawnieniami. Witaj następujące korzyści:
 
--   Zapewnia zamiast uwierzytelniania programu SQL Server.
--   Pomaga zatrzymać rozprzestrzenianie tożsamości użytkowników na serwerach bazy danych.
+-   Zapewnia alternatywny tooSQL uwierzytelniania serwera.
+-   Pomaga zatrzymać rozprzestrzenianie hello tożsamości użytkowników na serwerach bazy danych.
 -   Umożliwia obrotu hasła w jednym miejscu.
 -   Klientów można zarządzać za pomocą zewnętrznego grup (AAD) uprawnień do bazy danych.
 -   Można go wyeliminować zapisywania haseł przez włączenie zintegrowanego uwierzytelniania systemu Windows i innych metod uwierzytelniania obsługiwanych przez usługę Azure Active Directory.
--   Usługa Azure AD authentication używa użytkowników zawartej bazy danych do uwierzytelniania tożsamości na poziomie bazy danych.
--   Usługi Azure AD obsługuje uwierzytelnianie na podstawie tokenu dla aplikacji łączenia z bazą danych SQL.
+-   Azure AD uwierzytelniania przy użyciu tożsamości tooauthenticate użytkowników zawartej bazy danych na poziomie bazy danych hello.
+-   Usługi Azure AD obsługuje uwierzytelnianie na podstawie tokenu łączenie tooSQL bazy danych aplikacji.
 -   Usługa Azure AD authentication obsługuje usług AD FS (Federacja domen) lub native użytkownika i hasło uwierzytelniania lokalnej usługi Azure Active Directory bez synchronizacji domeny.
 -   Usługi Azure AD obsługuje połączenia z programu SQL Server Management Studio, które używają uniwersalnych uwierzytelnianie usługi Active Directory, która obejmuje usługi Multi-Factor Authentication (MFA). Silne uwierzytelnianie za pomocą różnych opcji weryfikacji łatwe obejmuje MFA — połączenie telefoniczne, wiadomość tekstowa, karty inteligentne z numeru pin lub powiadomienie aplikacji mobilnej. Aby uzyskać więcej informacji, zobacz [SSMS obsługę usługi Azure AD MFA z bazy danych SQL i usługi SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-ssms-mfa-authentication).
 
-Kroki konfiguracji obejmują następujących procedur, aby skonfigurować i korzystać z uwierzytelniania usługi Azure Active Directory.
+kroki konfiguracji Hello obejmują następujące procedury tooconfigure hello i korzystać z uwierzytelniania usługi Azure Active Directory.
 
 -   Utworzyć i wypełnić usługi Azure AD.
--   Opcjonalnie: Skojarz lub zmienić usługi active directory, który jest aktualnie powiązany z subskrypcją platformy Azure.
+-   Opcjonalnie: Skojarz lub zmiany usługi active directory hello aktualnie skojarzony z subskrypcją platformy Azure.
 -   Tworzenie administratora usługi Azure Active Directory dla serwera Azure SQL lub [magazyn danych SQL Azure](https://azure.microsoft.com/services/sql-data-warehouse/).
 - Konfigurowanie komputerów klienckich.
--   Utwórz użytkowników zawartej bazy danych w bazie danych mapowany na tożsamość usługi Azure AD.
--   Połączenia z bazą danych przy użyciu tożsamości usługi Azure AD.
+-   Utwórz użytkowników zawartej bazy danych programu tooAzure zamapować bazy danych tożsamości usługi AD.
+-   Łączenie tooyour bazy danych przy użyciu tożsamości usługi Azure AD.
 
 Informacje szczegółowe informacje można znaleźć [tutaj](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
 
 ## <a name="protect-your-data-using-encryption"></a>Ochrona danych przy użyciu szyfrowania
 
-[Azure SQL Database przezroczystego szyfrowania danych (funkcji TDE)](https://msdn.microsoft.com/library/dn948096.aspx) pomaga chronić przed zagrożeniem złośliwych działań, wykonując w czasie rzeczywistym szyfrowanie i odszyfrowywanie bazy danych, skojarzonych kopii zapasowych, i pliki dziennika transakcji w stanie spoczynku bez konieczności wprowadzania zmian w aplikacji. Funkcji TDE szyfruje magazyn całej bazy danych przy użyciu klucza symetrycznego o nazwie klucza szyfrowania bazy danych.
+[Azure SQL Database przezroczystego szyfrowania danych (funkcji TDE)](https://msdn.microsoft.com/library/dn948096.aspx) pomaga chronić przed zagrożeniem hello złośliwych działań, wykonując w czasie rzeczywistym szyfrowania i odszyfrowywania hello bazy danych, skojarzonych kopii zapasowych, i pliki dziennika transakcji w stanie spoczynku bez Aplikacja toohello wymagające zmiany. Funkcji TDE szyfruje magazyn hello całej bazy danych przy użyciu klucza szyfrowania symetrycznego klucza o nazwie hello bazy danych.
 
-Nawet wtedy, gdy cały magazyn jest zaszyfrowany, bardzo ważne jest także szyfrowanie Twojej bazy danych. Jest to implementacja obrony w głębokość podejście do ochrony danych. Jeśli używasz bazy danych SQL Azure i chcesz chronić poufne dane, takie jak karty kredytowej lub numerów ubezpieczenia społecznego, można zaszyfrować baz danych z FIPS 140-2 zweryfikowane 256 bitowe szyfrowanie AES spełniające wymagania wiele standardy branżowe (np. HIPAA, PCI).
+Nawet wtedy, gdy cały magazyn hello jest zaszyfrowany, bardzo ważne jest tooalso szyfrowania bazy danych sam. Jest to implementacja obrony hello w głębokość podejście do ochrony danych. Jeśli używasz bazy danych SQL Azure i mają tooprotect poufnych danych, takich jak kart kredytowych lub numerów ubezpieczenia społecznego, można zaszyfrować baz danych z szyfrowania AES 256-bitową 140-2 zweryfikowane FIPS, który spełnia wymagania hello wiele standardy branżowe (np. HIPAA, PCI).
 
-Ważne jest, aby zrozumieć, że pliki związane z [(BPE). rozszerzenie puli bufora](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) nie są szyfrowane, gdy baza danych jest szyfrowana przy użyciu funkcji TDE. Należy użyć narzędzia szyfrowania na poziomie systemu plików, takich jak [funkcji BitLocker](https://technet.microsoft.com/library/cc732774) lub [system szyfrowania plików (EFS)](https://technet.microsoft.com/library/cc700811.aspx) dla BPE powiązane pliki.
+Koniecznie toounderstand, które pliki związane z zbyt[(BPE). rozszerzenie puli bufora](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) nie są szyfrowane, gdy baza danych jest szyfrowana przy użyciu funkcji TDE. Należy użyć narzędzia szyfrowania na poziomie systemu plików, takich jak [funkcji BitLocker](https://technet.microsoft.com/library/cc732774) lub hello [system szyfrowania plików (EFS)](https://technet.microsoft.com/library/cc700811.aspx) dla BPE powiązane pliki.
 
-Od autoryzowanym użytkownikiem, takie jak administrator zabezpieczeń lub administrator bazy danych ma dostęp do danych, nawet jeśli bazy danych jest szyfrowany przy funkcji TDE, należy również postępować zgodnie z poniższymi zaleceniami:
+Od autoryzowanym użytkownikiem, takie jak administrator zabezpieczeń lub administrator bazy danych można uzyskiwać dostęp do danych hello nawet jeśli hello bazy danych jest szyfrowany przy funkcji TDE, należy również wykonać poniższe zalecenia hello:
 
--   Włącz uwierzytelnianie SQL na poziomie bazy danych.
+-   Włącz uwierzytelnianie SQL na poziomie hello bazy danych.
 -   Użyj usługi Azure AD uwierzytelnianie przy użyciu [role RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
--   Użytkownicy i aplikacje powinny używać osobnych kont do uwierzytelniania. W ten sposób można ograniczyć uprawnień użytkowników i aplikacje i zmniejszenia ryzyka złośliwych działań.
--   Implementowanie zabezpieczeń na poziomie bazy danych przy użyciu ról stałej bazy danych (takich jak db_datareader lub db_datawriter), lub można utworzyć niestandardowe role w aplikacji można przyznać uprawnienia jawne do zaznaczonych obiektów bazy danych.
+-   Użytkownicy i aplikacje powinny używać tooauthenticate osobnych kont. W ten sposób można ograniczyć uprawnienia hello toousers i aplikacje i zmniejszenia ryzyka hello złośliwych działań.
+-   Implementowanie zabezpieczeń na poziomie bazy danych przy użyciu ról stałej bazy danych (takich jak db_datareader lub db_datawriter), lub można utworzyć role niestandardowe dla twojej aplikacji toogrant obiektów bazy danych tooselected jawne uprawnienia.
 
-Można również rozważyć inne sposoby szyfrowania danych:
+Dla innych sposobów tooencrypt danych, należy wziąć pod uwagę:
 
--   [Szyfrowanie na poziomie komórki](https://msdn.microsoft.com/library/ms179331.aspx) służące do szyfrowania określonej kolumny lub nawet poszczególnych komórek danych przy użyciu różnych kluczy szyfrowania.
--   Szyfrowania używany przy użyciu zawsze zaszyfrowane: [zawsze zaszyfrowane](https://msdn.microsoft.com/library/mt163865.aspx) umożliwia klientom szyfrowania poufnych danych w aplikacjach klienckich i nigdy nie podawaj kluczy szyfrowania z aparatem bazy danych (bazy danych SQL lub SQL Server). W związku z tym zawsze zaszyfrowane zapewnia oddzielenie tych, którzy należą dane (i mogły go wyświetlać) oraz tych, którzy zarządzania danymi (ale powinien nie mają dostępu).
--   Przy użyciu zabezpieczeń na poziomie wiersza: zabezpieczenia na poziomie wiersza służy do kontrolowania dostępu do wierszy w tabeli bazy danych na podstawie charakterystyk użytkownika wykonywania zapytania (np. grupy członkostwa lub wykonywania context). Aby uzyskać więcej informacji, zobacz [Zabezpieczenia na poziomie wierszy](https://msdn.microsoft.com/library/dn765131).
+-   [Szyfrowanie na poziomie komórki](https://msdn.microsoft.com/library/ms179331.aspx) tooencrypt określone kolumny lub komórki nawet danych z różnymi kluczami szyfrowania.
+-   Szyfrowania używany przy użyciu zawsze zaszyfrowane: [zawsze zaszyfrowane](https://msdn.microsoft.com/library/mt163865.aspx) umożliwia klientom tooencrypt poufnych danych w aplikacjach klienckich i nigdy nie ujawniaj informacji o toohello klucze szyfrowania hello aparatu bazy danych (bazy danych SQL lub SQL Server). W związku z tym zawsze zaszyfrowane zapewnia oddzielenie tych, którzy własnych danych hello (i można go wyświetlić) oraz tych, którzy zarządzają danymi hello (ale powinien nie mają dostępu).
+-   Przy użyciu zabezpieczeń na poziomie wiersza: zabezpieczenia na poziomie wiersza umożliwia klientom toocontrol dostępu toorows w tabeli bazy danych na podstawie charakterystyk hello użytkownika hello wykonywania zapytania (np. grupy członkostwa lub wykonywania context). Aby uzyskać więcej informacji, zobacz [Zabezpieczenia na poziomie wierszy](https://msdn.microsoft.com/library/dn765131).
 
 ## <a name="protect-data-in-transit"></a>Ochrona danych podczas przesyłania
-Ochrona danych podczas przesyłania powinien być integralną część strategii ochrony danych. Ponieważ dane będą przenoszone i z powrotem w wielu lokalizacjach, ogólne zalecenie jest zawsze używają protokołów SSL/TLS do wymiany danych w różnych lokalizacjach. W niektórych sytuacjach można odizolować kanału całej komunikacji między lokalnymi i w chmurze infrastruktury przy użyciu wirtualnej sieci prywatnej (VPN).
+Ochrona danych podczas przesyłania powinien być integralną część strategii ochrony danych. Ponieważ dane będą przenoszone i z powrotem w wielu lokalizacjach, ogólne zalecenie hello jest zawsze używaj danych tooexchange protokołów SSL/TLS w różnych lokalizacjach. W niektórych sytuacjach może być tooisolate hello całej komunikacji kanału między lokalnymi i w chmurze infrastruktury przy użyciu wirtualnej sieci prywatnej (VPN).
 
 Przenoszenie między lokalną infrastrukturą i Azure danych należy rozważyć odpowiednie zabezpieczenia, takie jak HTTPS lub sieci VPN.
 
-Dla organizacji, które trzeba bezpieczny dostęp z wielu stacji roboczych lokalnego do platformy Azure, użyj [Azure VPN lokacja lokacja](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
+Dla organizacji, które wymagają dostępu toosecure z wielu stacjach roboczych znajdujących się lokalnie tooAzure, użyj [Azure VPN lokacja lokacja](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
 
-Organizacje, które trzeba zabezpieczyć dostęp z poszczególnych stacji roboczych lokalnymi lub poza siedzibą firmy na platformie Azure, warto rozważyć użycie [punkt-lokacja sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
+W przypadku organizacji, które wymagają toosecure dostęp z poszczególnych stacji roboczych lokalnymi lub tooAzure poza firmą, rozważ użycie [punkt-lokacja sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
-Większych zestawów danych można przenieść za pośrednictwem dedykowanej o dużej szybkości łącza sieci WAN takich jak [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Jeśli chcesz używać usługi ExpressRoute, można także szyfrowanie danych na poziomie aplikacji przy użyciu [SSL/TLS](https://support.microsoft.com/kb/257591) lub innymi protokołami zapewnia dodatkową ochronę.
+Większych zestawów danych można przenieść za pośrednictwem dedykowanej o dużej szybkości łącza sieci WAN takich jak [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Jeśli wybierzesz toouse ExpressRoute, można również szyfrowanie danych hello przy użyciu poziomu aplikacji hello [SSL/TLS](https://support.microsoft.com/kb/257591) lub innymi protokołami zapewnia dodatkową ochronę.
 
-Jeśli użytkownik korzysta z usługi Azure Storage za pośrednictwem portalu Azure, wszystkich transakcji jest realizowana za pośrednictwem protokołu HTTPS. [Interfejs API REST magazynu](https://msdn.microsoft.com/library/azure/dd179355.aspx) over HTTPS można również wchodzić w interakcje z [usługi Azure Storage](https://azure.microsoft.com/services/storage/) i [bazy danych SQL Azure](https://azure.microsoft.com/services/sql-database/).
+Jeśli użytkownik korzysta z usługi Azure Storage za pomocą portalu Azure hello, wszystkich transakcji jest realizowana za pośrednictwem protokołu HTTPS. [Interfejs API REST magazynu](https://msdn.microsoft.com/library/azure/dd179355.aspx) za pośrednictwem protokołu HTTPS może być również używane toointeract z [usługi Azure Storage](https://azure.microsoft.com/services/storage/) i [bazy danych SQL Azure](https://azure.microsoft.com/services/sql-database/).
 
-Organizacje, które się nie powieść, aby chronić przesyłane dane są bardziej narażony na [ataków man-in--middle](https://technet.microsoft.com/library/gg195821.aspx), [podsłuchiwaniu](https://technet.microsoft.com/library/gg195641.aspx) i przejęcie kontroli sesji. Tego rodzaju ataki może być pierwszym krokiem w uzyskiwaniu dostępu do poufnych danych.
+Organizacje, które nie są przesyłane dane tooprotect są bardziej narażony na [ataków man-in--middle](https://technet.microsoft.com/library/gg195821.aspx), [podsłuchiwaniu](https://technet.microsoft.com/library/gg195641.aspx) i przejęcie kontroli sesji. Tego rodzaju ataki może być pierwszym krokiem hello w uzyskiwaniu dostępu do danych tooconfidential.
 
-Aby dowiedzieć się więcej o opcji sieci VPN platformy Azure, przeczytaj artykuł [planowania i projektowania dla bramy sieci VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+więcej informacji na temat opcji sieci VPN platformy Azure, przeczytaj artykuł hello toolearn [planowania i projektowania dla bramy sieci VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Włączanie inspekcji bazy danych
-Inspekcja wystąpienia aparatu bazy danych programu SQL Server lub jedna baza danych obejmuje śledzenie i rejestrowanie zdarzeń dotyczących aparatu bazy danych. SQL Server audit umożliwia tworzenie inspekcji serwera, które może zawierać specyfikacji inspekcji serwera dla zdarzenia na poziomie serwera i specyfikacji inspekcji bazy danych dla zdarzenia na poziomie bazy danych. Zdarzenia inspekcji mogą być zapisywane w dziennikach zdarzeń lub plików inspekcji.
+Inspekcja wystąpienia hello aparatu bazy danych programu SQL Server lub jedna baza danych obejmuje śledzenie i rejestrowanie zdarzeń dotyczących hello aparatu bazy danych. SQL Server audit umożliwia tworzenie inspekcji serwera, które może zawierać specyfikacji inspekcji serwera dla zdarzenia na poziomie serwera i specyfikacji inspekcji bazy danych dla zdarzenia na poziomie bazy danych. Dzienniki zdarzeń toohello lub tooaudit plików można pisać zdarzeń inspekcji.
 
-Istnieje kilka poziomów inspekcji dla programu SQL Server, w zależności od rząd lub standardów wymagań instalacyjnych. SQL Server Audit zapewnia narzędzia i procesy, które muszą mieć, aby włączyć, przechowywania i wyświetlania na różnych obiektów serwera i bazy danych inspekcji.
+Istnieje kilka poziomów inspekcji dla programu SQL Server, w zależności od rząd lub standardów wymagań instalacyjnych. SQL Server Audit oferuje narzędzia hello i procesy musi mieć tooenable, magazynu i widoku inspekcji, które znajdują się na różnych obiektów serwera i bazy danych.
 
-[Usługa Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) śledzi zdarzenia bazy danych i zapisuje je inspekcji logowania na koncie magazynu Azure.
+[Usługa Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) śledzi zdarzenia bazy danych i zapisuje je tooan dziennik inspekcji na koncie magazynu Azure.
 
 Inspekcja pomaga zachować zgodność z przepisami, analizować aktywność bazy danych oraz uzyskać wgląd w odchylenia i anomalie, które mogą oznaczać problemy biznesowe lub podejrzane naruszenia zabezpieczeń.
 
-Inspekcja umożliwia i ułatwia przestrzeganie standardów zgodności, ale nie gwarantuje się zgodności.
+Inspekcja umożliwia i ułatwia standardów toocompliance zgodność, ale nie gwarantuje się zgodności.
 
-Aby dowiedzieć się więcej o inspekcji bazy danych oraz jak je włączyć, przeczytaj artykuł [włączyć inspekcję i wykrywania zagrożeń na serwerach SQL w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
+więcej informacji na temat inspekcji bazy danych toolearn i jak tooenable, przeczytaj artykuł hello [włączyć inspekcję i wykrywania zagrożeń na serwerach SQL w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
 
 ## <a name="enable-database-threat-detection"></a>Włączyć wykrywanie zagrożeń bazy danych
-Wykrywanie zagrożeń SQL umożliwia wykrywanie i odpowiadanie na potencjalne zagrożenia w miarę ich występowania, zapewniając alerty zabezpieczeń w nietypowych działań. Zostanie wyświetlony alert po bazy danych podejrzanych działań, potencjalnych luk i ataki, a także bazy danych nietypowe wzorce dostępu. Wykrywanie zagrożeń SQL alerty zawierają szczegółowe informacje o podejrzanych działaniach i zalecane działania dotyczące sposobu badania i ograniczyć zagrożenie.
+Wykrywanie zagrożeń SQL pozwala toodetect i Odpowiedz toopotential zagrożeń w miarę ich występowania, zapewniając alerty zabezpieczeń w nietypowych działań. Zostanie wyświetlony alert po bazy danych podejrzanych działań, potencjalnych luk i ataki, a także bazy danych nietypowe wzorce dostępu. Wykrywanie zagrożeń SQL alerty zawierają szczegółowe informacje o podejrzanych działaniach i zalecane działania dotyczące tooinvestigate i uniknięcie hello zagrożenia.
 
-Na przykład iniekcja kodu SQL jest jednym z typowych problemów zabezpieczeń aplikacji sieci Web w Internecie, używane do ataków opartych na danych aplikacji. Osoby atakujące wykorzystać luki w zabezpieczeniach aplikacji do dodania złośliwego instrukcje SQL do pola wejścia aplikacji, naruszenia lub modyfikowanie danych w bazie danych.
+Na przykład iniekcja kodu SQL jest jednym z hello typowych problemów sieci Web aplikacji zabezpieczeń na powitania internetowe, aplikacje używane tooattack opartych na danych. Osoby atakujące korzystać z tooinject luk w zabezpieczeniach aplikacji złośliwego instrukcji SQL do pola wejścia aplikacji, mogą spowodować lub modyfikowanie danych w bazie danych hello.
 
-Aby dowiedzieć się więcej o konfigurowaniu wykrywanie zagrożeń dla bazy danych w portalu Azure można znaleźć [wykrywanie zagrożeń bazy danych SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
+toolearn temat tooset się wykrywanie zagrożeń dla bazy danych w hello Azure portalu, zobacz temat [wykrywanie zagrożeń bazy danych SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 
-Ponadto wykrywanie zagrożeń SQL integruje alerty z [Centrum zabezpieczeń Azure](https://azure.microsoft.com/services/security-center/). Zapraszamy do bezpłatnego wypróbowania tej funkcji przez 60 dni.
+Ponadto wykrywanie zagrożeń SQL integruje alerty z [Centrum zabezpieczeń Azure](https://azure.microsoft.com/services/security-center/). Zachęcamy tootry go przez 60 dni do zwolnienia.
 
-Aby dowiedzieć się więcej na temat wykrywania zagrożeń bazy danych oraz jak je włączyć, przeczytaj artykuł [włączyć inspekcję i wykrywania zagrożeń na serwerach SQL w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
+więcej informacji na temat wykrywania zagrożeń bazy danych toolearn i jak tooenable, przeczytaj artykuł hello [włączyć inspekcję i wykrywania zagrożeń na serwerach SQL w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
 
 ## <a name="conclusion"></a>Podsumowanie
-Bazy danych platformy Azure to platforma niezawodne bazy danych, z pełnym zakresem funkcji zabezpieczeń, które spełniają wymagania organizacyjne i przepisami zgodności wiele. Możesz pomóc w ochronie danych przez kontrolowanie fizyczny dostęp do danych i za pomocą różnych opcji zabezpieczeń danych w pliku, kolumny lub poziom wiersza niewidocznego szyfrowania danych, szyfrowanie na poziomie komórki lub zabezpieczenia na poziomie wiersza. Zawsze zaszyfrowane umożliwia również operacji względem zaszyfrowane dane, uproszczeniu procesu aktualizacji aplikacji. Z kolei dostęp do inspekcji Dzienniki aktywności bazy danych SQL zawiera informacje, które są potrzebne, co należy wiedzieć, jak i kiedy jest uzyskiwany dostęp do danych.
+Bazy danych platformy Azure to platforma niezawodne bazy danych, z pełnym zakresem funkcji zabezpieczeń, które spełniają wymagania organizacyjne i przepisami zgodności wiele. Można chronić dane kontrolowanie hello dostęp fizyczny tooyour danych, a za pomocą różnych opcji zabezpieczeń danych na powitania pliku, kolumny lub poziom wiersza niewidocznego szyfrowania danych, szyfrowanie na poziomie komórki lub zabezpieczenia na poziomie wiersza. Zawsze zaszyfrowane umożliwia również operacji względem zaszyfrowane dane, co upraszcza proces aktualizacji aplikacji hello. Z kolei dostępu tooauditing Dzienniki aktywności bazy danych SQL pozwala hello potrzebne informacje, dzięki czemu tooknow, jak i kiedy jest uzyskiwany dostęp do danych.
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby dowiedzieć się więcej na temat reguł zapory, zobacz [reguły zapory](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
-- Aby dowiedzieć się więcej o użytkownikach i danych logowania, zobacz [Zarządzanie danymi logowania](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- toolearn więcej informacji na temat reguł zapory, zobacz [reguły zapory](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
+- toolearn o użytkownikach i logowania, zobacz [Zarządzanie logowania](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 - Samouczek, zobacz [zabezpieczenia bazy danych SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).

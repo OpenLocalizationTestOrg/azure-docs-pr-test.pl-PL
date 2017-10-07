@@ -1,6 +1,6 @@
 ---
-title: "Zbieranie danych niestandardowych JSON w OMS analizy dzienników | Dokumentacja firmy Microsoft"
-description: "Mogą być zbierane niestandardowych źródeł danych JSON do analizy dzienników dla systemu Linux przy użyciu agenta pakietu OMS.  Te źródła danych niestandardowych można proste skrypty zwracanie JSON, takie jak curl lub jednego z jego FluentD 300 + wtyczek. W tym artykule opisano konfiguracja wymagana dla tej kolekcji danych."
+title: niestandardowe dane JSON aaaCollecting w OMS Log Analytics | Dokumentacja firmy Microsoft
+description: "Mogą być zbierane niestandardowych źródeł danych JSON do analizy dzienników dla systemu Linux przy użyciu hello Agent pakietu OMS.  Te źródła danych niestandardowych można proste skrypty zwracanie JSON, takie jak curl lub jednego z jego FluentD 300 + wtyczek. W tym artykule opisano hello konfiguracja wymagana dla tej kolekcji danych."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 800ee1269556e7c2d56fbbf2b497c10509b5c78c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 97d401408a8c206d4a9ef2ec9b13ba1ca6b5e92b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Zbieranie niestandardowych źródeł danych JSON z agentem pakietu OMS dla systemu Linux w analizy dzienników
-Mogą być zbierane niestandardowych źródeł danych JSON do analizy dzienników dla systemu Linux przy użyciu agenta pakietu OMS.  Te źródła danych niestandardowych mogą być proste skrypty, takie jak zwracanie JSON [curl](https://curl.haxx.se/) lub jednego z [w FluentD 300 + wtyczek](http://www.fluentd.org/plugins/all). W tym artykule opisano konfiguracja wymagana dla tej kolekcji danych.
+# <a name="collecting-custom-json-data-sources-with-hello-oms-agent-for-linux-in-log-analytics"></a>Zbieranie niestandardowych źródeł danych JSON z hello Agent pakietu OMS dla systemu Linux w analizy dzienników
+Mogą być zbierane niestandardowych źródeł danych JSON do analizy dzienników dla systemu Linux przy użyciu hello Agent pakietu OMS.  Te źródła danych niestandardowych mogą być proste skrypty, takie jak zwracanie JSON [curl](https://curl.haxx.se/) lub jednego z [w FluentD 300 + wtyczek](http://www.fluentd.org/plugins/all). W tym artykule opisano hello konfiguracja wymagana dla tej kolekcji danych.
 
 > [!NOTE]
 > Agent pakietu OMS dla systemu Linux v1.1.0-217 + jest wymagana dla danych JSON niestandardowe
@@ -30,9 +30,9 @@ Mogą być zbierane niestandardowych źródeł danych JSON do analizy dziennikó
 
 ### <a name="configure-input-plugin"></a>Skonfiguruj wtyczkę wejściowych
 
-Aby zbierać dane JSON w analizy dzienników, Dodaj `oms.api.` na początku tag FluentD w wejściowych wtyczki.
+Dodaj dane JSON toocollect w analizy dzienników `oms.api.` toohello początku tag FluentD w wejściowych wtyczki.
 
-Na przykład poniżej przedstawiono plik konfiguracji oddzielnych `exec-json.conf` w `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Używa wtyczki FluentD `exec` do uruchamiania polecenia curl co 30 sekund.  Dane wyjściowe tego polecenia są zbierane przez wtyczkę dane wyjściowe JSON.
+Na przykład poniżej przedstawiono plik konfiguracji oddzielnych `exec-json.conf` w `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Używa wtyczki FluentD hello `exec` toorun polecenia curl co 30 sekund.  dane wyjściowe tego polecenia Hello są zbierane przez wtyczkę dane wyjściowe JSON hello.
 
 ```
 <source>
@@ -56,12 +56,12 @@ Na przykład poniżej przedstawiono plik konfiguracji oddzielnych `exec-json.con
   retry_wait 30s
 </match>
 ```
-Plik konfiguracji dodany w obszarze `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` trzeba mieć własność zmienić przy użyciu następującego polecenia.
+dodawane w pliku konfiguracji Hello `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` będzie wymagać toohave zmienić własność z hello następujące polecenia.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
 ### <a name="configure-output-plugin"></a>Skonfiguruj wtyczkę danych wyjściowych 
-Dodaj następującą konfigurację wtyczki dane wyjściowe do konfiguracji głównego w `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` lub plik konfiguracji oddzielne wprowadzanych w`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+Dodaj hello następujące dane wyjściowe wtyczki toohello głównego Konfiguracja w `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` lub plik konfiguracji oddzielne wprowadzanych w`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
 ```
 <match oms.api.**>
@@ -79,18 +79,18 @@ Dodaj następującą konfigurację wtyczki dane wyjściowe do konfiguracji głó
 ```
 
 ### <a name="restart-oms-agent-for-linux"></a>Uruchom ponownie agenta pakietu OMS dla systemu Linux
-Uruchom ponownie agenta pakietu OMS usługi systemu Linux przy użyciu następującego polecenia.
+Uruchom ponownie hello Agent pakietu OMS dla systemu Linux usługi z hello następujące polecenia.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Dane wyjściowe
-Dane zostaną zebrane w analizy dzienników z typem rekordu `<FLUENTD_TAG>_CL`.
+Witaj dane będą zbierane w analizy dzienników z typem rekordu `<FLUENTD_TAG>_CL`.
 
-Na przykład niestandardowe tag `tag oms.api.tomcat` w analizy dzienników z typem rekordu `tomcat_CL`.  Można pobrać wszystkie rekordy tego typu z następujących wyszukiwania dziennika.
+Na przykład Witaj niestandardowy `tag oms.api.tomcat` w analizy dzienników z typem rekordu `tomcat_CL`.  Wszystkie rekordy tego typu można pobrać z powitania po wyszukiwania dziennika.
 
     Type=tomcat_CL
 
-Zagnieżdżone dane JSON źródeł, są obsługiwane, ale są indeksowane na podstawie pola nadrzędnego. Na przykład następujące dane JSON jest zwracana z analizy dzienników wyszukiwanie jako `tag_s : "[{ "a":"1", "b":"2" }]`.
+Zagnieżdżone dane JSON źródeł, są obsługiwane, ale są indeksowane na podstawie pola nadrzędnego. Na przykład następujące dane JSON hello zostanie zwrócona przez wyszukiwanie analizy dzienników jako `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
@@ -103,5 +103,5 @@ Zagnieżdżone dane JSON źródeł, są obsługiwane, ale są indeksowane na pod
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) analizować dane zebrane ze źródeł danych i rozwiązania. 
+* Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) tooanalyze hello dane zebrane ze źródeł danych i rozwiązań. 
  

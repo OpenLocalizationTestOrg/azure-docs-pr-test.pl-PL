@@ -1,6 +1,6 @@
 ---
-title: "Poprawić wydajność indeksu magazynu kolumn w Azure SQL | Dokumentacja firmy Microsoft"
-description: "Zmniejsz wymagania dotyczące pamięci lub zwiększ ilość dostępnej pamięci, aby zmaksymalizować liczbę wierszy indeksu magazynu kolumn kompresuje do każdej grupy wierszy."
+title: "wydajność indeksu magazynu kolumn aaaImprove SQL Azure | Dokumentacja firmy Microsoft"
+description: "Zmniejsz wymagania dotyczące pamięci lub zwiększ hello dostępnej pamięci toomaximize hello liczbę wierszy indeksu magazynu kolumn kompresuje do każdej grupy wierszy."
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -15,35 +15,35 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2c5a68435aa200236a2dc8538aa4638b52a59093
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maksymalizacja jakości i dla magazynu kolumn
 
-Jakość i zależy od liczby wierszy w grupy wierszy. Zmniejsz wymagania dotyczące pamięci lub zwiększ ilość dostępnej pamięci, aby zmaksymalizować liczbę wierszy indeksu magazynu kolumn kompresuje do każdej grupy wierszy.  Użycia tych metod w celu zwiększenia kompresji i zbadać wydajność dla indeksów magazynu kolumn.
+Jakość i jest określana przez hello liczbę wierszy w grupy wierszy. Zmniejsz wymagania dotyczące pamięci lub zwiększ hello dostępnej pamięci toomaximize hello liczbę wierszy indeksu magazynu kolumn kompresuje do każdej grupy wierszy.  Użyj tych metody tooimprove kompresji szybkości i wydajności zapytań dla indeksów magazynu kolumn.
 
-## <a name="why-the-rowgroup-size-matters"></a>Dlaczego rozmiar i ma znaczenie
-Ponieważ indeks magazynu kolumn skanowania tabeli za pomocą skanowania segmentów kolumny z poszczególnych rowgroups, maksymalizacja liczby wierszy w każdym i zwiększa wydajność zapytań. Gdy rowgroups ma dużą liczbę wierszy, kompresji danych zwiększa, co oznacza, że jest mniejsza ilość danych do odczytu z dysku.
+## <a name="why-hello-rowgroup-size-matters"></a>Dlaczego hello i rozmiar ma znaczenie
+Ponieważ indeks magazynu kolumn skanowania tabeli za pomocą skanowania segmentów kolumny z poszczególnych rowgroups, maksymalizacja hello liczbę wierszy w każdym i zwiększa wydajność zapytań. Gdy rowgroups ma dużą liczbę wierszy, kompresji danych zwiększa, co oznacza, że istnieje mniej tooread danych z dysku.
 
 Aby uzyskać więcej informacji o rowgroups, zobacz [przewodnik indeksy magazynu kolumn](https://msdn.microsoft.com/library/gg492088.aspx).
 
 ## <a name="target-size-for-rowgroups"></a>Rozmiar docelowy rowgroups
-Aby uzyskać najlepszą wydajność zapytań celem jest zwiększenie liczby wierszy na grupy wierszy w indeksie magazynu kolumn. I może mieć maksymalnie 1 048 576 wierszy. Ma nic złego, nie ma maksymalną liczbę wierszy na grupy wierszy. Indeksy magazynu kolumn uzyskać dobrą wydajność, gdy rowgroups zawiera co najmniej 100 000 wierszy.
+Aby uzyskać najlepszą wydajność zapytań celem hello jest toomaximize hello liczba wierszy przypadających na grupy wierszy w indeksie magazynu kolumn. I może mieć maksymalnie 1 048 576 wierszy. Jego zgadzasz toonot ma hello maksymalna liczba wierszy przypadających na grupy wierszy. Indeksy magazynu kolumn uzyskać dobrą wydajność, gdy rowgroups zawiera co najmniej 100 000 wierszy.
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>Rowgroups można pobrać usuwane podczas kompresji
 
-Podczas zbiorczego obciążenia lub magazynu kolumn odbudowywanie indeksu czasami nie ma wystarczającej ilości pamięci do skompresowania wszystkie wiersze, które są przeznaczone dla każdej grupy wierszy. W przypadku wykorzystania pamięci indeksy magazynu kolumn trim rozmiary i dlatego może się powieść kompresji do magazynu kolumn. 
+Podczas zbiorczego obciążenia lub magazynu kolumn odbudowywanie indeksu czasami nie ma wystarczającej ilości pamięci dostępnej toocompress hello wszystkie wiersze przeznaczone dla każdej grupy wierszy. W przypadku wykorzystania pamięci indeksy magazynu kolumn trim hello rozmiary i dlatego może się powieść kompresji w hello magazynu kolumn. 
 
-Jeśli jest za mało pamięci do skompresowania co najmniej 10 000 wierszy do każdej grupy wierszy, SQL Data Warehouse generuje błąd.
+Usługi SQL Data Warehouse generuje błąd, w przypadku niewystarczającej ilości pamięci toocompress co najmniej 10 000 wierszy do każdej grupy wierszy.
 
 Aby uzyskać więcej informacji dotyczących ładowania zbiorczego, zobacz [ładowanie zbiorcze do klastrowanego indeksu magazynu kolumn](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
-## <a name="how-to-monitor-rowgroup-quality"></a>Jak monitorować i jakość
+## <a name="how-toomonitor-rowgroup-quality"></a>Jak toomonitor i jakość
 
-Brak udostępnia przydatne informacje, takie jak liczba wierszy w rowgroups i przyczynę przycinanie, jeśli został przycinanie DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats). Można utworzyć następującego widoku jako wygodny sposób na zapytania DMV ten można pobrać informacji na temat przycinanie i.
+Brak udostępnia przydatne informacje, takie jak liczba wierszy w rowgroups i hello Przyczyna przycinanie, jeśli został przycinanie DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats). Te informacje tooget DMV hello następującego widoku w postaci tooquery wygodny sposób można tworzyć na przycinanie grupy wierszy.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -70,18 +70,18 @@ select *
 from cte;
 ```
 
-Trim_reason_desc informuje, czy został przycięty grupy wierszy (trim_reason_desc = NO_TRIM oznacza nie było żadnych przycinanie i grupę wierszy jest jakość). Skutkiem przycinania oznaczać przedwczesny przycinanie grupy wierszy:
-- BULKLOAD: Z tego powodu przycinania jest używany, gdy przychodzący partii wierszy obciążenia ma mniej niż 1 milion wierszy. Aparat spowoduje utworzenie grupy wierszy skompresowany, jeśli jest większa niż 100 000 wierszy wstawiane (zamiast wstawianie do magazynu delta), ale ustawia przycinania Przyczyna BULKLOAD. W tym scenariuszu należy rozważyć zwiększenie obciążenia partii okna gromadzone więcej wierszy. Ponadto obliczyć ponownie Twoje schemat partycjonowania, aby upewnić się, że nie jest on zbyt szczegółowego jako grupy wierszy nie może obejmować granice partycji.
-- MEMORY_LIMITATION: Tworzenie grup wiersza o 1 milion wierszy, określoną ilość pamięci roboczej jest wymagana przez aparat. Gdy dostępna pamięć sesji ładowania jest mniejsza od wymaganej pamięci pracy, grupy wierszy przedwcześnie uzyskać usuwane. W poniższych sekcjach opisano sposób szacowania pamięci wymaganej i przydzielić więcej pamięci.
-- DICTIONARY_SIZE: Z tego powodu przycinania wskazuje, że przycinanie i wystąpił, ponieważ wystąpił co najmniej jednej kolumny typu string z ciągami Kardynalność szerokości i/lub wysokiego. Rozmiar słownika może zawierać maksymalnie 16 MB pamięci i jest skompresowany po osiągnięciu tego limitu grupę wierszy. Jeśli zostanie uruchomione w tej sytuacji, należy wziąć pod uwagę izolowanie kolumnie powodować problemy w osobnej tabeli.
+Hello trim_reason_desc informuje, czy został przycięty i hello (trim_reason_desc = NO_TRIM oznacza nie było żadnych przycinanie i grupę wierszy jest jakość). Witaj skutkiem przycinania oznaczać przedwczesny przycinanie i hello:
+- BULKLOAD: Z tego powodu przycinania jest używany podczas hello przychodzące partii wierszy dla obciążenia hello ma mniej niż 1 milion wierszy. Jeśli jest większa niż 100 000 wierszy wstawiane (w przeciwieństwie tooinserting do magazynu delta hello), ale zestawy hello tooBULKLOAD przycinania Przyczyna aparat Hello utworzy grupy wierszy skompresowane. W tym scenariuszu należy rozważyć zwiększenie tooaccumulate okna obciążenia sieci partii więcej wierszy. Ponadto obliczyć ponownie Twoje partycjonowania tooensure schematu nie jest zbyt szczegółowego jako grupy wierszy nie może obejmować granice partycji.
+- MEMORY_LIMITATION: toocreate grupy wiersza o 1 milion wierszy, określoną ilość pamięci roboczej jest wymagana przez aparat hello. Gdy dostępna pamięć hello ładowania sesji jest mniejszy niż wymagane hello pracy pamięci, grupy wierszy przedwcześnie uzyskać usuwane. następujące sekcje Hello Wyjaśnij, jak tooestimate pamięci wymagane i przydzielenie większej ilości pamięci.
+- DICTIONARY_SIZE: Z tego powodu przycinania wskazuje, że przycinanie i wystąpił, ponieważ wystąpił co najmniej jednej kolumny typu string z ciągami Kardynalność szerokości i/lub wysokiego. Rozmiar słownika Hello jest ograniczona too16, który jest skompresowany MB w pamięci i po osiągnięciu tego limitu hello grupę wierszy. Jeśli zostanie uruchomione w tej sytuacji, należy wziąć pod uwagę izolowanie hello kolumny powodować problemy w osobnej tabeli.
 
-## <a name="how-to-estimate-memory-requirements"></a>Sposób oszacować wymagania dotyczące pamięci
+## <a name="how-tooestimate-memory-requirements"></a>Jak tooestimate wymagania dotyczące pamięci
 
 <!--
-To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
+tooview an estimate of hello memory requirements toocompress a rowgroup of maximum size into a columnstore index, download and run hello view [dbo.vCS_mon_mem_grant](). This view shows hello size of hello memory grant that a rowgroup requires for compression in toohello columnstore.
 -->
 
-Maksymalna wymagana ilość pamięci do skompresowania i jeden wynosi około
+Witaj maksymalna ilość pamięci wymagana toocompress jednej grupy wierszy wynosi około
 
 - 72 MB +
 - \#wiersze \* \#kolumn \* 8 bajtów +
@@ -90,43 +90,43 @@ Maksymalna wymagana ilość pamięci do skompresowania i jeden wynosi około
 
 gdzie krótki ciąg kolumn używać typów danych ciąg < = 32 bajtów i użyj długi ciąg kolumn danych typu ciąg > 32 bajtów.
 
-Długie ciągi są kompresowane za pomocą metody kompresji przeznaczone do kompresowania tekstu. Ta metoda kompresji używa *słownika* do przechowywania wzorce tekstu. Maksymalny rozmiar słownik jest 16 MB. Istnieje tylko jeden słownika dla każdej kolumny i długi ciąg.
+Długie ciągi są kompresowane za pomocą metody kompresji przeznaczone do kompresowania tekstu. Ta metoda kompresji używa *słownika* toostore wzorce tekstu. Maksymalny rozmiar słownika Hello jest 16 MB. Istnieje tylko jeden słownika dla każdej kolumny długi ciąg hello grupy wierszy.
 
 Szczegółowe omówienie wymagań pamięci magazynu kolumn, zobacz wideo [skalowania usługi Azure SQL Data Warehouse: wskazówki i konfiguracji](https://myignite.microsoft.com/videos/14822).
 
-## <a name="ways-to-reduce-memory-requirements"></a>Sposoby Zmniejsz wymagania dotyczące pamięci
+## <a name="ways-tooreduce-memory-requirements"></a>Wymagania dotyczące sposobów tooreduce pamięci
 
-Następujące techniki umożliwiają zmniejszyć wymagania dotyczące pamięci kompresowania rowgroups w indeksach magazynu kolumn.
+Użyj hello następujące techniki tooreduce hello wymagania dotyczące pamięci kompresowania rowgroups w indeksach magazynu kolumn.
 
 ### <a name="use-fewer-columns"></a>Użyj mniejszej liczby kolumn
-Jeśli to możliwe projektowanie tabeli z mniejszą liczbą kolumn. Podczas kompresowania i do magazynu kolumn, indeks magazynu kolumn kompresuje osobno każdy z segmentów kolumny. W związku z tym wymagania dotyczące pamięci do skompresowania i zwiększyć jako liczba wzrasta kolumn.
+Jeśli to możliwe projektowanie hello tabeli z mniejszą liczbą kolumn. Podczas kompresji i do magazynu kolumn hello indeksu magazynu kolumn hello oddzielnie kompresuje każdego segmentu kolumny. Witaj w związku z tym wymagania dotyczące pamięci, które toocompress i zwiększyć jako hello liczba wzrasta kolumn.
 
 
 ### <a name="use-fewer-string-columns"></a>Użyj mniejszej liczby kolumn ciągu
-Kolumny danych typu ciąg wymaga więcej pamięci niż liczbowych i typy danych Data. Aby zmniejszyć wymagania dotyczące pamięci, rozważ usunięcie kolumny ciągu z tabel faktów i umieszczania ich w mniejszych tabele wymiarów.
+Kolumny danych typu ciąg wymaga więcej pamięci niż liczbowych i typy danych Data. tooreduce wymagania dotyczące pamięci, rozważ usunięcie kolumny ciągu z tabel faktów i umieszczania ich w mniejszych tabele wymiarów.
 
 Wymagania dotyczące pamięci dodatkowe ciąg kompresji:
 
-- Typy danych w ciągu maksymalnie 32 znaki może wymagać 32 bajtów dodatkowe na wartość.
-- Typy danych ciąg z więcej niż 32 znaki są kompresowane przy użyciu metod słownika.  Każda kolumna i może wymagać maksymalnie dodatkowe 16 MB do tworzenia słownika.
+- Typy danych parametry się znaki too32 może wymagać 32 bajtów dodatkowe na wartość.
+- Typy danych ciąg z więcej niż 32 znaki są kompresowane przy użyciu metod słownika.  Każda kolumna hello i może wymagać się tooan dodatkowe 16 MB toobuild hello słownika.
 
 ### <a name="avoid-over-partitioning"></a>Unikaj nadmiernego partycjonowania
 
-Indeksy magazynu kolumn utworzyć rowgroups co najmniej jednej partycji. W usłudze SQL Data Warehouse liczba partycji rozwoju szybko ponieważ dane są przesyłane i każdej dystrybucji jest podzielona na partycje. Jeśli tabela zawiera zbyt wiele partycji, może nie być wystarczająco dużo wierszy, aby wypełnić rowgroups. Brak wierszy nie tworzy wykorzystania pamięci podczas kompresji, ale prowadzi do rowgroups, który nie będzie najlepszą wydajność zapytań magazynu kolumn.
+Indeksy magazynu kolumn utworzyć rowgroups co najmniej jednej partycji. W usłudze SQL Data Warehouse hello liczby partycji rozwoju szybko ponieważ hello dane są przesyłane i każdej dystrybucji jest podzielona na partycje. Jeśli tabela hello ma zbyt wiele partycji, może nie być wystarczającej ilości rowgroups hello toofill wierszy. Brak Hello wierszy nie tworzy wykorzystania pamięci podczas kompresji, ale prowadzi toorowgroups, który nie będzie hello najlepszą wydajność zapytań magazynu kolumn.
 
-Kolejny powód, aby uniknąć nadmiernego partycjonowania jest pamięci w czasie ładowania wierszy do indeksu magazynu kolumn dla partycjonowanej tabeli. Podczas ładowania większej liczby partycji można odebrać przychodzącego wiersze, które są przechowywane w pamięci, dopóki każda partycja ma wystarczająco dużo wierszy do skompresowania. Zbyt wiele partycji mających tworzy wykorzystania pamięci dodatkowe.
+Inny Przyczyna tooavoid nadmiernie Partycjonowanie jest pamięci w czasie ładowania wierszy do indeksu magazynu kolumn dla partycjonowanej tabeli. Podczas ładowania większej liczby partycji można odebrać hello przychodzących wierszy, które są przechowywane w pamięci, dopóki każda partycja ma za mało toobe wierszy skompresowane. Zbyt wiele partycji mających tworzy wykorzystania pamięci dodatkowe.
 
-### <a name="simplify-the-load-query"></a>Uprość zapytanie obciążenia
+### <a name="simplify-hello-load-query"></a>Uproszczenie hello obciążenia zapytania
 
-Bazy danych może mieć przydział pamięci dla zapytania wśród wszystkich operatorów w zapytaniu. Jeśli zapytanie obciążenia sortowania złożonego i sprzężeń, zostanie zmniejszona pamięci dostępnej dla kompresji.
+Witaj bazy danych udziałów hello przydział pamięci dla zapytania wśród wszystkich operatorów hello w zapytaniu hello. Jeśli zapytanie obciążenia sortowania złożonego i sprzężeń, zostanie zmniejszona pamięci hello kompresji.
 
-Projektowanie zapytania ładowania skupić się tylko na podczas ładowania zapytania. Jeśli musisz uruchomić przekształcenia danych, należy uruchomić je oddzielnie od zapytania obciążenia. Na przykład przemieszczanie danych w tabeli sterty, uruchom przekształceń, a następnie załadować do indeksu magazynu kolumn tabeli przemieszczania. Można również najpierw załadować dane, a następnie używać systemu MPP do przekształcania danych.
+Projektowanie hello obciążenia zapytania toofocus tylko na ładowanie hello zapytania. Przekształcenia toorun na powitania danych, należy uruchomić je oddzielnie od hello obciążenia zapytania. Na przykład etap hello dane w tabeli sterty, uruchom przekształcenia hello, a następnie załadować hello Tabela przemieszczania do hello indeksu magazynu kolumn. Można również najpierw załadować dane hello, a następnie użyć hello MPP systemu tootransform hello danych.
 
 ### <a name="adjust-maxdop"></a>Dostosuj MAXDOP
 
-Każdy dystrybucji kompresuje rowgroups do magazynu kolumn równoległe, gdy jest dostępna więcej niż jednego rdzenia procesora CPU na dystrybucji. Równoległość wymaga dodatkowych zasobów pamięci, co może prowadzić do wykorzystania pamięci i przycinanie grupy wierszy.
+Każdy dystrybucji kompresuje rowgroups do magazynu kolumn hello równoległe, gdy jest dostępna więcej niż jednego rdzenia procesora CPU na dystrybucji. Równoległość Hello wymaga dodatkowych zasobów pamięci, które mogą prowadzić toomemory wykorzystania i przycinanie i.
 
-Aby zmniejszyć wykorzystanie pamięci, wskazówkę zapytania MAXDOP służy do wymusić operacji ładowania do pracy w trybie serial w ramach poszczególnych dystrybucji.
+tooreduce wykorzystania pamięci, można użyć hello MAXDOP zapytania wskazówka tooforce hello obciążenia operacji toorun w trybie serial w ramach poszczególnych dystrybucji.
 
 ```
 CREATE TABLE MyFactSalesQuota
@@ -135,16 +135,16 @@ AS SELECT * FROM FactSalesQUota
 OPTION (MAXDOP 1);
 ```
 
-## <a name="ways-to-allocate-more-memory"></a>Sposoby przydzielenie większej ilości pamięci
+## <a name="ways-tooallocate-more-memory"></a>Sposoby tooallocate większej ilości pamięci
 
-Rozmiar wartości DWU i klasa zasobów użytkownika razem określić ilość pamięci dostępnej dla zapytania użytkownika. Aby zwiększyć przydział pamięci dla zapytania obciążenia, należy zwiększyć liczbę jednostek dwu lub zwiększ klasy zasobów.
+DWU rozmiaru i hello zasobów klasy użytkownika ze sobą określić ilość pamięci dostępnej dla zapytania użytkownika. tooincrease hello pamięci przyznać dla zapytania obciążenia, możesz zwiększyć hello liczby jednostek dwu lub zwiększyć hello klasy zasobów.
 
-- Aby zwiększyć liczbę jednostek dwu, zobacz [sposób skalowania wydajności?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
-- Aby zmienić klasy zasobów dla zapytania, zobacz [zmienić przykład klasy zasobów użytkownika](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+- Witaj tooincrease jednostek dwu, zobacz [sposób skalowania wydajności?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
+- Klasa zasobów hello toochange dla zapytania, zobacz [zmienić przykład klasy zasobów użytkownika](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
-Na przykład na DWU 100 użytkownika w klasie zasobu smallrc służy 100 MB pamięci dla poszczególnych dystrybucji. Aby uzyskać więcej informacji, zobacz [współbieżność w usłudze SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
+Na przykład na DWU 100 użytkownika w klasie zasobu smallrc hello służy 100 MB pamięci dla poszczególnych dystrybucji. Aby hello uzyskać szczegółowe informacje, zobacz [współbieżność w usłudze SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
 
-Załóżmy, że należy określić, czy potrzebujesz 700 MB pamięci można pobrać rozmiarów i wysokiej jakości. Poniższe przykłady pokazują, jak można uruchomić kwerendę obciążenia z wystarczającą ilość pamięci.
+Załóżmy, że należy określić, czy potrzebujesz 700 MB pamięci tooget wysokiej jakości i rozmiary. Poniższe przykłady pokazują, jak można uruchomić zapytania obciążenia hello o wystarczającej ilości pamięci.
 
 - Korzystając z DWU 1000 i mediumrc, Twoje przydział pamięci jest 800 MB
 - Korzystając z DWU 600 i largerc, Twoje przydział pamięci jest 800 MB.
@@ -152,7 +152,7 @@ Załóżmy, że należy określić, czy potrzebujesz 700 MB pamięci można pobr
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby znaleźć więcej sposobów poprawy wydajności w usłudze SQL Data Warehouse, zobacz [wydajności — omówienie](sql-data-warehouse-overview-manage-user-queries.md).
+toofind więcej sposobów tooimprove wydajności w usłudze SQL Data Warehouse, zobacz hello [wydajności — omówienie](sql-data-warehouse-overview-manage-user-queries.md).
 
 <!--Image references-->
 

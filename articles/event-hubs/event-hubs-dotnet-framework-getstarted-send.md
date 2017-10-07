@@ -1,6 +1,6 @@
 ---
-title: "Wysyłanie zdarzeń do usługi Azure Event Hubs za pomocą programu .NET Framework | Microsoft Docs"
-description: "Rozpocznij wysyłanie zdarzeń do usługi Event Hubs przy użyciu programu .NET Framework"
+title: "aaaSend zdarzenia tooAzure usługi Event Hubs przy użyciu hello .NET Framework | Dokumentacja firmy Microsoft"
+description: "Rozpoczynanie pracy wysyłanie zdarzeń tooEvent Hubs przy użyciu hello .NET Framework"
 services: event-hubs
 documentationcenter: 
 author: sethmanheim
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/12/2017
 ms.author: sethm
-ms.openlocfilehash: 4eb0e7bcc14722010121c2a5945509d6ed736f4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 05514546a6094096e4a3c800db058190076de80a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Wysyłanie zdarzeń do usługi Azure Event Hubs za pomocą programu .NET Framework
+# <a name="send-events-tooazure-event-hubs-using-hello-net-framework"></a>Wysyłanie zdarzeń tooAzure Event Hubs przy użyciu hello .NET Framework
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Event Hubs to usługa, która przetwarza duże ilości danych zdarzeń (danych telemetrycznych) z podłączonych urządzeń i aplikacji. Po zebraniu danych w usłudze Event Hubs można przechowywać dane przy użyciu klastra magazynu lub przekształcać je za pomocą dostawcy analiz w czasie rzeczywistym. Ta możliwość zbierania i przetwarzania zdarzeń na wielką skalę jest kluczowym składnikiem architektur nowoczesnych aplikacji, w tym Internetu rzeczy (IoT).
+Event Hubs to usługa, która przetwarza duże ilości danych zdarzeń (danych telemetrycznych) z podłączonych urządzeń i aplikacji. Po zebraniu danych do usługi Event Hubs, można przechowywać dane hello przy użyciu klastra magazynu lub przekształcać je za pomocą dostawcy analiz w czasie rzeczywistym. Ta możliwość zbierania i przetwarzania zdarzeń na dużą skalę jest kluczowym składnikiem architektur nowoczesnych aplikacji, w tym hello Internetu rzeczy (IoT).
 
-W tym samouczku pokazano, jak utworzyć centrum zdarzeń za pomocą witryny [Azure Portal](https://portal.azure.com). Pokazano w nim także, jak wysyłać zdarzenia do centrum zdarzeń za pomocą aplikacji konsoli napisanej w języku C# w programie .NET Framework. Aby odbierać zdarzenia przy użyciu programu .NET Framework, zobacz artykuł [Receive events using the .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md) (Odbieranie zdarzeń za pomocą programu .NET Framework) lub kliknij odpowiedni język odbierający w spisie treści po lewej stronie.
+Ten samouczek pokazuje, jak toouse hello [portalu Azure](https://portal.azure.com) toocreate Centrum zdarzeń. Pokazuje też, jak toosend zdarzenia tooan Centrum zdarzeń za pomocą aplikacji konsoli napisanych w języku C# przy użyciu hello .NET Framework. zdarzenia tooreceive przy użyciu hello .NET Framework, zobacz hello [zdarzenia są rejestrowane przy użyciu hello .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md) artykułu, lub kliknij odpowiedni język odbierania hello w tabeli po lewej stronie powitania treści.
 
-Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
+toocomplete tego samouczka należy hello następujące wymagania wstępne:
 
-* [Program Microsoft Visual Studio w wersji 2015 lub nowszej](http://visualstudio.com). Na zrzutach ekranów przedstawionych w tym samouczku używany jest program Visual Studio 2017.
+* [Program Microsoft Visual Studio w wersji 2015 lub nowszej](http://visualstudio.com). zrzuty ekranu Hello w tym samouczku za pomocą programu Visual Studio 2017 r.
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Tworzenie przestrzeni nazw usługi Event Hubs i centrum zdarzeń
 
-Pierwszym krokiem jest skorzystanie z witryny [Azure Portal](https://portal.azure.com) w celu utworzenia przestrzeni nazw typu Event Hubs i uzyskania poświadczeń zarządzania wymaganych przez aplikację do komunikacji z centrum zdarzeń. Aby utworzyć obszar nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md), a następnie wykonaj następujące czynności z tego samouczka.
+pierwszym krokiem Hello jest toouse hello [portalu Azure](https://portal.azure.com) toocreate a przestrzeń nazw wpisz centra zdarzeń i uzyskać poświadczenia zarządzania aplikacja wymaga toocommunicate z Centrum zdarzeń hello hello. toocreate przestrzeni nazw i Centrum zdarzeń, wykonaj procedurę hello w [w tym artykule](event-hubs-create.md), następnie kontynuować hello, wykonaj następujące kroki w tym samouczku.
 
 ## <a name="create-a-sender-console-application"></a>Tworzenie aplikacji konsolowej nadawcy
 
-W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która wysyła zdarzenia do centrum zdarzeń.
+W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która wysyła zdarzenia tooyour zdarzenia koncentratora.
 
-1. W programie Visual Studio utwórz nowy projekt aplikacji klasycznej Visual C# za pomocą szablonu projektu **Aplikacja konsoli**. Nazwij projekt **Nadawca**.
+1. W programie Visual Studio Utwórz nowy projekt Visual C# pulpitu aplikacji przy użyciu hello **aplikacji konsoli** szablonu projektu. Nazwa projektu hello **nadawcy**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
-2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **Nadawca**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet rozwiązania**. 
-3. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus`. Kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania. 
+2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy hello **nadawcy** projektu, a następnie kliknij przycisk **Zarządzaj pakietami NuGet dla rozwiązania**. 
+3. Kliknij przycisk hello **Przeglądaj** , a następnie wyszukaj `Microsoft Azure Service Bus`. Kliknij przycisk **zainstalować**i zaakceptuj warunki użytkowania hello. 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
-    Program Visual Studio pobierze, zainstaluje i doda odniesienia do [pakietu NuGet biblioteki usługi Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
-4. Dodaj następujące instrukcje `using` w górnej części pliku **Program.cs**:
+    Pobieranie programu Visual Studio, instaluje i dodaje toohello odwołanie [pakiet NuGet biblioteki usługi Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
+4. Dodaj następujące hello `using` instrukcji u góry hello hello **Program.cs** pliku:
    
   ```csharp
   using System.Threading;
   using Microsoft.ServiceBus.Messaging;
   ```
-5. Dodaj następujące pola do klasy **Program**, zastępując symbole zastępcze nazwą centrum zdarzeń utworzonego w poprzedniej sekcji oraz zapisanymi wcześniej parametrami połączenia na poziomie przestrzeni nazw.
+5. Dodaj następujące pola toohello hello **Program** klasy, zastępując symbole zastępcze hello o nazwie hello hello Centrum zdarzeń utworzonego w poprzedniej sekcji hello i zapisanymi wcześniej parametrami połączenia na poziomie przestrzeni nazw hello.
    
   ```csharp
   static string eventHubName = "{Event Hub name}";
   static string connectionString = "{send connection string}";
   ```
-6. Dodaj następującą metodę do klasy **Program**:
+6. Dodaj następujące metody toohello hello **Program** klasy:
    
   ```csharp
   static void SendingRandomMessages()
@@ -88,23 +88,23 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
   }
   ```
    
-  Ta metoda stale wysyła zdarzenia do centrum zdarzeń z opóźnieniem 200 ms.
-7. Na koniec dodaj następujące wiersze do metody **Główne**:
+  Ta metoda stale wysyła zdarzenia Centrum zdarzeń tooyour z opóźnieniem 200 ms.
+7. Na koniec należy dodać następujące wiersze toohello hello **Main** metody:
    
   ```csharp
-  Console.WriteLine("Press Ctrl-C to stop the sender process");
-  Console.WriteLine("Press Enter to start now");
+  Console.WriteLine("Press Ctrl-C toostop hello sender process");
+  Console.WriteLine("Press Enter toostart now");
   Console.ReadLine();
   SendingRandomMessages();
   ```
-8. Uruchom program i upewnij się, że nie ma w nim żadnych błędów.
+8. Uruchom hello program i upewnij się, że nie ma żadnych błędów.
   
-Gratulacje! Wysłano komunikaty do centrum zdarzeń.
+Gratulacje! Teraz zostały wysłane wiadomości tooan zdarzenia koncentratora.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarzeń i wysyła dane, możesz przejść do następujących scenariuszy:
+Teraz gdy masz utworzoną działającą aplikację, która tworzy Centrum zdarzeń i wysyła dane, możesz przejść na toohello następujące scenariusze:
 
-* [Odbieranie zdarzeń za pomocą hosta procesora zdarzeń](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+* [Zdarzenia są rejestrowane przy użyciu hello hosta procesora zdarzeń](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 * [Dokumentacja hosta procesora zdarzeń](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Omówienie usługi Event Hubs](event-hubs-what-is-event-hubs.md)
 

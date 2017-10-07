@@ -1,6 +1,6 @@
 ---
-title: "Przykładów dla magazynu platformy Azure przy użyciu języka Java | Dokumentacja firmy Microsoft"
-description: "Wyświetlanie, Pobierz i uruchom przykładowy kod i aplikacji usługi Azure Storage. Wykryj, wprowadzenie przykłady dla obiektów blob, kolejek, tabel i plików, za pomocą biblioteki klienta magazynu Java."
+title: "Przykłady magazynu aaaAzure przy użyciu języka Java | Dokumentacja firmy Microsoft"
+description: "Wyświetlanie, Pobierz i uruchom przykładowy kod i aplikacji usługi Azure Storage. Wykryj, wprowadzenie przykłady dla obiektów blob, kolejek, tabel i plików, za pomocą biblioteki klienta magazynu Java hello."
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 98e6022062b4ef5b5c71b54a0e94775b925d216b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e3b8fbe86e82dd58c2a13a3c68760cbf6e9a6e4b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-samples-using-java"></a>Przykładów dla magazynu platformy Azure przy użyciu języka Java
 
 ## <a name="java-sample-index"></a>Indeks przykładów Java
 
-Poniższa tabela zawiera omówienie naszym repozytorium przykłady i scenariusze w każdej próbce. Kliknij łącza, aby wyświetlić odpowiednie przykładowy kod w serwisie GitHub.
+Witaj Poniższa tabela zawiera omówienie nasze przykłady scenariuszy repozytorium i hello objęte każdej próbki. Polecenie hello łącza tooview hello odpowiedniego przykładowy kod w serwisie GitHub.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenariusz</th><th style="font-size:110%">Przykładowy kod</th></tr></thead><tbody> 
 <tr> 
@@ -197,13 +197,13 @@ Poniższa tabela zawiera omówienie naszym repozytorium przykłady i scenariusze
 
 ## <a name="azure-code-samples-library"></a>Biblioteka przykłady kodu platformy Azure
 
-Aby wyświetlić biblioteki kompletnego przykładu, przejdź do [przykłady kodu Azure](https://azure.microsoft.com/resources/samples/?service=storage) biblioteki, która zawiera przykłady dla usługi Azure Storage, który można pobrać i uruchom lokalnie. Biblioteka przykładowy kod zawiera przykładowy kod w formacie zip. Alternatywnie można wybrać i klonowania repozytorium GitHub dla każdej próbki.
+tooview hello kompletnego przykładu biblioteki, przejdź toohello [przykłady kodu Azure](https://azure.microsoft.com/resources/samples/?service=storage) biblioteki, która zawiera przykłady dla usługi Azure Storage, który można pobrać i uruchom lokalnie. Witaj biblioteki przykładowy kod zawiera przykładowy kod w formacie zip. Alternatywnie można wybrać i klonowania repozytorium GitHub powitania dla każdej próbki.
 
 [!INCLUDE [storage-java-samples-include](../../includes/storage-java-samples-include.md)]
 
 ## <a name="getting-started-guides"></a>Przewodniki z wprowadzeniem pobierania
 
-Zapoznaj się z następujących przewodników, jeśli chcesz, aby uzyskać instrukcje dotyczące sposobu instalowania i rozpoczynanie pracy z biblioteki klienta magazynu Azure.
+Zapoznaj się z powitania po przewodnikach, jeśli chcesz, aby uzyskać instrukcje dotyczące tooinstall i rozpoczynanie pracy z hello biblioteki klienta magazynu Azure.
 
 * [Wprowadzenie do korzystania z usługi Azure Blob w języku Java](storage-java-how-to-use-blob-storage.md)
 * [Wprowadzenie do korzystania z usługi Azure kolejek w języku Java](storage-java-how-to-use-queue-storage.md)

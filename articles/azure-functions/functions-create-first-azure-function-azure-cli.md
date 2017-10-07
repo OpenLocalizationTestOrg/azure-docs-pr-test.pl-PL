@@ -1,6 +1,6 @@
 ---
-title: Tworzenie pierwszej funkcji z poziomu interfejsu wiersza polecenia platformy Azure | Microsoft Docs
-description: "Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure do wykonywania bezserwerowego z poziomu interfejsu wiersza polecenia platformy Azure."
+title: aaaCreate pierwszej funkcji z interfejsu wiersza polecenia Azure hello | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toocreate platformy Azure pierwsze działać przez wykonanie niekorzystającą hello wiersza polecenia platformy Azure."
 services: functions
 keywords: 
 author: ggailey777
@@ -12,21 +12,21 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
-ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5feed0045d4998b88b0e1bb50996cb7bb42b0822
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-your-first-function-using-the-azure-cli"></a>Tworzenie pierwszej funkcji z poziomu interfejsu wiersza polecenia platformy Azure
+# <a name="create-your-first-function-using-hello-azure-cli"></a>Utwórz swoją pierwszą funkcję przy użyciu hello wiersza polecenia platformy Azure
 
-W tym samouczku szybkiego startu omówiono tworzenie pierwszej funkcji przy użyciu usługi Azure Functions. Za pomocą interfejsu wiersza polecenia platformy Azure zostanie utworzona aplikacja funkcji, która jest bezserwerową infrastrukturą hostującą funkcję. Sam kod funkcji jest wdrażany z repozytorium przykładów GitHub.    
+Ten samouczek szybkiego startu przedstawia procedury toocreate usługi Azure Functions toouse swoją pierwszą funkcję. Możesz użyć hello Azure CLI toocreate aplikacji funkcji, który jest hello bez serwera infrastruktury, który jest hostem funkcji. Witaj funkcja kodu jest wdrażany z repozytorium GitHub próbki.    
 
-Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows lub Linux. 
+Możesz wykonać kroki hello za pomocą komputera Mac, systemu Windows lub Linux. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-Przed uruchomieniem tego przykładu należy dysponować następującymi elementami:
+Przed uruchomieniem tego przykładu, musi mieć następujące hello:
 
 + Aktywne konto usługi [GitHub](https://github.com). 
 + Aktywna subskrypcja platformy Azure.
@@ -35,14 +35,14 @@ Przed uruchomieniem tego przykładu należy dysponować następującymi elementa
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli wybierz tooinstall i użyj interfejsu wiersza polecenia hello lokalnie, w tym temacie wymaga, że uruchamiasz hello Azure CLI w wersji 2.0 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure, takich jak aplikacje funkcji, bazy danych i konta magazynu, oraz zarządzania nimi.
+Utwórz grupę zasobów o hello [Tworzenie grupy az](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure, takich jak aplikacje funkcji, bazy danych i konta magazynu, oraz zarządzania nimi.
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myResourceGroup`.  
+Witaj poniższy przykład tworzy grupę zasobów o nazwie `myResourceGroup`.  
 Jeśli nie korzystasz z usługi Cloud Shell, musisz się najpierw zalogować za pomocą polecenia `az login`.
 
 ```azurecli-interactive
@@ -52,15 +52,15 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
 
-Usługa Functions przechowuje informacje o stanie i inne informacje dotyczące funkcji za pomocą konta usługi Azure Storage. Utwórz konto magazynu w utworzonej grupie zasobów przy użyciu polecenia [az storage account create](/cli/azure/storage/account#create).
+Funkcje używa toomaintain stan konta magazynu Azure i inne informacje dotyczące funkcji. Utwórz konto magazynu w grupie zasobów hello został utworzony za pomocą hello [Tworzenie konta magazynu az](/cli/azure/storage/account#create) polecenia.
 
-W poniższym poleceniu w miejsce symbolu zastępczego `<storage_name>` wstaw swoją własną unikatową w skali globalnej nazwę konta magazynu. Nazwy kont usługi Magazyn muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery.
+Hello następujące polecenia, podstawić własną nazwę konta magazynu unikatowych której występuje hello `<storage_name>` symbolu zastępczego. Nazwy kont usługi Magazyn muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
-Po utworzeniu konta magazynu w interfejsie wiersza polecenia platformy Azure zostanie wyświetlona informacja podobna do następującej:
+Po utworzeniu konta magazynu hello hello Azure CLI pokazuje informacje toohello podobnie poniższy przykład:
 
 ```json
 {
@@ -82,17 +82,17 @@ Po utworzeniu konta magazynu w interfejsie wiersza polecenia platformy Azure zos
 
 ## <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
-Do obsługi wykonywania funkcji potrzebna jest aplikacja funkcji. Aplikacja funkcji zapewnia środowisko do bezserwerowego wykonywania kodu funkcji. Umożliwia ona grupowanie funkcji w ramach jednostki logicznej, co ułatwia wdrażanie i udostępnianie zasobów oraz zarządzanie nimi. Utwórz aplikację funkcji przy użyciu polecenia [az functionapp create](/cli/azure/functionapp#create). 
+Funkcja aplikacji toohost hello wykonywanie funkcji są wymagane. Aplikacja funkcji Hello zapewnia środowisko niekorzystającą wykonywania kodu funkcji. Umożliwia ona grupowanie funkcji w ramach jednostki logicznej, co ułatwia wdrażanie i udostępnianie zasobów oraz zarządzanie nimi. Tworzenie aplikacji funkcji przy użyciu hello [az functionapp utworzyć](/cli/azure/functionapp#create) polecenia. 
 
-W poniższym poleceniu w miejsce symbolu zastępczego `<app_name>` wstaw swoją własną unikatową w skali globalnej nazwę aplikacji funkcji, a w miejsce symbolu zastępczego `<storage_name>` wstaw nazwę konta magazynu. Nazwa `<app_name>` jest używana jako domyślna domena DNS aplikacji funkcji, więc nazwa ta musi być unikatowa wśród wszystkich aplikacji na platformie Azure. 
+Hello następujące polecenia, Zastąp własną nazwą aplikacji unique — funkcja, której występuje hello `<app_name>` symbolu zastępczego i hello nazwy konta magazynu dla `<storage_name>`. Witaj `<app_name>` jest używany jako domyślnej domeny DNS dla aplikacji funkcja hello i tak nazwy hello hello musi toobe unikatowy przez wszystkie aplikacje na platformie Azure. 
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --consumption-plan-location westeurope
 ```
-Domyślnie aplikacja funkcji jest tworzona z planem hostingu Zużycie, co oznacza, że zasoby są dodawane dynamicznie zgodnie z wymaganiami funkcji, a opłaty są naliczane tylko wtedy, gdy funkcje są uruchomione. Aby uzyskać więcej informacji, zobacz [Wybieranie odpowiedniego planu hostingu](functions-scale.md). 
+Domyślnie aplikacja funkcji jest tworzony z hello zużycie hostingu planu, co oznacza, że zasoby są dodawane dynamicznie, co jest wymagane przez funkcji i płacisz tylko po uruchomieniu funkcji. Aby uzyskać więcej informacji, zobacz [plan hostingu poprawne hello wybierz](functions-scale.md). 
 
-Po utworzeniu aplikacji funkcji interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do następujących:
+Po utworzeniu aplikacji funkcji hello hello Azure CLI pokazuje informacje toohello podobnie poniższy przykład:
 
 ```json
 {
@@ -112,18 +112,18 @@ Po utworzeniu aplikacji funkcji interfejs wiersza polecenia platformy Azure wyś
 }
 ```
 
-Teraz, gdy masz już aplikację funkcji, możesz wdrożyć właściwy kod funkcji z repozytorium przykładów GitHub.
+Teraz, gdy masz aplikacji funkcji, można wdrożyć kod rzeczywista funkcja hello z repozytorium przykładowej GitHub hello.
 
 ## <a name="deploy-your-function-code"></a>Wdrażanie kodu funkcji  
 
-Istnieje kilka sposobów tworzenia kodu funkcji w nowej aplikacji funkcji. Ten temat jest połączony z repozytorium przykładów w usłudze GitHub. Tak jak poprzednio, w poniższym kodzie w miejsce symbolu zastępczego `<app_name>` wstaw nazwę utworzonej aplikacji funkcji. 
+Istnieje kilka sposobów toocreate funkcja kodu w nowej aplikacji funkcji. W tym temacie łączy tooa próbki repozytorium w usłudze GitHub. Jak wcześniej w hello następującego kodu Zastąp hello `<app_name>` symbolu zastępczego o nazwie hello hello funkcji aplikacji został utworzony. 
 
 ```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-Po ustawieniu źródła wdrożenia w interfejsie wiersza polecenia platformy Azure zostanie wyświetlona informacja podobna do następującej (wartości null zostały usunięte, aby poprawić czytelność):
+Po wdrożeniu hello źródła została ustawiona, powitalne interfejsu wiersza polecenia Azure zawiera informacje o toohello podobnie poniższy przykład (usunąć dla czytelności wartości null):
 
 ```json
 {
@@ -140,9 +140,9 @@ Po ustawieniu źródła wdrożenia w interfejsie wiersza polecenia platformy Azu
 }
 ```
 
-## <a name="test-the-function"></a>Testowanie funkcji
+## <a name="test-hello-function"></a>Funkcja hello testu
 
-Przetestuj wdrożoną funkcję za pomocą programu cURL na komputerze Mac lub komputerze z systemem Linux bądź za pomocą powłoki Bash na komputerze z systemem Windows. Uruchom następujące polecenie programu cURL, wstawiając w miejsce symbolu zastępczego `<app_name>` nazwę aplikacji funkcji. Dołącz ciąg zapytania `&name=<yourname>` do adresu URL.
+Funkcja cURL tootest hello wdrożona na komputerze Mac lub Linux lub przy użyciu Bash w systemie Windows. Wykonanie następującego polecenia cURL, zastępując hello hello `<app_name>` symbolu zastępczego o nazwie hello funkcji aplikacji. Dołącz ciągu zapytania hello `&name=<yourname>` toohello adresu URL.
 
 ```bash
 curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
@@ -150,7 +150,7 @@ curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 
 ![Odpowiedź funkcji wyświetlona w przeglądarce.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
 
-Jeśli w wierszu polecenia nie jest dostępny program cURL, wprowadź ten sam adres URL w pasku adresu przeglądarki. W miejsce symbolu zastępczego `<app_name>` wstaw nazwę aplikacji funkcji i dołącz ciąg zapytania `&name=<yourname>` do adresu URL, a następnie wykonaj żądanie. 
+Jeśli nie jest dostępne w wierszu polecenia cURL, wprowadź hello tego samego adresu URL hello adresu przeglądarki sieci web. Ponownie, Zastąp hello `<app_name>` symbolu zastępczego o nazwie hello funkcji aplikacji i Dołącz ciągu zapytania hello `&name=<yourname>` toohello adresu URL i wykonać hello żądania. 
 
     http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
    
@@ -158,7 +158,7 @@ Jeśli w wierszu polecenia nie jest dostępny program cURL, wprowadź ten sam ad
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start lub samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, użyj poniższego polecenia, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki start:
+Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz toocontinue toowork kolejne Przewodniki Szybki Start lub hello samouczki, czy nie wyczyścić zasoby hello utworzone w tym Szybki Start. Jeśli toocontinue nie jest planowane, użyj następującego polecenia toodelete hello wszystkie zasoby utworzone przez tego przewodnika Szybki Start:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

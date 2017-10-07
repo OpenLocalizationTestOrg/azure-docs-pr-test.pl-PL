@@ -1,5 +1,5 @@
 ---
-title: "Dodaj użytkowników usługi Office 365 łącznika w aplikacjach logiki | Dokumentacja firmy Microsoft"
+title: "Łącznik użytkowników usługi Office 365 hello aaaAdd w aplikacjach logiki | Dokumentacja firmy Microsoft"
 description: "Omówienie łącznika użytkowników usługi Office 365 z parametrami interfejsu API REST"
 services: 
 documentationcenter: 
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 330f733440932a769eb0fe6031cd0d947a820080
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2fae1c80d195a368b5f6c1ad650905a0d6e94c83
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-office-365-users-connector"></a>Rozpoczynanie pracy z łącznikiem użytkowników usługi Office 365
-Podłącz do użytkowników usługi Office 365 można pobrać profilów, Wyszukaj użytkowników i inne. Użytkowników usługi Office 365 możesz:
+# <a name="get-started-with-hello-office-365-users-connector"></a>Rozpoczynanie pracy z hello łącznika użytkowników usługi Office 365
+Połącz tooOffice 365 użytkowników tooget profile, Wyszukaj użytkowników i inne. Użytkowników usługi Office 365 możesz:
 
-* Tworzenie sieci przepływu biznesowe na podstawie danych, który można uzyskać od użytkowników usługi Office 365. 
-* Użyj akcji, które uzyskać bezpośrednich podwładnych pobrać menedżera profilu użytkownika i inne. Te akcje uzyskać odpowiedzi, a następnie udostępnić dane wyjściowe do innych działań. Na przykład uzyskać osoby bezpośrednich podwładnych, a następnie pobierać te informacje i zaktualizować bazę danych SQL Azure. 
+* Tworzenie sieci przepływu biznesowe na podstawie danych hello, uzyskasz od użytkowników usługi Office 365. 
+* Użyj akcji, które uzyskać bezpośrednich podwładnych pobrać menedżera profilu użytkownika i inne. Te akcje odpowiedzi, a następnie wprowadź dane wyjściowe hello dostępne dla innych działań. Na przykład uzyskać osoby bezpośrednich podwładnych, a następnie pobierać te informacje i zaktualizować bazę danych SQL Azure. 
 
 Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-to-office-365-users"></a>Utwórz połączenie użytkowników usługi Office 365
-Po dodaniu tego łącznika do aplikacji logiki, należy zalogować się do konta użytkowników usługi Office 365 i Zezwalaj aplikacjom logiki do łączenia się z kontem.
+## <a name="create-a-connection-toooffice-365-users"></a>Utwórz połączenie tooOffice 365 użytkowników
+Po dodaniu aplikacji logiki tooyour ten łącznik można musi logowania użytkowników usługi Office 365 tooyour konta i Zezwalaj aplikacjom logiki tooconnect tooyour konta.
 
-> [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
+> [!INCLUDE [Steps toocreate a connection tooOffice 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
 > 
 
-Po utworzeniu połączenie, wprowadź właściwości użytkowników usługi Office 365, takich jak identyfikator użytkownika. **Dokumentacji interfejsu API REST** w tym temacie opisano te właściwości.
+Po utworzeniu połączenia hello wprowadź hello właściwości użytkowników usługi Office 365, takich jak hello identyfikatora użytkownika. Witaj **dokumentacji interfejsu API REST** w tym temacie opisano te właściwości.
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/officeusers/).
+Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w hello swagger i zobacz też żadnych limitów w hello [szczegóły łącznika](/connectors/officeusers/).
 
 ## <a name="more-connectors"></a>Więcej łączników
-Wróć do [listy interfejsów API](apis-list.md).
+Przejdź wstecz toohello [listy interfejsów API](apis-list.md).

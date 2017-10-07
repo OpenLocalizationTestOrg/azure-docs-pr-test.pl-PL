@@ -1,6 +1,6 @@
 ---
-title: Tworzenie obrazu niestandardowego Azure DevTest Labs na podstawie maszyny Wirtualnej | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak utworzyć obraz niestandardowy w usłudze Azure DevTest Labs elastycznie maszyny wirtualnej przy użyciu portalu Azure"
+title: aaaCreate niestandardowego obrazu z maszyny Wirtualnej Azure DevTest Labs | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toocreate obraz niestandardowy w usłudze Azure DevTest Labs używającego zainicjowana VM hello portalu Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7dccb79d3db4aae676c7bd2f6b800301210491e2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Tworzenie niestandardowego obrazu z maszyny Wirtualnej
 
@@ -26,29 +26,29 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="step-by-step-instructions"></a>Instrukcje krok po kroku
 
-Można utworzyć niestandardowy obraz z elastycznie maszyny Wirtualnej, a później użyć niestandardowego obrazu do utworzenia identycznych maszyn wirtualnych. Poniższe kroki pokazano, jak utworzyć obraz niestandardowy z maszyny Wirtualnej:
+Utworzyć niestandardowy obraz z elastycznie maszyny Wirtualnej, a następnie użyć tej toocreate niestandardowego obrazu identycznych maszyn wirtualnych. Witaj, wykonaj czynności ilustrują sposób toocreate niestandardowego obrazu z maszyny Wirtualnej:
 
-1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Zaloguj się toohello [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Wybierz pozycję **Więcej usług**, a następnie z listy wybierz pozycję **DevTest Labs**.
+1. Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy hello.
 
-1. Z listy labs wybierz żądany laboratorium.  
+1. Z listy hello labs wybierz żądany laboratorium hello.  
 
-1. W bloku laboratorium, wybierz **Moje maszyny wirtualne**.
+1. W bloku hello laboratorium, wybierz **Moje maszyny wirtualne**.
  
-1. Na **Moje maszyny wirtualne** bloku, wybierz maszynę Wirtualną, z którego chcesz utworzyć niestandardowy obraz.
+1. Na powitania **Moje maszyny wirtualne** bloku, wybierz hello maszyny Wirtualnej, z którego mają zostać toocreate hello niestandardowego obrazu.
 
-1. W bloku maszyny Wirtualnej, wybierz **Tworzenie niestandardowego obrazu (VHD)**.
+1. W bloku hello wirtualna wybierz **Tworzenie niestandardowego obrazu (VHD)**.
 
     ![Tworzenie niestandardowego obrazu elementu menu](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Na **Utwórz obraz** bloku, wprowadź nazwę i opis dla niestandardowego obrazu. Te informacje są wyświetlane na liście klas podstawowych, podczas tworzenia maszyny Wirtualnej.
+1. Na powitania **Utwórz obraz** bloku, wprowadź nazwę i opis dla niestandardowego obrazu. Te informacje są wyświetlane na liście hello baz podczas tworzenia maszyny Wirtualnej.
 
     ![Tworzenie niestandardowego obrazu bloku](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Określ, czy uruchomiono program sysprep na maszynie Wirtualnej. Jeśli nie uruchomiono programu sysprep na maszynie Wirtualnej, określ, czy uruchamiany po utworzeniu maszyny Wirtualnej z tego obrazu niestandardowego narzędzia sysprep.
+1. Określ, czy program sysprep zostało uruchomione na powitania maszyny Wirtualnej. Jeśli hello sysprep nie zostało uruchomione na powitania maszyny Wirtualnej, określ, czy program sysprep uruchamiany po utworzeniu maszyny Wirtualnej z tego obrazu niestandardowego.
 
-1. Wybierz **OK** po zakończeniu można utworzyć niestandardowego obrazu.
+1. Wybierz **OK** po toocreate Zakończono hello niestandardowego obrazu.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -59,4 +59,4 @@ Można utworzyć niestandardowy obraz z elastycznie maszyny Wirtualnej, a późn
 
 ##<a name="next-steps"></a>Następne kroki
 
-- [Dodaj Maszynę wirtualną do laboratorium](./devtest-lab-add-vm-with-artifacts.md)
+- [Dodawanie laboratorium tooyour maszyny Wirtualnej](./devtest-lab-add-vm-with-artifacts.md)

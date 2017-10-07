@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie protokołu SSL odciążania - Azure Application Gateway - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera instrukcje, aby utworzyć bramę aplikacji przy użyciu protokołu SSL odciążenia przez 2.0 interfejsu wiersza polecenia platformy Azure"
+title: "aaaConfigure SSL odciążania - Azure Application Gateway - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
+description: "Ta strona zawiera instrukcje toocreate odciążania bramę aplikacji przy użyciu protokołu SSL przez 2.0 interfejsu wiersza polecenia platformy Azure"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
-ms.openlocfilehash: e8c1ba09daef09ef5002e33345905772961c1d93
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f8d50e0c6ffef17c807938d816410e6d85321c9a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Skonfiguruj bramę aplikacji dla odciążania protokołu SSL przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0
 
@@ -27,39 +27,39 @@ ms.lasthandoff: 08/18/2017
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-ssl.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-ssl-cli.md)
 
-Usługę Azure Application Gateway można skonfigurować tak, aby przerywała sesję protokołu SSL (Secure Sockets Layer) na poziomie bramy, co pozwoli na uniknięcie wykonywania kosztownych zadań szyfrowania protokołu SSL w kolektywie serwerów sieci Web. Odciążanie protokołu SSL także upraszcza zarządzanie certyfikatami na serwerze frontonu.
+Brama aplikacji w Azure może być sesji protokołu Secure Sockets Layer (SSL) hello tooterminate skonfigurowanych na powitania bramy tooavoid kosztowne SSL odszyfrowywania zadania toohappen na powitania kolektywu serwerów sieci web. Odciążanie protokołu SSL także upraszcza zarządzanie certyfikatami na powitania serwera frontonu.
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Wymagania wstępne: Instalacja Azure CLI 2.0
+## <a name="prerequisite-install-hello-azure-cli-20"></a>Wymagania wstępne: Instalacja hello Azure CLI 2.0
 
-Aby wykonać kroki opisane w tym artykule, należy [instalowanie interfejsu wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Witaj tooperform kroków w tym artykule, należy za[zainstalować hello interfejsu wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="required-components"></a>Wymagane składniki
 
-* **Pula serwerów zaplecza:** lista adresów IP serwerów zaplecza. Adresy IP na liście powinny należeć do podsieci sieci wirtualnej lub być publicznymi bądź wirtualnymi adresami IP.
-* **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.
-* **Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
-* **Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).
-* **Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika. Obecnie jest obsługiwana tylko reguła *podstawowa*. Reguła *podstawowa* to dystrybucja obciążenia z działaniem okrężnym.
+* **Pula serwerów zaplecza:** hello listę adresów IP serwerów wewnętrznych hello. wymienionych na liście adresów IP Hello albo powinny należeć toohello podsieć sieci wirtualnej lub powinny być publicznego adresu IP/VIP.
+* **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są wiązanej tooa puli i są stosowane tooall serwery w puli hello.
+* **Port frontonu:** ten port jest port publiczny hello, która jest otwarta w bramie aplikacji hello. Ruch trafienia tego portu, a następnie pobiera przekierowanie tooone serwerami zaplecza hello.
+* **Odbiornik:** odbiornika hello ma port frontonu, protokół (Http lub Https, te ustawienia są z uwzględnieniem wielkości liter), a hello nazwa certyfikatu SSL (jeśli odciążania Konfigurowanie protokołu SSL).
+* **Reguła:** reguła hello wiąże odbiornika hello i hello puli serwerów zaplecza i określa, jaki ruch hello puli serwera zaplecza ukierunkowanej toowhen trafienia w szczególności odbiornika. Obecnie tylko hello *podstawowe* reguła jest obsługiwana. Witaj *podstawowe* reguła jest rozkład obciążenia okrężnego.
 
 **Uwagi dotyczące konfiguracji dodatkowych**
 
-W przypadku konfiguracji certyfikatów SSL protokół w polu **HttpListener** należy zmienić na *Https* (z uwzględnieniem wielkości liter). Element **SslCertificate** jest dodawany do odbiornika **HttpListener** z wartością zmiennej skonfigurowaną dla certyfikatu SSL. Port frontonu należy zaktualizować do 443.
+Do konfigurowania certyfikatów SSL, hello protokół **HttpListener** należy zmienić zbyt*Https* (z uwzględnieniem wielkości liter). Witaj **SslCertificate** zbyt dodany element**HttpListener** z wartości zmiennej hello skonfigurowanej dla certyfikatu SSL hello. port frontonu Hello powinien być zaktualizowany too443.
 
-**Aby włączyć koligację opartą na plikach cookie**: bramę aplikacji można skonfigurować tak, aby żądanie z sesji klienta było zawsze kierowane do tej samej maszyny wirtualnej w kolektywie serwerów sieci Web. W tym scenariuszu należy wstrzyknąć plik cookie sesji, który umożliwi bramie prawidłowe kierowanie ruchu. Aby włączyć koligację opartą na plikach cookie, ustaw element **CookieBasedAffinity** na wartość *Enabled* w elemencie **BackendHttpSettings**.
+**koligacji na podstawie plików cookie tooenable**: bramy aplikacji może być skonfigurowany tooensure żądania z sesji klienta jest zawsze ukierunkowanej toohello tej samej maszyny Wirtualnej w hello kolektywu serwerów sieci web. W tym scenariuszu odbywa się przez uruchomienie pliku cookie sesji, umożliwiającą hello bramy toodirect ruch odpowiednio. Ustaw koligacji na podstawie plików cookie tooenable **CookieBasedAffinity** za*włączone* w hello **elementu BackendHttpSettings** elementu.
 
 ## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a>Skonfiguruj odciążanie protokołu SSL na istniejącą bramę aplikacji
 
 ```azurecli-interactive
 #!/bin/bash
 
-# Create a new front end port to be used for SSL
+# Create a new front end port toobe used for SSL
 az network application-gateway frontend-port create \
   --name sslport \
   --port 443 \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"
 
-# Upload the .pfx certificate for SSL offload
+# Upload hello .pfx certificate for SSL offload
 az network application-gateway ssl-cert create \
   --name "newcert" \
   --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
@@ -67,7 +67,7 @@ az network application-gateway ssl-cert create \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"
 
-# Create a new listener referencing the port and certificate created earlier
+# Create a new listener referencing hello port and certificate created earlier
 az network application-gateway http-listener create \
   --frontend-ip "appGatewayFrontendIP" \
   --frontend-port sslport  \
@@ -76,14 +76,14 @@ az network application-gateway http-listener create \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"
 
-# Create a new back-end pool to be used
+# Create a new back-end pool toobe used
 az network application-gateway address-pool create \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG" \
   --name "appGatewayBackendPool2" \
   --servers 10.0.0.7 10.0.0.8
 
-# Create a new back-end HTTP settings using the new probe
+# Create a new back-end HTTP settings using hello new probe
 az network application-gateway http-settings create \
   --name "settings2" \
   --port 80 \
@@ -92,7 +92,7 @@ az network application-gateway http-settings create \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"
 
-# Create a new rule linking the listener to the back-end pool
+# Create a new rule linking hello listener toohello back-end pool
 az network application-gateway rule create \
   --name "rule2" \
   --rule-type Basic \
@@ -106,7 +106,7 @@ az network application-gateway rule create \
 
 ## <a name="create-an-application-gateway-with-ssl-offload"></a>Utwórz bramę aplikacji z odciążania protokołu SSL
 
-Poniższy przykład tworzy bramę aplikacji z odciążania protokołu SSL.  Certyfikat i hasło muszą zostać zaktualizowane do prawidłowego klucza prywatnego.
+następujące przykładowe Hello tworzy bramę aplikacji z odciążania protokołu SSL.  Witaj certyfikat i hasło certyfikatu musi być zaktualizowany tooa prawidłowego klucza prywatnego.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -137,7 +137,7 @@ az network application-gateway create \
 
 ## <a name="get-application-gateway-dns-name"></a>Pobieranie nazwy DNS bramy aplikacji
 
-Po utworzeniu bramy następnym krokiem jest skonfigurowanie frontonu na potrzeby komunikacji. Gdy jest używany publiczny adres IP, brama aplikacji wymaga dynamicznie przypisywanej nazwy DNS, która nie jest przyjazna. Aby upewnić się, że użytkownicy końcowi mogą trafić bramę aplikacji, można użyć rekordu CNAME w celu wskazania publicznego punktu końcowego bramy aplikacji. [Konfigurowanie niestandardowej nazwy domeny dla platformy Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Aby skonfigurować alias, należy pobrać szczegółów bramy aplikacji i jego skojarzonej nazwy IP DNS za pomocą elementu publicznego adresu IP dołączony na bramie aplikacji. Nazwa DNS bramy aplikacji powinna zostać użyta w celu utworzenia rekordu CNAME, który wskazuje dwóm aplikacjom sieci Web tę nazwę DNS. Korzystanie z rekordów A nie jest zalecane, ponieważ adres VIP może ulec zmianie po ponownym uruchomieniu bramy aplikacji.
+Po utworzeniu bramy hello hello następnym krokiem jest tooconfigure hello frontonu dla komunikacji. Gdy jest używany publiczny adres IP, brama aplikacji wymaga dynamicznie przypisywanej nazwy DNS, która nie jest przyjazna. Użytkownicy końcowi tooensure można trafień bramy aplikacji hello, rekord CNAME mogą być używane toopoint toohello publiczny punkt końcowy bramy aplikacji hello. [Konfigurowanie niestandardowej nazwy domeny dla platformy Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). tooconfigure aliasu, pobrać szczegółów bramy aplikacji hello i skojarzonej z nią IP DNS nazwy przy użyciu bramy aplikacji hello publicznego adresu IP elementu toohello dołączone. Brama aplikacji Hello DNS nazwa powinna być używana toocreate rekord CNAME, która nazwa punktów Witaj dwie sieci web aplikacji toothis DNS. Użycie Hello rekordów A nie jest zalecane, ponieważ hello wirtualne adresy IP mogą ulec zmianie po ponownym uruchomieniu bramy aplikacji.
 
 
 ```azurecli-interactive
@@ -182,7 +182,7 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz skonfigurować bramę aplikacji do użycia z wewnętrznego modułem równoważenia obciążenia, zobacz artykuł [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Tworzenie bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia).
+Jeśli chcesz tooconfigure toouse bramy aplikacji z wewnętrznego modułu równoważenia obciążenia (ILB), zobacz [Utwórz bramę aplikacji z wewnętrznego modułu równoważenia obciążenia (ILB)](application-gateway-ilb.md).
 
 Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz znaleźć w następujących artykułach:
 

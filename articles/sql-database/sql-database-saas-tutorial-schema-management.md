@@ -1,5 +1,5 @@
 ---
-title: "Zarządzanie schematami usługi Azure SQL Database w aplikacji z wieloma dzierżawami | Microsoft Docs"
+title: "schemat bazy danych SQL Azure aaaManage w aplikacji wielodostępnych | Dokumentacja firmy Microsoft"
 description: "Zarządzanie schematami wielu dzierżaw w aplikacji z wieloma dzierżawami, która korzysta z usługi Azure SQL Database"
 keywords: "samouczek usługi sql database"
 services: sql-database
@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 78d76efb88bf11fa18a416b59e6f881539141232
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ea946e556808dabd60dd39cb8173d0512d4bddec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Zarządzanie schematu dla wielu dzierżawców w aplikacji Wingtip SaaS
+# <a name="manage-schema-for-multiple-tenants-in-hello-wingtip-saas-application"></a>Zarządzanie schematu dla wielu dzierżawców w hello aplikacji Wingtip SaaS
 
-[Pierwszy samouczek Wingtip SaaS](sql-database-saas-tutorial.md) pokazuje, jak udostępnić bazę danych dzierżawy i zarejestruj go w katalogu aplikacji. Podobnie jak wszelkie aplikacje aplikacji Wingtip SaaS rozpoczyna się wraz z upływem czasu, a czasem wymaga zmiany w bazie danych. Zmiany mogą obejmować nowy lub zmieniony schemat, nowe lub zmienione dane referencyjne, oraz rutynowe zadania konserwacji bazy danych zapewniające optymalną wydajność aplikacji. W przypadku aplikacji SaaS zmiany te muszą zostać wprowadzone w sposób skoordynowany — potencjalnie w bardzo wielu bazach danych dzierżaw. Aby te zmiany można w przyszłości dzierżawy baz danych muszą należy włączyć do procesu inicjowania obsługi administracyjnej.
+Witaj [pierwszy samouczek Wingtip SaaS](sql-database-saas-tutorial.md) pokazuje, jak udostępnić bazę danych dzierżawy i zarejestruj go w katalogu hello aplikacji hello. Podobnie jak wszelkie aplikacje powitalne aplikacji Wingtip SaaS rozpoczyna się wraz z upływem czasu, a czasem wymaga toohello zmian w bazie danych. Zmiany mogą obejmować schematu nowe lub zostały zmienione, dane referencyjne nowe lub zostały zmienione i bazy danych procedury obsługi zadań tooensure optymalną wydajność aplikacji. Przy użyciu aplikacji SaaS te zmiany należy toobe wdrożonego w skoordynowany sposób na potencjalnie ogromną floty dzierżawy baz danych. Toobe te zmiany w przyszłości dzierżawy baz danych, muszą one mieć toobe włączyć do procesu udostępniania hello.
 
-Ten samouczek analizuje dwa scenariusze — wdrażanie aktualizacji danych referencyjnych dla wszystkich dzierżaw i dostrajanie indeksu tabeli zawierającej dane referencyjne. [Zadania elastyczne](sql-database-elastic-jobs-overview.md) funkcja służy do wykonywania tych operacji we wszystkich dzierżawców i *złotego* bazy danych dzierżawy, który służy jako szablon dla nowych baz danych.
+W tym samouczku Eksploruje dwa scenariusze - wdrażania aktualizacji danych odwołania dla wszystkich dzierżawców i retuning indeksu na powitania tabeli zawierającej dane referencyjne hello. Witaj [zadania elastyczne](sql-database-elastic-jobs-overview.md) funkcji jest używane tooexecute te operacje we wszystkich dzierżaw i hello *złotego* bazy danych dzierżawy, który służy jako szablon dla nowych baz danych.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -38,81 +38,81 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie indeksu tabeli we wszystkich bazach danych dzierżaw
 
 
-Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
+toocomplete tego samouczka, Utwórz hello się, że następujące wymagania wstępne są spełnione:
 
-* Aplikacja Wingtip SaaS jest wdrażana. Aby wdrożyć w mniej niż 5 minut, zobacz [wdrażania i aplikacji Wingtip SaaS](sql-database-saas-tutorial.md)
+* Aplikacja Wingtip SaaS Hello jest wdrażana. Zobacz toodeploy w mniej niż pięć minut [wdrażania i aplikacji Wingtip SaaS hello](sql-database-saas-tutorial.md)
 * Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Zainstalowano najnowszą wersję programu SSMS (SQL Server Management Studio). [Pobieranie i instalowanie programu SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+* zainstalowana jest najnowsza wersja Hello programu SQL Server Management Studio (SSMS). [Pobieranie i instalowanie programu SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Ten samouczek zakłada użycie funkcji usługi SQL Database, które znajdują się w ograniczonej wersji zapoznawczej (zadania Elastic Database). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.*
+*Ten samouczek używa funkcji hello usługi baza danych SQL, które są w ograniczonym wersji zapoznawczej (zadania elastycznej bazy danych). Jeśli chcesz toodo w tym samouczku, podaj identyfikator subskrypcji tooSaaSFeedback@microsoft.com podmiotu = elastycznej Podgląd zadania. Po otrzymaniu potwierdzenia, że subskrypcja została włączona, [Pobierz i zainstaluj polecenia cmdlet hello najnowszej wersji wstępnej zadania](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.*
 
 
-## <a name="introduction-to-saas-schema-management-patterns"></a>Wprowadzenie do wzorców zarządzania schematami SaaS
+## <a name="introduction-toosaas-schema-management-patterns"></a>Wprowadzenie tooSaaS wzorców Zarządzanie schematami
 
-Wzorzec SaaS pojedynczej dzierżawy na bazę danych korzysta na wiele sposobów z izolacji danych, ale jednocześnie cechuje się zwiększoną złożonością obsługi i zarządzania w przypadku wielu baz danych. Funkcja [Zadania elastyczne](sql-database-elastic-jobs-overview.md) ułatwia administrowanie i zarządzanie warstwą danych programu SQL. Zadania umożliwiają bezpieczne i niezawodne uruchamiania zleceń (skryptów T-SQL) na grupie baz danych niezależnie od interakcji z użytkownikiem lub danych wejściowych. Tej metody można użyć do wdrożenia schematu i zmiany wspólnych danych referencyjnych we wszystkich dzierżawach w aplikacji. Zadania elastyczne służą do konserwacji *wzorcowej* kopii bazy danych używanej do tworzenia nowych dzierżaw, dzięki czemu zawsze zawiera ona najnowszy schemat i dane referencyjne.
+Witaj pojedynczej dzierżawy na bazę danych SaaS wzorca korzyści na wiele sposobów z hello danych izolacji, co powoduje, ale na powitania jednocześnie wprowadza hello dodatkową złożoność obsługi i zarządzania nimi wielu baz danych. [Zadania elastyczne](sql-database-elastic-jobs-overview.md) ułatwia administrowanie i zarządzanie warstwy danych programu SQL hello. Zadania umożliwiają toosecurely a niezawodnie, uruchom zadania (skryptów T-SQL) niezależne od działań użytkownika lub danych wejściowych, na grupę baz danych. Ta metoda może być używane toodeploy schematu i wspólne zmiany danych odwołania dla wszystkich dzierżawców w aplikacji. Zadania elastyczne mogą być również używane toomaintain *złotego* toocreate nowi dzierżawcy, zapewniając zawsze zawiera najnowsze dane schematu i odwołanie hello używana kopia hello bazy danych.
 
 ![ekran](media/sql-database-saas-tutorial-schema-management/schema-management.png)
 
 
 ## <a name="elastic-jobs-limited-preview"></a>Ograniczona wersja zapoznawcza Zadań elastycznych
 
-Istnieje nowa wersja Zadań elastycznych, która jest teraz zintegrowaną funkcją usługi Azure SQL Database (nie wymaga żadnych dodatkowych usług ani składników). Nowa wersja Zadań elastycznych jest obecnie dostępna w ograniczonej wersji zapoznawczej. Ograniczona wersja zapoznawcza obsługuje obecnie program PowerShell do tworzenia kont zadań, oraz oprogramowanie T-SQL do tworzenia zadań i zarządzania nimi.
+Istnieje nowa wersja Zadań elastycznych, która jest teraz zintegrowaną funkcją usługi Azure SQL Database (nie wymaga żadnych dodatkowych usług ani składników). Nowa wersja Zadań elastycznych jest obecnie dostępna w ograniczonej wersji zapoznawczej. Ta ograniczona wersja zapoznawcza obecnie obsługuje PowerShell toocreate zadania konta i toocreate T-SQL zadania i zarządzać nimi.
 
 > [!NOTE]
-> *Ten samouczek zakłada użycie funkcji usługi SQL Database, które znajdują się w ograniczonej wersji zapoznawczej (zadania Elastic Database). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.*
+> *Ten samouczek używa funkcji hello usługi baza danych SQL, które są w ograniczonym wersji zapoznawczej (zadania elastycznej bazy danych). Jeśli chcesz toodo w tym samouczku, podaj identyfikator subskrypcji tooSaaSFeedback@microsoft.com podmiotu = elastycznej Podgląd zadania. Po otrzymaniu potwierdzenia, że subskrypcja została włączona, [Pobierz i zainstaluj polecenia cmdlet hello najnowszej wersji wstępnej zadania](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.*
 
-## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
+## <a name="get-hello-wingtip-application-scripts"></a>Pobierz skrypty aplikacji hello Wingtip
 
-Wingtip SaaS skrypty i kod źródłowy aplikacji są dostępne w [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repozytorium github. [Kroki, aby pobrać skrypty Wingtip SaaS](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+Witaj Wingtip SaaS skrypty i kod źródłowy aplikacji są dostępne w hello [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repozytorium github. [Kroki skrypty Wingtip SaaS hello toodownload](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Tworzenie bazy danych konta zadania oraz nowego konta zadania
 
-Ten samouczek wymaga użycia programu PowerShell w celu utworzenia bazy danych konta zadania oraz samego konta zadania. Podobnie jak w przypadku aplikacji MSDB i SQL Agent, Zadania elastyczne używają usługi Azure SQL Database do przechowywania definicji zadań, ich stanu i historii. Po utworzeniu konta zadania można natychmiast przystąpić do tworzenia i monitorowania zadań.
+Ten samouczek wymaga użycia programu PowerShell toocreate hello zadania konta bazy danych i zadania konta. Podobnie jak MSDB i agenta SQL korzysta zadania elastyczne Azure SQL z bazy danych definicje zadań toostore, stan zadania i historii. Po utworzeniu hello zadania konta można tworzyć i natychmiast monitorowania zadań.
 
-1. Otwórz pozycję …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1* w programie **PowerShell ISE**.
-1. Naciśnij klawisz **F5**, aby uruchomić skrypt.
+1. Otwórz... \\Modułów uczenia\\Zarządzanie schematami\\*SchemaManagement.ps1 pokaz* w hello **PowerShell ISE**.
+1. Naciśnij klawisz **F5** toorun hello skryptu.
 
-Skrypt *Demo-SchemaManagement.ps1* wywołuje skrypt *Deploy-SchemaManagement.ps1* w celu utworzenia bazy danych typu *S2* o nazwie **jobaccount** na serwerze wykazu. Następnie tworzy konto zadania, przekazując bazę danych jobaccount jako parametr wywołania tworzenia konta zadania.
+Hello *SchemaManagement.ps1 pokaz* hello wywołania skryptu *SchemaManagement.ps1 Wdróż* skryptu toocreate *S2* bazy danych o nazwie **jobaccount** na powitania serwera wykazu. Następnie tworzy hello zadania konta, przekazywanie jako parametru toohello zadania konta tworzenia wywołanie hello jobaccount w bazie danych.
 
-## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Tworzenie zadania służącego do wdrożenia nowych danych referencyjnych we wszystkich dzierżawach
+## <a name="create-a-job-toodeploy-new-reference-data-tooall-tenants"></a>Utwórz zadanie toodeploy nowe odwołanie danych tooall dzierżawcy
 
-Każda baza danych dzierżawy obejmuje zestaw typów miejsc, które definiują rodzaj zdarzeń obsługiwanych w danym miejscu. W tym ćwiczeniu wdrożysz i uaktualnisz wszystkie bazy danych dzierżaw w celu dodania dwóch dodatkowych typów miejsc: *Motorcycle Racing* i *Swimming Club*. Te typy miejsc odpowiadają obrazom tła, które widzisz w aplikacji zdarzeń dzierżawy.
+Każda baza danych dzierżawy zawiera zestaw miejscową typów, które definiują hello rodzaju zdarzenia, które znajdują się w miejscu. W tym ćwiczeniu można wdrożyć aktualizacji tooall hello dzierżawy baz danych tooadd dwa dodatkowe miejsce typów: *Racing motocykla* i *klub pływackich*. Te typy miejscową odpowiada obraz tła toohello widocznych hello dzierżawy zdarzeń aplikacji.
 
-Kliknij menu rozwijane typu miejsca i upewnij się, że jest dostępnych tylko 10 opcji typów miejsc — a w szczególności, że na liście brakuje opcji „Motorcycle Racing” i „Swimming Club”.
+Kliknij menu rozwijane typu miejscową hello, a następnie sprawdź, czy tylko 10 miejscową typu opcje są dostępne, a w szczególności tej "Motocykla Racing" i "Pływackich klub" nie znajdują się na liście hello.
 
-Utwórz teraz zadanie służące do zaktualizowania tabeli *VenueTypes* we wszystkich bazach danych dzierżawy i dodania nowych typów miejsc.
+Teraz Utwórzmy hello tooupdate zadania *VenueTypes* tabeli w wszystkich baz danych dzierżawy hello i dodawanie nowych typów miejscową hello.
 
-Aby utworzyć nowe zadanie, użyjemy zestawu procedur składowanych systemu zadań utworzonych w bazie danych jobaccount podczas tworzenia konta zadania.
+toocreate nowe zadanie używamy zestawu zadań systemu przechowywane procedury utworzone w bazie danych jobaccount hello podczas tworzenia hello zadania konta.
 
-1. Otwórz program SSMS i połącz się z serwerem wykazu: catalog-\<użytkownik\>.database.windows.net.
-1. Połącz się również z serwerem dzierżaw: tenants1-\<użytkownik\>.database.windows.net.
-1. Przejdź do bazy danych *contosoconcerthall* na serwerze *tenants1* i utwórz zapytanie dla tabeli *VenueTypes*, aby upewnić się, że na liście wyników nie ma pozycji *Motorcycle Racing* i *Swimming Club* ****.
-1. Otwórz plik …\\Learning Modules\\Schema Management\\DeployReferenceData.sql.
-1. Modyfikowanie instrukcji: Ustaw @wtpUser = &lt;użytkownika&gt; i zastąp wartość użytkownika używane w przypadku wdrażania aplikacji Wingtip
-1. Upewnij się, że masz połączenie z bazą danych jobaccount, a następnie naciśnij klawisz **F5**, aby uruchomić skrypt.
+1. Otwórz SSMS i Połącz z serwerem wykazu toohello: katalogu -\<użytkownika\>. database.windows.net serwera
+1. Także podłączyć serwer dzierżawy toohello: tenants1 -\<użytkownika\>. database.windows.net
+1. Przeglądaj toohello *contosoconcerthall* bazy danych na powitania *tenants1* powitania serwera i zapytań *VenueTypes* tooconfirm tabeli który *Racing motocykla*  i *klub pływackich* **nie są** hello listy wyników.
+1. Otwórz hello pliku... \\Modułów szkoleniowych\\Zarządzanie schematami\\DeployReferenceData.sql
+1. Modyfikowanie instrukcji hello: Ustaw @wtpUser = &lt;użytkownika&gt; i zastąp wartość użytkownika hello używane po wdrożeniu aplikacji Wingtip hello
+1. Upewnij się, są połączone toohello jobaccount w bazie danych i naciśnij klawisz **F5** do uruchamiania skryptu hello
 
-* **sp\_add\_target\_group** tworzy nazwę grupy docelowej DemoServerGroup. Teraz należy dodać członków docelowych.
-* **SP\_dodać\_docelowej\_grupy\_elementu członkowskiego** dodaje *serwera* docelowy typ elementu członkowskiego, które uzna za wszystkie bazy danych w ramach tego serwera (Uwaga to tenants1&lt; Użytkownik&gt; serwer zawierający dzierżawy baz danych) w czasie zadania wykonywania powinny być uwzględnione w zadaniu, polega na dodaniu drugiego *bazy danych* docelowy typ elementu członkowskiego, w szczególności "złotego" bazy danych (basetenantdb) który znajduje się w katalogu -&lt;użytkownika&gt; serwera, a na koniec innego *bazy danych* docelowy typ elementu członkowskiego grupy, aby uwzględnić adhocanalytics bazy danych, używany w samouczku nowsze.
+* **SP\_dodać\_docelowej\_grupy** tworzy Nazwa grupy docelowej hello DemoServerGroup, teraz potrzebujemy tooadd członków docelowych.
+* **SP\_dodać\_docelowej\_grupy\_elementu członkowskiego** dodaje *serwera* docelowy typ elementu członkowskiego, które uzna za wszystkie bazy danych w ramach tego serwera (Uwaga to hello tenants1-&lt; Użytkownik&gt; serwer zawierający hello dzierżawcy z bazy danych) w czasie zadania wykonywania powinny być uwzględnione w zadania hello hello drugi polega na dodaniu *bazy danych* docelowy typ elementu członkowskiego, w szczególności hello ("złotego" bazy danych basetenantdb) który znajduje się w katalogu -&lt;użytkownika&gt; serwera, a na koniec innego *bazy danych* docelowego elementu członkowskiego typu tooinclude hello adhocanalytics bazy danych grupy używany w samouczku nowsze.
 * **sp\_add\_job** tworzy zadanie o nazwie „Reference Data Deployment”.
-* **SP\_dodać\_etap zadania** tworzy etap zadania zawierające tekst polecenia T-SQL, aby zaktualizować tabeli referencyjnej VenueTypes
-* Pozostałe widoki w skrypcie dotyczą istnienia obiektów i monitorowania wykonania zadań. Aby przejrzeć wartość stanu, użyj tych zapytań **cyklu życia** kolumnę, aby określić, kiedy zadanie pomyślnie zakończył się na wszystkie dzierżawy i dwóch dodatkowych baz danych zawierających tabeli referencyjnej.
+* **SP\_dodać\_etap zadania** tworzy hello etap zadania zawierające T-SQL polecenia tekst tooupdate hello odwołanie do tabeli, VenueTypes
+* Widoki pozostałych Hello w skrypcie hello wyświetlanie istnienie hello hello obiektów i wykonywania zadania monitorowania. Użyj tych wartości stanu hello tooreview zapytań w hello **cyklu życia** toodetermine kolumny, gdy zadania hello zakończy się pomyślnie na wszystkie dzierżawy i bazy danych Witaj dwie dodatkowe zawierające hello tabeli referencyjnej.
 
-1. W programie SSMS przejdź do bazy danych *contosoconcerthall* na serwerze *tenants1* i utwórz zapytanie dla tabeli *VenueTypes*, aby upewnić się, że na liście wyników znajdują się teraz pozycje *Motorcycle Racing* i *Swimming Club* ****.
+1. W programie SSMS, Przeglądaj toohello *contosoconcerthall* bazy danych na powitania *tenants1* powitania serwera i zapytań *VenueTypes* tooconfirm tabeli który *motocykla Racing* i *klub pływackich* **są** teraz na liście wyników hello.
 
 
-## <a name="create-a-job-to-manage-the-reference-table-index"></a>Tworzenie zadania do zarządzania indeksem tabeli referencyjnej
+## <a name="create-a-job-toomanage-hello-reference-table-index"></a>Tworzenie indeksu tabeli zadania toomanage hello odwołania
 
-Podobnie jak w poprzednim ćwiczeniu, w tym zostanie utworzone zadanie służące do odbudowania indeksu klucza podstawowego tabeli referencyjnej — typowej operacji z zakresu zarządzania bazą danych, którą administrator może wykonać po załadowaniu dużej ilości danych do tabeli.
+Podobne toohello poprzednim ćwiczeniu, tym ćwiczeniu tworzy indeks hello toorebuild zadania hello klucza podstawowego tabeli odwołania, operacji zarządzania typowe bazy danych administrator może wykonać po załadowaniu dużej ilości danych do tabeli.
 
-Utwórz zadanie, używając tych samych procedur składowanych „system”.
+Utwórz zadanie, używając hello tego samego zadania "system" procedur składowanych.
 
-1. Otwórz SSMS i połącz się katalogu -&lt;użytkownika&gt;. database.windows.net serwera
-1. Otwórz plik …\\Learning Modules\\Schema Management\\OnlineReindex.sql.
-1. Kliknij prawym przyciskiem myszy, wybierz połączenie i połącz się katalogu -&lt;użytkownika&gt;. database.windows.net serwera, jeśli nie został jeszcze połączony
-1. Upewnij się, że masz połączenie z bazą danych jobaccount, a następnie naciśnij klawisz F5, aby uruchomić skrypt.
+1. Otwórz program SSMS i połącz toohello katalogu -&lt;użytkownika&gt;. database.windows.net serwera
+1. Otwórz hello pliku... \\Modułów szkoleniowych\\Zarządzanie schematami\\OnlineReindex.sql
+1. Kliknij prawym przyciskiem myszy, wybierz połączenie i połącz toohello katalogu -&lt;użytkownika&gt;. database.windows.net serwera, jeśli nie został jeszcze połączony
+1. Upewnij się, są połączone toohello jobaccount w bazie danych i naciśnij klawisz F5 toorun hello skryptu
 
 * sp\_add\_job tworzy nowe zadanie o nazwie „Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”.
-* sp\_add\_jobstep tworzy krok zadania zawierający tekst polecenia T-SQL służącego do aktualizacji indeksu.
+* SP\_dodać\_etap zadania tworzy hello etap zadania zawierające T-SQL polecenia tekst tooupdate hello indeksu
 
 
 
@@ -123,7 +123,7 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 
 > [!div class="checklist"]
 
-> * Utworzenie konta zadania do tworzenia zapytań dotyczących wielu dzierżaw
+> * Utwórz zadania konta tooquery między wieloma dzierżawcami
 > * Aktualizowanie danych we wszystkich bazach danych dzierżaw
 > * Tworzenie indeksu tabeli we wszystkich bazach danych dzierżaw
 
@@ -132,6 +132,6 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Dodatkowe samouczki, które zależą od wdrożenia aplikacji Wingtip SaaS](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* [Dodatkowe samouczki, które zależą od hello wdrażanie aplikacji Wingtip SaaS](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Zarządzanie skalowaną w poziomie bazą danych w chmurze](sql-database-elastic-jobs-overview.md)
 * [Tworzenie baz danych skalowanych w poziomie i zarządzanie nimi](sql-database-elastic-jobs-create-and-manage.md)

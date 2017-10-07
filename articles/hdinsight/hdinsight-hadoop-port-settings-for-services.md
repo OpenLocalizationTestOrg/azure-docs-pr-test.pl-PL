@@ -1,5 +1,5 @@
 ---
-title: "Porty używane przez usługi Hadoop w usłudze HDInsight - Azure | Dokumentacja firmy Microsoft"
+title: "używane przez usługi Hadoop w usłudze HDInsight - Azure aaaPorts | Dokumentacja firmy Microsoft"
 description: "Lista portów używanych przez usługi Hadoop działające w usłudze HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -15,44 +15,44 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0abc5c1c678aa79816e3e82a74538d2fb6db40ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Porty używane przez usługi Hadoop w usłudze HDInsight
 
-Ten dokument zawiera listę portów używane przez usługi Hadoop uruchamianych w klastrach usługi HDInsight opartej na systemie Linux. Zawiera także informacje o portach używanych do nawiązania połączenia z klastrem przy użyciu protokołu SSH.
+Ten dokument zawiera listę hello porty używane przez usługi Hadoop działające w klastrach HDInsight opartych na systemie Linux. Zawiera także informacje o portach używanych tooconnect toohello klastra przy użyciu protokołu SSH.
 
 ## <a name="public-ports-vs-non-public-ports"></a>Porty publiczny a niepublicznych portów
 
-Klastry usługi HDInsight opartej na systemie Linux udostępniają tylko trzy porty publicznie w Internecie. 22, 23 i 443. Te porty są używane do bezpiecznego dostępu do klastra przy użyciu protokołu SSH i usługi udostępniane za pośrednictwem bezpiecznego protokołu HTTPS.
+HDInsight opartych na systemie Linux klastrów udostępniają tylko trzy porty publicznie na hello internet; 22, 23 i 443. Te porty są klastra hello dostępu toosecurely używane przy użyciu protokołu SSH i usługi udostępniane za pośrednictwem protokołu HTTPS bezpiecznego hello.
 
-Wewnętrznie, HDInsight jest implementowany przez kilka maszyn wirtualnych platformy Azure (węzłów w klastrze) uruchomione na sieć wirtualną platformy Azure. W ramach sieci wirtualnej, a dostępne porty nie są widoczne w Internecie. Na przykład jeśli łączysz się do jednego z węzłów głównych przy użyciu protokołu SSH, z węzła głównego można następnie bezpośrednio uzyskać dostęp usługi uruchomione w węzłach klastra.
+Wewnętrznie, HDInsight jest implementowany przez kilka maszyn wirtualnych platformy Azure (hello węzłów w klastrze hello) uruchomione na sieć wirtualną platformy Azure. W ramach sieci wirtualnej hello, dostępne porty nie są widoczne za pośrednictwem hello internet. Na przykład jeśli łączysz tooone hello węzłów głównych przy użyciu protokołu SSH, z węzła głównego hello można następnie bezpośrednio uzyskać dostęp usługi działające na powitania węzłów klastra.
 
 > [!IMPORTANT]
-> Nie określaj sieci wirtualnej platformy Azure jako opcji konfiguracji dla usługi HDInsight, co jest tworzone automatycznie. Jednak inne maszyny (np. inne maszyny wirtualne Azure lub komputerze klienckim Programowanie) nie można połączyć z tą siecią wirtualną.
+> Nie określaj sieci wirtualnej platformy Azure jako opcji konfiguracji dla usługi HDInsight, co jest tworzone automatycznie. Jednak nie można przyłączyć innych sieci wirtualnej toothis maszyny (np. inne maszyny wirtualne Azure lub komputerze deweloperskim klienta).
 
 
-Aby przyłączyć dodatkowe maszyny do sieci wirtualnej, musi najpierw utworzyć sieci wirtualnej, a następnie określ, podczas tworzenia klastra usługi HDInsight. Aby uzyskać więcej informacji, zobacz [możliwości rozszerzania HDInsight przy użyciu sieci wirtualnej platformy Azure](hdinsight-extend-hadoop-virtual-network.md)
+dodatkowe maszyny toojoin toohello sieci wirtualnej, użytkownik musi najpierw Utwórz sieć wirtualną hello, a następnie określ go podczas tworzenia klastra usługi HDInsight. Aby uzyskać więcej informacji, zobacz [możliwości rozszerzania HDInsight przy użyciu sieci wirtualnej platformy Azure](hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="public-ports"></a>Porty publiczny
 
-Wszystkie węzły w klastrze HDInsight znajdują się w sieci wirtualnej platformy Azure, a nie są bezpośrednio dostępne z Internetu. Publiczny brama zapewnia dostęp do Internetu dla następujących portów, które są wspólne dla wszystkich typów klastra usługi HDInsight.
+Witaj wszystkie węzły w klastrze HDInsight znajdują się w sieci wirtualnej platformy Azure i nie są bezpośrednio dostępne z hello internet. Publiczny bramy zawiera następujące porty, które są wspólne dla wszystkich typów klastra usługi HDInsight toohello dostęp do Internetu.
 
 | Usługa | Port | Protokół | Opis |
 | --- | --- | --- | --- | --- |
-| sshd |22 |SSH |Łączy się sshd na głównej headnode z klientów. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| sshd |22 |SSH |Łączy klientów sshd węzła krawędzi. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| sshd |23 |SSH |Łączy się sshd na dodatkowej headnode z klientów. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| Ambari |443 |HTTPS |Ambari web UI. Zobacz [HDInsight zarządzać za pomocą interfejsu użytkownika sieci Web Ambari](hdinsight-hadoop-manage-ambari.md) |
-| Ambari |443 |HTTPS |Interfejs API REST Ambari. Zobacz [Zarządzanie HDInsight przy użyciu interfejsu API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| sshd |22 |SSH |Łączy toosshd klientów na powitania headnode podstawowego. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |22 |SSH |Łączy toosshd klientów na powitania węzła krawędzi. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |23 |SSH |Łączy toosshd klientów na powitania headnode dodatkowej. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| Ambari |443 |HTTPS |Ambari web UI. Zobacz [Zarządzanie HDInsight przy użyciu hello Interfejsu sieci Web Ambari](hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |Interfejs API REST Ambari. Zobacz [Zarządzanie HDInsight przy użyciu hello interfejsu API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | Usługi WebHCat |443 |HTTPS |HCatalog interfejsu API REST. Zobacz [korzystanie z programu Hive z Curl](hdinsight-hadoop-use-pig-curl.md), [korzystanie z języka Pig z Curl](hdinsight-hadoop-use-pig-curl.md), [korzystać z usługi MapReduce z Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| Serwera HiveServer2 |443 |ODBC |Nawiązanie połączenia Hive za pośrednictwem sterownika ODBC. Zobacz [łączenie programu Excel do usługi HDInsight za pomocą sterownika Microsoft ODBC](hdinsight-connect-excel-hive-odbc-driver.md). |
-| Serwera HiveServer2 |443 |JDBC |Nawiązanie połączenia przy użyciu JDBC Hive. Zobacz [Połącz z Hive w usłudze HDInsight przy użyciu sterownik Hive JDBC](hdinsight-connect-hive-jdbc-driver.md) |
+| Serwera HiveServer2 |443 |ODBC |Łączy tooHive za pośrednictwem sterownika ODBC. Zobacz [tooHDInsight łączenie programu Excel ze sterownikiem ODBC firmy Microsoft hello](hdinsight-connect-excel-hive-odbc-driver.md). |
+| Serwera HiveServer2 |443 |JDBC |Nawiązuje połączenie przy użyciu JDBC tooHive. Zobacz [połączyć tooHive w usłudze HDInsight przy użyciu sterownik Hive JDBC hello](hdinsight-connect-hive-jdbc-driver.md) |
 
-Poniżej przedstawiono dostępne dla określonego klastra typów:
+następujące Hello są dostępne dla określonego klastra typów:
 
 | Usługa | Port | Protokół | Typ klastra | Opis |
 | --- | --- | --- | --- | --- |
@@ -62,12 +62,12 @@ Poniżej przedstawiono dostępne dla określonego klastra typów:
 
 ### <a name="authentication"></a>Authentication
 
-Wszystkie usługi udostępniane publicznie w Internecie, musi zostać uwierzytelniony:
+Wszystkie usługi udostępniane publicznie na powitania przez internet, musi zostać uwierzytelniony:
 
 | Port | Poświadczenia |
 | --- | --- |
-| 22 i 23 |Podane poświadczenia użytkownika SSH podczas tworzenia klastra |
-| 443 |Nazwa logowania (domyślne: admin) i hasło, które zostały określone podczas tworzenia klastra |
+| 22 i 23 |poświadczenia użytkownika SSH Hello określone podczas tworzenia klastra |
+| 443 |Nazwa logowania Hello (domyślne: admin) i hasło, które zostały określone podczas tworzenia klastra |
 
 ## <a name="non-public-ports"></a>Niepubliczne portów
 
@@ -75,7 +75,7 @@ Wszystkie usługi udostępniane publicznie w Internecie, musi zostać uwierzytel
 > Niektóre usługi są dostępne tylko dla typów konkretnego klastra. Na przykład baza danych HBase jest dostępna tylko na typy klastrów HBase.
 
 > [!IMPORTANT]
-> Niektóre usługi uruchomić tylko jedną headnode naraz. Jeśli próbujesz połączyć się z usługą w głównej headnode i wystąpi błąd 404, spróbuj ponownie, używając headnode dodatkowej.
+> Niektóre usługi uruchomić tylko jedną headnode naraz. Jeśli usługa toohello tooconnect na powitania headnode podstawowego próba i wystąpi błąd 404, spróbuj ponownie, używając hello headnode dodatkowej.
 
 ### <a name="ambari"></a>Ambari
 
@@ -92,9 +92,9 @@ Przykłady:
 
 | Usługa | Węzły | Port | Protokół | Opis |
 | --- | --- | --- | --- | --- |
-| NameNode interfejsu użytkownika sieci web |HEAD węzłów |30070 |HTTPS |Interfejs użytkownika, aby wyświetlić stan sieci Web |
+| NameNode interfejsu użytkownika sieci web |HEAD węzłów |30070 |HTTPS |Stan tooview interfejsu użytkownika sieci Web |
 | NameNode metadanych usługi |HEAD węzłów |8020 |IPC |Metadanych systemu plików |
-| DataNode |Wszystkich węzłów procesu roboczego |30075 |HTTPS |Interfejs użytkownika sieci Web do stanu widoku, dzienniki itp. |
+| DataNode |Wszystkich węzłów procesu roboczego |30075 |HTTPS |Stan tooview interfejsu użytkownika sieci Web, dzienniki, itp. |
 | DataNode |Wszystkich węzłów procesu roboczego |30010 |&nbsp; |Transfer danych |
 | DataNode |Wszystkich węzłów procesu roboczego |30020 |IPC |Operacji na metadanych |
 | NameNode dodatkowej |HEAD węzłów |50090 |HTTP |Punkt kontrolny NameNode metadanych |
@@ -107,18 +107,18 @@ Przykłady:
 | Menedżer zasobów interfejsu użytkownika sieci web |HEAD węzłów |8090 |HTTPS |Interfejs użytkownika dla Menedżera zasobów sieci Web |
 | Interfejs administracyjny Menedżera zasobów |HEAD węzłów |8141 |IPC |Dla aplikacji przesyłania (Hive, Pig, Hive serwera itp.) |
 | Menedżer zasobów harmonogramu |HEAD węzłów |8030 |HTTP |Interfejs administracyjny |
-| Interfejs aplikacji Menedżera zasobów |HEAD węzłów |8050 |HTTP |Adres interfejsu Menedżera aplikacji |
-| NodeManager |Wszystkich węzłów procesu roboczego |30050 |&nbsp; |Adres menedżera kontenera |
+| Interfejs aplikacji Menedżera zasobów |HEAD węzłów |8050 |HTTP |Adres interfejsu Menedżera aplikacji hello |
+| NodeManager |Wszystkich węzłów procesu roboczego |30050 |&nbsp; |adres Hello hello kontenera Menedżera |
 | NodeManager interfejsu użytkownika sieci web |Wszystkich węzłów procesu roboczego |30060 |HTTP |Interfejs Menedżera zasobów |
-| Adres osi czasu |HEAD węzłów |10200 |RPC |Usługa RPC usługi osi czasu. |
-| Oś czasu interfejsu użytkownika sieci web |HEAD węzłów |8181 |HTTP |Interfejs użytkownika sieci web usługi osi czasu |
+| Adres osi czasu |HEAD węzłów |10200 |RPC |Witaj osi czasu usługi RPC. |
+| Oś czasu interfejsu użytkownika sieci web |HEAD węzłów |8181 |HTTP |Witaj osi czasu usługi interfejsu użytkownika sieci web |
 
 ### <a name="hive-ports"></a>Porty gałęzi
 
 | Usługa | Węzły | Port | Protokół | Opis |
 | --- | --- | --- | --- | --- |
-| Serwera HiveServer2 |HEAD węzłów |10001 |Thrift |Usługi w celu nawiązania gałąź (Thrift/JDBC) |
-| Potrzeby magazynu metadanych hive |HEAD węzłów |9083 |Thrift |Usługi w celu nawiązania metadanych Hive (Thrift/JDBC) |
+| Serwera HiveServer2 |HEAD węzłów |10001 |Thrift |Usługa podłączania tooHive (Thrift/JDBC) |
+| Potrzeby magazynu metadanych hive |HEAD węzłów |9083 |Thrift |Usługa łączącego tooHive metadanych (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Porty WebHCat
 
@@ -132,7 +132,7 @@ Przykłady:
 | --- | --- | --- | --- | --- |
 | JobHistory |HEAD węzłów |19888 |HTTP |MapReduce JobHistory interfejsu użytkownika sieci web |
 | JobHistory |HEAD węzłów |10020 |&nbsp; |MapReduce JobHistory serwera |
-| ShuffleHandler |&nbsp; |13562 |&nbsp; |Pośredni mapy transferów danych wyjściowych z żądaniem reduktory |
+| ShuffleHandler |&nbsp; |13562 |&nbsp; |Pośredni mapy transferów danych wyjściowych reduktory toorequesting |
 
 ### <a name="oozie"></a>Oozie
 
@@ -145,32 +145,32 @@ Przykłady:
 
 | Usługa | Węzły | Port | Protokół | Opis |
 | --- | --- | --- | --- | --- |
-| Oś czasu (Historia aplikacji) |HEAD węzłów |6188 |HTTP |Interfejs użytkownika sieci web usługi osi czasu |
-| Oś czasu (Historia aplikacji) |HEAD węzłów |30200 |RPC |Interfejs użytkownika sieci web usługi osi czasu |
+| Oś czasu (Historia aplikacji) |HEAD węzłów |6188 |HTTP |Witaj osi czasu usługi interfejsu użytkownika sieci web |
+| Oś czasu (Historia aplikacji) |HEAD węzłów |30200 |RPC |Witaj osi czasu usługi interfejsu użytkownika sieci web |
 
 ### <a name="hbase-ports"></a>Porty HBase
 
 | Usługa | Węzły | Port | Protokół | Opis |
 | --- | --- | --- | --- | --- |
 | HMaster |HEAD węzłów |16000 |&nbsp; |&nbsp; |
-| HMaster informacje o interfejsie użytkownika sieci Web |HEAD węzłów |16010 |HTTP |Numer portu interfejsu użytkownika sieci web głównego HBase |
+| HMaster informacje o interfejsie użytkownika sieci Web |HEAD węzłów |16010 |HTTP |port Hello hello interfejsu użytkownika sieci web głównego HBase |
 | Region serwera |Wszystkich węzłów procesu roboczego |16020 |&nbsp; |&nbsp; |
-| &nbsp; |&nbsp; |2181 |&nbsp; |Portu używanego przez klientów do nawiązania połączenia dozorcy |
+| &nbsp; |&nbsp; |2181 |&nbsp; |port Hello używają tooconnect tooZooKeeper |
 
 ### <a name="kafka-ports"></a>Porty Kafka
 
 | Usługa | Węzły | Port | Protokół | Opis |
 | --- | --- | --- | --- | --- |
 | Broker |Węzłów procesu roboczego |9092 |[Protokół Kafka](http://kafka.apache.org/protocol.html) |Używany do komunikacji z klientem |
-| &nbsp; |Węzły dozorcy |2181 |&nbsp; |Portu używanego przez klientów do nawiązania połączenia dozorcy |
+| &nbsp; |Węzły dozorcy |2181 |&nbsp; |port Hello używają tooconnect tooZookeeper |
 
 ### <a name="spark-ports"></a>Porty Spark
 
 | Usługa | Węzły | Port | Protokół | Ścieżka adresu URL | Opis |
 | --- | --- | --- | --- | --- | --- |
-| Serwery Spark Thrift |HEAD węzłów |10002 |Thrift | &nbsp; | Usługi w celu nawiązania Spark SQL (Thrift/JDBC) |
+| Serwery Spark Thrift |HEAD węzłów |10002 |Thrift | &nbsp; | Usługa podłączania tooSpark SQL (Thrift/JDBC) |
 | Serwer programu Livy | HEAD węzłów | 8998 | HTTP | /batches | Usługa uruchamiania instrukcje, zadania i aplikacji |
 
 Przykłady:
 
-* Livy: `curl "http://10.0.0.11:8998/batches"`. W tym przykładzie `10.0.0.11` jest adresem IP headnode, obsługującego usługę Livy.
+* Livy: `curl "http://10.0.0.11:8998/batches"`. W tym przykładzie `10.0.0.11` jest adresem IP hello headnode hello, obsługującym hello Livy usługi.

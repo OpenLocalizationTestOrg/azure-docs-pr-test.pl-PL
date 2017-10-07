@@ -1,5 +1,5 @@
 ---
-title: "Konfigurowanie klastra usługi Azure Service Fabric | Microsoft Docs"
+title: "aaaSet zapasowej klastra usługi sieć szkieletowa usług Azure | Dokumentacja firmy Microsoft"
 description: "Szybki start — tworzenie klastra usługi Service Fabric z systemem Windows lub Linux na platformie Azure."
 services: service-fabric
 documentationcenter: .net
@@ -14,79 +14,79 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 13c60e293d19d607bb41ee4859706508c219a833
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Tworzenie pierwszego klastra usługi Service Fabric na platformie Azure
-[Klaster usługi Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym wdraża się mikrousługi i nimi zarządza. Niniejszy przewodnik Szybki start pomaga w utworzeniu klastra o pięciu węzłach, z systemem Windows lub Linux, za pośrednictwem środowiska [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) lub witryny [Azure Portal](http://portal.azure.com) w ciągu kilku minut.  
+[Klaster usługi Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym wdraża się mikrousługi i nimi zarządza. Ta opcja szybkiego startu pomaga toocreate pięcioma węzłami klastra, systemem Windows lub Linux, za pośrednictwem hello [programu Azure PowerShell](https://msdn.microsoft.com/library/dn135248) lub [portalu Azure](http://portal.azure.com) za kilka minut.  
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 
-## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+## <a name="use-hello-azure-portal"></a>Użyj hello portalu Azure
 
-Zaloguj się w witrynie Azure Portal pod adresem [http://portal.azure.com](http://portal.azure.com).
+Zaloguj się za toohello portalu Azure w [http://portal.azure.com](http://portal.azure.com).
 
-### <a name="create-the-cluster"></a>Tworzenie klastra
+### <a name="create-hello-cluster"></a>Tworzenie klastra hello
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
-2. Wybierz pozycję **Compute** w bloku **Nowy**, a następnie wybierz opcję **Klaster usługi Service Fabric** w bloku **Compute**.
-3. Uzupełnij formularz **Podstawy** usługi Service Fabric. W sekcji **System operacyjny** wybierz wersję systemu Windows lub Linux, którego chcesz używać w węzłach klastra. Nazwa użytkownika i hasło wprowadzone w tym miejscu są używane na potrzeby logowania się do maszyny wirtualnej. W obszarze **Grupa zasobów** utwórz nową. Grupa zasobów to logiczny kontener, w którym są tworzone i zbiorczo zarządzane zasoby platformy Azure. Po zakończeniu kliknij przycisk **OK**.
+1. Kliknij przycisk hello **nowy** znaleziono przycisku na powitania lewym górnym rogu hello portalu Azure.
+2. Wybierz **obliczeniowe** z hello **nowy** bloku, a następnie wybierz **klastra sieci szkieletowej usług** z hello **obliczeniowe** bloku.
+3. Wypełnianie hello sieci szkieletowej usług **podstawy** formularza. Dla **systemu operacyjnego**, wybierz pozycję hello wersji systemu Windows lub Linux ma hello toorun węzłów klastra. Hello nazwy użytkownika i hasła wprowadzonego w tym miejscu jest używane toolog toohello maszynie wirtualnej. W obszarze **Grupa zasobów** utwórz nową. Grupa zasobów to logiczny kontener, w którym są tworzone i zbiorczo zarządzane zasoby platformy Azure. Po zakończeniu kliknij przycisk **OK**.
 
     ![Dane wyjściowe instalacji klastra][cluster-setup-basics]
 
-4. Uzupełnij formularz **Konfiguracja klastra**.  Dla ustawienia **Liczba typów węzłów** wprowadź wartość „1”.
+4. Wypełnianie hello **konfiguracji klastra** formularza.  Dla ustawienia **Liczba typów węzłów** wprowadź wartość „1”.
 
-5. Wybierz pozycję **Typ węzła 1 (podstawowy)** i wypełnij formularz **Konfiguracja typu węzła**.  Wprowadź nazwę typu węzła i dla pozycji [Warstwa trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) ustaw wartość „Brązowa”.  Wybierz rozmiar maszyny wirtualnej.
+5. Wybierz **typu węzła 1 (podstawowe)** i wypełnianie hello **konfiguracji typu węzła** formularza.  Wprowadź nazwę typu węzła i ustaw hello [warstwa trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) zbyt "brązową."  Wybierz rozmiar maszyny wirtualnej.
 
-    Typy węzłów definiują rozmiar maszyny wirtualnej, liczbę maszyn wirtualnych, niestandardowe punkty końcowe oraz inne ustawienia dla maszyn wirtualnych tego typu. Każdy zdefiniowany typ węzła jest konfigurowany jako oddzielny zestaw skalowania maszyn wirtualnych, który jest używany do wdrażania maszyn wirtualnych i zarządzania nimi jako zestawem. Każdy typ węzła może być niezależnie skalowany w górę lub w dół, może mieć różne zestawy otwartych portów i może mieć różne metryki pojemności.  Pierwszy lub główny typ węzła jest miejscem, w którym hostowane są usługi systemowe Service Fabric. Musi zawierać co najmniej pięć maszyn wirtualnych.
+    Typy węzłów zdefiniuj hello rozmiar maszyny Wirtualnej, liczbę maszyn wirtualnych, niestandardowe punkty końcowe, oraz inne ustawienia hello maszyny wirtualne tego typu. Każdy typ węzła zdefiniowany jest skonfigurowany jako zestaw skali oddzielnej maszynie wirtualnej, który jest zarządzanych maszyn wirtualnych i toodeploy używane jako zestaw. Każdy typ węzła może być niezależnie skalowany w górę lub w dół, może mieć różne zestawy otwartych portów i może mieć różne metryki pojemności.  Hello pierwszy lub podstawowego, typ węzła jest którym usługi sieć szkieletowa usług systemowych są obsługiwane i musi mieć co najmniej pięć maszyn wirtualnych.
 
-    W przypadku wszystkich wdrożeń produkcyjnych [planowanie pojemności](service-fabric-cluster-capacity.md) jest ważnym krokiem.  Niemniej w ramach tego przewodnika Szybki start nie uruchamiasz aplikacji, więc wybierz rozmiar maszyny wirtualnej *Standardowa DS1_v2*.  Wybierz wartość „Srebrna” dla [warstwy niezawodności](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) oraz ustaw początkową pojemność zestawu skalowania maszyn wirtualnych na 5.  
+    W przypadku wszystkich wdrożeń produkcyjnych [planowanie pojemności](service-fabric-cluster-capacity.md) jest ważnym krokiem.  Niemniej w ramach tego przewodnika Szybki start nie uruchamiasz aplikacji, więc wybierz rozmiar maszyny wirtualnej *Standardowa DS1_v2*.  Wybierz "Srebrna" hello [warstwa niezawodności](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) i pojemność wynoszącą 5 zestawu skalowania maszyny wirtualnej początkowej.  
 
-    Niestandardowe punkty końcowe otwierają porty w module równoważenia obciążenia platformy Azure, dzięki czemu możesz nawiązywać połączenie z aplikacjami uruchomionymi w klastrze.  Wprowadź „80, 8172”, aby otworzyć porty 80 i 8172.
+    Niestandardowe punkty końcowe otwarcie portów w usłudze równoważenia obciążenia Azure hello, dzięki czemu można połączyć z aplikacji działających na powitania klastra.  Wprowadź "80, 8172" tooopen się porty 80 i 8172.
 
-    Nie zaznaczaj pola wyboru **Skonfiguruj ustawienia zaawansowane**. Opcji tej używa się do dostosowywania punktów końcowych zarządzania protokołem TCP/HTTP, zakresem portów aplikacji, [ograniczeniami dotyczącymi umieszczania](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints) oraz [właściwościami pojemności](service-fabric-cluster-resource-manager-metrics.md).    
+    Nie sprawdzaj hello **Skonfiguruj ustawienia zaawansowane** okno, który służy do dostosowywania końcowych zarządzania TCP/HTTP, zakresy portów aplikacji, [ograniczenia umieszczania](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints), i [pojemności właściwości](service-fabric-cluster-resource-manager-metrics.md).    
 
     Kliknij przycisk **OK**.
 
-6. W formularzu **Konfigurowanie klastra** ustaw opcję **Diagnostyka** na wartość **Wł**.  W ramach tego przewodnika Szybki start nie musisz wprowadzać żadnych właściwości [ustawień sieci szkieletowej](service-fabric-cluster-fabric-settings.md).  W pozycji **Wersja sieci szkieletowej** wybierz tryb uaktualniania **Automatyczny**, dzięki czemu firma Microsoft będzie automatycznie aktualizować wersję kodu sieci szkieletowej obsługującego klaster.  Ustaw tryb **Ręczny**, jeśli chcesz [wybrać obsługiwaną wersję](service-fabric-cluster-upgrade.md) do uaktualnienia. 
+6. W hello **konfiguracji klastra** formularza, ustaw **diagnostyki** za**na**.  Dla tego przewodnika Szybki Start, nie trzeba tooenter any [sieci szkieletowej ustawienie](service-fabric-cluster-fabric-settings.md) właściwości.  W **wersja platformy Fabric**, wybierz pozycję **automatyczne** tryb uaktualniania, tak aby firma Microsoft automatycznie aktualizuje hello wersja kodu sieci szkieletowej hello uruchomionego hello klastra.  Ustaw tryb hello zbyt**ręcznego** Jeśli zbyt[Wybierz obsługiwaną wersję](service-fabric-cluster-upgrade.md) tooupgrade do. 
 
     ![Konfiguracja typu węzła][node-type-config]
 
     Kliknij przycisk **OK**.
 
-7. Uzupełnij formularz **Zabezpieczenia**.  W ramach tego przewodnika Szybki start wybierz opcję **Niezabezpieczony**.  Niemniej zaleca się utworzenie zabezpieczonego klastra dla obciążeń produkcyjnych, ponieważ każda osoba może anonimowo połączyć się z niezabezpieczonym klastrem i przeprowadzić operacje związane z zarządzaniem.  
+7. Wypełnianie hello **zabezpieczeń** formularza.  W ramach tego przewodnika Szybki start wybierz opcję **Niezabezpieczony**.  Jest zdecydowanie zalecane toocreate bezpiecznego klastra w przypadku obciążeń produkcyjnych, jednak ponieważ każdy anonimowo połączyć tooan niezabezpieczone klaster i wykonywać operacje zarządzania.  
 
-    W usłudze Service Fabric używa się certyfikatów, aby zapewniać uwierzytelnianie i szyfrowanie w celu zabezpieczania różnych aspektów klastra i jego aplikacji. Aby uzyskać więcej informacji o sposobie wykorzystania certyfikatów w usłudze Service Fabric, zobacz [Scenariusze zabezpieczeń klastra usługi Service Fabric](service-fabric-cluster-security.md).  Aby włączyć uwierzytelnianie użytkownika przy użyciu usługi Azure Active Directory lub skonfigurować certyfikaty dla zabezpieczeń aplikacji, [utwórz klaster z szablonu usługi Resource Manager](service-fabric-cluster-creation-via-arm.md).
+    Certyfikaty są używane w sieci szkieletowej usług tooprovide uwierzytelnianie i szyfrowanie toosecure różnych aspektów klastra i jego zastosowań. Aby uzyskać więcej informacji o sposobie wykorzystania certyfikatów w usłudze Service Fabric, zobacz [Scenariusze zabezpieczeń klastra usługi Service Fabric](service-fabric-cluster-security.md).  Uwierzytelnianie użytkownika tooenable za pomocą usługi Azure Active Directory lub tooset zapasowych certyfikatów zabezpieczeń aplikacji [Tworzenie klastra z szablonem usługi Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
     Kliknij przycisk **OK**.
 
-8. Przejrzyj podsumowanie.  Jeśli chcesz pobrać szablon usługi Resource Manager utworzony na podstawie wprowadzonych ustawień, wybierz opcję **Pobierz szablon i parametry**.  Wybierz opcję **Utwórz**, aby utworzyć klaster.
+8. Witaj Przejrzyj podsumowania.  Jeśli chcesz toodownload szablonem usługi Resource Manager zbudowane na podstawie ustawień hello wprowadzona, wybierz **Pobierz szablon i parametry**.  Wybierz **Utwórz** toocreate hello klastra.
 
-    Możesz zobaczyć postępy tworzenia w powiadomieniach. (Kliknij ikonę „Dzwonka” w pobliżu paska stanu w prawym górnym rogu ekranu). Jeśli kliknięto opcję **Przypnij do tablicy startowej** podczas tworzenia klastra, zobaczysz pozycję **Wdrażanie klastra usługi Service Fabric** przypiętą do tablicy **Start**.
+    Postęp tworzenia hello w powiadomieniach hello jest widoczny. (Kliknij ikonę dzwonka"hello" w pobliżu pasek stanu hello na powitania górnym rogu ekranu). Jeśli kliknięto **tooStartboard numeru Pin** podczas tworzenia klastra hello, zobacz **wdrażanie klastra sieci szkieletowej usług** przypięty toohello **Start** tablicy.
 
 ### <a name="view-cluster-status"></a>Wyświetlanie stanu klastra
-Po utworzeniu klastra możesz sprawdzić klaster w bloku **Przegląd** w portalu. Możesz teraz wyświetlić szczegóły klastra na pulpicie nawigacyjnym, w tym publiczny punkt końcowy klastra oraz link do narzędzia Service Fabric Explorer.
+Po utworzeniu klastra można sprawdzić klastra w hello **omówienie** bloku w portalu hello. Możesz teraz przeglądać szczegóły hello klastra na pulpicie nawigacyjnym hello, w tym klastrze hello publiczny punkt końcowy i tooService łącze Eksploratora sieci szkieletowej.
 
 ![Stan klastra][cluster-status]
 
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Wizualizowanie klastra za pomocą narzędzia Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) to odpowiednie narzędzie do wizualizowania klastra i zarządzania aplikacjami.  Service Fabric Explorer jest usługą uruchamianą w klastrze.  Dostęp do tej usługi uzyskasz poprzez kliknięcie linku **Service Fabric Explorer** na stronie **Przegląd** klastra w portalu.  Możesz również wprowadzić jej adres bezpośrednio do przeglądarki: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
+### <a name="visualize-hello-cluster-using-service-fabric-explorer"></a>Wizualizowanie klastra hello za pomocą Eksploratora usługi sieć szkieletowa
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) to odpowiednie narzędzie do wizualizowania klastra i zarządzania aplikacjami.  Service Fabric Explorer to usługa, która działa w klastrze hello.  Dostęp za pomocą przeglądarki sieci web, klikając hello **Service Fabric Explorer** łącze klastra hello **omówienie** w portalu hello na stronie.  Można również wprowadzić adres hello bezpośrednio w przeglądarce hello: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
 
-Pulpit nawigacyjny klastra zawiera omówienie klastra, w tym podsumowanie kondycji węzła i aplikacji. Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można sprawdzić, które aplikacje mają kod wdrożony w tym węźle.
+pulpit nawigacyjny klastra Hello Omówienie klastra, w tym podsumowanie aplikacji i kondycji węzła. Widok węzła Hello przedstawia hello fizycznego układu hello klastra. Dla danego węzła można sprawdzić, które aplikacje mają kod wdrożony w tym węźle.
 
 ![Service Fabric Explorer][service-fabric-explorer]
 
-### <a name="connect-to-the-cluster-using-powershell"></a>Nawiązywanie połączenia z klastrem przy użyciu programu PowerShell
-Sprawdź, czy klaster działa, nawiązując połączenie przy użyciu programu PowerShell.  Moduł ServiceFabric programu PowerShell jest instalowany przy użyciu [Zestawu SDK usługi Service Fabric](service-fabric-get-started.md).  Polecenie cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) umożliwia ustanowienie połączenia z klastrem.   
+### <a name="connect-toohello-cluster-using-powershell"></a>Połącz toohello klastra przy użyciu programu PowerShell
+Sprawdź, czy w tym klastrze hello jest uruchomiona, nawiązując połączenie za pomocą programu PowerShell.  Witaj modułu ServiceFabric programu PowerShell jest instalowany z hello [zestawu SDK usług sieci szkieletowej](service-fabric-get-started.md).  Witaj [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet ustanawia połączenie toohello klastra.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
 ```
-Inne przykłady łączenia z klastrem można znaleźć w temacie [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md). Po nawiązaniu połączenia z klastrem użyj polecenia cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps), aby wyświetlić listę węzłów w klastrze oraz informacje o stanie każdego węzła. Element **HealthState** powinien mieć wartość *OK* dla każdego węzła.
+Zobacz [klastra bezpiecznego połączenia tooa](service-fabric-connect-to-secure-cluster.md) inne przykłady łączącego tooa klastra. Po łączącego toohello klastra, użyj hello [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) toodisplay polecenia cmdlet listy węzłów w hello klastra oraz informacje o stanie dla każdego węzła. Element **HealthState** powinien mieć wartość *OK* dla każdego węzła.
 
 ```powershell
 PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
@@ -100,31 +100,31 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigV
                      _nodetype1_3 10.0.0.7        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
 ```
 
-### <a name="remove-the-cluster"></a>Usuwanie klastra
-Klaster usługi Service Fabric składa się z innych zasobów platformy Azure poza samym zasobem klastra. Dlatego też, aby całkowicie usunąć klaster usługi Service Fabric, musisz również usunąć wszystkie zasoby, z których się składa. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów. Aby uzyskać informacje o innych sposobach usunięcia klastra lub usunięcia części (nie wszystkich) zasobów w grupie zasobów, zobacz [Usuwanie klastra](service-fabric-cluster-delete.md).
+### <a name="remove-hello-cluster"></a>Usuń hello klastra
+Klastra usługi sieć szkieletowa składa się z innych zasobów platformy Azure oprócz zasobu klastra toohello samej siebie. Dlatego toocompletely Usuwanie klastra sieci szkieletowej usług należy również toodelete hello wszystkie zasoby, które składa się z. Hello najprostszy sposób toodelete hello klaster i wszystkie zużywanych zasobach hello jest grupa zasobów hello toodelete. Dla innych toodelete sposoby klaster lub toodelete zasobów hello niektóre (ale nie wszystkie) w grupie zasobów, zobacz [usunąć klaster](service-fabric-cluster-delete.md)
 
-Usuń grupę zasobów w witrynie Azure Portal:
-1. Przejdź do klastra usługi Service Fabric, który chcesz usunąć.
-2. Kliknij nazwę **Grupy zasobów** na stronie podstawowych elementów klastra.
-3. Na stronie **Podstawowe elementy grupy zasobów** kliknij pozycję **Usuń grupę zasobów** i wykonaj instrukcje na tej stronie, aby zakończyć usuwanie grupy zasobów.
-    ![Usuwanie grupy zasobów][cluster-delete]
+Usuń grupę zasobów w portalu Azure hello:
+1. Przejdź toohello klastra sieci szkieletowej usług ma toodelete.
+2. Kliknij przycisk hello **grupy zasobów** nazwa strony essentials hello klastra.
+3. W hello **Essentials grupy zasobów** kliknij przycisk **Usuń grupę zasobów** i wykonać instrukcje hello usunięcie hello toocomplete strony tego hello grupy zasobów.
+    ![Usuń grupę zasobów hello][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Wdrażanie zabezpieczonego klastra przy użyciu modułu Azure Powershell
-1. Pobierz na komputer [moduł Azure Powershell w wersji 4.0 lub nowszej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+## <a name="use-azure-powershell-toodeploy-a-secure-cluster"></a>Użyj programu Azure Powershell toodeploy bezpiecznego klastra
+1. Pobierz hello [programu Azure Powershell modułu w wersji 4.0 lub nowszej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) na tym komputerze.
 
-2. Otwórz okno programu Windows PowerShell i uruchom następujące polecenie. 
+2. Otwórz okno programu Windows PowerShell, hello uruchom następujące polecenie. 
     
     ```powershell
 
     Get-Command -Module AzureRM.ServiceFabric 
     ```
 
-    Powinny pojawić się dane wyjściowe podobne do następujących.
+    Powinny zostać wyświetlone następujące dane wyjściowe podobne toohello.
 
     ![ps-list][ps-list]
 
-3. Zaloguj się do platformy Azure i wybierz subskrypcję, dla której chcesz utworzyć klaster.
+3. TooAzure logowania i wybierz hello toowhich subskrypcji ma toocreate hello klastra
 
     ```powershell
 
@@ -133,13 +133,13 @@ Usuń grupę zasobów w witrynie Azure Portal:
     Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
     ```
 
-4. Uruchom następujące polecenie, aby utworzyć teraz zabezpieczony klaster. Pamiętaj o dostosowaniu parametrów. 
+4. Hello uruchom następujące polecenie toonow tworzenia bezpiecznego klastra. Nie zapomnij toocustomize hello parametrów. 
 
     ```powershell
     $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
     $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
     $RDPuser="vmadmin"
-    $RGname="mycluster" # this is also the name of your cluster
+    $RGname="mycluster" # this is also hello name of your cluster
     $clusterloc="SouthCentralUS"
     $subname="$RGname.$clusterloc.cloudapp.azure.com"
     $certfolder="c:\mycertificates\"
@@ -148,34 +148,34 @@ Usuń grupę zasobów w witrynie Azure Portal:
     New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
     ```
 
-    Wykonanie tego polecenia może potrwać od 10 do 30 minut. Na koniec powinny zostać wyświetlone dane wyjściowe podobne do następujących. Dane wyjściowe zawierają informacje dotyczące certyfikatu, usługi KeyVault, do której został przekazany certyfikat, i folderu lokalnego, do którego został skopiowany. 
+    polecenie Hello może potrwać od 10 minut too30 minut toocomplete na końcu hello go, należy pobrać następujące dane wyjściowe podobne toohello. dane wyjściowe Hello zawiera informacje o certyfikacie hello, hello KeyVault, w którym został przekazany, i hello folder lokalny, w którym certyfikat hello jest kopiowany. 
 
     ![ps-out][ps-out]
 
-5. Skopiuj wszystkie dane wyjściowe i zapisz je w pliku tekstowym do przyszłego użycia. Zanotuj następujące informacje z danych wyjściowych. 
+5. Kopiuj dane wyjściowe całego hello i Zapisz plik tekstowy tooa jako potrzebujemy toorefer tooit. Zanotuj hello następujących informacji w danych wyjściowych hello. 
 
     - **CertificateSavedLocalPath** : c:\mojecertyfikaty\mojklaster20170504141137.pfx
     - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
     - **ManagementEndpoint** : https://mojklaster.southcentralus.cloudapp.azure.com:19080
     - **ClientConnectionEndpointPort** : 19000
 
-### <a name="install-the-certificate-on-your-local-machine"></a>Instalowanie certyfikatu na komputerze lokalnym
+### <a name="install-hello-certificate-on-your-local-machine"></a>Zainstaluj certyfikat hello na komputerze lokalnym
   
-Aby połączyć się z klastrem, należy zainstalować certyfikat w magazynie osobistym bieżącego użytkownika. 
+tooconnect toohello klastra, potrzebujesz tooinstall hello certyfikatu do magazynu osobistego (Mój) hello hello bieżącego użytkownika. 
 
-Uruchom następujące polecenie programu PowerShell.
+Uruchom hello następującego środowiska PowerShell
 
 ```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\mycertificates\the name of the cert.pfx `
+        -FilePath C:\mycertificates\hello name of hello cert.pfx `
         -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
 ```
 
-Teraz możesz przystąpić do nawiązywania połączenia z zabezpieczonym klastrem.
+Wszystko jest teraz gotowy tooconnect tooyour bezpiecznego klastra.
 
-### <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem 
+### <a name="connect-tooa-secure-cluster"></a>Połącz tooa bezpiecznego klastra 
 
-Uruchom następujące polecenie programu PowerShell w celu nawiązania połączenia z zabezpieczonym klastrem. Szczegóły certyfikatu muszą być zgodne z certyfikatem, który został użyty do skonfigurowania klastra. 
+Uruchom powitania po klastra bezpiecznego tooa tooconnect polecenia programu PowerShell. Szczegóły certyfikatu Hello musi odpowiadać certyfikatu, który był używany tooset zapasowej hello klastra. 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -186,7 +186,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 
-W poniższym przykładzie pokazano uzupełnione parametry: 
+powitania po hello przedstawiono przykład ukończone parametry: 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.cloudapp.azure.com:19000 `
@@ -196,19 +196,19 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.clouda
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Uruchom następujące polecenie, aby sprawdzić poprawność połączenia i upewnić się, że klaster jest w dobrej kondycji.
+Uruchom hello następujące polecenia toocheck, że komputer jest połączony i hello klastra jest w dobrej kondycji.
 
 ```powershell
 
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Publikowanie aplikacji w klastrze z poziomu programu Visual Studio
+### <a name="publish-your-apps-tooyour-cluster-from-visual-studio"></a>Publikowanie aplikacji tooyour klastra w programie Visual Studio
 
-Teraz po skonfigurowaniu klastra platformy Azure możesz opublikować w nim swoje aplikacje z poziomu programu Visual Studio. W tym celu wykonaj instrukcje zawarte w dokumencie [Publish to an cluster](service-fabric-publish-app-remote-cluster.md) (Publikowanie w klastrze). 
+Teraz, gdy zdefiniowano klastra platformy Azure możesz opublikować tooit Twojej aplikacji w programie Visual Studio przez następujące hello [klastra tooan publikowania](service-fabric-publish-app-remote-cluster.md) dokumentu. 
 
-### <a name="remove-the-cluster"></a>Usuwanie klastra
-Klaster składa się z innych zasobów platformy Azure poza samym zasobem klastra. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów. 
+### <a name="remove-hello-cluster"></a>Usuń hello klastra
+Klaster składa się z innych zasobów platformy Azure oprócz zasobu klastra toohello samej siebie. Hello najprostszy sposób toodelete hello klaster i wszystkie zużywanych zasobach hello jest grupa zasobów hello toodelete. 
 
 ```powershell
 
@@ -217,8 +217,8 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz po skonfigurowaniu klastra programowania możesz spróbować wykonać następujące czynności:
-* [Tworzenie zabezpieczonego klastra w portalu](service-fabric-cluster-creation-via-portal.md)
+Po skonfigurowaniu klastra projektowego wypróbować hello następujące czynności:
+* [Tworzenie bezpiecznej klastra w portalu hello](service-fabric-cluster-creation-via-portal.md)
 * [Tworzenie klastra na podstawie szablonu](service-fabric-cluster-creation-via-arm.md) 
 * [Wdrażanie aplikacji przy użyciu programu PowerShell](service-fabric-deploy-remove-applications.md)
 

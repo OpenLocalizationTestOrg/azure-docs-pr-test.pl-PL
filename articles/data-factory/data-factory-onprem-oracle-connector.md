@@ -1,6 +1,6 @@
 ---
-title: "Kopiowanie danych do/z programem Oracle przy użyciu fabryki danych | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z bazy danych Oracle bazy danych lokalnych przy użyciu fabryki danych Azure."
+title: "aaaCopy danych do/z programem Oracle przy użyciu fabryki danych | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocopy danych z bazy danych Oracle, który jest lokalnie przy użyciu fabryki danych Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
-ms.openlocfilehash: bb6af719fe6f1a30c5933ce4342a4c0c072f3ff4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: adb6d5fbe38e18791616ac77e8179970bbea37fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Kopiowanie danych z bazy danych Oracle lokalnymi przy użyciu fabryki danych Azure
-W tym artykule opisano sposób używania działania kopiowania w fabryce danych Azure do przeniesienia danych z lokalną bazą danych Oracle. Opiera się na [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z działania kopiowania.
+W tym artykule opisano, jak toouse hello działanie kopiowania w fabryce danych Azure toomove danych z lokalną bazą danych Oracle. Opiera się na powitania [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z hello działanie kopiowania.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
-Dane należy skopiować **z bazy danych Oracle** do następujących danych przechowuje:
+Dane należy skopiować **z bazy danych Oracle** toohello po magazynów danych:
 
 [!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
 
-Możesz skopiować dane z następujących baz danych **z bazą danych Oracle**:
+Można skopiować danych z powitania po magazyny danych **bazą danych Oracle tooan**:
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Fabryka danych obsługuje łączenie z lokalnych źródeł Oracle przy użyciu bramy zarządzania danymi. Zobacz [brama zarządzania danymi](data-factory-data-management-gateway.md) artykułu, aby dowiedzieć się więcej na temat bramy zarządzania danymi i [przenoszenia danych z lokalnymi do chmury](data-factory-move-data-between-onprem-and-cloud.md) artykułu, aby uzyskać instrukcje krok po kroku dotyczące konfigurowania bramy potoku danych Przenoszenie danych.
+Fabryka danych obsługuje łączącego źródeł Oracle tooon lokalnych przy użyciu hello brama zarządzania danymi. Zobacz [brama zarządzania danymi](data-factory-data-management-gateway.md) toolearn artykuł na temat bramy zarządzania danymi i [przenoszenia danych z lokalnego toocloud](data-factory-move-data-between-onprem-and-cloud.md) artykułu, aby uzyskać instrukcje krok po kroku dotyczące konfigurowania bramy hello potoku danych toomove danych.
 
-Wymagana jest brama, nawet jeśli programu Oracle znajduje się w maszynie Wirtualnej platformy Azure IaaS. Można zainstalować bramę na tej samej maszyny Wirtualnej IaaS do przechowywania danych lub w innej maszyny Wirtualnej, tak długo, jak bramy można połączyć z bazą danych.
+Wymagana jest brama, nawet jeśli hello Oracle znajduje się w maszynie Wirtualnej platformy Azure IaaS. Możesz zainstalować bramę hello na powitania sam maszyn wirtualnych IaaS jako dane hello przechowywania lub na innej maszynie Wirtualnej tak długo, jak bramy hello połączyć toohello bazy danych.
 
 > [!NOTE]
 > Zobacz [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) porady dotyczące rozwiązywania problemów z bramy/połączenia problemy związane z.
@@ -43,7 +43,7 @@ Wymagana jest brama, nawet jeśli programu Oracle znajduje się w maszynie Wirtu
 ## <a name="supported-versions-and-installation"></a>Obsługiwane wersje i instalacji
 Ten łącznik Oracle obsługuje dwie wersje sterowników:
 
-- **Sterownik firmy Microsoft dla programu Oracle (zalecane)**: począwszy od brama zarządzania danymi w wersji 2.7, sterownik Oracle jest instalowany automatycznie wraz z bramą, dzięki czemu nie trzeba dodatkowo obsługi sterowników do firmy Microsoft Ustanów łączność z programem Oracle, i może również wystąpić lepszą wydajność kopiowania za pomocą tego sterownika. Poniżej wersji Oracle bazy danych są obsługiwane:
+- **Sterownik firmy Microsoft dla programu Oracle (zalecane)**: począwszy od brama zarządzania danymi w wersji 2.7, sterownik firmy Microsoft dla programu Oracle jest instalowany automatycznie wraz z bramy hello, więc nie trzeba tooadditionally dojście hello sterowników w kolejności tooestablish tooOracle łączność, a także mogą wystąpić lepszą wydajność kopiowania za pomocą tego sterownika. Poniżej wersji Oracle bazy danych są obsługiwane:
     - R1 Oracle 12c (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10.1, 10.2)
@@ -51,44 +51,44 @@ Ten łącznik Oracle obsługuje dwie wersje sterowników:
     - Oracle 8i R3 (8.1.7)
 
 > [!IMPORTANT]
-> Sterownik firmy Microsoft dla programu Oracle aktualnie obsługuje tylko kopiowanie danych z programem Oracle, ale bez zapisywania do bazy danych Oracle. I należy pamiętać, że możliwości połączenia testów na karcie diagnostyki bramy zarządzania danych nie obsługuje tego sterownika. Alternatywnie służy Kreator kopiowania Aby zweryfikować połączenie.
+> Sterownik firmy Microsoft dla programu Oracle aktualnie obsługuje tylko kopiowanie danych z programem Oracle, ale bez zapisywania tooOracle. I możliwości połączenia Uwaga hello testów na karcie diagnostyki bramy zarządzania danych nie obsługuje tego sterownika. Alternatywnie można użyć hello kopiowania kreatora toovalidate hello łączności.
 >
 
-- **Dostawca danych programu Oracle dla platformy .NET:** można również użyć dostawcy danych programu Oracle można skopiować danych z i do programu Oracle. Ten składnik jest uwzględniona w [Oracle danych dostęp do składników dla systemu Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Na komputerze, na którym zainstalowano bramę, należy zainstalować odpowiednią wersję (32/64-bitowe). [Dostawca danych programu Oracle .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) możesz uzyskać dostępu do bazy danych Oracle 10 GB/s w wersji 2 lub nowszej.
+- **Dostawca danych programu Oracle dla platformy .NET:** można także toouse dostawca danych programu Oracle toocopy danych z / tooOracle. Ten składnik jest uwzględniona w [Oracle danych dostęp do składników dla systemu Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Na maszynie hello, w której zainstalowano bramę hello, należy zainstalować odpowiednią wersję hello (32/64-bitowe). [Dostawca danych programu Oracle .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) mogą uzyskiwać dostęp do tooOracle Database 10 g wersji 2 lub nowszej.
 
-    Jeśli zostanie wybrana opcja "Instalacja XCopy", wykonaj czynności opisane w pliku readme.htm. Firma Microsoft zaleca się wybranie Instalatora przy użyciu interfejsu użytkownika (z systemem innym niż — XCopy jeden).
+    Jeśli zostanie wybrana opcja "Instalacja XCopy", wykonaj kroki w pliku readme.htm hello. Zaleca się wybrać hello Instalatora przy użyciu interfejsu użytkownika (z systemem innym niż — XCopy jeden).
 
-    Po zainstalowaniu dostawcy, **ponowne uruchomienie** usługa hosta bramy zarządzania danymi na tym komputerze za pomocą usługi w aplecie (lub) Menedżera konfiguracji bramy zarządzania danymi.  
+    Po zainstalowaniu dostawcy hello **ponowne uruchomienie** hello usługa hosta bramy zarządzania danymi na tym komputerze za pomocą usługi w aplecie (lub) Menedżera konfiguracji bramy zarządzania danymi.  
 
-Użycie Kreatora kopiowania do tworzenia potoku kopiowania, typ sterownika będzie ustalona automatycznie. Sterownik Microsoft zostanie użyty domyślnie, chyba że używana wersja bramy jest niższa niż 2.7 lub wybierz Oracle jako obiekt sink.
+Użycie kopii Kreatora tooauthor hello kopiowania potoku hello sterownik typu będzie ustalona automatycznie. Sterownik Microsoft zostanie użyty domyślnie, chyba że używana wersja bramy jest niższa niż 2.7 lub wybierz Oracle jako obiekt sink.
 
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok z działaniem kopiowania przenoszenia danych z lokalną bazą danych Oracle przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem, aby utworzyć potok jest użycie **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora kopiowania danych.
+Witaj Najprostszym sposobem toocreate potoku jest toouse hello **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora dane Kopiuj hello.
 
-Umożliwia także następujące narzędzia do tworzenia potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager**, **interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+Można również użyć hello następujące narzędzia toocreate potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager** , **Interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) dla toocreate instrukcje krok po kroku potoku z działaniem kopiowania.
 
-Czy można użyć narzędzia i interfejsy API, należy wykonać następujące kroki, aby utworzyć potok, który przenosi dane z magazynu danych źródła do ujścia magazynu danych:
+Czy za pomocą narzędzia hello lub interfejsów API, należy wykonać następujące kroki toocreate potok, który przenosi się, że magazyn danych ze źródła danych magazynu danych zbiornika tooa hello:
 
 1. Utwórz **fabryki danych**. Fabryka danych może zawierać co najmniej jeden potoków. 
-2. Utwórz **połączone usługi** Aby połączyć dane wejściowe i wyjściowe są przechowywane w fabryce danych. Na przykład jeśli kopiujesz dane z bazy danych Oralce do magazynu obiektów blob platformy Azure, Utwórz dwa połączone usługi, aby połączyć z bazą danych Oracle z kontem magazynu platformy Azure z fabryką danych. Dla właściwości połączonej usługi, które są specyficzne dla Oracle, zobacz [połączona usługa właściwości](#linked-service-properties) sekcji.
-3. Utwórz **zestawów danych** do reprezentowania danych wejściowych i wyjściowych operacji kopiowania. W tym przykładzie wymienionych w ostatnim kroku tworzenia zestawu danych, aby określić tabeli w bazie danych programu Oracle, który zawiera dane wejściowe. I Utwórz innego elementu dataset, aby określić folder, w którym przechowywane są dane skopiowane z bazą danych Oracle i kontener obiektów blob. Dla właściwości zestawu danych, które są specyficzne dla Oracle, zobacz [właściwości zestawu danych](#dataset-properties) sekcji.
-4. Utwórz **potoku** aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. W przykładzie wspomniano wcześniej używasz OracleSource jako źródło i BlobSink jako zbiorniku dla działania kopiowania. Podobnie są kopiowane z magazynu obiektów Blob Azure do bazy danych Oracle, należy użyć BlobSource i OracleSink w przypadku działania kopiowania. Dla właściwości działania kopiowania, które są specyficzne dla baz danych programu Oracle, zobacz [skopiować właściwości działania](#copy-activity-properties) sekcji. Aby uzyskać szczegółowe informacje dotyczące sposobu używania magazynu danych jako źródło lub zbiorniku kliknij łącze w poprzedniej sekcji dla magazynu danych. 
+2. Utwórz **połączone usługi** toolink usługi fabryka danych tooyour magazynów danych wejściowych i wyjściowych. Na przykład jeśli dane są kopiowane z Oralce tooan bazy danych magazynu obiektów blob platformy Azure, utworzysz dwa toolink połączonej usługi bazy danych Oracle i fabryki danych tooyour konta magazynu platformy Azure. Dla właściwości połączonej usługi, które są określone tooOracle, zobacz [połączona usługa właściwości](#linked-service-properties) sekcji.
+3. Utwórz **zestawów danych** toorepresent wejściowe i wyjściowe dane hello operacji kopiowania. W przykładzie hello wymienionych w ostatnim kroku hello utworzysz tabelę hello toospecify zestawu danych w bazie danych programu Oracle zawiera hello danych wejściowych. Utwórz innego kontenera obiektów blob hello toospecify zestawu danych i folderu hello, która przechowuje dane hello skopiowanych z hello baz danych programu Oracle. Dla właściwości zestawu danych, które są określone tooOracle [właściwości zestawu danych](#dataset-properties) sekcji.
+4. Utwórz **potoku** aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. W przykładzie hello wspomniano wcześniej używa OracleSource jako źródło i BlobSink jako zbiorniku dla aktywności kopiowania hello. Podobnie są kopiowane z magazynu obiektów Blob Azure tooOracle bazy danych, należy użyć BlobSource i OracleSink w przypadku działania kopiowania hello. Dla właściwości działania kopiowania, które są określone tooOracle bazy danych, zobacz [skopiować właściwości działania](#copy-activity-properties) sekcji. Szczegółowe informacje dotyczące sposobu toouse, Magazyn danych, jako źródło lub zbiorniku kliknij łącze hello w poprzedniej sekcji powitania dla magazynu danych. 
 
-Korzystając z kreatora, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoki) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować tych jednostek fabryki danych w formacie JSON.  Dla przykładów z definicji JSON dla jednostek fabryki danych, które są używane do kopiowania danych do/z lokalną bazą danych Oracle, zobacz [przykłady JSON](#json-examples-for-copying-data-to-and-from-oracle-database) sekcji tego artykułu.
+Korzystając z Kreatora hello, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoku hello) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować za pomocą formatu JSON hello tych jednostek fabryki danych.  Dla przykładów z definicji JSON dla jednostek fabryki danych, które są używane toocopy danych do/z lokalną bazą danych Oracle, zobacz [przykłady JSON](#json-examples-for-copying-data-to-and-from-oracle-database) sekcji tego artykułu.
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane do definiowania jednostek fabryki danych:
+Witaj następujące sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane toodefine jednostek fabryki danych:
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
-Poniższa tabela zawiera opis specyficzne dla usługi Oracle połączone elementy JSON.
+Hello w poniższej tabeli przedstawiono opis usługi określonego tooOracle połączone elementy JSON.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesOracle** |Tak |
-| driverType | Określ sterowniku można skopiować danych z/do bazy danych programu Oracle. Dozwolone wartości to **Microsoft** lub **ODP** (ustawienie domyślne). Zobacz [obsługiwanych wersji i instalacji](#supported-versions-and-installation) sekcji Szczegóły sterownika. | Nie |
-| Parametry połączenia | Podaj informacje wymagane do połączenia z wystąpieniem bazy danych programu Oracle dla właściwości connectionString. | Tak |
-| gatewayName | Nazwa bramy, czy jest używany do łączenia się z serwerem Oracle lokalnej |Tak |
+| type |musi mieć ustawioną właściwość type Hello: **OnPremisesOracle** |Tak |
+| driverType | Określ, które sterownik toouse toocopy dane z / tooOracle bazy danych. Dozwolone wartości to **Microsoft** lub **ODP** (ustawienie domyślne). Zobacz [obsługiwanych wersji i instalacji](#supported-versions-and-installation) sekcji Szczegóły sterownika. | Nie |
+| Parametry połączenia | Określ informacje niezbędne wystąpienie bazy danych Oracle toohello tooconnect hello właściwości connectionString. | Tak |
+| gatewayName | Nazwa bramy hello, że jest używana tooconnect toohello lokalnego serwera Oracle |Tak |
 
 **Przykład: za pomocą sterownika Microsoft:**
 ```json
@@ -107,7 +107,7 @@ Poniższa tabela zawiera opis specyficzne dla usługi Oracle połączone element
 
 **Przykład: za pomocą sterownika ODP**
 
-Zapoznaj się [tej lokacji](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/) dozwolone formaty.
+Odwołuje się zbyt[tej lokacji](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/) dla hello dozwolone formaty.
 
 ```json
 {
@@ -124,45 +124,45 @@ User Id=<username>;Password=<password>;",
 ```
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Oracle, obiektów blob platformy Azure, Azure tabeli itp.).
+Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz hello [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Oracle, obiektów blob platformy Azure, Azure tabeli itp.).
 
-Sekcja typeProperties jest różne dla każdego typu zestawu danych i zawiera informacje o lokalizacji danych w magazynie danych. Sekcja typeProperties dla zestawu danych typu OracleTable ma następujące właściwości:
+sekcja typeProperties Hello jest różne dla każdego typu zestawu danych i zawiera informacje o lokalizacji hello hello danych w magazynie danych hello. Witaj typeProperties sekcja dla zestawu danych hello typu OracleTable ma hello następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| tableName |Nazwa tabeli w bazie danych programu Oracle, odnoszący się do połączonej usługi. |Nie (Jeśli **oracleReaderQuery** z **OracleSource** jest określona) |
+| tableName |Oznacza nazwę tabeli hello na powitania hello połączonej usługi bazy danych programu Oracle. |Nie (Jeśli **oracleReaderQuery** z **OracleSource** jest określona) |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
+Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz hello [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
 
 > [!NOTE]
-> Działanie kopiowania przyjmuje tylko jeden parametr wejściowy i tworzy tylko jedno wyjście.
+> Witaj działanie kopiowania przyjmuje tylko jeden parametr wejściowy i tworzy tylko jedno wyjście.
 
-Właściwości, które są dostępne w sekcji typeProperties działania różnić się z każdym typem działania. Dla działania kopiowania różnią się w zależności od typów źródeł i sink.
+Właściwości, które są dostępne w sekcji typeProperties hello działania hello różnić się z każdym typem działania. Dla działania kopiowania różnią się w zależności od typów hello źródeł i sink.
 
 ### <a name="oraclesource"></a>OracleSource
-W przypadku działania kopiowania, gdy źródłem jest typu **OracleSource** następujące właściwości są dostępne w **typeProperties** sekcji:
+W przypadku działania kopiowania, gdy źródłem hello jest typu **OracleSource** hello następujące właściwości są dostępne w **typeProperties** sekcji:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Użyj niestandardowych zapytania można odczytać danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable <br/><br/>Jeśli nie zostanie określony, która zostanie wykonana instrukcja SQL: Wybierz * z MyTable |Nie (Jeśli **tableName** z **dataset** jest określona) |
+| oracleReaderQuery |Użyj hello zapytanie niestandardowe tooread danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable <br/><br/>Jeśli nie zostanie określony, hello instrukcji SQL, która jest wykonywana: Wybierz * z MyTable |Nie (Jeśli **tableName** z **dataset** jest określona) |
 
 ### <a name="oraclesink"></a>OracleSink
-**OracleSink** obsługuje następujące właściwości:
+**OracleSink** obsługuje hello następujące właściwości:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Czas na ukończenie zanim upłynie limit czasu operacji wstawiania wsadowego oczekiwania. |Zakres czasu<br/><br/> Przykład: 00:30:00 (30 minut). |Nie |
-| writeBatchSize |Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu. |Liczba całkowita (liczba wierszy) |Nie (domyślne: 100) |
-| sqlWriterCleanupScript |Określ kwerendę dla działania kopiowania do wykonania w taki sposób, że dane określonych wycinek jest wyczyszczone. |Instrukcja zapytania. |Nie |
-| sliceIdentifierColumnName |Określ nazwę kolumny dla aktywności kopiowania wypełnić automatycznie generowane wycinek identyfikator, który służy do oczyszczania danych określonego wycinek czas ponownego uruchomienia. |Nazwa kolumny kolumnę o typie danych binary(32). |Nie |
+| writeBatchTimeout |Czas toocomplete operacji wstawiania wsadowego hello oczekiwania, zanim upłynie limit czasu. |Zakres czasu<br/><br/> Przykład: 00:30:00 (30 minut). |Nie |
+| writeBatchSize |Wstawia dane do tabeli SQL hello, gdy osiągnie rozmiar buforu hello writeBatchSize. |Liczba całkowita (liczba wierszy) |Nie (domyślne: 100) |
+| sqlWriterCleanupScript |Określ kwerendę dla działania kopiowania tooexecute tak, aby dane określonych wycinek jest wyczyszczone. |Instrukcja zapytania. |Nie |
+| sliceIdentifierColumnName |Określ nazwę kolumny toofill działanie kopiowania identyfikatorem wycinek automatycznie generowane, która jest używana tooclean zapasowych określonych wycinek czas ponownego uruchomienia. |Nazwa kolumny kolumnę o typie danych binary(32). |Nie |
 
-## <a name="json-examples-for-copying-data-to-and-from-oracle-database"></a>Przykłady JSON kopiowania danych do i z bazą danych Oracle
-W poniższym przykładzie przedstawiono przykładowe definicje JSON, które można użyć, aby utworzyć potok przy użyciu [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przedstawiają sposób kopiowania danych z/do bazy danych programu Oracle z magazynu obiektów Blob Azure. Jednak można skopiować danych do dowolnego wychwytywanie podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w fabryce danych Azure.   
+## <a name="json-examples-for-copying-data-tooand-from-oracle-database"></a>Przykłady JSON do kopiowania tooand danych z bazy danych Oracle
+Witaj poniższym przykładzie przedstawiono przykładowe definicje JSON przy użyciu można toocreate potoku [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przedstawiają sposób toocopy danych z / tooan Oracle bazy danych do/z magazynu obiektów Blob Azure. Jednak dane mogą być tooany skopiowanych z wychwytywanie hello podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) przy użyciu hello działanie kopiowania w fabryce danych Azure.   
 
-## <a name="example-copy-data-from-oracle-to-azure-blob"></a>Przykład: Kopiowanie danych z programu Oracle do obiektów Blob platformy Azure
+## <a name="example-copy-data-from-oracle-tooazure-blob"></a>Przykład: Kopiowanie danych z programu Oracle tooAzure obiektów Blob
 
-Przykład zawiera następujące obiekty fabryki danych:
+przykład Witaj ma hello następujące obiekty fabryki danych:
 
 1. Połączonej usługi typu [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
 2. Połączonej usługi typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -170,7 +170,7 @@ Przykład zawiera następujące obiekty fabryki danych:
 4. Dane wyjściowe [dataset](data-factory-create-datasets.md) typu [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 5. A [potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [OracleSource](data-factory-onprem-oracle-connector.md#copy-activity-properties) jako źródło i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) jako obiekt sink.
 
-Przykład kopiuje dane z tabeli w bazie danych programu Oracle lokalnego do obiektu blob co godzinę. Aby uzyskać więcej informacji na różne właściwości używane w przykładowej dokumentacji w sekcjach poniżej próbek.
+przykład Witaj co godzinę kopiuje dane z tabeli w obiekcie blob tooa bazy danych Oracle lokalnymi. Aby uzyskać więcej informacji na różne właściwości używane w przykładowym hello dokumentacji w sekcjach poniżej hello próbek.
 
 **Oracle połączone usługi:**
 
@@ -204,9 +204,9 @@ Przykład kopiuje dane z tabeli w bazie danych programu Oracle lokalnego do obie
 
 **Wejściowy zestaw danych Oracle:**
 
-Przykład przyjęto założenie, utworzono tabelę "MyTable" w oprogramowaniu Oracle i zawiera kolumnę o nazwie "timestampcolumn" dla czasu serii danych.
+przykład Witaj przyjęto założenie, utworzono tabelę "MyTable" w oprogramowaniu Oracle i zawiera kolumnę o nazwie "timestampcolumn" dla czasu serii danych.
 
-Ustawienie "external": "prawda" informuje usługi fabryka danych czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w fabryce danych.
+Ustawienie "external": "prawda" informuje hello usługi fabryka danych tego elementu dataset hello zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello.
 
 ```json
 {
@@ -237,7 +237,7 @@ Ustawienie "external": "prawda" informuje usługi fabryka danych czy zestaw dany
 
 **Azure Blob wyjściowy zestaw danych:**
 
-Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Nazwa i ścieżka pliku folder dla obiektu blob dynamicznie są oceniane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godziny części czas rozpoczęcia.
+Dane są zapisywane tooa nowych obiektów blob, co godzinę (częstotliwość: godziny, interwał: 1). Witaj folderu ścieżkę i nazwę pliku dla obiekt blob hello dynamicznie są oceniane na podstawie czasu rozpoczęcia hello hello wycinek, który jest przetwarzana. Ścieżka folderu Hello używa rok, miesiąc, dzień i godziny części hello czas rozpoczęcia.
 
 ```json
 {
@@ -297,7 +297,7 @@ Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godzin
 
 **W potoku z działania kopiowania:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wejściowe i wyjściowe zestawy danych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **OracleSource** i **zbiornika** ustawiono typ **BlobSink**.  Zapytanie SQL określony za pomocą **oracleReaderQuery** właściwości wybiera dane w ostatniej godziny do skopiowania.
+Witaj potoku zawiera działanie kopiowania, który jest skonfigurowany toouse hello wejściowych i wyjściowych zestawów danych i jest toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**OracleSource** i **zbiornika** typu ustawiono zbyt**BlobSink**.  Zapytanie SQL Hello określony za pomocą **oracleReaderQuery** właściwości zaznacza danych hello hello poza toocopy godzinę.
 
 ```json
 {  
@@ -346,10 +346,10 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wej
 }
 ```
 
-## <a name="example-copy-data-from-azure-blob-to-oracle"></a>Przykład: Kopiowanie danych z obiektu Blob Azure do programu Oracle
-W tym przykładzie pokazano, jak skopiować dane z magazynu obiektów Blob platformy Azure z bazą danych Oracle lokalnymi. Jednak dane mogą być kopiowane **bezpośrednio** z dowolnego źródła podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w fabryce danych Azure.  
+## <a name="example-copy-data-from-azure-blob-toooracle"></a>Przykład: Kopiowanie danych z tooOracle obiektów Blob platformy Azure
+W tym przykładzie pokazano sposób toocopy danych z magazynu obiektów Blob Azure tooan lokalnej bazy danych programu Oracle. Jednak dane mogą być kopiowane **bezpośrednio** z dowolnego źródła hello podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) przy użyciu hello działanie kopiowania w fabryce danych Azure.  
 
-Przykład zawiera następujące obiekty fabryki danych:
+przykład Witaj ma hello następujące obiekty fabryki danych:
 
 1. Połączonej usługi typu [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
 2. Połączonej usługi typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -357,7 +357,7 @@ Przykład zawiera następujące obiekty fabryki danych:
 4. Dane wyjściowe [dataset](data-factory-create-datasets.md) typu [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties).
 5. A [potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) jako źródło [OracleSink](data-factory-onprem-oracle-connector.md#copy-activity-properties) jako obiekt sink.
 
-Przykład kopiuje dane z obiektu blob do tabeli w bazie danych programu Oracle lokalnymi co godzinę. Aby uzyskać więcej informacji na różne właściwości używane w przykładowej dokumentacji w sekcjach poniżej próbek.
+przykład Witaj kopiuje dane z tabeli tooa obiektów blob w lokalną bazą danych Oracle co godzinę. Aby uzyskać więcej informacji na różne właściwości używane w przykładowym hello dokumentacji w sekcjach poniżej hello próbek.
 
 **Oracle połączone usługi:**
 ```json
@@ -389,7 +389,7 @@ Przykład kopiuje dane z obiektu blob do tabeli w bazie danych programu Oracle l
 
 **Azure wejściowego zestawu danych obiektów Blob**
 
-Dane są pobierane z nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Nazwa i ścieżka pliku folder dla obiektu blob dynamicznie są oceniane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu korzysta rok, miesiąc i dzień część czas rozpoczęcia, a nazwa pliku godzina część czas rozpoczęcia. "external": ustawienie "prawda" usługi fabryka danych informuje, że w tej tabeli zewnętrznej dla fabryki danych i nie jest generowany przez działanie w fabryce danych.
+Dane są pobierane z nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Witaj folderu ścieżkę i nazwę pliku dla obiekt blob hello dynamicznie są oceniane na podstawie czasu rozpoczęcia hello hello wycinek, który jest przetwarzana. Ścieżka folderu Hello korzysta rok, miesiąc i dzień część czas rozpoczęcia hello, a nazwa pliku hello część hello czas rozpoczęcia. "external": ustawienie "prawda" hello usługi fabryka danych informuje, że ta tabela zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello.
 
 ```json
 {
@@ -449,7 +449,7 @@ Dane są pobierane z nowego obiektu blob co godzinę (częstotliwość: godziny,
 
 **Oracle wyjściowy zestaw danych:**
 
-Przykładzie przyjęto założenie, że w Oracle utworzono tabelę "MyTable". Tworzenie tabeli w oprogramowaniu Oracle z taką samą liczbę kolumn zgodnie z oczekiwaniami pliku Blob CSV zawiera. Nowe wiersze są dodawane do tabeli co godzinę.
+przykład Witaj przyjęto założenie, że w Oracle utworzono tabelę "MyTable". Utwórz tabelę hello w oprogramowaniu Oracle z hello taką samą liczbę kolumn, zgodnie z oczekiwaniami toocontain pliku Blob CSV hello. Dodawaniu nowych wierszy tabeli toohello co godzinę.
 
 ```json
 {
@@ -470,7 +470,7 @@ Przykładzie przyjęto założenie, że w Oracle utworzono tabelę "MyTable". Tw
 
 **W potoku z działania kopiowania:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wejściowe i wyjściowe zestawy danych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **BlobSource** i **zbiornika** ustawiono typ **OracleSink**.  
+Witaj potoku zawiera działanie kopiowania, który jest skonfigurowany toouse hello wejściowych i wyjściowych zestawów danych i jest toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**BlobSource** i hello **zbiornika** typu ustawiono zbyt**OracleSink**.  
 
 ```json
 {  
@@ -522,44 +522,44 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wej
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 ### <a name="problem-1-net-framework-data-provider"></a>Problem 1: Dostawca danych programu .NET Framework
 
-Zobacz następujące tematy **komunikat o błędzie**:
+Zobacz następujące hello **komunikat o błędzie**:
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed”.  
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable toofind hello requested .Net Framework Data Provider. It may not be installed”.  
 
 **Możliwe przyczyny:**
 
-1. .NET Framework Data Provider for Oracle nie został zainstalowany.
-2. .NET Framework Data Provider for Oracle została zainstalowana w .NET Framework 2.0 i nie znajduje się w folderze programu .NET Framework 4.0.
+1. Witaj .NET Framework Data Provider for Oracle nie został zainstalowany.
+2. .NET Framework Data Provider for Oracle Hello został zainstalowany too.NET Framework 2.0 i nie został znaleziony w folderach hello programu .NET Framework 4.0.
 
 **Rozdzielczość/obejście problemu:**
 
-1. Jeśli nie zainstalowano dostawcy .NET dla Oracle, [go zainstalować](http://www.oracle.com/technetwork/topics/dotnet/downloads/) i ponów próbę wykonania tego scenariusza.
-2. Jeśli zostanie wyświetlony komunikat o błędzie nawet po zainstalowaniu dostawcy, wykonaj następujące czynności:
-   1. Otwórz konfiguracji komputera programu .NET 2.0 z folderu: <system disk>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-   2. Wyszukaj **dostawca danych programu Oracle dla platformy .NET**, i można znaleźć wpisu, jak pokazano w poniższym przykładzie w obszarze **system.dane** -> **DbProviderFactories**: "<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Dostawca danych programu oracle dla platformy .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
-3. Skopiuj ten wpis w pliku machine.config w następującym folderze v4.0: <system disk>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, a następnie zmień tę wersję 4.xxx.x.x.
-4. Zainstaluj "\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll < ścieżka instalacji ODP.NET >" w globalnej pamięci podręcznej zestawów (GAC), uruchamiając `gacutil /i [provider path]`. ## porady dotyczące rozwiązywania problemów
+1. Jeśli nie zainstalowano hello dostawcy .NET dla Oracle, [go zainstalować](http://www.oracle.com/technetwork/topics/dotnet/downloads/) i ponów próbę hello scenariusza.
+2. Jeśli otrzymasz komunikat o błędzie hello nawet po zainstalowaniu dostawcy hello hello następujące kroki:
+   1. Otwórz konfiguracji komputera programu .NET 2.0 z folderu hello: <system disk>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+   2. Wyszukaj **dostawca danych programu Oracle dla platformy .NET**, i powinno być możliwe toofind wpis pokazane na powitania po próbki w **system.dane** -> **DbProviderFactories**: "<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Dostawca danych programu oracle dla platformy .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+3. Skopiuj ten plik machine.config toohello wpis w hello następującego folderu v4.0: <system disk>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config i too4.xxx.x.x wersji hello zmiany.
+4. Zainstaluj "\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll < ścieżka instalacji ODP.NET >" na powitania globalnej pamięci podręcznej zestawów (GAC), uruchamiając `gacutil /i [provider path]`. ## porady dotyczące rozwiązywania problemów
 
 ### <a name="problem-2-datetime-formatting"></a>Problem 2: formatowanie daty/godziny
 
-Zobacz następujące tematy **komunikat o błędzie**:
+Zobacz następujące hello **komunikat o błędzie**:
 
-    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+    Message=Operation failed in Oracle Database with hello following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
 
 **Rozdzielczość/obejście problemu:**
 
-Może być konieczne dostosowanie ciągu zapytania w Twojej aktywności kopiowania oparte na konfiguracji daty w bazie danych programu Oracle, jak pokazano w poniższym przykładzie (funkcja to_date):
+Ciąg zapytania hello tooadjust może być konieczne w przypadku Twojego działania kopiowania oparte na konfiguracji daty w bazie danych programu Oracle, jak pokazano poniżej hello próbki (przy użyciu funkcji to_date hello):
 
     "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
 ## <a name="type-mapping-for-oracle"></a>Mapowanie typu dla Oracle
-Jak wspomniano w [działań przepływu danych](data-factory-data-movement-activities.md) artykułu działanie kopiowania przeprowadza automatyczne konwersje z typów źródła do zbiornika typów o następujące podejście krok 2:
+Jak wspomniano w hello [działań przepływu danych](data-factory-data-movement-activities.md) artykułu działanie kopiowania przeprowadza automatyczne konwersje z typów toosink typy źródła z hello następujące podejście krok 2:
 
-1. Konwertowanie typów natywnych źródła na typ architektury .NET
-2. Konwertowanie na typ macierzysty ujścia typ architektury .NET
+1. Konwertować z typu too.NET typów natywnych źródła
+2. Konwertować z typu sink toonative typu .NET
 
-Podczas przenoszenia danych z bazy danych Oracle, następujące mapowania są używane z typem danych Oracle typ architektury .NET i na odwrót.
+Podczas przenoszenia danych z bazy danych Oracle, następujące mapowania hello są używane z too.NET typu danych Oracle i na odwrót.
 
 | Typ danych Oracle | Typ danych .NET framework |
 | --- | --- |
@@ -570,8 +570,8 @@ Podczas przenoszenia danych z bazy danych Oracle, następujące mapowania są u�
 | DATA |Data i godzina |
 | FLOAT |Decimal, ciąg (jeśli precyzja > 28) |
 | LICZBA CAŁKOWITA |Decimal, ciąg (jeśli precyzja > 28) |
-| INTERWAŁ ROK, MIESIĄC |Int32 |
-| INTERWAŁ DZIEŃ NA SEKUNDĘ |Zakres czasu |
+| INTERWAŁ tooMONTH roku |Int32 |
+| INTERWAŁ tooSECOND dnia |Zakres czasu |
 | DŁUGA |Ciąg |
 | LONG RAW |Byte] |
 | NCHAR |Ciąg |
@@ -583,18 +583,18 @@ Podczas przenoszenia danych z bazy danych Oracle, następujące mapowania są u�
 | ZNACZNIK CZASU |Data i godzina |
 | SYGNATURA CZASOWA Z LOKALNEJ STREFIE CZASOWEJ |Data i godzina |
 | SYGNATURA CZASOWA ZE STREFĄ CZASOWĄ |Data i godzina |
-| LICZBA CAŁKOWITA BEZ ZNAKU |Numer |
+| LICZBA CAŁKOWITA BEZ ZNAKU |Liczba |
 | VARCHAR2 |Ciąg |
 | XML |Ciąg |
 
 > [!NOTE]
-> Typ danych **INTERWAŁ rok na miesiąc** i **na dzień INTERWAŁU drugie** nie są obsługiwane, gdy za pomocą sterownika Microsoft.
+> Typ danych **tooMONTH roku INTERWAŁ** i **tooSECOND dzień INTERWAŁ** nie są obsługiwane, gdy za pomocą sterownika Microsoft.
 
-## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła
-Aby uzyskać informacje dotyczące mapowania kolumn w zestawie źródła danych do kolumn w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
+## <a name="map-source-toosink-columns"></a>Mapowanie kolumny toosink źródłowe
+toolearn o mapowanie kolumn w źródłowej toocolumns zestawu danych w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Odczyt powtarzalny ze źródłami relacyjnymi
-Podczas kopiowania danych z danych relacyjnych przechowuje, należy pamiętać, aby uniknąć niezamierzone wyniki powtarzalności. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek jest uruchamiany ponownie, gdy wystąpi błąd. Podczas wycinek zostanie uruchomiona ponownie w obu przypadkach, należy się upewnić, że te same dane jest do odczytu niezależnie od tego, ile razy wycinek jest uruchamiany. Zobacz [Repeatable odczytywać źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Podczas kopiowania danych z baz danych relacyjnych, zachowania powtarzalności w uwadze tooavoid niezamierzone wyników. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek jest uruchamiany ponownie, gdy wystąpi błąd. W przypadku wycinek zostanie uruchomiona ponownie w obu przypadkach, należy się upewnić, że hello tych samych danych toomake jest do odczytu niezależnie od tego, jak często wycinek jest uruchamiany. Zobacz [Repeatable odczytywać źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Wydajność i dostrajania
-Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) Aby dowiedzieć się więcej o kluczowych czynników tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i zoptymalizować ją na różne sposoby.
+Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) toolearn o kluczu czynniki tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i różne sposoby toooptimize go.

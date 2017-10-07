@@ -1,6 +1,6 @@
 ---
-title: "Instalowanie udziału plików platformy Azure i uzyskiwanie dostępu do udziału w systemie Windows | Microsoft Docs"
-description: "Zainstaluj udział plików platformy Azure i uzyskaj dostępu do tego udziału w systemie Windows."
+title: "aaaMount udziału plików platformy Azure i hello dostępu do udziału w systemie Windows | Dokumentacja firmy Microsoft"
+description: "Instalowanie udziału plików platformy Azure i udziału hello dostępu w systemie Windows."
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
-ms.openlocfilehash: 67b8e2e0039c8bc63f50f177e3c0d18b07df45e6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: eb6d58ad391adb6c06703ad694150534ccf44ada
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Instalowanie udziału plików platformy Azure i uzyskiwanie dostępu do udziału w systemie Windows
-[Azure File Storage](../storage-dotnet-how-to-use-files.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w systemie Windows i Windows Server. W tym artykule przedstawiono trzy różne sposoby instalowania udziału plików platformy Azure w systemie Windows: za pomocą interfejsu użytkownika Eksploratora plików, programu PowerShell oraz wiersza polecenia. 
+# <a name="mount-an-azure-file-share-and-access-hello-share-in-windows"></a>Instalowanie udziału plików platformy Azure i udziału hello dostępu w systemie Windows
+[Magazyn plików Azure](../storage-dotnet-how-to-use-files.md) jest system plików w chmurze łatwe toouse firmy Microsoft. Udziały plików platformy Azure można instalować w systemie Windows i Windows Server. W tym artykule przedstawiono trzy różne sposoby toomount udział plików Azure w systemie Windows: z hello Interfejsu Eksploratora plików, za pomocą programu PowerShell i za pośrednictwem hello wiersza polecenia. 
 
-Aby móc zainstalować udział plików platformy Azure poza regionem świadczenia usługi Azure, w którym jest on hostowany, na przykład lokalnie lub w innym regionie świadczenia usługi Azure, system operacyjny musi obsługiwać protokół SMB 3.0. 
+W kolejności toomount udział plików Azure poza hello region platformy Azure, który jest obsługiwany w, takich jak lokalnie lub w innym regionie Azure hello systemu operacyjnego musi obsługiwać protokół SMB 3.0. 
 
-Udział plików platformy Azure można zainstalować na maszynie z systemem Windows w środowisku lokalnym lub na maszynie wirtualnej platformy Azure, w zależności od wersji systemu operacyjnego. W poniższej tabeli przedstawiono 
+Udział plików platformy Azure można zainstalować na maszynie z systemem Windows w środowisku lokalnym lub na maszynie wirtualnej platformy Azure, w zależności od wersji systemu operacyjnego. Poniższej tabeli przedstawiono hello 
 
 | Wersja systemu Windows        | Wersja protokołu SMB |Instalacja na maszynie wirtualnej platformy Azure|Instalacja w środowisku lokalnym|
 |------------------------|-------------|---------------------|---------------------|
@@ -37,45 +37,45 @@ Udział plików platformy Azure można zainstalować na maszynie z systemem Wind
 | Windows 10             | SMB 3.0     | Tak                 | Tak                 |
 
 > [!Note]  
-> Zawsze zalecamy pobranie najnowszej aktualizacji KB dla danej wersji systemu Windows.
+> Zawsze zalecamy z argumentami hello KB najnowszej wersji systemu Windows.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Wymagania wstępne dotyczące instalowania udziału plików platformy Azure w systemie Windows 
-* **Nazwa konta magazynu**: Aby zainstalować udział plików platformy Azure, konieczne będzie podanie nazwy konta magazynu.
+* **Nazwa konta magazynu**: udział plików Azure toomount, muszą hello nazwy konta magazynu hello.
 
-* **Klucz konta magazynu**: Aby zainstalować udział plików platformy Azure, konieczne będzie posiadanie podstawowego (lub dodatkowego) klucza magazynu. Klucze sygnatur dostępu współdzielonego nie są aktualnie obsługiwane na potrzeby instalowania.
+* **Klucz konta magazynu**: udział plików Azure toomount, będzie konieczne hello klucz podstawowy (lub dodatkowej) magazynu. Klucze sygnatur dostępu współdzielonego nie są aktualnie obsługiwane na potrzeby instalowania.
 
-* **Otwarty port 445**: Usługa Azure File Storage korzysta z protokołu SMB. Protokół SMB komunikuje się za pośrednictwem portu TCP 445. Upewnij się, że Twoja zapora nie blokuje portów TCP 445 z komputera klienckiego.
+* **Otwarty port 445**: Usługa Azure File Storage korzysta z protokołu SMB. SMB komunikuje się za pośrednictwem portu TCP 445 - Sprawdź toosee, czy Zapora nie blokuje porty TCP 445 z komputera klienta.
 
-## <a name="mount-the-azure-file-share-with-file-explorer"></a>Instalowanie udziału plików platformy Azure za pomocą Eksploratora plików
+## <a name="mount-hello-azure-file-share-with-file-explorer"></a>Instalowanie udziału plików Azure hello z Eksploratora plików
 > [!Note]  
-> Należy pamiętać, że następujące instrukcje dotyczą systemu Windows 10 i mogą być nieco inne w starszych wersjach. 
+> Należy pamiętać, że Witaj, postępując zgodnie z instrukcjami są wyświetlane w systemie Windows 10 i może różnić się nieznacznie w starszych wersjach. 
 
-1. **Otwórz Eksploratora plików**: Można to zrobić przy użyciu menu Start lub przez naciśnięcie skrótu Win+E.
+1. **Otwórz okno Eksploratora plików**: można to zrobić przez otwarcie z hello Start Menu lub naciskając klawisz skrótu Win + E.
 
-2. **Przejdź do elementu „Ten komputer” w lewej części okna. Spowoduje to zmianę menu dostępnego na wstążce. W menu Komputer wybierz pozycję „Mapuj dysk sieciowy”**.
+2. **Przejdź element "Ten komputer" toohello na powitania po lewej stronie powitania okna. Spowoduje to zmianę menu hello hello Wstążce. W obszarze hello komputera menu, wybierz "Mapuj dysk sieciowy"**.
     
-    ![Zrzut ekranu przedstawiający menu rozwijane „Mapuj dysk sieciowy”](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
+    ![Zrzut ekranu przedstawiający menu rozwijanego "Mapuj dysk sieciowy" hello](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Skopiuj ścieżkę UNC z okienka „Połącz” w witrynie Azure Portal**: szczegółowy opis znajdywania tych informacji można znaleźć [tutaj](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Ścieżka UNC hello kopiowania z okienka "Połącz" hello w portalu Azure hello**: szczegółowy opis sposobu toofind te informacje można znaleźć [tutaj](storage-how-to-use-files-portal.md#connect-to-file-share).
 
-    ![Ścieżka UNC z okienka Połącz usługi Azure File Storage](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![ścieżka UNC Hello w okienku Połącz magazyn plików Azure hello](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
-4. **Wybierz literę dysku i wprowadź ścieżkę UNC.** 
+4. **Wybierz hello literę dysku, a następnie wprowadź ścieżkę UNC hello.** 
     
-    ![Zrzut ekranu przedstawiający okno dialogowe „Mapowanie dysku sieciowego”](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
+    ![Zrzut ekranu okna dialogowego powitania "Mapuj dysk sieciowy"](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. **Jako nazwy użytkownika użyj nazwy konta magazynu poprzedzonej ciągiem `Azure\`, a jako hasła użyj klucza konta magazynu.**
+5. **Użyj hello nazwy konta magazynu poprzedzony przez `Azure\` jako hello nazwy użytkownika i klucz konta magazynu, jako hello hasła.**
     
-    ![Zrzut ekranu okna dialogowego poświadczeń sieciowych](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
+    ![Zrzut ekranu okna dialogowego poświadczeń sieciowych hello](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
 6. **Użyj udziału plików platformy Azure zgodnie z potrzebami**.
     
     ![Udział plików platformy Azure jest teraz zainstalowany](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **Gdy zajdzie potrzeba odinstalowania (lub odłączenia) udziału plików platformy Azure, możesz to zrobić przez kliknięcie prawym przyciskiem myszy wpisu dla udziału w obszarze „Lokalizacje sieciowe” w Eksploratorze plików i wybranie polecenia „Odłącz”**.
+7. **Gdy są gotowe toodismount (lub odłączyć) hello udziału plików platformy Azure możesz to zrobić przez kliknięcie prawym przyciskiem myszy na zapis hello hello udziału w obszarze hello "lokalizacje sieciowe" w Eksploratorze plików i wybierając polecenie "Rozłącz"**.
 
-## <a name="mount-the-azure-file-share-with-powershell"></a>Instalowanie udziału plików platformy Azure za pomocą programu PowerShell
-1. **Użyj następującego polecenia, aby zainstalować udział plików platformy Azure**: Pamiętaj, aby zastąpić ciągi `<storage-account-name>`, `<share-name>`, `<storage-account-key>` i `<desired-drive-letter>` odpowiednimi informacjami.
+## <a name="mount-hello-azure-file-share-with-powershell"></a>Instalowanie udziału plików Azure hello przy użyciu programu PowerShell
+1. **Użyj hello następujące polecenie udział plików Azure hello toomount**: Pamiętaj tooreplace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` hello odpowiednie informacje.
 
     ```PowerShell
     $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -83,34 +83,34 @@ Udział plików platformy Azure można zainstalować na maszynie z systemem Wind
     New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<share-name>" -Credential $credential
     ```
 
-2. **Użyj udziału plików platformy Azure zgodnie z potrzebami**.
+2. **Użyj udziału plików platformy Azure hello zgodnie z potrzebami**.
 
-3. **Gdy skończysz, odinstaluj udział plików platformy Azure przy użyciu następującego polecenia**.
+3. **Gdy skończysz, należy odinstalować hello udziału plików platformy Azure przy użyciu następującego polecenia hello**.
 
     ```PowerShell
     Remove-PSDrive -Name <desired-drive-letter>
     ```
 
 > [!Note]  
-> Możesz użyć parametru `-Persist` dla dysku `New-PSDrive`, aby po zainstalowaniu udział plików platformy Azure był widoczny dla reszty systemu operacyjnego.
+> Można użyć hello `-Persist` parametru `New-PSDrive` hello toomake pozostałe toohello widoczne udział plików Azure hello systemu operacyjnego, gdy jest zainstalowany.
 
-## <a name="mount-the-azure-file-share-with-command-prompt"></a>Instalowanie udziału plików platformy Azure za pomocą wiersza polecenia
-1. **Użyj następującego polecenia, aby zainstalować udział plików platformy Azure**: Pamiętaj, aby zastąpić ciągi `<storage-account-name>`, `<share-name>`, `<storage-account-key>` i `<desired-drive-letter>` odpowiednimi informacjami.
+## <a name="mount-hello-azure-file-share-with-command-prompt"></a>Instalowanie udziału plików Azure hello z wiersza polecenia
+1. **Użyj hello następujące polecenie udział plików Azure hello toomount**: Pamiętaj tooreplace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` hello odpowiednie informacje.
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
     ```
 
-2. **Użyj udziału plików platformy Azure zgodnie z potrzebami**.
+2. **Użyj udziału plików platformy Azure hello zgodnie z potrzebami**.
 
-3. **Gdy skończysz, odinstaluj udział plików platformy Azure przy użyciu następującego polecenia**.
+3. **Gdy skończysz, należy odinstalować hello udziału plików platformy Azure przy użyciu następującego polecenia hello**.
 
     ```
     net use <desired-drive-letter>: /delete
     ```
 
 > [!Note]  
-> Poświadczenia dla udziału plików platformy Azure można przechowywać w systemie Windows, dzięki czemu udział może być automatycznie instalowany podczas ponownego uruchamiania komputera. Następujące polecenie spowoduje utrwalenie poświadczeń:
+> Witaj ponownie tooautomatically udział plików Azure można skonfigurować na ponowne uruchomienie komputera przez utrwalanie poświadczeń hello w systemie Windows. następujące polecenie Hello zostanie utrzymana hello poświadczeń:
 >   ```
 >   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 >   ```
@@ -123,11 +123,11 @@ Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi 
 
 ### <a name="conceptual-articles-and-videos"></a>Artykuły koncepcyjne i filmy
 * [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/) (Azure File Storage: płynnie działający system plików SMB w chmurze dla systemów Windows i Linux)
-* [Jak używać usługi Azure File Storage z systemem Linux](../storage-how-to-use-files-linux.md)
+* [Jak toouse magazyn plików Azure z systemem Linux](../storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-azure-file-storage"></a>Narzędzia dostępne dla usługi Azure File Storage
-* [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Jak używać narzędzia AzCopy z usługą Microsoft Azure Storage)
-* [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Jak toouse AzCopy z usługi Magazyn Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Przy użyciu hello wiersza polecenia platformy Azure z usługą Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Rozwiązywanie problemów z usługą Azure File Storage — Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Storage — Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
@@ -135,7 +135,7 @@ Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi 
 * [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/) (Usługa Azure File Storage została udostępniona publicznie)
 * [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) (Za kulisami usługi Azure File Storage)
 * [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Wprowadzenie do usługi plików platformy Microsoft Azure)
-* [Migrowanie danych do usługi Pliki Azure](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
+* [Migrowanie danych tooAzure pliku](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
 ### <a name="reference"></a>Dokumentacja
 * [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)

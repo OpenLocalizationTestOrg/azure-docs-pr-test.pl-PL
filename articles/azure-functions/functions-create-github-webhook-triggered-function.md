@@ -1,6 +1,6 @@
 ---
-title: Tworzenie funkcji na platformie Azure wyzwalanej przez element webhook GitHub | Microsoft Docs
-description: "Użyj usługi Azure Functions, aby utworzyć funkcję niewymagającą użycia serwera wywoływaną za pomocą elementu webhook GitHub."
+title: Funkcja w systemie Azure wyzwalane przez GitHub webhook aaaCreate | Dokumentacja firmy Microsoft
+description: "Za pomocą usługi Azure Functions toocreate niekorzystającą funkcji, który jest wywoływany przez element webhook GitHub."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8ffcde82c9310d749159ed53eab113658e38a030
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Tworzenie funkcji wyzwalanej przez element webhook GitHub
 
-Dowiedz się, jak utworzyć funkcję wyzwalaną przez żądanie elementu webhook protokołu HTTP z ładunkiem specyficznym dla usługi GitHub.
+Dowiedz się, jak toocreate funkcję, która jest wyzwalana przez żądanie HTTP elementu webhook z ładunku specyficzne dla usługi GitHub.
 
-![Funkcja wyzwalana przez element webhook GitHub w witrynie Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
+![Funkcja w portalu Azure hello wyzwolone element Github Webhook](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,61 +41,61 @@ Dowiedz się, jak utworzyć funkcję wyzwalaną przez żądanie elementu webhook
 
 ![Pomyślnie utworzona aplikacja funkcji.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
+Następnie należy utworzyć funkcji w hello nowej funkcji aplikacji.
 
 <a name="create-function"></a>
 
 ## <a name="create-a-github-webhook-triggered-function"></a>Tworzenie funkcji wyzwalanej przez element webhook GitHub
 
-1. Rozwiń aplikację funkcji i kliknij przycisk **+** obok pozycji **Funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **Funkcja niestandardowa**. Spowoduje to wyświetlenie pełnego zestawu szablonów funkcji.
+1. Rozwiń węzeł funkcji aplikacji, a następnie kliknij przycisk hello  **+**  obok przycisku zbyt**funkcji**. Jeśli hello pierwszej funkcji w funkcji aplikacji, wybierz **Niestandardowa funkcja**. Spowoduje to wyświetlenie hello pełny zestaw szablonów funkcji.
 
-    ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
+    ![Funkcje strony szybkiego startu w hello portalu Azure](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Wybierz **GitHub WebHook** szablon odpowiedni język. **Nadaj nazwę funkcji**, a następnie wybierz pozycję **Utwórz**.
+2. Wybierz hello **GitHub WebHook** szablon odpowiedni język. **Nadaj nazwę funkcji**, a następnie wybierz pozycję **Utwórz**.
 
-     ![Tworzenie funkcji wyzwalanej przez element webhook GitHub w witrynie Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![Utwórz funkcję wyzwolone element webhook GitHub w hello portalu Azure](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 
-3. W nowej funkcji kliknij pozycję **</> Pobierz adres URL funkcji**, po czym skopiuj i zapisz wartości. Powtórz te czynności po kliknięciu pozycji **</> Pobierz wpis tajny usługi GitHub**. Wartości te będą potrzebne podczas konfigurowania elementu webhook w usłudze GitHub.
+3. W nowych funkcji, kliknij przycisk **adres URL funkcji <> / Get**, następnie skopiuj i Zapisz hello wartości. Witaj samo dla **<> / GitHub pobrać klucza tajnego**. Użyjesz tych wartości tooconfigure hello elementu webhook w witrynie GitHub.
 
-    ![Sprawdzanie kodu funkcji](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
+    ![Przegląd kodu funkcji hello](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
 
 W następnym kroku zostanie utworzony element webhook w repozytorium GitHub.
 
-## <a name="configure-the-webhook"></a>Konfigurowanie elementu webhook
+## <a name="configure-hello-webhook"></a>Skonfiguruj hello elementu webhook
 
-1. W usłudze GitHub przejdź do repozytorium, którego jesteś właścicielem. Możesz też użyć dowolnego rozwidlonego repozytorium. Jeśli konieczne będzie rozwidlenie repozytorium, skorzystaj z informacji pod adresem <https://github.com/Azure-Samples/functions-quickstart>.
+1. W witrynie GitHub Przejdź repozytorium tooa, którego jesteś właścicielem. Możesz też użyć dowolnego rozwidlonego repozytorium. Jeśli potrzebujesz toofork repozytorium, użyj <https://github.com/Azure-Samples/functions-quickstart>.
 
 1. Kliknij kolejno pozycje **Ustawienia**, **Elementy webhook** i **Dodaj element webhook**.
 
     ![Dodawanie elementu webhook GitHub](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Użyj ustawień określonych w tabeli i kliknij pozycję **Dodaj element webhook**.
+1. Użyj ustawień określonych w tabeli hello, a następnie kliknij przycisk **Dodawanie elementu webhook**.
 
-    ![Ustawianie adresu URL i wpisu tajnego elementu webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
+    ![Adres URL elementu webhook hello zestawu i klucz tajny](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
 | Ustawienie | Sugerowana wartość | Opis |
 |---|---|---|
-| **Adres URL ładunku** | Skopiowana wartość | Użyj wartości zwróconej po kliknięciu pozycji **</> Pobierz adres URL funkcji**. |
-| **Wpis tajny**   | Skopiowana wartość | Użyj wartości zwróconej po kliknięciu pozycji **</> Pobierz wpis tajny usługi GitHub**. |
-| **Typ zawartości** | application/json | Funkcja oczekuje ładunku JSON. |
-| Wyzwalacze zdarzeń | Pozwól mi wybrać pojedyncze zdarzenia | Wyzwalacz ma być uruchamiany tylko w przypadku zdarzeń z komentarzami dotyczącymi problemów.  |
+| **Adres URL ładunku** | Skopiowana wartość | Użyj hello wartość zwrócona przez **adres URL funkcji <> / Get**. |
+| **Wpis tajny**   | Skopiowana wartość | Użyj hello wartość zwrócona przez **<> / GitHub pobrać klucza tajnego**. |
+| **Typ zawartości** | application/json | Funkcja Hello oczekuje ładunek JSON. |
+| Wyzwalacze zdarzeń | Pozwól mi wybrać pojedyncze zdarzenia | Chcemy tylko tootrigger problem komentarz zdarzeń.  |
 | | Komentarz dotyczący problemu |  |
 
-Element webhook został skonfigurowany do wyzwolenia funkcji po dodaniu nowego komentarza dotyczącego problemu.
+Teraz, hello elementu webhook jest skonfigurowany tootrigger funkcji w przypadku dodania nowego komentarza problem.
 
-## <a name="test-the-function"></a>Testowanie funkcji
+## <a name="test-hello-function"></a>Funkcja hello testu
 
-1. W swoim repozytorium GitHub otwórz kartę **Problemy** w nowym oknie przeglądarki.
+1. W repozytorium GitHub Otwórz hello **problemów** kartę w nowym oknie przeglądarki.
 
-1. W nowym oknie kliknij pozycję **Nowy problem**, wpisz tytuł, a następnie kliknij pozycję **Prześlij nowy problem**.
+1. W nowym oknie powitania kliknij **nowy problem**wpisz tytuł, a następnie kliknij przycisk **przesłać nowy problem**.
 
-1. W obszarze problemu wpisz komentarz i kliknij pozycję **Komentarz**.
+1. W hello problem, wprowadź komentarz, a następnie kliknij przycisk **komentarz**.
 
     ![Dodawanie komentarza dotyczącego problemu w usłudze GitHub.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png)
 
-1. Wróć do portalu i wyświetl dzienniki. Powinien zostać wyświetlony wpis śledzenia z nowym tekstem komentarza.
+1. Toohello portal wrócić do poprzedniej strony i sprawdź dzienniki hello. Wpis śledzenia na nowy tekst komentarza hello powinna zostać wyświetlona.
 
-     ![Wyświetlanie tekstu komentarza w dziennikach.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
+     ![Wyświetl tekst komentarza hello w dziennikach hello.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

@@ -1,6 +1,6 @@
 ---
-title: "Przekazywanie danych (usługa Azure Search na platformie .NET) | Microsoft Docs"
-description: "Dowiedz się, jak przekazywać dane do indeksu w usłudze Azure Search przy użyciu zestawu .NET SDK."
+title: "AAA \"przekazywanie danych (.NET — usługi Azure Search) | Dokumentacja firmy Microsoft\""
+description: "Dowiedz się, jak tooupload indeks tooan danych za pomocą usługi Azure Search hello zestawu .NET SDK."
 services: search
 documentationcenter: 
 author: brjohnstmsft
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 78ddbefb522884d1f61cb275c25c091487aee639
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Przekazywanie danych do usługi Azure Search przy użyciu zestawu .NET SDK
+# <a name="upload-data-tooazure-search-using-hello-net-sdk"></a>Przekazywanie danych tooAzure wyszukiwania przy użyciu hello zestawu .NET SDK
 > [!div class="op_single_selector"]
 > * [Omówienie](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -29,47 +29,47 @@ ms.lasthandoff: 08/03/2017
 > 
 > 
 
-W tym artykule opisano, jak używać [zestawu .NET SDK usługi Azure Search](https://aka.ms/search-sdk) w celu importowania danych do indeksu usługi Azure Search.
+W tym artykule opisano, jak toouse hello [zestawu .NET SDK usługi Azure Search](https://aka.ms/search-sdk) tooimport danych do indeksu usługi Azure Search.
 
-Przed rozpoczęciem pracy z tym przewodnikiem powinien zostać [utworzony indeks usługi Azure Search](search-what-is-an-index.md). W tym artykule przyjęto również, że już wcześniej utworzono obiekt `SearchServiceClient`, jak pokazano w artykule [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient) (Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK).
+Przed rozpoczęciem pracy z tym przewodnikiem powinien zostać [utworzony indeks usługi Azure Search](search-what-is-an-index.md). W tym artykule założono również, że utworzono już `SearchServiceClient` obiektów, jak pokazano w [utworzyć indeks usługi Azure Search przy użyciu zestawu .NET SDK hello](search-create-index-dotnet.md#CreateSearchServiceClient).
 
 > [!NOTE]
-> Cały przykładowy kod przedstawiony w tym artykule został napisany w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](http://aka.ms/search-dotnet-howto). Można również poczytać o [zestawie SDK platformy .NET dla usługi Azure Search](search-howto-dotnet-sdk.md), aby uzyskać bardziej szczegółowe omówienie przykładowego kodu.
+> Cały przykładowy kod przedstawiony w tym artykule został napisany w języku C#. Można znaleźć hello pełny kod źródłowy [w serwisie GitHub](http://aka.ms/search-dotnet-howto). Możesz przeczytać temat hello [zestawu .NET SDK usługi Azure Search](search-howto-dotnet-sdk.md) do bardziej szczegółowych przechodzenia przez hello próbki kodu.
 
-Aby wypchnąć dokumenty do indeksu przy użyciu zestawu .NET SDK, konieczne jest wykonanie następujących czynności:
+W kolejności toopush dokumenty do indeksu przy użyciu zestawu .NET SDK hello musisz:
 
-1. Utworzenie obiektu `SearchIndexClient`, aby połączyć się z indeksem wyszukiwania.
-2. Utworzenie obiektu `IndexBatch` zawierającego dokumenty przeznaczone do dodania, modyfikacji lub usunięcia.
-3. Wywołanie metody `Documents.Index` klasy `SearchIndexClient`, aby wysłać obiekt `IndexBatch` do indeksu wyszukiwania.
+1. Utwórz `SearchIndexClient` indeksu wyszukiwania tooyour tooconnect obiektu.
+2. Utwórz `IndexBatch` hello toobe dokumenty zawierające dodane, modyfikacji lub usunięcia.
+3. Wywołaj hello `Documents.Index` metody z `SearchIndexClient` toosend hello `IndexBatch` tooyour indeksu wyszukiwania.
 
-## <a name="create-an-instance-of-the-searchindexclient-class"></a>Tworzenie wystąpienia klasy SearchIndexClient
-Aby zaimportować dane do indeksu, używając zestawu .NET SDK usługi Azure Search, konieczne jest utworzenie wystąpienia klasy `SearchIndexClient`. Takie wystąpienie można utworzyć samodzielnie, ale, jeśli masz już wystąpienie klasy `SearchServiceClient`, łatwiej jest wywołać jej metodę `Indexes.GetClient`. W poniższym przykładzie przedstawiono, jak można uzyskać klasę `SearchIndexClient` dla indeksu o nazwie „hotels” z klasy `SearchServiceClient` o nazwie `serviceClient`:
+## <a name="create-an-instance-of-hello-searchindexclient-class"></a>Utwórz wystąpienie hello klasy SearchIndexClient
+dane tooimport do Twojego indeksu przy użyciu hello zestawu .NET SDK usługi Azure Search, konieczne będzie toocreate wystąpienia hello `SearchIndexClient` klasy. Możesz takie wystąpienie można utworzyć samodzielnie, ale można je łatwiej Jeśli masz już `SearchServiceClient` toocall wystąpienia jego `Indexes.GetClient` metody. Na przykład, Oto, jak można uzyskać `SearchIndexClient` hello indeksu o nazwie "hotels" z `SearchServiceClient` o nazwie `serviceClient`:
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 > [!NOTE]
-> W typowej aplikacji wyszukującej wypełnianie indeksu i zarządzanie nim jest obsługiwane przez inny składnik niż zapytania wyszukiwania. `Indexes.GetClient` jest wygodną metodą wypełniania indeksu, ponieważ nie wymaga dostarczenia kolejnej klasy `SearchCredentials`. Dzieje się tak dzięki przekazaniu klucza administratora, który został użyty w celu utworzenia klasy `SearchServiceClient` do nowej klasy `SearchIndexClient`. Jednak w tej części aplikacji, która wykonuje zapytania, zaleca się utworzenie klasy `SearchIndexClient` bezpośrednio, dzięki czemu można przekazać klucz zapytania zamiast klucza administratora. Jest to zgodne z [zasadą najniższych uprawnień](https://en.wikipedia.org/wiki/Principle_of_least_privilege) i pomoże zapewnić większe bezpieczeństwo aplikacji. Więcej informacji o kluczach administratora i kluczach zapytań można znaleźć w [dokumentacji interfejsu API REST usługi Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
+> W typowej aplikacji wyszukującej wypełnianie indeksu i zarządzanie nim jest obsługiwane przez inny składnik niż zapytania wyszukiwania. `Indexes.GetClient`jest wygodną metodą wypełniania indeksu, ponieważ wymaga dostarczenia kolejnej hello `SearchCredentials`. Robi to przez przekazanie klucza administratora hello tego możesz używane toocreate hello `SearchServiceClient` toohello nowe `SearchIndexClient`. Jednak w hello część aplikacji, która wykonuje zapytania jest lepsze hello toocreate `SearchIndexClient` bezpośrednio, aby można przekazać klucz zapytania zamiast klucza administratora. Jest to zgodne z hello [zasadą najniższych uprawnień](https://en.wikipedia.org/wiki/Principle_of_least_privilege) i pomoże toomake aplikacji bardziej bezpieczne. Można dowiedzieć się więcej o kluczach administratora i kluczach zapytań w hello [dokumentacji interfejsu API REST wyszukiwania Azure](https://docs.microsoft.com/rest/api/searchservice/).
 > 
 > 
 
-`SearchIndexClient` ma właściwość `Documents`. Ta właściwość zapewnia wszystkie metody, które są potrzebne, aby dodawać, modyfikować i usuwać dokumenty w indeksie oraz wykonywać zapytania o nie.
+`SearchIndexClient` ma właściwość `Documents`. Ta właściwość zapewnia wszystkie metody hello należy tooadd, modyfikować lub zbadać dokumenty w indeksie.
 
-## <a name="decide-which-indexing-action-to-use"></a>Wybieranie akcji indeksowania do użycia
-Aby zaimportować dane przy użyciu zestawu .NET SDK, należy spakować dane do obiektu `IndexBatch`. Obiekt `IndexBatch` hermetyzuje kolekcję obiektów `IndexAction`, z których każdy zawiera dokument i właściwość, które informują usługę Azure Search, jaką akcję wykonać na tym dokumencie (przekazać, scalić, usunąć itp.). W zależności od tego, którą z poniższych akcji wybierzesz, tylko określone pola muszą być uwzględnione w danym dokumencie:
+## <a name="decide-which-indexing-action-toouse"></a>Zdecyduj, które indeksowania toouse akcji
+tooimport danych przy użyciu zestawu .NET SDK hello, konieczne będzie toopackage danych do `IndexBatch` obiektu. `IndexBatch` Hermetyzuje kolekcję `IndexAction` obiektów, z których każdy zawiera dokument i właściwość, która powoduje tooperform jakie działania usługi Azure Search w tym dokumencie (przekazywania, scalania, delete itd.). W zależności od tego, który hello poniższych akcji, którą wybierzesz tylko niektóre pola muszą być uwzględnione w danym dokumencie:
 
 | Akcja | Opis | Wymagane pola dla każdego dokumentu | Uwagi |
 | --- | --- | --- | --- |
-| `Upload` |Akcja `Upload` jest podobna do akcji „upsert”, co oznacza, że dokument zostanie wstawiony, jeśli jest nowy, albo zaktualizowany/zastąpiony, jeśli już istnieje. |pole klucza oraz inne pola, które chcesz zdefiniować |Podczas aktualizowania/zastępowania istniejącego dokumentu każde pole, które nie jest określone w żądaniu, zostanie ustawione na wartość `null`. Dzieje się tak nawet wtedy, gdy pole było wcześniej ustawione na wartość inną niż null. |
-| `Merge` |Aktualizuje istniejący dokument o określone pola. Jeśli dokument nie istnieje w indeksie, scalanie zakończy się niepowodzeniem. |pole klucza oraz inne pola, które chcesz zdefiniować |Wszystkie pola, które określisz w żądaniu scalania, zastąpią istniejące pola w dokumencie. Obejmuje to również pola typu `DataType.Collection(DataType.String)`. Jeśli na przykład dokument zawiera pole `tags` o wartości `["budget"]` i wykonywane jest scalanie z wartością `["economy", "pool"]` dla pola `tags`, końcowa wartość pola `tags` będzie równa `["economy", "pool"]`. Nie będzie to `["budget", "economy", "pool"]`. |
-| `MergeOrUpload` |Ta akcja działa jak akcja `Merge`, jeśli dokument o danym kluczu już istnieje w indeksie. Jeśli dokument nie istnieje, działa jak akcja `Upload` dla nowego dokumentu. |pole klucza oraz inne pola, które chcesz zdefiniować |- |
-| `Delete` |Usuwa określony dokument z indeksu. |tylko pole klucza |Wszystkie pola, które określisz oprócz pola klucza, zostaną zignorowane. Jeśli chcesz usunąć pojedyncze pole z dokumentu, zamiast tej akcji użyj akcji `Merge` i po prostu jawnie ustaw dla pola wartość null. |
+| `Upload` |`Upload` Akcji jest podobne tooan "upsert", gdzie hello dokument zostanie wstawiony, jeśli jest nowy albo zaktualizowany/zastąpiony, jeśli istnieje. |pole klucza oraz inne pola mają toodefine |Podczas aktualizowania/zastępowania istniejącego dokumentu, wszystkie pola, które nie jest określony w żądaniu hello ma ustawione zbyt`null`. Dzieje się tak nawet wtedy, gdy hello pole było wcześniej ustawione tooa wartość inną niż null. |
+| `Merge` |Aktualizacje istniejący dokument o hello określone pola. Jeśli hello dokument nie istnieje w indeksie hello, hello scalanie zakończy się niepowodzeniem. |pole klucza oraz inne pola mają toodefine |Wszystkie pola, które określisz w żądaniu scalania zastąpi istniejące pole hello w dokumencie hello. Obejmuje to również pola typu `DataType.Collection(DataType.String)`. Na przykład, jeśli hello dokument zawiera pole `tags` z wartością `["budget"]` i wykonywane jest scalanie z wartością `["economy", "pool"]` dla `tags`, końcowa wartość hello hello `tags` pole będzie `["economy", "pool"]`. Nie będzie to `["budget", "economy", "pool"]`. |
+| `MergeOrUpload` |Ta akcja działa jak `Merge` Jeśli dokument o hello podany klucz już istnieje w indeksie hello. Jeśli dokument hello nie istnieje, działa jak akcja `Upload` dla nowego dokumentu. |pole klucza oraz inne pola mają toodefine |- |
+| `Delete` |Usuwa określony dokument hello z hello indeksu. |tylko pole klucza |Wszystkie pola, które określisz oprócz pola klucza hello zostaną zignorowane. Tooremove pojedyncze pole z dokumentu, należy użyć `Merge` zamiast i po prostu jawnie ustaw pola hello toonull. |
 
-Akcję do użycia możesz określić za pomocą różnych metod statycznych klas `IndexBatch` i `IndexAction`. Pokazano to w następnej sekcji.
+Można określić, jakie działanie ma toouse z różnych metod statycznych hello hello `IndexBatch` i `IndexAction` klasy, jak pokazano w następnej sekcji hello.
 
 ## <a name="construct-your-indexbatch"></a>Konstruowanie obiektu IndexBatch
-Teraz, kiedy już wiesz, które akcje wykonać na dokumentach, możesz przystąpić do konstruowania obiektu `IndexBatch`. Poniższy przykład przedstawia sposób tworzenia partii z kilkoma różnymi akcjami. Zauważ, że przedstawiony przykład używa niestandardowej klasy o nazwie `Hotel`, która jest mapowana na dokument w indeksie „hotels”.
+Teraz, znając tooperform akcje, które z dokumentami są gotowe tooconstruct hello `IndexBatch`. Witaj przykład poniżej przedstawiono sposób toocreate partii z kilkoma różnymi akcjami. Należy pamiętać, że przedstawiony przykład używa niestandardowej klasy o nazwie `Hotel` mapujący tooa dokument w indeksie "hotels" hello.
 
 ```csharp
 var actions =
@@ -112,7 +112,7 @@ var actions =
             {
                 HotelId = "3",
                 BaseRate = 129.99,
-                Description = "Close to town hall and the river"
+                Description = "Close tootown hall and hello river"
             }),
         IndexAction.Delete(new Hotel() { HotelId = "6" })
     };
@@ -120,19 +120,19 @@ var actions =
 var batch = IndexBatch.New(actions);
 ```
 
-W tym przypadku użyto akcji wyszukiwania `Upload`, `MergeOrUpload` i `Delete` określonych przez metody wywołane względem klasy `IndexAction`.
+W tym przypadku użyto `Upload`, `MergeOrUpload`, i `Delete` jako akcje wyszukiwania określonych hello metody wywołane względem hello `IndexAction` klasy.
 
-Załóżmy, że przedstawiony w przykładzie indeks „hotels” jest już wypełniony różnymi dokumentami. Zwróć uwagę na to, że w przypadku akcji `MergeOrUpload` nie było konieczne określenie wszystkich możliwych pól dokumentu. Klucz dokumentu (`HotelId`) został określony tylko w przypadku akcji `Delete`.
+Załóżmy, że przedstawiony w przykładzie indeks „hotels” jest już wypełniony różnymi dokumentami. Należy zwrócić uwagę, jak firma Microsoft nie miał toospecify wszystkich hello możliwych pól dokumentu przy użyciu `MergeOrUpload` tylko określony klucz dokumentu hello (`HotelId`) przy użyciu `Delete`.
 
-Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksymalnie 1000 dokumentów.
+Ponadto należy pamiętać, że może zawierać tylko dokumentów too1000 pojedyncze żądanie indeksowania.
 
 > [!NOTE]
-> W tym przykładzie stosujemy różne akcje do różnych dokumentów. Jeśli chcesz wykonać te same akcje dla wszystkich dokumentów w partii, zamiast wywoływać metodę `IndexBatch.New`, możesz użyć innej metody statycznej klasy `IndexBatch`. Na przykład możesz utworzyć partie przez wywołanie metody `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` lub `IndexBatch.Delete`. Te metody przyjmują kolekcję dokumentów (w tym przykładzie obiekty typu `Hotel`) zamiast obiektów `IndexAction`.
+> W tym przykładzie stosujemy różne akcje toodifferent dokumentów. Jeśli potrzebujesz tooperform hello same akcje dla wszystkich dokumentów w partii hello, zamiast wywoływać metodę `IndexBatch.New`, można użyć innych metod statycznych hello `IndexBatch`. Na przykład możesz utworzyć partie przez wywołanie metody `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` lub `IndexBatch.Delete`. Te metody przyjmują kolekcję dokumentów (w tym przykładzie obiekty typu `Hotel`) zamiast obiektów `IndexAction`.
 > 
 > 
 
-## <a name="import-data-to-the-index"></a>Importowanie danych do indeksu
-Po zainicjowaniu obiektu `IndexBatch` możesz go wysłać do indeksu przez wywołanie metody `Documents.Index` względem obiektu `SearchIndexClient`. Poniższy przykład pokazuje, jak wywołać metodę `Index` oraz inne dodatkowe kroki, które należy wykonać:
+## <a name="import-data-toohello-index"></a>Importowanie danych toohello indeksu
+Są już zainicjowane `IndexBatch` obiektu, możesz go wysłać toohello indeksu przez wywołanie metody `Documents.Index` na Twojej `SearchIndexClient` obiektu. powitania po przykładzie pokazano, jak toocall `Index`oraz inne dodatkowe kroki, konieczne będzie tooperform:
 
 ```csharp
 try
@@ -141,26 +141,26 @@ try
 }
 catch (IndexBatchException e)
 {
-    // Sometimes when your Search service is under load, indexing will fail for some of the documents in
-    // the batch. Depending on your application, you can take compensating actions like delaying and
-    // retrying. For this simple demo, we just log the failed document keys and continue.
+    // Sometimes when your Search service is under load, indexing will fail for some of hello documents in
+    // hello batch. Depending on your application, you can take compensating actions like delaying and
+    // retrying. For this simple demo, we just log hello failed document keys and continue.
     Console.WriteLine(
-        "Failed to index some of the documents: {0}",
+        "Failed tooindex some of hello documents: {0}",
         String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
 }
 
-Console.WriteLine("Waiting for documents to be indexed...\n");
+Console.WriteLine("Waiting for documents toobe indexed...\n");
 Thread.Sleep(2000);
 ```
 
-Zwróć uwagę na blok `try`/`catch` otaczający wywołanie metody `Index`. Blok catch obsługuje ważny przypadek błędu indeksowania. Jeśli usługa Azure Search nie może zindeksować niektórych dokumentów w partii, metoda `Documents.Index` zgłasza wyjątek `IndexBatchException`. Może to nastąpić, jeśli indeksujesz dokumenty w czasie, gdy usługa jest mocno obciążona. **Zdecydowanie zalecamy jawną obsługę tego przypadku w kodzie.** Możesz opóźnić, a następnie ponowić indeksowanie dokumentów, których przetwarzanie zakończyło się niepowodzeniem, lub możesz zarejestrować błąd i kontynuować, tak jak w prezentowanym przykładzie. Możesz też wykonać inną akcję w zależności od wymagań spójności danych aplikacji.
+Uwaga hello `try` / `catch` otaczającego hello wywołania toohello `Index` metody. Witaj blok catch obsługuje ważny przypadek błędu indeksowania. Jeśli usługi Azure Search nie powiedzie się tooindex niektóre hello dokumentów w partii hello `IndexBatchException` jest generowany przez `Documents.Index`. Może to nastąpić, jeśli indeksujesz dokumenty w czasie, gdy usługa jest mocno obciążona. **Zdecydowanie zalecamy jawną obsługę tego przypadku w kodzie.** Można opóźnić, a następnie ponów próbę indeksowania hello dokumentów, których nie powiodła się lub zaloguj się i kontynuować jak w prezentowanym przykładzie hello, lub możesz też wykonać inną akcję w zależności od wymagań spójności danych aplikacji.
 
-Na końcu powyższego przykładu umieszczono dwusekundowe opóźnienie. Indeksowanie w usłudze Azure Search jest asynchroniczne, więc przykładowa aplikacja musi czekać przez krótki czas, aby upewnić się, że dokumenty można wyszukiwać. Tego typu opóźnienia są zazwyczaj konieczne tylko w przypadku pokazów, testów i przykładowych aplikacji.
+Na koniec hello kod w przykładzie hello powyżej umieszczono dwusekundowe opóźnienie. Indeksowanie odbywa się asynchronicznie w usłudze Azure Search tak hello Przykładowa aplikacja musi toowait tooensure krótki czas, że hello dokumenty można wyszukiwać. Tego typu opóźnienia są zazwyczaj konieczne tylko w przypadku pokazów, testów i przykładowych aplikacji.
 
 <a name="HotelClass"></a>
 
-### <a name="how-the-net-sdk-handles-documents"></a>Jak zestaw .NET SDK obsługuje dokumenty
-Możesz się zastanawiać, jak zestaw .NET SDK usługi Azure Search jest w stanie przekazać wystąpienia klasy zdefiniowanej przez użytkownika, np. `Hotel`, do indeksu. Aby odpowiedzieć na to pytanie, przyjrzyjmy się klasie `Hotel`, która jest mapowana na schemat indeksu zdefiniowany w artykule [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#DefineIndex) (Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK):
+### <a name="how-hello-net-sdk-handles-documents"></a>Jak hello zestawu .NET SDK obsługuje dokumenty
+Możesz się zastanawiać, jak hello zestawu .NET SDK usługi Azure Search jest tooupload stanie wystąpienia klasy zdefiniowanej przez użytkownika, jak `Hotel` toohello indeksu. toohelp odpowiedzi na to pytanie, Przyjrzyjmy się hello `Hotel` klasy, która mapuje toohello schemat indeksu zdefiniowany w [utworzyć indeks usługi Azure Search przy użyciu zestawu .NET SDK hello](search-create-index-dotnet.md#DefineIndex):
 
 ```csharp
 [SerializePropertyNamesAsCamelCase]
@@ -209,32 +209,32 @@ public partial class Hotel
 }
 ```
 
-Przede wszystkim należy zauważyć, że każda właściwość publiczna klasy `Hotel` odpowiada polu w definicji indeksu, ale z jedną istotną różnicą: nazwa każdego pola rozpoczyna się małą literą (camelCase), podczas gdy nazwa każdej właściwości publicznej klasy `Hotel` rozpoczyna się wielką literą (PascalCase). Jest to częsty przypadek w aplikacjach platformy .NET, które tworzą powiązania danych, gdzie schemat docelowy jest poza kontrolą dewelopera aplikacji. Zamiast naruszać zasady nazewnictwa platformy .NET przez używanie notacji camelCase dla nazw właściwości, za pomocą atrybutu `[SerializePropertyNamesAsCamelCase]` można określić, że zestaw SDK ma mapować nazwy właściwości na notację camelCase automatycznie.
+Witaj po pierwsze toonotice jest to, że każda właściwość publiczna klasy `Hotel` odpowiada tooa pola w definicji indeksu hello, ale z jedną istotną różnicą: hello nazwę każdego pola rozpoczyna się małą literą (camelcase"), podczas hello nazwę każdego publicznego Właściwość `Hotel` rozpoczyna się wielką literą ("Pascal litery"). To typowy scenariusz w aplikacjach .NET, które tworzą powiązania danych, gdzie schemat docelowy hello jest poza hello kontroli Deweloper aplikacji hello. Zamiast tooviolate hello zasady nazewnictwa platformy .NET dokonując camelcase nazwy właściwości, można ustalić hello SDK toomap hello właściwość nazwy toocamel przypadku automatycznie z hello `[SerializePropertyNamesAsCamelCase]` atrybutu.
 
 > [!NOTE]
-> Zestaw .NET SDK usługi Azure Search korzysta z biblioteki [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) w celu serializacji i deserializacji niestandardowych obiektów modelu do i z formatu JSON. W razie potrzeby możesz dostosować serializację. Więcej szczegółowych informacji znajdziesz w sekcji [Custom Serialization with JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet) (Serializacja niestandardowa przy użyciu programu JSON.NET). Jako przykład może posłużyć użycie atrybutu `[JsonProperty]` dla właściwości `DescriptionFr` w powyższym kodzie przykładowym.
+> Witaj zestawu .NET SDK usługi Azure Search korzysta hello [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) tooserialize biblioteki i deserializacji tooand obiekty z modelu niestandardowych z formatu JSON. W razie potrzeby możesz dostosować serializację. Więcej szczegółowych informacji znajdziesz w sekcji [Custom Serialization with JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet) (Serializacja niestandardowa przy użyciu programu JSON.NET). Przykładem tego jest użycie hello hello `[JsonProperty]` atrybutu na powitania `DescriptionFr` właściwości w powyższym kodzie przykładowym hello.
 > 
 > 
 
-Drugą ważną kwestią dotyczącą klasy `Hotel` są typy danych właściwości publicznych. Typy .NET tych właściwości są mapowane na odpowiadające im typy pól w definicji indeksu. Na przykład właściwość ciągu `Category` jest mapowana na pole `category` mające typ `DataType.String`. Podobne mapowania typów występują między typami `bool?` i `DataType.Boolean`, `DateTimeOffset?` i `DataType.DateTimeOffset` itd. Dokładne zasady mapowania typów znajdują się w dokumentacji metody `Documents.Get` w [dokumentacji zestawu .NET SDK usługi Azure Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
+Witaj drugą ważną kwestią dotyczącą hello `Hotel` hello typy danych właściwości publicznych hello są klasy. Hello typy .NET tych właściwości mapy typy pól równoważne tootheir w definicji indeksu hello. Na przykład Witaj `Category` toohello mapy właściwości ciągu `category` pola, które jest typu `DataType.String`. Podobne mapowania typów występują między typami `bool?` i `DataType.Boolean`, `DateTimeOffset?` i `DataType.DateTimeOffset` itd. dokładne zasady mapowania typu hello Hello są udokumentowane hello `Documents.Get` metoda hello [odwołanie do zestawu .NET SDK usługi Azure Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
 
-Ta możliwość używania własnych klas jako dokumentów działa w obu kierunkach. Możesz również pobrać wyniki wyszukiwania i za pomocą zestawu SDK dokonać ich automatycznej deserializacji do wybranego przez Ciebie typu, jak pokazano w [kolejnym artykule](search-query-dotnet.md).
+Ta toouse możliwości własnych klas jako dokumentów działa w obu kierunkach; Można również pobrać wyniki wyszukiwania i hello zestawu SDK dokonać ich automatycznej deserializacji typu tooa wybranych przez użytkownika, jak pokazano w hello [kolejnym artykule](search-query-dotnet.md).
 
 > [!NOTE]
-> Zestaw .NET SDK usługi Azure Search obsługuje również dynamiczne typowanie dokumentów za pomocą klasy `Document`, która stanowi mapowanie klucz/wartość nazw pól na wartości pól. Jest to przydatne, jeśli nie znasz schematu indeksu w czasie projektowania lub jeśli powiązanie z określonymi klasami modelu jest niedogodne. Wszystkie metody w zestawie SDK, które obsługują dokumenty, mają przeciążenia działające z klasą `Document`, a także przeciążenia o silnych typach przyjmujące parametr typu ogólnego. Tylko te ostatnie są używane w przykładowym kodzie w tym artykule.
+> Witaj zestawu .NET SDK usługi Azure Search obsługuje również dynamiczne typowanie dokumentów za pomocą hello `Document` klasy, która jest mapowanie klucz/wartość, wartości toofield nazw pól. Jest to przydatne w scenariuszach, jeśli nie znasz schematu indeksu hello w czasie projektowania lub gdy byłoby niewygodne toobind toospecific modelu klasy. Wszystkie metody hello w hello zestawu SDK, które obsługują dokumenty mają przeciążenia działające z hello `Document` klasy, a także przeciążenia o silnych typach, które przyjmują parametr typu ogólnego. Tylko hello te ostatnie są używane w hello przykładowy kod w tym artykule.
 > 
 > 
 
 **Dlaczego należy używać typów danych dopuszczających wartość null**
 
-Jeśli projektujesz własne klasy modeli na potrzeby mapowania na indeks usługi Azure Search, zalecamy deklarowanie właściwości typów wartości, takich jak `bool` i `int`, aby dopuszczały możliwość użycia wartości null (na przykład `bool?` zamiast `bool`). W przypadku użycia właściwości niedopuszczającej wartości null musisz **zagwarantować**, że żaden dokument w indeksie nie zawiera wartości null w odpowiednim polu. Ani zestaw SDK, ani usługa Azure Search nie pomoże Ci tego wymusić.
+Podczas projektowania indeksu własne modelu klasy toomap tooan usługi Azure Search, zalecamy deklarowanie właściwości typów wartości, takich jak `bool` i `int` toobe wartości null (na przykład `bool?` zamiast `bool`). Użycie wartości null właściwość masz zbyt**zagwarantować** że żaden dokument w indeksie nie zawiera wartości null dla odpowiednich pól hello. Hello zestawu SDK ani hello usługi Azure Search nie pomoże tooenforce należy to.
 
-Nie jest to czysto hipotetyczny problem: wyobraź sobie scenariusz, w którym dodajesz nowe pole do istniejącego indeksu typu `DataType.Int32`. Po zaktualizowaniu definicji indeksu wszystkie dokumenty będą miały wartość null dla tego nowego pola (ponieważ wszystkie typy w usłudze Azure Search dopuszczają wartość null). Jeśli następnie dla tego pola użyjesz klasy modelu z właściwością `int` niedopuszczającą wartości null, podczas próby pobrania dokumentów otrzymasz wyjątek `JsonSerializationException` podobny do poniższego:
+To nie jest to czysto hipotetyczny problem: Wyobraź sobie scenariusz, w którym dodajesz nowe pole tooan istniejącego indeksu typu `DataType.Int32`. Po zaktualizowaniu definicji indeksu hello, wszystkie dokumenty będą miały wartość null dla tego nowego pola (ponieważ wszystkie typy dopuszczają wartości null w usłudze Azure Search). Jeśli następnie użyjesz klasy modelu z niedopuszczającą `int` właściwości dla tego pola, otrzymasz `JsonSerializationException` podobny podczas próby tooretrieve dokumentów:
 
-    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+    Error converting value {null} tootype 'System.Int32'. Path 'IntValue'.
 
 Z tego powodu najlepszym i zalecanym rozwiązaniem jest używanie w klasach modeli typów dopuszczających wartość null.
 
 ## <a name="next-steps"></a>Następne kroki
-Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zapytań w celu wyszukania dokumentów. Aby uzyskać szczegóły, zobacz [Query Your Azure Search Index](search-query-overview.md) (Tworzenie zapytań względem indeksu usługi Azure Search).
+Po wypełnieniu indeksu usługi Azure Search, będzie gotowy toostart wystawiania toosearch zapytań dla dokumentów. Aby uzyskać szczegóły, zobacz [Query Your Azure Search Index](search-query-overview.md) (Tworzenie zapytań względem indeksu usługi Azure Search).
 

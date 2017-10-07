@@ -1,6 +1,6 @@
 ---
 title: "Weryfikowanie łączności: ExpressRoute Azure przewodnik rozwiązywania problemów | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera instrukcje dotyczące rozwiązywania problemów i weryfikowanie łączności kompleksowe obwodu usługi ExpressRoute."
+description: "Ta strona zawiera instrukcje dotyczące rozwiązywania problemów i weryfikowanie łączności tooend zakończenia obwodu usługi ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: rambk
@@ -14,93 +14,93 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 713c39c7eafd77a4380b2a91902a9686f2ce1d85
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Sprawdzanie połączenia ExpressRoute
-ExpressRoute, który rozciąga się sieci lokalnej do firmy Microsoft w chmurze prywatnej połączenie, które umożliwiają to dostawca połączenia, obejmuje następujące trzy strefy odrębnych sieci:
+ExpressRoute, który rozciąga się sieci lokalnej na powitania firmy Microsoft w chmurze prywatnej połączenie, które umożliwiają to dostawca połączenia, obejmuje następujące trzy różne sieci strefy hello:
 
 -   Sieci klienta
 -   Dostawcy sieci
 -   Centrum danych firmy Microsoft
 
-Ten dokument ma na celu pomóc użytkownikowi ustalając, gdzie (lub nawet wtedy, gdy) występuje problem łączności i które strefie w ten sposób poszukiwania pomoc od odpowiedniego zespołu, aby rozwiązać ten problem. Jeśli wymagane jest pomocy technicznej firmy Microsoft, aby rozwiązać problem, otwórz bilet pomocy technicznej z [Microsoft Support][Support].
+Witaj celem niniejszego dokumentu jest tooidentify użytkownika toohelp gdzie (lub nawet wtedy, gdy) istnieje problem z łącznością, w której strefy, co tooseek pomoże od zespołu odpowiednie tooresolve hello problemu. Jeśli pomocy technicznej firmy Microsoft jest wymagana tooresolve problem, otwórz bilet pomocy technicznej z [Microsoft Support][Support].
 
 > [!IMPORTANT]
-> Ten dokument ma na celu pomoc diagnozowania i rozwiązywania problemów proste. Nie ma być zastępczy pomocy technicznej firmy Microsoft. Otwórz bilet pomocy technicznej z [Microsoft Support] [ Support] Jeśli nie możesz rozwiązać problem przy użyciu wskazówki.
+> Ten dokument jest zamierzone toohelp diagnozowania i rozwiązywania problemów proste. Nie jest zamierzone toobe zastępczy pomocy technicznej firmy Microsoft. Otwórz bilet pomocy technicznej z [Microsoft Support] [ Support] przypadku toosolve hello problem przy użyciu hello wskazówki.
 >
 >
 
 ## <a name="overview"></a>Omówienie
-Na poniższym diagramie przedstawiono logicznej łączność sieci klienta do sieci firmy Microsoft przy użyciu usługi ExpressRoute.
+Witaj Poniższy diagram przedstawia hello logicznej łączność sieci tooMicrosoft sieci klienta, za pomocą usługi ExpressRoute.
 [![1]][1]
 
-Na powyższym diagramie liczby wskazują punkty klucza sieci. Punkty sieci odwołuje się często za pośrednictwem tego artykułu numeru skojarzone.
+W hello poprzedzających diagramu liczby hello wskazują punkty klucza sieci. punkty sieci Hello odwołuje się często za pośrednictwem tego artykułu numeru skojarzone.
 
-W zależności od modelu łączności ExpressRoute (chmury Exchange wspólnej lokalizacji, bezpośrednie połączenie sieci Ethernet lub dowolny z każdym (IPVPN)) punktów sieci, 3 i 4 może być przełączników (warstwy 2 urządzenia). Punkty klucza sieciowego przedstawione są następujące:
+W zależności od połączenia ExpressRoute hello modelu (chmury Exchange wspólnej lokalizacji, bezpośrednie połączenie sieci Ethernet lub dowolny z każdym (IPVPN)) hello sieci punkty 3 i 4 mogą być przełączniki (warstwy 2 urządzenia). punkty klucza sieciowego Hello przedstawione są następujące:
 
 1.  Urządzenie obliczeniowe klienta (na przykład serwera lub komputera)
 2.  CEs: Routery brzegowe klienta uzyskują 
-3.  PEs (skierowane do CE): Dostawca krawędzi routery czy przełączniki które stoją routery brzegowe klienta uzyskują. Nazywane PE CEs w niniejszym dokumencie.
-4.  PEs (MSEE połączonej): Dostawca krawędzi routery czy przełączniki które stoją MSEEs. Nazywane PE MSEEs w niniejszym dokumencie.
+3.  PEs (skierowane do CE): Dostawca krawędzi routery czy przełączniki które stoją routery brzegowe klienta uzyskują. Określony tooas PE CEs w niniejszym dokumencie.
+4.  PEs (MSEE połączonej): Dostawca krawędzi routery czy przełączniki które stoją MSEEs. Określony tooas PE MSEEs w niniejszym dokumencie.
 5.  MSEEs: Routery Microsoft Edge przedsiębiorstwa (MSEE) ExpressRoute
 6.  Brama sieci wirtualnej (VNet)
-7.  Obliczenia bazy danych urządzenia w sieci wirtualnej Azure
+7.  Obliczenia bazy danych urządzenia na powitania sieci wirtualnej Azure
 
-Użycie chmury Exchange wspólnej lokalizacji lub połączenia Ethernet Point-to-Point modeli łączności router brzegowy klienta (2) czy ustanowić komunikację równorzędną za MSEEs (5) Protokół BGP. Sieci punkty 3 i 4 będzie nadal istnieje, ale nieco przejrzyste jako urządzenia warstwy 2.
+Jeśli modele łączności chmury Exchange wspólnej lokalizacji lub połączenia Ethernet Point-to-Point hello są używane, router brzegowy klienta hello (2) czy ustanowić komunikację równorzędną za MSEEs (5) Protokół BGP. Sieci punkty 3 i 4 będzie nadal istnieje, ale nieco przejrzyste jako urządzenia warstwy 2.
 
-Jeśli jest używany model usługi łączności dowolny z każdym (IPVPN), PEs (skierowane do MSEE) (4) czy nawiązania komunikacji równorzędnej z MSEEs (5) Protokół BGP. Trasy następnie będzie propagowane do sieci klienta za pośrednictwem sieci dostawcy usług IPVPN.
+Jeśli model usługi łączności dowolny z każdym (IPVPN) hello jest używany, hello PEs (skierowane do MSEE) (4) czy nawiązania komunikacji równorzędnej z MSEEs (5) Protokół BGP. Tras czy rozpropagowane wstecz toohello sieci klienta za pośrednictwem sieci dostawcy usług IPVPN hello.
 
 >[!NOTE]
->Wysoką dostępność usługi ExpressRoute firma Microsoft wymaga parę nadmiarowych sesje BGP między MSEEs (5) i PE-MSEEs (4). Parę nadmiarowych ścieżek sieciowych zaleca się między sieci klienta i serwera CEs PE. Jednak w modelu połączenia dowolny z każdym (IPVPN), może być połączone jednym urządzeniu CE (2) do co najmniej jeden PEs (3).
+>Wysoką dostępność usługi ExpressRoute firma Microsoft wymaga parę nadmiarowych sesje BGP między MSEEs (5) i PE-MSEEs (4). Parę nadmiarowych ścieżek sieciowych zaleca się między sieci klienta i serwera CEs PE. Jednak w model połączenia dowolny z każdym (IPVPN), pojedyncze urządzenie CE (2) może być połączone tooone lub więcej PEs (3).
 >
 >
 
-Aby sprawdzić poprawność obwodu usługi ExpressRoute, następujące czynności są objęte (z punktem sieci określona przez liczbę skojarzone):
+(punktowi hello sieci określona przez liczbę hello skojarzone) obejmuje toovalidate obwodu usługi ExpressRoute, hello następujące kroki:
 1. [Sprawdź poprawność aprowizacji obwodów i stan (5)](#validate-circuit-provisioning-and-state)
 2. [Sprawdzanie poprawności co najmniej jeden ExpressRoute komunikacji równorzędnej jest skonfigurowany (5)](#validate-peering-configuration)
-3. [Sprawdzanie poprawności ARP między firmą Microsoft a usługi dostawcy (łącze od 4 do 5)](#validate-arp-between-microsoft-and-the-service-provider)
-4. [Sprawdź poprawność protokołu BGP oraz tras na MSEE (BGP od 4 do 5 i 5-6 Jeśli sieci wirtualnej jest podłączona)](#validate-bgp-and-routes-on-the-msee)
-5. [Sprawdź statystyki ruchu (ruchu przechodzącego przez 5)](#check-the-traffic-statistics)
+3. [Sprawdź poprawność ARP od dostawcy usług firmy Microsoft i hello (łącze od 4 do 5)](#validate-arp-between-microsoft-and-the-service-provider)
+4. [Sprawdź poprawność protokołu BGP oraz tras na powitania MSEE (BGP między 4 too5 i 5 too6 Jeśli sieci wirtualnej jest podłączona)](#validate-bgp-and-routes-on-the-msee)
+5. [Sprawdź hello statystyki ruchu (ruchu przechodzącego przez 5)](#check-the-traffic-statistics)
 
-Więcej operacji sprawdzania poprawności i kontroli zostaną dodane w przyszłości, zajrzyj tu co miesiąc!
+Więcej operacji sprawdzania poprawności i kontroli zostaną dodane w hello o przyszłych, zajrzyj tu co miesiąc!
 
 ##<a name="validate-circuit-provisioning-and-state"></a>Sprawdź poprawność aprowizacji obwodów i stanu
-Niezależnie od tego modelu łączności obwodu usługi ExpressRoute musi być utworzony i w związku z tym wygenerowany klucz usługi dla aprowizacji obwodów. Inicjowanie obsługi administracyjnej obwodu usługi ExpressRoute ustanawia nadmiarowych połączeń warstwy 2 między PE-MSEEs (4) i MSEEs (5). Aby uzyskać więcej informacji na temat sposobu tworzenia, modyfikowania, udostępnić i sprawdzić obwodu usługi ExpressRoute, zobacz artykuł [tworzenia i modyfikowania obwodu usługi expressroute][CreateCircuit].
+Niezależnie od tego modelu łączności hello obwodu usługi ExpressRoute ma toobe utworzone, dlatego usługa klucz wygenerowany dla aprowizacji obwodów. Inicjowanie obsługi administracyjnej obwodu usługi ExpressRoute ustanawia nadmiarowych połączeń warstwy 2 między PE-MSEEs (4) i MSEEs (5). Aby uzyskać więcej informacji dotyczących sposobu toocreate, modyfikowanie, udostępnić i sprawdzić obwodu usługi ExpressRoute, zobacz artykuł hello [tworzenia i modyfikowania obwodu usługi expressroute][CreateCircuit].
 
 >[!TIP]
->Klucz usługi unikatowo identyfikuje obwodu usługi ExpressRoute. Ten klucz jest wymagany dla większości poleceń programu powershell wymienione w niniejszym dokumencie. Ponadto należy będziesz potrzebować pomocy firmy Microsoft lub partnerem ExpressRoute, aby rozwiązać problem ExpressRoute, podaj klucz usługi, aby łatwo zidentyfikować obwodu.
+>Klucz usługi unikatowo identyfikuje obwodu usługi ExpressRoute. Ten klucz jest wymagany dla większości poleceń programu powershell hello wymienione w niniejszym dokumencie. Ponadto, jeśli będzie potrzebna pomoc przez firmę Microsoft lub tootroubleshoot partner usługi ExpressRoute problemu ExpressRoute, dostarcza hello usługi klucza tooreadily zidentyfikować hello obwodu.
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Weryfikacja za pomocą portalu Azure
-W portalu Azure można sprawdzić stan obwodu usługi ExpressRoute, wybierając ![2][2] w menu po lewej stronie paska i wybierając obwodu usługi expressroute. Wybieranie ExpressRoute obwodu wymienione w obszarze "Wszystkie zasoby" spowoduje otwarcie bloku obwodu usługi ExpressRoute. W ![3][3] bloku ExpressRoute essentials przedstawiono, jak pokazano na poniższym zrzucie ekranu:
+###<a name="verification-via-hello-azure-portal"></a>Weryfikacja za pomocą hello portalu Azure
+W portalu Azure hello, można sprawdzić stan hello obwodu usługi ExpressRoute, wybierając ![2][2] na powitania po lewej stronie paska menu, a następnie wybierając hello obwodu usługi expressroute. Wybranie ExpressRoute obwodu wymienione w obszarze "Wszystkie zasoby" zostanie otwarty blok obwodu ExpressRoute hello. W hello ![3][3] części bloku hello hello ExpressRoute essentials są wyświetlane, jak pokazano w powitania po zrzut ekranu:
 
 ![4][4]    
 
-W ExpressRoute Essentials *obwodu stan* wskazuje stan obwodu po stronie firmy Microsoft. *Dostawca stanu* wskazuje, czy został obwodu *obsługiwane administracyjnie nie zainicjowano obsługę administracyjną* po stronie dostawcy usług. 
+W hello ExpressRoute Essentials *obwodu stan* wskazuje stan hello obwodu hello na powitania po stronie firmy Microsoft. *Dostawca stanu* wskazuje, czy został obwodu hello *obsługiwane administracyjnie nie zainicjowano obsługę administracyjną* po stronie dostawcy usług hello. 
 
-Dla obwodu usługi ExpressRoute działać *obwodu stan* musi być *włączone* i *stan dostawcy* musi być *obsługiwane administracyjnie*.
+Dla usługi ExpressRoute obwodu toobe operacyjne, hello *obwodu stan* musi być *włączone* i hello *stan dostawcy* musi być *obsługiwane administracyjnie*.
 
 >[!NOTE]
->Jeśli *obwodu stan* jest wyłączona, skontaktuj się z [Microsoft Support][Support]. Jeśli *stan dostawcy* jest nieudostępniane, skontaktuj się z dostawcą usług.
+>Jeśli hello *obwodu stan* jest wyłączona, skontaktuj się z [Microsoft Support][Support]. Jeśli hello *stan dostawcy* jest nieudostępniane, skontaktuj się z dostawcą usług.
 >
 >
 
 ###<a name="verification-via-powershell"></a>Weryfikacja za pomocą programu PowerShell
-Aby wyświetlić listę wszystkich obwody usługi ExpressRoute w grupie zasobów, użyj następującego polecenia:
+toolist wszystkie hello obwody usługi ExpressRoute w grupie zasobów, użyj następującego polecenia hello:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->Nazwę grupy zasobów można uzyskać za pośrednictwem portalu Azure. Zapoznaj się z podsekcją poprzedniej tego dokumentu i należy pamiętać, że nazwa grupy zasobów jest wymieniony w zrzut ekranu przykład.
+>Nazwę grupy zasobów można uzyskać za pośrednictwem hello portalu Azure. Zobacz poprzednie podsekcji hello tego dokumentu i należy pamiętać, że hello nazwę grupy zasobów jest wymieniona w zrzut ekranu przedstawiający przykładowy hello.
 >
 >
 
-Aby wybrać danego obwodu usługi expressroute w grupie zasobów, użyj następującego polecenia:
+tooselect danego obwodu usługi expressroute w grupie zasobów, hello Użyj następującego polecenia:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
 
@@ -129,22 +129,22 @@ Przykładowa odpowiedź jest:
     Peerings                         : []
     Authorizations                   : []
 
-Aby upewnić się, jeśli działa obwodu usługi ExpressRoute, zwracając szczególną uwagę na następujące pola:
+tooconfirm, jeśli działa obwodu usługi ExpressRoute, należy zwrócić szczególną uwagę toohello następujące pola:
 
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
 
 >[!NOTE]
->Jeśli *CircuitProvisioningState* jest wyłączona, skontaktuj się z [Microsoft Support][Support]. Jeśli *ServiceProviderProvisioningState* jest nieudostępniane, skontaktuj się z dostawcą usług.
+>Jeśli hello *CircuitProvisioningState* jest wyłączona, skontaktuj się z [Microsoft Support][Support]. Jeśli hello *ServiceProviderProvisioningState* jest nieudostępniane, skontaktuj się z dostawcą usług.
 >
 >
 
 ###<a name="verification-via-powershell-classic"></a>Weryfikacja za pomocą programu PowerShell (klasyczne)
-Aby wyświetlić listę wszystkich obwody usługi ExpressRoute w ramach subskrypcji, użyj następującego polecenia:
+toolist wszystkie hello obwody usługi ExpressRoute w ramach subskrypcji, użyj następującego polecenia hello:
 
     Get-AzureDedicatedCircuit
 
-Aby wybrać danego obwodu ExpressRoute, użyj następującego polecenia:
+tooselect danego obwodu ExpressRoute, hello Użyj następującego polecenia:
 
     Get-AzureDedicatedCircuit -ServiceKey **************************************
 
@@ -160,41 +160,41 @@ Przykładowa odpowiedź jest:
     Sku                              : Standard
     Status                           : Enabled
 
-Aby upewnić się, jeśli działa obwodu usługi ExpressRoute, zwracając szczególną uwagę na następujące pola: ServiceProviderProvisioningState: stan elastycznie: włączone
+tooconfirm jeśli działa obwodu usługi ExpressRoute, należy zwrócić szczególną uwagę toohello następujące pola: ServiceProviderProvisioningState: stan elastycznie: włączone
 
 >[!NOTE]
->Jeśli *stan* jest wyłączona, skontaktuj się z [Microsoft Support][Support]. Jeśli *ServiceProviderProvisioningState* jest nieudostępniane, skontaktuj się z dostawcą usług.
+>Jeśli hello *stan* jest wyłączona, skontaktuj się z [Microsoft Support][Support]. Jeśli hello *ServiceProviderProvisioningState* jest nieudostępniane, skontaktuj się z dostawcą usług.
 >
 >
 
 ##<a name="validate-peering-configuration"></a>Sprawdź poprawność konfiguracji komunikacji równorzędnej
-Po zakończeniu dostawcę usługi obwodu ExpressRoute inicjowania obsługi routingu konfiguracji mogą być tworzone za pośrednictwem obwodu ExpressRoute między MSEE-PRs (4) i MSEEs (5). Każdy obwód usługi ExpressRoute może mieć jedną, dwie lub trzy konteksty routingu włączona: prywatnej komunikacji równorzędnej platformy Azure (ruch do prywatnej sieci wirtualnych na platformie Azure), publicznej komunikacji równorzędnej platformy Azure (ruch na publiczne adresy IP na platformie Azure) i komunikacji równorzędnej firmy Microsoft (ruch do usługi Office 365 i Dynamics 365). Aby uzyskać więcej informacji na temat sposobu tworzenia i modyfikowania konfiguracji routingu, zobacz artykuł [tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].
+Dostawcy usług powitania po hello ukończono aprowizacji obwodu ExpressRoute hello konfigurację routingu mogą być tworzone przez hello obwodu ExpressRoute między MSEE-PRs (4) i MSEEs (5). Każdy obwód usługi ExpressRoute może mieć jedną, dwie lub trzy konteksty routingu włączona: prywatnej komunikacji równorzędnej platformy Azure (ruchu tooprivate sieci wirtualne na platformie Azure), publicznej komunikacji równorzędnej platformy Azure (ruchu toopublic adresy IP na platformie Azure) i (ruchu tooOffice 365 komunikacji równorzędnej firmy Microsoft i Dynamics 365). Aby uzyskać więcej informacji na temat toocreate i modyfikować konfigurację routingu, zobacz artykuł hello [tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].
 
-###<a name="verification-via-the-azure-portal"></a>Weryfikacja za pomocą portalu Azure
+###<a name="verification-via-hello-azure-portal"></a>Weryfikacja za pomocą hello portalu Azure
 >[!IMPORTANT]
->Jest znaną usterką w portalu Azure, w którym są komunikacji równorzędnych ExpressRoute *nie* wyświetlana w portalu, jeśli skonfigurowana przez dostawcę usług. Dodawanie komunikacji równorzędnych ExpressRoute za pośrednictwem portalu lub programu PowerShell *zastąpienie ustawień dostawcy usługi*. Ta akcja dzieli routingu obwodu ExpressRoute i wymaga obsługi usługodawcy do przywrócenia ustawień i ponownie ustanowić normalna routingu. Komunikacji równorzędnych ExpressRoute należy modyfikować tylko wtedy, gdy jest pewne, czy dostawcy usług zapewnia tylko warstwy 2 usługi!
+>Brak znaną usterką w portalu Azure, w którym są komunikacji równorzędnych ExpressRoute hello *nie* wyświetlana w portalu hello skonfigurowanie hello usługodawcy. Dodawanie komunikacji równorzędnych ExpressRoute za pośrednictwem portalu hello lub programu PowerShell *zastąpienie ustawień dostawcy usługi hello*. Ta akcja dzieli hello routingu na powitania obwodu ExpressRoute i wymaga obsługi hello hello usługi dostawcy toorestore hello ustawień i ponownie ustanowić normalna routingu. Komunikacji równorzędnych ExpressRoute hello należy modyfikować tylko wtedy, jeśli jest pewność, że tego dostawcę usługi hello zapewnia tylko warstwy 2 usługi!
 >
 >
 
 <p/>
 >[!NOTE]
->Jeśli warstwy 3 jest udostępniany przez dostawcę usług i komunikacji równorzędnych znajdują się w portalu, programu PowerShell można wyświetlić ustawienia skonfigurowanego dostawcy usługi.
+>W przypadku warstwy 3 dostarczane przez hello komunikacji równorzędnych dostawcy i hello usługi są puste w portalu hello, programu PowerShell może być ustawienia skonfigurowanego dostawcy usługi hello toosee używane.
 >
 >
 
-W portalu Azure można sprawdzić stan obwodu usługi ExpressRoute, wybierając ![2][2] w menu po lewej stronie paska i wybierając obwodu usługi expressroute. Wybieranie ExpressRoute obwodu wymienione w obszarze "Wszystkie zasoby" zostaną otwarte bloku obwodu usługi ExpressRoute. W ![3][3] bloku ExpressRoute otrzyma essentials, jak pokazano na poniższym zrzucie ekranu:
+W portalu Azure hello, można sprawdzić stan obwodu usługi ExpressRoute, wybierając ![2][2] na powitania po lewej stronie paska menu, a następnie wybierając hello obwodu usługi expressroute. Wybieranie ExpressRoute obwodu wymienione w obszarze "Wszystkie zasoby" zostaną otwarte bloku obwodu ExpressRoute hello. W hello ![3][3] części bloku hello hello ExpressRoute otrzyma essentials, jak pokazano w powitania po zrzut ekranu:
 
 ![5][5]
 
-W poprzednim przykładzie jako dostrzeżone Azure prywatnej komunikacji równorzędnej kontekstu routingu jest włączone, natomiast Azure publicznego i konteksty routingu komunikacji równorzędnej firmy Microsoft nie są włączone. Pomyślnie włączono kontekstu komunikacji równorzędnej musi również podsieci podstawowego i pomocniczego point-to-point (wymagane dla protokołu BGP) na liście. / 30 podsieci są używane dla adresu IP interfejsu MSEEs i PE MSEEs. 
+W hello poprzedzających przykładzie jako dostrzeżone Azure prywatnej komunikacji równorzędnej kontekstu routingu jest włączone, natomiast Azure publicznego i konteksty routingu komunikacji równorzędnej firmy Microsoft nie są włączone. Pomyślnie włączono kontekstu komunikacji równorzędnej musi również hello podsieci podstawowego i pomocniczego point-to-point (wymagane dla protokołu BGP) na liście. Witaj /30 podsieci służą do adresu IP interfejsu hello hello MSEEs i PE MSEEs. 
 
 >[!NOTE]
->Element równorzędny nie jest włączone, sprawdź, czy przypisanych podsieci podstawowego i zapasowego jest zgodna z konfiguracją na PE MSEEs. Jeśli nie, aby zmienić konfigurację na routerach MSEE odwołują się do [tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering]
+>Jeśli nie włączono komunikacji równorzędnej, sprawdź, jeśli hello podstawowych i pomocniczych podsieci przypisane zgodne konfiguracji hello na PE MSEEs. Jeśli nie, toochange hello konfiguracji na routerach MSEE, zapoznaj się zbyt[Utwórz i zmodyfikuj routingu dla obwodu usługi ExpressRoute][CreatePeering]
 >
 >
 
 ###<a name="verification-via-powershell"></a>Weryfikacja za pomocą programu PowerShell
-Aby uzyskać Azure prywatnej komunikacji równorzędnej szczegółów konfiguracji, użyj następujących poleceń:
+tooget hello Azure prywatnej komunikacji równorzędnej szczegółów konfiguracji, użyj hello następującego polecenia:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
@@ -216,19 +216,19 @@ Przykładowa odpowiedź dla pomyślnie skonfigurowano prywatnej komunikacji rów
     MicrosoftPeeringConfig     : null
     ProvisioningState          : Succeeded
 
- Pomyślnie włączono kontekstu komunikacji równorzędnej musi wyświetlonych prefiksów adresu podstawowego i pomocniczego. / 30 podsieci są używane dla adresu IP interfejsu MSEEs i PE MSEEs.
+ Pomyślnie włączono kontekstu komunikacji równorzędnej musi prefiksy adresów podstawowych i pomocniczych hello na liście. Witaj /30 podsieci służą do adresu IP interfejsu hello hello MSEEs i PE MSEEs.
 
-Aby uzyskać Azure publicznej komunikacji równorzędnej szczegółów konfiguracji, użyj następujących poleceń:
+tooget hello Azure publicznej komunikacji równorzędnej szczegółów konfiguracji, użyj hello następującego polecenia:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
 
-Aby uzyskać szczegóły konfiguracji komunikacji równorzędnej firmy Microsoft, użyj następujących poleceń:
+tooget hello Microsoft komunikacji równorzędnej szczegółów konfiguracji, użyj hello następującego polecenia:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
 
-Jeśli nie skonfigurowano komunikacji równorzędnej, może to być komunikat o błędzie. Przykładowa odpowiedź, jeśli podane komunikacji równorzędnej (Azure publicznej komunikacji równorzędnej, w tym przykładzie) nie został skonfigurowany w ramach obwodu:
+Jeśli nie skonfigurowano komunikacji równorzędnej, może to być komunikat o błędzie. Przykładowa odpowiedź, gdy hello wyrażony w komunikacji równorzędnej (Azure publicznej komunikacji równorzędnej, w tym przykładzie) nie jest skonfigurowany w ramach obwodu hello:
 
     Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
     At line:1 char:1
@@ -240,12 +240,12 @@ Jeśli nie skonfigurowano komunikacji równorzędnej, może to być komunikat o 
 
 <p/>
 >[!NOTE]
->Jeśli element równorzędny nie jest włączona, upewnij się, jeśli przypisanych podsieci podstawowego i zapasowego jest zgodna z konfiguracją w połączonej MSEE PE. Sprawdź także, czy poprawny *VlanId*, *AzureASN*, i *PeerASN* są używane na MSEEs i jeśli te wartości mapowany używane na połączonych MSEE PE. Jeśli wybrano opcję tworzenia skrótu MD5, udostępniony klucz powinny być takie same na pary MSEE i PE MSEE. Aby zmienić konfigurację na routerach MSEE, zajrzyj do [Utwórz i zmodyfikuj routingu dla obwodu usługi ExpressRoute] [CreatePeering].  
+>Jeśli komunikacji równorzędnej nie jest włączona, upewnij się, hello przypisanych podsieci podstawowego i pomocniczego dopasowania hello konfiguracji na powitania połączony PE MSEE. Również poprawić Sprawdź, czy hello *VlanId*, *AzureASN*, i *PeerASN* są używane na MSEEs i jeśli te wartości mapuje toohello używane na powitania połączone PE MSEE. Jeśli wybrano opcję tworzenia skrótu MD5, klucz udostępniony hello powinny być takie same na pary MSEE i PE MSEE. Konfiguracja hello toochange na routerach MSEE hello, można znaleźć za [Utwórz i zmodyfikuj routingu dla obwodu usługi ExpressRoute] [CreatePeering].  
 >
 >
 
 ### <a name="verification-via-powershell-classic"></a>Weryfikacja za pomocą programu PowerShell (klasyczne)
-Aby uzyskać Azure prywatnej komunikacji równorzędnej szczegółów konfiguracji, użyj następującego polecenia:
+tooget hello Azure prywatnej komunikacji równorzędnej szczegółów konfiguracji, użyj hello następujące polecenie:
 
     Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
@@ -264,40 +264,40 @@ Przykładowa odpowiedź dla pomyślnie skonfigurowano prywatnej komunikacji rów
     State                          : Enabled
     VlanId                         : 100
 
-Pomyślnie włączono A kontekstu komunikacji równorzędnej, musi na liście podsieci podstawowego i pomocniczego elementu równorzędnego. / 30 podsieci są używane dla adresu IP interfejsu MSEEs i PE MSEEs.
+Pomyślnie włączono A komunikacji równorzędnej kontekstu musi podsieci podstawowego i pomocniczego elementu równorzędnego hello wymienione. Witaj /30 podsieci służą do adresu IP interfejsu hello hello MSEEs i PE MSEEs.
 
-Aby uzyskać Azure publicznej komunikacji równorzędnej szczegółów konfiguracji, użyj następujących poleceń:
+tooget hello Azure publicznej komunikacji równorzędnej szczegółów konfiguracji, użyj hello następującego polecenia:
 
     Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 
-Aby uzyskać szczegóły konfiguracji komunikacji równorzędnej firmy Microsoft, użyj następujących poleceń:
+tooget hello Microsoft komunikacji równorzędnej szczegółów konfiguracji, użyj hello następującego polecenia:
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 >[!IMPORTANT]
->Jeśli komunikacji równorzędnych warstwy 3 zostały określone przez dostawcę usług, ustawienia komunikacji równorzędnych ExpressRoute za pośrednictwem portalu lub programu PowerShell zastąpienie ustawień dostawcy usługi. Resetowanie ustawień komunikacji równorzędnej dostawcy po stronie wymaga obsługi dostawcy usług. Komunikacji równorzędnych ExpressRoute należy modyfikować tylko wtedy, gdy jest pewne, czy dostawcy usług zapewnia tylko warstwy 2 usługi!
+>Jeśli komunikacji równorzędnych warstwy 3 zostały określone przez usługodawcę hello, ustawienie komunikacji równorzędnych ExpressRoute hello za pośrednictwem portalu hello lub programu PowerShell zastępuje ustawienia dostawcy usługi hello. Resetowanie ustawień komunikacji równorzędnej hello dostawcy po stronie wymaga obsługi hello hello dostawcy usług. Komunikacji równorzędnych ExpressRoute hello należy modyfikować tylko wtedy, jeśli jest pewność, że tego dostawcę usługi hello zapewnia tylko warstwy 2 usługi!
 >
 >
 
 <p/>
 >[!NOTE]
->Jeśli element równorzędny nie jest włączona, upewnij się, jeśli przypisanych podsieci podstawowego i pomocniczego elementu równorzędnego jest zgodna z konfiguracją w połączonej MSEE PE. Sprawdź także, czy poprawny *VlanId*, *AzureAsn*, i *PeerAsn* są używane na MSEEs i jeśli te wartości mapowany używane na połączonych MSEE PE. Aby zmienić konfigurację na routerach MSEE, zajrzyj do [Utwórz i zmodyfikuj routingu dla obwodu usługi ExpressRoute] [CreatePeering].
+>Jeśli komunikacji równorzędnej nie jest włączona, upewnij się, hello podstawowego i pomocniczego elementu równorzędnego przypisanych podsieci dopasowania hello konfiguracji na powitania połączony PE MSEE. Również poprawić Sprawdź, czy hello *VlanId*, *AzureAsn*, i *PeerAsn* są używane na MSEEs i jeśli te wartości mapuje toohello używane na powitania połączone PE MSEE. Konfiguracja hello toochange na routerach MSEE hello, można znaleźć za [Utwórz i zmodyfikuj routingu dla obwodu usługi ExpressRoute] [CreatePeering].
 >
 >
 
-## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Sprawdź poprawność ARP między firmy Microsoft i dostawcy usług
-Ta sekcja używa poleceń programu PowerShell (klasyczny). Jeśli z polecenia programu PowerShell usługi Azure Resource Manager, upewnij się, że masz dostęp administratora/współadministratora do subskrypcji za pośrednictwem [klasycznego portalu Azure][OldPortal]. Rozwiązywanie problemów przy użyciu usługi Azure Resource Manager polecenia można znaleźć na stronie [pobierania ARP tabele w modelu wdrażania usługi Resource Manager] [ ARP] dokumentu.
+## <a name="validate-arp-between-microsoft-and-hello-service-provider"></a>Sprawdź poprawność ARP od dostawcy usług firmy Microsoft i hello
+Ta sekcja używa poleceń programu PowerShell (klasyczny). Jeśli z polecenia programu PowerShell usługi Azure Resource Manager, upewnij się, że masz dostęp administratora/współadministratora subskrypcji toohello za pośrednictwem [klasycznego portalu Azure][OldPortal]. Rozwiązywanie problemów przy użyciu usługi Azure Resource Manager polecenia można znaleźć w artykule toohello [pobierania ARP tabele w modelu wdrażania usługi Resource Manager hello] [ ARP] dokumentu.
 
 >[!NOTE]
->Aby uzyskać ARP, można użyć Azure portal i poleceń programu PowerShell usługi Azure Resource Manager. Jeśli za pomocą poleceń programu PowerShell usługi Azure Resource Manager zostaną napotkane błędy, klasycznym poleceń programu PowerShell powinna działać jako klasycznego środowiska PowerShell poleceń również współpracować z obwody usługi ExpressRoute Menedżera zasobów Azure.
+>można tooget ARP, zarówno hello portalu Azure, jak i poleceń programu PowerShell usługi Azure Resource Manager. Jeśli za pomocą polecenia programu PowerShell usługi Azure Resource Manager hello zostaną napotkane błędy, klasycznym poleceń programu PowerShell powinna działać jako klasycznego środowiska PowerShell poleceń również współpracować z obwody usługi ExpressRoute Menedżera zasobów Azure.
 >
 >
 
-Można odczytać tabeli protokołu ARP routera MSEE głównej dla prywatnej komunikacji równorzędnej, użyj następującego polecenia:
+tooget hello tabeli protokołu ARP z hello głównej MSEE routera hello prywatnej komunikacji równorzędnej, użyj następującego polecenia hello:
 
     Get-AzureDedicatedCircuitPeeringArpInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
-Oto przykład odpowiedzi dla polecenia, w tym scenariuszu powiodło się:
+Przykład odpowiedzi dla polecenia hello, w scenariuszu pomyślne hello:
 
     ARP Info:
 
@@ -305,28 +305,28 @@ Oto przykład odpowiedzi dla polecenia, w tym scenariuszu powiodło się:
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-Podobnie można sprawdzić w tabeli protokołu ARP z MSEE w *głównej*/*dodatkowej* ścieżki dla *prywatnej*/*publiczny*  / *Microsoft* komunikacji równorzędnych.
+Analogicznie, można sprawdzić hello tabeli protokołu ARP z hello MSEE w hello *głównej*/*dodatkowej* ścieżki dla *prywatnej* /  *Publiczny*/*Microsoft* komunikacji równorzędnych.
 
-W poniższym przykładzie przedstawiono odpowiedzi polecenia dla komunikacji równorzędnej nie istnieje.
+Witaj poniższy przykład, że pokazuje hello odpowiedzi polecenia powitania dla komunikacji równorzędnej nie istnieje.
 
     ARP Info:
        
 >[!NOTE]
->Jeśli w tabeli protokołu ARP nie mają adresy IP interfejsów mapowane na adresy MAC, przejrzyj następujące informacje:
->1. Jeśli adres IP pierwszego /30 podsieci dla skojarzenia między MSEE PR i MSEE jest używany w interfejsie MSEE PR. Azure zawsze używa jako drugiego adresu IP dla MSEEs.
->2. Upewnij się, jeśli klienta (C-znacznik) oraz znaczników sieci VLAN usługi (S-Tag) zgodne na pary MSEE PR i MSEE.
+>Jeśli nie ma tabeli protokołu ARP hello adresy IP interfejsów hello zamapowane tooMAC adresy, hello Przejrzyj następujące informacje:
+>1. Jeśli hello pierwszy adres IP podsieci hello /30 hello łącza między hello MSEE PR a MSEE jest używana w hello interfejsu MSEE PR. Azure zawsze używa hello drugiego adresu IP dla MSEEs.
+>2. Upewnij się, jeśli powitania klienta (C-znacznik) i znaczniki sieci VLAN usługi (S-Tag) odpowiadają na pary MSEE PR i MSEE.
 >
 >
 
-## <a name="validate-bgp-and-routes-on-the-msee"></a>Sprawdź poprawność protokołu BGP oraz tras na MSEE
-Ta sekcja używa poleceń programu PowerShell (klasyczny). Jeśli z polecenia programu PowerShell usługi Azure Resource Manager, upewnij się, że masz dostęp administratora/współadministratora do subskrypcji za pośrednictwem [klasycznego portalu Azure][OldPortal]
+## <a name="validate-bgp-and-routes-on-hello-msee"></a>Sprawdź poprawność protokołu BGP oraz tras na powitania MSEE
+Ta sekcja używa poleceń programu PowerShell (klasyczny). Jeśli z polecenia programu PowerShell usługi Azure Resource Manager, upewnij się, że masz dostęp administratora/współadministratora subskrypcji toohello za pośrednictwem [klasycznego portalu Azure][OldPortal]
 
 >[!NOTE]
->Aby uzyskać informacje dotyczące protokołu BGP, można użyć Azure portal i poleceń programu PowerShell usługi Azure Resource Manager. Jeśli za pomocą poleceń programu PowerShell usługi Azure Resource Manager zostaną napotkane błędy, klasycznym poleceń programu PowerShell powinna działać jako klasycznego środowiska PowerShell poleceń również współpracować z obwody usługi ExpressRoute Menedżera zasobów Azure.
+>tooget BGP informacje, oba hello portalu Azure i poleceń programu PowerShell usługi Azure Resource Manager może zostać użyty. Jeśli za pomocą polecenia programu PowerShell usługi Azure Resource Manager hello zostaną napotkane błędy, klasycznym poleceń programu PowerShell powinna działać jako klasycznego środowiska PowerShell poleceń również współpracować z obwody usługi ExpressRoute Menedżera zasobów Azure.
 >
 >
 
-Aby uzyskać podsumowanie tabeli routingu (sąsiadów BGP) dla określonego kontekstu routingu, użyj następującego polecenia:
+tooget hello tabeli routingu (BGP sąsiada) podsumowania dla określonego kontekstu routingu, użyj następującego polecenia hello:
 
     Get-AzureDedicatedCircuitPeeringRouteTableSummary -AccessType Private -Path Primary -ServiceKey "*********************************"
 
@@ -337,24 +337,24 @@ Oto przykład odpowiedzi jest:
             Neighbor                   V                  AS              UpDown         StatePfxRcd
             10.0.0.1                   4                ####                8w4d                  50
 
-Jak pokazano w poprzednim przykładzie, polecenie jest przydatne do określenia, jak długo routingu kontekstu została ustanowiona. Wskazuje ona także liczby prefiksów trasy anonsowane przez router komunikacji równorzędnej.
+Jak przedstawiono hello poprzedzających przykład, polecenie hello jest przydatne toodetermine na jak długo została ustanowiona hello kontekstu routingu. Wskazuje ona także liczby prefiksów trasy anonsowane przez router hello w komunikacji równorzędnej.
 
 >[!NOTE]
->Jeśli stan jest aktywny lub bezczynności, sprawdź, czy przypisanych podsieci podstawowego i pomocniczego elementu równorzędnego jest zgodna z konfiguracją na połączonych MSEE PE. Sprawdź także, czy poprawny *VlanId*, *AzureAsn*, i *PeerAsn* są używane na MSEEs i jeśli te wartości mapowany używane na połączonych MSEE PE. Jeśli wybrano opcję tworzenia skrótu MD5, udostępniony klucz powinny być takie same na pary MSEE i PE MSEE. Aby zmienić konfigurację na routerach MSEE, zapoznaj się [tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].
+>Jeśli hello stan jest aktywny lub bezczynności, sprawdź hello podstawowego i pomocniczego elementu równorzędnego przypisanych podsieci dopasowania hello konfiguracji na powitania połączony PE MSEE. Również poprawić Sprawdź, czy hello *VlanId*, *AzureAsn*, i *PeerAsn* są używane na MSEEs i jeśli te wartości mapuje toohello używane na powitania połączone PE MSEE. Jeśli wybrano opcję tworzenia skrótu MD5, klucz udostępniony hello powinny być takie same na pary MSEE i PE MSEE. Konfiguracja hello toochange na routerach MSEE hello, można znaleźć za[Utwórz i zmodyfikuj routingu dla obwodu usługi ExpressRoute][CreatePeering].
 >
 >
 
 <p/>
 >[!NOTE]
->Jeśli niektóre miejsca docelowe są niedostępne w szczególności komunikacji równorzędnej, sprawdź tabelę tras z MSEEs należących do danego kontekstu komunikacji równorzędnej. Jeśli zgodny prefiks (może być NATed IP) znajduje się w tabeli routingu, następnie sprawdź, czy istnieją zapór / / listy ACL grupy NSG na ścieżce i jeżeli pozwalają ruchu.
+>Jeśli niektóre miejsca docelowe są niedostępne w szczególności komunikacji równorzędnej, sprawdź hello tabeli tras MSEEs hello należących toohello określonego kontekstu komunikacji równorzędnej. Jeśli zgodny prefiks (może być NATed IP) znajduje się w tabeli routingu hello, następnie sprawdź, czy istnieją zapór / / listy ACL grupy NSG na ścieżce hello i jeżeli pozwalają hello ruchu.
 >
 >
 
-Można pobrać pełnej tabeli routingu z MSEE *głównej* ścieżki dla konkretnej *prywatnej* routingu kontekstu, użyj następującego polecenia:
+tooget hello pełne tabeli routingu z MSEE na powitania *głównej* ścieżki dla konkretnego hello *prywatnej* kontekstu routingu hello Użyj następującego polecenia:
 
     Get-AzureDedicatedCircuitPeeringRouteTableInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
-Przykład pomyślnego wyniku dla polecenia jest:
+Przykład pomyślnego wyniku dla polecenia hello jest:
 
     Route Table Info:
 
@@ -363,24 +363,24 @@ Przykład pomyślnego wyniku dla polecenia jest:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-Analogicznie, można sprawdzić tabeli routingu z MSEE w *głównej*/*dodatkowej* ścieżki dla *prywatnej* /  *Publiczny*/*Microsoft* komunikacji równorzędnej kontekstu.
+Analogicznie, można sprawdzić hello tabeli routingu z hello MSEE w hello *głównej*/*dodatkowej* ścieżki dla *prywatnej* / *Publicznych*/*Microsoft* komunikacji równorzędnej kontekstu.
 
-W poniższym przykładzie przedstawiono odpowiedzi polecenia dla komunikacji równorzędnej nie istnieje:
+Witaj poniższy przykład, że pokazuje hello odpowiedzi polecenia powitania dla komunikacji równorzędnej nie istnieje:
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>Sprawdź statystyki ruchu
-Aby uzyskać statystyki ruchu połączone ścieżki podstawowego i pomocniczego — bajtów i wylogowywanie — kontekstu komunikacji równorzędnej, użyj następującego polecenia:
+##<a name="check-hello-traffic-statistics"></a>Sprawdź hello statystyki ruchu
+tooget hello łączyć statystyki ruchu ścieżki podstawowego i pomocniczego — bajtów i wylogowywanie — kontekstu komunikacji równorzędnej, hello Użyj następującego polecenia:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
 
-Przykładowe dane wyjściowe polecenia jest:
+Przykładowe dane wyjściowe polecenia hello jest:
 
     PrimaryBytesIn PrimaryBytesOut SecondaryBytesIn SecondaryBytesOut
     -------------- --------------- ---------------- -----------------
          240780020       239863857        240565035         239628474
 
-Przykładowe dane wyjściowe polecenia dla nieistniejącego komunikacji równorzędnej jest:
+Przykładowe dane wyjściowe polecenia powitania dla nieistniejącego komunikacji równorzędnej jest:
 
     Get-AzureDedicatedCircuitStats : ResourceNotFound: Can not find any subinterface for peering type 'Public' for circuit '97f85950-01dd-4d30-a73c-bf683b3a6e5c' .
     At line:1 char:1
@@ -390,7 +390,7 @@ Przykładowe dane wyjściowe polecenia dla nieistniejącego komunikacji równorz
         + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.GetAzureDedicatedCircuitPeeringStatsCommand
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji lub uzyskać pomoc zapoznaj się następujących łączy:
+Aby uzyskać więcej informacji lub uzyskać pomoc zapoznaj się hello następującego łącza:
 
 - [Pomoc techniczna firmy Microsoft][Support]
 - [Tworzenie i modyfikowanie obwodu usługi ExpressRoute][CreateCircuit]
