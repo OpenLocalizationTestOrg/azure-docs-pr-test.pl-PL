@@ -1,5 +1,5 @@
 ---
-title: "(przestarzałe) Klasyfikator Binary - Azure | Dokumentacja firmy Microsoft"
+title: AAA(deprecated) binarne klasyfikatora - Azure | Dokumentacja firmy Microsoft
 description: "(przestarzałe) Klasyfikator binarne"
 services: machine-learning
 documentationcenter: 
@@ -16,42 +16,42 @@ ms.date: 01/06/2017
 ms.author: jaymathe
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 1a83392f90bb5a9fb183334c03ccec20dd3f3520
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 0496fcec9952ca243270caf67f55fe191b2dc9f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-binary-classifier"></a>(przestarzałe) Klasyfikator binarne
 
 > [!NOTE]
-> Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
+> Witaj Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
 > 
-> Możesz znaleźć wiele eksperymenty przykład przydatne i interfejsów API w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji o galerii, zobacz [udziału i odnajdywania zasobów w Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Możesz znaleźć wiele interfejsów API i przydatne przykład eksperymenty w hello [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji na temat hello galerii, zobacz [udziału i odnajdywania zasobów w hello Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Załóżmy, że masz zestawu danych i chcesz przewidzieć binarne zależnych od zmiennej opartej na zmienne niezależne. "Regresja logistyczna" jest popularnych techniki statystyczne używane dla takich prognoz. Oto zmienną zależną binary lub dichotomous i p jest prawdopodobieństwo występowania cech odsetek. 
+Załóżmy, że masz zestawu danych i chcesz toopredict binarne zależnych od zmiennej opartej na zmienne niezależne hello. "Regresja logistyczna" jest popularnych techniki statystyczne używane dla takich prognoz. W tym miejscu hello zależnych od zmiennej jest binary lub dichotomous, a p jest prawdopodobieństwo hello obecności cechy hello zainteresowań. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Prosty scenariusz może być, gdzie analitykowi próbuje przewidzieć czy potencjalnego uczniów jest może zaakceptować ofertę wprowadzenia uniwersytetu na podstawie informacji (GPA w szkole, dochód rodziny, znajdują się stan, płci). Wyniki przewidywane jest prawdopodobieństwo potencjalnego student akceptowanie oferta wprowadzenia. To [usługi sieci web](https://datamarket.azure.com/dataset/aml_labs/log_regression) pasuje Regresja logistyczna modelu do danych i wyświetla wartość prawdopodobieństwa (y) dla każdego uwag w danych.  
+Prosty scenariusz może być, gdzie analitykowi próbuje toopredict czy potencjalnego uczniów jest prawdopodobnie tooaccept university tooa oferta wprowadzenia na podstawie informacji (GPA w szkole, dochód rodziny, znajdują się stan, płci). wyniki przewidywane Hello jest prawdopodobieństwo hello hello student potencjalnego akceptowanie hello wprowadzenia oferty. To [usługi sieci web](https://datamarket.azure.com/dataset/aml_labs/log_regression) mieści się hello Regresja logistyczna modelu toohello danych i dane wyjściowe hello wartość prawdopodobieństwa (y) dla każdego z uwagi hello hello danych.  
 
-> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale celem usługi sieci web jest również służyć jako przykład sposobu użycia usługi Azure Machine Learning do tworzenia usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. Usługi sieci web może następnie opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w całym świecie bez ustawień infrastruktury przez autora usługi sieci web.  
+> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale hello hello usługi sieci web służy również tooserve, na przykład jak usługi Azure Machine Learning można toocreate używanych usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. usługi sieci web Hello można następnie toohello opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w Witaj świecie bez ustawień infrastruktury przez autora hello hello usługi sieci web.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Użycie usługi sieci web
-Ta usługa sieci web zapewnia przewidywane wartości zmiennej zależnej na podstawie zmiennych niezależne od wszystkich obserwacji. Usługa sieci web oczekuje użytkownikom na wprowadzanie danych jako ciąg, gdzie wiersze są oddzielone przecinkami (,), a kolumny oddzielonych średnikami (;). Usługa sieci web oczekuje 1 wiersz w czasie i oczekuje pierwszej kolumny jako zmienną zależną. Przykład zestawu danych może wyglądać następująco:
+Ta hello zapewnia usługi sieci web przewidzieć wartości hello zależnych od zmiennej opartej na zmienne niezależne hello wszystkie hello uwag. Usługa sieci web Hello oczekuje hello użytkownika końcowego tooinput dane jako ciąg, gdzie wiersze są oddzielone przecinkami (,), a kolumny oddzielonych średnikami (;). Usługa sieci web Hello oczekuje 1 wiersz w czasie i oczekuje hello pierwszej kolumny toobe hello zależnych od zmiennej. Przykład zestawu danych może wyglądać następująco:
 
 ![Dane przykładowe][1]
 
-Uwagi bez zależnych od zmiennej można wprowadzić jako "Brak" y. Dane wejściowe dla powyższych zestawu danych może być następujący ciąg: "1 5 2,1; 1; 6,0; 5.3; 2.1,0; 5; 5,0; 3; 4,1; 2; 1, NA; 3; 4". Dane wyjściowe są przewidzianej wartości dla wszystkich wierszy, w oparciu o zmienne niezależne. 
+Uwagi bez zależnych od zmiennej można wprowadzić jako "Brak" y. Witaj danych wejściowych dla hello powyżej zestawu danych czy powitania po ciągu: "1 5 2,1; 1; 6,0; 5.3; 2.1,0; 5; 5,0; 3; 4,1; 2; 1, NA; 3; 4". Witaj output hello przewidywane wartości dla poszczególnych wierszy hello opiera się na powitania zmienne niezależne. 
 
-> Ta usługa hostowana w portalu Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
+> Ta usługa hostowana na hello Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
 > 
 > 
 
-Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/BinaryClassifier.aspx)).
+Istnieje wiele sposobów używania usługi hello w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/BinaryClassifier.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Rozpoczynanie korzystania z usług sieci web kod C#:
     public class Input
@@ -82,11 +82,11 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 
 
 ## <a name="creation-of-web-service"></a>Tworzenie usługi sieci web
-> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu doświadczenia utworzony kod przykład i usługi sieci web dla każdego z modułów w ramach eksperymentu.
+> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu hello eksperymentu, utworzona hello kod przykład i usługi sieci web dla każdego z modułów hello w ramach eksperymentu hello.
 > 
 > 
 
-Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona i dwa [wykonanie skryptu języka R] [ execute-r-script] modułów pobierane na obszar roboczy. Ta usługa sieci web uruchamia eksperymentu uczenia maszynowego Azure przy użyciu podstawowego skrypt języka R. Istnieją 2 części do tego eksperymentu: definicja schematu i szkolenia modelu + oceniania. Pierwszy modułu definiuje oczekiwanej struktury wejściowego zestawu danych, gdzie pierwszej zmiennej jest zmienną zależną, a pozostałe zmienne są niezależne. Drugi moduł pasuje do ogólnego Regresja logistyczna modelu dla danych wejściowych.    
+Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona i dwa [wykonanie skryptu języka R] [ execute-r-script] modułów pobierane na powitania obszaru roboczego. Ta usługa sieci web uruchamia eksperymentu uczenia maszynowego Azure przy użyciu podstawowego skrypt języka R. Istnieją 2 części toothis eksperymentu: definicja schematu i szkolenia modelu + oceniania. Moduł pierwszy Hello definiuje strukturę hello oczekiwano hello wejściowy zestaw danych, gdzie hello pierwszej zmiennej jest hello zależnych od zmiennej, a pozostałe zmienne hello są niezależne. Drugi moduł Hello pasuje do ogólnego Regresja logistyczna model hello danych wejściowych.    
 
 ![Przepływ eksperymentu][2]
 
@@ -120,10 +120,10 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
 
 
 ## <a name="limitations"></a>Ograniczenia
-Jest bardzo prosty przykład usługi sieci web klasyfikacji binarnej. Jak wynika z przykładowy kod powyżej, nie błąd Przechwytywanie jest zaimplementowany i usługa przyjęto założenie, że wszystko jest zmienną binary/ciągłego (nie podzielone na kategorie funkcji dozwolone), jako usługa tylko dane wejściowe wartości liczbowe w momencie utworzenia tej usługi sieci web. Ponadto usługi obecnie obsługuje rozmiar ograniczoną ilość danych właściwym charakter żądanie/odpowiedź wywołania usługi sieci web i fakt, że modelu jest nadaje się zawsze, gdy zostanie wywołana przez usługę sieci web. 
+Jest bardzo prosty przykład usługi sieci web klasyfikacji binarnej. Jak wynika z powyższych hello przykładowy kod, nie błąd Przechwytywanie jest zaimplementowana i usługi hello przyjęto założenie, że wszystko jest zmienną binary/ciągłego (nie podzielone na kategorie funkcji dozwolone), jako hello usługi tylko dane wejściowe wartości liczbowe w czasie hello hello tworzenia tego Usługa sieci Web. Ponadto usługa hello obsługuje obecnie rozmiar ograniczoną ilość danych, powodu toohello charakter żądanie/odpowiedź usługi sieci web hello połączeń i hello fakt, że hello modelu jest nadaje się zawsze nosi nazwę usługi sieci web hello. 
 
 ## <a name="faq"></a>Często zadawane pytania
-Często zadawane pytania dotyczące wykorzystania usługi sieci web i publikowanie w portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
+Często zadawane pytania dotyczące wykorzystania hello usługi sieci web lub toohello publikowania portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-binary-classifier/binary1.png
 [2]: ./media/machine-learning-r-csharp-binary-classifier/binary2.png

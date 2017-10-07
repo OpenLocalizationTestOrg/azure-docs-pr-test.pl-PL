@@ -1,6 +1,6 @@
 ---
-title: "Jak skonfigurować replikację geograficzną dla pamięci podręcznej Redis Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o replikacji z wystąpienia pamięci podręcznej Redis Azure w regionach geograficznych."
+title: "aaaHow tooconfigure — replikacja geograficzna dla pamięci podręcznej Redis Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooreplicate pamięć podręczna Redis Azure wystąpień w regionach geograficznych."
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,107 +14,107 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: sdanie
-ms.openlocfilehash: 71b0d4add7e642487f6d67cda692c500ee78b0e6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: edcd6f202b51055d1a4e47ecaf11f9977d50aa81
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Jak skonfigurować replikację geograficzną dla pamięci podręcznej Redis Azure
+# <a name="how-tooconfigure-geo-replication-for-azure-redis-cache"></a>Jak tooconfigure — replikacja geograficzna dla pamięci podręcznej Redis Azure
 
-Replikacja geograficzna udostępnia mechanizm do konsolidacji dwa wystąpienia pamięci podręcznej Redis Azure warstwy Premium. Jedna pamięć podręczna jest wyznaczony jako głównej połączonego pamięci podręcznej, a drugi jako dodatkowej pamięci podręcznej połączony. Dodatkowej pamięci podręcznej połączonego staje się tylko do odczytu, a dane zapisywane w pamięci podręcznej podstawowej są replikowane do dodatkowej połączonego pamięci podręcznej. Ta funkcja umożliwia replikowanie pamięci podręcznej w regionach platformy Azure. Ten artykuł zawiera przewodnik dotyczący konfigurowania — replikacja geograficzna dla swoich wystąpień pamięci podręcznej Redis Azure warstwy Premium.
+Replikacja geograficzna udostępnia mechanizm do konsolidacji dwa wystąpienia pamięci podręcznej Redis Azure warstwy Premium. Jedna pamięć podręczna jest wyznaczony jako hello głównej połączonego pamięci podręcznej i hello innych jako hello dodatkowej połączonego pamięci podręcznej. Hello pamięci podręcznej połączonego dodatkowej staje się tylko do odczytu i jest zapisany toohello głównej pamięci podręcznej danych replikowane toohello dodatkowej połączonego pamięci podręcznej. Ta funkcja może być używana tooreplicate pamięci podręcznej w regionach platformy Azure. Ten artykuł zawiera przewodnik tooconfiguring — replikacja geograficzna dla swoich wystąpień pamięci podręcznej Redis Azure warstwy Premium.
 
 ## <a name="geo-replication-prerequisites"></a>Replikacja geograficzna wymagania wstępne
 
-Aby skonfigurować replikację geograficzną między dwoma pamięci podręcznych, muszą być spełnione następujące wymagania wstępne:
+muszą być spełnione tooconfigure — replikacja geograficzna między dwoma pamięci podręcznych hello następujące wymagania wstępne:
 
 - Zarówno pamięci podręcznej musi być [warstwy Premium](cache-premium-tier-intro.md) przechowuje w pamięci podręcznej.
-- Zarówno pamięci podręcznej musi być w tej samej subskrypcji platformy Azure.
-- Połączone dodatkowej pamięci podręcznej musi być tej samej warstwie cenowej lub większy poziom cenowy niż podstawowy połączonego pamięci podręcznej.
-- Jeśli klaster włączone głównej połączonego pamięci podręcznej, dodatkowej pamięci podręcznej połączonego musi mieć klaster włączone z taką samą liczbę fragmentów jako podstawowy połączonego pamięci podręcznej.
+- Zarówno pamięci podręcznej musi być w hello tej samej subskrypcji platformy Azure.
+- Hello dodatkowej połączonego pamięci podręcznej musi być albo hello samej cen warstwy lub większy warstwy cenowej niż hello głównej połączonego pamięci podręcznej.
+- Jeśli klaster włączone hello głównej połączonego pamięci podręcznej, hello pamięci podręcznej połączonego dodatkowej musi mieć klaster włączyć hello takiej samej liczby odłamków jak hello głównej połączonego pamięci podręcznej.
 - Zarówno pamięci podręcznych muszą zostać utworzone i uruchomione.
 - Trwałości nie mogą być włączone na obu pamięci podręcznej.
-- Replikacja geograficzna między pamięci podręcznych w tej samej sieci Wirtualnej jest obsługiwane. Replikacja geograficzna między pamięci podręcznych w różnych sieci wirtualnych jest również obsługiwany, jak długo dwie sieci wirtualne są skonfigurowane w taki sposób, że zasoby w sieci wirtualne są dostęp do siebie za pośrednictwem połączeń TCP.
+- Replikacja geograficzna między pamięci podręcznych w hello jest obsługiwana w tej samej sieci Wirtualnej. Replikacja geograficzna między pamięci podręcznych w różnych sieci wirtualnych jest również obsługiwane, tak długo, jak Witaj dwie sieci wirtualne są skonfigurowane w taki sposób, że zasobów w sieci wirtualnych hello stanie tooreach wzajemnie za pośrednictwem połączeń TCP.
 
-Po skonfigurowaniu replikacji geograficznej parę z połączonego pamięci podręcznej, obowiązują następujące ograniczenia:
+Po skonfigurowaniu replikacji geograficznej hello, obowiązują następujące ograniczenia tooyour pary połączonego pamięci podręcznej:
 
-- Połączone dodatkowej pamięci podręcznej jest tylko do odczytu. można odczytać z niego, ale nie można zapisać danych do niego. 
-- Wszystkie dane sprzed w dodatkowej pamięci podręcznej połączonego łącze zostało dodane zostaną usunięte. Jeśli replikacja geograficzna następnie usunięciu jednak replikowanych danych pozostaje w połączonych dodatkowej pamięci podręcznej.
-- Nie można zainicjować [operacji skalowania](cache-how-to-scale.md) na obu pamięci podręcznej lub [zmienić liczbę fragmentów](cache-how-to-premium-clustering.md) Jeśli pamięć podręczna zawiera klastrowanie włączone.
+- Hello dodatkowej połączonego pamięci podręcznej jest tylko do odczytu. można odczytać z niego, ale nie można zapisać tooit żadnych danych. 
+- Wszystkie dane sprzed w pamięci podręcznej połączonego dodatkowej hello hello łącze zostało dodane zostaną usunięte. Hello — replikacja geograficzna następnie usunięciu jednak hello zreplikowane dane pozostaną w pamięci podręcznej połączonego dodatkowej hello.
+- Nie można zainicjować [operacji skalowania](cache-how-to-scale.md) na obu pamięci podręcznej lub [zmiany liczby hello odłamków](cache-how-to-premium-clustering.md) Jeśli hello pamięci podręcznej ma włączoną funkcją klastrowania.
 - Nie można włączyć trwałości na obu pamięci podręcznej.
-- Można użyć [wyeksportować](cache-how-to-import-export-data.md#export) z albo pamięcią podręczną, ale możesz tylko [importu](cache-how-to-import-export-data.md#import) do głównej połączonego pamięci podręcznej.
-- Nie można usunąć połączonej pamięci podręcznej lub grupy zasobów, którym się znajdują, przed usunięciem łącza replikacji geograficznej. Aby uzyskać więcej informacji, zobacz [Dlaczego operacji nie próba Usuń Moje połączonego pamięci podręcznej?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- W przypadku dwóch pamięci podręcznych w różnych regionach, koszty wyjście sieci dotyczą dane replikowane w regionach do połączonego dodatkowej pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [ile kosztuje replikowanie danych w regionach platformy Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- Jest nie automatycznej pracy awaryjnej do połączonego dodatkowej pamięci podręcznej, jeśli podstawowy pamięci podręcznej (i jego repliką) przestaną działać. Aby aplikacje klienckie trybu failover należy ręcznie usunąć łącza replikacji geograficznej i aplikacje klienckie do pamięci podręcznej, który był wcześniej dodatkowej pamięci podręcznej połączonego punktu. Aby uzyskać więcej informacji, zobacz [jak działa awarii do połączonego dodatkowej pamięci podręcznej?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- Można użyć [wyeksportować](cache-how-to-import-export-data.md#export) z albo pamięcią podręczną, ale możesz tylko [importu](cache-how-to-import-export-data.md#import) do głównej hello połączone pamięci podręcznej.
+- Nie można usunąć połączonej pamięci podręcznej lub hello grupę zasobów zawierającą je, przed usunięciem hello łącze replikacji geograficznej. Aby uzyskać więcej informacji, zobacz [Dlaczego operacji hello nie po toodelete Moje połączonego pamięci podręcznej?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- Witaj dwie pamięci podręcznych znajdują się w różnych regionach, kosztów wyjście sieci zostanie zastosowana toohello dane replikowane w regionach toohello dodatkowej połączonego pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [ile ma koszt tooreplicate dane w regionach platformy Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- Jest nie automatycznej pracy awaryjnej toohello dodatkowej połączonego pamięci podręcznej, jeśli hello głównej pamięci podręcznej (i jego repliką) przestaną działać. W aplikacjach klienckich toofailover kolejności będzie potrzebny toomanually Usuń hello — replikacja geograficzna łącze i punkt powitania klienta aplikacji toohello pamięci podręcznej, który był wcześniej hello dodatkowej połączonego pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [awarii pamięci podręcznej połączonego dodatkowej toohello działanie?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
 ## <a name="add-a-geo-replication-link"></a>Dodaj łącze — replikacja geograficzna
 
-1. Aby połączyć dwie premium pamięci podręcznych za replikację geograficzną, kliknij przycisk **— replikacja geograficzna** z menu zasobów pamięci podręcznej pełnić rolę serwera podstawowego połączone pamięci podręcznej, a następnie kliknij przycisk **łącza replikacji pamięci podręcznej Dodaj** z **— replikacja geograficzna** bloku.
+1. toolink dwóch premium buforuje ze sobą za replikację geograficzną, kliknij przycisk **— replikacja geograficzna** z menu zasobów hello pamięci podręcznej hello pełnić rolę hello głównej połączone pamięci podręcznej, a następnie kliknij **łącza replikacji pamięci podręcznej Dodaj**z hello **— replikacja geograficzna** bloku.
 
     ![Dodaj łącze](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Kliknij nazwę żądanego dodatkowej pamięci podręcznej z **zgodne pamięci podręcznych** listy. Jeśli żądany pamięci podręcznej nie jest wyświetlana na liście, upewnij się, że [wymagania wstępne — replikacja geograficzna](#geo-replication-prerequisites) spełnione są odpowiednie dodatkowej pamięci podręcznej. Aby filtrować pamięci podręcznych według regionu, kliknij odpowiedni region na mapie, aby wyświetlić tylko tych pamięci podręcznych w **zgodne pamięci podręcznych** listy.
+2. Kliknij nazwę hello hello potrzeby dodatkowej pamięci podręcznej z hello **zgodne pamięci podręcznych** listy. Jeśli żądany pamięci podręcznej nie jest wyświetlane na liście hello, upewnij się, że hello [wymagania wstępne — replikacja geograficzna](#geo-replication-prerequisites) dla żądanego hello dodatkowej pamięci podręcznej są spełnione. pamięci podręczne hello toofilter według regionu, kliknij odpowiedni region hello w toodisplay mapy hello tylko te buforuje w hello **zgodne pamięci podręcznych** listy.
 
     ![Replikacja geograficzna zgodne pamięci podręczne](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
-    Można również zainicjować proces łączenia lub wyświetlić szczegóły dotyczące dodatkowej pamięci podręcznej za pomocą menu kontekstowego.
+    Można także zainicjować hello łączenie za pomocą menu kontekstowe hello procesu lub Wyświetl szczegóły hello dodatkowej pamięci podręcznej.
 
     ![Menu kontekstowe — replikacja geograficzna](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. Kliknij przycisk **łącze** Połącz dwa pamięci podręcznych i rozpocząć proces replikacji.
+3. Kliknij przycisk **łącze** toolink Witaj dwie pamięci podręcznych ze sobą i rozpocząć proces replikacji hello.
 
     ![Pamięci podręczne łącza](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Postęp procesu replikacji można wyświetlić na **— replikacja geograficzna** bloku.
+4. Można wyświetlić postęp procesu replikacji hello hello na powitania **— replikacja geograficzna** bloku.
 
     ![Łączenie stanu](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
-    Można również wyświetlić stan połączeń na **omówienie** bloku dla buforów podstawowego i pomocniczego.
+    Można również wyświetlić hello łączenie stanu na powitania **omówienie** bloku dla obu hello głównej i dodatkowej pamięci podręcznych.
 
     ![Stan pamięci podręcznej](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Po zakończeniu procesu replikacji **Link stanu** zmienia się na **zakończyło się pomyślnie**.
+    Po zakończeniu procesu replikacji hello hello **Link stanu** zmiany zbyt**zakończyło się pomyślnie**.
 
     ![Stan pamięci podręcznej](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
-    Podczas procesu łączenia głównej połączonego pamięci podręcznej pozostaje dostępna do użycia, ale dodatkowej połączonego bufor nie jest dostępny, dopóki nie zakończy proces łączenia.
+    Podczas procesu łączenia hello hello głównej połączonego pamięci podręcznej pozostaje dostępna do użycia, ale hello dodatkowej połączonego pamięci podręcznej jest niedostępny do momentu ukończenia hello łączenie procesu.
 
 ## <a name="remove-a-geo-replication-link"></a>Usuń łącze — replikacja geograficzna
 
-1. Kliknij, aby usunąć połączenie między dwoma pamięci podręcznych i zatrzymać replikację geograficzną **odłączyć pamięci podręcznych** z **— replikacja geograficzna** bloku.
+1. Kliknij łącze hello tooremove między dwa pamięci podręcznych i Zatrzymaj replikację geograficzną, **odłączyć pamięci podręcznych** z hello **— replikacja geograficzna** bloku.
     
     ![Rozłącz pamięci podręczne](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
-    Po zakończeniu procesu rozłączanie dodatkowej pamięci podręcznej jest dostępna dla odczytów i zapisów.
+    Po zakończeniu procesu rozłączanie hello hello dodatkowej pamięci podręcznej jest dostępny dla obu odczytuje i zapisuje.
 
 >[!NOTE]
->Usunięcie łącza replikacji geograficznej replikowane dane z głównej połączonego pamięci podręcznej pozostaje w dodatkowej pamięci podręcznej.
+>Usunięcie łącza hello — replikacja geograficzna hello zreplikowanych danych z hello głównej połączonego pamięci podręcznej pozostaje w pamięci podręcznej dodatkowej hello.
 >
 >
 
 ## <a name="geo-replication-faq"></a>Replikacja geograficzna — często zadawane pytania
 
 - [Replikacja geograficzna można używać z pamięci podręcznej warstwy standardowa lub Basic?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
-- [Moje pamięci podręcznej jest dostępny do użytku podczas procesu łączenia lub odłączanie?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
+- [Moje pamięci podręcznej jest dostępny do użycia podczas łączenia hello lub odłączanie procesu?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
 - [Czy można połączyć więcej niż dwa pamięci podręcznych razem?](#can-i-link-more-than-two-caches-together)
 - [Czy można połączyć dwóch pamięci podręczne z różnych subskrypcji platformy Azure?](#can-i-link-two-caches-from-different-azure-subscriptions)
 - [Czy można połączyć dwóch buforów o różnych rozmiarach?](#can-i-link-two-caches-with-different-sizes)
 - [Replikacja geograficzna można używać z włączoną funkcją klastrowania?](#can-i-use-geo-replication-with-clustering-enabled)
 - [Replikacja geograficzna można używać z mojej pamięci podręcznych w sieci Wirtualnej?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
-- [Do zarządzania — replikacja geograficzna może używać programu PowerShell lub interfejsu wiersza polecenia Azure?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
-- [Ile kosztuje replikowanie danych w regionach platformy Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- [Dlaczego operacji nie próba Usuń Moje połączonego pamięci podręcznej?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- [Można użyć programu PowerShell lub interfejsu wiersza polecenia Azure toomanage — replikacja geograficzna?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
+- [Ile kosztuje tooreplicate dane w regionach platformy Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- [Dlaczego operacji hello nie po toodelete Moje połączonego pamięci podręcznej?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [Jakie region Użyj mojej dodatkowej pamięci podręcznej połączonego](#what-region-should-i-use-for-my-secondary-linked-cache)
-- [Jak działa awarii do połączonego dodatkowej pamięci podręcznej?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Jak działa awarii toohello dodatkowej połączonego pamięci podręcznej?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
 ### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Replikacja geograficzna można używać z pamięci podręcznej warstwy standardowa lub Basic?
 
 Nie, replikacja geograficzna dostępnej tylko dla pamięci podręcznej warstwy Premium.
 
-### <a name="is-my-cache-available-for-use-during-the-linking-or-unlinking-process"></a>Moje pamięci podręcznej jest dostępny do użytku podczas procesu łączenia lub odłączanie?
+### <a name="is-my-cache-available-for-use-during-hello-linking-or-unlinking-process"></a>Moje pamięci podręcznej jest dostępny do użycia podczas łączenia hello lub odłączanie procesu?
 
-- Gdy łączący dwa pamięci podręcznych za replikację geograficzną, podstawowego połączonego pamięci podręcznej pozostaje dostępna do użycia, ale dodatkowej połączonego bufor nie jest dostępny, dopóki nie zakończy proces łączenia.
-- Podczas usuwania łącza replikacji geograficznej między dwoma pamięci podręcznych, zarówno pamięci podręcznych pozostają dostępne do użycia.
+- Łączący dwa pamięci podręcznych za replikację geograficzną, hello głównej połączonego pamięci podręcznej pozostaje dostępna do użycia, ale hello dodatkowej połączonego bufor nie jest dostępny, aż do zakończenia hello łączenie procesu.
+- Podczas usuwania hello — replikacja geograficzna łącza między dwoma pamięci podręcznych, zarówno pamięci podręcznych pozostają dostępne do użycia.
 
 ### <a name="can-i-link-more-than-two-caches-together"></a>Czy można połączyć więcej niż dwa pamięci podręcznych razem?
 
@@ -122,47 +122,47 @@ Nie, używając — replikacja geograficzna można połączyć tylko dwa pamięc
 
 ### <a name="can-i-link-two-caches-from-different-azure-subscriptions"></a>Czy można połączyć dwóch pamięci podręczne z różnych subskrypcji platformy Azure?
 
-Pamięci podręcznych, nie musi być w tej samej subskrypcji platformy Azure.
+Pamięci podręcznych, nie musi być w hello tej samej subskrypcji platformy Azure.
 
 ### <a name="can-i-link-two-caches-with-different-sizes"></a>Czy można połączyć dwóch buforów o różnych rozmiarach?
 
-Tak, jak połączonych dodatkowej pamięci podręcznej jest większy niż podstawowy połączonego pamięci podręcznej.
+Tak, tak długo, jak połączonych hello dodatkowej pamięci podręcznej jest większy niż hello głównej połączonego pamięci podręcznej.
 
 ### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>Replikacja geograficzna można używać z włączoną funkcją klastrowania?
 
-Tak, jak długo zarówno pamięci podręcznych ma taką samą liczbę fragmentów.
+Tak, ile zarówno pamięci podręcznych mają hello tę samą liczbę fragmentów.
 
 ### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>Replikacja geograficzna można używać z mojej pamięci podręcznych w sieci Wirtualnej?
 
 Tak, replikacja geograficzna pamięci podręcznych w sieci wirtualnych są obsługiwane. 
 
-- Replikacja geograficzna między pamięci podręcznych w tej samej sieci Wirtualnej jest obsługiwane.
-- Replikacja geograficzna między pamięci podręcznych w różnych sieci wirtualnych jest również obsługiwany, jak długo dwie sieci wirtualne są skonfigurowane w taki sposób, że zasoby w sieci wirtualne są dostęp do siebie za pośrednictwem połączeń TCP.
+- Replikacja geograficzna między pamięci podręcznych w hello jest obsługiwana w tej samej sieci Wirtualnej.
+- Replikacja geograficzna między pamięci podręcznych w różnych sieci wirtualnych jest również obsługiwane, tak długo, jak Witaj dwie sieci wirtualne są skonfigurowane w taki sposób, że zasobów w sieci wirtualnych hello stanie tooreach wzajemnie za pośrednictwem połączeń TCP.
 
-### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Do zarządzania — replikacja geograficzna może używać programu PowerShell lub interfejsu wiersza polecenia Azure?
+### <a name="can-i-use-powershell-or-azure-cli-toomanage-geo-replication"></a>Można użyć programu PowerShell lub interfejsu wiersza polecenia Azure toomanage — replikacja geograficzna?
 
-W tej chwili można zarządzać tylko replikacja geograficzna, przy użyciu portalu Azure.
+W tym momencie, którymi można zarządzać tylko przy użyciu — replikacja geograficzna hello portalu Azure.
 
-### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Ile kosztuje replikowanie danych w regionach platformy Azure?
+### <a name="how-much-does-it-cost-tooreplicate-my-data-across-azure-regions"></a>Ile kosztuje tooreplicate dane w regionach platformy Azure?
 
-Używając — replikacja geograficzna, dane z głównej połączonego pamięci podręcznej są replikowane do dodatkowej połączonego pamięci podręcznej. Jeśli dwa połączone pamięci podręcznych znajdują się w tym samym regionie Azure, jest bezpłatna do transferu danych. Jeśli dwa połączone pamięci podręcznych znajdują się w różnych regionach platformy Azure, opłat transfer danych — replikacja geograficzna jest kosztów przepustowości replikacji danych do innego regionu systemu Azure. Aby uzyskać więcej informacji, zobacz [szczegóły cennika przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/).
+Używając — replikacja geograficzna, dane z pamięci podręcznej połączonego głównej hello jest replikowanych toohello dodatkowej połączone w pamięci podręcznej. Jeśli hello dwa połączone pamięci podręcznych znajdują się w hello tego samego regionu Azure, bez żadnych opłat hello transferu danych nie istnieje. Jeśli hello dwa połączone pamięci podręcznych znajdują się w różnych regionach platformy Azure, hello opłat transfer danych — replikacja geograficzna hello kosztów przepustowości replikacji tego toohello danych innego regionu systemu Azure. Aby uzyskać więcej informacji, zobacz [szczegóły cennika przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Dlaczego operacji nie próba Usuń Moje połączonego pamięci podręcznej?
+### <a name="why-did-hello-operation-fail-when-i-tried-toodelete-my-linked-cache"></a>Dlaczego operacji hello nie po toodelete Moje połączonego pamięci podręcznej?
 
-Gdy dwa pamięci podręcznych są połączone ze sobą, nie można usunąć pamięci podręcznej lub grupę zasobów, która zawiera je przed usunięciem łącza replikacji geograficznej. Jeśli próbujesz usunąć grupę zasobów, która zawiera jedną lub obie połączonych buforów, inne zasoby w grupie zasobów zostaną usunięte, lecz pozostaje grupy zasobów w `deleting` stanu i wszystkie połączone pamięci podręcznej w grupie zasobów pozostają w `running`stanu. Aby ukończyć usuwanie grupy zasobów i połączone pamięci podręcznych w nim, przerwać łącze replikacji geograficznej zgodnie z opisem w [Usuń łącze replikacji geograficznej](#remove-a-geo-replication-link).
+Gdy dwa pamięci podręcznych są połączone ze sobą, nie można usunąć pamięci podręcznej lub hello grupę zasobów zawierającą je przed usunięciem hello łącze replikacji geograficznej. Przy próbie toodelete hello zasobów grupy, która zawiera jedną lub obie hello połączona pamięci podręcznych, hello inne zasoby w grupie zasobów hello są usuwane, ale pozostaje hello grupy zasobów w hello `deleting` stanu i wszystkie połączone pamięci podręcznych w grupie zasobów hello pozostają w hello `running` stanu. toocomplete hello usunięcie grupy zasobów hello i hello połączone pamięci podręcznych w niej łącza hello — replikacja geograficzna podziału, zgodnie z opisem w [Usuń łącze replikacji geograficznej](#remove-a-geo-replication-link).
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Jakie region Użyj mojej dodatkowej pamięci podręcznej połączonego
 
-Ogólnie rzecz biorąc zaleca się dla istnieje w tym samym regionie Azure, jak aplikacja, która uzyskuje on dostęp do pamięci podręcznej. Jeśli aplikacja ma regionu podstawowego i rezerwowej, pamięci podręcznych podstawowych i pomocniczych powinna istnieć w tym samym regionach. Aby uzyskać więcej informacji na temat sparowanego regionów, zobacz [najlepszych rozwiązań — regiony platformy Azure sparowanym](../best-practices-availability-paired-regions.md).
+Ogólnie rzecz biorąc, zaleca się dla Twojego tooexist pamięci podręcznej w hello sam region platformy Azure jako aplikacja hello, który uzyskuje dostęp do jej. Jeśli aplikacja ma regionu podstawowego i rezerwowej, pamięci podręcznych podstawowych i pomocniczych powinna istnieć w tym samym regionach. Aby uzyskać więcej informacji na temat sparowanego regionów, zobacz [najlepszych rozwiązań — regiony platformy Azure sparowanym](../best-practices-availability-paired-regions.md).
 
-### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Jak działa awarii do połączonego dodatkowej pamięci podręcznej?
+### <a name="how-does-failing-over-toohello-secondary-linked-cache-work"></a>Jak działa awarii toohello dodatkowej połączonego pamięci podręcznej?
 
-W wersji początkowej replikacji geograficznej pamięć podręczna Redis Azure nie obsługuje automatycznej pracy awaryjnej w regionach platformy Azure. Replikacja geograficzna jest używany głównie w przypadku odzyskiwania po awarii. W przypadku odzyskiwania distater klientów należy wyświetlić całego stosu aplikacji w regionie kopii zapasowej w skoordynowany sposób zamiast umożliwienie poszczególnych składników aplikacji zadecydować o czasie przełączyć się do ich kopie zapasowe na ich własnych. Jest to szczególnie istotne w pamięci podręcznej Redis. Jedną z kluczowych zalet Redis jest magazynem bardzo małe opóźnienia. Jeśli używany przez aplikację pamięci podręcznej Redis awaryjnie w innym regionie Azure, ale nie będzie warstwie obliczeniowej, czas obiegu dodano mają zauważalnego wpływu na wydajność. Z tego powodu chcemy uniknąć niepowodzenie Redis za pośrednictwem automatycznie z powodu problemów dotyczących dostępności przejściowej.
+W hello początkowa wersja — replikacja geograficzna pamięć podręczna Redis Azure nie obsługuje automatycznej pracy awaryjnej w regionach platformy Azure. Replikacja geograficzna jest używany głównie w przypadku odzyskiwania po awarii. W przypadku odzyskiwania distater klientów należy wyświetlić hello całego stosu aplikacji w regionie kopii zapasowej w skoordynowany sposób zamiast umożliwienie poszczególnych składników aplikacji podjęcie decyzji dotyczącej tooswitch tootheir wykonywanie kopii zapasowych na ich własnych. Jest to szczególnie istotne tooRedis. Jedną z kluczowych zalet Redis hello jest magazynem bardzo małe opóźnienia. Jeśli Redis używany przez aplikacji nie powiedzie się w innym regionie Azure tooa, ale warstwie obliczeniowej hello nie, hello dodane wokół czas podróży mają zauważalnego wpływu na wydajność. Z tego powodu chcielibyśmy tooavoid niepowodzenie Redis za pośrednictwem automatycznie powodu tootransient problemów dotyczących dostępności.
 
-Aktualnie Aby zainicjować trybu failover, należy Usuń łącze replikacji geograficznej w portalu Azure, a następnie zmień punktu końcowego połączenia klienta pamięci podręcznej Redis z głównej połączonego pamięci podręcznej (dawniej połączonych) dodatkowej pamięci podręcznej. Gdy dwa pamięci podręcznych są usunąć skojarzenia, replika staje się regularne pamięci podręcznej odczytu i zapisu ponownie i akceptuje żądania bezpośrednio od klientów pamięci podręcznej Redis.
+Obecnie tooinitiate hello przejścia w tryb failover należy hello tooremove — replikacja geograficzna łącze w hello portalu Azure, a następnie zmień punktu końcowego połączenia powitania klienta pamięci podręcznej Redis hello hello głównej pamięci podręcznej połączonego toohello (dawniej połączone) pomocniczej pamięci podręcznej. Gdy powitalne dwóch pamięci podręcznych są usunąć skojarzenia, repliki hello staje się zwykły zapisu i odczytu pamięci podręcznej ponownie i akceptuje żądania bezpośrednio od klientów pamięci podręcznej Redis.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [warstwy pamięci podręcznej Redis Azure Premium](cache-premium-tier-intro.md).
+Dowiedz się więcej o hello [warstwy pamięci podręcznej Redis Azure Premium](cache-premium-tier-intro.md).
 

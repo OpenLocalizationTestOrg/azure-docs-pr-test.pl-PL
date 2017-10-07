@@ -1,6 +1,6 @@
 ---
-title: "Sprawdź łączność z obserwatora sieciowego Azure - PowerShell | Dokumentacja firmy Microsoft"
-description: "Ta strona wyjaśniono, jak przetestowanie łączności z obserwatora sieciowego przy użyciu programu PowerShell"
+title: "aaaCheck łączność z obserwatora sieciowego Azure - PowerShell | Dokumentacja firmy Microsoft"
+description: "Ta strona wyjaśniono sposób tootest łączność z obserwatora sieciowego przy użyciu programu PowerShell"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
-ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4bcb90a72f178445c38b7bd7fc5054c5d0c200bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Sprawdź łączność z obserwatora sieciowego Azure przy użyciu programu PowerShell
 
@@ -27,37 +27,37 @@ ms.lasthandoff: 08/18/2017
 > - [Interfejs wiersza polecenia 2.0](network-watcher-connectivity-cli.md)
 > - [Interfejs API Azure REST](network-watcher-connectivity-rest.md)
 
-Dowiedz się, jak używać łączności, aby sprawdzić, czy można nawiązać bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
+Dowiedz się, jak można ustalić toouse łączności tooverify Jeśli bezpośrednie połączenie TCP z tooa maszyny wirtualnej, danego punktu końcowego.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym artykule przyjęto założenie, że masz następujące zasoby:
+W tym artykule przyjęto założenie, że masz hello następujące zasoby:
 
-* Wystąpienie obserwatora sieciowego w regionie, aby sprawdzić łączność.
+* Wystąpienia obserwatora sieciowego w regionie hello ma toocheck łączności.
 
-* Sprawdź łączność z maszyn wirtualnych.
+* Maszyny wirtualne toocheck łączność z.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> Sprawdź łączność wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension`. Instalowanie rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
+> Sprawdź łączność wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension`. Instalowanie hello rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="register-the-preview-capability"></a>Zarejestruj możliwości wersji zapoznawczej
+## <a name="register-hello-preview-capability"></a>Zarejestruj hello możliwości wersji zapoznawczej
 
-Połączenie jest aktualnie w publicznej wersji zapoznawczej, aby użyć tej funkcji, który musi być zarejestrowana. Aby to zrobić, uruchom w poniższym przykładzie programu PowerShell:
+Połączenie jest obecnie w publicznej wersji zapoznawczej, toouse ta funkcja wymaga toobe zarejestrowany. toodo tego, hello uruchomienia następującego programu PowerShell:
 
 ```powershell
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-Aby sprawdzić, czy rejestracja zakończyła się pomyślnie, należy uruchomić w poniższym przykładzie programu Powershell:
+Rejestracja hello tooverify zakończyło się powodzeniem, uruchom następujące przykładowe Powershell hello:
 
 ```powershell
 Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
 ```
 
-Jeśli funkcja został prawidłowo zarejestrowany, dane wyjściowe powinny odpowiadać następujące czynności:
+Jeśli funkcja hello zostało prawidłowo zarejestrowane hello dane wyjściowe powinny odpowiadać hello następujące czynności:
 
 ```
 FeatureName         ProviderName      RegistrationState
@@ -65,9 +65,9 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
 ```
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Sprawdź połączenie z maszyną wirtualną
+## <a name="check-connectivity-tooa-virtual-machine"></a>Sprawdź maszyny wirtualnej tooa łączności
 
-W tym przykładzie służy do sprawdzania łączności do docelowej maszyny wirtualnej za pośrednictwem portu 80.
+W tym przykładzie sprawdza łączność tooa docelowej maszyny wirtualnej za pośrednictwem portu 80.
 
 ### <a name="example"></a>Przykład
 
@@ -89,7 +89,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Odpowiedź
 
-Następujące odpowiedzi jest z poprzedniego przykładu.  W tej odpowiedzi `ConnectionStatus` jest **informujący**. Widać, że wszystkie sond wysyłane nie powiodło się. Połączenie nie powiodło się na urządzenie wirtualne z powodu użytkownik skonfigurował `NetworkSecurityRule` o nazwie **UserRule_Port80**, jest skonfigurowany do blokowania ruchu przychodzącego na porcie 80. Te informacje mogą służyć do badania problemów z połączeniem.
+powitania po odpowiedzi pochodzi z poprzedniego przykładu hello.  W tej odpowiedzi hello `ConnectionStatus` jest **informujący**. Widać, że wszystkie hello sond wysyłane nie powiodło się. łączność Hello na urządzenie wirtualne hello nie powiodła się z powodu tooa konfigurowane przez użytkownika `NetworkSecurityRule` o nazwie **UserRule_Port80**, skonfigurowany tooblock ruch przychodzący na porcie 80. Te informacje mogą być używane tooresearch problemy z połączeniem.
 
 ```
 ConnectionStatus : Unreachable
@@ -162,7 +162,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Sprawdź poprawność routingu problemów
 
-Przykład służy do sprawdzania łączności między maszyną wirtualną i zdalny punkt końcowy.
+przykład Witaj służy do sprawdzania łączności między maszyną wirtualną i zdalny punkt końcowy.
 
 ### <a name="example"></a>Przykład
 
@@ -182,7 +182,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Odpowiedź
 
-W poniższym przykładzie `ConnectionStatus` jest wyświetlany jako **informujący**. W `Hops` uzyskać szczegółowe informacje, widoczny w obszarze `Issues` ruch został zablokowany ze względu na `UserDefinedRoute`. 
+W hello poniższy przykład, hello `ConnectionStatus` jest wyświetlany jako **informujący**. W hello `Hops` uzyskać szczegółowe informacje, widoczny w obszarze `Issues` czy ruch hello zostało zablokowane z powodu tooa `UserDefinedRoute`. 
 
 ```
 ConnectionStatus : Unreachable
@@ -227,7 +227,7 @@ Hops             : [
 
 ## <a name="check-website-latency"></a>Sprawdź czas oczekiwania witryny sieci Web
 
-Poniższy przykład służy do sprawdzania łączności z witryną sieci Web.
+Witaj poniższy przykład sprawdza hello łączności tooa witryny sieci Web.
 
 ### <a name="example"></a>Przykład
 
@@ -247,7 +247,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Odpowiedź
 
-W poniższych odpowiedzi, zobacz `ConnectionStatus` jest pokazywana jako **osiągalne**. Gdy połączenie zostanie nawiązane, znajdują się wartości opóźnienia.
+Hello po odpowiedzi, zawiera hello `ConnectionStatus` jest pokazywana jako **osiągalne**. Gdy połączenie zostanie nawiązane, znajdują się wartości opóźnienia.
 
 ```
 ConnectionStatus : Reachable
@@ -278,9 +278,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Sprawdź łączność z punktu końcowego magazynu
+## <a name="check-connectivity-tooa-storage-endpoint"></a>Sprawdź łączność tooa pamięci masowej w punkcie końcowym
 
-Poniższy przykład sprawdza łączność z maszyny wirtualnej na blogu konto magazynu.
+Poniższy przykład Hello sprawdza łączność hello z konta magazynu blogu tooa maszyny wirtualnej.
 
 ### <a name="example"></a>Przykład
 
@@ -300,7 +300,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Odpowiedź
 
-Następujący kod json jest przykład odpowiedzi z uruchomienie poprzedniego polecenia cmdlet. Jako miejsce docelowe jest osiągalny, `ConnectionStatus` właściwość pokazuje, jak **osiągalne**.  Podano szczegółowe informacje dotyczące liczby przeskoków niezbędnych do magazynu obiektów blob i opóźnień.
+Witaj następujące json jest hello przykład odpowiedzi z polecenia cmdlet poprzedniej hello. Witaj hello docelowy jest dostępny, `ConnectionStatus` właściwość pokazuje, jak **osiągalne**.  Podano hello szczegóły dotyczące hello liczba przeskoków wymagane tooreach hello — obiekt blob magazynu i opóźnień.
 
 ```
 ConnectionStatus : Reachable
@@ -335,7 +335,7 @@ Hops             : [
 
 Znajdź, jeśli niektórych ruch jest dozwolony w lub z maszyny Wirtualnej, odwiedzając [Sprawdź przepływ Sprawdź IP](network-watcher-check-ip-flow-verify-portal.md)
 
-Jeśli ruch jest blokowane i nie należy, zobacz [Zarządzaj grupami zabezpieczeń sieci](../virtual-network/virtual-network-manage-nsg-arm-portal.md) śledzić reguły zabezpieczeń sieciowych grupy i zabezpieczeń zdefiniowane.
+Jeśli ruch jest blokowane i nie należy, zobacz [Zarządzaj grupami zabezpieczeń sieci](../virtual-network/virtual-network-manage-nsg-arm-portal.md) tootrack hello reguły zabezpieczeń sieciowych grupy i zabezpieczeń, które są zdefiniowane w dół.
 
 <!-- Image references -->
 

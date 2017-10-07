@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5de07c259d1d327d0211338c2911804445dd6b60
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 65d4ac73efffcf7b25b1e95da6f9012a9238cb75
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-movement-cost"></a>Usługa koszt przeniesienia
-Współczynnik Menedżera zasobów klastra sieci szkieletowej usług pod uwagę podczas próby określenia, jakie zmiany można wprowadzać w klastrze jest koszt tych zmian. Pojęcie "koszt" jest przedmiotem handlu wyłączone przed można zwiększyć ilość klastra. Koszt jest brana pod uwagę podczas przenoszenia usługi równoważenia, defragmentacji i inne wymagania. Celem jest w celu spełnienia wymagań w zakresie zakłócenie najmniej kosztowne. 
+Współczynnik hello zasobu klastra sieci szkieletowej programu Service Manager uwzględnia podczas próby toodetermine, jakie zmiany toomake tooa klastra jest koszt hello tych zmian. pojęcie "koszt" Hello jest przedmiotem handlu wyłączone przed można zwiększyć ilość hello klastra. Koszt jest brana pod uwagę podczas przenoszenia usługi równoważenia, defragmentacji i inne wymagania. Celem Hello jest toomeet hello wymagań dotyczących hello co najmniej sposób destrukcyjne lub kosztowne. 
 
-Przesunięcie czasu procesora CPU koszty usługi i przepustowość co najmniej sieci. W przypadku usług stanowych wymaga kopiowanie stan tych usług, wykorzystywanie dodatkowej pamięci i dysku. Minimalizowania kosztów rozwiązania, które Menedżer zasobów klastra sieci szkieletowej usług Azure pojawia się z pomaga, upewnij się, że zasobów klastra nie są poświęconego niepotrzebnie. Jednak również nie chcesz zignorować rozwiązania, które może znacznie poprawić alokacji zasobów w klastrze.
+Przesunięcie czasu procesora CPU koszty usługi i przepustowość co najmniej sieci. Dla stanowych usług wymaga kopiowanie hello stan tych usług, wykorzystywanie dodatkowej pamięci i dysku. Minimalizowania kosztów hello rozwiązań tego powitalne Menedżera zasobów klastra sieci szkieletowej usług Azure pojawia się z pomaga, upewnij się, że zasoby hello klastra nie są poświęconego niepotrzebnie. Jednak nie należy tooignore rozwiązania, które może znacznie poprawić hello alokacji zasobów w klastrze hello.
 
-Menedżer zasobów klastra ma dwa sposoby obliczenie kosztów i ograniczeniem im dostępu przy próbie do zarządzania klastrem. Mechanizm pierwszy jest po prostu zliczania każdy ruch, który może to spowodować. Jeśli dwa rozwiązania są generowane z o taka sama waga (wynik), a następnie Menedżera zasobów klastra preferuje jedną z najniższy koszt (całkowita liczba przenosi).
+Hello Menedżera zasobów klastra ma dwa sposoby obliczenie kosztów i ograniczeniem im dostępu przy próbie toomanage hello klastra. mechanizm pierwszy Hello jest po prostu zliczania każdy ruch, który może to spowodować. Jeśli dwa rozwiązania są generowane z o hello hello Menedżera zasobów klastra preferuje hello jedną z hello najniższy koszt (całkowita liczba przenosi), a następnie sam równoważenie (wynik).
 
-Ta strategia działa prawidłowo. Ale tak jak w przypadku domyślnych lub obciążeń statycznych, jest mało prawdopodobne w każdym systemie złożonych, że przenoszenie wszystkich są takie same. Niektóre są mogą być bardziej kosztowne.
+Ta strategia działa prawidłowo. Ale tak jak w przypadku domyślnych lub obciążeń statycznych, jest mało prawdopodobne w każdym systemie złożonych, że przenoszenie wszystkich są takie same. Niektóre są prawdopodobnie toobe bardziej kosztowne.
 
 ## <a name="setting-move-costs"></a>Ustawienie przesuwanie kosztów 
-Można określić domyślny Przenieś koszt usługi po utworzeniu:
+Możesz określić hello domyślny koszt przeniesienia usługi po utworzeniu:
 
 Program PowerShell:
 
@@ -43,12 +43,12 @@ C#:
 ```csharp
 FabricClient fabricClient = new FabricClient();
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
-//set up the rest of the ServiceDescription
+//set up hello rest of hello ServiceDescription
 serviceDescription.DefaultMoveCost = MoveCost.Medium;
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-Można również określić lub zaktualizować MoveCost dynamicznie usługi po utworzeniu usługi: 
+Można również określić lub zaktualizować MoveCost dynamicznie usługi po utworzeniu usługi hello: 
 
 Program PowerShell: 
 
@@ -66,7 +66,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 
 ## <a name="dynamically-specifying-move-cost-on-a-per-replica-basis"></a>Dynamicznie Określanie koszt przeniesienia na podstawie na repliki
 
-Poprzedni fragmenty kodu są wszystkie służący do określania MoveCost dla całej usługi jednocześnie z poza samej usługi. Jednak przenieść koszt jest najbardziej przydatna jest, gdy koszt przeniesienia obiektu określonej usługi zmienia się w jego cykl życia. Ponieważ uwierzytelnienia usługi prawdopodobnie najważniejsze informacje o tym, jak kosztowne są można przenieść w danym momencie, jest interfejsem API usługi własnych poszczególne Przenieś koszt podczas wykonywania raportu. 
+Witaj poprzedniego fragmenty kodu są wszystkie służący do określania MoveCost dla całej usługi jednocześnie z samej usługi poza hello. Jednak przenieść koszt jest najbardziej przydatna jest, gdy koszt przeniesienia hello obiektu określonej usługi zmienia się w jego cykl życia. Ponieważ hello usług prawdopodobnie ma hello najważniejsze informacje o tym, jak kosztowne są toomove danym czasie, jest interfejs API dla usług tooreport własnych indywidualnych przenoszenia kosztów w czasie wykonywania. 
 
 C#:
 
@@ -75,20 +75,20 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Wpływ koszt przeniesienia
-MoveCost zawiera cztery poziomy: Zero, niski, średni i wysoki. MoveCosts są względem siebie, z wyjątkiem Zero. Zero koszt przeniesienia oznacza, że przenoszenie jest bezpłatna i nie powinien odliczona wynik rozwiązania. Ustawianie wysokiego jest koszt przeniesienia *nie* gwarancji, że replika pozostanie w jednym miejscu.
+MoveCost zawiera cztery poziomy: Zero, niski, średni i wysoki. MoveCosts są względną tooeach innych, z wyjątkiem Zero. Zero koszt przeniesienia oznacza, że przenoszenie jest bezpłatna i nie powinien odliczona wynik hello hello rozwiązania. Ustawienie jest przejście koszt tooHigh *nie* gwarantuje, że repliki hello pozostaje w jednym miejscu.
 
 <center>
 ![Koszt przeniesienia jako czynnik wyborze repliki dla przepływu][Image1]
 </center>
 
-MoveCost pomaga znaleźć rozwiązania, które powodują ogólną zakłóceń pracy i są najłatwiej osiągnięcia jednocześnie nadal otrzymywanych saldo równoważne. Pojęcie usługi koszt może być względem wiele rzeczy. Najbardziej typowe czynniki obliczając koszt przeniesienia są następujące:
+MoveCost pomaga hello rozwiązania czy przyczyna ogólne hello zakłóceń pracy i są najprostszym tooachieve podczas nadal otrzymywanych saldo równoważne. Pojęcie usługi koszt może być względna toomany rzeczy. Witaj najbardziej typowych czynników przy obliczaniu koszt przeniesienia są:
 
-- Kwota stan lub danych, aby przenieść usługę.
-- Koszt rozłączenia klientów. Przenoszenie replikę podstawową jest zazwyczaj bardziej kosztowne niż koszt przenoszenia replikę pomocniczą.
-- Koszt zakłócania pracy locie. Niektóre operacje na danych magazynu poziom lub są kosztowne operacje wykonywane w odpowiedzi na wywołanie przez klienta. W pewnym momencie nie chcesz ich zatrzymania, jeśli nie masz. Dlatego podczas operacji trwa, zwiększyć koszt przeniesienia tego obiektu usługi, aby zmniejszyć prawdopodobieństwo, że powoduje przeniesienie. Po zakończeniu operacji, ustawisz koszt do normalnego.
+- Kwota Hello danych, że usługa hello ma toomove lub stanu.
+- Koszt Hello rozłączenia klientów. Przenoszenie replikę podstawową jest zazwyczaj bardziej kosztowne niż koszt hello przenoszenia replikę pomocniczą.
+- Koszt Hello zakłócania pracy locie. Niektóre operacje na danych hello magazynu poziom lub operacje wykonywane w odpowiedzi tooa klienta wywołania są kosztowne. W pewnym momencie nie chcesz toostop je, jeśli nie masz. Gdy trwa operacja hello, więc zwiększyć hello koszt przeniesienia tej usługi obiektu tooreduce hello prawdopodobieństwo, że powoduje przeniesienie. Po zakończeniu operacji hello, należy ustawić toonormal wstecz hello kosztów.
 
 ## <a name="enabling-move-cost-in-your-cluster"></a>Włączanie koszt przeniesienia w klastrze
-Aby bardziej szczegółowego MoveCosts należy wziąć pod uwagę należy włączyć MoveCost w klastrze. Bez tego ustawienia to domyślny tryb liczenia przenosi jest używany do obliczania MoveCost i MoveCost raporty są ignorowane.
+Aby hello bardziej szczegółowego toobe MoveCosts wziąć pod uwagę, MoveCost musi być włączona w klastrze. Bez tego ustawienia hello domyślny tryb liczenia przenosi jest używany do obliczania MoveCost i MoveCost raporty są ignorowane.
 
 
 ClusterManifest.xml:
@@ -116,7 +116,7 @@ za pomocą pliku ClusterConfig.json dla autonomicznych wdrożeniach lub Template
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- Menedżer zasobów klastra sieci szkieletowej usług wykorzystuje metryki Zarządzanie użycia i pojemności w klastrze. Aby dowiedzieć się więcej na temat metryki i sposobach ich konfigurowania, zapoznaj się [Zarządzanie zużycia zasobów i obciążenia w sieci szkieletowej usług o metryki](service-fabric-cluster-resource-manager-metrics.md).
-- Aby dowiedzieć się, jak Menedżer zasobów klastra zarządza i równoważy obciążenie klastra, zapoznaj się [równoważenia klastra usługi sieć szkieletowa](service-fabric-cluster-resource-manager-balancing.md).
+- Menedżer zasobów klastra sieci szkieletowej usług używa metryki toomanage użycia i pojemności hello klastra. więcej informacji na temat metryki toolearn i jak tooconfigure, zapoznaj się z [Zarządzanie zużycia zasobów i obciążenia w sieci szkieletowej usług o metryki](service-fabric-cluster-resource-manager-metrics.md).
+- toolearn dotyczące sposobu hello Menedżera zasobów klastra zarządza i równoważy obciążenie hello klastra, zapoznaj się z [równoważenia klastra usługi sieć szkieletowa](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png

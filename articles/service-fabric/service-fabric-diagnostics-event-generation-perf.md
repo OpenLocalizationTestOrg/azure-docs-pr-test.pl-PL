@@ -1,5 +1,5 @@
 ---
-title: "Wydajność sieci szkieletowej Azure usługi monitorowania | Dokumentacja firmy Microsoft"
+title: "Monitorowanie wydajności sieci szkieletowej usług aaaAzure | Dokumentacja firmy Microsoft"
 description: "Więcej informacji na temat liczników wydajności dla monitorowania i diagnostyki klastrów sieci szkieletowej usług Azure."
 services: service-fabric
 documentationcenter: .net
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 54d4c62b7250a1f70b0898ba07ae5a37716f4cf4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="performance-metrics"></a>Metryki wydajności
 
-Aby zrozumieć działanie klastra, a także aplikacji uruchomionych w niej powinny być gromadzone metryki. Dla klastrów sieci szkieletowej usług firma Microsoft zaleca zbieranie następujących liczników wydajności.
+Metryki powinien toounderstand zebranych hello wydajności klastra można także aplikacji hello uruchomionych w niej. Dla klastrów sieci szkieletowej usług firma Microsoft zaleca zbieranie hello następujące liczniki wydajności.
 
 ## <a name="nodes"></a>Węzły
 
-Dla maszyn w klastrze należy wziąć pod uwagę następujące liczniki wydajności do lepszego zrozumienia obciążenia na każdej maszynie i wprowadzić odpowiednie klastra skalowanie decyzje dotyczące zbierania.
+Witaj maszyn w klastrze należy wziąć pod uwagę zbieranie hello następujące liczniki wydajności toobetter zrozumieć hello obciążenia na każdej maszynie i wprowadzić odpowiednie klastra skalowanie decyzji.
 
 | Kategoria licznika | Nazwa licznika |
 | --- | --- |
@@ -51,7 +51,7 @@ Dla maszyn w klastrze należy wziąć pod uwagę następujące liczniki wydajno�
 
 ## <a name="net-applications-and-services"></a>Usługi i aplikacje środowiska .NET.
 
-Zbierz następujące liczniki, Jeżeli wdrażasz usług .NET do klastra. 
+Zbierz następujące liczniki wdrażania klastra tooyour usług .NET hello. 
 
 | Kategoria licznika | Nazwa licznika |
 | --- | --- |
@@ -66,16 +66,16 @@ Zbierz następujące liczniki, Jeżeli wdrażasz usług .NET do klastra.
 
 ### <a name="service-fabrics-custom-performance-counters"></a>Usługa sieć szkieletowa niestandardowe liczniki wydajności
 
-Sieć szkieletowa usług generuje rozległe niestandardowe liczniki wydajności. Jeśli masz zainstalowany zestaw SDK, zostanie wyświetlona lista kompleksowe na komputerze z systemem Windows, w Monitorze wydajności aplikacji (Start > monitora wydajności). 
+Sieć szkieletowa usług generuje rozległe niestandardowe liczniki wydajności. Jeśli masz hello zainstalowany zestaw SDK, zostanie wyświetlona lista kompleksowe hello na komputerze z systemem Windows, w Monitorze wydajności aplikacji (Start > monitora wydajności). 
 
-W aplikacjach wdrażasz do klastra, jeśli używasz Reliable Actors, Dodaj countes z `Service Fabric Actor` i `Service Fabric Actor Method` kategorii (zobacz [usługi sieć szkieletowa niezawodnej podmiotów diagnostyki](service-fabric-reliable-actors-diagnostics.md)).
+W aplikacji hello wdrażasz tooyour klastra, jeśli używasz Reliable Actors, Dodaj countes z `Service Fabric Actor` i `Service Fabric Actor Method` kategorii (zobacz [usługi sieć szkieletowa niezawodnej podmiotów diagnostyki](service-fabric-reliable-actors-diagnostics.md)).
 
 Jeśli używasz usługi niezawodnego podobnie mamy `Service Fabric Service` i `Service Fabric Service Method` kategorii licznika, które należy zebrać liczników z. 
 
-Użycie niezawodnej kolekcje, zaleca się dodawania `Avg. Transaction ms/Commit` z `Service Fabric Transactional Replicator` zbierać opóźnienie zatwierdzania średni na Metryka transakcji.
+Jeśli używasz niezawodnej kolekcje, zaleca się dodawania hello `Avg. Transaction ms/Commit` z hello `Service Fabric Transactional Replicator` opóźnienie zatwierdzania średni hello toocollect na Metryka transakcji.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [generowania zdarzeń na poziomie platformy](service-fabric-diagnostics-event-generation-infra.md) w sieci szkieletowej usług
+* Dowiedz się więcej o [generowania zdarzeń na poziomie platformy hello](service-fabric-diagnostics-event-generation-infra.md) w sieci szkieletowej usług
 * Zbieranie metryk wydajności za pośrednictwem [diagnostyki Azure](service-fabric-diagnostics-event-aggregation-wad.md)

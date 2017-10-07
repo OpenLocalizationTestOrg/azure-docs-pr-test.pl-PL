@@ -1,6 +1,6 @@
 ---
-title: "Jak przeprowadzić migrację poszczególnych licencjonowanych użytkowników do grupy w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Jak przejść z licencji użytkownika do grupy na podstawie licencji za pomocą usługi Azure Active Directory"
+title: "toomigrate aaaHow Twojego tooa poszczególnych licencjonowani użytkownicy grupy w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Jak tooswitch z indywidualnego użytkownika licencje na podstawie toogroup licencjonowania przy użyciu usługi Azure Active Directory"
 services: active-directory
 keywords: "Licencjonowanie usługi Azure AD"
 documentationcenter: 
@@ -16,76 +16,76 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b77dd4e9a6d361a05382397e89b575896fdad84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 25e5c760b7e632ba71edde10d937fe580aa6ed35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Jak dodać licencjonowanych użytkowników do grupy licencji w usłudze Azure Active Directory
+# <a name="how-tooadd-licensed-users-tooa-group-for-licensing-in-azure-active-directory"></a>Jak tooadd licencjonowana grupy Użytkownicy tooa licencjonowania w usłudze Azure Active Directory
 
-Masz istniejących licencji wdrożone dla użytkowników w organizacji za pomocą "przypisania bezpośredniego" oznacza to za pomocą skryptów programu PowerShell lub innych narzędzi, aby przypisać licencje do poszczególnych użytkowników. Jeśli chcesz rozpocząć korzystanie z zarządzanie licencjami w organizacji na podstawie grupy licencji, konieczne będzie planu migracji bezproblemowo zastąpić istniejące rozwiązania oparte na grupach licencji.
+Masz istniejących toousers licencji wdrożone w organizacjach hello za pośrednictwem "bezpośredniego przypisania"; oznacza to za pomocą skryptów programu PowerShell lub innych narzędzi tooassign użytkownika licencji. Jeśli chcesz toostart przy użyciu oparte na grupach licencji toomanage licencjonowania w organizacji, konieczne będzie przeprowadzenie migracji planu tooseamlessly zastąpić istniejące rozwiązania oparte na grupach licencji.
 
-Ważne jest, należy wziąć pod uwagę to, że należy unikać sytuacji, w których migracja do licencjonowania na podstawie grupy spowoduje użytkownicy tymczasowo utraty ich aktualnie przypisane licencje. Aby usunąć ryzyko utraty dostępu do usług i ich danych należy unikać każdy proces, który może spowodować usunięcie licencji.
+Hello najważniejszy element tookeep pamiętać jest, że należy unikać sytuacji, w którym licencjonowania na podstawie toogroup Migrowanie spowoduje użytkownicy tymczasowo utraty ich aktualnie przypisane licencje. Każdy proces, który może spowodować usunięcie licencji należy unikać tooremove hello ryzyko utraty dostępu tooservices i ich danych.
 
 ## <a name="recommended-migration-process"></a>Proces migracji zalecane
 
 1. Masz istniejącej automatyzacji (na przykład programu PowerShell), zarządzanie przypisania licencji i usuwania dla użytkowników. Usługa będzie działać, ponieważ jest.
 
-2. Utwórz nową grupę licencji (lub zdecydować, które istniejących grup do używania) i upewnij się, czy wszystkie wymagane użytkownicy zostaną dodane jako członkowie.
+2. Utwórz nową grupę licencji (lub zdecydować, które istniejących grup toouse) i upewnij się, czy wszystkie wymagane użytkownicy zostaną dodane jako członkowie.
 
-3. Przypisywanie licencji wymagane do tych grup; Celem powinno być uwzględnienie tego samego stanu licencjonowania, które z istniejącej automatyzacji (na przykład programu PowerShell) jest stosowana do tych użytkowników.
+3. Przypisywanie licencji hello wymaganych grup toothose; Celem powinno być tooreflect hello samej licencyjnymi z istniejącej automatyzacji (na przykład programu PowerShell) jest stosowanie toothose użytkowników.
 
-4. Upewnij się, że licencje zostały zastosowane do wszystkich użytkowników w tych grupach. Można to zrobić, sprawdzając stan przetwarzania w każdej grupie oraz przez sprawdzanie dzienników inspekcji.
+4. Upewnij się, że licencje zostały zastosowane tooall użytkownicy w tych grupach. Można to zrobić, sprawdzając stan przetwarzania hello w każdej grupie oraz przez sprawdzanie dzienników inspekcji.
 
-  - Patrząc na ich szczegóły licencji można kontroli poszczególnych użytkowników. Zobaczysz, że mają one taką samą licencji przypisanych "bezpośrednio" i "odziedziczony" z grupy.
+  - Patrząc na ich szczegóły licencji można kontroli poszczególnych użytkowników. Aby mieć hello samej licencji przypisanych "bezpośrednio" i "odziedziczony" zostanie wyświetlony z grup.
 
-  - Można uruchomić skrypt programu PowerShell w celu [Sprawdź sposób przypisywania licencji do użytkowników](active-directory-licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+  - Należy uruchomić skrypt programu PowerShell za[Sprawdź sposób przypisywania licencji toousers](active-directory-licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
-  - Tej samej licencji produktu jest przypisana do użytkownika zarówno bezpośrednio i za pośrednictwem grupy, tylko jedna licencja jest używane przez użytkownika. Dlatego żadne dodatkowe licencje nie są wymagane do przeprowadzenia migracji.
+  - Hello tego samego produktu licencji jest przypisany użytkownik toohello bezpośrednio i za pośrednictwem grupy, tylko jedna licencja jest używane przez użytkownika hello. Dlatego żadne dodatkowe licencje nie są wymagane tooperform migracji.
 
 5. Upewnij się, że nie przypisań licencji nie sprawdzając każdej grupy użytkowników w stanie błędu. Aby uzyskać więcej informacji, zobacz [zidentyfikowanie i rozwiązywaniu problemów z licencji dla grupy](active-directory-licensing-group-problem-resolution-azure-portal.md).
 
-6. Rozważ usunięcie oryginalnego przypisania bezpośredniego; możesz zrobić to stopniowo etapami"", najpierw monitorowania wyników na podzestaw użytkowników.
+6. Rozważ usunięcie oryginalnego przypisania bezpośredniego hello; może być toodo najpierw go stopniowo etapami"", toomonitor hello wyników na podzestaw użytkowników.
 
-  Można pozostawić oryginalny przypisania bezpośredniego na użytkowników, ale gdy użytkownicy opuszczają ich grup licencji, które zachowują nadal oryginalna licencja jest prawdopodobnie nie ma, które chcesz.
+  Można pozostanie hello oryginalnych przypisań bezpośrednio na użytkowników, ale podczas hello użytkownicy opuszczają ich grup licencji, które nadal zachowa oryginalnej licencji hello, który jest prawdopodobnie nie mają, które chcesz.
 
 ## <a name="an-example"></a>Przykład
 
-Mamy organizacji z 1000 użytkowników. Wszyscy użytkownicy wymagają Enterprise Mobility + Security (EMS) licencji. 200 użytkowników są pracownikiem działu finansowego i wymagają licencji Office 365 Enterprise E3. Mamy uruchomiony lokalnie, dodawanie i usuwanie licencji od użytkowników, jak długo będą pochodzić i przejdź skryptów środowiska PowerShell. Chcemy Zamień skryptu na podstawie grupy licencji, licencje są zarządzane automatycznie przez usługę Azure AD.
+Mamy organizacji z 1000 użytkowników. Wszyscy użytkownicy wymagają Enterprise Mobility + Security (EMS) licencji. 200 użytkowników znajdują się w hello działu finansowego i wymagają licencji Office 365 Enterprise E3. Mamy uruchomiony lokalnie, dodawanie i usuwanie licencji od użytkowników, jak długo będą pochodzić i przejdź skryptów środowiska PowerShell. Chcemy tooreplace hello skryptu na podstawie grupy licencji, licencje są zarządzane automatycznie przez usługę Azure AD.
 
-Oto, jak może wyglądać procesu migracji:
+Oto, jakie hello proces migracji może wyglądać:
 
-1. Przy użyciu portalu Azure przypisanie licencji pakietu EMS do **wszyscy użytkownicy** grupy w usłudze Azure AD. Przypisywanie licencji E3 do **działu finansowego** grupy, która zawiera wszystkie wymagane użytkowników.
+1. Przy użyciu hello Przypisz portalu Azure hello EMS licencji toohello **wszyscy użytkownicy** grupy w usłudze Azure AD. Przypisz hello E3 licencji toohello **działu finansowego** grupy zawierającej wszystkich użytkowników hello wymagane.
 
-2. Dla każdej grupy upewnij się, że przypisanie licencji zostało zakończone dla wszystkich użytkowników. Przejdź do bloku dla każdej grupy, wybierz opcję **licencji**i sprawdź stan przetwarzania w górnej części **licencji** bloku.
+2. Dla każdej grupy upewnij się, że przypisanie licencji zostało zakończone dla wszystkich użytkowników. Przejdź toohello bloku dla każdej grupy, wybierz opcję **licencji**i sprawdzić stan przetwarzania hello u góry hello hello **licencji** bloku.
 
-  - Wyszukaj "Licencji najnowsze zmiany zostały zastosowane do wszystkich użytkowników" Aby upewnić się, przetwarzanie zostało zakończone.
+  - Szukaj dla "najnowsze zmiany licencji zostały zastosowane tooall użytkowników" tooconfirm przetwarzanie zostało zakończone.
 
   - Poszukaj powiadomienia w górnej części o wszyscy użytkownicy, dla których licencji mogą nie zostały pomyślnie przypisane. Czy możemy zabraknie licencji dla niektórych użytkowników? W przypadku niektórych użytkowników, czy mają powodujące konflikt licencji jednostki magazynowe, które uniemożliwiają dziedziczenie grupy licencji?
 
-3. Miejsce Sprawdź niektórych użytkowników, aby sprawdzić, czy mają one zarówno bezpośrednie i grup licencji zastosowane. Przejdź do bloku dla użytkownika, zaznacz **licencji**i sprawdź, czy stan licencji.
+3. Miejsce Sprawdź tooverify niektórych użytkowników, których mają zarówno hello bezpośredniego, jak i grupy licencji zastosowane. Przejdź toohello bloku dla użytkownika, zaznacz **licencji**i sprawdź, czy stan hello licencji.
 
-  - Jest to stan oczekiwany użytkownika podczas migracji:
+  - Jest to hello oczekiwano stanu użytkownika podczas migracji:
 
       ![Stan użytkownika oczekiwany](media/active-directory-licensing-group-migration-azure-portal/expected-user-state.png)
 
-  Potwierdza to, czy użytkownik ma licencje zarówno bezpośrednio, jak i dziedziczone. Firma Microsoft wyświetlana zarówno **EMS** i **E3** są przypisane.
+  Potwierdza to, które użytkownik hello ma zarówno bezpośrednie i dziedziczonych licencji. Firma Microsoft wyświetlana zarówno **EMS** i **E3** są przypisane.
 
-  - Wybierz każdej licencji, aby wyświetlić szczegółowe informacje o włączone usługi. Może to służyć do Sprawdź dokładnie tego samego planów usługi dla użytkownika włączyć bezpośredniego i grup licencji.
+  - Wybierz szczegóły każdego tooshow licencji usług hello włączone. Może to być toocheck używane, jeśli hello bezpośredniego i grupy licencji Włącz hello dokładnie tego samego planów usługi dla użytkownika hello.
 
       ![Sprawdź planów usługi](media/active-directory-licensing-group-migration-azure-portal/check-service-plans.png)
 
-4. Po potwierdzeniu, że zarówno bezpośrednio, jak i grupy licencji są równoważne, można uruchomić, usunięcie licencji bezpośrednio od użytkowników. Można to sprawdzić, usuwając je dla poszczególnych użytkowników w portalu, a następnie uruchom skryptów automatyzacji je usunąć zbiorczo. Oto przykład tego samego użytkownika z licencjami bezpośredniego usunięte za pośrednictwem portalu. Zwróć uwagę, stan licencji nie jest zmieniany, że firma Microsoft nie jest już wyświetlana bezpośredniego przypisania.
+4. Po potwierdzeniu, że zarówno bezpośrednio, jak i grupy licencji są równoważne, można uruchomić, usunięcie licencji bezpośrednio od użytkowników. Można to sprawdzić, usuwając je dla poszczególnych użytkowników w portalu hello, a następnie uruchom toohave skryptów automatyzacji, usunąć je masowo. Oto przykład tego samego użytkownika z licencjami bezpośredniego hello usunięte za pośrednictwem portalu hello hello. Zwróć uwagę, stan licencji hello pozostaje bez zmian, że firma Microsoft nie jest już wyświetlana bezpośredniego przypisania.
 
   ![bezpośrednie licencje usunięte](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat innych scenariuszy zarządzania licencji za pomocą grup, do odczytu
+więcej informacji na temat innych scenariuszy zarządzania licencji za pomocą grup, odczytać toolearn
 
-* [Przypisywanie licencji do grupy w usłudze Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
+* [Przypisywanie licencji tooa grupy w usłudze Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Co to jest oparte na grupach Licencjonowanie w usłudze Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Identyfikowanie i rozwiązywanie problemów z licencji dla grupy w usłudze Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Usługa Azure Active Directory na podstawie grupy licencjonowania dodatkowe scenariusze](active-directory-licensing-group-advanced.md)

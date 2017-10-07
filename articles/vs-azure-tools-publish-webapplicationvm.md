@@ -1,6 +1,6 @@
 ---
-title: Publikowanie WebApplicationVM | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak wdrożyć aplikację sieci web do maszyny wirtualnej. Ten skrypt tworzy wymaganych zasobów w Twojej subskrypcji platformy Azure, jeśli nie istnieją."
+title: aaaPublish WebApplicationVM | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toodeploy maszyny wirtualnej tooa aplikacji sieci web. Ten skrypt tworzy hello wymaganych zasobów w Twojej subskrypcji platformy Azure, jeśli nie istnieją."
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e4b52b620bebf44b87ddfc3b19c155bb65111814
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publikowanie WebApplicationVM (skrypt programu Windows PowerShell)
-Wdraża aplikację sieci web do maszyny wirtualnej. Skrypt tworzy wymaganych zasobów w Twojej subskrypcji platformy Azure, jeśli nie istnieją.
+Wdraża maszynę wirtualną tooa aplikacji sieci web. Witaj skrypt tworzy hello wymaganych zasobów w Twojej subskrypcji platformy Azure, jeśli nie istnieją.
 
 ```
 Publish-WebApplicationVM
@@ -35,86 +35,86 @@ Publish-WebApplicationVM
 ```
 
 ### <a name="configuration"></a>Konfiguracja
-Ścieżka do pliku konfiguracji JSON, który opisuje szczegóły wdrożenia.
+Witaj ścieżki toohello plik JSON konfiguracji opisujący szczegóły hello hello wdrożenia.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Stanowisko |o nazwie |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |wartość false |
 | Akceptowanie symboli wieloznacznych? |wartość false |
 
 ### <a name="subscriptionname"></a>Nazwa subskrypcji
-Nazwa subskrypcji platformy Azure, w którym chcesz utworzyć maszynę wirtualną.
+Nazwa Hello hello subskrypcji platformy Azure, w której ma zostać maszyny wirtualnej hello toocreate.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |wartość false |
+| Wymagana? |wartość false |
 | Stanowisko |o nazwie |
-| Wartość domyślna |Używa pierwszej subskrypcji w pliku subskrypcji |
+| Wartość domyślna |Używa pierwszej subskrypcji hello w pliku subskrypcji hello |
 | Akceptowanie danych wejściowych potoku? |wartość false |
 | Akceptowanie symboli wieloznacznych? |wartość false |
 
 ### <a name="webdeploypackage"></a>WebDeployPackage
-Ścieżka do pakietu wdrożeniowego sieci web do publikowania do maszyny wirtualnej. Ten pakiet można utworzyć za pomocą kreatora Publikowanie w sieci Web w programie Visual Studio. Zobacz [jak: utworzyć pakiet wdrożeniowy sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
+Witaj ścieżki toohello sieci web wdrożenia pakietu toopublish toohello maszyny wirtualnej. Ten pakiet można utworzyć za pomocą kreatora Publikowanie w sieci Web hello w programie Visual Studio. Zobacz [jak: utworzyć pakiet wdrożeniowy sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |wartość false |
+| Wymagana? |wartość false |
 | Stanowisko |o nazwie |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |wartość false |
 | Akceptowanie symboli wieloznacznych? |wartość false |
 
 ### <a name="allowuntrusted"></a>AllowUntrusted
-Jeśli PRAWDA, Zezwalaj na korzystanie z certyfikatów, które nie są podpisane przez zaufanego głównego urzędu.
+Jeśli PRAWDA, Zezwól hello korzystanie z certyfikatów, które nie są podpisane przez zaufanego głównego urzędu.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |wartość false |
+| Wymagana? |wartość false |
 | Stanowisko |o nazwie |
 | Wartość domyślna |wartość false |
 | Akceptowanie danych wejściowych potoku? |wartość false |
 | Akceptowanie symboli wieloznacznych? |wartość false |
 
 ### <a name="vmpassword"></a>VMPassword
-Poświadczenia dla konta maszyny wirtualnej. Przykład: - VMPassword @{nazwa = "admin"; Hasło = "password"}
+poświadczenia Hello hello konta maszyny wirtualnej. Przykład: - VMPassword @{nazwa = "admin"; Hasło = "password"}
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |wartość false |
+| Wymagana? |wartość false |
 | Stanowisko |o nazwie |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |wartość false |
 | Akceptowanie symboli wieloznacznych? |wartość false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-Poświadczenia bazy danych SQL platformy Azure. Przykład: - DatabaseServerPassword @{nazwa = "admin"; Hasło = "password"}
+poświadczenia Hello hello bazy danych SQL platformy Azure. Przykład: - DatabaseServerPassword @{nazwa = "admin"; Hasło = "password"}
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |wartość false |
+| Wymagana? |wartość false |
 | Stanowisko |o nazwie |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |wartość false |
 | Akceptowanie symboli wieloznacznych? |wartość false |
 
 ### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
-Jeśli PRAWDA, Drukuj komunikaty z skrypt do strumienia wyjściowego.
+Jeśli PRAWDA, drukowania wiadomości powitania skryptu toohello output strumienia.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |wartość false |
+| Wymagana? |wartość false |
 | Stanowisko |o nazwie |
 | Wartość domyślna |wartość false |
 | Akceptowanie danych wejściowych potoku? |wartość false |
 | Akceptowanie symboli wieloznacznych? |wartość false |
 
 ## <a name="remarks"></a>Uwagi
-Pełny opis sposobów użycia skryptu do tworzenia środowisk do tworzenia i testowania, zobacz [za pomocą skryptów programu PowerShell systemu Windows do opublikowania deweloperów i środowisk testowych](vs-azure-tools-publishing-using-powershell-scripts.md).
+Pełny opis sposobu toouse hello skryptu toocreate deweloperów i środowisk testowych, zobacz [tooDev tooPublish przy użyciu skrypty programu Windows PowerShell i środowisk testowych](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-Plik JSON konfiguracji określa szczegóły co ma zostać wdrożona. Zawiera informacje, które zostało określone podczas tworzenia projektu, takie jak nazwa grupy koligacji, obrazu wirtualnego dysku twardego i rozmiar maszyny wirtualnej. Także zawiera punkty końcowe na maszynie wirtualnej, baz danych, aby było możliwe, jeśli istnieje i parametry wdrażania w sieci web. Poniższy kod przedstawia przykładowy plik konfiguracji JSON:
+plik konfiguracji JSON Hello określa szczegóły hello co to jest toobe wdrożone. Zawiera informacje dotyczące hello podane podczas tworzenia projektu hello, takie jak nazwa hello, grupy koligacji, obrazu wirtualnego dysku twardego i rozmiar maszyny wirtualnej hello. Także zawiera punkty końcowe hello na maszynie wirtualnej hello hello tooprovision baz danych, jeśli istnieje i parametry wdrażania w sieci web. Witaj następującego kodu przedstawiono przykładowy plik konfiguracji JSON:
 
 ```
 {
@@ -183,5 +183,5 @@ Plik JSON konfiguracji określa szczegóły co ma zostać wdrożona. Zawiera inf
 }
 ```
 
-Można edytować plik JSON konfiguracji do zmiany, jakie są obsługiwane. Maszyny wirtualne i usługi w chmurze są wymagane, ale w sekcji bazy danych jest opcjonalna.
+Co to jest administracyjnie hello JSON konfiguracji pliku toochange można edytować. Maszyny wirtualne i usługi w chmurze są wymagane, ale hello bazy danych sekcja jest opcjonalna.
 

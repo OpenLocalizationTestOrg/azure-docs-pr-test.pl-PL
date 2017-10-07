@@ -16,81 +16,81 @@ ms.date: 03/31/2017
 ms.author: luisca
 ROBOTS: NOINDEX
 redirect_url: machine-learning-datamarket-deprecation
-redirect_document_id: TRUE
-ms.openlocfilehash: 8f27962d097bffc2a03de80244ae41d6573a4bf3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 4c5f0eee4aa04ce823321d52985374c52850f0d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-machine-learning-recommendations---javascript-integration"></a>Zalecenia dotyczące usługi Azure Machine Learning — integracja JavaScript
 > [!NOTE]
-> Należy rozpocząć korzystanie z usługi kognitywnych interfejsu API zalecenia zamiast tej wersji. Kognitywnych usługę rekomendacji spowoduje zastąpienie tej usługi, a opracowane zostaną nowe funkcje. Ma on nowe funkcje, takie jak przetwarzanie wsadowe pomocy technicznej, lepiej Explorer interfejsu API, czyszczący środowisko signup/rozliczeń powierzchni, bardziej spójny interfejs API,... itd.
-> Dowiedz się więcej o [migracji do nowej usługi kognitywnych](http://aka.ms/recomigrate)
+> Należy rozpocząć za pomocą hello usługi kognitywnych zalecenia dotyczące interfejsu API, zamiast tej wersji. Hello kognitywnych usługę rekomendacji spowoduje zastąpienie tej usługi, a opracowane zostaną wszystkie hello nowe funkcje. Ma on nowe funkcje, takie jak przetwarzanie wsadowe pomocy technicznej, lepiej Explorer interfejsu API, czyszczący środowisko signup/rozliczeń powierzchni, bardziej spójny interfejs API,... itd.
+> Dowiedz się więcej o [toohello Migrowanie nową usługę kognitywnych](http://aka.ms/recomigrate)
 > 
 > 
 
-Ten dokument przedstawiać integrowanie witryny przy użyciu języka JavaScript. JavaScript umożliwia wysyłanie danych zdarzeń i zużywać zalecenia po utworzeniu modelu zalecenie. Wszystkie operacje wykonywane za pośrednictwem JS jest również możliwe po stronie serwera.
+Ten dokument przedstawiać jak toointegrate witryny przy użyciu języka JavaScript. Hello JavaScript umożliwia toosend pozyskiwania danych zdarzeń i zalecenia tooconsume po utworzeniu modelu zalecenia. Wszystkie operacje wykonywane za pośrednictwem JS jest również możliwe po stronie serwera.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="1-general-overview"></a>1. Ogólne omówienie
 Integrowanie witryny z usługi Azure ML zalecenia składają się na fazy 2:
 
-1. Wysyłanie zdarzeń do usługi Azure ML zalecenia. Spowoduje to włączenie do tworzenia modelu zalecenia.
-2. Używać zalecenia. Po utworzeniu modelu może wykorzystać zalecenia. (Ten dokument nie wyjaśniono, jak do tworzenia modelu, przeczytaj Przewodnik Szybki start, aby uzyskać więcej informacji na temat).
+1. Wysyłanie zdarzeń do usługi Azure ML zalecenia. Spowoduje to włączenie toobuild modelu zalecenia.
+2. Używać hello zalecenia. Po utworzeniu modelu hello mogą zużywać hello zalecenia. (Ten dokument nie wyjaśniono, jak toobuild modelu, przeczytaj hello tooget Przewodnik Szybki start więcej informacji na temat).
 
 <ins>Faza I</ins>
 
-W pierwszej fazie należy wstawić na stronach html małych biblioteki JavaScript, która umożliwia stronę, aby wysyłać zdarzenia występujące na stronie html do serwerów usługi Azure ML zalecenia (za pośrednictwem rynku danych):
+Hello pierwszą fazę wstawić na stronach html małych biblioteka języka JavaScript, która umożliwia hello strony toosend zdarzenia występujące na stronie html hello na serwerach Azure ML zalecenia (za pośrednictwem rynku danych):
 
 ![Drawing1][1]
 
 <ins>Faza II</ins>
 
-W drugim etapie, gdy chcesz pokazać zalecenia na stronie wybierz jedną z następujących opcji:
+W hello drugiej fazy, kiedy zechcesz zalecenia hello tooshow na stronie powitania wybraniu jednej z hello następujące opcje:
 
-1. serwera (na etapie renderowania stron) wywołuje Azure ML zalecenia dotyczące serwera (za pośrednictwem rynku danych) można uzyskać zalecenia. Wyniki obejmują listę elementów id. Serwer musi wzbogacić wyników z elementami metadanych (np. obrazów, opis) i wysyłany do przeglądarki, utworzonej strony.
+1. serwer (na etapie hello renderowania stron) wywołuje zalecenia tooget Azure ML zalecenia serwera (za pośrednictwem rynku danych). Witaj wyniki obejmują listę elementów id. Serwer musi tooenrich hello wyników z elementami hello metadanych (np. obrazów, opis) i wysłać hello utworzona strona toohello przeglądarki.
 
 ![Drawing2][2]
 
-2. druga opcja to na mały plik JavaScript z pierwszą fazę prosta lista elementów zalecane. Dane otrzymane w tym miejscu jest leaner niż ten, w pierwszej opcji.
+2. Witaj druga opcja to toouse hello mały plik JavaScript z fazy jeden tooget to prosta lista elementów zalecane. w tym miejscu odebrane dane Hello jest leaner niż jeden hello w pierwszej opcji hello.
 
 ![Drawing3][3]
 
 ## <a name="2-prerequisites"></a>2. Wymagania wstępne
-1. Utwórz nowy model przy użyciu interfejsów API. Jak to zrobić, zobacz Przewodnik Szybki start.
-2. Kodowanie z &lt;dataMarketUser&gt;:&lt;dataMarketKey&gt; z formatu base64. (Ten będzie służyć do uwierzytelniania podstawowego do włączenia kodu Javascript do wywołania interfejsów API).
+1. Utwórz nowy model przy użyciu hello interfejsów API. Zobacz Przewodnik Szybki start hello na temat toodo go.
+2. Kodowanie z &lt;dataMarketUser&gt;:&lt;dataMarketKey&gt; z formatu base64. (Ten będzie służyć do hello uwierzytelnianie podstawowe tooenable hello JS kodu toocall hello interfejsów API).
 
 ## <a name="3-send-data-acquisition-events-using-javascript"></a>3. Wysyłanie zdarzeń danych przy użyciu języka JavaScript
-Poniższe kroki ułatwiają wysyłanie zdarzeń:
+Witaj następujące kroki ułatwiają wysyłanie zdarzeń:
 
-1. Uwzględnij biblioteki JQuery w kodzie. Można go pobrać z nuget następujący adres URL.
+1. Uwzględnij biblioteki JQuery w kodzie. Można go pobrać z nuget w hello następującego adresu URL.
    
      http://www.nuget.org/Packages/jQuery/1.8.2
-2. Obejmują biblioteki skryptów Java zalecenia z następującego adresu URL: http://aka.ms/RecoJSLib1
-3. Zainicjowanie biblioteki Azure ML zalecenia z odpowiednimi parametrami.
+2. Zawierają hello skryptów Java zalecenia biblioteki z następującego adresu URL hello: http://aka.ms/RecoJSLib1
+3. Zainicjowanie biblioteki Azure ML zalecenia z odpowiednimi parametrami hello.
    
      <script>AzureMLRecommendationsStart ("<base64encoding of username:key>", "< model_id >"); </script> 
-4. Wysłać odpowiednie zdarzenia. Zobacz poniższą sekcję szczegółowe na wszystkich typów zdarzeń (Zdarzenie kliknięcia przykład) <script> Jeśli (typeof AzureMLRecommendationsEvent == "undefined") {         
+4. Odpowiednie zdarzenie hello wysyłania. Zobacz poniższą sekcję szczegółowe na wszystkich typów zdarzeń (Zdarzenie kliknięcia przykład) <script> Jeśli (typeof AzureMLRecommendationsEvent == "undefined") {         
                      AzureMLRecommendationsEvent =] } AzureMLRecommendationsEvent.push({event: "click", item: "18321116"});</script>
 
 ### <a name="31----limitations-and-browser-support"></a>3.1.    Ograniczenia i obsługa przeglądarek
 Jest to implementacja odwołania i jest on podawany jest. Należy go obsługuje wszystkie główne przeglądarki.
 
 ### <a name="32----type-of-events"></a>3.2.    Typ zdarzenia
-Istnieje 5 typów zdarzeń, które obsługuje biblioteki: kliknij przycisk, kliknij zalecenie, Dodaj do koszyka sklep, Usuń z koszyka produkcyjny i zakupu. Brak dodatkowych zdarzeń, która jest używana do ustawiania kontekstu użytkownika o nazwie logowania.
+Istnieje 5 typy zdarzeń, które obsługuje biblioteki hello: kliknij pozycję zalecenie, Dodaj tooShop koszyka, Usuń z koszyka produkcyjny i zakupu. Brak dodatkowych zdarzenie kontekstu użytkownika hello używane tooset o nazwie logowania.
 
 #### <a name="321-click-event"></a>3.2.1. Zdarzenie kliknięcia
-To zdarzenie powinny być używane w dowolnym momencie, a użytkownik kliknął element. Zwykle, gdy użytkownik kliknie element Nowa strona zostanie otwarty z szczegóły elementu; na tej stronie to zdarzenie jest wyzwalane.
+To zdarzenie powinny być używane w dowolnym momencie, a użytkownik kliknął element. Zwykle, gdy użytkownik kliknie element Nowa strona zostanie otwarty z szczegóły elementu hello; na tej stronie to zdarzenie jest wyzwalane.
 
 Parametry:
 
 * zdarzenia (ciąg, obowiązkowe) "kliknij"
-* Unikatowy identyfikator elementu (ciąg, obowiązkowe) — element
-* Nazwa elementu (ciąg, opcjonalnie) nazwa elementu
-* itemDescription (ciąg, opcjonalny) - opis elementu
-* itemCategory (ciąg, opcjonalny) kategorii elementu
+* Unikatowy identyfikator elementu hello (ciąg, obowiązkowe) — element
+* Nazwa elementu (ciąg, opcjonalnie) nazwa hello elementu hello
+* itemDescription (ciąg, opcjonalny) hello opis elementu hello
+* itemCategory (ciąg, opcjonalny) kategorii hello hello elementu
   
         <script>
             if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -106,17 +106,17 @@ Lub z opcjonalnymi danymi:
 
 
 #### <a name="322-recommendation-click-event"></a>3.2.2. Zalecenie Zdarzenie kliknięcia
-To zdarzenie powinny być używane w dowolnym momencie, a użytkownik kliknął element otrzymanego od zaleceń uczenia Maszynowego Azure jako element zalecane. Zwykle, gdy użytkownik kliknie element Nowa strona zostanie otwarty z szczegóły elementu; na tej stronie to zdarzenie jest wyzwalane.
+To zdarzenie powinny być używane w dowolnym momencie, a użytkownik kliknął element otrzymanego od zaleceń uczenia Maszynowego Azure jako element zalecane. Zwykle, gdy użytkownik kliknie element Nowa strona zostanie otwarty z szczegóły elementu hello; na tej stronie to zdarzenie jest wyzwalane.
 
 Parametry:
 
 * zdarzenia (ciąg, obowiązkowe) "recommendationclick"
-* Unikatowy identyfikator elementu (ciąg, obowiązkowe) — element
-* Nazwa elementu (ciąg, opcjonalnie) nazwa elementu
-* itemDescription (ciąg, opcjonalny) - opis elementu
-* itemCategory (ciąg, opcjonalny) kategorii elementu
-* nasiona (tablicy ciągów, opcjonalny) - ziarna wygenerowanych zapytania zalecenia.
-* recoList (tablicy ciągów, opcjonalny) - wynik żądania zalecenie, który wygenerował element, który został kliknięty.
+* Unikatowy identyfikator elementu hello (ciąg, obowiązkowe) — element
+* Nazwa elementu (ciąg, opcjonalnie) nazwa hello elementu hello
+* itemDescription (ciąg, opcjonalny) hello opis elementu hello
+* itemCategory (ciąg, opcjonalny) kategorii hello hello elementu
+* ziarna (tablicy ciągów, opcjonalny) — Witaj ziarna wygenerowanych hello zalecenie zapytania.
+* recoList (tablicy ciągów, opcjonalny) — Witaj wynik żądania zalecenie hello, generowany hello elementu, który został kliknięty.
   
         <script>
             if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -132,14 +132,14 @@ Lub z opcjonalnymi danymi:
 
 
 #### <a name="323-add-shopping-cart-event"></a>3.2.3. Dodawanie zdarzeń koszyka zakupów
-To zdarzenie powinna być używana podczas użytkownika dodania elementu do koszyka.
+To zdarzenie powinna być używana podczas użytkownika hello dodać toohello elementu koszyka.
 Parametry:
 
 * zdarzenia (ciąg, obowiązkowe) "addshopcart"
-* Unikatowy identyfikator elementu (ciąg, obowiązkowe) — element
-* Nazwa elementu (ciąg, opcjonalnie) nazwa elementu
-* itemDescription (ciąg, opcjonalny) - opis elementu
-* itemCategory (ciąg, opcjonalny) kategorii elementu
+* Unikatowy identyfikator elementu hello (ciąg, obowiązkowe) — element
+* Nazwa elementu (ciąg, opcjonalnie) nazwa hello elementu hello
+* itemDescription (ciąg, opcjonalny) hello opis elementu hello
+* itemCategory (ciąg, opcjonalny) kategorii hello hello elementu
   
         <script>
             if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -147,15 +147,15 @@ Parametry:
         </script>
 
 #### <a name="324-remove-shopping-cart-event"></a>3.2.4. Usuń zdarzenia z koszyka zakupów
-To zdarzenie powinien być używany, gdy użytkownik usuwa element do koszyka.
+To zdarzenie powinien być używany, gdy użytkownik hello usuwa element toohello koszyk.
 
 Parametry:
 
 * zdarzenia (ciąg, obowiązkowe) "removeshopcart"
-* Unikatowy identyfikator elementu (ciąg, obowiązkowe) — element
-* Nazwa elementu (ciąg, opcjonalnie) nazwa elementu
-* itemDescription (ciąg, opcjonalny) - opis elementu
-* itemCategory (ciąg, opcjonalny) kategorii elementu
+* Unikatowy identyfikator elementu hello (ciąg, obowiązkowe) — element
+* Nazwa elementu (ciąg, opcjonalnie) nazwa hello elementu hello
+* itemDescription (ciąg, opcjonalny) hello opis elementu hello
+* itemCategory (ciąg, opcjonalny) kategorii hello hello elementu
   
         <script>
             if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -163,18 +163,18 @@ Parametry:
         </script>
 
 #### <a name="325-purchase-event"></a>3.2.5. Zdarzenie zakupu
-To zdarzenie powinien być używany, gdy użytkownik zakupionych jego koszyk.
+To zdarzenie powinien być używany, gdy użytkownik hello kupił jego koszyk.
 
 Parametry:
 
 * zdarzenia (ciąg) "Kup"
 * elementy (zakupione []) - zawierający wpis dla każdego elementu zakupionych tablicy.<br><br>
   Format zakupionych:
-  * element (string) — Unikatowy identyfikator elementu.
+  * element (string) — Unikatowy identyfikator elementu hello.
   * Liczba (int lub string) — liczba elementów, które zostały zakupione.
-  * Cena (float lub string) — pole opcjonalne - cen elementu.
+  * Cena (float lub string) — pole opcjonalne — hello cena elementu hello.
 
-W poniższym przykładzie pokazano zakupu 3 elementy (33, 34, 35), dwa wszystkich pól (element, count, cena) oraz jedną (element 34) bez ceny.
+przykład Witaj poniżej przedstawia zakupu 3 elementy (33, 34, 35), dwa wszystkich pól (element, count, cena) oraz jedną (element 34) bez ceny.
 
         <script>
             if ( typeof AzureMLRecommendationsEvent == "undefined"){ AzureMLRecommendationsEvent = []; }
@@ -182,14 +182,14 @@ W poniższym przykładzie pokazano zakupu 3 elementy (33, 34, 35), dwa wszystkic
         </script>
 
 #### <a name="326-user-login-event"></a>3.2.6. Zdarzenia logowania użytkownika
-Biblioteki zdarzeń zalecenia dotyczące uczenia Maszynowego Azure tworzy i korzystania z pliku cookie w celu identyfikacji zdarzenia, które pochodzą z tej samej przeglądarce. W celu ulepszania wyniki modelu zalecenia dotyczące uczenia Maszynowego Azure umożliwia ustalenie Unikatowy identyfikator użytkownika, który zastąpi użycia plików cookie.
+Azure zdarzeń zalecenia dotyczące uczenia Maszynowego tworzy biblioteki i używanie plików cookie w kolejności tooidentify zdarzenia, które nadeszły z hello tę samą przeglądarkę. W modelu hello tooimprove kolejność wyników Azure ML zalecenia umożliwia tooset Unikatowy identyfikator użytkownika, który zastąpi hello użycia plików cookie.
 
-To zdarzenie powinny być używane po logowaniu użytkownika do witryny.
+To zdarzenie powinny być używane po hello użytkownika logowania tooyour lokacji.
 
 Parametry:
 
 * zdarzenia (ciąg) "userlogin"
-* Użytkownik (string) — Unikatowy identyfikator użytkownika.
+* Użytkownik (string) — Unikatowy identyfikator hello użytkownika.
   
         <script>
             if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -197,25 +197,25 @@ Parametry:
         </script>
 
 ## <a name="4-consume-recommendations-via-javascript"></a>4. Korzystanie z zalecenia za pośrednictwem kodu JavaScript
-Kod, który wykorzystuje zalecenie jest wyzwalany przez zdarzenie JavaScript przez klienta strony sieci Web. Odpowiedź zalecenie zawiera identyfikatory elementów zalecane, ich nazwy i ich klasyfikacji. Najlepiej użyć tej opcji tylko w przypadku wyświetlania listy elementów zalecane — Obsługa bardziej złożonych (takie jak dodanie metadanych elementu) ma się odbywać na integracji po stronie serwera.
+Hello kod, który zużywa zalecenie hello jest wyzwalany przez zdarzenie JavaScript przez powitania klienta strony sieci Web. odpowiedź zalecenie Hello zawiera hello zalecane identyfikatory elementów, ich nazwy i ich klasyfikacji. Jest najlepszym toouse, który tę opcję tylko w przypadku wyświetlania listy hello zalecane elementów - bardziej złożonej obsługi (takie jak dodanie metadanych elementu hello) ma się odbywać na powitania serwera po stronie integracji.
 
 ### <a name="41-consume-recommendations"></a>4.1 korzystać zalecenia
-Korzystać z zaleceń, które należy uwzględnić wymaganych bibliotek JavaScript na stronie oraz wywołanie AzureMLRecommendationsStart. W sekcji 2.
+zalecenia tooconsume potrzebne tooinclude hello wymaganych bibliotek JavaScript na stronie i w toocall AzureMLRecommendationsStart. W sekcji 2.
 
-Użycie zalecenia dla jednego lub więcej elementów, należy wywołać metodę o nazwie: AzureMLRecommendationsGetI2IRecommendation.
+tooconsume zalecenia dla jednego lub więcej elementów należy wywołać metodę toocall: AzureMLRecommendationsGetI2IRecommendation.
 
 Parametry:
 
-* elementy (tablicę ciągów) — co najmniej jeden element, aby uzyskać zalecenia dotyczące. Jeśli zostaną zużyte na kompilację zmianie wysokości progów, można ustawić tutaj tylko jeden element.
+* elementy jeden lub więcej elementów tooget zalecenia dotyczące (Tablica ciągów -). Jeśli zostaną zużyte na kompilację zmianie wysokości progów, można ustawić tutaj tylko jeden element.
 * numberOfResults (int) - liczba wymaganych wyników.
-* includeMetadata (wartość logiczna, opcjonalny) — Jeśli ma wartość "true" wskazuje, czy pole metadanych powinno zostać zapełnione w wyniku.
-* Funkcja przetwarzania — funkcja, która będzie obsługiwać zalecenia zwracane. Dane są zwracane jako tablica:
+* includeMetadata (wartość logiczna, opcjonalny) — Jeśli ustawić too'true "wskazuje tego pola metadanych hello powinno zostać zapełnione w wyniku hello.
+* Funkcja przetwarzania — funkcja, która będzie obsługiwać zalecenia hello zwracane. Witaj, dane są zwracane jako tablica:
   * Identyfikator unikatowy element — element
   * Nazwa — Nazwa elementu (jeśli istnieje w katalogu)
   * Ocena — zaleceniem klasyfikacji
-  * metadane — ciąg reprezentujący metadanych elementu
+  * metadane — ciąg reprezentujący hello metadanych elementu hello
 
-Przykład: Następujący kod żądań 8 zalecenia dla elementu "64f6eb0d-947a-4c18-a16c-888da9e228ba" (bez określania includeMetadata - niejawnie wskazanego czy metadanych nie jest wymagane), następnie połącz wyniki do buforu.
+Przykład: hello następującego kodu żądań 8 zalecenia dla elementu "64f6eb0d-947a-4c18-a16c-888da9e228ba" (bez określania includeMetadata - niejawnie wskazanego czy metadanych nie jest wymagane), następnie połącz hello wyniki do buforu.
 
         <script>
              var reco = AzureMLRecommendationsGetI2IRecommendation(["64f6eb0d-947a-4c18-a16c-888da9e228ba"], 8, false, function (reco) {

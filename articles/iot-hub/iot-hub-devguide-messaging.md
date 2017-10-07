@@ -1,5 +1,5 @@
 ---
-title: Zrozumienie Centrum IoT Azure messaging | Dokumentacja firmy Microsoft
+title: aaaUnderstand Centrum IoT Azure messaging | Dokumentacja firmy Microsoft
 description: "Przewodnik dewelopera — urządzenia do chmury i wiadomości z Centrum IoT chmury do urządzenia. Zawiera informacje na temat formaty wiadomości i protokołów komunikacyjnych obsługiwanych."
 services: iot-hub
 documentationcenter: .net
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: f54398d7ac46bf178d2bb603669b399d25370736
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a610741e23e243f392f1c042f9ab4a00d42f734f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Urządzenia do chmury i wiadomości z Centrum IoT chmury do urządzenia
 
-Użyj Centrum IoT wiadomości do komunikowania się z urządzeniami przez:
+Użyj Centrum IoT messaging toocommunicate z urządzenia przez:
 
-* Wysyłanie [urządzenia do chmury] [ lnk-d2c] zaplecza wiadomości z urządzeń do rozwiązania.
-* Wysyłanie [chmury do urządzenia] [ lnk-c2d] wiadomości z rozwiązania zaplecza na urządzeniach.
+* Wysyłanie [urządzenia do chmury] [ lnk-d2c] wiadomości z rozwiązania tooyour urządzeń zaplecza.
+* Wysyłanie [chmury do urządzenia] [ lnk-c2d] komunikaty z powrotem rozwiązania hello zakończenie tooyour urządzeń.
 
-Właściwości podstawowe Centrum IoT z obsługą wiadomości są niezawodność i trwałość wiadomości. Te właściwości Włącz odporności na niestabilne połączenie po stronie urządzenia i załadować wzrostów w przypadku przetwarzania po stronie chmury. Centrum IoT implementuje *co najmniej raz* gwarantuje dostarczania dla wiadomości zarówno urządzenia do chmury, jak i chmury do urządzenia.
+Właściwości podstawowe Centrum IoT z obsługą wiadomości są hello niezawodność i trwałość wiadomości. Te właściwości Włącz odporności toointermittent łączności po stronie urządzenia hello, a tooload wzrósł w przypadku przetwarzania po stronie chmury hello. Centrum IoT implementuje *co najmniej raz* gwarantuje dostarczania dla wiadomości zarówno urządzenia do chmury, jak i chmury do urządzenia.
 
-Aby obejrzeć wprowadzenie do funkcji Centrum IoT, zobacz artykuły [Azure i Internet rzeczy] [ lnk-azure-iot] i [Omówienie usługi Azure IoT Hub][lnk-iot-hub-overview].
+Wprowadzenie toohello możliwości Centrum IoT, zobacz artykuły hello [Azure i Internet rzeczy] [ lnk-azure-iot] i [omówienie hello usługa Azure IoT Hub] [lnk-iot-hub-overview].
 
-## <a name="when-to-use-iot-hub-messaging"></a>Kiedy należy używać Centrum IoT obsługi wiadomości
+## <a name="when-toouse-iot-hub-messaging"></a>Gdy toouse Centrum IoT obsługi wiadomości
 
-Jednokierunkowe powiadomień do aplikacji urządzenia, należy użyć urządzenia do chmury wiadomości do wysyłania telemetrii serie czasu i alertów z aplikacją urządzenia i wiadomości chmury do urządzenia.
+Użycie dla aplikacji urządzenia tooyour jednokierunkowe powiadomień wiadomości urządzenia do chmury do wysyłania telemetrii serie czasu i alertów z aplikacją urządzenia i wiadomości chmury do urządzenia.
 
-* Zapoznaj się [wskazówki komunikację urządzenia do chmury] [ lnk-d2c-guidance] if wątpliwe między przy użyciu wiadomości urządzenia do chmury, zgłoszone właściwości lub przekazywania pliku.
-* Zapoznaj się [wskazówki dotyczące komunikacji chmury do urządzenia] [ lnk-c2d-guidance] if wątpliwe między przy użyciu wiadomości chmury do urządzenia, odpowiednie właściwości lub metody bezpośredniego.
+* Odwołuje się zbyt[wskazówki komunikację urządzenia do chmury] [ lnk-d2c-guidance] if wątpliwe między przy użyciu wiadomości urządzenia do chmury, zgłoszone właściwości lub przekazywania pliku.
+* Odwołuje się zbyt[wskazówki dotyczące komunikacji chmury do urządzenia] [ lnk-c2d-guidance] if wątpliwe między przy użyciu wiadomości chmury do urządzenia, odpowiednie właściwości lub metody bezpośredniego.
 
 ## <a name="next-steps"></a>Następne kroki
 

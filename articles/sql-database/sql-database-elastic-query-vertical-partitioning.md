@@ -1,6 +1,6 @@
 ---
-title: Zapytanie dla baz danych chmury z innym schematem | Dokumentacja firmy Microsoft
-description: "jak skonfigurować zapytań między bazami danych za pośrednictwem partycji pionowej"
+title: aaaQuery w chmurze baz danych z innym schematem | Dokumentacja firmy Microsoft
+description: "jak tooset się kwerendy między bazami danych z partycji pionowej"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: e9036f92f6c76e8c4738ee981efa8a7b9791dcc7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1134e2e608128b7a9cac47ff35a22a11e6e5bc14
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Zapytanie dla baz danych chmury z różnych schematach (wersja zapoznawcza)
 ![Zapytanie między tabelami w różnych baz danych][1]
 
-W pionie na partycje bazy danych używać różnych zestawów tabel na różnych baz danych. Oznacza to, że schemat jest różne na różnych baz danych. Na przykład wszystkie tabele spisu są na jedną bazę danych, gdy wszystkie tabele powiązane ewidencjonowania aktywności znajdują się w drugiej bazy danych. 
+W pionie na partycje bazy danych używać różnych zestawów tabel na różnych baz danych. Oznacza to, że schemat hello różni się w różnych baz danych. Na przykład wszystkie tabele spisu są na jedną bazę danych, gdy wszystkie tabele powiązane ewidencjonowania aktywności znajdują się w drugiej bazy danych. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Użytkownik musi mieć uprawnienie ALTER ANY zewnętrznego źródła danych. To uprawnienie jest dołączany uprawnienie ALTER DATABASE.
-* Aby odwołać się do źródła danych są potrzebne uprawnienia ALTER ANY zewnętrznego źródła danych.
+* Witaj, użytkownik musi mieć uprawnienie ALTER ANY zewnętrznego źródła danych. To uprawnienie jest dołączany hello uprawnienie ALTER DATABASE.
+* Uprawnienia ALTER ANY zewnętrznego źródła danych są wymagane toorefer toohello podstawowego źródła danych.
 
 ## <a name="overview"></a>Omówienie
 
 > [!NOTE]
-> W odróżnieniu od z partycjonowania poziomy tych instrukcji DDL nie zależą od Definiowanie warstwą danych z mapą niezależnego fragmentu za pomocą biblioteki klienta elastycznej bazy danych.
+> W odróżnieniu od z partycjonowania poziomy tych instrukcji DDL nie zależą od Definiowanie warstwą danych z mapą niezależnego fragmentu za pomocą biblioteki klienta elastycznej bazy danych hello.
 >
 
 1. [TWORZENIE KLUCZA GŁÓWNEGO](https://msdn.microsoft.com/library/ms174382.aspx)
@@ -41,7 +41,7 @@ W pionie na partycje bazy danych używać różnych zestawów tabel na różnych
 4. [TWORZENIE TABELI ZEWNĘTRZNEJ](https://msdn.microsoft.com/library/dn935021.aspx) 
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Tworzenie klucza głównego bazy danych i poświadczeń
-Poświadczenie jest używany przez elastycznej zapytania do nawiązania połączenia zdalnego baz danych.  
+poświadczenie Hello jest używany przez hello elastycznej zapytania tooconnect tooyour zdalnych baz danych.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -49,7 +49,7 @@ Poświadczenie jest używany przez elastycznej zapytania do nawiązania połącz
     [;]
 
 > [!NOTE]
-> Upewnij się, że `<username>` nie zawiera żadnych **"@servername"** sufiks. 
+> Upewnij się, że hello `<username>` nie zawiera żadnych **"@servername"** sufiks. 
 >
 
 ## <a name="create-external-data-sources"></a>Tworzenie zewnętrznych źródeł danych
@@ -64,11 +64,11 @@ Składnia:
                 ) [;] 
 
 > [!IMPORTANT]
-> Parametr typu musi być ustawiony na **RDBMS**. 
+> Parametr typu Hello musi ustawić także**RDBMS**. 
 >
 
 ### <a name="example"></a>Przykład
-Poniższy przykład przedstawia użycie instrukcji CREATE dla zewnętrznych źródeł danych. 
+Witaj poniższy przykład przedstawia użycie hello hello instrukcji CREATE zewnętrznych źródeł danych. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
     WITH 
@@ -79,7 +79,7 @@ Poniższy przykład przedstawia użycie instrukcji CREATE dla zewnętrznych źr�
         CREDENTIAL= SqlUser 
     ); 
 
-Aby pobrać listę bieżących źródeł danych zewnętrznych: 
+tooretrieve hello listę bieżących źródeł danych zewnętrznych: 
 
     select * from sys.external_data_sources; 
 
@@ -111,33 +111,33 @@ Składnia:
            DATA_SOURCE = RemoteReferenceData 
     ); 
 
-Poniższy przykład pokazuje, jak pobrać listę tabel zewnętrznych z bieżącej bazy danych: 
+Hello poniższy przykład przedstawia, jak tooretrieve hello listy tabel zewnętrznych z hello bieżąca baza danych: 
 
     select * from sys.external_tables; 
 
 ### <a name="remarks"></a>Uwagi
-Elastyczne zapytania rozszerza istniejący składni tabeli zewnętrznej do definiowania tabel zewnętrznych, korzystających z zewnętrznych źródeł danych typu RDBMS. Definicja tabeli zewnętrznej dla partycjonowanie pionowe obejmuje następujące aspekty: 
+Elastyczne zapytania rozszerza hello istniejącej tabeli zewnętrznej składni toodefine tabel zewnętrznych korzystających z zewnętrznych źródeł danych typu RDBMS. Definicja tabeli zewnętrznej dla partycjonowanie pionowe obejmuje hello następujące aspekty: 
 
-* **Schemat**: tabeli zewnętrznej DDL definiuje schemat, który można użyć zapytań. Wybrany schemat w definicji tabeli zewnętrznej musi pasuje do schematu tabel w zdalnej bazy danych, gdzie są przechowywane dane. 
-* **Odwołanie do zdalnej bazy danych**: tabeli zewnętrznej DDL odwołuje się do zewnętrznego źródła danych. Zewnętrzne źródło danych określa nazwy serwera logicznego i bazy danych, zdalnego przechowywania danych rzeczywistych tabeli bazy danych. 
+* **Schemat**: hello tabeli zewnętrznej DDL definiuje schemat, który można użyć zapytań. Schemat Hello w definicji tabeli zewnętrznej wymaga schematu hello toomatch hello tabel w zdalnej bazy danych hello przechowywania hello rzeczywiste dane. 
+* **Odwołanie do zdalnej bazy danych**: hello tabeli zewnętrznej DDL odwołuje się tooan zewnętrznego źródła danych. Witaj zewnętrznego źródła danych określa nazwę serwera logicznego hello i zdalnej bazy danych hello przechowywania danych rzeczywistych tabeli hello Nazwa bazy danych. 
 
-Składnia służąca do tworzenia tabel zewnętrznych za pomocą zewnętrznego źródła danych, zgodnie z opisem w poprzedniej sekcji, jest następujący: 
+Za pomocą zewnętrznego źródła danych, zgodnie z opisem w poprzedniej sekcji hello, hello tabel zewnętrznych toocreate składnia jest następująca: 
 
-W klauzuli DATA_SOURCE definiuje zewnętrznego źródła danych (tj. zdalnej bazy danych w przypadku partycjonowanie pionowe) używany do tabeli zewnętrznej.  
+Klauzula DATA_SOURCE Hello definiuje hello zewnętrznego źródła danych (tj. hello zdalnej bazy danych w przypadku partycjonowanie pionowe) służący do hello tabeli zewnętrznej.  
 
-Klauzule SCHEMA_NAME i OBJECT_NAME zapewniają możliwość mapowania definicji tabeli zewnętrznej tabeli do innego schematu na zdalnej bazy danych lub tabeli o innej nazwie, odpowiednio. Jest to przydatne, jeśli chcesz zdefiniować tabelę zewnętrzną widoku wykazu lub DMV na zdalnej bazy danych — lub w innej sytuacji, gdy nazwa tabeli zdalnej jest już zajęta lokalnie.  
+klauzule SCHEMA_NAME i OBJECT_NAME Hello odpowiednio zawierają hello możliwości toomap hello tabeli zewnętrznej definicji tooa tabeli do innego schematu na hello zdalnej bazy danych lub tabeli tooa pod inną nazwą. Jest to przydatne, jeśli chcesz toodefine widoku wykazu tooa tabeli zewnętrznej lub DMV na zdalnej bazy danych — lub w innej sytuacji, gdy nazwa tabeli zdalnej hello jest już zajęta lokalnie.  
 
-Następująca instrukcja DDL porzuca istniejącej definicji tabeli zewnętrznej z katalogu lokalnego. Nie ma ona wpływu zdalnej bazy danych. 
+Witaj następująca instrukcja DDL porzuca istniejącej definicji tabeli zewnętrznej z katalogu lokalnego hello. Nie ma ona wpływu hello zdalnej bazy danych. 
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Uprawnienia CREATE/DROP tabeli zewnętrznej**: potrzebne są uprawnienia ALTER ANY zewnętrznego źródła danych dla tabeli zewnętrznej DDL, który również jest wymagany do odwoływania się do źródła danych.  
+**Uprawnienia CREATE/DROP tabeli zewnętrznej**: dla tabeli zewnętrznej DDL, który jest także niezbędne toorefer toohello źródła danych, potrzebne są uprawnienia ALTER ANY zewnętrznego źródła danych.  
 
 ## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
-Użytkownicy z dostępem do tabeli zewnętrznej automatycznie uzyskują dostęp do tabel zdalnym w obszarze poświadczenia podane w definicji źródła danych zewnętrznych. Aby zapobiec niepożądanemu podniesienia uprawnień przy użyciu poświadczeń do zewnętrznego źródła danych należy starannie zarządzanie dostępem do tabeli zewnętrznej. Regularne SQL uprawnienia można PRZYDZIELIĆ lub ODWOŁAĆ dostęp do tabeli zewnętrznej, tak jakby był on zwykłą tabelę.  
+Użytkownicy z tabeli zewnętrznej toohello dostępu jest automatycznie uzyskują dostęp toohello zdalnego tabel w obszarze hello poświadczenia podane w definicji źródła danych zewnętrznych hello. Należy uważnie zarządzać tabeli zewnętrznej toohello dostępu w kolejności tooavoid niepożądane podniesienie uprawnień poprzez hello poświadczenia hello zewnętrznego źródła danych. Regularne uprawnienia SQL można tooGRANT używane lub ODWOŁAĆ dostępu tooan zewnętrzna tabela, tak jakby był on zwykłą tabelę.  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>Przykład: zapytanie w pionie na partycje baz danych
-Następujące zapytanie wykonuje trzystopniowego sprzężenie dwóch tabel lokalnych dla zleceń i kolejność wierszy w tabeli zdalnej dla klientów. Jest to przykład przypadek użycia danych odwołania dla elastycznej zapytania: 
+Witaj następujące zapytanie wykonuje trzystopniowego sprzężenie hello dwóch tabel lokalnych dla zleceń i kolejność wierszy tabeli zdalnej hello dla klientów. Jest to przykład przypadek użycia danych hello odwołania dla elastycznej zapytania: 
 
     SELECT      
      c_id as customer,
@@ -155,14 +155,14 @@ Następujące zapytanie wykonuje trzystopniowego sprzężenie dwóch tabel lokal
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Przechowywana procedura zdalne wykonywanie kodu T-SQL: sp\_execute_remote
-Elastyczne zapytania wprowadza również procedury przechowywanej, która zapewnia bezpośredni dostęp do fragmentów. Procedura składowana jest nazywany [sp\_wykonania \_zdalnego](https://msdn.microsoft.com/library/mt703714) i może służyć do wykonania zdalnego procedur składowanych lub kod T-SQL na zdalnym baz danych. Go przyjmuje następujące parametry: 
+Elastyczne zapytania wprowadza również procedury przechowywanej, która zapewnia bezpośredni dostęp odłamków toohello. Hello jest wywoływana procedura składowana [sp\_wykonania \_zdalnego](https://msdn.microsoft.com/library/mt703714) i tooexecute używane zdalne procedury składowane lub kod T-SQL na powitania zdalnych baz danych. Trwa hello następujące parametry: 
 
-* Nazwa źródła danych (nvarchar): Nazwa źródła danych zewnętrznych typu RDBMS. 
-* Zapytania (nvarchar): zapytania T-SQL do wykonania na każdej niezależnego fragmentu. 
-* Deklaracja parametru (nvarchar) - opcjonalne: ciąg zawierający definicje typów danych parametrów parametr zapytania (na przykład sp_executesql). 
+* Nazwa źródła danych (nvarchar): Nazwa hello hello zewnętrznego źródła danych RDBMS typu. 
+* Zapytania (nvarchar): hello T-SQL toobe zapytanie wykonywane na każdej niezależnego fragmentu. 
+* Deklaracja parametru (nvarchar) - opcjonalne: ciąg zawierający definicje typów danych parametrów hello hello parametr zapytania (na przykład sp_executesql). 
 * Lista wartości parametrów - opcjonalne: rozdzielana przecinkami lista wartości parametrów (na przykład sp_executesql).
 
-PS\_wykonania\_zdalnego używa zewnętrzne źródło danych podane w parametrów wywołania do wykonania danej instrukcji T-SQL na zdalnym baz danych. Łączenie się z bazy danych Menedżera shardmap i zdalnymi bazami danych używa poświadczeń do zewnętrznego źródła danych.  
+Hello sp\_wykonania\_zewnętrzne źródło danych podane w podanej instrukcji T-SQL w bazach danych, zdalnego hello hello wywołania parametry tooexecute hello hello używa zdalnego. Poświadczenie hello hello dane zewnętrzne źródło tooconnect toohello shardmap Menedżera bazy danych i baz danych, zdalnego hello jest używany.  
 
 Przykład: 
 
@@ -173,11 +173,11 @@ Przykład:
 
 
 ## <a name="connectivity-for-tools"></a>Połączenie narzędzi
-Prawidłowe parametry połączenia SQL Server umożliwia połączenia narzędzi integracyjnych BI i danych do baz danych na serwerze bazy danych SQL, który ma elastycznej zapytania włączone i tabel zewnętrznych zdefiniowane. Upewnij się, czy program SQL Server jest obsługiwana jako źródło danych dla własnych narzędzi. Następnie zobacz kwerendy elastycznej bazy danych i jego tabele zewnętrzne, podobnie jak wszystkie inne bazy danych SQL Server, które można połączyć się z narzędziem. 
+Regularne tooconnect ciągów połączenia programu SQL Server można użyć toodatabases narzędzi integracji BI i danych na serwerze bazy danych SQL hello, który ma elastycznej zapytań włączone i tabel zewnętrznych zdefiniowane. Upewnij się, czy program SQL Server jest obsługiwana jako źródło danych dla własnych narzędzi. Następnie można znaleźć toohello elastycznej zapytanie do bazy danych i jego tabele zewnętrzne, podobnie jak wszystkie inne bazy danych SQL Server czy można połączyć toowith własnych narzędzi. 
 
 ## <a name="best-practices"></a>Najlepsze praktyki
-* Upewnij się, że elastycznej kwerendy bazy danych punktu końcowego ma dostęp do zdalnej bazy danych przez umożliwienie dostępu do usług platformy Azure w konfiguracji zapory bazy danych SQL. Upewnij się również, że poświadczenia podane w definicji źródła danych zewnętrznych może pomyślnie zalogować się do zdalnej bazy danych i ma uprawnienia dostępu do tabeli zdalnej.  
-* Zapytania elastycznej działa najlepiej dla zapytań gdzie na zdalnych baz danych można wykonać większość obliczenia. Zwykle uzyskać najlepszą wydajność zapytań z predykatu filtru selektywnego, które można oszacować na zdalnych baz danych lub sprzężenia, które mogą być wykonywane całkowicie na zdalnej bazy danych. Innymi wzorcami zapytań może być konieczne ładowania dużych ilości danych ze zdalną bazą danych i mogą działać nieprawidłowo. 
+* Upewnij się, że tej bazy danych punktu końcowego elastycznej zapytania hello została podana zdalnej bazy danych programu access toohello przez umożliwienie dostępu do usług platformy Azure w konfiguracji zapory bazy danych SQL. Upewnij się również to poświadczenie hello danych zewnętrznych hello definicji źródła może pomyślnie zalogować się do zdalnej bazy danych hello i ma tabeli zdalnej tooaccess hello hello uprawnienia.  
+* Zapytania elastycznej działa najlepiej dla zapytań gdzie na powitania zdalnych baz danych można wykonać większość obliczeń hello. Zwykle uzyskać najlepszą wydajność zapytań hello z predykatu filtru selektywnego, które można oszacować na powitania zdalnych baz danych lub sprzężenia, które mogą być wykonywane całkowicie na powitania zdalnej bazy danych. Innymi wzorcami zapytań może być konieczne tooload dużych ilości danych z hello zdalnej bazy danych i mogą działać nieprawidłowo. 
 
 ## <a name="next-steps"></a>Następne kroki
 

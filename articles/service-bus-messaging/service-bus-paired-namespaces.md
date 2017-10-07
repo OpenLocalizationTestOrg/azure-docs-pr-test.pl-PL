@@ -1,5 +1,5 @@
 ---
-title: "Przestrzenie nazw łączyć usługi Azure Service Bus | Dokumentacja firmy Microsoft"
+title: "przestrzenie nazw łączyć aaaAzure usługi Service Bus | Dokumentacja firmy Microsoft"
 description: "Szczegóły implementacji par nazw i kosztów"
 services: service-bus-messaging
 documentationcenter: na
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: sethm
-ms.openlocfilehash: a200ea7937b9f5296c743928a9408897adfba428
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4c44b2b95d2228e1ad8075b52634d88a1593d3b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Skojarzone szczegóły implementacji przestrzeni nazw i kosztów efekty
-[PairNamespaceAsync] [ PairNamespaceAsync] — metoda, za pomocą [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] wystąpienia, wykonuje zadania widoczne w Twoim imieniu. Ponieważ są koszt zagadnienia, podczas korzystania z funkcji, takiemu grupowaniu można sprawdzić te zadania, tak aby oczekiwać zachowanie, gdy nastąpi. Interfejs API angażujący następujące automatyczne działanie w imieniu użytkownika:
+Witaj [PairNamespaceAsync] [ PairNamespaceAsync] — metoda, za pomocą [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] wystąpienia, wykonuje zadania widoczne w Twoim imieniu. Ponieważ są koszt zagadnienia, podczas używania funkcji hello, jest przydatne toounderstand tych zadań, aby oczekiwać hello zachowanie, gdy nastąpi. Witaj interfejsu API angażujący hello następujące zachowanie automatyczne w Twoim imieniu:
 
 * Tworzenie zaległości kolejki.
-* Tworzenie [MessageSender] [ MessageSender] obiekt, który komunikuje się z kolejki i tematy.
-* Gdy jednostka obsługi komunikatów staje się niedostępny, wysyła polecenie ping wiadomości do jednostki w celu Wykryj, kiedy jednostkę znowu dostępne.
-* Opcjonalnie tworzy zestawu pomp"komunikat" który przenosić wiadomości z kolejki zaległości do kolejki głównej.
-* Współrzędne zamknięcia/powodujący błąd podstawowych i pomocniczych [MessagingFactory] [ MessagingFactory] wystąpień.
+* Tworzenie [MessageSender] [ MessageSender] obiekt, który zawiera tooqueues lub tematów.
+* Gdy jednostka obsługi komunikatów staje się niedostępny, wysyła komunikaty ping toohello jednostki w toodetect próba podczas jednostkę znowu dostępne.
+* Opcjonalnie tworzy zestawu pomp"komunikat" czy przenoszenia wiadomości z hello zaległości kolejki toohello głównej kolejek.
+* Współrzędne zamknięcia/spowodowaniem błędu z hello podstawowych i pomocniczych [MessagingFactory] [ MessagingFactory] wystąpień.
 
-Na wysokim poziomie, ta funkcja działa w następujący sposób: podczas podstawowej jednostki jest w dobrej kondycji, nie zmiany sposobu działania są wykonywane. Gdy [FailoverInterval] [ FailoverInterval] upłynie czas trwania, a nie powiodło się widzi podstawowej jednostki wysyła po z systemem innym niż przejściowy [MessagingException] [ MessagingException] lub [TimeoutException][TimeoutException], spowoduje następujące zachowanie:
+Na wysokim poziomie, funkcja hello działa w następujący sposób: obiekt podstawowy hello jest w dobrej kondycji, żadne zmiany zachowania nastąpić. Gdy hello [FailoverInterval] [ FailoverInterval] upłynie czas trwania, a obiekt podstawowy hello zobaczy nie powiodło się wysyła po z systemem innym niż przejściowy [MessagingException] [ MessagingException] lub [TimeoutException][TimeoutException], występuje hello następujące zachowanie:
 
-1. Wyślij operacji do podstawowej jednostki są wyłączone i systemu wysyła pakiet usługi ping podstawowej jednostki aż pomyślnie dostarczony polecenia ping.
+1. Wyślij toohello operacji podstawowej jednostki są wyłączone i pakietów systemu hello hello podstawowej jednostki, aż pomyślnie dostarczony polecenia ping.
 2. Wybrano losowe zaległości kolejki.
-3. [BrokeredMessage] [ BrokeredMessage] obiekty są kierowane do wybranego zaległości kolejki.
-4. W przypadku niepowodzenia operacji wysyłania do kolejki zaległości wybrany tej kolejki są pobierane z obrót i Nowa kolejka jest zaznaczone. Wszystkich nadawców na [MessagingFactory] [ MessagingFactory] wystąpienia Dowiedz się więcej o awarii.
+3. [BrokeredMessage] [ BrokeredMessage] obiekty są routingiem toohello wybrany zaległości kolejki.
+4. W przypadku niepowodzenia toohello operacji wysyłania, wybierany zaległości kolejki tej kolejki są pobierane z obrotu hello i Nowa kolejka jest zaznaczone. Wszystkich nadawców na powitania [MessagingFactory] [ MessagingFactory] wystąpienia Dowiedz się hello awarii.
 
-Poniższe rysunki przedstawiać sekwencję. Nadawca wysyła najpierw wiadomości.
+Witaj następującej liczby przedstawiać hello sekwencji. Po pierwsze hello Nadawca wysyła wiadomości.
 
 ![Sparowanego przestrzenie nazw][0]
 
-W przypadku awarii do wysyłania do kolejki głównej nadawca zaczyna wysyła wiadomości do kolejki zaległości losowo wybrany. Rozpoczyna się jednocześnie, zadanie ping.
+Po awarii toosend toohello podstawowej kolejki hello nadawca zaczyna, wysyłania wiadomości tooa losowo wybrany zaległości kolejki. Rozpoczyna się jednocześnie, zadanie ping.
 
 ![Sparowanego przestrzenie nazw][1]
 
-W tym momencie komunikaty są nadal w kolejce dodatkowej i nie zostały dostarczone do kolejki głównej. Gdy podstawowy kolejki jest w dobrej kondycji ponownie, co najmniej jeden proces powinna być uruchomiona syphon. Syphon dostarcza komunikaty z różnych kolejek zaległości na jednostki właściwe miejsce docelowe (kolejki i tematy).
+W tym momencie wiadomości powitania są nadal w hello kolejki dodatkowej, a nie została dostarczona toohello kolejki głównej. Po kolejki głównej hello jest w dobrej kondycji ponownie, co najmniej jednego procesu powinna działać hello syphon. Hello syphon dostarcza wiadomości powitania z wszystkich powitalne różnych zaległości kolejki toohello właściwe miejsce docelowe jednostek (kolejki i tematy).
 
 ![Sparowanego przestrzenie nazw][2]
 
-W pozostałej części w tym temacie omówiono konkretne szczegółowe informacje, jak te elementy pracy.
+Hello pozostałej części tematu opisano hello konkretne szczegółowe informacje, jak te elementy pracy.
 
 ## <a name="creation-of-backlog-queues"></a>Tworzenie zaległości kolejki
-[SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] obiekt przekazywany do [PairNamespaceAsync] [ PairNamespaceAsync] metody wskazuje liczbę kolejek zaległości, którego chcesz użyć. Każdej kolejki zaległości zostanie utworzona z następującymi właściwościami jawnie ustaw (wszystkie inne wartości są ustawiane na [QueueDescription] [ QueueDescription] ustawień domyślnych):
+Witaj [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] obiekt przekazany toohello [PairNamespaceAsync] [ PairNamespaceAsync] hello wskazuje — metoda Liczba zaległości kolejki możesz mają toouse. Każdej kolejki zaległości zostanie utworzona z hello następujące właściwości jawnie ustaw (wszystkie inne wartości są ustawiane toohello [QueueDescription] [ QueueDescription] ustawień domyślnych):
 
 | Ścieżka | [głównej przestrzeni nazw] / x magistrali usług transferu / [Indeks] [Indeks] w przypadku wartości [0, BacklogQueueCount) |
 | --- | --- |
@@ -63,15 +63,15 @@ W pozostałej części w tym temacie omówiono konkretne szczegółowe informacj
 | EnableDeadLetteringOnMessageExpiration |Wartość true |
 | EnableBatchedOperations |Wartość true |
 
-Na przykład utworzyć pierwszy kolejki zaległości dla przestrzeni nazw **contoso** nosi nazwę `contoso/x-servicebus-transfer/0`.
+Na przykład hello pierwszej zaległości kolejki utworzone dla przestrzeni nazw **contoso** nosi nazwę `contoso/x-servicebus-transfer/0`.
 
-Podczas tworzenia kolejki, kod najpierw sprawdza, czy istnieje takiej kolejki. Jeśli kolejka nie istnieje, trwa tworzenie kolejki. Ten kod nie oczyszczania "dodatkowe" zaległości kolejki. W szczególności jeśli aplikacji głównej przestrzeni nazw **contoso** żądań w pięciu kolejkach zaległości, ale zaległości kolejki ze ścieżką `contoso/x-servicebus-transfer/7` istnieje, jest nadal znajdują się dodatkowe zaległości kolejki, ale nie są używane. System zezwala jawnie kolejek zaległości dodatkowe mogą znajdować się, których nie można użyć. Jako właściciel przestrzeni nazw jest odpowiedzialny za czyszczenie wszystkie nieużywane/niechciane zaległości kolejki. Przyczyną tej decyzji jest magistrali usług nie wiadomo, jakich celów istnieje dla wszystkich kolejek w przestrzeni nazw. Ponadto jeśli kolejka o podanej nazwie istnieje, ale nie spełnia zakładanego [QueueDescription][QueueDescription], a następnie z powodów są własne dla zmianę zachowania domyślnego. Gwarancje nie są wykonywane dla modyfikacje kolejki zaległości w kodzie. Upewnij się dokładnie przetestować zmiany.
+Podczas tworzenia kolejki hello, kod hello najpierw sprawdza toosee, jeśli istnieje takiej kolejki. Jeśli hello kolejka nie istnieje, kolejka hello jest tworzona. nie ma kodu Hello oczyszczania "dodatkowe" zaległości kolejki. W szczególności, jeśli hello aplikacji hello głównej przestrzeni nazw **contoso** żądań w pięciu kolejkach zaległości, ale zaległości kolejki ze ścieżką hello `contoso/x-servicebus-transfer/7` istnieje, jest nadal znajdują się dodatkowe zaległości kolejki, ale nie są używane. Hello system jawnie zezwala na dodatkowe zaległości kolejki tooexist, który nie jest używany. Właściciel przestrzeni nazw hello jest odpowiedzialny za czyszczenie wszystkie nieużywane/niechciane zaległości kolejki. Witaj tej decyzji są usługi Service Bus nie wiadomo, jakich celów istnieje dla wszystkich kolejek hello w przestrzeni nazw. Ponadto jeśli kolejka o hello podanej nazwie istnieje, ale nie spełnia hello zakłada, że [QueueDescription][QueueDescription], nie można używać z powodów własne do zmieniających się hello domyślne zachowanie. Żadnych gwarancji są wykonywane dla kolejki zaległości toohello zmian w kodzie. Wprowadź zmiany tootest się dokładnie.
 
 ## <a name="custom-messagesender"></a>Niestandardowe MessageSender
-Podczas wysyłania, wszystkie komunikaty go za pośrednictwem wewnętrznego [MessageSender] [ MessageSender] obiekt, który będzie pracował normalnie, kiedy wszystko działa i przekierowuje do zaległości kolejki podczas czynności "break." Po odebraniu Błąd przejściowy z systemem innym niż, uruchamia czasomierz. Po [TimeSpan] [ TimeSpan] okres składające się z [FailoverInterval] [ FailoverInterval] uczestniczy w którym nie powiodło się komunikaty są wysyłane, wartość właściwości pracy awaryjnej. W tym momencie dla każdej jednostki się zdarzyć następujących czynności:
+Podczas wysyłania, wszystkie komunikaty go za pośrednictwem wewnętrznego [MessageSender] [ MessageSender] obiekt, który działa normalnie, kiedy wszystko działa i przekierowuje toohello zaległości kolejki, gdy elementy "break." Po odebraniu Błąd przejściowy z systemem innym niż, uruchamia czasomierz. Po [TimeSpan] [ TimeSpan] okres składające się z hello [FailoverInterval] [ FailoverInterval] wartość właściwości, w którym nie wysłano żadnych komunikatów powiodło się , pracy awaryjnej hello jest włączone. W tym momencie hello następujących czynności stanie dla każdego obiektu:
 
-* Wykonuje zadanie ping co [PingPrimaryInterval] [ PingPrimaryInterval] do sprawdzenia, czy jednostka jest dostępna. Po pomyślnym to zadanie, żadnego kodu klienta, który używa jednostki natychmiast rozpoczyna wysyłanie wiadomości do głównej przestrzeni nazw.
-* Wynikiem będzie przyszłych żądań do wysyłania do tej samej jednostki z innych nadawców [BrokeredMessage] [ BrokeredMessage] wysyłane modyfikacji w celu znajdują się w kolejce zaległości. Modyfikacja usuwa niektóre właściwości z [BrokeredMessage] [ BrokeredMessage] obiektu i przechowuje je w innym miejscu. Następujące właściwości są wyczyszczone i dodany w obszarze Nowy alias, dzięki czemu jednolicie przetwarzania komunikatów usługi Service Bus i zestawu SDK:
+* Wykonuje zadanie ping co [PingPrimaryInterval] [ PingPrimaryInterval] toocheck, jeśli jednostka hello jest dostępna. Gdy to zadanie zakończy się powodzeniem, żadnego kodu klienta, który używa jednostki hello natychmiast rozpoczyna wysyłanie nowej wiadomości toohello głównej przestrzeni nazw.
+* Tej samej jednostki z innych nadawców spowoduje hello toothat toosend przyszłych żądań [BrokeredMessage] [ BrokeredMessage] wysyłane toobe zmodyfikować toosit hello zaległości kolejki. Modyfikacja Hello usuwa hello niektóre właściwości [BrokeredMessage] [ BrokeredMessage] obiektu i przechowuje je w innym miejscu. Witaj następujące właściwości są wyczyszczone i dodany w obszarze Nowy alias, umożliwiając usługi Service Bus i hello wiadomości tooprocess SDK jednolicie:
 
 | Stara nazwa właściwości | Nowa nazwa właściwości |
 | --- | --- |
@@ -79,23 +79,23 @@ Podczas wysyłania, wszystkie komunikaty go za pośrednictwem wewnętrznego [Mes
 | TimeToLive |x-ms-timetolive |
 | ScheduledEnqueueTimeUtc |x-ms-path. |
 
-Oryginalna ścieżka docelowa jest również przechowywane w wiadomości jako właściwość o nazwie x-ms-path. Ten projekt umożliwia wiadomości dla wielu obiektów współistnienie w jednym zaległości kolejki. Właściwości są tłumaczone przez syphon.
+Oryginalna ścieżka docelowa Hello jest również przechowywane w wiadomości powitania jako właściwość o nazwie x-ms-path. Ten projekt umożliwia komunikatów dla wielu toocoexist jednostek w jednym zaległości kolejki. właściwości Hello są tłumaczone przez hello syphon.
 
-Niestandardowa [MessageSender] [ MessageSender] obiektu może wystąpić problemy podczas wiadomości podejścia limit 256 KB i pracy awaryjnej jest włączone. Niestandardowa [MessageSender] [ MessageSender] obiekt przechowuje komunikaty wszystkich kolejek i tematów w zaległości kolejki. Ten obiekt łączy komunikaty z wielu kolory podstawowe w ramach zaległości kolejki. Do obsługi obciążenia zrównoważyć wielu klientów, których nie wiadomo, wzajemnie, zestaw SDK losowo wybiera jeden kolejki zaległości na dla każdego [QueueClient] [ QueueClient] lub [TopicClient] [ TopicClient] tworzenie w kodzie.
+niestandardowe Hello [MessageSender] [ MessageSender] obiektu można napotkania problemów podczas wiadomości podejścia limit 256 KB hello i pracy awaryjnej jest włączone. niestandardowe Hello [MessageSender] [ MessageSender] obiekt przechowuje komunikaty wszystkich kolejek i tematów w hello zaległości kolejki. Ten obiekt łączy komunikaty z wielu kolory podstawowe w ramach hello zaległości kolejki. obciążenia toohandle zrównoważyć wielu klientów, których nie wiadomo, każdy inny, hello SDK losowo wybiera jeden zaległości kolejki dla każdego [QueueClient] [ QueueClient] lub [TopicClient] [ TopicClient] tworzenie w kodzie.
 
 ## <a name="pings"></a>Polecenia ping
-Wiadomość ping jest pusta [BrokeredMessage] [ BrokeredMessage] z jego [ContentType] [ ContentType] właściwość aplikacji/vnd.ms-magistrali usług ping i [TimeToLive] [ TimeToLive] wartość 1 sekundę. To polecenie ping ma jeden właściwości specjalne w usłudze Service Bus: serwer nigdy nie dostarcza polecenia ping, gdy zażąda każdego obiektu wywołującego [BrokeredMessage][BrokeredMessage]. W związku z tym nie trzeba Dowiedz się, jak otrzymywać i ignorować te komunikaty. Każdy obiekt (unikatowe kolejka lub temat) na [MessagingFactory] [ MessagingFactory] wystąpienia na klienta będzie można wykonywać polecenia ping, gdy są one uznawane za jako niedostępny. Domyślnie to odbywa się raz na minutę. Komunikaty ping są traktowane jako prawidłowe komunikatów usługi Service Bus i może spowodować opłaty za przepustowości i wiadomości. Jak klienci wykrywają, że system będzie dostępny, Zatrzymaj wiadomości.
+Wiadomość ping jest pusta [BrokeredMessage] [ BrokeredMessage] z jego [ContentType] [ ContentType] tooapplication/vnd.ms-magistrali usług ping ustawić właściwości i [TimeToLive] [ TimeToLive] wartość 1 sekundę. To polecenie ping ma jeden właściwości specjalne w usłudze Service Bus: serwer hello nigdy nie zapewnia polecenia ping, gdy zażąda każdego obiektu wywołującego [BrokeredMessage][BrokeredMessage]. W związku z tym, że nie musisz toolearn jak tooreceive i Ignoruj tych wiadomości. Każdy obiekt (unikatowe kolejka lub temat) na [MessagingFactory] [ MessagingFactory] wystąpienia na klienta będzie można wykonywać polecenia ping, gdy są one uznawane za toobe niedostępny. Domyślnie to odbywa się raz na minutę. Wiadomości ping są traktowane jako toobe regularne komunikatów usługi Service Bus i może spowodować opłaty za przepustowości i komunikatów. Jak hello klienci wykrywają, że hello system jest dostępny, Zatrzymaj wiadomości powitania.
 
-## <a name="the-syphon"></a>Syphon
-Co najmniej jeden program wykonywalny w aplikacji aktywnie powinna działać syphon. Syphon wykonuje długi sondowania odbierania, które to 15 minut. Gdy wszystkie obiekty są dostępne i masz 10 zaległości kolejki, aplikacji, która obsługuje syphon wywołania operacji odbierania 40 razy na godzinę, 960 razy dziennie i 28800 razy w ciągu 30 dni. Przemieszczając się syphon jest aktywnie komunikatów z zaległości do kolejki głównej, każdy komunikat napotyka następujące opłaty (standardowe opłaty za rozmiaru wiadomości i przepustowości dotyczy wszystkich etapach):
+## <a name="hello-syphon"></a>Witaj syphon
+Co najmniej jeden program wykonywalny w aplikacji hello aktywnie powinna działać hello syphon. Witaj syphon wykonuje długi sondowania odbierania, które to 15 minut. Gdy wszystkie obiekty są dostępne i masz 10 zaległości kolejki, hello aplikacji, która obsługuje wywołania syphon hello hello odbierania operacji 40 razy na godzinę, 960 razy dziennie i 28800 razy w ciągu 30 dni. Podczas hello syphon jest aktywnie przenoszenia wiadomości z kolejki głównej hello zaległości toohello, każdy komunikat napotyka powitania po opłaty (standardowe opłaty za rozmiaru wiadomości i przepustowości dotyczy wszystkich etapach):
 
-1. Wyślij do listy prac.
-2. Otrzymywać zaległości.
-3. Wyślij do serwera podstawowego.
-4. Odbieranie z serwera podstawowego.
+1. Wyślij toohello zaległości.
+2. Otrzymywać hello zaległości.
+3. Wyślij toohello podstawowego.
+4. Otrzymywać hello podstawowego.
 
 ## <a name="closefault-behavior"></a>Zamknij/błędów zachowanie
-W aplikacji, która obsługuje syphon, raz podstawowej lub pomocniczej [MessagingFactory] [ MessagingFactory] błędów lub zamknięciu bez partnera również jest błędny zamknięte, a syphon wykrywa ten stan działania syphon. Jeśli drugiej [MessagingFactory] [ MessagingFactory] nie są zamknięte w ciągu 5 sekund syphon będzie fault nadal Otwórz [MessagingFactory][MessagingFactory].
+W aplikacji, która obsługuje hello syphon, raz hello podstawowej lub pomocniczej [MessagingFactory] [ MessagingFactory] błędów lub zostanie zamknięty bez jej partnerów również błędny/zamknięte i hello syphon wykrywa tego stanu , hello syphon działa. Jeśli inne hello [MessagingFactory] [ MessagingFactory] nie są zamknięte w ciągu 5 sekund hello syphon będzie fault Otwórz nadal hello [MessagingFactory] [ MessagingFactory] .
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz [asynchroniczne wzorce i wysokiej dostępności do obsługi komunikatów] [ Asynchronous messaging patterns and high availability] szczegółowe omówienie asynchroniczne komunikatów usługi Service Bus. 

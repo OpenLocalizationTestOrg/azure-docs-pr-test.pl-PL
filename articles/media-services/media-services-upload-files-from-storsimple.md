@@ -1,6 +1,6 @@
 ---
-title: "Przekazywanie plików na konto usługi Azure Media Services z rozwiązania Azure StorSimple | Microsoft Docs"
-description: "Ten artykuł zawiera krótkie omówienie usługi Azure StorSimple Data Manager. Artykuł zawiera również linki do samouczków, które przedstawiają sposób wyodrębniania danych z rozwiązania StorSimple i przekazywania ich jako elementów zawartości na konto usługi Azure Media Services."
+title: "pliki aaaUpload do konta usługi Azure Media Services z Azure StorSimple | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera krótkie omówienie usługi Azure StorSimple Data Manager. Artykuł Hello zawiera również linki tootutorials, który przedstawia sposób tooextract danych z StorSimple i przekaż go jako tooan zasobów konta usługi Azure Media Services."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/27/2017
 ms.author: juliako
-ms.openlocfilehash: 636d55c15aa383208ffb39d5224123831af962c9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7e9712aa480106bbd5fcc63eaecf0418b24a8bef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Przekazywanie plików na konto usługi Azure Media Services z rozwiązania Azure StorSimple
 
-Ten artykuł zawiera krótkie omówienie usługi Azure StorSimple Data Manager. Artykuł zawiera również linki do samouczków, które przedstawiają sposób wyodrębniania danych z rozwiązania StorSimple i przekazywania ich jako elementów zawartości na konto usługi Azure Media Services (AMS).
+Ten artykuł zawiera krótkie omówienie usługi Azure StorSimple Data Manager. Artykuł Hello zawiera również linki tootutorials, który przedstawia sposób tooextract danych z StorSimple i przekazać te dane jako tooan zasobów konta usługi Azure Media Services (AMS).
 
 > 
 > [!NOTE]
@@ -31,22 +31,22 @@ Ten artykuł zawiera krótkie omówienie usługi Azure StorSimple Data Manager. 
 
 ## <a name="overview"></a>Omówienie
 
-Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu zawartości. Element zawartości może zawierać pliki wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików). Po przekazaniu plików zawartość jest bezpiecznie przechowywana w chmurze, na potrzeby dalszego przetwarzania i przesyłania strumieniowego.
+Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu zawartości. Witaj zasobów może zawierać wideo, audio, obrazy, kolekcje miniatur, tekst ścieżek i napisów plików (i hello metadane dotyczące tych plików.) Po przekazaniu plików hello zawartość jest bezpiecznie przechowywana w chmurze powitania dla dalszego przetwarzania i przesyłania strumieniowego.
 
-Usługa [Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) używa magazynu w chmurze jako rozszerzenia rozwiązania lokalnego i automatycznie tworzy warstwy danych w magazynie lokalnym oraz magazynie w chmurze. Urządzenie StorSimple usuwa duplikaty i kompresuje dane przed wysłaniem ich do chmury, dzięki czemu wysyłanie dużych plików do chmury staje się bardzo wydajne. Usługa [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview.md) oferuje interfejsy API, które umożliwiają wyodrębnianie danych z rozwiązania StorSimple i przedstawianie ich w postaci elementów zawartości usługi AMS.
+[Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) używa magazynu w chmurze jako rozszerzenie hello lokalnego rozwiązania i automatycznie warstwy danych przez Magazyn lokalne powitania i magazynu w chmurze. urządzenie StorSimple Hello dedupes i kompresuje dane przed wysłaniem toohello chmury, dzięki czemu bardzo wydajny wysyłania dużych plików toohello chmury. Witaj [Menedżer StorSimple danych](../storsimple/storsimple-data-manager-overview.md) usługi udostępnia interfejsy API, Włącz możesz tooextract danych z StorSimple i prezentować jako zasoby AMS.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-1. [Utwórz konto usługi Media Services](media-services-portal-create-account.md) , do którego chcesz przenieść elementy zawartości.
-2. Utwórz nowe konto wersji zapoznawczej usługi Data Manager, zgodnie z opisem w artykule [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview.md).
+1. [Utwórz konto usługi Media Services](media-services-portal-create-account.md) do którego będzie tootransfer hello zasoby.
+2. Załóż Data Manager w wersji zapoznawczej, zgodnie z opisem w hello [Menedżer StorSimple danych](../storsimple/storsimple-data-manager-overview.md) artykułu.
 3. Utwórz konto usługi StorSimple Data Manager.
 4. Utwórz zadanie przekształcania danych, które po uruchomieniu wyodrębnia dane z urządzenia StorSimple i przekazuje je na konto usługi AMS jako elementy zawartości. 
 
-    Gdy zadanie zacznie działać, zostanie utworzona kolejka magazynu. Jest ona wypełniana przy użyciu komunikatów dotyczących przekształconych obiektów blob, gdy będą gotowe. Nazwa tej kolejki jest taka sama jak nazwa definicji zadania. Za pomocą tej kolejki można określić, czy element zawartości jest gotowy i wywołać żądaną operację usługi Media Services do uruchomienia w jego obrębie. Tej kolejki można na przykład użyć do wyzwalania funkcji Azure Function, która zawiera niezbędny kod usługi Media Services.
+    Po uruchomieniu zadania hello systemem kolejki magazynu jest tworzony. Jest ona wypełniana przy użyciu komunikatów dotyczących przekształconych obiektów blob, gdy będą gotowe. Nazwa Hello tej kolejki jest hello taka sama jak nazwa hello hello definicji zadania. Można użyć tej kolejki toodetermine po zawartości jest gotowe i wywołać z żądaną toorun operacji usługi Media Services. Na przykład można użyć tej kolejki tootrigger funkcji platformy Azure, która ma hello niezbędne usługi Media Services kodu w nim.
 
 ## <a name="see-also"></a>Zobacz też
 
-[Wyzwalanie zadań usługi Data Manager przy użyciu zestawu .Net SDK](../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[Użyj hello .net SDK tootrigger zadania w hello Data Manager](../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: "Użyj środowiska usługi aplikacji Azure"
-description: "Jak tworzenie, publikowanie i skalowanie aplikacji w środowisku usługi aplikacji Azure"
+title: "aaaUse środowiska usługi aplikacji Azure"
+description: "Jak toocreate, publikowanie i skalowanie aplikacji w środowisku usługi aplikacji Azure"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 279951d40b7780120d0b94e183f06e00ccece016
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 30c89e384efc07c560254856c0ca7d4eb4b1f010
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-an-app-service-environment"></a>Użyj środowiska usługi aplikacji #
 
@@ -25,46 +25,46 @@ ms.lasthandoff: 08/29/2017
 
 Środowiska usługi aplikacji Azure to wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure klienta. Składa się z:
 
-- **Zakończenia przód**: front końce są, gdzie HTTP/HTTPS kończy się w środowisku usługi aplikacji (ASE).
-- **Pracownicy**: pracownicy są zasoby, które hosta aplikacji.
-- **Baza danych**: bazy danych zawiera informacje określające środowiska.
-- **Magazyn**: Magazyn jest używany na potrzeby hostowania aplikacji publikowanych przez klienta.
+- **Zakończenia przód**: hello front końce są, gdzie HTTP/HTTPS kończy się w środowisku usługi aplikacji (ASE).
+- **Pracownicy**: hello pracownicy są hello zasobów, które hosta aplikacji.
+- **Baza danych**: hello bazy danych zawiera informacje określające hello środowiska.
+- **Magazyn**: Magazyn hello jest używane toohost hello opublikowane klienta aplikacji.
 
 > [!NOTE]
-> Istnieją dwie wersje środowiska usługi aplikacji: ASEv1 i ASEv2. Przed ich użyciem w ASEv1, możesz zarządzać zasobami. Aby uzyskać informacje o konfigurowaniu i zarządzaniu nimi ASEv1, zobacz [skonfigurować v1 środowiska usługi aplikacji][ConfigureASEv1]. Pozostała część ten artykuł koncentruje się na ASEv2.
+> Istnieją dwie wersje środowiska usługi aplikacji: ASEv1 i ASEv2. W ASEv1 możesz zarządzać zasobami hello przed ich użyciem. toolearn jak tooconfigure i zarządzać ASEv1, zobacz [skonfigurować v1 środowiska usługi aplikacji][ConfigureASEv1]. Witaj dalszej części tego artykułu koncentruje się na ASEv2.
 >
 >
 
-ASE (ASEv1 i ASEv2) można wdrożyć z zewnętrznym lub wewnętrznym adresu VIP do uzyskania dostępu do aplikacji. Wdrożenia z zewnętrznego adresu VIP jest popularnie określany ASE zewnętrznych. Wersja wewnętrznej jest nazywana ILB ASE, ponieważ używa wewnętrznego modułu równoważenia obciążenia (ILB). Aby dowiedzieć się więcej na temat ILB ASE, zobacz [tworzenie i używanie ASE ILB][MakeILBASE].
+ASE (ASEv1 i ASEv2) można wdrożyć z zewnętrznym lub wewnętrznym adresu VIP do uzyskania dostępu do aplikacji. Wdrażanie Hello za pomocą zewnętrznego wirtualnego adresu IP jest popularnie określany ASE zewnętrznych. wersja wewnętrznej Hello jest nazywana hello ILB ASE, ponieważ używa wewnętrznego modułu równoważenia obciążenia (ILB). Zobacz toolearn więcej informacji na temat hello ILB ASE [tworzenie i używanie ASE ILB][MakeILBASE].
 
 ## <a name="create-a-web-app-in-an-ase"></a>Tworzenie aplikacji sieci web w elemencie ASE ##
 
-Aby utworzyć aplikację sieci web w elemencie ASE, należy użyć te same czynności co zwykle tworzenia, jednak z kilku niewielkie różnice. Podczas tworzenia nowego planu usługi aplikacji:
+toocreate aplikacji sieci web w elemencie ASE używasz hello tego samego procesu jak podczas tworzenia go normalnie, ale z kilku niewielkie różnice. Podczas tworzenia nowego planu usługi aplikacji:
 
-- Zamiast wybierać lokalizację geograficzną, w której chcesz wdrożyć aplikację, wybierz polecenie ASE jako lokalizacji.
+- Zamiast wybierać lokalizacji geograficznej które toodeploy aplikacji, wybierz polecenie ASE jako lokalizacji.
 - Wszystkich utworzonych w elemencie ASE planów usługi aplikacji musi być izolowany warstwy cenowej.
 
-Jeśli nie masz ASE, możesz utworzyć jedną zgodnie z instrukcjami w [tworzenie środowiska usługi aplikacji][MakeExternalASE].
+Jeśli nie masz ASE, możesz utworzyć jedną wykonując instrukcje hello [tworzenie środowiska usługi aplikacji][MakeExternalASE].
 
-Aby utworzyć aplikację sieci web w elemencie ASE:
+toocreate aplikacji sieci web w elemencie ASE:
 
 1. Wybierz **nowe** > **sieci Web i mobilność** > **sieci Web aplikacji**.
 
-2. Wprowadź nazwę dla aplikacji sieci web. Jeśli plan usługi aplikacji jest już wybrana w elemencie ASE, nazwę domeny dla aplikacji odzwierciedla ASE nazwę domeny.
+2. Wprowadź nazwę dla aplikacji sieci web hello. Jeśli plan usługi aplikacji jest już wybrana w elemencie ASE, hello nazwy domeny dla aplikacji hello odzwierciedla nazwy domeny hello hello ASE.
 
     ![Wybór nazwy aplikacji sieci Web][1]
 
 3. Wybierz subskrypcję.
 
-4. Wprowadź nazwę nowej grupy zasobów lub wybierz **Użyj istniejącego** i wybierz z listy rozwijanej.
+4. Wprowadź nazwę nowej grupy zasobów lub wybierz **Użyj istniejącego** i wybierz z listy rozwijanej hello.
 
 5. Wybierz istniejący plan usługi aplikacji w Twojej ASE lub Utwórz nową, wykonując następujące kroki:
 
     a. Wybierz **tworzenia nowych**.
 
-    b. Wprowadź nazwę planu usługi aplikacji.
+    b. Wprowadź nazwę planu usługi aplikacji hello.
 
-    c. Wybierz użytkownika ASE w **lokalizacji** listy rozwijanej.
+    c. Wybierz użytkownika ASE hello **lokalizacji** listy rozwijanej.
 
     d. Wybierz **izolowany** warstwy cenowej. Wybierz **wybierz**.
 
@@ -76,81 +76,81 @@ Aby utworzyć aplikację sieci web w elemencie ASE:
 
 ## <a name="how-scale-works"></a>Jak skalować działa ##
 
-Każda aplikacja usługi aplikacji jest uruchamiany w plan usługi aplikacji. Model kontenera jest środowisk przytrzymaj planów usługi App Service i planów usługi App Service przechowywania aplikacji. Skalowanie aplikacji należy skalowanie planu usługi aplikacji i w związku z tym wszystkie aplikacje w tym samym planie.
+Każda aplikacja usługi aplikacji jest uruchamiany w plan usługi aplikacji. model kontenera Hello jest środowisk przytrzymaj planów usługi App Service i planów usługi App Service przechowywania aplikacji. Skalowanie aplikacji należy skalowanie hello planu usługi aplikacji i w związku z tym wszystkie aplikacje hello w hello sam plan.
 
-W ASEv2 skalowanie planu usługi App Service, infrastruktura wymagana jest automatycznie dodawany. Podczas dodawania jest infrastruktura istnieje opóźnienie operacji skalowania. ASEv1 wymagane infrastruktury muszą zostać dodane przed utworzeniem lub skalowanie planu usługi aplikacji. 
+W ASEv2 skalowanie planu usługi App Service infrastruktury hello potrzebne jest automatycznie dodawany. Istnieje opóźnienie operacji tooscale podczas infrastruktury hello jest dodawany. ASEv1 infrastruktury hello potrzebne muszą zostać dodane przed utworzeniem lub skalowanie planu usługi aplikacji. 
 
-W wielodostępnej usługi aplikacji skalowanie jest zwykle bezpośredniego, ponieważ pula zasobów jest łatwo dostępna do jego obsługi. W elemencie ASE istnieje takie buforu i zasoby są przydzielane na potrzeby.
+W wielodostępnej hello usługi aplikacji, skalowanie jest zwykle natychmiastowego ponieważ puli zasobów jest łatwo dostępny toosupport go. W elemencie ASE istnieje takie buforu i zasoby są przydzielane na potrzeby.
 
-W elemencie ASE można skalować wystąpień do 100. Te wystąpienia, 100 może być wszystko w jednym jednego planu usługi aplikacji lub rozproszone na wielu planów usługi aplikacji.
+W elemencie ASE można skalować too100 wystąpień. Te wystąpienia, 100 może być wszystko w jednym jednego planu usługi aplikacji lub rozproszone na wielu planów usługi aplikacji.
 
 ## <a name="ip-addresses"></a>Adresy IP ##
 
-Usługa App Service oferuje możliwość przydzielony dedykowany adres IP do aplikacji. Ta funkcja jest dostępna po skonfigurowaniu opartych na protokole SSL, zgodnie z opisem w [Powiąż istniejący certyfikat SSL niestandardowych do aplikacji sieci web platformy Azure][ConfigureSSL]. W elemencie ASE istnieje jednak zauważalne wyjątku. Nie można dodać dodatkowe adresy IP stosowaną do opartych na protokole SSL w elemencie ASE ILB.
+Usługa aplikacji musi tooallocate możliwości hello dedykowanego aplikacjami tooan adresu IP. Ta funkcja jest dostępna po skonfigurowaniu opartych na protokole SSL, zgodnie z opisem w [Powiąż istniejący niestandardowy SSL certyfikatu tooAzure aplikacje sieci web][ConfigureSSL]. W elemencie ASE istnieje jednak zauważalne wyjątku. Nie można dodać dodatkowe IP adresy używane do opartych na protokole SSL w elemencie ASE ILB toobe.
 
-W ASEv1 należy przydzielić adresy IP jako zasoby przed ich użyciem. W ASEv2 można ich używać z aplikacji tak samo jak w wielodostępnej usługi aplikacji. Istnieje jeden adres zapasowe w ASEv2 maksymalnie 30 adresów IP. Zawsze używany jest jeden, inny są dodawane, że adres zawsze jest gotowe do użycia. Czas opóźnienia należy przydzielić inny adres IP, co uniemożliwia dodanie adresu IP adresów szybkie naciśnięcie.
+W ASEv1 należy adresy IP hello tooallocate jako zasoby przed ich użyciem. W ASEv2 można ich używać z aplikacji tak samo jak w wielodostępnej hello usługi aplikacji. Istnieje jeden adres zapasowe w ASEv2 się too30 adresów IP. Zawsze używany jest jeden, inny są dodawane, że adres zawsze jest gotowe do użycia. Wymagany czas opóźnienia jest tooallocate innego adresu IP, co uniemożliwia dodanie IP adresów szybkie naciśnięcie.
 
 ## <a name="front-end-scaling"></a>Skalowanie frontonu ##
 
-W ASEv2 gdy skalowanie planów usługi aplikacji pracowników są automatycznie dodawane do ich obsługi. Co ASE jest tworzony z przodu punktów końcowych. Ponadto przodu kończy się automatycznie skalowania w poziomie z szybkością co frontonu dla każdego wystąpienia 15 w planów usługi aplikacji. Na przykład jeśli masz wystąpień 15 masz trzy front kończy się. Jeśli można skalować do 30 wystąpień, użytkownik ma cztery zakończenia przód i tak dalej.
+W ASEv2, podczas skalowania planów usługi aplikacji, pracownicy są automatycznie dodawane toosupport je. Co ASE jest tworzony z przodu punktów końcowych. Ponadto hello front kończy się automatycznie skalować w poziomie z szybkością co frontonu dla każdego wystąpienia 15 w planów usługi aplikacji. Na przykład jeśli masz wystąpień 15 masz trzy front kończy się. Skala wystąpień too30 użytkownik ma cztery zakończenia przód i tak dalej.
 
-Ten numer interfejsy powinny być to wystarczająca liczba dla większości scenariuszy. Jednak można skalować w poziomie szybsze. Możesz zmienić stosunek jako jeden z przodu niski zakończyć co pięć wystąpień. Opłata za zmianę stosunek nie istnieje. Aby uzyskać więcej informacji, zobacz [cennik usługi aplikacji Azure][Pricing].
+Ten numer interfejsy powinny być to wystarczająca liczba dla większości scenariuszy. Jednak można skalować w poziomie szybsze. Współczynnik hello, który tooas mało jako jeden frontonu dla każdego wystąpienia pięć, można zmienić. Opłata za zmianę stosunek hello nie istnieje. Aby uzyskać więcej informacji, zobacz [cennik usługi aplikacji Azure][Pricing].
 
-Frontonu zasoby są ASE punktu końcowego HTTP/HTTPS. Z domyślnej konfiguracji frontonu użycie pamięci na fronton jest stale około 60 procent. Obciążeń klientów nie działają na fronton. Kluczowe znaczenie dla frontonu w odniesieniu do skalowania jest Procesora, który jest wymuszany głównie przez ruchu HTTPS.
+Frontonu zasoby są punktu końcowego HTTP/HTTPS hello hello ASE. Z hello frontonu konfiguracji domyślnej użycie pamięci na fronton jest stale około 60 procent. Obciążeń klientów nie działają na fronton. Witaj kluczowe znaczenie dla frontonu z tooscale względem jest hello Procesora, który jest wymuszany głównie przez ruchu HTTPS.
 
 ## <a name="app-access"></a>Dostęp do aplikacji ##
 
-W elemencie ASE zewnętrznych domeny, który jest używany podczas tworzenia aplikacji różni się od wielodostępnej usługi aplikacji. Zawiera nazwę ASE. Aby uzyskać więcej informacji na temat tworzenia ASE zewnętrznych, zobacz [tworzenie środowiska usługi aplikacji][MakeExternalASE]. Nazwa domeny w elemencie ASE zewnętrznych wygląda następująco: *.&lt; asename&gt;. p.azurewebsites.net*. Na przykład, jeśli nosi nazwę Twojej ASE _ase zewnętrzne_ i hosta aplikacji o nazwie _contoso_ w tym ASE, możesz uzyskać do niej dostęp w następujących adresów URL:
+W zewnętrznej ASE hello domeny, który jest używany podczas tworzenia aplikacji różni się od wielodostępnej hello usługi aplikacji. Obejmuje on nazwę hello hello ASE. Aby uzyskać więcej informacji na temat toocreate ASE zewnętrznych, zobacz [tworzenie środowiska usługi aplikacji][MakeExternalASE]. wygląda Hello nazwę domeny w elemencie ASE zewnętrznych *.&lt; asename&gt;. p.azurewebsites.net*. Na przykład, jeśli nosi nazwę Twojej ASE _ase zewnętrzne_ i hosta aplikacji o nazwie _contoso_ w tym ASE, możesz uzyskać do niej dostęp na powitania następujące adresy URL:
 
 - contoso.external ase.p.azurewebsites.net
 - contoso.SCM.external ase.p.azurewebsites.net
 
-Adres URL contoso.scm.external-ase.p.azurewebsites.net umożliwia dostęp do konsoli Kudu lub do publikowania aplikacji za pomocą sieci web deploy. Informacje w konsoli Kudu, zobacz [konsoli Kudu dla usługi Azure App Service][Kudu]. Konsoli Kudu zapewnia interfejsu użytkownika sieci web dla debugowania przekazywania plików, edytowanie plików i wiele innych.
+adres URL Hello contoso.scm.external-ase.p.azurewebsites.net jest używane tooaccess hello Kudu konsoli lub do publikowania aplikacji za pomocą sieci web wdrażanie. Aby uzyskać informacje na powitania Kudu konsoli, zobacz [konsoli Kudu dla usługi Azure App Service][Kudu]. Hello Kudu konsoli zapewnia interfejsu użytkownika sieci web dla debugowania przekazywania plików, edytowanie plików i wiele innych.
 
-W elemencie ASE ILB należy określić domeny, w czasie wdrażania. Aby uzyskać więcej informacji na temat tworzenia ASE ILB, zobacz [tworzenie i używanie ASE ILB][MakeILBASE]. Jeśli określisz nazwy domeny _ilb ase.info_, aplikacji, w tym ASE korzystania z tej domeny podczas tworzenia aplikacji. Dla aplikacji o nazwie _contoso_, adresy URL są:
+W elemencie ASE ILB należy określić domeny hello w czasie wdrażania. Aby uzyskać więcej informacji na temat toocreate ILB ASE, zobacz temat [tworzenie i używanie ASE ILB][MakeILBASE]. Jeśli określisz nazwy domeny hello _ilb ase.info_, hello aplikacji, w tym ASE korzystania z tej domeny podczas tworzenia aplikacji. Dla aplikacji hello o nazwie _contoso_, adresy URL hello są:
 
 - contoso.ilb ase.info
 - contoso.SCM.ilb ase.info
 
 ## <a name="publishing"></a>Publikowanie ##
 
-Podobnie jak w przypadku wielodostępnej App Service w elemencie ASE można opublikować z:
+Podobnie jak w przypadku wielodostępnej hello usługi aplikacji, w elemencie ASE można opublikować z:
 
 - Wdrażanie sieci Web.
 - FTP.
 - Ciągłej integracji.
-- Przeciągnij i upuść w konsoli Kudu.
+- Przeciągnij i upuść hello Kudu konsoli.
 - IDE, takie jak Visual Studio, Eclipse lub IntelliJ IDEA
 
-Z zewnętrznego ASE te opcje publikowania wszystkich działają tak samo. Aby uzyskać więcej informacji, zobacz [wdrożenia w usłudze Azure App Service][AppDeploy]. 
+Te opcje publikowania, wszystkie działały z zewnętrznego ASE hello takie same. Aby uzyskać więcej informacji, zobacz [wdrożenia w usłudze Azure App Service][AppDeploy]. 
 
-Główna różnica z publikowaniem są względem ASE ILB. Z ASE ILB publikowania punktów końcowych, które są dostępne tylko za pośrednictwem ILB. ILB znajduje się na prywatnego adresu IP w podsieci ASE w sieci wirtualnej. Jeśli nie masz dostępu do sieci do ILB, nie można opublikować żadnej aplikacji na tym ASE. Jak wspomniano w [tworzenie i używanie ASE ILB][MakeILBASE], należy skonfigurować usługę DNS dla aplikacji w systemie. Która zawiera punkt końcowy SCM. Jeśli nie są prawidłowo zdefiniowane, nie można opublikować. IDEs Twojego muszą mieć dostęp sieciowy do ILB, aby opublikować bezpośrednio do niego.
+Główna różnica Hello z publikowaniem się względem tooan ILB ASE. Z ASE ILB hello publikowania punkty końcowe będą dostępne tylko za pośrednictwem hello ILB. Witaj ILB znajduje się na prywatnego adresu IP w podsieci ASE hello w hello sieci wirtualnej. Jeśli nie masz toohello dostępu do sieci ILB, nie można opublikować żadnej aplikacji na tym ASE. Zgodnie z opisem w [tworzenie i używanie ASE ILB][MakeILBASE], należy dla aplikacji hello tooconfigure DNS w systemie hello. Która zawiera punkt końcowy SCM hello. Jeśli nie są prawidłowo zdefiniowane, nie można opublikować. Twoje IDEs może też być konieczne toohello dostępu do sieci toohave ILB w kolejności toopublish tooit bezpośrednio.
 
-Internetowych systemów elementu konfiguracji, takich jak GitHub i Visual Studio Team Services nie działają z ASE ILB, ponieważ punkt końcowy publikowania nie jest dostępny Internet. Zamiast tego należy użyć systemu elementu konfiguracji, który wykorzystuje model ściągania, takich jak Dropbox.
+Internetowych systemów elementu konfiguracji, takich jak GitHub i Visual Studio Team Services nie działają z ASE ILB, ponieważ punkt końcowy publikowania hello nie jest dostępny Internet. Zamiast tego należy toouse systemu elementu konfiguracji, który wykorzystuje model ściągania, takich jak Dropbox.
 
-Publikowanie punktów końcowych dla aplikacji w elemencie ASE ILB Użyj domeny, która została utworzona ILB ASE. Można to sprawdzić w profilu publikowania aplikacji i w bloku portalu aplikacji (w **omówienie** > **Essentials** oraz w **właściwości**). 
+Witaj publikowania punktów końcowych dla aplikacji w elemencie ASE ILB korzystania z domeny hello tego hello ILB ASE została utworzona z. Można to sprawdzić w profilu publikowania aplikacji hello i w bloku portalu aplikacji hello (w **omówienie** > **Essentials** oraz w **właściwości**). 
 
 ## <a name="pricing"></a>Cennik ##
 
-Cennik SKU o nazwie **izolowany** został utworzony do użytku z ASEv2. Wszystkie plany usługi aplikacji, które znajdują się w ASEv2 znajdują się w izolowany cennik jednostki SKU. Izolowane stawki planu usługi aplikacji może się różnić dla regionu. 
+Witaj cennik SKU o nazwie **izolowany** został utworzony do użytku z ASEv2. Wszystkie plany usługi aplikacji, które znajdują się w ASEv2 znajdują się w hello izolowany cennik jednostki SKU. Izolowane stawki planu usługi aplikacji może się różnić dla regionu. 
 
-Oprócz ceny dla planów usługi aplikacji istnieje szybkość płaski ASE samej siebie. Szybkość płaski nie zmienia się rozmiar Twojej ASE i płaci infrastruktury ASE na domyślny skalowanie szybkość 1 dodatkowe frontonu dla każdego 15 wystąpieniach planu usługi aplikacji.  
+Ponadto plany toohello cen usługi App, jest stawka płaski ASE samej siebie. Hello szybkość płaski nie zmienia się rozmiar hello Twojej ASE i płaci infrastruktury hello ASE na domyślny skalowanie szybkość 1 dodatkowe frontonu dla każdego 15 wystąpieniach planu usługi aplikacji.  
 
-Jeśli domyślna stawka skali 1 frontonu dla każdego 15 wystąpieniach planu usługi aplikacji nie jest wystarczająca, można dostosować stosunek w której przodu kończy się zostaną dodane lub rozmiaru zakończenia przód.  Po zmodyfikowaniu stosunek lub rozmiar płacisz za rdzeni frontonu, które nie zostanie dodany domyślnie.  
+Jeśli szybkość skali domyślne hello 1 frontonu dla każdego 15 wystąpieniach planu usługi aplikacji nie jest wystarczająca, można dostosować stosunek hello jaką zakończenia przód są dodawane lub hello rozmiar końców przodu hello.  Po zmodyfikowaniu stosunek hello lub rozmiar płacisz za hello rdzeni frontonu, które nie zostanie dodany domyślnie.  
 
-Na przykład jeśli współczynnik skali, do 10, fronton jest dodawany do co 10 wystąpień w planów usługi aplikacji. Stałe opłaty obejmuje współczynnika skalowania jeden frontonu dla każdego wystąpienia 15. O stosunku skali 10 opłaty opłacać trzeci fronton, który jest dodawany do 10 wystąpieniach planu usługi aplikacji. Nie trzeba płacić za go po osiągnięciu 15 wystąpienia, ponieważ zostało dodane automatycznie.
+Na przykład jeśli można dopasować too10 współczynnik skali hello, fronton jest dodawany do co 10 wystąpień w planów usługi aplikacji. stałe opłaty Hello obejmuje współczynnika skalowania jeden frontonu dla każdego wystąpienia 15. O stosunku skali 10 opłaty opłacać hello trzeci fronton, który został dodany do hello 10 wystąpieniach planu usługi aplikacji. Nie trzeba toopay go po osiągnięciu 15 wystąpienia, ponieważ zostało dodane automatycznie.
 
-Jeśli dostosować rozmiar zakończenia przód 2 rdzenie, ale nie ustawiaj stosunek następnie na zapłacenie za dodatkowe rdzenie.  ASE jest tworzony z 2 przodu zakończenia, dlatego nawet progu automatycznego skalowania będzie na zapłacenie za 2 dodatkowe rdzenie, jeśli zwiększyć rozmiar do 2 rdzenie przodu zakończenia.
+Jeśli dostosować rozmiar hello hello zakończenia przód too2 rdzeni, ale nie ustawiaj stosunek hello, a następnie płacisz za hello dodatkowe rdzenie.  ASE jest tworzony z 2 przodu zakończenia, dlatego nawet poniżej hello automatycznego skalowania progu 2 dodatkowe rdzenie będą opłacać po zwiększeniu hello rozmiar too2 core przodu końców.
 
 Aby uzyskać więcej informacji, zobacz [cennik usługi aplikacji Azure][Pricing].
 
 ## <a name="delete-an-ase"></a>Usuń ASE ##
 
-Aby usunąć ASE: 
+toodelete ASE: 
 
-1. Użyj **usunąć** w górnej części **środowiska usługi aplikacji** bloku. 
+1. Użyj **usunąć** u góry hello hello **środowiska usługi aplikacji** bloku. 
 
-2. Wprowadź nazwę użytkownika ASE, aby potwierdzić, czy chcesz go usunąć. Po usunięciu ASE usunąć całą zawartość w niej również. 
+2. Wprowadź nazwę użytkownika tooconfirm ASE, które mają toodelete hello go. Po usunięciu ASE, Usuń wszystkie hello zawartości w niej. 
 
     ![Usuwanie ASE][3]
 

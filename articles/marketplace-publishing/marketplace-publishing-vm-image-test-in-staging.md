@@ -1,6 +1,6 @@
 ---
-title: "Testowanie ofertę maszyny Wirtualnej dla witryny Marketplace | Dokumentacja firmy Microsoft"
-description: Zrozumienie sposobu testowania obrazu maszyny Wirtualnej w portalu Azure Marketplace.
+title: "aaaTest oferują maszyny Wirtualnej na powitania Marketplace | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tootest, obraz maszyny Wirtualnej, dla hello Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ab166d2c3c536810a3a8f48330f0482b9b4e58d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testowanie ofertę maszyny Wirtualnej do portalu Azure Marketplace tymczasowych
-Przemieszczania oznacza wdrażanie Twojego jednostki SKU w prywatnej "piaskownicy", gdzie testowania i zweryfikować jego działanie przed jego wdrożeniem w portalu Marketplace. Jednostka SKU jest wyświetlany w przemieszczania analogiczny, jak na rzecz klienta, który został wdrożony go. Obraz maszyny Wirtualnej muszą być certyfikowane do zostać przeniesiony do tymczasowego.
+# <a name="test-your-vm-offer-for-hello-azure-marketplace-in-staging"></a>Testowanie ofertę maszyny Wirtualnej dla hello Azure Marketplace tymczasowych
+Sposób wdrażania programu jednostki SKU w prywatnej "piaskownicy", gdzie testowania i zweryfikować jego działanie przed jego wdrożeniem toohello Marketplace przemieszczania. Witaj SKU pojawia się w przemieszczania analogiczny, jak tooa klienta, który został wdrożony go. Obraz maszyny Wirtualnej musi być toostaging certyfikowanych toobe naciśnięty.
 
-## <a name="step-1-push-your-offer-to-staging"></a>Krok 1: Push Twojej oferty przemieszczania
-1. Na **publikowania** , kliknij pozycję **wypychania do przemieszczania**.
+## <a name="step-1-push-your-offer-toostaging"></a>Krok 1: Push toostaging Twojej oferty
+1. Na powitania **publikowania** , kliknij pozycję **Push tooStaging**.
    
     ![Rysowanie](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
-2. Jeśli Portal publikowania powiadamia użytkownika o błędach, należy je poprawić.
-3. W **kto ma dostęp do Twojej oferty przemieszczanego?** okna dialogowego wprowadź listę subskrypcji platformy Azure, które będą używane do podglądu ofertę w [portalu Azure w wersji zapoznawczej](https://portal.azure.com).
+2. Jeśli Portal publikowania hello powiadamia o błędy, należy je poprawić.
+3. W hello **kto ma dostęp do Twojej oferty przemieszczanego?** okna dialogowego wprowadź hello Lista subskrypcji platformy Azure, który będzie używany toopreview ofertę w hello [portalu Azure w wersji zapoznawczej](https://portal.azure.com).
    
    > [!NOTE]
    > W przypadku maszyn wirtualnych i szablonów rozwiązania należy **nie** dozwolonych subskrypcje typu Dostawca usług Kryptograficznych, DreamSpark lub Azure otwartym.
    > 
    > 
 
-    > W przypadku maszyn wirtualnych, po kliknięciu przycisku **WYPYCHANYCH STAGING**, są wykonywane następujące czynności, za sceny. Można wyświetlić postęp każdego kroku na karcie PUBLIKUJ w publikacji portalu. Należy sprawdzić tę stronę w regularnych odstępach czasu (do czasu stan pokazuje przejściowa) Aby uzyskać informacje o błędzie, który konieczne korekty użytkownika końcowego.
+    > W przypadku maszyn wirtualnych, po kliknięciu przycisku hello **tooSTAGING WYPYCHANIA**, hello następujące kroki są wykonywane za hello sceny. Będziesz w stanie tooview postęp hello każdego kroku karcie publikowania hello w hello publikowania portalu. Należy sprawdzić tej strony w regularnych odstępach czasu (do czasu hello stan pokazuje przejściowa) Aby uzyskać informacje o błędzie, który konieczne korekty użytkownika końcowego.
 
-    > - Na początku przemieszczania żądania prowadzi do zespołu certyfikacji, który zweryfikować dysku vhd. Jednak jeśli — Otrzymano żądanie tylko marketingu zmiany, następnie certyfikacji krok zostanie pominięty.
-    > - Po zakończeniu certyfikacji rozpoczęcia replikacji oferty, we wszystkich centrach danych platformy Azure. Zazwyczaj zajmuje 24-48hours na zakończenie replikacji ale może potrwać do tygodnia, w zależności od rozmiaru wirtualnego dysku twardego. Jeśli jednak — Otrzymano żądanie tylko marketingu zmiany, następnie replikacji jest szybsze.
-    > - Po ukończeniu replikacji jest to oferta, dla której będą dostępne w [portalu Azure](http:/portal.azure.com). W tym czasie stan zostać UMIESZCZONE w publikacji portalu. Przemieszczanego oferta nie jest widoczna [portalu Azure](http:/portal.azure.com) wyłącznie przy użyciu nazwy e-mail skojarzonego z subskrypcją, z którym są przygotowywane oferty.
+    > - Na początku przemieszczania żądanie przejdzie do zespołu certyfikacji toohello, który zweryfikować hello wirtualnego dysku twardego. Jednak jeśli — Otrzymano żądanie tylko marketingu zmiany, następnie hello certyfikacji krok zostanie pominięty.
+    > - Po zakończeniu certyfikacji hello replikacji rozpoczęcia oferty hello we wszystkich hello centrach danych platformy Azure. Zazwyczaj zajmuje 24-48hours dla toocomplete replikacji hello ale może potrwać tooa tygodnia, w zależności od rozmiaru hello hello wirtualnego dysku twardego. Jeśli jednak — Otrzymano żądanie tylko marketingu zmiany, następnie replikacji hello jest szybsze.
+    > - Po ukończeniu replikacji hello jest to oferta hello będą dostępne w hello [portalu Azure](http:/portal.azure.com). W tym hello czas stanu stają się UMIESZCZONE w hello publikowania portalu. Przemieszczanego oferta nie jest widoczna hello [portalu Azure](http:/portal.azure.com) wyłącznie przy użyciu nazwy e-mail hello skojarzone z subskrypcją hello, z których hello są przygotowywane oferty.
 
-1. Zaloguj się do [portalu Azure w wersji zapoznawczej](https://portal.azure.com) przy użyciu jednej z subskrypcji platformy Azure wymienionych w poprzednim kroku.
+1. Zaloguj się toohello [portalu Azure w wersji zapoznawczej](https://portal.azure.com) przy użyciu jednej z hello subskrypcji platformy Azure na liście hello w poprzednim kroku.
 2. Znajdź Twoją ofertę i zweryfikować punkty obrazu maszyny Wirtualnej:
    
-   * Upewnij się, że marketingu zawartości wyświetlane prawidłowo w witrynie Marketplace.
-   * Wdrażanie na trasie obrazu maszyny Wirtualnej.
+   * Upewnij się, że marketingu zawartości jest wyświetlane poprawnie w hello Marketplace.
+   * Wdrażanie na trasie hello obrazu maszyny Wirtualnej.
      
       ![img mapy portalu](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
 > [!IMPORTANT]
-> Ofertę pozostanie w przejściowym dopóki powiadamiania firmy Microsoft za pośrednictwem portalu publikowania [**publikowania** kartę > kliknij przycisk **"Żądania zatwierdzenia do wypychania do produkcji"**] można przystąpić do produkcji. Jest to idealne czasu na wszystkie elementy członkowskie wyboru Twojego zespołu nad wszystko w ramach przygotowania do Twojej oferty, przechodząc do listy.
+> Ofertę pozostanie w przejściowym dopóki bezzwłocznego powiadamiania firmy Microsoft za pośrednictwem hello Portal publikowania [**publikowania** kartę > kliknij przycisk hello **"TooProduction tooPush zatwierdzenie żądania"**] czy toopush gotowe tooproduction. Jest to toohave idealne czas, sprawdź wszyscy członkowie zespołu nad wszystko w ramach przygotowania do Twojej oferty, przechodząc do listy.
 > 
-> Platformy przemieszczania jest przeznaczony do testowania oferty w trybie podglądu przez wydawcę. Zdecydowanie zniechęcić się przy użyciu tego platofrm do celów dostępnych w handlu.
+> Hello przemieszczania platformy jest przeznaczony do testowania oferta hello w trybie podglądu przez wydawcę hello. Zdecydowanie zniechęcić się przy użyciu tego platofrm do celów dostępnych w handlu.
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy ofertę jest "przemieszczone" i jego funkcje zostały przetestowane i marketingu zawartości, możesz przejść do fazy publikowania końcowego **krok 4**: [wdrażanie Twojej oferty w portalu Marketplace](marketplace-publishing-push-to-production.md).
+Ofertę jest "przemieszczony", a zostały przetestowane jego funkcjonalność i marketingu zawartości, możesz przejść publikowanie końcowego toohello fazy **krok 4**: [wdrażanie toohello Twojego oferta portalu Marketplace](marketplace-publishing-push-to-production.md).
 
 ## <a name="see-also"></a>Zobacz też
-* [Wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Wprowadzenie: jak toopublish toohello oferta portalu Azure Marketplace](marketplace-publishing-getting-started.md)
 

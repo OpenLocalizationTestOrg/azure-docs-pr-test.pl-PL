@@ -1,12 +1,12 @@
 ---
-title: "Connect Arduino (C) do Azure IoT — lekcji 3: Wdrażanie szablonu | Dokumentacja firmy Microsoft"
-description: "Aplikacji Azure — funkcja wykrywa zdarzenia Centrum Azure IoT, przetwarza przychodzące wiadomości i zapisuje je do magazynu tabel Azure."
+title: "Connect Arduino (C) tooAzure IoT — lekcji 3: Wdrażanie szablonu | Dokumentacja firmy Microsoft"
+description: "Hello Azure funkcji aplikacji nasłuchuje zdarzeń Centrum IoT tooAzure przetwarza przychodzące wiadomości i zapisuje je w magazynie tabel tooAzure."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "Zapisywanie danych w chmurze, dane przechowywane w chmurze, usługi w chmurze iot"
+keywords: "przechowywanie danych w chmurze hello, dane przechowywane w chmurze, usługi w chmurze iot"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 9c8f4cd1-9511-4601-ad7e-51761a986753
@@ -17,32 +17,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: be6105927645ae2ec56f6885c61dbcb6faf5b11f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6a84a6d3c5263a85c8997cf69fe446d73ab7a5fc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-function-app-and-azure-storage-account"></a>Tworzenie aplikacji funkcji platformy Azure i konto magazynu Azure
-[Środowisko Azure Functions](../../articles/azure-functions/functions-overview.md) to rozwiązanie umożliwiające łatwe uruchamianie *funkcje* (małych fragmentów kodu) w chmurze. Aplikacja Azure funkcji obsługuje wykonywanie funkcji na platformie Azure.
+[Środowisko Azure Functions](../../articles/azure-functions/functions-overview.md) to rozwiązanie umożliwiające łatwe uruchamianie *funkcje* (małych fragmentów kodu) w chmurze hello. Aplikacja Azure funkcji obsługuje wykonywanie hello funkcji na platformie Azure.
 
 ## <a name="what-will-you-do"></a>Co spowoduje zrobić
-Szablon usługi Azure Resource Manager umożliwia tworzenie aplikacji funkcji platformy Azure i konto magazynu platformy Azure. Aplikacji Azure — funkcja wykrywa zdarzenia Centrum Azure IoT, przetwarza przychodzące wiadomości i zapisuje je do magazynu tabel Azure.
+Toocreate szablonu usługi Azure Resource Manager za pomocą aplikacji funkcji platformy Azure i konto magazynu platformy Azure. Hello Azure funkcji aplikacji nasłuchuje zdarzeń Centrum IoT tooAzure przetwarza przychodzące wiadomości i zapisuje je w magazynie tabel tooAzure.
 
-Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony dla tablicy Adafruit piór M0 sieci Wi-Fi Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
+Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony dla tablicy Adafruit piór M0 sieci Wi-Fi Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
 
 ## <a name="what-will-you-learn"></a>Co spowoduje informacje
 W tym artykule dowiesz się:
-* Jak używać [usługi Azure Resource Manager](../../articles/azure-resource-manager/resource-group-overview.md) wdrażania zasobów platformy Azure.
-* Jak używać aplikacji Azure — funkcja przetwarzanie wiadomości Centrum IoT i zapisywania ich w tabeli w magazynie tabel platformy Azure.
+* Jak toouse [usługi Azure Resource Manager](../../articles/azure-resource-manager/resource-group-overview.md) toodeploy Azure zasobów.
+* Jak toouse Azure funkcji tooprocess aplikacji wiadomości Centrum IoT i zapisanie ich tooa tabeli magazynu tabel Azure.
 
 ## <a name="what-do-you-need"></a>Czego potrzebujesz
 Pomyślnie zakończono:
 - [Rozpoczynanie pracy z tablicy Arduino][get-started]
 - [Utworzenie Centrum Azure IoT][create-iot-hub]
 
-## <a name="open-the-sample-app"></a>Otwórz przykładowej aplikacji
-Otwórz przykładowy projekt w programie Visual Studio Code, uruchamiając następujące polecenia:
+## <a name="open-hello-sample-app"></a>Otwórz hello przykładowej aplikacji
+Otwórz hello przykładowy projekt w programie Visual Studio Code, uruchamiając następujące polecenia hello:
 
 ```bash
 cd Lesson3
@@ -51,33 +51,33 @@ code .
 
 ![Struktura repozytorium][repo-structure]
 
-* `app.ino` w pliku `app` podfolder jest plik źródłowy klucza. Ten plik źródłowy zawiera kod, aby wysłać wiadomość 20 razy do Centrum IoT i blink LED dla każdej wiadomości wysyłane.
-* `config.json` Zawiera wymagane ustawienia konfiguracji.
-* `arm-template.json` Plik jest szablonu usługi Azure Resource Manager, który zawiera aplikację funkcji platformy Azure i konto magazynu platformy Azure.
-* `arm-template-param.json` Plik jest plikiem konfiguracji używane przez szablon usługi Azure Resource Manager.
-* `ReceiveDeviceMessages` Podfolder zawiera kodu Node.js dla funkcji platformy Azure.
+* Witaj `app.ino` pliku w hello `app` podfolder jest plik źródłowy klucza hello. Ten plik źródłowy zawiera toosend kodu hello wiadomości 20 razy tooyour IoT hub i migania hello LED dla każdego komunikatu wysyła.
+* Witaj `config.json` zawiera wymagane ustawienia konfiguracji.
+* Witaj `arm-template.json` pliku jest hello Azure Resource Manager szablon, który zawiera aplikację funkcji platformy Azure i konto magazynu platformy Azure.
+* Witaj `arm-template-param.json` plik jest plikiem konfiguracji hello używane przez hello szablonu usługi Azure Resource Manager.
+* Witaj `ReceiveDeviceMessages` podfolder zawiera kod Node.js hello hello funkcji platformy Azure.
 
 ## <a name="configure-azure-resource-manager-templates-and-create-resources-in-azure"></a>Konfigurowanie szablonów usługi Azure Resource Manager i tworzenie zasobów na platformie Azure
-Aktualizacja `arm-template-param.json` pliku w Visual Studio Code.
+Aktualizacja hello `arm-template-param.json` pliku w Visual Studio Code.
 
 ![Parametry szablonu usługi Azure Resource Manager][arm-template-params]
 
 * Zastąp **[nazwa Centrum IoT]** z **{mojej nazwy centrum}** określić kiedy należy [tworzenia Centrum IoT i zarejestrowane tablicy Arduino][created-iot-hub-and-registered-arduino-board].
-* Zastąp **[prefiks ciągu dla nowych zasobów]** z dowolnego prefiksu ma. Prefiks zapewnia, że nazwa zasobu jest globalnie unikatowy, aby uniknąć konfliktu. Nie należy używać dash lub numer początkowej w prefiksie.
+* Zastąp **[prefiks ciągu dla nowych zasobów]** z dowolnego prefiksu ma. Prefiks Hello gwarantuje, że ta nazwa zasobu hello jest konflikt tooavoid globalnie unikatowe. Nie należy używać dash lub numer początkowej w hello prefiks.
 
-Po zaktualizowaniu `arm-template-param.json` plików, wdrażanie zasobów na platformie Azure, uruchamiając następujące polecenie:
+Po zaktualizowaniu hello `arm-template-param.json` plików, wdrażanie hello tooAzure zasobów, uruchamiając następujące polecenie hello:
 
 ```bash
 az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-sample
 ```
 
-Trwa około pięciu minut utworzyć tych zasobów. Podczas tworzenia zasobu jest w toku, możesz przejść do następnego artykułu.
+Trwa około pięciu minut toocreate tych zasobów. Podczas tworzenia zasobu hello jest w toku, można przenieść na toohello kolejnym artykule.
 
 ## <a name="summary"></a>Podsumowanie
-Po utworzeniu aplikacji Azure funkcji do przetwarzania komunikatów Centrum IoT i konto magazynu Azure do przechowywania tych wiadomości. Teraz można wdrożyć i uruchomić przykładowe wysyłać urządzenia do chmury na tablicy Arduino.
+Po utworzeniu sieci tooprocess aplikacji funkcji Azure wiadomości Centrum IoT i toostore konta magazynu Azure, te komunikaty. Można teraz wdrożyć i uruchomić hello próbki toosend urządzenia do chmury wiadomości na tablicy Arduino.
 
 ## <a name="next-steps"></a>Następne kroki
-[Uruchom przykładową aplikację do wysyłania wiadomości urządzenia do chmury na tablicy Arduino][send-device-to-cloud-messages]
+[Uruchom toosend aplikacji przykładowej wiadomości urządzenia do chmury na tablicy Arduino][send-device-to-cloud-messages]
 
 <!-- Images and links -->
 

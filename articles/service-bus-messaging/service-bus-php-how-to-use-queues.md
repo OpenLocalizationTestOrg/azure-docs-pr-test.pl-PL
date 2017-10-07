@@ -1,6 +1,6 @@
 ---
-title: "Jak używać kolejek usługi Service Bus za pomocą języka PHP | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać kolejek usługi Service Bus na platformie Azure. Przykłady kodu napisane w języku PHP."
+title: "kolejkuje toouse aaaHow usługi Service Bus za pomocą języka PHP | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak kolejki toouse usługi Service Bus na platformie Azure. Przykłady kodu napisane w języku PHP."
 services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
@@ -14,42 +14,42 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 3514812f7f087582035dad5d9a4d620652aa4da9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8cf233176029b679d172eaf713632087beca5e4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-bus-queues-with-php"></a>Jak używać kolejek usługi Service Bus za pomocą języka PHP
+# <a name="how-toouse-service-bus-queues-with-php"></a>Jak kolejki usługi Service Bus toouse za pomocą języka PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Ten przewodnik przedstawia, jak używać kolejek usługi Service Bus. Przykłady są napisane w PHP i użyj [zestaw Azure SDK for PHP](../php-download-sdk.md). Omówione scenariusze obejmują **tworzenie kolejek**, **wysyłania i odbierania wiadomości**, i **usuwanie kolejek**.
+W tym przewodniku przedstawiono sposób toouse kolejek usługi Service Bus. Przykłady Hello są zapisywane w kodzie PHP i używają hello [zestaw Azure SDK for PHP](../php-download-sdk.md). Witaj omówione scenariusze obejmują **tworzenie kolejek**, **wysyłania i odbierania wiadomości**, i **usuwanie kolejek**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="create-a-php-application"></a>Tworzenie aplikacji PHP
-Jedynym wymaganiem dla tworzenia aplikacji PHP, który uzyskuje dostęp do usługi obiektów Blob platformy Azure jest odwołanie do klasy w [zestaw Azure SDK for PHP](../php-download-sdk.md) od w kodzie. Można użyć narzędzia do programowania do tworzenia aplikacji, lub Notatnik.
+Witaj tylko do tworzenia aplikacji PHP, który uzyskuje dostęp do usługi Azure Blob hello wymaganiem hello odwołuje się do klas w hello [zestaw Azure SDK for PHP](../php-download-sdk.md) od w kodzie. Można użyć dowolnego toocreate narzędzi rozwoju, aplikacji lub Notatnik.
 
 > [!NOTE]
-> Instalację PHP musi mieć również [rozszerzenie biblioteki OpenSSL](http://php.net/openssl) zainstalowany i włączony.
+> Instalację PHP musi mieć również hello [rozszerzenie biblioteki OpenSSL](http://php.net/openssl) zainstalowany i włączony.
 > 
 > 
 
 W tym przewodniku użyje funkcji usługi, które mogą być wywoływane w ramach aplikacji PHP lokalnie lub w kodzie działających w roli sieci web platformy Azure, roli procesu roboczego lub witryny sieci Web.
 
-## <a name="get-the-azure-client-libraries"></a>Pobierz klienta usługi Azure bibliotek
+## <a name="get-hello-azure-client-libraries"></a>Pobierz hello bibliotek klienta platformy Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>Skonfigurować aplikację do użycia z magistralą usług
-Aby korzystać z kolejki usługi Service Bus interfejsów API, wykonaj następujące czynności:
+## <a name="configure-your-application-toouse-service-bus"></a>Konfigurowanie sieci toouse aplikacji usługi Service Bus
+kolejki usługi Service Bus hello toouse interfejsów API, hello następujące:
 
-1. Odwołanie przy użyciu pliku automatycznej ładowarki [require_once] [ require_once] instrukcji.
+1. Plik automatycznej ładowarki hello odwołania przy użyciu hello [require_once] [ require_once] instrukcji.
 2. Odwoływać się do wszystkich klas, których może używać.
 
-Poniższy przykład pokazuje, jak dołączyć plik automatycznej ładowarki i odwołanie `ServicesBuilder` klasy.
+Witaj poniższy przykład przedstawia sposób tooinclude hello hello plików i odwołanie automatycznej ładowarki `ServicesBuilder` klasy.
 
 > [!NOTE]
-> W tym przykładzie (i inne przykłady w tym artykule) przyjęto założenie, że zainstalowano bibliotek klienckich PHP na platformie Azure za pośrednictwem Composer. Jeśli zainstalowano bibliotek ręcznie lub jako pakiet GRUSZKOWA, należy wskazać **WindowsAzure.php** automatycznej ładowarki pliku.
+> W tym przykładzie (i inne przykłady w tym artykule) przyjęto założenie, że zainstalowano hello bibliotek klienckich PHP na platformie Azure za pośrednictwem Composer. Jeśli zainstalowano bibliotek hello ręcznie lub jako pakiet GRUSZKOWA, musi odwoływać się hello **WindowsAzure.php** automatycznej ładowarki pliku.
 > 
 > 
 
@@ -58,25 +58,25 @@ require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-W poniższych przykładach `require_once` instrukcji są zawsze wyświetlane, ale odwołuje się tylko do klas, które są konieczne na przykład do wykonania.
+W poniższych przykładach hello, hello `require_once` instrukcji są zawsze wyświetlane, ale odwołuje się tylko hello klasy niezbędne do tooexecute przykład hello.
 
 ## <a name="set-up-a-service-bus-connection"></a>Skonfiguruj połączenie usługi Service Bus
-Można utworzyć klienta usługi Service Bus, najpierw musi mieć prawidłowe parametry połączenia w następującym formacie:
+tooinstantiate klienta usługi Service Bus, musisz najpierw mieć prawidłowe parametry połączenia w następującym formacie:
 
 ```
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
-Gdzie `Endpoint` ma zazwyczaj format `[yourNamespace].servicebus.windows.net`.
+Gdzie `Endpoint` ma zazwyczaj hello format `[yourNamespace].servicebus.windows.net`.
 
-Aby utworzyć dowolnego klienta usługi Azure, należy użyć `ServicesBuilder` klasy. Możesz:
+toocreate dowolnego klienta usługi Azure, należy użyć hello `ServicesBuilder` klasy. Możesz:
 
-* Parametry połączenia należy przekazać bezpośrednio do niego.
-* Użyj **CloudConfigurationManager (CCM)** do sprawdzenia wiele źródeł zewnętrznych ciągu połączenia:
+* Przekaż połączenia hello ciągu bezpośrednio tooit.
+* Użyj hello **CloudConfigurationManager (CCM)** toocheck zewnętrzne wiele źródeł dla parametrów połączenia hello:
   * Domyślnie pochodzi on z obsługą jednego źródła zewnętrznego — zmienne środowiskowe
-  * Można dodać nowego źródła rozszerzając `ConnectionStringSource` — klasa
+  * Można dodać nowych źródeł, rozszerzając hello `ConnectionStringSource` — klasa
 
-Przykłady przedstawione w tym miejscu ciąg połączenia jest przekazywany bezpośrednio.
+Przykłady hello opisana w tym temacie ciąg połączenia hello jest przekazywany bezpośrednio.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -89,9 +89,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 ```
 
 ## <a name="create-a-queue"></a>Tworzenie kolejki
-Mogą wykonywać operacje zarządzania kolejkami usługi Service Bus za pośrednictwem `ServiceBusRestProxy` klasy. A `ServiceBusRestProxy` obiekt jest tworzony za pomocą `ServicesBuilder::createServiceBusService` metoda fabryki z ciąg odpowiednie połączenie, który hermetyzuje tokenu uprawnieniami do zarządzania nim.
+Mogą wykonywać operacje zarządzania kolejkami usługi Service Bus za pośrednictwem hello `ServiceBusRestProxy` klasy. A `ServiceBusRestProxy` obiekt jest tworzony za pomocą hello `ServicesBuilder::createServiceBusService` metoda fabryki z ciąg odpowiednie połączenie, który hermetyzuje hello tokenu uprawnienia toomanage go.
 
-Poniższy przykład przedstawia sposób tworzenia wystąpienia `ServiceBusRestProxy` i Wywołaj `ServiceBusRestProxy->createQueue` utworzyć kolejkę o nazwie `myqueue` w `MySBNamespace` przestrzeni nazw usługi:
+powitania po przykładzie pokazano, jak tooinstantiate `ServiceBusRestProxy` i Wywołaj `ServiceBusRestProxy->createQueue` toocreate kolejki o nazwie `myqueue` w `MySBNamespace` przestrzeni nazw usługi:
 
 ```php
 require_once 'vendor/autoload.php';
@@ -120,12 +120,12 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Można użyć `listQueues` metoda `ServiceBusRestProxy` obiektów, aby sprawdzić, czy kolejka o określonej nazwie już istnieje w przestrzeni nazw.
+> Można użyć hello `listQueues` metoda `ServiceBusRestProxy` obiekty toocheck, jeśli kolejka o określonej nazwie już istnieje w przestrzeni nazw.
 > 
 > 
 
-## <a name="send-messages-to-a-queue"></a>Wysyłanie komunikatów do kolejki
-Aby wysłać wiadomość do kolejki usługi Service Bus, wywołania aplikacji `ServiceBusRestProxy->sendQueueMessage` metody. Poniższy kod przedstawia sposób wysłania komunikatu do `myqueue` kolejki utworzonej wcześniej w `MySBNamespace` przestrzeni nazw usługi.
+## <a name="send-messages-tooa-queue"></a>Komunikaty tooa kolejki wysyłania
+toosend kolejki usługi Service Bus tooa wiadomość hello wywołuje aplikacji `ServiceBusRestProxy->sendQueueMessage` metody. Witaj następującego kodu pokazuje sposób toosend toohello komunikat `myqueue` kolejki utworzonej wcześniej w `MySBNamespace` przestrzeni nazw usługi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -155,19 +155,19 @@ catch(ServiceException $e){
 }
 ```
 
-Komunikaty wysłane do (i odebrane z) usługi Service Bus kolejki są wystąpieniami klasy [BrokeredMessage] [ BrokeredMessage] klasy. [BrokeredMessage] [ BrokeredMessage] obiekty mają zestaw standardowych metod i właściwości, które są używane do przechowywania niestandardowych właściwości specyficzne dla aplikacji oraz treść dowolnych danych aplikacji.
+Komunikaty wysłane za (i odebrane z) kolejek usługi Service Bus są wystąpieniami klasy hello [BrokeredMessage] [ BrokeredMessage] klasy. [BrokeredMessage] [ BrokeredMessage] obiekty mają zestaw standardowych metod i właściwości, które są używane toohold niestandardowe właściwości specyficzne dla aplikacji oraz treść dowolnych danych aplikacji.
 
-Kolejki usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w [warstwie Standardowa](service-bus-premium-messaging.md) i 1 MB w [warstwie Premium](service-bus-premium-messaging.md). Nagłówek, który zawiera standardowe i niestandardowe właściwości aplikacji, może mieć maksymalny rozmiar 64 KB. Nie ma żadnego limitu liczby komunikatów w kolejce, ale jest ograniczenie całkowitego rozmiaru komunikatów przechowywanych przez kolejkę. Ta górny limit na rozmiar kolejki wynosi 5 GB.
+Kolejki usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w hello [warstwy standardowa](service-bus-premium-messaging.md) i 1 MB w hello [warstwy Premium](service-bus-premium-messaging.md). Nagłówek Hello, który zawiera standardowy hello i właściwości niestandardowych aplikacji, może mieć maksymalny rozmiar 64 KB. Nie ma żadnego limitu liczby hello wiadomości w kolejce, ale jest ograniczenie całkowitego rozmiaru przechowywanych przez kolejkę wiadomości powitania hello. Ta górny limit na rozmiar kolejki wynosi 5 GB.
 
 ## <a name="receive-messages-from-a-queue"></a>Odbieranie komunikatów z kolejki
 
-Najlepszym sposobem na odbieranie komunikatów z kolejki jest użycie `ServiceBusRestProxy->receiveQueueMessage` metody. Mogą być odbierane wiadomości w dwóch różnych trybach: [ *ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) i [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock). Ustawienie domyślne to **PeekLock**.
+Witaj najlepsze sposób tooreceive wiadomości z kolejki jest toouse `ServiceBusRestProxy->receiveQueueMessage` metody. Mogą być odbierane wiadomości w dwóch różnych trybach: [ *ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) i [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock). **PeekLock** jest domyślnym hello.
 
-Korzystając z [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) trybie odbieranie jest operacją pojedynczego zrzutu; oznacza to, kiedy usługa Service Bus odbiera żądanie odczytu komunikatu w kolejce, oznacza komunikat jako wykorzystany i zwraca go do aplikacji. Tryb [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) jest najprostszym modelem i działa najlepiej w scenariuszach, w których aplikacja może tolerować nieprzetworzenie komunikatu w razie awarii. Aby to zrozumieć, rozważmy scenariusz, w którym konsument wystawia żądanie odbioru, a następnie ulega awarii przed jego przetworzeniem. Ponieważ Usługa Service Bus zostanie oznaczona komunikat jako wykorzystany, a następnie po uruchomieniu i rozpocznie korzystanie z komunikatów ponownie aplikacji, pominie utracony komunikat, który został wykorzystany przed awarią.
+Korzystając z [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) trybie odbieranie jest operacją pojedynczego zrzutu; oznacza to, kiedy usługa Service Bus odbiera żądanie odczytu komunikatu w kolejce, oznacza hello komunikat jako wykorzystany i zwraca go toohello aplikacji. [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) tryb hello najprostszym modelem i działa najlepiej w scenariuszach, w których aplikacja może tolerować nieprzetworzenie komunikatu w razie awarii hello. toounderstand, Rozważmy scenariusz w problemy, które konsumenta hello hello mógł odebrać żądanie, a następnie ulega awarii przed jego przetworzeniem. Ponieważ usługi Service Bus będzie zostały oznaczone hello komunikat jako wykorzystany, następnie podczas aplikacji hello uruchamia ponownie i rozpoczyna się ponownie korzystanie z komunikatów, pominie utracony wiadomości powitania, który został wykorzystany przed toohello awarii.
 
-W domyślnej [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) tryb odbieraniu wiadomości staje się operacją dwuetapowy, co umożliwia obsługę aplikacji, które nie tolerują brakujących komunikatów. Kiedy Usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go, aby uniemożliwić innym klientom odebrania go i zwraca go do aplikacji. Kiedy aplikacja zakończy przetwarzanie komunikatu (lub niezawodnie zapisze go w celu przyszłego przetwarzania), wykonuje drugi etap procesu odbierania przez przekazanie odebranego komunikatu do `ServiceBusRestProxy->deleteMessage`. Kiedy Usługa Service Bus widzi `deleteMessage` wywołania spowoduje oznaczenie komunikat jako wykorzystany i usunąć go z kolejki.
+W domyślnej hello [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) tryb odbieraniu wiadomości staje się operacją dwuetapowy, dzięki czemu możliwe toosupport aplikacji, które nie tolerują brakujących komunikatów. Kiedy Usługa Service Bus odbiera żądanie, znajduje następny toobe wiadomość hello, używane, blokuje go tooprevent innym klientom odbieranie, a następnie zwrócenie go toohello aplikacji. Kiedy aplikacja hello zakończy przetwarzanie wiadomości powitania (lub niezawodnie zapisze go w celu przyszłego przetwarzania), wykonuje drugi etap hello hello odbierania procesu przez przekazanie wiadomość hello Odebrano zbyt`ServiceBusRestProxy->deleteMessage`. Kiedy Usługa Service Bus widzi hello `deleteMessage` wywołania spowoduje oznaczenie hello komunikat jako wykorzystany i usunąć go z kolejki hello.
 
-Poniższy przykład przedstawia sposób odbierały i przetwarzały komunikat przy użyciu [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) mode (tryb domyślny).
+powitania po przykładzie pokazano, jak tooreceive i przetwarza komunikat przy użyciu [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) mode (tryb domyślny hello).
 
 ```php
 require_once 'vendor/autoload.php';
@@ -180,7 +180,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
 try    {
-    // Set the receive mode to PeekLock (default is ReceiveAndDelete).
+    // Set hello receive mode tooPeekLock (default is ReceiveAndDelete).
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
 
@@ -207,18 +207,18 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Sposób obsługi awarii aplikacji i komunikatów niemożliwych do odczytania
+## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Jak wystąpiła awaria aplikacji toohandle i nie można go odczytać wiadomości
 
-Usługa Service Bus zapewnia funkcję ułatwiającą bezpieczne odzyskiwanie w razie błędów w aplikacji lub trudności z przetwarzaniem komunikatu. Jeśli aplikacja odbiorcy nie może przetworzyć komunikatu z jakiegoś powodu, wówczas może wywołać `unlockMessage` metody dla odebranego komunikatu (zamiast `deleteMessage` metody). Spowoduje to odblokowanie komunikatu w kolejce i udostępnienie go do ponownego odbioru, przez tę samą lub inną odbierającą aplikację usługę Service Bus.
+Usługa Service Bus udostępnia toohelp funkcji, które bezpieczne odzyskiwanie w razie błędów w aplikacji lub trudności z przetwarzaniem komunikatu. Jeśli aplikacja odbiorcy nie tooprocess hello komunikat dla jakiegoś powodu, wówczas może wywołać hello `unlockMessage` metody na wiadomość powitania odebranych (zamiast hello `deleteMessage` metody). Spowoduje to spowodować, że wiadomość hello toounlock usługi Service Bus w kolejce hello i stał się dostępny toobe odbioru, albo hello przez sam korzystanie z aplikacji lub inną odbierającą aplikację.
 
-Istnieje również limit czasu skojarzony z komunikatem zablokowanym w kolejce i jeśli aplikacja nie może przetworzyć komunikatu przed przekroczenie limitu czasu blokady wygaśnięcia (na przykład jeśli wystąpiła awaria aplikacji), Usługa Service Bus zostanie automatycznie odblokowanie komunikatu i stał się dostępny do ponownego odbioru.
+Istnieje również limit czasu skojarzony z komunikatem zablokowanym w kolejce hello, a jeśli wiadomość hello tooprocess przed awarii aplikacji hello hello blokady upłynięciem limitu czasu (na przykład jeśli wystąpiła awaria aplikacji hello), a następnie usługi Service Bus odblokowaniem wiadomość hello automatycznie i stał się dostępny toobe odbioru.
 
-W przypadku, gdy aplikacja przestaje działać po przetworzeniu komunikatu, ale przed wysłaniem `deleteMessage` żądania, a następnie komunikat zostanie dostarczony do aplikacji po jej ponownym uruchomieniu. Jest to często nazywane *co najmniej raz* oznacza to, że przetwarzanie; każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach ten sam komunikat może być dostarczony ponownie. Jeśli scenariusz nie Toleruje dwukrotnego przetwarzania, zaleca się następnie dodać dodatkową logikę do aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Jest to często osiągane przy użyciu `getMessageId` — metoda, która pozostaje stała między kolejnymi próbami dostarczenia komunikatu.
+W hello zdarzenie, które aplikacji hello ulegnie awarii po przetworzeniu wiadomość hello, ale przed hello `deleteMessage` żądania, a następnie wiadomość hello jest przed przeniesieniem toohello aplikacji po jej ponownym uruchomieniu. Jest to często nazywane *co najmniej raz* przetwarzania; oznacza to, że każdy komunikat jest przetwarzany co najmniej raz, ale w niektórych sytuacjach hello sam komunikat może być dostarczony ponownie. Jeśli hello scenariusz nie Toleruje dwukrotnego przetwarzania, a następnie dodanie dodatkowych logiki tooapplications toohandle dwukrotnego dostarczania komunikatów jest zalecane. Jest to często osiągane przy użyciu hello `getMessageId` metody wiadomość hello, która pozostaje stała między kolejnymi próbami dostarczenia.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz już podstawy kolejek usługi Service Bus, zobacz [kolejki, tematy i subskrypcje] [ Queues, topics, and subscriptions] Aby uzyskać więcej informacji.
+Teraz, kiedy znasz już podstawy hello kolejek usługi Service Bus, zobacz [kolejki, tematy i subskrypcje] [ Queues, topics, and subscriptions] Aby uzyskać więcej informacji.
 
-Aby uzyskać więcej informacji, odwiedź również [Centrum deweloperów języka PHP](https://azure.microsoft.com/develop/php/).
+Aby uzyskać więcej informacji, odwiedź również hello [Centrum deweloperów języka PHP](https://azure.microsoft.com/develop/php/).
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

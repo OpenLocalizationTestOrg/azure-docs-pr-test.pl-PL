@@ -1,6 +1,6 @@
 ---
-title: "Usługa Azure ExpressRoute dla dostawców rozwiązań w chmurze | Microsoft Docs"
-description: "Ten artykuł zawiera informacje dla dostawców usług w chmurze, którzy chcą włączyć do oferty usługi Azure i ExpressRoute."
+title: "aaaAzure ExpressRoute dla dostawców rozwiązań w chmurze | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera informacje o dostawcy usług w chmurze tego tooincorporate chcesz Azure usługi i usługi ExpressRoute w ich oferty."
 documentationcenter: na
 services: expressroute
 author: richcar
@@ -14,127 +14,127 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 062ecbb5e461e4384b01c4ac478cab696b7ed398
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Usługa ExpressRoute dla dostawców rozwiązań w chmurze (CSP)
-Firma Microsoft oferuje usługi w hiperskali dla tradycyjnych odsprzedawców i dystrybutorów (CSP), dzięki czemu użytkownicy mogą szybko inicjować obsługę nowych usług i rozwiązań dla klientów bez konieczności inwestowania w ich opracowywanie. Aby umożliwić dostawcy rozwiązań w chmurze (CSP) bezpośrednie zarządzanie tymi nowymi usługami, firma Microsoft udostępnia programy oraz interfejsy API, które pozwalają dostawcy CSP na zarządzanie zasobami Microsoft Azure w imieniu klientów. Jednym z tych zasobów jest usługa ExpressRoute. Usługa ExpressRoute umożliwia dostawcy CSP łączenie istniejących zasobów klienta z usługami Azure. Usługa ExpressRoute jest prywatnym łączem komunikacyjnym o dużej szybkości do usług w ramach platformy Azure. 
+Firma Microsoft udostępnia usługi funkcji Hyper skalowania dla odsprzedawców tradycyjnych a dystrybutorów (CSP) toobe toorapidly można udostępnić nowych usług i rozwiązań dla klientów bez hello potrzebne tooinvest w tworzeniu tych nowych usług. tooallow hello Cloud Solution Provider (CSP) hello możliwości toodirectly zarządzać tych nowych usług, firma Microsoft udostępnia programy i interfejsy API umożliwiające hello toomanage dostawcy usług Kryptograficznych Microsoft Azure zasobów w imieniu klientów. Jednym z tych zasobów jest usługa ExpressRoute. ExpressRoute umożliwia hello dostawcy usług Kryptograficznych tooconnect istniejących zasobów tooAzure działu pomocy technicznej. ExpressRoute jest szybkich tooservices łącze dla prywatnej komunikacji na platformie Azure. 
 
-Usługa ExpresRoute obejmuje parę obwodów o wysokiej dostępności dołączonych do pojedynczej subskrypcji klienta, których nie można współdzielić między wieloma klientami. Aby zachować wysoką dostępność, każdy obwód powinien kończyć się na innym routerze.
+ExpresRoute składa się z pary obwody wysokiej dostępności, które są dołączone tooa subskrypcje jednego odbiorcy i nie może być współużytkowane przez wielu klientów. Każdy obwód powinno zostać zakończone w różnych router toomaintain hello wysokiej dostępności.
 
 > [!NOTE]
 > Usługa ExpressRoute obejmuje przepustowość i zakończenia połączenia, co oznacza, że duże/złożone wdrożenia będą wymagały wielu obwodów usługi ExpressRoute dla jednego klienta.
 > 
 > 
 
-Firma Microsoft Azure oferuje coraz więcej usług, które można zaoferować klientom.  Aby jak najlepiej korzystać z tych usług, trzeba użyć połączeń usługi ExpressRoute w celu zapewnienia szybkiego dostępu z krótkim czasem oczekiwania do środowiska Microsoft Azure.
+Microsoft Azure udostępnia coraz więcej usług, że możesz zaoferować klientom tooyour.  toobest korzystanie z tych usług wymaga użycia hello ExpressRoute połączeń tooprovide szybkich małych opóźnieniach dostępu toohello Microsoft Azure środowiska.
 
 ## <a name="microsoft-azure-management"></a>Zarządzanie na platformie Microsoft Azure
-Firma Microsoft udostępnia dostawcom CSP interfejsy API do zarządzania subskrypcjami klientów Azure przez umożliwienie programowej integracji z ich systemami zarządzania usługami. Obsługiwane funkcje zarządzania można znaleźć [tutaj](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
+Firma Microsoft opracowuje dla dostawców usług kryptograficznych toomanage interfejsów API powitania klienta Azure subskrypcji, zezwalając programowe integracji z własne systemy zarządzania usługi. Obsługiwane funkcje zarządzania można znaleźć [tutaj](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Zarządzanie zasobami Microsoft Azure
-W zależności od umowy z klientem określa, jak będzie zarządzana subskrypcja. Dostawca CSP może bezpośrednio zarządzać tworzeniem i obsługą zasobów lub klient może zachować kontrolę nad subskrypcją Microsoft Azure i tworzyć zasoby Azure zgodnie z zapotrzebowaniem. Jeśli klient zarządza tworzeniem zasobów w ramach swojej subskrypcji Microsoft Azure, użyje jednego z dwóch modeli: modelu typu „połącz przez” lub modelu typu „bezpośrednio do”. Te modele zostały szczegółowo opisane w poniższych sekcjach.  
+W zależności od hello umowy z klienta określi, jak będą zarządzane hello subskrypcji. Witaj dostawcy usług Kryptograficznych można było bezpośrednio zarządzać hello tworzenia i konserwacji zasobów lub powitania klienta mogą zachować kontrolę nad hello subskrypcji Microsoft Azure i utworzenie hello zasobów platformy Azure, zgodnie z zapotrzebowaniem. Jeśli klient zarządza hello tworzenia zasobów w swoich subskrypcji Microsoft Azure używają jednego z dwóch modeli: "Connect-za pośrednictwem" modelu lub model "Bezpośrednio do". Te modele są szczegółowo opisane w hello następujące sekcje.  
 
 ### <a name="connect-through-model"></a>Model typu „połącz przez”
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
-W modelu typu „połącz przez” dostawca CSP tworzy bezpośrednie połączenie między centrum danych a subskrypcją Azure klienta. Połączenie bezpośrednie jest nawiązywane za pomocą usługi ExpressRoute i łączy sieć z platformą Azure. Klient łączy się z siecią. Ten scenariusz wymaga, aby klient w celu uzyskania dostępu do usług Azure korzystał z sieci dostawcy CSP. 
+W hello połączenia przez model hello dostawcy usług Kryptograficznych tworzy bezpośrednie połączenie między centrum danych i klientów subskrypcji platformy Azure. Witaj połączenie bezpośrednie jest nawiązywane, przy użyciu usługi ExpressRoute, połączenie sieci platformy Azure. Następnie klient łączy sieć tooyour. Ten scenariusz wymaga klienta hello przechodzi przez hello tooaccess sieci dostawcy usług Kryptograficznych usług platformy Azure. 
 
-Jeśli Twój klient ma inne subskrypcje Azure niezarządzane przez Ciebie, będzie korzystać z publicznej sieci internetowej lub własnego połączenia prywatnego, aby połączyć się z usługami inicjowanymi poza ramami subskrypcji dostawcy CSP. 
+Jeśli klient ma inne subskrypcje platformy Azure, które nie są zarządzane przez hello możesz, ich użyje hello publicznego Internetu lub własne prywatną tooconnect toothose usługi udostępniane w ramach subskrypcji z systemem innym niż dostawcy usług Kryptograficznych hello. 
 
-W przypadku dostawcy CSP zarządzającego usługami Azure, zakłada się, że dostawca CSP wcześniej ustanowił magazyn tożsamości klienta, który będzie następnie replikowany do usługi Azure Active Directory do zarządzania subskrypcją dostawcy CSP za pośrednictwem mechanizmu Administrate-On-Behalf-Of (AOBO). Scenariusz ten jest używany przede wszystkim wtedy, gdy dany partner lub dostawca usług ma ustanowioną relację z klientem, klient obecnie używa usług dostawcy lub partner chce dostarczać kombinację rozwiązań obsługiwanych przez dostawcę i obsługiwanych przez platformę Azure, aby zapewnić elastyczność i sprostać wyzwaniom związanym z obsługą klienta, czego nie można osiągnąć jedynie przy pomocy dostawcy CSP. Ten model został przedstawiony na **rysunku** poniżej.
+Dostawca usług Kryptograficznych zarządzania usługami Azure zakłada się, że hello dostawcy usług Kryptograficznych ma tożsamości klienta uprzednio ustanowionym, przechowywania, która będzie następnie zostać zreplikowane do usługi Azure Active Directory dla zarządzania swoją subskrypcję dostawcy usług Kryptograficznych za pośrednictwem Administrate-On-Behalf-Of (AOBO). Klucza sterowniki dla tego scenariusza obejmują gdzie danego partnera lub dostawcy usług ma ustanowić relacji z klientem hello, powitania klienta jest aktualnie używające dostawcy usług lub partnera hello desire tooprovide kombinację hostowanych przez dostawcę i rozwiązań hostowanych Azure tooprovide elastyczność i adres odbiorcy wyzwania, które nie mogą być spełnione przez samego dostawcy usług Kryptograficznych. Ten model został przedstawiony na **rysunku** poniżej.
 
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connect-to-model"></a>Model typu „połącz z”
+### <a name="connect-toomodel"></a>Połącz toomodel
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
-W modelu typu „połącz z” dostawca usług tworzy bezpośrednie połączenie między centrum danych swojego klienta a subskrypcją Azure inicjowaną przez dostawcę CSP za pomocą usługi ExpressRoute za pośrednictwem sieci klienta.
+W hello Connect toomodel, dostawca usługi hello tworzy bezpośrednie połączenie między centrum danych ich klienta i hello dostawcy usług Kryptograficznych obsługi administracyjnej subskrypcji platformy Azure przy użyciu usługi ExpressRoute przez powitania klienta (klienta) sieci.
 
 > [!NOTE]
-> Aby użyć usługi ExpressRoute, klient musi utworzyć i obsługiwać obwód usługi ExpressRoute.  
+> W przypadku połączeń ExpressRoute powitania klienta będzie muszą toocreate a obsługa hello obwodu ExpressRoute.  
 > 
 > 
 
-Ten scenariusz dotyczący łączności wymaga, by klient łączył się bezpośrednio przez sieć klienta, aby uzyskać dostęp do subskrypcji Azure zarządzanej przez dostawcę CSP przy użyciu bezpośredniego połączenia sieciowego, które jest w całości lub częściowo tworzone i zarządzane przez klienta i do niego należy. W przypadku tych klientów zakłada się, że dostawca nie ma obecnie ustanowionego magazynu tożsamości klienta i że będzie pomagać klientowi w replikacji bieżącego magazynu tożsamości do usługi Azure Active Directory w celu zarządzania subskrypcją przez AOBO. Scenariusz ten jest używany przede wszystkim wtedy, gdy dany partner lub dostawca usług ma ustanowioną relację z klientem, klient obecnie używa usług dostawcy lub partner chce dostarczać usługi oparte wyłącznie na rozwiązaniach obsługiwanych przez Azure, bez potrzeby istnienia centrum danych czy infrastruktury dostawcy.
+W tym scenariuszu łączności wymaga powitania klienta łączy się bezpośrednio za pomocą klienta sieci tooaccess subskrypcji platformy Azure zarządzanego dostawcy usług Kryptograficznych, używając bezpośrednie połączenie sieciowe utworzone, własnością i zarządzanych przez klienta na powitania całości lub częściowo. Dla tych klientów zakłada się, że dostawcy hello nie ma obecnie magazynu tożsamości klienta, ustanowić i dostawcy hello może ułatwić powitania klienta replikowanie bieżącym Identyfikuj w usłudze Azure Active Directory do zarządzania ich Subskrypcja za pośrednictwem AOBO. Sterowniki klucza dla tego scenariusza obejmują gdzie danego partnera lub dostawcy usług ma ustanowić relacji z klientem hello, powitania klienta jest aktualnie używające dostawcy usług lub hello partner ma usług tooprovide desire, które są oparte wyłącznie na Rozwiązania hostowanymi na platformie Azure, bez hello mają do istniejącego dostawcy centrum danych lub infrastruktury.
 
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
-Wybór między tymi dwoma opcjami zależy od potrzeb klienta i bieżącej potrzeby świadczenia usług Azure. Szczegółowe informacje dotyczące tych modeli oraz powiązanych z nimi opartych na rolach wzorów projektu kontroli dostępu, sieci i tożsamości znajdują się w artykułach, do których odwołują się poniższe linki:
+Witaj wybór między tych dwóch opcji są oparte na potrzeby klientów i bieżące wymagają tooprovide Azure usługi. Szczegóły Hello tych modeli i hello skojarzone kontroli dostępu opartej na rolach, sieci i wzorce projektowe tożsamości są objęte szczegółów w hello następującego łącza:
 
 * **Kontrola dostępu na podstawie ról (RBAC)** — RBAC opiera się na usłudze Azure Active Directory.  Więcej informacji na temat funkcji Azure RBAC znajduje się [tutaj](../active-directory/role-based-access-control-configure.md).
-* **Sieć** — obejmuje różne tematy dotyczące sieci na platformie Microsoft Azure.
-* **Azure Active Directory (AAD)** — usługa AAD zapewnia zarządzanie tożsamościami dla platformy Microsoft Azure i aplikacji SaaS innych firm. Więcej informacji na temat usługi Azure AD znajduje się [tutaj](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Sieć** — obejmuje hello różne tematy sieci w programie Microsoft Azure.
+* **Azure Active Directory (AAD)** — hello Zarządzanie tożsamościami dla Microsoft Azure i aplikacji SaaS 3 udostępnia usługi AAD. Więcej informacji na temat usługi Azure AD znajduje się [tutaj](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Szybkość sieci
-Usługa ExpressRoute obsługuje szybkość sieci od 50 Mb/s do 10 Gb/s. Dzięki temu klienci mogą wykupić przepustowość odpowiadającą konkretnym potrzebom ich środowiska.
+ExpressRoute obsługuje szybkości sieci z 50 Mb/s too10Gb s. Dzięki temu klienci toopurchase hello ilość przepustowości sieci potrzebnych do ich unikatowy środowiska.
 
 > [!NOTE]
-> Przepustowość sieci można w razie potrzeby zwiększać bez przerywania komunikacji, ale zmniejszenie szybkości sieci wymaga zniszczenia obwodu i odtworzenia go z mniejszą szybkością.  
+> W razie potrzeby bez przerywania łączności można zwiększyć przepustowość sieci, ale szybkość sieci hello tooreduce wymaga przerwanie dół obwodu hello i ponowne utworzenie go na powitania mniejszej szybkości sieci.  
 > 
 > 
 
-Usługa ExpressRoute obsługuje połączenia wielu sieci wirtualnych z jednym obwodem usługi ExpressRoute w celu lepszego wykorzystania połączeń o większej szybkości. Pojedynczy obwód usługi ExpressRoute może być współdzielony przez wiele subskrypcji Azure należących do tego samego klienta.
+ExpressRoute obsługuje hello połączenie wielu sieci wirtualnych tooa pojedynczego obwodu usługi expressroute dla lepsze wykorzystanie hello szybkich połączeń. Pojedynczy obwodu ExpressRoute mogą być współużytkowane przez wiele subskrypcji Azure własnością hello tego samego klienta.
 
 ## <a name="configuring-expressroute"></a>Konfigurowanie usługi ExpressRoute
-Usługę ExpressRoute można skonfigurować do obsługi trzech rodzajów ruchu ([domen routingu](#ExpressRoute-routing-domains)) za pośrednictwem jednego obwodu usługi ExpressRoute. Ten ruch można podzielić na komunikację równorzędną Microsoft, publiczną i prywatną komunikację równorzędną Azure. Można wybrać jeden rodzaj lub wszystkie rodzaje ruchu do wysłania przez jeden obwód usługi ExpressRoute lub użyć wielu obwodów usługi ExpressRoute w zależności od rozmiaru obwodu usługi ExpressRoute i izolacji wymaganej przez klienta. Poziom bezpieczeństwa klienta może nie pozwalać na to, by ruch publiczny i prywatny przechodził przez ten sam obwód.
+ExpressRoute może być skonfigurowany toosupport trzy typy ruchu ([domen routingu](#ExpressRoute-routing-domains)) za pośrednictwem jednego obwodu usługi expressroute. Ten ruch można podzielić na komunikację równorzędną Microsoft, publiczną i prywatną komunikację równorzędną Azure. Można wybrać jednego lub wszystkich rodzajów ruchu toobe wysyłane za pośrednictwem jednego obwodu ExpressRoute lub użyć wielu obwody usługi ExpressRoute w zależności od wielkości hello hello obwodu ExpressRoute i izolację wymagane przez klienta. stan zabezpieczeń powitania klienta może nie zezwalać publicznego ruchu i tootraverse prywatnej ruchu za pośrednictwem hello tego samego obwodu.
 
 ### <a name="connect-through-model"></a>Model typu „połącz przez”
-W konfiguracji typu „połącz przez” jesteś odpowiedzialny za całe wsparcie sieci podczas łączenia zasobów centrum danych klientów z subskrypcjami obsługiwanymi na platformie Azure. Każdy klient, który chce użyć funkcji platformy Azure będzie potrzebować własnego połączenia za pomocą usługi ExpressRoute, które będzie zarządzane przez Ciebie. Będziesz stosować te same metody, których używałby klient do zaopatrzenia obwodu usługi ExpressRoute. Wykonasz instrukcje dotyczące inicjowania obsługi obwodów i stanów obwodów opisane w artykule [ExpressRoute workflows](expressroute-workflows.md) (Przepływy pracy usługi ExpressRoute). Następnie skonfigurujesz trasy protokołu Border Gateway Protocol (BGP) do sterowania ruchem odbywającym się między siecią lokalną a siecią wirtualną Azure.
+W hello connect do konfiguracji będzie odpowiedzialny za wszystkie hello sieci tooconnect underpinnings subskrypcji toohello zasobów Centrum danych klientów hostowana na platformie Azure. Każdego klienta interesujące toouse funkcji platformy Azure będzie konieczne własne połączenia ExpressRoute, które będą zarządzane przez hello należy. Witaj użyjesz hello obwodu ExpressRoute hello tooprocure użyć tej samej metody powitania klienta. Witaj chcesz przeprowadzić hello te same kroki opisane w artykule hello [przepływy pracy usługi ExpressRoute](expressroute-workflows.md) kątem aprowizacji obwodów i stanów obwodów. Witaj, następnie skonfiguruje hello protokołu BGP (Border Gateway) trasy toocontrol hello ruchu przechodzenia między siecią lokalną hello i sieci wirtualnej platformy Azure.
 
-### <a name="connect-to-model"></a>Model typu „połącz z”
-W konfiguracji typu „połącz z” klient ma już istniejące połączenie z platformą Azure lub zainicjuje połączenie z dostawcą usług internetowych łączące usługę ExpressRoute z centrum danych klienta bezpośrednio z platformą Azure, a nie z Twojego centrum danych. Aby rozpocząć proces inicjowania obsługi, klient wykona instrukcje opisane w modelu typu „połącz z” powyżej. Po ustanowieniu obwodu klient będzie musiał skonfigurować routery lokalne w taki sposób, aby mogły uzyskać dostęp do Twojej sieci i sieci wirtualnych Azure.
+### <a name="connect-toomodel"></a>Połącz toomodel
+W connect tooconfiguration, klient istniejących tooAzure połączenia lub ma zainicjuje połączenie toohello usługodawcy internetowego połączeń ExpressRoute z centrum danych przez klienta bezpośrednio tooAzure zamiast Centrum danych. toobegin hello procesu zastrzegania, klient będzie wykonaj kroki hello, zgodnie z powyższym opisem hello Connect do modelu. Po ustanowieniu obwodu powitania klienta należy tooconfigure hello lokalnych routerów toobe stanie tooaccess sieciowe i sieci wirtualnych platformy Azure.
 
-Możesz pomóc podczas konfigurowania połączenia i tras do zezwalania zasobom w centrum danych na komunikację z zasobami klienta w centrum danych lub zasobami obsługiwanymi na platformie Azure.
+Mogą pomóc w skonfigurowaniu hello połączenia i konfigurowanie hello kieruje tooallow hello zasobów w Twojej toocommunicate datacenter(s) powitania klienta zasobów w centrum danych lub zasobów hello hostowana na platformie Azure.
 
 ## <a name="expressroute-routing-domains"></a>Domeny routingu usługi ExpressRoute
-Usługa ExpressRoute oferuje trzy domeny routingu: publiczną, prywatną i komunikacji równorzędnej firmy Microsoft. Każda z domen routingu jest konfigurowana z identycznymi routerami w konfiguracji aktywny-aktywny w celu uzyskania wysokiej dostępności. Więcej szczegółowych informacji dotyczących domen routingu usługi ExpressRoute można znaleźć [tutaj](expressroute-circuit-peerings.md).
+Usługa ExpressRoute oferuje trzy domeny routingu: publiczną, prywatną i komunikacji równorzędnej firmy Microsoft. Każdej z domen routingu hello są skonfigurowane z routerami identyczne w konfiguracji aktywny aktywny wysokiej dostępności. Więcej szczegółowych informacji dotyczących domen routingu usługi ExpressRoute można znaleźć [tutaj](expressroute-circuit-peerings.md).
 
-Możesz zdefiniować filtry tras niestandardowych w taki sposób, aby zezwalać tylko na trasy, na które chcesz zezwolić lub których potrzebujesz. Opis wprowadzania tych zmian i więcej szczegółów dotyczących filtrów routingu znajduje się w artykule [Create and modify routing for an ExpressRoute circuit using PowerShell](expressroute-howto-routing-classic.md) (Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute za pomocą programu PowerShell).
+Można zdefiniować trasy niestandardowe filtry tooallow tylko hello sposobu (sposobów) mają tooallow lub potrzebujesz. Aby uzyskać więcej informacji lub toosee jak toomake te zmiany w temacie artykuł: [Utwórz i zmodyfikuj routingu dla obwodu usługi ExpressRoute, przy użyciu programu PowerShell](expressroute-howto-routing-classic.md) Aby uzyskać więcej informacji o filtrach routingu.
 
 > [!NOTE]
-> W przypadku firmy Microsoft i publicznej komunikacji równorzędnej połączenie musi odbywać się przez publiczny adres IP należący do klienta lub dostawcy CSP i musi być zgodne ze wszystkimi zdefiniowanymi regułami. Więcej informacji znajduje się na stronie [ExpressRoute Prerequisites](expressroute-prerequisites.md) (Wymagania wstępne usługi ExpressRoute).  
+> Microsoft i publicznej komunikacji równorzędnej łączności musi być jednak publicznego adresu IP należących do dostawcy usług Kryptograficznych lub powitania klienta i musi być zgodne tooall zdefiniowanych reguł. Aby uzyskać więcej informacji, zobacz hello [wymagania wstępne usługi ExpressRoute](expressroute-prerequisites.md) strony.  
 > 
 > 
 
 ## <a name="routing"></a>Routing
-Usługa ExpressRoute łączy się z sieciami Azure za pośrednictwem usługi Azure Virtual Network. Bramy sieci zapewniają routing dla sieci wirtualnych Azure.
+ExpressRoute łączy toohello Azure sieci za pośrednictwem hello Brama sieci wirtualnej platformy Azure. Bramy sieci zapewniają routing dla sieci wirtualnych Azure.
 
-Tworzenie sieci wirtualnych Azure powoduje również utworzenie tabeli routingu domyślnego dla sieci wirtualnej w celu kierowania ruchu do/z jej podsieci. Jeśli tabela routingu domyślnego jest niewystarczająca dla rozwiązania, mogą zostać utworzone trasy niestandardowe do kierowania ruchu wychodzącego do urządzeń niestandardowych lub do blokowania tras do określonych podsieci lub sieci zewnętrznych.
+Tworzenie sieci wirtualnych Azure tworzy również tabelę routingu domyślnego hello sieci wirtualnej toodirect ruchu z podsieci hello hello sieci wirtualnej. Jeśli tabela tras domyślnych hello jest niewystarczający dla rozwiązania hello niestandardowe trasy można tworzyć urządzenia toocustom ruchu wychodzącego tooroute lub tooblock kieruje toospecific podsieci lub sieci zewnętrznych.
 
 ### <a name="default-routing"></a>Routing domyślny
-Tabela routingu domyślnego obejmuje następujące trasy:
+Tabela tras domyślnych Hello obejmuje hello następujących tras:
 
 * Routing w podsieci
-* Podsieć do podsieci w sieci wirtualnej
-* Do Internetu
+* Podsieci do sieci w ramach sieci wirtualnej hello
+* toohello Internet
 * Sieć wirtualna do sieci wirtualnej przy użyciu bramy sieci VPN
 * Sieć wirtualna do sieci lokalnej przy użyciu bramy sieci VPN lub usługi ExpressRoute
 
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Routing zdefiniowany przez użytkownika (UDR)
-Trasy zdefiniowane przez użytkownika umożliwiają sterowanie ruchem wychodzącym z przypisanej podsieci do innych podsieci w sieci wirtualnej lub przez jedną z innych wstępnie zdefiniowanych bram (usługę ExpressRoute, Internet lub sieć VPN). Tabelę routingu domyślnego systemu można zastąpić tabelą routingu zdefiniowanego przez użytkownika, która zastępuje tabelę routingu domyślnego trasami niestandardowymi. W przypadku routingu zdefiniowanego przez użytkownika klienci mogą tworzyć określone trasy do takich urządzeń jak zapory lub urządzenia do wykrywania włamań bądź blokować dostęp do określonych podsieci z podsieci obsługującej trasę zdefiniowaną przez użytkownika. Omówienie tras zdefiniowanych przez użytkownika znajduje się [tutaj](../virtual-network/virtual-networks-udr-overview.md). 
+Trasy zdefiniowane przez użytkownika umożliwia hello kontroli ruchu wychodzącego z hello przypisanych podsieci tooother podsieci w sieci wirtualnej hello lub hello ponad jednego z innych bram wstępnie zdefiniowane (ExpressRoute; internet lub sieć VPN). Tabela routingu Hello domyślnych systemu można zastąpić zdefiniowane przez użytkownika tabelę routingu, która zastępuje domyślną tabelę routingu hello trasy niestandardowe. Zdefiniowane przez użytkownika routingu klientów można utworzyć tooappliances określonej trasy, takich jak zapory lub urządzenia wykrywania nieautoryzowanego dostępu lub blokowanie dostępu toospecific podsieci z podsieci hello hosting hello trasy zdefiniowane przez użytkownika. Omówienie tras zdefiniowanych przez użytkownika znajduje się [tutaj](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## <a name="security"></a>Bezpieczeństwo
-W zależności od tego, czy używany jest model „połącz z” czy „połącz przez”, klient określa zasady zabezpieczeń w sieci wirtualnej lub przekazuje wymagania zasad bezpieczeństwa dostawcy CSP do zdefiniowania dla sieci wirtualnych. Można zdefiniować następujące kryteria zabezpieczeń:
+W zależności od tego, czy model, który jest używany, Połącz tooor Connect-przez klienta definiuje zasady zabezpieczeń hello w ich sieci wirtualnej lub zawiera wymagania dotyczące zasad zabezpieczeń hello toohello dostawcy usług Kryptograficznych toodefine tootheir w sieci wirtualnych. można zdefiniować Hello następujące kryteria zabezpieczeń:
 
-1. **Izolacja klienta** — platforma Azure zapewnia izolację klienta przez przechowywanie identyfikatora klienta i informacji o sieci wirtualnej w bezpiecznej bazie danych, używanej do hermetyzacji ruchu poszczególnych klientów w tunelu GRE.
-2. Reguły **grupy zabezpieczeń sieci (NSG)** służą do definiowania dopuszczonego ruchu do i z podsieci w ramach sieci wirtualnych na platformie Azure. Domyślnie NSG obejmuje reguły blokowania do blokowania ruchu z Internetu do sieci wirtualnej oraz reguły zezwalania dla ruchu w ramach sieci wirtualnej. Więcej informacji na temat grup zabezpieczeń sieci znajduje się [tutaj](https://azure.microsoft.com/blog/network-security-groups/).
-3. **Tunelowanie wymuszone** — jest to opcja przekierowywania ruchu powiązanego z Internetem pochodzącego z platformy Azure za pośrednictwem połączenia usługi ExpressRoute do lokalnego centrum danych. Więcej informacji o na temat tunelowania wymuszonego można znaleźć [tutaj](expressroute-routing.md#advertising-default-routes).  
-4. **Szyfrowanie** — mimo że obwody usługi ExpressRoute są przeznaczone dla określonego klienta, istnieje możliwość naruszenia bezpieczeństwa dostawcy sieci, które pozwoliłoby intruzowi na sprawdzenie ruchu pakietu. Aby temu zapobiec, klient lub dostawca CSP może zaszyfrować ruch w ramach połączenia przez zdefiniowanie zasad trybu tunelu ochrony IPSec dla całego ruchu odbywającego się między zasobami lokalnymi i zasobami Azure (informacje na temat opcjonalnej ochrony IPSec trybu tunelu dla klienta 1 znajdują się powyżej na rysunku 5 — Zabezpieczenia usługi ExpressRoute). Druga opcja polega na użyciu urządzenia zapory na każdym punkcie końcowym obwodu usługi ExpressRoute. Wymaga to zainstalowania dodatkowych maszyn wirtualnych/urządzeń zapory innych firm ma obu końcach w celu zaszyfrowania ruchu w ramach obwodu usługi ExpressRoute.
+1. **Izolacja klienta** — hello platformy Azure zapewnia izolację klienta przez zapisanie informacji o identyfikator klienta i sieci wirtualnej w bezpiecznej bazie danych, która jest używana tooencapsulate ruchu każdego klienta w tunelu GRE.
+2. **Sieciowe grupy zabezpieczeń (NSG)** są reguł określających dozwolony ruch do i z hello podsieci w sieci wirtualnych na platformie Azure. Domyślnie hello grupy NSG zawierają bloku reguły tooblock ruch z sieci wirtualnej toohello Internet hello i reguł zezwalania na ruch w sieci wirtualnej. Więcej informacji na temat grup zabezpieczeń sieci znajduje się [tutaj](https://azure.microsoft.com/blog/network-security-groups/).
+3. **Tunelowanie** — jest to tooredirect opcji internetowych powiązany ruchu pochodzącego z Azure toobe przekierowanie za pośrednictwem toohello połączenia ExpressRoute hello w lokalnym centrum danych. Więcej informacji o na temat tunelowania wymuszonego można znaleźć [tutaj](expressroute-routing.md#advertising-default-routes).  
+4. **Szyfrowanie** — mimo że obwody usługi ExpressRoute hello są dedykowane tooa określonego klienta, istnieje możliwość hello hello dostawcy sieci może być naruszone, stosowanie intruz tooexamine pakietów ruchu. tooaddress, który to ryzyko, klienta lub dostawcy usług Kryptograficznych można zaszyfrować ruchu za pośrednictwem hello połączenie przez określenie zasad trybu tunelowania IPSec dla całego ruchu przechodzenia między hello w lokalnych zasobach i zasobów platformy Azure (zobacz toohello opcjonalne trybu tunelowania IPSec dla klienta 1 na rysunku 5: ExpressRoute zabezpieczeń powyżej). Druga opcja Hello byłoby toouse urządzenia zapory w każdym punkcie końcowym hello hello obwodu usługi expressroute. Wymaga to dodatkowe strony 3 zapory zainstalowane na ruch hello tooencrypt kończy się za pośrednictwem obwodu ExpressRoute hello toobe maszyny wirtualne/urządzeń.
 
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
 ## <a name="next-steps"></a>Następne kroki
-Usługa dostawcy rozwiązań w chmurze zapewnia sposób na zwiększenie wartości dla klientów bez konieczności nabywania kosztownej infrastruktury i zakupów funkcji, z zachowaniem pozycji podstawowego dostawcy usług firmy zewnętrznej. Bezproblemową integrację z platformą Microsoft Azure można uzyskać przez interfejs API dostawcy CSP. Umożliwia on zintegrowanie zarządzania platformą Microsoft Azure w ramach istniejących struktur zarządzania.  
+Witaj usługi Cloud Solution Provider zapewnia tooincrease sposób, potrzebują klienci tooyour wartość bez hello kosztowne zakupów infrastruktury i możliwości, przy zachowaniu stanowisko hello outsourcing podstawowego dostawcy. Integracja z Microsoft Azure można osiągnąć za pośrednictwem hello API dostawcy usług Kryptograficznych, umożliwiając toointegrate zarządzania Microsoft Azure w ramach Twojej istniejącej struktury zarządzania.  
 
-Dodatkowe informacje można znaleźć, używając następujących linków:
+Dodatkowe informacje można znaleźć na powitania następującego łącza:
 
 [Microsoft Cloud Solution Provider program](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview) (Program dostawcy rozwiązań w chmurze Microsoft).  
-[Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch) (Przygotowanie do transakcji w roli dostawcy rozwiązań w chmurze).  
+[Pobierz gotowe tootransact jako dostawca rozwiązań w chmurze](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources) (Zasoby dostawcy rozwiązań w chmurze Microsoft).
 

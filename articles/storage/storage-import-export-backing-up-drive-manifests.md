@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie kopii zapasowej manifestów dysku Import/Eksport Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak ma Twojej manifestów dysku dla kopii zapasowej automatycznie usługi Import/Eksport Microsoft Azure."
+title: "aaaBacking się manifestów dysku Import/Eksport Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toohave dysku manifesty hello usługi Import/Eksport Microsoft Azure automatycznie kopii zapasowej."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 33eb8e1eea8f8aa7b79ef3e54f2b1ed88dc794ae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f48b97a2cce62714aace2b30a393305202c7ecd9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="backing-up-drive-manifests-for-azure-importexport-jobs"></a>Tworzenie kopii zapasowej dysku manifesty prac Import/Eksport Azure
 
-Manifesty dysku mogą być automatycznie do kopii zapasowej do obiektów blob przez ustawienie `BackupDriveManifest` właściwości `true` w [zawiesić zadanie](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) lub [właściwości zadania aktualizacji](/rest/api/storageimportexport/jobs#Jobs_Update) operacje interfejsu API REST. Domyślnie manifestów dysku nie kopii zapasowej. Tworzenie kopii zapasowych manifestu dysku są przechowywane jako blokowych obiektów blob w kontenerze w ramach konta magazynu skojarzone z zadaniem. Domyślnie nazwa kontenera jest `waimportexport`, ale można określić inną nazwę w `DiagnosticsPath` właściwości podczas wywoływania metody `Put Job` lub `Update Job Properties` operacji. Kopia zapasowa manifestu obiektów blob są nazywane w następującym formacie: `waies/jobname_driveid_timestamp_manifest.xml`.
+Manifesty dysku może automatycznie kopii zapasowej tooblobs przez ustawienie hello `BackupDriveManifest` właściwości zbyt`true` w hello [zawiesić zadanie](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) lub [właściwości zadania aktualizacji](/rest/api/storageimportexport/jobs#Jobs_Update) operacje interfejsu API REST. Domyślnie program hello dysku manifestów nie kopii zapasowej. Witaj dysku manifestu w kopie zapasowe są przechowywane jako blokowych obiektów blob w kontenerze w ramach konta magazynu hello skojarzone z zadaniem hello. Domyślnie nazwa kontenera hello jest `waimportexport`, można jednak określić inną nazwę w hello `DiagnosticsPath` właściwości podczas wywoływania metody hello `Put Job` lub `Update Job Properties` operacji. Witaj kopii zapasowej manifestu obiektów blob są o nazwie w hello następującego formatu: `waies/jobname_driveid_timestamp_manifest.xml`.
 
- Identyfikator URI manifesty kopii zapasowej dysku dla zadania można pobrać przez wywołanie metody [pobrania zadania](/rest/api/storageimportexport/jobs#Jobs_Get) operacji. Identyfikator URI jest zwracany w obiekcie blob `ManifestUri` właściwości dla każdego dysku.
+ Można pobrać identyfikatora URI dysku kopii zapasowej hello manifesty zadania przez wywołanie hello hello [pobrania zadania](/rest/api/storageimportexport/jobs#Jobs_Get) operacji. Identyfikator URI jest zwracany w hello blob Hello `ManifestUri` właściwości dla każdego dysku.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przy użyciu interfejsu API REST usługi Import/Eksport](storage-import-export-using-the-rest-api.md)
+* [Przy użyciu interfejsu API REST usługi Import/Eksport hello](storage-import-export-using-the-rest-api.md)

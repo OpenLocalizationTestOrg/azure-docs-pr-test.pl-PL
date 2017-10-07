@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do zapytań między bazami danych (partycjonowanie pionowe) | Dokumentacja firmy Microsoft"
-description: "jak używać zapytania elastycznej bazy danych z baz danych w pionie podzielonym na partycje"
+title: "aaaGet wprowadzenie do zapytań między bazami danych (partycjonowanie pionowe) | Dokumentacja firmy Microsoft"
+description: jak toouse zapytania elastycznej bazy danych w pionie na partycje baz danych
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: torsteng
-ms.openlocfilehash: 17158c4960e9ba9251524659c90af9aec1316774
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9e6183268e8bf87e3ac28f502711fcc05a7a3f52
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Wprowadzenie do zapytań między bazami danych (partycjonowanie pionowe) (wersja zapoznawcza)
-Zapytanie elastycznej bazy danych (wersja zapoznawcza) w bazie danych SQL Azure umożliwia uruchamianie zapytania T-SQL, obejmującej wiele baz danych przy użyciu pojedynczy punkt połączenia. Ten temat dotyczy [w pionie na partycje baz danych](sql-database-elastic-query-vertical-partitioning.md).  
+Zapytanie elastycznej bazy danych (wersja zapoznawcza) w bazie danych SQL Azure umożliwia toorun zapytania T-SQL, obejmującej wiele baz danych przy użyciu pojedynczy punkt połączenia. Ten temat dotyczy zbyt[w pionie na partycje baz danych](sql-database-elastic-query-vertical-partitioning.md).  
 
-Po zakończeniu zostanie: informacje o sposobie konfigurowania i korzystania z bazy danych SQL Azure do wykonywania zapytań, obejmującej wiele powiązanych baz danych. 
+Po zakończeniu zostanie: Dowiedz się, jak tooconfigure i używanie usługi Azure SQL Database tooperform wysyła zapytanie do tego zakresu wielu powiązanych baz danych. 
 
-Aby uzyskać więcej informacji o funkcji zapytania elastycznej bazy danych, zobacz [bazy danych SQL Azure elastycznej bazy danych zapytań — omówienie](sql-database-elastic-query-overview.md). 
+Aby uzyskać więcej informacji na temat hello elastycznej bazy danych zapytania funkcji, zobacz [bazy danych SQL Azure elastycznej bazy danych zapytań — omówienie](sql-database-elastic-query-overview.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musi mieć uprawnienie ALTER ANY zewnętrznego źródła danych. To uprawnienie jest dołączany uprawnienie ALTER DATABASE. Aby odwołać się do źródła danych są potrzebne uprawnienia ALTER ANY zewnętrznego źródła danych.
+Musi mieć uprawnienie ALTER ANY zewnętrznego źródła danych. To uprawnienie jest dołączany hello uprawnienie ALTER DATABASE. Uprawnienia ALTER ANY zewnętrznego źródła danych są wymagane toorefer toohello podstawowego źródła danych.
 
-## <a name="create-the-sample-databases"></a>Tworzenie bazy danych przykładowych
-Do uruchomienia z należy utworzyć dwie bazy danych, **klientów** i **zamówień**, albo w tych samych lub różnych serwerów logicznych.   
+## <a name="create-hello-sample-databases"></a>Utwórz hello przykładowe bazy danych
+toostart z, potrzebujemy toocreate dwóch baz danych, **klientów** i **zamówień**, hello w tych samych lub różnych serwerów logicznych.   
 
-Wykonaj następujące kwerendy w **zamówień** bazy danych do utworzenia **OrderInformation** tabeli i przykładowych danych wejściowych. 
+Wykonanie następującego zapytania na powitania hello **zamówień** hello toocreate bazy danych **OrderInformation** tabeli i dane wejściowe hello przykładowych danych. 
 
     CREATE TABLE [dbo].[OrderInformation]( 
         [OrderID] [int] NOT NULL, 
@@ -46,7 +46,7 @@ Wykonaj następujące kwerendy w **zamówień** bazy danych do utworzenia **Orde
     INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
     INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Teraz, wykonaj następujące zapytanie w **klientów** bazy danych do utworzenia **CustomerInformation** tabeli i przykładowych danych wejściowych. 
+Teraz, wykonaj następujące zapytanie na powitania **klientów** hello toocreate bazy danych **CustomerInformation** tabeli i dane wejściowe hello przykładowych danych. 
 
     CREATE TABLE [dbo].[CustomerInformation]( 
         [CustomerID] [int] NOT NULL, 
@@ -61,18 +61,18 @@ Teraz, wykonaj następujące zapytanie w **klientów** bazy danych do utworzenia
 ## <a name="create-database-objects"></a>Tworzenie obiektów bazy danych
 ### <a name="database-scoped-master-key-and-credentials"></a>Baza danych o zakresie klucz główny i poświadczenia
 1. Otwórz program SQL Server Management Studio lub SQL Server Data Tools w programie Visual Studio.
-2. Połączenie z bazą danych zleceń i wykonaj następujące polecenia T-SQL:
+2. Połączenia bazy danych zamówień toohello i wykonaj hello następujące polecenia T-SQL:
    
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>'; 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred 
         WITH IDENTITY = '<username>', 
         SECRET = '<password>';  
    
-    "Nazwa użytkownika" i "password" powinna być nazwa użytkownika i hasło używane do logowania do bazy danych klientów.
+    Hello "username" i "password" powinny być hello nazwy użytkownika i hasło używane toologin do bazy danych klientom Witaj.
     Uwierzytelnianie przy użyciu usługi Azure Active Directory z zapytaniami elastyczne nie jest obecnie obsługiwane.
 
 ### <a name="external-data-sources"></a>Zewnętrzne źródła danych
-Aby utworzyć zewnętrznego źródła danych, uruchom następujące polecenie w bazie danych zleceń: 
+toocreate zewnętrznego źródła danych, wykonaj następujące polecenia w bazie danych zamówień hello hello: 
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH 
         (TYPE = RDBMS, 
@@ -82,7 +82,7 @@ Aby utworzyć zewnętrznego źródła danych, uruchom następujące polecenie w 
     ) ;
 
 ### <a name="external-tables"></a>Tabele zewnętrzne
-Tworzenie tabeli zewnętrznej w bazie danych zamówień odpowiadającego definicja tabeli CustomerInformation:
+Tworzenie tabeli zewnętrznej w bazie danych zamówień hello, odpowiadającego hello definicji tabeli CustomerInformation hello:
 
     CREATE EXTERNAL TABLE [dbo].[CustomerInformation] 
     ( [CustomerID] [int] NOT NULL, 
@@ -92,7 +92,7 @@ Tworzenie tabeli zewnętrznej w bazie danych zamówień odpowiadającego definic
     ( DATA_SOURCE = MyElasticDBQueryDataSrc) 
 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Wykonywanie przykładowego zapytania T-SQL elastycznej bazy danych
-Po zdefiniowaniu zewnętrznym źródle danych i tabele zewnętrzne T-SQL można teraz używać do badania tabel zewnętrznych. Wykonaj tę kwerendę w bazie danych zleceń: 
+Po zdefiniowaniu zewnętrznym źródle danych i tabel zewnętrznych można teraz używać tooquery T-SQL tabel zewnętrznych. Wykonaj tę kwerendę w bazie danych zamówień hello: 
 
     SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company 
     FROM OrderInformation 
@@ -100,7 +100,7 @@ Po zdefiniowaniu zewnętrznym źródle danych i tabele zewnętrzne T-SQL można 
     ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
 
 ## <a name="cost"></a>Koszty
-Obecnie funkcja zapytania elastycznej bazy danych jest dostępna do kosztu bazy danych SQL Azure.  
+Obecnie funkcja kwerendy hello elastycznej bazy danych jest uwzględniony w koszt hello bazy danych SQL Azure.  
 
 Aby uzyskać informacje o cenach zobacz [cennik usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database). 
 

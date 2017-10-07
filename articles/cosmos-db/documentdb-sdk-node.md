@@ -1,6 +1,6 @@
 ---
-title: "Zasoby, zestaw SDK & rozwiązania Cosmos Azure DB interfejsu API środowiska Node.js | Dokumentacja firmy Microsoft"
-description: "Dowiedz się wszystkiego o interfejsu API środowiska Node.js i tym daty wydania, daty wycofania i zmiany wprowadzone od każdej wersji zestawu SDK platformy Azure rozwiązania Cosmos DB Node.js SDK."
+title: "aaaAzure rozwiązania Cosmos interfejsu API środowiska Node.js DB, zestaw SDK i zasoby | Dokumentacja firmy Microsoft"
+description: "Dowiedz się wszystkiego o hello interfejsu API środowiska Node.js i zestawu SDK, w tym daty wydania, daty wycofania i zmiany między poszczególnymi wersjami hello Azure rozwiązania Cosmos DB Node.js SDK."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d450b9a9ea7b0f4717ddae8940121fc458ea3744
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Zestaw SDK platformy Azure rozwiązania Cosmos DB Node.js: Informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -43,11 +43,11 @@ ms.lasthandoff: 08/18/2017
 
 <tr><td>**Instrukcje dotyczące instalacji zestawu SDK**</td><td>[Instrukcje dotyczące instalacji](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
-<tr><td>**Przyczyniają się do zestawu SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Współtworzenia tooSDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
 
 <tr><td>**Przykłady**</td><td>[Przykłady kodu node.js](documentdb-nodejs-samples.md)</td></tr>
 
-<tr><td>**Samouczek z wprowadzeniem**</td><td>[Wprowadzenie do zestawu Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Samouczek z wprowadzeniem**</td><td>[Rozpoczynanie pracy z hello Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
 
 <tr><td>**Samouczek aplikacji sieci Web**</td><td>[Tworzenie aplikacji sieci web Node.js za pomocą bazy danych Azure rozwiązania Cosmos](documentdb-nodejs-application.md)</td></tr>
 
@@ -66,8 +66,8 @@ ms.lasthandoff: 08/18/2017
 
 ### <a name="1.12.1"/>1.12.1</a>
 * Stała usterki executeStoredProcedure, w którym dokumenty ma specjalne znaków Unicode (LS, PS).
-* Stałe usterki w obsłudze dokumenty zawierające znaki Unicode w kluczu partycji.
-* Stały obsługę tworzenia kolekcji z nośnika nazwy. Problem Github #114.
+* Stałe usterki w obsłudze dokumenty zawierające znaki Unicode w hello klucza partycji.
+* Stały obsługę tworzenia kolekcji hello nazwa nośnika. Problem Github #114.
 * Stałe obsługę token autoryzacji uprawnień. Problem Github #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
@@ -76,19 +76,19 @@ ms.lasthandoff: 08/18/2017
 * Stałe błędów obsługę standardu Unicode. Problem GitHub #171.
 
 ### <a name="1.11.0"/>1.11.0</a>
-* Dodano obsługę zapytań agregacji (COUNT, MIN, MAX, SUM i Śr.).
-* Dodano opcja kontrolowania stopień równoległości dla wielu partycji zapytań.
-* Dodano opcję wyłączenie protokołu SSL weryfikacji podczas uruchamiania emulatora DB rozwiązania Cosmos Azure.
-* Obniżony minimalnej przepustowości w kolekcji partycjonowanych z 10,100 RU/s do 2500 RU/s.
-* Stałe błędów token kontynuacji dla kolekcji jednej partycji. Problem Github #107.
-* Stałe błędów executeStoredProcedure obsługi 0 jako pojedynczy parametr w. Problem Github #155.
+* Obsługa hello dodanych zapytań agregacji (COUNT, MIN, MAX, SUM i Śr.).
+* Opcja hello dodany do kontrolowania stopień równoległości dla wielu partycji zapytań.
+* Opcja dodano hello wyłączenie protokołu SSL weryfikacji podczas uruchamiania emulatora DB rozwiązania Cosmos Azure.
+* Obniżony minimalnej przepustowości w kolekcji partycjonowanych z RU/s 10,100 too2500 RU/s.
+* Stałe hello kontynuacji tokenu usterki dla kolekcji jednej partycji. Problem Github #107.
+* Błąd executeStoredProcedure hello stałej w obsługi 0 jako pojedynczy parametr. Problem Github #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
-* Stałe agenta użytkownika nagłówek do uwzględnienia wersja zestawu SDK.
+* Stałe agenta użytkownika nagłówka tooinclude hello zestawu SDK w wersji.
 * Oczyszczanie kodu pomocniczych.
 
 ### <a name="1.10.1"/>1.10.1</a>
-* Wyłączanie weryfikacji protokołu SSL podczas korzystania z zestawu SDK pod kątem emulator(hostname=localhost).
+* Wyłączanie weryfikacji SSL, używając hello SDK tootarget hello emulator(hostname=localhost).
 * Dodano obsługę Włączanie rejestrowania skryptu podczas wykonywania procedury składowanej.
 
 ### <a name="1.10.0"/>1.10.0</a>
@@ -96,27 +96,27 @@ ms.lasthandoff: 08/18/2017
 * Dodano obsługę TOP/ORDER BY zapytania dla kolekcji partycjonowanych.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Obsługa zasad dodano ponownych prób dla żądań z ograniczeniem przepustowości. (Ograniczeniem przepustowości żądania odbierania żądania szybkość zbyt duży wyjątek, kod błędu 429.) Domyślnie bazy danych Azure rozwiązania Cosmos ponowi próbę dziewięciokrotnie dla każdego żądania po napotkaniu błędu kodu 429 ramach czasu retryAfter nagłówka odpowiedzi. Czas interwału ponawiania stałym teraz można ustawić jako część właściwości RetryOptions w obiekcie ConnectionPolicy aby zignorować godzinę retryAfter zwrócony przez serwer między ponownymi próbami. Azure DB rozwiązania Cosmos teraz czeka na maksymalnie 30 sekund dla każdego żądania jest ograniczane (niezależnie od liczby ponownych prób) i zwraca odpowiedź z kodem błędu 429. Teraz również może zostać przesłonięta we właściwości RetryOptions ConnectionPolicy obiektu.
-* Rozwiązania cosmos DB teraz zwraca x-ms ograniczania liczby ponownych prób i x-ms-throttle-retry-wait-time-ms nagłówków odpowiedzi każde żądanie do oznaczania przepustnicy ponów liczby i skumulowany czas żądanie oczekiwało między ponownymi próbami.
-* Klasa RetryOptions został dodany, udostępnianie właściwości RetryOptions klasy ConnectionPolicy, który może służyć do zastępowania niektórych domyślne opcje ponownych prób.
+* Obsługa zasad dodano ponownych prób dla żądań z ograniczeniem przepustowości. (Ograniczeniem przepustowości żądania odbierania żądania szybkość zbyt duży wyjątek, kod błędu 429.) Domyślnie bazy danych Azure rozwiązania Cosmos ponowi próbę dziewięciokrotnie dla każdego żądania po napotkaniu błędu kodu 429 ramach czasu retryAfter hello hello nagłówka odpowiedzi. Czas interwału ponawiania stałym teraz można ustawić jako część hello RetryOptions właściwości w obiekcie ConnectionPolicy hello Jeśli czas retryAfter hello tooignore zwrócony przez serwer między kolejnymi próbami hello. Azure DB rozwiązania Cosmos teraz czeka na maksymalnie 30 sekund na każde żądanie jest ograniczane (niezależnie od liczby ponownych prób) i zwracającej odpowiedź hello 429 kod błędu. Teraz zostać zastąpiona w taki sposób, w hello RetryOptions właściwości w obiekcie ConnectionPolicy.
+* Rozwiązania cosmos DB teraz zwraca x-ms ograniczania liczby ponownych prób i x-ms-throttle-retry-wait-time-ms hello i liczba skumulowany czas hello żądania oczekiwano między kolejnymi próbami hello ponów próbę hello nagłówków odpowiedzi w ograniczania hello toodenote każdego żądania.
+* Dodano Hello klasy RetryOptions udostępnianie właściwości RetryOptions hello na powitania ConnectionPolicy klasy, które mogą być używane toooverride niektóre hello domyślne opcje ponawiania.
 
 ### <a name="1.8.0"/>1.8.0</a>
-* Dodano obsługę konta w przypadku bazy danych.
+* Hello dodano obsługę konta w przypadku bazy danych.
 
 ### <a name="1.7.0"/>1.7.0</a>
-* Dodano obsługę funkcji czas do Live(TTL) dokumentów.
+* Witaj dodano obsługę funkcji tooLive(TTL) czasu dla dokumentów.
 
 ### <a name="1.6.0"/>1.6.0</a>
 * Zaimplementowane [kolekcje partycjonowane](partition-data.md) i [poziomy wydajności zdefiniowanych przez użytkownika](performance-levels.md).
 
 ### <a name="1.5.6"/>1.5.6</a>
-* Usunięte usterki RangePartitionResolver.resolveForRead gdzie nie został zwrócił łącza z powodu nieprawidłowych concat wyników.
+* Stałe usterki RangePartitionResolver.resolveForRead gdzie nie został zwrócił łącza powodu tooa concat nieprawidłowych wyników.
 
 ### <a name="1.5.5"/>1.5.5</a>
 * Stałe hashParitionResolver resolveForRead(): gdy nie podany klucz partycji została Zgłaszanie wyjątku, zamiast zwracać listę wszystkich zarejestrowanych łączy.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Rozwiązuje problem [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -agenta w wersji dedykowanej HTTPS: unikać modyfikacji globalne agenta do celów bazy danych Azure rozwiązania Cosmos. Użyj dedykowanych agenta dla wszystkich żądań lib.
+* Rozwiązuje problem [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -agenta w wersji dedykowanej HTTPS: unikać modyfikacji hello globalne agenta do celów bazy danych Azure rozwiązania Cosmos. Użyj dedykowanych agenta dla wszystkich żądań hello lib.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Rozwiązuje problem [#81](https://github.com/Azure/azure-documentdb-node/issues/81) — poprawnie obsłużyć myślniki identyfikatory nośników.
@@ -125,7 +125,7 @@ ms.lasthandoff: 08/18/2017
 * Rozwiązuje problem [#95](https://github.com/Azure/azure-documentdb-node/issues/95) -odbiornika EventEmitter wyciek ostrzeżenie.
 
 ### <a name="1.5.1"/>1.5.1</a>
-* Rozwiązuje problem [#92](https://github.com/Azure/azure-documentdb-node/issues/90) — Zmień nazwę folderu skrót do wyznaczania wartości skrótu dla systemów z uwzględnieniem wielkości liter.
+* Rozwiązuje problem [#92](https://github.com/Azure/azure-documentdb-node/issues/90) — Zmień nazwę folderu toohash wyznaczania wartości skrótu dla systemów z uwzględnieniem wielkości liter.
 
 ### <a name="1.5.0"/>1.5.0</a>
 * Implementowanie obsługi dzielenia na fragmenty przez dodanie skrótów & zakres rozpoznawania nazw partycji.
@@ -134,11 +134,11 @@ ms.lasthandoff: 08/18/2017
 * Implementuje Upsert. Nowych metod upsertXXX na documentClient.
 
 ### <a name="1.3.0"/>1.3.0</a>
-* Pominięto przenieść numery wersji wyrównania z innych zestawów SDK.
+* Numery wersji pominięto toobring wyrównania z innych zestawów SDK.
 
 ### <a name="1.2.2"/>1.2.2</a>
-* Q podziału niesie obietnice otok dla nowego repozytorium.
-* Zaktualizuj do pliku pakietu do rejestru npm.
+* Q podziału niesie obietnice otoki toonew repozytorium.
+* Plik toopackage aktualizacji rejestru npm.
 
 ### <a name="1.2.1"/>1.2.1</a>
 * Implementuje identyfikator oparte na routingu.
@@ -147,19 +147,19 @@ ms.lasthandoff: 08/18/2017
 ### <a name="1.2.0"/>1.2.0</a>
 * Dodano obsługę dla indeksu dane geograficzne.
 * Weryfikuje właściwość identyfikatora dla wszystkich zasobów. Identyfikatory zasobów nie może zawierać?, /, # &#47; &#47; znaków ani kończyć spacją.
-* Dodaje nowego nagłówka "indeksu przekształcania toku" do ResourceResponse.
+* Dodaje nowy tooResourceResponse "postępu przekształcania indeksu" nagłówka.
 
 ### <a name="1.1.0"/>1.1.0</a>
 * Implementuje zasady indeksowania V2.
 
 ### <a name="1.0.3"/>1.0.3</a>
-* Problem [#40](https://github.com/Azure/azure-documentdb-node/issues/40) — zaimplementowana eslint grunt konfiguracje podstawowe i promise zestawu SDK.
+* Problem [#40](https://github.com/Azure/azure-documentdb-node/issues/40) — zaimplementowana eslint grunt konfiguracje podstawowe hello i promise zestawu SDK.
 
 ### <a name="1.0.2"/>1.0.2</a>
 * Problem [#45](https://github.com/Azure/azure-documentdb-node/issues/45) -otoki ze zobowiązania nie zawiera nagłówka z powodu błędu.
 
 ### <a name="1.0.1"/>1.0.1</a>
-* Zaimplementowany możliwość wykonywania kwerend konflikty, dodając readConflicts, readConflictAsync i queryConflicts.
+* Możliwości implementowane tooquery konflikty, dodając readConflicts, readConflictAsync i queryConflicts.
 * Zaktualizowana dokumentacja interfejsu API.
 * Problem [#41](https://github.com/Azure/azure-documentdb-node/issues/41) — błąd client.createDocumentAsync.
 
@@ -167,11 +167,11 @@ ms.lasthandoff: 08/18/2017
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Wersja & daty wycofania
-Firma Microsoft udostępnia powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w celu złagodzenia przejścia do nowszej/nieobsługiwaną wersję.
+Firma Microsoft udostępnia powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w kolejności toosmooth hello przejścia tooa nowszej/nieobsługiwaną wersję.
 
-Nowe funkcje i funkcjonalność i optymalizację, które są dodawane tylko do bieżącego zestawu SDK, w związku jest zalecane, zawsze Uaktualnij zestaw SDK najnowszą tak szybko jak to możliwe.
+Nowe funkcje i funkcjonalność i optymalizację, które są dodawane tylko toohello bieżącego zestawu SDK, w związku zaleca się tego należy zawsze uaktualnienia toohello najnowszego zestawu SDK w wersji możliwie jak najszybciej.
 
-Każde żądanie przy użyciu rozwiązania Cosmos DB wycofane zestawu SDK jest odrzucane przez usługę.
+Każde żądanie tooCosmos bazy danych przy użyciu wycofane zestawu SDK jest odrzucane przez usługę hello.
 
 <br/>
 
@@ -210,5 +210,5 @@ Każde żądanie przy użyciu rozwiązania Cosmos DB wycofane zestawu SDK jest o
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz też
-Aby dowiedzieć się więcej na temat rozwiązania Cosmos bazy danych, zobacz [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) stronę usługi.
+toolearn więcej informacji na temat rozwiązania Cosmos bazy danych, zobacz [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) stronę usługi.
 

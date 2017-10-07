@@ -1,5 +1,5 @@
 ---
-title: "Przykładowa konfiguracja rozszerzenia maszyny Wirtualnej systemu Windows | Dokumentacja firmy Microsoft"
+title: "Konfiguracja aaaSample dla rozszerzeń maszyny Wirtualnej systemu Windows | Dokumentacja firmy Microsoft"
 description: "Przykładowa konfiguracja do tworzenia szablonów z rozszerzeniami"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: a22962690854d273377f7295ab5dd49419f5a354
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7697be969dbcf609423f64b75c7edf80ca1bfd9e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-windows-vm-extension-configuration-samples"></a>Przykłady konfiguracji rozszerzenia maszyn wirtualnych systemu Windows na platformie Azure
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ ms.lasthandoff: 07/11/2017
 
 Ten artykuł zawiera Przykładowa konfiguracja konfigurowanie Azure VM rozszerzeń dla maszyn wirtualnych systemu Windows.
 
-Aby dowiedzieć się więcej na temat tych rozszerzeń, zobacz [omówienie rozszerzeń maszyny Wirtualnej Azure.](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+toolearn więcej informacji na temat tych rozszerzeń, zobacz [omówienie rozszerzeń maszyny Wirtualnej Azure.](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-Aby dowiedzieć się więcej na temat tworzenia szablonów rozszerzenia, zobacz [tworzenia szablonów rozszerzenia.](extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Zobacz toolearn więcej informacji na temat tworzenia szablonów rozszerzenia [tworzenia szablonów rozszerzenia.](extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-W tym artykule wymieniono konfiguracji oczekiwanej wartości dla niektórych rozszerzeń systemu Windows.
+W tym artykule wymieniono konfiguracji oczekiwanej wartości dla niektórych hello rozszerzeń systemu Windows.
 
 ## <a name="sample-template-snippet-for-vm-extensions-with-iaas-vms"></a>Przykładowy szablon fragment kodu dotyczący rozszerzeń maszyny Wirtualnej z maszyn wirtualnych IaaS.
-Fragment kodu szablonu wdrażania rozszerzeń wygląda jak poniżej:
+fragment szablonu Hello dotyczące wdrażania rozszerzeń wygląda jak poniżej:
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -80,11 +80,11 @@ Fragment kodu szablonu wdrażania rozszerzeń wygląda jak poniżej:
             }
           }
 
-Przed wdrożeniem rozszerzenia Sprawdź najnowszej wersji rozszerzenia i zastąp "typeHandlerVersion" najnowszej wersji.
+Przed wdrożeniem rozszerzenia hello Sprawdź hello najnowszej wersji rozszerzenia i Zastąp hello "typeHandlerVersion" hello bieżącego najnowszej wersji.
 
-Pozostałej części artykułu zawiera przykładowe konfiguracje dla rozszerzeń maszyny Wirtualnej systemu Windows.
+Pozostała część artykułu hello zawiera przykładowe konfiguracje dla rozszerzeń maszyny Wirtualnej systemu Windows.
 
-Przed wdrożeniem rozszerzenia Sprawdź najnowszej wersji rozszerzenia i zastąp "typeHandlerVersion" najnowszej wersji.
+Przed wdrożeniem rozszerzenia hello Sprawdź hello najnowszej wersji rozszerzenia i Zastąp hello "typeHandlerVersion" hello bieżącego najnowszej wersji.
 
 ### <a name="customscript-extension-14"></a>Rozszerzenia CustomScript 1.4.
       {
@@ -104,13 +104,13 @@ Przed wdrożeniem rozszerzenia Sprawdź najnowszej wersji rozszerzenia i zastąp
       }
 
 #### <a name="parameter-description"></a>Opis parametru:
-* fileUris: rozdzielone przecinkami listę adresów URL, plików, które zostaną pobrane na maszynie Wirtualnej przez rozszerzenie. Jeśli nie określono żadnej wartości, są pobierane żadne pliki. Jeśli pliki znajdują się w usłudze Azure Storage, fileURLs można oznaczyć jako prywatne i correspoding storageAccountName i storageAccountKey mogą być przekazywane jako parametry prywatny dostęp do tych plików.
-* commandToExecute: [obowiązkowy parametr]: to polecenie, które będą wykonywane przez rozszerzenie.
-* storageAccountName: [parametr opcjonalny]: Nazwa konta magazynu do uzyskiwania dostępu do fileURLs, jeśli są one oznaczone jako prywatny.
-* storageAccountKey: [parametr opcjonalny]: klucz konta magazynu do uzyskiwania dostępu do fileURLs, jeśli są one oznaczone jako prywatny.
+* fileUris: rozdzielone przecinkami listę adresów URL, hello plików, które zostaną pobrane na powitania maszyny Wirtualnej przez hello rozszerzenia. Jeśli nie określono żadnej wartości, są pobierane żadne pliki. Jeśli pliki hello znajdują się w usłudze Azure Storage, hello fileURLs można oznaczyć jako prywatne i hello correspoding storageAccountName i storageAccountKey mogą być przekazywane jako parametry prywatnej tooaccess tych plików.
+* commandToExecute: [obowiązkowy parametr]: to polecenie hello, które będą wykonywane przez hello rozszerzenia.
+* storageAccountName: [parametr opcjonalny]: Nazwa konta magazynu do uzyskiwania dostępu do hello fileURLs, jeśli są one oznaczone jako prywatny.
+* storageAccountKey: [parametr opcjonalny]: klucz konta magazynu do uzyskiwania dostępu do hello fileURLs, jeśli są one oznaczone jako prywatny.
 
 ### <a name="customscript-extension-17"></a>Rozszerzenia CustomScript 1.7.
-Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono obsługę wysyłania parameters(commandToExecute) skryptu jako protectedSettings, w którym to przypadku będą one szyfrowane przed wysłaniem. Parametr "commandToExecute" można określić ustawienia lub protectedSettings, ale nie w obu.
+Opis parametru można znaleźć w tooCustomScript w wersji 1.4. Wersji 1,7 wprowadzono obsługę wysyłania parameters(commandToExecute) skryptu jako protectedSettings, w którym to przypadku będą one szyfrowane przed wysłaniem. Parametr "commandToExecute" można określić ustawienia lub protectedSettings, ale nie w obu.
 
         {
             "publisher": "Microsoft.Compute",
@@ -146,17 +146,17 @@ Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono o
       {
           "publisher": "Microsoft.Powershell",
           "type": "DSC",
-          "typeHandlerVersion": "2.1(Recommendation is to use the latest version)",
+          "typeHandlerVersion": "2.1(Recommendation is toouse hello latest version)",
           "settings": {
               "ModulesUrl": "https://UrlToZipContainingConfigurationScript.ps1.zip",
-              "SasToken": "Optional : SAS Token if ModulesUrl points to Azure Blob Storage",
+              "SasToken": "Optional : SAS Token if ModulesUrl points tooAzure Blob Storage",
               "ConfigurationFunction": "ConfigurationScript.ps1\\ConfigurationFunction",
               "Properties": {
                   "ParameterToConfigurationFunction1": "Value1",
                   "ParameterToConfigurationFunction2": "Value2",
                   "ParameterOfTypePSCredential1": {
                       "UserName": "UsernameValue1",
-                      "Password": "PrivateSettingsRef:Key1(Value is a reference to a member of the Items object in the protected settings)"
+                      "Password": "PrivateSettingsRef:Key1(Value is a reference tooa member of hello Items object in hello protected settings)"
                   },
                   "ParameterOfTypePSCredential2": {
                       "UserName": "UsernameValue2",
@@ -188,15 +188,15 @@ Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono o
         "type": "TrendMicroDSA",
         "typeHandlerVersion": "9.6",
         "settings": {
-          "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter \"agents.deepsecurity.trendmicro.com\" if using Deep Security as a Service",
+          "ManagerAddress" : "Enter hello externally accessible DNS name or IP address of hello Deep Security Manager. Please enter \"agents.deepsecurity.trendmicro.com\" if using Deep Security as a Service",
 
-          "ActivationPort" : "Enter the port number of the Deep Security Manager, default value - 443",
+          "ActivationPort" : "Enter hello port number of hello Deep Security Manager, default value - 443",
 
-          "TenantIdentifier" : "Enter the tenant ID, which is a hyphenated, 36-character string available in the Deployment Scripts dialog box in the Deep Security console. This parameter is mandatory if using Deep Security as a Service, or a multi-tenant installation of Deep Security Manager. Type NA if using a non multi-tenant installation of Deep Security Manager.",
+          "TenantIdentifier" : "Enter hello tenant ID, which is a hyphenated, 36-character string available in hello Deployment Scripts dialog box in hello Deep Security console. This parameter is mandatory if using Deep Security as a Service, or a multi-tenant installation of Deep Security Manager. Type NA if using a non multi-tenant installation of Deep Security Manager.",
 
-          "TenantActivationPassword" : "Enter the tenant activation password, which is a hyphenated, 36-character string available in the Deployment Scripts dialog box in the Deep Security console. This parameter is mandatory if using Deep Security as a Service, or a multi-tenant installation of Deep Security Manager. Type NA if using a non multi-tenant installation of Deep Security Manager.",
+          "TenantActivationPassword" : "Enter hello tenant activation password, which is a hyphenated, 36-character string available in hello Deployment Scripts dialog box in hello Deep Security console. This parameter is mandatory if using Deep Security as a Service, or a multi-tenant installation of Deep Security Manager. Type NA if using a non multi-tenant installation of Deep Security Manager.",
 
-          "SecurityPolicy" : "Optional : Enter the name or numeric ID of the security policy defined in the Deep Security Manager which will be applied on agent activation to protect this virtual machine (recommended). No security policy will be applied to the virtual machine if this parameter is blank. This parameter is optional if using Deep Security as a Service."
+          "SecurityPolicy" : "Optional : Enter hello name or numeric ID of hello security policy defined in hello Deep Security Manager which will be applied on agent activation tooprotect this virtual machine (recommended). No security policy will be applied toohello virtual machine if this parameter is blank. This parameter is optional if using Deep Security as a Service."
         }
       }
 
@@ -225,10 +225,10 @@ Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono o
               "type": "MicrosoftMonitoringAgent",
               "typeHandlerVersion": "1.0",
               "settings": {
-                "workspaceId" : "The Workspace ID is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
+                "workspaceId" : "hello Workspace ID is available from within hello Direct Agent Configuration section of hello Azure Operational Insights portal"
               }
               "protectedSettings": {
-                "workspaceKey"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
+                "workspaceKey"  : "hello Workspace Key is a string that is available from within hello Direct Agent Configuration section of hello Azure Operational Insights portal"
               }
               }
             }
@@ -240,10 +240,10 @@ Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono o
               "typeHandlerVersion": "6.0",
               "settings": {
                 "entitlementKey" : "Optional : Enter a valid entitlement key or leave blank for trial version",
-                "featureVS"      : "Choose whether or not to install the Virus and Spyware Protection features : true|false",
-                "featureBP"      : "Choose whether or not to install the Browser Protection feature : true|false",
-                "featureFW"      : "Choose whether or not to install the Firewall Protection feature :true|false",
-                "relayServer"    : "Allows VMs on the local subnet to receive updates through this VM when they are not connected to the internet : true|false"
+                "featureVS"      : "Choose whether or not tooinstall hello Virus and Spyware Protection features : true|false",
+                "featureBP"      : "Choose whether or not tooinstall hello Browser Protection feature : true|false",
+                "featureFW"      : "Choose whether or not tooinstall hello Firewall Protection feature :true|false",
+                "relayServer"    : "Allows VMs on hello local subnet tooreceive updates through this VM when they are not connected toohello internet : true|false"
               }
             }
 
@@ -261,7 +261,7 @@ Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono o
               "ScheduledScanSettingsIsEnabled"   : "Optional : True|False",
               "ScheduledScanSettingsScanType"   : "Optional : Quick|Full",
               "ScheduledScanSettingsDay"   : "Optional : Sunday-Saturday",
-              "ScheduledScanSettingsTime"   : "Optional : When to perform the scheduled scan, measured in minutes from midnight,0-1440"
+              "ScheduledScanSettingsTime"   : "Optional : When tooperform hello scheduled scan, measured in minutes from midnight,0-1440"
             }
           }
 
@@ -290,7 +290,7 @@ Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono o
             "type": "ConferForAzure",
             "typeHandlerVersion": "1.0",
             "settings": {
-              "ConferRegisterCode" : "Optional : Valid product registration code or leave it blank to register later",
+              "ConferRegisterCode" : "Optional : Valid product registration code or leave it blank tooregister later",
               "ConferRegisterCode" : "Enter a valid server name if your account requires a dedicated confer backend server or leave it blank"
             }
           }
@@ -301,7 +301,7 @@ Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono o
             "type": "CloudLinkSecureVMWindowsAgent",
             "typeHandlerVersion": "4.0",
             "settings": {
-              "CloudLinkCenter" : "specify valid IP/FQDN to CloudLinkCenter"
+              "CloudLinkCenter" : "specify valid IP/FQDN tooCloudLinkCenter"
             }
           }
 
@@ -311,10 +311,10 @@ Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono o
             "type": "BarracudaConnectivityAgent",
             "typeHandlerVersion": "3.5",
             "settings": {
-              "ServerAddress" : "Host name or IP address of the VPN server - AES, AES256, Blowfish,CAST,DES,3DES,None",
-              "EncryptionAlgorithm" : "Algorithm used to encrypt VPN traffic - MD5,SHA1,SHA256,None",
-              "PKCS12File" : "Url for file containing certificate and private key used to authenticate against the VPN server",
-              "PKCS12FilePassword" : "Password for the file containing certificate and private key"
+              "ServerAddress" : "Host name or IP address of hello VPN server - AES, AES256, Blowfish,CAST,DES,3DES,None",
+              "EncryptionAlgorithm" : "Algorithm used tooencrypt VPN traffic - MD5,SHA1,SHA256,None",
+              "PKCS12File" : "Url for file containing certificate and private key used tooauthenticate against hello VPN server",
+              "PKCS12FilePassword" : "Password for hello file containing certificate and private key"
             }
           }
 
@@ -341,7 +341,7 @@ Zapoznaj się CustomScript w wersji 1.4 opis parametru. Wersji 1,7 wprowadzono o
           }
 
 ### <a name="azure-diagnostics"></a>Diagnostyka Azure
-Aby uzyskać więcej informacji o sposobie konfigurowania diagnostyki, zobacz [rozszerzenia Diagnostyka Azure](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Aby uzyskać więcej informacji na temat tooconfigure diagnostics, zobacz [rozszerzenia Diagnostyka Azure](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -361,7 +361,7 @@ Aby uzyskać więcej informacji o sposobie konfigurowania diagnostyki, zobacz [r
 
 ### <a name="octopus-deploy-tentacle-agent"></a>Ośmiornica wdrożyć agenta Tentacle
 
-Aby uzyskać więcej informacji o sposobie konfigurowania Tentacle wdrażanie Ośmiornica na platformie Azure, zobacz [dokumentacji Ośmiornica](https://octopus.com/docs/installation/installing-tentacles/azure-virtual-machines).
+Aby uzyskać więcej informacji o sposobie tooconfigure hello Ośmiornica Tentacle wdrażanie na platformie Azure, zobacz hello [dokumentacji Ośmiornica](https://octopus.com/docs/installation/installing-tentacles/azure-virtual-machines).
 
           {
             "publisher": "OctopusDeploy.Tentacle",
@@ -369,23 +369,23 @@ Aby uzyskać więcej informacji o sposobie konfigurowania Tentacle wdrażanie O�
             "typeHandlerVersion": "2.0",
             "autoUpgradeMinorVersion": "true",
             "settings": {
-              "OctopusServerUrl": "(string, required) The url to the Octopus server portal.",
-              "Environments": [ "(array of strings, required) The environments to which the Tentacle should be added." ],
-              "Roles": [ "(array of strings, required) The roles to assign to the Tentacle." ],
-              "CommunicationMode": "(string, required) Whether the Tentacle should wait for connections from the server ('Listen') or should poll the server ('Poll').",
-              "Port": (int, required) The port to listen on for connections from the server (in 'Listen' mode), or the port on which to connect to the Octopus server ('Poll' mode).,
-              "PublicHostNameConfiguration": "(string, optional) If in listening mode, how the server should contact the Tentacle. Can be 'PublicIP', 'FQDN', 'ComputerName' or 'Custom'. Defaults to 'PublicIp'.",
-              "CustomPublicHostName": "(string, optional) If in listening mode, and 'PublicHostNameConfiguration' is set to 'Custom', the address that the server should use for this Tentacle.",
-              "MachinePolicy": "(string, optional) The Machine Policy to assign to the Tentacle. If not specified, uses the default Machine Policy.",
-              "Tenants": [ "(array of strings, optional) The tenants to assign to the Tentacle. The tenants feature must be enabled on the Octopus Server." ],
-              "TenantTags": [ "(array of strings, optional) The tenant tags to assign to the Tentacle, in the format 'TagSet/TagName'. The tenants feature must be enabled on the Octopus Server." ]
+              "OctopusServerUrl": "(string, required) hello url toohello Octopus server portal.",
+              "Environments": [ "(array of strings, required) hello environments toowhich hello Tentacle should be added." ],
+              "Roles": [ "(array of strings, required) hello roles tooassign toohello Tentacle." ],
+              "CommunicationMode": "(string, required) Whether hello Tentacle should wait for connections from hello server ('Listen') or should poll hello server ('Poll').",
+              "Port": (int, required) hello port toolisten on for connections from hello server (in 'Listen' mode), or hello port on which tooconnect toohello Octopus server ('Poll' mode).,
+              "PublicHostNameConfiguration": "(string, optional) If in listening mode, how hello server should contact hello Tentacle. Can be 'PublicIP', 'FQDN', 'ComputerName' or 'Custom'. Defaults too'PublicIp'.",
+              "CustomPublicHostName": "(string, optional) If in listening mode, and 'PublicHostNameConfiguration' is set too'Custom', hello address that hello server should use for this Tentacle.",
+              "MachinePolicy": "(string, optional) hello Machine Policy tooassign toohello Tentacle. If not specified, uses hello default Machine Policy.",
+              "Tenants": [ "(array of strings, optional) hello tenants tooassign toohello Tentacle. hello tenants feature must be enabled on hello Octopus Server." ],
+              "TenantTags": [ "(array of strings, optional) hello tenant tags tooassign toohello Tentacle, in hello format 'TagSet/TagName'. hello tenants feature must be enabled on hello Octopus Server." ]
             },
             "protectedSettings": {
-              "ApiKey": "(string, required) The Api Key to use to connect to the Octopus server."
+              "ApiKey": "(string, required) hello Api Key toouse tooconnect toohello Octopus server."
             }
           }
 
-W powyższych przykładach Zastąp numer wersji numer najnowszej wersji.
+W powyższych przykładach hello Zastąp numer wersji hello numer hello najnowszej wersji.
 
 Oto przykład pełnego szablonu maszyny Wirtualnej z niestandardowe rozszerzenie skryptu.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory Domain Services: Utwórz grupę Administratorzy kontrolerów domeny usługi Azure AD | Dokumentacja firmy Microsoft"
-description: "Włączanie usług Azure Active Directory Domain Services przy użyciu klasycznej witryny Azure Portal"
+title: "Azure Active Directory Domain Services: Utwórz grupę Administratorzy DC hello Azure AD | Dokumentacja firmy Microsoft"
+description: "Włączanie usługi Azure Active Directory Domain Services przy użyciu hello klasycznego portalu Azure"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: maheshu
-ms.openlocfilehash: 5ed0125e05928cf0f6d9941e099b433ecb46e6e2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d629ab9632ef6a45b549630999ff9a122d60c040
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Włączanie usług Azure Active Directory Domain Services przy użyciu klasycznej witryny Azure Portal
-W tym artykule opisano i przedstawiono zadania konfiguracji, które są wymagane, aby włączyć usługi Azure Active Directory Domain Services (Azure AD DS) dla dzierżawy usługi Azure Active Directory (Azure AD).
+# <a name="enable-azure-active-directory-domain-services-using-hello-azure-classic-portal"></a>Włączanie usługi Azure Active Directory Domain Services przy użyciu hello klasycznego portalu Azure
+W tym artykule opisano i przedstawiono hello zadania konfiguracyjne, które są wymagane dla Ciebie tooenable Azure usług domenowych Active Directory (Azure AD DS) dla dzierżawy usługi Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> [**Zamiast tego spróbuj nowe środowisko portalu Azure (wersja zapoznawcza)**](active-directory-ds-getting-started.md). 
+> [**Zamiast tego spróbuj nowe środowisko portalu hello Azure (wersja zapoznawcza)**](active-directory-ds-getting-started.md). 
 >
 
-## <a name="task-1-create-the-azure-ad-dc-administrators-group"></a>Zadanie 1: Tworzenie grupy administratorów usługi Azure AD kontrolera domeny.
-Pierwszym zadaniem jest tworzenie grupy administracyjnej w dzierżawie usługi Azure AD. Nosi nazwę tej grupy administracyjnej specjalne *Administratorzy kontrolera domeny usługi AAD*. Członkowie tej grupy są przyznawane uprawnienia administracyjne na komputerach, które są przyłączone do domeny w domenie zarządzanych usług domenowych Azure Active Directory. Na komputerach przyłączonych do domeny ta grupa jest dodawane do grupy Administratorzy. Ponadto Członkowie tej grupy służy pulpitu zdalnego do łączności zdalnej dla komputerów przyłączonych do domeny.  
+## <a name="task-1-create-hello-azure-ad-dc-administrators-group"></a>Zadanie 1: Tworzenie grupy Administratorzy DC hello Azure AD
+pierwszym zadaniem Hello jest toocreate grupy administracyjnej w dzierżawie usługi Azure AD. Nosi nazwę tej grupy administracyjnej specjalne *Administratorzy kontrolera domeny usługi AAD*. Członkowie tej grupy są przyznawane uprawnienia administracyjne na komputerach, które są przyłączone do domeny toohello zarządzanych usług domenowych Azure Active Directory domeny. Na komputerach przyłączonych do domeny ta grupa jest dodawana toohello grupy Administratorzy. Ponadto Członkowie tej grupy można użyć maszyny zdalnie przyłączonych toodomain tooconnect pulpitu zdalnego.  
 
 > [!NOTE]
-> Nie masz uprawnienia administratora domeny lub administratora przedsiębiorstwa domeny zarządzanej, który został utworzony za pomocą usługi Azure Active Directory Domain Services. W domenach zarządzanych te uprawnienia są zastrzeżone przez usługę i nie są udostępniane użytkownikom w ramach dzierżawy. Jednak można użyć specjalnej grupy administracyjne utworzone w ramach tego zadania konfiguracji można wykonać pewne operacje uprzywilejowane. Tych operacji zalicza się przyłączanie komputerów do domeny, należą do tej grupy administracyjnej na komputerach przyłączonych do domeny i konfigurowania zasad grupy.
+> Nie masz uprawnienia administratora domeny lub administratora przedsiębiorstwa hello domeny zarządzanej, który został utworzony za pomocą usługi Azure Active Directory Domain Services. W domenach zarządzanych te uprawnienia są zastrzeżone przez usługę hello i nie będą dostępne toousers w ramach dzierżawy hello. Można jednak użyć hello specjalnej grupy administracyjne utworzone w tej konfiguracji tooperform zadań niektóre czynności uprzywilejowane. Tych operacji zalicza się dołączenie komputerów domeny toohello, należącego do grupy administracyjnej toohello na komputerach przyłączonych do domeny i konfigurowania zasad grupy.
 >
 
-W tym zadaniu konfiguracji tworzenia grupy administracyjnej i Dodaj jeden lub więcej użytkowników w katalogu do grupy. Aby utworzyć grupy administracyjnej dla usługi Azure Active Directory Domain Services, wykonaj następujące czynności:
+W tym zadaniu konfiguracji tworzenia grupy administracyjnej hello i Dodaj jeden lub więcej użytkowników w grupie toohello katalogu. toocreate hello grupy administracyjnej dla usługi Azure Active Directory Domain Services, hello następujące:
 
-1. Przejdź do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W lewym okienku wybierz przycisk **Active Directory**.
-3. Wybierz dzierżawę usługi Azure AD (katalog), dla którego chcesz włączyć usługi Azure Active Directory Domain Services. Można utworzyć tylko jedną domenę dla każdego katalogu usługi Azure AD.
+1. Przejdź toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
+2. W okienku po lewej stronie powitania wybierz hello **usługi Active Directory** przycisku.
+3. Wybierz hello dzierżawy usługi Azure AD (katalog) dla której ma zostać tooenable Azure Active Directory Domain Services. Można utworzyć tylko jedną domenę dla każdego katalogu usługi Azure AD.
 
     ![Wybierz katalog usługi Azure AD](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
-4. Na **katalogu podglądu** kliknij przycisk **grup** kartę.
-5. Aby dodać grupę do dzierżawy usługi Azure AD, w okienku zadań w dolnej części okna kliknij **Dodaj grupę**.
+4. Na powitania **katalogu podglądu** kliknij przycisk hello **grup** kartę.
+5. Kliknij grupę dzierżawcy tooyour usługi Azure AD, w okienku zadań hello u dołu okna hello hello tooadd **Dodaj grupę**.
 
-    ![Przycisk Dodaj grupę](./media/active-directory-domain-services-getting-started/add-group-button.png)
-6. W **Dodaj grupę** okna dialogowego Utwórz grupę o nazwie **Administratorzy kontrolera domeny usługi AAD**, a następnie ustaw **typ grupy** do **zabezpieczeń**.
+    ![przycisk Dodaj grupę Hello](./media/active-directory-domain-services-getting-started/add-group-button.png)
+6. W hello **Dodaj grupę** okna dialogowego Utwórz grupę o nazwie **Administratorzy kontrolera domeny usługi AAD**, a następnie ustaw **typ grupy** za**zabezpieczeń**.
 
    > [!WARNING]
-   > Aby włączyć dostęp w swojej domenie zarządzanych usług domenowych Azure Active Directory, należy utworzyć grupę o tej nazwie dokładne.
+   > tooenable dostępu w swojej domenie zarządzanych usług domenowych Azure Active Directory, utworzyć grupę o tej nazwie dokładne.
    >
    >
 
-    ![Okno dialogowe Dodawanie grupy](./media/active-directory-domain-services-getting-started/create-admin-group.png)
-7. W **opis** wprowadź opis, który umożliwia użytkownikom zrozumienie, że ta grupa przyznaje uprawnienia administracyjne w ramach usług domenowych Azure Active Directory.
-8. Po utworzeniu grupy, kliknij nazwę grupy, aby wyświetlić jego właściwości.
-9. Aby dodać użytkowników jako członków grupy, w dolnej części okna kliknij pozycję **Dodaj członków** przycisku.
+    ![okno dialogowe Dodawanie grupy Hello](./media/active-directory-domain-services-getting-started/create-admin-group.png)
+7. W hello **opis** wprowadź opis, który umożliwia innym toounderstand, że ta grupa przyznaje uprawnienia administracyjne w ramach usług domenowych Azure Active Directory.
+8. Po utworzeniu grupy powitania kliknij tooview Nazwa grupy hello jego właściwości.
+9. tooadd użytkowników jako członków grupy hello u dołu okna hello powitania kliknij hello **Dodaj członków** przycisku.
 
     ![Dodawanie przycisku członków grupy](./media/active-directory-domain-services-getting-started/add-group-members-button.png)
-10. W **dodawać członków** oknie dialogowym Wybierz użytkowników, którzy powinny być członkami tej grupy, a następnie kliknij ikonę znacznika wyboru w prawej dolnej części strony.
+10. W hello **dodawać członków** okno dialogowe hello Wybierz użytkowników, którzy powinny być członkami tej grupy, a następnie kliknij ikonę znacznika wyboru hello na powitania prawy dolny.
 
-    ![Dodawanie użytkowników do grupy administratorów](./media/active-directory-domain-services-getting-started/add-group-members.png)
+    ![Dodaj grupę tooadministrators użytkowników](./media/active-directory-domain-services-getting-started/add-group-members.png)
 
 
 ## <a name="next-step"></a>Następny krok

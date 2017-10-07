@@ -1,5 +1,5 @@
 ---
-title: "Ładowanie terabajtów danych do usługi SQL Data Warehouse | Dokumentacja firmy Microsoft"
+title: "aaaLoad terabajtów danych do usługi SQL Data Warehouse | Dokumentacja firmy Microsoft"
 description: "Pokazuje, jak 1 TB danych mogą być ładowane do usługi Azure SQL Data Warehouse z fabryką danych Azure w obszarze 15 minut"
 services: data-factory
 documentationcenter: 
@@ -14,70 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
-ms.openlocfilehash: c29f1f01b660c4eb780e178a68036327fafa9ba6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e63f60461b082b0e3979004cb631dbf4a6710de3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Ładowanie 1 TB do usługi Azure SQL Data Warehouse w obszarze 15 minut przy użyciu fabryki danych
-[Usługa Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) oparte na chmurze, skalowalnych w poziomie bazy danych jest w stanie przetwarzanie bardzo dużych woluminów danych relacyjnych i nierelacyjnych.  Zbudowany w oparciu o architekturę masowego przetwarzania równoległego (MPP), usługa SQL Data Warehouse jest zoptymalizowana pod kątem obciążeń magazynu danych przedsiębiorstwa.  Zapewnia elastyczność chmury elastycznie skalować magazyn i zasobów obliczeniowych niezależnie.
+[Usługa Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) oparte na chmurze, skalowalnych w poziomie bazy danych jest w stanie przetwarzanie bardzo dużych woluminów danych relacyjnych i nierelacyjnych.  Zbudowany w oparciu o architekturę masowego przetwarzania równoległego (MPP), usługa SQL Data Warehouse jest zoptymalizowana pod kątem obciążeń magazynu danych przedsiębiorstwa.  Zapewnia elastyczność hello elastyczność tooscale magazynu w chmurze i zasobów obliczeniowych niezależnie.
 
-Wprowadzenie do korzystania z usługi Azure SQL Data Warehouse jest teraz łatwiejsze niż kiedykolwiek przy użyciu **fabryki danych Azure**.  Fabryka danych Azure to usługa integracji pełni zarządzanych danych oparte na chmurze, używany do wypełniania SQL Data Warehouse przy użyciu danych z istniejącego systemu i zapisywanie cenny czas podczas oceny usługi SQL Data Warehouse i tworzenia rozwiązań analizy. Poniżej przedstawiono najważniejsze zalety ładowania danych do usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure:
+Wprowadzenie do korzystania z usługi Azure SQL Data Warehouse jest teraz łatwiejsze niż kiedykolwiek przy użyciu **fabryki danych Azure**.  Fabryka danych Azure to usługa integracji pełni zarządzanych danych oparte na chmurze, które mogą być używane toopopulate SQL Data Warehouse hello danych z istniejącego systemu i zapisywanie cenny czas podczas oceny usługi SQL Data Warehouse i budowania sieci analityka rozwiązania. Poniżej przedstawiono główne zalety hello ładowania danych do usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure:
 
-* **Można skonfigurować**: Kreator intuicyjne krok 5 z bez skryptu wymagane.
+* **Łatwe tooset się**: Kreator intuicyjne krok 5 z bez skryptu wymagane.
 * **Obsługa magazynu danych sformatowanego**: wbudowaną obsługę bogaty zestaw lokalnymi i magazyny danych oparte na chmurze.
-* **Bezpieczne i zgodne**: dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute i zapewnia obecności usługi globalne dane nigdy nie przekracza granic geograficznych
-* **Bezkonkurencyjne wydajności przy użyciu programu PolyBase** — przy użyciu programu Polybase jest najbardziej wydajnym sposobem przenoszenia danych do usługi Azure SQL Data Warehouse. Funkcja tymczasowych obiektów blob, można osiągnąć szybkości wysokie obciążenie ze wszystkich typów magazynów danych oprócz magazynu obiektów Blob platformy Azure, który aparat Polybase obsługuje domyślnie.
+* **Bezpieczne i zgodne**: dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute i zapewnia obecności usługi globalne dane nigdy nie przekracza granic geograficznych hello
+* **Bezkonkurencyjne wydajności przy użyciu programu PolyBase** — przy użyciu programu Polybase jest hello najbardziej efektywny sposób toomove danych do usługi Azure SQL Data Warehouse. Hello przemieszczania funkcji obiektów blob można osiągnąć szybkości wysokie obciążenie ze wszystkich typów magazynów danych oprócz magazynu obiektów Blob platformy Azure, które hello aparat Polybase obsługuje domyślnie.
 
-W tym artykule przedstawiono sposób korzystania z Kreatora kopiowania fabryki danych ładowanie 1 TB danych z magazynu obiektów Blob Azure do usługi Azure SQL Data Warehouse w obszarze 15 minut na ponad 1,2 GB/s przepustowości.
+W tym artykule opisano sposób toouse kreatora kopiowania fabryki danych tooload 1 TB danych z magazynu obiektów Blob Azure do usługi Azure SQL Data Warehouse w obszarze 15 minut, w ponad 1,2 GB/s przepustowości.
 
-Ten artykuł zawiera instrukcje krok po kroku przenoszenie danych do usługi Azure SQL Data Warehouse przy użyciu Kreatora kopiowania.
+Ten artykuł zawiera instrukcje krok po kroku przenoszenie danych do usługi Azure SQL Data Warehouse przy użyciu Kreatora kopiowania hello.
 
 > [!NOTE]
->  Aby uzyskać ogólne informacje o możliwościach fabryki danych podczas przenoszenia danych do/z usługi Azure SQL Data Warehouse, zobacz [przenoszenie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure](data-factory-azure-sql-data-warehouse-connector.md) artykułu.
+>  Aby uzyskać ogólne informacje o możliwościach fabryki danych podczas przenoszenia danych do/z usługi Azure SQL Data Warehouse, zobacz [przenieść tooand danych z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure](data-factory-azure-sql-data-warehouse-connector.md) artykułu.
 >
-> Można również tworzyć przy użyciu portalu Azure, programu Visual Studio, programu PowerShell, potoki itp. Zobacz [samouczek: kopiowanie danych z obiektu Blob Azure do usługi Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) szybkie przewodnik krok po kroku instrukcje dotyczące używania działania kopiowania w fabryce danych Azure.  
+> Można również tworzyć przy użyciu portalu Azure, programu Visual Studio, programu PowerShell, potoki itp. Zobacz [samouczek: kopiowanie danych z tooAzure obiektów Blob platformy Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) Przewodnik Szybki z instrukcje krok po kroku dotyczące korzystania z hello działanie kopiowania w fabryce danych Azure.  
 >
 >
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Azure Blob Storage: tego eksperymentu używa magazynu obiektów Blob Azure (GRS) do przechowywania TPC-H testowych w zestawie danych.  Dowiedz się, jeśli nie masz konta magazynu platformy Azure, [jak utworzyć konto magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).
-* [TPC-H](http://www.tpc.org/tpch/) danych: Firma Microsoft będzie używany TPC-H jako testowego zestawu danych.  W tym celu należy użyć `dbgen` z zestawu narzędzi TPC-H, który pomaga wygenerowania zestawu dataset.  Albo można pobrać kodu źródłowego dla `dbgen` z [narzędzia TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) i skompiluj go samodzielnie lub pobrać skompilowanym plikiem binarnym z [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Uruchom dbgen.exe za pomocą następujących poleceń, aby wygenerować plik prosty 1 TB dla `lineitem` tabeli rozpowszechniania przez 10 plików:
+* Azure Blob Storage: tego eksperymentu używa magazynu obiektów Blob Azure (GRS) do przechowywania TPC-H testowych w zestawie danych.  Dowiedz się, jeśli nie masz konta magazynu platformy Azure, [jak toocreate konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* [TPC-H](http://www.tpc.org/tpch/) danych: zamierzamy toouse TPC-H, jak hello zestawu danych testowych.  toodo, że należy toouse `dbgen` z zestawu narzędzi TPC-H, który pomaga Generowanie hello zestawu danych.  Albo można pobrać kodu źródłowego dla `dbgen` z [narzędzia TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) i skompiluj go samodzielnie lub danych binarnych skompilowanych hello pobierania z [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Uruchom dbgen.exe hello następujące polecenia toogenerate pliku prostego 1 TB dla `lineitem` tabeli rozpowszechniania przez 10 plików:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
   * …
   * `Dbgen -s 1000 -S **10** -C 10 -T L -v`
 
-    Teraz skopiuj wygenerowany pliki do obiektów Blob platformy Azure.  Zapoznaj się [przenoszenie danych do i z lokalnego systemu plików przy użyciu fabryki danych Azure](data-factory-onprem-file-system-connector.md) dla, jak to zrobić przy użyciu kopii ADF.    
+    Teraz hello kopii wygenerowanych plików tooAzure obiektów Blob.  Odwołuje się zbyt[przenieść tooand danych z lokalnego systemu plików przy użyciu fabryki danych Azure](data-factory-onprem-file-system-connector.md) jak toodo który przy użyciu kopii ADF.    
 * Usługa Azure SQL Data Warehouse: tego eksperymentu ładuje dane do magazynu danych SQL Azure utworzonych za pomocą dwu 6000
 
-    Zapoznaj się [Utwórz magazyn danych SQL Azure](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) szczegółowe informacje dotyczące sposobu tworzenia bazy danych SQL Data Warehouse.  Aby uzyskać najlepszą wydajność obciążenia możliwych do usługi SQL Data Warehouse przy użyciu programu Polybase, możemy wybierz maksymalną liczbę jednostek magazynu danych (dwu) dozwolone w ustawieniu wydajności jest 6000 jednostek dwu.
+    Odwołuje się zbyt[Utwórz magazyn danych SQL Azure](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) szczegółowe informacje dotyczące sposobu toocreate SQL Data Warehouse bazy danych.  tooget hello najlepsze możliwe obciążenie wydajności do usługi SQL Data Warehouse przy użyciu programu Polybase, możemy wybierz maksymalną liczbę jednostek magazynu danych (dwu) dozwolone w ustawieniu wydajności hello, czyli 6000 jednostek dwu.
 
   > [!NOTE]
-  > Podczas ładowania z obiektów Blob platformy Azure, ładowanie wydajności danych jest wprost proporcjonalny do liczby jednostek dwu Skonfiguruj na magazyn danych SQL:
+  > Podczas ładowania z obiektów Blob platformy Azure, ładowanie wydajności danych hello jest wprost proporcjonalny toohello liczby jednostek dwu Skonfiguruj na powitania SQL Data Warehouse:
   >
   > Ładowanie 1 TB do 1000 DWU usługa SQL Data Warehouse uwzględnia 87 minut (przepływność ~ 200 MB/s) podczas ładowania 1 TB 2000 DWU usługa SQL Data Warehouse przyjmuje 46 minut (przepływność ~ 380 MB/s) podczas ładowania 1 TB w 6000 DWU usługa SQL Data Warehouse trwa 14 minut (przepływność ~1.2 GB/s)
   >
   >
 
-    Aby utworzyć magazyn danych SQL z dwu 6000, przesuń suwak wydajności do prawej:
+    toocreate SQL Data Warehouse z dwu 6000, przesuń suwak wydajności hello wszystkich toohello sposób powitania po prawej:
 
     ![Suwak wydajności](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
-    Dla istniejącej bazy danych nie jest skonfigurowany z dwu 6000 można go skalować przy użyciu portalu Azure.  Przejdź do bazy danych w portalu Azure, a nie **skali** przycisk **omówienie** panelu pokazano na poniższej ilustracji:
+    Dla istniejącej bazy danych nie jest skonfigurowany z dwu 6000 można go skalować przy użyciu portalu Azure.  Przejdź toohello bazy danych, w portalu Azure, a nie **skali** przycisku na powitania **omówienie** panelu pokazano powitania po obrazu:
 
     ![Przycisk skali](media/data-factory-load-sql-data-warehouse/scale-button.png)    
 
-    Kliknij przycisk **skali** przycisk Otwórz panel następujące, przesuń suwak na wartość maksymalna, a następnie kliknij przycisk **zapisać** przycisku.
+    Kliknij przycisk hello **skali** następujące hello tooopen przycisk panelu, przesuń suwak hello toohello maksymalną wartość i kliknij **Zapisz** przycisku.
 
     ![Okno dialogowe skalowania](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
     Tego eksperymentu ładuje dane do usługi Azure SQL Data Warehouse przy użyciu `xlargerc` klasy zasobów.
 
-    Aby uzyskać najlepsze możliwe przepływności, kopii musi zostać wykonana przy użyciu usługi SQL Data Warehouse użytkownik należący do `xlargerc` klasy zasobów.  Dowiedz się, jak to zrobić, postępując [zmienić przykład klasy zasobów użytkownika](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).  
-* Tworzenie schematu tabeli docelowej bazy danych Azure SQL Data Warehouse, uruchamiając następującą instrukcję DDL:
+    tooachieve najlepsze możliwe przepływności, kopii musi toobe wykonywane przy użyciu użytkownika usługi SQL Data Warehouse należącego zbyt`xlargerc` klasy zasobów.  Dowiedz się, jak toodo który wykonując [zmienić przykład klasy zasobów użytkownika](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).  
+* Tworzenie schematu tabeli docelowej w bazie danych Azure SQL Data Warehouse, uruchamiając powitania po instrukcji DDL:
 
     ```SQL  
     CREATE TABLE [dbo].[lineitem]
@@ -105,36 +105,36 @@ Ten artykuł zawiera instrukcje krok po kroku przenoszenie danych do usługi Azu
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-Kroki wymagań wstępnych zakończone firma Microsoft teraz przystąpić do konfigurowania działanie kopiowania za pomocą Kreatora kopiowania.
+Dzięki wstępnie wymagane kroki hello ukończone mamy teraz działanie kopiowania hello tooconfigure gotowe za pomocą Kreatora kopiowania hello.
 
 ## <a name="launch-copy-wizard"></a>Uruchamianie Kreatora kopiowania
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Kliknij przycisk **+ nowy** z lewego górnego rogu, kliknij przycisk **analizy i analiza**i kliknij przycisk **fabryki danych**.
-3. W bloku **Nowa fabryka danych**:
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com).
+2. Kliknij przycisk **+ nowy** hello lewym górnym rogu kliknij **analizy i analiza**i kliknij przycisk **fabryki danych**.
+3. W hello **nowa fabryka danych** bloku:
 
-   1. Wprowadź **LoadIntoSQLDWDataFactory** dla **nazwa**.
-       Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli zostanie wyświetlony błąd: **nazwa fabryki danych "LoadIntoSQLDWDataFactory" nie jest dostępna**, Zmień nazwę fabryki danych (na przykład yournameLoadIntoSQLDWDataFactory) i spróbuj ponownie utworzyć. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.  
+   1. Wprowadź **LoadIntoSQLDWDataFactory** dla hello **nazwa**.
+       Nazwa fabryki danych Azure hello Hello musi być globalnie unikatowe. Jeśli wystąpi błąd hello: **nazwa fabryki danych "LoadIntoSQLDWDataFactory" nie jest dostępna**, Zmień nazwę hello hello fabryki danych (na przykład yournameLoadIntoSQLDWDataFactory) i spróbuj ponownie utworzyć. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.  
    2. Wybierz swoją **subskrypcję** platformy Azure.
-   3. Wykonaj jedną z następujących czynności dotyczącą grupy zasobów:
-      1. Wybierz pozycję **Użyj istniejącej**, aby wybrać istniejącą grupę zasobów.
-      2. Wybierz pozycję **Utwórz nowy**, aby wprowadzić nazwę grupy zasobów.
-   4. Wybierz **lokalizację** fabryki danych.
-   5. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** u dołu bloku.  
+   3. Dla grupy zasobów wykonaj jedną z hello następujące kroki:
+      1. Wybierz **Użyj istniejącego** tooselect istniejącą grupę zasobów.
+      2. Wybierz **Utwórz nowy** tooenter nazwę grupy zasobów.
+   4. Wybierz **lokalizacji** hello fabryki danych.
+   5. Wybierz **toodashboard numeru Pin** pole wyboru u dołu hello hello bloku.  
    6. Kliknij przycisk **Utwórz**.
-4. Po zakończeniu tworzenia zostanie wyświetlony blok **Fabryka danych**, jak pokazano na poniższej ilustracji:
+4. Po zakończeniu tworzenia hello Zobacz hello **fabryki danych** bloku, jak pokazano w powitania po obrazu:
 
    ![Strona główna fabryki danych](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
-5. Na stronie głównej usługi Fabryka danych kliknij kafelek **Kopiowanie danych**, aby uruchomić **Kreatora kopiowania**.
+5. Na stronie głównej fabryki danych powitania kliknij hello **skopiować dane** Kafelek toolaunch **kreatora kopiowania**.
 
    > [!NOTE]
-   > Jeśli widać, że przeglądarka sieci Web jest zablokowana podczas wyświetlania komunikatu „Autoryzowanie...”, wyłącz ustawienie **Blokuj pliki cookie i dane witryn innych firm** lub pozostaw je włączone i utwórz wyjątek dla witryny **login.microsoftonline.com**, a następnie spróbuj ponownie uruchomić kreatora.
+   > Jeśli widzisz tej przeglądarki sieci web hello jest zablokowany na "Autoryzowanie...", wyłącz/Usuń zaznaczenie pola wyboru **zablokować pliki cookie innych firm, a dane lokacji** ustawienie (lub) schowaj włączone i utworzyć wyjątek **login.microsoftonline.com**, a następnie spróbuj ponownie uruchomić Kreatora hello.
    >
    >
 
 ## <a name="step-1-configure-data-loading-schedule"></a>Krok 1: Skonfiguruj harmonogram ładowanie danych
-Pierwszym krokiem jest aby skonfigurować harmonogram dla ładowania danych.  
+pierwszym krokiem Hello są dane hello tooconfigure ładowania harmonogramu.  
 
-Na stronie **Właściwości**:
+W hello **właściwości** strony:
 
 1. Wprowadź **CopyFromBlobToAzureSqlDataWarehouse** dla **Nazwa zadania**
 2. Wybierz **uruchom raz teraz** opcji.   
@@ -143,36 +143,36 @@ Na stronie **Właściwości**:
     ![Kreator kopiowania — strona właściwości](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>Krok 2: Konfigurowanie źródła
-W tej sekcji przedstawiono kroki, aby skonfigurować źródło: obiektów Blob platformy Azure zawierającą TPC 1 TB-H pozycji plików.
+Ten przedstawia sekcji hello kroki tooconfigure hello źródła: obiektów Blob platformy Azure zawierającą hello TPC 1 TB-H pozycji plików.
 
-1. Wybierz **magazyn obiektów Blob Azure** przechowywania danych, a następnie kliknij przycisk **dalej**.
+1. Wybierz hello **magazyn obiektów Blob Azure** danych hello przechowywania, a następnie kliknij przycisk **dalej**.
 
     ![Kreator kopiowania — wybierz źródło strony](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-2. Podaj dane połączenia dla konta magazynu obiektów Blob platformy Azure, a następnie kliknij przycisk **dalej**.
+2. Wypełnij hello informacje o połączeniu dla hello konta magazynu obiektów Blob platformy Azure, a następnie kliknij przycisk **dalej**.
 
     ![Kreator kopiowania — informacje o źródle połączenia](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-3. Wybierz **folderu** zawierający TPC-H wiersz plików z elementami, a następnie kliknij przycisk **dalej**.
+3. Wybierz hello **folderu** hello TPC-H wiersza zawierającego element plików, a następnie kliknij przycisk **dalej**.
 
     ![Kreator kopiowania — wybierz folder wejściowy](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Po kliknięciu **dalej**, ustawienia formatu pliku są wykrywane automatycznie.  Sprawdź, upewnij się, że ogranicznik kolumny jest ' | 'zamiast przecinkami domyślne",".  Kliknij przycisk **dalej** po przejrzeniu danych.
+4. Po kliknięciu **dalej**, ustawienia formatu pliku hello są wykrywane automatycznie.  Sprawdź toomake się, że jest ogranicznik tej kolumny ' | 'zamiast przecinkami domyślne hello",".  Kliknij przycisk **dalej** po przejrzeniu hello danych.
 
     ![Kreator kopiowania — ustawienia format pliku](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>Krok 3: Konfigurowanie docelowej
-W tej sekcji przedstawiono sposób skonfigurowane miejsce docelowe: `lineitem` tabeli w bazie danych magazynu danych SQL Azure.
+W tej sekcji przedstawiono, jak tooconfigure hello docelowego: `lineitem` tabeli w bazie danych Azure SQL Data Warehouse hello.
 
-1. Wybierz **magazyn danych SQL Azure** jako miejsce docelowe przechowywania, a następnie kliknij przycisk **dalej**.
+1. Wybierz **magazyn danych SQL Azure** jako miejsce docelowe hello przechowywania, a następnie kliknij przycisk **dalej**.
 
     ![Kreator kopiowania — wybierz miejsce docelowe magazynu danych](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. Wprowadź informacje o połączeniu dla usługi Azure SQL Data Warehouse.  Upewnij się, że należy określić użytkownika należącego do roli `xlargerc` (zobacz **wymagania wstępne** sekcji, aby uzyskać szczegółowe instrukcje) i kliknij przycisk **dalej**.
+2. Wypełnij hello informacje o połączeniu dla usługi Azure SQL Data Warehouse.  Upewnij się, że Określ hello użytkownika, który jest członkiem roli hello `xlargerc` (zobacz hello **wymagania wstępne** sekcji, aby uzyskać szczegółowe instrukcje) i kliknij przycisk **dalej**.
 
     ![Kreator kopiowania — informacje o połączeniu docelowego](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-3. Wybierz tabelę docelową, a następnie kliknij przycisk **dalej**.
+3. Wybierz tabelę docelową hello i kliknij przycisk **dalej**.
 
     ![Kreator kopiowania — strona mapowania tabeli](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
@@ -185,17 +185,17 @@ W tej sekcji przedstawiono sposób skonfigurowane miejsce docelowe: `lineitem` t
 ![Kreator kopiowania — strona mapowanie schematu](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>Krok 5: Wdrażanie i monitorowanie wyników obciążenia
-1. Kliknij przycisk **Zakończ** przycisk, aby wdrożyć.
+1. Kliknij przycisk **Zakończ** toodeploy przycisku.
 
     ![Kreator kopiowania — strona podsumowania](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-2. Po zakończeniu wdrożenia, kliknij przycisk `Click here to monitor copy pipeline` monitorowanie kopii Uruchom postępu. Wybierz utworzony w potoku kopiowania **okien działania** listy.
+2. Po zakończeniu wdrażania powitania kliknij `Click here toomonitor copy pipeline` kopiowania hello toomonitor Uruchom postępu. Potok kopiowania hello wybierz utworzony w hello **okien działania** listy.
 
     ![Kreator kopiowania — strona podsumowania](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-    Możesz wyświetlić szczegóły uruchomienia kopii **działania okna Eksploratora** w prawym panelu, w tym ilość danych ze źródła do odczytu i zapisywane w docelowym, czas trwania i to średnia przepływność dla przebiegu.
+    Możesz wyświetlić szczegóły uruchomienia w hello kopiowania hello **działania okna Eksploratora** hello prawym panelu, w tym ilość danych hello odczytywane źródła i zapisywane na docelowy, czas trwania i średniej przepływności hello hello Uruchom.
 
-    Jak widać na poniższym zrzucie ekranu, kopiowanie 1 TB danych z magazynu obiektów Blob Azure do usługi SQL Data Warehouse trwało 14 minut, efektywnie uzyskanie 1,22 przepływności GB/s!
+    Jak widać na powitania po zrzut ekranu, kopiowanie 1 TB danych z magazynu obiektów Blob Azure do usługi SQL Data Warehouse trwało 14 minut, efektywnie uzyskanie 1,22 przepływności GB/s!
 
     ![Kreator kopiowania — okno dialogowe zakończyło się pomyślnie](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
@@ -210,5 +210,5 @@ Poniżej przedstawiono kilka najlepszych rozwiązań dotyczących bazy danych Az
 Zobacz [najlepsze rozwiązania dotyczące usługi Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-best-practices.md) szczegółowe informacje.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Kreator kopiowania fabryki danych](data-factory-copy-wizard.md) — ten artykuł zawiera szczegółowe informacje o kreatorze kopiowania.
-* [Skopiuj wydajności działania i dostrajania przewodnik](data-factory-copy-activity-performance.md) — ten artykuł zawiera odwołanie do pomiaru wydajności i dostrajania przewodnik.
+* [Kreator kopiowania fabryki danych](data-factory-copy-wizard.md) — w tym artykule przedstawiono szczegóły hello kreatora kopiowania.
+* [Skopiuj wydajności działania i dostrajania przewodnik](data-factory-copy-activity-performance.md) — ten artykuł zawiera hello pomiarów wydajności i dostrajania przewodnik.

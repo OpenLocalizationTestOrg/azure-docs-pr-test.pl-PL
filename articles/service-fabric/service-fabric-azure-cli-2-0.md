@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do usługi Azure Service Fabric i interfejsu wiersza polecenia platformy Azure 2.0"
-description: "Dowiedz się, jak korzystać z modułu poleceń usługi Azure Service Fabric w interfejsie wiersza polecenia platformy Azure w wersji 2.0. Dowiedz się, jak nawiązać połączenie z klastrem i zarządzać aplikacjami."
+title: "wprowadzenie do usługi Azure Service Fabric i Azure CLI 2.0 aaaGet"
+description: "Dowiedz się, jak toouse hello Azure Service Fabric polecenia moduł w Azure CLI w wersji 2.0. Dowiedz się, jak tooconnect tooa klastra i w jaki sposób toomanage aplikacji."
 services: service-fabric
 author: samedder
 manager: timlt
@@ -8,25 +8,25 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: edwardsa
-ms.openlocfilehash: ee3302b984ca2f5509755dc17b0a5fd06ace0afe
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ddbd0ef503dd3fff61494cc2cfa7c9a2e8d0a9a7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-service-fabric-and-azure-cli-20"></a>Usługa Azure Service Fabric i interfejs wiersza polecenia platformy Azure 2.0
 
-Narzędzie wiersza polecenia platformy Azure w wersji 2.0 zawiera polecenia, które ułatwiają zarządzanie klastrami usługi Azure Service Fabric. Dowiedz się, jak rozpocząć pracę z interfejsem wiersza polecenia platformy Azure i usługą Service Fabric.
+Witaj narzędzia wiersza polecenia platformy Azure (Azure CLI) w wersji 2.0 obejmuje toohelp polecenia Zarządzanie klastrami usługi sieć szkieletowa usług Azure. Dowiedz się, jak tooget pracę z wiersza polecenia platformy Azure i sieci szkieletowej usług.
 
 ## <a name="install-azure-cli-20"></a>Instalowanie interfejsu wiersza polecenia platformy Azure 2.0
 
-Polecenia interfejsu wiersza polecenia platformy Azure 2.0 umożliwiają interakcję z klastrami usługi Service Fabric oraz zarządzanie nimi. Aby uzyskać najnowszą wersję interfejsu wiersza polecenia platformy Azure, wykonaj kroki [standardowego procesu instalacji interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Można użyć toointeract poleceń Azure CLI 2.0 z i zarządzania klastrami usługi sieć szkieletowa usług. tooget hello najnowszą wersję interfejsu wiersza polecenia Azure, wykonaj hello [Azure CLI 2.0 standardowego procesu instalacji](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-Aby uzyskać więcej informacji, zobacz temat [Omówienie interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/overview).
+Aby uzyskać więcej informacji, zobacz hello [omówienie Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview).
 
 ## <a name="azure-cli-syntax"></a>Składnia interfejsu wiersza polecenia platformy Azure
 
-W interfejsie wiersza polecenia platformy Azure wszystkie polecenia usługi Service Fabric mają prefiks `az sf`. Aby uzyskać ogólne informacje na temat używanych poleceń, z których możesz korzystać, użyj polecenia `az sf -h`. Aby uzyskać pomoc dotyczącą pojedynczego polecenia, użyj polecenia `az sf <command> -h`.
+W interfejsie wiersza polecenia platformy Azure wszystkie polecenia usługi Service Fabric mają prefiks `az sf`. Aby uzyskać ogólne informacje o poleceniach hello można użyć, należy użyć `az sf -h`. Aby uzyskać pomoc dotyczącą pojedynczego polecenia, użyj polecenia `az sf <command> -h`.
 
 Polecenia usługi Service Fabric w interfejsie wiersza polecenia platformy Azure są zgodne z następującym wzorcem nazewnictwa:
 
@@ -34,11 +34,11 @@ Polecenia usługi Service Fabric w interfejsie wiersza polecenia platformy Azure
 az sf <object> <action>
 ```
 
-Element `<object>` jest obiektem docelowym elementu `<action>`.
+`<object>`element docelowy hello dla `<action>`.
 
 ## <a name="select-a-cluster"></a>Wybieranie klastra
 
-Przed wykonaniem jakiejkolwiek operacji musisz wybrać klaster, z którym chcesz nawiązać połączenie. Jako przykład zobacz następujący kod. Kod umożliwia nawiązanie połączenia z niezabezpieczonym klastrem.
+Przed wykonaniem jakichkolwiek operacji, należy wybrać tooconnect klastra, aby. Na przykład zobacz hello następującego kodu. Kod Hello łączy tooan niezabezpieczona klastra.
 
 > [!WARNING]
 > Nie używaj niezabezpieczonych klastrów usługi Service Fabric w środowisku produkcyjnym.
@@ -47,7 +47,7 @@ Przed wykonaniem jakiejkolwiek operacji musisz wybrać klaster, z którym chcesz
 az sf cluster select --endpoint http://testcluster.com:19080
 ```
 
-Punkt końcowy klastra musi mieć prefiks `http` lub `https`. Musi on zawierać port bramy HTTP. Port i adres są takie same jak adres URL programu Service Fabric Explorer.
+Witaj punktu końcowego klastra musi być poprzedzony `http` lub `https`. Musi on zawierać portu hello hello HTTP bramy. adres i Hello port są hello taka sama, jak hello adres URL Eksploratora usługi sieć szkieletowa.
 
 W przypadku klastrów zabezpieczonych za pomocą certyfikatu można użyć niezaszyfrowanych plików PEM albo plików CRT i KEY. Na przykład:
 
@@ -55,22 +55,22 @@ W przypadku klastrów zabezpieczonych za pomocą certyfikatu można użyć nieza
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Aby uzyskać więcej informacji, zobacz temat [Nawiązywanie połączenia z zabezpieczonym klastrem usługi Azure Service Fabric](service-fabric-connect-to-secure-cluster.md).
+Aby uzyskać więcej informacji, zobacz [bezpiecznego klastra sieci szkieletowej usług Azure Connect tooa](service-fabric-connect-to-secure-cluster.md).
 
 > [!NOTE]
-> Przed zwróceniem wartości polecenie `select` nie reaguje na żadne żądania. Aby sprawdzić, czy klaster został określony poprawnie, użyj polecenia, takiego jak `az sf cluster health`. Upewnij się, że polecenie nie zwraca żadnych błędów.
+> Witaj `select` polecenia nie działają na wszystkie żądania przed zwróceniem. tooverify, że klaster został podany poprawnie, należy użyć wiersza polecenia, takich jak `az sf cluster health`. Upewnij się, że polecenie hello nie zwraca żadnych błędów.
 
 ## <a name="basic-operations"></a>Operacje podstawowe
 
-Informacje o połączeniu klastra są utrwalane w wielu sesjach interfejsu wiersza polecenia platformy Azure. Po wybraniu klastra usługi Service Fabric można uruchomić dowolne polecenie usługi Service Fabric w klastrze.
+Informacje o połączeniu klastra są utrwalane w wielu sesjach interfejsu wiersza polecenia platformy Azure. Po wybraniu klastra sieci szkieletowej usług można uruchomić w klastrze hello dowolne polecenie sieci szkieletowej usług.
 
-Aby na przykład uzyskać informacje o kondycji klastra usługi Service Fabric, uruchom następujące polecenie:
+Na przykład hello tooget stan kondycji klastra usługi sieć szkieletowa, użyj hello następujące polecenie:
 
 ```azurecli
 az sf cluster health
 ```
 
-Polecenie zwróci następujące dane wyjściowe (przy założeniu, że dane wyjściowe JSON zostały określone w konfiguracji interfejsu wiersza polecenia platformy Azure):
+polecenie Hello wyniki hello następujących danych wyjściowych (przy założeniu, że dane wyjściowe JSON jest określona w konfiguracji interfejsu wiersza polecenia Azure hello):
 
 ```json
 {
@@ -97,33 +97,33 @@ Polecenie zwróci następujące dane wyjściowe (przy założeniu, że dane wyj�
 
 ## <a name="tips-and-troubleshooting"></a>Porady i rozwiązywanie problemów
 
-Poniższe informacje mogą być pomocne, jeśli wystąpiły problemy podczas korzystania z poleceń usługi Service Fabric w interfejsie wiersza polecenia platformy Azure.
+Może się okazać hello następujące informacje przydatne, jeśli wystąpiły problemy podczas używania poleceń usługi Service Fabric w wiersza polecenia platformy Azure.
 
-### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Konwertowanie certyfikatu z formatu PFX na PEM
+### <a name="convert-a-certificate-from-pfx-toopem-format"></a>Konwertuj certyfikatu z formatu tooPEM PFX
 
-Interfejs wiersza polecenia platformy Azure obsługuje certyfikaty po stronie klienta w postaci plików PEM (rozszerzenie pem). Jeśli używasz plików PFX z systemu Windows, musisz konwertować te certyfikaty na format PEM. Aby konwertować plik PFX na plik PEM, użyj następującego polecenia:
+Interfejs wiersza polecenia platformy Azure obsługuje certyfikaty po stronie klienta w postaci plików PEM (rozszerzenie pem). Jeśli używasz pliki PFX z systemu Windows, należy przekonwertować format tooPEM tych certyfikatów. tooconvert pliku PEM tooa pliku PFX, należy użyć hello następujące polecenie:
 
 ```bash
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
-Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą protokołu OpenSSL](https://www.openssl.org/docs/).
+Aby uzyskać więcej informacji, zobacz hello [dokumentacji biblioteki OpenSSL](https://www.openssl.org/docs/).
 
 ### <a name="connection-issues"></a>Problemy z połączeniem
 
-Niektóre operacje mogą generować następujący komunikat:
+Niektóre operacje może generować następujące wiadomość hello:
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed tooestablish a new connection: [Errno 8] nodename nor servname provided, or not known`
 
-Sprawdź, czy punkt końcowy określonego klastra jest dostępny i przeprowadza nasłuchiwanie. Sprawdź również, czy interfejs użytkownika programu Service Fabric Explorer jest dostępny na tym hoście i porcie. Aby zaktualizować punkt końcowy, użyj polecenia `az sf cluster select`.
+Sprawdź, czy określona hello tego punktu końcowego klastra jest dostępny i nasłuchuje. Sprawdź także, że powitalne interfejsu użytkownika Eksploratora sieci szkieletowej usług jest dostępna na hosta i portu. punkt końcowy z hello tooupdate, użyj `az sf cluster select`.
 
 ### <a name="detailed-logs"></a>Szczegółowe dzienniki
 
-Szczegółowe dzienniki często bywają przydatne w przypadku debugowania lub zgłaszania problemu. Interfejs wiersza polecenia platformy Azure zawiera globalną flagę `--debug`, która zwiększa poziom szczegółowości plików dzienników.
+Szczegółowe dzienniki często bywają przydatne w przypadku debugowania lub zgłaszania problemu. Interfejs wiersza polecenia platformy Azure oferuje globalnym `--debug` flagi, które zwiększa poziom szczegółowości hello plików dziennika.
 
 ### <a name="command-help-and-syntax"></a>Polecenia — pomoc i składnia
 
-Polecenia usługi Service Fabric korzystają z tej samej konwencji, co interfejs wiersza polecenia platformy Azure. Aby uzyskać pomoc dotyczącą określonego polecenia lub grupy poleceń, użyj flagi `-h`:
+Wykonaj polecenia usługi sieć szkieletowa hello tej samej Konwencji jako wiersza polecenia platformy Azure. Aby uzyskać pomoc dotyczącą określonego polecenia lub grupy poleceń, użyj hello `-h` flagi:
 
 ```azurecli
 az sf application -h

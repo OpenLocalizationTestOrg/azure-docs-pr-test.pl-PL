@@ -1,5 +1,5 @@
 ---
-title: "Skonfiguruj limit czasu bezczynności TCP usługi równoważenia obciążenia | Dokumentacja firmy Microsoft"
+title: "limit czasu bezczynności TCP usługi równoważenia obciążenia aaaConfigure | Dokumentacja firmy Microsoft"
 description: "Skonfiguruj limit czasu bezczynności TCP usługi równoważenia obciążenia"
 services: load-balancer
 documentationcenter: na
@@ -13,45 +13,45 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: d040fe6580b8ae777aecc9dd385ed33861530c38
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2bf0704b891f708e0a5bd7aa827441930f51cfaf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Skonfiguruj ustawienia limitu czasu bezczynności TCP dla usługi równoważenia obciążenia Azure
 
-W konfiguracji domyślnej usługi równoważenia obciążenia Azure ma ustawienie limitu czasu bezczynności 4 minut. Jeśli okres aktywności jest dłuższy niż wartość limitu czasu, nie ma żadnej gwarancji, sesji TCP lub HTTP jest zachowywane między klientem i usługi w chmurze.
+W konfiguracji domyślnej usługi równoważenia obciążenia Azure ma ustawienie limitu czasu bezczynności 4 minut. Jeśli okres aktywności jest dłuższy niż wartość limitu czasu hello, nie ma żadnej gwarancji, że hello TCP lub zachowano sesji HTTP między powitania klienta i usługi w chmurze.
 
-Gdy połączenie jest zamknięte, aplikacja kliencka może zostać wyświetlony następujący komunikat o błędzie: "Połączenie podstawowe zostało zakończone: połączenie, które miało być aktywne zostało zamknięte przez serwer."
+Zamknięcie połączenia hello aplikacji klienta może zostać wyświetlony hello następujący komunikat o błędzie: "hello połączenie podstawowe zostało zamknięte: połączenie, które oczekiwano toobe utrzymywane został zamknięty przez serwer hello."
 
-Popularną praktyką jest Użyj TCP keep-alive. Takie rozwiązanie pozostawia połączenie jako aktywne przez dłuższy czas. Aby uzyskać więcej informacji, zobacz te [przykłady .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Włączone keep-alive, pakiety są wysyłane podczas nieaktywności dla połączenia. Te pakiety utrzymywania aktywności Sprawdź, czy wartość limitu czasu bezczynności został nigdy osiągnięty i połączenie jest obsługiwany przez dłuższy okres.
+Popularną praktyką jest toouse TCP keep-alive. Takie rozwiązanie przechowuje połączenia hello active dłuższy okres. Aby uzyskać więcej informacji, zobacz te [przykłady .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Włączone keep-alive, pakiety są wysyłane podczas nieaktywności hello połączenia. Te pakiety utrzymywania aktywności Sprawdź, czy wartość limitu czasu bezczynności hello jest nie został nigdy osiągnięty i połączenia hello jest obsługiwany przez dłuższy okres.
 
-To ustawienie działa tylko w przypadku połączeń przychodzących. Aby uniknąć utraty połączenia, możesz skonfigurować interwał mniejsza niż wartość ustawienia limit czasu bezczynności keep-alive TCP lub zwiększ wartość limitu czasu bezczynności. Do obsługi tych scenariuszy, dodano obsługę można skonfigurować limit czasu bezczynności. Można teraz ustawić czas od 4 do 30 minut.
+To ustawienie działa tylko w przypadku połączeń przychodzących. tooavoid powoduje utratę połączenia hello, musisz skonfigurować hello TCP keep-alive interwał mniej niż hello limit czasu bezczynności ustawienie lub zwiększ hello bezczynności wartość limitu czasu. toosupport takich scenariuszy Dodaliśmy obsługę można skonfigurować limit czasu bezczynności. Można teraz ustawić czas trwania 4 too30 minut.
 
-TCP keep-alive działa dobrze w przypadku scenariuszy, w których czas pracy baterii nie jest ograniczenie. Nie jest zalecane dla aplikacji dla urządzeń przenośnych. Przy użyciu TCP keep-alive w aplikacji mobilnej można szybciej opróżnienia baterii urządzenia.
+TCP keep-alive działa dobrze w przypadku scenariuszy, w których czas pracy baterii nie jest ograniczenie. Nie jest zalecane dla aplikacji dla urządzeń przenośnych. Przy użyciu TCP keep-alive w aplikacji mobilnej można szybciej opróżnienia hello baterii urządzenia.
 
 ![Limit czasu TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-W poniższych sekcjach opisano sposób zmienić ustawienia limitu czasu bezczynności w przypadku maszyn wirtualnych i usług w chmurze.
+Witaj następujące sekcje opisują sposób toochange bezczynności ustawienia limitu czasu w przypadku maszyn wirtualnych i usług w chmurze.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Konfigurowanie limitu czasu protokołu TCP dla Twojego poziomie wystąpienia publicznego adresu IP na 15 minut
+## <a name="configure-hello-tcp-timeout-for-your-instance-level-public-ip-too15-minutes"></a>Konfigurowanie limitu czasu TCP hello Twojej poziomie wystąpienia publicznego adresu IP too15 minut
 
 ```powershell
 Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 ```
 
-Parametr `IdleTimeoutInMinutes` jest opcjonalny. Jeśli nie jest ustawiona, domyślny limit czasu jest 4 minut. Zakres dopuszczalny limit czasu wynosi 4 do 30 minut.
+Parametr `IdleTimeoutInMinutes` jest opcjonalny. Jeśli nie jest ustawiona, hello domyślny limit czasu jest 4 minut. zakres dopuszczalny limit czasu Hello jest 4 too30 minut.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Ustaw limit czasu bezczynności podczas tworzenia punktu końcowego platformy Azure na maszynie wirtualnej
+## <a name="set-hello-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Ustaw limit czasu bezczynności hello podczas tworzenia punktu końcowego platformy Azure na maszynie wirtualnej
 
-Aby zmienić ustawienia limitu czasu dla punktu końcowego, użyj następującego polecenia:
+toochange hello limitu czasu dla punktu końcowego, należy użyć następującego hello:
 
 ```powershell
 Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
 ```
 
-Aby uzyskać konfigurację limit czasu bezczynności, użyj następującego polecenia:
+tooretrieve konfigurację limit czasu bezczynności hello Użyj następującego polecenia:
 
     PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
@@ -71,9 +71,9 @@ Aby uzyskać konfigurację limit czasu bezczynności, użyj następującego pole
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Ustawianie limitu czasu TCP na zestaw z równoważeniem obciążenia punktu końcowego
+## <a name="set-hello-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Wartość limitu czasu TCP hello na zestaw z równoważeniem obciążenia punktu końcowego
 
-Jeśli punkty końcowe są częścią zestawu o zrównoważonym obciążeniu punktu końcowego, należy ustawić limitu czasu TCP zestaw z równoważeniem obciążenia punktu końcowego. Na przykład:
+Jeśli punkty końcowe są częścią zestawu o zrównoważonym obciążeniu punktu końcowego, należy ustawić limitu czasu TCP hello hello równoważeniem obciążenia zestawu punktów końcowych. Na przykład:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
@@ -81,9 +81,9 @@ Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Prot
 
 ## <a name="change-timeout-settings-for-cloud-services"></a>Zmień ustawienia limitu czasu dla usług w chmurze
 
-Zestaw SDK usługi Azure można użyć do aktualizacji usługi w chmurze. Wprowadzone ustawienia punktu końcowego usługi w chmurze w pliku csdef. Aktualizowanie limitu czasu protokołu TCP dla wdrożenia usługi w chmurze wymaga uaktualnienia wdrożenia. Wyjątek stanowi, jeśli limit czasu protokołu TCP jest określony tylko dla publicznego adresu IP. Ustawienia publicznego adresu IP znajdują się w pliku .cscfg i zaktualizować je za pośrednictwem aktualizacji wdrożenia i uaktualnienia.
+Usługi w chmurze można użyć hello tooupdate zestawu Azure SDK. Wprowadzone ustawienia punktu końcowego usługi w chmurze w pliku csdef hello. Aktualizowanie limitu czasu TCP hello wdrożenia usługi w chmurze wymaga uaktualnienia wdrożenia. Wyjątek stanowi, jeśli limit czasu TCP hello jest określony tylko dla publicznego adresu IP. Ustawienia publicznego adresu IP znajdują się w pliku .cscfg hello i zaktualizować je za pośrednictwem aktualizacji wdrożenia i uaktualnienia.
 
-Zmiany csdef ustawień punktu końcowego są następujące:
+Witaj csdef zmiany ustawień punktu końcowego są:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -93,7 +93,7 @@ Zmiany csdef ustawień punktu końcowego są następujące:
 </WorkerRole>
 ```
 
-Zmiany .cscfg ustawienia limitu czasu na publiczne adresy IP są następujące:
+zmiany .cscfg Hello hello ustawienia limitu czasu na publiczne adresy IP są następujące:
 
 ```xml
 <NetworkConfiguration>
@@ -110,7 +110,7 @@ Zmiany .cscfg ustawienia limitu czasu na publiczne adresy IP są następujące:
 
 ## <a name="rest-api-example"></a>Przykład interfejsu API REST
 
-Limit czasu bezczynności TCP można skonfigurować przy użyciu interfejsu API zarządzania usługami. Upewnij się, że `x-ms-version` ustawiono nagłówka do wersji `2014-06-01` lub nowszej. Zaktualizuj konfigurację określonego równoważeniem obciążenia wejściowych punktów końcowych na wszystkich maszynach wirtualnych we wdrożeniu.
+Limit czasu bezczynności TCP hello można skonfigurować przy użyciu interfejsu API zarządzania usługami hello. Upewnij się, że hello `x-ms-version` ustawiono nagłówka tooversion `2014-06-01` lub nowszym. Aktualizacja konfiguracji hello hello określony wejściowych punktów końcowych z równoważeniem obciążenia na wszystkich maszynach wirtualnych we wdrożeniu.
 
 ### <a name="request"></a>Żądanie
 

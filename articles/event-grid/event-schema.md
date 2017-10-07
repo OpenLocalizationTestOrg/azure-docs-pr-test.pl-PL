@@ -1,6 +1,6 @@
 ---
-title: "Azure schematu zdarzeń siatki zdarzeń"
-description: "Opisuje właściwości, które są dostępne dla zdarzeń o Azure zdarzeń siatki."
+title: "schematu zdarzeń aaaAzure siatki zdarzeń"
+description: "Opisuje właściwości hello, które są dostępne dla zdarzeń o Azure zdarzeń siatki."
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,34 +8,34 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: babanisa
-ms.openlocfilehash: 9e3c7b31ef23b29827d7184dc033227685ed92f8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 37178a5650b93fd9072d9cff3333aae14b2a2ba7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-grid-event-schema"></a>Schematu zdarzeń siatki zdarzeń
 
-Ten artykuł zawiera właściwości i schematu dla zdarzeń. Zdarzenia składają się z zestaw pięciu właściwości wymaganych parametrów i wymaganą **danych** obiektu. Właściwości są wspólne dla wszystkich zdarzeń z dowolnego wydawcę. **Danych** obiektu zawiera właściwości, które są specyficzne dla każdego wydawcy. Tematy systemu te właściwości są specyficzne dla dostawcy zasobu, takiego jak magazyn lub Event Hubs.
+Ten artykuł zawiera właściwości hello i schematu dla zdarzeń. Zdarzenia składają się z zestaw pięciu właściwości wymaganych parametrów i wymaganą **danych** obiektu. właściwości Hello są typowe zdarzenia tooall z dowolnego wydawcę. Witaj **danych** obiekt zawiera właściwości, które są określone tooeach wydawcy. Tematy systemu te właściwości są toohello określonego dostawcy zasobów, takiego jak magazyn lub Event Hubs.
 
-Zdarzenia są wysyłane do usługi Azure Event siatki w tablicy, która może zawierać wiele obiektów zdarzeń. W przypadku pojedynczego zdarzenia tablicy ma długość 1. 
+Zdarzenia są wysyłane tooAzure siatki zdarzeń w tablicy, która może zawierać wiele obiektów zdarzeń. W przypadku pojedynczego zdarzenia hello tablicy ma długość 1. 
  
 ## <a name="event-properties"></a>Właściwości zdarzenia
 
-Wszystkie zdarzenia będzie zawierać tej samej następujących danych najwyższego poziomu.
+Wszystkie zdarzenia będzie zawierać hello tego samego następujących danych najwyższego poziomu.
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| Temat | Ciąg | Zasobów Pełna ścieżka do źródła zdarzeń. To pole nie jest zapisywalny. |
-| Temat | Ciąg | Wydawca zdefiniowane ścieżki do podmiotu zdarzeń. |
-| Typ zdarzenia | Ciąg | Jeden z typów zdarzeń zarejestrowane dla tego źródła zdarzenia. |
-| eventTime | Ciąg | Czas jest generowane zdarzenie oparte na czas UTC dostawcy. |
-| id | Ciąg | Unikatowy identyfikator zdarzenia. |
-| Dane | Obiekt | Dane zdarzenia specyficzne dla dostawcy zasobów. |
+| Temat | Ciąg | Źródło zdarzenia toohello ścieżka pełna zasobów. To pole nie jest zapisywalny. |
+| Temat | Ciąg | Temat zdarzeń toohello ścieżki zdefiniowane wydawcy. |
+| Typ zdarzenia | Ciąg | Jedna z hello zarejestrowana typów zdarzeń dla tego źródła zdarzenia. |
+| eventTime | Ciąg | Zdarzenie hello czasu Hello jest generowany na podstawie czasu UTC hello dostawcy. |
+| id | Ciąg | Unikatowy identyfikator dla hello zdarzenia. |
+| Dane | Obiekt | Dostawca zasobów toohello określonych danych zdarzenia. |
 
 ## <a name="available-event-sources"></a>Źródła zdarzeń dostępne
 
-Następujące źródła zdarzeń publikowanie zdarzeń zużycia za pośrednictwem siatki zdarzeń:
+następujące źródła zdarzeń Hello publikowanie zdarzeń zużycia za pośrednictwem siatki zdarzeń:
 
 * Grupy zasobów (operacje zarządzania)
 * Subskrypcje platformy Azure (operacje zarządzania)
@@ -126,7 +126,7 @@ Grupy zasobów można teraz Emituj zdarzeń zarządzania z usługi Azure Resourc
 
 ## <a name="event-hubs"></a>Usługa Event Hubs
 
-Zdarzenia centra zdarzeń są obecnie tylko wysyłanego, gdy plik jest automatycznie przesyłany do magazynu przy użyciu funkcji przechwytywania.
+Zdarzenia centra zdarzeń są obecnie tylko wysyłanego, gdy plik jest automatycznie przesyłany toostorage za pomocą funkcji przechwytywania hello.
 
 ### <a name="available-event-types"></a>Typy dostępnych zdarzeń
 
@@ -134,7 +134,7 @@ Zdarzenia centra zdarzeń są obecnie tylko wysyłanego, gdy plik jest automatyc
 
 ### <a name="example-event"></a>Przykład zdarzeń
 
-To zdarzenie próbkowania zawiera schemat usługi Event Hubs zdarzenia wywoływane, gdy przechwytywanie przechowuje plik. 
+To zdarzenie próbkowania zawiera schemat hello usługi Event Hubs zdarzenia wywoływane, gdy przechwytywanie przechowuje plik. 
 
 ```json
 [
@@ -173,7 +173,7 @@ Azure Blob Storage w prywatnej wersji zapoznawczej z przystąpić do integracji 
 
 ### <a name="example-event"></a>Przykład zdarzeń
 
-To zdarzenie próbkowania zawiera schemat magazynu zdarzenia wywoływane po utworzeniu obiektu blob. 
+To zdarzenie próbkowania pokazuje hello schematu magazynu zdarzenia wywoływane po utworzeniu obiektu blob. 
 
 ```json
 [
@@ -206,11 +206,11 @@ To zdarzenie próbkowania zawiera schemat magazynu zdarzenia wywoływane po utwo
 
 ## <a name="custom-topics"></a>Niestandardowe — tematy
 
-Ładunek danych zdarzenia niestandardowe jest zdefiniowane przez użytkownika i może być dowolnym dobrze sformatowany JSON. Danych najwyższego poziomu powinien zawierać te same pola jako zasób standardowa definicja zdarzenia. Podczas publikowania zdarzeń w niestandardowych tematów należy rozważyć modelowania przedmiotem zdarzeń ułatwiających routingu i filtrowania.
+ładunek danych Hello zdarzenia niestandardowe jest zdefiniowane przez użytkownika i może być dowolnym dobrze sformatowany JSON. danych najwyższego poziomu Hello powinien zawierać hello same pola jako zasób standardowa definicja zdarzenia. Podczas publikowania zdarzenia toocustom tematy należy rozważyć modelowania hello przedmiotem tooaid Twojego zdarzenia do routingu i filtrowania.
 
 ### <a name="example-event"></a>Przykład zdarzeń
 
-W poniższym przykładzie przedstawiono zdarzenie dla niestandardowego tematu:
+Witaj poniższy przykład przedstawia zdarzenie dla niestandardowego tematu:
 ````json
 [
   {
@@ -230,5 +230,5 @@ W poniższym przykładzie przedstawiono zdarzenie dla niestandardowego tematu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby obejrzeć wprowadzenie do siatki zdarzeń, zobacz [co to jest zdarzenie siatki?](overview.md)
-* Aby dowiedzieć się więcej o tworzeniu subskrypcji zdarzeń siatki, zobacz [schematu subskrypcji zdarzeń siatki](subscription-creation-schema.md).
+* Aby tooEvent wprowadzenie siatki, zobacz [co to jest zdarzenie siatki?](overview.md)
+* Zobacz toolearn o tworzeniu subskrypcji zdarzeń siatki [schematu subskrypcji zdarzeń siatki](subscription-creation-schema.md).

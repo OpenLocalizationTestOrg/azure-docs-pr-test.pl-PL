@@ -1,5 +1,5 @@
 ---
-title: Brama starszej wersji sieci wirtualnej platformy Azure jednostki SKU | Dokumentacja firmy Microsoft
+title: Brama sieci wirtualnej platformy Azure aaaLegacy jednostki SKU | Dokumentacja firmy Microsoft
 description: Stary wirtualnych sieci jednostki SKU bramy.
 services: vpn-gateway
 documentationcenter: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3b2126b1ecd1613950bbf311ae08fafd4af0d51f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 710417581423d2fbc62827cab7949f2e137c5996
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Praca z bramy sieci wirtualnej jednostki SKU (starszej wersji jednostki SKU)
 
-Ten artykuł zawiera informacje dotyczące starszych bramy sieci wirtualnej (stare) jednostki SKU. Starszego jednostki SKU nadal działa w obu modelach wdrażania dla bram sieci VPN, które zostały już utworzone. Klasycznego bramy sieci VPN w dalszym ciągu używać starszej wersji jednostki SKU, zarówno dla bramy istniejących i nowych bram. Podczas tworzenia nowego Menedżera zasobów sieci VPN bramy, użyj nowej jednostki SKU bramy. Informacje o nowej wersji produktu, zobacz [o bramy sieci VPN](vpn-gateway-about-vpngateways.md).
+Ten artykuł zawiera informacje o hello starszej wersji (stare) bramy sieci wirtualnej jednostki SKU. starsza wersja Hello jednostki SKU nadal działa w obu modelach wdrażania dla bram sieci VPN, które zostały już utworzone. Klasycznego bramy sieci VPN kontynuować toouse hello starszej wersji jednostki SKU, zarówno dla bramy istniejących i nowych bram. Podczas tworzenia nowego Menedżera zasobów sieci VPN bramy, użyj nowej bramy hello jednostki SKU. Informacji o hello nowej wersji produktu, zobacz [o bramy sieci VPN](vpn-gateway-about-vpngateways.md).
 
 ## <a name="gwsku"></a>Jednostki SKU bramy
 
@@ -39,29 +39,29 @@ Ten artykuł zawiera informacje dotyczące starszych bramy sieci wirtualnej (sta
 
 ## <a name="resize"></a>Zmień rozmiar bramy (zmienianie jednostka SKU bramy)
 
-Można zmienić rozmiar jednostka SKU bramy w ramach tej samej rodziny SKU. Na przykład jeśli masz wersji Standard, możesz zmienić rozmiar do SKU wysokowydajnej. Nie można zmienić rozmiaru z bramy sieci VPN między starym jednostki SKU i nowe rodziny SKU. Nie można na przykład przejść z wersji Standard, do wersji VpnGw2. 
+Możesz zmienić rozmiar jednostka SKU bramy w ramach hello tej samej rodziny SKU. Na przykład jeśli masz wersji Standard, można zmienić rozmiar tooa wysokowydajnej jednostki SKU. Nie można zmienić rozmiaru sieć VPN bramy między hello starego jednostki SKU i hello nowe rodziny SKU. Na przykład nie można przejść z wersji Standard tooa VpnGw2 jednostki SKU. 
 
-Aby zmienić rozmiar jednostki SKU bramy dla klasycznym modelu wdrożenia, użyj następującego polecenia:
+tooresize brama jednostki SKU dla hello klasycznego modelu wdrażania, hello Użyj następującego polecenia:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-Aby zmienić rozmiar jednostki SKU bramy dla modelu wdrażania usługi Resource Manager, użyj następującego polecenia:
+tooresize brama jednostki SKU dla hello modelu wdrażania usługi Resource Manager, użyj hello następujące polecenie:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 
-## <a name="migrate"></a>Migracja do nowej bramy jednostki SKU
+## <a name="migrate"></a>Migrowanie toohello nową bramę jednostki SKU
 
-Jeśli pracujesz z modelu wdrażania usługi Resource Manager, można migrować do nowej bramy jednostki SKU. Jeśli pracujesz z klasycznym modelu wdrożenia, nie można migrować do nowej jednostki SKU i zamiast tego należy nadal używać starszej wersji jednostki SKU.
+Jeśli pracujesz z modelu wdrażania usługi Resource Manager hello, można migrować toohello nową bramę jednostki SKU. Jeśli pracujesz z hello klasycznego modelu wdrażania, nie można migrować toohello nowe jednostki SKU i zamiast tego należy kontynuować toouse hello starszej wersji jednostki SKU.
 
 [!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji o nowej jednostki SKU bramy, zobacz [jednostki SKU bramy](vpn-gateway-about-vpngateways.md#gwsku).
+Aby uzyskać więcej informacji na temat hello nowe jednostki SKU bramy, zobacz [jednostki SKU bramy](vpn-gateway-about-vpngateways.md#gwsku).
 
 Aby uzyskać więcej informacji na temat ustawień konfiguracji, zobacz [o bramy sieci VPN, ustawienia konfiguracji](vpn-gateway-about-vpn-gateway-settings.md).

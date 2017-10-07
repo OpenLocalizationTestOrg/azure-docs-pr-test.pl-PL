@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integracji Azure Active Directory z chmurą Creative Adobe | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Adobe Creative chmury."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Adobe Creative chmury."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,137 +13,137 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 3d13608612c77236346b0e98551d7fc427d602e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e66255e9785465974a23cd3ef79c24e28c0250f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Samouczek: Integracji Azure Active Directory z chmurą Creative Adobe
 
-Z tego samouczka dowiesz się integrowanie Adobe Creative chmurze z usługą Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate Adobe Creative chmury w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie Adobe Creative chmurze z usługą Azure AD zapewnia następujące korzyści:
+Integrowanie Adobe Creative chmurze z usługą Azure AD zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do programu Adobe Creative chmury
-- Umożliwia użytkownikom automatycznie pobrać zalogowane Adobe Creative chmurą (logowanie jednokrotne) z konta usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu zarządzania Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp tooAdobe Creative chmury
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooAdobe Creative chmury (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu zarządzania Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z chmurą Creative Adobe, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z chmurą Creative Adobe należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Adobe Creative chmury jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Adobe Creative chmury z galerii
+1. Dodawanie Adobe Creative chmury z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Dodawanie Adobe Creative chmury z galerii
-Aby skonfigurować integrację Adobe Creative chmury do usługi Azure AD, należy dodać Adobe Creative chmury z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-adobe-creative-cloud-from-hello-gallery"></a>Dodawanie Adobe Creative chmury z galerii hello
+tooconfigure hello integracji Adobe Creative chmury do usługi Azure AD, należy tooadd Adobe Creative chmury z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać Adobe Creative chmury z galerii, wykonaj następujące czynności:**
+**tooadd Adobe Creative chmury z galerii hello wykonaj hello następujące kroki:**
 
-1. W  **[portalu zarządzania Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu zarządzania Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Kliknij przycisk **Dodaj** przycisk w górnej części okna dialogowego.
+3. Kliknij przycisk **Dodaj** przycisk u góry hello hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **chmury Creative Adobe**.
+4. W polu wyszukiwania hello wpisz **chmury Creative Adobe**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_000.png)
 
-5. W panelu wyników wybierz **chmury Creative Adobe**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello, wybierz **chmury Creative Adobe**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_0001.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Adobe Creative w chmurze na koncie użytkownika testu o nazwie "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w chmurze Creative Adobe jest dla użytkownika, w usłudze Azure AD. Innymi słowy łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w chmurze Creative Adobe musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w chmurze Creative Adobe jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w chmurze Creative Adobe musi toobe ustanowione.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w chmurze Creative Adobe.
+Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w chmurze Creative Adobe.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z chmurą Creative Adobe, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z chmurą Creative Adobe, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego chmury Creative Adobe](#creating-an-adobe-creative-cloud-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Adobe Creative chmurze, która jest połączona z jej reprezentacji usługi Azure AD.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego chmury Creative Adobe](#creating-an-adobe-creative-cloud-test-user)**  -toohave odpowiednikiem Simona Britta w chmurze Creative Adobe, która jest jego reprezentacja toohello połączonej usługi Azure AD.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji możesz włączyć usługi Azure AD rejestracji jednokrotnej w portalu zarządzania Azure i skonfigurować logowanie jednokrotne do aplikacji w chmurze Creative Adobe.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu zarządzania Azure hello i skonfigurować logowanie jednokrotne do aplikacji w chmurze Creative Adobe.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z chmurą Creative Adobe, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z Adobe Creative chmury, wykonaj hello następujące kroki:**
 
-1. W portalu zarządzania Azure na **chmury Creative Adobe** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu zarządzania Azure hello na powitania **chmury Creative Adobe** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okna dialogowego, jako **tryb** wybierz **na języku SAML logowania jednokrotnego** Włącz funkcji logowania jednokrotnego.
+2. Na powitania **logowanie jednokrotne** okna dialogowego, jako **tryb** wybierz **na języku SAML logowania jednokrotnego** tooenable logowania jednokrotnego.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_01.png)
 
-3. Na **adresy URL i Adobe Creative domenę chmury** sekcji, wykonaj następujące kroki, aby skonfigurować aplikację w **IDP** inicjowane tryb:
+3. Na powitania **adresy URL i Adobe Creative domenę chmury** sekcji, wykonaj następujące kroki, jeśli chcesz, aby aplikacja hello tooconfigure w hello **IDP** inicjowane tryb:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_url1.png)
 
-    a. W **identyfikator** tekstowym, wpisz wartość, jak:`https://www.okta.com/saml2/service-provider/<token>`
+    a. W hello **identyfikator** pole tekstowe, wartość hello typu jako:`https://www.okta.com/saml2/service-provider/<token>`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
     > [!NOTE] 
-    > Należy pamiętać, że nie są one rzeczywiste wartości. Należy zaktualizować te wartości z rzeczywistego identyfikatora i adres URL odpowiedzi. W tym miejscu zalecamy można używać unikatowej wartości ciągu w identyfikatorze. Należy ręcznie utworzyć użytkownika, należy skontaktować się z zespołem pomocy technicznej Adobe Creative chmury.
+    > Należy pamiętać, że nie są one hello wartości rzeczywistych. Masz tooupdate tych wartości za pomocą hello rzeczywisty identyfikator i odpowiedzi adresu URL. W tym miejscu zalecamy możesz toouse hello unikatową wartość ciągu w hello identyfikator. Należy ręcznie toocreate użytkownika, należy najpierw toocontact hello Adobe Creative chmury z pomocą techniczną.
 
-4. Na **adresy URL i Adobe Creative domenę chmury** sekcji, wykonaj następujące kroki, aby skonfigurować aplikację w **SP** inicjowane tryb:
+4. Na powitania **adresy URL i Adobe Creative domenę chmury** sekcji, wykonaj następujące kroki, jeśli chcesz, aby aplikacja hello tooconfigure w hello **SP** inicjowane tryb:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_url2.png)
 
-    a. Polecenie **Pokaż zaawansowane ustawienia adresu URL** opcji
+    a. Polecenie hello **Pokaż zaawansowane ustawienia adresu URL** opcji
 
-    b. W **adres URL logowania** tekstowym, wpisz wartość, jak:`https://adobe.com`
+    b. W hello **adres URL logowania** pole tekstowe, wartość hello typu jako:`https://adobe.com`
 
-5. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+5. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_05.png) 
 
-6. Na **Adobe Creative konfiguracji chmury** kliknij **Konfigurowanie chmury Creative Adobe** otworzyć **konfigurowania rejestracji** okna. Skopiuj **identyfikator jednostki SAML** i **adres URL usługi logowania jednokrotnego SAML** z krótkimi opisami sekcji.
+6. Na powitania **Adobe Creative konfiguracji chmury** kliknij **Konfigurowanie chmury Creative Adobe** tooopen **Konfigurowanie logowania jednokrotnego** okna. Skopiuj hello **identyfikator jednostki SAML** i **adres URL usługi logowania jednokrotnego SAML** z krótkimi opisami sekcji.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_06.png) 
 
-7. W oknie przeglądarki innej witryny sieci web logowania z dzierżawą chmury Creative Adobe jako administrator.
+7. W oknie przeglądarki innej witryny sieci web, tooyour logowania w chmurze Creative Adobe dzierżawy jako administrator.
 
-8.  Przejdź do **tożsamości** w okienku nawigacji po lewej stronie i kliknij domenę. Następnie wykonaj następujące czynności na **pojedynczy znak na wymagana konfiguracja** sekcji.
+8.  Przejdź za**tożsamości** hello okienka nawigacji po lewej stronie i kliknij domenę. Następnie wykonaj następujące kroki powitania **pojedynczy znak na wymagana konfiguracja** sekcji.
 
     ![Ustawienia](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "ustawienia")
 
-9. Kliknij przycisk **Przeglądaj** można przekazać certyfikatu pobrane z usługi Azure AD do **certyfikatu IDP**.
+9. Kliknij przycisk **Przeglądaj** tooupload hello pobrać certyfikatu z usługi Azure AD za**certyfikatu IDP**.
 
-10. W **wystawcy IDP** pole tekstowe, umieścić wartość elementu **identyfikator jednostki SAML** którego skopiowany z **Konfigurowanie logowania jednokrotnego** sekcji w portalu Azure.
+10. W hello **wystawcy IDP** pole tekstowe, umieść wartość hello **identyfikator jednostki SAML** którego skopiowany z **Konfigurowanie logowania jednokrotnego** sekcji w portalu Azure.
 
-11. W **adres URL logowania IDP** pole tekstowe, umieścić wartość elementu **adres URL usługi logowania jednokrotnego SAML** , które zostały skopiowane z **Konfigurowanie logowania jednokrotnego** sekcji w portalu Azure.
+11. W hello **adres URL logowania IDP** pole tekstowe, umieść wartość hello **adres URL usługi logowania jednokrotnego SAML** , które zostały skopiowane z **Konfigurowanie logowania jednokrotnego** sekcji w portalu Azure.
 
 12. Wybierz **HTTP - przekierowania** jako **powiązania IDP**.
 
@@ -151,55 +151,55 @@ W tej sekcji możesz włączyć usługi Azure AD rejestracji jednokrotnej w port
  
 14. Kliknij przycisk **zapisać** przycisku.
 
-15. Pulpit nawigacyjny teraz przedstawi XML **"Pobieranie metadanych"** pliku. Zawiera adres URL EntityDescriptor Adobe i AssertionConsumerService adresu URL. Otwórz plik i skonfigurować je w aplikacji usługi Azure AD.
+15. pulpit nawigacyjny Hello teraz przedstawi hello XML **"Pobieranie metadanych"** pliku. Zawiera adres URL EntityDescriptor Adobe i AssertionConsumerService adresu URL. Otwórz plik hello i skonfigurować je w hello aplikacji usługi Azure AD.
 
     ![Konfigurowanie rejestracji jednokrotnej po stronie aplikacji](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![Konfigurowanie rejestracji jednokrotnej po stronie aplikacji](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
-    a. Użyj wartości EntityDescriptor Adobe dostarczył dla **identyfikator** na **Konfigurowanie ustawień aplikacji** okna dialogowego.
+    a. Użyj hello wartość EntityDescriptor Adobe dostarczył dla **identyfikator** na powitania **Konfigurowanie ustawień aplikacji** okna dialogowego.
 
-    b. Użyj wartości AssertionConsumerService Adobe dostarczył dla **adres URL odpowiedzi** na **Konfigurowanie ustawień aplikacji** okna dialogowego.
+    b. Użyj hello wartość AssertionConsumerService Adobe dostarczył dla **adres URL odpowiedzi** na powitania **Konfigurowanie ustawień aplikacji** okna dialogowego.
  
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu zarządzania Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu zarządzania Azure hello o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu zarządzania Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu zarządzania Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adobe-creative-cloud-tutorial/create_aaduser_01.png) 
 
-2. Przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy** do wyświetlenia na liście Użytkownicy.
+2. Przejdź za**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy** toodisplay hello listy użytkowników.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adobe-creative-cloud-tutorial/create_aaduser_02.png) 
 
-3. W górnej części okna dialogowego kliknij **Dodaj** otworzyć **użytkownika** okna dialogowego.
+3. U góry okna dialogowego hello powitania kliknij **Dodaj** tooopen hello **użytkownika** okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adobe-creative-cloud-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adobe-creative-cloud-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**. 
 
 ### <a name="creating-an-adobe-creative-cloud-test-user"></a>Tworzenie użytkownika testowego Adobe Creative chmury
 
-Aby włączyć użytkowników usługi Azure AD zalogować się do chmury Creative Adobe, muszą mieć przydzielone do programu Adobe Creative chmury.  
-W przypadku Adobe Creative chmury Inicjowanie obsługi to zadanie ręczne.
+W przypadku użytkowników usługi Azure AD toolog kolejności tooenable w chmurze Creative Adobe muszą mieć przydzielone do Adobe Creative chmury.  
+W przypadku hello Adobe Creative chmury Inicjowanie obsługi to zadanie ręczne.
 
-**Aby udostępnić konta użytkowników, wykonaj następujące czynności:**
+**tooprovision kont użytkowników, wykonaj hello następujące kroki:**
 
-1. Zaloguj się do witryny firmy Adobe Creative chmurze jako administrator.
+1. Zaloguj się za tooyour witryny firmy Adobe Creative chmurze jako administrator.
 
 2. Kliknij przycisk **osób**.
 
@@ -209,34 +209,34 @@ W przypadku Adobe Creative chmury Inicjowanie obsługi to zadanie ręczne.
 
     ![Zaprosić użytkowników](./media/active-directory-saas-adobe-creative-cloud-tutorial/create_aaduser_002.png "zaprosić użytkowników")
 
-4. Na **zaprosić użytkowników** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **zaprosić użytkowników** okna dialogowego wykonaj hello następujące kroki:
 
     ![Zaproś inne osoby](./media/active-directory-saas-adobe-creative-cloud-tutorial/create_aaduser_003.png "Zaproś inne osoby")
 
-    a. W **E-mail** tekstowym, wpisz adres e-mail konta Simona Britta.
+    a. W hello **E-mail** pole tekstowe, adres e-mail hello typu Simona Britta konta.
     
     b. Kliknij przycisk **zaprosić**.
 
     > [!NOTE]
-    > Właścicielem konta usługi Azure Active Directory otrzymasz wiadomość e-mail, a następnie kliknij łącze, aby potwierdzić swoje konto, zanim staje się aktywny.
+    > właścicielem konta usługi Azure Active Directory Hello będzie otrzymywać wiadomości e-mail i postępuj zgodnie tooconfirm łącze swojego konta przed staje się aktywny.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta na udostępnienie jej do chmury Creative Adobe za pomocą usługi Azure rejestracji jednokrotnej.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie jej tooAdobe dostępu Creative chmury.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta Adobe Creative chmury, wykonaj następujące czynności:**
+**tooassign tooAdobe Simona Britta Creative chmury, wykonaj hello następujące kroki:**
 
-1. Otwórz widok aplikacji w portalu zarządzania Azure, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu zarządzania Azure hello, otwórz widok aplikacji hello, a następnie przejdź widok katalogu toohello i go za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **chmury Creative Adobe**.
+2. Z listy aplikacji hello wybierz **chmury Creative Adobe**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_50.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -244,7 +244,7 @@ W tej sekcji można włączyć Simona Britta na udostępnienie jej do chmury Cre
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -252,14 +252,14 @@ W tej sekcji można włączyć Simona Britta na udostępnienie jej do chmury Cre
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka Adobe Creative chmury w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji w chmurze Creative Adobe.
+Po kliknięciu kafelka Adobe Creative chmury hello w hello Panel dostępu, należy pobrać aplikacji w chmurze Creative Adobe tooyour zalogowane automatycznie.
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

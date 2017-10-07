@@ -1,5 +1,5 @@
 ---
-title: "Koderów-dekoderów i formaty Media Encoder Standard"
+title: "koderów-dekoderów i aaaMedia kodera standardowych formatów"
 description: "Ten temat zawiera omówienie koderów-dekoderów i formaty Media Encoder Standard."
 services: media-services
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 51a67f372dff579383ffcfa988e8f4d38ad44a72
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formaty i kodeki narzędzia Media Encoder Standard
-Ten dokument zawiera listę typowych importu i eksportu formatów plików, które można używać z Media Encoder Standard.
+Ten dokument zawiera listę hello najczęściej importu i eksportu formatów plików, które można używać z Media Encoder Standard.
 
 ## <a name="input-containerfile-formats"></a>Kontener/formatów wejściowych
 | Formaty plików (rozszerzenia plików) | Obsługiwane |
@@ -39,30 +39,30 @@ Ten dokument zawiera listę typowych importu i eksportu formatów plików, któr
 | QuickTime (mov) |Tak |
 
 > [!NOTE]
-> Powyżej znajduje się lista rozszerzeń plików najczęściej spotykanych. Media Encoder Standard obsługi wielu innych (na przykład: .m2ts, .mpeg2video, .qt). Jeśli spróbujesz kodowania pliku i otrzymasz komunikat o błędzie dotyczący format nie jest obsługiwane, Prześlij opinię [tutaj](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Powyżej znajduje się lista rozszerzeń plików hello częściej napotkano. Media Encoder Standard obsługi wielu innych (na przykład: .m2ts, .mpeg2video, .qt). Jeśli pojawi się komunikat o błędzie dotyczący hello format nie jest obsługiwane, spróbuj tooencode pliku, Prześlij opinię [tutaj](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Formaty audio w kontenerach wejściowych
-Media Encoder Standard obsługuje wykonywanie następujących formatów audio w kontenerach wejściowych:
+Media Encoder Standard obsługuje wykonywanie hello następujące formaty audio w kontenerach wejściowych:
 
 * MXF, GXF i QuickTime pliki, które mają ścieżki audio z przeplotem stereo lub 5.1 próbki
 
 lub
 
-* Pliki MXF, GXF i QuickTime dźwięk jest przenoszona jako oddzielne ścieżki PCM, ale dla których kanału mapowanie programu (stereo lub 5.1) można określić na podstawie metadanych pliku
+* Pliki MXF, GXF i QuickTime, gdzie hello audio jest przenoszona jako oddzielne ścieżki PCM, ale mapowania kanałów hello (toostereo lub 5.1) można określić na podstawie hello pliku metadanych
 
-Należy zwrócić uwagę obsługujące dla mapowania kanałów jawne/dostarczone przez użytkownika będą udostępniane w najbliższej przyszłości.
+Należy zwrócić uwagę obsługujące dla kanału jawne/dostarczone przez użytkownika mapowanie zostanie podany w hello Najbliższa przyszłość.
 
 ## <a name="input-video-codecs"></a>Dane wejściowe kodery-dekodery wideo
 | Dane wejściowe kodery-dekodery wideo | Obsługiwane |
 | --- | --- | --- | --- |
-| AVC 8-bitowych/10-bitowy, maksymalnie 4:2:2, w tym AVCIntra |8 bitów 4:2:0 a 4:2:2 |
+| AVC 8-bitowych/10-bitowy, się too4:2:2, w tym AVCIntra |8 bitów 4:2:0 a 4:2:2 |
 | Avid DNxHD (w MXF) |Tak |
 | DVCPro/DVCProHD (w MXF) |Tak |
 | Cyfrowy wideo (w plikach AVI) |Tak |
 | JPEG 2000 |Tak |
-| MPEG-2 (maksymalnie 422 profilu i wysokiego poziomu, m.in wariantów, takich jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs® i D10) |Do 422 profilu |
+| MPEG-2 (too422 profilu i wysoki poziom; tym wariantów, takich jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs® i D10) |Too422 profilu |
 | MPEG-1 |Tak |
 | VC-1/WMV9 |Tak |
 | Canopus HQ/HQX |Nie |
@@ -79,7 +79,7 @@ Należy zwrócić uwagę obsługujące dla mapowania kanałów jawne/dostarczone
 ## <a name="input-audio-codecs"></a>Dane wejściowe Audio koderów-dekoderów
 | Dane wejściowe Audio koderów-dekoderów | Obsługiwane |
 | --- | --- | --- | --- |
-| AAC (AAC-LC, AAC HE i AAC-HEv2; maksymalnie 5.1) |Tak |
+| AAC (AAC-LC, AAC HE i AAC-HEv2; zapasowej too5.1) |Tak |
 | MPEG warstwy 2 |Tak |
 | Mp3 (MPEG-1 Audio warstwy 3) |Tak |
 | Program Windows Media Audio |Tak |
@@ -94,7 +94,7 @@ Należy zwrócić uwagę obsługujące dla mapowania kanałów jawne/dostarczone
 | Cyfrowy Dolby® Plus (E-AC3) |Nie |
 
 ## <a name="output-formats-and-codecs"></a>Koderów-dekoderów i formatów wyjściowych
-Poniższa tabela zawiera listę formatów koderów-dekoderów i plików, które są obsługiwane w przypadku eksportowania.
+Witaj w poniższej tabeli wymieniono formatów koderów-dekoderów i plik hello, które są obsługiwane w przypadku eksportowania.
 
 | Format pliku | Kodera-dekodera wideo | Kodera-dekodera audio |
 | --- | --- | --- |
@@ -110,5 +110,5 @@ Poniższa tabela zawiera listę formatów koderów-dekoderów i plików, które 
 ## <a name="see-also"></a>Zobacz też
 [Kodowanie zawartości na żądanie za pomocą usługi Azure Media Services](media-services-encode-asset.md)
 
-[Sposób kodowania przy użyciu Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+[Jak tooencode przy użyciu Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 

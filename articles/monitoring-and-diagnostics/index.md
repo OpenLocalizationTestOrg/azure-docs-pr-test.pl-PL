@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Monitor — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Informacje o sposobie korzystania z usług monitorowania i diagnostyki do śledzenia wydajności, zapewniania bezpieczeństwa i identyfikowania trendów. Dokumentacja interfejsu API, najlepsze rozwiązania i inne materiały."
+title: "aaaAzure Monitor dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tootrack wydajności usług toouse monitorowania i diagnostyki, obsługi zabezpieczeń i trendów. Dokumentacja interfejsu API, najlepsze rozwiązania i inne materiały."
 services: monitoring-and-diagnostics
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5583254cd559314478bdc42e3f41171c6cf1e85a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b86390735ef74e137ec835b301b904763fad4405
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-monitor-documentation"></a>Dokumentacja usługi Azure Monitor
 
-Informacje o sposobie korzystania z usług monitorowania i diagnostyki platformy Azure do śledzenia wydajności, zapewniania bezpieczeństwa i identyfikowania trendów. Samouczki, dokumentacja interfejsu API, najlepsze rozwiązania oraz inne dokumenty, które ułatwiają zapoznanie się z zastosowaniami monitorowania i diagnostyki oraz planowanie i wdrażanie skalowalnych i niezawodnych rozwiązań.
+Dowiedz się, jak toouse Azure monitorowania wydajności tootrack usług diagnostyki, obsługi zabezpieczeń i trendów. Samouczki, odwołania do interfejsu API, najlepsze rozwiązania i innych dokumentacji ułatwiające zrozumienie, jakie hello używa monitorowania i diagnostyki i w jaki sposób tooplan i wdrażać skalowalne i niezawodne rozwiązania.
 
 <ul class="panelContent cardsFTitle">
     <li>

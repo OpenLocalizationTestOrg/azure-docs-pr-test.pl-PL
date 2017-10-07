@@ -1,5 +1,5 @@
 ---
-title: "Usługi Azure Mobile Engagement przewodnik - SDK rozwiązywania problemów"
+title: aaaAzure Mobile Engagement Troubleshooting Guide - SDK
 description: "Rozwiązywanie problemów integracji zestawu SDK usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4d9d6165deb4bd0c65f1841aa7c457363a1f2865
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1c082b81d898f4bdb47b8efe6cfbacfd83fe9279
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-guide-for-sdk-integration-issues"></a>Przewodnik rozwiązywania problemów integracji zestawu SDK
-Poniżej przedstawiono możliwe problemy, które mogą się pojawić w sposób integruje aplikacji usługi Azure Mobile Engagement.
+Witaj poniżej przedstawiono możliwe problemy, które mogą się pojawić w sposób integruje aplikacji usługi Azure Mobile Engagement.
 
 ## <a name="sdk-issues-discovered-by-a-failure-in-another-area-of-your-application"></a>Problemy z zestawu SDK odnalezione awaria w innym miejscu aplikacji
 ### <a name="issue"></a>Problem
@@ -32,9 +32,9 @@ Poniżej przedstawiono możliwe problemy, które mogą się pojawić w sposób i
 * Awarie usługi (Brak usługi Azure Mobile Engagement działa w przypadku aplikacji).
 
 ### <a name="causes"></a>Powoduje, że
-* Błąd w aplikacji (np. Błąd zbierania danych interfejsu użytkownika, Niepowodzenie wypychania, Niepowodzenie zaawansowanych funkcji, błąd interfejsu API, awarii aplikacji lub awaria usługi jawnego) spowoduje odnalezienie większości problemów, które muszą zostać rozpoznane z zestawem Azure Mobile Engagement SDK .  
-* Jeśli w aplikacji przed nigdy nie działał poszczególnych funkcji usługi Azure Mobile Engagement, należy ukończyć integracji. 
-* Jeśli poszczególnych funkcji usługi Azure Mobile Engagement pracy i zatrzymanie, może być konieczne uaktualnienie do ostatniej wersji z zestawem Azure Mobile Engagement SDK. Należy pamiętać, że jest inna wersja zestawem Azure Mobile Engagement SDK dla każdej platformy obsługiwane przez usługi Azure Mobile Engagement (Android, iOS, Windows i Windows Phone).
+* Błąd w aplikacji (na przykład błąd zbierania danych interfejsu użytkownika, Niepowodzenie wypychania, Niepowodzenie zaawansowanych funkcji, błąd interfejsu API, awarii aplikacji lub usługi jawnego spowoduje odnalezienie większości problemów, które trzeba toobe został rozwiązany za pomocą hello zestaw SDK usługi Azure Mobile Engagement awarii).  
+* Jeśli w aplikacji przed nigdy nie działał poszczególnych funkcji usługi Azure Mobile Engagement, należy toocomplete hello integracji. 
+* Jeśli poszczególnych funkcji usługi Azure Mobile Engagement pracy i zatrzymanie, może być konieczne tooupgrade toohello ostatniej wersji z hello zestaw SDK usługi Azure Mobile Engagement. Należy pamiętać, że jest inna wersja hello Azure Mobile Engagement SDK dla każdej platformy obsługiwane przez usługi Azure Mobile Engagement (Android, iOS, Windows i Windows Phone).
 
 #### <a name="sdk-integration"></a>Integracja z zestawem SDK
 * Usługa Azure Mobile Engagement prawidłowo zintegrowane w zestawie SDK (Analytics).
@@ -50,8 +50,8 @@ Poniżej przedstawiono możliwe problemy, które mogą się pojawić w sposób i
 * [Przewodnik rozwiązywania problemów - wypychania][Link 23]
 
 #### <a name="sdk-upgrade"></a>Uaktualnianie zestawu SDK
-* Należy uaktualnić zestaw SDK, aby rozwiązać problemy ze starszymi wersjami SDK (często powiązane do nowszej wersji systemu operacyjnego urządzenia).
-* Odinstaluj wszystkie wcześniejsze wersje aplikacji z urządzenia, a następnie zainstaluj ponownie najnowszą wersję aplikacji, ponownie zarejestrować identyfikator urządzenia z usługi Azure Mobile Engagement interfejsu użytkownika aby upewnić się, że urządzenie jest używana najnowsza wersja aplikacji.
+* Należy tooupgrade SDK tooresolve problemy ze starszymi wersjami hello SDK (często powiązane toonewer wersje systemu operacyjnego urządzenia hello).
+* Odinstaluj wszystkie wcześniejsze wersje aplikacji z urządzenia i zainstaluj ponownie najnowszą wersję aplikacji hello, hello ponownie zarejestrować identyfikator urządzenia z hello Azure Mobile Engagement UI tooconfirm urządzenie używa hello najnowszej wersji aplikacji.
 
 **Zobacz też:**
 
@@ -59,8 +59,8 @@ Poniżej przedstawiono możliwe problemy, które mogą się pojawić w sposób i
 * [Dokumentacja zestawu SDK — przewodniki uaktualnienia](http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### <a name="sdk-other"></a>Zestaw SDK innych
-* Błędy w manifeście aplikacji "AndroidManifest.xml" może spowodować usługi Azure Mobile Engagement nie będą działać (tylko Android).
-* Typowym problemem z integracji zestawu SDK i użycia interfejsu API jest mylenie klucza zestawu SDK i klucz interfejsu API.
+* Błędy w manifeście aplikacji "AndroidManifest.xml" może spowodować usługi Azure Mobile Engagement toowork (tylko Android).
+* Typowym problemem z integracji zestawu SDK i użycia interfejsu API jest tooconfuse hello klucza zestawu SDK i hello klucz interfejsu API.
 
 **Zobacz też:**
 
@@ -68,15 +68,15 @@ Poniżej przedstawiono możliwe problemy, które mogą się pojawić w sposób i
 
 ## <a name="advanced-coding-issues"></a>Zaawansowane kodowania problemów
 ### <a name="issue"></a>Problem
-* Określony kod platformy niepowiązane bezpośrednio z usługi Azure Mobile Engagement mogą powodować problemy w systemie iOS, Android i Windows Phone.
+* Kod platformy nie bezpośrednio powiązane tooAzure Mobile Engagement może spowodować problemy w systemie iOS, Android i Windows Phone.
 
 ### <a name="causes"></a>Powoduje, że
-* Wiele zaawansowanych kodowania problemy z usługi Azure Mobile Engagement są spowodowane przez niepoprawnie napisane platformy kod niepowiązane bezpośrednio z usługi Azure Mobile Engagement. Należy zapoznać się z dokumentacją specyficzną dla używanej platformy, które tworzysz dla oprócz dokumentacji usługi Azure Mobile Engagement (Android, iOS, sieci Web, Windows i Windows Phone).
-* Konfigurowanie prawidłowo "kategorie", uniemożliwia łączenie z powiadomienie do innej lokalizacji wewnątrz lub na zewnątrz aplikacji (tylko Android). 
-* To ustawienie nie zostanie "UIKit.framework" "opcjonalne" w kodzie systemu iOS pokazuje "Błąd: nie odnaleziono symbolu" i/lub ulega awarii na starszych urządzeń z systemem iOS (tylko iOS).
-* Wygasłe certyfikaty lub prawidłowo przy użyciu wersji Programistycznych lub produkcyjną CERT przyczyny problemów wypychania (tylko iOS).
-* Istnieją pewne ograniczenia wbudowane w platformę Azure Mobile Engagement nie może kontrolować (tak jak wypycha działania programu system center dla aplikacji w systemach Android i iOS).
-* Usługa Azure Mobile Engagement publikuje pełną listę pakietów wewnętrzny używany przez usługi Azure Mobile Engagement dla systemów iOS i Android odwołania. Należy pamiętać, że niektóre funkcje usługi Azure Mobile Engagement są specyficzne dla platformy (Android, iOS, sieci Web, Windows i Windows Phone).
+* Wiele zaawansowanych kodowania problemy z usługi Azure Mobile Engagement są spowodowane przez niepoprawnie napisane platformy określony kod nie są bezpośrednio związane z tooAzure Mobile Engagement. Konieczne będzie tooconsult dokumentacji toohello określonych platform opracowywanej dla dodatkowo dokumentacji usługi Mobile Engagement tooAzure (Android, iOS, sieci Web, Windows i Windows Phone).
+* Konfigurowanie prawidłowo "kategorie", uniemożliwia łączenie z lokalizacji tooanother powiadomień wewnątrz lub na zewnątrz aplikacji hello (tylko Android). 
+* To ustawienie nie zostanie "UIKit.framework" za "opcjonalne" w kodzie systemu iOS pokazuje "Błąd: nie odnaleziono symbolu" i/lub ulega awarii na starszych urządzeń z systemem iOS (tylko iOS).
+* Wygasłe certyfikaty lub prawidłowo przy użyciu hello deweloperów lub wersję produkcyjną hello certyfikatu, wypychania przyczyny problemów (tylko iOS).
+* Brak niektórych platforma związanego z używaniem tooa ograniczenia usługi Azure Mobile Engagement nie może kontrolować (tak jak wypycha działania hello system center dla aplikacji w systemach Android i iOS).
+* Usługa Azure Mobile Engagement publikuje pełną listę hello pakietów wewnętrzny używany przez usługi Azure Mobile Engagement dla systemów iOS i Android odwołania. Należy pamiętać, że niektóre funkcje usługi Azure Mobile Engagement są toohello określonych platform (Android, iOS, sieci Web, Windows i Windows Phone).
 
 ### <a name="see-also"></a>Zobacz też
 * [Przewodnik rozwiązywania problemów - wypychania][Link 23] 
@@ -85,12 +85,12 @@ Poniżej przedstawiono możliwe problemy, które mogą się pojawić w sposób i
 
 ## <a name="application-crashes"></a>Awarii aplikacji
 ### <a name="issue"></a>Problem
-* Aplikacja przestaje działać na urządzeniu użytkownika końcowego.
+* Na urządzeniach użytkowników końcowych hello ulega awarii aplikacji.
 
 ### <a name="causes"></a>Powoduje, że
-* Informacje o awarii można wyświetlić w *interfejsu użytkownika analizy* lub *analizy interfejsu API*
-* Można znaleźć Identyfikatora urządzenia urządzenia testu i wykonać tę samą akcję, który spowodował awarię aplikacji dla użytkownika końcowego ułatwić identyfikację przyczyny awarii sieci.
-* Znane problemy z zestawem Azure Mobile Engagement SDK, które aplikacje awarii są czasami rozwiązać przez uaktualnienie do najnowszej wersji zestawu SDK. Upewnij się, że podczas badania awarii (Crash), sprawdź informacje o wersji dotyczące platformy.
+* Informacje o awarii można wyświetlić w hello *interfejsu użytkownika analizy* lub hello *analizy interfejsu API*
+* Witaj identyfikator urządzenia urządzenia testu i podjąć hello można znaleźć tę samą akcję, która spowodowała toocrash Twojej aplikacji dla użytkownika końcowego toohelp zidentyfikować hello przyczynę awarii sieci.
+* Znane problemy z hello Azure Mobile Engagement SDK, które powodują toocrash aplikacji są czasami rozwiązać przez uaktualnienie toohello najnowszą wersję hello zestawu SDK. Podczas badania awarii (Crash), upewnij się, że toocheck hello informacje o wersji dotyczące platformy.
 
 ### <a name="see-also"></a>Zobacz też
 * [Dokumentacja zestawu SDK — informacje o wersji][Link 5]
@@ -98,11 +98,11 @@ Poniżej przedstawiono możliwe problemy, które mogą się pojawić w sposób i
 
 ## <a name="app-store-upload-failures"></a>Aplikacji sklepu przekazywania błędów
 ### <a name="issue"></a>Problem
-* Błędy związane z przekazaniem najnowszą wersję aplikacji do sklepu z aplikacjami systemu Windows firmy Apple lub Google.
+* Błędy związane z toouploading hello najnowszą wersję aplikacji tooApple, Google lub sklepu z aplikacjami systemu Windows hello.
 
 ### <a name="causes"></a>Powoduje, że
-* Aplikacja przechowuje czasami blok aplikacje z niektórych z włączonymi funkcjami (np. sklepu Apple zapobiega użyciu IDFV aplikacji w magazynie i magazynu GooglePlay uniemożliwia udostępnianie informacji o aplikacji między aplikacjami). 
-* Upewnij się, sprawdź informacje o wersji dotyczące platformy i bieżącej wersji zestawu SDK, jeśli masz trudności przekazywania aplikacji do sklepu.
+* Aplikacja przechowuje czasami blok aplikacje z niektórych z włączonymi funkcjami (np. hello sklepu Apple uniemożliwia użycie hello IDFV w aplikacjach w sklepie hello i uniemożliwia magazynu GooglePlay hello hello udostępnianie informacji o aplikacji między aplikacjami). 
+* Upewnij się, sprawdź hello informacje o wersji dotyczące platformy i bieżącej wersji zestawu SDK hello, jeśli masz trudności przekazywania toohello sklepu z aplikacjami.
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

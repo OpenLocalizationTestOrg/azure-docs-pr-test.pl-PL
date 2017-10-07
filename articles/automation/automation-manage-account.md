@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie kontem usługi Azure Automation | Microsoft Docs"
-description: "W tym artykule opisano sposób zarządzania konfiguracją konta usługi Automation obejmującą np. odnawianie certyfikatów, usuwanie i błędną konfigurację."
+title: "Konto usługi Automatyzacja Azure aaaManage | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak toomanage hello konfiguracji Twoje konto usługi Automatyzacja, takie jak odnawiania certyfikatu, usuwanie i błędnej konfiguracji."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,72 +14,72 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 41efdbcacede74bac038342688362ff480cadc7e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 75e41f601a138d4e8853aa79dcbab6696a5e9fb0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-automation-account"></a>Zarządzanie kontem usługi Azure Automation
-W pewnym momencie przed wygaśnięciem ważności konta usługi Automation należy odnowić certyfikat. Jeśli uważasz, że bezpieczeństwo konta Uruchom jako zostało naruszone, możesz je usunąć i utworzyć ponownie. W tej sekcji opisano kroki umożliwiające wykonanie tych operacji.
+W pewnym momencie przed upływem Twoje konto usługi Automatyzacja, konieczne będzie toorenew hello certyfikatu. Jeśli uważasz, że naruszono tego hello konta Uruchom jako, można usunąć i ponownie go utworzyć. W tej sekcji omówiono sposób tooperform te operacje.
 
 ## <a name="self-signed-certificate-renewal"></a>Odnawianie certyfikatu z podpisem własnym
-Certyfikat z podpisem własnym utworzony dla konta Uruchom jako wygasa rok od daty utworzenia. Można go odnowić w dowolnym momencie przed wygaśnięciem jego ważności. Po odnowieniu bieżący ważny certyfikat zostanie zachowany w celu zapewnienia, że ta zmiana nie wpłynie negatywnie na żadne umieszczone w kolejce lub aktywnie działające elementy runbook, które uwierzytelniają się przy użyciu konta Uruchom jako. Certyfikat pozostanie ważny aż do daty wygaśnięcia.
+Witaj podpisem utworzony certyfikat dla hello konta Uruchom jako wygasa rok z daty utworzenia hello. Można go odnowić w dowolnym momencie przed wygaśnięciem jego ważności. Podczas odnawiania go hello bieżącego prawidłowy certyfikat jest zachowanych tooensure, że wszystkie elementy runbook umieszczonych w kolejce maksymalnie lub aktywnie działa i że uwierzytelniania za pomocą hello konta Uruchom jako nie negatywnie zainfekowane. certyfikat Hello pozostaje ważny aż do daty jego wygaśnięcia.
 
 > [!NOTE]
-> Jeśli konto Uruchom jako usługi Automation skonfigurowano do użycia certyfikatu wystawionego przez urząd certyfikacji przedsiębiorstwa, w przypadku użycia tej opcji certyfikat przedsiębiorstwa zostanie zastąpiony certyfikatem z podpisem własnym.
+> Jeśli zostały skonfigurowane z automatyzacji Uruchom jako konta toouse certyfikat wystawiony przez urząd certyfikacji w Twojej organizacji, możesz użyć tej opcji hello firmowy certyfikat zostanie zastąpione przez certyfikatu z podpisem własnym.
 
-Aby odnowić certyfikat, wykonaj następujące czynności:
+Witaj toorenew certyfikatów, hello następujące:
 
-1. W witrynie Azure Portal otwórz konto usługi Automation.
+1. Hello portalu Azure Otwórz hello konta automatyzacji.
 
-2. W bloku **Konto usługi Automation** w okienku **Właściwości konta** w obszarze **Ustawienia konta** wybierz pozycję **Konta Uruchom jako**.
+2. Na powitania **konto automatyzacji** bloku w hello **konta właściwości** okienku w obszarze **ustawienia konta**, wybierz pozycję **konta Uruchom jako**.
 
     ![Okienko właściwości konta usługi Automation](media/automation-manage-account/automation-account-properties-pane.png)
-3. W bloku właściwości **Konta Uruchom jako** wybierz konto Uruchom jako albo klasyczne konto Uruchom jako, dla którego chcesz odnowić certyfikat.
+3. Na powitania **konta Uruchom jako** bloku właściwości, wybierz albo hello Uruchom jako konta lub hello klasycznego konto Uruchom jako ma toorenew hello certyfikat dla.
 
-4. W bloku **Właściwości** wybranego konta kliknij pozycję **Odnów certyfikat**.
+4. Na powitania **właściwości** bloku hello wybranego konta, kliknij przycisk **odnawiania certyfikatu**.
 
     ![Odnawianie certyfikatu konta Uruchom jako](media/automation-manage-account/automation-account-renew-runas-certificate.png)
 
-5. W trakcie odnawiania certyfikatu postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
+5. Gdy hello certyfikat zostanie odnowiony, możesz śledzić postępy hello w obszarze **powiadomienia** hello menu.
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako
-W tej sekcji opisano sposób usuwania i ponownego tworzenia konta Uruchom jako lub klasycznego konta Uruchom jako. Konto usługi Automation jest zachowywane podczas wykonywania tej akcji. Po usunięciu konta Uruchom jako lub klasycznego konta Uruchom jako możesz je ponownie utworzyć w witrynie Azure Portal.
+W tej sekcji opisano sposób toodelete i ponownie utwórz konto Uruchom jako lub klasycznego Uruchom jako. Podczas wykonywania tej akcji jest zachowywana hello konta automatyzacji. Po usunięciu konta Uruchom jako lub klasycznego Uruchom jako, można go utworzyć ponownie w hello portalu Azure.
 
-1. W witrynie Azure Portal otwórz konto usługi Automation.
+1. Hello portalu Azure Otwórz hello konta automatyzacji.
 
-2. W bloku **Konto usługi Automation** w okienku właściwości konta wybierz pozycję **Konta Uruchom jako**.
+2. Na powitania **konto automatyzacji** bloku w hello konta w okienku właściwości, wybierz opcję **konta Uruchom jako**.
 
-3. W bloku właściwości **Konta Uruchom jako** wybierz konto Uruchom jako albo klasyczne konto Uruchom jako, które chcesz usunąć. Następnie w bloku **Właściwości** wybranego konta kliknij pozycję **Usuń**.
+3. Na powitania **konta Uruchom jako** bloku właściwości, albo hello Uruchom jako konto klasycznego konto Uruchom jako lub wybierz konto, które mają toodelete. Następnie na powitania **właściwości** bloku hello wybranego konta, kliknij przycisk **usunąć**.
 
  ![Usuwanie konta Uruchom jako](media/automation-manage-account/automation-account-delete-runas.png)
 
-4. W trakcie usuwania konta postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
+4. Gdy konto hello jest usuwany, możesz śledzić postępy hello w obszarze **powiadomienia** hello menu.
 
-5. Po usunięciu konta możesz je ponownie utworzyć w bloku właściwości **Konta Uruchom jako**, wybierając opcję tworzenia **Konto Uruchom jako platformy Azure**.
+5. Po usunięciu konta hello, można go ponownie utworzyć na powitania **konta Uruchom jako** opcja tworzenia bloku właściwości, wybierając hello **Azure konta Uruchom jako**.
 
- ![Ponowne tworzenie konta Uruchom jako usługi Automation](media/automation-manage-account/automation-account-create-runas.png)
+ ![Ponownie utwórz konto Uruchom jako automatyzacji hello](media/automation-manage-account/automation-account-create-runas.png)
 
 ## <a name="misconfiguration"></a>Błąd konfiguracji
-Niektóre elementy konfiguracji niezbędne do poprawnego działania konta Uruchom jako lub klasycznego konta Uruchom jako zostały usunięte lub nie zostały utworzone prawidłowo podczas początkowej konfiguracji. Te elementy to na przykład:
+Niektóre elementy konfiguracji niezbędne do toofunction konta Uruchom jako klasycznego konto Uruchom jako lub hello prawidłowo może zostały usunięte lub nieprawidłowo utworzone podczas instalacji początkowej. elementy Hello obejmują:
 
 * Zasób certyfikatu
 * Zasób połączenia
-* Konto Uruchom jako zostało usunięte z roli współautora
+* Konto Uruchom jako zostało usunięte z hello roli współautora
 * Nazwa główna usługi lub aplikacji w usłudze Azure AD
 
-W poprzednim i innych przypadkach błędnej konfiguracji konto usługi Automation wykrywa te zmiany i wyświetla stan *Niekompletne* w bloku właściwości **Konta Uruchom jako** dla konta.
+W poprzednim hello i inne wystąpienia błędnej konfiguracji hello konta automatyzacji wykrywa hello zmiany i ma stan *niepełnym* na powitania **konta Uruchom jako** bloku właściwości hello konto.
 
 ![Stan Niekompletne dla konfiguracji konta Uruchom jako](media/automation-manage-account/automation-account-runas-incomplete-config.png)
 
-Po wybraniu konta Uruchom jako w okienku **Właściwości** konta zostanie wyświetlony następujący komunikat o błędzie:
+Po wybraniu konta Uruchom jako hello hello konta **właściwości** okienko zawierające hello następujący komunikat o błędzie:
 
 ![Komunikat ostrzegawczy Niekompletne dla konfiguracji konta Uruchom jako](media/automation-manage-account/automation-account-runas-incomplete-config-msg.png).
 
-Te problemy związane z kontem Uruchom jako można szybko rozwiązać, usuwając konto i tworząc je ponownie.
+Przez usunięcie i ponowne utworzenie konta hello można szybko rozwiązać te problemy Uruchom jako konta.
 
 ## <a name="next-steps"></a>Następne kroki
-* Więcej informacji na temat nazw głównych usługi można znaleźć w temacie [Obiekty aplikacji i obiekty nazwę głównej usługi](../active-directory/active-directory-application-objects.md).
-* Więcej informacji na temat kontroli dostępu opartej na rolach w usłudze Automatyzacja platformy Azure można znaleźć w temacie [Kontrola dostępu oparta na rolach w usłudze Automatyzacja platformy Azure](automation-role-based-access-control.md).
-* Aby uzyskać więcej informacji na temat certyfikatów i usług Azure, zobacz [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md) (Omówienie certyfikatów usług Azure Cloud Services).
+* Aby uzyskać więcej informacji na temat nazwy główne usług można znaleźć zbyt[obiekty aplikacji i nazwy głównej usługi](../active-directory/active-directory-application-objects.md).
+* Aby uzyskać więcej informacji na temat opartej na rolach kontroli dostępu w usłudze Automatyzacja Azure można znaleźć zbyt[kontroli dostępu opartej na rolach w automatyzacji Azure](automation-role-based-access-control.md).
+* Aby uzyskać więcej informacji na temat certyfikatów i usług Azure można znaleźć zbyt[Omówienie certyfikatów dla usług w chmurze Azure](../cloud-services/cloud-services-certs-create.md).

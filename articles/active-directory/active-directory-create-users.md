@@ -1,6 +1,6 @@
 ---
-title: "Dodawanie nowych użytkowników do usługi Azure Active Directory | Microsoft Docs"
-description: "Wyjaśnia, jak dodać nowych użytkowników lub zmienić informacje o użytkowniku w usłudze Azure Active Directory."
+title: "Nowy aaaAdd tooAzure użytkowników usługi Active Directory | Dokumentacja firmy Microsoft"
+description: "Wyjaśniono, jak tooadd nowych użytkowników lub zmienić informacje o użytkowniku w usłudze Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -17,67 +17,67 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: ff4b742e772a6062885313e9bb49e55907fe125a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 72f67ad41022fd19fd94c8e1301943b0db1e57bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Dodawanie nowych użytkowników lub użytkownicy z kontami Microsoft do usługi Azure Active Directory
-Dodaj użytkowników, aby wypełnić katalog. W tym artykule opisano sposób dodawania nowych użytkowników do organizacji oraz sposób dodawania użytkowników, którzy mają konta Microsoft. Aby uzyskać więcej informacji na temat dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich, zobacz [Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory](active-directory-create-users-external.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
+# <a name="add-new-users-or-users-with-microsoft-accounts-tooazure-active-directory"></a>Dodawanie nowych użytkowników lub użytkownicy z Microsoft tooAzure kont usługi Active Directory
+Dodaj użytkowników toopopulate katalogu. W tym artykule opisano sposób tooadd nowych użytkowników w organizacji, jak i tooadd użytkowników, którzy mają konta Microsoft. Aby uzyskać więcej informacji na temat dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich, zobacz [Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory](active-directory-create-users-external.md). Dodano użytkownicy nie mają uprawnień administratora domyślnie, ale można przypisać toothem role w dowolnym momencie.
 
 > [!IMPORTANT]
-> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule. Jak dodać użytkownika w Centrum administracyjnym usługi Azure AD, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-users-create-azure-portal.md).
+> Firma Microsoft zaleca się, że zarządzania usługi Azure AD przy użyciu hello [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w hello portalu Azure zamiast hello klasycznego portalu Azure, do którego odwołuje się w tym artykule. Dla tooadd użytkownika w Centrum administracyjnym hello Azure AD, zobacz temat [Dodaj nowe tooAzure użytkowników usługi Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="add-a-user"></a>Dodawanie użytkownika
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
-2. Wybierz usługę **Active Directory**, a następnie wybierz nazwę katalogu organizacji.
-3. Wybierz kartę **Użytkownicy**, a następnie na pasku poleceń wybierz polecenie **Dodaj użytkownika**.
-4. Na stronie **Poinformuj nas o tym użytkowniku** w obszarze **Typ użytkownika** wybierz jedną z następujących opcji:
+1. Zaloguj się toohello [klasycznego portalu Azure](https://manage.windowsazure.com) przy użyciu konta, które jest administratorem globalnym katalogu hello.
+2. Wybierz **usługi Active Directory**, a następnie wybierz nazwę hello katalogu organizacji.
+3. Wybierz hello **użytkowników** , a następnie na pasku poleceń hello, wybierz **Dodaj użytkownika**.
+4. Na powitania **Poinformuj nas o tym użytkowniku** w obszarze **typ użytkownika**, wybierz opcję:
 
    * **Nowy użytkownik w organizacji** — dodaje nowe konto użytkownika w katalogu.
-   * **Użytkownik z istniejącym kontem Microsoft** — dodaje istniejące konto klienta Microsoft do katalogu (na przykład konto programu Outlook)
+   * **Użytkownik z istniejącym kontem Microsoft** — dodaje istniejące Microsoft konsumenta konta tooyour katalog (na przykład konto programu Outlook)
 5. W zależności od **typu użytkownika** wprowadź nazwę użytkownika (dla nowego użytkownika) lub adres e-mail (dla użytkownika z kontem Microsoft).
-6. Na stronie **Profil** użytkownika podaj imię i nazwisko, nazwę przyjazną użytkownikowi i rolę użytkownika z listy **Role**. Aby uzyskać więcej informacji dotyczących ról użytkowników i administratorów, zobacz [Przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles.md). Określ, czy **włączyć usługę Multi-Factor Authentication** dla użytkownika.
-7. Na stronie **Uzyskaj hasło tymczasowe** wybierz opcję **Utwórz**.
+6. Na użytkownika hello **profilu** Podaj imię i nazwisko, nazwę przyjazną użytkownikowi i rolę użytkownika z hello **ról** listy. Aby uzyskać więcej informacji dotyczących ról użytkowników i administratorów, zobacz [Przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles.md). Określ, czy za**Włączanie uwierzytelniania wieloskładnikowego** hello użytkownika.
+7. Na powitania **Uzyskaj hasło tymczasowe** wybierz pozycję **Utwórz**.
 
 > [!IMPORTANT]
-> Jeśli Twoja organizacja korzysta z więcej niż jednej domeny, podczas dodawania konta użytkownika musisz wiedzieć o następujących kwestiach:
+> Jeśli Twoja organizacja korzysta z więcej niż jedną domenę, musisz wiedzieć o hello następujące problemy podczas dodawania konta użytkownika:
 >
-> * Aby dodać konta użytkowników z tą samą główną nazwą użytkownika (UPN) między domenami, **najpierw** dodaj np. adres geoffgrisso@contoso.onmicrosoft.com, **a następnie** geoffgrisso@contoso.com.
-> * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com. Ta kolejność jest ważna, a jej cofnięcie może być kłopotliwe.
+> * tooadd kont użytkowników z hello tego samego główna nazwa użytkownika (UPN) między domenami, **pierwszy** dodać, na przykład geoffgrisso@contoso.onmicrosoft.com, **następuje** geoffgrisso@contoso.com.
+> * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com. To zamówienie jest ważne i może być skomplikowane tooundo.
 >
 >
 
 ## <a name="change-user-information"></a>Zmiana informacji o użytkowniku
-Możesz zmienić dowolny atrybut użytkownika z wyjątkiem identyfikatora obiektu.
+Możesz zmienić dowolny atrybut użytkownika, z wyjątkiem identyfikatora obiektu hello.
 
 1. Otwórz katalog.
-2. Wybierz kartę **Użytkownicy**, a następnie wybierz nazwę wyświetlaną użytkownika, którą chcesz zmienić.
+2. Wybierz hello **użytkowników** kartę i hello następnie wybierz nazwę wyświetlaną użytkownika ma toochange hello.
 3. Wprowadź zmiany, a następnie kliknij przycisk **Zapisz**.
 
-Nie możesz zmienić informacji o użytkowniku przy użyciu tej procedury, jeśli użytkownik, którego informacje chcesz zmienić, jest zsynchronizowany z lokalną usługą Active Directory. Aby zmienić informacje o takim użytkowniku, użyj narzędzi zarządzania lokalnej usługi Active Directory.
+Jeśli użytkownik hello, który chcesz zmienić jest synchronizowane z lokalnej usługi Active Directory, nie można zmienić informacje o użytkowniku hello za pomocą tej procedury. toochange hello użytkownika, użyj narzędzi zarządzania lokalnej usługi Active Directory.
 
 ## <a name="guest-user-management-and-limitations"></a>Zarządzanie użytkownikami typu Gość i ograniczenia
-Z konta gościa korzystają użytkownicy z innych katalogów, którzy otrzymali zaproszenie do katalogu w celu uzyskania dostępu do dokumentów programu SharePoint, aplikacji lub innych zasobów platformy Azure. Podstawowy atrybut UserType na koncie gościa w katalogu jest ustawiony na opcję „Gość”. Atrybut UserType normalnych użytkowników (w szczególności członków katalogu) jest ustawiony na opcję „Członek”.
+Konta gościa korzystają użytkownicy z innych katalogów, którzy byli dokumentów programu SharePoint tooaccess katalogu zaproszonych tooyour, aplikacji lub innych zasobów platformy Azure. Konto gościa w katalogu ma jego podstawowy atrybut UserType ustawiona zbyt "Gość." Normalnych użytkowników (w szczególności członków katalogu) ma atrybut UserType hello "Członek".
 
-Goście mają ograniczony zestaw praw w katalogu. Te prawa ograniczają gościom możliwość wyszukiwania informacji o innych użytkownikach w katalogu. Goście mogą jednak nadal współdziałać z użytkownikami i grupami skojarzonymi z zasobami, nad którymi pracują. Goście mogą:
+Goście mają ograniczony zestaw praw w katalogu hello. Te prawa ograniczają możliwość hello gości toodiscover informacji o innych użytkowników w katalogu hello. Jednak gościa nadal interakcji użytkowników z hello użytkownikami i grupami skojarzonymi z zasobami hello, nad którymi pracuje. Goście mogą:
 
-* Wyświetlać innych użytkowników i grupy skojarzone z subskrypcją platformy Azure, do której są przypisani
-* Wyświetlać członków grup, do których należą
-* Wyszukiwać innych użytkowników w katalogu, jeśli znają pełny adres e-mail użytkownika
-* Wyświetlać ograniczony zestaw atrybutów wyszukiwanych użytkowników — ograniczony do nazwy wyświetlanej, adresu e-mail, głównej nazwy użytkownika (UPN) i miniatury zdjęcia
-* Pobierać listę zweryfikowanych domen w katalogu
-* Wyrazić zgodę na aplikacje przydzielające im takie same prawa dostępu w katalogu, jakie mają członkowie
+* Wyświetlać innych użytkowników i grup skojarzonych z toowhich subskrypcji platformy Azure, w których są przydzielone
+* Zobacz hello członkami toowhich grup, do których należą
+* Wyszukiwać innych użytkowników w katalogu hello, jeśli znają hello pełny adres e-mail użytkownika, powitalne
+* Zobaczyć tylko ograniczony zestaw atrybutów użytkowników hello, ich wyszukiwanie — ograniczone toodisplay nazwa, adres e-mail, główna nazwa użytkownika (UPN) i miniatury zdjęcia
+* Pobierz listę zweryfikowanych domen w katalogu hello
+* Tooapplications zgody, przyznania im hello takie same prawa dostępu, jakie mają członkowie w katalogu
 
 ## <a name="set-guest-user-access-policies"></a>Ustawianie zasad dostępu dla gościa
-Karta katalogu **Konfiguruj** zawiera opcje kontroli dostępu dla gości. Te opcje mogą zostać zmienione wyłącznie za pośrednictwem klasycznego portalu Azure przez globalnego administratora katalogu. Obecnie nie ma metody robienia tego przez interfejs API lub program PowerShell.
+Witaj **Konfiguruj** karta katalogu zawiera opcje toocontrol dostępu dla gości. Te opcje mogą zostać zmienione wyłącznie za pośrednictwem klasycznego portalu Azure przez globalnego administratora katalogu. Obecnie nie ma metody robienia tego przez interfejs API lub program PowerShell.
 
-Aby otworzyć kartę **Konfiguruj** w klasycznym portalu Azure, wybierz opcję **usługi Active Directory**, a następnie wybierz nazwę katalogu.
+tooopen hello **Konfiguruj** karcie hello Azure klasycznym portalu, wybierz **usługi Active Directory**, a następnie wybierz nazwę hello hello katalogu.
 
 ![Karta Konfigurowanie w usłudze Azure Active Directory][1]
 
-Następnie możesz edytować opcje kontroli dostępu dla gości.
+Następnie można edytować hello opcje toocontrol dostępu dla gości.
 
 ![Opcje kontroli dostępu dla gości][2]
 

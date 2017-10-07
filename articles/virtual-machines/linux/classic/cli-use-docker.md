@@ -1,6 +1,6 @@
 ---
-title: "Dla systemu Linux na platformie Azure przy użyciu rozszerzenia maszyny Wirtualnej platformy Docker"
-description: "Opisuje Docker i rozszerzenia maszyny wirtualnej platformy Azure i pokazuje, jak programowo Tworzenie maszyn wirtualnych na platformie Azure, które są hostów docker z poziomu wiersza polecenia przy użyciu wiersza polecenia platformy Azure."
+title: Witaj aaaUsing Docker rozszerzenia maszyny Wirtualnej dla systemu Linux na platformie Azure
+description: "Opisuje Docker i rozszerzeń maszyny wirtualnej Azure hello i pokazuje, jak tooprogrammatically Tworzenie maszyn wirtualnych na platformie Azure, która hostów docker z wiersza polecenia hello przy użyciu interfejsu wiersza polecenia Azure hello."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,57 +15,57 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1e192ad7c273aa9c997ea7bfa53b7de0b41a43c6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Korzystanie z rozszerzenia maszyny wirtualnej platformy Docker za pomocą interfejsu wiersza polecenia platformy (Azure CLI)
+# <a name="using-hello-docker-vm-extension-from-hello-azure-command-line-interface-azure-cli"></a>Przy użyciu hello Docker rozszerzenia maszyny Wirtualnej z hello interfejsu wiersza polecenia platformy Azure (Azure CLI)
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Aby dowiedzieć się, jak za pomocą rozszerzenia maszyny Wirtualnej platformy Docker z modelu Resource Manager, zobacz [tutaj](../dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Aby dowiedzieć się, jak przy użyciu rozszerzenia maszyny Wirtualnej platformy Docker hello hello modelu Resource Manager, zobacz [tutaj](../dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-W tym temacie opisano sposób tworzenia maszyny Wirtualnej z rozszerzenia maszyny Wirtualnej platformy Docker niż tryb zarządzania (asm) usługi Azure CLI na dowolnej platformie. [Docker](https://www.docker.com/) jest jednym z najpopularniejszych podejść wirtualizacji, które używa [kontenery Linux](http://en.wikipedia.org/wiki/LXC) zamiast maszyn wirtualnych w sposób izolowanie danych i przetwarzania danych w udostępnionych zasobów. Można użyć rozszerzenia maszyny Wirtualnej platformy Docker i [agenta systemu Linux Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) tworzenie Docker maszyny Wirtualnej, który obsługuje dowolną liczbę kontenerów dla aplikacji na platformie Azure. Aby wyświetlić ogólne omówienie kontenery i ich zalety, zobacz [Docker wysoki poziom tablicy](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+W tym temacie opisano, jak toocreate maszyny Wirtualnej z hello Docker rozszerzenia maszyny Wirtualnej z hello usługi zarządzania (asm) trybu w wiersza polecenia platformy Azure na dowolnej platformie. [Docker](https://www.docker.com/) jest jednym z hello najpopularniejszych podejść wirtualizacji, które używa [kontenery Linux](http://en.wikipedia.org/wiki/LXC) zamiast maszyn wirtualnych w sposób izolowanie danych i przetwarzania danych w udostępnionych zasobów. Można użyć rozszerzenia maszyny Wirtualnej platformy Docker hello i hello [agenta systemu Linux Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) toocreate Docker maszyny Wirtualnej, który obsługuje dowolną liczbę kontenerów dla aplikacji na platformie Azure. Ogólne omówienie kontenery i ich zalety toosee Zobacz hello [Docker wysoki poziom tablicy](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
-## <a name="how-to-use-the-docker-vm-extension-with-azure"></a>Jak użyć Docker rozszerzenia maszyny Wirtualnej platformy Azure
-Aby użyć rozszerzenia Docker maszyny Wirtualnej platformy Azure, należy zainstalować wersję [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-sdk-tools-xplat) (Azure CLI) wyższa niż 0.8.6 (zgodnie z tym bieżąca wersja to 0.10.0). Interfejs wiersza polecenia platformy Azure można zainstalować na Mac, Linux i Windows.
+## <a name="how-toouse-hello-docker-vm-extension-with-azure"></a>Jak toouse hello Docker rozszerzenia maszyny Wirtualnej z platformy Azure
+toouse rozszerzenia maszyny Wirtualnej platformy Docker hello Azure, należy zainstalować wersję hello [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-sdk-tools-xplat) (Azure CLI) wyższa niż 0.8.6 (zgodnie z tym hello pisania bieżąca wersja to 0.10.0). Witaj wiersza polecenia platformy Azure można zainstalować na Mac, Linux i Windows.
 
-Zakończenie procesu do użycia Docker na platformie Azure jest prosty:
+Witaj Zakończ proces toouse Docker na platformie Azure jest prosty:
 
-* Instalowanie interfejsu wiersza polecenia Azure i jego zależności na komputerze, z którego chcesz kontrolować Azure (w systemie Windows, to będzie dystrybucji systemu Linux, uruchomione jako maszyny wirtualnej)
-* Utwórz hosta maszyny Wirtualnej platformy Docker na platformie Azure za pomocą poleceń Azure CLI Docker
-* Lokalne polecenia Docker umożliwia zarządzanie kontenerów Docker w maszynie Wirtualnej platformy Docker na platformie Azure.
+* Zainstaluj na komputerze hello, z którego mają zostać toocontrol Azure hello wiersza polecenia platformy Azure i jego zależności (w systemie Windows, to będzie dystrybucji systemu Linux, uruchomione jako maszyny wirtualnej)
+* Użyj hello Azure CLI Docker polecenia toocreate hosta maszyny Wirtualnej platformy Docker na platformie Azure
+* W maszynie Wirtualnej platformy Docker na platformie Azure, należy użyć toomanage polecenia Docker lokalne powitania kontenerów Docker.
 
-### <a name="install-the-azure-command-line-interface-azure-cli"></a>Instalowanie platformy Azure interfejsu wiersza polecenia (Azure CLI)
-Aby zainstalować i skonfigurować interfejs wiersza polecenia Azure, zobacz [jak zainstalować interfejs wiersza polecenia Azure](../../../cli-install-nodejs.md). Aby sprawdzić instalację, wpisz `azure` w wierszu polecenia i po chwili krótkich powinna zostać wyświetlona grafikę ASCII interfejsu wiersza polecenia Azure, który zawiera listę poleceń podstawowe dostępne dla Ciebie. Jeśli instalacja działał poprawnie, powinno być możliwe do typu `azure help vm` i sprawdzić, czy jest jedną z wymienionych polecenia "docker".
-
-> [!NOTE]
-> Docker ma narzędzi dla systemu Windows, [maszyny Docker](https://docs.docker.com/installation/windows/), którym można również zautomatyzować tworzenie klienta docker, który służy do pracy z maszyn wirtualnych platformy Azure jako hostów docker.
-> 
-> 
-
-### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Azure CLI do nawiązania połączenia konta platformy Azure
-Przed użyciem wiersza polecenia platformy Azure poświadczenia konta Azure należy skojarzyć z wiersza polecenia platformy Azure na platformie. Sekcja [sposób nawiązywania połączenia z subskrypcją platformy Azure](../../../xplat-cli-connect.md) wyjaśniono, jak pobrać i zaimportować Twojej **.publishsettings** plików lub kojarzenie z wiersza polecenia platformy Azure przy użyciu identyfikatora organizacyjnego.
+### <a name="install-hello-azure-command-line-interface-azure-cli"></a>Zainstaluj hello interfejsu wiersza polecenia platformy Azure (Azure CLI)
+tooinstall oraz konfigurowania hello wiersza polecenia platformy Azure, zobacz [jak tooinstall hello interfejsu wiersza polecenia platformy Azure](../../../cli-install-nodejs.md). tooconfirm hello instalacji, typ `azure` hello wiersza polecenia i po chwili krótkich powinna zostać wyświetlona hello grafikę ASCII interfejsu wiersza polecenia Azure, której znajduje się lista hello basic polecenia tooyou dostępne. Jeśli instalacja hello działał poprawnie, należy tootype stanie `azure help vm` i sprawdzić, czy jest jedno z poleceń hello wymienione "docker".
 
 > [!NOTE]
-> Istnieją pewne różnice w zachowaniu, korzystając z jednego lub innych metod uwierzytelniania, dlatego zaleca się przeczytanie dokumentu powyżej, aby poznać różne funkcje.
+> Docker ma narzędzi dla systemu Windows, [maszyny Docker](https://docs.docker.com/installation/windows/), która umożliwia także tworzenie hello tooautomate klienta docker czy toowork można używać z maszynami wirtualnymi Azure jako hostów docker.
 > 
 > 
 
-### <a name="install-docker-and-use-the-docker-vm-extension-for-azure"></a>Zainstaluj Docker i użyj rozszerzenia maszyny Wirtualnej platformy Docker na platformie Azure
-Postępuj zgodnie z [instrukcje dotyczące instalacji Docker](https://docs.docker.com/installation/#installation) zainstalować Docker lokalnie na komputerze.
+### <a name="connect-hello-azure-cli-tootooyour-azure-account"></a>Połącz hello Azure CLI tootooyour konto platformy Azure
+Przed użyciem hello Azure CLI poświadczenia konta Azure należy skojarzyć z hello Azure CLI na platformie. Witaj sekcji [jak tooyour tooconnect subskrypcji platformy Azure](../../../xplat-cli-connect.md) wyjaśniono, jak tooeither pobierać i importować z **.publishsettings** plików lub kojarzenie z wiersza polecenia platformy Azure przy użyciu identyfikatora organizacyjnego.
 
-Aby użyć Docker z maszyny wirtualnej platformy Azure, musi mieć obraz Linux używany dla maszyny Wirtualnej [Agent maszyny Wirtualnej systemu Linux](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) zainstalowane. Obecnie istnieją tylko dwa typy obrazów, które to zapewniają:
+> [!NOTE]
+> Istnieją pewne różnice w zachowaniu, korzystając z jednego lub hello innych metod uwierzytelniania, dlatego należy się, że dokument hello tooread powyżej toounderstand hello różne funkcje.
+> 
+> 
 
-* Obraz Ubuntu z galerii obrazów Azure lub
-* Niestandardowy obraz systemu Linux utworzone przy użyciu agenta maszyny Wirtualnej systemu Linux Azure zainstalowane i skonfigurowane. Zobacz [Agent maszyny Wirtualnej systemu Linux](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Aby uzyskać więcej informacji o sposobie tworzenia niestandardowych maszyny Wirtualnej systemu Linux przy użyciu agenta maszyny Wirtualnej Azure.
+### <a name="install-docker-and-use-hello-docker-vm-extension-for-azure"></a>Zainstaluj Docker i użyj hello rozszerzenia maszyny Wirtualnej platformy Docker na platformie Azure
+Wykonaj hello [instrukcje dotyczące instalacji Docker](https://docs.docker.com/installation/#installation) tooinstall Docker lokalnie na komputerze.
 
-### <a name="using-the-azure-image-gallery"></a>Za pomocą galerii Azure obrazu
-Z Bash lub sesję terminalu Użyj następującego polecenia wiersza polecenia platformy Azure można znaleźć najnowszy Ubuntu obraz w galerii maszyn wirtualnych do użycia przez wpisanie
+toouse Docker z maszyny wirtualnej platformy Azure, hello Linux obraz powitania maszyna wirtualna musi mieć hello [Agent maszyny Wirtualnej systemu Linux](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) zainstalowane. Obecnie istnieją tylko dwa typy obrazów, które to zapewniają:
+
+* Obraz Ubuntu z hello Galeria obrazów Azure lub
+* Niestandardowy obraz systemu Linux utworzone hello Agent maszyny Wirtualnej systemu Linux jest zainstalowana i skonfigurowana. Zobacz [Agent maszyny Wirtualnej systemu Linux](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Aby uzyskać więcej informacji o tym, jak toobuild niestandardowych maszyny Wirtualnej systemu Linux z hello Agent maszyny Wirtualnej.
+
+### <a name="using-hello-azure-image-gallery"></a>Przy użyciu Galeria obrazów hello Azure
+Bash lub sesję terminalu Użyj funkcji powitania po toolocate hello najnowszy obraz Ubuntu w hello wirtualna galerii toouse, wpisując polecenie wiersza polecenia platformy Azure
 
 `azure vm image list | grep Ubuntu-14_04`
 
-i wybierz jedną z nazw obrazów, takich jak `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB`i użyj następującego polecenia, aby utworzyć nową maszynę Wirtualną za pomocą tego obrazu.
+i wybierz jedną z nazw obraz powitania, takich jak `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB`, i użyj hello następujące polecenie toocreate nowej maszyny Wirtualnej za pomocą tego obrazu.
 
 ```
 azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB" <username> <password>
@@ -73,31 +73,31 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 Gdzie:
 
-* *&lt;Nazwa maszyny wirtualnej cloudservice&gt;*  jest nazwa maszyny wirtualnej, który ma zostać komputera hosta kontenera Docker na platformie Azure
-* *&lt;Nazwa użytkownika&gt;*  jest nazwa użytkownika głównych domyślnego maszyny wirtualnej
-* *&lt;hasło&gt;*  jest hasło *username* konta, które spełnia wymogi złożoności dla platformy Azure
+* *&lt;Nazwa maszyny wirtualnej cloudservice&gt;*  jest nazwą hello hello maszyny Wirtualnej, który ma zostać komputerze hosta kontenera Docker hello na platformie Azure
+* *&lt;Nazwa użytkownika&gt;*  jest nazwa hello hello domyślnego katalogu głównego użytkownika hello maszyny Wirtualnej
+* *&lt;hasło&gt;*  jest hasło hello hello *username* konta, spełniającej standardy hello złożoności dla platformy Azure
 
 > [!NOTE]
-> Obecnie hasło musi być co najmniej 8 znaków, zawiera jeden małe litery i Wielka litera, liczbę i znaków specjalnych, takich jak jeden z następujących znaków: `!@#$%^&+=`. Nie, okres na końcu poprzedniego zdania nie jest znak specjalny.
+> Obecnie hasło musi być co najmniej 8 znaków, zawiera jeden małe litery i Wielka litera, liczbę i znaków specjalnych, takich jak jeden z następujących znaków hello: `!@#$%^&+=`. Nie, okres hello na końcu hello hello zdaniu poprzedzającym nie jest znak specjalny.
 > 
 > 
 
-Jeśli polecenie zostało zakończone pomyślnie, powinien zostać wyświetlony przypominać następujące polecenie, w zależności od argumentów dokładne i opcje używanego:
+Jeśli polecenie hello zakończyło się pomyślnie, powinien zostać wyświetlony przypominać następujące hello, w zależności od hello dokładne argumentów i opcji, których użyto:
 
 ![](media/cli-use-docker/dockercreateresults.png)
 
 > [!NOTE]
-> Tworzenie maszyny wirtualnej może potrwać kilka minut, ale po zostały udostępnione (wartość stanu jest `ReadyRole`) uruchamiania demona Docker (usługa Docker) i możesz połączyć się z hostem kontenera Docker.
+> Tworzenie maszyny wirtualnej może potrwać kilka minut, ale po zostały udostępnione (wartość stanu hello jest `ReadyRole`) hello uruchamiania demona (hello usługi Docker) Docker i możesz połączyć hosta kontenera Docker toohello.
 > 
 > 
 
-Aby przetestować Docker maszyny Wirtualnej zostały utworzone na platformie Azure, wpisz
+Witaj tootest Docker maszyny Wirtualnej zostały utworzone na platformie Azure, typ
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
-gdzie  *&lt;vm nazwa--użyta&gt;*  jest nazwa maszyny wirtualnej, który został użyty w wywołania do `azure vm docker create`. Powinny zostać wyświetlone informacje podobne do następujących, co oznacza, że Host maszyny Wirtualnej platformy Docker działa i działających na platformie Azure i Oczekiwanie na poleceniach. 
+gdzie  *&lt;vm nazwa--użyta&gt;*  jest nazwą hello hello maszyny wirtualnej, używany w połączeniu zbyt`azure vm docker create`. Powinny pojawić się coś podobnego następujące toohello, co oznacza, że Host maszyny Wirtualnej platformy Docker działa i działających na platformie Azure i Oczekiwanie na poleceniach. 
 
-Teraz możesz spróbować połączyć się przy użyciu klienta programu docker można uzyskać informacji o (w niektórych ustawień klienta Docker, takim jak dla komputerów Mac, może być konieczne użycie `sudo`):
+Teraz możesz spróbować tooconnect przy użyciu informacji tooobtain docker klienta (w niektórych ustawień klienta Docker, takim jak dla komputerów Mac, konieczne może być toouse `sudo`):
 
     sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
     Password:
@@ -129,7 +129,7 @@ Teraz możesz spróbować połączyć się przy użyciu klienta programu docker 
     Name: testsshasm
     WARNING: No swap limit support
 
-Chcemy mieć pewność, że jest ona wszystkie pracy, należy zbadać Docker rozszerzenia maszyny Wirtualnej:
+Po prostu toobe pewność, że jest ona wszystkie pracy, można sprawdzić hello maszyny Wirtualnej dla hello Docker rozszerzenia:
 
     azure vm extension get testsshasm
     info: Executing command vm extension get
@@ -140,25 +140,25 @@ Chcemy mieć pewność, że jest ona wszystkie pracy, należy zbadać Docker roz
     info: vm extension get command OK
 
 ### <a name="docker-host-vm-authentication"></a>Uwierzytelnianie programu docker hosta maszyny Wirtualnej
-Oprócz tworzenia wirtualna Docker `azure vm docker create` polecenia automatycznie tworzy wymagane certyfikaty, aby zezwolić na komputerze klienckim Docker do połączenia z hostem kontenera platformy Azure przy użyciu protokołu HTTPS, a certyfikaty są przechowywane na klienta i Host maszyn, zależnie od potrzeb. W kolejnych prób istniejących certyfikatów są ponownie i udostępniane z nowym hostem.
+Ponadto hello toocreating hello wirtualna Docker `azure vm docker create` polecenia automatycznie tworzy hello wymagane certyfikaty tooallow Docker klienta komputera tooconnect toohello kontenera platformy Azure hosta przy użyciu protokołu HTTPS i hello certyfikaty są przechowywane na serwerze Witaj klientem i hostem maszyny, zależnie od potrzeb. Na kolejnych prób hello istniejących certyfikatów są ponownie i udostępniać hello nowego hosta.
 
-Domyślnie certyfikaty są umieszczane w `~/.docker`, i Docker zostanie skonfigurowany do uruchamiania na porcie **2376**. Jeśli chcesz użyć innego portu lub katalog, a następnie można użyć jednego z następujących `azure vm docker create` opcji wiersza polecenia, aby skonfigurować Twoje kontenera Docker hosta maszyny Wirtualnej, aby użyć innego portu lub różnych certyfikatów klientów nawiązujących połączenie:
+Domyślnie certyfikaty są umieszczane w `~/.docker`, i Docker zostaną skonfigurowane toorun na porcie **2376**. Jeśli chcesz toouse inny port lub katalog, a następnie możesz skorzystać z jednej z następujących hello `azure vm docker create` wiersza polecenia Opcje tooconfigure Twojego Docker kontenera hosta maszyny Wirtualnej toouse inny port lub różnych certyfikatów klientów nawiązujących połączenie:
 
 ```
--dp, --docker-port [port]              Port to use for docker [2376]
+-dp, --docker-port [port]              Port toouse for docker [2376]
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
-Demon Docker na hoście jest skonfigurowana do nasłuchiwania i uwierzytelnianie połączeń klienta na określonym porcie przy użyciu certyfikaty generowane przez `azure vm docker create` polecenia. Komputer kliencki musi mieć te certyfikaty w celu uzyskania dostępu do hostów Docker.
+Hello demon Docker na hoście hello jest toolisten skonfigurowanych dla i uwierzytelniania klienta połączeń na powitania określony port przy użyciu certyfikatów hello generowane przez hello `azure vm docker create` polecenia. komputer kliencki Hello muszą mieć te certyfikaty toogain dostępu toohello Docker hosta.
 
 > [!NOTE]
-> Sieci hosta z systemem bez tych certyfikatów będzie narażony na każdy użytkownik może połączyć się z komputerem. Aby zmodyfikować domyślną konfigurację, upewnij się, że rozumiesz zagrożeń dotyczących komputerów i aplikacji.
+> Sieci hosta z systemem bez tych certyfikatów będzie tooanyone narażony, który można tooconnect toohello maszyny. Przed zmodyfikowaniem hello domyślnej konfiguracji upewnij się, że rozumiesz hello ryzyka tooyour komputery i aplikacje.
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-* Wszystko będzie gotowe przejść do [Podręcznik użytkownika Docker] i użyć maszyny Wirtualnej platformy Docker. Aby utworzyć Maszynę wirtualną z włączonym Docker w nowego portalu, zobacz [jak Docker rozszerzenia maszyny Wirtualnej za pomocą portalu].
-* Rozszerzenie maszyny Wirtualnej platformy Docker Azure obsługuje również rozwiązania Docker Compose, używający deklaratywne pliku yaml programu do podjęcia modelowane Deweloper aplikacji w każdym środowisku oraz do generowania spójne wdrażanie. Zobacz [wprowadzenie Docker i wysyłanych do definiowania i uruchomić aplikację usługi kontenera na maszynie wirtualnej platformy Azure].  
+* Wszystko jest gotowe toogo toohello [Podręcznik użytkownika Docker] i użyć maszyny Wirtualnej platformy Docker. Zobacz toocreate włączone Docker maszyny Wirtualnej w ramach nowego portalu hello [jak toouse hello Docker rozszerzenia maszyny Wirtualnej z hello Portal].
+* Hello rozszerzenia maszyny Wirtualnej Azure Docker również obsługuje rozwiązania Docker Compose, który używa deklaratywne tootake pliku yaml programu modelowane Deweloper aplikacji w każdym środowisku i wygenerować spójne wdrożenia. Zobacz [Rozpoczynanie pracy z rozwiązaniem Docker tworzą toodefine i uruchomić aplikację usługi kontenera na maszynie wirtualnej platformy Azure].  
 
 <!--Anchors-->
 [Subheading 1]:#subheading-1
@@ -166,18 +166,18 @@ Demon Docker na hoście jest skonfigurowana do nasłuchiwania i uwierzytelnianie
 [Subheading 3]:#subheading-3
 [Next steps]:#next-steps
 
-[How to use the Docker VM Extension with Azure]:#How-to-use-the-Docker-VM-Extension-with-Azure
+[How toouse hello Docker VM Extension with Azure]:#How-to-use-the-Docker-VM-Extension-with-Azure
 [Virtual Machine Extensions for Linux and Windows]:#Virtual-Machine-Extensions-For-Linux-and-Windows
 [Container and Container Management Resources for Azure]:#Container-and-Container-Management-Resources-for-Azure
 
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]:../../virtual-machines-windows-hero-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]:../../../app-service-web/web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
-[jak Docker rozszerzenia maszyny Wirtualnej za pomocą portalu]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Link 1 tooanother azure.microsoft.com documentation topic]:../../virtual-machines-windows-hero-tutorial.md
+[Link 2 tooanother azure.microsoft.com documentation topic]:../../../app-service-web/web-sites-custom-domain-name.md
+[Link 3 tooanother azure.microsoft.com documentation topic]:../storage-whatis-account.md
+[jak toouse hello Docker rozszerzenia maszyny Wirtualnej z hello Portal]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Podręcznik użytkownika Docker]:https://docs.docker.com/userguide/
 
-[wprowadzenie Docker i wysyłanych do definiowania i uruchomić aplikację usługi kontenera na maszynie wirtualnej platformy Azure]:../docker-compose-quickstart.md
+[Rozpoczynanie pracy z rozwiązaniem Docker tworzą toodefine i uruchomić aplikację usługi kontenera na maszynie wirtualnej platformy Azure]:../docker-compose-quickstart.md

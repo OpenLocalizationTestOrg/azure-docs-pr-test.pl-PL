@@ -1,6 +1,6 @@
 ---
-title: "Wirtualne grodzenie powiadomień wypychanych przy użyciu usług Azure Notification Hubs i Bing Spatial Data | Microsoft Docs"
-description: "Korzystając z tego samouczka, dowiesz się, jak dostarczać powiadomienia wypychane oparte na lokalizacji przy użyciu usług Azure Notification Hubs i Bing Spatial Data."
+title: "powiadomienia wypychane odgrodzone aaaGeo przy użyciu usługi Azure Notification Hubs i Bing Spatial Data | Dokumentacja firmy Microsoft"
+description: "Z tego samouczka dowiesz się, jak toodeliver oparte na lokalizacji wypychanie powiadomień przy użyciu usługi Azure Notification Hubs i Bing Spatial Data."
 services: notification-hubs
 documentationcenter: windows
 keywords: powiadomienie wypychane, powiadomienia wypychane
@@ -15,114 +15,114 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/31/2016
 ms.author: dendeli
-ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d6efe473537f2159240c53e780741f12619c045d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Wirtualne grodzenie powiadomień wypychanych przy użyciu usług Azure Notification Hubs i Bing Spatial Data
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> toocomplete tego samouczka, musi mieć aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
 > 
 > 
 
-Korzystając z tego samouczka, dowiesz się, jak dostarczać powiadomienia wypychane oparte na lokalizacji przy użyciu usług Azure Notification Hubs i Bing Spatial Data z wykorzystaniem aplikacji platformy uniwersalnej systemu Windows.
+Z tego samouczka dowiesz się, jak toodeliver oparte na lokalizacji wypychanie powiadomień przy użyciu usługi Azure Notification Hubs i Bing Spatial Data z wykorzystaniem aplikacji platformy uniwersalnej systemu Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Najpierw upewnij się, że spełniono wszystkie wymagania wstępne dotyczące oprogramowania i usług:
+Najpierw i, należy upewnić się, że wszystkie hello oprogramowania i usług wstępne toomake:
 
 * Program [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) lub nowszy (można również użyć wersji [Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)). 
-* Najnowsza wersja zestawu [Azure SDK](https://azure.microsoft.com/downloads/). 
+* Najnowszą wersję hello [zestawu Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Konto Centrum deweloperów Map Bing](https://www.bingmapsportal.com/) (można utworzyć je bezpłatnie i skojarzyć z kontem Microsoft). 
 
 ## <a name="getting-started"></a>Wprowadzenie
-Zacznijmy od utworzenia projektu. W programie Visual Studio utwórz nowy projekt typu **Pusta aplikacja (uniwersalna aplikacja systemu Windows)**.
+Zacznijmy od utworzenia projektu hello. W programie Visual Studio utwórz nowy projekt typu **Pusta aplikacja (uniwersalna aplikacja systemu Windows)**.
 
 ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
-Po zakończeniu tworzenia projektu uzyskasz dostęp do aplikacji. Teraz skonfigurujmy wszystko pod kątem infrastruktury wirtualnego grodzenia. Ponieważ w tym celu użyjemy usług Bing, istnieje publiczny punkt końcowy interfejsu API REST umożliwiający wykonywanie zapytań dotyczących określonego zakresu lokalizacji:
+Po zakończeniu tworzenia projektu hello powinien mieć kontroler powitania dla aplikacji hello. Teraz Skonfigurujmy wszystko pod kątem infrastruktury wirtualnego grodzenia hello. Ponieważ firma Microsoft będzie toouse, które usługi Bing dla tego, istnieje publiczny punkt końcowy interfejsu API REST, który pozwala nam tooquery określonego zakresu lokalizacji:
 
     http://spatial.virtualearth.net/REST/v1/data/
 
-Należy określić następujące parametry, aby przygotować go do pracy:
+Konieczne będzie toospecify hello następujące parametry tooget go do pracy:
 
 * **Identyfikator źródła danych** i **Nazwa źródła danych** — w interfejsie API Map Bing źródła danych zawierają różne metadane w zasobnikach, takie jak lokalizacje i godziny pracy. Możesz uzyskać więcej informacji na ten temat tutaj. 
-* **Nazwa jednostki** — jednostka, która ma być używana jako punkt odniesienia dla powiadomienia. 
-* **Klucz interfejsu API Map Bing** — to jest klucz uzyskany wcześniej podczas tworzenia konta Centrum deweloperów Bing.
+* **Nazwa jednostki** — Witaj jednostki, której toouse jako punkt odniesienia dla powiadomienia hello. 
+* **Klucz interfejsu API map Bing** — jest to hello klucz uzyskany wcześniej podczas tworzenia konta Centrum deweloperów Bing hello.
 
-Poznajmy szczegółowo sposób konfiguracji poszczególnych elementów wymienionych powyżej.
+Dla każdego z powyższych elementów hello Poznajmy szczegółowo na powitania instalacji.
 
-## <a name="setting-up-the-data-source"></a>Konfigurowanie źródła danych
-W tym celu można użyć Centrum deweloperów Map Bing. Kliknij pozycję **Źródła danych** na górnym pasku nawigacyjnym i wybierz pozycję **Zarządzaj źródłami danych**.
+## <a name="setting-up-hello-data-source"></a>Konfigurowanie hello źródła danych
+Możesz zrobić to w hello Centrum deweloperów map Bing. Po prostu kliknij **źródeł danych** w hello górnym pasku nawigacyjnym i wybierz **Zarządzanie źródłami danych**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
 
-Jeśli wcześniej nie korzystano z interfejsu API Map Bing, prawdopodobnie nie będą istnieć żadne źródła danych, dlatego możesz utworzyć nowe, klikając pozycję Przekaż dane do źródła danych. Wypełnij wszystkie wymagane pola:
+Jeśli wcześniej nie korzystano z interfejsu API map Bing, prawdopodobnie nie będzie żadnych źródeł danych nie istnieje, można utworzyć nowy, klikając na przekazywanie danych tooa źródło danych. Upewnij się, że możesz wypełnić wszystkie pola wymagane hello:
 
 ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
 
-Możliwe, że zastanawiasz się, co to jest plik danych i co należy przekazać? Na potrzeby tego testu możemy użyć przykładowego pliku opartego na potoku, który określa obszar nabrzeża San Francisco:
+Użytkownik może się zastanawiać — co to jest plik danych hello i co należy przekazać? Dla celów hello ten test możemy użyć próbki hello opartego na potoku, który określa obszar waterfront Poznań hello:
 
     Bing Spatial Data Services, 1.0, TestBoundaries
     EntityID(Edm.String,primaryKey)|Name(Edm.String)|Longitude(Edm.Double)|Latitude(Edm.Double)|Boundary(Edm.Geography)
     1|SanFranciscoPier|||POLYGON ((-122.389825 37.776598,-122.389438 37.773087,-122.381885 37.771849,-122.382186 37.777022,-122.389825 37.776598))
 
-Powyższy kod reprezentuje następującą jednostkę:
+Witaj powyżej reprezentuje następującą jednostkę:
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
-Po prostu skopiuj i wklej powyższy ciąg do nowego pliku i zapisz go jako **NotificationHubsGeofence.pipe**, a następnie przekaż go do Centrum deweloperów Bing.
+Po prostu skopiuj i Wklej Powyższy ciąg hello do nowego pliku i zapisz go jako **NotificationHubsGeofence.pipe**, a następnie przekaż go w Centrum deweloperów Bing hello.
 
 > [!NOTE]
-> Może zostać wyświetlony monit o określenie nowego klucza dla właściwości **Klucz główny**, który różni się od właściwości **Klucz zapytania**. Po prostu utwórz nowy klucz przy użyciu pulpitu nawigacyjnego i odśwież stronę przekazywania źródła danych.
+> Może być zostanie wyświetlony monit o toospecify klucza hello **klucza głównego** różni się od hello **klucz zapytania**. Po prostu Utwórz nowy klucz przez hello pulpitu nawigacyjnego i Odśwież hello stronę przekazywania źródła danych.
 > 
 > 
 
-Po przekazaniu pliku danych opublikuj źródło danych. 
+Po przekazaniu pliku danych hello należy toomake Opublikuj hello źródła danych. 
 
-Przejdź do obszaru **Zarządzanie źródłami danych**, jak opisano powyżej, znajdź źródło danych na liście i kliknij polecenie **Publikuj** w kolumnie **Akcje**. Po chwili źródło danych powinno zostać wyświetlone na karcie **Opublikowane źródła danych**:
+Przejdź za**Zarządzanie źródłami danych**, jak opisano powyżej, Znajdź źródło danych na liście hello i wybierz polecenie **publikowania** w hello **akcje** kolumny. W nieco, powinny pojawić się źródła danych w hello **opublikowane źródła danych** karty:
 
 ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
 
-Jeśli klikniesz pozycję **Edytuj** możesz łatwo przeglądać wprowadzone lokalizacje:
+Jeśli klikniesz przycisk **Edytuj**, możesz będą mogli toosee jeden rzut oka w nim wprowadzone lokalizacje:
 
 ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
-W tym momencie w portalu nie są wyświetlane granice utworzonego wirtualnego ogrodzenia — potrzebne jest jedynie potwierdzenie, że określona lokalizacja znajduje się w odpowiedniej okolicy.
+W tym momencie hello portalu nie są wyświetlane hello granice dla wirtualnego ogrodzenia hello, że utworzyliśmy — potrzebne jest jedynie potwierdzenie, że określona lokalizacja hello znajduje się w odpowiedniej okolicy hello.
 
-Teraz wszystkie wymagania dotyczące źródła danych zostały spełnione. Aby uzyskać szczegółowe informacje dotyczące adresu URL żądania dla wywołania interfejsu API, w Centrum deweloperów Map Bing kliknij pozycję **Źródła danych** i wybierz pozycję **Informacje o źródle danych**.
+Masz teraz wszystkie wymagania hello hello źródła danych. Kliknij przycisk Szczegóły hello tooget na powitania adresu URL żądania dla wywołania interfejsu API hello, w Centrum deweloperów map Bing hello **źródeł danych** i wybierz **informacje o źródle danych**.
 
 ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
-Interesuje nas tutaj wartość właściwości **Adres URL zapytania**. To jest punkt końcowy, względem którego możemy wykonywać zapytania, aby sprawdzić, czy urządzenie znajduje się obecnie w granicach lokalizacji, czy nie. Aby to sprawdzić, należy wykonać wywołanie GET dla adresu URL zapytania z dołączonymi następującymi parametrami:
+Witaj **adres URL zapytania** jest interesuje NAS tutaj. Jest to hello punkt końcowy, względem którego możemy wykonywać zapytania toocheck w czy hello urządzenie jest obecnie w granicach hello lokalizacji lub nie. tooperform to sprawdzić, należy po prostu tooexecute GET Wywołaj względem adresu URL zapytania hello z następujących parametrów dołączane hello:
 
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
 
-W ten sposób określisz punkt docelowy uzyskany z urządzenia, a Mapy Bing automatycznie wykonają obliczenia w celu sprawdzenia, czy znajduje się on w wirtualnym ogrodzeniu. Po wykonaniu żądania przy użyciu przeglądarki (lub programu cURL), uzyskasz standardową odpowiedź w formacie JSON:
+W ten sposób określisz punkt docelowy uzyskany z urządzenia hello, a mapy Bing automatycznie wykonają hello obliczeń toosee czy znajduje się on w wirtualnym ogrodzeniu hello. Po wykonaniu żądania hello za pomocą przeglądarki (lub programu cURL), uzyskasz standardową odpowiedź w formacie JSON:
 
 ![](./media/notification-hubs-geofence/bing-maps-json.png)
 
-Ta odpowiedź jest wysyłana tylko wtedy, gdy punkt rzeczywiście znajduje się w wyznaczonych granicach. W przeciwnym razie otrzymasz pusty zasobnik **results**:
+Ta odpowiedź tylko wtedy, gdy hello punkt rzeczywiście znajduje się w wyznaczonych granicach hello. W przeciwnym razie otrzymasz pusty zasobnik **results**:
 
 ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-## <a name="setting-up-the-uwp-application"></a>Konfigurowanie aplikacji platformy uniwersalnej systemu Windows
-Teraz, gdy źródło danych jest gotowe, możemy rozpocząć pracę nad aplikacją platformy uniwersalnej systemu Windows, którą zainicjowano wcześniej.
+## <a name="setting-up-hello-uwp-application"></a>Konfigurowanie aplikacji platformy uniwersalnej systemu Windows hello
+Teraz, gdy mamy hello źródło danych jest gotowe, możemy rozpocząć pracę na powitania aplikacji platformy uniwersalnej systemu Windows, którą zainicjowano wcześniej.
 
-Najpierw musimy włączyć usługi lokalizacji dla naszej aplikacji. W tym celu kliknij dwukrotnie plik `Package.appxmanifest` w **Eksploratorze rozwiązań**.
+Najpierw musimy włączyć usługi lokalizacji dla naszej aplikacji. toodo, kliknij dwukrotnie `Package.appxmanifest` w pliku **Eksploratora rozwiązań**.
 
 ![](./media/notification-hubs-geofence/vs-package-manifest.png)
 
-Na karcie właściwości pakietu, która została otwarta, kliknij pozycję **Możliwości** i wybierz pozycję **Lokalizacja**:
+Na karcie właściwości pakietu hello, która została otwarta, kliknij **możliwości** i upewnij się, że wybrano **lokalizacji**:
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
-Po zadeklarowaniu możliwości korzystania z lokalizacji utwórz nowy folder w rozwiązaniu o nazwie `Core` i dodaj do niego nowy plik o nazwie `LocationHelper.cs`:
+Możliwość lokalizacji hello jest zadeklarowana, Utwórz nowy folder w rozwiązaniu o nazwie `Core`i Dodaj nowy plik w nazwie `LocationHelper.cs`:
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
-Klasa `LocationHelper` jest obecnie dosyć prosta — umożliwia jedynie uzyskiwanie lokalizacji użytkownika przy użyciu interfejsu API systemu:
+Witaj `LocationHelper` samej klasy w tym momencie jest dosyć prosta — wszystkie robi zezwolić nam lokalizacji użytkownika hello tooobtain przy użyciu interfejsu API systemu hello:
 
     using System;
     using System.Threading.Tasks;
@@ -155,9 +155,9 @@ Klasa `LocationHelper` jest obecnie dosyć prosta — umożliwia jedynie uzyskiw
         }
     }
 
-Więcej informacji o uzyskiwaniu lokalizacji użytkownika w aplikacjach platformy uniwersalnej systemu Windows można uzyskać w oficjalnym [dokumencie MSDN](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+Możesz przeczytać więcej na temat uzyskiwania hello lokalizacji użytkownika w aplikacji platformy uniwersalnej systemu Windows w oficjalne hello [dokumencie MSDN](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
 
-Aby sprawdzić, czy uzyskiwanie lokalizacji rzeczywiście działa, otwórz stronę kodu strony głównej (`MainPage.xaml.cs`). Utwórz nowy program obsługi zdarzeń dla zdarzenia `Loaded` w konstruktorze `MainPage`:
+toocheck, który hello uzyskiwanie lokalizacji rzeczywiście działa, otwórz hello kodu strony, strony głównej (`MainPage.xaml.cs`). Utwórz nowy program obsługi zdarzeń dla hello `Loaded` zdarzenia w hello `MainPage` konstruktora:
 
     public MainPage()
     {
@@ -165,7 +165,7 @@ Aby sprawdzić, czy uzyskiwanie lokalizacji rzeczywiście działa, otwórz stron
         this.Loaded += MainPage_Loaded;
     }
 
-Implementacja programu obsługi zdarzeń wygląda następująco:
+Implementacja Hello hello obsługi zdarzeń wygląda następująco:
 
     private async void MainPage_Loaded(object sender, RoutedEventArgs e)
     {
@@ -178,23 +178,23 @@ Implementacja programu obsługi zdarzeń wygląda następująco:
         }
     }
 
-Zwróć uwagę, że program obsługi został zadeklarowany jako asynchroniczny, ponieważ metoda `GetCurrentLocation` obsługuje instrukcję await, dlatego wymaga wykonywania w kontekście asynchronicznym. Ponadto w pewnych okolicznościach możemy uzyskać lokalizację o wartości null (np. usługi lokalizacji zostały wyłączone lub aplikacji odmówiono uprawnień do uzyskiwania dostępu do lokalizacji), dlatego musimy upewnić się, że zapewniona jest prawidłowa obsługa przy użyciu sprawdzania wartości null.
+Zwróć uwagę, został zadeklarowany obsługi hello jako asynchroniczny ponieważ `GetCurrentLocation` jest oczekujący i dlatego wymaga toobe wykonywane w kontekście asynchronicznym. Ponadto ponieważ w pewnych okolicznościach możemy lokalizacją null (np. usługi lokalizacji hello są wyłączone lub aplikacji hello odmówiono uprawnienia tooaccess lokalizacji), należy się upewnić, że jest prawidłowo obsługiwane przy użyciu sprawdzania wartości null toomake.
 
-Uruchom aplikację. Zezwól na dostęp do lokalizacji:
+Uruchamianie aplikacji hello. Zezwól na dostęp do lokalizacji:
 
 ![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
 
-Po uruchomieniu aplikacji współrzędne powinny być widoczne w oknie **Dane wyjściowe**:
+Witaj po uruchomieniu aplikacji, powinny być stanie toosee hello współrzędnych w hello **dane wyjściowe** okno:
 
 ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
-Teraz wiesz, że pobieranie lokalizacji działa. Możesz usunąć testowy program obsługi zdarzeń Loaded, ponieważ nie będzie już używany.
+Teraz wiadomo, że pobieranie lokalizacji działa – możesz wolnego tooremove hello testowy — program obsługi zdarzeń Loaded, ponieważ firma Microsoft nie będzie już używany.
 
-Następnym krokiem jest przechwytywanie zmian lokalizacji. W tym celu wróć do klasy `LocationHelper` i dodaj program obsługi zdarzeń `PositionChanged`:
+Witaj następnym krokiem jest toocapture zmiany lokalizacji. W tym Przejdź wstecz toohello `LocationHelper` klasy i dodać obsługi zdarzenia hello `PositionChanged`:
 
     geolocator.PositionChanged += Geolocator_PositionChanged;
 
-Implementacja spowoduje wyświetlenie współrzędnych lokalizacji w oknie **Dane wyjściowe**:
+Implementacja Hello spowoduje wyświetlenie współrzędnych lokalizacji hello w hello **dane wyjściowe** okno:
 
     private static async void Geolocator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
     {
@@ -204,20 +204,20 @@ Implementacja spowoduje wyświetlenie współrzędnych lokalizacji w oknie **Dan
         });
     }
 
-## <a name="setting-up-the-backend"></a>Konfigurowanie zaplecza
-Pobierz [przykład zaplecza programu .NET z usługi GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). Po zakończeniu pobierania otwórz folder `NotifyUsers`, a następnie otwórz plik `NotifyUsers.sln`.
+## <a name="setting-up-hello-backend"></a>Konfigurowanie hello wewnętrznej bazy danych
+Pobierz hello [przykład zaplecza programu .NET z usługi GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). Po zakończeniu pobierania hello Otwórz hello `NotifyUsers` folder, a następnie — Witaj `NotifyUsers.sln` pliku.
 
-Ustaw projekt `AppBackend` jako **Projekt startowy**, a następnie uruchom go.
+Zestaw hello `AppBackend` projektu jako hello **projekt startowy** i uruchom je.
 
 ![](./media/notification-hubs-geofence/vs-startup-project.png)
 
-Projekt jest już skonfigurowany do wysyłania powiadomień wypychanych do urządzeń docelowych, dlatego musimy wykonać tylko dwie czynności — zmienić parametry połączenia na odpowiednie dla centrum powiadomień i dodać identyfikację granic, aby powiadomienie było wysyłane tylko wtedy, gdy użytkownik znajduje się w wirtualnym ogrodzeniu.
+Hello projektu jest już skonfigurowany toosend wypychania powiadomień tootarget urządzeń, dlatego potrzebujemy toodo tylko dwie czynności — wymienić hello ciąg połączenia na odpowiednie dla Centrum powiadomień hello i dodać granicę identyfikacji toosend hello powiadomienia tylko wtedy, gdy hello Użytkownik znajduje się w wirtualnym ogrodzeniu hello.
 
-Aby skonfigurować parametry połączenia, w folderze `Models` otwórz plik `Notifications.cs`. Funkcja `NotificationHubClient.CreateClientFromConnectionString` powinna zawierać informacje o centrum powiadomień uzyskane w witrynie [Azure Portal](https://portal.azure.com) (w bloku **Zasady dostępu** w obszarze **Ustawienia**). Zapisz zaktualizowany plik konfiguracji.
+tooconfigure hello w ciągu połączenia, hello `Models` Otwórz folder `Notifications.cs`. Witaj `NotificationHubClient.CreateClientFromConnectionString` funkcji powinny zawierać hello informacje o Centrum powiadomień uzyskane w hello [Azure Portal](https://portal.azure.com) (Szukaj wewnątrz hello **zasady dostępu** bloku w  **Ustawienia**). Zapisz hello zaktualizowany plik konfiguracji.
 
-Teraz należy utworzyć model dla wyniku interfejsu API Map Bing. W tym celu najłatwiej kliknąć prawym przyciskiem myszy folder `Models`, a następnie polecenie **Dodaj** > **Klasa**. Nadaj jej nazwę `GeofenceBoundary.cs`. Po zakończeniu skopiuj kod JSON z odpowiedzi interfejsu API omówionej w pierwszej sekcji, a następnie w programie Visual Studio użyj polecenia **Edytuj** > **Wklej specjalne** > **Wklej dane JSON jako klasy**. 
+Teraz potrzebujemy toocreate model dla wyniku interfejsu API map Bing hello. Witaj najprostszym toodo sposób, który jest kliknij prawym przyciskiem myszy na powitania `Models` folderu, **Dodaj** > **klasy**. Nadaj jej nazwę `GeofenceBoundary.cs`. Po zakończeniu skopiuj hello JSON z odpowiedzi hello interfejsu API, omówionej w pierwszej sekcji hello i w programie Visual Studio użyj **Edytuj** > **Wklej specjalne** > **Wklej dane JSON jako klasy**. 
 
-W ten sposób upewniamy się, że obiekt zostanie zdeserializowany dokładnie w zamierzony sposób. Wynikowy zestaw klas powinien wyglądać następująco:
+W ten sposób Upewniamy się ten obiekt hello będzie można przeprowadzić deserializacji, dokładnie tak, jak zamierza. Wynikowy zestaw klas powinien wyglądać następująco:
 
     namespace AppBackend.Models
     {
@@ -254,11 +254,11 @@ W ten sposób upewniamy się, że obiekt zostanie zdeserializowany dokładnie w 
         }
     }
 
-Następnie otwórz plik `Controllers` > `NotificationsController.cs`. Musimy dostosować wywołanie metody POST, aby uwzględnić docelową długość i szerokość geograficzną. W tym celu po prostu dodaj dwa ciągi do sygnatury funkcji — `latitude` i `longitude`.
+Następnie otwórz plik `Controllers` > `NotificationsController.cs`. Potrzebujemy tootweak powitania po wywołaniu tooaccount hello docelową długość i szerokość geograficzną. Do tego, po prostu dodaj dwa sygnatury funkcji toohello ciągów — `latitude` i `longitude`.
 
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag, string latitude, string longitude)
 
-Utwórz nową klasę w projekcie o nazwie `ApiHelper.cs`. Zostanie ona użyta do połączenia z usługą Bing w celu sprawdzenia puntów przecięcia granic. Zaimplementuj funkcję `IsPointWithinBounds` w następujący sposób:
+Utwórz nową klasę w projekcie hello o nazwie `ApiHelper.cs` — użyjemy jej tooconnect tooBing toocheck punktu granic przecięcia. Zaimplementuj funkcję `IsPointWithinBounds` w następujący sposób:
 
     public class ApiHelper
     {
@@ -281,13 +281,13 @@ Utwórz nową klasę w projekcie o nazwie `ApiHelper.cs`. Zostanie ona użyta do
     }
 
 > [!NOTE]
-> Zastąp punkt końcowy interfejsu API adresem URL zapytania uzyskanym wcześniej z Centrum deweloperów Bing (to samo dotyczy klucza interfejsu API). 
+> Upewnij się, że punkt końcowy hello interfejsu API toosubstitute o hello adresu URL zapytania uzyskanym wcześniej z hello Centrum deweloperów Bing (dotyczy klucza interfejsu API toohello). 
 > 
 > 
 
-Jeśli uzyskano wyniki zapytania, oznacza to, że określony punkt znajduje się w granicach wirtualnego ogrodzenia, dlatego zostanie zwrócona wartość `true`. Jeśli nie ma wyników, usługa Bing informuje nas, że punkt znajduje się poza obszarem wyszukiwania, dlatego zostanie zwrócona wartość `false`.
+W przypadku wyników zapytania toohello to oznacza, że hello określony punkt znajduje się w granice hello hello wirtualnego ogrodzenia, dlatego zostanie zwrócona `true`. Jeśli nie są wyniki, Bing informuje NAS, czy punkt hello znajduje się poza hello wyszukiwania ramki, dlatego zostanie zwrócona `false`.
 
-W pliku `NotificationsController.cs` utwórz operację sprawdzania przed instrukcją switch:
+W `NotificationsController.cs`, Utwórz operację sprawdzania przed instrukcji switch hello:
 
     if (ApiHelper.IsPointWithinBounds(longitude, latitude))
     {
@@ -308,10 +308,10 @@ W pliku `NotificationsController.cs` utwórz operację sprawdzania przed instruk
         }
     }
 
-W ten sposób powiadomienia będą wysyłane tylko wtedy, gdy punkt znajduje się w granicach.
+W ten sposób hello powiadomienie jest wysyłane wyłącznie po hello punkt znajduje się w granicach hello.
 
-## <a name="testing-push-notifications-in-the-uwp-app"></a>Testowanie powiadomień wypychanych w aplikacji platformy uniwersalnej systemu Windows
-Po powrocie do aplikacji platformy uniwersalnej systemu Windows powinno być teraz możliwe przetestowanie powiadomień. W klasie `LocationHelper` utwórz nową funkcję o nazwie `SendLocationToBackend`:
+## <a name="testing-push-notifications-in-hello-uwp-app"></a>Testowanie powiadomień wypychanych w aplikacji platformy uniwersalnej systemu Windows hello
+Cofnięcie toohello aplikacji platformy uniwersalnej systemu Windows powinno być teraz możliwe tootest powiadomienia. W ramach hello `LocationHelper` klasy, Utwórz nową funkcję o nazwie `SendLocationToBackend`:
 
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
     {
@@ -333,61 +333,61 @@ Po powrocie do aplikacji platformy uniwersalnej systemu Windows powinno być ter
     }
 
 > [!NOTE]
-> Zastąp wartość zmiennej `POST_URL` lokalizacją wdrożonej aplikacji sieci Web utworzonej w poprzedniej sekcji. Teraz możesz uruchomić aplikację lokalnie, ale podczas wdrażania wersji publicznej należy skorzystać z hostingu zewnętrznego dostawcy.
+> Zamień hello `POST_URL` toohello lokalizację użytkownika wdrożonej aplikacji sieci web utworzonej w poprzedniej sekcji hello. Obecnie jest OK toorun ją lokalnie, ale podczas pracy nad wdrażania wersji publicznej, konieczne jest posiadanie toohost go przy użyciu zewnętrznego dostawcy.
 > 
 > 
 
-Teraz zarejestrujmy aplikację platformy uniwersalnej systemu Windows na potrzeby powiadomień wypychanych. W programie Visual Studio kliknij pozycję **Projekt** > **Magazyn** > **Skojarz aplikację z magazynem**.
+Teraz upewnijmy się, że firma Microsoft zarejestrować aplikacji platformy uniwersalnej systemu Windows hello dla powiadomień wypychanych. W programie Visual Studio, kliknij **projektu** > **przechowywania** > **Skojarz aplikację ze sklepu hello**.
 
 ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
 
-Po zalogowaniu się do konta dewelopera wybierz istniejącą aplikację lub utwórz nową i skojarz z nią pakiet. 
+Po zalogowaniu konta dewelopera tooyour upewnij się, wybierz istniejącą aplikację lub Utwórz nową i skojarzyć z nią hello pakietu. 
 
-Przejdź do Centrum deweloperów i otwórz utworzoną wcześniej aplikację. Kliknij pozycję **Usługi** > **Powiadomienia wypychane** > **Witryna usług Live**.
+Przejdź toohello Centrum deweloperów i otwórz hello aplikację, która właśnie utworzony. Kliknij pozycję **Usługi** > **Powiadomienia wypychane** > **Witryna usług Live**.
 
 ![](./media/notification-hubs-geofence/ms-live-services.png)
 
-W witrynie zanotuj **Klucz tajny aplikacji** i **Identyfikator SID pakietu**. Obie wartości będą potrzebne w witrynie Azure Portal. Otwórz centrum powiadomień, kliknij pozycję **Ustawienia** > **Usługi powiadomień** > **Windows (WNS)** i wprowadź informacje w wymaganych polach.
+W witrynie hello Zanotuj hello **klucz tajny aplikacji** i hello **identyfikatora SID pakietu**. Konieczne będzie zarówno hello portalu Azure – Otwórz Centrum powiadomień, kliknij pozycję na **ustawienia** > **usługi powiadomień** > **systemu Windows (WNS)**i wprowadź informacje hello hello wymaganych pól.
 
 ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
 
 Kliknij przycisk **Zapisz**.
 
-Kliknij prawym przyciskiem myszy pozycję **Odwołania** w **Eksploratorze rozwiązań** i wybierz pozycje **Zarządzaj pakietami NuGet**. Musimy dodać odwołanie do **biblioteki zarządzanej usługi Microsoft Azure Service Bus**. Wyszukaj pakiet `WindowsAzure.Messaging.Managed` i dodaj go do projektu.
+Kliknij prawym przyciskiem myszy pozycję **Odwołania** w **Eksploratorze rozwiązań** i wybierz pozycje **Zarządzaj pakietami NuGet**. Firma Microsoft będzie tooadd toohello odwołania **biblioteki zarządzanej usługi Microsoft Azure Service Bus** — po prostu wyszukaj `WindowsAzure.Messaging.Managed` i dodaj go tooyour projektu.
 
 ![](./media/notification-hubs-geofence/vs-nuget.png)
 
-W celach testowych możemy ponownie utworzyć program obsługi zdarzeń `MainPage_Loaded` i dodać do niego następujący fragment kodu:
+Do celów testowych, możemy utworzyć hello `MainPage_Loaded` jeszcze raz program obsługi zdarzeń i Dodaj ten tooit fragment kodu:
 
     var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
     var hub = new NotificationHub("HUB_NAME", "HUB_LISTEN_CONNECTION_STRING");
     var result = await hub.RegisterNativeAsync(channel.Uri);
 
-    // Displays the registration ID so you know it was successful
+    // Displays hello registration ID so you know it was successful
     if (result.RegistrationId != null)
     {
         Debug.WriteLine("Reg successful.");
     }
 
-Powyższy kod rejestruje aplikację w centrum powiadomień. Gotowe! 
+Witaj powyżej rejestruje aplikacji hello hello Centrum powiadomień. Jesteś toogo gotowe! 
 
-W elemencie `LocationHelper` w programie obsługi `Geolocator_PositionChanged` możesz dodać fragment kodu, który będzie wymuszać umieszczanie lokalizacji w wirtualnym ogrodzeniu:
+W `LocationHelper`, wewnątrz hello `Geolocator_PositionChanged` obsługi, można dodać fragment kodu, który będzie wymuszać umieszczanie lokalizacji hello w wirtualnym ogrodzeniu hello:
 
     await LocationHelper.SendLocationToBackend("wns", "TEST_USER", "TEST", "37.7746", "-122.3858");
 
-Ponieważ nie są używane rzeczywiste współrzędne (które mogą obecnie znajdować się poza granicami), lecz wstępnie zdefiniowane wartości testowe, po aktualizacji zostanie wyświetlone powiadomienie:
+Ponieważ firma Microsoft nie są używane hello rzeczywiste współrzędne (które może nie być w granicach hello w chwili hello) i jest używany wstępnie zdefiniowane wartości testowe, zostanie wyświetlone powiadomienie po aktualizacji:
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
 ## <a name="whats-next"></a>Co dalej?
-Istnieje kilka kroków, których wykonanie może być konieczne, oprócz przedstawionych powyżej, aby upewnić się, że rozwiązanie jest gotowe do zastosowania w środowisku produkcyjnym.
+Istnieje kilka kroków trzeba toofollow w toohello dodanie powyżej toomake się, że rozwiązanie hello jest gotowe do produkcji.
 
-Najpierw należy upewnić się, że wirtualne ogrodzenia są dynamiczne. To wymaga dodatkowej pracy z interfejsem API Bing w celu umożliwienia przekazywania nowych granic w ramach istniejącego źródła danych. Aby uzyskać więcej informacji na ten temat, zapoznaj się z [dokumentacją interfejsu API usług Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx).
+Najpierw i, może być konieczne tooensure, że wirtualne ogrodzenia są dynamiczne. Będzie to wymagało dodatkowej pracy z hello interfejsu API Bing w kolejności toobe stanie tooupload nowych granic w ramach hello istniejącego źródła danych. Zapoznaj się hello [dokumentacji interfejsu API Bing przestrzennych danych usługi](https://msdn.microsoft.com/library/ff701734.aspx) Aby uzyskać więcej informacji na temat hello.
 
-Upewniając się, że powiadomienia są dostarczane do odpowiednich uczestników, warto adresować je przy użyciu [tagów](notification-hubs-tags-segment-push-message.md).
+Po drugie, jako że dostarczania hello odbywa się toohello odpowiednich uczestników tooensure pracy można tootarget ich za pośrednictwem [znakowanie](notification-hubs-tags-segment-push-message.md).
 
-W powyższym rozwiązaniu opisano scenariusz, w którym może występować wiele różnych platform, dlatego nie ograniczono wirtualnego grodzenia do możliwości specyficznych dla określonego systemu. Jednak platforma uniwersalna systemu Windows oferuje wbudowane możliwości [wykrywania wirtualnych ogrodzeń](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
+w powyższym rozwiązaniu Hello opisano scenariusz, mogą mieć różnych platform docelowych, dlatego nie ograniczono możliwości specyficznych dla toosystem geofencing hello. Inaczej mówiąc, hello platformy uniwersalnej systemu Windows oferuje możliwości zbyt[wykryć wirtualne ogrodzenia prawo out-of--box](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Aby uzyskać więcej informacji o możliwościach usługi Notification Hubs, odwiedź [portal dokumentacji](https://azure.microsoft.com/documentation/services/notification-hubs/).
 

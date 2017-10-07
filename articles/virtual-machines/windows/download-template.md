@@ -1,6 +1,6 @@
 ---
-title: Pobierz szablon maszyny wirtualnej Azure | Dokumentacja firmy Microsoft
-description: "Pobierz templatefor maszyny Wirtualnej, aby ułatwić Automatyzowanie wdrożeń w modelu wdrażania usługi Resource Manager"
+title: Szablon hello aaaDownload dla maszyny Wirtualnej platformy Azure | Dokumentacja firmy Microsoft
+description: "Pobierz templatefor hello toohelp maszyny Wirtualnej, automatyzacji wdrażania modelu wdrażania usługi Resource Manager hello"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 9e4c0c3cf0e233447369a24b1d5fe27495abd1cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86fd05f67409019b5e5c9023881745047860eee1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="download-the-template-for-a-vm"></a>Pobieranie szablonu dla maszyny wirtualnej
-Po utworzeniu maszyny Wirtualnej na platformie Azure za pomocą portalu lub programu PowerShell szablonu usługi Resource Manager jest tworzony automatycznie dla Ciebie. Ten szablon umożliwia szybkie duplikowanie wdrożenia. Szablon zawiera informacje na temat wszystkich zasobów w grupie zasobów. Dla maszyny wirtualnej oznacza to, że szablon zawiera wszystko, co jest tworzony w związku z maszyny Wirtualnej w ramach grupy zasobów, włącznie z zasobów sieciowych.
+# <a name="download-hello-template-for-a-vm"></a>Pobierz hello szablon maszyny wirtualnej
+Podczas tworzenia maszyny Wirtualnej na platformie Azure za pomocą portalu hello lub programu PowerShell, Menedżer zasobów szablonu jest utworzony automatycznie. Można użyć tego duplikat tooquickly szablonu wdrożenia. Szablon Hello zawiera informacje na temat wszystkich zasobów hello w grupie zasobów. Dla maszyny wirtualnej oznacza to, że szablon hello zawiera wszystko, co jest tworzony w związku z hello maszyny Wirtualnej w tej grupie zasobów, w tym hello zasobów sieciowych.
 
-## <a name="download-the-template-using-the-portal"></a>Pobieranie szablonu przy użyciu portalu
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Jeden menu Centrum wybierz **maszyn wirtualnych**.
-3. Wybierz maszynę wirtualną z listy.
+## <a name="download-hello-template-using-hello-portal"></a>Pobierz szablon hello przy użyciu portalu hello
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
+2. Hello jednego koncentratora menu, wybierz opcję **maszyn wirtualnych**.
+3. Wybierz maszynę wirtualną hello z listy hello.
 4. Wybierz **skryptu automatyzacji**.
-5. Wybierz **Pobierz** i Zapisz plik zip na komputerze lokalnym.
-6. Otwórz plik zip i Wyodrębnij pliki do folderu. Plik zip będzie zawierać:
+5. Wybierz **Pobierz** i Zapisz komputer lokalny plik tooyour hello zip.
+6. Otwórz plik zip hello i wyodrębnienia hello pliki tooa folder. plik zip Hello będzie zawierać:
    
    * Deploy.ps1
    * Deploy.sh 
@@ -39,15 +39,15 @@ Po utworzeniu maszyny Wirtualnej na platformie Azure za pomocą portalu lub prog
    * parameters.JSON następującym kodem
    * Template.JSON
 
-Plik template.json jest szablon.
+Plik template.json Hello jest hello szablonu.
 
-## <a name="download-the-template-using-powershell"></a>Pobieranie szablonu przy użyciu programu PowerShell
-Możesz również pobrać JSON szablonu plików przy użyciu [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) polecenia cmdlet. Można użyć `-path` parametr, aby podać nazwę pliku i ścieżkę do pliku JSON. W tym przykładzie pokazano, jak pobrać szablonu dla grupy zasobów o nazwie **myResourceGroup** do **C:\users\public\downloads** folderu na komputerze lokalnym.
+## <a name="download-hello-template-using-powershell"></a>Pobierz szablon hello przy użyciu programu PowerShell
+Możesz również pobrać plik szablonu JSON hello przy użyciu hello [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) polecenia cmdlet. Można użyć hello `-path` parametru tooprovide hello nazwę i ścieżkę do pliku JSON hello. W tym przykładzie pokazano, jak szablon hello toodownload hello grupy zasobów o nazwie **myResourceGroup** toohello **C:\users\public\downloads** folderu na komputerze lokalnym.
 
 ```powershell
     Export-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o wdrażaniu zasobów przy użyciu szablonów, zobacz [Przewodnik po szablonie usługi Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+toolearn więcej informacji na temat wdrażania zasobów przy użyciu szablonów, zobacz [Przewodnik po szablonie usługi Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 

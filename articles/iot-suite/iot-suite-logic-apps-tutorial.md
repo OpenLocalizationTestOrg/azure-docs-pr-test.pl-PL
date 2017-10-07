@@ -1,6 +1,6 @@
 ---
-title: Pakiet Azure IoT i Logic Apps | Dokumentacja firmy Microsoft
-description: "Samouczek dotyczący sposobu podłączanie aplikacji logiki, aby pakiet IoT Azure dla procesu biznesowego."
+title: aaaAzure pakiet IoT i Logic Apps | Dokumentacja firmy Microsoft
+description: "Samouczek dotyczący toohook się tooAzure Logic Apps pakiet IoT dla procesów biznesowych."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: corywink
-ms.openlocfilehash: 2e7997e2a8bdeeec6083d40acb55e653f87e140b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6ef7311ac38f4e2ddb032cff0fb73591da5f76c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Samouczek: Łączenie aplikacji logiki do rozwiązania Azure IoT pakiet monitorowania zdalnego wstępnie
-[Pakiet IoT Microsoft Azure] [ lnk-internetofthings] zdalnego wstępnie skonfigurowane rozwiązanie monitorujące, jest to dobry sposób na szybkie rozpoczęcie pracy z zestawem funkcji na trasie exemplifies rozwiązania IoT. W tym samouczku przedstawiono sposób dodawania aplikacji logiki do firmy Microsoft Azure IoT pakietu zdalne monitorowanie wstępnie skonfigurowanych rozwiązań. Te kroki pokazują, jak może potrwać jeszcze bardziej rozwiązania IoT, łącząc go z procesu biznesowego.
+# <a name="tutorial-connect-logic-app-tooyour-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Samouczek: Łączenie aplikacji logiki tooyour Azure IoT pakiet monitorowania zdalnego wstępnie skonfigurowane rozwiązanie
+Witaj [pakiet IoT Microsoft Azure] [ lnk-internetofthings] zdalnego wstępnie skonfigurowane rozwiązanie monitorujące tooget doskonały sposób uruchomieniu szybko z zestawem funkcji na trasie exemplifies rozwiązania IoT. W tym samouczku przedstawiono sposób tooadd aplikacji logiki tooyour pakiet IoT Microsoft Azure monitorowania zdalnego wstępnie skonfigurowane rozwiązanie. Te kroki pokazują, jak może potrwać jeszcze bardziej rozwiązania IoT łącząc tooa proces biznesowy.
 
-*Jeśli szukasz wskazówki na temat sposobu monitorowania zdalnego wstępnie skonfigurowane rozwiązanie udostępniania, zobacz [samouczek: rozpoczynanie pracy z rozwiązania IoT wstępnie][lnk-getstarted].*
+*Jeśli szukasz przewodnik dotyczący sposobu tooprovision monitorowania zdalnego wstępnie skonfigurowane rozwiązanie, zobacz [samouczek: rozpoczynanie pracy z rozwiązania IoT wstępnie hello][lnk-getstarted].*
 
 Przed rozpoczęciem tego samouczka, wykonaj następujące czynności:
 
-* Monitorowania zdalnego należy wstępnie skonfigurowane rozwiązanie w Twojej subskrypcji platformy Azure.
-* Utwórz konto SendGrid umożliwia wysłanie wiadomości e-mail, które wyzwala procesów biznesowych. Użytkownik może Załóż bezpłatne konto próbne w [SendGrid](https://sendgrid.com/) klikając **spróbuj bezpłatnie**. Po zarejestrowaniu bezpłatne konto próbne, musisz utworzyć [klucz interfejsu API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) w SendGrid, który przyznaje uprawnienia do wysyłania wiadomości e-mail. Należy ten klucz interfejsu API w dalszej części tego samouczka.
+* Monitorowania zdalnego hello należy wstępnie skonfigurowane rozwiązanie w Twojej subskrypcji platformy Azure.
+* Utwórz tooenable konta SendGrid toosend wiadomości e-mail, które wyzwala procesów biznesowych. Użytkownik może Załóż bezpłatne konto próbne w [SendGrid](https://sendgrid.com/) klikając **spróbuj bezpłatnie**. Po zarejestrowaniu bezpłatne konto próbne należy toocreate [klucz interfejsu API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) w SendGrid przyznająca uprawnienia toosend poczty. Należy ten klucz interfejsu API w dalszej części samouczka hello.
 
-Do ukończenia tego samouczka, potrzebujesz programu Visual Studio 2015 lub Visual Studio 2017 r, aby zmodyfikować akcje w wewnętrznej wstępnie skonfigurowane rozwiązanie.
+toocomplete tego samouczka, potrzebujesz programu Visual Studio 2015 lub Visual Studio 2017 toomodify hello akcji zaplecza hello wstępnie skonfigurowanego rozwiązania.
 
-Zakładając, że została już przydzielona zdalne monitorowanie wstępnie skonfigurowane rozwiązanie, przejdź do grupy zasobów dla rozwiązania w [portalu Azure][lnk-azureportal]. Grupa zasobów ma taką samą nazwę jak nazwa rozwiązania została wybrana opcja podczas obsługi administracyjnej zdalnego rozwiązanie monitorowania. W grupie zasobów zostaną wyświetlone wszystkie aprowizowane zasoby platformy Azure rozwiązania z wyjątkiem aplikacji usługi Azure Active Directory, który można znaleźć w klasycznym portalu Azure. Poniższy zrzut ekranu przedstawia przykład **grupy zasobów** bloku zdalnego monitorowania wstępnie skonfigurowane rozwiązanie:
+Zakładając, że została już przydzielona zdalne monitorowanie wstępnie skonfigurowane rozwiązanie, przejdź toohello grupy zasobów dla rozwiązania w hello [portalu Azure][lnk-azureportal]. Witaj grupa zasobów ma hello sama nazwa hello rozwiązania nazw można wybrać podczas obsługi administracyjnej rozwiązania monitorowania zdalnego. W grupie zasobów hello widać hello wszystkie udostępnione zasoby platformy Azure dla rozwiązania z wyjątkiem hello aplikacji usługi Azure Active Directory, która znajduje się w hello klasycznego portalu Azure. Witaj Poniższy zrzut ekranu przedstawia przykład **grupy zasobów** bloku zdalnego monitorowania wstępnie skonfigurowane rozwiązanie:
 
 ![](media/iot-suite-logic-apps-tutorial/resourcegroup.png)
 
-Aby rozpocząć, skonfigurować aplikację logiki, do korzystania z wstępnie skonfigurowanych rozwiązań.
+toobegin, skonfiguruj hello logiki aplikacji toouse z hello wstępnie skonfigurowane rozwiązanie.
 
-## <a name="set-up-the-logic-app"></a>Konfigurowanie aplikacji logiki
-1. Kliknij przycisk **Dodaj** w górnej części bloku grupy zasobów, korzystając z portalu Azure.
+## <a name="set-up-hello-logic-app"></a>Konfigurowanie hello aplikacji logiki
+1. Kliknij przycisk **Dodaj** u góry bloku grupy zasobów, korzystając z portalu Azure hello hello.
 2. Wyszukaj **aplikacji logiki**, zaznacz go, a następnie kliknij przycisk **Utwórz**.
-3. Wypełnianie **nazwa** i używać tego samego **subskrypcji** i **grupy zasobów** użyto podczas przydzielania zdalnego rozwiązanie monitorowania. Kliknij przycisk **Utwórz**.
+3. Wypełnianie hello **nazwa** i użyj hello sam **subskrypcji** i **grupy zasobów** użyto podczas przydzielania zdalnego rozwiązanie monitorowania. Kliknij przycisk **Utwórz**.
    
     ![](media/iot-suite-logic-apps-tutorial/createlogicapp.png)
-4. Po zakończeniu wdrożenia, można zauważyć, że aplikację logiki jest wymieniony jako zasób w grupie zasobów.
-5. Kliknij aplikację logiki, aby przejść do bloku aplikacji logiki, wybierz opcję **pustą aplikację logiki** szablonu, aby otworzyć **projektanta aplikacji logiki**.
+4. Po zakończeniu wdrożenia widać hello jest wyświetlana logiki aplikacji jako zasób w grupie zasobów.
+5. Kliknij przycisk bloku aplikacji logiki toonavigate toohello hello aplikacji logiki, wybierz hello **pustą aplikację logiki** hello tooopen szablonu **projektanta aplikacji logiki**.
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. Wybierz **żądania**. Ta akcja określa, czy przychodzące żądanie HTTP o określonych JSON w formacie ładunku czynności wyzwalacza.
-7. Wklej następujący kod do schematu JSON treści żądania:
+7. Wklej powitania po kodu na powitania żądania schematu JSON treści:
    
     ```json
     {
@@ -80,7 +80,7 @@ Aby rozpocząć, skonfigurować aplikację logiki, do korzystania z wstępnie sk
     ```
    
    > [!NOTE]
-   > Po zapisaniu aplikację logiki, ale najpierw należy dodać akcję, możesz skopiować adres URL HTTP post.
+   > Po zapisaniu hello aplikacji logiki, ale najpierw należy dodać akcję, możesz skopiować adres URL hello hello HTTP post.
    > 
    > 
 8. Kliknij przycisk **+ nowy krok** w obszarze ręczne wyzwalacz. Następnie kliknij przycisk **Dodaj akcję**.
@@ -89,76 +89,76 @@ Aby rozpocząć, skonfigurować aplikację logiki, do korzystania z wstępnie sk
 9. Wyszukaj **SendGrid — wysyłanie wiadomości e-mail** i kliknij ją.
    
     ![](media/iot-suite-logic-apps-tutorial/logicappaction.png)
-10. Wprowadź nazwę połączenia, na przykład **SendGridConnection**, wprowadź **klucz interfejsu API SendGrid** zostały utworzone podczas konfiguracji konta SendGrid i kliknij przycisk **Utwórz**.
+10. Wprowadź nazwę połączenia hello, takich jak **SendGridConnection**, wprowadź hello **klucz interfejsu API SendGrid** zostały utworzone podczas konfiguracji konta SendGrid i kliknij przycisk **Utwórz**.
     
     ![](media/iot-suite-logic-apps-tutorial/sendgridconnection.png)
-11. Dodaj adresy e-mail, musisz być właścicielem zarówno do **z** i **do** pola. Dodaj **zdalnego alert monitorowania [DeviceId]** do **podmiotu** pola. W **treść wiadomości E-mail** pól, Dodaj **urządzenia [DeviceId] zgłosił [measurementName] o wartości [measuredValue].** Możesz dodać **[DeviceId]**, **[measurementName]**, i **[measuredValue]** , klikając w **można wstawić danych z poprzednich kroków** sekcja.
+11. Dodaj e-mail adresy hello własnych tooboth **z** i **do** pola. Dodaj **zdalnego alert monitorowania [DeviceId]** toohello **podmiotu** pola. W hello **treść wiadomości E-mail** pól, Dodaj **urządzenia [DeviceId] zgłosił [measurementName] o wartości [measuredValue].** Możesz dodać **[DeviceId]**, **[measurementName]**, i **[measuredValue]** , klikając w hello **można wstawić danych z poprzednich kroków**sekcji.
     
     ![](media/iot-suite-logic-apps-tutorial/sendgridaction.png)
-12. Kliknij przycisk **zapisać** w menu u góry.
-13. Kliknij przycisk **żądania** wyzwalacza i skopiuj **Http Post do tego adresu URL** wartość. Ten adres URL jest potrzebne w dalszej części tego samouczka.
+12. Kliknij przycisk **zapisać** w menu u góry hello.
+13. Kliknij przycisk hello **żądania** hello wyzwalacza i skopiuj **adres URL toothis Http Post** wartość. Ten adres URL jest potrzebne w dalszej części tego samouczka.
 
 > [!NOTE]
-> Aplikacje logiki umożliwiają uruchamianie [wiele różnych typów akcji] [ lnk-logic-apps-actions] łącznie z działaniami w usłudze Office 365. 
+> Aplikacje logiki włączyć toorun [wiele różnych typów akcji] [ lnk-logic-apps-actions] łącznie z działaniami w usłudze Office 365. 
 > 
 > 
 
-## <a name="set-up-the-eventprocessor-web-job"></a>Konfigurowanie EventProcessor zadanie sieci Web
-W tej sekcji łączysz wstępnie skonfigurowanego rozwiązania do tworzenia aplikacji logiki. Aby wykonać to zadanie, należy dodać adres URL do aplikacji logiki do akcji, która generowane, gdy wartość czujnik urządzenia przekracza próg wyzwolenia.
+## <a name="set-up-hello-eventprocessor-web-job"></a>Konfigurowanie hello EventProcessor zadanie sieci Web
+W tej sekcji można podłączyć toohello Twoje wstępnie skonfigurowane rozwiązanie tworzenia aplikacji logiki. toocomplete to zadanie, musisz dodać hello adresu URL tootrigger hello aplikacji logiki toohello akcję, która generowane, gdy wartość czujnik urządzenia przekracza próg.
 
-1. Klonowanie najnowszej wersji za pomocą klienta programu git [azure iot — zdalnego monitorowania repozytorium github][lnk-rmgithub]. Na przykład:
+1. Użyj programu git klienta tooclone hello najnowszą wersję hello [azure iot — zdalnego monitorowania repozytorium github][lnk-rmgithub]. Na przykład:
    
     ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
-2. W programie Visual Studio Otwórz **RemoteMonitoring.sln** z lokalną kopię repozytorium.
-3. Otwórz **ActionRepository.cs** w pliku **infrastruktury\\repozytorium** folderu.
-4. Aktualizacja **actionIds** słownik z **Http Post do tego adresu URL** zanotowane aplikację logiki w następujący sposób:
+2. W programie Visual Studio Otwórz hello **RemoteMonitoring.sln** z hello lokalną kopię hello repozytorium.
+3. Otwórz hello **ActionRepository.cs** pliku w hello **infrastruktury\\repozytorium** folderu.
+4. Aktualizacja hello **actionIds** słownik z hello **adres URL toothis Http Post** zanotowane aplikację logiki w następujący sposób:
    
     ```csharp
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
-        { "Send Message", "<Http Post to this URL>" },
-        { "Raise Alarm", "<Http Post to this URL>" }
+        { "Send Message", "<Http Post toothis URL>" },
+        { "Raise Alarm", "<Http Post toothis URL>" }
     };
     ```
-5. Zapisz zmiany w rozwiązaniu i zamknij Visual Studio.
+5. Zapisz zmiany hello w rozwiązaniu i zamknij Visual Studio.
 
-## <a name="deploy-from-the-command-line"></a>Wdrażanie z wiersza polecenia
-W tej sekcji możesz wdrożyć aktualizowaną wersję zdalnego rozwiązanie monitorowania, aby zamienić wersję aktualnie uruchomione na platformie Azure.
+## <a name="deploy-from-hello-command-line"></a>Wdrażanie z wiersza polecenia hello
+W tej sekcji możesz wdrożyć aktualizowaną wersję hello zdalnego monitorowania tooreplace hello wersja rozwiązania aktualnie uruchomione na platformie Azure.
 
-1. Po [konfiguracji deweloperów] [ lnk-devsetup] instrukcje dotyczące konfigurowania środowiska do wdrożenia.
-2. Aby wdrożyć lokalnie, wykonaj [lokalnego wdrożenia] [ lnk-localdeploy] instrukcje.
-3. Aby wdrażać w chmurze i zaktualizować istniejące wdrożenia chmury, wykonaj [wdrożenie w chmurze] [ lnk-clouddeploy] instrukcje. Użyj nazwy oryginalnego wdrożenia jako nazwa wdrożenia. Na przykład jeśli została wywołana oryginalnego wdrożenia **demologicapp**, użyj następującego polecenia:
+1. Następujące hello [konfiguracji deweloperów] [ lnk-devsetup] instrukcje tooset Twojego środowiska do wdrożenia.
+2. Postępuj zgodnie z lokalnie, toodeploy hello [lokalnego wdrożenia] [ lnk-localdeploy] instrukcje.
+3. toodeploy toohello w chmurze i aktualizowanie istniejącego wdrożenia chmury, wykonaj hello [wdrożenie w chmurze] [ lnk-clouddeploy] instrukcje. Użyj nazwy hello oryginalnego wdrożenia jako nazwa wdrożenia hello. Na przykład jeśli została wywołana hello oryginalnego wdrożenia **demologicapp**, użyj następującego polecenia hello:
    
    ```cmd
    build.cmd cloud release demologicapp
    ```
    
-   Po uruchomieniu skryptu kompilacji, należy użyć tego samego konta platformy Azure, subskrypcji, regionu i wystąpieniem usługi Active Directory, które jest używane podczas przydzielania rozwiązania.
+   Podczas hello utworzyć skrypt będzie uruchamiany, należy upewnić się, toouse hello same konta Azure, subskrypcji, regionu i wystąpienie usługi Active Directory, używane podczas przydzielania hello rozwiązania.
 
 ## <a name="see-your-logic-app-in-action"></a>Wyświetlanie aplikacji logiki w akcji
-Zdalny wstępnie skonfigurowane rozwiązanie monitorowania ma dwie reguły konfigurowane domyślnie podczas obsługi administracyjnej rozwiązania. Obie zasady są na **SampleDevice001** urządzenia:
+zdalne monitorowanie wstępnie skonfigurowane rozwiązanie Hello ma dwie reguły konfigurowane domyślnie podczas obsługi administracyjnej rozwiązania. Obie zasady są na powitania **SampleDevice001** urządzenia:
 
 * Temperatury > 38.00
 * Wilgotność > 48.00
 
-Wyzwalacze Reguły temperatury **podnieść Alarm** akcji i wilgotność reguły wyzwalaczy **SendMessage** akcji. Zakładając, że używasz tego samego adresu URL dla obu akcje **ActionRepository** klasy z wyzwalaczy aplikacji logiki dla każdej reguły. Obie reguły umożliwia wysłanie wiadomości e-mail do SendGrid **do** adres ze szczegółami alertu.
+zasada temperatury Hello wyzwala hello **podnieść Alarm** akcji i hello zasada wilgotności wyzwala hello **SendMessage** akcji. Zakładając, że użyto hello tego samego adresu URL dla obu hello akcje **ActionRepository** klasy z wyzwalaczy aplikacji logiki dla każdej reguły. Obie reguły użyj toosend SendGrid toohello e-mail **do** adres ze szczegółami alertu hello.
 
 > [!NOTE]
-> Aplikację logiki w dalszym ciągu wyzwolenia za każdym razem, ze osiągnięty jest próg. Aby uniknąć niepotrzebnych wiadomości e-mail, można wyłączyć reguły w portalu rozwiązania lub wyłączyć aplikację logiki w [portalu Azure][lnk-azureportal].
+> tootrigger Hello aplikacji logiki będzie nadal występować, za każdym razem, gdy zostały spełnione warunki progowe hello. tooavoid niepotrzebnych wiadomości e-mail, możesz wyłączyć reguły hello w Twoje rozwiązanie portalu lub wyłącz hello aplikacji logiki w hello [portalu Azure][lnk-azureportal].
 > 
 > 
 
-Oprócz odbierania wiadomości e-mail, zostanie również wyświetlony po uruchomieniu aplikacji logiki w portalu:
+Ponadto tooreceiving wiadomości e-mail, zostanie również wyświetlony po uruchomieniu hello aplikacji logiki w portalu hello:
 
 ![](media/iot-suite-logic-apps-tutorial/logicapprun.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy aplikacja logiki już używane do połączenia z wstępnie skonfigurowane rozwiązanie proces biznesowy, użytkownik może dowiedzieć się więcej o opcje dostosowywania wstępnie skonfigurowanych rozwiązań:
+Teraz, gdy proces biznesowy aplikacji logiki tooconnect hello wstępnie skonfigurowane rozwiązanie tooa była używana, można dowiedzieć się więcej o hello opcje dostosowywania hello wstępnie rozwiązań:
 
-* [Dynamiczne telemetrii za pomocą zdalnego wstępnie skonfigurowane rozwiązanie monitorowania][lnk-dynamic]
-* [Urządzenie informacji metadanych w zdalnym wstępnie skonfigurowane rozwiązanie monitorowania][lnk-devinfo]
+* [Dynamiczne telemetrii za pomocą zdalnego wstępnie skonfigurowane rozwiązanie monitorujące hello][lnk-dynamic]
+* [Urządzenie informacji metadanych w hello zdalne monitorowanie wstępnie skonfigurowane rozwiązanie][lnk-devinfo]
 
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md

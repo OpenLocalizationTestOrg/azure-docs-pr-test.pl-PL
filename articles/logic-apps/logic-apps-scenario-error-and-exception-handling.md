@@ -1,5 +1,5 @@
 ---
-title: "Obsługa wyjątków i błędów rejestrowania scenariusz — aplikacje logiki platformy Azure | Dokumentacja firmy Microsoft"
+title: "aaaException Obsługa & Błąd rejestrowania scenariusz — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
 description: "Opisuje przypadek użycia rzeczywistych o zaawansowanych wyjątków i rejestrowania błędów dla usługi Azure Logic Apps"
 keywords: 
 services: logic-apps
@@ -16,51 +16,51 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e893a7b652254dca7b8a82398e8afd571f6ccd25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenariusz: Obsługa wyjątków i rejestrowania błędów dla usługi logic apps
 
-W tym scenariuszu opisano, jak można rozszerzyć aplikację logiki, aby lepiej obsługi wyjątków. Odpowiedzi na pytanie użyliśmy przypadek użycia rzeczywistych: "Aplikacje logiki platformy Azure obsługuje wyjątek i obsługa błędów?"
+W tym scenariuszu opisano, jak można rozszerzyć obsługi logiki aplikacji toobetter obsługi wyjątków. Firma Microsoft używano pytanie hello tooanswer przypadków użycia rzeczywistych: "Aplikacje logiki platformy Azure obsługuje wyjątek i obsługa błędów?"
 
 > [!NOTE]
-> Bieżący schemat Azure Logic Apps udostępnia standardowy szablon dla akcji odpowiedzi. Ten szablon zawiera wewnętrznego sprawdzania poprawności i odpowiedzi na błędy zwrócone przez aplikację interfejsu API.
+> bieżący schemat Azure Logic Apps Hello udostępnia standardowy szablon dla akcji odpowiedzi. Ten szablon zawiera wewnętrznego sprawdzania poprawności i odpowiedzi na błędy zwrócone przez aplikację interfejsu API.
 
 ## <a name="scenario-and-use-case-overview"></a>Omówienie scenariusza i użyj case
 
-Oto wątku jako przypadek użycia dla tego scenariusza: 
+Oto wątku hello jako hello przypadek użycia dla tego scenariusza: 
 
-Dobrze znane organizacji opieki zdrowotnej zaangażowane w tworzenie Azure rozwiązania, które mogą utworzyć pacjenta portalu przy użyciu programu Microsoft Dynamics CRM Online. One potrzebne do wysyłania rekordów termin Dynamics CRM Online pacjenta portalu i usługi Salesforce. Firma Microsoft zostały poproszony [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standardowe dla wszystkich pacjenta rekordów.
+Dobrze znane organizacji opieki zdrowotnej zaangażowane nam toodevelop Azure rozwiązania, które spowoduje utworzenie pacjenta portalu przy użyciu programu Microsoft Dynamics CRM Online. Zachodzi potrzeba toosend termin rekordów hello Dynamics CRM Online pacjenta portalu i Salesforce. Firma Microsoft zostały zadawane toouse hello [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standardowe dla wszystkich pacjenta rekordów.
 
-Projekt ma dwa główne wymagania:  
+Projekt Hello ma dwa główne wymagania:  
 
-* Metoda pod kątem rejestrowania rekordów wysyłane z portalu usługi Dynamics CRM Online
-* Można wyświetlić wszelkie błędy, które wystąpiły w przepływie pracy
+* Rekordy toolog metody wysyłane z hello portalu Dynamics CRM Online
+* Tooview sposób wszelkie błędy, które wystąpiły w przepływie pracy hello
 
 > [!TIP]
-> Film wysokiego poziomu dotyczących tego projektu, zobacz [grupy użytkowników integracji](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
+> Film wysokiego poziomu dotyczących tego projektu, zobacz [grupy użytkowników integracji](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "grupy użytkowników integracji").
 
-## <a name="how-we-solved-the-problem"></a>Jak możemy rozwiązuje problem
+## <a name="how-we-solved-hello-problem"></a>Jak możemy rozwiązać hello problem
 
-Wybraliśmy [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/documentdb/ "bazy danych Azure rozwiązania Cosmos") jako repozytorium dla rekordów dziennika i błąd (DB rozwiązania Cosmos odwołuje się do rekordów jako dokumentów). Ponieważ aplikacje logiki platformy Azure ma standardowy szablon wszystkie odpowiedzi, nie mamy utworzyć schematu niestandardowego. Można utworzyć aplikację interfejsu API do **Wstaw** i **zapytania** rekordów zarówno błędu, jak i dziennika. Również definiowania schematu dla każdego z nich w aplikacji interfejsu API.  
+Wybraliśmy [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/documentdb/ "bazy danych Azure rozwiązania Cosmos") jako repozytorium rekordów dziennika i błąd hello (DB rozwiązania Cosmos odwołuje się toorecords jako dokumentów). Ponieważ aplikacje logiki platformy Azure ma standardowy szablon wszystkie odpowiedzi, firma Microsoft nie będzie zawierało toocreate schematu niestandardowego. Można utworzyć aplikację interfejsu API za**Wstaw** i **zapytania** rekordów zarówno błędu, jak i dziennika. Również definiowania schematu dla każdego poziomu hello aplikacji interfejsu API.  
 
-Innym wymogiem było przeczyścić rekordów po określonej dacie. Rozwiązania cosmos bazy danych ma właściwość o nazwie [czas wygaśnięcia](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "czas wygaśnięcia") (TTL), które mogą nam można ustawić **czas wygaśnięcia** wartość dla każdego rekordu lub kolekcji. Ta funkcja została wyeliminowana trzeba ręcznie usunąć rekordy w bazie danych rozwiązania Cosmos.
+Innym wymogiem jest rekordów toopurge po określonej dacie. Rozwiązania cosmos bazy danych ma właściwość o nazwie [czasu tooLive](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "czasu tooLive") (TTL), które mogą nam tooset **czasu tooLive** wartość dla każdego rekordu lub kolekcji. Ta funkcja została wyeliminowana hello muszą toomanually usuwania rekordów w bazie danych rozwiązania Cosmos.
 
 > [!IMPORTANT]
-> Do ukończenia tego samouczka, należy utworzyć bazę danych DB rozwiązania Cosmos i dwie kolekcje (rejestrowania i błędów).
+> toocomplete tego samouczka potrzebne toocreate bazy danych DB rozwiązania Cosmos i dwie kolekcje (rejestrowania i błędów).
 
-## <a name="create-the-logic-app"></a>Tworzenie aplikacji logiki
+## <a name="create-hello-logic-app"></a>Tworzenie aplikacji logiki hello
 
-Pierwszym krokiem jest utworzenie aplikacji logiki i Otwórz w Projektancie aplikacji logiki aplikacji. W tym przykładzie użyto aplikacje logiki nadrzędny podrzędny. Załóżmy, że firma Microsoft utworzono już element nadrzędny, a aby utworzyć jedną aplikację logiki podrzędnych.
+Witaj pierwszym krokiem jest aplikacji logiki hello toocreate i aplikacji hello Otwórz w Projektancie aplikacji logiki. W tym przykładzie użyto aplikacje logiki nadrzędny podrzędny. Załóżmy, że firma Microsoft hello nadrzędnego jest już utworzony i będzie toocreate jeden podrzędny logiki aplikacji.
 
-Ponieważ zamierzamy rekord wystawała Dynamics CRM Online dziennika, Zacznijmy u góry. Możemy użyć **żądania** wyzwolenia ponieważ aplikacji logiki nadrzędnego wyzwala tego dziecka.
+Ponieważ zamierzamy rekordu hello toolog wystawała Dynamics CRM Online, Zacznijmy u góry hello. Możemy użyć **żądania** wyzwolenia ponieważ aplikacji logiki nadrzędnego hello wyzwala tego dziecka.
 
 ### <a name="logic-app-trigger"></a>Wyzwalaczem aplikacji logiki
 
-Używamy **żądania** wyzwalania, jak pokazano w poniższym przykładzie:
+Używamy **żądania** wyzwalania, jak pokazano w hello poniższy przykład:
 
 ```` json
 "triggers": {
@@ -100,14 +100,14 @@ Używamy **żądania** wyzwalania, jak pokazano w poniższym przykładzie:
 
 ## <a name="steps"></a>Kroki
 
-Firma Microsoft muszą się logować źródła (żądanie) pacjenta rekordu z portalu usługi Dynamics CRM Online.
+Firma Microsoft musi zarejestrować hello źródła (żądanie) rekordu pacjenta hello hello portalu Dynamics CRM Online.
 
 1. Firma Microsoft musi uzyskać nowy rekord terminu z programu Dynamics CRM Online.
 
-   Wyzwalacz pochodzące z CRM zapewnia nam z **CRM PatentId**, **typu rekordu**, **nowe lub zaktualizowane rekordu** (nowej lub zaktualizuj wartość logiczna), i **SalesforceId**. **SalesforceId** może mieć wartości null, ponieważ jest ona używana tylko dla aktualizacji.
-   Uzyskujemy rekordu CRM przy użyciu programu CRM **PatientID** i **typu rekordu**.
+   wyzwalacz Hello pochodzące z CRM zapewnia hello **CRM PatentId**, **typu rekordu**, **nowe lub zaktualizowane rekordu** (nowej lub zaktualizuj wartość logiczna), i ** SalesforceId**. Witaj **SalesforceId** może mieć wartości null, ponieważ jest ona używana tylko dla aktualizacji.
+   Uzyskujemy hello CRM rekordu przy użyciu hello CRM **PatientID** i hello **typu rekordu**.
 
-2. Następnie należy dodać naszej aplikacji interfejsu API usługi DocumentDB **InsertLogEntry** operacji, jak pokazano w Projektancie aplikacji logiki.
+2. Następnie należy tooadd aplikacji interfejsu API usługi DocumentDB **InsertLogEntry** operacji, jak pokazano w Projektancie aplikacji logiki.
 
    **Wstaw wpis dziennika**
 
@@ -124,15 +124,15 @@ Firma Microsoft muszą się logować źródła (żądanie) pacjenta rekordu z po
 ## <a name="logic-app-source-code"></a>Kod źródłowy aplikacji logiki
 
 > [!NOTE]
-> Poniższe przykłady są tylko próbek. Ponieważ w tym samouczku jest oparty na implementacji w środowisku produkcyjnym, wartość **węzeł źródłowy** może nie wyświetlać właściwości, które są związane z planowaniem terminu. > 
+> Następujące przykłady Hello są tylko próbek. Ponieważ w tym samouczku jest oparty na implementacji teraz w środowisku produkcyjnym, hello wartość **węzeł źródłowy** może nie wyświetlać właściwości, które są powiązane tooscheduling terminu. > 
 
 ### <a name="logging"></a>Rejestrowanie
 
-Poniższy przykład kodu aplikacji logiki pokazuje, jak do obsługi rejestrowania.
+jak przedstawiono przykładowe Hello następującego kodu aplikacji logiki toohandle rejestrowania.
 
 #### <a name="log-entry"></a>Wpis dziennika
 
-Oto kod źródłowy aplikacji logiki Wstawianie wpis dziennika.
+Oto kod źródłowy aplikacji hello logikę wstawiania wpis dziennika.
 
 ``` json
 "InsertLogEntry": {
@@ -160,7 +160,7 @@ Oto kod źródłowy aplikacji logiki Wstawianie wpis dziennika.
 
 #### <a name="log-request"></a>Żądanie dziennika
 
-Oto komunikat żądania dziennika opublikowane w aplikacji interfejsu API.
+Oto komunikat żądania dziennika hello zaksięgowany toohello aplikacji interfejsu API.
 
 ``` json
     {
@@ -180,7 +180,7 @@ Oto komunikat żądania dziennika opublikowane w aplikacji interfejsu API.
 
 #### <a name="log-response"></a>Odpowiedź dziennika
 
-Oto dziennika komunikat odpowiedzi z aplikacji interfejsu API.
+Oto komunikat odpowiedzi dziennika hello z hello aplikacji interfejsu API.
 
 ``` json
 {
@@ -214,15 +214,15 @@ Oto dziennika komunikat odpowiedzi z aplikacji interfejsu API.
 
 ```
 
-Teraz Przyjrzyjmy się kroków obsługi błędów.
+Teraz Przyjrzyjmy się obsługi kroki hello błędów.
 
 ### <a name="error-handling"></a>Obsługa błędów
 
-Poniższy przykład kodu aplikacji logiki pokazuje, jak można zaimplementować obsługi błędów.
+Witaj Poniższy przykładowy kod aplikacji logiki pokazuje sposoby implementowania obsługi błędów.
 
 #### <a name="create-error-record"></a>Utwórz rekord błędu
 
-Oto kod źródłowy aplikacji logiki do tworzenia rekord błędu.
+Oto kod źródłowy aplikacji logiki hello tworzenia rekord błędu.
 
 ``` json
 "actions": {
@@ -269,7 +269,7 @@ Oto kod źródłowy aplikacji logiki do tworzenia rekord błędu.
         "isError": true,
         "crmId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
         "patientId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
-        "message": "Salesforce failed to complete task: Message: duplicate value found: Account_ID_MED__c duplicates value on record with id: 001U000001c83gK",
+        "message": "Salesforce failed toocomplete task: Message: duplicate value found: Account_ID_MED__c duplicates value on record with id: 001U000001c83gK",
         "providerId": "",
         "severity": 4,
         "salesforceId": "",
@@ -307,7 +307,7 @@ Oto kod źródłowy aplikacji logiki do tworzenia rekord błędu.
         "action": "New_Patient",
         "salesforceId": "",
         "update": false,
-        "body": "CRM failed to complete task: Message: duplicate value found: CRM_HUB_ID__c duplicates value on record with id: 001U000001c83gK",
+        "body": "CRM failed toocomplete task: Message: duplicate value found: CRM_HUB_ID__c duplicates value on record with id: 001U000001c83gK",
         "source": "{/"Account_Class_vod__c/":/"PRAC/",/"Account_Status_MED__c/":/"I/",/"CRM_HUB_ID__c/":/"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0/",/"Credentials_vod__c/":/"DO - Degree level is DO/",/"DTC_ID_MED__c/":/"/",/"Fax/":/"/",/"FirstName/":/"A/",/"Gender_vod__c/":/"/",/"IMS_ID__c/":/"/",/"LastName/":/"BAILEY/",/"MterID_mp__c/":/"/",/"Medicis_ID_MED__c/":/"851588/",/"Middle_vod__c/":/"/",/"NPI_vod__c/":/"/",/"PDRP_MED__c/":false,/"PersonDoNotCall/":false,/"PersonEmail/":/"/",/"PersonHasOptedOutOfEmail/":false,/"PersonHasOptedOutOfFax/":false,/"PersonMobilePhone/":/"/",/"Phone/":/"/",/"Practicing_Specialty__c/":/"FM - FAMILY MEDICINE/",/"Primary_City__c/":/"/",/"Primary_State__c/":/"/",/"Primary_Street_Line2__c/":/"/",/"Primary_Street__c/":/"/",/"Primary_Zip__c/":/"/",/"RecordTypeId/":/"012U0000000JaPWIA0/",/"Request_Date__c/":/"2016-06-10T22:31:55.9647467Z/",/"XXXXXXX/":/"/",/"Specialty_1_vod__c/":/"/",/"Suffix_vod__c/":/"/",/"Website/":/"/"}",
         "code": 400,
         "errors": null,
@@ -340,7 +340,7 @@ Oto kod źródłowy aplikacji logiki do tworzenia rekord błędu.
     },
     "body": {
         "status": 400,
-        "message": "Salesforce failed to complete task: Message: duplicate value found: Account_ID_MED__c duplicates value on record with id: 001U000001c83gK",
+        "message": "Salesforce failed toocomplete task: Message: duplicate value found: Account_ID_MED__c duplicates value on record with id: 001U000001c83gK",
         "source": "Salesforce.Common",
         "errors": []
     }
@@ -348,11 +348,11 @@ Oto kod źródłowy aplikacji logiki do tworzenia rekord błędu.
 
 ```
 
-### <a name="return-the-response-back-to-parent-logic-app"></a>Zwraca odpowiedź z powrotem do aplikacji logiki nadrzędnego
+### <a name="return-hello-response-back-tooparent-logic-app"></a>Zwraca hello odpowiedzi wstecz tooparent logiki aplikacji
 
-Po uzyskaniu odpowiedzi, należy przekazać odpowiedź z powrotem do aplikacji logiki nadrzędnej.
+Po uzyskaniu odpowiedzi hello można przekazać odpowiedź hello aplikacji logiki nadrzędnej toohello Wstecz.
 
-#### <a name="return-success-response-to-parent-logic-app"></a>Powodzenie odpowiedź zwrócona do aplikacji logiki nadrzędnego
+#### <a name="return-success-response-tooparent-logic-app"></a>Zwraca sukces odpowiedzi tooparent logiki aplikacji
 
 ``` json
 "SuccessResponse": {
@@ -374,7 +374,7 @@ Po uzyskaniu odpowiedzi, należy przekazać odpowiedź z powrotem do aplikacji l
 }
 ```
 
-#### <a name="return-error-response-to-parent-logic-app"></a>Błąd odpowiedź zwrócona do aplikacji logiki nadrzędnego
+#### <a name="return-error-response-tooparent-logic-app"></a>Aplikacja logiki tooparent odpowiedzi zwróciła błąd
 
 ``` json
 "ErrorResponse": {
@@ -404,12 +404,12 @@ Nasze rozwiązanie dodane możliwości za pomocą [DB rozwiązania Cosmos](https
 
 ### <a name="error-management-portal"></a>Błąd portalu zarządzania
 
-Aby wyświetlić błędy, można utworzyć aplikacji sieci web MVC, aby wyświetlić błąd rekordy z bazy danych rozwiązania Cosmos. **Listy**, **szczegóły**, **Edytuj**, i **usunąć** operacji znajdują się w bieżącej wersji.
+tooview hello błędy, można tworzyć MVC sieci web aplikacji toodisplay hello błąd rekordy z bazy danych rozwiązania Cosmos. Hello **listy**, **szczegóły**, **Edytuj**, i **usunąć** operacji znajdują się w bieżącej wersji powitania.
 
 > [!NOTE]
-> Operacji edycji: rozwiązania Cosmos DB zamienia cały dokument. Rejestruje pokazano **listy** i **szczegółów** widoki są tylko próbek. Nie są one rzeczywiste termin pacjenta rekordów.
+> Operacji edycji: rozwiązania Cosmos DB zastępuje hello całego dokumentu. Witaj rekordów wyświetlanych w hello **listy** i **szczegółów** widoki są tylko próbek. Nie są one rzeczywiste termin pacjenta rekordów.
 
-Poniżej przedstawiono przykłady naszych szczegóły aplikacji MVC utworzone za pomocą metody opisany wcześniej.
+Poniżej przedstawiono przykłady naszej aplikacji MVC szczegóły wcześniej utworzony hello opisane podejście.
 
 #### <a name="error-management-list"></a>Błąd listy zarządzania.
 ![Lista błędów](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
@@ -419,7 +419,7 @@ Poniżej przedstawiono przykłady naszych szczegóły aplikacji MVC utworzone za
 
 ### <a name="log-management-portal"></a>Portal zarządzania dziennika
 
-Aby wyświetlić dzienniki, również utworzono aplikację sieci web MVC. Poniżej przedstawiono przykłady naszych szczegóły aplikacji MVC utworzone za pomocą metody opisany wcześniej.
+Dzienniki hello tooview, również utworzono aplikację sieci web MVC. Poniżej przedstawiono przykłady naszej aplikacji MVC szczegóły wcześniej utworzony hello opisane podejście.
 
 #### <a name="sample-log-detail-view"></a>Przykładowy widok szczegółów dziennika
 ![Dziennik: widok szczegółów](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
@@ -434,14 +434,14 @@ Open source aplikacji interfejsu API zarządzania wyjątek usługi Azure Logic A
 * **LogController** wstawia rekordu dziennika (dokument) w kolekcji usługi DocumentDB.
 
 > [!TIP]
-> Zarówno kontrolery `async Task<dynamic>` czynności operacji rozwiązywać w czasie wykonywania, dlatego utworzymy schematu usługi DocumentDB w treści operacji. 
+> Zarówno kontrolery `async Task<dynamic>` czynności tooresolve operacji w czasie wykonywania, więc można utworzyć hello schematu usługi DocumentDB w treści hello hello operacji. 
 > 
 
-Każdy dokument w usłudze DocumentDB musi mieć unikatowy identyfikator. Używamy `PatientId` i Dodawanie znaczników czasu, który jest konwertowany na wartość sygnatury czasowej systemu Unix (o podwójnej precyzji). Firma Microsoft obciąć wartość na usuwanie ułamkowa wartość.
+Każdy dokument w usłudze DocumentDB musi mieć unikatowy identyfikator. Używamy `PatientId` i Dodawanie znaczników czasu, który jest przekonwertować wartość sygnatury czasowej systemu Unix tooa (o podwójnej precyzji). Firma Microsoft obciąć hello tooremove hello ułamkowych wartość.
 
-Można wyświetlić kodu źródłowego kontrolera błąd interfejsu API [z usługi GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+Można wyświetlić kodu źródłowego hello błąd kontrolera interfejsu API [z usługi GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
-Nazywamy interfejsu API z aplikacji logiki przy użyciu następującej składni:
+Nazywamy hello interfejsu API z aplikacji logiki przy użyciu hello następującej składni:
 
 ``` json
  "actions": {
@@ -474,17 +474,17 @@ Nazywamy interfejsu API z aplikacji logiki przy użyciu następującej składni:
  }
 ```
 
-Sprawdza, czy wyrażenie w poprzednim przykładzie kodu *Create_NewPatientRecord* stan ****.
+Witaj wyrażenie w hello poprzedzających sprawdza przykładowy kod hello *Create_NewPatientRecord* stan ****.
 
 ## <a name="summary"></a>Podsumowanie
 
 * Można łatwo zaimplementować rejestrowania i obsługi błędów w aplikacji logiki.
-* Usługi DocumentDB można użyć jako repozytorium rekordów dziennika i błąd (dokumentów).
-* MVC umożliwia tworzenie portalu do wyświetlania rekordów dziennika i błędów.
+* Usługi DocumentDB można użyć jako repozytorium hello rekordów dziennika i błąd (dokumentów).
+* Można użyć toocreate MVC dziennika toodisplay portalu i rejestruje błąd.
 
 ### <a name="source-code"></a>Kod źródłowy
 
-Kod źródłowy Zarządzanie wyjątkami aplikacje logiki aplikacji interfejsu API jest dostępna w tym [repozytorium GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API zarządzania wyjątków aplikacji logiki").
+Kod źródłowy Hello hello Zarządzanie wyjątkami aplikacje logiki aplikacji interfejsu API jest dostępna w tym [repozytorium GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API zarządzania wyjątków aplikacji logiki").
 
 ## <a name="next-steps"></a>Następne kroki
 

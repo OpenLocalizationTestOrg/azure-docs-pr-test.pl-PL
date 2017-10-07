@@ -1,6 +1,6 @@
 ---
-title: "Aktualizacja oprogramowania układowego urządzenia z Centrum IoT Azure (węzeł) | Dokumentacja firmy Microsoft"
-description: "Jak używać zarządzania urządzeniami w usłudze Azure IoT Hub zainicjować aktualizację oprogramowania układowego urządzenia. Przy użyciu zestawów SDK IoT Azure dla środowiska Node.js aplikacji symulowane urządzenie i usługi aplikacji, które wyzwala aktualizacji oprogramowania układowego."
+title: "Aktualizacja oprogramowania układowego aaaDevice z Centrum IoT Azure (węzeł) | Dokumentacja firmy Microsoft"
+description: "Jak zaktualizować toouse zarządzania urządzeniami w usłudze Azure IoT Hub tooinitiate oprogramowanie układowe urządzenia. Używasz hello Azure IoT SDK dla środowiska Node.js tooimplement aplikacji symulowane urządzenie i aplikacji usługi, która wyzwala hello aktualizacji oprogramowania układowego."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 350cf1cbec8847d1bbf29814435502af6f098e54
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 99d4b369e7aba334bf713e0c657e6e5d227fb691
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Umożliwia zarządzanie urządzeniami zainicjować aktualizację oprogramowania układowego urządzenia (węzeł/węzeł)
+# <a name="use-device-management-tooinitiate-a-device-firmware-update-nodenode"></a>Użyj tooinitiate zarządzania urządzenia aktualizacji oprogramowania układowego urządzenia (węzeł/węzeł)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Wprowadzenie
-W [wprowadzenie do zarządzania urządzeniami] [ lnk-dm-getstarted] samouczka przedstawiono sposób użycia [dwie urządzenia] [ lnk-devtwin] i [bezpośrednie metody ] [ lnk-c2dmethod] podstawowych zdalnie ponownego uruchomienia urządzenia. W tym samouczku korzysta z tej samej podstawowych Centrum IoT i zawiera wskazówki i pokazuje, jak wykonać aktualizację oprogramowania układowego symulowane end-to-end.  Ten wzorzec jest używany podczas wdrażania aktualizacji oprogramowania układowego przykładowej urządzenia Intel Edison.
+W hello [wprowadzenie do zarządzania urządzeniami] [ lnk-dm-getstarted] samouczku przedstawiono sposób toouse hello [dwie urządzenia] [ lnk-devtwin] i [bezpośredniego metody] [ lnk-c2dmethod] tooremotely podstawowych ponownego uruchamiania urządzenia. Ten samouczek używa hello tego samego Centrum IoT elementów podstawowych i zawiera wskazówki i pokazuje, jak toodo end-to-end symulowane aktualizacji oprogramowania układowego.  Ten wzorzec jest używany podczas wdrażania aktualizacji oprogramowania układowego hello hello Intel Edison urządzenia próbki.
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
-* Tworzenie aplikacji konsoli Node.js, która wywołuje metodę firmwareUpdate bezpośrednio w aplikacji symulowane urządzenie za pomocą Centrum IoT.
-* Tworzenie aplikacji symulowane urządzenie, który implementuje **firmwareUpdate** metoda bezpośrednia. Ta metoda inicjuje procesem wieloetapowym czeka na pobranie obrazu oprogramowania układowego, pobierze obraz oprogramowania układowego i na koniec dotyczy oprogramowania układowego obrazu. Podczas każdego etapu aktualizacji urządzenie korzysta z właściwości zgłoszony do raport dotyczący postępu.
+* Tworzenie aplikacji konsoli Node.js, który wywołuje metodę bezpośredniego firmwareUpdate hello w hello symulowane urządzenie aplikacji za pośrednictwem Centrum IoT.
+* Tworzenie aplikacji symulowane urządzenie, który implementuje **firmwareUpdate** metoda bezpośrednia. Ta metoda inicjuje procesem wieloetapowym, która oczekuje toodownload hello oprogramowania układowego obrazu, pobierze obraz oprogramowania układowego hello i finally stosuje hello oprogramowania układowego obrazu. Podczas każdego etapu aktualizacji hello hello urządzenie używa hello zgłoszony tooreport właściwości w toku.
 
-Na końcu tego samouczka znajdują się dwie aplikacje konsoli Node.js:
+Na końcu hello tego samouczka znajdują się dwie aplikacje konsoli Node.js:
 
-**dmpatterns_fwupdate_service.js**, która wywołuje metodę bezpośrednio w aplikacji symulowane urządzenie Wyświetla odpowiedzi i okresowo (co 500 MS.) Wyświetla zaktualizowanego zgłoszone właściwości.
+**dmpatterns_fwupdate_service.js**, która wywołuje metodę bezpośrednio w aplikacji hello symulowane urządzenie Wyświetla hello odpowiedzi i okresowo (co 500 MS.) hello wyświetla zaktualizowane zgłoszone właściwości.
 
-**dmpatterns_fwupdate_device.js**, która łączy się z Centrum IoT z tożsamości urządzenia utworzony wcześniej, otrzymuje firmwareUpdate metoda bezpośrednia, uruchamia proces wielu stanu do symulowania, w tym aktualizacji oprogramowania układowego: Oczekiwanie na obraz Pobierz pobieranie nowy obraz, a ostatecznie stosowania obrazu.
+**dmpatterns_fwupdate_device.js**, o tożsamości urządzenia hello utworzony wcześniej, który łączy Centrum IoT tooyour odbiera firmwareUpdate metoda bezpośrednia, jest uruchamiany za pośrednictwem toosimulate wielu stanu procesu aktualizacji oprogramowania układowego łącznie: Oczekiwanie na powitania Obraz Pobierz pobierania nowy obraz powitania i na koniec stosowania hello obrazu.
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+toocomplete tego samouczka należy hello następujące:
 
-* Środowisko node.js w wersji 0.12.x lub nowszym <br/>  [Przygotowywanie środowiska projektowego] [ lnk-dev-setup] opisuje sposób instalowania programu Node.js w tym samouczku w systemie Windows lub Linux.
+* Środowisko node.js w wersji 0.12.x lub nowszym <br/>  [Przygotowywanie środowiska projektowego] [ lnk-dev-setup] w tym artykule opisano sposób tooinstall Node.js, w tym samouczku w systemie Windows lub Linux.
 * Aktywne konto platformy Azure. (Jeśli go nie masz, możesz utworzyć [bezpłatne konto próbne][lnk-free-trial] w zaledwie kilka minut).
 
-Postępuj zgodnie z [wprowadzenie do zarządzania urządzeniami](iot-hub-node-node-device-management-get-started.md) artykuł, aby utworzyć Centrum IoT i pobrać parametry połączenia Centrum IoT.
+Wykonaj hello [wprowadzenie do zarządzania urządzeniami](iot-hub-node-node-device-management-get-started.md) artykułu toocreate Centrum IoT i pobrać parametry połączenia Centrum IoT.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Wyzwalanie aktualizacji oprogramowania układowego zdalnego na urządzeniu, za pomocą bezpośrednich — metoda
-W tej sekcji utworzysz aplikację konsoli Node.js, która inicjuje aktualizacji oprogramowania układowego zdalnego na urządzeniu. Aplikacja korzysta metoda bezpośrednia zainicjować aktualizację, a zapytania dwie urządzenia okresowo pobrać stanu aktualizacji oprogramowania układowego active.
+## <a name="trigger-a-remote-firmware-update-on-hello-device-using-a-direct-method"></a>Wyzwalanie aktualizacji oprogramowania układowego zdalnego na urządzeniu hello za pomocą bezpośrednich — metoda
+W tej sekcji utworzysz aplikację konsoli Node.js, która inicjuje aktualizacji oprogramowania układowego zdalnego na urządzeniu. Aplikacja Hello korzysta z aktualizacją hello tooinitiate metoda bezpośrednia i używa urządzenia dwie zapytania tooperiodically Pobierz hello stan aktualizacji oprogramowania układowego active hello.
 
-1. Utwórz pusty folder o nazwie **triggerfwupdateondevice**.  W **triggerfwupdateondevice** folderu, Utwórz plik package.json za pomocą następującego polecenia z wiersza polecenia.  Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz pusty folder o nazwie **triggerfwupdateondevice**.  W hello **triggerfwupdateondevice** folderu, Utwórz plik package.json za pomocą hello następujące polecenie z wiersza polecenia.  Zaakceptuj wszystkie domyślne hello:
    
     ```
     npm init
     ```
-2. Z wiersza polecenia w **triggerfwupdateondevice** folderu, uruchom następujące polecenie, aby zainstalować **azure iot koncentrator** i **azure-iot urządzenie mqtt** SDK urządzenia pakiety:
+2. Z wiersza polecenia w hello **triggerfwupdateondevice** folderu, uruchom następujące polecenie tooinstall hello hello **azure iot koncentrator** i **azure-iot urządzenie mqtt** urządzenia Zestaw SDK pakietów:
    
     ```
     npm install azure-iothub --save
     ```
-3. Za pomocą edytora tekstu, Utwórz **dmpatterns_getstarted_service.js** w pliku **triggerfwupdateondevice** folderu.
-4. Dodaj następujące "wymagane" instrukcje na początku **dmpatterns_getstarted_service.js** pliku:
+3. Za pomocą edytora tekstu, Utwórz **dmpatterns_getstarted_service.js** pliku w hello **triggerfwupdateondevice** folderu.
+4. Dodaj następujące hello "Wymagaj" instrukcje na początku hello hello **dmpatterns_getstarted_service.js** pliku:
    
     ```
     'use strict';
@@ -70,7 +70,7 @@ W tej sekcji utworzysz aplikację konsoli Node.js, która inicjuje aktualizacji 
     var Registry = require('azure-iothub').Registry;
     var Client = require('azure-iothub').Client;
     ```
-5. Dodaj następujące deklaracje zmiennych i zastąp symbole zastępcze:
+5. Dodaj następujące deklaracje zmiennej hello i zastąp symbole zastępcze hello:
    
     ```
     var connectionString = '{device_connectionstring}';
@@ -78,7 +78,7 @@ W tej sekcji utworzysz aplikację konsoli Node.js, która inicjuje aktualizacji 
     var client = Client.fromConnectionString(connectionString);
     var deviceToUpdate = 'myDeviceId';
     ```
-6. Dodaj następującą funkcję można znaleźć i wyświetlana wartość firmwareUpdate zgłosił właściwości.
+6. Dodaj następujący hello funkcji toofind i wyświetlenia wartości hello hello firmwareUpdate zgłosił właściwości.
    
     ```
     var queryTwinFWUpdateReported = function() {
@@ -91,7 +91,7 @@ W tej sekcji utworzysz aplikację konsoli Node.js, która inicjuje aktualizacji 
         });
     };
     ```
-7. Dodaj następującą funkcję można wywołać metody firmwareUpdate przeprowadzić ponowny rozruch docelowego urządzenia:
+7. Dodaj powitania po funkcja tooinvoke hello firmwareUpdate metody tooreboot hello docelowe urządzenie:
    
     ```
     var startFirmwareUpdateDevice = function() {
@@ -110,40 +110,40 @@ W tej sekcji utworzysz aplikację konsoli Node.js, która inicjuje aktualizacji 
    
       client.invokeDeviceMethod(deviceToUpdate, methodParams, function(err, result) {
         if (err) {
-          console.error('Could not start the firmware update on the device: ' + err.message)
+          console.error('Could not start hello firmware update on hello device: ' + err.message)
         } 
       });
     };
     ```
-8. Na koniec należy dodać następująca funkcja kodu w celu uruchomienia sekwencji aktualizacji oprogramowania układowego i rozpoczęcia okresowo wyświetlania właściwości zgłoszone:
+8. Na koniec Dodaj następujące hello funkcji sekwencja aktualizacji oprogramowania układowego hello toostart toocode i rozpoczęcia okresowo wyświetlania hello zgłoszonych właściwości:
    
     ```
     startFirmwareUpdateDevice();
     setInterval(queryTwinFWUpdateReported, 500);
     ```
-9. Zapisz i Zamknij **dmpatterns_fwupdate_service.js** pliku.
+9. Zapisz i zamknij hello **dmpatterns_fwupdate_service.js** pliku.
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 
-## <a name="run-the-apps"></a>Uruchamianie aplikacji
-Teraz można przystąpić do uruchomienia aplikacji.
+## <a name="run-hello-apps"></a>Uruchamianie aplikacji hello
+Wszystko jest teraz gotowy toorun hello aplikacji.
 
-1. W wierszu polecenia w **manageddevice** folderu, uruchom następujące polecenie Rozpoczęcie nasłuchiwania metoda bezpośrednia ponowne uruchomienie komputera.
+1. W wierszu polecenia hello w hello **manageddevice** folderu Uruchom hello następujące polecenia toobegin nasłuchiwanie metoda bezpośrednia hello ponowny rozruch.
    
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. W wierszu polecenia w **triggerfwupdateondevice** folderu, uruchom następujące polecenie, aby zdalne ponowne uruchamianie systemu i kwerendę dla dwie urządzenia znaleźć ostatniego ponownego rozruchu czasu.
+2. W wierszu polecenia hello w hello **triggerfwupdateondevice** folderu, uruchom następujące polecenie tootrigger hello zdalnego hello ponownie i zapytania dla hello urządzenia dwie toofind hello ostatniego ponownego rozruchu czasu.
    
     ```
     node dmpatterns_fwupdate_service.js
     ```
-3. Zobaczysz odpowiedź urządzenia do metody bezpośrednio w konsoli.
+3. Zostanie wyświetlony hello urządzenia odpowiedzi toohello metoda bezpośrednia hello konsoli.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku używana metoda bezpośrednia do wyzwolenia aktualizacji oprogramowania układowego zdalnego na urządzeniu i można śledzić postępy aktualizacji oprogramowania układowego zgłoszone właściwości.
+W tym samouczku używana metoda bezpośrednia tootrigger zdalnej aktualizacji oprogramowania układowego na urządzeniach i hello używany zgłaszane postęp hello toofollow właściwości aktualizacji oprogramowania układowego hello.
 
-Aby dowiedzieć się, jak rozszerzyć IoT, Twoje rozwiązanie i harmonogram metoda wywołuje na wielu urządzeniach, zobacz [emisji zadania i harmonogramu] [ lnk-tutorial-jobs] samouczka.
+toolearn tooextend IoT metody rozwiązania i harmonogram wywołuje na wielu urządzeniach, zobacz hello [emisji zadania i harmonogramu] [ lnk-tutorial-jobs] samouczka.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

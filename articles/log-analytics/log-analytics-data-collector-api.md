@@ -1,6 +1,6 @@
 ---
-title: "Dziennika modułów zbierających dane HTTP analizy interfejsu API | Dokumentacja firmy Microsoft"
-description: "Interfejs API modułów zbierających dane HTTP Analytics dziennika umożliwia dodawanie danych POST JSON do repozytorium analizy dzienników za pomocą dowolnego klienta, który można wywołać interfejsu API REST. W tym artykule opisano sposób użycia interfejsu API i zawiera przykłady publikowania danych przy użyciu różnych języków programowania."
+title: "aaaLog API modułów zbierających dane HTTP Analytics | Dokumentacja firmy Microsoft"
+description: "Za pomocą hello interfejsu API modułów zbierających dane dziennika Analytics HTTP tooadd POST JSON danych toohello analizy dzienników repozytorium za pomocą dowolnego klienta, który można wywołać hello interfejsu API REST. W tym artykule opisano sposób toouse hello interfejsu API i zawiera przykłady toopublish danych przy użyciu różnych języków programowania."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: bwren
-ms.openlocfilehash: b0c45ff8c1d4c9d35fbb3c8839b38a20df277055
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c2921082831c49da764d946ac9c4fab975a38185
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api"></a>Wysyłanie danych do analizy dzienników przy użyciu interfejsu API modułów zbierających dane HTTP
-W tym artykule przedstawiono sposób wysyłania danych do analizy dzienników z klienta interfejsu API REST za pomocą interfejsu API modułów zbierających dane HTTP.  Przedstawiono sposób formatowania danych zbieranych przez skrypt lub aplikację, dołączyć go w żądaniu i mieć tego żądania uprawnień przez analizy dzienników.  Przykłady są dostępne dla programu PowerShell, C# i Python.
+# <a name="send-data-toolog-analytics-with-hello-http-data-collector-api"></a>Wysyłanie danych tooLog Analytics z hello interfejsu API modułów zbierających dane HTTP
+W tym artykule opisano, jak toouse hello interfejsu API modułów zbierających dane HTTP toosend danych tooLog Analytics z klienta interfejsu API REST.  Opisuje jak tooformat danych zbieranych przez skrypt lub aplikację, dołączyć go w żądaniu i mieć tego żądania uprawnień przez analizy dzienników.  Przykłady są dostępne dla programu PowerShell, C# i Python.
 
 ## <a name="concepts"></a>Pojęcia
-Interfejs API modułów zbierających dane HTTP służy do wysyłania danych do analizy dzienników z dowolnego klienta, który można wywołać interfejsu API REST.  Może to być element runbook automatyzacji Azure, która gromadzi zarządzania danych z platformy Azure lub innej chmurze lub może być system zarządzania alternatywne, używaną do konsolidacji i analizowanie danych analizy dzienników.
+Możesz użyć hello interfejsu API modułów zbierających dane HTTP toosend danych tooLog Analytics za pomocą dowolnego klienta, który można wywołać interfejsu API REST.  Może to być element runbook automatyzacji Azure, która gromadzi zarządzania danych z platformy Azure lub innej chmurze lub może być system zarządzania alternatywnego, który używa tooconsolidate analizy dzienników i analizowania danych.
 
-Wszystkie dane w repozytorium analizy dzienników są przechowywane jako rekord typu określonego rekordu.  Formatowanie danych do wysyłania do interfejsu API modułów zbierających dane HTTP jako wielu rekordów w formacie JSON.  Podczas przesyłania danych pojedynczego rekordu jest tworzony w repozytorium dla każdego rekordu w ładunku żądania.
+Wszystkie dane w repozytorium analizy dzienników hello są przechowywane jako rekord typu określonego rekordu.  Twoje dane toosend toohello interfejsu API modułów zbierających dane HTTP formacie wielu rekordów w formacie JSON.  Podczas przesyłania danych hello pojedynczego rekordu jest tworzony w repozytorium powitania dla każdego rekordu w ładunku żądania hello.
 
 
 ![Omówienie modułów zbierających dane HTTP](media/log-analytics-data-collector-api/overview.png)
@@ -34,7 +34,7 @@ Wszystkie dane w repozytorium analizy dzienników są przechowywane jako rekord 
 
 
 ## <a name="create-a-request"></a>Utwórz żądanie
-Aby za pomocą interfejsu API modułów zbierających dane HTTP, należy utworzyć żądania POST, który zawiera dane do wysłania w JavaScript Object Notation (JSON).  Kolejne trzy tabele zawierają listę atrybutów, które są wymagane dla każdego żądania. Opisano każdy atrybut bardziej szczegółowo w dalszej części tego artykułu.
+Moduł zbierający dane hello HTTP toouse interfejsu API, Utwórz żądanie POST zawiera toosend danych hello w JavaScript Object Notation (JSON).  Witaj trzech kolejnych tabel listy hello atrybutów, które są wymagane dla każdego żądania. Opisano każdy atrybut bardziej szczegółowo w dalszej części artykułu hello.
 
 ### <a name="request-uri"></a>Identyfikator URI żądania
 | Atrybut | Właściwość |
@@ -46,30 +46,30 @@ Aby za pomocą interfejsu API modułów zbierających dane HTTP, należy utworzy
 ### <a name="request-uri-parameters"></a>Parametry identyfikatora URI żądania
 | Parametr | Opis |
 |:--- |:--- |
-| CustomerID |Unikatowy identyfikator dla obszaru roboczego programu Microsoft Operations Management Suite. |
-| Zasób |Nazwa zasobu interfejsu API: / api/logs. |
-| Wersja interfejsu API |Wersja interfejsu API do używania z tym żądaniem. Obecnie jest 2016-04-01. |
+| CustomerID |Witaj Unikatowy identyfikator dla obszaru roboczego programu Microsoft Operations Management Suite hello. |
+| Zasób |Nazwa zasobu Hello interfejsu API: / api/logs. |
+| Wersja interfejsu API |Wersja Hello toouse hello interfejsu API z tym żądaniem. Obecnie jest 2016-04-01. |
 
 ### <a name="request-headers"></a>Nagłówki żądania
 | Nagłówek | Opis |
 |:--- |:--- |
-| Autoryzacja |Podpis autoryzacji. W dalszej części tego artykułu można uzyskać informacje dotyczące sposobu tworzenia nagłówka HMAC SHA256. |
-| Typ dziennika |Określ typ rekordu jest przesyłane dane. Typ dziennika obsługuje obecnie tylko znaki alfanumeryczne. Nie obsługuje wartości numeryczne i znaki specjalne. |
-| x-ms-date |Żądanie zostało przetworzone, w formacie RFC 1123 Data. |
-| czas wygenerowany — pola |Nazwa pola danych, które zawiera sygnaturę czasową elementu danych. Jeśli określisz pola, a następnie jego zawartość jest używana dla **TimeGenerated**. Jeśli to pole nie zostanie określona, wartością domyślną **TimeGenerated** jest czas, który jest pozyskanych wiadomości. Zawartość pola wiadomości należy wykonać w formacie ISO 8601 RRRR-MM-Ddtgg. |
+| Autoryzacja |Witaj autoryzacji podpisu. W dalszej części artykułu hello możesz przeczytać temat toocreate SHA256 HMAC nagłówka. |
+| Typ dziennika |Określ typ rekordu hello danych hello jest przesyłane. Typ dziennika hello obsługuje obecnie tylko znaki alfanumeryczne. Nie obsługuje wartości numeryczne i znaki specjalne. |
+| x-ms-date |Data Hello przetworzono Żądanie hello w formacie RFC 1123. |
+| czas wygenerowany — pola |Hello nazwę pola danych hello zawiera sygnaturę czasową hello hello elementu danych. Jeśli określisz pola, a następnie jego zawartość jest używana dla **TimeGenerated**. Jeśli to pole nie jest określony, domyślnie dla hello **TimeGenerated** jest czas hello tego hello jest pozyskanych wiadomości. Witaj zawartość pola wiadomość hello należy stosować hello ISO 8601 w formacie RRRR-MM-Ddtgg. |
 
 ## <a name="authorization"></a>Autoryzacja
-Każde żądanie API modułu zbierającego dane dziennika Analytics HTTP musi zawierać nagłówek uwierzytelnienia. Aby uwierzytelnić żądanie, musisz zalogować się żądanie z serwera podstawowego lub dodatkowego klucza dla obszaru roboczego, który wysłał żądanie. Następnie przekaż tego podpisu, jako część żądania.   
+Wszelkie toohello żądania interfejsu API modułów zbierających dane dziennika Analytics HTTP musi zawierać nagłówek uwierzytelnienia. tooauthenticate żądanie, musisz zalogować się Żądanie hello hello podstawowego lub hello dodatkowy klucz dla obszaru roboczego hello, w której wysłano żądanie hello. Następnie przekaż tego podpisu, jako część żądania hello.   
 
-Oto format nagłówka autoryzacji:
+Oto hello format nagłówka autoryzacji hello:
 
 ```
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* jest unikatowym identyfikatorem dla obszaru roboczego usługi Operations Management Suite. *Podpis* jest [Hash-based kodu (metoda HMAC Message Authentication)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) jest tworzony z żądania i następnie obliczane przy użyciu [algorytm SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Następnie należy kodować je przy użyciu kodowania Base64.
+*WorkspaceID* jest unikatowy identyfikator obszaru roboczego usługi Operations Management Suite hello hello. *Podpis* jest [Hash-based kodu (metoda HMAC Message Authentication)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) jest utworzone na podstawie żądania hello i następnie obliczane przy użyciu hello [algorytm SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Następnie należy kodować je przy użyciu kodowania Base64.
 
-Użyj tego formatu do kodowania **SharedKey** podpisu ciągu:
+Użyj tego formatu hello tooencode **SharedKey** podpisu ciągu:
 
 ```
 StringToSign = VERB + "\n" +
@@ -85,16 +85,16 @@ Oto przykład ciągu podpisu:
 POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
 ```
 
-Jeśli masz ciąg podpisu kodować je przy użyciu Algorytm HMAC SHA256 na ciąg kodowany UTF-8, a następnie kodowanie wynik w postaci Base64. Użyj następującego formatu:
+Jeśli masz ciąg podpisu hello, kodować je przy użyciu hello Algorytm HMAC SHA256 na powitania ciąg algorytmem UTF-8, a następnie kodowanie hello wynik w postaci Base64. Użyj następującego formatu:
 
 ```
 Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
-Przykłady w kolejnych sekcjach ma przykładowy kod, aby utworzyć nagłówek autoryzacji.
+Witaj w kolejnych sekcjach hello mają przykładowy kod toohelp utworzyć nagłówek autoryzacji.
 
 ## <a name="request-body"></a>Treść żądania
-Treść komunikatu musi być w formacie JSON. Musi zawierać co najmniej jeden rekord z pary nazw i wartości właściwości w następującym formacie:
+Witaj treść wiadomości powitania musi być w formacie JSON. Musi zawierać co najmniej jeden rekord z pary nazw i wartości właściwości hello w następującym formacie:
 
 ```
 {
@@ -105,7 +105,7 @@ Treść komunikatu musi być w formacie JSON. Musi zawierać co najmniej jeden r
 }
 ```
 
-Partii z wielu rekordów razem w jednym żądaniu, przy użyciu następującego formatu. Wszystkie rekordy muszą być tego samego typu rekordu.
+Partii z wielu rekordów razem w jednym żądaniu, za pomocą hello zgodny z formatem. Wszystkie rekordy hello musi być hello rekordów samego typu.
 
 ```
 {
@@ -123,11 +123,11 @@ Partii z wielu rekordów razem w jednym żądaniu, przy użyciu następującego 
 ```
 
 ## <a name="record-type-and-properties"></a>Typ rekordu i właściwości
-Typ niestandardowy rekord należy zdefiniować podczas przesyłania danych za pośrednictwem interfejsu API modułów zbierających dane HTTP analizy dziennika. Obecnie nie można zapisać danych do istniejących typów rekordów, które zostały utworzone przez inne typy danych i rozwiązań. Analiza dzienników odczytuje przychodzących danych, a następnie tworzy właściwości, które pasują do typów danych wartości, które należy wprowadzić.
+Typ niestandardowy rekord należy zdefiniować podczas przesyłania danych za pośrednictwem hello interfejsu API modułów zbierających dane dziennika Analytics HTTP. Obecnie nie można zapisać danych tooexisting typy rekordów, które zostały utworzone przez inne typy danych i rozwiązań. Analiza dzienników odczytuje hello przychodzących danych, a następnie tworzy właściwości, które są zgodne z typami danych hello hello wartości, które należy wprowadzić.
 
-Każde żądanie do interfejsu API analizy dziennika musi zawierać **typ dziennika** nagłówek o nazwie dla typu rekordu. Sufiks **_CL** jest automatycznie dołączane do nazwy wprowadź odróżniający go od innych typów dziennika jako dziennik niestandardowy. Na przykład wprowadź nazwę **MyNewRecordType**, analizy dzienników tworzy rekord z typem **MyNewRecordType_CL**. Pomaga to zapewnić, że nie występują żadne konflikty między nazwami utworzonych przez użytkownika typu i te w obecne lub przyszłe rozwiązania firmy Microsoft.
+Każdy toohello żądanie musi zawierać interfejs API analizy dziennika **typ dziennika** nagłówek o nazwie hello hello typu rekordu. sufiks Hello **_CL** jest nazwą automatycznie dołączany toohello wprowadź toodistinguish ona z dziennika inne typy jako dziennik niestandardowy. Na przykład, jeśli wprowadzona nazwa hello **MyNewRecordType**, analizy dzienników tworzy rekord typu hello **MyNewRecordType_CL**. Pomaga to zapewnić, że nie występują żadne konflikty między nazwami utworzonych przez użytkownika typu i te w obecne lub przyszłe rozwiązania firmy Microsoft.
 
-Aby określić typ danych właściwości, analizy dzienników dodaje sufiks nazwy właściwości. Jeśli jakaś właściwość zawiera wartość null, właściwość nie jest uwzględniony w tym rekordzie. Poniższa tabela zawiera typ danych właściwości i odpowiedniego sufiksu:
+Typ danych właściwości tooidentify, analizy dzienników dodaje sufiks nazwy właściwości toohello. Jeśli jakaś właściwość zawiera wartość null, właściwość hello jest niedostępna w tym rekordzie. Poniższa tabela zawiera typ danych właściwości hello i odpowiedniego sufiksu:
 
 | Typ danych właściwości | Sufiks |
 |:--- |:--- |
@@ -137,75 +137,75 @@ Aby określić typ danych właściwości, analizy dzienników dodaje sufiks nazw
 | Data i godzina |_t — |
 | IDENTYFIKATOR GUID |_g |
 
-Typ danych, który używa analizy dzienników dla każdej właściwości zależy od tego, czy istnieje już typ rekordu w nowym rekordzie.
+Typ danych Hello, który używa analizy dzienników dla każdej właściwości zależy od tego, czy typ rekordu hello hello nowy rekord już istnieje.
 
-* Jeśli nie istnieje typ rekordu, analizy dzienników tworzy nową. Analiza dzienników używa wnioskowanie o typie JSON można ustalić typu danych dla każdej właściwości w nowym rekordzie.
-* Jeśli istnieje typ rekordu, analizy dzienników próbuje utworzyć nowy rekord na podstawie istniejącej właściwości. Jeśli typ danych dla właściwości w nowym rekordzie nie odpowiada i nie można przekonwertować na typ istniejący lub jeśli rekord zawiera właściwość, która nie istnieje, analizy dzienników tworzy nowe właściwości, która ma zastosowanie sufiks.
+* Jeśli nie istnieje typ rekordu hello, analizy dzienników tworzy nową. Analiza dzienników używa typu JSON hello wnioskowania typu danych hello toodetermine dla każdej właściwości w nowym rekordzie hello.
+* Jeśli istnieje typ rekordu hello, analizy dzienników prób toocreate nowy rekord na podstawie istniejącej właściwości. Jeśli hello typ danych właściwości w hello nowy rekord nie odpowiada i nie może być skonwertowany toohello istniejący typ lub jeśli hello rekord zawiera właściwość, która nie istnieje, analizy dzienników tworzy nową właściwość, która ma hello odpowiedniego sufiksu.
 
 Na przykład utworzyć rekord z trzech właściwości tego wpisu przesyłania **number_d**, **boolean_b**, i **string_s**:
 
 ![Przykładowy rekord 1](media/log-analytics-data-collector-api/record-01.png)
 
-Jeśli tego wpisu dalej, następnie przesłane ze wszystkich wartości w formacie ciągów, właściwości nie może zmienić. Te wartości można przekonwertować istniejących typów danych:
+Jeśli tego wpisu dalej, następnie przesłane ze wszystkich wartości w formacie ciągów, hello właściwości nie może zmienić. Te wartości mogą być przekonwertowana tooexisting typów danych:
 
 ![Przykładowy rekord 2](media/log-analytics-data-collector-api/record-02.png)
 
-Jednak jeśli wprowadzono następnie tego przesłania dalej, analizy dzienników utworzyć nowe właściwości **boolean_d** i **string_d**. Nie można przekonwertować wartości:
+Ale jeśli wprowadzono następnie tego przesłania dalej, analizy dzienników utworzyć hello nowe właściwości **boolean_d** i **string_d**. Nie można przekonwertować wartości:
 
 ![Przykładowy rekord 3](media/log-analytics-data-collector-api/record-03.png)
 
-Jeśli następnie przesłane następujący wpis przed utworzeniem typu rekordu, analizy dzienników utworzyć rekord z trzech właściwości **liczba_s**, **boolean_s**, i **string_s**. W tej pozycji początkowej wartości jest sformatowany jako ciąg:
+Jeśli następnie przesłane powitania od wejścia, przed utworzeniem typu rekordu hello, analizy dzienników utworzyć rekord z trzech właściwości **liczba_s**, **boolean_s**, i **string_s**. W tym wpisie wartości początkowej hello jest sformatowany jako ciąg:
 
 ![Przykładowy rekord 4](media/log-analytics-data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Limity danych
-Istnieją pewne ograniczenia wokół dane publikowane w kolekcji dane analizy dziennika interfejsu API.
+Istnieją pewne ograniczenia wokół danych hello zaksięgowany toohello dane analizy dziennika kolekcji interfejsu API.
 
-* Maksymalnie 30 MB na post API modułów zbierających dane analizy dziennika. Jest to limit rozmiaru dla pojedynczego żądania post. Jeśli po danych z jednej, która przekracza 30 MB, należy rozdzielić maksymalnie mniejsze fragmenty wielkości i wysyłać je jednocześnie.
-* Maksymalny limit 32 KB wartości pól. Jeśli wartość pola jest większa niż 32 KB, dane zostaną obcięte.
+* Maksymalnie 30 MB na post tooLog interfejsu API modułów zbierających dane analizy. Jest to limit rozmiaru dla pojedynczego żądania post. Jeśli hello dane z pojedynczego post, która przekracza 30 MB, należy rozdzielić hello fragmentów danych w górę toosmaller o rozmiarze i wyślij je jednocześnie.
+* Maksymalny limit 32 KB wartości pól. Jeśli wartość pola hello jest większa niż 32 KB, zostanie obcięta hello danych.
 * Zalecana maksymalna liczba pól dla danego typu jest 50. Jest to limit praktyczne doświadczenie użyteczność i wyszukiwania.  
 
 ## <a name="return-codes"></a>Kody powrotne
-Kod stanu HTTP 200 oznacza, że otrzymał żądanie do przetworzenia. Oznacza to, że operacja została ukończona pomyślnie.
+Kod stanu HTTP 200 Hello oznacza, że otrzymano Żądanie hello do przetwarzania. Oznacza to, że hello została pomyślnie zakończona.
 
-Poniższa tabela zawiera pełen zestaw kodów stanu, które mogą zwracać usługi:
+Poniższa tabela zawiera kompletny zestaw kodów stanu, które mogą zwracać usługi hello hello:
 
 | Kod | Stan | Kod błędu: | Opis |
 |:--- |:--- |:--- |:--- |
-| 200 |OK | |Pomyślnie zaakceptowano żądanie. |
-| 400 |Nieprawidłowe żądanie |InactiveCustomer |Obszar roboczy został zamknięty. |
-| 400 |Nieprawidłowe żądanie |InvalidApiVersion |Określona wersja interfejsu API nie został rozpoznany przez usługę. |
-| 400 |Nieprawidłowe żądanie |InvalidCustomerId |Określony identyfikator obszaru roboczego jest nieprawidłowy. |
-| 400 |Nieprawidłowe żądanie |InvalidDataFormat |Przekazano nieprawidłowy JSON. Treść odpowiedzi może zawierać więcej informacji na temat sposobu rozwiązania błędu. |
-| 400 |Nieprawidłowe żądanie |InvalidLogType |Typ dziennika określony zawartych w niej znaków specjalnych ani wartości numeryczne. |
-| 400 |Nieprawidłowe żądanie |MissingApiVersion |Nie określono wersji interfejsu API. |
-| 400 |Nieprawidłowe żądanie |MissingContentType |Nie określono typu zawartości. |
-| 400 |Nieprawidłowe żądanie |MissingLogType |Nie określono typu dziennika wymaganej wartości. |
-| 400 |Nieprawidłowe żądanie |UnsupportedContentType |Typ zawartości nie został ustawiony na **application/json**. |
-| 403 |Dostęp zabroniony |InvalidAuthorization |Usługa nie może uwierzytelnić żądania. Sprawdź, czy klucz połączenia i identyfikator obszaru roboczego są prawidłowe. |
-| 404 |Nie można odnaleźć | | Podany adres URL jest nieprawidłowy albo żądania jest za duży. |
-| 429 |Zbyt wiele żądań | | Usługa napotkała dużą liczbę dane z Twojego konta. Ponów żądanie później. |
-| 500 |Wewnętrzny błąd serwera |UnspecifiedError |Usługa napotkała błąd wewnętrzny. Ponów żądanie. |
-| 503 |Usługa jest niedostępna |ServiceUnavailable |Usługa jest obecnie odbierać żądań. Ponów żądanie. |
+| 200 |OK | |pomyślnie zaakceptowano żądanie Hello. |
+| 400 |Nieprawidłowe żądanie |InactiveCustomer |obszar roboczy Hello został zamknięty. |
+| 400 |Nieprawidłowe żądanie |InvalidApiVersion |Określona wersja Hello interfejsu API nie został rozpoznany przez usługę hello. |
+| 400 |Nieprawidłowe żądanie |InvalidCustomerId |Określony identyfikator obszaru roboczego Hello jest nieprawidłowy. |
+| 400 |Nieprawidłowe żądanie |InvalidDataFormat |Przekazano nieprawidłowy JSON. treść odpowiedzi Hello może zawierać więcej informacji na temat sposobu tooresolve hello błędu. |
+| 400 |Nieprawidłowe żądanie |InvalidLogType |Typ dziennika Hello określony zawartych w niej znaków specjalnych ani wartości numeryczne. |
+| 400 |Nieprawidłowe żądanie |MissingApiVersion |wersja interfejsu API Hello nie została określona. |
+| 400 |Nieprawidłowe żądanie |MissingContentType |nie określono Hello typu zawartości. |
+| 400 |Nieprawidłowe żądanie |MissingLogType |Hello wymagany typ wartości dziennika nie został określony. |
+| 400 |Nieprawidłowe żądanie |UnsupportedContentType |Typ zawartości Hello nie została ustawiona zbyt**application/json**. |
+| 403 |Dostęp zabroniony |InvalidAuthorization |Usługa Hello nie tooauthenticate hello żądania. Sprawdź tego hello obszaru roboczego połączenia i identyfikator klucza są poprawne. |
+| 404 |Nie można odnaleźć | | Podany adres URL hello jest niepoprawna albo hello żądania jest za duży. |
+| 429 |Zbyt wiele żądań | | Usługa Hello występuje duża liczba dane z konta. Spróbuj ponownie później hello żądania. |
+| 500 |Wewnętrzny błąd serwera |UnspecifiedError |Usługa Hello napotkał błąd wewnętrzny. Ponów żądanie hello. |
+| 503 |Usługa jest niedostępna |ServiceUnavailable |Usługa Hello jest obecnie niedostępna tooreceive żądań. Ponów żądanie. |
 
 ## <a name="query-data"></a>Zapytania o dane
-Aby danych zapytań przesyłanych przez analityka HTTP danych modułu zbierającego interfejs API dziennika, Wyszukaj rekordy z **typu** jest równa **LogType** wartość, która została określona, dołączony **_CL**. Na przykład jeśli użyto **MyCustomLog**, a następnie zwróci wszystkie rekordy z **typu = MyCustomLog_CL**.
+tooquery danych przesyłanych przez hello interfejsu API z modułu zbierającego dane HTTP Analytics dziennika, Wyszukaj rekordy z **typu** który jest taki sam toohello **LogType** wartość, która została określona, dołączony **_CL**. Na przykład jeśli użyto **MyCustomLog**, a następnie zwróci wszystkie rekordy z **typu = MyCustomLog_CL**.
 
 >[!NOTE]
-> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie zmienić powyższym zapytaniu następujące.
+> Jeśli obszaru roboczego został uaktualniony toohello [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), następnie hello powyżej zapytania spowoduje zmianę następujących toohello.
 
 > `MyCustomLog_CL`
 
 ## <a name="sample-requests"></a>Próbki żądań
-W kolejnych sekcjach znajdują się przykłady sposobu przesyłania danych do interfejsu API dziennika analizy HTTP danych moduł zbierający przy użyciu różnych języków programowania.
+W kolejnych sekcjach hello znajdują się przykłady tego, jak toosubmit toohello danych interfejsu API modułów zbierających dane dziennika Analytics HTTP przy użyciu różnych języków programowania.
 
-Dla każdej próbki wykonaj następujące kroki, aby ustawić zmienne dla nagłówka autoryzacji:
+Dla każdej próbki wykonaj te kroki tooset hello zmienne dla nagłówka autoryzacji hello:
 
-1. W portalu usługi Operations Management Suite wybierz **ustawienia** Kafelek, a następnie wybierz **połączonych źródeł** kartę.
-2. Po prawej stronie **identyfikator obszaru roboczego**, wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość **identyfikator klienta** zmiennej.
-3. Po prawej stronie **klucza podstawowego**, wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość **klucz wstępny** zmiennej.
+1. W portalu usługi Operations Management Suite hello, wybierz hello **ustawienia** Kafelek, a następnie wybierz hello **połączonych źródeł** kartę.
+2. toohello prawo **identyfikator obszaru roboczego**, wybierz ikonę kopiowania hello, a następnie wklej identyfikator hello jako wartość hello hello **identyfikator klienta** zmiennej.
+3. toohello prawo **klucza podstawowego**, wybierz ikonę kopiowania hello, a następnie wklej identyfikator hello jako wartość hello hello **klucz wstępny** zmiennej.
 
-Można również zmienić zmienne typu dziennika i dane JSON.
+Można również zmienić hello zmienne typu dziennika hello oraz dane JSON.
 
 ### <a name="powershell-sample"></a>Przykładowe programu PowerShell
 ```
@@ -215,14 +215,14 @@ $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 # Replace with your Primary Key
 $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-# Specify the name of the record type that you'll be creating
+# Specify hello name of hello record type that you'll be creating
 $LogType = "MyRecordType"
 
-# Specify a field with the created time for the records
+# Specify a field with hello created time for hello records
 $TimeStampField = "DateValue"
 
 
-# Create two records with the same set of properties to create
+# Create two records with hello same set of properties toocreate
 $json = @"
 [{  "StringValue": "MyString1",
     "NumberValue": 42,
@@ -238,7 +238,7 @@ $json = @"
 }]
 "@
 
-# Create the function to create the authorization signature
+# Create hello function toocreate hello authorization signature
 Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $method, $contentType, $resource)
 {
     $xHeaders = "x-ms-date:" + $date
@@ -256,7 +256,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 }
 
 
-# Create the function to create and post the request
+# Create hello function toocreate and post hello request
 Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
@@ -287,7 +287,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 
 }
 
-# Submit the data to the API endpoint
+# Submit hello data toohello API endpoint
 Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
@@ -308,21 +308,21 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId tooyour Operations Management Suite workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
-        // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
+        // For sharedKey, use either hello primary or hello secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        // LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of hello event type that is being submitted tooLog Analytics
         static string LogName = "DemoExample";
 
-        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field toospecify hello timestamp from hello data. If hello time field is not specified, Log Analytics assumes hello time is hello message ingestion time
         static string TimeStampField = "";
 
         static void Main()
         {
-            // Create a hash for the API signature
+            // Create a hash for hello API signature
             var datestring = DateTime.UtcNow.ToString("r");
             string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
@@ -331,7 +331,7 @@ namespace OIAPIExample
             PostData(signature, datestring, json);
         }
 
-        // Build the API signature
+        // Build hello API signature
         public static string BuildSignature(string message, string secret)
         {
             var encoding = new System.Text.ASCIIEncoding();
@@ -344,7 +344,7 @@ namespace OIAPIExample
             }
         }
 
-        // Send a request to the POST API endpoint
+        // Send a request toohello POST API endpoint
         public static void PostData(string signature, string date, string json)
         {
             try
@@ -385,13 +385,13 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update hello customer ID tooyour Operations Management Suite workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
-# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
+# For hello shared key, use either hello primary or hello secondary Connected Sources client authentication key   
 shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-# The log type is the name of the event that is being submitted
+# hello log type is hello name of hello event that is being submitted
 log_type = 'WebMonitorTest'
 
 # An example JSON web monitor object
@@ -423,7 +423,7 @@ body = json.dumps(json_data)
 ######Functions######  
 #####################
 
-# Build the API signature
+# Build hello API signature
 def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
     x_headers = 'x-ms-date:' + date
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
@@ -433,7 +433,7 @@ def build_signature(customer_id, shared_key, date, content_length, method, conte
     authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
     return authorization
 
-# Build and send a request to the POST API
+# Build and send a request toohello POST API
 def post_data(customer_id, shared_key, body, log_type):
     method = 'POST'
     content_type = 'application/json'
@@ -460,4 +460,4 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- Użyj [interfejs API dziennika wyszukiwania](log-analytics-log-search-api.md) do pobierania danych z repozytorium analizy dzienników.
+- Użyj hello [interfejs API dziennika wyszukiwania](log-analytics-log-search-api.md) tooretrieve danych z hello analizy dzienników repozytorium.

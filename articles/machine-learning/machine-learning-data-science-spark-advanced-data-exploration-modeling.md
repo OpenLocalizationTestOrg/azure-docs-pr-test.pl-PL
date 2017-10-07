@@ -1,6 +1,6 @@
 ---
-title: Zaawansowane Eksploracja danych i modelowania z Spark | Dokumentacja firmy Microsoft
-description: "Eksploracja danych i uczenia binarne modele klasyfikacji i regresji przy użyciu optymalizacji krzyżowego sprawdzania poprawności i hyperparameter, należy użyć HDInsight Spark."
+title: Eksploracja danych aaaAdvanced i modelowania z Spark | Dokumentacja firmy Microsoft
+description: "Eksploracja danych toodo Spark w usłudze HDInsight przy użyciu a uczenia binarne modele klasyfikacji i regresji przy użyciu optymalizacji krzyżowego sprawdzania poprawności i hyperparameter."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e6bf6bd3c905f077841ef166540337a251b91ad1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 055c342857fd732633cec9810de69cee61db973d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Zaawansowane eksplorowanie i modelowanie danych za pomocą platformy Spark
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-W tym przewodniku zastosowano HDInsight Spark Eksploracja danych i uczenia klasyfikacji binarnej i modele regresji przy użyciu krzyżowego sprawdzania poprawności i optymalizacji hyperparameter na próbkę NYC taksówki podróży i taryfy 2013 zestawu danych. Przeprowadzi Cię przez kroki [proces nauki danych](http://aka.ms/datascienceprocess)end-to- end, przy użyciu klastra Spark w usłudze HDInsight do przetwarzania i Azure BLOB do przechowywania danych i modelu. Proces Eksploruje wizualizuje dane pochodzące z obiektu Blob magazynu Azure i następnie przygotowuje danych do tworzenia modeli predykcyjnych. Python został użyty do kodu rozwiązania i wyświetlania odpowiednich powierzchni. Te modele są kompilowane przy użyciu zestawu narzędzi platformy Spark MLlib celu binarne klasyfikacji i regresji zadań modelowania. 
+W tym przewodniku zastosowano Spark w usłudze HDInsight toodo eksploracji i train binarne klasyfikacji danych i modeli regresji przy użyciu krzyżowego sprawdzania poprawności i optymalizacji hyperparameter na próbkę hello NYC taksówki podróży i taryfy 2013 zestawu danych. Przeprowadza użytkownika przez kroki hello hello [proces nauki danych](http://aka.ms/datascienceprocess)end-to-end, przy użyciu HDInsight Spark klastra do przetwarzania i modeli danych i hello hello toostore obiektów blob Azure. proces Hello Eksploruje wizualizuje dane pochodzące z obiektu Blob magazynu Azure i następnie przygotowuje toobuild danych hello modeli predykcyjnych. Python została toocode używane hello rozwiązanie i tooshow hello odpowiednich powierzchni. Te modele są kompilowane przy użyciu klasyfikacji binarnej toolkit toodo hello Spark MLlib i regresji modelowania zadania. 
 
-* **Klasyfikacji binarnej** zadania jest określenie, czy etykietki ma być stosowany do podróży. 
-* **Regresji** zadania jest określenie ilość Porada na podstawie innych funkcji poradę. 
+* Witaj **klasyfikacji binarnej** zadanie jest toopredict czy poradę otrzymuje za hello podróży. 
+* Witaj **regresji** toopredict hello ilość Porada hello na podstawie innych funkcji Porada jest zadanie. 
 
-Kroki modelowania również zawierać kod, przedstawiający sposób uczenia, oceny i zapisać każdego typu modelu. Omówiono także niektóre z tym samym gruncie jako [Eksploracja danych i modelowanie z Spark](machine-learning-data-science-spark-data-exploration-modeling.md) tematu. Ale jego jest bardziej "Zaawansowane" w tym również używa krzyżowego sprawdzania poprawności z hyperparameter profilach do uczenia optymalnie dokładne modele klasyfikacji i regresji. 
+kroki modelowania Hello również zawierać kod, przedstawiający sposób tootrain, oceny i zapisać każdego typu modelu. Witaj omówiono także niektóre hello sam tła jako hello [Eksploracja danych i modelowanie z Spark](machine-learning-data-science-spark-data-exploration-modeling.md) tematu. Ale jego jest bardziej "Zaawansowane" w tym również używa krzyżowego sprawdzania poprawności z hyperparameter profilach tootrain optymalnie dokładne modele klasyfikacji i regresji. 
 
-**Krzyżowe sprawdzanie poprawności (CV)** to technika, który ocenia skuteczność stanowi uogólnienie modelu ćwiczenie znanego zestawu danych do przewidywania funkcji zestawów danych, na którym go nie przeprowadzono uczenia.  Najczęstszą implementacją używane w tym miejscu jest podzielić zestawu danych na złożeń K i następnie nauczenia modelu w okrężne na wszystkie oprócz jednego złożeń. Ocenia się możliwość model do przewidywania dokładnie, gdy testowana niezależne zestaw danych w tym składanie nie są używane do uczenia modelu.
+**Krzyżowe sprawdzanie poprawności (CV)** to technika, który ocenia, jak model ćwiczenie znanego zestawu danych stanowi uogólnienie funkcje hello toopredicting zestawów danych, na którym go nie przeprowadzono uczenia.  Najczęstszą implementacją używane w tym miejscu jest toodivide zestawu danych do złożeń K i następnie uczenia modelu hello w okrężne na wszystkie oprócz jednego hello złożeń. ocenia się możliwość Hello hello modelu tooprediction dokładnie, gdy testowana hello niezależne zestawu danych, w tym modelu hello tootrain składanie nie są używane.
 
-**Optymalizacja Hyperparameter** jest problem wybrać zestaw hyperparameters dla Algorytm uczenia, zwykle z celem optymalizacji miara wydajności algorytm na niezależnego zestawu danych. **Hyperparameters** to wartości, które należy określić poza procedury szkolenie modelu. Założenia dotyczące tych wartości może wpłynąć na dokładność modeli i elastyczność. Drzewa decyzyjne ma hyperparameters, na przykład odpowiednie głębokość i liczby pozostawia w drzewie. Obsługa wektor maszyny (SVMs) wymagają, aby ustawienie terminu kar błędną klasyfikację. 
+**Optymalizacja Hyperparameter** problem hello wybrać zestaw hyperparameters dla Algorytm uczenia, zwykle z celem hello optymalizacji miara wydajności algorytm hello na niezależnego zestawu danych. **Hyperparameters** to wartości, które należy określić poza procedury szkolenie modelu hello. Założenia dotyczące tych wartości może wpłynąć na powitania elastyczność i dokładność hello modeli. Drzewa decyzyjne ma hyperparameters, na przykład, takie jak hello potrzeby głębokość i liczby pozostawia hello drzewa. Obsługa wektor maszyny (SVMs) wymagają, aby ustawienie terminu kar błędną klasyfikację. 
 
-Typowym sposobem wykonania optymalizacji hyperparameter używane w tym miejscu jest wyszukiwanie siatki, lub **odchylenia parametru**. Ten krok składa się wykonywania kompleksowe przeszukiwanie za pomocą wartości podzbiór określonego obszaru hyperparameter Algorytm uczenia. Krzyżowego sprawdzania poprawności można podać metryki wydajności, aby posortować optymalne wyniki utworzone przez algorytm wyszukiwania siatki. CV używane z pomaga polegających na usuwaniu hyperparameter limit problemów, takich jak overfitting dane szkoleniowe przy użyciu modelu, dzięki czemu model zachowuje pojemności do zastosowania do ogólny zestaw danych, z którego został wyodrębniony danych szkoleniowych.
+Typowe sposób tooperform hyperparameter optymalizacją używane w tym miejscu jest wyszukiwanie siatki, lub **odchylenia parametru**. Składa się z wykonuje kompleksowe przeszukiwanie za pomocą wartości hello określony podzbiór hello hyperparameter miejsca dla algorytmu uczenia. Krzyżowego sprawdzania poprawności można podać toosort metryki wydajności, limit optymalne hello utworzone przez algorytm wyszukiwania hello siatki. Używane z szerokimi pomaga limit problemów, takich jak overfitting danych tootraining modelu, dzięki czemu hello modelu zachowuje hello pojemności tooapply toohello ogólny zestaw danych, z których hello dane szkoleniowe został wyodrębniony hyperparameter CV.
 
-Modele używanych obejmują Regresja logistyczna i liniowych, losowe lasów i gradientu boosted drzew:
+modele Hello, używanych zawierają Regresja logistyczna i liniowych, losowe lasów i gradientu boosted drzew:
 
-* [Regresji liniowej z SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) model regresji liniowej, który używa metody stochastycznego spadku gradientu (SGD) i dla optymalizacji i funkcja skalowania do prognozowania kwoty Porada płatnej. 
-* [Regresja logistyczna z LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) lub regresji "logit" to model regresji, który może być używana podczas zależnych od zmiennej jest podzielone na kategorie do klasyfikacji danych. LBFGS to algorytm optymalizacji quasi Newton — która przybliża algorytmu Broyden — Fletcher — Goldfarb — Shanno (BFGS) przy użyciu ograniczoną ilość pamięci komputera i który jest powszechnie używany w uczeniu maszynowym.
-* [Losowe lasów](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) są komplety drzewa decyzyjnego.  Łączą wiele drzew decyzyjnych, aby zmniejszyć ryzyko overfitting. Losowe lasach są używane do regresji i klasyfikacji i może obsługiwać funkcje podzielone na kategorie i może zostać rozszerzony do ustawienia wieloklasowej klasyfikacji. One nie wymagają funkcji skalowania i są w stanie przechwytywania nieliniowość i interakcje funkcji. Losowe lasach są jednym z modeli dla funkcji klasyfikacji i regresji uczenia maszynowego najbardziej popularnych.
-* [Gradient boosted drzew](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) są komplety drzewa decyzyjnego. GBTs uczenie drzew decyzyjnych wielokrotnie powtarzane, aby zminimalizować funkcję utraty. GBTs służą do regresji i klasyfikacji można obsługiwać funkcji podzielone na kategorie, nie wymagają funkcji skalowania i są w stanie przechwytywania nieliniowość i interakcje funkcji. Ich można również w ustawieniu multiklasa klasyfikacji.
+* [Regresji liniowej z SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) model regresji liniowej, który używa metody stochastycznego spadku gradientu (SGD) i dla optymalizacji i funkcja skalowania toopredict hello Porada kwoty płatnej. 
+* [Regresja logistyczna z LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) lub regresji "logit" to model regresji, który może być używana podczas hello zależnych od zmiennej jest podzielone na kategorie toodo klasyfikacji danych. LBFGS to algorytm optymalizacji quasi Newton — która przybliża hello algorytmu Broyden — Fletcher — Goldfarb — Shanno (BFGS) przy użyciu ograniczoną ilość pamięci komputera i który jest powszechnie używany w uczeniu maszynowym.
+* [Losowe lasów](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) są komplety drzewa decyzyjnego.  Łączą wiele decyzji drzew tooreduce hello ryzyko overfitting. Losowe lasach są używane do regresji i klasyfikacji i może obsługiwać funkcje podzielone na kategorie i można ją rozszerzyć toohello wieloklasowej klasyfikacji ustawienie. Nie wymagają funkcji skalowania i czy można toocapture nieliniowość i interakcje funkcji. Losowe lasach są jednym z hello maszyny najbardziej popularnych uczenia modele klasyfikacji i regresji.
+* [Gradient boosted drzew](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) są komplety drzewa decyzyjnego. Decyzja train GBTs wielokrotnie powtarzane drzewa toominimize funkcję utraty. GBTs są używane do regresji i klasyfikacji i może obsługiwać funkcje podzielone na kategorie, nie wymagają funkcji skalowania i są w stanie toocapture nieliniowość i interakcje funkcji. Ich można również w ustawieniu multiklasa klasyfikacji.
 
-Modelowanie przykłady użycia CV i Hyperparameter przedstawiono odchylenia problemu klasyfikacji binarnej. Przykłady prostsze (bez parametru wachlarzy) są prezentowane w tematem głównym zadań regresji. Jednak w dodatku, również są prezentowane Weryfikacja za pomocą elastycznych net regresji liniowej i CV z parametru odchylenia przy użyciu regresji losowe lasu. **Elastyczna net** jest metoda umorzyć regresji to liniowo dopasowanie modeli regresji liniowej łączy P1 i P2 metryki jako kary z [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) i [pierścieniem](https://en.wikipedia.org/wiki/Tikhonov_regularization) metody.   
+Modelowanie przykłady użycia CV i Hyperparameter przedstawiono odchylenia hello problemu klasyfikacji binarnej. Przykłady prostsze (bez parametru przeszukiwanie) są prezentowane w hello tematem głównym zadań regresji. Jednak w dodatku hello, również są przedstawione Weryfikacja za pomocą elastycznych net regresji liniowej i CV z parametru odchylenia przy użyciu regresji losowe lasu. Witaj **elastyczna net** jest metoda umorzyć regresji dla dopasowanie regresji liniowej modeli liniowo łączy hello P1 i P2 metryk jako kary hello [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) i [pierścieniem](https://en.wikipedia.org/wiki/Tikhonov_regularization) metody.   
 
 > [!NOTE]
-> Chociaż toolkit Spark MLlib jest przeznaczona do pracy w dużych zestawów danych, przykładowe stosunkowo mały (~ 30 Mb przy użyciu 170K wierszy, około 0,1% oryginalnego zestawu danych NYC) jest używana w tym miejscu dla wygody. Ćwiczenie podane tutaj działa wydajnie (w około 10 minut) w klastrze usługi HDInsight z 2 węzłów procesu roboczego. Ten sam kod z drobne zmiany można przetworzyć większych-zestawów danych z odpowiednie modyfikacje dla pamięci podręcznej danych w pamięci i zmieniania rozmiaru klastra.
+> Toolkit Spark MLlib hello jest zaprojektowana toowork na dużych zestawów danych, przykładowe stosunkowo mały (~ 30 Mb przy użyciu 170K wierszy, około 0,1% hello oryginalnego NYC zestawu danych) jest używany tutaj dla wygody. Ćwiczenie Hello podane tutaj działa wydajnie (w około 10 minut) w klastrze usługi HDInsight z 2 węzłów procesu roboczego. Witaj tego samego kodu, z drobne zmiany, może być używane tooprocess większych-zestawów danych z odpowiednie modyfikacje dla buforowania danych w pamięci i zmianę rozmiaru klastra hello.
 > 
 > 
 
 ## <a name="setup-spark-clusters-and-notebooks"></a>Instalatora: Klastry Spark i notebooki
-Kroki instalacji i kodu są dostępne w tym przewodniku dla przy użyciu wersji 1.6 HDInsight Spark. Ale notesów Jupyter znajdują się w przypadku klastrów HDInsight Spark 1.6 jak Spark 2.0. Opis notesów i łącza do nich znajdują się w [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) dla repozytorium GitHub zawierające je. Ponadto kod w tym miejscu w notesach połączony jest rodzajowy i powinny działać na dowolnym klastra Spark. Jeśli nie używasz Spark w usłudze HDInsight, konfiguracja klastra i czynności administracyjne mogą być nieco inne niż to, co przedstawiono w tym miejscu. Dla wygody Oto łącza do notesów Jupyter Spark 1.6 i 2.0 do uruchomienia jądra pyspark notesu Jupyter serwera:
+Kroki instalacji i kodu są dostępne w tym przewodniku dla przy użyciu wersji 1.6 HDInsight Spark. Ale notesów Jupyter znajdują się w przypadku klastrów HDInsight Spark 1.6 jak Spark 2.0. Opis hello toothem notesów i linki znajdują się w hello [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) hello repozytorium GitHub zawierające je. Ponadto hello kodu w tym miejscu w notesach hello połączony jest rodzajowy i powinny działać na dowolnym klastra Spark. Jeśli nie używasz Spark w usłudze HDInsight, konfiguracja klastra hello i czynności administracyjne mogą być nieco inne niż to, co przedstawiono w tym miejscu. Dla wygody Oto notesów Jupyter toohello łącza hello Spark 1.6 i 2.0 toobe Uruchom jądra pyspark hello z hello notesu Jupyter serwera:
 
 ### <a name="spark-16-notebooks"></a>Notesów Spark w wersji 1.6
 
@@ -59,26 +59,26 @@ Kroki instalacji i kodu są dostępne w tym przewodniku dla przy użyciu wersji 
 
 ### <a name="spark-20-notebooks"></a>Notesów Spark 2.0
 
-[Spark2.0-pySpark3-Machine-Learning-Data-Science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): ten plik zawiera informacje na temat sposobu wykonywania Eksploracja danych, modelowania i oceniania w klastrach Spark 2.0.
+[Spark2.0-pySpark3-Machine-Learning-Data-Science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): ten plik zawiera informacje dotyczące sposobu tooperform Eksploracja danych, modelowania i oceniania w Spark 2.0 klastrów.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Instalatora: lokalizacje magazynu, biblioteki i wstępnie zdefiniowane kontekstu Spark
-Platforma Spark jest możliwość odczytu i zapisu do obiektu Blob magazynu Azure (znanej także jako WASB). Dlatego żadnych istniejących danych przechowywanych mogą być przetwarzane przy użyciu platformy Spark i ponownie przechowywane w WASB wyniki.
+## <a name="setup-storage-locations-libraries-and-hello-preset-spark-context"></a>Instalator: lokalizacji przechowywania, biblioteki i hello ustawienia wstępnego Spark kontekstu
+Platforma Spark jest możliwe tooAzure tooread i zapisu obiektu Blob magazynu (znanej także jako WASB). Tak żadnych istniejących danych przechowywanych mogą być przetwarzane przy użyciu platformy Spark i hello powoduje WASB przechowywane ponownie.
 
-Aby zapisać modele lub pliki w WASB, ścieżka musi prawidłowo określone. Domyślny kontener dołączony do klastra Spark można odwoływać się przy użyciu ścieżki rozpoczynającej się od: "wasb: / / /". Odwołuje się inne lokalizacje "wasb: / /".
+modele toosave lub pliki w WASB hello ścieżka musi toobe prawidłowo określone. Witaj klastra Spark toohello dołączony kontenera domyślnego można odwoływać się przy użyciu ścieżki rozpoczynającej się od: "wasb: / / /". Odwołuje się inne lokalizacje "wasb: / /".
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Ustawianie ścieżki katalogu dla lokalizacji przechowywania w WASB
-Poniższy przykład kodu Określa lokalizację danych do odczytu i ścieżkę do katalogu magazynu modelu, w którym jest zapisany modelu danych wyjściowych:
+Hello poniższy przykład kodu określa hello lokalizację hello toobe danych do odczytu i zapisaniu ścieżki hello hello modelu magazynu katalogu toowhich hello modelu danych wyjściowych:
 
-    # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
+    # SET PATHS tooFILE LOCATIONS: DATA AND MODEL STORAGE
 
     # LOCATION OF TRAINING DATA
     taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
 
 
-    # SET THE MODEL STORAGE DIRECTORY PATH 
-    # NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
+    # SET hello MODEL STORAGE DIRECTORY PATH 
+    # NOTE THAT hello FINAL BACKSLASH IN hello PATH IS NEEDED.
     modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
     # PRINT START TIME
@@ -90,7 +90,7 @@ Poniższy przykład kodu Określa lokalizację danych do odczytu i ścieżkę do
 DateTime.DateTime (2016, 4, 18, 17, 36, 27, 832799)
 
 ### <a name="import-libraries"></a>Importuj biblioteki
-Importuj biblioteki niezbędne następującym kodem:
+Importuj biblioteki niezbędne z hello następującego kodu:
 
     # LOAD PYSPARK LIBRARIES
     import pyspark
@@ -109,28 +109,28 @@ Importuj biblioteki niezbędne następującym kodem:
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Wstępnie zdefiniowane kontekstu Spark i poleceń magicznych PySpark
-Jądra PySpark, które są dostarczane z notesów Jupyter ma wstępnie zdefiniowane kontekstu. Dlatego nie trzeba ustawić Spark lub tworzenia kontekstów Hive jawnie, przed rozpoczęciem pracy z aplikacją. Konteksty te są dostępne dla Ciebie domyślnie. Konteksty te są:
+Hello jądra PySpark, które są dostarczane z notesów Jupyter ma wstępnie zdefiniowane kontekstu. Dlatego nie trzeba konteksty Spark i Hive hello tooset jawnie przed rozpoczęciem pracy z aplikacją hello, które tworzysz. Konteksty te są dostępne dla Ciebie domyślnie. Konteksty te są:
 
 * sc - platformy Spark 
 * Element sqlContext - gałęzi
 
-Jądro PySpark zawiera kilka wstępnie zdefiniowanych "poleceń magicznych", które są specjalne polecenia, które można wywoływać z %%. Istnieją dwa polecenia, które są używane w tych przykładach kodu.
+Witaj jądra PySpark zawiera kilka wstępnie zdefiniowanych "poleceń magicznych", które są specjalne polecenia, które można wywoływać z %%. Istnieją dwa polecenia, które są używane w tych przykładach kodu.
 
-* **%% lokalnego** Określa, że kod w kolejnych wierszy jest wykonywana lokalnie. Kod musi być prawidłowy kod języka Python.
-* **%% sql -o <variable name>**  wykonuje zapytanie Hive względem element sqlContext. Jeśli parametr -o zostanie przekazany, wynik kwerendy jest utrwalona w %% lokalny kontekst Python jako Pandas DataFrame.
+* **%% lokalnego** Określa, że kod hello w kolejnych wierszy jest toobe wykonywane lokalnie. Kod musi być prawidłowy kod języka Python.
+* **%% sql -o <variable name>**  wykonuje zapytanie Hive względem element sqlContext hello. Jeśli parametr -o hello jest przekazywany, w hello jest trwały hello wynik zapytania hello %% lokalny kontekst Python jako Pandas DataFrame.
 
-Dla więcej informacji na temat jądra notesów Jupyter i wstępnie zdefiniowane "magics" który zapewniają, zobacz [jądra dostępne dla notesu Jupyter klastrze HDInsight Spark w systemie Linux klastrów HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Dla więcej informacji na temat jądra hello notesów Jupyter i hello wstępnie zdefiniowane "magics" który zapewniają, zobacz [jądra dostępne dla notesu Jupyter klastrze HDInsight Spark w systemie Linux klastrów HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="data-ingestion-from-public-blob"></a>Wprowadzanie danych z publicznego obiektu blob:
-Pierwszym krokiem w procesie nauki danych jest pozyskiwanie danych do analizy ze źródeł, w którym znajduje się on do Eksploracja danych oraz środowisko modelowania. To środowisko jest Spark, w tym przewodniku. Ta sekcja zawiera kod, aby wykonać szereg zadań:
+Witaj pierwszym krokiem w procesie nauki danych hello jest toobe danych hello tooingest przeanalizowane ze źródeł, w którym znajduje się on w środowisku eksploracji i modelowanie danych. To środowisko jest Spark, w tym przewodniku. Ta sekcja zawiera toocomplete kodu hello sekwencję zadań:
 
-* Przykładowe dane do należy modelować pozyskiwania
-* Przeczytaj w zestawie danych wejściowych (przechowywane jako plik .tsv)
-* Formatowanie i czyszczenie danych
+* pozyskiwania toobe przykładowych danych hello modelowane
+* Przeczytaj hello danych wejściowych (przechowywane jako plik .tsv)
+* Format i dane hello czyste
 * Tworzenie i buforowania obiektów (RDDs lub ramek danych) w pamięci
 * Zarejestruj go w postaci tabeli tymczasowej w kontekście SQL.
 
-Oto kod wprowadzanie danych.
+Oto kod hello wprowadzanie danych.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -138,7 +138,7 @@ Oto kod wprowadzanie danych.
     # IMPORT FILE FROM PUBLIC BLOB
     taxi_train_file = sc.textFile(taxi_train_file_loc)
 
-    # GET SCHEMA OF THE FILE FROM HEADER
+    # GET SCHEMA OF hello FILE FROM HEADER
     schema_string = taxi_train_file.first()
     fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
     fields[7].dataType = IntegerType() #Pickup hour
@@ -175,33 +175,33 @@ Oto kod wprowadzanie danych.
         .drop('direct_distance').drop('surcharge')\
         .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
 
-    # CACHE & MATERIALIZE DATA-FRAME IN MEMORY. GOING THROUGH AND COUNTING NUMBER OF ROWS MATERIALIZES THE DATA-FRAME IN MEMORY
+    # CACHE & MATERIALIZE DATA-FRAME IN MEMORY. GOING THROUGH AND COUNTING NUMBER OF ROWS MATERIALIZES hello DATA-FRAME IN MEMORY
     taxi_df_train_cleaned.cache()
     taxi_df_train_cleaned.count()
 
     # REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
     taxi_df_train_cleaned.registerTempTable("taxi_train")
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+    # PRINT HOW MUCH TIME IT TOOK tooRUN hello CELL
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **DANE WYJŚCIOWE**
 
-Czas wykonywania nad komórką: 276.62 sekund
+Czas trwania tooexecute nad komórką: 276.62 sekund
 
 ## <a name="data-exploration--visualization"></a>Eksploracja danych i wizualizacji
-Po wprowadzeniu danych w Spark, następnym krokiem w procesie nauki danych jest lepiej zrozumieć dane za pośrednictwem eksploracji i wizualizacji. W tej sekcji możemy sprawdzanie danych taksówki za pomocą zapytań SQL i wykreślenia docelowych zmiennych i potencjalnego funkcje kontroli visual. W szczególności firma Microsoft wykreślenia częstotliwość liczby osób w podróży taksówki, częstotliwość kwoty Porada i jak porady różnią się zależnie od ilości płatności i typu.
+Po wprowadzeniu danych hello w Spark, hello następnego kroku w procesie nauki danych hello jest lepiej zrozumieć toogain hello danych za pośrednictwem eksploracji i wizualizacji. W tej sekcji omówione hello taksówki danych przy użyciu zapytania SQL oraz kreślenia hello docelowych zmiennych i potencjalnego funkcji inspekcji visual. W szczególności firma Microsoft wykreślenia hello częstotliwość liczby osób w podróży taksówki, częstotliwość hello kwot Porada i jak porady różnią się zależnie od ilości płatności i typu.
 
-### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Histogram częstotliwości liczba osób w próbce taksówki rund do wykreślenia
-Ten kod i kolejne wstawki umożliwia SQL magic próbki oraz lokalnego magic danych zapytania.
+### <a name="plot-a-histogram-of-passenger-count-frequencies-in-hello-sample-of-taxi-trips"></a>Histogram częstotliwości liczba osób w próbce hello taksówki rund do wykreślenia
+Ten kod i kolejne wstawki Użyj przykładowe hello magic tooquery SQL i tooplot magic lokalne powitania danych.
 
-* **Magiczna SQL (`%%sql`)** jądra HDInsight PySpark obsługuje zapytania HiveQL łatwe wbudowanego przed element sqlContext. (-O nazwa_zmiennej) argument będzie się powtarzał wyniki kwerendy SQL jako DataFrame Pandas, na serwerze Jupyter. Oznacza to, że jest on dostępny w trybie lokalnym.
-*  **`%%local` Magic** służy do uruchomienia kodu lokalnie na serwerze Jupyter jest headnode klastra usługi HDInsight. Zazwyczaj `%%local` magic po `%%sql -o` magic jest używany do uruchamiania kwerendy. Parametru -o czy zachować dane wyjściowe lokalnie zapytania SQL. Następnie przy użyciu `%%local` magic wyzwala następnego zestawu fragmentów kodu w celu uruchomienia lokalnie wynik zapytania SQL utrwaleniu lokalnie. Dane wyjściowe automatyczna wizualizacja po uruchomieniu kodu.
+* **Magiczna SQL (`%%sql`)** hello jądra HDInsight PySpark obsługuje łatwe wbudowanego HiveQL zapytań dotyczących element sqlContext hello. Witaj (-o nazwa_zmiennej) argument będzie się powtarzał hello wyników kwerendy SQL hello jako DataFrame Pandas na powitania serwera Jupyter. Oznacza to, że jest on dostępny w trybie lokalnym hello.
+* Witaj  **`%%local` magic** jest używany kod toorun lokalnie na powitania Jupyter serwera, który jest headnode hello hello klastra usługi HDInsight. Zazwyczaj `%%local` magic po hello `%%sql -o` magic jest używane toorun zapytania. parametru -o Hello czy utrwalić danych wyjściowych hello hello lokalnie zapytania SQL. Następnie hello `%%local` magic wyzwalaczy hello następnego zestawu toorun wstawki kodu lokalnie przed hello dane wyjściowe zapytań SQL hello umieszczone lokalnie. Po uruchomieniu kodu hello automatyczna wizualizacja Hello danych wyjściowych.
 
-To zapytanie pobiera rund według liczby osób. 
+To zapytanie pobiera rund hello według liczby osób. 
 
     # PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
 
@@ -210,23 +210,23 @@ To zapytanie pobiera rund według liczby osób.
     SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
 
 
-Ten kod tworzy lokalne ramki danych z wyników kwerendy i zawiera dane. `%%local` Magic tworzy lokalne ramki danych, `sqlResults`, które mogą służyć do kreślenia z matplotlib. 
+Ten kod tworzy lokalne ramki danych z wyników kwerendy hello i geograficzne hello danych. Witaj `%%local` magic tworzy lokalne ramki danych, `sqlResults`, które mogą służyć do kreślenia z matplotlib. 
 
 > [!NOTE]
-> Ta magic PySpark jest używana wiele razy w tym przewodniku. W przypadku dużych ilości danych, powinny przykładowe tworzenia danych ramki, który można umieścić w lokalnej pamięci.
+> Ta magic PySpark jest używana wiele razy w tym przewodniku. W przypadku dużych hello ilość danych, należy przykładowe toocreate danych ramki, który można umieścić w lokalnej pamięci.
 > 
 > 
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER
     %%local
 
-    # USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
-    # CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
+    # USE hello JUPYTER AUTO-PLOTTING FEATURE tooCREATE INTERACTIVE FIGURES. 
+    # CLICK ON hello TYPE OF PLOT tooBE GENERATED (E.G. LINE, AREA, BAR ETC.)
     sqlResults
 
-Oto kod do wykreślenia rund przez liczenie osób
+Oto hello kodu tooplot hello rund przez pasażerów liczby
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     import matplotlib.pyplot as plt
     %matplotlib inline
@@ -244,10 +244,10 @@ Oto kod do wykreślenia rund przez liczenie osób
 
 ![Częstotliwość rund według liczby osób](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
 
-Można dokonać wyboru spośród kilku różnych typów wizualizacji (tabeli, kołowego, wiersz, obszar lub pasek) przy użyciu **typu** przycisków menu notesu. Wykres słupkowy jest wyświetlany w tym miejscu.
+Można dokonać wyboru spośród kilku różnych typów wizualizacji (tabeli, kołowego, wiersz, obszar lub pasek) przy użyciu hello **typu** przycisków menu w notesie hello. Wykres słupkowy Hello jest wyświetlany w tym miejscu.
 
 ### <a name="plot-a-histogram-of-tip-amounts-and-how-tip-amount-varies-by-passenger-count-and-fare-amounts"></a>Wykreślenia histogram kwot porady i jak kwota Porada jest zależna od ilości taryfy i liczba osób.
-Użyj zapytanie SQL do przykładowych danych.
+Użyj danych toosample zapytania SQL.
 
     # SQL SQUERY
     %%sql -q -o sqlResults
@@ -262,9 +262,9 @@ Użyj zapytanie SQL do przykładowych danych.
         AND tip_amount < 25
 
 
-Ta komórka kod używa zapytania SQL w celu utworzenia trzy powierzchni danych.
+Ta komórka kod używa hello SQL kwerendy toocreate trzy powierzchni hello danych.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     %matplotlib inline
 
@@ -302,17 +302,17 @@ Ta komórka kod używa zapytania SQL w celu utworzenia trzy powierzchni danych.
 ![Porada kwota przez taryfy kwota](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
 ## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Funkcja przygotowanie zespołu inżynieryjnego, przekształcania i danych do modelowania
-Tej części opisano i przedstawiono kod dla procedur w celu przygotowania do użycia w ML modelowania danych. Widoczny jest sposób wykonywania następujących zadań:
+Tej części opisano i przedstawiono hello kod dla procedur używanych tooprepare danych do użycia w ML modelowania. Widoczny jest sposób hello toodo następujące zadania:
 
 * Utwórz nową funkcję podział godzin, w pojemnikach czasu ruchu
 * Indeks i na gorącą kodowania funkcji podzielone na kategorie
 * Tworzenie obiektów etykietą punktu na dane wejściowe do funkcji ML
-* Tworzenie losowego podrzędne pobierania próbek danych i podziel go do celów szkoleniowych i testów zestawów
+* Tworzenie podrzędnego losowej próbki danych hello i podziel go do celów szkoleniowych i testów zestawów
 * Skalowanie funkcji
 * Obiektów w pamięci podręcznej w pamięci
 
 ### <a name="create-a-new-feature-by-partitioning-traffic-times-into-bins"></a>Utwórz nową funkcję podział czasu ruchu w pojemnikach
-Ten kod przedstawia sposób tworzenia nowej funkcji podział czasu ruchu w pojemnikach, a następnie jak buforować wynikowe ramki danych w pamięci. Buforowanie prowadzi do ulepszone czas wykonania gdzie odporność rozproszonych zestawów danych (RDDs) i ramek danych są używane wielokrotnie. Tak firma Microsoft pamięci podręcznej RDDs i ramek danych w kilku etapach w tym przewodniku.
+Ten kod pokazuje, jak toocreate nowa funkcja podział ruchu razy w bins, a następnie jak toocache hello wynikowe ramki danych w pamięci. Buforowanie prowadzi czas wykonania tooimproved gdzie odporność rozproszonych zestawów danych (RDDs) i ramek danych są używane wielokrotnie. Tak firma Microsoft pamięci podręcznej RDDs i ramek danych w kilku etapach w tym przewodniku.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     sqlStatement = """
@@ -328,8 +328,8 @@ Ten kod przedstawia sposób tworzenia nowej funkcji podział czasu ruchu w pojem
     taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
 
     # CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
-    # THE .COUNT() GOES THROUGH THE ENTIRE DATA-FRAME,
-    # MATERIALIZES IT IN MEMORY, AND GIVES THE COUNT OF ROWS.
+    # hello .COUNT() GOES THROUGH hello ENTIRE DATA-FRAME,
+    # MATERIALIZES IT IN MEMORY, AND GIVES hello COUNT OF ROWS.
     taxi_df_train_with_newFeatures.cache()
     taxi_df_train_with_newFeatures.count()
 
@@ -338,11 +338,11 @@ Ten kod przedstawia sposób tworzenia nowej funkcji podział czasu ruchu w pojem
 126050
 
 ### <a name="index-and-one-hot-encode-categorical-features"></a>Indeks i hot jeden kodowania funkcji podzielone na kategorie
-W tej sekcji przedstawiono sposób indeksu lub zakodować podzielone na kategorie funkcje na dane wejściowe do funkcji modelowania. Modelowania i prognozowania funkcje MLlib wymaga, aby z kategorii danych wejściowych funkcji być indeksowane zakodowane przed użyciem. 
+W tej sekcji przedstawiono sposób tooindex lub zakodować podzielone na kategorie funkcje dla danych wejściowych do hello modelowania funkcji. Witaj, modelowania i prognozowania funkcje MLlib wymaga, aby z kategorii danych wejściowych funkcji być indeksowane zakodowane toouse wcześniejszych. 
 
-W zależności od modelu musisz indeksu lub zakodować je na różne sposoby. Na przykład Logistic i regresji liniowej modele wymagają dynamicznego jeden kodowania, gdzie, na przykład funkcja z trzech kategorii można rozszerzyć do trzy kolumny funkcji, z każdym zawierających 0 lub 1 w zależności od rodzaju obserwacji. Udostępnia MLlib [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) funkcji dynamicznego jednego kodowania. Ten koder mapuje kolumny indeksów etykiety z kolumną wektorów binarnego z co najwyżej jedną co wartość. Ten typ kodowania umożliwia algorytmy, które oczekują numeryczny ważnych funkcji, takich jak Regresja logistyczna ma zostać zastosowany do funkcji podzielone na kategorie.
+W zależności od modelu hello muszą tooindex lub zakodować je na różne sposoby. Na przykład Logistic i regresji liniowej modele wymagają dynamicznego jeden kodowania, gdzie, na przykład funkcja z trzech kategorii można rozszerzyć do trzy kolumny funkcji, z każdym zawierających 0 lub 1 w zależności od kategorii hello obserwacji. Udostępnia MLlib [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) funkcji toodo hot jednego kodowania. Ten koder mapuje kolumny etykiety indeksów tooa kolumny wektorów binarnego z co najwyżej jedną co wartość. Ten typ kodowania umożliwia algorytmy, które oczekują numeryczny ważnych funkcji, takich jak Regresja logistyczna funkcji toocategorical toobe zastosowane.
 
-Oto kod do indeksu i kodowania funkcji podzielone na kategorie:
+Oto hello tooindex kodu i kodowania funkcji podzielone na kategorie:
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -352,7 +352,7 @@ Oto kod do indeksu i kodowania funkcji podzielone na kategorie:
 
     # INDEX AND ENCODE VENDOR_ID
     stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
-    model = stringIndexer.fit(taxi_df_train_with_newFeatures) # Input data-frame is the cleaned one from above
+    model = stringIndexer.fit(taxi_df_train_with_newFeatures) # Input data-frame is hello cleaned one from above
     indexed = model.transform(taxi_df_train_with_newFeatures)
     encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
     encoded1 = encoder.transform(indexed)
@@ -381,17 +381,17 @@ Oto kod do indeksu i kodowania funkcji podzielone na kategorie:
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **DANE WYJŚCIOWE**
 
-Czas wykonywania nad komórką: 3.14 sekund
+Czas trwania tooexecute nad komórką: 3.14 sekund
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Tworzenie obiektów etykietą punktu na dane wejściowe do funkcji ML
-Ta sekcja zawiera kod, który pokazuje sposób indeksu dane tekstowe podzielone na kategorie jako typ etykietą punktu danych i do zakodowania. Przygotowuje go do użycia w celu nauczenia i przetestowania Regresja logistyczna MLlib i inne modele klasyfikacji. Obiekty etykietą punktu są odporne rozproszonych zestawów danych (RDD) sformatowany w sposób, który jest potrzebny jako danych wejściowych przez większość algorytmów uczenia Maszynowego w MLlib. A [etykietą punktu](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) lokalnego wektora, zawierające gęsto lub rozrzedzony, skojarzony z etykiety/odpowiedź.
+Ta sekcja zawiera kod, który pokazuje, jak typ danych tekstowych podzielone na kategorie tooindex jako etykietą punktu danych i jak tooencode go. To przygotowuje toobe używane tootrain i testowania MLlib Regresja logistyczna i inne modele klasyfikacji. Obiekty etykietą punktu są odporne rozproszonych zestawów danych (RDD) sformatowany w sposób, który jest potrzebny jako danych wejściowych przez większość algorytmów uczenia Maszynowego w MLlib. A [etykietą punktu](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) lokalnego wektora, zawierające gęsto lub rozrzedzony, skojarzony z etykiety/odpowiedź.
 
-Oto kod do indeksu i kodowania tekstu funkcje klasyfikacji binarnej.
+Oto hello tooindex kodu i kodowania tekstu funkcje klasyfikacji binarnej.
 
     # FUNCTIONS FOR BINARY CLASSIFICATION
 
@@ -415,7 +415,7 @@ Oto kod do indeksu i kodowania tekstu funkcje klasyfikacji binarnej.
         return  labPt
 
 
-Oto kod do kodowania i indeksu funkcje podzielone na kategorie tekstu do analizy regresji liniowej.
+Oto kod hello tooencode i pod indeksem funkcje podzielone na kategorie tekstu do analizy regresji liniowej.
 
     # FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
 
@@ -437,8 +437,8 @@ Oto kod do kodowania i indeksu funkcje podzielone na kategorie tekstu do analizy
         return  labPt
 
 
-### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Tworzenie losowego podrzędne pobierania próbek danych i podziel go do celów szkoleniowych i testów zestawów
-Ten kod tworzy losowe pobierania próbek danych (25% służy w tym miejscu). Chociaż nie jest wymagana w tym przykładzie ze względu na rozmiar zestawu danych, firma Microsoft pokazują, jak można przykładowe dane w tym miejscu. Następnie wiesz, jak używać własnych problemu, w razie potrzeby. W przypadku dużych przykłady to zapisanie długiego czasu podczas szkolenia modeli. Obok próbki możemy podzielić na części szkolenia (w tym miejscu 75%) i testowania część (25% tutaj) do użycia w klasyfikacji i regresji modelowania.
+### <a name="create-a-random-sub-sampling-of-hello-data-and-split-it-into-training-and-testing-sets"></a>Tworzenie podrzędnego losowej próbki danych hello i podziel go do celów szkoleniowych i testów zestawów
+Ten kod tworzy losowej próbki hello danych (25% służy w tym miejscu). Chociaż nie jest wymagana w tym przykładzie powodu toohello rozmiaru zestawu danych hello, przedstawiony sposób można przykładowe dane hello w tym miejscu. Wiesz, jak toouse on własne problemu, jeśli to konieczne. W przypadku dużych przykłady to zapisanie długiego czasu podczas szkolenia modeli. Obok próbki hello możemy podzielić na części szkolenia (w tym miejscu 75%) i testowania toouse część (25% tutaj) w klasyfikacji i regresji modelowania.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -475,21 +475,21 @@ Ten kod tworzy losowe pobierania próbek danych (25% służy w tym miejscu). Cho
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **DANE WYJŚCIOWE**
 
-Czas wykonywania nad komórką: 0.31 sekund
+Czas trwania tooexecute nad komórką: 0.31 sekund
 
 ### <a name="feature-scaling"></a>Skalowanie funkcji
-Skalowanie funkcji normalizacji danych, nazywany również temu, że funkcji z wartościami powszechnie rozchodów są nie podany nadmiernego porównać w celu funkcji. Kod dla funkcji skalowania używa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) funkcje do wariancji jednostki skalowania. Do użytku w regresji liniowej z stochastycznego gradientu spadku (SGD) są dostarczane przez MLlib. SGD jest popularnych Algorytm uczenia szeroką gamę innych modeli, takie jak umorzyć regresji lub pomocy technicznej wektor maszyny (SVM) uczenia maszynowego.   
+Skalowanie funkcji normalizacji danych, nazywany również temu, że funkcji z wartościami powszechnie rozchodów są nie podany nadmiernego porównać w celu funkcji hello. Witaj kodu funkcji skalowania używa hello [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) tooscale hello funkcji toounit wariancji. Do użytku w regresji liniowej z stochastycznego gradientu spadku (SGD) są dostarczane przez MLlib. SGD jest popularnych Algorytm uczenia szeroką gamę innych modeli, takie jak umorzyć regresji lub pomocy technicznej wektor maszyny (SVM) uczenia maszynowego.   
 
 > [!TIP]
-> Znaleziono uwzględniać funkcji skalowania algorytm LinearRegressionWithSGD.   
+> Znaleźliśmy skalowanie hello LinearRegressionWithSGD algorytm toobe toofeature poufnych.   
 > 
 > 
 
-Oto kod służący do skalowania zmienne do użytku z algorytmu regularized SGD liniowej.
+Oto hello kodu tooscale zmienne do użytku z hello umorzyć liniowej SGD algorytmu.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -516,14 +516,14 @@ Oto kod służący do skalowania zmienne do użytku z algorytmu regularized SGD 
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **DANE WYJŚCIOWE**
 
-Czas wykonywania nad komórką: 11.67 sekund
+Czas trwania tooexecute nad komórką: 11.67 sekund
 
 ### <a name="cache-objects-in-memory"></a>Obiektów w pamięci podręcznej w pamięci
-Czas potrzebny do celów szkoleniowych i testów algorytmów uczenia Maszynowego można zmniejszyć przez buforowanie ramki danych wejściowych obiekty używane do klasyfikacji i regresji i skalowania funkcji.
+czas Hello uczenie i testowanie algorytmów uczenia Maszynowego można zmniejszyć przez buforowanie ramki danych wejściowych hello obiekty używane do klasyfikacji i regresji i skalowania funkcji.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -547,14 +547,14 @@ Czas potrzebny do celów szkoleniowych i testów algorytmów uczenia Maszynowego
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **DANE WYJŚCIOWE** 
 
-Czas wykonywania nad komórką: 0,13 sekund
+Czas trwania tooexecute nad komórką: 0,13 sekund
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>Przewidywanie, czy z modelami klasyfikacji binarnej otrzymuje porady
-W tej sekcji przedstawiono sposób użycia trzech modeli dla zadanie klasyfikacji binarnej przewidywania czy poradę ma być stosowany w podróży taksówki. Modele prezentowane są:
+W tej sekcji przedstawiono sposób użycia trzech modeli dla zadanie klasyfikacji binarnej hello przewidywania czy poradę ma być stosowany w podróży taksówki. modele Hello prezentowane są:
 
 * Regresja logistyczna 
 * Losowe lasu
@@ -566,24 +566,24 @@ Każdy model budowania sekcji kodu jest podzielony na kroki:
 2. **Model oceny** na testowego zestawu danych o metryki
 3. **Zapisywanie modelu** w obiekcie blob do użytku w przyszłości
 
-Firma Microsoft pokazują, jak wykonać krzyżowe sprawdzanie poprawności (CV) z parametrem profilach na dwa sposoby:
+Zostanie przedstawiony sposób toodo krzyżowego sprawdzania poprawności (CV) z parametrem profilach na dwa sposoby:
 
-1. Przy użyciu **ogólnego** kodu niestandardowego, który może być stosowane do dowolnego algorytmu w MLlib żadnego parametru ustawia w algorytmie. 
-2. Przy użyciu **pySpark CrossValidator potoku funkcji**. Należy pamiętać, że CrossValidator ma kilka ograniczeń dotyczących Spark 1.5.0: 
+1. Przy użyciu **ogólnego** kodu niestandardowego, który może być zastosowane tooany algorytmu w parametrze MLlib i tooany ustawia w algorytmie. 
+2. Przy użyciu hello **pySpark CrossValidator potoku funkcji**. Należy pamiętać, że CrossValidator ma kilka ograniczeń dotyczących Spark 1.5.0: 
    
    * Modele potoku nie może być zapisany/utrwalony do użytku w przyszłości.
    * Nie można używać dla każdego parametru w modelu.
    * Nie można używać dla każdego algorytmu MLlib.
 
-### <a name="generic-cross-validation-and-hyperparameter-sweeping-used-with-the-logistic-regression-algorithm-for-binary-classification"></a>Ogólny krzyżowe sprawdzanie poprawności i kominów hyperparameter używane z algorytmem Regresja logistyczna klasyfikacji binarnej
-Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz model Regresja logistyczna z [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) który prognozuje czy Porada jest płatnej w podróży w NYC taksówki podróży i taryfy zestawu danych. Model jest uczony za pomocą innej sprawdzania poprawności (CV) i kominów hyperparameter zaimplementowany przy użyciu kodu niestandardowego, który można zastosować do poszczególnych algorytmów uczenia w MLlib.   
+### <a name="generic-cross-validation-and-hyperparameter-sweeping-used-with-hello-logistic-regression-algorithm-for-binary-classification"></a>Ogólny krzyżowe sprawdzanie poprawności i kominów hyperparameter używane z algorytmem Regresja logistyczna hello klasyfikacji binarnej
+Kod Hello w tej sekcji przedstawiono sposób tootrain, oceny i Zapisz model Regresja logistyczna z [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) który prognozuje czy porady ma być stosowany w podróży w hello NYC taksówki podróży i taryfy zestawu danych. Hello model jest uczony za pomocą innej sprawdzania poprawności (CV) i kominów hyperparameter zaimplementowany przy użyciu kodu niestandardowego, który może być zastosowane tooany z hello uczenia algorytmy MLlib.   
 
 > [!NOTE]
-> Wykonanie tego kodu niestandardowego CV może potrwać kilka minut.
+> wykonanie Hello niestandardowego kodu CV może potrwać kilka minut.
 > 
 > 
 
-**Uczenie modelu Regresja logistyczna przy użyciu CV i kominów hyperparameter**
+**Uczenie modelu Regresja logistyczna hello przy użyciu CV i kominów hyperparameter**
 
     # LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
 
@@ -602,7 +602,7 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz model Regresja lo
     paramGrid = list(ParameterGrid(grid))
     numModels = len(paramGrid)
 
-    # SET NUM FOLDS AND NUM PARAMETER SETS TO SWEEP ON
+    # SET NUM FOLDS AND NUM PARAMETER SETS tooSWEEP ON
     nFolds = 3;
     h = 1.0 / nFolds;
     metricSum = np.zeros(numModels);
@@ -652,16 +652,16 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz model Regresja lo
                                                   intercept=True)
 
 
-    # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-    # NOTE: There are 20 coefficient terms for the 10 features, 
-    #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+    # PRINT COEFFICIENTS AND INTERCEPT OF hello MODEL
+    # NOTE: There are 20 coefficient terms for hello 10 features, 
+    #       and hello different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
     print("Coefficients: " + str(logitBest.weights))
     print("Intercept: " + str(logitBest.intercept))
 
     # PRINT ELAPSED TIME    
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **DANE WYJŚCIOWE**
@@ -670,11 +670,11 @@ Współczynniki: [0.0082065285375,-0.0223675576104,-0.0183812028036, - 3.4812457
 
 Intercept:-0.0111216486893
 
-Czas wykonywania nad komórką: 14.43 sekund
+Czas trwania tooexecute nad komórką: 14.43 sekund
 
-**Ocena modelu klasyfikacji binarnej o standardowych metryki**
+**Ocena modelu klasyfikacji binarnej hello o standardowych metryki**
 
-Kod w tej sekcji przedstawiono sposób oceny modelu danych zestawu testowego, łącznie z wykresu krzywą ROC przy użyciu Regresja logistyczna.
+Kod Hello w tej sekcji przedstawiono, jak tooevaluate Regresja logistyczna modelu względem danych zestawu testowego, łącznie z wykresu hello krzywą ROC.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -714,7 +714,7 @@ Kod w tej sekcji przedstawiono sposób oceny modelu danych zestawu testowego, ł
     # PRINT ELAPSED TIME    
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **DANE WYJŚCIOWE**
@@ -731,22 +731,22 @@ Odwołaj = 0.984174341679
 
 F1 Wynik = 0.984174341679
 
-Czas wykonywania nad komórką: 2.67 sekund
+Czas trwania tooexecute nad komórką: 2.67 sekund
 
-**Wykreślić krzywą ROC.**
+**Wykreślić krzywą ROC hello.**
 
-*PredictionAndLabelsDF* jest zarejestrowany jako tabelę, *tmp_results*, w poprzedniej komórki. *tmp_results* może służyć zapytania i wyniki dane wyjściowe do ramki danych sqlResults do kreślenia. Oto kod.
+Witaj *predictionAndLabelsDF* jest zarejestrowany jako tabelę, *tmp_results*, w hello poprzedniej komórki. *tmp_results* można toodo używane zapytania i wyświetlić wyników do hello sqlResults danych ramki do kreślenia. Oto kod hello.
 
     # QUERY RESULTS                              
     %%sql -q -o sqlResults
     SELECT * from tmp_results
 
 
-Oto kod służący do tworzenia prognoz i wykreślić krzywą ROC.
+Oto hello kodu toomake prognoz i hello kreślenia krzywą ROC.
 
     # MAKE PREDICTIONS AND PLOT ROC-CURVE
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES                              
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES                              
     %%local
     %matplotlib inline
     from sklearn.metrics import roc_curve,auc
@@ -776,7 +776,7 @@ Oto kod służący do tworzenia prognoz i wykreślić krzywą ROC.
 
 **Utrwalanie modelu w obiekcie blob do użytku w przyszłości**
 
-Kod w tej sekcji pokazano, jak zapisać model Regresja logistyczna zużycia.
+Hello kodu w tej sekcji pokazano, jak model Regresja logistyczna hello toosave zużycia.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -794,18 +794,18 @@ Kod w tej sekcji pokazano, jak zapisać model Regresja logistyczna zużycia.
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds";
 
 
 **DANE WYJŚCIOWE**
 
-Czas wykonywania nad komórką: 34.57 sekund
+Czas trwania tooexecute nad komórką: 34.57 sekund
 
 ### <a name="use-mllibs-crossvalidator-pipeline-function-with-logistic-regression-elastic-regression-model"></a>Funkcja w MLlib CrossValidator potoku z modelu Regresja logistyczna (Regresja elastycznej)
-Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz model Regresja logistyczna z [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) który prognozuje czy Porada jest płatnej w podróży w NYC taksówki podróży i taryfy zestawu danych. Model jest uczony za pomocą innej sprawdzania poprawności (CV) i kominów hyperparameter zaimplementowany przy użyciu funkcji potoku MLlib CrossValidator dla CV z odchylenia parametru.   
+Kod Hello w tej sekcji przedstawiono sposób tootrain, oceny i Zapisz model Regresja logistyczna z [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) który prognozuje czy porady ma być stosowany w podróży w hello NYC taksówki podróży i taryfy zestawu danych. Hello model jest uczony przy użyciu krzyżowego sprawdzania poprawności (CV) i kominów hyperparameter zaimplementowany przy użyciu hello MLlib CrossValidator potoku funkcji dla CV z odchylenia parametru.   
 
 > [!NOTE]
-> Wykonanie tego kodu MLlib CV może potrwać kilka minut.
+> wykonywanie Hello ten kod MLlib CV może potrwać kilka minut.
 > 
 > 
 
@@ -835,7 +835,7 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz model Regresja lo
                         evaluator=BinaryClassificationEvaluator(),
                         numFolds=3)
 
-    # CONVERT TO DATA-FRAME: THIS DOES NOT RUN ON RDDs
+    # CONVERT tooDATA-FRAME: THIS DOES NOT RUN ON RDDs
     trainDataFrame = sqlContext.createDataFrame(oneHotTRAINbinary, ["features", "label"])
 
     # TRAIN WITH CROSS-VALIDATION
@@ -851,23 +851,23 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz model Regresja lo
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds";
 
 **DANE WYJŚCIOWE**
 
-Czas wykonywania nad komórką: 107.98 sekund
+Czas trwania tooexecute nad komórką: 107.98 sekund
 
-**Wykreślić krzywą ROC.**
+**Wykreślić krzywą ROC hello.**
 
-*PredictionAndLabelsDF* jest zarejestrowany jako tabelę, *tmp_results*, w poprzedniej komórki. *tmp_results* może służyć zapytania i wyniki dane wyjściowe do ramki danych sqlResults do kreślenia. Oto kod.
+Witaj *predictionAndLabelsDF* jest zarejestrowany jako tabelę, *tmp_results*, w hello poprzedniej komórki. *tmp_results* można toodo używane zapytania i wyświetlić wyników do hello sqlResults danych ramki do kreślenia. Oto kod hello.
 
     # QUERY RESULTS
     %%sql -q -o sqlResults
     SELECT label, prediction, probability from tmp_results
 
-Oto kod do wykreślenia krzywą ROC.
+Oto krzywą ROC hello hello kodu tooplot.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES 
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES 
     %%local
     from sklearn.metrics import roc_curve,auc
 
@@ -894,7 +894,7 @@ Oto kod do wykreślenia krzywą ROC.
 ![Regresja logistyczna krzywą ROC przy użyciu jego MLlib CrossValidator](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
 
 ### <a name="random-forest-classification"></a>Klasyfikacja losowe lasu
-Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz regresji losowe lasu, który prognozuje czy Porada jest płatnej w podróży w NYC taksówki podróży i taryfy zestawu danych.
+Hello kodu w tej sekcji przedstawiono, jak tootrain, oceny i Zapisz regresji losowe lasu, który prognozuje czy porady ma być stosowany w podróży w hello NYC taksówki podróży i taryfy zestawu danych.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -913,7 +913,7 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz regresji losowe l
                                            categoricalFeaturesInfo=categoricalFeaturesInfo,
                                            numTrees=25, featureSubsetStrategy="auto",
                                            impurity='gini', maxDepth=5, maxBins=32)
-    ## UN-COMMENT IF YOU WANT TO PRING TREES
+    ## UN-COMMENT IF YOU WANT tooPRING TREES
     #print('Learned classification forest model:')
     #print(rfModel.toDebugString())
 
@@ -935,17 +935,17 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz regresji losowe l
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **DANE WYJŚCIOWE**
 
 Obszarze ROC = 0.985336538462
 
-Czas wykonywania nad komórką: 26.72 sekund
+Czas trwania tooexecute nad komórką: 26.72 sekund
 
 ### <a name="gradient-boosting-trees-classification"></a>Gradientu zwiększania wyniku klasyfikacji drzewa.
-Kod w tej sekcji przedstawiono sposób uczenia, ocenić i Zapisz gradientu zwiększania wyniku modelu drzewa, który wskazuje, czy w podróży w podróży taksówki NYC otrzymuje porady i taryfy zestawu danych.
+Kod Hello w tej sekcji przedstawiono sposób tootrain, oceny i Zapisz gradientu zwiększania wyniku modelu drzewa, który wskazuje, czy etykietki jest płatnej w podróży w hello NYC taksówki podróży i taryfy zestawu danych.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -958,7 +958,7 @@ Kod w tej sekcji przedstawiono sposób uczenia, ocenić i Zapisz gradientu zwię
 
     gbtModel = GradientBoostedTrees.trainClassifier(indexedTRAINbinary, categoricalFeaturesInfo=categoricalFeaturesInfo,
                                                     numIterations=10)
-    ## UNCOMMENT IF YOU WANT TO PRINT TREE DETAILS
+    ## UNCOMMENT IF YOU WANT tooPRINT TREE DETAILS
     #print('Learned classification GBT model:')
     #print(bgtModel.toDebugString())
 
@@ -980,38 +980,38 @@ Kod w tej sekcji przedstawiono sposób uczenia, ocenić i Zapisz gradientu zwię
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **DANE WYJŚCIOWE**
 
 Obszarze ROC = 0.985336538462
 
-Czas wykonywania nad komórką: 28.13 sekund
+Czas trwania tooexecute nad komórką: 28.13 sekund
 
 ## <a name="predict-tip-amount-with-regression-models-not-using-cv"></a>Przewidywanie kwota Porada z modelami regresji (bez użycia CV)
-W tej sekcji przedstawiono sposób użycia trzy modele zadania regresji: przewidywanie wielkość Porada płatnej w podróży taksówki na podstawie innych funkcji porada. Modele prezentowane są:
+W tej sekcji przedstawiono sposób użycia trzech modeli dla zadań regresji hello: przewidywanie kwota Porada hello płatnej w podróży taksówki na podstawie innych funkcji porada. modele Hello prezentowane są:
 
 * Umorzyć regresji liniowej
 * Losowe lasu
 * Gradientu zwiększania wyniku drzewa
 
-Te modele zostały opisane w wprowadzenie. Każdy model budowania sekcji kodu jest podzielony na kroki: 
+Te modele zostały opisane w hello wprowadzenie. Każdy model budowania sekcji kodu jest podzielony na kroki: 
 
 1. **Model uczenia** danych za pomocą jednego zestawu parametrów
 2. **Model oceny** na testowego zestawu danych o metryki
 3. **Zapisywanie modelu** w obiekcie blob do użytku w przyszłości   
 
-> AZURE Uwaga: Krzyżowego sprawdzania poprawności nie jest używana z modelami trzy regresji w tej sekcji, ponieważ została ona wyświetlana szczegółowo w modelach Regresja logistyczna. Przykład przedstawiający sposób użycia CV elastycznej NET regresji liniowej znajduje się w dodatku do tego tematu.
+> AZURE Uwaga: Krzyżowego sprawdzania poprawności nie jest używana z modelami trzy regresji hello w tej sekcji, ponieważ została ona wyświetlana szczegółowo hello Regresja logistyczna modeli. Przykład przedstawiający sposób toouse CV elastycznej NET regresji liniowej znajduje się w hello dodatku w tym temacie.
 > 
-> AZURE Uwaga: W naszym środowisku może istnieć problemy z zbieżności LinearRegressionWithSGD modeli, a parametry muszą być zmienione/zoptymalizowaną dokładnie w celu uzyskania prawidłowego modelu. Skalowanie zmiennych znacznie ułatwia zbieżności. Zamiast LinearRegressionWithSGD można także elastycznej net regresji, przedstawiony w dodatku do tego tematu.
+> AZURE Uwaga: W naszym środowisku może istnieć problemy z zbieżności LinearRegressionWithSGD modeli, a parametry muszą toobe zmienić/zoptymalizowaną dokładnie uzyskiwania prawidłowego modelu. Skalowanie zmiennych znacznie ułatwia zbieżności. Można także elastycznej net regresji, przedstawiono w temacie toothis dodatku hello, zamiast LinearRegressionWithSGD.
 > 
 > 
 
 ### <a name="linear-regression-with-sgd"></a>Regresji liniowej z SGD
-Kod w tej sekcji pokazano, jak używać funkcji skalowany w celu przeszkolenia regresji liniowej używającego optymalizacji stochastycznego spadku gradientu (SGD) oraz jak wynik, oceny i zapisać modelu w usłudze Azure Blob Storage (WASB).
+Witaj kodu w tej sekcji przedstawiono sposób toouse skalowania tootrain funkcji regresji liniowej używającej stochastycznego spadku gradientu (SGD) dla usługi optymalizacji, oraz sposób tooscore, oceny i Zapisz hello model w usłudze Azure Blob Storage (WASB).
 
 > [!TIP]
-> Wiemy z doświadczenia mogą występować problemy z zbieżności LinearRegressionWithSGD modeli, a parametry muszą być zmienione/zoptymalizowaną dokładnie w celu uzyskania prawidłowego modelu. Skalowanie zmiennych znacznie ułatwia zbieżności.
+> Wiemy z doświadczenia mogą występować problemy z zbieżności hello LinearRegressionWithSGD modeli, a parametry muszą toobe zmienić/zoptymalizowaną dokładnie uzyskiwania prawidłowego modelu. Skalowanie zmiennych znacznie ułatwia zbieżności.
 > 
 > 
 
@@ -1025,12 +1025,12 @@ Kod w tej sekcji pokazano, jak używać funkcji skalowany w celu przeszkolenia r
     from pyspark.mllib.evaluation import RegressionMetrics
     from scipy import stats
 
-    # USE SCALED FEATURES TO TRAIN MODEL
+    # USE SCALED FEATURES tooTRAIN MODEL
     linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
 
-    # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-    # NOTE: There are 20 coefficient terms for the 10 features, 
-    #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+    # PRINT COEFFICIENTS AND INTERCEPT OF hello MODEL
+    # NOTE: There are 20 coefficient terms for hello 10 features, 
+    #       and hello different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
     print("Coefficients: " + str(linearModel.weights))
     print("Intercept: " + str(linearModel.intercept))
 
@@ -1051,7 +1051,7 @@ Kod w tej sekcji pokazano, jak używać funkcji skalowany w celu przeszkolenia r
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **DANE WYJŚCIOWE**
 
@@ -1063,13 +1063,13 @@ RMSE = 1.23485131376
 
 R sqr = 0.597963951127
 
-Czas wykonywania nad komórką: 38.62 sekund
+Czas trwania tooexecute nad komórką: 38.62 sekund
 
 ### <a name="random-forest-regression"></a>Regresja losowe lasu
-Kod w tej sekcji przedstawiono sposób uczenia, oceny i zapisać modelu losowe lasu, który prognozuje Porada ilość danych NYC taksówki podróży.   
+Kod Hello w tej sekcji przedstawiono sposób tootrain, oceny i Zapisz model losowe lasu, który prognozuje Porada kwota hello NYC taksówki podróży danych.   
 
 > [!NOTE]
-> Krzyżowe sprawdzanie poprawności parametru profilach przy użyciu kodu niestandardowego znajduje się w dodatku.
+> Krzyżowe sprawdzanie poprawności parametru profilach przy użyciu kodu niestandardowego znajduje się w dodatku hello.
 > 
 > 
 
@@ -1089,7 +1089,7 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i zapisać modelu losowe l
     rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
                                         numTrees=25, featureSubsetStrategy="auto",
                                         impurity='variance', maxDepth=10, maxBins=32)
-    # UN-COMMENT IF YOU WANT TO PRING TREES
+    # UN-COMMENT IF YOU WANT tooPRING TREES
     #print('Learned classification forest model:')
     #print(rfModel.toDebugString())
 
@@ -1111,7 +1111,7 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i zapisać modelu losowe l
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **DANE WYJŚCIOWE**
 
@@ -1119,10 +1119,10 @@ RMSE = 0.931981967875
 
 R sqr = 0.733445485802
 
-Czas wykonywania nad komórką: 25.98 sekund
+Czas trwania tooexecute nad komórką: 25.98 sekund
 
 ### <a name="gradient-boosting-trees-regression"></a>Gradientu zwiększania wyniku regresji drzewa.
-Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz gradientu zwiększania wyniku modelu drzewa, który prognozuje Porada ilość danych NYC taksówki podróży.
+Kod Hello w tej sekcji przedstawiono sposób tootrain, oceny i Zapisz gradientu zwiększania wyniku modelu drzewa, który prognozuje Porada kwota hello NYC taksówki podróży danych.
 
 ** Nauczanie i Ewaluacja **
 
@@ -1161,7 +1161,7 @@ Kod w tej sekcji przedstawiono sposób uczenia, oceny i Zapisz gradientu zwięks
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **DANE WYJŚCIOWE**
@@ -1170,11 +1170,11 @@ RMSE = 0.928172197114
 
 R sqr = 0.732680354389
 
-Czas wykonywania nad komórką: 20.9 sekund
+Czas trwania tooexecute nad komórką: 20.9 sekund
 
 **Kreślenia**
 
-*tmp_results* jest zarejestrowany jako tabeli programu Hive w poprzedniej komórki. Wyniki z tabeli są dane wyjściowe do *sqlResults* ramki danych do kreślenia. Oto kod
+*tmp_results* jest zarejestrowany jako tabeli programu Hive w hello poprzedniej komórki. Wyniki z tabeli hello są dane wyjściowe do hello *sqlResults* ramki danych do kreślenia. Oto kod hello
 
     # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -1183,9 +1183,9 @@ Czas wykonywania nad komórką: 20.9 sekund
     SELECT * from tmp_results
 
 
-Oto kod do wykreślenia danych za pomocą serwera Jupyter.
+Oto hello kodu tooplot hello danych przy użyciu hello Jupyter serwera.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     import numpy as np
 
@@ -1202,10 +1202,10 @@ Oto kod do wykreślenia danych za pomocą serwera Jupyter.
 ![Vs przewidzieć — Porada kwoty rzeczywiste](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Dodatek: Regresji dodatkowych zadań z wykorzystaniem krzyżowego sprawdzania poprawności z przeszukiwanie parametru
-Ten dodatek zawiera kod, przedstawiający, jak to zrobić przy użyciu elastycznej net regresji liniowej CV oraz sposobów CV z odchylenia parametr dla lasu losowe regresji przy użyciu kodu niestandardowego.
+Ten dodatek zawiera kod, przedstawiający sposób CV toodo przy użyciu elastycznej net regresji liniowej i jak CV toodo z parametrem odchylenia dla lasu losowe regresji przy użyciu kodu niestandardowego.
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>Krzyżowe sprawdzanie poprawności przy użyciu elastyczna net regresji liniowej
-Kod w tej sekcji przedstawiono sposób krzyżowe sprawdzanie poprawności przy użyciu elastycznej net regresji liniowej i ocena modelu dla danych testowych.
+Hello kodu w tej sekcji przedstawiono sposób toodo krzyżowe sprawdzanie poprawności przy użyciu elastyczna net regresji liniowej i jak tooevaluate hello modelu danych testowych.
 
     ###  CV USING ELASTIC NET FOR LINEAR REGRESSION
 
@@ -1229,7 +1229,7 @@ Kod w tej sekcji przedstawiono sposób krzyżowe sprawdzanie poprawności przy u
                                   .build() 
 
     # DEFINE PIPELINE 
-    # SIMPLY THE MODEL HERE, WITHOUT TRANSFORMATIONS
+    # SIMPLY hello MODEL HERE, WITHOUT TRANSFORMATIONS
     pipeline = Pipeline(stages=[lr])
 
     # DEFINE CV WITH PARAMETER SWEEP
@@ -1238,7 +1238,7 @@ Kod w tej sekcji przedstawiono sposób krzyżowe sprawdzanie poprawności przy u
                         evaluator=RegressionEvaluator(),
                         numFolds=3)
 
-    # CONVERT TO DATA FRAME, AS CROSSVALIDATOR WON'T RUN ON RDDS
+    # CONVERT tooDATA FRAME, AS CROSSVALIDATOR WON'T RUN ON RDDS
     trainDataFrame = sqlContext.createDataFrame(oneHotTRAINreg, ["features", "label"])
 
     # TRAIN WITH CROSS-VALIDATION
@@ -1249,34 +1249,34 @@ Kod w tej sekcji przedstawiono sposób krzyżowe sprawdzanie poprawności przy u
     testDataFrame = sqlContext.createDataFrame(oneHotTESTreg, ["features", "label"])
 
     # MAKE PREDICTIONS ON TEST DOCUMENTS
-    # cvModel uses the best model found (lrModel).
+    # cvModel uses hello best model found (lrModel).
     predictionAndLabels = cv_model.transform(testDataFrame)
 
-    # CONVERT TO DF AND SAVE REGISER DF AS TABLE
+    # CONVERT tooDF AND SAVE REGISER DF AS TABLE
     predictionAndLabels.registerTempTable("tmp_results");
 
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **DANE WYJŚCIOWE**
 
-Czas wykonywania nad komórką: 161.21 sekund
+Czas trwania tooexecute nad komórką: 161.21 sekund
 
 **Ocena z metryką R SQR**
 
-*tmp_results* jest zarejestrowany jako tabeli programu Hive w poprzedniej komórki. Wyniki z tabeli są dane wyjściowe do *sqlResults* ramki danych do kreślenia. Oto kod
+*tmp_results* jest zarejestrowany jako tabeli programu Hive w hello poprzedniej komórki. Wyniki z tabeli hello są dane wyjściowe do hello *sqlResults* ramki danych do kreślenia. Oto kod hello
 
     # SELECT RESULTS
     %%sql -q -o sqlResults
     SELECT label,prediction from tmp_results
 
 
-Oto kod służący do obliczania R sqr.
+Oto hello kodu toocalculate R sqr.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     from scipy import stats
 
@@ -1291,7 +1291,7 @@ Oto kod służący do obliczania R sqr.
 R sqr = 0.619184907088
 
 ### <a name="cross-validation-with-parameter-sweep-using-custom-code-for-random-forest-regression"></a>Krzyżowe sprawdzanie poprawności z odchylenia parametr dla lasu losowe regresji przy użyciu kodu niestandardowego
-Kod w tej sekcji przedstawiono sposób krzyżowe sprawdzanie poprawności z odchylenia parametr dla lasu losowe regresji przy użyciu kodu niestandardowego i ocena modelu dla danych testowych.
+Hello kodu w tej sekcji przedstawiono sposób toodo krzyżowe sprawdzanie poprawności z odchylenia parametr przy użyciu kodu niestandardowego dla lasu losowe regresji i jak tooevaluate hello modelu danych testowych.
 
     # RECORD START TIME
     timestart= datetime.datetime.now()
@@ -1310,7 +1310,7 @@ Kod w tej sekcji przedstawiono sposób krzyżowe sprawdzanie poprawności z odch
     ## SPECIFY LEVELS OF CATEGORICAL VARIBLES
     categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
 
-    # SPECIFY NUMFOLDS AND ARRAY TO HOLD METRICS
+    # SPECIFY NUMFOLDS AND ARRAY tooHOLD METRICS
     nFolds = 3;
     numModels = len(paramGrid)
     h = 1.0 / nFolds;
@@ -1370,7 +1370,7 @@ Kod w tej sekcji przedstawiono sposób krzyżowe sprawdzanie poprawności z odch
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **DANE WYJŚCIOWE**
@@ -1379,10 +1379,10 @@ RMSE = 0.906972198262
 
 R sqr = 0.740751197012
 
-Czas wykonywania nad komórką: 69.17 sekund
+Czas trwania tooexecute nad komórką: 69.17 sekund
 
 ### <a name="clean-up-objects-from-memory-and-print-model-locations"></a>Czyszczenie obiektów w pamięci i lokalizacjach modelu drukowania
-Użyj `unpersist()` można usunąć obiektów w pamięci podręcznej.
+Użyj `unpersist()` toodelete obiektów w pamięci podręcznej.
 
     # UNPERSIST OBJECTS CACHED IN MEMORY
 
@@ -1413,7 +1413,7 @@ Użyj `unpersist()` można usunąć obiektów w pamięci podręcznej.
 
 PythonRDD [122] w RDD w PythonRDD.scala: 43
 
-** Wydruku ścieżka do plików modelu używanego w notesie zużycia. ** Do zużywają i wyniku niezależnego zestawu danych, należy do kopiowania i wklejania te nazwy pliku w "notesu zużycie".
+** Wydruku toomodel ścieżki plików toobe używane w notesie zużycie hello. ** tooconsume i wynik niezależne — zestaw danych, należy toocopy go i Wklej te nazwy pliku w "Zużycia notesu" hello.
 
     # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
     print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
@@ -1439,7 +1439,7 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52_18.827237"
 
 ## <a name="whats-next"></a>Co dalej?
-Teraz, po utworzeniu modele regresji i klasyfikacji z Spark MlLib, możesz przystąpić do Dowiedz się, jak wynik i oceny tych modeli.
+Teraz po utworzeniu modele regresji i klasyfikacji z hello Spark MlLib, wszystko jest gotowe toolearn jak tooscore i oceny tych modeli.
 
-**Model zużycia:** informacje na temat uczenie i Ewaluacja modeli klasyfikacji i regresji utworzone w tym temacie, zobacz [wynik i ocena modele uczenia wbudowane Spark maszyny](machine-learning-data-science-spark-model-consumption.md).
+**Model zużycia:** toolearn jak tooscore i ocenić hello klasyfikacji i regresji modeli utworzonych w tym temacie, zobacz [wynik i ocena modele uczenia wbudowane Spark maszyny](machine-learning-data-science-spark-model-consumption.md).
 

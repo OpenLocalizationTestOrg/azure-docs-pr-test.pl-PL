@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie środowisk nauki danych na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Ustawienia danych środowisk nauki na platformie Azure do użycia w procesie nauki danych zespołu."
+title: "aaaSet się środowisk nauki danych na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Ustawienia danych środowisk nauki na platformie Azure do użycia w hello proces nauki danych zespołu."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: bradsev
-ms.openlocfilehash: 4f2f66288428aa0aa41abb40ce0e43c4848543ff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 11e16416296d687c15fdaf17558aebc2d04737c9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Konfigurowanie środowisk analizy danych do użytku w zespołowym przetwarzaniu danych dla celów naukowych
-Proces nauki danych zespołu używa różnych środowiskach nauki danych do przechowywania, przetwarzania i analizy danych. Obejmują one magazynu obiektów Blob Azure, maszyny wirtualne platformy Azure, klastry usługi HDInsight (Hadoop) i obszarów roboczych usługi Azure Machine Learning kilku typów. Decyzja o poszczególnych środowisk do użycia zależy od typu i ilość danych, aby być modelowane i docelowej dla tych danych w chmurze. 
+# <a name="set-up-data-science-environments-for-use-in-hello-team-data-science-process"></a>Ustawienia danych środowisk nauki do użycia w hello proces nauki danych zespołu
+Hello zespołu w procesie nauki danych używa różnych środowiskach nauki danych hello przechowywania, przetwarzania i analizy danych. Obejmują one magazynu obiektów Blob Azure, maszyny wirtualne platformy Azure, klastry usługi HDInsight (Hadoop) i obszarów roboczych usługi Azure Machine Learning kilku typów. Hello decyzji dotyczących poszczególnych środowisk toouse zależy od typu hello i ilość danych toobe modelowane i hello docelowego miejsce docelowe dla tych danych w chmurze hello. 
 
-* Aby uzyskać wskazówki dotyczące pytań, na które należy wziąć pod uwagę podczas tworzenia tej decyzji, zobacz [planowanie Your Azure Learning danych nauki środowiska maszyny](machine-learning-data-science-plan-your-environment.md). 
-* Dla katalogu niektóre scenariusze mogą wystąpić podczas wykonywania zaawansowane metody analizy, zobacz [scenariusze dotyczące procesu nauki danych zespołu](machine-learning-data-science-plan-sample-scenarios.md)
+* Aby uzyskać wskazówki dotyczące tooconsider pytań podczas tworzenia tej decyzji, zobacz [planowanie Your Azure Learning danych nauki środowiska maszyny](machine-learning-data-science-plan-your-environment.md). 
+* Dla katalogu niektórych hello scenariusze mogą wystąpić podczas wykonywania zaawansowane metody analizy, zobacz [scenariusze hello proces nauki danych zespołu](machine-learning-data-science-plan-sample-scenarios.md)
 
-To menu łącza do tematów opisujących sposób konfigurowania różnych środowiskach nauki danych używanych przez proces nauki danych Team.
+W tym menu łączy tootopics opisujące tooset się hello różnych środowiskach nauki danych użycia przez hello zespołu w procesie nauki danych.
 
 [!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-**Microsoft danych nauki maszyny wirtualnej (DSVM)** jest również dostępny jako obraz maszyny wirtualnej platformy Azure (VM). Ta maszyna wirtualna jest wstępnie zainstalowane i skonfigurowane z kilku popularnych narzędzi, które są często używane do analizy danych i uczenia maszynowego. DSVM jest dostępna w systemach Windows i Linux. Aby uzyskać więcej informacji, zobacz [wprowadzenie do opartej na chmurze danych nauki maszyny wirtualnej systemu Linux i Windows](machine-learning-data-science-virtual-machine-overview.md).
+Witaj **Microsoft danych nauki maszyny wirtualnej (DSVM)** jest również dostępny jako obraz maszyny wirtualnej platformy Azure (VM). Ta maszyna wirtualna jest wstępnie zainstalowane i skonfigurowane z kilku popularnych narzędzi, które są często używane do analizy danych i uczenia maszynowego. Witaj DSVM jest dostępna w systemach Windows i Linux. Aby uzyskać więcej informacji, zobacz [toohello wprowadzenie oparte na chmurze danych nauki maszyny wirtualnej systemu Linux i Windows](machine-learning-data-science-virtual-machine-overview.md).
 

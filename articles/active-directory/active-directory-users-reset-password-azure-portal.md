@@ -1,6 +1,6 @@
 ---
-title: "Resetowanie w usłudze Azure Active Directory hasła | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak można zresetować hasła dla użytkownika w usłudze Azure Active Directory"
+title: "Resetowanie w usłudze Azure Active Directory aaaPassword | Dokumentacja firmy Microsoft"
+description: "Wyjaśniono, jak tooreset hello hasła dla użytkownika w usłudze Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,36 +16,36 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e7c38c7f0d40a310dd0b6bd0e866d2d55115550
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f4bb201803ffc50bcc937a309ae4f0d613da2ae4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Resetowanie hasła dla użytkownika w usłudze Azure Active Directory
+# <a name="reset-hello-password-for-a-user-in-azure-active-directory"></a>Zresetuj hello hasło dla użytkownika w usłudze Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](active-directory-users-reset-password-azure-portal.md)
 > * [Klasyczna witryna Azure Portal](active-directory-create-users-reset-password.md)
 >
 >
 
-## <a name="how-to-reset-the-password-for-a-user"></a>Jak można zresetować hasła dla użytkownika
-1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
-2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
+## <a name="how-tooreset-hello-password-for-a-user"></a>Jak tooreset hello hasła dla użytkownika
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu hello.
+2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w hello pola tekstowego, a następnie wybierz **Enter**.
 
    ![Otwieranie Zarządzanie użytkownikami](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
-3. Na **użytkowników i grup** bloku, wybierz opcję **użytkowników**.
+3. Na powitania **użytkowników i grup** bloku, wybierz opcję **użytkowników**.
 
-   ![Otwieranie bloku użytkowników](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
-4. W bloku **Użytkownicy i grupy — Użytkownicy** wybierz użytkownika z listy.
-5. W bloku wybranego użytkownika wybierz pozycję **Przegląd**, a następnie na pasku poleceń wybierz polecenie **Resetuj hasło**.
+   ![Blok użytkownicy hello otwierania](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
+4. Na powitania **użytkowników i grup — Użytkownicy** bloku, wybierz użytkownika z listy hello.
+5. W bloku hello hello wybranego użytkownika, wybierz **omówienie**, a następnie na pasku poleceń hello, wybierz **resetowania hasła**.
 
-    ![Polecenie resetowania hasła](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
-6. Na **resetowania hasła** bloku, wybierz opcję **resetowania hasła**.
+    ![Wybieranie hello resetowania hasła polecenia](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
+6. Na powitania **resetowania hasła** bloku, wybierz opcję **resetowania hasła**.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Dodaj użytkownika](active-directory-users-create-azure-portal.md)
-* [Przypisanie użytkownika do roli w usługi Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Przypisz rolę użytkownika tooa w usługi Azure AD](active-directory-users-assign-role-azure-portal.md)
 * [Zmień informacje dotyczące pracy użytkownika](active-directory-users-work-info-azure-portal.md)
 * [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
 * [Usunięcie użytkownika w usługi Azure AD](active-directory-users-delete-user-azure-portal.md)

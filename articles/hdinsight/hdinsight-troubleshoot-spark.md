@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązywanie problemów z Spark przy użyciu usługi Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Odpowiedzi na często zadawane pytania na temat pracy z Apache Spark i usłudze Azure HDInsight."
+title: "aaaTroubleshoot Spark przy użyciu usługi Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Uzyskaj odpowiedzi na pytania toocommon dotyczące pracy z Apache Spark i usłudze Azure HDInsight."
 keywords: "Usługa Azure HDInsight, Spark, często zadawane pytania, rozwiązywanie problemów z przewodnika, typowe problemy, konfiguracji aplikacji, Ambari"
 services: Azure HDInsight
 documentationcenter: na
@@ -15,79 +15,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
-ms.openlocfilehash: cfed5f0f4f703821e83e3d365810c0e5ad22f035
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c9f910daf295462238a3143ae2589db6d383097f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z Spark przy użyciu usługi Azure HDInsight
 
-Dowiedz się więcej o Najważniejsze problemy i rozwiązania ich podczas pracy z ładunków Apache Spark w Apache Ambari.
+Dowiedz się więcej o hello Najważniejsze problemy i rozwiązania ich podczas pracy z ładunków Apache Spark w Apache Ambari.
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Jak skonfigurować aplikacji Spark przy użyciu Ambari w klastrach
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
-Wartości konfiguracji do wykonania tej procedury wcześniej zostały ustawione w usłudze HDInsight. Aby określić, które Spark konfiguracje trzeba ustawić i jakie wartości, zobacz [co powoduje Spark wyjątek OutofMemoryError aplikacji](#what-causes-a-spark-application-outofmemoryerror-exception). 
+wartości konfiguracji Hello do wykonania tej procedury wcześniej zostały ustawione w usłudze HDInsight. Zobacz toodetermine konfiguracje Spark, które muszą wartości zestawu i toowhat toobe [co powoduje Spark wyjątek OutofMemoryError aplikacji](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
-1. Na liście klastrów, wybierz **Spark2**.
+1. Na liście hello klastrów, wybierz **Spark2**.
 
     ![Wybierz klaster z listy](media/hdinsight-troubleshoot-spark/update-config-1.png)
 
-2. Wybierz **Configs** kartę.
+2. Wybierz hello **Configs** kartę.
 
-    ![Wybierz kartę Configs](media/hdinsight-troubleshoot-spark/update-config-2.png)
+    ![Wybierz kartę Configs hello](media/hdinsight-troubleshoot-spark/update-config-2.png)
 
-3. Na liście konfiguracji, wybierz **niestandardowe spark2-domyślne**.
+3. Na liście hello konfiguracji, wybierz **niestandardowe spark2-domyślne**.
 
     ![Wybierz niestandardowe spark — ustawienia domyślne](media/hdinsight-troubleshoot-spark/update-config-3.png)
 
-4. Wyszukaj ustawienie wartości, które należy dopasować, takich jak **spark.executor.memory**. W takim przypadku wartość **4608m** jest zbyt duża.
+4. Wyszukaj wartości hello ustawienie muszą tooadjust, takich jak **spark.executor.memory**. W takim przypadku hello wartość **4608m** jest zbyt duża.
 
-    ![Wybierz pole spark.executor.memory](media/hdinsight-troubleshoot-spark/update-config-4.png)
+    ![Wybierz pole spark.executor.memory hello](media/hdinsight-troubleshoot-spark/update-config-4.png)
 
-5. Wartość to ustawienie zalecane. Wartość **2048m** jest zalecane dla tego ustawienia.
+5. Zestaw hello wartość toohello zalecane ustawienie. Witaj wartość **2048m** jest zalecane dla tego ustawienia.
 
-    ![Zmień wartość na 2048m](media/hdinsight-troubleshoot-spark/update-config-5.png)
+    ![Zmień wartość too2048m](media/hdinsight-troubleshoot-spark/update-config-5.png)
 
-6. Zapisz wartość, a następnie zapisać konfigurację. Na pasku narzędzi wybierz **zapisać**.
+6. Zapisz hello wartość, a następnie zapisz hello konfiguracji. Na pasku narzędzi hello, wybierz **zapisać**.
 
-    ![Zapisz ustawienia i Konfiguracja](media/hdinsight-troubleshoot-spark/update-config-6a.png)
+    ![Zapisz ustawienia hello i konfiguracji](media/hdinsight-troubleshoot-spark/update-config-6a.png)
 
-    Użytkownik jest powiadamiany, jeśli wszystkie konfiguracje wymagają uwagi. Należy pamiętać, elementy, a następnie wybierz **kontynuować mimo to**. 
+    Użytkownik jest powiadamiany, jeśli wszystkie konfiguracje wymagają uwagi. Zanotuj hello elementy, a następnie wybierz **kontynuować mimo to**. 
 
     ![Wybierz kontynuować mimo to](media/hdinsight-troubleshoot-spark/update-config-6b.png)
 
-    Wpisz notatkę o zmiany konfiguracji, a następnie wybierz **zapisać**.
+    Wpisz notatkę o hello zmian konfiguracji, a następnie wybierz **zapisać**.
 
-    ![Wprowadź notatkę dotyczącą wprowadzone zmiany](media/hdinsight-troubleshoot-spark/update-config-6c.png)
+    ![Wprowadź notatkę dotyczącą wprowadzone zmiany hello](media/hdinsight-troubleshoot-spark/update-config-6c.png)
 
-7. Zawsze, gdy konfiguracja jest zapisywana, zostanie wyświetlony monit ponownie uruchom usługę. Wybierz **ponownego uruchomienia**.
+7. Zawsze, gdy konfiguracja jest zapisywana, zostanie wyświetlony monit toorestart hello usługi. Wybierz **ponownego uruchomienia**.
 
     ![Uruchom ponownie](media/hdinsight-troubleshoot-spark/update-config-7a.png)
 
-    Upewnij się, ponowne uruchomienie.
+    Potwierdź hello ponownego uruchomienia komputera.
 
     ![Wybierz upewnij się, uruchom ponownie wszystkie](media/hdinsight-troubleshoot-spark/update-config-7b.png)
 
-    Możesz przejrzeć procesów, które są uruchomione.
+    Możesz przejrzeć hello procesów, które są uruchomione.
 
     ![Przejrzyj uruchomione procesy](media/hdinsight-troubleshoot-spark/update-config-7c.png)
 
-8. Można dodać konfiguracje. Na liście konfiguracji, wybierz **niestandardowe spark2-ustawienia domyślne**, a następnie wybierz **Dodaj właściwość**.
+8. Można dodać konfiguracje. Liście hello konfiguracji wybierz **niestandardowe spark2-domyślne**, a następnie wybierz **Dodaj właściwość**.
 
     ![Wybierz opcję Dodaj właściwość](media/hdinsight-troubleshoot-spark/update-config-8.png)
 
-9. Zdefiniuj nową właściwość. Za pomocą okna dialogowego dotyczące konkretnych ustawień, takich jak typ danych można zdefiniować jednej właściwości. Alternatywnie można zdefiniować wiele właściwości, za pomocą jednej definicji w każdym wierszu. 
+9. Zdefiniuj nową właściwość. Za pomocą okna dialogowego dotyczące konkretnych ustawień, takich jak typ danych hello można zdefiniować jednej właściwości. Alternatywnie można zdefiniować wiele właściwości, za pomocą jednej definicji w każdym wierszu. 
 
-    W tym przykładzie **spark.driver.memory** zdefiniowano właściwość z wartością **4g**.
+    W tym przykładzie hello **spark.driver.memory** zdefiniowano właściwość z wartością **4g**.
 
     ![Zdefiniuj nową właściwość](media/hdinsight-troubleshoot-spark/update-config-9.png)
 
-10. Zapisz konfigurację, a następnie uruchom ponownie usługę, zgodnie z opisem w kroku 6 i 7.
+10. Zapisz konfigurację hello, a następnie ponownie uruchom usługę hello, zgodnie z opisem w kroku 6 i 7.
 
-Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zadania Spark.
+Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zadania Spark hello.
 
 ### <a name="additional-reading"></a>Dodatkowe materiały
 
@@ -98,9 +98,9 @@ Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zada
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
-1. Aby określić, które Spark konfiguracje trzeba ustawić i jakie wartości, zobacz [co powoduje Spark wyjątek OutofMemoryError aplikacji](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Zobacz toodetermine konfiguracje Spark, które muszą wartości zestawu i toowhat toobe [co powoduje Spark wyjątek OutofMemoryError aplikacji](#what-causes-a-spark-application-outofmemoryerror-exception).
 
-2. W pierwszej komórki notesu Jupyter po **%% skonfigurować** dyrektywy, określ konfiguracje Spark prawidłowy format JSON. Ustaw rzeczywistymi wartościami:
+2. W pierwszej komórki hello notesu Jupyter hello, po hello **%% skonfigurować** dyrektywy, określ konfiguracje Spark hello prawidłowy format JSON. Ustaw wartości rzeczywistych hello:
 
     ![Dodaj konfigurację](media/hdinsight-troubleshoot-spark/add-configuration-cell.png)
 
@@ -113,9 +113,9 @@ Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zada
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
-1. Aby określić, które Spark konfiguracje trzeba ustawić i jakie wartości, zobacz [co powoduje Spark wyjątek OutofMemoryError aplikacji](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. Zobacz toodetermine konfiguracje Spark, które muszą wartości zestawu i toowhat toobe [co powoduje Spark wyjątek OutofMemoryError aplikacji](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
-2. Przesyłanie aplikacji Spark Livy przy użyciu klienta REST, takich jak cURL. Polecenie podobne do następującego. Ustaw rzeczywistymi wartościami:
+2. Przesyłanie tooLivy aplikacji Spark hello przy użyciu klienta REST, takich jak cURL. Użyj polecenia podobne następującego toohello. Ustaw wartości rzeczywistych hello:
 
     ```apache
     curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://container@storageaccountname.blob.core.windows.net/example/jars/sparkapplication.jar", "className":"com.microsoft.spark.application", "numExecutors":4, "executorMemory":"4g", "executorCores":2, "driverMemory":"8g", "driverCores":4}'  
@@ -130,9 +130,9 @@ Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zada
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
-1. Aby określić, które Spark konfiguracje trzeba ustawić i jakie wartości, zobacz [co powoduje Spark wyjątek OutofMemoryError aplikacji](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Zobacz toodetermine konfiguracje Spark, które muszą wartości zestawu i toowhat toobe [co powoduje Spark wyjątek OutofMemoryError aplikacji](#what-causes-a-spark-application-outofmemoryerror-exception).
 
-2. Uruchom powłokę spark przy użyciu polecenia podobny do następującego. Ustaw wartość rzeczywistą konfiguracje: 
+2. Uruchom powłokę spark przy użyciu polecenia podobne następującego toohello. Ustaw wartość rzeczywista hello hello konfiguracji: 
 
     ```apache
     spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
@@ -147,7 +147,7 @@ Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zada
 
 ### <a name="detailed-description"></a>Szczegółowy opis
 
-Aplikacji Spark kończy się niepowodzeniem z następujących typów nieprzechwyconych wyjątków:
+Witaj aplikacji Spark kończy się niepowodzeniem z hello następujące typy nieprzechwyconych wyjątków:
 
 ```apache
 ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439) 
@@ -191,15 +191,15 @@ java.lang.OutOfMemoryError
 
 ### <a name="probable-cause"></a>Prawdopodobna przyczyna
 
-Najbardziej prawdopodobną przyczyną tego wyjątku jest, że nie ma wystarczającej ilości pamięci sterty jest przydzielona do maszyny wirtualnej Java (JVMs). Te JVMs będą uruchamiane jako modułów lub sterowniki jako część aplikacji Spark. 
+Witaj najbardziej prawdopodobną przyczyną tego wyjątku jest, że nie ma wystarczającej ilości pamięci sterty jest przydzielona maszyny wirtualnej Java toohello (JVMs). Te JVMs będą uruchamiane jako modułów lub sterowniki jako część hello aplikacji Spark. 
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
-1. Maksymalny rozmiar danych Spark dojść do aplikacji. Możesz wprowadzić wynik, na podstawie maksymalnego rozmiaru danych wejściowych, pośrednich danych, który jest generowany przez przekształcania danych wejściowych i danych wyjściowych, który jest generowany, gdy aplikacja jest dalsze przekształcanie pośrednich danych. Ten proces może zająć iteracyjną, jeśli nie możesz początkowej formalnego argumentu. 
+1. Określ maksymalny rozmiar hello dojść Spark hello hello danych w aplikacji. Możesz wprowadzić wynik, na podstawie maksymalnego rozmiaru hello hello danych wejściowych, hello pośrednich danych wytworzonego przez przekształcania danych wejściowych hello i danych wyjściowych hello utworzonym podczas aplikacji hello jest dalsze przekształcania hello pośrednich danych. Ten proces może zająć iteracyjną, jeśli nie możesz początkowej formalnego argumentu. 
 
-2. Upewnij się, że klaster usługi HDInsight, który ma być używana ma wystarczające zasoby pamięci i rdzeni, aby zmieścił się w aplikacji Spark. Można to określić, wyświetlając sekcji metryki klastra w interfejsie użytkownika YARN dla wartości **pamięć używana** vs. **Całkowita liczba pamięci**, i **VCores używane** vs. **Łączna liczba VCores**.
+2. Upewnij się, ma toouse ma za mało zasobów pod względem pamięci i rdzeni aplikacji Spark hello tooaccommodate klastra usługi HDInsight hello. Można to określić, wyświetlając hello klastra metryki części hello interfejsie użytkownika YARN hello wartości z **pamięć używana** vs. **Całkowita liczba pamięci**, i **VCores używane** vs. **Łączna liczba VCores**.
 
-3. Ustaw następujące konfiguracje Spark na odpowiednie wartości, które nie może przekraczać 90% dostępnej pamięci i rdzeni. Wartości powinny być dobrze w wymagania dotyczące pamięci aplikacji Spark: 
+3. Ustaw wartości tooappropriate konfiguracje, które nie może przekraczać 90% hello dostępnej pamięci i rdzeni powitania po Spark. Witaj wartości powinny być również w ramach wymagań pamięci hello hello aplikacji Spark: 
 
     ```apache
     spark.executor.instances (Example: 8 for 8 executor count) 
@@ -211,12 +211,12 @@ Najbardziej prawdopodobną przyczyną tego wyjątku jest, że nie ma wystarczaj�
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Aby uzyskać łączna ilość pamięci używana przez wszystkich modułów, uruchom następujące polecenie: 
+    tooget hello ilość pamięci używana przez wszystkich modułów, uruchom następujące polecenie hello: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-    Aby uzyskać suma pamięci używanej przez sterownik, uruchom następujące polecenie:
+    tooget hello suma pamięci używanej przez sterownik hello, uruchom następujące polecenie hello:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead

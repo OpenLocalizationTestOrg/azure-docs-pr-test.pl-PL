@@ -1,6 +1,6 @@
 ---
-title: "Utwórz bramę aplikacji przy użyciu reguł routingu adresów URL - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera instrukcje dotyczące tworzenia, konfigurowania bramy usługi aplikacji Azure przy użyciu reguł routingu adresów URL"
+title: "zasady bramę aplikacji przy użyciu routingu adresów URL - aaaCreate 2.0 interfejsu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Ta strona zawiera instrukcje toocreate, skonfiguruj bramę aplikacji Azure przy użyciu reguł routingu adresów URL"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
-ms.openlocfilehash: 958049830d6753ec26635f18f8f8b2fabdec0733
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 335b52be258945e1172eb0252b732e0e6ecb2ef0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-application-gateway-using-path-based-routing-with-azure-cli-20"></a>Utwórz bramę aplikacji przy użyciu routingu opartego na ścieżkę 2.0 interfejsu wiersza polecenia platformy Azure
 
@@ -26,48 +26,48 @@ ms.lasthandoff: 08/18/2017
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-url-route-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-create-url-route-cli.md)
 
-Na podstawie ścieżki routingu adresów URL umożliwia powiązanie tras na podstawie ścieżki adresu URL żądania Http. Sprawdza, czy istnieje trasa do puli zaplecza skonfigurowane dla adresu URL, w bramie aplikacji, a wysyła ruchu sieciowego do określonych puli zaplecza. Użycia routingu opartego na adres URL jest w celu zrównoważenia obciążenia żądaniami dla różnych typów zawartości do innego serwera zaplecza pul.
+Na podstawie ścieżki routingu adresów URL umożliwia możesz tooassociate tras na podstawie hello ścieżki adresu URL żądania Http. Sprawdza, czy jest skonfigurowane dla adresu URL hello przedstawionych w hello brama aplikacji w puli zaplecza tooa trasy, a wysyła toohello ruchu sieciowego hello zdefiniowanymi w puli zaplecza. Użycia routingu opartego na adres URL jest tooload równoważenie żądań dla pul serwerów zaplecza toodifferent różne typy zawartości.
 
-Routingu opartego na adres URL został wprowadzony nowy typ reguły na bramie aplikacji. Brama aplikacji ma dwa typy zasad: podstawowe i PathBasedRouting. Podstawowe reguły typu udostępnia usługę okrężnego dla pul zaplecza podczas PathBasedRouting oprócz dystrybucji działanie okrężne, uwzględnia również wzorzec ścieżki adresu URL żądania podczas wybierania puli zaplecza.
+Na podstawie adresu URL routingu wprowadza nową bramę tooapplication typ reguły. Brama aplikacji ma dwa typy zasad: podstawowe i PathBasedRouting. Typu podstawowe reguły stanowi usługa okrężnego dla zaplecza hello pul podczas PathBasedRouting dodatkowo dystrybucji działania okrężnego tooround, uwzględnia również wzorzec ścieżki adresu URL żądania hello podczas wybierania hello puli zaplecza.
 
 ## <a name="scenario"></a>Scenariusz
 
-W poniższym przykładzie brama aplikacji jest obsługę ruchu dla domeny contoso.com z dwóch pul serwerów zaplecza: domyślna pula serwera i puli serwerów obrazu.
+W hello poniższy przykład, bramy aplikacji jest obsługę ruchu dla domeny contoso.com z dwóch pul serwerów zaplecza: domyślna pula serwera i puli serwerów obrazu.
 
-Żądania dla http://contoso.com/image * są kierowane do puli serwerów obrazu (imagesBackendPool), czy wzorzec ścieżki nie jest zgodny, domyślna pula serwera (appGatewayBackendPool) jest zaznaczona.
+Żądania dla http://contoso.com/image * są kierowane do puli serwerów tooimage (imagesBackendPool), jeśli hello wzorzec ścieżki nie jest zgodny, domyślna pula serwera (appGatewayBackendPool) jest zaznaczone.
 
 ![trasy adresu URL](./media/application-gateway-create-url-route-cli/scenario.png)
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+## <a name="log-in-tooazure"></a>Zaloguj się za tooAzure
 
-Otwórz **wiersza polecenia usługi Microsoft Azure**i zaloguj się. 
+Otwórz hello **wiersza polecenia usługi Microsoft Azure**i zaloguj się. 
 
 ```azurecli
 az login -u "username"
 ```
 
 > [!NOTE]
-> Można również użyć `az login` bez przełącznika dla nazwy logowania urządzenia, która wymaga wprowadzenie kodu na aka.ms/devicelogin.
+> Można również użyć `az login` bez hello przełącznika dla nazwy logowania urządzenia, która wymaga wprowadzenie kodu na aka.ms/devicelogin.
 
-Po wpisaniu powyższego przykładu znajduje się kod. Przejdź do https://aka.ms/devicelogin w przeglądarce, aby kontynuować proces logowania.
+Po wpisaniu hello poprzedzających przykład znajduje się kod. Przejdź toohttps://aka.ms/devicelogin w procesie logowania hello toocontinue przeglądarki.
 
 ![cmd przedstawiający urządzenia logowania][1]
 
-W przeglądarce wprowadź otrzymany kod. Nastąpi przekierowanie do strony logowania.
+W przeglądarce hello wprowadź otrzymany kod hello. Jesteś tooa przekierowanego strony logowania.
 
-![przeglądarki, aby wprowadzić kod][2]
+![Kod tooenter przeglądarki][2]
 
-Po wprowadzeniu kodu użytkownik jest zalogowany, zamknij przeglądarkę, aby kontynuować na ze scenariuszem.
+Po wprowadzeniu kodu hello użytkownik jest zalogowany, zamknij hello toocontinue przeglądarki ze scenariuszem hello.
 
 ![pomyślnie zalogował się][3]
 
-## <a name="add-a-path-based-rule-to-an-existing-application-gateway"></a>Dodawanie reguły na podstawie ścieżki do istniejącej bramy aplikacji
+## <a name="add-a-path-based-rule-tooan-existing-application-gateway"></a>Dodaj istniejącą bramę aplikacji na podstawie ścieżki reguły tooan
 
 Utwórz bramę aplikacji z reguły ścieżki zdefiniowane
 
 ### <a name="create-a-new-back-end-pool"></a>Utwórz nową pulę zaplecza
 
-Skonfiguruj ustawienia bramy aplikacji **imagesBackendPool** dla ruchu sieciowego z równoważeniem obciążenia w puli zaplecza. W tym przykładzie możesz skonfigurować ustawienia innej puli zaplecza nowej puli zaplecza. Każda pula zaplecza może mieć własne ustawienia puli zaplecza.  Ustawienia HTTP zaplecza są używane przez reguły do kierowania ruchu do właściwych elementów członkowskich puli zaplecza. Określa protokół i port, który jest używany podczas wysyłania ruchu do elementów członkowskich puli wewnętrznej bazy danych. Sesje bazujące na plikach cookie są też określane przez ustawienia HTTP zaplecza.  Jeśli koligacja sesji bazujących na plikach cookie jest włączona, wysyła ruch do tego samego zaplecza co poprzednie żądania dla każdego pakietu.
+Skonfiguruj ustawienia bramy aplikacji **imagesBackendPool** hello równoważeniem obciążenia ruchu sieciowego w puli zaplecza hello. W tym przykładzie możesz skonfigurować ustawienia innej puli zaplecza dla nowej puli zaplecza hello. Każda pula zaplecza może mieć własne ustawienia puli zaplecza.  Ustawienia HTTP zaplecza są używane przez członków puli zaplecza poprawne toohello reguły tooroute ruchu. Określa hello protokół i port, który jest używany podczas wysyłania ruchu członków puli zaplecza toohello. Ustawienia HTTP zaplecza hello również ustala oparte na pliku cookie sesji.  U możliwia koligacji na podstawie plików cookie sesji wysyła toohello ruch tego samego wewnętrznej bazy danych jako poprzedniego żądania dla każdego pakietu.
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -79,7 +79,7 @@ az network application-gateway address-pool create \
 
 ### <a name="create-a-new-front-end-port"></a>Utwórz nowy port frontonu
 
-Skonfiguruj port frontonu dla bramy aplikacji. Obiekt konfiguracji portu frontonu jest używany przez odbiornik do definiowania, który port usługi Application Gateway nasłuchuje ruchu na odbiorniku.
+Skonfiguruj hello portów frontonu bramy aplikacji. obiekt konfiguracji portów frontonu Hello jest używany przez toodefine odbiornika, port bramy aplikacji hello nasłuchuje ruchu na powitania odbiornika.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create --port 82 --gateway-name AdatumAppGateway --resource-group myresourcegroup --name port82
@@ -87,20 +87,20 @@ az network application-gateway frontend-port create --port 82 --gateway-name Ada
 
 ### <a name="create-a-new-listener"></a>Utwórz nowy
 
-Skonfiguruj odbiornik. W tym kroku dla odbiornika konfigurowany jest publiczny adres IP i port używane do odbierania przychodzącego ruchu sieciowego. W poniższym przykładzie przyjmuje wcześniej skonfigurowane konfiguracji IP frontonu, Konfiguracja portów frontonu i protokołu (http lub https) i konfiguruje odbiornika. W tym przykładzie odbiornika nasłuchuje ruchu HTTP na porcie 82 publicznego adresu IP, który został utworzony wcześniej.
+Skonfiguruj odbiornik hello. Ten krok obejmuje skonfigurowanie odbiornika hello hello publicznego adresu IP i port używany tooreceive przychodzącego ruchu sieciowego. Poniższy przykład Hello przyjmuje konfiguracji IP frontonu hello wcześniej skonfigurowane, Konfiguracja portów frontonu i protokołu (http lub https) i konfiguruje hello odbiornika. W tym przykładzie odbiornika hello nasłuchuje tooHTTP ruch na porcie 82 hello publiczny adres IP, który został utworzony wcześniej.
 
 ```azurecli-interactive
 az network application-gateway http-listener create --name imageListener --frontend-ip appGatewayFrontendIP  --frontend-port port82 --resource-group myresourcegroup --gateway-name AdatumAppGateway
 ```
 
-### <a name="create-the-url-path-map"></a>Tworzenie mapy ścieżki adresu Url
+### <a name="create-hello-url-path-map"></a>Tworzenie mapy ścieżki adresu Url hello
 
-Konfiguruj adres URL reguły ścieżki dla pul zaplecza. Ten krok umożliwia skonfigurowanie ścieżki względnej, używany przez bramę aplikacji, aby określić mapowanie między ścieżki adresu URL i puli zaplecza, które są przypisane do obsługi ruchu przychodzącego.
+Konfiguruj adres URL reguły ścieżki dla pul zaplecza hello. Ten krok umożliwia skonfigurowanie ścieżki względnej hello używany przez aplikację bramy toodefine hello mapowanie między ścieżki adresu URL, które puli zaplecza przypisano toohandle hello przychodzący ruch.
 
 > [!IMPORTANT]
-> Każda ścieżka musi rozpoczynać się od / i miejsce tylko "\*" jest dozwolone, jest na końcu. Nieprawidłowa przykładów /xyz, /xyz* lub/xyz / *. Ciąg przekazywani do dopasowania ścieżki nie zawiera żadnego tekstu po pierwszym "?" lub "#", a te znaki są niedozwolone. 
+> Każda ścieżka musi rozpoczynać się od / i miejsce tylko hello "\*" jest dozwolone, znajduje się na końcu hello. Nieprawidłowa przykładów /xyz, /xyz* lub/xyz / *. Hello ciąg przekazywani toohello dopasowania ścieżki nie zawiera żadnego tekstu po hello najpierw "?" lub "#", a te znaki są niedozwolone. 
 
-Poniższy przykład tworzy jedną regułę "/ obrazów / *" ścieżkę routingu ruchu do wewnętrznej "imagesBackendPool." Ta reguła zapewnia, że ruch dla każdego zestawu adresów URL jest kierowany do wewnętrznej bazy danych. Na przykład http://adatum.com/images/figure1.jpg przechodzi do "imagesBackendPool." Jeśli ścieżka nie odpowiada żadnemu z reguły ścieżki wstępnie zdefiniowane, Konfiguracja mapowania ścieżki reguły konfiguruje również domyślna pula adresów zaplecza. Na przykład http://adatum.com/shoppingcart/test.html prowadzi do pool1 określone jako domyślna pula niedopasowane ruchu.
+Witaj poniższy przykład tworzy jedną regułę "/ obrazów / *" ścieżkę routingu ruchu tooback-end "imagesBackendPool." Ta reguła zapewnia, że ruchu dla każdego zestawu adresów URL jest kierowany toohello wewnętrznej bazy danych. Na przykład http://adatum.com/images/figure1.jpg prowadzi zbyt "imagesBackendPool." Jeśli ścieżka hello nie odpowiada żadnemu z reguły ścieżki wstępnie zdefiniowane hello, hello reguły ścieżki mapy konfiguracji konfiguruje również domyślna pula adresów zaplecza. Na przykład http://adatum.com/shoppingcart/test.html przechodzi toopool1 określone jako hello domyślnej puli niedopasowane ruchu.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -117,7 +117,7 @@ az network application-gateway url-path-map create \
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz dowiedzieć się więcej o odciążania protokołu Secure Sockets Layer (SSL), zobacz [skonfigurować bramę aplikacji dla odciążania SSL](application-gateway-ssl-cli.md).
+Jeśli chcesz toolearn o odciążania protokołu Secure Sockets Layer (SSL), zobacz [skonfigurować bramę aplikacji dla odciążania SSL](application-gateway-ssl-cli.md).
 
 
 [scenario]: ./media/application-gateway-create-url-route-cli/scenario.png

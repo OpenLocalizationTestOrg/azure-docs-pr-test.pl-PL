@@ -1,6 +1,6 @@
 ---
 title: "Analiza strumienia: Obracanie poświadczenia logowania dla danych wejściowych i wyjściowych | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zaktualizować poświadczenia dla usługi analiza strumienia danych wejściowych i wyjściowych."
+description: "Dowiedz się, jak tooupdate hello poświadczeń dla usługi analiza strumienia danych wejściowych i wyjściowych."
 keywords: "poświadczenia logowania"
 services: stream-analytics
 documentationcenter: 
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: 2cb995a3969a8cb025f371ed0ab160cd04b0454d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ac2374c539012b66ab390656c5750024e02f6bdc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>Obróć poświadczenia logowania dla wejścia i wyjścia w zadania usługi analiza strumienia
 ## <a name="abstract"></a>Abstrakcyjny
-Usługa Azure Stream Analytics obecnie nie zezwala na zastępowanie poświadczeń na wejścia/wyjścia podczas uruchamiania zadania.
+Usługa Azure Stream Analytics obecnie nie zezwala na zastępowanie hello poświadczeń na wejścia/wyjścia zadania hello jest uruchomiona.
 
-Gdy usługi Azure Stream Analytics obsługuje wznawianie zadania z ostatnich danych wyjściowych, możemy udostępniać cały proces minimalizując zwłokę między zatrzymywanie i uruchamianie zadania i obracanie poświadczenia logowania.
+Gdy Azure Stream Analytics obsługuje wznawianie zadania z ostatnich danych wyjściowych, możemy tooshare hello całego procesu dla minimalizując hello zwłokę między hello zatrzymywanie i uruchamianie zadania hello i obracanie hello poświadczenia logowania.
 
-## <a name="part-1---prepare-the-new-set-of-credentials"></a>Część 1 — przygotowanie nowego zestawu poświadczeń:
-Ta część dotyczy wejścia/wyjścia:
+## <a name="part-1---prepare-hello-new-set-of-credentials"></a>Część 1 — Przygotowanie hello nowy zestaw poświadczeń:
+Ta część jest zastosowanie toohello po wejść/wyjść:
 
 * Blob Storage
 * Usługa Event Hubs
@@ -38,51 +38,51 @@ Ta część dotyczy wejścia/wyjścia:
 Dla innych wejść/wyjść przejdź do części 2.
 
 ### <a name="blob-storagetable-storage"></a>Magazyn obiektów blob magazynu/tabeli.
-1. Przejdź do rozszerzenie magazynu w portalu zarządzania Azure:  
+1. Przejdź toohello rozszerzenie magazynu w portalu zarządzania Azure hello:  
    ![graphic1][graphic1]
-2. Zlokalizuj miejsca używanego przez zadanie, a następnie przejdź w niej:  
+2. Zlokalizuj hello Magazyn używany przez zadanie, a następnie przejdź w niej:  
    ![graphic2][graphic2]
-3. Kliknij polecenie Zarządzaj kluczami dostępu:  
+3. Kliknij polecenie Zarządzaj kluczami dostępu hello:  
    ![graphic3][graphic3]
-4. Między podstawowy klucz dostępu i pomocniczy klucz dostępu **pobrania nie jest używany przez zadanie**.
+4. Między hello podstawowy klucz dostępu i hello pomocniczy klucz dostępu **wybierz hello, co nie jest używany przez zadanie**.
 5. Regenerate trafień:  
    ![graphic4][graphic4]
-6. Skopiuj nowo wygenerowany klucz:  
+6. Skopiuj hello nowo wygenerować klucz:  
    ![graphic5][graphic5]
-7. Nadal część 2.
+7. Nadal tooPart 2.
 
 ### <a name="event-hubs"></a>Centra zdarzeń
-1. Przejdź do rozszerzenia usługi Service Bus w portalu zarządzania Azure:  
+1. Przejdź toohello rozszerzenia usługi Service Bus w portalu zarządzania Azure hello:  
    ![graphic6][graphic6]
-2. Zlokalizuj Namespace magistrali usług, które są używane przez zadanie, a następnie przejdź w niej:  
+2. Zlokalizuj hello Namespace magistrali usługi używane przez zadanie, a następnie przejdź w niej:  
    ![graphic7][graphic7]
-3. Jeśli zadanie używa zasady dostępu współużytkowanego na Namespace magistrali usługi, należy przejść do kroku 6  
-4. Przejdź do karty centra zdarzeń:  
+3. Jeśli zadanie używa zasady dostępu współużytkowanego na powitania Namespace magistrali usług, przejście toostep 6  
+4. Przejdź na kartę usługi Event Hubs toohello:  
    ![graphic8][graphic8]
-5. Zlokalizuj Centrum zdarzeń, używane przez zadania, a następnie przejdź w niej:  
+5. Zlokalizuj hello używane przez zadanie Centrum zdarzeń i przejdź do niej:  
    ![graphic9][graphic9]
-6. Przejdź na kartę Konfiguracja:  
+6. Przejdź toohello kartę Konfiguracja:  
    ![graphic10][graphic10]
-7. Na rozwijanej nazwę zasady Znajdź zasady dostępu współdzielonego, używane przez zadania:  
+7. Na powitania listy rozwijanej nazwę zasady Znajdź zasad dostępu hello udostępnionych używanych przez zadania:  
    ![graphic11][graphic11]
-8. Między klucz podstawowy i klucz pomocniczy **pobrania nie jest używany przez zadanie**.  
+8. Między hello klucz podstawowy i klucz pomocniczy hello **wybierz hello, co nie jest używany przez zadanie**.  
 9. Regenerate trafień:  
    ![graphic12][graphic12]
-10. Skopiuj nowo wygenerowany klucz:  
+10. Skopiuj hello nowo wygenerować klucz:  
    ![graphic13][graphic13]
-11. Nadal część 2.  
+11. Nadal tooPart 2.  
 
 ### <a name="sql-database"></a>SQL Database
 > [!NOTE]
-> Uwaga: należy połączyć się z usługą baza danych SQL. Zamierzamy pokazują, jak to zrobić przy użyciu możliwości zarządzania w portalu zarządzania Azure, ale można używać niektórych po stronie klienta narzędzia, takiego jak SQL Server Management Studio również.
+> Uwaga: należy toohello tooconnect usługi baza danych SQL. Za chwilę tooshow jak toodo to przy użyciu hello możliwości zarządzania na hello portalu zarządzania Azure, ale można wybrać toouse niektórych po stronie klienta narzędzia, takiego jak SQL Server Management Studio również.
 >
 > 
 
-1. Przejdź do rozszerzenia bazy danych SQL w portalu zarządzania Azure:  
+1. Przejdź toohello rozszerzenia bazy danych SQL w portalu zarządzania Azure hello:  
    ![graphic14][graphic14]
-2. Zlokalizuj bazę danych SQL używane przez zadania i **kliknij serwer** łącza w tym samym wierszu:  
+2. Zlokalizuj hello bazy danych SQL używane przez zadania i **kliknij na powitania serwera** łącze hello sam wiersza:  
    ![graphic15][graphic15]
-3. Kliknij polecenie Zarządzaj:  
+3. Kliknij polecenie Zarządzaj hello:  
    ![graphic16][graphic16]
 4. Typ główny bazy danych:  
    ![graphic17][graphic17]
@@ -90,86 +90,86 @@ Dla innych wejść/wyjść przejdź do części 2.
    ![graphic18][graphic18]
 6. Kliknij pozycję Nowa kwerenda:  
    ![graphic19][graphic19]
-7. Typ w następującym zapytaniu zamianę < login_name > Twoja nazwa użytkownika i zastępowanie <enterStrongPasswordHere> przy użyciu nowego hasła:  
+7. Typ w hello następującego zapytania, zastępując < login_name > z nazwą użytkownika i zastępowanie <enterStrongPasswordHere> przy użyciu nowego hasła:  
    `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8. Kliknij przycisk Uruchom:  
    ![graphic20][graphic20]
-9. Wróć do kroku 2 do tego czasu, kliknij bazy danych:  
+9. Wróć toostep 2 i tym razem kliknij hello bazy danych:  
    ![graphic21][graphic21]
-10. Kliknij polecenie Zarządzaj:  
+10. Kliknij polecenie Zarządzaj hello:  
    ![graphic22][graphic22]
 11. Wpisz nazwę użytkownika, hasło i kliknij przycisk logowania:  
    ![graphic23][graphic23]
 12. Kliknij pozycję Nowa kwerenda:  
    ![graphic24][graphic24]
-13. Wpisz poniższe zapytanie zamienianie < nazwa_użytkownika > o nazwie, przez którą ma tę nazwę logowania w kontekście tej bazy danych (taką samą wartość, nadana < login_name >, na przykład można podać) identyfikację i zastępowanie < login_name > Nowa nazwa użytkownika:  
+13. Wpisz hello następującego zapytania, zastępując < nazwa_użytkownika > o nazwie, przez którą ma tooidentify tej nazwy logowania w kontekście hello tej bazy danych (możesz podać tę samą wartość nadana < login_name >, na przykład Witaj) i zastępowanie < login_name > Nowa nazwa użytkownika:  
    `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Kliknij przycisk Uruchom:  
    ![graphic25][graphic25]
-15. Teraz należy podać nowy użytkownik o tej samej role i uprawnienia miał oryginalny użytkownika.
-16. Nadal część 2.
+15. Teraz należy zapewnić nowego użytkownika z hello tego samego ról oraz uprawnień miał oryginalny użytkownika.
+16. Nadal tooPart 2.
 
-## <a name="part-2-stopping-the-stream-analytics-job"></a>Część 2: Zatrzymywanie zadania usługi analiza strumienia
-1. Przejdź do rozszerzenia usługi Stream Analytics w portalu zarządzania Azure:  
+## <a name="part-2-stopping-hello-stream-analytics-job"></a>Część 2: Hello zatrzymywania zadania usługi analiza strumienia
+1. Przejdź toohello rozszerzenia usługi Stream Analytics w portalu zarządzania Azure hello:  
    ![graphic26][graphic26]
 2. Znajdź swoją pracę i przejdź do niej:  
    ![graphic27][graphic27]
-3. Przejdź na kartę danych wejściowych lub wyjściowych według tego, czy są obracanie poświadczeń na danych wejściowych lub wyjściowych.  
+3. Przejdź toohello danych wejściowych karty lub hello wyniki według tego, czy są obracanie hello poświadczeń na danych wejściowych lub wyjściowych.  
    ![graphic28][graphic28]
-4. Kliknij polecenie zatrzymania i upewnij się, że zadanie zostało zatrzymane:  
-   ![graphic29][graphic29] Zaczekaj na zatrzymanie zadania.
-5. Znajdź wejścia/wyjścia, który chcesz obrócić poświadczeń i przejdź do niego:  
+4. Kliknij polecenie zatrzymania hello i upewnij się, że zadanie powitania przestał:  
+   ![graphic29][graphic29] poczekaj, aż hello toostop zadania.
+5. Zlokalizuj hello wejścia/wyjścia ma poświadczenia toorotate na i przejdź do niej:  
    ![graphic30][graphic30]
-6. Przejdź do części 3.
+6. Kontynuować tooPart 3.
 
-## <a name="part-3-editing-the-credentials-on-the-stream-analytics-job"></a>Część 3: Edytowanie poświadczeń na zadania usługi analiza strumienia
+## <a name="part-3-editing-hello-credentials-on-hello-stream-analytics-job"></a>Część 3: Edytowanie hello poświadczeń na powitania zadania usługi analiza strumienia
 ### <a name="blob-storagetable-storage"></a>Magazyn obiektów blob magazynu/tabeli.
-1. Znajdź pole klucz konta magazynu i wkleić klucz wygenerowanym:  
+1. Znajdź pole klucz konta magazynu hello i wkleić klucz wygenerowanym:  
    ![graphic31][graphic31]
-2. Kliknij polecenie Zapisz i sprawdź, zapisywania zmian:  
+2. Kliknij polecenie Zapisz hello i Potwierdź zapisywania zmian:  
    ![graphic32][graphic32]
 3. Test połączenia zostaną automatycznie uruchomione po zapisaniu zmian, upewnij się, to znaczy został pomyślnie przekazany.
-4. Przejdź do części 4.
+4. Kontynuować tooPart 4.
 
 ### <a name="event-hubs"></a>Centra zdarzeń
-1. Znajdź pole klucza zasad Centrum zdarzeń i wkleić klucz wygenerowanym:  
+1. Znajdź pole klucza zasad Centrum zdarzeń hello i wkleić klucz wygenerowanym:  
    ![graphic33][graphic33]
-2. Kliknij polecenie Zapisz i sprawdź, zapisywania zmian:  
+2. Kliknij polecenie Zapisz hello i Potwierdź zapisywania zmian:  
    ![graphic34][graphic34]
 3. Test połączenia zostaną automatycznie uruchomione po zapisaniu zmian, upewnij się, że został przekazany pomyślnie.
-4. Przejdź do części 4.
+4. Kontynuować tooPart 4.
 
 ### <a name="power-bi"></a>Power BI
-1. Kliknij przycisk Odnów autoryzacji:  
+1. Kliknij hello odnawiania autoryzacji:  
 
    ![graphic35][graphic35]
-2. Otrzymasz po potwierdzeniu:  
+2. Otrzymasz powitania po potwierdzeniu:  
 
    ![graphic36][graphic36]
-3. Kliknij polecenie Zapisz i sprawdź, zapisywania zmian:  
+3. Kliknij polecenie Zapisz hello i Potwierdź zapisywania zmian:  
    ![graphic37][graphic37]
 4. Test połączenia zostaną automatycznie uruchomione po zapisaniu zmian, upewnij się, że jej został pomyślnie przekazany.
-5. Przejdź do części 4.
+5. Kontynuować tooPart 4.
 
 ### <a name="sql-database"></a>SQL Database
-1. Znajdź pola Nazwa użytkownika i hasło i Wklej nowo utworzonego zestawu poświadczeń do nich:  
+1. Znajdź hello pola Nazwa użytkownika i hasło i Wklej nowo utworzonego zestawu poświadczeń do nich:  
    ![graphic38][graphic38]
-2. Kliknij polecenie Zapisz i sprawdź, zapisywania zmian:  
+2. Kliknij polecenie Zapisz hello i Potwierdź zapisywania zmian:  
    ![graphic39][graphic39]
 3. Test połączenia zostaną automatycznie uruchomione po zapisaniu zmian, upewnij się, że został przekazany pomyślnie.  
-4. Przejdź do części 4.
+4. Kontynuować tooPart 4.
 
 ## <a name="part-4-starting-your-job-from-last-stopped-time"></a>Część 4: Uruchamianie zadania od ostatniego zatrzymania
-1. Opuścić wejścia/wyjścia:  
+1. Opuścić hello wejścia/wyjścia:  
    ![graphic40][graphic40]
-2. Kliknij polecenie Start:  
+2. Kliknij polecenie Start hello:  
    ![graphic41][graphic41]
-3. Wybierz czas ostatniego zatrzymania, a następnie kliknij przycisk OK:  
+3. Wybierz hello czas ostatniego zatrzymania, a następnie kliknij przycisk OK:  
    ![graphic42][graphic42]
-4. Przejdź do części 5.  
+4. Kontynuować tooPart 5.  
 
-## <a name="part-5-removing-the-old-set-of-credentials"></a>Część 5: Usuwanie starego zestaw poświadczeń
-Ta część dotyczy wejścia/wyjścia:
+## <a name="part-5-removing-hello-old-set-of-credentials"></a>Część 5: Usuwanie hello stary zestaw poświadczeń
+Ta część jest zastosowanie toohello po wejść/wyjść:
 
 * Blob Storage
 * Usługa Event Hubs
@@ -177,18 +177,18 @@ Ta część dotyczy wejścia/wyjścia:
 * Table Storage
 
 ### <a name="blob-storagetable-storage"></a>Magazyn obiektów blob magazynu/tabeli.
-Powtórz część 1 dla klucza dostępu, który był wcześniej używany przez zadanie Aby odnowić teraz nieużywane klucz dostępu.
+Powtórz część 1 dla hello klucz dostępu, który był wcześniej używany przez zadanie toorenew hello teraz nieużywane klucz dostępu.
 
 ### <a name="event-hubs"></a>Centra zdarzeń
-Powtórz część 1 dla klucza, który był wcześniej używany przez zadanie Aby odnowić klucz teraz nieużywane.
+Powtórz część 1 dla hello klucz, który był wcześniej używany przez zadanie toorenew hello teraz nieużywane klucza.
 
 ### <a name="sql-database"></a>SQL Database
-1. Wróć do okna zapytania z część 1 krok 7 i wpisz następujące zapytanie, zastępując < previous_login_name > Nazwa użytkownika, który był wcześniej używany przez zadania:  
+1. Przejdź wstecz toohello oknie zapytania z część 1 krok 7 i wpisz hello następującego zapytania, zastępując < previous_login_name > hello nazwę użytkownika, który był wcześniej używany przez zadania:  
    `DROP LOGIN <previous_login_name>`  
 2. Kliknij przycisk Uruchom:  
    ![graphic43][graphic43]  
 
-Należy pobrać następujące potwierdzenia: 
+Należy pobrać powitania po potwierdzeniu: 
 
     Command(s) completed successfully.
 
@@ -196,7 +196,7 @@ Należy pobrać następujące potwierdzenia:
 Aby uzyskać dalszą pomoc, skorzystaj z naszego [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
+* [Wprowadzenie tooAzure analiza strumienia](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn834998.aspx)

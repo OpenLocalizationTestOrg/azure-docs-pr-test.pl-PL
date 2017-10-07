@@ -1,8 +1,8 @@
 ---
-title: "Skonfigurowaną weryfikację dwuetapową dla konta firmowego lub szkolnego | Dokumentacja firmy Microsoft"
-description: "Gdy firma skonfiguruje Azure Multi-Factor Authentication, pojawi się monit zalogowania się do weryfikacji dwuetapowej. Dowiedz się, jak je skonfigurować. "
+title: "aaaSet się weryfikację dwuetapową dla konta firmowego lub szkolnego | Dokumentacja firmy Microsoft"
+description: "Gdy firma skonfiguruje Azure Multi-Factor Authentication, będzie toosign zostanie wyświetlony monit o utworzenie konta włączono weryfikację dwuetapową. Dowiedz się, jak tooset go. "
 services: multi-factor-authentication
-keywords: "jak używać usługi azure directory, usługi active directory w chmurze, samouczek usługi active directory"
+keywords: "jak toouse azure directory, usługi active directory w chmurze hello, samouczek usługi active directory"
 documentationcenter: 
 author: kgremban
 manager: femila
@@ -16,93 +16,93 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-ms.openlocfilehash: 1aad09d124fb075da29c6f3914a52a6c6f22991d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 69b04f74f6b28d0bcd94ca649b51092d9d139581
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Skonfiguruj moje konto na potrzeby weryfikacji dwuetapowej
-Weryfikacja dwuetapowa to dodatkowe zabezpieczenia krok, który pomaga chronić Twoje konto dokonując przeszkodę dla innych osób włamanie się. Jeśli czytasz ten artykuł, prawdopodobnie masz wiadomość e-mail od firmy lub szkoły administratorem temat uwierzytelniania wieloskładnikowego. Lub może być próbował zarejestrować i otrzymano komunikat z pytaniem do skonfigurowania dodatkowej weryfikacji zabezpieczeń. Jeśli tak, jest **nie można zalogować przed ukończeniem procesu automatycznej rejestracji**.
+Weryfikacja dwuetapowa to dodatkowe zabezpieczenia krok, który pomaga chronić Twoje konto dokonując przeszkodę dla innych osób toobreak w. Jeśli czytasz ten artykuł, prawdopodobnie masz wiadomość e-mail od firmy lub szkoły administratorem temat uwierzytelniania wieloskładnikowego. Lub może być nastąpiła toosign w i otrzymano komunikat z pytaniem tooset się dodatkowej weryfikacji zabezpieczeń. Sytuacji hello **nie można zalogować przed ukończeniem procesu automatycznej rejestracji hello**.
 
-Ten artykuł pomoże Ci skonfigurować Twoje **konto służbowe**. Jeśli chcesz włączyć weryfikację dwuetapową dla własnego, osobistego konta Microsoft, zobacz [o weryfikacji dwuetapowej](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
+Ten artykuł pomoże Ci skonfigurować Twoje **konto służbowe**. Jeśli chcesz tooenable weryfikacji dwuetapowej dla własnego, osobistego konta Microsoft, zobacz [o weryfikacji dwuetapowej](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
 ## <a name="set-up-your-account"></a>Konfigurowanie konta
 
-Gdy dział IT wymaga uruchomienia przy użyciu weryfikacji dwuetapowej, zobaczysz ekran informujący **administrator wymaga skonfigurowania tego konta na potrzeby weryfikacji dodatkowe zabezpieczenia**:
+Gdy dział IT wymaga toostart przy użyciu weryfikacji dwuetapowej, zobaczysz ekran informujący **administrator wymaga skonfigurowania tego konta na potrzeby weryfikacji dodatkowe zabezpieczenia**:
 
 ![Konfiguracja](./media/multi-factor-authentication-end-user-first-time/first.png)
 
-Aby rozpocząć, wybierz **teraz skonfigurować.**
+Wybierz tooget pracę, **teraz skonfigurować.**
 
-Jeśli nie pojawia się ekran podobny do tego po zalogowaniu, postępuj zgodnie z instrukcjami [zarządzać ustawieniami na potrzeby weryfikacji dwuetapowej](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) można znaleźć na stronie ustawień umożliwiającej zarządzanie opcji weryfikacji. 
+Jeśli nie pojawia się ekran podobny do tego po zalogowaniu, postępuj zgodnie ze wskazówkami hello [zarządzać ustawieniami na potrzeby weryfikacji dwuetapowej](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) toofind hello ustawienia strony, której można zarządzać opcji weryfikacji. 
 
-## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Zdecyduj, jak chcesz zweryfikować sesje logowania
+## <a name="decide-how-you-want-tooverify-your-sign-ins"></a>Określa sposób tooverify sesje logowania
 
-Pierwsze pytanie w procesie rejestracji jest jak mamy się z Tobą skontaktować. Spójrz na Opcje tabeli i przejdź do procedury konfiguracji dla każdej metody za pomocą łączy.
+pierwsze pytanie Hello w procesie rejestracji hello jest sposób nam toocontact użytkownik. Spójrz na powitania Opcje tabeli hello i użyj hello łącza toogo toohello ustawień czynności dla każdej metody.
 
 | Metoda kontaktu | Opis |
 | --- | --- |
-| [Aplikacji mobilnej](#use-a-mobile-app-as-the-contact-method) |- **Odbieranie powiadomień o weryfikacji.** Ta opcja wypycha powiadomienie do aplikacji uwierzytelniania na smartfonie lub tablecie. Wyświetlić powiadomienie i, jeśli jest to uzasadnione, wybierz **Uwierzytelnij** w aplikacji. Konto służbowe może wymagać wprowadzenia kodu PIN przed uwierzytelniania.<br>- **Użyj kodu weryfikacyjnego.** W tym trybie aplikacja uwierzytelniania generuje kod weryfikacyjny, który aktualizuje co 30 sekund. Wprowadź kod weryfikacyjny najbardziej aktualne w interfejsie logowania.<br>Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| [Telefonu komórkowego połączenia lub wiadomości SMS](#use-your-mobile-phone-as-the-contact-method) |- **Połączenie telefoniczne** umieszcza wykonywane automatyczne połączenie głosowe do należy podać numer telefonu. Odebranie połączenia i naciśnięcie przycisku # na klawiaturze telefonu w celu uwierzytelnienia.<br>- **Wiadomość SMS** kończy się wiadomość tekstową zawierającą kod weryfikacyjny. Następujący wiersz w tekście Odpowiedz na wiadomość SMS lub wprowadź kod weryfikacyjny Podany w interfejsie logowania. |
-| [Z telefonem biurowym](#use-your-office-phone-as-the-contact-method) |Umieszcza wykonywane automatyczne połączenie głosowe pod numer telefonu, podane przez użytkownika. Odebrać połączenie i naciska klawisz # na klawiaturze telefonu w celu uwierzytelnienia. |
+| [Aplikacji mobilnej](#use-a-mobile-app-as-the-contact-method) |- **Odbieranie powiadomień o weryfikacji.** Ta opcja wypycha powiadomienie toohello wystawcy uwierzytelnienia aplikacji na smartfonie lub tablecie. Wyświetlanie hello powiadomień i, jeśli jest to uzasadnione, wybierz **Uwierzytelnij** w aplikacji hello. Konto służbowe może wymagać wprowadzenia kodu PIN przed uwierzytelniania.<br>- **Użyj kodu weryfikacyjnego.** W tym trybie hello aplikacja uwierzytelniania generuje kod weryfikacyjny, który aktualizuje co 30 sekund. Wprowadź kod weryfikacyjny z najbardziej aktualną hello w hello w interfejsie logowania.<br>Aplikacja Microsoft Authenticator Hello jest dostępna dla [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Telefonu komórkowego połączenia lub wiadomości SMS](#use-your-mobile-phone-as-the-contact-method) |- **Połączenie telefoniczne** miejsc wywołania automatycznych głosu toohello numer telefonu należy podać. Odpowiedzi na wywołanie hello, a następnie naciśnij klawisz # w tooauthenticate klawiaturze telefonu hello.<br>- **Wiadomość SMS** kończy się wiadomość tekstową zawierającą kod weryfikacyjny. Następujący wiersz hello w tekście hello Odpowiedz na wiadomość SMS toohello lub wprowadź kod weryfikacyjny hello dostarczone do hello w interfejsie logowania. |
+| [Z telefonem biurowym](#use-your-office-phone-as-the-contact-method) |Umieszcza automatycznych głosu wywołania toohello numer telefonu, który podasz. Hello odpowiedzi wywołań i naciska klawisz # na powitania phone klawiatury tooauthenticate. |
 
-## <a name="use-a-mobile-app-as-the-contact-method"></a>Użyj aplikacji mobilnej jako metody kontaktu
-Za pomocą tej metody wymaga zainstalowania aplikacji uwierzytelniania na swój telefon lub tablet. Kroki opisane w tym artykule opierają się na aplikacji Authenticator firmy Microsoft, który jest dostępny dla [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+## <a name="use-a-mobile-app-as-hello-contact-method"></a>Użyj aplikacji mobilnej jako metody kontaktu hello
+Za pomocą tej metody wymaga zainstalowania aplikacji uwierzytelniania na swój telefon lub tablet. Witaj kroki opisane w tym artykule opierają się na aplikacji Microsoft Authenticator hello, która jest dostępna dla [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-1. Wybierz **aplikacji mobilnej** z listy rozwijanej.
+1. Wybierz **aplikacji mobilnej** z listy rozwijanej hello.
 2. Wybierz opcję **otrzymywać powiadomienia na potrzeby weryfikacji** lub **Użyj kodu weryfikacyjnego**, a następnie wybierz pozycję **Konfigurowanie**.
 
    ![Dodatkowe zabezpieczenia weryfikacji ekranu](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
 
-3. Na swój telefon lub tablet, Otwórz aplikację i wybierz  **+**  w celu dodania konta. (Na urządzeniach z systemem Android, wybierz wielokropek, a następnie **Dodaj konto**.)
-4. Określ, czy chcesz dodać konta służbowego. Otwiera skaner kodów QR w telefonie. Jeśli aparatu nie działa prawidłowo, można wybrać ręcznie wprowadzić informacje o Twojej firmie. Aby uzyskać więcej informacji, zobacz [ręcznie dodać konto](#add-an-account-manually).  
-5. Skanuj obraz kodu QR, który pojawił się z ekranem do konfigurowania aplikacji mobilnej.  Wybierz **gotowe** aby zamknąć ekran kod QR.  
+3. Na swój telefon lub tablet, Otwórz aplikację hello i wybierz  **+**  tooadd konta. (Na urządzeniach z systemem Android, wybierz hello wielokropkiem, następnie **Dodaj konto**.)
+4. Określ, czy tooadd konta firmowego lub szkolnego. Otwiera Hello skaner kodów QR w telefonie. Jeśli aparatu nie działa prawidłowo, można wybrać tooenter informacji o firmie ręcznie. Aby uzyskać więcej informacji, zobacz [ręcznie dodać konto](#add-an-account-manually).  
+5. Skanuj obraz kodu QR hello pojawił się z ekranem hello konfigurowania hello aplikacji mobilnej.  Wybierz **gotowe** tooclose hello QR kodu ekranu.  
 
    ![Ekran kod QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
 
-6. Po zakończeniu aktywacji przez telefon, wybierz **kontaktu mnie**.  Ten krok wysyła powiadomienie lub kod weryfikacyjny na Twój telefon. Wybierz **Sprawdź**.  
+6. Po zakończeniu aktywacji w telefonie hello, wybierz **kontaktu mnie**.  Ten krok wysyła powiadomienie lub telefon tooyour kod weryfikacyjny. Wybierz **Sprawdź**.  
 7. Jeśli zatwierdzanie weryfikacji logowania firmy wymaga numeru PIN, wprowadź go.
 
    ![Pole wprowadzania numeru PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Po zakończeniu wprowadzania numeru PIN, wybierz **Zamknij**. W tym momencie weryfikacja zostanie pomyślnie.
-9. Firma Microsoft zaleca, możesz wprowadzić numer telefonu komórkowego na wypadek utraty dostępu do aplikacji mobilnej. Określ w Twoim kraju z listy rozwijanej, a następnie wprowadź numer telefonu komórkowego w polu obok nazwy kraju. Wybierz **dalej**.
-10. W tym momencie monit o ustawienie hasła aplikacji dla aplikacji korzystających z przeglądarki, takich jak Outlook 2010 lub starszy lub natywna aplikacja poczty e-mail na urządzeniach Apple. Jest to spowodowane niektóre aplikacje nie obsługują weryfikacji dwuetapowej. Nie należy używać tych aplikacji, kliknij przycisk **gotowe** i Pomiń pozostałe czynności.
-11. Jeśli używasz tych aplikacji Kopiuj hasło aplikacji podane i wklej go do aplikacji zamiast prawidłowe hasło. Dla wielu aplikacji, można użyć tego samego hasła aplikacji. Aby uzyskać więcej informacji [pomoc przy użyciu haseł aplikacji].
+9. Firma Microsoft zaleca, możesz wprowadzić numer telefonu komórkowego na wypadek utraty aplikacji mobilnej tooyour dostępu. Określ w Twoim kraju z listy rozwijanej hello, a następnie wprowadź numer telefonu komórkowego w polu Nazwa kraju toohello dalej pole hello. Wybierz **dalej**.
+10. Jesteś w tym momencie zostanie wyświetlony monit o tooset zapasowe haseł aplikacji dla aplikacji korzystających z przeglądarki, takich jak Outlook 2010 lub starszy lub hello natywna aplikacja poczty e-mail na urządzeniach Apple. Jest to spowodowane niektóre aplikacje nie obsługują weryfikacji dwuetapowej. Nie należy używać tych aplikacji, kliknij przycisk **gotowe** i pominąć hello pozostałe kroki hello.
+11. Jeśli używasz tych aplikacji Kopiuj hasło aplikacji hello podane i wklej go do aplikacji zamiast prawidłowe hasło. Witaj można użyć tego samego hasła aplikacji dla wielu aplikacji. Aby uzyskać więcej informacji [pomoc przy użyciu haseł aplikacji].
 12. Kliknij przycisk **Gotowe**.
 
 ### <a name="add-an-account-manually"></a>Ręcznie dodaj konto
-Jeśli chcesz dodać konto do aplikacji mobilnej ręcznie, zamiast używać czytnika QR, wykonaj następujące kroki.
+Tooadd konto aplikacji mobilnej toohello ręcznie, zamiast używać czytnika hello QR, wykonaj następujące kroki.
 
-1. Wybierz **ręcznie wprowadź konto** przycisku.  
-2. Wprowadź kod i adres URL, które znajdują się na tej samej stronie, pokazujący kod kreskowy. Te informacje o przechodzi **kod** i **adres URL** pola w aplikacji mobilnej.
+1. Wybierz hello **ręcznie wprowadź konto** przycisku.  
+2. Wprowadź kod hello i hello adresu URL znajdujące się na powitania tej samej stronie, który pokazuje hello kod kreskowy. Te informacje o przechodzi w hello **kod** i **adres URL** pól na powitania aplikacji mobilnej.
 
     ![Konfiguracja](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
-3. Po zakończeniu aktywacji wybierz **kontaktu mnie**. Ten krok wysyła powiadomienie lub kod weryfikacyjny na Twój telefon. Wybierz **Sprawdź**.
+3. Po zakończeniu aktywacji hello wybierz **kontaktu mnie**. Ten krok wysyła powiadomienie lub telefon tooyour kod weryfikacyjny. Wybierz **Sprawdź**.
 
-## <a name="use-your-mobile-phone-as-the-contact-method"></a>Użyć telefonu komórkowego jako metody kontaktu
-1. Wybierz **numer telefonu uwierzytelniania** z listy rozwijanej.  
+## <a name="use-your-mobile-phone-as-hello-contact-method"></a>Użyć telefonu komórkowego jako metody kontaktu hello
+1. Wybierz **numer telefonu uwierzytelniania** z listy rozwijanej hello.  
 
     ![Konfiguracja](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Wybierz swój kraj z listy rozwijanej, a następnie wprowadź numer telefonu komórkowego.
-3. Wybierz metodę, której chcesz użyć do użycia z telefonem komórkowym - SMS lub połączenie.
-4. Wybierz **kontaktu mnie** Aby zweryfikować swój numer telefonu. W zależności od wybrany tryb możemy wysłać tekstu lub zadzwonić do Ciebie. Postępuj zgodnie z instrukcjami na ekranie, a następnie wybierz **Sprawdź**.
-5. W tym momencie monit o ustawienie hasła aplikacji dla aplikacji korzystających z przeglądarki, takich jak Outlook 2010 lub starszy lub natywna aplikacja poczty e-mail na urządzeniach Apple. Jest to spowodowane niektóre aplikacje nie obsługują weryfikacji dwuetapowej. Nie należy używać tych aplikacji, kliknij przycisk **gotowe** i Pomiń pozostałe czynności.
-6. Jeśli używasz tych aplikacji Kopiuj hasło aplikacji podane i wklej go do aplikacji zamiast prawidłowe hasło. Dla wielu aplikacji, można użyć tego samego hasła aplikacji. Aby uzyskać więcej informacji [pomoc przy użyciu haseł aplikacji].
+2. Wybierz swój kraj z listy rozwijanej hello, a następnie wprowadź numer telefonu komórkowego.
+3. Wybierz metodę hello toouse wolisz z telefonem komórkowym - SMS lub połączenie.
+4. Wybierz **kontaktu mnie** tooverify Twojego numeru telefonu. W zależności od wybrany tryb hello możemy wysłać tekstu lub zadzwonić do Ciebie. Postępuj zgodnie z instrukcjami hello na ekranie powitania, a następnie wybierz **Sprawdź**.
+5. Jesteś w tym momencie zostanie wyświetlony monit o tooset zapasowe haseł aplikacji dla aplikacji korzystających z przeglądarki, takich jak Outlook 2010 lub starszy lub hello natywna aplikacja poczty e-mail na urządzeniach Apple. Jest to spowodowane niektóre aplikacje nie obsługują weryfikacji dwuetapowej. Nie należy używać tych aplikacji, kliknij przycisk **gotowe** i pominąć hello pozostałe kroki hello.
+6. Jeśli używasz tych aplikacji Kopiuj hasło aplikacji hello podane i wklej go do aplikacji zamiast prawidłowe hasło. Witaj można użyć tego samego hasła aplikacji dla wielu aplikacji. Aby uzyskać więcej informacji [pomoc przy użyciu haseł aplikacji].
 7. Kliknij przycisk **Gotowe**.
 
-## <a name="use-your-office-phone-as-the-contact-method"></a>Użyj jako metody kontaktu Telefon biurowy
-1. Wybierz **telefon biurowy** z listy rozwijanej  
+## <a name="use-your-office-phone-as-hello-contact-method"></a>Użyj jako metody kontaktu hello telefon biurowy
+1. Wybierz **telefon biurowy** z listy rozwijanej hello  
 
     ![Konfiguracja](./media/multi-factor-authentication-end-user-first-time/office.png)  
-2. Pole numeru telefonu jest automatycznie wypełniany swoje informacje kontaktowe firmy. Jeśli liczba jest nieprawidłowa lub nieistniejąca, skontaktuj się z administratorem, aby wprowadzić zmiany.
-3. Wybierz **kontaktu mnie** można zweryfikować telefonu numer i firma Microsoft będzie wywoływać numer. Postępuj zgodnie z instrukcjami na ekranie, a następnie wybierz **Sprawdź**.
-4. W tym momencie monit o ustawienie hasła aplikacji dla aplikacji korzystających z przeglądarki, takich jak Outlook 2010 lub starszy lub natywna aplikacja poczty e-mail na urządzeniach Apple. Jest to spowodowane niektóre aplikacje nie obsługują weryfikacji dwuetapowej. Nie należy używać tych aplikacji, kliknij przycisk **gotowe** i Pomiń pozostałe czynności.
-5. Jeśli używasz tych aplikacji Kopiuj hasło aplikacji podane i wklej go do aplikacji zamiast prawidłowe hasło. Dla wielu aplikacji, można użyć tego samego hasła aplikacji. Aby uzyskać więcej informacji, zobacz [co to są hasła aplikacji](multi-factor-authentication-end-user-app-passwords.md).
+2. pole numeru telefonu Hello jest automatycznie wypełniany swoje informacje kontaktowe firmy. Jeśli liczba hello jest nieprawidłowe lub brakujące, poproś administratora o jego toomake zmiany.
+3. Wybierz **kontaktu mnie** tooverify Twojego numeru telefonu i firma Microsoft będzie wywoływać numer. Postępuj zgodnie z instrukcjami hello na ekranie powitania, a następnie wybierz **Sprawdź**.
+4. Jesteś w tym momencie zostanie wyświetlony monit o tooset zapasowe haseł aplikacji dla aplikacji korzystających z przeglądarki, takich jak Outlook 2010 lub starszy lub hello natywna aplikacja poczty e-mail na urządzeniach Apple. Jest to spowodowane niektóre aplikacje nie obsługują weryfikacji dwuetapowej. Nie należy używać tych aplikacji, kliknij przycisk **gotowe** i pominąć hello pozostałe kroki hello.
+5. Jeśli używasz tych aplikacji Kopiuj hasło aplikacji hello podane i wklej go do aplikacji zamiast prawidłowe hasło. Witaj można użyć tego samego hasła aplikacji dla wielu aplikacji. Aby uzyskać więcej informacji, zobacz [co to są hasła aplikacji](multi-factor-authentication-end-user-app-passwords.md).
 6. Kliknij przycisk **Gotowe**.
 
 ## <a name="next-steps"></a>Następne kroki
 * Zmienianie opcji i [zarządzać ustawieniami na potrzeby weryfikacji dwuetapowej](multi-factor-authentication-end-user-manage-settings.md)
 * Konfigurowanie [hasła aplikacji](multi-factor-authentication-end-user-app-passwords.md) dla aplikacji natywnych urządzenia, które nie obsługują weryfikacji dwuetapowej.
-* Zapoznaj się z [aplikacji Microsoft Authenticator](microsoft-authenticator-app-how-to.md) Aby szybko i bezpiecznie uwierzytelniania nawet wtedy, gdy nie ma usługi komórki.
+* Zapoznaj się z hello [aplikacji Microsoft Authenticator](microsoft-authenticator-app-how-to.md) Aby szybko i bezpiecznie uwierzytelniania nawet wtedy, gdy nie ma usługi komórki.

@@ -1,6 +1,6 @@
 ---
-title: "Użyj elementów Webhook Azure, aby monitorować powiadomienia zadania usługi Media Services przy użyciu platformy .NET | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak monitorować powiadomienia zadania usługi Media Services za pomocą elementów Webhook Azure. Przykładowy kod jest napisany w języku C# i używa SDK usługi Media Services dla platformy .NET."
+title: "powiadomienia toomonitor elementów Webhook Azure aaaUse zadania usługi Media Services z platformą .NET | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse toomonitor elementów Webhook Azure Media Services zadania powiadomienia. Przykładowy kod Hello jest napisany w języku C# i używa hello SDK usługi Media Services dla platformy .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,63 +14,63 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
-ms.openlocfilehash: eaa875a7c78de0b69c81514ea023f9b8bceb2656
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b7df597da20e551cb2a02cd21c96c7bddf9e1a66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Elementów Webhook Azure używana do monitorowania usługi Media Services zadania powiadomienia z platformą .NET
-Po uruchomieniu zadania często wymagają sposób, aby śledzić postęp zadania. Powiadomienia zadań usługi Media Services można monitorować za pomocą elementów Webhook Azure lub [magazynu kolejek Azure](media-services-dotnet-check-job-progress-with-queues.md). W tym temacie przedstawiono sposób pracy z elementów Webhook.
+# <a name="use-azure-webhooks-toomonitor-media-services-job-notifications-with-net"></a>Azure elementów Webhook toomonitor Media Services zadania powiadomienia za pomocą platformy .NET
+Po uruchomieniu zadania często wymagają postępu zadania tootrack sposób. Powiadomienia zadań usługi Media Services można monitorować za pomocą elementów Webhook Azure lub [magazynu kolejek Azure](media-services-dotnet-check-job-progress-with-queues.md). W tym temacie przedstawiono sposób toowork z elementów Webhook.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do wykonania czynności przedstawionych w tym samouczku są niezbędne następujące elementy:
+Samouczek hello toocomplete wymagane są następujące Hello:
 
 * Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
-* Opis elementu [sposób użycia funkcji Azure](../azure-functions/functions-overview.md). Sprawdź również [Azure functions powiązania protokołu HTTP i webhook](../azure-functions/functions-bindings-http-webhook.md).
+* Konto usługi Media Services. Zobacz toocreate konto usługi Media Services [jak tooCreate konta usługi Media Services](media-services-portal-create-account.md).
+* Opis elementu [jak toouse Azure funkcji](../azure-functions/functions-overview.md). Sprawdź również [Azure functions powiązania protokołu HTTP i webhook](../azure-functions/functions-bindings-http-webhook.md).
 
 W tym temacie przedstawiono sposób
 
-*  Zdefiniuj funkcję platformy Azure, dostosowane odpowiedzieć elementów webhook. 
+*  Definiowanie funkcji platformy Azure, która jest toowebhooks toorespond dostosowane. 
     
-    W takim przypadku elementu webhook jest wyzwalane przez usługę Media Services, gdy zmieni zadania kodowania. Funkcja nasłuchuje wywołanie elementu webhook z usługi Media Services powiadomienia i publikuje elementu zawartości wyjściowej, po zakończeniu zadania. 
+    W takim przypadku hello elementu webhook jest wyzwalane przez usługę Media Services, gdy zmieni zadania kodowania. Funkcja Hello nasłuchuje hello wywołanie elementu webhook z usługi Media Services powiadomienia i publikuje zawartości wyjściowej powitania po zakończeniu zadania hello. 
     
     >[!NOTE]
     >Przed kontynuowaniem upewnij się, że rozumiesz, jak [powiązania HTTP funkcje platformy Azure i elementu webhook](../azure-functions/functions-bindings-http-webhook.md) pracy.
     >
     
-* Dodawanie elementu webhook do kodowania zadań, a następnie określ adres URL elementu webhook i klucz tajny, który odpowiada ten element webhook. W tym przykładzie kod, który tworzy kodowania zadań jest aplikacji konsoli.
+* Dodawanie zadania kodowania tooyour elementu webhook, a następnie określ adres URL elementu webhook hello i klucz tajny, który odpowiada ten element webhook. W tym miejscu pokazano przykład Witaj tworzy hello kodowania zadań kod hello jest aplikacji konsoli.
 
 ## <a name="setting-up-webhook-notification-azure-functions"></a>Konfigurowanie "powiadomień elementu webhook" Azure functions
 
-Kod w tej sekcji przedstawia implementację funkcji platformy Azure, która jest elementu webhook. W tym przykładzie funkcja nasłuchuje wywołanie elementu webhook z usługi Media Services powiadomienia i publikuje elementu zawartości wyjściowej, po zakończeniu zadania.
+Kod Hello w tej sekcji przedstawia implementację funkcji platformy Azure, która jest elementu webhook. W tym przykładzie funkcja hello nasłuchuje hello wywołanie elementu webhook z usługi Media Services powiadomienia i publikuje zawartości wyjściowej powitania po zakończeniu zadania hello.
 
-Element webhook oczekuje klucza podpisywania (poświadczeń) do dopasowania, który zostanie przekazany podczas konfigurowania punktu końcowego powiadomienia. Klucz podpisujący jest 64-bajtową wartość kodowany w standardzie Base64, który służy do ochrony i zabezpieczania Twojego wywołania zwrotne elementów Webhook z usługi Azure Media Services. 
+Element webhook Hello oczekuje podpisywania toomatch klucza (poświadczeń) hello jedną przekazać podczas konfigurowania punktu końcowego powiadomienia hello. Hello klucza podpisywania jest hello 64-bajtowych kodowany w standardzie Base64 wartość, która jest używana tooprotect i bezpieczny z wywołań zwrotnych elementów Webhook z usługi Azure Media Services. 
 
-W poniższym kodzie **VerifyWebHookRequestSignature** metoda wykonuje weryfikacji na komunikat powiadomienia. Celem tej weryfikacji jest zapewnienie, że wiadomość została wysłana przez usługi Azure Media Services i nie została zmieniona. Podpis jest opcjonalny w przypadku funkcji platformy Azure, musi **kod** wartość jako parametr zapytania za pośrednictwem zabezpieczeń TLS (Transport Layer). 
+W hello następującego kodu, hello **VerifyWebHookRequestSignature** metody hello weryfikacji na powitania powiadomienie. Celem tej weryfikacji Hello jest tooensure, który hello wiadomość została wysłana przez usługi Azure Media Services i nie została zmieniona. Podpis Hello jest opcjonalny w przypadku funkcji platformy Azure, musi hello **kod** wartość jako parametr zapytania za pośrednictwem zabezpieczeń TLS (Transport Layer). 
 
-Można znaleźć definicji różnych funkcji Media Services .NET Azure (w tym przedstawionego w tym temacie) [tutaj](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Można znaleźć definicji hello różnych funkcji Media Services .NET Azure (w tym hello pokazana w tym temacie) [tutaj](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-Następujący przykładowy kod przedstawia definicje parametrów funkcji platformy Azure i trzy pliki, które są skojarzone z funkcją Azure: function.json, project.json i run.csx.
+Witaj w poniższym fragmencie kodu zawiera definicje hello parametrów funkcji platformy Azure i trzy pliki, które są skojarzone z hello Azure funkcji: function.json, project.json i run.csx.
 
 ### <a name="application-settings"></a>Ustawienia aplikacji 
 
-W poniższej tabeli przedstawiono parametry, które są używane przez funkcję Azure zdefiniowane w tej sekcji. 
+Witaj poniższej tabeli przedstawiono parametry hello, które są używane przez hello Azure funkcji zdefiniowanej w tej sekcji. 
 
 |Nazwa|Definicja|Przykład| 
 |---|---|---|
 |AMSAccount|Nazwa konta usługi AMS. |juliakomediaservices|
 |AMSKey |Klucz konta usługi AMS. | JUWJdDaOHQQqsZeiXZuE76eDt2SO + YMJk25Lghgy2nY =|
-|MediaServicesStorageAccountName |Nazwa konta magazynu, który jest skojarzony z Twoim kontem AMS.| storagepkeewmg5c3peq|
-|MediaServicesStorageAccountKey |Klucz konta magazynu, który jest skojarzony z Twoim kontem AMS.|
+|MediaServicesStorageAccountName |Nazwa konta magazynu hello, która jest skojarzona z Twoim kontem AMS.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |Klucz konta magazynu hello, która jest skojarzona z Twoim kontem AMS.|
 |SigningKey |Klucza podpisywania.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Adres punktu końcowego elementu webhook. | https://juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### <a name="functionjson"></a>Function.JSON
 
-Plik function.json definiuje, powiązania funkcji i innych ustawień konfiguracyjnych. Środowisko uruchomieniowe korzysta z tego pliku, aby określić zdarzenia do monitorowania oraz sposób przekazywania danych do i zwracać dane z wykonywania funkcji. 
+Plik function.json Hello definiuje powiązania funkcji hello i innych ustawień konfiguracyjnych. środowiska uruchomieniowego Hello korzysta z tego pliku toodetermine hello zdarzenia toomonitor i sposób wykonywania funkcji toopass dane i zwracanych danych z. 
 
     {
       "bindings": [
@@ -96,7 +96,7 @@ Plik function.json definiuje, powiązania funkcji i innych ustawień konfiguracy
     
 ### <a name="projectjson"></a>Project.JSON
 
-Plik project.json zawiera zależności. 
+Plik project.json Hello zawiera zależności. 
 
     {
       "frameworks": {
@@ -111,11 +111,11 @@ Plik project.json zawiera zależności.
     
 ### <a name="runcsx"></a>Run.csx
 
-Poniższy kod C# przedstawia definicję funkcji platformy Azure, która jest elementu webhook. Funkcja nasłuchuje wywołanie elementu webhook z usługi Media Services powiadomienia i publikuje elementu zawartości wyjściowej, po zakończeniu zadania. 
+Witaj następujący kod C# zawiera definicję funkcji platformy Azure, która jest elementu webhook. Funkcja Hello nasłuchuje hello wywołanie elementu webhook z usługi Media Services powiadomienia i publikuje zawartości wyjściowej powitania po zakończeniu zadania hello. 
 
 
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać hello tym samym identyfikatorze zasad, jeśli używasz zawsze hello sam dni / dostęp uprawnień, na przykład zasady dla lokalizatorów, które są przeznaczone tooremain w miejscu przez długi czas (zasady — przekazywanie). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"
@@ -177,7 +177,7 @@ Poniższy kod C# przedstawia definicję funkcji platformy Azure, która jest ele
                 if(_context!=null)   
                 {                        
                 string urlForClientStreaming = PublishAndBuildStreamingURLs(msg.Properties["JobId"]);
-                log.Info($"URL to the manifest for client streaming using HLS protocol: {urlForClientStreaming}");
+                log.Info($"URL toohello manifest for client streaming using HLS protocol: {urlForClientStreaming}");
                 }
             }
 
@@ -210,19 +210,19 @@ Poniższy kod C# przedstawia definicję funkcji platformy Azure, która jest ele
         TimeSpan.FromDays(30),
         AccessPermissions.Read);
 
-        // Create a locator to the streaming content on an origin. 
+        // Create a locator toohello streaming content on an origin. 
         ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
         policy,
         DateTime.UtcNow.AddMinutes(-5));
 
 
-        // Get a reference to the streaming manifest file from the  
-        // collection of files in the asset. 
+        // Get a reference toohello streaming manifest file from hello  
+        // collection of files in hello asset. 
         var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                     EndsWith(".ism")).
                     FirstOrDefault();
 
-        // Create a full URL to the manifest file. Use this for playback
+        // Create a full URL toohello manifest file. Use this for playback
         // in streaming media clients. 
         string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest" +  "(format=m3u8-aapl)";
         return urlForClientStreaming;
@@ -278,7 +278,7 @@ Poniższy kod C# przedstawia definicję funkcji platformy Azure, która jest ele
     private static readonly char[] HexLookup = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
     /// <summary>
-    /// Converts a <see cref="T:byte[]"/> to a hex-encoded string.
+    /// Converts a <see cref="T:byte[]"/> tooa hex-encoded string.
     /// </summary>
     private static string ToHex(byte[] data)
     {
@@ -320,7 +320,7 @@ Poniższy kod C# przedstawia definicję funkcji platformy Azure, która jest ele
 
 ### <a name="function-output"></a>Dane wyjściowe funkcji
 
-W powyższym przykładzie są tworzone następujące dane wyjściowe, wartości będą się różnić.
+w powyższym przykładzie Hello wyprodukowanych hello następujące dane wyjściowe, wartości będą się różnić.
 
     C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
     Request Body = {
@@ -339,19 +339,19 @@ W powyższym przykładzie są tworzone następujące dane wyjściowe, wartości 
       }
     }
     
-    URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+    URL toohello manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-## <a name="adding-webhook-to-your-encoding-task"></a>Dodawanie elementu Webhook do kodowania zadań
+## <a name="adding-webhook-tooyour-encoding-task"></a>Dodawanie zadania kodowania tooyour elementu Webhook
 
-W tej sekcji przedstawiono kod, który dodaje powiadomienie elementu webhook do zadania. Można również dodać powiadomienie poziomu zadania, które będą bardziej użyteczna w przypadku pracy z zadaniami łańcuchowa.  
+W tej sekcji przedstawiono hello kod, który dodaje tooa powiadomień elementu webhook zadań. Można również dodać powiadomienie poziomu zadania, które będą bardziej użyteczna w przypadku pracy z zadaniami łańcuchowa.  
 
-1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio. Wprowadź nazwę nazwy, lokalizacji i rozwiązania, a następnie kliknij przycisk OK.
-2. Użyj [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) do zainstalowania usługi Azure Media Services.
+1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio. Wprowadź hello nazwy, lokalizacji i rozwiązanie nazwy, a następnie kliknij przycisk OK.
+2. Użyj [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) tooinstall usługi Azure Media Services.
 3. Zaktualizuj plik App.config o odpowiednie wartości: 
     
     * Azure Media Services nazwy i klucza, który będą wysyłane powiadomienia, 
-    * oczekuje, aby otrzymywać powiadomienia, adres URL elementu webhook 
-    * klucza podpisywania, który pasuje do klucza, która oczekuje z elementu webhook. Klucz podpisujący jest 64-bajtową wartość kodowany w standardzie Base64, który służy do ochrony i zabezpieczania Twojego wywołania zwrotne elementów Webhook z usługi Azure Media Services. 
+    * oczekuje tooget hello powiadomienia, adres URL elementu webhook 
+    * Witaj podpisywania klucz, który pasuje do klucza hello, która oczekuje z elementu webhook. Hello klucza podpisywania jest hello 64-bajtowych kodowany w standardzie Base64 wartość, która jest używana tooprotect i bezpieczny z wywołań zwrotnych elementów Webhook z usługi Azure Media Services. 
 
             <appSettings>
               <add key="MediaServicesAccountName" value="AMSAcctName" />
@@ -360,7 +360,7 @@ W tej sekcji przedstawiono kod, który dodaje powiadomienie elementu webhook do 
               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
             </appSettings>
             
-4. Zaktualizuj plik Program.cs następującym kodem:
+4. Zaktualizuj plik Program.cs o hello następującego kodu:
 
         using System;
         using System.Configuration;
@@ -371,7 +371,7 @@ W tej sekcji przedstawiono kod, który dodaje powiadomienie elementu webhook do 
         {
             class Program
             {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _mediaServicesAccountName =
                 ConfigurationManager.AppSettings["MediaServicesAccountName"];
             private static readonly string _mediaServicesAccountKey =
@@ -387,7 +387,7 @@ W tej sekcji przedstawiono kod, który dodaje powiadomienie elementu webhook do 
             static void Main(string[] args)
             {
 
-                // Used the cached credentials to create CloudMediaContext.
+                // Used hello cached credentials toocreate CloudMediaContext.
                 _context = new CloudMediaContext(new MediaServicesCredentials(
                         _mediaServicesAccountName,
                         _mediaServicesAccountKey));
@@ -396,7 +396,7 @@ W tej sekcji przedstawiono kod, który dodaje powiadomienie elementu webhook do 
 
                 IAsset newAsset = _context.Assets.FirstOrDefault();
 
-                // Check for existing Notification Endpoint with the name "FunctionWebHook"
+                // Check for existing Notification Endpoint with hello name "FunctionWebHook"
 
                 var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
                 INotificationEndPoint endpoint = null;
@@ -413,11 +413,11 @@ W tej sekcji przedstawiono kod, który dodaje powiadomienie elementu webhook do 
                 Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
                 }
 
-                // Declare a new encoding job with the Standard encoder
+                // Declare a new encoding job with hello Standard encoder
                 IJob job = _context.Jobs.Create("MES Job");
 
-                // Get a media processor reference, and pass to it the name of the 
-                // processor to use for the specific task.
+                // Get a media processor reference, and pass tooit hello name of hello 
+                // processor toouse for hello specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
                 ITask task = job.Tasks.AddNew("My encoding task",
@@ -425,15 +425,15 @@ W tej sekcji przedstawiono kod, który dodaje powiadomienie elementu webhook do 
                 "Adaptive Streaming",
                 TaskOptions.None);
 
-                // Specify the input asset to be encoded.
+                // Specify hello input asset toobe encoded.
                 task.InputAssets.Add(newAsset);
 
-                // Add an output asset to contain the results of the job. 
+                // Add an output asset toocontain hello results of hello job. 
                 // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // means hello output asset is not encrypted. 
                 task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
 
-                // Add the WebHook notification to this Task and request all notification state changes.
+                // Add hello WebHook notification toothis Task and request all notification state changes.
                 // Note that you can also add a job level notification
                 // which would be more useful for a job with chained tasks.  
                 if (endpoint != null)
@@ -448,8 +448,8 @@ W tej sekcji przedstawiono kod, który dodaje powiadomienie elementu webhook do 
 
                 job.Submit();
 
-                Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
-                Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
+                Console.WriteLine("Expect WebHook toobe triggered for hello Job ID: {0}", job.Id);
+                Console.WriteLine("Expect WebHook toobe triggered for hello Task ID: {0}", task.Id);
 
                 Console.WriteLine("Job Submitted");
 

@@ -1,6 +1,6 @@
 ---
-title: "Usługa Azure AD B2C | Microsoft Docs"
-description: "Jak utworzyć interfejs API sieci Web programu .NET przy użyciu usługi Azure Active Directory B2C zabezpieczonej przy użyciu tokenów dostępu protokołu OAuth 2.0 na potrzeby uwierzytelniania."
+title: aaaAzure AD B2C | Dokumentacja firmy Microsoft
+description: "Jak toobuild interfejsu API sieci Web platformy .NET przy użyciu usługi Azure Active Directory B2C zabezpieczonej przy użyciu tokenów dostępu protokołu OAuth 2.0 do uwierzytelniania."
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
@@ -14,68 +14,68 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d45364216deda38ef44b60dd11e86d9a089ad509
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: tworzenie interfejsu API sieci Web platformy .NET
 
-Usługa Azure Active Directory (Azure AD) B2C umożliwia zabezpieczanie interfejsu API sieci Web za pomocą tokenów dostępu protokołu OAuth 2.0. Tokeny te służą aplikacjom klienckim do uwierzytelniania w obrębie interfejsu API. W tym artykule pokazano, jak utworzyć interfejs API „lista zadań do wykonania” kontrolera MVC platformy .NET umożliwiający użytkownikom aplikacji klienckiej wykonywanie zadań CRUD. Interfejs API sieci Web jest zabezpieczony za pomocą usługi Azure AD B2C i zezwala na zarządzanie listami zadań do wykonania tylko uwierzytelnionym użytkownikom.
+Usługa Azure Active Directory (Azure AD) B2C umożliwia zabezpieczanie interfejsu API sieci Web za pomocą tokenów dostępu protokołu OAuth 2.0. Tokeny te Zezwalaj klienta toohello tooauthenticate aplikacji interfejsu API. W tym artykule opisano, jak toocreate interfejs API programu .NET MVC "Lista zadań do wykonania" umożliwiająca użytkownikom klienta zadań tooCRUD aplikacji. Interfejs API sieci web Hello jest zabezpieczone przy użyciu usługi Azure AD B2C i tylko umożliwia toomanage uwierzytelnionym użytkownikom ich listy zadań do wykonania.
 
 ## <a name="create-an-azure-ad-b2c-directory"></a>Tworzenie katalogu usługi Azure AD B2C
 
 Przed rozpoczęciem korzystania z usługi Azure AD B2C należy utworzyć katalog lub dzierżawę. Katalog jest kontenerem dla wszystkich użytkowników, aplikacji, grup i innych elementów. Jeśli jeszcze go nie masz, [utwórz katalog usługi B2C](active-directory-b2c-get-started.md), zanim przejdziesz dalej.
 
 > [!NOTE]
-> Aplikacja kliencka i interfejs API sieci Web muszą korzystać z tego samego katalogu usługi Azure AD B2C.
+> Aplikacja kliencka Hello i interfejs API sieci web muszą używać katalogu B2C hello tej samej usługi Azure AD.
 >
 
 ## <a name="create-a-web-api"></a>Tworzenie interfejsu API sieci Web
 
-Następnie musisz utworzyć aplikację interfejsu API sieci Web w katalogu usługi B2C. Dzięki temu informacje wymagane do bezpiecznego komunikowania się z aplikacją będą przekazywane do usługi Azure AD. Aby utworzyć aplikację, postępuj zgodnie z [tymi instrukcjami](active-directory-b2c-app-registration.md). Należy pamiętać o wykonaniu następujących czynności:
+Następnie należy toocreate aplikacji interfejsu API sieci web w katalogu usługi B2C. Dzięki temu informacje usługi Azure AD, czy go wymaga toosecurely komunikować się z aplikacją. toocreate usługi aplikacji, wykonaj [tych instrukcji](active-directory-b2c-app-registration.md). Należy pamiętać o wykonaniu następujących czynności:
 
-* Uwzględnij **aplikację sieci Web** lub **interfejs API sieci Web** w aplikacji.
-* Użyj **identyfikatora URI przekierowania** `https://localhost:44332/` dla aplikacji sieci Web. Jest to domyślna lokalizacja klienta aplikacji sieci Web dla tego przykładu kodu.
-* Skopiuj **Identyfikator aplikacji** przypisany do aplikacji. Będzie on potrzebny później.
+* Obejmują **aplikacji sieci web** lub **interfejs API sieci web** w aplikacji hello.
+* Użyj hello **identyfikator URI przekierowania** `https://localhost:44332/` hello aplikacji sieci web. To jest domyślna lokalizacja hello powitania klienta aplikacji sieci web dla tego przykładu kodu.
+* Kopiuj hello **identyfikator aplikacji** czyli przypisanej tooyour aplikacji. Będzie on potrzebny później.
 * Wprowadź identyfikator aplikacji do **identyfikatora URI aplikacji**.
-* Dodaj uprawnienia za pomocą menu **Opublikowane zakresy**.
+* Należy dodać uprawnienia za pomocą hello **opublikowane zakresy** menu.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Tworzenie zasad
 
-W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). Należy utworzyć zasady komunikacji z usługą Azure AD B2C. Zaleca się używanie połączonych zasad tworzenia/logowania, zgodnie z opisem w [artykule Informacje ogólne o zasadach](active-directory-b2c-reference-policies.md). Podczas tworzenia zasad należy pamiętać, aby:
+W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). Konieczne będzie toocreate toocommunicate zasad w usłudze Azure AD B2C. Zaleca się przy użyciu hello połączone konta-konta/zasad logowania, zgodnie z opisem w hello [artykule o zasadach](active-directory-b2c-reference-policies.md). Podczas tworzenia zasad należy pamiętać, aby:
 
 * Wybrać wartość **Nazwa wyświetlana** i inne atrybuty tworzenia konta w zasadach.
 * Wybrać oświadczenia **Nazwa wyświetlana** i **Identyfikator obiektu** jako oświadczenia aplikacji dla wszystkich zasad. Można również wybrać inne oświadczenia.
-* Skopiować każdą utworzoną wartość **Nazwa** zasad. Nazwa zasad będzie potrzebna później.
+* Kopiuj hello **nazwa** poszczególnych zasad po jego utworzeniu. Nazwa zasad hello będą potrzebne później.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Po pomyślnym utworzeniu zasad możesz rozpocząć tworzenie aplikacji.
+Po pomyślnym utworzeniu zasad hello wszystko jest gotowe toobuild aplikacji.
 
-## <a name="download-the-code"></a>Pobieranie kodu
+## <a name="download-hello-code"></a>Pobierz kod hello
 
-Kod używany w tym samouczku [jest przechowywany w serwisie GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Przykład można sklonować, uruchamiając polecenie:
+Witaj kod dla tego samouczka jest przechowywany w [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Przykład Witaj można sklonować, uruchamiając:
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Po pobraniu przykładu kodu otwórz plik SLN programu Visual Studio, aby rozpocząć. Plik rozwiązania zawiera dwa projekty: `TaskWebApp` i `TaskService`. `TaskWebApp` to aplikacja sieci Web z architekturą MVC, z której korzysta użytkownik. `TaskService` to interfejs API zaplecza aplikacji, który przechowuje listy zadań do wykonania poszczególnych użytkowników. Ten artykuł zawiera jedynie omówienie aplikacji `TaskService`. Aby dowiedzieć się, jak utworzyć `TaskWebApp`, używając usługi Azure AD B2C, zobacz nasz [samouczek dotyczący aplikacji sieci Web platformy .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+Po pobraniu hello przykładowy kod tooget plik SLN programu Visual Studio Otwórz hello jest uruchomiona. Witaj plik rozwiązania zawiera dwa projekty: `TaskWebApp` i `TaskService`. `TaskWebApp`to aplikacja sieci web MVC, która hello użytkownika współdziała z. `TaskService`to interfejs API sieci web zaplecza aplikacji hello, który przechowuje listy zadań do wykonania poszczególnych użytkowników. W tym artykule przedstawimy tylko hello `TaskService` aplikacji. toolearn jak toobuild `TaskWebApp` za pomocą usługi Azure AD B2C, zobacz [naszym samouczku aplikacji sieci web .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
-### <a name="update-the-azure-ad-b2c-configuration"></a>Aktualizowanie konfiguracji usługi Azure AD B2C
+### <a name="update-hello-azure-ad-b2c-configuration"></a>Zaktualizuj konfigurację hello Azure AD B2C
 
-Nasz przykład został skonfigurowany do używania zasad i identyfikatora klienta dzierżawy pokazowej. Jeśli chcesz użyć własnej dzierżawy, wykonaj następujące czynności:
+Naszej próbki jest skonfigurowany toouse hello zasady i klienta identyfikator dzierżawy naszych pokaz. Jeśli chcesz toouse własną dzierżawę, konieczne będzie hello toodo następujące:
 
-1. Otwórz plik `web.config` w projekcie `TaskService` i zastąp wartości
+1. Otwórz `web.config` w hello `TaskService` projektu i Zastąp wartości hello
     * `ida:Tenant` nazwą dzierżawy
     * `ida:ClientId` identyfikatorem aplikacji interfejsu API sieci Web
     * `ida:SignUpSignInPolicyId` nazwą zasady tworzenia konta/logowania
 
-2. Otwórz plik `web.config` w projekcie `TaskWebApp` i zastąp wartości
+2. Otwórz `web.config` w hello `TaskWebApp` projektu i Zastąp wartości hello
     * `ida:Tenant` nazwą dzierżawy
     * `ida:ClientId` identyfikatorem aplikacji sieci Web
     * `ida:ClientSecret` kluczem tajnym aplikacji sieci Web
@@ -84,13 +84,13 @@ Nasz przykład został skonfigurowany do używania zasad i identyfikatora klient
     * `ida:ResetPasswordPolicyId` nazwą zasady resetowania hasła
 
 
-## <a name="secure-the-api"></a>Zabezpieczanie interfejsu API
+## <a name="secure-hello-api"></a>Zabezpiecz interfejs API hello
 
-Jeśli klient wywołuje interfejs API, należy zabezpieczyć interfejs API (np. `TaskService`) za pomocą tokenów elementu nośnego OAuth 2.0. Dzięki temu każde żądanie dotyczące interfejsu API będzie poprawne, tylko jeśli zawiera token elementu nośnego. Interfejs API może akceptować i weryfikować tokeny elementu nośnego przy użyciu biblioteki interfejsu OWIN (Open Web Interface for .NET) firmy Microsoft.
+Jeśli klient wywołuje interfejs API, należy zabezpieczyć interfejs API (np. `TaskService`) za pomocą tokenów elementu nośnego OAuth 2.0. Dzięki temu API tooyour każdego żądania będą tylko ważne, jeśli Żądanie hello ma token elementu nośnego. Interfejs API może akceptować i weryfikować tokeny elementu nośnego przy użyciu biblioteki interfejsu OWIN (Open Web Interface for .NET) firmy Microsoft.
 
 ### <a name="install-owin"></a>Instalowanie interfejsu OWIN
 
-Rozpocznij od zainstalowania potoku uwierzytelniania OWIN OAuth przy użyciu konsoli Menedżera pakietów Visual Studio.
+Rozpocznij od zainstalowania potoku uwierzytelniania OAuth interfejsu OWIN hello przy użyciu hello Konsola Menedżera pakietów programu Visual Studio.
 
 ```Console
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TaskService
@@ -98,23 +98,23 @@ PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TaskService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
-Spowoduje to zainstalowanie oprogramowania pośredniczącego OWIN, które będzie akceptować i sprawdzać poprawność tokenów elementu nośnego.
+Spowoduje to zainstalowanie oprogramowania pośredniczącego OWIN hello, który będzie akceptować i sprawdzania poprawności tokenów elementu nośnego.
 
 ### <a name="add-an-owin-startup-class"></a>Dodawanie klasy początkowej OWIN
 
-Dodaj klasę początkową OWIN do interfejsu API o nazwie `Startup.cs`.  Kliknij projekt prawym przyciskiem myszy, wybierz kolejno pozycje **Dodaj** i **Nowy element**, a następnie wyszukaj interfejs OWIN. Oprogramowanie pośredniczące OWIN wywoła metodę `Configuration(…)` podczas uruchamiania aplikacji.
+Dodaj toohello klasy interfejsu API OWIN uruchamiania o nazwie `Startup.cs`.  Kliknij prawym przyciskiem myszy na powitania projektu, zaznacz **Dodaj** i **nowy element**, a następnie wyszukaj interfejs OWIN. oprogramowanie pośredniczące OWIN Hello wywoła hello `Configuration(…)` metody podczas uruchamiania aplikacji.
 
-W naszym przykładzie zmieniliśmy deklarację klasy na `public partial class Startup` i wdrożyliśmy drugą część klasy w `App_Start\Startup.Auth.cs`. Wewnątrz metody `Configuration` dodaliśmy wywołanie `ConfigureAuth`, które jest zdefiniowane w `Startup.Auth.cs`. Po modyfikacji `Startup.cs` wygląda podobnie do następujących:
+W naszym przykładzie możemy zmienić deklaracji klasy hello zbyt`public partial class Startup` i implementowane hello drugiej klasy hello w `App_Start\Startup.Auth.cs`. Witaj wewnątrz `Configuration` metody dodaliśmy wywołanie za`ConfigureAuth`, który jest zdefiniowany w `Startup.Auth.cs`. Po modyfikacji hello `Startup.cs` wygląda jak poniżej hello:
 
 ```CSharp
 // Startup.cs
 
 public partial class Startup
 {
-    // The OWIN middleware will invoke this method when the app starts
+    // hello OWIN middleware will invoke this method when hello app starts
     public void Configuration(IAppBuilder app)
     {
-        // ConfigureAuth defined in other part of the class
+        // ConfigureAuth defined in other part of hello class
         ConfigureAuth(app);
     }
 }
@@ -122,7 +122,7 @@ public partial class Startup
 
 ### <a name="configure-oauth-20-authentication"></a>Konfigurowanie uwierzytelniania OAuth 2.0
 
-Otwórz plik `App_Start\Startup.Auth.cs` i zaimplementuj metodę `ConfigureAuth(...)`. Na przykład może ona wyglądać następująco:
+Witaj Otwórz plik `App_Start\Startup.Auth.cs`i wdrożenie hello `ConfigureAuth(...)` metody. Na przykład może wyglądać podobnie jak poniżej hello:
 
 ```CSharp
 // App_Start\Startup.Auth.cs
@@ -137,29 +137,29 @@ Otwórz plik `App_Start\Startup.Auth.cs` i zaimplementuj metodę `ConfigureAuth(
         public static string DefaultPolicy = SignUpSignInPolicy;
 
         /*
-         * Configure the authorization OWIN middleware.
+         * Configure hello authorization OWIN middleware.
          */
         public void ConfigureAuth(IAppBuilder app)
         {
             TokenValidationParameters tvps = new TokenValidationParameters
             {
-                // Accept only those tokens where the audience of the token is equal to the client ID of this app
+                // Accept only those tokens where hello audience of hello token is equal toohello client ID of this app
                 ValidAudience = ClientId,
                 AuthenticationType = Startup.DefaultPolicy
             };
 
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
             {
-                // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
+                // This SecurityTokenProvider fetches hello Azure AD B2C metadata & signing keys from hello OpenIDConnect metadata endpoint
                 AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(AadInstance, Tenant, DefaultPolicy)))
             });
         }
     }
 ```
 
-### <a name="secure-the-task-controller"></a>Zabezpieczanie kontrolera zadań
+### <a name="secure-hello-task-controller"></a>Zabezpieczanie kontrolera zadań hello
 
-Po skonfigurowaniu aplikacji do używania uwierzytelniania OAuth 2.0 możesz zabezpieczyć interfejs API sieci Web, dodając tag `[Authorize]` do kontrolera zadań. Jest to kontroler, w obrębie którego odbywają się wszystkie operacje edytowania listy zadań do wykonania, dlatego należy zabezpieczyć cały kontroler na poziomie klasy. Można również dodać tag `[Authorize]` do poszczególnych czynności w celu uzyskania ściślejszej kontroli.
+Po aplikacji hello jest uwierzytelnianie skonfigurowanego toouse OAuth 2.0, można zabezpieczyć interfejs API sieci web, dodając `[Authorize]` kontrolera zadań toohello tagu. Jest to kontroler hello, jeśli wszystkie operacje edytowania listy zadań do wykonania ma miejsce, dlatego należy zabezpieczyć cały kontroler hello na poziomie klasy hello. Możesz także dodać hello `[Authorize]` tagu tooindividual akcji dla bardziej szczegółową kontrolę.
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -171,9 +171,9 @@ public class TasksController : ApiController
 }
 ```
 
-### <a name="get-user-information-from-the-token"></a>Uzyskiwanie informacji o użytkowniku z tokenu
+### <a name="get-user-information-from-hello-token"></a>Uzyskiwanie informacji o użytkowniku z hello tokenu
 
-`TasksController` przechowuje zadania w bazie danych. Z każdym zadaniem jest skojarzony użytkownik będący jego „właścicielem”. Właściciel jest identyfikowany za pomocą **identyfikatora obiektu** użytkownika. (Dlatego trzeba było dodać identyfikator obiektu jako oświadczenie aplikacji we wszystkich zasadach).
+`TasksController`przechowuje zadania w bazie danych, gdzie każde zadanie ma skojarzony użytkownik będący jego "właścicielem" hello zadań. Witaj właściciel jest identyfikowany przez użytkownika hello **obiekt o identyfikatorze**. (Dlatego potrzebne identyfikator obiektu hello tooadd jako aplikacji we wszystkich zasadach.)
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -186,9 +186,9 @@ public IEnumerable<Models.Task> Get()
 }
 ```
 
-### <a name="validate-the-permissions-in-the-token"></a>Weryfikowanie uprawnień w tokenie
+### <a name="validate-hello-permissions-in-hello-token"></a>Sprawdź poprawność uprawnień hello w tokenie hello
 
-Typowym wymogiem dla interfejsów API sieci Web jest weryfikacja „zakresów” występujących w tokenie. Daje to gwarancję, że użytkownik wyraził zgodę na uprawnienia wymagane do uzyskania dostępu do usługi listy zadań do wykonania.
+Typowe wymagania dotyczące interfejsów API sieci web jest hello toovalidate "zakresy" występuje w tokenie hello. Dzięki temu użytkownik hello zgodził usługi listy zadań do wykonania hello toohello uprawnienia wymagane tooaccess.
 
 ```CSharp
 public IEnumerable<Models.Task> Get()
@@ -197,17 +197,17 @@ public IEnumerable<Models.Task> Get()
     {
         throw new HttpResponseException(new HttpResponseMessage {
             StatusCode = HttpStatusCode.Unauthorized,
-            ReasonPhrase = "The Scope claim does not contain 'read' or scope claim not found"
+            ReasonPhrase = "hello Scope claim does not contain 'read' or scope claim not found"
         });
     }
     ...
 }
 ```
 
-## <a name="run-the-sample-app"></a>Uruchamianie przykładowej aplikacji
+## <a name="run-hello-sample-app"></a>Uruchom hello przykładowej aplikacji
 
-Na koniec skompiluj i uruchom oba projekty: `TaskWebApp` i `TaskService`. Utwórz kilka zadań na liście użytkownika i zwróć uwagę na to, że zostają one zachowane w interfejsie API nawet po zatrzymaniu i ponownym uruchomieniu klienta.
+Na koniec skompiluj i uruchom oba projekty: `TaskWebApp` i `TaskService`. Utwórz kilka zadań na liście zadań do wykonania hello użytkownika i zwróć uwagę, jak są zachowywane w hello interfejsu API nawet po Zatrzymaj i uruchom ponownie powitania klienta.
 
 ## <a name="edit-your-policies"></a>Edytowanie zasad
 
-Po zabezpieczeniu interfejsu API za pomocą usługi Azure AD B2C możesz eksperymentować z zasadą tworzenia konta/logowania i sprawdzać skutki (lub ich brak) powiązane z interfejsem API. Możesz manipulować oświadczeniami aplikacji w zasadach i zmieniać informacje o użytkowniku dostępne w interfejsie API sieci Web. Wszystkie dodane oświadczenia będą dostępne dla interfejsu API sieci Web w architekturze MVC programu .NET w obiekcie `ClaimsPrincipal`, zgodnie z opisem we wcześniejszej części tego artykułu.
+Po zabezpieczeniu interfejsu API za pomocą usługi Azure AD B2C możesz eksperymentować z zasad logowania — w/tworzenia konta i widoku hello skutki (lub ich brak) na powitania interfejsu API. Można manipulować oświadczeniami aplikacji hello w hello zasad i zmienić informacje o użytkowniku hello dostępnym w hello interfejsu API sieci web. Wszelkie oświadczenia, które można dodać będą dostępne tooyour interfejsu API sieci web .NET MVC w hello `ClaimsPrincipal` obiektu, zgodnie z opisem we wcześniejszej części tego artykułu.

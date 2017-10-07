@@ -1,6 +1,6 @@
 ---
-title: "Jak używać magazynu kolejek w języku Ruby | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać usługi kolejek platformy Azure do tworzenia i usuwania kolejki, Wstaw, Pobierz i usunąć wiadomości. Przykłady napisany w języku Ruby."
+title: "toouse aaaHow magazynu kolejek w języku Ruby | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate usługi kolejek platformy Azure hello toouse i usuwania kolejki oraz insert, Pobierz i usunąć wiadomości. Przykłady napisany w języku Ruby."
 services: storage
 documentationcenter: ruby
 author: robinsh
@@ -14,20 +14,20 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.openlocfilehash: b1a7dd36af6c45bf085342cdf9c1c926a5040792
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c8eacac058442419cb9e8fe62cb69ad7ef1e2fc4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-queue-storage-from-ruby"></a>Jak używać Magazynu kolejek w języku Ruby
+# <a name="how-toouse-queue-storage-from-ruby"></a>Jak toouse magazynu kolejek w języku Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym przewodniku przedstawiono sposób wykonywania typowych scenariuszy przy użyciu usługi Microsoft Azure Queue Storage. Przykłady są napisane przy użyciu interfejsu API Azure Ruby.
-Omówione scenariusze obejmują **wstawianie**, **wybierania**, **pobierania**, i **usuwanie** kolejki komunikatów, a także **tworzenie i usuwanie kolejek**.
+Ten przewodnik przedstawia, jak tooperform typowych scenariuszy przy użyciu hello usługi Microsoft Azure Queue Storage. Hello przykłady są napisane przy użyciu hello Ruby interfejsu API Azure.
+Hello omówione scenariusze obejmują **wstawianie**, **wybierania**, **pobierania**, i **usuwanie** kolejki komunikatów, a także  **Tworzenie i usuwanie kolejek**.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -36,44 +36,44 @@ Omówione scenariusze obejmują **wstawianie**, **wybierania**, **pobierania**, 
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji Ruby
 Utwórz aplikację dopisków fonetycznych. Aby uzyskać instrukcje, zobacz [dopisków fonetycznych w aplikacji sieci Web szyny na maszynie Wirtualnej platformy Azure](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
-## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji na dostęp do magazynu
-Aby korzystać z usługi Azure storage, konieczne pobranie i użycie dopisków fonetycznych pakiet azure zawiera zestaw wygody bibliotek, które komunikują się z magazynu usługi REST.
+## <a name="configure-your-application-tooaccess-storage"></a>Skonfiguruj tooAccess Twoja aplikacja magazynu
+toouse magazynu Azure, należy toodownload i użyj hello dopisków fonetycznych azure pakiet, który zawiera zestaw wygody bibliotek, które komunikują się z usługi REST magazynu hello.
 
-### <a name="use-rubygems-to-obtain-the-package"></a>Umożliwia uzyskanie pakietu RubyGems
+### <a name="use-rubygems-tooobtain-hello-package"></a>Użyj RubyGems tooobtain hello pakietu
 1. Użyj interfejsu wiersza polecenia, takich jak **PowerShell** (system Windows), **terminali** (Mac), lub **Bash** (Unix).
-2. Wpisz "azure gem instalacji" w oknie wiersza polecenia, aby zainstalować gem i zależności.
+2. Wpisz "gem zainstalować program azure" hello polecenia okna tooinstall hello gem i zależności.
 
-### <a name="import-the-package"></a>Importowanie pakietu
-Użyj edytora tekstu, Dodaj następujący element do góry pliku dopisków fonetycznych, których zamierzasz używać magazynu:
+### <a name="import-hello-package"></a>Importowanie pakietu hello
+Użyj edytora tekstu, Dodaj powitania od góry toohello hello dopisków fonetycznych pliku, w którym ma toouse magazynu:
 
 ```ruby
 require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Ustawienia połączenia z magazynem Azure
-Moduł azure odczyta zmiennych środowiskowych **AZURE\_MAGAZYNU\_konta** i **AZURE\_MAGAZYNU\_ACCESS_KEY** informacji wymagane do łączenia się z kontem magazynu platformy Azure. Jeśli te zmienne środowiskowe nie są skonfigurowane, należy określić informacje o koncie przed użyciem **Azure::QueueService** następującym kodem:
+Moduł Hello azure odczyta zmiennych środowiskowych hello **AZURE\_MAGAZYNU\_konta** i **AZURE\_MAGAZYNU\_ACCESS_KEY** dla Konto magazynu Azure tooyour tooconnect wymaganych informacji. Jeśli te zmienne środowiskowe nie są skonfigurowane, należy określić informacje o koncie hello przed użyciem **Azure::QueueService** z hello następującego kodu:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your Azure storage access key>"
 ```
 
-Aby uzyskać te wartości z klasyczny lub Menedżera zasobów konta magazynu w portalu Azure:
+tooobtain te wartości z klasyczny lub Menedżera zasobów magazynu konta w portalu Azure hello:
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Przejdź do konta magazynu, którego chcesz użyć.
-3. W bloku ustawienia po prawej stronie, kliknij przycisk **klucze dostępu**.
-4. W bloku klucze dostępu pojawia się zostanie wyświetlony klucz dostępu 1 i klucz dostępu 2. Można użyć jednego z tych. 
-5. Kliknij ikonę kopiowania, aby skopiować klucz do Schowka. 
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com).
+2. Przejdź toohello konta magazynu, które chcesz toouse.
+3. W bloku ustawienia hello na powitania prawo, kliknij przycisk **klucze dostępu**.
+4. W bloku klucze dostępu hello, który pojawia się zostanie wyświetlony klucz dostępu hello 1 i klucz dostępu 2. Można użyć jednego z tych. 
+5. Kliknij przycisk hello Kopiuj ikona toocopy hello klucza toohello Schowka. 
 
 ## <a name="how-to-create-a-queue"></a>Porady: Tworzenie kolejki
-Poniższy kod tworzy **Azure::QueueService** obiektu, który umożliwia pracę z kolejki.
+Witaj poniższy kod tworzy **Azure::QueueService** obiektu, który pozwala toowork z kolejki.
 
 ```ruby
 azure_queue_service = Azure::QueueService.new
 ```
 
-Użyj **create_queue()** metodę, aby utworzyć kolejkę o określonej nazwie.
+Użyj hello **create_queue()** toocreate metody kolejki z hello określona nazwa.
 
 ```ruby
 begin
@@ -84,27 +84,27 @@ end
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Porady: Wstawianie komunikatu do kolejki
-Aby wstawić komunikat do kolejki, użyj **create_message()** metodę, aby utworzyć nową wiadomość i dodaj go do kolejki.
+tooinsert wiadomości do kolejki, użyj hello **create_message()** toocreate metody nową wiadomość i dodaj go toohello kolejki.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Porady: Podgląd kolejnego komunikatu
-Możesz uzyskać wgląd w komunikat z przodu kolejki bez jego usuwania z kolejki, wywołując **peek\_messages()** metody. Domyślnie **peek\_messages()** wglądu w pojedynczym komunikacie. Można również określić, ile komunikatów, aby Podgląd.
+## <a name="how-to-peek-at-hello-next-message"></a>Porady: Podgląd hello następny komunikat
+Można wglądu wiadomość hello hello przodu kolejki bez jego usuwania z kolejki hello przez wywołanie hello **peek\_messages()** metody. Domyślnie **peek\_messages()** wglądu w pojedynczym komunikacie. Można również określić, ile komunikatów ma toopeek.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Porady: Następny komunikat usuwania z kolejki
+## <a name="how-to-dequeue-hello-next-message"></a>Porady: Hello następny komunikat usuwania z kolejki
 Można usunąć wiadomości z kolejki w dwóch etapach.
 
-1. Podczas wywoływania **listy\_messages()**, Pobierz następnej wiadomości w kolejce domyślnie. Można również określić, ile komunikatów, które chcesz pobrać. Komunikaty zwracane z **listy\_messages()** staje się niewidoczny dla innego kodu odczytującego komunikaty z tej kolejki. Przekaż widoczność limit czasu w sekundach jako parametr.
-2. Aby zakończyć usuwanie komunikatu z kolejki, musisz również wywołać **delete_message()**.
+1. Podczas wywoływania **listy\_messages()**, Pobierz hello następnej wiadomości w kolejce domyślnie. Można również określić, ile komunikatów ma tooget. Witaj komunikaty zwracane z **listy\_messages()** staje się niewidoczny tooany innego kodu odczytującego komunikaty z tej kolejki. Przekaż limitu czasu widoczności hello w sekundach jako parametr.
+2. toofinish usuwania wiadomość hello z kolejki hello, musisz również wywołać **delete_message()**.
 
-Ten dwuetapowy proces usuwania komunikatów gwarantuje, że gdy kodu nie może przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu można uzyskać ten sam komunikat i spróbuj ponownie. Twój kod wywołuje **usunąć\_message()** natychmiast po przetworzeniu komunikatu.
+Ten dwuetapowy proces usuwania komunikatów gwarantuje, że gdy tooprocess kończy się niepowodzeniem z kodu, przypisywany komunikat powodu awarii toohardware lub oprogramowania, inne wystąpienie kodu hello sam komunikat i spróbuj ponownie. Twój kod wywołuje **usunąć\_message()** natychmiast po przetworzeniu wiadomość hello.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
@@ -112,8 +112,8 @@ azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Porady: Zmiana zawartości komunikatu w kolejce
-Możesz zmienić zawartość komunikatu w kolejce. Kod poniżej używa **update_message()** metodę aktualizowania wiadomości. Metoda zwraca spójną kolekcję zawierającą pop odbieranie komunikatu w kolejce i UTC wartość daty i godziny reprezentujące komunikat będzie widoczny w kolejce.
+## <a name="how-to-change-hello-contents-of-a-queued-message"></a>Porady: Zmiana zawartości hello wiadomości w kolejce
+Można zmienić zawartość komunikatu w miejscu w kolejce hello hello. Poniższy kod Hello używa hello **update_message()** tooupdate metody wiadomość. Metoda Hello zwróci spójnych kolekcji zawierający pop odebranie hello kolejki wiadomości powitania i reprezentujące wiadomość hello będą widoczne w kolejce hello wartość czasu daty UTC.
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)
@@ -126,9 +126,9 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
 Istnieją dwa sposoby dostosowania pobierania komunikatów z kolejki.
 
 1. Możesz uzyskać partii komunikatu.
-2. Można ustawić limitu czasu niewidoczności dłuższy lub krótszy, dzięki czemu kod będzie bardziej lub mniej czasu na pełne przetworzenie każdego komunikatu.
+2. Można ustawić limitu czasu niewidoczności dłuższy lub krótszy, dzięki czemu kod będzie więcej lub mniej czasu toofully przetworzenie każdego komunikatu.
 
-Poniższy przykład kodu wykorzystuje **listy\_messages()** metodę, aby pobrać 15 komunikatów w jednym wywołaniu. Następnie wyświetla i usuwa każdego komunikatu. Ustawia również limitu czasu niewidoczności na pięć minut dla każdego komunikatu.
+Witaj poniższy przykład kodu wykorzystuje hello **listy\_messages()** metody tooget 15 komunikatów w jednym wywołaniu. Następnie wyświetla i usuwa każdego komunikatu. Ustawia również minut toofive limitu czasu niewidoczności powitania dla każdego komunikatu.
 
 ```ruby
 azure_queue_service.list_messages("test-queue", 300
@@ -138,8 +138,8 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Porady: Pobieranie długości kolejki
-Możesz uzyskać oszacowanie liczbę wiadomości w kolejce. **Uzyskać\_kolejki\_metadata()** metody prosi usługę kolejki, aby przekazać przybliżone wiadomości i metadane dotyczące kolejki.
+## <a name="how-to-get-hello-queue-length"></a>Porady: Uzyskiwanie hello długość kolejki
+Możesz uzyskać oszacowanie hello liczbę wiadomości w kolejce hello. Witaj **uzyskać\_kolejki\_metadata()** — metoda zadaje licznika przybliżonej wiadomości powitania tooreturn hello kolejki usługi i metadane dotyczące hello kolejki.
 
 ```ruby
 message_count, metadata = azure_queue_service.get_queue_metadata(
@@ -147,16 +147,16 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
 ```
 
 ## <a name="how-to-delete-a-queue"></a>Porady: Usuwanie kolejki
-Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj **usunąć\_queue()** metody dla obiekt kolejki.
+toodelete kolejkę i wszystkie wiadomości powitania zawarte w niej hello wywołania **usunąć\_queue()** metody dla obiekt kolejki hello.
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz już podstawy magazynu kolejek, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
+Teraz, kiedy znasz już podstawy magazynu kolejek hello, wykonaj te toolearn łącza o bardziej skomplikowanych zadaniach magazynu.
 
-* Odwiedź stronę [Blog zespołu usługi Magazyn Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-* Odwiedź stronę [zestawu Azure SDK dla środowiska Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repozytorium w witrynie GitHub
+* Odwiedź hello [Blog zespołu usługi Magazyn Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* Odwiedź hello [zestawu Azure SDK dla środowiska Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repozytorium w witrynie GitHub
 
-Porównanie między omówione w tym artykule usługi kolejek platformy Azure i Azure kolejek usługi Service Bus omówione w [jak używać kolejek usługi Service Bus](/develop/ruby/how-to-guides/service-bus-queues/) artykułu, zobacz [kolejek Azure i kolejek usługi Service Bus - porównaniu i Odróżniające](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Porównanie między hello Azure kolejki usługi omówione w tym artykule i Azure kolejek usługi Service Bus omówione w hello [jak toouse kolejek usługi Service Bus](/develop/ruby/how-to-guides/service-bus-queues/) artykułu, zobacz [kolejek Azure i kolejek usługi Service Bus - porównaniu i Odróżniające](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

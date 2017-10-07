@@ -1,6 +1,6 @@
 ---
-title: "Interfejs użytkownika usługi Azure Mobile Engagement — strona główna"
-description: "Dowiedz się, jak zarządzać istniejącej aplikacji i projektów przy użyciu usługi Azure Mobile Engagement"
+title: "aaaAzure Mobile Engagement interfejsu użytkownika — strona główna"
+description: "Dowiedz się, jak toomanage istniejącej aplikacji i projektów przy użyciu usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 727dad188c5876d09db84634a17e10b280039c49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-manage-your-existing-application-and-projects"></a>Jak zarządzać istniejącej aplikacji i projekty
-W tym artykule opisano **Home** strony **Mobile Engagement** portalu. Możesz użyć **Mobile Engagement** portalu do monitorowania i zarządzania aplikacjami mobilnymi. Należy pamiętać, że można uruchomić przy użyciu portalu należy najpierw utworzyć **usługi Azure Mobile Engagement** konta. 
+# <a name="how-toomanage-your-existing-application-and-projects"></a>Jak toomanage istniejącej aplikacji i projekty
+W tym artykule opisano hello **Home** strony hello **Mobile Engagement** portalu. Użyj hello **Mobile Engagement** toomonitor portalu i zarządzania aplikacjami mobilnymi. Należy pamiętać, że toostart przy użyciu portalu hello, musisz najpierw toocreate **usługi Azure Mobile Engagement** konta. 
 
-Aby uzyskać dostęp do strony głównej, kliknij przycisk **macierzystego** w lewym górnym rogu strony. Zawiera listę wszystkich aplikacji, które są częścią wybranej kolekcji. Na tej stronie tylko Zobacz szybki przegląd aplikacji.
+Strona główna toohello tooget, kliknij przycisk **macierzystego** na powitania lewym górnym rogu strony hello. Zawiera listę hello wszystkich aplikacji, które są częścią hello wybranych kolekcji. Na tej stronie tylko Zobacz szybki przegląd aplikacji.
 
-Strona główna zawiera także wszystkie projekty zawierające dowolnej aplikacji, która jest na Twoim koncie. Należy pamiętać, że każdy mogą uzyskiwać dostęp do interfejsu użytkownika strony głównej przez utworzenie konta, ale należy przyznać uprawnienia do innych użytkowników w kolejności ich dostęp do niestandardowych aplikacji w **Moje projekty**.
+Strona główna Hello zawiera również wszystkie projekty zawierające dowolnej aplikacji, która jest na Twoim koncie. Każda osoba, która mogą uzyskiwać dostęp do strony głównej hello hello interfejsu użytkownika przez utworzenie konta, ale należy toogrant uprawnienia tooother użytkowników w kolejności ich toohave dostępu tooyour niestandardowych aplikacji w **Moje projekty**.
 
-Można również wyświetlić Wykres porównawczy dla wybranych aplikacji. Lub wybierz, aby wyświetlić Wykres porównawczy dla wybranej aplikacji w projekcie.
+Można również wyświetlić Wykres porównawczy hello aplikacji hello wybrane. Można też wybrać Wykres porównawczy hello tooview dla wybranej aplikacji w projekcie.
 
 ![Home1][0]
 
 ## <a name="my-applications"></a>Aplikacje
-Szybki przegląd aplikacji służy do wybierania aplikacji, które chcesz otworzyć, aby wyświetlić opcje szczegółowe wstążki. Kliknij nazwę aplikacji, aby powrócić do ostatnio odwiedzonych lokalizacji wstążki w aplikacji lub kliknij ikonę narzędzi, aby przejść bezpośrednio do strony "Ustawienia" aplikacji. Możesz wyszukiwania, filtrować i sortować informacji wyświetlanych w tabelach aplikacji. Można również przeciągnij i upuść nagłówki kolumn, aby zmienić kolejność.
+Witaj szybki przegląd aplikacji pozwala tooselect, która aplikacja ma tooopen tooview hello szczegółowe opcje wstążki. Kliknij nazwę hello lokalizacji wstążki toohello ostatnio odwiedzona tooreturn aplikacji w aplikacji, lub kliknij przycisk hello koło zębate ikonę toogo bezpośrednio stronie "Ustawienia" toohello aplikacji. Można wyszukiwać, filtrowania lub sortowania hello informacje wyświetlane w przypadku aplikacji hello tabel. Można również przeciągnij i upuść hello kolumny nagłówków toochange hello kolejności.
 
-Między innymi zawiera omówienie aplikacji:
+Między innymi zawiera omówienie hello aplikacji:
 
-* **Nowe trend użytkowników**: ewolucja nowych użytkowników w ciągu ostatnich dwóch tygodni.
-* **Aktywni użytkownicy**: liczba aktywnych użytkowników w ciągu ostatnich 30 dni.
-* **Aktywni użytkownicy trend**: ewolucja aktywnych użytkowników w ciągu ostatnich dwóch tygodni.
-* **Sesje**: sesja stanowi jedno użycie aplikacji przez użytkownika, od momentu rozpoczęcia korzystania, dopóki zatrzymuje użytkownika użytkownika.
-* **Trendy sesji**: ewolucja sesji w ciągu ostatnich dwóch tygodni.
+* **Nowe trend użytkowników**: ewolucja nowych użytkowników w ciągu ostatnich dwóch tygodni hello.
+* **Aktywni użytkownicy**: liczba aktywnych użytkowników w ciągu ostatnich 30 dni hello.
+* **Aktywni użytkownicy trend**: ewolucja aktywnych użytkowników w ciągu ostatnich dwóch tygodni hello.
+* **Sesje**: sesja stanowi jedno użycie aplikacji hello wykonywane przez użytkownika, od czasu hello hello uruchomieniu przez użytkownika za pomocą, dopóki użytkownik hello przestanie.
+* **Trendy sesji**: ewolucja sesji w ciągu hello ostatnich dwóch tygodni.
 
-Po kliknięciu aplikacji, można uruchomić monitorowanie i zarządzanie aplikacjami za pomocą interfejsu użytkownika. Na przykład:    
+Po kliknięciu aplikacji, można uruchomić monitorowanie i zarządzanie aplikacjami za pośrednictwem hello interfejsu użytkownika. Na przykład:    
 
 * [Monitorowanie w czasie rzeczywistym danych aplikacji](mobile-engagement-user-interface-monitor.md)
 * [Analizowanie danych historycznych dotyczących aplikacji](mobile-engagement-user-interface-analytics.md)
-* [Tworzenie i zarządzanie segmentami użytkowników w celu identyfikowania wzorców użycia](mobile-engagement-user-interface-segments.md)
-* [Docieranie do użytkowników aplikacji za pomocą powiadomień wypychanych](mobile-engagement-user-interface-reach.md)
+* [Tworzenie i zarządzanie segmentami wzorców użycia tooidentify użytkowników](mobile-engagement-user-interface-segments.md)
+* [Dotrzeć toohello użytkowników aplikacji za pomocą powiadomień wypychanych](mobile-engagement-user-interface-reach.md)
 
 ## <a name="my-projects"></a>Moje projekty
-Projekty służy do grupy aplikacji i nadaj uprawnienia innym użytkownikom dostęp do Twojej aplikacji. Należy nadać uprawnienia do innych użytkowników, podając adres e-mail. **Nowy projekt** przycisk służy do tworzenia nowego projektu tylko wprowadzając "name" i "opis" nowego projektu. Po utworzeniu projektu, należy kliknąć nazwę projektu, aby edytować nazwę i opis produktu i wybrać wszystkie aplikacje, które mają być wyświetlane w tym projekcie.
+Można użyć toogroup projektów aplikacji i nadaj uprawnienia tooother użytkowników tooaccess aplikacji. Użytkownikom zostaną przyznane uprawnienia tooother podając adres e-mail. Witaj **nowy projekt** przycisk pozwala toocreate nowy projekt tylko wprowadzając "name" i "opis" nowego projektu. Po utworzeniu projektu, możesz kliknąć na powitania projektu nazwa tooedit hello nazwę i opis używanych produktów i tooselect wszystkich aplikacji hello ma toosee w tym projekcie.
 
 ![Home6][60]
 
 Role obejmują:
 
-* **Podgląd**: A Podgląd jest użytkownik, który je tylko przeglądać aplikacje skojarzone z projektem. Przeglądarka analytics monitorować dane i dostępne przyjrzyj wyniki Reach. Przeglądarka nie zmienia żadnych informacji ani zarządzać aplikacjami lub użytkowników. Przeglądarka nie można utworzyć lub zmienić stan kampanii Reach.
+* **Podgląd**: A Podgląd jest użytkownik, który może tylko aplikacji hello widoku skojarzone tooa projektu. Przeglądarka analytics monitorować dane i dostępne przyjrzyj wyniki Reach. Przeglądarka nie zmienia żadnych informacji ani zarządzać aplikacjami lub użytkowników. Przeglądarka nie można utworzyć lub zmienić stan kampanii Reach.
 * **Deweloper**: A deweloper jest użytkownik, który może robić wszystko to przeglądarka można zrobić, a także zarządzania aplikacjami. Deweloper może włączyć wyłączenie aplikacji, zmienić informacje o aplikacji (np. pakietu i podpis) i tworzyć kampanie Zasięgowe. Projektant nie może zarządzać użytkownikami.
-* **Administrator**: Administrator jest użytkownik, który może robić wszystko dewelopera można zrobić, a także zarządzanie użytkownikami. Administrator można zaprosić użytkowników do dołączenia do projektu, można zmienić role użytkownika i można zmieniać informacji projektu. W obszarze "ustawienia" można również ustawić uprawnienia na poziomie aplikacji.
+* **Administrator**: Administrator jest użytkownik, który może robić wszystko dewelopera można zrobić, a także zarządzanie użytkownikami. Administrator można zaprosić użytkowników toojoin projektu, można zmienić role użytkownika i zmienić informacje dotyczące projektu. W obszarze "ustawienia" można również ustawić uprawnienia na poziomie aplikacji.
 
-Kliknij projekt, aby wyświetlić wszystkie aplikacje, które są częścią tego projektu. Na poniższej ilustracji przedstawiono porównanie dla wybranych aplikacji.
+Polecenie tooview projektu wszystkich aplikacji hello, które są częścią tego projektu. powitania po obraz przedstawia Wykres porównawczy hello aplikacji hello wybrane.
 
 ![Home2][3]
 

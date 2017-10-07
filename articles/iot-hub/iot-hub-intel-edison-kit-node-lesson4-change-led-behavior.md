@@ -1,6 +1,6 @@
 ---
-title: "Edison firmy Intel (węzeł) nawiązania połączenia platformy Azure IoT — lekcji 4: Blink LED | Dokumentacja firmy Microsoft"
-description: "Dostosowywanie wiadomości, aby zmienić LED włączać i wyłączać zachowanie."
+title: "Połącz Edison firmy Intel (węzeł) tooAzure IoT - 4 lekcji: Blink hello LED | Dokumentacja firmy Microsoft"
+description: "Dostosowywanie hello toochange wiadomości powitania LED elementu lub wyłączyć zachowanie."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,30 +17,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: fa99050dad62534e2825e93f1170d2f3ecf5a3ba
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: caeabe311fd1698f298c6d2b4a203ecad80ef7df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>Zmień włączenia i wyłączenia zachowanie LED
+# <a name="change-hello-on-and-off-behavior-of-hello-led"></a>Zmień hello włączać i wyłączać zachowanie hello LED
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-Dostosowywanie wiadomości, aby zmienić LED włączać i wyłączać zachowanie. Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony][troubleshooting].
+Dostosowywanie hello toochange wiadomości powitania LED elementu lub wyłączyć zachowanie. Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
-Umożliwia zmianę LED włączać i wyłączać zachowanie dodatkowe funkcje.
+Użyj LED elementu lub wyłączyć zachowanie hello toochange dodatkowe funkcje.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
-Pomyślnie zakończono [Uruchom przykładową aplikację na Intel Edison do odbierania chmury do urządzenia wiadomości][receive-cloud-to-device-messages].
+Pomyślnie zakończono [Uruchom przykładową aplikację w chmurze tooreceive Intel Edison wiadomości toodevice][receive-cloud-to-device-messages].
 
-## <a name="add-functions-to-appjs-and-gulpfilejs"></a>Dodawanie funkcji do app.js i gulpfile.js
-1. Otwórz aplikację przykładową kodu programu Visual Studio, uruchamiając następujące polecenia:
+## <a name="add-functions-tooappjs-and-gulpfilejs"></a>Dodawanie funkcji tooapp.js i gulpfile.js
+1. Otwórz aplikację przykładową hello kodu programu Visual Studio, uruchamiając następujące polecenia hello:
 
    ```bash
    cd Lesson4
    code .
    ```
-2. Otwórz `app.js` pliku, a następnie dodaj następujące funkcje po blinkLED() funkcji:
+2. Otwórz hello `app.js` pliku, a następnie dodaj następujące funkcje po funkcji blinkLED() hello:
 
    ```javascript
    function turnOnLED() {
@@ -53,7 +53,7 @@ Pomyślnie zakończono [Uruchom przykładową aplikację na Intel Edison do odbi
    ```
 
    ![dodano funkcje pliku App.js](media/iot-hub-intel-edison-lessons/lesson4/updated_app_node.png)
-3. Dodaj następujące warunki przed case "migania" w bloku przełącznika przypadku `receiveMessageCallback` funkcji:
+3. Dodaj hello następujące warunki przed hello "blink" case w bloku przełącznika przypadku hello hello `receiveMessageCallback` funkcji:
 
    ```javascript
    case 'on':
@@ -64,8 +64,8 @@ Pomyślnie zakończono [Uruchom przykładową aplikację na Intel Edison do odbi
      break;
    ```
 
-   Przykładowa aplikacja odpowiedzieć na dodatkowe instrukcje za pośrednictwem wiadomości został skonfigurowany. Instrukcje "on" powoduje włączenie LED i instrukcji "off" powoduje wyłączenie LED.
-4. Otwórz plik gulpfile.js, a następnie dodaj nową funkcję przed funkcji `sendMessage`:
+   Teraz skonfigurowaniu hello przykładowej aplikacji toorespond toomore instrukcje za pośrednictwem wiadomości. Witaj, "włączone" instrukcji włącza hello LED i hello "instrukcji off" wyłącza hello LED.
+4. Otwórz plik gulpfile.js hello, a następnie dodaj nową funkcję przed funkcją hello `sendMessage`:
 
    ```javascript
    var buildCustomMessage = function (messageId) {
@@ -80,28 +80,28 @@ Pomyślnie zakończono [Uruchom przykładową aplikację na Intel Edison do odbi
    ```
 
    ![Plik Gulpfile.js o funkcja dodana][gulpfile]
-5. W `sendMessage` działać, Zastąp linię `var message = buildMessage(sentMessageCount);` z nowego wiersza wyświetlany w następujący fragment kodu:
+5. W hello `sendMessage` działać, Zastąp wiersza hello `var message = buildMessage(sentMessageCount);` z nowego wiersza hello pokazano hello następującego fragmentu:
 
    ```javascript
    var message = buildCustomMessage(sentMessageCount);
    ```
-6. Zapisz wszystkie zmiany.
+6. Zapisz wszystkie zmiany hello.
 
-### <a name="deploy-and-run-the-sample-application"></a>Wdrażanie i uruchamianie przykładowej aplikacji
-Wdrażanie i uruchamianie przykładowej aplikacji na Edison, uruchamiając następujące polecenie:
+### <a name="deploy-and-run-hello-sample-application"></a>Wdrażanie i uruchamianie hello przykładowej aplikacji
+Wdrażanie i uruchamianie aplikacji przykładowej hello na Edison, uruchamiając następujące polecenie hello:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-Powinna zostać wyświetlona LED Włącz dla dwóch sekund, a następnie wyłącz dla innego dwie sekundy. Ostatni komunikat "stop" zatrzymuje uruchomienie aplikacji przykładowej.
+Powinna zostać wyświetlona hello LED Włącz dla dwóch sekund, a następnie włącz poza dla innego dwie sekundy. Ostatni komunikat "stop" Hello zatrzymuje hello przykładowej aplikacji.
 
 ![włączać i wyłączać][on-and-off]
 
-Gratulacje! Pomyślnie zostały dostosowane komunikaty, które są wysyłane do Edison z Centrum IoT.
+Gratulacje! Wiadomości powitania, które są wysyłane tooEdison z Centrum IoT pomyślnie zostały dostosowane.
 
 ### <a name="summary"></a>Podsumowanie
-Ta sekcja opcjonalna pokazano, jak dostosować wiadomości, dzięki czemu można kontrolować w przykładowej aplikacji w inny sposób włączenia i wyłączenia zachowanie LED.
+Ta sekcja opcjonalna pokazano, jak toocustomize wiadomości, dzięki czemu hello przykładowej aplikacji może kontrolować hello włączać i wyłączać zachowanie hello LED w inny sposób.
 
 <!-- Images and links -->
 

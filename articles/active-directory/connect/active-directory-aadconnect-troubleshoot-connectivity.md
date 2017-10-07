@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: Rozwiązywanie problemów z łącznością | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak rozwiązywać problemy z łącznością z programem Azure AD Connect."
+description: "W tym artykule wyjaśniono, jak łączność tootroubleshoot problemów z programem Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,98 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 60d6b7c4ad8a3ab907c20e598ec9443f115df287
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Rozwiązywanie problemów z łącznością z programem Azure AD Connect
-W tym artykule opisano, jak działa połączenie między Azure AD Connect i Azure AD i jak rozwiązywać problemy z połączeniem. Te problemy najprawdopodobniej będzie można przejrzeć w środowisku z serwerem proxy.
+W tym artykule opisano, jak działa połączenie między Azure AD Connect i Azure AD i jak problemy z łącznością tootroubleshoot. Te problemy są najprawdopodobniej toobe w środowisku z serwerem proxy.
 
-## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Rozwiązywanie problemów z łącznością w Kreatorze instalacji
-Azure AD Connect jest korzystających z nowoczesnego uwierzytelniania (przy użyciu biblioteki ADAL), do uwierzytelniania. Kreator instalacji i odpowiednie aparatu synchronizacji wymagają machine.config, aby zostać prawidłowo skonfigurowane, ponieważ te dwa aplikacji .NET.
+## <a name="troubleshoot-connectivity-issues-in-hello-installation-wizard"></a>Rozwiązywanie problemów z łącznością w Kreatorze instalacji hello
+Azure AD Connect jest korzystających z nowoczesnego uwierzytelniania (przy użyciu biblioteki ADAL hello), do uwierzytelniania. Kreator instalacji Hello i hello aparatu synchronizacji odpowiednich wymagają toobe machine.config skonfigurowany prawidłowo, ponieważ te dwa aplikacji .NET.
 
-W tym artykule zostanie przedstawiony sposób firmy Fabrikam nawiązuje połączenie z usługą Azure AD przy użyciu jego serwera proxy. Serwer proxy ma nazwę fabrikamproxy i używa portu 8080.
+W tym artykule zostanie przedstawiony sposób Fabrikam łączy tooAzure AD przy użyciu jego serwera proxy. Serwer proxy Hello nosi nazwę fabrikamproxy i używa portu 8080.
 
-Najpierw musimy upewnij się, że [ **machine.config** ](active-directory-aadconnect-prerequisites.md#connectivity) został poprawnie skonfigurowany.  
+Najpierw musimy toomake czy [ **machine.config** ](active-directory-aadconnect-prerequisites.md#connectivity) został poprawnie skonfigurowany.  
 ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
 > [!NOTE]
-> W niektórych blogi innych niż Microsoft jest udokumentowany czy zmiany należy wprowadzić miiserver.exe.config zamiast tego. Jednak ten plik jest zastępowany na każdym uaktualnieniu, nawet jeśli działa podczas początkowej instalacji, system przestanie działać na pierwszym uaktualnienia. Dlatego zaleca się zaktualizować machine.config zamiast tego.
+> W niektórych blogi innych niż Microsoft jest udokumentowany czy należy dokonać zmian toomiiserver.exe.config zamiast tego. Jednak ten plik jest zastępowany na każdym uaktualnieniu, nawet jeśli działa podczas początkowej instalacji, hello system przestanie działać na pierwszym uaktualnienia. Z tego powodu hello zaleca tooupdate machine.config zamiast tego.
 >
 >
 
-Serwer proxy musi mieć również odpowiednie adresy URL otwarty. Oficjalna lista jest zawarta w [zakresów adresów IP i URL usługi Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+Serwer proxy Hello musi mieć również adresy URL hello wymagane otwarty. Lista oficjalnego Hello jest zawarta w [zakresów adresów IP i URL usługi Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-Tych adresów URL Poniższa tabela jest absolutne minimum systemu od zera, aby można było połączyć się z usługą Azure AD w ogóle. Ta lista nie zawiera żadnych opcjonalne funkcje, takie jak zapisywanie zwrotne haseł lub Azure AD Connect Health. Jest on opisanych tutaj pomagające w rozwiązywaniu problemów ukończenie początkowej konfiguracji.
+Tych adresów URL hello w poniższej tabeli jest hello bezwzględną systemu od zera toobe minimalna stanie tooconnect tooAzure AD w ogóle. Ta lista nie zawiera żadnych opcjonalne funkcje, takie jak zapisywanie zwrotne haseł lub Azure AD Connect Health. Jest udokumentowany toohelp tutaj przy rozwiązywaniu hello początkową konfigurację.
 
 | ADRES URL | Port | Opis |
 | --- | --- | --- |
-| mscrl.microsoft.com |HTTP/80 |Używany do pobierania listy CRL. |
-| \*. verisign.com |HTTP/80 |Używany do pobierania listy CRL. |
-| \*. entrust.com |HTTP/80 |Używany do pobierania listy CRL dla usługi MFA. |
-| \*.windows.net |PROTOKOŁU HTTPS I 443 |Używane do logowania do usługi Azure AD. |
+| mscrl.microsoft.com |HTTP/80 |Wyświetla listę używanych toodownload listy CRL. |
+| \*. verisign.com |HTTP/80 |Wyświetla listę używanych toodownload listy CRL. |
+| \*. entrust.com |HTTP/80 |Wyświetla listę listy CRL toodownload używane dla usługi MFA. |
+| \*.windows.net |PROTOKOŁU HTTPS I 443 |Toosign używanych w tooAzure AD. |
 | Secure.aadcdn.microsoftonline p.com |PROTOKOŁU HTTPS I 443 |Używany do uwierzytelniania Wieloskładnikowego. |
-| \*.microsoftonline.com |PROTOKOŁU HTTPS I 443 |Umożliwia skonfigurowanie katalogu usługi Azure AD i importowania/eksportowania danych. |
+| \*.microsoftonline.com |PROTOKOŁU HTTPS I 443 |Używane tooconfigure danych usługi Azure AD directory i importowania/eksportowania. |
 
-## <a name="errors-in-the-wizard"></a>Błędy w Kreatorze
-Kreator instalacji używa dwóch różnych kontekstach zabezpieczeń. Na stronie **nawiązywanie połączenia z usługą Azure AD**, używane są aktualnie zalogowanego użytkownika. Na stronie **Konfiguruj**, jest zmiana [konta usługi dla aparatu synchronizacji](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Jeśli wystąpi problem, zostanie wyświetlone prawdopodobnie już w **nawiązywanie połączenia z usługą Azure AD** w Kreatorze konfiguracji serwera proxy jest globalny.
+## <a name="errors-in-hello-wizard"></a>Błędy w Kreatorze hello
+Kreator instalacji Hello korzysta z dwóch różnych kontekstach zabezpieczeń. Na stronie powitania **tooAzure AD Connect**, używa hello aktualnie zalogowany użytkownik. Na stronie powitania **Konfiguruj**, jest zmiana toohello [konta usługi hello aparatu synchronizacji hello](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Jeśli wystąpi problem, zostanie wyświetlone prawdopodobnie już na powitania **tooAzure AD Connect** w Kreatorze hello, ponieważ konfiguracja serwera proxy hello jest globalnego.
 
-Następujące problemy są typowe błędy, które wystąpią w Kreatorze instalacji.
+następujące problemy Hello są hello typowe błędy, które wystąpią w Kreatorze instalacji hello.
 
-### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>Kreator instalacji nie został prawidłowo skonfigurowany
-Ten błąd jest wyświetlany, gdy Kreator nie może połączyć się serwera proxy.  
+### <a name="hello-installation-wizard-has-not-been-correctly-configured"></a>Kreator instalacji Hello nie został prawidłowo skonfigurowany
+Ten błąd jest wyświetlany, gdy Kreator hello można nawiązać połączenia z powitania serwera proxy.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
-* Jeśli zostanie wyświetlony ten błąd, sprawdź [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) została poprawnie skonfigurowana.
-* Jeśli wygląda prawidłowe, postępuj zgodnie z instrukcjami [weryfikacji łączności serwera proxy](#verify-proxy-connectivity) aby zobaczyć, czy problem znajduje się poza również kreatora.
+* Jeśli zostanie wyświetlony ten błąd, sprawdź hello [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) została poprawnie skonfigurowana.
+* Jeśli wygląda prawidłowe, wykonaj kroki hello w [weryfikacji łączności serwera proxy](#verify-proxy-connectivity) toosee, jeśli problem hello znajduje się poza również hello kreatora.
 
 ### <a name="a-microsoft-account-is-used"></a>Jest używane konto Microsoft
 Jeśli używasz **konta Microsoft** zamiast **organizacji lub szkolnymi** konta, zobacz błąd ogólny.  
 ![Account firmy Microsoft jest używane](./media/active-directory-aadconnect-troubleshoot-connectivity/unknownerror.png)
 
-### <a name="the-mfa-endpoint-cannot-be-reached"></a>Nie można osiągnąć punktu końcowego usługi MFA
-Ten błąd pojawia się, gdy punkt końcowy **https://secure.aadcdn.microsoftonline-p.com** nie można nawiązać połączenia i administratora globalnego jest włączone uwierzytelnianie MFA.  
+### <a name="hello-mfa-endpoint-cannot-be-reached"></a>punkt końcowy usługi MFA Hello jest nieosiągalny
+Ten błąd pojawia się, jeśli hello punktu końcowego **https://secure.aadcdn.microsoftonline-p.com** nie można nawiązać połączenia i administratora globalnego jest włączone uwierzytelnianie MFA.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
-* Jeśli zostanie wyświetlony ten błąd, sprawdź, czy punkt końcowy **secure.aadcdn.microsoftonline p.com** został dodany do serwera proxy.
+* Jeśli zostanie wyświetlony ten błąd, sprawdź tego punktu końcowego hello **secure.aadcdn.microsoftonline p.com** dodano toohello serwera proxy.
 
-### <a name="the-password-cannot-be-verified"></a>Nie można zweryfikować hasło
-Jeśli Kreator instalacji zakończy się pomyślnie w połączeniu z usługą Azure AD, ale nie można zweryfikować samego hasła, że wyświetlenie tego błędu:  
+### <a name="hello-password-cannot-be-verified"></a>Nie można zweryfikować hasło Hello
+Jeśli hello Kreator instalacji zakończy się pomyślnie z połączeniem tooAzure AD, ale nie można zweryfikować hello samego hasła, zobacz ten błąd:  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* To hasło tymczasowe hasło i musi zostać zmienione? Jest to rzeczywiście prawidłowe hasło? Spróbuj zalogować się do https://login.microsoftonline.com (na innym komputerze niż serwer Azure AD Connect) i sprawdź, czy konto jest użyteczne.
+* Jest hasłem hello tymczasowego hasła i musi zostać zmienione? To jest rzeczywiście hello prawidłowe hasło? Spróbuj toosign w toohttps://login.microsoftonline.com (na innym komputerze niż serwer Azure AD Connect hello) i sprawdź, czy konto hello jest użyteczne.
 
 ### <a name="verify-proxy-connectivity"></a>Sprawdź łączność serwera proxy
-Sprawdź, czy serwer Azure AD Connect ma rzeczywistego łączności z serwera Proxy i Internet, użyć niektórych programu PowerShell, aby zobaczyć, czy serwer proxy zezwala na żądania sieci web lub nie. W wierszu programu PowerShell, uruchom `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Jest technicznie pierwsze wywołanie https://login.microsoftonline.com i ten identyfikator URI również działa, ale identyfikator URI jest szybszy w odpowiedzi.)
+tooverify Jeśli hello Azure AD Connect serwer ma rzeczywistego łączności z powitania serwera Proxy i Internet, użyj niektórych toosee PowerShell Jeśli powitania serwera proxy jest stosowanie żądania sieci web, lub nie. W wierszu programu PowerShell, uruchom `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technicznie hello pierwsze wywołanie jest toohttps://login.microsoftonline.com i ten identyfikator URI działa również, ale hello innych URI toorespond szybsze).
 
-PowerShell korzysta z konfiguracji w pliku machine.config nawiązać połączenia z serwerem proxy. Ustawienia winhttp/Netsh nie powinny mieć wpływ na te polecenia cmdlet.
+PowerShell korzysta z konfiguracji hello w pliku machine.config toocontact hello proxy. Ustawienia Hello winhttp/Netsh nie powinien mieć wpływ na tych poleceń cmdlet.
 
-Jeśli serwer proxy jest skonfigurowany prawidłowo, należy pobrać stan oznaczający powodzenie: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
+Jeśli serwer proxy hello jest skonfigurowany poprawnie, należy pobrać stan oznaczający powodzenie: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
 
-Jeśli zostanie wyświetlony **nie można nawiązać połączenia z serwerem zdalnym**, spróbuj programu PowerShell do bezpośredniego wywoływania bez użycia serwera proxy lub DNS nie jest poprawnie skonfigurowana. Upewnij się, że **machine.config** pliku jest poprawnie skonfigurowana.
+Jeśli zostanie wyświetlony **serwera zdalnego tooconnect toohello**, programu PowerShell próbuje toomake bezpośrednie wywołania bez użycia serwera proxy hello lub DNS nie jest poprawnie skonfigurowana. Upewnij się, że hello **machine.config** pliku jest poprawnie skonfigurowana.
 ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
 
-Jeśli serwer proxy nie jest skonfigurowane poprawnie, jest wyświetlany komunikat o błędzie: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
+Jeśli powitania serwera proxy nie jest skonfigurowane poprawnie, jest wyświetlany komunikat o błędzie: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
 | Błąd | Tekst błędu | Komentarz |
 | --- | --- | --- |
-| 403 |Dostęp zabroniony |Serwer proxy nie został otwarty dla żądanego adresu URL. Ponownie konfigurację serwera proxy i upewnij się, że [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) został otwarty. |
-| 407 |Wymagane jest uwierzytelnianie serwera proxy |Wymagany serwer proxy logowania i żaden nie został podany. Jeśli serwer proxy wymaga uwierzytelnienia, upewnij się, że to ustawienie skonfigurowane w pliku machine.config. Upewnij się, że korzystasz z konta domeny dla użytkownika kreatora i konta usługi. |
+| 403 |Dostęp zabroniony |nie został otwarty powitania serwera proxy dla hello żądanego adresu URL. Ponownie hello konfiguracji serwera proxy i upewnij się, że hello [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) został otwarty. |
+| 407 |Wymagane jest uwierzytelnianie serwera proxy |wymagany serwer proxy Hello logowania i żaden nie został podany. Jeśli serwer proxy wymaga uwierzytelnienia, upewnij się, że toohave to ustawienie skonfigurowane w pliku machine.config hello. Upewnij się, że korzystasz z konta domeny dla użytkownika hello hello kreatora i hello konta usługi. |
 
-## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Wzorzec komunikacji między Azure AD Connect i Azure AD
-Jeśli zostały wykonane następujące kroki poprzedniego i nadal nie można połączyć, może w tym momencie uruchomić, analizując dzienniki sieci. W tej sekcji jest dokumentowanie wzorca normalnego i pomyślne łączność. Jest również wyświetlanie listy typowych śledzi czerwony, które może być ignorowane podczas czytania dzienniki sieci.
+## <a name="hello-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Witaj wzorzec komunikacji między Azure AD Connect i Azure AD
+Jeśli zostały wykonane następujące kroki poprzedniego i nadal nie można połączyć, może w tym momencie uruchomić, analizując dzienniki sieci. W tej sekcji jest dokumentowanie wzorca normalnego i pomyślne łączność. Jest również wyświetlanie listy typowych śledzi czerwony, które może być ignorowane podczas czytania hello dzienniki sieci.
 
-* Brak wywołania https://dc.services.visualstudio.com. Nie jest wymagane do tego adresu URL otwarte na serwerze proxy dla instalacji powiodło się i można zignorować te wywołania.
-* Możesz sprawdzić, czy rozpoznawanie nazw dns Wyświetla rzeczywiste hosty w nsatc.net przestrzeni nazw DNS i innych przestrzeniach nazw pod microsoftonline.com nie. Jednak nie są wszystkie żądania usługi sieci web o nazwach używanego serwera i nie trzeba dodać je do serwera proxy.
-* Punkty końcowe adminwebservice i provisioningapi odnajdywania punktów końcowych i użyć w celu znalezienia rzeczywisty punkt końcowy do użycia. Te punkty końcowe są różne w zależności od regionu.
+* Brak toohttps://dc.services.visualstudio.com wywołania. Nie jest wymagane toohave, który można zignorować ten adres URL, Otwórz na serwerze proxy hello hello toosucceed instalacji i te wywołania.
+* Zobacz, zawierający toobe rzeczywiste hostów hello nsatc.net przestrzeni nazw DNS hello i innych przestrzeniach nazw pod microsoftonline.com nie rozpoznawania nazw dns. Jednak nie są wszystkie żądania usługi sieci web na powitania używanego serwera nazw i nie masz tooadd proxy toohello tych adresów URL.
+* adminwebservice punkty końcowe Hello provisioningapi odnajdywania punktów końcowych i użyć toofind hello rzeczywisty punkt końcowy toouse. Te punkty końcowe są różne w zależności od regionu.
 
 ### <a name="reference-proxy-logs"></a>Odwołanie do dzienników serwera proxy
-Oto zrzutu z dziennika rzeczywiste serwera proxy i strony Kreatora instalacji, z której wykonano (zostały usunięte w niej zduplikowanych pozycji do tego samego punktu końcowego). W tej sekcji może służyć jako odwołanie dla własnego dzienników serwera proxy i sieci. Rzeczywiste punktów końcowych, które mogą się różnić w danym środowisku (w szczególności tych adresów URL w *kursywą*).
+Poniżej przedstawiono zrzut z rzeczywistego proxy dziennika i hello Kreatora instalacji w przypadku wykonano (toohello zduplikowane wpisy tego samego punktu końcowego zostały usunięte). W tej sekcji może służyć jako odwołanie dla własnego dzienników serwera proxy i sieci. punkty końcowe rzeczywiste hello mogą się różnić w danym środowisku (w szczególności tych adresów URL w *kursywą*).
 
-**Łączenie z usługą Azure AD**
+**Połącz tooAzure AD**
 
 | Time | ADRES URL |
 | --- | --- |
@@ -142,16 +142,16 @@ Oto zrzutu z dziennika rzeczywiste serwera proxy i strony Kreatora instalacji, z
 | 1/11/2016 8:49 |Połącz: / /*bba800 zakotwiczenia*. microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Błędy uwierzytelniania
-W tej sekcji omówiono błędów, które mogą zostać zwrócone z biblioteki ADAL (Biblioteka uwierzytelniania używany przez program Azure AD Connect) i programu PowerShell. Błąd wyjaśniono powinny pomóc w zrozumieć innej.
+W tej sekcji omówiono błędów, które mogą zostać zwrócone z biblioteki ADAL (Biblioteka uwierzytelniania hello używane przez program Azure AD Connect) i programu PowerShell. Błąd Hello wyjaśniono powinny pomóc w zrozumieć innej.
 
 ### <a name="invalid-grant"></a>Nieprawidłowy Grant
-Nieprawidłowa nazwa użytkownika lub hasło. Aby uzyskać więcej informacji, zobacz [nie można zweryfikować hasło](#the-password-cannot-be-verified).
+Nieprawidłowa nazwa użytkownika lub hasło. Aby uzyskać więcej informacji, zobacz [nie można zweryfikować hasło hello](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Typ nieznanego użytkownika
-Katalog usługi Azure AD nie można odnaleźć lub rozwiązany. Może być spróbuj zalogować się za pomocą nazwy użytkownika w niezweryfikowanej domeny?
+Katalog usługi Azure AD nie można odnaleźć lub rozwiązany. Może być próby toologin z nazwą użytkownika w niezweryfikowanej domeny?
 
 ### <a name="user-realm-discovery-failed"></a>Odnajdowanie obszaru użytkownika nie powiodło się
-Problemy z konfiguracją sieci lub serwera proxy. Nie można połączyć się z sieci. Zobacz [Rozwiązywanie problemów z łącznością w Kreatorze instalacji](#troubleshoot-connectivity-issues-in-the-installation-wizard).
+Problemy z konfiguracją sieci lub serwera proxy. Nie można osiągnąć Hello sieci. Zobacz [Rozwiązywanie problemów z łącznością w Kreatorze instalacji hello](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ### <a name="user-password-expired"></a>Hasło użytkownika wygasło
 Twoje poświadczenia wygasły. Zmień hasło.
@@ -160,7 +160,7 @@ Twoje poświadczenia wygasły. Zmień hasło.
 Nieznany problem.
 
 ### <a name="authentication-cancelled"></a>Uwierzytelnianie anulowane
-Żądanie uwierzytelniania wieloskładnikowego (MFA) zostało anulowane.
+Żądanie uwierzytelniania wieloskładnikowego (MFA) Hello zostało anulowane.
 
 ### <a name="connecttomsonline"></a>ConnectToMSOnline
 Uwierzytelnianie zakończyło się pomyślnie, ale programu Azure AD PowerShell ma problem z uwierzytelnianiem.
@@ -178,21 +178,21 @@ Uwierzytelnianie zakończyło się pomyślnie. Nie można pobrać informacji o f
 Uwierzytelnianie zakończyło się pomyślnie. Nie można pobrać informacji o domenie z usługi Azure AD.
 
 ### <a name="unexpected-exception"></a>Nieoczekiwany wyjątek
-Wyświetlany jako wystąpił nieoczekiwany błąd w Kreatorze instalacji. Może wystąpić w przypadku próby użycia **Account Microsoft** zamiast **konto służbowe lub organizacji**.
+Wyświetlany jako wystąpił nieoczekiwany błąd w Kreatorze instalacji hello. Może się zdarzyć przy próbie toouse **Account Microsoft** zamiast **konto służbowe lub organizacji**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Kroki rozwiązywania problemów z poprzednimi wersjami.
-Począwszy od numeru kompilacji 1.1.105.0 (wydane luty 2016), Asystenta logowania w witrynie została wycofana z wersjami. Ta sekcja konfiguracji nie może być wymagane, a jest przechowywana jako odwołanie.
+Z wersjami, począwszy od numeru kompilacji 1.1.105.0 (wydane luty 2016) hello Asystenta logowania w witrynie została wycofana. Ta konfiguracja sekcji i hello nie powinny już być wymagane, ale jest przechowywana jako odwołanie.
 
-Jednokrotnego w Asystenta do pracy muszą być skonfigurowane winhttp. Tej konfiguracji można wykonać za pomocą [ **netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
+Witaj jednokrotnego w toowork Asystenta muszą być skonfigurowane winhttp. Tej konfiguracji można wykonać za pomocą [ **netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
-### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>Asystent logowania w witrynie nie został prawidłowo skonfigurowany
-Ten błąd jest wyświetlany, gdy Asystenta logowania w witrynie nie można osiągnąć serwera proxy lub serwera proxy nie zezwala na żądanie.
+### <a name="hello-sign-in-assistant-has-not-been-correctly-configured"></a>Asystent logowania Hello nie został prawidłowo skonfigurowany
+Ten błąd jest wyświetlany, gdy hello Asystenta logowania w witrynie nie można osiągnąć powitania serwera proxy lub nie zezwala na powitania serwera proxy hello żądania.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
-* Jeśli zostanie wyświetlony ten błąd, sprawdź konfiguracji serwera proxy w [netsh](active-directory-aadconnect-prerequisites.md#connectivity) i sprawdź poprawność.
+* Jeśli zostanie wyświetlony ten błąd, obejrzyj hello konfiguracji serwera proxy w [netsh](active-directory-aadconnect-prerequisites.md#connectivity) i sprawdź poprawność.
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-* Jeśli wygląda prawidłowe, postępuj zgodnie z instrukcjami [weryfikacji łączności serwera proxy](#verify-proxy-connectivity) aby zobaczyć, czy problem znajduje się poza również kreatora.
+* Jeśli wygląda prawidłowe, wykonaj kroki hello w [weryfikacji łączności serwera proxy](#verify-proxy-connectivity) toosee, jeśli problem hello znajduje się poza również hello kreatora.
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

@@ -1,6 +1,6 @@
 ---
-title: "Uruchamianie zadań w tle za pomocą zadań WebJob"
-description: "Dowiedz się, jak wykonywać zadania w tle w aplikacjach sieci web platformy Azure."
+title: "zadania w tle aaaRun z zadań Webjob"
+description: "Dowiedz się, jak jest toorun zadania w tle na platformie Azure aplikacje sieci web."
 services: app-service
 documentationcenter: 
 author: ggailey777
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2016
 ms.author: glenga
-ms.openlocfilehash: 3f8ae748e3d9c6b4e342536926a52b4e8f37ee51
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 96a3d977a806e7192207f0f4da79dfd248694336
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-background-tasks-with-webjobs"></a>Uruchamianie zadań w tle za pomocą zadań WebJob
 ## <a name="overview"></a>Omówienie
-Mogą uruchamiać programów lub skryptów, które znajdują się w zadań Webjob w Twojej [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) aplikacji sieci web na trzy sposoby: na żądanie, w sposób ciągły, lub zgodnie z harmonogramem. Nie ma żadnych dodatkowych kosztów, aby użyć zadań Webjob.
+Mogą uruchamiać programów lub skryptów, które znajdują się w zadań Webjob w Twojej [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) aplikacji sieci web na trzy sposoby: na żądanie, w sposób ciągły, lub zgodnie z harmonogramem. Nie ma żadnych dodatkowych kosztów toouse zadań Webjob.
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-W tym artykule pokazano, jak wdrażanie przy użyciu zadań Webjob [Azure Portal](https://portal.azure.com). Aby uzyskać informacje o sposobie wdrażania przy użyciu programu Visual Studio lub proces ciągłego dostarczania, zobacz [sposobu wdrażania zadań Webjob Azure do aplikacji sieci Web](websites-dotnet-deploy-webjobs.md).
+W tym artykule opisano, jak hello toodeploy zadań Webjob przy użyciu [Azure Portal](https://portal.azure.com). Aby uzyskać informacje na temat toodeploy za pomocą programu Visual Studio lub proces ciągłego dostarczania, zobacz [jak tooDeploy zadań Webjob Azure tooWeb aplikacji](websites-dotnet-deploy-webjobs.md).
 
-Zestaw SDK zadań Webjob Azure upraszcza wiele zadań Webjob zadania programowania. Aby uzyskać więcej informacji, zobacz [co to jest zestaw SDK zadań Webjob](websites-dotnet-webjobs-sdk.md).
+Witaj zestaw SDK zadań Webjob Azure upraszcza wiele zadań programowania zadań Webjob. Aby uzyskać więcej informacji, zobacz [co to jest zestaw SDK zadań Webjob hello](websites-dotnet-webjobs-sdk.md).
 
- Środowisko Azure Functions zapewnia uruchamianie programów i skryptów z niekorzystającą środowiska lub aplikacji usługi app Service w inny sposób. Aby uzyskać więcej informacji, zobacz [Azure Functions — omówienie](../azure-functions/functions-overview.md).
+ Środowisko Azure Functions zapewnia inny sposób toorun programy i skrypty z niekorzystającą środowiska lub aplikację usługi aplikacji. Aby uzyskać więcej informacji, zobacz [Azure Functions — omówienie](../azure-functions/functions-overview.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="acceptablefiles"></a>Typy plików akceptowalne dla skryptów lub programów
-Akceptowane są następujące typy plików:
+akceptowane są Hello następujące typy plików:
 
 * cmd, bat, .exe (przy użyciu cmd systemu windows)
 * ps1 (przy użyciu programu powershell)
@@ -45,42 +45,42 @@ Akceptowane są następujące typy plików:
 * js (przy użyciu węzła)
 * JAR (przy użyciu języka java)
 
-## <a name="CreateOnDemand"></a>Tworzenie na żądanie zadania WebJob w portalu
-1. W **aplikacji sieci Web** bloku [Azure Portal](https://portal.azure.com), kliknij przycisk **wszystkie ustawienia > zadań Webjob** pokazanie **Webjob** bloku.
+## <a name="CreateOnDemand"></a>Tworzenie na żądanie zadania WebJob w portalu hello
+1. W hello **aplikacji sieci Web** bloku hello [Azure Portal](https://portal.azure.com), kliknij przycisk **wszystkie ustawienia > zadań Webjob** tooshow hello **Webjob** bloku.
    
     ![Blok zadania WebJob](./media/web-sites-create-web-jobs/wjblade.png)
-2. Kliknij pozycję **Dodaj**. **Dodać zadania WebJob** zostanie wyświetlone okno dialogowe.
+2. Kliknij pozycję **Dodaj**. Witaj **dodać zadania WebJob** zostanie wyświetlone okno dialogowe.
    
     ![Dodawanie bloku zadania WebJob](./media/web-sites-create-web-jobs/addwjblade.png)
-3. W obszarze **nazwa**, podaj nazwę dla zadania WebJob. Nazwa musi rozpoczynać się literą lub cyfrą i nie może zawierać żadnych znaków specjalnych innych niż "-" i "_".
-4. W **sposobu wykonywania** wybierz **uruchomić na żądanie**.
-5. W **przekazywanie pliku** polu, kliknij ikonę folderu i przejdź do pliku zip, który zawiera skrypt. Plik zip powinien zawierać pliku wykonywalnego (.exe .cmd bat SH, PHP PY i js) oraz wszelkie pliki pomocnicze potrzebne do uruchomienia tego programu lub skryptu.
-6. Sprawdź **Utwórz** przekazywać skrypt do aplikacji sieci web. 
+3. W obszarze **nazwa**, podaj nazwę hello zadania WebJob. Witaj nazwa musi zaczynać się literą lub cyfrą i nie może zawierać żadnych znaków specjalnych innych niż "-" i "_".
+4. W hello **jak tooRun** wybierz **uruchomić na żądanie**.
+5. W hello **przekazywanie pliku** polu, kliknij ikonę folderu hello i Przeglądaj toohello pliku zip, który zawiera skrypt. plik zip Hello powinien zawierać pliku wykonywalnego (.exe .cmd bat SH, PHP PY i js) oraz wszelkie pliki pomocnicze potrzebne toorun hello programu lub skryptu.
+6. Sprawdź **Utwórz** aplikacji sieci web tooyour tooupload hello skryptu. 
    
-    Nazwa określona dla zadania WebJob zostanie wyświetlony na liście w **Webjob** bloku.
-7. Aby uruchomić zadania WebJob, kliknij prawym przyciskiem myszy jego nazwę na liście, a następnie kliknij przycisk **Uruchom**.
+    Hello nazwa określona dla zadania WebJob hello pojawia się na liście hello na powitania **Webjob** bloku.
+7. Witaj toorun zadania WebJob, kliknij prawym przyciskiem myszy jej nazwę na powitania listy i kliknij przycisk **Uruchom**.
    
     ![Uruchom zadanie WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateContinuous"></a>Tworzenie stale uruchomione zadania WebJob
-1. Aby utworzyć stale wykonywania zadania WebJob, wykonaj te same czynności dla tworzenie zadanie WebJob, które jest uruchamiane jeden raz, ale w **sposobu wykonywania** wybierz **ciągłe**.
-2. Aby uruchomić lub zatrzymać ciągłe zadanie WebJob, kliknij prawym przyciskiem myszy zadanie WebJob na liście, a następnie kliknij przycisk **Start** lub **zatrzymać**.
+1. toocreate stale wykonywania zadania WebJob, wykonaj hello same kroki dla tworzenie zadanie WebJob, które jest uruchamiane jeden raz, ale w hello **jak tooRun** wybierz **ciągłe**.
+2. toostart lub zatrzymania ciągłe zadanie WebJob, kliknij prawym przyciskiem myszy hello zadania WebJob hello listy i kliknij przycisk **Start** lub **zatrzymać**.
 
 > [!NOTE]
 > Jeśli aplikacja sieci web jest uruchamiana na więcej niż jedno wystąpienie, stale uruchomione zadanie WebJob będzie działać we wszystkich swoich wystąpień. Uruchom na żądanie i zaplanowanych zadań Webjob w pojedynczym wystąpieniu wybrane do równoważenia obciążenia przy Microsoft Azure.
 > 
-> Dla ciągłe zadania Webjob do uruchomienia, niezawodne i we wszystkich wystąpieniach, Włącz zawsze włączone * ustawienia konfiguracji dla aplikacji sieci web w przeciwnym razie można zatrzymać działanie w przypadku witryny hosta SCM był bezczynny zbyt długo.
+> W przypadku ciągłe zadania Webjob toorun niezawodne i we wszystkich wystąpieniach włączyć hello zawsze na * ustawienia konfiguracji dla hello aplikacji sieci web w przeciwnym razie można zatrzymać działanie w przypadku witryny hosta SCM hello jest bezczynny zbyt długo.
 > 
 > 
 
 ## <a name="CreateScheduledCRON"></a>Utwórz zaplanowane zadanie WebJob przy użyciu wyrażenia usługi CRON
-Ta metoda jest dostępna do aplikacji sieci Web działających w trybie podstawowa, standardowa lub Premium i wymaga **zawsze na** ustawienie zostało włączone w aplikacji.
+Ta metoda jest dostępna tooWeb aplikacji działających w trybie podstawowa, standardowa lub Premium i wymaga hello **zawsze na** ustawienie toobe włączona w aplikacji hello.
 
-Aby włączyć na żądanie zadania WebJob do zaplanowane zadania WebJob, wystarczy dołączyć `settings.job` pliku w katalogu głównym pliku zip zadania WebJob. Ten plik JSON powinien zawierać `schedule` właściwość o [CRON wyrażenia](https://en.wikipedia.org/wiki/Cron), na przykład poniżej.
+tooturn na żądanie zadania WebJob do zaplanowane zadania WebJob, wystarczy dołączyć `settings.job` pliku hello głównym pliku zip zadania WebJob. Ten plik JSON powinien zawierać `schedule` właściwość o [CRON wyrażenia](https://en.wikipedia.org/wiki/Cron), na przykład poniżej.
 
-Wyrażenie CRON składa się z pola 6: `{second} {minute} {hour} {day} {month} {day of the week}`.
+Hello wyrażenie CRON składa się z pola 6: `{second} {minute} {hour} {day} {month} {day of hello week}`.
 
-Na przykład, aby wyzwolić WebJob co 15 minut z `settings.job` musi:
+Na przykład tootrigger WebJob co 15 minut z `settings.job` musi:
 
 ```json
 {
@@ -90,90 +90,90 @@ Na przykład, aby wyzwolić WebJob co 15 minut z `settings.job` musi:
 
 Inne przykłady CRON harmonogramu:
 
-* Co godzinę (tj. gdy liczba minut wynosi 0):`0 0 * * * *` 
-* Co godzinę z 9 AM do 17: 00:`0 0 9-17 * * *` 
+* Co godzinę (tj. gdy hello liczba minut wynosi 0):`0 0 * * * *` 
+* Co godzinę z 9 AM too5 PM:`0 0 9-17 * * *` 
 * W 9:30 AM codziennie:`0 30 9 * * *`
 * W 9:30 AM każdej tydzień:`0 30 9 * * 1-5`
 
-**Uwaga**: wdrażając zadanie WebJob z programu Visual Studio, upewnij się oznaczyć Twojej `settings.job` właściwości pliku jako Kopiuj, jeśli nowszy ".
+**Uwaga**: wdrażając zadanie WebJob z programu Visual Studio, upewnij się, że toomark Twojego `settings.job` właściwości pliku jako Kopiuj, jeśli nowszy ".
 
-## <a name="CreateScheduled"></a>Utwórz zaplanowane zadanie WebJob przy użyciu harmonogramu Azure
-Następujące techniki alternatywne korzysta z Harmonogram systemu Azure. W takim przypadku WebJob nie ma żadnych bezpośrednich wiedzy harmonogramu. Zamiast tego harmonogramu Azure pobiera skonfigurowane do wyzwolenia WebJob zgodnie z harmonogramem. 
+## <a name="CreateScheduled"></a>Utwórz zaplanowane zadanie WebJob przy użyciu hello Harmonogram systemu Azure
+Witaj, następujące techniki alternatywne sprawia, że użycie hello Harmonogram systemu Azure. W takim przypadku WebJob nie ma bezpośredniego znać hello harmonogramu. Zamiast tego hello Azure harmonogramu pobiera skonfigurowanego tootrigger WebJob zgodnie z harmonogramem. 
 
-Azure Portal nie ma jeszcze możliwość tworzenia zaplanowanych zadań WebJob, ale dopiero po dodaniu tej funkcji możesz zrobić to za pomocą [klasyczny portal](http://manage.windowsazure.com).
+Azure Portal Hello nie ma jeszcze toocreate możliwości hello zaplanowane zadania WebJob, ale dopiero po dodaniu tej funkcji możesz zrobić to za pomocą hello [klasyczny portal](http://manage.windowsazure.com).
 
-1. W [klasyczny portal](http://manage.windowsazure.com) przejdź do zadania WebJob i kliknij przycisk **Dodaj**.
-2. W **sposobu wykonywania** wybierz **uruchamiane zgodnie z harmonogramem**.
+1. W hello [klasyczny portal](http://manage.windowsazure.com) przejdź do strony zadania WebJob toohello i kliknij polecenie **Dodaj**.
+2. W hello **jak tooRun** wybierz **uruchamiane zgodnie z harmonogramem**.
    
     ![Nowe zadanie zaplanowane][NewScheduledJob]
-3. Wybierz **Region harmonogramu** dla zadania, a następnie kliknij strzałkę w prawym dolnym rogu okna dialogowego, aby przejść do następnego ekranu.
-4. W **Utwórz zadanie** okno dialogowe, wybierz typ **cyklu** ma: **jednorazowe zadania** lub **zadania cykliczny**.
+3. Wybierz hello **Region harmonogramu** dla zadania, a następnie kliknij strzałkę hello na powitania prawym dolnym rogu hello okna dialogowego tooproceed toohello następnego ekranu.
+4. W hello **Utwórz zadanie** okno dialogowe, wybierz typ hello **cyklu** ma: **jednorazowe zadania** lub **zadania cykliczny**.
    
     ![Harmonogram cyklu][SchdRecurrence]
 5. Wybierz również **uruchamianie** czasu: **teraz** lub **w określonym czasie**.
    
     ![Czas rozpoczęcia harmonogramu][SchdStart]
-6. Jeśli chcesz uruchomić w określonym czasie, wybierz początkowy wartości czasu w obszarze **uruchamiania na**.
+6. Jeśli chcesz toostart w określonym czasie, wybierz początkowy wartości czasu w obszarze **uruchamiania na**.
    
     ![Rozpoczęcia harmonogramu w określonym czasie][SchdStartOn]
-7. W przypadku wybrania cyklicznych zadań masz **Powtórz co** opcję, aby określić częstotliwość występowania i **kończąc na** opcję, aby określić godzinę zakończenia.
+7. W przypadku wybrania cyklicznych zadań masz hello **Powtórz co** opcję toospecify hello częstotliwości występowania i hello **kończąc na** toospecify opcji Godzina zakończenia.
    
     ![Harmonogram cyklu][SchdRecurEvery]
-8. Jeśli wybierzesz **tygodni**, można wybrać **na konkretny harmonogram** i określ dni tygodnia, w których zadanie do uruchomienia.
+8. Jeśli wybierzesz **tygodni**, możesz wybrać hello **na konkretny harmonogram** i określ hello dni tygodnia hello, który ma hello toorun zadania.
    
-    ![Harmonogram dni tygodnia][SchdWeeksOnParticular]
-9. Jeśli wybierzesz **miesięcy** i wybierz **na konkretny harmonogram** pole, można ustawić zadanie do działania w szczególności numerowane **dni** w miesiącu. 
+    ![Harmonogram dni tygodnia hello][SchdWeeksOnParticular]
+9. Jeśli wybierzesz **miesięcy** i wybierz hello **na konkretny harmonogram** pole, można ustawić toorun zadania hello w szczególności numerowane **dni** w miesiącu hello. 
    
-    ![Harmonogram określonych dat w miesiącu][SchdMonthsOnPartDays]
-10. Jeśli wybierzesz **dni tygodnia**, który dzień lub dni tygodnia, można wybrać w miesiącu zadanie do uruchomienia na.
+    ![Zaplanuj określonej daty w hello miesiąca][SchdMonthsOnPartDays]
+10. Jeśli wybierzesz **dni tygodnia**, który dzień lub dni tygodnia hello można wybrać w miesiącu hello ma hello toorun zadania na.
     
      ![Zaplanuj określonym tygodniu dni miesiąca][SchdMonthsOnPartWeekDays]
-11. Ponadto umożliwia także **wystąpień** opcję, aby wybrać którym tygodniu miesiąca (pierwszej, drugiej, trzeci itp.) podczas wykonywania zadania do uruchomienia na dni tygodnia, można określić.
+11. Na koniec można również użyć hello **wystąpień** toochoose opcji którym tygodniu miesiąca hello (pierwszej, drugiej, trzeci itp.) mają toorun zadania hello na powitania dni tygodnia, można określić.
     
     ![Zaplanuj dni tygodnia określonego w szczególności tygodnie miesiąca][SchdMonthsOnPartWeekDaysOccurences]
-12. Po utworzeniu co najmniej jedno zadanie na karcie zadań Webjob z ich stan, typ harmonogramu i inne informacje pojawi się ich nazw. Informacje historyczne dotyczące 30 ostatnich zadań Webjob jest obsługiwana.
+12. Po utworzeniu co najmniej jedno zadanie, ich nazwy będą wyświetlane na karcie zadania Webjob hello z ich stanem zaplanować typ i inne informacje. Informacje historyczne na powitania ostatnie 30 zadań Webjob jest obsługiwana.
     
     ![Lista zadań][WebJobsListWithSeveralJobs]
 
 ### <a name="Scheduler"></a>Zaplanowane zadania i harmonogram systemu Azure
-Zaplanowane zadania można dodatkowo skonfigurować na stronach Harmonogram systemu Azure [klasyczny portal](http://manage.windowsazure.com).
+Zaplanowane zadania można dodatkowo skonfigurować w stronach Harmonogram systemu Azure hello hello [klasyczny portal](http://manage.windowsazure.com).
 
-1. Na stronie zadań Webjob kliknij zadanie **harmonogram** łącze, aby przejść do strony portalu Azure harmonogramu. 
+1. Na stronie zadań Webjob powitania kliknij zadanie hello **harmonogram** strony portalu łącze toonavigate toohello Harmonogram systemu Azure. 
    
-   ![Łącze do harmonogramu systemu Azure][LinkToScheduler]
-2. Na stronie harmonogram kliknij zadanie.
+   ![Łącze tooAzure harmonogramu][LinkToScheduler]
+2. Na stronie harmonogram powitania kliknij hello zadania.
    
-    ![Zadania na stronie portalu harmonogramu][SchedulerPortal]
-3. **Akcji zadania** strona zostanie otwarta, w którym można dodatkowo skonfigurować zadanie. 
+    ![Zadania na stronie portalu hello harmonogramu][SchedulerPortal]
+3. Witaj **akcji zadania** otwierania, gdzie można dodatkowo skonfigurować zadania hello strony. 
    
     ![Akcja zadania PageInScheduler][JobActionPageInScheduler]
 
-## <a name="ViewJobHistory"></a>Wyświetlanie historii zadań
-1. Aby wyświetlić historię wykonywania zadania, w tym zadania utworzone przy użyciu zestawu SDK zadań Webjob, kliknij odpowiednie łącze w sekcji **dzienniki** kolumny bloku zadań Webjob. (Aby skopiować adres URL strony pliku dziennika do Schowka w razie potrzeby można użyć ikony Schowka).
+## <a name="ViewJobHistory"></a>Wyświetlanie historii zadań hello
+1. historii wykonywania hello tooview zadania, w tym zadania utworzone za pomocą hello zestaw SDK zadań Webjob, kliknij odpowiednie łącze w hello **dzienniki** kolumny hello bloku zadań Webjob. (Możesz użyć hello Schowka toocopy hello adres URL ikony hello dziennika pliku strony toohello Schowka w razie potrzeby.)
    
     ![Łącze dzienników](./media/web-sites-create-web-jobs/wjbladelogslink.png)
-2. Kliknięcie łącza spowoduje otwarcie strony szczegółów dla zadania WebJob. Ta strona zawiera nazwę polecenia Uruchom został uruchomiony, czas i jego powodzenia lub niepowodzenia. W obszarze **ostatnie zadanie uruchamia**, kliknij, aby zobaczyć więcej informacji.
+2. Kliknięcie łącza hello otwiera stronę szczegółów hello hello zadania WebJob. Ten przedstawia strony hello nazwa Uruchom polecenie hello, hello został uruchomiony, czas i jego powodzenia lub niepowodzenia. W obszarze **ostatnie zadanie uruchamia**, kliknij przycisk toosee czasu dalsze szczegóły.
    
     ![WebJobDetails][WebJobDetails]
-3. **Szczegóły uruchomienia zadania WebJob** zostanie wyświetlona strona. Kliknij przycisk **dane wyjściowe Przełącz** tekst zawartość dziennika. Dziennik wyjścia jest w formacie tekstowym. 
+3. Witaj **szczegóły uruchomienia zadania WebJob** zostanie wyświetlona strona. Kliknij przycisk **dane wyjściowe Przełącz** toosee tekst hello hello zawartość dziennika. Dziennik wyjścia Hello jest w formacie tekstowym. 
    
     ![Szczegóły uruchomienia zadania sieci Web][WebJobRunDetails]
-4. Aby wyświetlić tekstu wyjściowego w osobnym oknie przeglądarki, kliknij **Pobierz** łącza. Aby pobrać samego tekstu, kliknij łącze prawym przyciskiem myszy i użyj opcji przeglądarki, aby zapisać zawartość pliku.
+4. tekstu wyjściowego hello toosee w osobnym oknie przeglądarki, kliknij przycisk hello **Pobierz** łącza. toodownload hello tekst, kliknij prawym przyciskiem myszy łącze hello i używać zawartości z przeglądarki opcje toosave hello pliku.
    
     ![Pobieranie danych wyjściowych dziennika][DownloadLogOutput]
-5. **Webjob** łącze umieszczone u góry strony oferują wygodny sposób na uzyskanie dostępu do listy zadań Webjob na pulpicie nawigacyjnym historii.
+5. Witaj **Webjob** łącze u góry strony hello hello zawiera wygodny sposób tooget tooa listę zadań Webjob na pulpicie nawigacyjnym historii hello.
    
-    ![Link do listy zadań Webjob][WebJobsLinkToDashboardList]
+    ![Łącze tooWebJobs listy][WebJobsLinkToDashboardList]
    
     ![Lista zadań Webjob na pulpicie nawigacyjnym historii][WebJobsListInJobsDashboard]
    
-    Klikając jedno z poniższych linków, przejście do strony szczegółów zadania WebJob dla wybranego zadania.
+    Klikając jedno z poniższych linków, przyjmuje się Strona szczegółów zadania WebJob toohello hello zadania, które można wybrać.
 
 ## <a name="WHPNotes"></a>Uwagi
-* Aplikacje sieci Web w trybie wolnych może upłynął limit czasu po 20 minut, jeśli istnieją żadne żądania do witryny scm (wdrażania) i aplikacji sieci web portalu nie otwierać na platformie Azure. Żądania do rzeczywistej lokacji nie spowoduje zresetowanie to.
-* Kod ciągłe zadania trzeba napisać. do uruchamiania w pętli nieskończonej.
-* Zadania ciągłego uruchamiaj stale tylko wtedy, gdy aplikacja sieci web jest uruchomiony.
-* Podstawowe i oferty standardowe tryby zawsze na funkcji, gdy włączone, uniemożliwia przechodzących do stanu bezczynności aplikacji sieci web.
+* Aplikacje sieci Web w trybie wolnych może upłynął limit czasu po upływie 20 minut, jeśli nie ma żadnych żądań toohello scm (wdrożenie) witryny i aplikacji sieci web hello portal nie jest otwarty na platformie Azure. Żądania toohello lokacji nie spowoduje zresetowanie to.
+* Kod dla zadania ciągłego musi toobe napisany toorun w pętli nieskończonej.
+* Zadania ciągłego uruchamiaj stale tylko wtedy, gdy aplikacja sieci web hello jest uruchomiony.
+* Podstawowa i standardowa tryby oferta hello zawsze na funkcji, które po włączeniu uniemożliwia przechodzących do stanu bezczynności aplikacji sieci web.
 * Można jedynie debugować pracujące zadań Webjob. Debugowanie zadań Webjob według harmonogramu lub na żądanie nie jest obsługiwane.
 
 ## <a name="NextSteps"></a>Następne kroki

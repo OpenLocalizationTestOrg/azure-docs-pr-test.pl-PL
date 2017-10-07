@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service — często zadawane pytania | Microsoft Docs"
-description: "Odpowiedzi na często zadawane pytania dotyczące usługi Azure Container Service — usługi upraszczającej tworzenie i konfigurowanie klastra maszyn wirtualnych oraz zarządzania nim w celu uruchamiania aplikacji kontenera usługi Docker."
+title: "aaaAzure usługi kontenera — często zadawane pytania | Dokumentacja firmy Microsoft"
+description: "Odpowiedzi na często zadawane pytania dotyczące usługi kontenera platformy Azure, usługa, która upraszcza tworzenie hello, konfiguracji i zarządzania klastra aplikacji kontenera Docker toorun maszyn wirtualnych."
 services: container-service
 documentationcenter: 
 author: dlepow
@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 03/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 9f47c8deaaaf017f9d35e57a9b01311d773cc461
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 373d32a8d61b471b9b8fea349288aebc6fa826b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [container-service-faq.md](../../../includes/container-service-faq.md)]

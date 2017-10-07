@@ -1,6 +1,6 @@
 ---
-title: "Przegląd różnych portali potrzebne do utworzenia oferty dla witryny Marketplace | Dokumentacja firmy Microsoft"
-description: "Przegląd różnych portali potrzebne do utworzenia oferty dla witryny Marketplace"
+title: "hello aaaOverview z portali różnych potrzebne toocreate jako oferta dla hello Marketplace | Dokumentacja firmy Microsoft"
+description: "Omówienie hello różnych portali potrzebne toocreate jako oferta dla hello Marketplace"
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
-ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6fbd7ecbbd873445f01f0ac4e1e5fee59e08c033
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="portals-you-will-need"></a>Portale, należy wykonać
-Przed rozpoczęciem procesu publikacji oferty, pomożemy Ci wprowadzane do różnych portali, które będą potrzebne. Poniżej przedstawiono krótkie podsumowanie dotyczące portali--Centrum deweloperów, publikowania portalu Azure i Portal Azure — w kolejności, że będzie wchodzić z nimi.                                                                            
+Przed rozpoczęciem procesu hello publikacji oferty, zaloguj się. wprowadzony toohello różnych portali, które będą potrzebne. Poniżej przedstawiono krótkie podsumowanie hello hello portali--Centrum deweloperów, publikowania portalu Azure i Portal Azure — w kolejności hello, że będzie wchodzić z nimi.                                                                            
 
 ## <a name="developer-center"></a>Centrum deweloperów
 [http://dev.Windows.com/Registration?accountprogram=Azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ### <a name="description"></a>Opis
-Tworzenie konta Microsoft Developer Center jest jednorazowe zadania. Upewnij się, że firma nie już ma konto Centrum deweloperów przed podjęciem próby go utworzyć. W trakcie zbierane są informacje konta bankowego, informacje podatku i informacje o adresie firmy.
+Tworzenie konta Microsoft Developer Center jest jednorazowe zadania. Upewnij się, że firmy hello nie już ma konto Centrum deweloperów przed podjęciem próby toocreate jeden. W trakcie hello zbierane są informacje konta bankowego, informacje podatku i informacje o adresie firmy.
 
 > [!NOTE]
 > Jeśli publikują tylko wolnego oferty (lub oferuje Przełącz your właścicielem licencji), nie wymaga kwota podatku i bank informacji.
@@ -35,10 +35,10 @@ Tworzenie konta Microsoft Developer Center jest jednorazowe zadania. Upewnij si�
 > 
 
 ### <a name="identityaccount-used"></a>Tożsamość/konto używane
-Najlepiej, jeśli jest to listy dystrybucyjnej lub grupy zabezpieczeń (np. azurepublishing @*partnercompany*.com). Grupy dystrybucji listy lub zabezpieczeń **musi** zostać zarejestrowany jako konta Microsoft.
+Najlepiej, jeśli jest to listy dystrybucyjnej lub grupy zabezpieczeń (np. azurepublishing @*partnercompany*.com). Witaj dystrybucji listy lub grupy zabezpieczeń **musi** zostać zarejestrowany jako konta Microsoft.
 
 > [!TIP]
-> Firma Microsoft zaleca używanie listy dystrybucyjnej lub grupy zabezpieczeń ponieważ eliminuje zależność od osoba, chociaż można używać również indywidualnych kont.
+> Firma Microsoft zaleca używanie listy dystrybucyjnej lub grupy zabezpieczeń ponieważ eliminuje zależność hello osoba, chociaż można używać również indywidualnych kont.
 > 
 > 
 
@@ -46,20 +46,20 @@ Najlepiej, jeśli jest to listy dystrybucyjnej lub grupy zabezpieczeń (np. azur
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
 
 ### <a name="description"></a>Opis
-To jest portal, używanej do pracy na ofertę i opublikować go (marketing, ceny, publikowania certyfikacji, jeśli ma to zastosowanie, itp.).
+To jest portal hello używania toowork na powitania ofertę i toopublish jej (marketing, ceny, publikowania certyfikacji, jeśli ma to zastosowanie, itp.).
 
 ### <a name="identityaccount-used"></a>Tożsamość/konto używane
-Powyższej listy lub zabezpieczeń grupy dystrybucji musi używać po raz pierwszy logować się do portalu publikowania. Później jako współadministratorzy mogą być dodawane innych użytkowników. Jest to, jak pobiera on zamapowany do Centrum deweloperów danych rejestracji.
+dla pierwszego toosign czasu hello w portalu publikowania toohello muszą być używane Hello powyżej dystrybucji listy lub grupy zabezpieczeń. Później jako współadministratorzy mogą być dodawane innych użytkowników. Jest to, jak pobiera dane rejestracji w Centrum deweloperów toohello mapowane.
 
 ## <a name="azure-portal"></a>Azure Portal
 [https://Portal.Azure.com](https://portal.azure.com)
 
 ### <a name="description"></a>Opis
-Jest to portalu, w którym można wyświetlać swoje przemieszczanego i opublikowane oferty w portalu Azure Marketplace (dotyczy tylko dla maszyn wirtualnych, szablony rozwiązań i usług deweloperskich opartej na usłudze Azure Resource Manager).
+To jest portal hello, gdzie można przeglądać przemieszczanego i opublikowane oferty w hello Azure Marketplace (dotyczy tylko dla maszyn wirtualnych, szablony rozwiązań i usług deweloperskich opartej na usłudze Azure Resource Manager).
 
 ### <a name="identityaccount-used"></a>Tożsamość/konto używane
-Gdy jest przemieszczania ofertę z portalu publikowania, identyfikator subskrypcji musi być białej. Tej samej subskrypcji (Brak nazwy użytkownika i hasła skojarzonego z nim) musi można użyć do logowania się do tego portalu do testowania przemieszczanego oferty.
+Gdy oferta portalu publikowania hello jest przemieszczania, identyfikator subskrypcji musi białej toobe. Witaj tej samej subskrypcji (Brak nazwy użytkownika i hasła skojarzonego z nim) musi toobe używany do podpisywania toothis portalu tootest hello przemieszczane oferty.
 
 ## <a name="see-also"></a>Zobacz też
-* [Wprowadzenie: jak opublikować ofertę do portalu Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Wprowadzenie: jak toopublish jako oferta dla hello Azure Marketplace](marketplace-publishing-getting-started.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie punktów końcowych przesyłania strumieniowego przy użyciu zestawu .NET SDK. | Microsoft Docs"
-description: "W tym temacie przedstawiono sposób zarządzania punktów końcowych przesyłania strumieniowego przy użyciu portalu Azure."
+title: "aaaManage punkty końcowe przy użyciu zestawu .NET SDK przesyłania strumieniowego. | Microsoft Docs"
+description: "W tym temacie przedstawiono sposób toomanage punktów końcowych przesyłania strumieniowego z hello portalu Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 2f4f464f8604b6f453d6b50b736c6a3a889a3408
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 30c092a8ebf4e2b2902392f4cf98f46d812ccdbc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Zarządzanie punktów końcowych przesyłania strumieniowego przy użyciu zestawu .NET SDK
 
 >[!NOTE]
->Upewnij się przejrzeć [omówienie](media-services-streaming-endpoints-overview.md) tematu. Sprawdź również [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Upewnij się, że hello tooreview [omówienie](media-services-streaming-endpoints-overview.md) tematu. Sprawdź również [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-Kod w tym temacie przedstawiono sposób wykonywania następujących zadań przy użyciu zestawu SDK .NET usługi Azure Media Services:
+Kod Hello w tym temacie przedstawiono, jak hello toodo następujące zadania za pomocą hello zestawu .NET SDK usługi Azure Media Services:
 
-- Sprawdź, czy domyślne punktu końcowego przesyłania strumieniowego.
+- Sprawdź, czy domyślne hello punktu końcowego przesyłania strumieniowego.
 - Utwórz/Dodaj nowy punkt końcowy przesyłania strumieniowego.
 
-    Możesz mieć wiele punktów końcowych przesyłania strumieniowego, jeśli planujesz umieszczenie różnych CDN lub CDN oraz bezpośredni dostęp do.
+    Można toohave wiele punktów końcowych przesyłania strumieniowego, jeśli planujesz toohave różnych CDN lub CDN i bezpośredni dostęp.
 
     > [!NOTE]
     > Rozliczenie jest przeprowadzane tylko w przypadku przesyłania strumieniowego punktu końcowego jest w stanie uruchomienia.
     
-- Aktualizowanie punktu końcowego przesyłania strumieniowego.
+- Zaktualizuj hello punktu końcowego przesyłania strumieniowego.
     
-    Upewnij się, że wywołanie funkcji Update().
+    Upewnij się hello toocall Funkcja Update().
 
-- Usuwanie punktu końcowego przesyłania strumieniowego.
+- Usuń hello punktu końcowego przesyłania strumieniowego.
 
     >[!NOTE]
-    >Nie można usunąć domyślnego punktu końcowego przesyłania strumieniowego.
+    >Nie można usunąć domyślnej Hello punktu końcowego przesyłania strumieniowego.
 
-Aby uzyskać informacje na temat skalowania punktu końcowego przesyłania strumieniowego, zobacz [to](media-services-portal-scale-streaming-endpoints.md) tematu.
+Aby uzyskać informacje o sposobie tooscale hello punktu końcowego przesyłania strumieniowego, zobacz [to](media-services-portal-scale-streaming-endpoints.md) tematu.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
-Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md). 
+Konfigurowanie środowiska projektowego i wypełnić plik app.config hello o informacje dotyczące połączenia, zgodnie z opisem w [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>Dodaj kod, który zarządza punktów końcowych przesyłania strumieniowego
     
-Zastąp kod w pliku Program.cs następującym kodem:
+Zastąp kod hello w pliku Program.cs hello hello następującego kodu:
 
     using System;
     using System.Configuration;
@@ -65,7 +65,7 @@ Zastąp kod w pliku Program.cs następującym kodem:
     {
         class Program
         {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =

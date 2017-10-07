@@ -1,6 +1,6 @@
 ---
-title: "Instruktaże Spark w usłudze HDInsight przy użyciu PySpark i Scala na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Przykłady zespołu procesu analizy danych, które opisano PySpark i Scala na Azure HDInsight Spark analizy predykcyjnej."
+title: "instruktaże Spark aaaHDInsight przy użyciu PySpark i Scala na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Przykłady hello zespołu w procesie nauki danych, których przeprowadzenie hello w systemie PySpark i Scala analizy predykcyjnej toodo Azure HDInsight Spark."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 27065c3437c4617ed035623b48aa1a1a31a7094f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f8b41a8cae414586570761ba4b4eb4c239cbb981
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>HDInsight Spark nauki wskazówki dotyczące danych przy użyciu PySpark i Scala na platformie Azure
 
-Te wskazówki Użyj PySpark i Scala w klastrze Azure Spark analizy predykcyjnej. One wykonaj kroki opisane w procesie nauki danych zespołu. Omówienie procesu nauki danych zespołu, zobacz [proces nauki danych](data-science-process-overview.md). Omówienie Spark w usłudze HDInsight, zobacz [wprowadzenie do platformy Spark w usłudze HDInsight](../hdinsight/hdinsight-apache-spark-overview.md).
+Te wskazówki w systemie PySpark i Scala toodo klastra Azure Spark dla analizy predykcyjnej. One wykonaj kroki hello opisane w hello proces nauki danych zespołu. Omówienie hello zespołu w procesie nauki danych, zobacz [proces nauki danych](data-science-process-overview.md). Omówienie Spark w usłudze HDInsight, zobacz [tooSpark wprowadzenie w usłudze HDInsight](../hdinsight/hdinsight-apache-spark-overview.md).
 
-Wskazówki dotyczące nauki dodatkowych danych, których wykonanie procesu analizy danych zespołu są pogrupowane według **platformy** obsługującego: 
+Wskazówki dotyczące nauki dodatkowych danych, wykonujących hello proces nauki danych Team są pogrupowane według hello **platformy** obsługującego: 
 
 [!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
 
 ## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Przewidywanie taksówki porady na Azure Spark przy użyciu PySpark
 
-[Korzystanie z platformy Spark w usłudze Azure HDInsight](machine-learning-data-science-spark-overview.md) wskazówki korzysta z nowego Jorku taksówkach danych do prognozowania czy otrzymuje porady i zakres kwoty oczekiwano mają zostać zapłacone. Używa procesu nauki danych zespołu w scenariuszu przy użyciu [klastra Spark w usłudze HDInsight Azure](https://azure.microsoft.com/services/hdinsight/) do przechowywania, Eksploruj, funkcję odtwarzania dane z dostępnych publicznie podróży taksówki NYC i taryfy zestawu danych. Ten temat ustawia można się z klastra Spark w usłudze HDInsight i Jupyter PySpark notesów używane w pozostałej części przewodnika. Te notesy przedstawiają sposób eksplorować dane, a następnie tworzenie i korzystanie z modeli. Zaawansowane danych notesu eksploracji i modelowanie pokazuje, jak do uwzględnienia krzyżowego sprawdzania poprawności, funkcji hyper parametr profilach, a model oceny.
+Witaj [korzystanie z platformy Spark w usłudze Azure HDInsight](machine-learning-data-science-spark-overview.md) wskazówki korzysta z nowego Jorku taksówkach toopredict danych czy otrzymuje porady i zakres hello kwot oczekiwano toobe płatnej. Używa hello proces nauki danych zespołu w scenariuszu przy użyciu [klastra Spark w usłudze HDInsight Azure](https://azure.microsoft.com/services/hdinsight/) toostore, Eksploruj, funkcję odtwarzania danych z hello publicznie dostępnych NYC taksówki podróży i taryfy zestawu danych. Ten temat konfiguruje możesz z klastra Spark w usłudze HDInsight i hello Jupyter PySpark notesów używane w hello reszty hello wskazówki. Te komputery przenośne przedstawia sposób tooexplore danych i jak następnie toocreate i korzystanie z modeli. Hello zaawansowane Eksploracja danych i modelowanie notesu pokazuje sposób tooinclude kominów krzyżowego sprawdzania poprawności, funkcji hyper parametr i oceny modelu.
 
 ### <a name="data-exploration-and-modeling-with-spark"></a>Eksploracja danych i modelowanie z Spark 
-Eksploruj zestawu danych i tworzenie, wynik i ocenić maszyny modeli uczenia przez pracy nad [Tworzenie binarnego klasyfikacji i regresji modeli danych narzędzi Spark MLlib](machine-learning-data-science-spark-data-exploration-modeling.md) tematu.
+Eksploruj hello zestawu danych i tworzenie, wynik i oceny hello machine learning modeli pracy nad hello [Tworzenie binarnego klasyfikacji i regresji modeli danych narzędzi Spark MLlib hello](machine-learning-data-science-spark-data-exploration-modeling.md) tematu.
 
 ### <a name="model-consumption"></a>Użycie modelu
-Aby dowiedzieć się, jak wynik modele klasyfikacji i regresji, utworzone w tym temacie, zobacz [wynik i ocena modele uczenia wbudowane Spark maszyny](machine-learning-data-science-spark-model-consumption.md).
+toolearn modele klasyfikacji i regresji hello tooscore utworzone w tym temacie, zobacz [wynik i ocena modele uczenia wbudowane Spark maszyny](machine-learning-data-science-spark-model-consumption.md).
 
 ### <a name="cross-validation-and-hyperparameter-sweeping"></a>Krzyżowe sprawdzanie poprawności i kominów hyperparameter
 Zobacz [zaawansowane Eksploracja danych i modelowania z platformy Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) na jak można modeli uczenia przy użyciu kominów krzyżowego sprawdzania poprawności i parametru funkcji hyper.
@@ -44,12 +44,12 @@ Zobacz [zaawansowane Eksploracja danych i modelowania z platformy Spark](machine
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Przewidywanie taksówki porady na Azure Spark przy użyciu języka Scala
 
-[Scala użycia z łącznikiem Spark on Azure](machine-learning-data-science-process-scala-walkthrough.md) wskazówki korzysta z nowego Jorku taksówkach danych do prognozowania czy otrzymuje porady i zakres kwoty oczekiwano mają zostać zapłacone. Widoczny jest sposób użycia Scala maszyny nadzorowanego uczenia zadania z maszyną Spark uczenia biblioteki (MLlib) i pakiety SparkML w klastrze Spark w usłudze HDInsight Azure. Przeprowadza użytkownika przez zadania, które stanowią [proces nauki danych](http://aka.ms/datascienceprocess): wprowadzanie danych i eksploracja, wizualizacji engineering funkcji, modelowania i zużycia modelu. Modele wbudowane obejmują Regresja logistyczna i liniowych, losowe lasów i gradientu boosted drzewa.
+Witaj [Scala użycia z łącznikiem Spark on Azure](machine-learning-data-science-process-scala-walkthrough.md) wskazówki korzysta z nowego Jorku taksówkach toopredict danych czy otrzymuje porady i zakres hello kwot oczekiwano toobe płatnej. Pokazuje, jak toouse Scala dla zadania uczenia nadzorowanego maszyny z hello Spark machine learning biblioteki (MLlib) i SparkML pakietów w klastrze usługi Azure HDInsight Spark. Przeprowadza użytkownika przez hello zadań, które stanowią hello [proces nauki danych](http://aka.ms/datascienceprocess): wprowadzanie danych i eksploracja, wizualizacji engineering funkcji, modelowania i zużycia modelu. modele Hello wbudowane obejmują Regresja logistyczna i liniowych, losowe lasów i gradientu boosted drzewa.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Omówienie najważniejsze składniki wchodzące w skład procesu nauki danych zespołu, zobacz [Omówienie procesu nauki danych zespołu](data-science-process-overview.md).
+Omówienie hello najważniejsze składniki wchodzące w skład hello zespołu w procesie nauki danych, zobacz [Omówienie procesu nauki danych zespołu](data-science-process-overview.md).
 
-Omówienie cykl zespołu w procesie nauki danych służy do struktury projektów analizy danych, zobacz [cyklu życia procesu nauki danych zespołu](data-science-process-lifecycle.md). Cykl życia omówiono kroki, od początku do końca, że projekty zwykle należy wykonać podczas są wykonywane. 
+Omówienie cyklu życia procesu nauki danych zespołu hello służy toostructure projektów analizy danych, zobacz [cyklu życia procesu nauki danych zespołu](data-science-process-lifecycle.md). cykl życia Hello opisano kroki hello, z toofinish start, która projektów wykonaj zazwyczaj, gdy są one wykonywane. 
 

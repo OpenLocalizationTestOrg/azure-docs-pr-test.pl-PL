@@ -1,5 +1,5 @@
 ---
-title: Azure aplikacji sieci web AD Java wprowadzenie | Dokumentacja firmy Microsoft
+title: Wprowadzenie do aplikacji sieci web AD Java aaaAzure | Dokumentacja firmy Microsoft
 description: "Tworzenie aplikacji sieci web Java, który zaloguje się użytkowników przy użyciu konta służbowego."
 services: active-directory
 documentationcenter: java
@@ -15,49 +15,49 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5358404881b65d217ab36a41ca04a73f2c462c86
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 20ae95914e074507ed1a23966565ba950cc3a9dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Aplikacja sieci web Java logowania i wylogowywania z usługą Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Podając jednego logowania i wylogowywania tylko kilka wierszy kodu, Azure Active Directory (Azure AD) upraszcza umożliwiające zewnętrzny Zarządzanie tożsamościami aplikacji sieci web. Może się zarejestrować użytkowników i aplikacji sieci web Java za pomocą przez firmę Microsoft implementacją społeczność biblioteki usługi Azure Active Directory Authentication for Java (ADAL4J).
+Podając jednego logowania i wylogowywania tylko kilka wierszy kodu, Azure Active Directory (Azure AD) prościej możesz toooutsource aplikacji sieci web zarządzania tożsamościami. Może się zarejestrować użytkowników i aplikacji sieci web Java za pomocą implementacja firmy Microsoft hello hello społeczność usługi Azure Active Directory Authentication Library dla języka Java (ADAL4J).
 
-W tym artykule przedstawiono sposób użycia ADAL4J do:
+W tym artykule opisano, jak toouse hello ADAL4J do:
 
-* Logowania użytkowników do aplikacji sieci web przy użyciu usługi Azure AD jako dostawcy tożsamości.
+* Loguj użytkowników w aplikacjach tooweb za pomocą usługi Azure AD jako dostawcy tożsamości hello.
 * Wyświetlane informacje użytkownika.
-* Loguj użytkowników spoza aplikacji.
+* Loguj użytkowników spoza aplikacji hello.
 
 ## <a name="before-you-get-started"></a>Przed rozpoczęciem
 
-* Pobierz [szkielet aplikacji](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip), lub pobrać [ukończone próbki](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).
-* Należy również dzierżawa usługi Azure AD, w którym można zarejestrować aplikacji. Jeśli nie masz już dzierżawę usługi Azure AD [Dowiedz się, jak kupić](active-directory-howto-tenant.md).
+* Pobierz hello [szkielet aplikacji](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip), lub pobrać hello [ukończone próbki](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).
+* Należy również dzierżawa usługi Azure AD, w których aplikacja hello tooregister. Jeśli nie masz już dzierżawę usługi Azure AD [Dowiedz się, jak tooget jedną](active-directory-howto-tenant.md).
 
-Gdy wszystko będzie gotowe, wykonaj procedury opisane w obok dziewięć części.
+Gdy wszystko będzie gotowe, postępuj zgodnie z procedurami hello w hello obok dziewięć części.
 
-## <a name="step-1-register-the-new-app-with-azure-ad"></a>Krok 1: Zarejestrować nową aplikację z usługą Azure AD
-Aby skonfigurować aplikację do uwierzytelniania użytkowników, najpierw zarejestrować ją w dzierżawie w następujący sposób:
+## <a name="step-1-register-hello-new-app-with-azure-ad"></a>Krok 1: Zarejestruj hello nowej aplikacji z usługą Azure AD
+tooset użytkowników tooauthenticate aplikacji hello, najpierw zarejestrować go w dzierżawie powitalnych następujący:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Na górnym pasku kliknij nazwę konta. W obszarze **katalogu** wybierz dzierżawy usługi Active Directory, które chcesz zarejestrować aplikację.
-3. Kliknij przycisk **więcej usług** w okienku po lewej stronie, a następnie wybierz **usługi Azure Active Directory**.
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
+2. Na górnym pasku hello kliknij nazwę konta. W obszarze hello **katalogu** listy, wybierz hello dzierżawy usługi Active Directory, w którym ma tooregister aplikacji hello.
+3. Kliknij przycisk **więcej usług** w lewym okienku hello, a następnie wybierz **usługi Azure Active Directory**.
 4. Kliknij przycisk **rejestracji aplikacji**, a następnie wybierz **Dodaj**.
-5. Postępuj zgodnie z monitami, aby utworzyć **aplikacji sieci Web i/lub WebAPI**.
-  * **Nazwa** opisuje aplikacji dla użytkowników.
-  * **Adres URL logowania** jest podstawowy adres URL aplikacji. Szkielet domyślny adres URL jest adresem http://localhost: 8080/adal4jsample /.
-6. Po zakończeniu rejestracji usługi Azure AD przypisuje aplikacji identyfikatora aplikacji Skopiuj wartość ze strony aplikacji do użycia w kolejnych sekcjach.
-7. Z **ustawienia** -> **właściwości** strony dla aplikacji, zaktualizuj identyfikator URI aplikacji. **Identyfikator URI aplikacji** to unikatowy identyfikator dla aplikacji. Konwencja nazewnictwa jest `https://<tenant-domain>/<app-name>` (na przykład `http://localhost:8080/adal4jsample/`).
+5. Wykonaj hello monity toocreate **aplikacji sieci Web i/lub WebAPI**.
+  * **Nazwa** opisuje toousers aplikacji hello.
+  * **Adres URL logowania** jest hello podstawowy adres URL aplikacji hello. szkielet Hello domyślny adres URL jest adresem http://localhost: 8080/adal4jsample /.
+6. Po zakończeniu rejestracji hello Azure AD przypisuje aplikacji hello identyfikatora aplikacji Skopiuj wartość hello z toouse strony aplikacji hello w kolejnych sekcjach hello.
+7. Z hello **ustawienia** -> **właściwości** strony dla aplikacji, aktualizacji hello identyfikator URI aplikacji. Witaj **identyfikator URI aplikacji** to unikatowy identyfikator dla aplikacji hello. Witaj konwencją nazewnictwa jest `https://<tenant-domain>/<app-name>` (na przykład `http://localhost:8080/adal4jsample/`).
 
-Podczas pracy w portalu dla aplikacji, Utwórz i skopiuj klucz aplikacji na **ustawienia** strony. Wkrótce będzie potrzebny klucz.
+Podczas pracy w portalu hello aplikacji hello, Utwórz i skopiuj klucz dla aplikacji hello na powitania **ustawienia** strony. Musisz mieć klucz hello wkrótce.
 
-## <a name="step-2-set-up-the-app-to-use-the-adal4j-and-prerequisites-by-using-maven"></a>Krok 2: Konfigurowanie aplikacji do użycia przy użyciu narzędzia Maven ADAL4J i wymagania wstępne
-W tym kroku skonfigurujesz ADAL4J do używania protokołu uwierzytelniania OpenID Connect. ADAL4J służy do wysyłania żądań zalogowania się i wylogowania, zarządzania sesjami użytkownika uzyskiwanie informacji o użytkowniku i tak dalej.
+## <a name="step-2-set-up-hello-app-toouse-hello-adal4j-and-prerequisites-by-using-maven"></a>Krok 2: Konfigurowanie hello toouse aplikacji hello ADAL4J i wymagania wstępne przy użyciu narzędzia Maven
+W tym kroku skonfigurujesz hello ADAL4J toouse hello protokołu uwierzytelniania OpenID Connect. Użyj hello ADAL4J tooissue żądań logowania się i wylogowania, zarządzania sesjami użytkownika, uzyskiwanie informacji o użytkowniku i tak dalej.
 
-W katalogu głównym projektu otworzyć/utworzyć `pom.xml`, zlokalizuj `// TODO: provide dependencies for Maven`i zastąp go następującym kodem:
+W katalogu głównym projektu hello, otworzyć/utworzyć `pom.xml`, zlokalizuj `// TODO: provide dependencies for Maven`i zastąp go hello poniżej:
 
 ```Java
 
@@ -169,10 +169,10 @@ W katalogu głównym projektu otworzyć/utworzyć `pom.xml`, zlokalizuj `// TODO
     </project>
 ```
 
-## <a name="step-3-create-the-java-web-app-files-web-inf"></a>Krok 3: Tworzenie plików aplikacji sieci web Java (WEB-INF)
-W tym kroku skonfigurujesz aplikacji sieci web Java do używania protokołu uwierzytelniania OpenID Connect. Użyj ADAL4J do wysyłania żądań zalogowania się i wylogowania, zarządzania sesji użytkownika, uzyskać informacje o użytkowniku i tak dalej.
+## <a name="step-3-create-hello-java-web-app-files-web-inf"></a>Krok 3: Tworzenie hello pliki aplikacji sieci web Java (WEB-INF)
+W tym kroku skonfigurujesz hello Java web app toouse hello protokołu uwierzytelniania OpenID Connect. Użyj hello ADAL4J tooissue żądań logowania się i wylogowania, zarządzanie sesji użytkownika hello, uzyskać informacje o użytkowniku hello itd.
 
-1. Otwórz plik web.xml, znajdujący się w obszarze \webapp\WEB-INF\, , a następnie wprowadź wartości konfiguracji aplikacji w pliku XML. Plik XML powinien zawierać następujący kod:
+1. Otwórz hello web.xml plik znajdujący się w obszarze \webapp\WEB-INF\, , a następnie wprowadź wartości konfiguracji aplikacji hello w hello XML. plik XML Hello powinien zawierać hello następującego kodu:
 
     ```xml
 
@@ -225,13 +225,13 @@ W tym kroku skonfigurujesz aplikacji sieci web Java do używania protokołu uwie
     </web-app>
     ```
 
- * Jest YOUR_CLIENT_ID **identyfikator aplikacji** przypisany do aplikacji w portalu rejestracji.
- * Jest YOUR_CLIENT_SECRET **klucz tajny aplikacji** utworzonego w portalu.
- * Jest YOUR_TENANT_NAME **nazwa dzierżawcy** aplikacji (np. contoso.onmicrosoft.com).
+ * YOUR_CLIENT_ID jest hello **identyfikator aplikacji** przypisane tooyour aplikacji w portalu rejestracji hello.
+ * YOUR_CLIENT_SECRET jest hello **klucz tajny aplikacji** utworzonej w portalu hello.
+ * YOUR_TENANT_NAME jest hello **nazwa dzierżawcy** aplikacji (np. contoso.onmicrosoft.com).
 
- Jak widać w pliku XML, pisania JavaServer Pages (JSP) lub Java Serwlet aplikacji sieci web o nazwie dyspozytora mvc, który używa BasicFilter zawsze, gdy użytkownik odwiedza witrynę / secure adresu URL. W tym samym kodzie Użyj / secure jako miejsce dla zawartości chronionej i wymuszenie uwierzytelniania do usługi Azure AD.
+ Jak widać w pliku XML hello pisania JavaServer Pages (JSP) lub Java Serwlet aplikacji sieci web o nazwie dyspozytora mvc używającej BasicFilter przy każdym odwiedź hello / secure adresu URL. W hello tego samego kodu, można użyć / secure jako miejsce na powitania chroniona zawartość i tooforce tooAzure uwierzytelniania AD.
 
-2. Utwórz plik mvc dyspozytora servlet.xml znajduje się w obszarze \webapp\WEB-INF\, , a następnie wprowadź poniższy kod:
+2. Utwórz plik mvc dyspozytora servlet.xml hello znajduje się w obszarze \webapp\WEB-INF\, , a następnie wprowadź hello następującego kodu:
 
     ```xml
 
@@ -256,16 +256,16 @@ W tym kroku skonfigurujesz aplikacji sieci web Java do używania protokołu uwie
     </beans>
     ```
 
- Ten kod zawiera aplikację sieci web do używania Spring i wskazuje, gdzie można znaleźć pliku JSP zapisu w następnej sekcji.
+ Ten kod informuje Spring toouse aplikacji sieci web hello i wskazuje, gdzie toofind hello pliku JSP, który jest pisana w następnej sekcji hello.
 
-## <a name="step-4-create-the-jsp-view-files-for-basicfilter-mvc"></a>Krok 4: Tworzenie JSP wyświetlanie plików (w przypadku BasicFilter MVC)
-Są w połowie przy konfigurowaniu aplikacji sieci web w sieci WEB INF. Następnie utworzysz pliki JSP BasicFilter model widoku kontroler (MVC), który wykonuje aplikacji sieci web. Firma Microsoft ze wskazówką podczas tworzenia plików podczas konfiguracji.
+## <a name="step-4-create-hello-jsp-view-files-for-basicfilter-mvc"></a>Krok 4: Tworzenie hello JSP wyświetlanie plików (w przypadku BasicFilter MVC)
+Są w połowie przy konfigurowaniu aplikacji sieci web w sieci WEB INF. Następnie można tworzyć hello JSP pliki BasicFilter modelu widoku kontroler (MVC), wykonuje hello aplikacji sieci web. Firma Microsoft ze wskazówką podczas tworzenia plików hello podczas konfigurowania hello.
 
-Wcześniej, informację Java w plikach konfiguracji XML, do których masz `/` zasób, który ładuje JSP plików, a ma `/secure` zasób, który przechodzi przez filtr, który wywołuje BasicFilter.
+Wcześniej, możesz dowiedzieć Java w hello XML pliki konfiguracyjne, które masz `/` zasób, który ładuje JSP plików, a ma `/secure` zasób, który przechodzi przez filtr, który wywołuje BasicFilter.
 
-Aby utworzyć plik JSP, wykonaj następujące czynności:
+pliki JSP hello toocreate, hello następujące:
 
-1. Utwórz plik index.jsp (znajdujący się w obszarze \webapp\), a następnie wklej następujący kod:
+1. Utwórz plik index.jsp hello (znajdujący się w obszarze \webapp\), a następnie wklej hello następującego kodu:
 
     ```jsp
     <html>
@@ -278,9 +278,9 @@ Aby utworzyć plik JSP, wykonaj następujące czynności:
     </html>
     ```
 
- Ten kod po prostu przekierowuje do bezpiecznego strony, która jest chroniona przez filtr.
+ Ten kod po prostu przekierowuje strona bezpiecznego tooa, która jest chroniona przez filtr hello.
 
-2. W tym samym katalogu Utwórz plik error.jsp, aby wykryć wszelkie błędy, które mogą wystąpić:
+2. W hello na tym samym katalogu, należy utworzyć toocatch pliku error.jsp wszelkie błędy, które mogą wystąpić:
 
     ```jsp
 
@@ -296,8 +296,8 @@ Aby utworzyć plik JSP, wykonaj następujące czynności:
     </body>
     </html>
     ```
-3. Aby bezpiecznego strona sieci Web, Utwórz folder o nazwie \secure, dzięki czemu katalogu jest obecnie \webapp\secure \webapp.
-4. W katalogu \webapp\secure Utwórz plik aad.jsp, a następnie wklej następujący kod:
+3. toomake, który secure strony sieci Web, Utwórz folder o nazwie \secure, dzięki czemu hello katalog jest teraz \webapp\secure \webapp.
+4. W katalogu \webapp\secure hello Utwórz plik aad.jsp, a następnie wklej hello następującego kodu:
 
     ```jsp
 
@@ -324,28 +324,28 @@ Aby utworzyć plik JSP, wykonaj następujące czynności:
     </html>
     ```
 
-    Ta strona przekierowuje do określonych żądań, które serwlet BasicFilter odczytuje, a następnie wykonuje na przy użyciu ADAJ4J.
+    Ta strona przekierowuje toospecific żądań, które serwlet BasicFilter hello odczytuje, a następnie wykonuje na przy użyciu hello ADAJ4J.
 
-Teraz należy skonfigurować pliki języka Java, dzięki czemu serwlet mogła wykonać swoją pracę.
+Teraz należy tooset zapasowej Java hello tak, aby serwlet hello mogła wykonać swoją pracę.
 
 ## <a name="step-5-create-some-java-helper-files-for-basicfilter-mvc"></a>Krok 5: Tworzenie niektóre pliki pomocnicze Java (dla BasicFilter MVC)
-Naszym celem w tym kroku jest, aby utworzyć Java plików:
+Naszym celem w tym kroku jest toocreate Java pliki:
 
-* Umożliwia logowanie się i wylogowania użytkownika.
-* Pobierz niektóre dane o użytkowniku.
+* Umożliwia logowanie się i wylogowania użytkownika hello.
+* Pobierz niektóre dane dotyczące hello użytkownika.
 
     > [!NOTE]
-    > Aby uzyskać dane o użytkowniku, użyj interfejsu API programu Graph z usługi Azure AD. Interfejsu API programu Graph jest bezpieczne usługi sieci Web, służącego do pobrania danych dotyczących organizacji, w tym poszczególnych użytkowników. Ta metoda jest lepszym rozwiązaniem niż wstępne wypełnianie poufne dane w tokenach, ponieważ zapewnia, że:
-    > * Użytkownicy, którzy uzyskać dane są autoryzowane.
-    > * Każdy, kto może mieć miejsce, do pobrania tokenu (z których zdjęto zabezpieczenia systemu telefonu lub przeglądarki sieci web pamięci podręcznej na komputerze, na przykład) nie może uzyskać ważne informacje dotyczące użytkownika lub organizacji.
+    > tooget dane o użytkowniku hello używać hello interfejsu API programu Graph z usługi Azure AD. Interfejs API programu Graph Hello jest bezpieczne usługi sieci Web o organizacji, w tym użytkownikom można toograb danych. Ta metoda jest lepszym rozwiązaniem niż wstępne wypełnianie poufne dane w tokenach, ponieważ zapewnia, że:
+    > * Hello użytkowników, którzy poprosić o danych hello są autoryzowane.
+    > * Każdy, kto może się tak dziać toograb hello tokenu (z których zdjęto zabezpieczenia systemu telefonu lub przeglądarki sieci web pamięci podręcznej na komputerze, na przykład) nie może uzyskać ważne informacje dotyczące użytkownika hello lub hello organizacji.
 
-Można zapisać niektórych plików Java za pracę:
+toowrite Java, niektóre pliki za pracę:
 
-1. Utwórz folder w katalogu głównym o nazwie adal4jsample do przechowywania wszystkich plików języka Java.
+1. Utwórz folder w katalogu głównym katalogu o nazwie adal4jsample toostore wszystkie pliki Java hello.
 
-    W tym przykładzie używane są com.microsoft.aad.adal4jsample przestrzeni nazw w plikach języka Java. Większość IDEs Utwórz strukturę folder zagnieżdżony, w tym celu (na przykład /com/microsoft/aad/adal4jsample). Można to także zrobić, ale nie jest konieczne.
+    W tym przykładzie używane są hello com.microsoft.aad.adal4jsample przestrzeni nazw w plikach Java hello. Większość IDEs Utwórz strukturę folder zagnieżdżony, w tym celu (na przykład /com/microsoft/aad/adal4jsample). Można to także zrobić, ale nie jest konieczne.
 
-2. W tym folderze utwórz plik o nazwie JSONHelper.java, który zostanie użyty w celu analizowania danych JSON z tokenów. Aby utworzyć plik, wklej następujący kod:
+2. W tym folderze utwórz plik o nazwie JSONHelper.java, który zostanie użyty toohelp hello analizy danych JSON z tokenów. Plik hello toocreate, Wklej hello następującego kodu:
 
     ```Java
 
@@ -365,7 +365,7 @@ Można zapisać niektórych plików Java za pracę:
     import org.json.JSONObject;
 
     /**
-     * This class provides the methods to parse JSON data from a JSON-formatted
+     * This class provides hello methods tooparse JSON data from a JSON-formatted
      * string.
      *
      * @author Azure Active Directory contributor
@@ -384,8 +384,8 @@ Można zapisać niektórych plików Java za pracę:
          * within a string.
          *
          * @param jSonData
-         *            The JSON string that holds the collection
-         * @return A JSON array that contains all the collection objects
+         *            hello JSON string that holds hello collection
+         * @return A JSON array that contains all hello collection objects
          * @throws Exception
          */
         public static JSONArray fetchDirectoryObjectJSONArray(JSONObject jsonObject) throws Exception {
@@ -399,7 +399,7 @@ Można zapisać niektórych plików Java za pracę:
          * within a string.
          *
          * @param jsonObject
-         * @return A JSON object that contains the DirectoryObject
+         * @return A JSON object that contains hello DirectoryObject
          * @throws Exception
          */
         public static JSONObject fetchDirectoryObjectJSONObject(JSONObject jsonObject) throws Exception {
@@ -409,20 +409,20 @@ Można zapisać niektórych plików Java za pracę:
         }
 
         /**
-         * This method parses the skip token from a JSON-formatted string.
+         * This method parses hello skip token from a JSON-formatted string.
          *
          * @param jsonData
-         *            The JSON-formatted string
-         * @return The skipToken
+         *            hello JSON-formatted string
+         * @return hello skipToken
          * @throws Exception
          */
         public static String fetchNextSkiptoken(JSONObject jsonObject) throws Exception {
             String skipToken = "";
-            // Parse the skip token out of the string.
+            // Parse hello skip token out of hello string.
             skipToken = jsonObject.optJSONObject("responseMsg").optString("odata.nextLink");
 
             if (!skipToken.equalsIgnoreCase("")) {
-                // Remove the unnecessary prefix from the skip token.
+                // Remove hello unnecessary prefix from hello skip token.
                 int index = skipToken.indexOf("$skiptoken=") + (new String("$skiptoken=")).length();
                 skipToken = skipToken.substring(index);
             }
@@ -436,7 +436,7 @@ Można zapisać niektórych plików Java za pracę:
          */
         public static String fetchDeltaLink(JSONObject jsonObject) throws Exception {
             String deltaLink = "";
-            // Parse the skip token out of the string.
+            // Parse hello skip token out of hello string.
             deltaLink = jsonObject.optJSONObject("responseMsg").optString("aad.deltaLink");
             if (deltaLink == null || deltaLink.length() == 0) {
                 deltaLink = jsonObject.optJSONObject("responseMsg").optString("aad.nextLink");
@@ -444,7 +444,7 @@ Można zapisać niektórych plików Java za pracę:
 
             }
             if (!deltaLink.equalsIgnoreCase("")) {
-                // Remove the unnecessary prefix from the skip token.
+                // Remove hello unnecessary prefix from hello skip token.
                 int index = deltaLink.indexOf("deltaLink=") + (new String("deltaLink=")).length();
                 deltaLink = deltaLink.substring(index);
             }
@@ -453,13 +453,13 @@ Można zapisać niektórych plików Java za pracę:
 
         /**
          * This method creates a string consisting of a JSON document with all
-         * the necessary elements set from the HttpServletRequest request.
+         * hello necessary elements set from hello HttpServletRequest request.
          *
          * @param request
-         *            The HttpServletRequest
-         * @return The string containing the JSON document
+         *            hello HttpServletRequest
+         * @return hello string containing hello JSON document
          * @throws Exception
-         *             If there is any error processing the request.
+         *             If there is any error processing hello request.
          */
         public static String createJSONString(HttpServletRequest request, String controller) throws Exception {
             JSONObject obj = new JSONObject();
@@ -521,28 +521,28 @@ Można zapisać niektórych plików Java za pracę:
         }
 
         /**
-         * This is a generic method that copies the simple attribute values from an
-         * argument jsonObject to an argument generic object.
+         * This is a generic method that copies hello simple attribute values from an
+         * argument jsonObject tooan argument generic object.
          *
          * @param jsonObject
-         *            The jsonObject from where the attributes are to be copied.
+         *            hello jsonObject from where hello attributes are toobe copied.
          * @param destObject
-         *            The object where the attributes should be copied to.
+         *            hello object where hello attributes should be copied to.
          * @throws Exception
-         *             Throws an Exception when the operation is unsuccessful.
+         *             Throws an Exception when hello operation is unsuccessful.
          */
         public static <T> void convertJSONObjectToDirectoryObject(JSONObject jsonObject, T destObject) throws Exception {
 
-            // Get the list of all the field names.
+            // Get hello list of all hello field names.
             Field[] fieldList = destObject.getClass().getDeclaredFields();
 
-            // For all the declared field.
+            // For all hello declared field.
             for (int i = 0; i < fieldList.length; i++) {
-                // If the field is of type String, that is
+                // If hello field is of type String, that is
                 // if it is a simple attribute.
                 if (fieldList[i].getType().equals(String.class)) {
-                    // Invoke the corresponding set method of the destObject using
-                    // the argument taken from the jsonObject.
+                    // Invoke hello corresponding set method of hello destObject using
+                    // hello argument taken from hello jsonObject.
                     destObject
                             .getClass()
                             .getMethod(String.format("set%s", WordUtils.capitalize(fieldList[i].getName())),
@@ -567,7 +567,7 @@ Można zapisać niektórych plików Java za pracę:
 
     ```
 
-3. Utwórz plik o nazwie HttpClientHelper.java, który będzie używany w celu analizowania danych protokołu HTTP z punktu końcowego usługi Azure AD. Aby utworzyć plik, wklej następujący kod:
+3. Utwórz plik o nazwie HttpClientHelper.java, który będzie używany toohelp hello analizy danych protokołu HTTP z punktu końcowego usługi Azure AD. Plik hello toocreate, Wklej hello następującego kodu:
 
     ```Java
 
@@ -615,7 +615,7 @@ Można zapisać niektórych plików Java za pracę:
 
         public static String getResponseStringFromConn(HttpURLConnection conn, String payLoad) throws IOException {
 
-            // Send the http message payload to the server.
+            // Send hello http message payload toohello server.
             if (payLoad != null) {
                 conn.setDoOutput(true);
                 OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
@@ -624,7 +624,7 @@ Można zapisać niektórych plików Java za pracę:
                 osw.close();
             }
 
-            // Get the message response from the server.
+            // Get hello message response from hello server.
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line = "";
             StringBuffer stringBuffer = new StringBuffer();
@@ -723,10 +723,10 @@ Można zapisać niektórych plików Java za pracę:
 
     ```
 
-## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>Krok 6: Tworzenie plików modelu interfejsu API Graph Java (dla BasicFilter MVC)
-Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać danych dotyczących zalogowanego użytkownika. Aby ułatwić ten proces, należy utworzyć plik do reprezentowania obiektu katalogu i pliku do reprezentowania użytkownika tak, aby mógł być używany wzorzec OO Java.
+## <a name="step-6-create-hello-java-graph-api-model-files-for-basicfilter-mvc"></a>Krok 6: Tworzenie hello plików modelu interfejsu API Graph Java (dla BasicFilter MVC)
+Jak wspomniano wcześniej, możesz użyć hello interfejsu API programu Graph tooget dane dotyczące hello zalogowanego użytkownika. toomake to łatwe i przetworzyć Utwórz toorepresent pliku obiektu katalogu i pliku toorepresent hello użytkownika dzięki takim wzorcu OO hello programu Java mogą być używane.
 
-1. Utwórz plik o nazwie DirectoryObject.java, który służy do przechowywania podstawowe dane na temat dowolnego obiektu katalogu. Ten plik można później użyć do innych zapytań Graph, które może wykonywać. Aby utworzyć plik, wklej następujący kod:
+1. Utwórz plik o nazwie DirectoryObject.java, które zostaną użyte toostore podstawowe dane na temat dowolnego obiektu katalogu. Ten plik można później użyć do innych zapytań Graph, które może wykonywać. Plik hello toocreate, Wklej hello następującego kodu:
 
     ```Java
 
@@ -781,7 +781,7 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
 
     ```
 
-2. Utwórz plik o nazwie User.java, który służy do przechowywania podstawowe dane dotyczące każdy użytkownik z katalogu. Są to podstawowe metody pobierającej i ustawiającej danych katalogu, co wkleić następujący kod:
+2. Utwórz plik o nazwie User.java, które zostaną użyte toostore podstawowe dane dotyczące każdy użytkownik z hello katalogu. Są to podstawowe metody pobierającej i ustawiającej danych katalogu, co wkleić hello następującego kodu:
 
     ```Java
 
@@ -795,13 +795,13 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
     import org.json.JSONObject;
 
     /**
-    *  The **User** class holds together all the members of a WAAD User entity and all the access methods and set methods.
+    *  hello **User** class holds together all hello members of a WAAD User entity and all hello access methods and set methods.
     *  @author Azure Active Directory Contributor
     */
     @XmlRootElement
     public class User extends DirectoryObject{
 
-        // The following are the individual private members of a User object that holds
+        // hello following are hello individual private members of a User object that holds
         // a particular simple attribute of a User object.
         protected String objectId;
         protected String objectType;
@@ -829,7 +829,7 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
         protected String telephoneNumber;
         protected String usageLocation;
         protected String userPrincipalName;
-        protected boolean isDeleted;  // this will move to dto
+        protected boolean isDeleted;  // this will move toodto
 
         /**
          * These four properties are for future use.
@@ -837,17 +837,17 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
         // managerDisplayname of this user.
         protected String managerDisplayname;
 
-        // The directReports holds a list of directReports.
+        // hello directReports holds a list of directReports.
         private ArrayList<User> directReports;
 
-        // The groups holds a list of group entities this user belongs to.
+        // hello groups holds a list of group entities this user belongs to.
         private ArrayList<Group> groups;
 
-        // The roles holds a list of role entities this user belongs to.
+        // hello roles holds a list of role entities this user belongs to.
         private ArrayList<Group> roles;
 
         /**
-         * The constructor for the **User** class. Initializes the dynamic lists and managerDisplayname variables.
+         * hello constructor for hello **User** class. Initializes hello dynamic lists and managerDisplayname variables.
          */
         public User(){
             directReports = null;
@@ -870,364 +870,364 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
     //    
 
         /**
-         * @return The objectId of this user.
+         * @return hello objectId of this user.
          */
         public String getObjectId() {
             return objectId;
         }
 
         /**
-         * @param objectId The objectId to set to this User object.
+         * @param objectId hello objectId tooset toothis User object.
          */
         public void setObjectId(String objectId) {
             this.objectId = objectId;
         }
 
         /**
-         * @return The objectType of this user.
+         * @return hello objectType of this user.
          */
         public String getObjectType() {
             return objectType;
         }
 
         /**
-         * @param objectType The objectType to set to this User object.
+         * @param objectType hello objectType tooset toothis User object.
          */
         public void setObjectType(String objectType) {
             this.objectType = objectType;
         }
 
         /**
-         * @return The userPrincipalName of this user.
+         * @return hello userPrincipalName of this user.
          */
         public String getUserPrincipalName() {
             return userPrincipalName;
         }
 
         /**
-         * @param userPrincipalName The userPrincipalName to set to this User object.
+         * @param userPrincipalName hello userPrincipalName tooset toothis User object.
          */
         public void setUserPrincipalName(String userPrincipalName) {
             this.userPrincipalName = userPrincipalName;
         }
 
         /**
-         * @return The usageLocation of this user.
+         * @return hello usageLocation of this user.
          */
         public String getUsageLocation() {
             return usageLocation;
         }
 
         /**
-         * @param usageLocation The usageLocation to set to this User object.
+         * @param usageLocation hello usageLocation tooset toothis User object.
          */
         public void setUsageLocation(String usageLocation) {
             this.usageLocation = usageLocation;
         }
 
         /**
-         * @return The telephoneNumber of this user.
+         * @return hello telephoneNumber of this user.
          */
         public String getTelephoneNumber() {
             return telephoneNumber;
         }
 
         /**
-         * @param telephoneNumber The telephoneNumber to set to this User object.
+         * @param telephoneNumber hello telephoneNumber tooset toothis User object.
          */
         public void setTelephoneNumber(String telephoneNumber) {
             this.telephoneNumber = telephoneNumber;
         }
 
         /**
-         * @return The surname of this user.
+         * @return hello surname of this user.
          */
         public String getSurname() {
             return surname;
         }
 
         /**
-         * @param surname The surname to set to this User object.
+         * @param surname hello surname tooset toothis User object.
          */
         public void setSurname(String surname) {
             this.surname = surname;
         }
 
         /**
-         * @return The streetAddress of this user.
+         * @return hello streetAddress of this user.
          */
         public String getStreetAddress() {
             return streetAddress;
         }
 
         /**
-         * @param streetAddress The streetAddress to set to this user.
+         * @param streetAddress hello streetAddress tooset toothis user.
          */
         public void setStreetAddress(String streetAddress) {
             this.streetAddress = streetAddress;
         }
 
         /**
-         * @return The state of this user.
+         * @return hello state of this user.
          */
         public String getState() {
             return state;
         }
 
         /**
-         * @param state The state to set to this User object.
+         * @param state hello state tooset toothis User object.
          */
         public void setState(String state) {
             this.state = state;
         }
 
         /**
-         * @return The preferredLanguage of this user.
+         * @return hello preferredLanguage of this user.
          */
         public String getPreferredLanguage() {
             return preferredLanguage;
         }
 
         /**
-         * @param preferredLanguage The preferredLanguage to set to this user.
+         * @param preferredLanguage hello preferredLanguage tooset toothis user.
          */
         public void setPreferredLanguage(String preferredLanguage) {
             this.preferredLanguage = preferredLanguage;
         }
 
         /**
-         * @return The postalCode of this user.
+         * @return hello postalCode of this user.
          */
         public String getPostalCode() {
             return postalCode;
         }
 
         /**
-         * @param postalCode The postalCode to set to this user.
+         * @param postalCode hello postalCode tooset toothis user.
          */
         public void setPostalCode(String postalCode) {
             this.postalCode = postalCode;
         }
 
         /**
-         * @return The physicalDeliveryOfficeName of this user.
+         * @return hello physicalDeliveryOfficeName of this user.
          */
         public String getPhysicalDeliveryOfficeName() {
             return physicalDeliveryOfficeName;
         }
 
         /**
-         * @param physicalDeliveryOfficeName The physicalDeliveryOfficeName to set to this User object.
+         * @param physicalDeliveryOfficeName hello physicalDeliveryOfficeName tooset toothis User object.
          */
         public void setPhysicalDeliveryOfficeName(String physicalDeliveryOfficeName) {
             this.physicalDeliveryOfficeName = physicalDeliveryOfficeName;
         }
 
         /**
-         * @return The passwordPolicies of this user.
+         * @return hello passwordPolicies of this user.
          */
         public String getPasswordPolicies() {
             return passwordPolicies;
         }
 
         /**
-         * @param passwordPolicies The passwordPolicies to set to this User object.
+         * @param passwordPolicies hello passwordPolicies tooset toothis User object.
          */
         public void setPasswordPolicies(String passwordPolicies) {
             this.passwordPolicies = passwordPolicies;
         }
 
         /**
-         * @return The mobile of this user.
+         * @return hello mobile of this user.
          */
         public String getMobile() {
             return mobile;
         }
 
         /**
-         * @param mobile The mobile to set to this User object.
+         * @param mobile hello mobile tooset toothis User object.
          */
         public void setMobile(String mobile) {
             this.mobile = mobile;
         }
 
         /**
-         * @return The password of this user.
+         * @return hello password of this user.
          */
         public String getPassword() {
             return password;
         }
 
         /**
-         * @param password The mobile to set to this User object.
+         * @param password hello mobile tooset toothis User object.
          */
         public void setPassword(String password) {
             this.password = password;
         }
 
         /**
-         * @return The mail of this user.
+         * @return hello mail of this user.
          */
         public String getMail() {
             return mail;
         }
 
         /**
-         * @param mail The mail to set to this User object.
+         * @param mail hello mail tooset toothis User object.
          */
         public void setMail(String mail) {
             this.mail = mail;
         }
 
         /**
-         * @return The MailNickname of this user.
+         * @return hello MailNickname of this user.
          */
         public String getMailNickname() {
             return mailNickname;
         }
 
         /**
-         * @param mail The MailNickname to set to this User object.
+         * @param mail hello MailNickname tooset toothis User object.
          */
         public void setMailNickname(String mailNickname) {
             this.mailNickname = mailNickname;
         }
 
         /**
-         * @return The jobTitle of this user.
+         * @return hello jobTitle of this user.
          */
         public String getJobTitle() {
             return jobTitle;
         }
 
         /**
-         * @param jobTitle The jobTitle to set to this User object.
+         * @param jobTitle hello jobTitle tooset toothis User object.
          */
         public void setJobTitle(String jobTitle) {
             this.jobTitle = jobTitle;
         }
 
         /**
-         * @return The givenName of this user.
+         * @return hello givenName of this user.
          */
         public String getGivenName() {
             return givenName;
         }
 
         /**
-         * @param givenName The givenName to set to this User object.
+         * @param givenName hello givenName tooset toothis User object.
          */
         public void setGivenName(String givenName) {
             this.givenName = givenName;
         }
 
         /**
-         * @return The facsimileTelephoneNumber of this user.
+         * @return hello facsimileTelephoneNumber of this user.
          */
         public String getFacsimileTelephoneNumber() {
             return facsimileTelephoneNumber;
         }
 
         /**
-         * @param facsimileTelephoneNumber The facsimileTelephoneNumber to set to this User object.
+         * @param facsimileTelephoneNumber hello facsimileTelephoneNumber tooset toothis User object.
          */
         public void setFacsimileTelephoneNumber(String facsimileTelephoneNumber) {
             this.facsimileTelephoneNumber = facsimileTelephoneNumber;
         }
 
         /**
-         * @return The displayName of this user.
+         * @return hello displayName of this user.
          */
         public String getDisplayName() {
             return displayName;
         }
 
         /**
-         * @param displayName The displayName to set to this User object.
+         * @param displayName hello displayName tooset toothis User object.
          */
         public void setDisplayName(String displayName) {
             this.displayName = displayName;
         }
 
         /**
-         * @return The dirSyncEnabled of this user.
+         * @return hello dirSyncEnabled of this user.
          */
         public String getDirSyncEnabled() {
             return dirSyncEnabled;
         }
 
         /**
-         * @param dirSyncEnabled The dirSyncEnabled to set to this User object.
+         * @param dirSyncEnabled hello dirSyncEnabled tooset toothis User object.
          */
         public void setDirSyncEnabled(String dirSyncEnabled) {
             this.dirSyncEnabled = dirSyncEnabled;
         }
 
         /**
-         * @return The department of this user.
+         * @return hello department of this user.
          */
         public String getDepartment() {
             return department;
         }
 
         /**
-         * @param department The department to set to this User object.
+         * @param department hello department tooset toothis User object.
          */
         public void setDepartment(String department) {
             this.department = department;
         }
 
         /**
-         * @return The lastDirSyncTime of this user.
+         * @return hello lastDirSyncTime of this user.
          */
         public String getLastDirSyncTime() {
             return lastDirSyncTime;
         }
 
         /**
-         * @param lastDirSyncTime The lastDirSyncTime to set to this User object.
+         * @param lastDirSyncTime hello lastDirSyncTime tooset toothis User object.
          */
         public void setLastDirSyncTime(String lastDirSyncTime) {
             this.lastDirSyncTime = lastDirSyncTime;
         }
 
         /**
-         * @return The country of this user.
+         * @return hello country of this user.
          */
         public String getCountry() {
             return country;
         }
 
         /**
-         * @param country The country to set to this user.
+         * @param country hello country tooset toothis user.
          */
         public void setCountry(String country) {
             this.country = country;
         }
 
         /**
-         * @return The city of this user.
+         * @return hello city of this user.
          */
         public String getCity() {
             return city;
         }
 
         /**
-         * @param city The city to set to this user.
+         * @param city hello city tooset toothis user.
          */
         public void setCity(String city) {
             this.city = city;
         }
 
         /**
-         * @return The accountEnabled attribute of this user.
+         * @return hello accountEnabled attribute of this user.
          */
         public String getAccountEnabled() {
             return accountEnabled;
         }
 
         /**
-         * @param accountEnabled The accountEnabled to set to this user.
+         * @param accountEnabled hello accountEnabled tooset toothis user.
          */
         public void setAccountEnabled(String accountEnabled) {
             this.accountEnabled = accountEnabled;
@@ -1256,9 +1256,9 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
     }
 
     /**
-    * The DirectReports class holds the essential data for a single DirectReport entry. That is,
-    * it holds the displayName and the objectId of the direct entry. It also provides the
-    * access methods to set or get the displayName and the ObjectId of this entry.
+    * hello DirectReports class holds hello essential data for a single DirectReport entry. That is,
+    * it holds hello displayName and hello objectId of hello direct entry. It also provides the
+    * access methods tooset or get hello displayName and hello ObjectId of this entry.
     */
     //class DirectReport extends User{
     //
@@ -1266,7 +1266,7 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
     //    private String objectId;
     //     
     //    /**
-    //     * Two arguments Constructor for the DirectReport class.
+    //     * Two arguments Constructor for hello DirectReport class.
     //     * @param displayName
     //     * @param objectId
     //     */
@@ -1276,7 +1276,7 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
     //    }
     //
     //    /**
-    //     * @return The displayName of this direct report entry.
+    //     * @return hello displayName of this direct report entry.
     //     */
     //    public String getDisplayName() {
     //        return displayName;
@@ -1284,7 +1284,7 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
     //
     //    
     //    /**
-    //     *  @return The objectId of this direct report entry.
+    //     *  @return hello objectId of this direct report entry.
     //     */
     //    public String getObjectId() {
     //        return objectId;
@@ -1294,16 +1294,16 @@ Jak wspomniano wcześniej, używasz interfejsu API programu Graph można pobrać
 
     ```
 
-## <a name="step-7-create-the-authentication-model-and-controller-files-for-basicfilter"></a>Krok 7: Tworzenie uwierzytelniania modelu i kontrolera plików (w przypadku BasicFilter)
-Potwierdzam, że Java można pełne, ale prawie gotowe. Przed przystąpieniem do napisania serwlet BasicFilter do obsługi żądań, należy napisać więcej pliki pomocnicze, które musi ADAL4J.
+## <a name="step-7-create-hello-authentication-model-and-controller-files-for-basicfilter"></a>Krok 7: Tworzenie hello plików modelu i kontrolera uwierzytelniania (w przypadku BasicFilter)
+Potwierdzam, że Java można pełne, ale prawie gotowe. Przed przystąpieniem do napisania hello BasicFilter serwlet toohandle hello żądań, należy toowrite niektórych pomocnika więcej plików tego hello, których potrzebuje ADAL4J.
 
-1. Utwórz plik o nazwie AuthHelper.java, co zapewni metody służące do określenia stanu zalogowanego użytkownika. Te metody obejmują:
+1. Utwórz plik o nazwie AuthHelper.java, co zapewni możesz metody toouse toodetermine hello stan hello zalogowanego użytkownika. Witaj metody obejmują:
 
- * **isAuthenticated()**: zwraca, czy użytkownik jest zalogowany.
- * **containsAuthenticationData()**: zwraca, czy token zawiera dane.
- * **isAuthenticationSuccessful()**: zwraca czy uwierzytelnianie zakończyło się powodzeniem dla użytkownika.
+ * **isAuthenticated()**: zwraca czy hello użytkownik jest zalogowany.
+ * **containsAuthenticationData()**: zwraca, czy hello token zawiera dane.
+ * **isAuthenticationSuccessful()**: zwraca czy hello uwierzytelnianie zakończyło się powodzeniem hello użytkownika.
 
- Aby utworzyć plik AuthHelper.java, wklej następujący kod:
+ toocreate hello pliku AuthHelper.java, Wklej hello następującego kodu:
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1351,7 +1351,7 @@ Potwierdzam, że Java można pełne, ale prawie gotowe. Przed przystąpieniem do
     }
     ```
 
-2. Utwórz plik o nazwie AuthParameterNames.java, co pozwala na niektórych modyfikować zmiennych, które wymaga ADAL4J. Aby utworzyć plik, wklej następujący kod:
+2. Utwórz plik o nazwie AuthParameterNames.java, zapewniający niektóre zmienne modyfikować tego powitalne ADAL4J wymaga. Plik hello toocreate, Wklej hello następującego kodu:
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1369,7 +1369,7 @@ Potwierdzam, że Java można pełne, ale prawie gotowe. Przed przystąpieniem do
     }
     ```
 
-3. Utwórz plik o nazwie AadController.java, czyli kontrolera sieci wzorzec MVC. Plik umożliwia kontrolera JSP i udostępnia punktu końcowego adresu URL bezpiecznego aad aplikacji. Plik zawiera także wykres zapytania. Aby utworzyć plik, wklej następujący kod:
+3. Utwórz plik o nazwie AadController.java, czyli hello kontrolera sieci wzorca MVC. Plik Hello zapewnia hello JSP kontrolera i końcowy adres URL bezpiecznego aad hello ujawnia aplikacji hello. Plik Hello zawiera także hello wykres zapytania. Plik hello toocreate, Wklej hello następującego kodu:
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1419,7 +1419,7 @@ Potwierdzam, że Java można pełne, ale prawie gotowe. Przed przystąpieniem do
                     accessToken));
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            // Set the appropriate header fields in the request header.
+            // Set hello appropriate header fields in hello request header.
             conn.setRequestProperty("api-version", "2013-04-05");
             conn.setRequestProperty("Authorization", accessToken);
             conn.setRequestProperty("Accept", "application/json;odata=minimalmetadata");
@@ -1446,8 +1446,8 @@ Potwierdzam, że Java można pełne, ale prawie gotowe. Przed przystąpieniem do
 
     ```
 
-## <a name="step-8-create-the-basicfilter-file-for-basicfilter-mvc"></a>Krok 8: Utworzenie pliku BasicFilter (dla BasicFilter MVC)
-Teraz można utworzyć pliku BasicFilter.java, który obsługuje żądania z plików JSP widoku. Aby utworzyć plik, wklej następujący kod:
+## <a name="step-8-create-hello-basicfilter-file-for-basicfilter-mvc"></a>Krok 8: Utworzenie pliku BasicFilter hello (dla BasicFilter MVC)
+Można teraz utworzyć hello BasicFilter.java pliku, który obsługuje żądania hello z hello JSP wyświetlanie plików. Plik hello toocreate, Wklej hello następującego kodu:
 
 ```Java
 
@@ -1549,7 +1549,7 @@ public class BasicFilter implements Filter {
                             return;
                     }
                 } else {
-                    // if authenticated, how to check for valid session?
+                    // if authenticated, how toocheck for valid session?
                     AuthenticationResult result = AuthHelper
                             .getAuthSessionObject(httpRequest);
 
@@ -1690,35 +1690,35 @@ public class BasicFilter implements Filter {
 
 ```
 
-Ta serwlet udostępnia wszystkie metody, które ADAL4J będzie oczekiwać w przypadku aplikacji do uruchomienia. Te metody obejmują:
+Ta serwlet udostępnia wszystkie metody hello tego powitalne ADAL4J będzie oczekiwać od toorun aplikacji hello. Witaj metody obejmują:
 
-* **getAccessTokenFromClientCredentials()**: pobiera token dostępu z hasła.
-* **getAccessTokenFromRefreshToken()**: pobiera token dostępu z tokenu odświeżania.
-* **getAccessToken()**: pobiera token dostępu z przepływ protokołu OpenID Connect (który jest używany).
-* **createSessionPrincipal()**: tworzy podmiot sesji zabezpieczeń do użycia na potrzeby dostępu do interfejsu API programu Graph.
-* **getRedirectUrl()**: pobiera redirectURL do porównania go z wartość wprowadzona w portalu.
+* **getAccessTokenFromClientCredentials()**: pobiera token dostępu hello z hello klucz tajny.
+* **getAccessTokenFromRefreshToken()**: pobiera token dostępu hello z tokenu odświeżania.
+* **getAccessToken()**: pobiera token dostępu hello z przepływ protokołu OpenID Connect (który jest używany).
+* **createSessionPrincipal()**: tworzy toouse główna sesji, dostępu do interfejsu API Graph.
+* **getRedirectUrl()**: pobiera hello redirectURL toocompare za pomocą hello wartość wprowadzona w portalu hello.
 
-## <a name="step-9-compile-and-run-the-sample-in-tomcat"></a>Krok 9: Kompilowanie i uruchamianie przykładowej w Tomcat
+## <a name="step-9-compile-and-run-hello-sample-in-tomcat"></a>Krok 9: Kompilowanie i uruchamianie przykładowych hello w Tomcat
 
-1. Zmień do katalogu głównego.
-2. Aby samodzielnie tworzyć przykładowy możesz po prostu zaznaczyć ze sobą za pomocą `maven`, uruchom następujące polecenie:
+1. Zmień katalog główny tooyour.
+2. Możesz po prostu zaznaczyć ze sobą przy użyciu przykładowych hello toobuild `maven`Uruchom hello następujące polecenie:
 
     `$ mvn package`
 
- To polecenie używa pliku pom.xml, która zarejestrowała zależności.
+ To polecenie używa pliku pom.xml hello, która zarejestrowała zależności.
 
-Plik adal4jsample.war ma teraz w katalogu /targets. Można wdrożyć pliku w Twojej kontenera Tomcat i odwiedź adresem http://localhost: 8080/adal4jsample lub adres URL.
+Plik adal4jsample.war ma teraz w katalogu /targets. Można wdrożyć pliku hello w Twojej kontenera Tomcat i odwiedź hello adresem http://localhost: 8080/adal4jsample lub adres URL.
 
 > [!NOTE]
-> Możesz z łatwością wdrożyć plik .war o najnowsze serwery Tomcat. Przejdź do adresem http://localhost: 8080/menedżera / i wykonaj instrukcje dotyczące przekazywania pliku adal4jsample.war. Autodeploy go zostanie automatycznie z właściwego punktu końcowego.
+> Możesz z łatwością wdrożyć plik .war o hello najnowsze serwery Tomcat. Przejdź toohttp://localhost:8080/menedżera / i postępuj zgodnie z instrukcjami hello pobierania pliku adal4jsample.war hello. Autodeploy go zostanie automatycznie z hello właściwego punktu końcowego.
 
 
 ## <a name="next-steps"></a>Następne kroki
-Masz teraz pracy aplikacji Java, który może uwierzytelniać użytkowników, bezpiecznie wywołać przy użyciu protokołu OAuth 2.0 interfejsów API sieci web i uzyskać podstawowe informacje o użytkownikach. Jeśli nie zostało już wypełnione dzierżawy z użytkownikami, teraz jest odpowiedni moment, aby to zrobić.
+Masz teraz pracy aplikacji Java, który może uwierzytelniać użytkowników, bezpiecznie wywołać przy użyciu protokołu OAuth 2.0 interfejsów API sieci web i uzyskać podstawowe informacje o użytkownikach hello. Jeśli nie zostało już wypełnione dzierżawy z użytkownikami, teraz jest toodo odpowiedni moment tak.
 
-Aby uzyskać dodatkowe informacje można uzyskać ukończone próbka (bez wartości konfiguracji) na dwa sposoby:
+Aby uzyskać dodatkowe informacje można uzyskać ukończyć powitalnych próbka (bez wartości konfiguracji) w jeden z dwóch sposobów:
 
 * Pobierz go jako [pliku .zip](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip).
-* Klonowanie pliku z serwisu GitHub, wprowadzając następujące polecenie:
+* Klonowanie hello plik z serwisu GitHub, wprowadzając następujące polecenie hello:
 
  ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```

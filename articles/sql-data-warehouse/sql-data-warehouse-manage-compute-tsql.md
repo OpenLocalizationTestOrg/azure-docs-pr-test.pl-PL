@@ -1,6 +1,6 @@
 ---
-title: "Wstrzymać, wznowić, skalować T-SQL w usłudze Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Na wydajność skalowania w poziomie przez dostosowanie wartości dwu zadań Transact-SQL (T-SQL). Zmniejszyć koszty przez skalowanie w trakcie godziny poza szczytem."
+title: "aaaPause, wznowić, skalować T-SQL w usłudze Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
+description: "Transact-SQL (T-SQL) zadań poza tooscale wydajności przez dostosowanie wartości dwu. Zmniejszyć koszty przez skalowanie w trakcie godziny poza szczytem."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/30/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 9221d72ecf8ab2ba8b04e4bc97eeef7157817cca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 84c6868acb673221d8853319ac9a05bb98b2b7c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (T-SQL)
 > [!div class="op_single_selector"]
@@ -33,11 +33,11 @@ ms.lasthandoff: 07/11/2017
 <a name="current-dwu-bk"></a>
 
 ## <a name="view-current-dwu-settings"></a>Wyświetl bieżące ustawienia Jednostka DWU
-Aby wyświetlić bieżące ustawienia DWU baz danych:
+tooview hello bieżącej wartości DWU ustawienia dla baz danych:
 
 1. Otwórz Eksplorator obiektów SQL Server w programie Visual Studio.
-2. Połączenia z bazą danych master, skojarzone z serwera logicznego bazy danych SQL.
-3. Wybierz z sys.database_service_objectives dynamiczny widok zarządzania. Oto przykład: 
+2. Połączenie skojarzone z serwera logicznego bazy danych SQL hello bazy danych master toohello.
+3. Wybierz z hello sys.database_service_objectives dynamiczny widok zarządzania. Oto przykład: 
 
 ```sql
 SELECT
@@ -56,10 +56,10 @@ JOIN
 ## <a name="scale-compute"></a>Skalowanie możliwości obliczeniowych
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Aby zmienić liczbę jednostek dwu:
+Witaj toochange jednostek dwu:
 
-1. Połączenia z bazą danych master, skojarzona z serwerem logicznym bazy danych SQL.
-2. Użyj [ALTER DATABASE] [ ALTER DATABASE] instrukcji TSQL. Poniższy przykład ustawia cel poziomu usługi DW1000 MySQLDW bazy danych. 
+1. Połączenie skojarzone z serwera logicznego bazy danych SQL bazy danych master toohello.
+2. Użyj hello [ALTER DATABASE] [ ALTER DATABASE] instrukcji TSQL. Witaj poniższy przykład przedstawia hello usługi poziomu celu tooDW1000 dla bazy danych hello MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -71,8 +71,8 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ## <a name="check-database-state-and-operation-progress"></a>Sprawdzić postęp stanu oraz operacji bazy danych
 
-1. Połączenia z bazą danych master, skojarzona z serwerem logicznym bazy danych SQL.
-2. Przesyłać zapytania, aby sprawdzić stan bazy danych
+1. Połączenie skojarzone z serwera logicznego bazy danych SQL bazy danych master toohello.
+2. Przedstawia stan bazy danych toocheck zapytania
 
 ```sql
 SELECT *
@@ -80,7 +80,7 @@ FROM
 sys.databases
 ```
 
-3. Przesyłać zapytania, aby sprawdzić stan operacji
+3. Przedstawia stan toocheck zapytania operacji
 
 ```sql
 SELECT *
@@ -92,7 +92,7 @@ AND
     major_resource_id = 'MySQLDW'
 ```
 
-Ten widok DMV zwraca informacje o różnych operacji zarządzania na usługą SQL Data Warehouse, takie jak operacji i stan operacji, która będzie IN_PROGRESS lub UKOŃCZONA.
+Ten widok DMV zwraca informacje o różnych operacji zarządzania na usługą SQL Data Warehouse, takich jak stan operacji i hello hello hello operacja, która będzie IN_PROGRESS lub UKOŃCZONA.
 
 
 

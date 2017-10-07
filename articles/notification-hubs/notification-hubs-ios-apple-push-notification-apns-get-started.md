@@ -1,6 +1,6 @@
 ---
-title: "Wysyłanie powiadomień wypychanych do urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs | Microsoft Docs"
-description: "Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji dla systemu iOS przy użyciu usługi Azure Notification Hubs."
+title: "tooiOS powiadomienia wypychane aaaSending przy użyciu usługi Azure Notification Hubs | Dokumentacja firmy Microsoft"
+description: "Z tego samouczka dowiesz się, jak toosend usługi Azure Notification Hubs toouse wypychanych aplikacji dla systemu iOS tooan powiadomienia."
 services: notification-hubs
 documentationcenter: ios
 keywords: powiadomienie wypychane, powiadomienia wypychane, powiadomienia wypychane w systemie ios
@@ -15,40 +15,40 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d8bb47fee4c229b3ed2a7a4dbff25a56a7a7d009
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Wysyłanie powiadomień wypychanych do urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs
+# <a name="sending-push-notifications-tooios-with-azure-notification-hubs"></a>Wysyłanie tooiOS powiadomień wypychanych przy użyciu usługi Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Omówienie
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> toocomplete tego samouczka, musi mieć aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 > 
 > 
 
-Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji dla systemu iOS przy użyciu usługi Azure Notification Hubs. Utworzysz pustą aplikację dla systemu iOS służącą do odbierania powiadomień wypychanych przy użyciu usługi [Apple Push Notification Service (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). 
+Ten samouczek pokazuje, jak toosend usługi Azure Notification Hubs toouse wypychanych aplikacji dla systemu iOS tooan powiadomienia. Utworzysz aplikację iOS puste, która odbiera powiadomienia wypychane przy użyciu hello [Apple Push Notification service (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). 
 
-Po zakończeniu będzie można za pomocą centrum powiadomień wysyłać powiadomienia wypychane do wszystkich urządzeń z tą aplikacją.
+Po zakończeniu będziesz w stanie toouse Twojego toobroadcast Centrum powiadomień wypychanych powiadomienia tooall hello urządzeń z tą aplikacją.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-Kompletny kod dla tego samouczka można znaleźć [w witrynie GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
+Kod ukończyć powitalnych dla tego samouczka można znaleźć [w serwisie GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Dla tego samouczka wymagane są następujące elementy:
+Ten samouczek wymaga następujących hello:
 
-* [zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4]
+* [usług Mobile Services systemu iOS SDK w wersji 1.2.4]
 * Najnowsza wersja środowiska [Xcode]
 * Urządzenie zgodne z systemem iOS 8 (lub nowszą wersją)
 * Członkostwo w [programie dla deweloperów firmy Apple](https://developer.apple.com/programs/)
   
   > [!NOTE]
-  > Ze względu na wymagania dotyczące konfiguracji powiadomień wypychanych należy wdrożyć i przetestować powiadomienia wypychane na fizycznym urządzeniu z systemem iOS (telefonie iPhone lub tablecie iPad), a nie w symulatorze systemu iOS.
+  > Ze względu na wymagania dotyczące konfiguracji powiadomień wypychanych należy wdrożyć i przetestować powiadomienia wypychane na urządzenie fizyczne z systemem iOS (iPhone i iPad) zamiast hello symulatora systemu iOS.
   > 
   > 
 
@@ -57,7 +57,7 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Konfigurowanie centrum powiadomień dla powiadomień wypychanych systemu iOS
-W tej sekcji opisano kroki tworzenia nowego centrum powiadomień i konfigurowania uwierzytelniania w usłudze APNs przy użyciu utworzonego przez Ciebie certyfikatu powiadomień wypychanych **.p12**. Jeśli chcesz użyć już utworzonego centrum powiadomień, możesz przejść do kroku 5.
+Ta sekcja przeprowadzi Cię przez proces tworzenia nowego centrum powiadomień i konfigurowania uwierzytelniania w usłudze APNS przy użyciu hello **.p12** utworzony certyfikat wypychania. Jeśli chcesz toouse Centrum powiadomień, które zostały już utworzone, możesz pominąć toostep 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
@@ -65,53 +65,53 @@ W tej sekcji opisano kroki tworzenia nowego centrum powiadomień i konfigurowani
 
 <li>
 
-<p>Kliknij przycisk <b>Usługi powiadomień</b> w bloku <b>Ustawienia</b>, a następnie wybierz pozycję <b>Apple (APNs)</b>. Kliknij pozycję <b>Przekaż certyfikat</b> i wybierz wcześniej wyeksportowany plik <b>.p12</b>. Upewnij się, że określono prawidłowe hasło.</p>
+<p>Kliknij przycisk hello <b>usługi powiadomień</b> przycisku na powitania <b>ustawienia</b> bloku, następnie wybierz <b>Apple (APNS)</b>. Polecenie <b>Przekaż certyfikat</b> i wybierz hello <b>.p12</b> wcześniej wyeksportowany plik. Upewnij się, że należy także określić hello poprawne hasło.</p>
 
-<p>Upewnij się, że wybrano tryb <b>Piaskownica</b> na potrzeby tworzenia aplikacji. Tryb <b>Produkcja</b> należy wybrać wyłącznie wówczas, gdy chcesz wysyłać powiadomienia wypychane do użytkowników, którzy kupili Twoją aplikację w sklepie.</p>
+<p>Upewnij się, że tooselect <b>piaskownicy</b> trybu, ponieważ jest to do tworzenia aplikacji. Używaj tylko hello <b>produkcji</b> Chcąc toosend toousers powiadomień wypychanych, którzy kupili twoją aplikację w sklepie hello.</p>
 </li>
 </ol>
 &emsp;&emsp;&emsp;&emsp;![Konfigurowanie usługi APNS w portalu Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
 &emsp;&emsp;&emsp;&emsp;![Konfigurowanie certyfikacji APNs w witrynie Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
-Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą APNs i uzyskano parametry połączenia służące do rejestrowania aplikacji w celu wysyłania powiadomień wypychanych.
+Centrum powiadomień jest teraz skonfigurowany toowork przy użyciu usługi APNS i mieć tooregister ciągów połączenia hello aplikacji oraz wysyłać powiadomienia wypychane.
 
-## <a name="connect-your-ios-app-to-notification-hubs"></a>Łączenie aplikacji dla systemu iOS z usługą Notification Hubs
-1. W środowisku Xcode utwórz nowy projekt dla systemu iOS i wybierz szablon **Single View Application** (Aplikacja z jednym widokiem).
+## <a name="connect-your-ios-app-toonotification-hubs"></a>Połącz z tooNotification aplikacji systemu iOS koncentratory
+1. W środowisku Xcode Utwórz nowy projekt dla systemu iOS, a następnie wybierz hello **pojedynczą aplikacją widoku** szablonu.
    
     ![Xcode — aplikacja z jednym widokiem][8]
     
-2. Podczas określania opcji dla nowego projektu upewnij się, że użyto tych samych wartości **Product Name** (Nazwa produktu) i **Organization Identifier** (Identyfikator organizacji), które zostały użyte podczas wcześniejszego ustawiania identyfikatora pakietu w portalu dla deweloperów firmy Apple.
+2. Podczas ustawiania opcji hello nowego projektu, upewnij się, toouse hello sam **nazwa produktu** i **identyfikator organizacji** które zostały użyte podczas wcześniejszego ustawiania Identyfikatora pakietu hello na powitania deweloperów firmy Apple Portal.
    
     ![Xcode — opcje projektu][11]
     
-3. W obszarze **Targets** (Elementy docelowe) kliknij nazwę projektu, kliknij kartę **Build Settings** (Ustawienia kompilacji) i rozwiń węzeł **Code Signing Identity** (Tożsamość podpisywania kodu), a następnie w obszarze **Debug** (Debugowanie) ustaw tożsamość podpisywania kodu. Zmień ustawienie opcji **Levels** (Poziomy) z **Basic** (Podstawowe) na **All** (Wszystkie) i jako **Provisioning Profile** (Profil aprowizowania) ustaw wcześniej utworzony profil aprowizowania.
+3. W obszarze **elementy docelowe**, kliknij nazwę projektu, kliknij przycisk hello **ustawieniach kompilacji** karcie i rozwiń **tożsamość podpisywania kodu**, a następnie w obszarze **debugowania**, ustaw swoją tożsamość podpisywania kodu. Przełącz **poziomy** z **podstawowe** za**wszystkie**i ustaw **profilu inicjowania obsługi administracyjnej** toohello profil utworzony wcześniej inicjowania obsługi administracyjnej .
    
-    Jeśli nowy profil aprowizowania utworzony w programie Xcode nie jest widoczny, odśwież profile dla Twojej tożsamości podpisywania. Kliknij pozycję **Xcode** na pasku menu, kliknij pozycję **Preferences** (Preferencje), kliknij kartę **Account** (Konto), kliknij przycisk **View Details** (Pokaż szczegóły), kliknij tożsamość podpisywania, a następnie kliknij przycisk odświeżania w prawym dolnym rogu.
+    Jeśli nie widzisz hello nowych inicjowania obsługi profilu utworzonego w programie Xcode, spróbuj odświeżyć hello profile dla Twojej tożsamości podpisywania. Kliknij przycisk **Xcode** hello paska menu, kliknij przycisk **preferencje**, kliknij hello **konta** , kliknij pozycję hello **Wyświetl szczegóły** , kliknij użytkownika tożsamość podpisywania, a następnie kliknij przycisk Odśwież hello hello prawym dolnym rogu.
    
     ![Xcode — profil aprowizowania][9]
-4. Pobierz [zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4] i rozpakuj plik. W programie Xcode kliknij prawym przyciskiem myszy projekt i kliknij opcję **Add Files to** (Dodaj pliki do), aby dodać folder **WindowsAzureMessaging.framework** do projektu Xcode. Wybierz pozycję **Copy items if needed** (Skopiuj elementy w razie potrzeby), a następnie kliknij pozycję **Add** (Dodaj).
+4. Pobierz hello [usług Mobile Services systemu iOS SDK w wersji 1.2.4] i rozpakuj plik hello. W programie Xcode, kliknij prawym przyciskiem myszy projekt i kliknij przycisk hello **Dodaj pliki do** hello tooadd opcji **WindowsAzureMessaging.framework** projektu Xcode tooyour folderu. Wybierz pozycję **Copy items if needed** (Skopiuj elementy w razie potrzeby), a następnie kliknij pozycję **Add** (Dodaj).
    
    > [!NOTE]
-   > Zestaw SDK usługi Notification Hubs nie obsługuje obecnie kodu bitowego w programie Xcode 7.  Dla ustawienia **Enable Bitcode** (Włącz kod bitowy) należy wybrać opcję **No** (Nie) w obszarze **Build Options** (Opcje kompilacji) projektu.
+   > centra powiadomień Hello zestawu SDK nie obsługuje obecnie kodu bitowego w programie Xcode 7.  Należy ustawić **włączyć Bitcode** za**nr** w hello **opcji kompilacji** dla projektu.
    > 
    > 
    
     ![Rozpakowywanie zestawu SDK platformy Azure][10]
-5. Dodaj nowy plik nagłówka do projektu o nazwie `HubInfo.h`. Ten plik będzie zawierać stałe dla centrum powiadomień.  Dodaj następujące definicje i zastąp symbole zastępcze literału ciągu przy użyciu *nazwy centrum* i wartości *DefaultListenSharedAccessSignature* zanotowanej wcześniej.
+5. Dodawanie nowego nagłówka pliku tooyour projektu o nazwie `HubInfo.h`. Ten plik będzie zawierać hello stałe dla Centrum powiadomień.  Dodaj następujące definicje hello i Zastąp hello symbole zastępcze literału ciągu z Twojej *nazwy centrum* i hello *DefaultListenSharedAccessSignature* zanotowany wcześniej.
    
         #ifndef HubInfo_h
         #define HubInfo_h
    
-            #define HUBNAME @"<Enter the name of your hub>"
+            #define HUBNAME @"<Enter hello name of your hub>"
             #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
    
         #endif /* HubInfo_h */
-6. Otwórz plik `AppDelegate.h` i dodaj następujące dyrektywy importu:
+6. Otwórz z `AppDelegate.h` pliku Dodaj następujące dyrektywy importu hello:
    
          #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
          #import "HubInfo.h"
-7. W pliku `AppDelegate.m file` dodaj następujący kod w metodzie `didFinishLaunchingWithOptions` zależnie od wersji systemu iOS. Ten kod rejestruje dojście do urządzenia w usłudze APNs:
+7. W Twojej `AppDelegate.m file`, Dodaj hello następującego kodu w hello `didFinishLaunchingWithOptions` zależnie od wersji systemu iOS. Ten kod rejestruje dojście do urządzenia w usłudze APNs:
    
     Dla systemu iOS 8:
    
@@ -121,10 +121,10 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą APNs i 
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
    
-    Dla wersji systemu iOS starszych niż 8:
+    Dla too8 wcześniejsze wersje systemu iOS:
    
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-8. W tym samym pliku dodaj następujące metody. Ten kod łączy się z centrum powiadomień przy użyciu informacji o połączeniu określonych w pliku HubInfo.h. Następnie przekazuje token urządzenia do centrum powiadomień, aby umożliwić wysyłanie powiadomień:
+8. W hello tego samego pliku, Dodaj następujące metody hello. Ten kod łączy toohello Centrum powiadomień przy użyciu hello informacji o połączeniu określonych w pliku HubInfo.h. Następnie przekazuje Centrum powiadomień token toohello urządzenia hello tak, aby hello Centrum powiadomień może wysyłać powiadomienia:
    
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
             SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
@@ -146,40 +146,40 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą APNs i 
                 cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
         }
-9. W tym samym pliku dodaj następującą metodę służącą do wyświetlania elementu **UIAlert** w przypadku otrzymania powiadomienia, gdy aplikacja jest aktywna:
+9. W hello tego samego pliku, Dodaj następujące metody toodisplay hello **UIAlert** w przypadku otrzymania powiadomienia hello, gdy aplikacja hello jest aktywna:
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
             [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
         }
 
-1. Skompiluj i uruchom aplikację na urządzeniu, aby upewnić się, że nie występują żadne błędy.
+1. Tworzenie i uruchamianie aplikacji hello na tooverify Twojego urządzenia, czy nie występują żadne błędy.
 
 ## <a name="send-test-push-notifications"></a>Wysyłanie testowych powiadomień wypychanych
-Odbieranie powiadomień w aplikacji możesz przetestować, wysyłając powiadomienia wypychane w witrynie [Azure Portal] za pośrednictwem sekcji **Rozwiązywanie problemów** w bloku centrum (użyj opcji *Wysyłanie testowe*).
+Możesz przetestować odbieranie powiadomień w aplikacji przez wysyłanie powiadomień wypychanych w hello [Azure Portal] za pośrednictwem hello **Rozwiązywanie problemów** sekcji w bloku Centrum hello (Użyj hello *Wysyłanietestowe* opcja).
 
 ![Portal Azure — wysyłanie testowe][30]
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-## <a name="optional-send-push-notifications-from-the-app"></a>(Opcjonalnie) Wysyłanie powiadomień wypychanych z poziomu aplikacji
+## <a name="optional-send-push-notifications-from-hello-app"></a>(Opcjonalnie) Wysyłanie powiadomień wypychanych z aplikacji hello
 > [!IMPORTANT]
-> Ten przykład wysyłania powiadomień z aplikacji klienckiej został podany tylko dla celów szkoleniowych. Ponieważ wymaga to obecności `DefaultFullSharedAccessSignature` w aplikacji klienckiej, naraża centrum powiadomień na ryzyko, że użytkownik może uzyskać dostęp do wysyłania nieautoryzowanych powiadomień do Twoich klientów.
+> Przykładem wysyłania powiadomień z powitania klienta aplikacji jest dostępna dla tylko do celów szkoleniowych. Ponieważ wymaga to hello `DefaultFullSharedAccessSignature` toobe na powitania klienta aplikacji, opisuje czy użytkownik może uzyskać powiadomienia toosend nieautoryzowany dostęp tooyour klientów ryzyko toohello Centrum powiadomień.
 > 
 > 
 
-Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja zawiera przykład, jak to zrobić przy użyciu interfejsu REST.
+Jeśli chcesz toosend powiadomień wypychanych z poziomu aplikacji, ta sekcja zawiera przykładowy sposób toodo to przy użyciu hello interfejsu REST.
 
-1. W programie Xcode otwórz plik `Main.storyboard` i dodaj następujące składniki interfejsu użytkownika z biblioteki obiektów, aby umożliwić użytkownikom wysyłanie powiadomień wypychanych w aplikacji:
+1. Otwórz w programie Xcode, `Main.storyboard` i dodaj następujące składniki interfejsu użytkownika z hello obiekt bibliotece tooallow hello użytkownika toosend powiadomień wypychanych w aplikacji hello hello:
    
-   * Etykieta bez tekstu etykiety. Będzie służyć do raportowania błędów wysyłania powiadomień. Dla właściwości **Lines** (Wiersze) należy ustawić wartość **0**, aby rozmiar elementu był automatycznie ograniczony do lewego i prawego marginesu oraz góry widoku.
-   * Pole tekstowe **Placeholder** (Symbol zastępczy) z ustawionym tekstem **Enter Notification Message** (Wprowadź komunikat powiadomienia). Ogranicz pole bezpośrednio pod etykietą w sposób przedstawiony poniżej. Ustaw kontroler widoku jako delegat gniazda.
-   * Przycisk zatytułowany **Send Notification** (Wyślij powiadomienie) ograniczony bezpośrednio poniżej pola tekstowego i wyśrodkowany w poziomie.
+   * Etykieta bez tekstu etykiety. Będzie ona używana tooreport błędów wysyłania powiadomień. Witaj **wierszy** właściwość powinna być ustawiona zbyt**0** tak, aby automatycznie zmieni rozmiar, prawo ograniczonego toohello i prawego marginesu oraz góry hello hello widoku.
+   * Pole tekstowe **symbolu zastępczego** tekst jest ustawiany za**wprowadź komunikat powiadomienia**. Ogranicz pole hello poniżej hello etykiety, jak pokazano poniżej. Ustaw hello kontroler widoku jako delegat gniazda hello.
+   * Przycisk zatytułowany **Wyślij powiadomienie E-mail** ograniczony bezpośrednio poniżej pola tekstowego hello i w poziomie Centrum hello.
      
-     Widok powinien wyglądać w następujący sposób:
+     Widok Hello powinna wyglądać następująco:
      
      ![Projektant programu Xcode][32]
-2. [Dodaj gniazda](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) dla etykiety i pola tekstowego połączonych z widokiem i zaktualizuj definicję `interface` w celu obsługi elementów `UITextFieldDelegate` i `NSXMLParserDelegate`. Dodaj trzy deklaracje właściwości przedstawione poniżej, aby ułatwić obsługę wywołań interfejsu API REST i analizowanie odpowiedzi.
+2. [Dodaj gniazda](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) dla hello etykiety i pola tekstowego połączonych z widokiem i zaktualizuj Twojej `interface` toosupport definicji `UITextFieldDelegate` i `NSXMLParserDelegate`. Dodaj hello trzy deklaracje właściwości przedstawione poniżej toohelp obsługę wywoływania hello interfejsu API REST i analizowanie odpowiedzi hello.
    
     Plik ViewController.h powinien wyglądać następująco:
    
@@ -190,7 +190,7 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
             NSXMLParser *xmlParser;
         }
    
-        // Make sure these outlets are connected to your UI by ctrl+dragging
+        // Make sure these outlets are connected tooyour UI by ctrl+dragging
         @property (weak, nonatomic) IBOutlet UITextField *notificationMessage;
         @property (weak, nonatomic) IBOutlet UILabel *sendResults;
    
@@ -198,15 +198,15 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
         @property (copy, nonatomic) NSString *currentElement;
    
         @end
-3. Otwórz plik `HubInfo.h` i dodaj następujące ograniczenia, które będą używane podczas wysyłania powiadomień do centrum. Zastąp symbol zastępczy literału ciągu rzeczywistymi parametrami połączenia *DefaultFullSharedAccessSignature*.
+3. Otwórz `HubInfo.h` i Dodaj hello następujące ograniczenia, które będą używane do wysyłania powiadomień tooyour koncentratora. Zamień na powitania symbol zastępczy literału ciągu rzeczywistymi *DefaultFullSharedAccessSignature* parametry połączenia.
    
         #define API_VERSION @"?api-version=2015-01"
         #define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
-4. Dodaj następujące instrukcje `#import` do pliku `ViewController.h`:
+4. Dodaj następujące hello `#import` tooyour instrukcje `ViewController.h` pliku.
    
         #import <CommonCrypto/CommonHMAC.h>
         #import "HubInfo.h"
-5. W pliku `ViewController.m` dodaj następujący kod do implementacji interfejsu. Ten kod będzie analizować parametry połączenia *DefaultFullSharedAccessSignature*. Jak wspomniano w [dokumentacji interfejsu API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), te przeanalizowane informacje będą używane do generowania tokenu sygnatury dostępu współdzielonego dla nagłówka żądania **Authorization**.
+5. W `ViewController.m` dodać powitania po implementacji interfejsu toohello kodu. Ten kod będzie analizować parametry połączenia *DefaultFullSharedAccessSignature*. Jak wspomniano w hello [dokumentacji interfejsu API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), te przeanalizowane informacje będą używane toogenerate token sygnatury dostępu współdzielonego dla hello **autoryzacji** nagłówek żądania.
    
         NSString *HubEndpoint;
         NSString *HubSasKeyName;
@@ -241,7 +241,7 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
                 }
             }
         }
-6. W pliku `ViewController.m` zaktualizuj metodę `viewDidLoad`, aby parametry połączenia były analizowane po załadowaniu widoku. Dodaj również metody narzędziowe przedstawione poniżej do implementacji interfejsu.  
+6. W `ViewController.m`, hello aktualizacji `viewDidLoad` metody tooparse hello ciągu połączenia podczas ładowania widoku hello. Dodaj również metody narzędziowe hello, pokazano poniżej, toohello implementacji interfejsu.  
 
         - (void)viewDidLoad
         {
@@ -267,7 +267,7 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
 
 
 
-1. W pliku `ViewController.m` dodaj następujący kod do implementacji interfejsu w celu wygenerowania tokenu sygnatury dostępu współdzielonego, który zostanie podany w nagłówku **Authorization**, jak opisano w [dokumentacji interfejsu API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+1. W `ViewController.m`, Dodaj hello następującego kodu toohello interfejsu implementacji toogenerate hello tokenu sygnatury dostępu współdzielonego autoryzacji zapewnianej w hello **autoryzacji** nagłówka, jak wspomniano w hello [interfejsu API REST Odwołanie](http://msdn.microsoft.com/library/azure/dn495627.aspx).
    
         -(NSString*) generateSasToken:(NSString*)uri
         {
@@ -288,7 +288,7 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
                 UInt64 expires = trunc(expiresOnDate);
                 NSString* toSign = [NSString stringWithFormat:@"%@\n%qu", targetUri, expires];
    
-                // Get an hmac_sha1 Mac instance and initialize with the signing key
+                // Get an hmac_sha1 Mac instance and initialize with hello signing key
                 const char *cKey  = [HubSasKeyValue cStringUsingEncoding:NSUTF8StringEncoding];
                 const char *cData = [toSign cStringUsingEncoding:NSUTF8StringEncoding];
                 unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
@@ -314,7 +314,7 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
    
             return token;
         }
-2. Naciśnij klawisz Ctrl i przeciągnij od przycisku **Send Notification** (Wyślij powiadomienie) do pliku `ViewController.m`, aby dodać akcję **SendNotificationMessage** dla zdarzenia **Touch Down** (Dotknięcie). Zaktualizuj metodę przy użyciu następującego kodu w celu wysyłania powiadomień przy użyciu interfejsu API REST.
+2. CTRL i przeciągnij od hello **Wyślij powiadomienie E-mail** przycisk zbyt`ViewController.m` tooadd akcji o nazwie **SendNotificationMessage** dla hello **Touch Down** zdarzeń. Zaktualizuj metodę przy hello następujące powiadomienia hello toosend kodu za pomocą hello interfejsu API REST.
    
         - (IBAction)SendNotificationMessage:(id)sender
         {
@@ -328,18 +328,18 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
                              sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
                              delegate:nil delegateQueue:nil];
    
-            // Apple Notification format of the notification message
+            // Apple Notification format of hello notification message
             NSString *json = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"%@\"}}",
                                 self.notificationMessage.text];
    
-            // Construct the message's REST endpoint
+            // Construct hello message's REST endpoint
             NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
                                                 HUBNAME, API_VERSION]];
    
-            // Generate the token to be used in the authorization header
+            // Generate hello token toobe used in hello authorization header
             NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
    
-            //Create the request to add the APNs notification message to the hub
+            //Create hello request tooadd hello APNs notification message toohello hub
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -347,13 +347,13 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
             // Signify Apple notification format
             [request setValue:@"apple" forHTTPHeaderField:@"ServiceBusNotification-Format"];
    
-            //Authenticate the notification message POST request with the SaS token
+            //Authenticate hello notification message POST request with hello SaS token
             [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
    
-            //Add the notification message body
+            //Add hello notification message body
             [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
    
-            // Send the REST request
+            // Send hello REST request
             NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
             {
@@ -371,7 +371,7 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
             }];
             [dataTask resume];
         }
-3. W pliku `ViewController.m` dodaj następującą metodę delegata w celu obsługi zamykania klawiatury dla pola tekstowego. Naciśnij klawisz Ctrl i przeciągnij od pola tekstowego do ikony kontrolera widoku w projektancie interfejsu, aby ustawić kontroler widoku jako delegat gniazda.
+3. W `ViewController.m`, Dodaj powitania od zamknięcia hello klawiatury dla pola tekstowego hello toosupport metody delegata. CTRL i przeciągnij od hello tekst pola toohello ikony kontrolera widoku w hello interfejsu tooset projektanta hello wyświetlić kontroler jako delegat gniazda hello.
    
         //===[ Implement UITextFieldDelegate methods ]===
    
@@ -380,7 +380,7 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
             [textField resignFirstResponder];
             return YES;
         }
-4. W pliku `ViewController.m` dodaj następujące metody delegata w celu obsługi analizowania odpowiedzi przy użyciu analizatora `NSXMLParser`.
+4. W `ViewController.m`, Dodaj następujące hello delegować metody toosupport podczas analizowania odpowiedzi hello za pomocą `NSXMLParser`.
    
        //===[ Implement NSXMLParserDelegate methods ]===
    
@@ -410,38 +410,38 @@ Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja z
    
        -(void)parserDidEndDocument:(NSXMLParser *)parser
        {
-           // Set the status label text on the UI thread
+           // Set hello status label text on hello UI thread
            dispatch_async(dispatch_get_main_queue(),
            ^{
                [self.sendResults setText:self.statusResult];
            });
        }
-5. Skompiluj projekt i upewnij się, że nie ma żadnych błędów.
+5. Skompiluj projekt hello i sprawdź, czy nie ma żadnych błędów.
 
 > [!NOTE]
-> W przypadku wystąpienia błędu kompilacji w programie Xcode 7 dotyczącego obsługi kodu bitowego, należy zmienić ustawienie **Build Settings** (Ustawienia kompilacji)  >  **Enable Bitcode (ENABLE_BITCODE)** (Włącz kod bitowy [ENABLE_BITCODE]) na **NO** (NIE) w programie Xcode. Zestaw SDK usługi Notification Hubs nie obsługuje obecnie kodu bitowego. 
+> Jeśli wystąpi błąd kompilacji w Xcode7 dotyczące obsługi kodu bitowego, należy zmienić hello **ustawieniach kompilacji** > **włączyć Bitcode (ENABLE_BITCODE)** za**nr** w środowisku Xcode. Witaj zestaw SDK usługi Notification Hubs nie obsługuje obecnie kodu bitowego. 
 > 
 > 
 
-Wszystkie możliwe ładunki powiadomień można znaleźć w publikacji [Podręcznik programowania powiadomień lokalnych i wypychanych] firmy Apple.
+Wszystkie hello możliwe ładunki powiadomień można znaleźć w hello Apple [lokalnych i wypychanych Podręcznik programowania powiadomień].
 
 ## <a name="checking-if-your-app-can-receive-push-notifications"></a>Sprawdzanie, czy aplikacja może odbierać powiadomienia wypychane
-Aby przetestować powiadomienia wypychane w systemie iOS, należy wdrożyć aplikację na fizycznym urządzeniu z systemem iOS. Nie można wysłać powiadomień wypychanych firmy Apple przy użyciu symulatora systemu iOS.
+tootest powiadomienia wypychane w systemie iOS, należy wdrożyć urządzenie fizyczne z systemem iOS tooa aplikacji hello. Nie można wysłać powiadomień wypychanych firmy Apple przy użyciu hello symulatora systemu iOS.
 
-1. Uruchom aplikację i upewnij się, że rejestracja zakończyła się powodzeniem, a następnie naciśnij przycisk **OK**.
+1. Uruchamianie aplikacji hello i sprawdź, czy rejestracja zakończy się powodzeniem, a następnie naciśnij **OK**.
    
     ![Test rejestracji powiadomień wypychanych aplikacji dla systemu iOS][33]
-2. Testowe powiadomienie wypychane możesz wysłać z poziomu witryny [Azure Portal] zgodnie z powyższym opisem. Jeśli dodano kod umożliwiający wysyłanie powiadomień wypychanych z aplikacji, dotknij w polu tekstowym, aby wprowadzić komunikat powiadomienia. Następnie naciśnij przycisk **Send** (Wyślij) na klawiaturze lub przycisk **Send Notification** (Wyślij powiadomienie) w widoku, aby wysłać komunikat powiadomienia.
+2. Testowe powiadomienie wypychane możesz wysłać z hello [Azure Portal], zgodnie z powyższym opisem. Jeśli dodano kod umożliwiający wysyłanie powiadomień wypychanych w aplikacji hello, dotknij w tooenter pole tekstowe hello komunikatu powiadomienia. Następnie naciśnij klawisz hello **wysyłania** przycisk hello klawiatury lub hello **Wyślij powiadomienie E-mail** przycisku na powitania widoku toosend hello powiadomienie.
    
     ![Test wysyłania powiadomienia wypychanego z aplikacji dla systemu iOS][34]
-3. Powiadomienie wypychane zostanie wysłane do wszystkich urządzeń zarejestrowanych do odbierania powiadomień od określonego centrum powiadomień.
+3. Witaj powiadomienie wypychane zostanie wysłane tooall urządzeń, które są zarejestrowane tooreceive hello powiadomień z hello określonego Centrum powiadomień.
    
     ![Test odbierania powiadomienia wypychanego z aplikacji dla systemu iOS][35]
 
 ## <a name="next-steps"></a>Następne kroki
-W tym prostym przykładzie wysłano powiadomienia wypychane do wszystkich zarejestrowanych urządzeń z systemem iOS. Jako kolejny krok sugerujemy zapoznanie się z samouczkiem [Azure Notification Hubs Notify Users for iOS with .NET backend] (Powiadamianie użytkowników urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs z zapleczem programu .NET), który zawiera instrukcje dotyczące tworzenia zaplecza służącego do wysyłania powiadomień wypychanych przy użyciu tagów. 
+W tym prostym przykładzie wysłano tooall powiadomień wypychanych urządzeń z systemem iOS w zarejestrowany. Sugerujemy jako kolejny krok zapoznanie się czy kontynuować toohello [Azure Notification Hubs Powiadom użytkowników dla systemu iOS z zaplecza programu .NET] samouczek, który przeprowadzi Cię przez proces tworzenia wypychania toosend zaplecza powiadomienia przy użyciu tagów. 
 
-Jeśli chcesz podzielić użytkowników na grupy zainteresowań, możesz dodatkowo zapoznać się z samouczkiem [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]. 
+Jeśli chcesz toosegment użytkowników na grupy zainteresowań, możesz również przejść toohello [toosend użyciu usługi Notification Hubs fundamentalne wiadomości] samouczka. 
 
 Ogólne informacje o usłudze Notification Hubs zawiera temat [Wskazówki dotyczące usługi Notification Hubs].
 
@@ -464,7 +464,7 @@ Ogólne informacje o usłudze Notification Hubs zawiera temat [Wskazówki dotycz
 
 
 <!-- URLs. -->
-[zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4]: http://aka.ms/kymw2g
+[usług Mobile Services systemu iOS SDK w wersji 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -477,8 +477,8 @@ Ogólne informacje o usłudze Notification Hubs zawiera temat [Wskazówki dotycz
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md (Powiadamianie użytkowników urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs z zapleczem programu .NET)
-[Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Azure Notification Hubs Powiadom użytkowników dla systemu iOS z zaplecza programu .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md (Powiadamianie użytkowników urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs z zapleczem programu .NET)
+[toosend użyciu usługi Notification Hubs fundamentalne wiadomości]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
-[Podręcznik programowania powiadomień lokalnych i wypychanych]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[lokalnych i wypychanych Podręcznik programowania powiadomień]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure Portal]: https://portal.azure.com

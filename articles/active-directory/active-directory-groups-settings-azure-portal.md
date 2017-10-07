@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie właściwościami grupy w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Jak edytować właściwości i inne ustawienia konfiguracji dla grupy w usłudze Azure Active Directory"
+title: "właściwości grupy aaaManage w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Jak tooedit hello właściwości i inne ustawienia konfiguracji dla grupy w usłudze Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,28 +16,28 @@ ms.date: 08/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: b4baccafc0a9178223dbf64c664fc34ab9f7f916
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: aa17c62b4824e5c2de8adc1d34cd9618f3e722f0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Zarządzanie ustawieniami grupy w usłudze Azure Active Directory
-W tym artykule wyjaśniono, jak zmienić ustawienia grupy w usłudze Azure Active Directory (Azure AD).
+# <a name="manage-hello-settings-for-a-group-in-azure-active-directory"></a>Zarządzaj ustawieniami hello grupy w usłudze Azure Active Directory
+W tym artykule opisano, jak toochange hello ustawienia grupy w usłudze Azure Active Directory (Azure AD).
 
-## <a name="how-do-i-find-and-change-the-settings"></a>Jak znaleźć i zmienić ustawienia?
-1. Zaloguj się w [centrum administracyjnym usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
-2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
+## <a name="how-do-i-find-and-change-hello-settings"></a>Jak znaleźć i zmienić ustawienia hello?
+1. Zaloguj się toohello [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu hello.
+2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w hello pola tekstowego, a następnie wybierz **Enter**.
 
    ![Otwieranie użytkowników i grup bloku](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
-3. Na **użytkowników i grup** bloku, wybierz opcję **wszystkich grup**.
+3. Na powitania **użytkowników i grup** bloku, wybierz opcję **wszystkich grup**.
 
-   ![Otwieranie wszystkich bloku grupy](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
-4. Na **użytkowników i grup — wszystkie grupy** bloku, wybierz grupę.
-5. Na **grupy - *groupname***  bloku, wybierz opcję **właściwości**.
+   ![Otwieranie hello wszystkich grup bloku](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
+4. Na powitania **użytkowników i grup — wszystkie grupy** bloku, wybierz grupę.
+5. Na powitania **grupy - *groupname***  bloku, wybierz opcję **właściwości**.
 
-   ![Otwieranie bloku właściwości](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
-6. Gdy skończysz, zmiana właściwości grupy, wybierz **zapisać**.    
+   ![Otwieranie hello właściwości bloku](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
+6. Po zakończeniu zmiany właściwości hello grupy, wybierz **zapisać**.    
 
    ![Trwa zapisywanie zmian właściwości](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 

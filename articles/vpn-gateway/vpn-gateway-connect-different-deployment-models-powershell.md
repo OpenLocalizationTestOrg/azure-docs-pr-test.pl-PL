@@ -1,6 +1,6 @@
 ---
-title: "Połącz klasycznych sieci wirtualnych do sieci wirtualnych Menedżera zasobów Azure: programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć połączenie sieci VPN między klasycznych sieci wirtualnych i sieci wirtualnych Menedżera zasobów przy użyciu bramy sieci VPN i programu PowerShell"
+title: "Połącz tooAzure klasycznych sieci wirtualnych Menedżera zasobów sieci wirtualnych: programu PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate połączenia sieci VPN między klasycznych sieci wirtualnych i sieci wirtualnych Menedżera zasobów przy użyciu bramy sieci VPN i programu PowerShell"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-ms.openlocfilehash: 842a32e5304977af92706cdda464286983122247
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b1cf6ae4becf1829fa99961c5dd09a422fcc1fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Łączenie sieci wirtualnych z różnych modeli wdrażania za pomocą programu PowerShell
 
 
 
-W tym artykule przedstawiono sposób nawiązywania klasyczne sieci wirtualne sieci wirtualnych Menedżera zasobów umożliwia zasobów znajdujących się w modelach wdrażania oddzielne do komunikowania się ze sobą. Kroki opisane w tym artykule przy użyciu programu PowerShell, ale można również utworzyć w tej konfiguracji przy użyciu portalu Azure, wybierając artykułu z tej listy.
+W tym artykule opisano, jak tooconnect klasycznych sieci wirtualnych tooResource tooallow Menedżera sieci wirtualnych hello zasobów znajdujących się w hello oddzielne wdrażania modeli toocommunicate ze sobą. Hello opisanych w tym artykule przy użyciu programu PowerShell, ale można również utworzyć tę konfigurację za pomocą hello portalu Azure, wybierając hello artykułu z tej listy.
 
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -33,23 +33,23 @@ W tym artykule przedstawiono sposób nawiązywania klasyczne sieci wirtualne sie
 > 
 > 
 
-Łączenie klasycznej sieci wirtualnej z Menedżera zasobów sieci wirtualnej jest podobny do łączenia sieci wirtualnej do lokalizacji lokalnej. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Można utworzyć połączenia między sieciami wirtualnymi, które są w różnych subskrypcji i w różnych regionach. Można również połączyć sieci wirtualnych, które mają już połączenia z sieciami lokalnymi tak długo, jak jest bramy, które zostały skonfigurowane z dynamicznego lub oparte na trasach. Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu. 
+Łączenie klasycznego tooa sieci wirtualnej Menedżera zasobów w sieci wirtualnej jest podobne tooconnecting lokalizacji sieci wirtualnej tooan lokalnej lokacji. Oba typy łączności Użyj tooprovide bramy sieci VPN przy użyciu protokołu IPsec/IKE bezpiecznego tunelu. Można utworzyć połączenia między sieciami wirtualnymi, które są w różnych subskrypcji i w różnych regionach. Można też połączyć sieci wirtualnych, która jeszcze połączenia lokalnego tooon sieci, tak długo, jak jest hello bramy, które zostały skonfigurowane z dynamicznego lub oparte na trasach. Aby uzyskać więcej informacji o połączeniach sieci wirtualnej do sieci wirtualnej, zobacz hello [wirtualnymi — często zadawane pytania dotyczące](#faq) na końcu hello w tym artykule. 
 
-W przypadku Twojej sieci wirtualnych w tym samym regionie, możesz zamiast tego należy rozważyć połączenie ich za pomocą sieci wirtualnej komunikacji równorzędnej. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md). 
+Jeśli hello Twojej sieci wirtualnych tego samego regionu, można wziąć pod uwagę tooinstead, łącząc je przy użyciu sieci wirtualnej komunikacji równorzędnej. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md). 
 
 ## <a name="before-beginning"></a>Przed rozpoczęciem
 
-W poniższych krokach objaśniono za pomocą ustawienia wymagane do skonfigurowania bramy dynamiczne lub oparte na trasach dla każdej sieci wirtualnej i Utwórz połączenie sieci VPN między bramami. Ta konfiguracja nie obsługuje bramy statyczne lub oparte na zasadach.
+Witaj poniższe kroki przeprowadzi użytkownika przez proces tooconfigure niezbędne ustawienia hello bramy dynamiczne lub oparte na trasach dla każdej sieci wirtualnej i Utwórz połączenie sieci VPN między bramami hello. Ta konfiguracja nie obsługuje bramy statyczne lub oparte na zasadach.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 * Obie sieci wirtualne zostały już utworzone.
-* Zakresy adresów dla sieci wirtualne nie pokrywają się ze sobą lub pokrywają się z jednym z zakresów dla innych połączeń, które może być połączone bramy.
-* Zainstalowano najnowsze poleceń cmdlet programu PowerShell. Zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) Aby uzyskać więcej informacji. Upewnij się, że zostaną zainstalowane zarówno usługi zarządzania (ko), jak i poleceń cmdlet Menedżera zasobów (RM). 
+* Hello zakresy adresów dla hello sieci wirtualnych nie pokrywają się ze sobą, ani nie nakładają się ze wszystkimi hello zakresów dla innych połączeń, które hello bramy może być połączone.
+* Zainstalowano hello najnowszych poleceń cmdlet programu PowerShell. Zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) Aby uzyskać więcej informacji. Upewnij się, że należy zainstalować zarówno hello usługi zarządzania (ko), jak i hello poleceń cmdlet Menedżera zasobów (RM). 
 
 ### <a name="exampleref"></a>Przykładowe ustawienia
 
-Tych wartości możesz użyć do tworzenia środowiska testowego lub odwoływać się do nich, aby lepiej zrozumieć przykłady w niniejszym artykule.
+Można użyć tych wartości toocreate środowiska testowego, lub zobacz toothem toobetter zrozumieć hello przykłady w tym artykule.
 
 **Klasycznych ustawień sieci wirtualnej**
 
@@ -74,22 +74,22 @@ Brama sieci lokalnej = ClassicVNetLocal <br>
 Nazwa bramy sieci wirtualnej = RMGateway <br>
 Konfiguracja adresów IP bramy = gwipconfig
 
-## <a name="createsmgw"></a>Sekcja 1 — Konfigurowanie klasycznej sieci wirtualnej
+## <a name="createsmgw"></a>Sekcja 1 — Konfigurowanie hello klasycznej sieci wirtualnej
 ### <a name="part-1---download-your-network-configuration-file"></a>Część 1 - pobierania pliku konfiguracji sieci
-1. Zaloguj się do konta platformy Azure, w konsoli programu PowerShell z podwyższonym poziomem uprawnień. Następujące polecenie cmdlet monituje o poświadczenia logowania dla konta platformy Azure. Po zalogowaniu pobiera ono ustawienia konta, aby były dostępne dla programu Azure PowerShell. Ukończenie tej części konfiguracji przy użyciu poleceń cmdlet programu PowerShell SM.
+1. Zaloguj się za tooyour konto platformy Azure w konsoli programu PowerShell hello z podwyższonym poziomem uprawnień. Witaj następujące polecenie cmdlet monituje o hello poświadczenia logowania dla konta platformy Azure. Po zalogowaniu pobraniu ustawienia konta, aby były dostępne tooAzure środowiska PowerShell. Użyj hello toocomplete poleceń cmdlet programu PowerShell SM ta część hello konfiguracji.
 
   ```powershell
   Add-AzureAccount
   ```
-2. Wyeksportuj do pliku konfiguracji sieci platformy Azure, uruchamiając następujące polecenie. Możesz zmienić lokalizację pliku, aby wyeksportować ją w innej lokalizacji, w razie potrzeby.
+2. Wyeksportuj do pliku konfiguracji sieci platformy Azure, uruchamiając następujące polecenie hello. Możesz zmienić lokalizację hello hello pliku tooexport tooa różnych lokalizacji, w razie potrzeby.
 
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-3. Otwórz plik XML, aby go edytować. Na przykład pliku konfiguracji sieci, zobacz [schemat konfiguracji sieci](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Witaj Otwórz plik XML został pobrany tooedit go. Na przykład pliku konfiguracji sieci hello Zobacz hello [schemat konfiguracji sieci](https://msdn.microsoft.com/library/jj157100.aspx).
 
-### <a name="part-2--verify-the-gateway-subnet"></a>Część 2 - Sprawdź podsieć bramy
-W **VirtualNetworkSites** elementu, Dodaj podsieć bramy sieci wirtualnej, jeśli nie została jeszcze utworzona. Podczas pracy z pliku konfiguracji sieci, podsieć bramy musi być o nazwie "GatewaySubnet" lub Azure nie może rozpoznać i używać go jako podsieć bramy.
+### <a name="part-2--verify-hello-gateway-subnet"></a>Część 2 - Sprawdź hello podsieci bramy
+W hello **VirtualNetworkSites** elementu, Dodaj tooyour podsieci bramy sieci wirtualnej, jeśli nie została jeszcze utworzona. Podczas pracy z pliku konfiguracji sieci hello, hello podsieć bramy musi mieć nazwę "GatewaySubnet" lub Azure nie może rozpoznać i używać go jako podsieć bramy.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -111,8 +111,8 @@ W **VirtualNetworkSites** elementu, Dodaj podsieć bramy sieci wirtualnej, jeśl
       </VirtualNetworkSite>
     </VirtualNetworkSites>
 
-### <a name="part-3---add-the-local-network-site"></a>Część 3 — Dodawanie lokacji sieci lokalnej
-Lokacja sieci lokalnej, które można dodać reprezentuje RM sieci wirtualnej, z którym chcesz się połączyć. Dodaj **LocalNetworkSites** elementu do pliku, jeśli jeszcze nie istnieje. W tym momencie w konfiguracji VPNGatewayAddress może być dowolnym prawidłowego publicznego adresu IP, ponieważ możemy jeszcze nie utworzono bramę sieci wirtualnej Menedżera zasobów. Po utworzymy bramy możemy zastąpić ten adres IP — symbol zastępczy poprawne publiczny adres IP przypisany do bramy protokołu RM.
+### <a name="part-3---add-hello-local-network-site"></a>Część 3 — Dodawanie hello lokacji sieci lokalnej
+Hello lokację sieci lokalnej, które można dodać reprezentuje hello ma tooconnect toowhich RM sieci wirtualnej. Dodaj **LocalNetworkSites** pliku toohello elementu, jeśli jeszcze nie istnieje. W tym momencie w konfiguracji hello hello VPNGatewayAddress może być dowolnym prawidłowego publicznego adresu IP, ponieważ możemy jeszcze nie utworzono bramę hello hello Menedżera zasobów w sieci wirtualnej. Po utworzymy hello bramy możemy zastąpić ten adres IP — symbol zastępczy hello poprawne publiczny adres IP przypisany toohello RM bramy.
 
     <LocalNetworkSites>
       <LocalNetworkSite name="RMVNetLocal">
@@ -123,8 +123,8 @@ Lokacja sieci lokalnej, które można dodać reprezentuje RM sieci wirtualnej, z
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### <a name="part-4---associate-the-vnet-with-the-local-network-site"></a>Część 4 - skojarzenia sieci wirtualnej z lokacją sieci lokalnej
-W tej sekcji możemy określić lokację sieci lokalnej, który chcesz połączyć sieć wirtualną do. W takim przypadku jest sieć wirtualną Resource Manager, która wcześniej odwołaniu. Upewnij się, że nazwy są zgodne. Ten krok nie powoduje utworzenia bramy. Określa bramy będą łączyć się z sieci lokalnej.
+### <a name="part-4---associate-hello-vnet-with-hello-local-network-site"></a>Część 4 - hello skojarzenia sieci wirtualnej z lokacją sieci lokalnej hello
+W tej sekcji określono hello lokacji sieci lokalnej, które mają tooconnect hello sieci wirtualnej do. W takim przypadku jest hello odwołanie do wcześniej sieci wirtualnej Menedżera zasobów. Upewnij się, że nazwy hello zgodne. Ten krok nie powoduje utworzenia bramy. Określa hello sieci lokalnej hello bramy połączy się.
 
         <Gateway>
           <ConnectionsToLocalNetwork>
@@ -134,36 +134,36 @@ W tej sekcji możemy określić lokację sieci lokalnej, który chcesz połączy
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-### <a name="part-5---save-the-file-and-upload"></a>Część 5 - Zapisz plik i przekazywania
-Zapisz plik, a następnie zaimportuj go do platformy Azure, uruchamiając następujące polecenie. Upewnij się, że w przypadku zmiany ścieżki pliku jako wymaganych w danym środowisku.
+### <a name="part-5---save-hello-file-and-upload"></a>Część 5 - Zapisz plik hello oraz przekazywania
+Zapisz plik hello, a następnie zaimportuj go tooAzure, uruchamiając następujące polecenie hello. Upewnij się, że w przypadku zmiany ścieżki pliku hello jako wymaganych w danym środowisku.
 
 ```powershell
 Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 ```
 
-Widoczny będzie podobny wynik pokazujący, że importowanie zakończyło się pomyślnie.
+Widoczny będzie podobny wynik pokazujący, że importowanie hello zakończyła się pomyślnie.
 
         OperationDescription        OperationId                      OperationStatus                                                
         --------------------        -----------                      ---------------                                                
         Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### <a name="part-6---create-the-gateway"></a>Część 6 - Tworzenie bramy
+### <a name="part-6---create-hello-gateway"></a>Część 6 - Tworzenie hello bramy
 
-Przed uruchomieniem w tym przykładzie należy odwoływać się do pobranego pliku konfiguracji sieci dla nazw dokładne Azure spodziewa się. Plik konfiguracji sieci zawiera wartości klasyczne sieci wirtualne. Czasami nazwy dla klasyczne sieci wirtualne są zmieniane w pliku konfiguracji sieci, podczas tworzenia klasycznych ustawień sieci wirtualnej w portalu Azure, z powodu różnic w modelach wdrażania. Na przykład jeśli używasz portalu Azure do utworzenia klasyczny sieć wirtualną o nazwie "Klasycznej sieci wirtualnej" i utworzony w grupie zasobów o nazwie "ClassicRG", nazwa, która jest zawarta w pliku konfiguracji sieci jest konwertowana na "Grupy ClassicRG klasycznej sieci wirtualnej". Podczas określania nazwy sieci wirtualnej, która zawiera spacje, użyj wartości w cudzysłowie.
+Przed uruchomieniem w tym przykładzie należy odwoływać się toohello toosee oczekuje pobranego hello dokładnej nazwy tego Azure pliku konfiguracji sieci. plik konfiguracji sieci Hello zawiera wartości hello klasyczne sieci wirtualne. Czasami nazwy hello klasycznego sieci wirtualne są zmieniane w pliku konfiguracji sieci hello podczas tworzenia klasycznych ustawień sieci wirtualnej w hello portalu Azure powodu toohello różnice w hello modele wdrażania. Na przykład jeśli użyto hello Azure toocreate portalu klasycznego sieć wirtualną o nazwie "Klasycznej sieci wirtualnej" i utworzony w grupie zasobów o nazwie "ClassicRG" hello nazwę, która jest zawarta w pliku konfiguracji sieci hello jest przekonwertowanego too'Group ClassicRG klasycznej sieci wirtualnej ". Podczas określania nazwy hello sieci wirtualnej, która zawiera spacje, użyj hello wartości w cudzysłowie.
 
 
-Skorzystaj z następującego przykładu, aby utworzyć bramę routingu dynamicznego:
+Użyj powitania po toocreate przykładzie brama routingu dynamicznego:
 
 ```powershell
 New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 ```
 
-Stan bramy można sprawdzić za pomocą **Get-AzureVNetGateway** polecenia cmdlet.
+Istnieje możliwość sprawdzenia stanu hello hello bramy przy użyciu hello **Get-AzureVNetGateway** polecenia cmdlet.
 
-## <a name="creatermgw"></a>Sekcja 2: Konfigurowanie bramy sieci wirtualnej RM
-Aby utworzyć bramę sieci VPN RM sieci wirtualnej, wykonaj poniższe instrukcje. Nie uruchamiaj kroki do czasu, po pobraniu publicznego adresu IP dla bramy klasycznej sieci wirtualnej. 
+## <a name="creatermgw"></a>Sekcja 2: Konfigurowanie hello bramy sieci wirtualnej RM
+toocreate Brama sieci VPN dla hello RM sieci wirtualnej, postępuj zgodnie z instrukcjami hello. Po pobraniu hello publicznego adresu IP dla bramy wirtualnej klasycznego hello hello kroki, dopóki nie należy uruchamiać. 
 
-1. Zaloguj się do konta platformy Azure, w konsoli programu PowerShell. Następujące polecenie cmdlet monituje o poświadczenia logowania dla konta platformy Azure. Po zalogowaniu ustawienia konta są pobierane, tak aby były dostępne dla programu Azure PowerShell.
+1. Zaloguj się za tooyour konto platformy Azure w konsoli programu PowerShell hello. Witaj następujące polecenie cmdlet monituje o hello poświadczenia logowania dla konta platformy Azure. Po zalogowaniu ustawienia konta są pobierane, tak aby były dostępne tooAzure środowiska PowerShell.
 
   ```powershell
   Login-AzureRmAccount
@@ -175,23 +175,23 @@ Aby utworzyć bramę sieci VPN RM sieci wirtualnej, wykonaj poniższe instrukcje
   Get-AzureRmSubscription
   ```
    
-  Wskaż subskrypcję, której chcesz użyć.
+  Określ, które mają toouse subskrypcji hello.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```
-2. Utwórz bramę sieci lokalnej. W sieci wirtualnej brama sieci lokalnej zazwyczaj odwołuje się do lokalizacji lokalnej. W takim przypadku bramy sieci lokalnej odwołuje się do klasycznej sieci wirtualnej. Nadaj nazwę za pomocą którego Azure można odwołuje się do niego, a także określ prefiks przestrzeni adresów. Platforma Azure używa prefiksu adresu IP w celu określenia, który ruch danych należy skierować do lokalizacji lokalnej. Jeśli musisz dostosować informacje w tym miejscu później, przed utworzeniem bramy sieci można zmodyfikować wartości i ponownie uruchomić próbki.
+2. Utwórz bramę sieci lokalnej. W sieci wirtualnej bramy sieci lokalnej hello zwykle oznacza tooyour lokalizacji lokalnej. W takim przypadku bramy sieci lokalnej hello odwołuje się tooyour klasycznej sieci wirtualnej. Nadaj nazwę za pomocą którego Azure można znaleźć tooit, a także określić prefiks przestrzeni adresów hello. Platforma Azure korzysta prefiks adresu IP hello Określ tooidentify tooyour toosend których ruch lokalizacji lokalnej. Jeśli później, należy tutaj informacje hello tooadjust przed utworzeniem bramy sieci można zmodyfikować wartości hello i przykładowe hello Uruchom ponownie.
    
-   **-Nazwa** to nazwa ma zostać przypisany do odwoływania się do bramy sieci lokalnej.<br>
-   **-AddressPrefix** jest klasycznej sieci wirtualnej przestrzeni adresowej.<br>
-   **-GatewayIpAddress** jest publiczny adres IP bramy klasycznej sieci wirtualnej. Należy pamiętać o zmianie w poniższym przykładzie, aby odzwierciedlić poprawny adres IP.<br>
+   **-Nazwa** jest nazwą hello ma bramy sieci lokalnej toohello toorefer tooassign.<br>
+   **-AddressPrefix** jest hello przestrzeni adresowej dla sieci wirtualnej klasycznego.<br>
+   **-GatewayIpAddress** jest hello publiczny adres IP bramy hello klasycznego VNet. Upewnij się, że toochange hello następujące przykładowe tooreflect hello poprawny adres IP.<br>
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
   -Location "West US" -AddressPrefix "10.0.0.0/24" `
   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
   ```
-3. Żądaj publicznego adresu IP do przydzielenia do bramy sieci wirtualnej sieci wirtualnej Menedżera zasobów. Nie można określić adresu IP, którego chcesz użyć. Adres IP jest dynamicznie przydzielane bramy sieci wirtualnej. Nie oznacza to jednak, że adres IP się zmienia. Tylko zmiany adresu IP bramy sieci wirtualnej jest, gdy brama zostanie usunięta i utworzona ponownie. Nie zmienia ono całej zmiany rozmiaru, resetowania lub innych wewnętrzny konserwacji/uaktualnienia bramy.
+3. Żądaj publicznego adresu IP adres toobe toohello przydzielone bramę sieci wirtualnej dla hello Menedżera zasobów w sieci wirtualnej. Nie można określić hello adresu IP, które mają toouse. adres IP Hello jest dynamicznie przydzielane toohello bramy sieci wirtualnej. Nie oznacza to jednak zmiany adresu IP hello. tylko wtedy Hello zmiany adresu IP bramy sieci wirtualnej hello jest po hello bramy jest usunięty i utworzony ponownie. Nie zmienia ono całej zmiany rozmiaru, resetowanie lub innych wewnętrzny konserwacji/uaktualnień, hello bramy.
 
   W tym kroku będziemy również ustawić zmiennej używanej w kolejnym kroku.
 
@@ -201,27 +201,27 @@ Aby utworzyć bramę sieci VPN RM sieci wirtualnej, wykonaj poniższe instrukcje
   -AllocationMethod Dynamic
   ```
 
-4. Sprawdź, czy sieci wirtualnej ma podsieci bramy. Jeśli istnieje podsieć bramy, dodaj je. Upewnij się, że nosi nazwę podsieci bramy *GatewaySubnet*.
-5. Pobieranie w podsieci używanej bramy, uruchamiając następujące polecenie. W tym kroku będziemy również ustawić zmienną do użycia w następnym kroku.
+4. Sprawdź, czy sieci wirtualnej ma podsieci bramy. Jeśli istnieje podsieć bramy, dodaj je. Upewnij się, że nosi nazwę podsieci bramy hello *GatewaySubnet*.
+5. Pobieranie podsieci hello używanym na potrzeby hello bramy, uruchamiając następujące polecenie hello. W tym kroku będziemy również ustawić zmiennej toobe, używany w następnym kroku hello.
    
-   **-Nazwa** jest nazwą sieci wirtualnej Menedżera zasobów.<br>
-   **-ResourceGroupName** jest to grupa zasobów skojarzonego z sieci wirtualnej. Podsieć bramy musi już istnieć dla tej sieci wirtualnej i musi mieć nazwę *GatewaySubnet* działała poprawnie.<br>
+   **-Nazwa** hello nazwa sieci wirtualnej Menedżera zasobów.<br>
+   **-ResourceGroupName** jest hello grupa zasobów tego hello sieci wirtualnej jest skojarzony. podsieć bramy Hello musi już istnieć dla tej sieci wirtualnej i musi mieć nazwę *GatewaySubnet* toowork poprawnie.<br>
 
   ```powershell
   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
   -VirtualNetwork (Get-AzureRmVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
   ``` 
 
-6. Tworzenie konfiguracji adresów IP bramy. W ramach konfiguracji bramy zostaje zdefiniowana podsieć i publiczny adres IP do użycia. Poniższy przykład umożliwia utworzenie konfiguracji bramy.
+6. Tworzenie konfiguracji adresów IP bramy hello. Konfiguracja bramy Hello definiuje podsieć hello oraz hello toouse w publicznych adresów IP. Użyj następujących hello przykładowe toocreate konfigurację bramy.
 
-  W tym kroku **- SubnetId** i **- PublicIpAddressId** parametry muszą być przekazywane właściwość identyfikatora podsieci i obiekty adresu IP, odpowiednio. Nie można użyć prostego ciągu. Te zmienne są ustawiane w kroku żądanie publicznego adresu IP i kroku pobrać podsieci.
+  W tym kroku hello **- SubnetId** i **- PublicIpAddressId** parametry muszą być przekazywane właściwość identyfikatora hello hello podsieci i obiekty adresu IP, odpowiednio. Nie można użyć prostego ciągu. Te zmienne są ustawiane w toorequest krok hello publicznego adresu IP i hello krok tooretrieve hello podsieci.
 
   ```powershell
   $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
   -Name gwipconfig -SubnetId $subnet.id `
   -PublicIpAddressId $ipaddress.id
   ```
-7. Utwórz bramę sieci wirtualnej Menedżera zasobów, uruchamiając następujące polecenie. `-VpnType` Musi być *RouteBased*. Może upłynąć 45 minut lub więcej bramy do utworzenia.
+7. Tworzenie bramy sieci wirtualnej hello Menedżera zasobów, uruchamiając następujące polecenie hello. Witaj `-VpnType` musi być *RouteBased*. Może upłynąć 45 minut lub więcej hello toocreate bramy.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
@@ -229,51 +229,51 @@ Aby utworzyć bramę sieci VPN RM sieci wirtualnej, wykonaj poniższe instrukcje
   -IpConfigurations $gwipconfig `
   -EnableBgp $false -VpnType RouteBased
   ```
-8. Po utworzeniu bramy sieci VPN, należy skopiować publicznego adresu IP. Można użyć podczas konfigurowania ustawień sieci lokalnej w klasycznej sieci wirtualnej. Następujące polecenie cmdlet umożliwia pobrać publicznego adresu IP. Publiczny adres IP na liście jest zwracany jako *IpAddress*.
+8. Po utworzeniu bramy sieci VPN hello, skopiuj hello publicznego adresu IP. Można użyć podczas konfigurowania ustawień sieci lokalnej hello klasycznej sieci wirtualnej. Można użyć następującego polecenia cmdlet tooretrieve hello publicznego adresu IP hello. Witaj publiczny adres IP ma na liście hello zwracany jako *IpAddress*.
 
   ```powershell
   Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
-## <a name="section-3-modify-the-classic-vnet-local-site-settings"></a>Sekcja 3: Modyfikowanie klasycznych ustawień sieci wirtualnej w lokacji lokalnej
+## <a name="section-3-modify-hello-classic-vnet-local-site-settings"></a>Sekcja 3: Modyfikowanie hello klasycznych ustawień lokalnej lokacji sieci wirtualnej
 
-W tej sekcji możesz pracować z klasycznej sieci wirtualnej. Można zastąpić adres IP symbolu zastępczego, używanego podczas określania ustawień lokacji lokalnej, które będą używane do łączenia się z bramą sieci wirtualnej Menedżera zasobów. 
+W tej sekcji możesz pracować z hello klasycznej sieci wirtualnej. Można zastąpić adres IP — symbol zastępczy hello używane podczas określania ustawień lokacji lokalnej hello, które będą używane tooconnect toohello bramy sieci wirtualnej Menedżera zasobów. 
 
-1. Eksportowanie plików konfiguracji sieci.
+1. Eksportowanie pliku konfiguracji sieci hello.
 
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-2. Za pomocą edytora tekstu, zmodyfikuj wartość dla VPNGatewayAddress. Zastąp symbol zastępczy adres IP publiczny adres IP bramy usługi Resource Manager, a następnie zapisz zmiany.
+2. Za pomocą edytora tekstu, zmodyfikuj wartość powitania dla VPNGatewayAddress. Zamień adres IP — symbol zastępczy hello hello publiczny adres IP bramy usługi Resource Manager hello, a następnie zapisz zmiany hello.
 
   ```
   <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
   ```
-3. Zaimportuj plik konfiguracji sieci zmodyfikowane na platformie Azure.
+3. Importuj hello zmodyfikować tooAzure pliku konfiguracji sieci.
 
   ```powershell
   Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
   ```
 
-## <a name="connect"></a>Sekcja 4: Tworzenie połączenia między bramami
-Tworzenie połączenia między bramami wymaga środowiska PowerShell. Może być konieczne dodanie konta platformy Azure, aby użyć wersji klasycznej poleceń cmdlet programu PowerShell. Aby to zrobić, użyj **Add-AzureAccount**.
+## <a name="connect"></a>Sekcja 4: Tworzenie połączenia między bramami hello
+Tworzenie połączenia między bramami hello wymaga środowiska PowerShell. Konieczne może tooadd Twojego konta Azure toouse hello klasycznej wersji hello poleceń cmdlet programu PowerShell. tak, użyj toodo **Add-AzureAccount**.
 
-1. W konsoli programu PowerShell należy ustawić klucz udostępniony. Przed uruchomieniem poleceń cmdlet należy odwoływać się do pobranego pliku konfiguracji sieci dla nazw dokładne Azure spodziewa się. Podczas określania nazwy sieci wirtualnej, która zawiera spacje, użyj pojedynczy znaki cudzysłowu otaczające wartość.<br><br>W poniższym przykładzie **- VNetName** jest nazwą klasycznej sieci wirtualnej i **- LocalNetworkSiteName** jest nazwa określona dla lokacji sieci lokalnej. **- SharedKey** to Generowanie i określ wartość. W tym przykładzie użyliśmy "abc123", ale można wygenerować i korzystać z bardziej złożonych. Ważne jest, że wartość określone w tym miejscu musi być taka sama jak wartość zostanie w następnym kroku podczas tworzenia połączenia. Zwracany powinien być wyświetlony **stanu: pomyślnie**.
+1. W konsoli programu PowerShell hello należy ustawić klucz udostępniony. Przed uruchomieniem poleceń cmdlet hello, można znaleźć toohello toosee oczekuje pobranego hello dokładnej nazwy tego Azure pliku konfiguracji sieci. Podczas określania nazwy hello sieci wirtualnej, która zawiera spacje, użyj pojedynczy znaki cudzysłowu otaczające wartość hello.<br><br>W poniższym przykładzie **- VNetName** jest nazwą hello hello klasycznej sieci wirtualnej i **- LocalNetworkSiteName** jest nazwą hello określony dla lokacji sieci lokalnej hello. Witaj **- SharedKey** to Generowanie i określ wartość. Przykład Witaj użyliśmy "abc123", ale można wygenerować i korzystać z bardziej złożonych. Witaj ważne, czy element jest daną hello określone w tym miejscu musi być powitalne samą wartość, że zostanie w następnym kroku hello podczas tworzenia połączenia. Witaj zwracany powinien być wyświetlony **stanu: pomyślnie**.
 
   ```powershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `
   -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
   ```
-2. Utwórz połączenie sieci VPN, uruchamiając następujące polecenia:
+2. Utwórz połączenie sieci VPN hello, uruchamiając następujące polecenia hello:
    
-  Ustaw zmienne.
+  Ustaw zmienne hello.
 
   ```powershell
   $vnet01gateway = Get-AzureRMLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
   $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
   ```
    
-  Utwórz połączenie. Zwróć uwagę, że **- ConnectionType** jest IPsec, nie Vnet2Vnet.
+  Utwórz połączenie hello. Zwróć uwagę, że hello **- ConnectionType** jest IPsec, nie Vnet2Vnet.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
@@ -284,7 +284,7 @@ Tworzenie połączenia między bramami wymaga środowiska PowerShell. Może być
 
 ## <a name="section-5-verify-your-connections"></a>Sekcja 5: Sprawdź połączenia
 
-### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>Aby sprawdzić połączenie z klasycznej sieci wirtualnej do sieci wirtualnej Resource Manager
+### <a name="tooverify-hello-connection-from-your-classic-vnet-tooyour-resource-manager-vnet"></a>tooverify hello połączenia z klasycznym tooyour sieci wirtualnej Menedżera zasobów w sieci wirtualnej
 
 #### <a name="powershell"></a>PowerShell
 
@@ -295,7 +295,7 @@ Tworzenie połączenia między bramami wymaga środowiska PowerShell. Może być
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 
-### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Aby sprawdzić połączenie z sieci wirtualnej Menedżera zasobów klasycznych sieci wirtualnej
+### <a name="tooverify-hello-connection-from-your-resource-manager-vnet-tooyour-classic-vnet"></a>tooverify hello połączenia z Twojej sieci wirtualnej Resource Manager tooyour klasycznej sieci wirtualnej
 
 #### <a name="powershell"></a>PowerShell
 

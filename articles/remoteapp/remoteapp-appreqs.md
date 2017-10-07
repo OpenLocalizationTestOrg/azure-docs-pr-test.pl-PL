@@ -1,6 +1,6 @@
 ---
-title: "Wymagania dotyczące aplikacji dla usługi Azure RemoteApp | Dokumentacja firmy Microsoft"
-description: "Dowiedz się więcej o wymaganiach dotyczących aplikacji, które mają być używane w usłudze Azure RemoteApp"
+title: "aaaApp wymagania dotyczące usługi Azure RemoteApp | Dokumentacja firmy Microsoft"
+description: "Dowiedz się więcej o wymaganiach dotyczących powitania dla aplikacji, które mają toouse w usłudze Azure RemoteApp"
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,50 +13,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 13d42df97ea2b090180f5865a4eac25945f9f34c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3fa2bcdaab457a6fbee8ac52a81d1c4154bbdce1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-requirements"></a>Wymagania aplikacji
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Witaj odczytu [anonsu](https://go.microsoft.com/fwlink/?linkid=821148) szczegółowe informacje.
 > 
 > 
 
-Usługa Azure RemoteApp obsługuje przesyłania strumieniowego 32-bitowy lub 64-bitowej aplikacji systemu Windows za pomocą obrazu systemu Windows Server 2012 R2. Większość istniejących 32-bitowy lub 64-bitowej aplikacji systemu Windows uruchom "jako" w usłudze Azure RemoteApp (usług pulpitu zdalnego lub wcześniej znane jako usługi terminalowe) środowiska. Jednak ma różnicy między zainstalowany, a także — niektóre aplikacje działać prawidłowo i wykonaj, podczas gdy inne osoby nie. Poniżej znajdują się wskazówki dotyczące tworzenia aplikacji w środowisku usług pulpitu zdalnego i testy w celu zapewnienia zgodności.
+Usługa Azure RemoteApp obsługuje przesyłania strumieniowego 32-bitowy lub 64-bitowej aplikacji systemu Windows za pomocą obrazu systemu Windows Server 2012 R2. Większość istniejących 32-bitowy lub 64-bitowej aplikacji systemu Windows uruchom "jako" w usłudze Azure RemoteApp (usług pulpitu zdalnego lub wcześniej znane jako usługi terminalowe) środowiska. Jednak ma różnicy między zainstalowany, a także — niektóre aplikacje działać prawidłowo i wykonaj, podczas gdy inne osoby nie. Witaj następujących informacji zawiera wskazówki dotyczące tworzenia aplikacji w środowisku usług pulpitu zdalnego i testowania zgodności tooensure.
 
 Porada: Trwają prace nad tworzenia przykłady pracy aplikacji. Zostanie wyświetlone nowe tematy, które omówiono w nim przy użyciu programu Microsoft Access, QuickBooks i App-V w usłudze RemoteApp.
 
 ## <a name="requirements"></a>Wymagania
 Te trzy wymagania, jeśli zostały wykonane, Pomoc aplikacji Uruchom również w usłudze RemoteApp:
 
-1. Aplikacje, które spełniają wszystkie [wymagania dotyczące certyfikacji dla systemu Windows aplikacji klasycznych](https://msdn.microsoft.com/library/windows/desktop/hh749939.aspx) i być zgodne z [wytycznych programowania usług pulpitu zdalnego](https://msdn.microsoft.com/library/aa383490.aspx) będzie miał pełną zgodność z usługą RemoteApp.
-2. Aplikacje powinny nigdy nie przechowują dane lokalnie w obrazie lub wystąpienia usługi RemoteApp, które mogą zostać utracone.  Po utworzeniu kolekcji usługi RemoteApp wystąpienia są klonowane i są bezstanowych i powinien zawierać wyłącznie aplikacje. Przechowywanie danych w zewnętrznym źródle lub w profilu użytkownika.
+1. Aplikacje, które spełniają wszystkie [wymagania dotyczące certyfikacji dla systemu Windows aplikacji klasycznych](https://msdn.microsoft.com/library/windows/desktop/hh749939.aspx) i stosować zbyt[wytycznych programowania usług pulpitu zdalnego](https://msdn.microsoft.com/library/aa383490.aspx) będzie miał pełną zgodność z usługą RemoteApp.
+2. Aplikacje powinny nigdy nie przechowywać dane lokalnie w obrazie hello lub wystąpienia usługi RemoteApp, które mogą zostać utracone.  Po utworzeniu kolekcji usługi RemoteApp wystąpień hello są klonowane i są bezstanowych i powinien zawierać wyłącznie aplikacje. Przechowywanie danych w zewnętrznym źródle lub w profilu użytkownika hello.
 3. Niestandardowe obrazy nigdy nie powinna zawierać dane, które mogą zostać utracone.  
 
 ## <a name="testing-your-apps"></a>Testowanie aplikacji
-Wykonaj następujące kroki w celu testowania aplikacji:
+Użyj tych aplikacji tootesting kroki:
 
 1. Instalowanie systemu Windows Server 2012 R2 i aplikacji
 2. Włączanie pulpitu zdalnego
-3. Utwórz dwa konta użytkownika, Użytkownik_a i Użytkownik_b Dodawanie oba konta użytkownika do grupy zabezpieczeń usług pulpitu zdalnego.
-4. Sprawdź zgodność wiele sesji, ustanawiając dwóch jednoczesnych RDS sesji do komputera podczas uruchamiania aplikacji.
+3. Utwórz dwa konta użytkownika, Użytkownik_a i Użytkownik_b Dodawanie zarówno grupy zabezpieczeń Użytkownicy kont toohello pulpitu zdalnego.
+4. Sprawdź zgodność wielu sesji podczas uruchamiania aplikacji hello, ustanawiając dwóch jednoczesnych toohello sesji usług pulpitu zdalnego komputera.
 5. Sprawdź poprawność zachowanie aplikacji
 
 ## <a name="application-development-guidelines"></a>Wskazówki dotyczące programowania aplikacji
-Skorzystaj z poniższych wskazówek do opracowywania aplikacji dla usługi RemoteApp.
+Użyj hello następujące wytyczne dotyczące tworzenia aplikacji dla usługi RemoteApp.
 
 ### <a name="multiple-users"></a>Wielu użytkowników
 * Instalowanie [dla pojedynczego użytkownika ](https://msdn.microsoft.com/library/aa380661.aspx)można tworzyć problemy w środowisku wielodostępnym.
-* Aplikacje powinny [przechowywania informacji o użytkowniku](https://msdn.microsoft.com/library/aa383452.aspx) w lokalizacjach specyficzne dla użytkownika, niezależnie od globalne informacje, która ma zastosowanie do wszystkich użytkowników.
+* Aplikacje powinny [przechowywania informacji o użytkowniku](https://msdn.microsoft.com/library/aa383452.aspx) w lokalizacjach specyficzne dla użytkownika, oddzielnie z globalnego informacji dotyczący tooall użytkowników.
 * RemoteApp używa wielu [przestrzeni nazw dla obiektów jądra](https://msdn.microsoft.com/library/aa382954.aspx); globalnej przestrzeni nazw jest używana głównie przez usługi w aplikacji klient/serwer.
-* Nie jest bezpieczne przyjęto założenie, że nazwa komputera lub [adres IP](https://msdn.microsoft.com/library/aa382942.aspx) przypisane do komputera są skojarzone z pojedynczego użytkownika, ponieważ wielu użytkowników może być zalogowany jednocześnie z serwerem hosta sesji usług pulpitu zdalnego (Host sesji usług pulpitu zdalnego).
+* Nie jest bezpieczne tooassume, który hello nazwę komputera lub hello [adres IP](https://msdn.microsoft.com/library/aa382942.aspx) przypisanej toohello komputera są skojarzone z pojedynczego użytkownika, ponieważ wielu użytkowników może być zalogowany jednocześnie tooa hosta sesji usług pulpitu zdalnego (sesji usług pulpitu zdalnego Serwer hosta).
 
 ### <a name="performance"></a>Wydajność
-* Wyłącz [efekty graficzne](https://msdn.microsoft.com/library/aa380822.aspx) przed dodaniem aplikacji do usługi RemoteApp.
-* Aby zmaksymalizować dostępności procesora CPU dla wszystkich użytkowników, albo wyłącz [zadania w tle ](https://msdn.microsoft.com/library/aa380665.aspx) lub Utwórz zadania tła wydajne, które nie są obciążający zasoby.
+* Wyłącz [efekty graficzne](https://msdn.microsoft.com/library/aa380822.aspx) przed dodaniem tooRemoteApp Twojej aplikacji.
+* dostępność toomaximize procesora CPU dla wszystkich użytkowników, albo wyłącz [zadania w tle ](https://msdn.microsoft.com/library/aa380665.aspx) lub Utwórz zadania tła wydajne, które nie są obciążający zasoby.
 * Należy dostosować i zrównoważenia aplikacji [wątku użycia](https://msdn.microsoft.com/library/aa383520.aspx) w środowisku wielodostępnym, wieloprocesorowych.
-* Aby zoptymalizować wydajność, dobrym rozwiązaniem dla aplikacji jest [wykryć](https://msdn.microsoft.com/library/aa380798.aspx) czy są uruchomione w sesji klienta.
+* wydajność toooptimize jest dobrym rozwiązaniem dla aplikacji za[wykryć](https://msdn.microsoft.com/library/aa380798.aspx) czy są uruchomione w sesji klienta.
 

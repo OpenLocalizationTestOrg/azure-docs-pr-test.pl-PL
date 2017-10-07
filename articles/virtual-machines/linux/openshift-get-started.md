@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie pochodzenia OpenShift na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się wdrożyć pochodzenia OpenShift maszyn wirtualnych platformy Azure."
+title: aaaDeploy tooAzure pochodzenia OpenShift | Dokumentacja firmy Microsoft
+description: "Dowiedz się maszyny wirtualne tooAzure pochodzenia OpenShift toodeploy."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: jbinder
@@ -15,48 +15,48 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: jbinder
-ms.openlocfilehash: e03da05625e440eab29ccc28a2343d3433fc7607
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a67450c46da41134a5f6c669a9e54e14773ac5b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-openshift-origin-to-azure-virtual-machines"></a>Wdrażanie pochodzenia OpenShift na maszynach wirtualnych platformy Azure 
+# <a name="deploy-openshift-origin-tooazure-virtual-machines"></a>Wdrażanie tooAzure pochodzenia OpenShift maszyny wirtualne 
 
-[Pochodzenie OpenShift](https://www.openshift.org/) to platforma kontenera typu open source oparty na [Kubernetes](https://kubernetes.io/). Takie rozwiązanie upraszcza proces wdrażania, skalowanie i działania aplikacji wielodostępnej. 
+[Pochodzenie OpenShift](https://www.openshift.org/) to platforma kontenera typu open source oparty na [Kubernetes](https://kubernetes.io/). Takie rozwiązanie upraszcza hello procesu wdrażania, skalowanie i działania aplikacji wielodostępnej. 
 
-W tym przewodniku opisano sposób wdrażania pochodzenia OpenShift na maszynach wirtualnych platformy Azure przy użyciu wiersza polecenia platformy Azure i szablonów Menedżera zasobów Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym przewodniku opisano, jak toodeploy pochodzenia OpenShift na maszynach wirtualnych platformy Azure przy użyciu hello wiersza polecenia platformy Azure i szablony Menedżera zasobów Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz KeyVault do zarządzania kluczy SSH dla klastra OpenShift.
+> * Tworzenie kluczy SSH dla klastra OpenShift hello KeyVault toomanage.
 > * Wdrażanie klastra OpenShift na maszynach wirtualnych Azure. 
-> * Instalowanie i konfigurowanie [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) do zarządzania klastrem.
-> * Dostosowywanie wdrożenia OpenShift.
+> * Instalowanie i konfigurowanie hello [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) toomanage hello klastra.
+> * Dostosowywanie hello OpenShift wdrożenia.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-To szybki start wymaga wiersza polecenia platformy Azure w wersji 2.0.8 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+To szybki start wymaga hello Azure CLI w wersji 2.0.8 lub nowszej. Wersja hello toofind, uruchom `az --version`. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure. 
-Zaloguj się do Twojej subskrypcji platformy Azure z [az logowania](/cli/azure/#login) polecenia i wykonaj na ekranie kliknij lub kierunki **wypróbuj** użycia chmury powłoki.
+## <a name="log-in-tooazure"></a>Zaloguj się za tooAzure 
+Zaloguj się za tooyour subskrypcji platformy Azure z hello [logowania az](/cli/azure/#login) polecenia i wykonaj hello na ekranie instrukcjami lub kliknij przycisk **wypróbuj** toouse powłoki chmury.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Utwórz grupę zasobów o hello [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
+Witaj poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w hello *eastus* lokalizacji.
 
 ```azurecli 
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
-Utwórz KeyVault do przechowywania kluczy SSH dla klastra z [az keyvault utworzyć](/cli/azure/keyvault#create) polecenia.  
+Tworzenie kluczy SSH dla klastra hello KeyVault toostore hello z hello [az keyvault utworzyć](/cli/azure/keyvault#create) polecenia.  
 
 ```azurecli 
 az keyvault create --resource-group myResourceGroup --name myKeyVault \
@@ -65,19 +65,19 @@ az keyvault create --resource-group myResourceGroup --name myKeyVault \
 ```
 
 ## <a name="create-an-ssh-key"></a>Tworzenie klucza SSH 
-Klucz SSH jest wymagany do bezpiecznego dostępu do klastra OpenShift pochodzenia. Utwórz parę kluczy SSH przy użyciu `ssh-keygen` polecenia. 
+Klucz SSH jest wymagane toosecure dostępu toohello pochodzenia OpenShift klastra. Utwórz parę kluczy SSH za pomocą hello `ssh-keygen` polecenia. 
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> Pary kluczy SSH, którą utworzysz nie może zawierać hasło.
+> Witaj pary kluczy SSH, którą utworzysz nie może zawierać hasło.
 
-Aby uzyskać więcej informacji na temat kluczy SSH w systemie Windows [tworzenie SSH kluczy w systemie Windows](/azure/virtual-machines/linux/ssh-from-windows).
+Aby uzyskać więcej informacji na temat kluczy SSH w systemie Windows [jak klucze toocreate SSH w systemie Windows](/azure/virtual-machines/linux/ssh-from-windows).
 
 ## <a name="store-ssh-private-key-in-key-vault"></a>Przechowywanie klucza prywatnego SSH w magazynie kluczy
-Wdrożenie OpenShift używa klucza SSH, utworzenia bezpiecznego dostępu do głównego OpenShift. Aby włączyć wdrożenie w celu bezpiecznego pobierania klucza SSH, należy przechowywać klucz w Key Vault za pomocą następującego polecenia.
+Hello wdrożenia OpenShift używa klucza SSH hello utworzone dostępu toosecure toohello OpenShift wzorca. tooenable hello wdrożenia toosecurely pobrać hello klucz SSH, przechowywać klucz hello w Key Vault za pomocą następującego polecenia hello.
 
 # <a name="enabled-for-template-deployment"></a>Włączony do wdrożenia szablonu
 ```azurecli
@@ -85,16 +85,16 @@ az keyvault secret set --vault-name KeyVaultName --name OpenShiftKey --file ~/.s
 ```
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi 
-OpenShift komunikuje się z platformy Azure przy użyciu nazwy użytkownika i hasła lub nazwy głównej usługi. Podmiot zabezpieczeń usługi Azure jest tożsamość zabezpieczeń korzystających z aplikacji, usługami i automatyzacja takich narzędzi jak OpenShift. Kontrolowanie i definiowanie uprawnień określające, jakie operacje nazwy głównej usługi można wykonać na platformie Azure. Zwiększające bezpieczeństwo za pośrednictwem tylko podanie nazwy użytkownika i hasła, w tym przykładzie tworzy podstawowe usługę podmiotu zabezpieczeń.
+OpenShift komunikuje się z platformy Azure przy użyciu nazwy użytkownika i hasła lub nazwy głównej usługi. Podmiot zabezpieczeń usługi Azure jest tożsamość zabezpieczeń korzystających z aplikacji, usługami i automatyzacja takich narzędzi jak OpenShift. Kontrolowanie i definiowanie uprawnień hello toowhat operacji hello service principal można wykonywać na platformie Azure. tooimprove zabezpieczeń za pośrednictwem tylko podanie nazwy użytkownika i hasła, w tym przykładzie tworzy podstawowe usługę podmiotu zabezpieczeń.
 
-Utwórz usługę podmiotu zabezpieczeń z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#create-for-rbac) i poświadczenia, które wymaga OpenShift wyjściowe:
+Utwórz usługę podmiotu zabezpieczeń z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#create-for-rbac) i dane wyjściowe hello poświadczenia, które wymaga OpenShift:
 
 ```azurecli
 az ad sp create-for-rbac --name openshiftsp \
           --role Contributor --password {strong password} \
           --scopes $(az group show --name myResourceGroup --query id)
 ```
-Zwróć uwagę na właściwość appId zwrócone przez polecenie.
+Zwróć uwagę na powitania appId właściwości zwróconej z hello polecenia.
 ```json
 {
   "appId": "a487e0c1-82af-47d9-9a0b-af184eb87646d",
@@ -109,13 +109,13 @@ Zwróć uwagę na właściwość appId zwrócone przez polecenie.
 
 Aby uzyskać więcej informacji dotyczących nazwy główne usług, zobacz [Tworzenie nazwy głównej usługi platformy Azure z 2.0 interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-## <a name="deploy-the-openshift-origin-template"></a>Wdrażanie szablonu OpenShift źródła
+## <a name="deploy-hello-openshift-origin-template"></a>Wdrażanie hello pochodzenia OpenShift szablonu
 Następnie wdrożyć pochodzenia OpenShift przy użyciu szablonu usługi Azure Resource Manager. 
 
 > [!NOTE] 
-> Polecenie wymaga az CLI 2.0.8 lub nowszym. Az interfejsu wiersza polecenia można sprawdzić wersji z `az --version` polecenia. Aby zaktualizować wersję interfejsu wiersza polecenia, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> Witaj następujące polecenie wymaga az CLI 2.0.8 lub nowszym. Możesz sprawdzić hello az CLI wersji z hello `az --version` polecenia. tooupdate hello wersji interfejsu wiersza polecenia, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-Użyj `appId` wartości z nazwy głównej usługi utworzony wcześniej dla `aadClientId` parametru.
+Użyj hello `appId` wartości z nazwy głównej usługi hello utworzony wcześniej dla hello `aadClientId` parametru.
 
 ```azurecli 
 az group deployment create --name myOpenShiftCluster \
@@ -131,7 +131,7 @@ az group deployment create --name myOpenShiftCluster \
         aadClientId={appId} \
         aadClientSecret={strong password} 
 ```
-Wdrażanie może potrwać maksymalnie 20 minut. Adres URL konsoli OpenShift i nazwa DNS wzorca OpenShift drukowania na terminalu po zakończeniu wdrożenia.
+Witaj wdrażania może potrwać too20 toocomplete minut. Witaj adres URL konsoli OpenShift hello i nazwa DNS hello OpenShift wzorzec jest drukowane toohello terminal po zakończeniu wdrażania hello.
 
 ```json
 {
@@ -139,15 +139,15 @@ Wdrażanie może potrwać maksymalnie 20 minut. Adres URL konsoli OpenShift i na
   "OpenShift Master SSH": "ocpadmin@myopenshiftmaster.cloudapp.azure.com"
 }
 ```
-## <a name="connect-to-the-openshift-cluster"></a>Połącz się z klastrem OpenShift
-Po zakończeniu wdrożenia łączenie z konsolą OpenShift przy użyciu przeglądarki `OpenShift Console Uri`. Alternatywnie można nawiązać wzorca OpenShift przy użyciu następującego polecenia.
+## <a name="connect-toohello-openshift-cluster"></a>Połącz toohello OpenShift klastra
+Po zakończeniu wdrażania hello, Połącz konsolę OpenShift toohello za pomocą przeglądarki hello przy użyciu hello `OpenShift Console Uri`. Alternatywnie możesz połączyć za pomocą następującego polecenia hello wzorca OpenShift toohello.
 
 ```bash
 $ ssh ocpadmin@myopenshiftmaster.cloudapp.azure.com
 ```
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Gdy nie są już potrzebne, można użyć [usunięcie grupy az](/cli/azure/group#delete) polecenia, aby usunąć grupę zasobów, OpenShift klastra, a wszystkie powiązane zasoby.
+Gdy nie są już potrzebne, można użyć hello [usunięcie grupy az](/cli/azure/group#delete) polecenia grupy zasobów hello tooremove, OpenShift klastra i wszystkich powiązanych zasobów.
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -157,8 +157,8 @@ az group delete --name myResourceGroup
 
 W przypadku tego samouczka, zapamiętanych jak:
 > [!div class="checklist"]
-> * Utwórz KeyVault do zarządzania kluczy SSH dla klastra OpenShift.
+> * Tworzenie kluczy SSH dla klastra OpenShift hello KeyVault toomanage.
 > * Wdrażanie klastra OpenShift na maszynach wirtualnych Azure. 
-> * Instalowanie i konfigurowanie [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) do zarządzania klastrem.
+> * Instalowanie i konfigurowanie hello [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) toomanage hello klastra.
 
-Po wdrożeniu klastra OpenShift pochodzenia. Możesz wykonać OpenShift samouczkami, aby dowiedzieć się, jak wdrażanie pierwszej aplikacji i korzystania z narzędzi OpenShift. Zobacz [wprowadzenie pochodzenia OpenShift](https://docs.openshift.org/latest/getting_started/index.html) rozpocząć pracę. 
+Po wdrożeniu klastra OpenShift pochodzenia. Jak wykonać toolearn samouczki OpenShift toodeploy pierwszą aplikację i użyj narzędzia OpenShift hello. Zobacz [wprowadzenie pochodzenia OpenShift](https://docs.openshift.org/latest/getting_started/index.html) tooget uruchomiona. 

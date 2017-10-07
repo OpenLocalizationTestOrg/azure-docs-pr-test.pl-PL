@@ -1,6 +1,6 @@
 ---
-title: "Debugowanie przy użyciu operacji i loguje się usługa Stream Analytics | Dokumentacja firmy Microsoft"
-description: "Dzienniki operacji sposób użycia usługi analiza strumienia"
+title: "aaaDebug przy użyciu dzienników operacji i usługi w Stream Analytics | Dokumentacja firmy Microsoft"
+description: Jak toouse Stream Analytics dzienniki operacji
 keywords: "dzienniki usługi"
 services: stream-analytics
 documentationcenter: 
@@ -15,78 +15,78 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: c95d240ebef6a84228eb98db70002792fcfbdea6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d3dd27706ccc879a724e1894b33d47021d972f31
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="debug-stream-analytics-jobs-using-service-and-operation-logs"></a>Debugowanie przy użyciu dzienników usługi i działania zadania usługi analiza strumienia
-Wszystkie usługi Azure, podaj operacyjne rejestrowanie komunikatów użytkowników, aby zapisać szczegóły dotyczące operacji zarządzania. W systemie Azure Stream Analytics te informacje mogą służyć do debugowania, takie jak wyświetlanie stanu zadań, postęp zadania i komunikaty o błędach umożliwia monitorowanie postępu zadania wraz z upływem czasu z rozpoczęcie przetwarzania do danych wyjściowych.
+Wszystkie szczegóły toorecord toousers komunikatów rejestrowania operacyjne dostawy usług Azure powiązanych toomanagement operacji. W systemie Azure Stream Analytics tych informacji może służyć do debugowania, takich jak wyświetlanie stanu zadania, postęp zadania i niepowodzenia wiadomości tootrack hello postępu zadania w czasie, od początku tooprocessing toooutput.
 
-## <a name="find-operation-logs-in-the-azure-management-portal"></a>Find dzienniki operacji w portalu zarządzania Azure
+## <a name="find-operation-logs-in-hello-azure-management-portal"></a>Znajdź w portalu zarządzania Azure hello dzienniki operacji
 Dzienniki operacji można uzyskiwać na dwa sposoby:  
 
-* Pulpit nawigacyjny zadania usługi analiza strumienia  
-* Usługi zarządzania w klasycznym portalu Azure  
+* Pulpit nawigacyjny hello zadania usługi analiza strumienia  
+* Usługi zarządzania w hello klasycznego portalu Azure  
 
-## <a name="dashboard-of-the-stream-analytics-job"></a>Pulpit nawigacyjny zadania usługi analiza strumienia
-Na karcie pulpit nawigacyjny zadanie zostanie wyświetlony link do odpowiednich dzienników zadania usługi analiza strumienia. Po kliknięciu tego łącza zostanie ustawiony filtrów w sposób zawiera najnowsze dzienniki dla określonego zadania.
+## <a name="dashboard-of-hello-stream-analytics-job"></a>Pulpit nawigacyjny hello zadania usługi analiza strumienia
+Toohello łącza, odpowiadającego dzienników zadania Stream Analytics jest wyświetlane na karcie pulpit nawigacyjny hello zadania. Po kliknięciu tego łącza zostanie ustawiony hello filtrów w sposób zawiera najnowsze dzienniki dla określonego zadania.
 
   ![Wybierz dzienniki usługi zarządzania](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)  
 
 ## <a name="management-services"></a>Usługi zarządzania
-Aby ręcznie przejdź do dzienników operacji dla usługi analiza strumienia i innych usług w klasycznym portalu Azure:
+toomanually Przejdź dzienniki operacji toohello Stream Analytics i innych usług w hello klasycznego portalu Azure:
 
-1. Polecenie **usług zarządzania** w [klasycznego portalu Azure](https://manage.windowsazure.com).
-2. Wybierz **Stream Analytics** dla **typu** i nazwę zadania dla **nazwa usługi**.  
+1. Polecenie **usług zarządzania** w hello [klasycznego portalu Azure](https://manage.windowsazure.com).
+2. Wybierz **Stream Analytics** dla **typu** i nazwę hello zadanie hello **nazwa usługi**.  
    
    ![Wybierz usługi analiza strumienia](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
 
-## <a name="find-audit-logs-in-the-azure-portal"></a>Znajdowanie dzienników inspekcji w portalu Azure
-Aby znaleźć operacyjne dzienniki dla zadania Stream Analytics w portalu Azure, kliknij przycisk **Przeglądaj** , a następnie wybierz **dzienniki inspekcji**.
+## <a name="find-audit-logs-in-hello-azure-portal"></a>Znajdowanie dzienników inspekcji w hello portalu Azure
+toofind operacyjne dzienniki dla zadania usługi analiza strumienia w hello portalu Azure, kliknij przycisk **Przeglądaj** , a następnie wybierz **dzienniki inspekcji**.
 
   ![Wybierz usługę Stream Analytics w portalu Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)  
 
-Spowoduje to otwarcie bloku, wyświetlanie zdarzeń z ostatnich 7 dni dla wszystkich zasobów w ramach subskrypcji.  Można filtrować, aby wyświetlić zdarzenia, określ typ lub przedział czasu, klikając **filtru** polecenia.
+Spowoduje to otwarcie bloku, wyświetlanie zdarzeń z hello ostatnich 7 dni dla wszystkich zasobów w ramach subskrypcji.  Można filtrować zdarzenia toosee, określ typ lub przedział czasu, klikając hello **filtru** polecenia.
 
   ![Wybierz usługę Stream Analytics w portalu Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)  
 
 ## <a name="get-log-details"></a>Uzyskiwanie szczegółowych informacji dziennika
-Można filtrować według stanu, aby wyświetlić dzienniki dla zadania i przedziału czasu.
+Można filtrować według stanu tooview hello dzienniki i zakres czasu dla zadania.
 
-W portalu zarządzania Azure, kliknij polecenie **szczegóły** przycisk w dolnej części okna, aby wyświetlić więcej szczegółów na temat wybranego zdarzenia. 
+W portalu zarządzania Azure hello, kliknij na powitania **szczegóły** przycisk u dołu hello tooview okna hello więcej szczegółów na temat wybranego zdarzenia. 
 
   ![Wybierz szczegóły](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)  
 
-Polecenie wpisu dziennika, aby wyświetlić szczegółowe zdarzenia w nim w portalu Azure.
+W hello portalu Azure, kliknij polecenie toosee wpisu dziennika hello szczegółowych informacji o zdarzeniach w nim.
 
   ![Wybierz szczegóły portalu Azure](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)  
 
-Z tego miejsca, możesz otworzyć **szczegółów** bloku, klikając na zdarzenia.
+Z tego miejsca, możesz otworzyć hello **szczegółów** bloku, klikając hello zdarzeń.
 
   ![Wybierz szczegóły portalu Azure](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)  
 
 ## <a name="debug-a-failed-job"></a>Debugowanie zadanie zakończone niepowodzeniem
-W portalu zarządzania Azure kliknij ikonę wyszukiwania i typu "nie powiodła się". Daje w wyniku wszystkie dzienniki z błędami. 
+W portalu zarządzania Azure hello kliknij ikonę wyszukiwania hello i wpisz "nie powiodło się". Daje w wyniku wszystkie dzienniki z błędami. 
 
   ![Debugowanie zadanie zakończone niepowodzeniem](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)  
 
-W portalu Azure, można filtrować według poziomu komunikat, aby wyświetlić **krytyczny** zdarzenia.
+Hello portalu Azure, można filtrować według poziomu tooview komunikat **krytyczny** zdarzenia.
 
   ![Debugowania portalu Azure](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)  
 
-Zaznacz dowolny błędów, a polecenie **szczegóły** Aby uzyskać więcej informacji na temat błędu usługi.  Niektóre komunikaty o błędach zawierają również informacje dotyczące jak ograniczyć problem. 
+Wybierz jeden z błędami hello i kliknij na powitania **szczegóły** Aby uzyskać więcej informacji na temat błędu hello.  Niektóre komunikaty o błędach zawierają również informacje dotyczące sposobu toomitigate hello problem. 
 
   ![Szczegóły operacji](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)  
 
-W razie potrzeby można skontaktować się z [Obsługa](https://azure.microsoft.com/support/options/) lub podać informacje do zespołu za pomocą [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), w szczególności należy pamiętać szczegóły operacji **identyfikator korelacji**. 
+W razie potrzeby toocontact [Obsługa](https://azure.microsoft.com/support/options/) lub podaj informacje toohello zespołu za pomocą hello [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), należy pamiętać, szczegóły operacji hello, w szczególności hello **identyfikator korelacji**. 
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 Aby uzyskać dalszą pomoc, skorzystaj z naszego [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
+* [Wprowadzenie tooAzure analiza strumienia](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn834998.aspx)

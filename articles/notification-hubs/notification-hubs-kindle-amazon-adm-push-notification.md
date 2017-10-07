@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczynanie pracy z usługą Azure Notification Hubs dla aplikacji dla urządzeń Kindle | Microsoft Docs"
-description: "Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji dla urządzeń Kindle przy użyciu usługi Azure Notification Hubs."
+title: "aaaGet wprowadzenie do usługi Azure Notification Hubs dla aplikacji dla urządzeń Kindle | Dokumentacja firmy Microsoft"
+description: "Z tego samouczka dowiesz się, jak toosend usługi Azure Notification Hubs toouse wypychanie powiadomień aplikacji dla urządzeń Kindle tooa."
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,56 +14,56 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7c28d64372cd2d90bab9cd9bf818d333f3478f7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Rozpoczynanie pracy z usługą Notification Hubs dla aplikacji dla urządzeń Kindle
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Omówienie
-Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji dla urządzeń Kindle przy użyciu usługi Azure Notification Hubs.
+Ten samouczek pokazuje, jak toosend usługi Azure Notification Hubs toouse wypychanie powiadomień aplikacji dla urządzeń Kindle tooa.
 Utworzysz pustą aplikację dla urządzeń Kindle służącą do odbierania powiadomień wypychanych przy użyciu usługi Amazon Device Messaging (ADM).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Dla tego samouczka wymagane są następujące elementy:
+Ten samouczek wymaga następujących hello:
 
-* Pobierz zestaw SDK systemu Android (założono, że używane jest środowisko Eclipse) z <a href="http://go.microsoft.com/fwlink/?LinkId=389797">witryny systemu Android</a>.
-* Postępuj zgodnie z instrukcjami w temacie <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Setting Up Your Development Environment</a> (Konfigurowanie środowiska projektowego), aby skonfigurować środowisko projektowe dla urządzeń Kindle.
+* Pobierz hello zestawu SDK systemu Android (założono, że używany jest program Eclipse) z hello <a href="http://go.microsoft.com/fwlink/?LinkId=389797">witryny systemu Android</a>.
+* Wykonaj kroki hello w <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">ustawienie Up Your Development Environment</a> tooset się środowisko rozwoju dla urządzeń Kindle.
 
-## <a name="add-a-new-app-to-the-developer-portal"></a>Dodawanie nowej aplikacji do portalu dla deweloperów
-1. Najpierw utwórz aplikację w [portalu dla deweloperów firmy Amazon].
+## <a name="add-a-new-app-toohello-developer-portal"></a>Dodawanie nowego portalu deweloperów toohello aplikacji
+1. Najpierw utwórz aplikację w hello [portalu dla deweloperów firmy Amazon].
    
     ![][0]
-2. Skopiuj wartość **Application Key** (Klucz aplikacji).
+2. Kopiuj hello **klucz aplikacji**.
    
     ![][1]
-3. W portalu kliknij nazwę aplikacji, a następnie kliknij kartę **Device Messaging**.
+3. W portalu powitania kliknij nazwę hello aplikacji, a następnie kliknij hello **Device Messaging** kartę.
    
     ![][2]
 4. Kliknij pozycję **Create a New Security Profile** (Utwórz nowy profil zabezpieczeń), a następnie utwórz nowy profil zabezpieczeń (na przykład **profil zabezpieczeń TestAdm**). Następnie kliknij przycisk **Save** (Zapisz).
    
     ![][3]
-5. Kliknij pozycję **Security Profiles** (Profile zabezpieczeń), aby wyświetlić utworzony profil zabezpieczeń. Skopiuj wartości **Client ID** (Identyfikator klienta) i **Client Secret** (Klucz tajny klienta) do późniejszego użycia.
+5. Kliknij przycisk **profile zabezpieczeń** tooview hello zabezpieczeń profil, który został utworzony. Kopiuj hello **identyfikator klienta** i **klucz tajny klienta** do późniejszego użycia.
    
     ![][4]
 
 ## <a name="create-an-api-key"></a>Tworzenie klucza interfejsu API
 1. Otwórz wiersz polecenia z uprawnieniami administratora.
-2. Przejdź do folderu zestawu SDK systemu Android.
-3. Wprowadź następujące polecenie:
+2. Przejdź toohello folderu zestawu SDK systemu Android.
+3. Wprowadź hello następujące polecenie:
    
         keytool -list -v -alias androiddebugkey -keystore ./debug.keystore
    
     ![][5]
-4. Jako hasło **keystore** wpisz wartość **android**.
-5. Skopiuj odcisk palca **MD5**.
-6. W portalu dla deweloperów na karcie **Messaging** (Komunikaty) kliknij pozycję **Android/Kindle** i wpisz nazwę pakietu aplikacji (na przykład **com.sample.notificationhubtest**) oraz wartość **MD5**, a następnie kliknij pozycję **Generate API Key** (Generuj klucz API).
+4. Dla hello **keystore** hasła, typ **android**.
+5. Kopiuj hello **MD5** linii papilarnych.
+6. W portalu dla deweloperów hello, na powitania **wiadomości** , kliknij pozycję **Android/Kindle** , a następnie wprowadź nazwę hello hello pakietu aplikacji (na przykład **com.sample.notificationhubtest**) i hello **MD5** wartość, a następnie kliknij przycisk **Wygeneruj klucz interfejsu API**.
 
-## <a name="add-credentials-to-the-hub"></a>Dodawanie poświadczeń do centrum
-W portalu dodaj klucz tajny klienta i identyfikator klienta na karcie **Konfiguracja** w centrum powiadomień.
+## <a name="add-credentials-toohello-hub"></a>Dodaj Centrum toohello poświadczeń
+W portalu hello dodać powitania klienta, a klucz tajny klienta identyfikator toohello **Konfiguruj** kartę Centrum powiadomień.
 
 ## <a name="set-up-your-application"></a>Konfigurowanie aplikacji
 > [!NOTE]
@@ -71,20 +71,20 @@ W portalu dodaj klucz tajny klienta i identyfikator klienta na karcie **Konfigur
 > 
 > 
 
-Dodaj biblioteki usługi ADM do projektu Eclipse:
+Dodaj projekcie Eclipse tooyour biblioteki usługi ADM hello:
 
-1. Aby uzyskać bibliotekę usługi ADM [pobierz zestaw SDK]. Wyodrębnij plik zip zestawu SDK.
-2. W programie Eclipse kliknij prawym przyciskiem myszy projekt, a następnie kliknij pozycję **Properties** (Właściwości). Wybierz **ścieżka kompilacji języka Java** po lewej stronie, a następnie wybierz ** bibliotek ** u góry. Kliknij pozycję **Add External Jar** (Dodaj zewnętrzny plik jar) i wybierz plik `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` z katalogu, do którego wyodrębniono zestaw SDK Amazon.
-3. Pobierz zestaw SDK usługi Notification Hubs dla systemu Android (link).
-4. Rozpakuj pakiet, a następnie przeciągnij plik `notification-hubs-sdk.jar` do folderu `libs` w programie Eclipse.
+1. biblioteki usługi ADM hello tooobtain, [Pobierz hello SDK]. Wyodrębnij plik zip zestawu SDK hello.
+2. W programie Eclipse kliknij prawym przyciskiem myszy projekt, a następnie kliknij pozycję **Properties** (Właściwości). Wybierz **ścieżka kompilacji języka Java** na powitania po lewej i wybierz opcję hello ** bibliotek ** u góry hello. Kliknij przycisk **Dodaj zewnętrzne Jar**i wybierz hello plik `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` z katalogu hello, w którym wyodrębniono hello zestaw SDK Amazon.
+3. Pobierz hello NotificationHubs zestawu SDK systemu Android (link).
+4. Rozpakuj pakiet hello, a następnie przeciągnij plik hello `notification-hubs-sdk.jar` do hello `libs` folderu w środowisku Eclipse.
 
-Edytuj manifest aplikacji w celu zapewnienia obsługi usługi ADM:
+Edytowanie użytkownika toosupport manifestu aplikacji usługi ADM:
 
-1. Dodaj przestrzeń nazw Amazon do głównego elementu manifestu:
+1. Dodaj przestrzeń nazw Amazon hello hello głównego elementu manifestu:
 
         xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-1. Dodaj uprawnienia jako pierwszy element w elemencie manifestu. Zastąp wartość **[YOUR PACKAGE NAME]** nazwą pakietu użytego do utworzenia aplikacji.
+1. Dodaj uprawnienia jako pierwszy element hello w elemencie manifestu hello. SUBSTITUTE **[YOUR PACKAGE NAME]** z pakietem hello używane toocreate aplikacji.
    
         <permission
          android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -94,13 +94,13 @@ Edytuj manifest aplikacji w celu zapewnienia obsługi usługi ADM:
    
         <uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
    
-        <!-- This permission allows your app access to receive push notifications
+        <!-- This permission allows your app access tooreceive push notifications
         from ADM. -->
         <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
    
-        <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
+        <!-- ADM uses WAKE_LOCK tookeep hello processor from sleeping when a message is received. -->
         <uses-permission android:name="android.permission.WAKE_LOCK" />
-2. Wstaw następujący element jako pierwszy element podrzędny elementu aplikacji. Pamiętaj, aby zastąpić wartość **[YOUR SERVICE NAME]** nazwą programu obsługi komunikatów ADM tworzonego w następnej sekcji (w tym pakietu) oraz wartość **[YOUR PACKAGE NAME]** nazwą pakietu, którego użyto do utworzenia aplikacji.
+2. Wstaw po elemencie jako hello pierwszy element podrzędny elementu aplikacji hello hello. Należy pamiętać, toosubstitute **[YOUR SERVICE NAME]** obsługi komunikatów ADM tworzonym w następnej sekcji hello (takie jak hello pakiet), i zastąp nazwą hello **[YOUR PACKAGE NAME]** z hello Nazwa pakietu, z którego użyto do utworzenia aplikacji.
    
         <amazon:enable-feature
               android:name="com.amazon.device.messaging"
@@ -115,21 +115,21 @@ Edytuj manifest aplikacji w celu zapewnienia obsługi usługi ADM:
             <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
             android:permission="com.amazon.device.messaging.permission.SEND" >
    
-            <!-- To interact with ADM, your app must listen for the following intents. -->
+            <!-- toointeract with ADM, your app must listen for hello following intents. -->
             <intent-filter>
           <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
           <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
    
-          <!-- Replace the name in the category tag with your app's package name. -->
+          <!-- Replace hello name in hello category tag with your app's package name. -->
           <category android:name="[YOUR PACKAGE NAME]" />
             </intent-filter>
         </receiver>
 
 ## <a name="create-your-adm-message-handler"></a>Tworzenie programu obsługi usługi ADM
-1. Utwórz nową klasę dziedziczącą z klasy `com.amazon.device.messaging.ADMMessageHandlerBase` i nadaj jej nazwę `MyADMMessageHandler`, jak przedstawiono na następującej ilustracji:
+1. Utwórz nową klasę, która dziedziczy `com.amazon.device.messaging.ADMMessageHandlerBase` i nadaj mu nazwę `MyADMMessageHandler`, jak pokazano w hello następującej ilustracji:
    
     ![][6]
-2. Dodaj następujące instrukcje `import`:
+2. Dodaj następujące hello `import` instrukcji:
    
         import android.app.NotificationManager;
         import android.app.PendingIntent;
@@ -138,7 +138,7 @@ Edytuj manifest aplikacji w celu zapewnienia obsługi usługi ADM:
         import android.support.v4.app.NotificationCompat;
         import com.amazon.device.messaging.ADMMessageReceiver;
         import com.microsoft.windowsazure.messaging.NotificationHub
-3. Dodaj następujący kod w utworzonej klasie. Pamiętaj, aby zastąpić nazwę centrum i parametry połączenia (nasłuchiwanie):
+3. Dodaj następujące kod w utworzonej klasie hello hello. Należy pamiętać o toosubstitute hello Centrum nazwy i parametry połączenia (nasłuchiwanie):
    
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
@@ -184,28 +184,28 @@ Edytuj manifest aplikacji w celu zapewnienia obsługi usługi ADM:
              mBuilder.setContentIntent(contentIntent);
              mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
-4. Dodaj następujący kod do metody `OnMessage()`:
+4. Dodaj hello następującego kodu toohello `OnMessage()` metody:
    
         String nhMessage = intent.getExtras().getString("msg");
         sendNotification(nhMessage);
-5. Dodaj następujący kod do metody `OnRegistered`:
+5. Dodaj hello następującego kodu toohello `OnRegistered` metody:
    
             try {
         getNotificationHub(getApplicationContext()).register(registrationId);
             } catch (Exception e) {
         Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
             }
-6. Dodaj następujący kod do metody `OnUnregistered`:
+6. Dodaj hello następującego kodu toohello `OnUnregistered` metody:
    
          try {
              getNotificationHub(getApplicationContext()).unregister();
          } catch (Exception e) {
              Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
          }
-7. W metodzie `MainActivity` dodaj następującą instrukcję import:
+7. W hello `MainActivity` metody, Dodaj powitania po instrukcji importu:
    
         import com.amazon.device.messaging.ADM;
-8. Dodaj następujący kod na końcu metody `OnCreate`:
+8. Dodaj następującego kodu na końcu hello hello hello `OnCreate` metody:
    
         final ADM adm = new ADM(this);
         if (adm.getRegistrationId() == null)
@@ -225,24 +225,24 @@ Edytuj manifest aplikacji w celu zapewnienia obsługi usługi ADM:
                }.execute(null, null, null);
         }
 
-## <a name="add-your-api-key-to-your-app"></a>Dodawanie klucza interfejsu API do aplikacji
-1. W programie Eclipse utwórz nowy plik o nazwie **api_key.txt** w katalogu zasobów projektu.
-2. Otwórz plik i skopiuj klucz interfejsu API wygenerowany w portalu dla deweloperów firmy Amazon.
+## <a name="add-your-api-key-tooyour-app"></a>Dodaj aplikację tooyour klucza interfejsu API
+1. W programie Eclipse Utwórz nowy plik o nazwie **api_key.txt** w hello katalogu zasobów projektu.
+2. Witaj Otwórz plik i skopiuj hello klucz interfejsu API wygenerowany w portalu dla deweloperów firmy Amazon hello.
 
-## <a name="run-the-app"></a>Uruchamianie aplikacji
-1. Uruchom emulator.
-2. W emulatorze szybko przesuń od góry i kliknij pozycję **Settings** (Ustawienia), a następnie kliknij pozycję **My account** (Moje konto) i zarejestruj prawidłowe konto Amazon.
-3. Uruchom aplikację w programie Eclipse.
+## <a name="run-hello-app"></a>Uruchamianie aplikacji hello
+1. Uruchom hello emulator.
+2. W emulatorze hello, szybko przesuń od góry hello, a następnie kliknij przycisk **ustawienia**, a następnie kliknij przycisk **Moje konto** i zarejestruj prawidłowe konto Amazon.
+3. W środowisku Eclipse uruchamianie aplikacji hello.
 
 > [!NOTE]
-> W przypadku wystąpienia problemu sprawdź czas emulatora (lub urządzenia). Wartość czasu musi być dokładna. Aby zmienić czas emulatora urządzenia Kindle, możesz uruchomić następujące polecenie w katalogu narzędzi platformy zestawu SDK dla systemu Android:
+> Jeśli wystąpi problem, Sprawdź czas hello hello emulatora (lub urządzenia). wartość czasu Hello musi być dokładna. czas hello toochange hello emulatora urządzenia Kindle, możesz uruchomić hello następujące polecenie z katalogu narzędzi platformy zestawu SDK systemu Android:
 > 
 > 
 
         adb shell  date -s "yyyymmdd.hhmmss"
 
 ## <a name="send-a-message"></a>Wysyłanie komunikatu
-Aby wysłać komunikat przy użyciu programu .NET:
+toosend wiadomości przy użyciu programu .NET:
 
         static void Main(string[] args)
         {
@@ -255,7 +255,7 @@ Aby wysłać komunikat przy użyciu programu .NET:
 
 <!-- URLs. -->
 [portalu dla deweloperów firmy Amazon]: https://developer.amazon.com/home.html
-[pobierz zestaw SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
+[Pobierz hello SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png

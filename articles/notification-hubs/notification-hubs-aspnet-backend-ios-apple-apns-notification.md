@@ -1,6 +1,6 @@
 ---
-title: "Azure Notification Hubs Notify Users for iOS with .NET backend (Powiadamianie użytkowników urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs z zapleczem programu .NET)"
-description: "Dowiedz się, jak wysyłać powiadomienia wypychane do użytkowników na platformie Azure. Przykłady kodu napisane w języku Objective C i interfejsu API programu .NET dla wewnętrznej bazy danych."
+title: "aaaAzure Notification Hubs Powiadom użytkowników dla systemu iOS z zaplecza programu .NET"
+description: "Dowiedz się, jak toosend push toousers powiadomienia na platformie Azure. Przykłady kodu napisane w języku Objective C i hello interfejs API .NET dla hello wewnętrznej bazy danych."
 documentationcenter: ios
 author: ysxu
 manager: erikre
@@ -14,68 +14,68 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 0fa7a886e1ecb0a90b6aebc1dbf9ef0c6ce1acf1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 56aed5b04d2d985b3f0e50c58991607f07b61248
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-notification-hubs-notify-users-for-ios-with-net-backend"></a>Azure Notification Hubs Notify Users for iOS with .NET backend (Powiadamianie użytkowników urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs z zapleczem programu .NET)
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Omówienie
-Obsługa powiadomień wypychanych na platformie Azure umożliwia dostęp do łatwego w użyciu, multiplatform i wypychanych skalowanej infrastruktury, co znacznie upraszcza implementację powiadomienia wypychane dla aplikacji zarówno konsumenckie i korporacyjne dla platform urządzeń przenośnych. W tym samouczku pokazano, jak wysyłać powiadomienia wypychane do użytkownika konkretnej aplikacji na konkretnym urządzeniu za pomocą usługi Azure Notification Hubs. Zaplecza ASP.NET WebAPI jest używany do uwierzytelniania klientów i generowania powiadomień, jak pokazano w temacie wskazówki [rejestrowanie z zaplecza aplikacji](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+Obsługa powiadomień wypychanych na platformie Azure umożliwia tooaccess łatwy w użyciu, multiplatform i wypychanych skalowanej infrastruktury, co znacznie upraszcza hello stosowania powiadomienia wypychane zarówno konsumenckie i korporacyjne aplikacji dla urządzeń przenośnych platform. Ten samouczek pokazuje, jak toosend usługi Azure Notification Hubs toouse wypychanie powiadomień tooa specyficzne dla aplikacji użytkownika na określonym urządzeniu. Zaplecza ASP.NET WebAPI jest używane tooauthenticate klientów i powiadomienia toogenerate przedstawioną w temacie wskazówki hello [rejestrowanie z zaplecza aplikacji](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
 > [!NOTE]
-> Ten samouczek zakłada, że utworzony i skonfigurowany Centrum powiadomień, zgodnie z opisem w [wprowadzenie do korzystania z usługi Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). W tym samouczku jest również wymagana do [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) samouczka.
-> Jeśli chcesz korzystać z aplikacji mobilnej jako usługi wewnętrznej bazy danych, zobacz [Mobile Apps wprowadzenie wypychania](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+> Ten samouczek zakłada, że utworzony i skonfigurowany Centrum powiadomień, zgodnie z opisem w [wprowadzenie do korzystania z usługi Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). W tym samouczku jest również hello wymagań wstępnych toohello [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) samouczka.
+> Jeśli chcesz toouse Mobile Apps jako usługi wewnętrznej bazy danych, zobacz hello [Mobile Apps wprowadzenie wypychania](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 > 
 > 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="modify-your-ios-app"></a>Modyfikowanie aplikacji systemu iOS
-1. Otwórz aplikację widoku pojedynczej strony utworzone w [wprowadzenie do korzystania z usługi Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) samouczka.
+1. Otwórz hello jednej strony Wyświetl aplikację utworzony w hello [wprowadzenie do korzystania z usługi Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) samouczka.
    
    > [!NOTE]
-   > W tej sekcji przyjęto założenie, projektu skonfigurowano nazwę organizacji puste. Jeśli nie, konieczne będzie dołączenie wartości Nazwa organizacji do wszystkich nazw klas.
+   > W tej sekcji przyjęto założenie, projektu skonfigurowano nazwę organizacji puste. Jeśli nie, konieczne będzie tooprepend nazwy klasy tooall nazwę organizacji.
    > 
    > 
-2. W Twojej Main.storyboard dodać składniki pokazane na zrzucie ekranu poniżej z biblioteki obiektów.
+2. W Twojej Main.storyboard Dodaj składniki hello pokazano zrzut ekranu hello poniżej hello obiekt bibliotece.
    
     ![][1]
    
-   * **Nazwa użytkownika**: UITextField A tekstem zastępczym *wprowadź nazwę użytkownika*, znajdujący się bezpośrednio pod wysyłania wyników etykiety i ograniczony do lewego i prawego marginesu i poniżej etykiety wyniki wysyłania.
-   * **Hasło**: UITextField A tekstem zastępczym *wprowadź hasło*, natychmiast poniżej nazwę użytkownika tekst pola i ograniczone do lewego i prawego marginesu oraz poniżej pola tekstowego nazwy użytkownika. Sprawdź **Secure wpisywanie tekstu** w obszarze opcji Inspektora atrybutu *zwraca klucz*.
-   * **Zaloguj się za**: A UIButton etykietą bezpośrednio poniżej pola tekstowego hasła i usuń zaznaczenie pola wyboru **włączone** w obszarze opcji Inspektora atrybuty *zawartości kontrolki*
-   * **WNS**: etykiety i przełącznik, aby umożliwić wysyłanie powiadomień usługi powiadomień systemu Windows, jeśli został instalacji w Centrum. Zobacz [systemu Windows wprowadzenie](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) samouczka.
-   * **GCM**: etykiety i przełącznika, aby włączyć wysyłanie powiadomienia do usługi Google Cloud Messaging została już Instalator koncentratora. Zobacz [Android wprowadzenie](notification-hubs-android-push-notification-google-gcm-get-started.md) samouczka.
-   * **APNS**: etykiety i przełącznik, aby włączyć wysyłanie powiadomienia do usługi powiadomień platformy firmy Apple.
-   * **Recipent Username**: UITextField A tekstem zastępczym *tag username odbiorcy*, natychmiast poniżej GCM etykiety i ograniczony do lewego i prawego marginesu oraz poniżej etykiety usługi GCM.
+   * **Nazwa użytkownika**: UITextField A tekstem zastępczym *wprowadź nazwę użytkownika*, natychmiast poniżej hello wysyłać wyniki etykiety i ograniczonego toohello po lewej i kliknij prawym przyciskiem myszy marginesy i poniżej hello wysyłanie etykiety wyników.
+   * **Hasło**: UITextField A tekstem zastępczym *wprowadź hasło*, natychmiast podrzędne hello pole tekstowe nazwy użytkownika i ograniczonego toohello po lewej i prawej marginesy i poniżej pola tekstowego hello nazwy użytkownika. Sprawdź hello **Secure wpisywanie tekstu** hello inspektora atrybutu, opcji w obszarze *zwraca klucz*.
+   * **Zaloguj się za**: A UIButton etykietą bezpośrednio poniżej pola tekstowego hasła hello i usuń zaznaczenie pola wyboru hello **włączone** w obszarze opcji hello inspektora atrybuty *zawartości kontrolki*
+   * **WNS**: etykiety i wysyłanie tooenable przełącznika hello powiadomień usługi powiadomień systemu Windows została już Instalatora na powitania koncentratora. Zobacz hello [systemu Windows wprowadzenie](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) samouczka.
+   * **GCM**: etykiety i wysyłanie tooenable przełącznika hello tooGoogle powiadomień Cloud Messaging została już Instalatora na powitania koncentratora. Zobacz [Android wprowadzenie](notification-hubs-android-push-notification-google-gcm-get-started.md) samouczka.
+   * **APNS**: etykiety i wysyłanie tooenable przełącznika hello toohello powiadomienia usługi powiadomień platformy firmy Apple.
+   * **Recipent Username**: UITextField A tekstem zastępczym *tag username odbiorcy*, natychmiast poniżej hello GCM etykiety i ograniczonego toohello lewej i prawej marży i poniżej hello GCM etykiety.
 
-    Niektóre składniki zostały dodane w [wprowadzenie do korzystania z usługi Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) samouczka.
+    Niektóre składniki zostały dodane w hello [wprowadzenie do korzystania z usługi Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) samouczka.
 
-1. **CTRL** przeciągnij z składniki w widoku ViewController.h i dodać tych nowych punktów.
+1. **CTRL** przeciągnij od składników hello hello widoku tooViewController.h i dodać tych nowych punktów.
    
         @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
         @property (weak, nonatomic) IBOutlet UITextField *PasswordField;
         @property (weak, nonatomic) IBOutlet UITextField *RecipientField;
         @property (weak, nonatomic) IBOutlet UITextField *NotificationField;
    
-        // Used to enable the buttons on the UI
+        // Used tooenable hello buttons on hello UI
         @property (weak, nonatomic) IBOutlet UIButton *LogInButton;
         @property (weak, nonatomic) IBOutlet UIButton *SendNotificationButton;
    
-        // Used to enabled sending notifications across platforms
+        // Used tooenabled sending notifications across platforms
         @property (weak, nonatomic) IBOutlet UISwitch *WNSSwitch;
         @property (weak, nonatomic) IBOutlet UISwitch *GCMSwitch;
         @property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
    
         - (IBAction)LogInAction:(id)sender;
-2. W ViewController.h, Dodaj następujący `#define` poniżej Twojej instrukcje importu. SUBSTITUTE *< wprowadź swój Endpoint zaplecza\>*  symbol zastępczy docelowy adres URL używany do wdrażania aplikacji zaplecza w poprzedniej sekcji. Na przykład *http://you_backend.azurewebsites.net*.
+2. W ViewController.h, Dodaj następujące hello `#define` poniżej Twojej instrukcje importu. SUBSTITUTE hello *< wprowadź swój punkt końcowy w wewnętrznej bazy danych\>*  symbol zastępczy hello docelowy adres URL używany zapleczu swojej aplikacji toodeploy hello w poprzedniej sekcji. Na przykład *http://you_backend.azurewebsites.net*.
    
         #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
-3. W projekcie, Utwórz nową **Cocoa Touch klasy** o nazwie **RegisterClient** do interfejsu z zaplecza ASP.NET został utworzony. Tworzenie dziedziczenia z klasy `NSObject`. Następnie dodaj następujący kod w RegisterClient.h.
+3. W projekcie, Utwórz nową **Cocoa Touch klasy** o nazwie **RegisterClient** toointerface z hello zaplecza ASP.NET został utworzony. Utworzenie dziedziczenia z klasy hello `NSObject`. Następnie można dodać następującego kodu w hello RegisterClient.h hello.
    
         @interface RegisterClient : NSObject
    
@@ -87,7 +87,7 @@ Obsługa powiadomień wypychanych na platformie Azure umożliwia dostęp do łat
         -(instancetype) initWithEndpoint:(NSString*)Endpoint;
    
         @end
-4. W ramach aktualizacji RegisterClient.m `@interface` sekcji:
+4. Witaj RegisterClient.m aktualizacji hello `@interface` sekcji:
    
         @interface RegisterClient ()
    
@@ -102,7 +102,7 @@ Obsługa powiadomień wypychanych na platformie Azure umożliwia dostęp do łat
                     tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion;
    
         @end
-5. Zastąp `@implementation` części RegisterClient.m następującym kodem.
+5. Zastąp hello `@implementation` części hello RegisterClient.m z hello następującego kodu.
 
         @implementation RegisterClient
 
@@ -261,32 +261,32 @@ Obsługa powiadomień wypychanych na platformie Azure umożliwia dostęp do łat
 
         @end
 
-    Powyższy kod implementuje logiki wyjaśniono w artykule wskazówki [rejestrowanie z zaplecza aplikacji](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) wykonać REST przy użyciu polecenia NSURLSession wywołań zapleczu swojej aplikacji i NSUserDefaults do przechowywania lokalnie registrationId zwrócony przez Centrum powiadomień.
+    Powyższy kod Hello implementuje logiki hello wyjaśniono w artykule wskazówki hello [rejestrowanie z zaplecza aplikacji](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) przy użyciu NSURLSession tooperform REST wywołuje zaplecza aplikacji tooyour i NSUserDefaults toolocally magazynu hello registrationId zwrócony przez hello Centrum powiadomień.
 
-    Należy pamiętać, że ta klasa wymaga jego właściwość **authorizationHeader** ustawiono prawidłowego funkcjonowania. Ta właściwość jest ustawiana przez **ViewController** klasy po stronie logowania.
+    Należy pamiętać, że ta klasa wymaga jego właściwość **authorizationHeader** toobe w kolejności toowork poprawnie ustawiony. Ta właściwość jest ustawiana przez hello **ViewController** klasy po hello zalogować.
 
-1. W ViewController.h, Dodaj `#import` instrukcji dla RegisterClient.h. Następnie dodaj deklarację dla tokenu urządzenia i odwołać się do `RegisterClient` wystąpienia w `@interface` sekcji:
+1. W ViewController.h, Dodaj `#import` instrukcji dla RegisterClient.h. Następnie dodaj deklarację hello tokenu urządzenia i referencyjne tooa `RegisterClient` wystąpienie w hello `@interface` sekcji:
    
         #import "RegisterClient.h"
    
         @property (strong, nonatomic) NSData* deviceToken;
         @property (strong, nonatomic) RegisterClient* registerClient;
-2. W ViewController.m, Dodaj deklarację Metoda prywatna w `@interface` sekcji:
+2. W ViewController.m, Dodaj deklarację Metoda prywatna w hello `@interface` sekcji:
    
         @interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
    
-        // create the Authorization header to perform Basic authentication with your app back-end
+        // create hello Authorization header tooperform Basic authentication with your app back-end
         -(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
                         AndPassword:(NSString*)password;
    
         @end
 
 > [!NOTE]
-> Poniższy fragment kodu nie jest schemat bezpiecznego uwierzytelniania, należy zastąpić wykonania **createAndSetAuthenticationHeaderWithUsername:AndPassword:** z mechanizmu uwierzytelniania określonych generujący token uwierzytelniania do użycia przez klienta rejestru klasę, np. OAuth, usługi Active Directory.
+> Hello następujący fragment kodu nie jest schemat bezpiecznego uwierzytelniania, należy zastąpić hello implementacja hello **createAndSetAuthenticationHeaderWithUsername:AndPassword:** z mechanizmu uwierzytelniania określonych Spowoduje to wygenerowanie toobe token uwierzytelniania używane przez hello register klasy klienta, np. OAuth, usługi Active Directory.
 > 
 > 
 
-1. Następnie w `@implementation` sekcji ViewController.m Dodaj następujący kod, który dodaje implementacji do ustawiania nagłówka tokenu i uwierzytelnienia urządzenia.
+1. Następnie w hello `@implementation` sekcji ViewController.m dodać hello następującego kodu, który dodaje implementacji hello ustawienie hello urządzenie tokenu i uwierzytelnienia nagłówka.
    
         -(void) setDeviceToken: (NSData*) deviceToken
         {
@@ -311,8 +311,8 @@ Obsługa powiadomień wypychanych na platformie Azure umożliwia dostęp do łat
             return YES;
         }
    
-    Należy zwrócić uwagę, jak ustawienie token urządzenia włącza przycisk Zaloguj. Jest to spowodowane w ramach akcji logowania, kontroler widoku rejestruje dla powiadomień wypychanych przy użyciu zaplecza aplikacji. W związku z tym nie chcemy dziennika w akcji była dostępna, dopóki token urządzenia został poprawnie skonfigurowany. Logowania z rejestracji wypychania jest oddzielana, tak długo, jak wcześniejsze nastąpi przed jego.
-2. W ViewController.m, należy użyć poniższej wstawki Aby zaimplementować metodę akcji dla Twojego **dziennika w** przycisk, a także metodę można wysłać komunikatu powiadomienia przy użyciu zaplecza ASP.NET.
+    Należy zwrócić uwagę, jak token urządzenia hello ustawienie umożliwia hello przycisk Zaloguj. Jest to spowodowane jako część hello logowania akcji kontrolera widoku hello rejestruje dla powiadomień wypychanych przy użyciu zaplecza aplikacji hello. W związku z tym nie chcemy dziennika w toobe akcji dostępny dopóki hello token urządzenia został poprawnie skonfigurowany. Hello logowania z rejestracji wypychanych hello jest oddzielana, jak długo była hello nastąpi przed ostatnim hello.
+2. W ViewController.m, użyj hello następujące metody akcji hello tooimplement wstawki dla Twojego **dziennika w** przycisk i metody toosend hello powiadomień wiadomości przy użyciu zaplecza ASP.NET hello.
    
        - (IBAction) LogInAction: nadawcy (id) {/ / Utwórz nagłówek uwierzytelnienia i ustaw go w rejestrze klienta NSString * nazwa użytkownika = samodzielnie. UsernameField.text;   Hasło NSString * = samodzielnie. PasswordField.text;
    
@@ -322,15 +322,15 @@ Obsługa powiadomień wypychanych na platformie Azure umożliwia dostęp do łat
 
         -SendNotificationASPNETBackend (void): (NSString*) systemu powiadomień platformy UsernameTag: (NSString*) usernameTag komunikat: (NSString*) komunikat {NSURLSession* sesji = [NSURLSession sessionWithConfiguration: delegateQueue:nil delegata: nil [NSURLSessionConfiguration defaultSessionConfiguration]];
 
-            Przekaż tag systemu powiadomień platformy i nazwa użytkownika jako parametry z adresem URL REST do zaplecza ASP.NET nsurl OCZEKIWANEGO * Adres_url_żądania = [URLWithString nsurl OCZEKIWANEGO: [NSString stringWithFormat:@"%@/api/notifications? systemu powiadomień platformy = % @& to_tag = % @", BACKEND_ENDPOINT, pns, usernameTag]];
+            Przekaż hello tag systemu powiadomień platformy i nazwa użytkownika jako parametrów z hello adresu URL usługi REST toohello ASP.NET zaplecza nsurl OCZEKIWANEGO * Adres_url_żądania = [URLWithString nsurl OCZEKIWANEGO: [NSString stringWithFormat:@"%@/api/notifications? systemu powiadomień platformy = % @& to_tag = % @", BACKEND_ENDPOINT, pns, usernameTag]];
 
             Żądanie NSMutableURLRequest * = [NSMutableURLRequest requestWithURL:requestURL];    [setHTTPMethod:@"POST"żądania];
 
-            Pobierz zasymulować authenticationheader z rejestru klienta authorizationHeaderValue NSString * = [NSString stringWithFormat:@"Basic % @", self.registerClient.authenticationHeader];    [setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"żądania];
+            Uzyskanie authenticationheader zasymulować hello powitania klienta rejestru authorizationHeaderValue NSString * = [NSString stringWithFormat:@"Basic % @", self.registerClient.authenticationHeader];    [setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"żądania];
 
-            Dodaj treść wiadomości powiadomienia [żądania setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];    [żądanie setHTTPBody: [komunikatów dataUsingEncoding:NSUTF8StringEncoding]];
+            Dodaj treść wiadomości powiadomienia hello [żądania setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];    [żądanie setHTTPBody: [komunikatów dataUsingEncoding:NSUTF8StringEncoding]];
 
-            Wykonanie wysyłania powiadomień interfejsu API REST na dataTask ASP.NET zaplecza NSURLSessionDataTask * = [sesji dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) odpowiedź;        Jeśli (błąd || httpResponse.statusCode! = 200) {NSString* stan = [NSString stringWithFormat:@"Error stanu % @: % d\nError: %@\n", pns, httpResponse.statusCode, błąd];            dispatch_async(dispatch_get_main_queue(), ^ {/ / Append tekstu, ponieważ wszystkie wywołania systemu powiadomień platformy 3 może również zawierać informacje do widoku [self.sendResults setText:[self.sendResults.text stringByAppendingString:status]];            });            NSLog(status);        }
+            Wykonanie hello wysyłania powiadomień interfejsu API REST na powitania ASP.NET zaplecza NSURLSessionDataTask * dataTask = [sesji dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError  *Błąd) {NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) odpowiedź;        Jeśli (błąd || httpResponse.statusCode! = 200) {NSString* stan = [NSString stringWithFormat:@"Error stanu % @: % d\nError: %@\n", pns, httpResponse.statusCode, błąd];            dispatch_async(dispatch_get_main_queue(), ^ {/ / Append tekstu, ponieważ wszystkie wywołania systemu powiadomień platformy 3 może być również tooview informacji [self.sendResults setText:[self.sendResults.text stringByAppendingString:status]];            });            NSLog(status);        }
 
                 if (data != NULL)
                 {
@@ -341,7 +341,7 @@ Obsługa powiadomień wypychanych na platformie Azure umożliwia dostęp do łat
             }];    [dataTask Wznów]; }
 
 
-1. Akcja dla aktualizacji **Wyślij powiadomienie E-mail** przycisk, aby użyć zaplecza ASP.NET i wysłać do dowolnego systemu powiadomień platformy włączane przez przełącznik.
+1. Aktualizowanie akcji hello hello **Wyślij powiadomienie E-mail** przycisk zaplecza ASP.NET hello toouse i wysłać tooany systemu powiadomień platformy włączane przez przełącznik.
 
         - (IBAction)SendNotificationMessage:(id)sender
         {
@@ -368,15 +368,15 @@ Obsługa powiadomień wypychanych na platformie Azure umożliwia dostęp do łat
 
 
 
-1. W funkcji **ViewDidLoad**, Dodaj następujące można utworzyć wystąpienia RegisterClient wystąpienia i ustawić delegata dla pól tekstowych.
+1. W funkcji **ViewDidLoad**, Dodaj następujące wystąpienia RegisterClient hello tooinstantiate hello i ustaw hello delegowanego dla pól tekstowych.
    
        self.UsernameField.delegate = self;
        self.PasswordField.delegate = self;
        self.RecipientField.delegate = self;
        self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
-2. Teraz w **AppDelegate.m**, Usuń całą zawartość metody **aplikacji: didRegisterForPushNotificationWithDeviceToken:** i zastąp go z następujących czynności, aby upewnić się, że kontroler widoku zawiera najnowsze token urządzenia pobierane z usługi APNs:
+2. Teraz w **AppDelegate.m**, Usuń całą zawartość hello metody hello **aplikacji: didRegisterForPushNotificationWithDeviceToken:** i zastąp go hello się, że po toomake, który hello widoku Kontroler zawiera hello najnowsze token urządzenia pobierane z usługi APNs:
    
-       // Add import to the top of the file
+       // Add import toohello top of hello file
        #import "ViewController.h"
    
        - (void)application:(UIApplication *)application
@@ -385,23 +385,23 @@ Obsługa powiadomień wypychanych na platformie Azure umożliwia dostęp do łat
            ViewController* rvc = (ViewController*) self.window.rootViewController;
            rvc.deviceToken = deviceToken;
        }
-3. Na koniec w **AppDelegate.m**, upewnij się, że masz następujące metody:
+3. Na koniec w **AppDelegate.m**, upewnij się, że masz hello następujące metody:
    
        - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
            NSLog(@"%@", userInfo);
            [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
        }
 
-## <a name="test-the-application"></a>Testowanie aplikacji
-1. W programie XCode Uruchom aplikację na urządzenie fizyczne z systemem iOS (wypychanie powiadomień nie będzie działać w symulatorze).
-2. W aplikacji systemu iOS interfejsu użytkownika wprowadź nazwę użytkownika i hasło. Mogą to być dowolny ciąg, ale oba muszą być taką samą wartość ciągu. Następnie kliknij przycisk **dziennika w**.
+## <a name="test-hello-application"></a>Test hello aplikacji
+1. W programie XCode uruchamianie aplikacji hello na urządzenie fizyczne z systemem iOS (push, które nie będą działać powiadomienia w symulatorze hello).
+2. W aplikacji dla systemu iOS hello interfejsu użytkownika wprowadź nazwę użytkownika i hasło. Mogą to być dowolny ciąg, ale oba muszą być hello takie same wartości ciągu. Następnie kliknij przycisk **dziennika w**.
    
     ![][2]
 3. Powinny zostać wyświetlone okno podręczne informujące o Powodzenie rejestracji. Kliknij przycisk **OK**.
    
     ![][3]
-4. W **tag username odbiorcy* tekst Wprowadź tag nazwę użytkownika używane z rejestracją z innego urządzenia.
-5. Wprowadź komunikat powiadomienia, a następnie kliknij przycisk **Wyślij powiadomienie E-mail**.  Tylko urządzenia, które ma rejestracji z tagiem nazwy użytkownika odbiorcy komunikat powiadomienia.  Jest wysyłane tylko do tych użytkowników.
+4. W hello **tag username odbiorcy* tekst Wprowadź tag nazwy użytkownika hello używany z rejestracją hello z innego urządzenia.
+5. Wprowadź komunikat powiadomienia, a następnie kliknij przycisk **Wyślij powiadomienie E-mail**.  Hello tylko te urządzenia, które ma rejestracji hello odbiorcy użytkownika nazwa znacznika odbierać wiadomości powitania powiadomień.  Jest wysyłane tylko toothose użytkowników.
    
     ![][4]
 

@@ -1,6 +1,6 @@
 ---
-title: "Monitorowanie klastrów platformy Hadoop w usłudze HDInsight przy użyciu interfejsu API Ambari - Azure | Dokumentacja firmy Microsoft"
-description: "Przy użyciu interfejsów API Apache Ambari do tworzenia, zarządzania i monitorowania klastrów platformy Hadoop. Operator intuicyjne narzędzia i interfejsy API neutralizują złożoność platformy Hadoop."
+title: "aaaMonitor klastrów platformy Hadoop w usłudze HDInsight przy użyciu Ambari API - tekst hello Azure | Dokumentacja firmy Microsoft"
+description: "Użyj hello Apache Ambari API do tworzenia, zarządzania i monitorowania klastrów platformy Hadoop. Operator intuicyjne narzędzia i interfejsy API Ukryj hello złożoność platformy Hadoop."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,53 +16,53 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: b6fc2098027690eb76b69b1427f0e9541b8a7a69
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d61a8aae5ddfcd7d44f2e4cc899e0a4da5e5fdcc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Zarządzanie klastrami Hadoop w usłudze HDInsight przy użyciu interfejsów API systemu Ambari
-Informacje o sposobie monitorowania klastrów usługi HDInsight przy użyciu Ambari API.
+# <a name="monitor-hadoop-clusters-in-hdinsight-using-hello-ambari-api"></a>Monitorowanie klastrów platformy Hadoop w usłudze HDInsight przy użyciu Ambari API hello
+Dowiedz się, jak toomonitor HDInsight clusters przy użyciu Ambari API.
 
 > [!NOTE]
-> Informacje przedstawione w tym artykule jest głównie do klastrów usługi HDInsight opartej na systemie Windows, które udostępnia wersji interfejsu API REST Ambari tylko do odczytu. W klastrach opartych na systemie Linux, zobacz [klastry Hadoop zarządzanie przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md).
+> Witaj informacje w tym artykule jest przeznaczone głównie dla klastrów usługi HDInsight opartej na systemie Windows, które udostępnia hello interfejsu API REST Ambari wersji tylko do odczytu. W klastrach opartych na systemie Linux, zobacz [klastry Hadoop zarządzanie przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md).
 > 
 > 
 
 ## <a name="what-is-ambari"></a>Co to jest Ambari?
-[Apache Ambari] [ ambari-home] służy do inicjowania obsługi, zarządzania i monitorowania klastrów platformy Apache Hadoop. Obejmuje intuicyjny zestaw narzędzi operatora oraz niezawodny zestaw interfejsów API, które neutralizują złożoność platformy Hadoop, upraszczając działanie klastrów. Aby uzyskać więcej informacji na temat interfejsów API, zobacz [Ambari API Reference][ambari-api-reference]. 
+[Apache Ambari] [ ambari-home] służy do inicjowania obsługi, zarządzania i monitorowania klastrów platformy Apache Hadoop. Obejmuje intuicyjny zestaw narzędzi operatora oraz niezawodny zestaw interfejsów API, które neutralizują złożoność hello Hadoop, upraszczając działanie hello klastrów. Aby uzyskać więcej informacji na temat hello interfejsów API, zobacz [Ambari API Reference][ambari-api-reference]. 
 
-HDInsight aktualnie obsługuje tylko funkcja monitorowania Ambari. Ambari API 1.0 jest obsługiwany przez klastry usługi HDInsight w wersji 3.0 i 2.1. W tym artykule omówiono podczas uzyskiwania dostępu do interfejsów API Ambari klastrów usługi HDInsight w wersji 3.1 i 2.1. Najważniejsza różnica między nimi jest niektóre składniki zostały zmienione wraz z wprowadzeniem nowych możliwości (na przykład serwer historii zadań). 
+HDInsight aktualnie obsługuje tylko hello Ambari funkcji monitorowania. Ambari API 1.0 jest obsługiwany przez klastry usługi HDInsight w wersji 3.0 i 2.1. W tym artykule omówiono podczas uzyskiwania dostępu do interfejsów API Ambari klastrów usługi HDInsight w wersji 3.1 i 2.1. Hello Najważniejsza różnica między hello dwa jest niektórych składników hello zostały zmienione z hello wprowadzenie nowych funkcji (na przykład powitania serwera historii zadań). 
 
 **Wymagania wstępne**
 
-Przed przystąpieniem do wykonywania kroków opisanych w tym samouczku musisz mieć poniższe:
+Przed rozpoczęciem tego samouczka, musi mieć hello następujące elementy:
 
 * **Stacja robocza z programem Azure PowerShell**.
-* (Opcjonalnie) [cURL][curl]. Aby go zainstalować, zobacz [cURL wersje i pliki do pobrania][curl-download].
+* (Opcjonalnie) [cURL][curl]. tooinstall, zobacz [cURL wersje i pliki do pobrania][curl-download].
   
   > [!NOTE]
-  > Kiedy używać polecenia cURL w systemie Windows, użyj w podwójny cudzysłów zamiast pojedynczego cudzysłowu do wartości opcji.
+  > Kiedy używać polecenia cURL hello w systemie Windows, użyj w podwójny cudzysłów zamiast pojedynczego cudzysłowu do wartości opcji hello.
   > 
   > 
-* **Klaster Azure HDInsight**. Aby uzyskać instrukcje dotyczące inicjowania obsługi klastra, zobacz [rozpocząć korzystanie z usługi HDInsight] [ hdinsight-get-started] lub [Obsługa administracyjna klastrów HDInsight][hdinsight-provision]. Potrzebne są następujące dane do wykonywania kroków samouczka:
+* **Klaster Azure HDInsight**. Aby uzyskać instrukcje dotyczące inicjowania obsługi klastra, zobacz [rozpocząć korzystanie z usługi HDInsight] [ hdinsight-get-started] lub [Obsługa administracyjna klastrów HDInsight][hdinsight-provision]. Należy powitania po toogo danych samouczkiem hello:
   
   | Właściwości klastra | Nazwa zmiennej platformy Azure PowerShell | Wartość | Opis |
   | --- | --- | --- | --- |
-  |   Nazwa klastra usługi HDInsight |$clusterName | |Nazwa klastra usługi HDInsight. |
-  |   Nazwa użytkownika klastra |$clusterUsername | |Określona nazwa użytkownika klastra podczas tworzenia klastra. |
+  |   Nazwa klastra usługi HDInsight |$clusterName | |Nazwa Hello z klastrem usługi HDInsight. |
+  |   Nazwa użytkownika klastra |$clusterUsername | |Określona nazwa użytkownika klastra podczas tworzenia klastra hello. |
   |   Hasło klastra |$clusterPassword | |Hasło użytkownika klastra. |
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ## <a name="jump-start"></a>Szybkie rozpoczęcie tworzenia
-Istnieje kilka sposobów, aby używać narzędzia Ambari do monitorowania klastrów usługi HDInsight.
+Istnieje kilka sposobów klastrów usługi HDInsight toomonitor Ambari toouse.
 
 **Korzystanie z programu Azure PowerShell**
 
-Poniższy skrypt programu PowerShell Azure pobiera informacji o śledzeniu zadania MapReduce *w klastrze HDInsight 3.5.*  Najważniejsza różnica polega na tym, że możemy pobierać te szczegóły usługi YARN (zamiast MapReduce).
+Witaj następującego skryptu programu Azure PowerShell pobiera informacje śledzenia zadań MapReduce hello *w klastrze HDInsight 3.5.*  Witaj Najważniejsza różnica polega na tym, że możemy pobierać te szczegóły usługi YARN hello (zamiast MapReduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -78,7 +78,7 @@ Poniższy skrypt programu PowerShell Azure pobiera informacji o śledzeniu zadan
 
     $response.metrics.'yarn.queueMetrics'
 
-Poniższy skrypt programu PowerShell pobiera informacji o śledzeniu zadania MapReduce *w klastrze HDInsight 2.1*:
+Witaj następującego skryptu programu PowerShell pobiera informacje śledzenia zadań MapReduce hello *w klastrze HDInsight 2.1*:
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -94,17 +94,17 @@ Poniższy skrypt programu PowerShell pobiera informacji o śledzeniu zadania Map
 
     $response.metrics.'mapred.JobTracker'
 
-Wynik jest:
+dane wyjściowe Hello to:
 
 ![Dane wyjściowe Jobtracker][img-jobtracker-output]
 
 **Korzystanie z programu cURL**
 
-Poniższy przykład pobiera informacje o klastrze przy użyciu cURL:
+Witaj poniższy przykład pobiera informacje o klastrze przy użyciu cURL:
 
     curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
-Wynik jest:
+dane wyjściowe Hello to:
 
     {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/",
      "Clusters":{"cluster_name":"hdi0211v2.azurehdinsight.net","version":"2.1.3.0.432823"},
@@ -121,12 +121,12 @@ Wynik jest:
         "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
                  "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
-**W wersji 2014-10-8**:
+**W wersji 2014-10-8 hello**:
 
-Korzystając z punktu końcowego Ambari "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", *host_name* pola Zwraca pełną nazwę domeny (FQDN) węzła zamiast nazwy hosta. Przed wprowadzeniem 2014-10-8, w tym przykładzie zwracane po prostu "**headnode0**". Po wydaniu 2014-10-8, możesz uzyskać nazwę FQDN "**headnode0. { Gt;. azurehdinsight.NET ClusterDNS} .net**", jak pokazano w poprzednim przykładzie. Ta zmiana została wymagane do ułatwienia scenariuszy, w którym można wdrożyć wiele typów klastra (na przykład HBase i Hadoop) w jedną sieć wirtualną (VNET). Dzieje się tak, na przykład w przypadku używania bazy danych HBase jako platforma wewnętrzna dla platformy Hadoop.
+Gdy przy użyciu Ambari hello punktu końcowego, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", hello *host_name* pola Zwraca hello pełną nazwę domeny (FQDN) węzła hello zamiast hello nazwy hosta. Przed wprowadzeniem 2014-10-8 hello, w tym przykładzie zwracane po prostu "**headnode0**". Po wydaniu 2014-10-8 hello, możesz uzyskać hello FQDN "**headnode0. { Gt;. azurehdinsight.NET ClusterDNS} .net**", jak pokazano w poprzednim przykładzie hello. Ta zmiana została scenariusze wymagane toofacilitate wdrożonym wiele typów klastra (na przykład HBase i Hadoop) w jedną sieć wirtualną (VNET). Dzieje się tak, na przykład w przypadku używania bazy danych HBase jako platforma wewnętrzna dla platformy Hadoop.
 
 ## <a name="ambari-monitoring-apis"></a>Ambari API monitorowania
-W poniższej tabeli wymieniono niektóre z najczęściej Ambari monitorowania wywołań interfejsu API. Aby uzyskać więcej informacji na temat interfejsu API, zobacz [Ambari API Reference][ambari-api-reference].
+Witaj poniższej tabeli przedstawiono niektóre hello najbardziej typowe narzędzia Ambari monitorowania wywołań interfejsu API. Aby uzyskać więcej informacji na temat hello interfejsu API, zobacz [Ambari API Reference][ambari-api-reference].
 
 | Wywołanie interfejsu API Monitora | IDENTYFIKATOR URI | Opis |
 | --- | --- | --- |
@@ -144,9 +144,9 @@ W poniższej tabeli wymieniono niektóre z najczęściej Ambari monitorowania wy
 | Pobierz informacje o konfiguracji. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Typy konfiguracji: lokacji podstawowej, lokacji systemu plików hdfs, mapred lokacji, lokacji gałęzi |
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz ma pokazaliśmy, jak używać narzędzia Ambari monitorowania wywołań interfejsu API. Aby dowiedzieć się więcej, zobacz:
+Teraz wiesz już, jak wywołuje Ambari API monitorowania toouse. toolearn więcej, zobacz:
 
-* [Zarządzanie klastrami HDInsight przy użyciu portalu Azure][hdinsight-admin-portal]
+* [Zarządzanie klastrami HDInsight przy użyciu hello portalu Azure][hdinsight-admin-portal]
 * [Zarządzanie klastrami HDInsight przy użyciu programu Azure PowerShell][hdinsight-admin-powershell]
 * [Zarządzanie klastrami HDInsight przy użyciu interfejsu wiersza polecenia][hdinsight-admin-cli]
 * [Dokumentacja dotycząca usługi HDInsight][hdinsight-documentation]

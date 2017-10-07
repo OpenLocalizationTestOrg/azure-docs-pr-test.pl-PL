@@ -1,5 +1,5 @@
 ---
-title: "Połącz malinowe Pi (C) do platformy Azure IoT — Rozwiązywanie problemów z | Dokumentacja firmy Microsoft"
+title: "TooAzure Connect Raspberry pi (C) IoT — Rozwiązywanie problemów z | Dokumentacja firmy Microsoft"
 description: "Rozwiązywanie problemów z strony dla środowiska Node.js Pi malina"
 services: iot-hub
 documentationcenter: 
@@ -17,45 +17,45 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 828669db23fa8d608029134fbe364033456d935a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4f1ea81dd25d10a39c2939f5ee5f19f6d2ba2b2d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting"></a>Rozwiązywanie problemów
 ## <a name="hardware-issues"></a>Problemy ze sprzętem
-### <a name="the-application-runs-well-but-the-led-is-not-blinking"></a>Aplikacja działa prawidłowo, ale nie jest migający LED
-Ten problem dotyczy zawsze łączności obwodu sprzętu. Wykonaj następujące kroki, aby zidentyfikować problemy.
+### <a name="hello-application-runs-well-but-hello-led-is-not-blinking"></a>Aplikacja Hello działa prawidłowo, ale hello LED nie jest migający
+Ten problem jest zawsze powiązane toohello sprzętu obwodu łączności. Użyj następujących hello kroki problemy tooidentify.
 
-1. Sprawdź, czy wybrano poprawny **interfejs GPIO** na tablicy. Dwa porty powinna być **GND interfejs GPIO (numer Pin 6)** i **04 interfejs GPIO (7 kodu Pin)**.
-2. Sprawdź, czy bieguna z Twojej LED jest poprawna. Etap dłużej powinny wskazywać **dodatnią**, szczytową numeru pin.
-3. Użyj **3, 3V przypiąć** i **GND Pin** na malina Pi 3. Pi należy traktować jako potęgi kontrolera domeny. Sprawdź, czy LED działa prawidłowo.
+1. Sprawdź, czy wybrano poprawną hello **interfejs GPIO** na tablicy. Witaj dwie powinny być **GND interfejs GPIO (numer Pin 6)** i **04 interfejs GPIO (7 kodu Pin)**.
+2. Sprawdź, czy bieguna hello z Twojej LED jest poprawna. etap dłużej Hello powinny wskazywać hello **dodatnią**, szczytową numeru pin.
+3. Użyj hello **3, 3V przypiąć** i **GND Pin** malina Pi 3. Pi należy traktować jako hello zasilania kontrolera domeny. Sprawdź, czy ten hello LED działa prawidłowo.
 
 ![Specyfikacja LED](media/iot-hub-raspberry-pi-lessons/troubleshooting/led_spec.png)
 
 ### <a name="other-hardware-issues"></a>Innych problemów ze sprzętem
-Uzyskać informacji na temat rozwiązywania typowych problemów 3 Pi malina, zobacz [oficjalnego stronę rozwiązywania problemów](http://elinux.org/R-Pi_Troubleshooting).
+Uzyskać informacji na temat rozwiązywania typowych problemów 3 Pi malina, zobacz hello [oficjalnego stronę rozwiązywania problemów](http://elinux.org/R-Pi_Troubleshooting).
 
 ## <a name="nodejs-package-issues"></a>Problemy z pakietu node.js
 ### <a name="no-response-during-gulp-tasks"></a>Brak odpowiedzi podczas gulp zadań
-Jeśli wystąpią problemy z działaniem gulp zadań, możesz dodać `--verbose` opcji do debugowania. Spróbuj zakończenie bieżącego zadania gulp przy użyciu `Ctrl + C`, a następnie uruchom następujące polecenie w oknie konsoli, aby wyświetlić komunikaty debugowania. Szczegółowe komunikaty o błędach mogą zobaczyć w danych wyjściowych konsoli. 
+Jeśli wystąpią problemy z działaniem gulp zadania, można dodać hello `--verbose` opcji do debugowania. Spróbuj tooterminate bieżące gulp zadania przy użyciu `Ctrl + C`, a następnie hello uruchom następujące polecenie w wiadomości debugowania toosee okna konsoli. Szczegółowe komunikaty o błędach mogą zobaczyć w danych wyjściowych konsoli. 
 
 ```bash
 gulp --verbose
 ```
 
 ### <a name="device-discovery-issues"></a>Problemy dotyczące odnajdywania urządzenia
-Aby uzyskać pomoc w rozwiązywaniu typowych problemów z `devdisco` polecenia, wyboru [readme](https://github.com/Azure/device-discovery-cli/blob/develop/readme.md).
+Aby uzyskać pomoc w rozwiązywaniu typowych problemów z hello `devdisco` polecenia, sprawdź hello [readme](https://github.com/Azure/device-discovery-cli/blob/develop/readme.md).
 
 ### <a name="npm-issues"></a>Problemy z NPM
-Spróbuj zaktualizować pakiet NPM przy użyciu następującego polecenia:
+Spróbuj tooupdate pakietu NPM z hello następujące polecenie:
 
 ```bash
 npm install -g npm
 ```
 
-Jeśli problem nadal występuje, zostaw komentarz na końcu tego artykułu lub utworzyć problem GitHub w naszym [repozytorium przykładowej](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-getting-started)
+Jeśli hello problem nadal występuje, komentarz na końcu tego artykułu hello lub utworzyć problem GitHub w naszym [repozytorium przykładowej](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-getting-started)
 
 ## <a name="remote-debugging"></a>Debugowanie zdalne
 
@@ -69,13 +69,13 @@ sudo gdb app
 ```
 
 ## <a name="azure-cli-issues"></a>Problemy z wiersza polecenia platformy Azure
-Interfejs wiersza polecenia platformy Azure (Azure CLI) jest kompilacji w wersji zapoznawczej. Wyszukaj rozwiązanie w [Przewodnik instalowania wersji zapoznawczej](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md) poszukiwanie rozwiązania. Spróbuj uaktualnić wiersza polecenia platformy Azure do najnowszej wersji, gdy nie działają polecenia, zgodnie z oczekiwaniami.
+Interfejs wiersza polecenia platformy Azure (Azure CLI) Hello jest kompilacji w wersji zapoznawczej. Wyszukaj rozwiązanie w hello [Przewodnik instalowania wersji zapoznawczej](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md) tooseek rozwiązań. Spróbuj tooupgrade interfejsu wiersza polecenia Azure toolatest wersji, gdy nie działają polecenia, zgodnie z oczekiwaniami.
 
-Jeśli wystąpią usterek za pomocą narzędzia plików [problem](https://github.com/Azure/azure-cli/issues) w **problemów** sekcji repozytorium GitHub.
+Jeśli wystąpią usterek za pomocą narzędzia hello pliku [problem](https://github.com/Azure/azure-cli/issues) w hello **problemów** sekcji hello repozytorium GitHub.
 
-Aby uzyskać pomoc w rozwiązywaniu typowych problemów, sprawdź [readme](https://github.com/Azure/azure-cli/blob/master/README.rst).
+Aby uzyskać pomoc w rozwiązywaniu typowych problemów, sprawdź hello [readme](https://github.com/Azure/azure-cli/blob/master/README.rst).
 
-Jeśli spełniasz "Nie można odnaleźć wersji, który spełnia wymagania", uruchom następujące polecenie, aby uaktualnić narzędzie pip do najnowsza wersja.
+Jeśli spełniasz "Nie można odnaleźć wersji, który spełnia wymagania hello", należy hello uruchom następujące polecenie tooupgrade pip toolastest wersji.
 
 ```bash
 python -m pip install --upgrade pip
@@ -83,7 +83,7 @@ python -m pip install --upgrade pip
 
 ## <a name="python-installation-issues"></a>Problemy z instalacją Python
 ### <a name="legacy-installation-issues-macos"></a>Problemy z instalacją starszej wersji (system macOS)
-Podczas instalowania **pip**, błąd uprawnień jest generowany, gdy starszych pakietów, które są instalowane z **su** uprawnienia. Ta sytuacja występuje, ponieważ poprzednich instalacji języka Python za pomocą brew (macOS) nie został całkowicie odinstalowany. Niektóre **pip** pakiety z poprzedniej instalacji zostały utworzone przez główny, co powoduje, że błąd uprawnień. Rozwiązanie, to usuń te pakiety zainstalowane przez główny. Aby zakończyć to zadanie, wykonaj następujące kroki:
+Podczas instalowania **pip**, błąd uprawnień jest generowany, gdy starszych pakietów, które są instalowane z **su** uprawnienia. Ta sytuacja występuje, ponieważ poprzednich instalacji języka Python za pomocą brew (macOS) nie został całkowicie odinstalowany. Niektóre **pip** pakiety z poprzedniej instalacji zostały utworzone przez główny, co powoduje, że błąd uprawnień hello. Witaj rozwiązania jest tooremove pakiety zainstalowane w katalogu głównego. To zadanie służy powitania po toocomplete kroki:
 
 1. Przejdź do: /usr/local/lib/python2.7/site-packages
 2. Utwórz listę pakietów przez główny:`ls -l | grep root`
@@ -91,34 +91,34 @@ Podczas instalowania **pip**, błąd uprawnień jest generowany, gdy starszych p
 4. Zainstaluj ponownie Python.
 
 ## <a name="azure-iot-hub-issues"></a>Problemy z Centrum IoT Azure
-Jeśli użytkownik został pomyślnie zainicjowano obsługę administracyjną Centrum Azure IoT z `azure-cli`, i wymagają narzędzia do zarządzania urządzeniami, łączących się z Centrum IoT, spróbuj następujących narzędzi:
+Jeśli użytkownik został pomyślnie zainicjowano obsługę administracyjną Centrum Azure IoT z `azure-cli`, i wymagają urządzeń hello toomanage narzędzia, łączących tooyour Centrum IoT, spróbuj hello następujące narzędzia:
 
 ### <a name="device-explorer"></a>Eksplorator urządzenia
-[Eksplorator urządzenia](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) działa na komputerze lokalnym systemu Windows i łączy się z Centrum IoT na platformie Azure. Komunikuje się z następującymi [punkty końcowe Centrum IoT](iot-hub-devguide.md):
+[Eksplorator urządzenia](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) działa na komputerze lokalnym systemu Windows i łączy tooyour Centrum IoT na platformie Azure. Komunikuje się ona z następujących hello [punkty końcowe Centrum IoT](iot-hub-devguide.md):
 
-* *Zarządzanie tożsamościami urządzenia* obsługiwać i zarządzać nim urządzeń zarejestrowanych w usłudze Centrum IoT.
-* *Odbieranie urządzenia do chmury* , można monitorować wiadomości wysyłane z urządzenia do Centrum IoT.
-* *Wyślij chmury do urządzenia* tak wiadomości można wysyłać do urządzenia z Centrum IoT.
+* *Zarządzanie tożsamościami urządzenia* tooprovision i zarządzanie nimi urządzeń zarejestrowanych w usłudze Centrum IoT.
+* *Odbieranie urządzenia do chmury* , można monitorować wiadomości wysyłane z Centrum IoT tooyour urządzenia.
+* *Wyślij chmury do urządzenia* , możesz wysłać wiadomości tooyour urządzenia z Centrum IoT.
 
-Konfigurowanie sieci `IoT hub connection string` w to narzędzie, aby korzystać z jego możliwości.
+Konfigurowanie sieci `IoT hub connection string` w ramach tego narzędzia toouse jego możliwości.
 
 ### <a name="iot-hub-explorer"></a>Centrum IoT Explorer
-[Centrum IoT Explorer](https://github.com/Azure/iothub-explorer) to przykładowe narzędzie interfejsu wiersza polecenia dla wielu platform do zarządzania klientami urządzeń. Można użyć narzędzia do zarządzania urządzeniami w rejestrze tożsamości, monitorować urządzenia do chmury wiadomości i wysyłanie poleceń z chmury do urządzenia.
+[Centrum IoT Explorer](https://github.com/Azure/iothub-explorer) to narzędzie interfejsu wiersza polecenia dla wielu platform próbki toomanage urządzeń klientów. Można użyć hello narzędzia toomanage hello urządzeń w rejestrze tożsamości hello, monitorować urządzenia do chmury wiadomości i wysyłanie poleceń z chmury do urządzenia.
 
-Aby zainstalować najnowszą wersję (wstępna) narzędzia Centrum iothub explorer, uruchom następujące polecenie w wierszu polecenia środowiska:
+tooinstall hello najnowszej wersji (wstępna) hello Centrum iothub explorer narzędzia, uruchom następujące polecenie w wierszu polecenia środowiska hello:
 
 ```
 npm install -g iothub-explorer@latest
 ```
 
-Aby uzyskać dodatkową pomoc dotyczącą poleceń Centrum iothub explorer i ich parametry służy następujące polecenie:
+Można użyć następującego polecenia, które tooget dodatkową pomoc na temat wszystkich hello polecenia Eksploratora Centrum iothub i ich parametry hello:
 
 ```bash
 iothub-explorer help
 ```
 
 ### <a name="azure-portal"></a>Azure Portal
-Pełne środowisko CLI ułatwia tworzenie i zarządzanie nimi wszystkich zasobów na platformie Azure. Można także użyć [portalu Azure](../azure-portal-overview.md) świadczenia pomocy, zarządzanie i debugowania zasobów platformy Azure.
+Pełne środowisko CLI ułatwia tworzenie i zarządzanie nimi wszystkich zasobów na platformie Azure. Można także toouse hello [portalu Azure](../azure-portal-overview.md) toohelp obsługę administracyjną, zarządzanie i debugowanie zasobów platformy Azure.
 
 ## <a name="azure-storage-issues"></a>Problemy z usługą Azure storage
-[Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza)](http://storageexplorer.com) jest aplikacją autonomiczną firmy Microsoft, który służy do pracy z danymi usługi Azure Storage w systemie Windows, macOS i Linux. Za pomocą tego narzędzia, możesz nawiązać połączenia z tabeli i wyświetlać dane w nim. To narzędzie służy do rozwiązywania problemów związanych z usługą Azure Storage.
+[Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza)](http://storageexplorer.com) jest aplikacją autonomiczną firmy Microsoft, w której można toowork z danymi usługi Azure Storage w systemie Windows, macOS i Linux. Za pomocą tego narzędzia, możesz łączyć tooyour tabeli i wyświetlać dane hello w nim. Służy to narzędzie tootroubleshoot problemów związanych z magazynu Azure.

@@ -1,6 +1,6 @@
 ---
-title: "Interfejs użytkownika usługi Azure Mobile Engagement - Reach"
-description: "Dowiedz się, jak dotrzeć do użytkowników aplikacji z powiadomień wypychanych przy użyciu usługi Azure Mobile Engagement"
+title: aaaAzure Mobile Engagement interfejs - Reach
+description: "Dowiedz się, jak tooreach toohello użytkowników aplikacji za pomocą powiadomień wypychanych przy użyciu usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 40d5162ddeccec82c2c9f5b0d72b4cb10c9ddc38
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Jak dotrzeć do użytkowników aplikacji przy użyciu powiadomień wypychanych
-W tym artykule opisano **OSIĄGNĄĆ** karcie **Mobile Engagement** portalu. Możesz użyć **Mobile Engagement** portalu do monitorowania i zarządzania aplikacjami mobilnymi. Należy pamiętać, że można uruchomić przy użyciu portalu należy najpierw utworzyć **usługi Azure Mobile Engagement** konta. Aby uzyskać więcej informacji, zobacz [utworzyć konto usługi Azure Mobile Engagement](mobile-engagement-create.md).
+# <a name="how-tooreach-out-toohello-users-of-your-application-with-push-notifications"></a>Jak tooreach toohello użytkowników aplikacji za pomocą powiadomień wypychanych
+W tym artykule opisano hello **OSIĄGNĄĆ** kartę hello **Mobile Engagement** portalu. Użyj hello **Mobile Engagement** toomonitor portalu i zarządzania aplikacjami mobilnymi. Należy pamiętać, że toostart przy użyciu portalu hello, musisz najpierw toocreate **usługi Azure Mobile Engagement** konta. Aby uzyskać więcej informacji, zobacz [utworzyć konto usługi Azure Mobile Engagement](mobile-engagement-create.md).
 
-Sekcja Reach interfejsu użytkownika jest wypychane kampanii narzędzie do zarządzania można utworzyć/edytowanie/aktywować/Zakończ/monitor i uzyskać statystyki kampanii obejmujących wysyłanie powiadomień wypychanych i funkcji, które są dostępne za pośrednictwem interfejsu API Reach (i niektóre elementy niski poziom Push interfejsu API) . Należy pamiętać, czy używane są interfejsy API lub interfejsu użytkownika, konieczne będzie zintegrować zarówno usługi Azure Mobile Engagement i Reach do aplikacji dla poszczególnych platform przy użyciu zestawu SDK można osiągnąć kampanii.
+Hello osiągnąć sekcji powitalne interfejsu użytkownika jest hello wypychania kampanii narzędzie do zarządzania można utworzyć/edytowanie/aktywować/Zakończ/monitor i uzyskać statystyki kampanii obejmujących wysyłanie powiadomień wypychanych i funkcji, które są dostępne za pośrednictwem interfejsu API Reach hello (i niektóre elementy hello niski poziom Push interfejsu API). Należy pamiętać, że zarówno w przypadku korzystania z interfejsów API hello lub hello interfejsu użytkownika należy toointegrate zarówno usługi Azure Mobile Engagement i Reach do aplikacji dla poszczególnych platform z hello SDK przed użyciem osiągnąć kampanii.
 
 > [!NOTE]
-> Wiele sekcji **Mobile Engagement** zawierają interfejsu użytkownika portalu **Pokaż Pomoc** przycisku. Naciśnij ten przycisk, aby uzyskać dodatkowe informacje kontekstowe o sekcji.
+> Wiele sekcji hello **Mobile Engagement** interfejsu użytkownika portalu zawierają hello **Pokaż Pomoc** przycisku. Naciśnij ten przycisk tooget więcej informacje kontekstowe dotyczące sekcji.
 > 
 > 
 
 ## <a name="four-types-of-push-notifications"></a>Cztery typy powiadomień wypychanych
-1. Anonse — pozwalają wysyłać reklamy przez sieć do użytkowników, którzy przekierować je do innej lokalizacji w aplikacji lub w celu wysłania ich sklep poza aplikacji lub strony sieci Web. 
-2. Ankiety — umożliwiają zbieranie informacji od użytkowników końcowych za pośrednictwem pytań.
-3. Wypychania danych — umożliwia wysyłanie pliku danych binarnych lub base64. Informacje zawarte w wypychanych danych są wysyłane do aplikacji, aby zmodyfikować bieżącego środowiska użytkowników w aplikacji. Aplikacja musi być w stanie przetwarzać dane w wypychanych danych.
+1. Anonse — Zezwalaj toosend toousers wiadomości reklamy, który przekierowanie tooanother położenie wewnątrz aplikację lub toosend ich tooa strony sieci Web ani do przechowywania poza aplikacji. 
+2. Ankiety — Zezwalaj toogather informacji od użytkowników końcowych za pośrednictwem pytań.
+3. Wypychania danych - pozwalają toosend pliku danych binarnych lub base64. Witaj informacje zawarte w wypychanych danych są wysyłane toomodify aplikacji tooyour bieżącego środowiska użytkowników w aplikacji. Aplikacja wymaga toobe tooprocess stanie hello danych w wypychanych danych.
 
 ## <a name="campaign-details"></a>Szczegóły kampanii
-Można edytować, klonowanie, usunąć lub aktywowania kampanii, które nie zostały jeszcze aktywowane, ustawiając kursor nad ich nazwy lub można kliknąć, aby je otworzyć. Można sklonować kampanii, które zostały już aktywowana, ustawiając kursor nad ich nazwy lub można kliknąć, aby je otworzyć. Jednak nie można zmienić kampanii, gdy został już aktywowany.
+Można edytować, klonowanie, usunąć lub aktywowania kampanii, które nie zostały jeszcze aktywowane, ustawiając kursor nad ich nazwy lub kliknięciu tooopen je. Można sklonować kampanii, które zostały już aktywowana, ustawiając kursor nad ich nazwy lub kliknięciu tooopen je. Jednak nie można zmienić kampanii, gdy został już aktywowany.
 
 ![Reach1][18]
 
 ## <a name="reach-feedback"></a>Osiągnąć opinii
-Polecenie **statystyki** Aby wyświetlić szczegóły kampanii Reach. **Proste** widok zawiera wizualną reprezentację w postaci wykresu słupkowego kolumny o co się stało po kampanii został aktywowany. **Zaawansowane** widoku szczegółowe bardziej szczegółowe informacje na temat kampanii wypychania. Te informacje nie będą dostępne w przypadku wysyłania kampanii testowej tj wypychanej wysłane do urządzenia testu. Oto, jak należy interpretować te szczegóły:
+Polecenie **statystyki** toosee hello szczegóły kampanii Reach. Witaj **proste** widok zawiera wizualną reprezentację w postaci hello wykres słupkowy kolumny o co się stało po kampanii został aktywowany. Witaj **zaawansowane** widoku szczegółowe bardziej szczegółowe informacje na temat hello wypychania kampanii. Te informacje nie będą dostępne w przypadku wysyłania kampanii testowej np. urządzenie testowe wysłane tooa wypychania. Oto, jak należy interpretować te szczegóły:
 
-1. **Wypychana** — określa to liczba komunikatów wypchniętych do urządzeń. Ta liczba będzie zależeć od docelowych odbiorców określone podczas tworzenia kampanii wypychania. Jeśli nie określono żadnych docelowych odbiorców, następnie tego wypychane będą wysyłane do zarejestrowanych urządzeń. Podobnie jak inne usługi wypychania, firma Microsoft nie powiadomienia wypychane bezpośrednio do urządzenia, ale zamiast tego Wypchnij je do odpowiednich platform określonych usług powiadomień wypychanych (PNS - WNS-APNS/GCM) tak, aby ich dostarczenia powiadomienia do urządzeń. 
-2. **Dostarczone** — określa liczbę wiadomości, które pomyślnie są dostarczane przez system powiadomień platformy na urządzeniu i potwierdzone jako odebrane przez zestaw SDK usługi Mobile Engagement. 
+1. **Wypychana** — określa hello liczba komunikatów wypchniętych toohello urządzeń. Ta liczba będzie zależeć od hello docelowych odbiorców określone podczas tworzenia hello wypychania kampanii. Jeśli nie określono żadnych docelowych odbiorców, to wypychane będą wysyłane w tooall hello zarejestrowanych urządzeń. Podobnie jak inne usługi wypychania, firma Microsoft nie hello powiadomienia wypychane bezpośrednio toohello urządzenia, ale zamiast tego wypychanie ich odpowiednich platform toohello określonych usług powiadomień wypychanych (PNS - WNS-APNS/GCM) tak, aby ich dostarczenia powiadomienia hello toohello urządzeń. 
+2. **Dostarczone** — określa hello liczbę wiadomości, które są pomyślnie dostarczone przez urządzenie toohello systemu powiadomień platformy hello i potwierdzone jako odebrane przez zestaw SDK usługi Mobile Engagement. 
    
    *Przyczyny dostarczone liczba była mniejsza niż liczba wciśnięcia:*
    
-   1. Jeśli użytkownik odinstalował aplikacji z urządzenia, ale systemu powiadomień platformy nie może ustalić o nim w chwili wyślemy powiadomienia wypychanego do systemu powiadomień platformy, komunikat zostanie usunięty.
-   2. Jeśli urządzenie jest aplikacja, ale z samymi urządzeniami były w trybie offline przez dłuższy czas, PNS zakończy się niepowodzeniem na dostarczenie wiadomości do urządzenia. 
-   3. Jeśli dostarczenie wiadomości do urządzenia, ale zestaw Mobile Engagement SDK w aplikacji nie rozpoznaje zawartości komunikatu, jego porzuca tej wiadomości. Może to się zdarzyć, jeśli dostosowywania powiadomień w aplikacji generuje wyjątek, który mamy catch w zestawu SDK i upuszczanie wiadomości. Można to także wystąpić w przypadku aplikacji na urządzeniu jest używana jest wersja zestaw Mobile Engagement SDK, który nie jest w stanie zrozumieć nowszej wersji wiadomości wypychanych wysyłane z platformy, ale jest to tylko wtedy, gdy aplikacja został uaktualniony po powiadomienia została wysłana z t Platforma service on. **Zaawansowane** kartę informuje, ile komunikatów zostały usunięte. 
-   4. Na urządzeniach z systemem iOS wiadomości czasami nie dostarczenie czy albo urządzenie znajduje się na niskim poziomie naładowania baterii, czy aplikacja zużywa dużo mocy podczas przetwarzania zdalnego powiadomienia. Jest to ograniczenie urządzeń z systemem iOS.   
-3. **Wyświetlane** — określa liczbę wiadomości, które pomyślnie zostały przedstawione dla użytkownika aplikacji na urządzeniu w formularzu systemu powiadomienia wypychane/out z — aplikacji w Centrum powiadomień lub powiadomienie w aplikacji w aplikacji mobilnej.  **Zaawansowane** kartę informuje o ile zostały powiadomień systemowych i ile były powiadomienia w aplikacji. 
+   1. Jeśli użytkownik hello odinstalował aplikacji hello z urządzenia hello, ale hello systemu powiadomień platformy nie wiesz w czasie hello wyślemy hello wypychania toohello systemu powiadomień platformy wiadomość hello zostaną usunięte.
+   2. Jeśli urządzenie hello jest aplikacja hello, ale samymi urządzeniami hello były w trybie offline przez dłuższy czas, następnie hello systemu powiadomień platformy zakończy się niepowodzeniem urządzenia toohello wiadomość hello toodeliver. 
+   3. Jeśli wiadomość hello dostarczenie toohello urządzenia, ale hello zestaw Mobile Engagement SDK w aplikacji hello nie rozpoznaje zawartości hello wiadomość hello, jego porzuca tej wiadomości. Może to się zdarzyć, jeśli dostosowania hello hello powiadomienia w aplikacji hello generuje wyjątek, który mamy catch w wiadomość hello zestawu SDK i upuszczanie powitania. Może to także wystąpić, jeśli aplikacja hello na urządzeniu hello jest przy użyciu wersji hello zestaw Mobile Engagement SDK, który nie jest możliwe toounderstand hello nowszej wersji wiadomości wypychanych hello wysyłane z platformy hello, ale jest to tylko wtedy, gdy aplikacja hello został uaktualniony po powiadomieniu hello została wysłana z hello usługi platformy. Witaj **zaawansowane** kartę informuje, ile komunikatów zostały usunięte. 
+   4. Na urządzeniach z systemem iOS wiadomości czasami nie dostarczenie albo urządzenia hello znajduje się na niskim poziomie naładowania baterii lub aplikacji hello zajmuje dużo mocy podczas przetwarzania zdalnego powiadomienia. Jest to ograniczenie hello urządzeń z systemem iOS.   
+3. **Wyświetlane** — określa hello liczbę wiadomości, które pomyślnie toohello aplikacji użytkownika na urządzeniu hello w postaci hello systemu powiadomienie wypychane/out z — aplikacji w Centrum powiadomień hello lub powiadomienie w aplikacji w ramach hello przenośnych aplikacja.  Witaj **zaawansowane** kartę informuje o ile zostały powiadomień systemowych i ile były powiadomienia w aplikacji. 
    
-   *Liczba powody mogą być wyświetlane jest mniejsza niż liczba dostarczone (oczekiwanie, który będzie wyświetlany)*
+   *Liczba powody mogą być wyświetlane jest mniejsza niż liczba dostarczone (wyświetlane toobe oczekiwania)*
    
-   1. Gdyby kampanię powiadomień datę końcową w nim następnie jest możliwe, że powiadomienie zostało dostarczone, ale po chwili pochodzi otworzyć i wyświetlić je użytkownikowi aplikacji, on już wygasł, nigdy nie została wyświetlona.   
-   2. Jeśli powiadomienie jest powiadomienie w aplikacji, a następnie powiadomienie jest wyświetlane tylko wtedy, gdy aplikacji użytkownik otwiera aplikację. W przypadkach, gdy użytkownik aplikacji nie otworzyła aplikacji zestaw SDK będzie zgłaszać czy powiadomienie zostało dostarczone, ale nie została jeszcze wyświetlany, dopóki otwarciu aplikacji. 
-   3. Jeśli powiadomienie jest powiadomienie w aplikacji i skonfigurowane do pokazania na określone działanie/ekranu, a następnie również powiadomienia będą raportowane jako wydana, ale nie zostały jeszcze dostarczone do użytkownik otwiera aplikację na określonych ekranu. 
-4. **Interakcje użytkownika** — określa liczbę wiadomości, które ma interakcją użytkowników aplikacji z i będzie zawierać komunikaty, które są akcje lub Zakończono. 
+   1. Jeśli kampanię z użyciem powiadomień hello ma datę końcową w nim, a następnie jest możliwe, że hello powiadomienie zostało dostarczone, ale jeśli czas hello pochodzi tooopen i wyświetl ją toohello aplikacji użytkownika, już została usunięta, nigdy nie została wyświetlona.   
+   2. Jeśli powiadomienia hello jest powiadomienie w aplikacji hello powiadomień zostanie wyświetlony tylko po otwarciu użytkownika aplikacji hello aplikacji hello. W przypadkach, gdy użytkownik aplikacji hello nie otworzyła aplikacji hello hello SDK będzie zgłaszać czy hello powiadomienie zostało dostarczone, ale nie została jeszcze wyświetlany, dopóki aplikacja hello jest otwarty. 
+   3. Jeśli powiadomienie hello jest powiadomienie w aplikacji i skonfigurować toobe wyświetlany na określone działanie/ekran również hello powiadomień zostanie zgłoszone jako wydana, ale nie zostały jeszcze dostarczone do hello otwarciu aplikacji hello na ekranie określonego. 
+4. **Interakcje użytkownika** — określa hello liczba wiadomości, który użytkownik aplikacji hello treść instrukcji i będzie zawierać wiadomości powitania, które są akcje lub Zakończono. 
    
-   * *Użytkownik aplikacji może wykonać akcję powiadomień w jednej z następujących sposobów:*
+   * *użytkownik aplikacji Hello może wykonać akcję powiadomień w jednej z hello następujące sposoby:*
      
-     1. Jeśli powiadomienie jest powiadomienie systemu/out elementu aplikacji lub powiadomienie w aplikacji, wysyłane jako tylko do powiadomień, a następnie użytkownik aplikacji kliknie powiadomienie.
-     2. Jeśli powiadomienie jest powiadomienie w aplikacji z tekstu lub widok sieci web lub sondy aplikacji użytkownik kliknie przycisk akcji w powiadomienia.
-     3. Jeśli powiadomienie jest powiadomienie w aplikacji z widoku sieci web, a następnie kliknięciu aplikacji przy użyciu adresu URL sieci web tylko w widoku [Android]
-   * *Użytkownik aplikacji może wyjść powiadomień w jednej z następujących sposobów:*
+     1. Jeśli hello powiadomień jest powiadomienie systemu/out elementu aplikacji lub wysyłane powiadomienie w aplikacji jako tylko do powiadomienia, hello aplikacji użytkownik kliknie powiadomienie hello.
+     2. Jeśli powiadomienia hello jest powiadomienie w aplikacji z tekstem lub widok sieci web lub sond następnie hello użytkownika aplikacji kliknie hello przycisku akcji hello powiadomienia.
+     3. Jeśli powiadomienie o hello powiadomienie w aplikacji z widoku sieci web następnie hello kliknięć użytkowników aplikacji przy użyciu adresu URL hello sieci web tylko w widoku [Android]
+   * *użytkownik aplikacji Hello może wyjść powiadomień w jednej z hello następujące sposoby:*
      
-     1. Kliknięcie przycisku Zamknij powiadomienie bezpośrednio. 
-     2. Szybko przesuwając optymalizacji lub usunięcie powiadomienia. 
-     3. Powiadomienia w aplikacji przy użyciu zawartości tekstu/sieci web i sond zwykle są wyświetlane użytkownikowi aplikacji w dwóch etapach. Najpierw widzą powiadomienie, a po kliknięciu na nim, zobacz temat kolejnych zawartości tekstu/sieci web/sondowania. Użytkownik aplikacji może wyjść powiadomień w jednej z następujących czynności i szczegółów w widoku Zaawansowane przechwytuje to. 
-5. **Których wykonano akcje** — to określa liczbę wiadomości, które zostały jawnie których wykonano akcje przez użytkownika aplikacji. Jest to najbardziej interesujące liczba jako informuje ilu użytkowników aplikacji zostały zainteresowanych przez komunikat, który zostanie umieszczony w powiadomieniu. 
+     1. Kliknięcie przycisku Zamknij hello na powitania powiadomienia bezpośrednio. 
+     2. Szybko przesuwając optymalizacji lub usunięcie hello powiadomienia. 
+     3. Powiadomienia w aplikacji z zawartością tekstu/sieci web i sond są zwykle wyświetlane toohello aplikacji użytkownika w dwóch etapach. Najpierw widzą powiadomienie, a po kliknięciu na nim, zobacz temat hello kolejnych zawartości tekstu/sieci web/sondowania. użytkownik aplikacji Hello może wyjść powiadomień w jednej z następujących czynności i hello szczegółów w widoku Zaawansowane hello przechwytuje to. 
+5. **Których wykonano akcje** — określa hello liczba wiadomości, które zostały jawnie których wykonano akcje przez użytkownika aplikacji hello. Jest to numer najbardziej interesujące hello informuje ilu użytkowników aplikacji zostały zainteresowanych przez wiadomość hello wypchnięty hello powiadomienia. 
 
 > [!NOTE]
-> W systemie iOS & Windows otwórz platformy, jeśli użytkownik ma aplikacji i kampanii został kampanii "W każdej chwili", a następnie jest możliwe, zarówno z aplikacji i powiadomienia w aplikacji są wyświetlane w tym samym czasie. Może to spowodować liczbą wyświetlane wyższe niż dostarczone. Jeśli użytkownik wchodzi w interakcję lub akcje powiadomienia, a następnie nawet liczba interakcji użytkownika/Actioned może być większa niż dostarczone. 
+> Dla systemu iOS & platformy systemu Windows, jeśli użytkownik hello ma aplikacji hello otwarte i kampanii hello został kampanii "W każdej chwili", możliwe, zarówno z aplikacji i w aplikacji Powiadomienia są wyświetlane pod kątem hello jest tym samym czasie. Może to spowodować liczbą wyświetlane wyższe niż hello dostarczone. Jeśli użytkownik hello wchodzi w interakcję lub akcje hello powiadomień, następnie nawet hello Liczba interakcji użytkownika/Actioned może być większa niż dostarczone. 
 > 
 > 
 

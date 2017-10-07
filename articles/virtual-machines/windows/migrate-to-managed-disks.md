@@ -1,6 +1,6 @@
 ---
-title: "Migrowanie maszyn wirtualnych platformy Azure do zarządzanych dysków | Dokumentacja firmy Microsoft"
-description: "Migrowanie maszyn wirtualnych platformy Azure utworzonych przy użyciu niezarządzanych dysków na kontach magazynu do zarządzanych dysków."
+title: "aaaMigrate dysków tooManaged maszynach wirtualnych platformy Azure | Dokumentacja firmy Microsoft"
+description: "Migrowanie maszyn wirtualnych platformy Azure utworzonych przy użyciu niezarządzanych dysków w toouse kont magazynu dysków zarządzanych."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: e23697b390e03bd2b71f2c905882070d864d62ed
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 29420f13c4ffd5b25726e0ef1aafe89347286a89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrowanie maszyn wirtualnych platformy Azure do zarządzanych dysków na platformie Azure
+# <a name="migrate-azure-vms-toomanaged-disks-in-azure"></a>Migrowanie maszyn wirtualnych platformy Azure tooManaged dysków na platformie Azure
 
-Dyskach zarządzanych platformy Azure upraszcza zarządzanie magazynu, usuwając konieczność oddzielnie zarządzania kontami magazynu.  Istniejące maszyny wirtualne Azure można migrować do zarządzanych dysków, aby korzystać z większą niezawodność maszyn wirtualnych w zestawie dostępności. Gwarantuje, że dyski różnych maszyn wirtualnych w zestawie dostępności będzie wystarczająco odizolowane od siebie, aby uniknąć pojedynczy punkt awarii. Automatycznie umieszcza dysków różnych maszyn wirtualnych w zestawie dostępności w różnych jednostkach skalowania magazynu (sygnatury) ograniczająca skutków błędów jednostki skalowania magazynu w jednym spowodowany sprzętu i oprogramowania błędów.
+Zarządzane dysku systemu Azure upraszcza zarządzanie magazynu, usuwając konieczność hello tooseparately Zarządzanie kontami magazynu.  Można migrować istniejące toobenefit dysków tooManaged maszynach wirtualnych platformy Azure z większą niezawodność maszyn wirtualnych w zestawie dostępności. Gwarantuje, że dyski hello różnych maszyn wirtualnych w zestawie dostępności będzie wystarczająco odizolowane od każdego innych tooavoid pojedynczy punkt awarii. Automatycznie umieszcza dysków różnych maszyn wirtualnych w zestawie dostępności w różnych jednostkach skalowania magazynu (sygnatury) ograniczająca hello skutków błędów jednostki skalowania magazynu w jednym wywołane awarii toohardware i oprogramowania.
 Na podstawie Twoich potrzeb, możesz wybrać z dwóch typów pamięci masowej:
 
-- [Dysków zarządzanych w warstwie Premium](../../storage/common/storage-premium-storage.md) nośnika, który dostarcza wysokowydajnej, małe opóźnienia dysku obsługę maszyn wirtualnych działających obciążeń/O wykonujących podstawie stałych dysków stanu (SSD). Zaletą szybkości i wydajności tych dysków może potrwać przy użyciu funkcji migracji do dysków zarządzanych w warstwie Premium.
+- [Dysków zarządzanych w warstwie Premium](../../storage/common/storage-premium-storage.md) nośnika, który dostarcza wysokowydajnej, małe opóźnienia dysku obsługę maszyn wirtualnych działających obciążeń/O wykonujących podstawie stałych dysków stanu (SSD). Może zająć wykorzystują hello szybkości i wydajności tych dysków Migrowanie tooPremium dysków zarządzanych.
 
-- [Dyski standardowe zarządzane](../../storage/common/storage-standard-storage.md) Użyj stacji dysków twardych (HDD) na podstawie nośnikach magazynowania i są najbardziej odpowiednie dla: tworzenie i testowanie i inne obciążenia rzadkim dostępu, które są mniej wrażliwe na zmienności wydajności.
+- [Dyski standardowe zarządzane](../../storage/common/storage-standard-storage.md) Użyj stacji dysków twardych (HDD) na podstawie nośnikach magazynowania i są najbardziej odpowiednie dla: tworzenie i testowanie i innych obciążeń rzadkim dostępu, które są mniej wrażliwych zmienności tooperformance.
 
-Można przeprowadzić migrację do zarządzanych dysków w następujących scenariuszach:
+Można migrować tooManaged dysków w następujących scenariuszach:
 
 | Migrowanie...                                            | Łącze dokumentacji                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Konwertuj autonomiczny maszyny wirtualne i maszyny wirtualne w zestawie do zarządzanych dysków dostępności   | [Konwertuj maszyn wirtualnych do zarządzanych dysków](convert-unmanaged-to-managed-disks.md) |
-| Jednej maszyny Wirtualnej ze środowiska klasycznego do Menedżera zasobów na dyskach zarządzanych     | [Migracja jednej maszyny Wirtualnej](migrate-single-classic-to-resource-manager.md)  | 
-| Wszystkie maszyny wirtualne w sieci wirtualnej ze środowiska klasycznego do Menedżera zasobów na dyskach zarządzanych     | [Migracja zasobów IaaS ze środowiska klasycznego do Menedżera zasobów](migration-classic-resource-manager-ps.md) , a następnie [Konwertuj Maszynę wirtualną z dysków niezarządzanych do zarządzanych dysków](convert-unmanaged-to-managed-disks.md) | 
+| Konwertuj autonomiczny maszyny wirtualne i maszyny wirtualne w przypadku dysków toomanaged zestawu dostępności   | [Skonwertuj dyski toouse zarządzanych maszyn wirtualnych](convert-unmanaged-to-managed-disks.md) |
+| Jednej maszyny Wirtualnej z klasycznym tooResource menedżera na dyskach zarządzanych     | [Migracja jednej maszyny Wirtualnej](migrate-single-classic-to-resource-manager.md)  | 
+| Wszystkie hello maszyn wirtualnych w sieci wirtualnej z klasycznym tooResource menedżera na dyskach zarządzanych     | [Migracja zasobów IaaS z klasycznym tooResource Menedżera](migration-classic-resource-manager-ps.md) , a następnie [Konwertuj Maszynę wirtualną z dysków toomanaged niezarządzane dysków](convert-unmanaged-to-managed-disks.md) | 
 
 
 
 
 
 
-## <a name="plan-for-the-conversion-to-managed-disks"></a>Plan konwersji do dysków zarządzanych
+## <a name="plan-for-hello-conversion-toomanaged-disks"></a>Planowanie na potrzeby konwersji hello tooManaged dysków
 
-Ta sekcja umożliwia podjęcie najlepszych decyzji w typach maszyny Wirtualnej i dysku.
+Ta sekcja pomoże toomake hello najlepszych decyzji w typach maszyny Wirtualnej i dysku.
 
 
 ## <a name="location"></a>Lokalizacja
 
-Wybierz lokalizację, w której są dostępne dyski zarządzanych Azure. Jeśli przenosisz do dysków zarządzanych w warstwie Premium, upewnij się również magazyn w warstwie Premium jest dostępna w regionie, w którym zamierzasz przenieść. Zobacz [regionów platformy Azure](https://azure.microsoft.com/regions/#services) aktualne informacje o dostępnych lokalizacji.
+Wybierz lokalizację, w której są dostępne dyski zarządzanych Azure. Jeśli przenosisz tooPremium zarządzane dysków, upewnij się również magazyn w warstwie Premium jest dostępna w regionie hello planowanego toomove do. Zobacz [regionów platformy Azure](https://azure.microsoft.com/regions/#services) aktualne informacje o dostępnych lokalizacji.
 
 ## <a name="vm-sizes"></a>Rozmiary maszyn wirtualnych
 
-W przypadku migracji dysków zarządzanych w warstwie Premium, należy zaktualizować rozmiaru maszyny wirtualnej do magazyn w warstwie Premium obsługuje rozmiaru dostępna w regionie, w którym znajduje się maszyna wirtualna. Przejrzyj rozmiarów maszyn wirtualnych, które są funkcją Magazyn w warstwie Premium. Specyfikacje rozmiaru maszyny Wirtualnej platformy Azure są wymienione w [rozmiary maszyn wirtualnych](sizes.md).
-Przejrzyj charakterystyki wydajności maszyn wirtualnych, które pracy z magazyn w warstwie Premium i wybierz najbardziej odpowiedni rozmiar maszyny Wirtualnej, który najlepiej odpowiada obciążenie. Należy upewnić się, że wystarczającą przepustowość dostępne na maszynie Wirtualnej do kierowania ruchu dysku.
+W przypadku migracji dysków zarządzanych tooPremium masz tooupdate rozmiar hello hello wirtualna tooPremium rozmiar możliwością magazynu dostępnych w regionie hello, w którym znajduje się maszyna wirtualna. Przejrzyj hello rozmiarów maszyn wirtualnych, które są funkcją Magazyn w warstwie Premium. specyfikacje rozmiaru maszyny Wirtualnej Azure Hello są wymienione w [rozmiary maszyn wirtualnych](sizes.md).
+Przejrzyj hello charakterystyki wydajności maszyn wirtualnych, które pracować z magazyn w warstwie Premium i wybierz polecenie hello najbardziej odpowiedni rozmiar maszyny Wirtualnej najlepiej pasujące do obciążenia. Upewnij się, czy Brak dostępnej wystarczającą przepustowość na ruchu dysku hello toodrive maszyny Wirtualnej.
 
 ## <a name="disk-sizes"></a>Rozmiary dysków
 
 **Dysków zarządzanych w warstwie Premium**
 
-Istnieje siedem typów dysków zarządzanych w warstwie premium, które mogą być używane z maszyny Wirtualnej i każdy ma określonych IOPs i przepływność limity. Wziąć pod uwagę następujące limity gdy wybieranie typu dysku Premium dla maszyny Wirtualnej na podstawie potrzeb aplikacji pod względem wydajności, wydajności, skalowalności i ładuje godzinami szczytu.
+Istnieje siedem typów dysków zarządzanych w warstwie premium, które mogą być używane z maszyny Wirtualnej i każdy ma określonych IOPs i przepływność limity. Wziąć pod uwagę następujące limity wybierając hello Premium typ dysku dla maszyny Wirtualnej na podstawie hello potrzeb aplikacji pod względem wydajności, wydajności, skalowalności i ładuje godzinami szczytu.
 
 | Typ dysków Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
@@ -71,7 +71,7 @@ Istnieje siedem typów dysków zarządzanych w warstwie premium, które mogą by
 
 **Dyski standardowe zarządzanych**
 
-Istnieje siedem typów dyski standardowe zarządzanych, które mogą być używane z maszyny Wirtualnej. Każdej z nich ma inną wydajności, ale ma tego samego IOPS i limity przepustowości. Wybierz typ dyski standardowe zarządzane na podstawie potrzeb wydajność aplikacji.
+Istnieje siedem typów dyski standardowe zarządzanych, które mogą być używane z maszyny Wirtualnej. Każdej z nich ma inną wydajności, ale ma tego samego IOPS i limity przepustowości. Wybierz typ hello dyski standardowe zarządzane na podstawie hello pojemności potrzeb aplikacji.
 
 | Typ dysku standardowego  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
@@ -83,11 +83,11 @@ Istnieje siedem typów dyski standardowe zarządzanych, które mogą być używa
 
 **Dysków zarządzanych w warstwie Premium**
 
-Domyślnie jest dyskowej pamięci podręcznej zasad *tylko do odczytu* dla wszystkich danych dysków Premium i *odczytu i zapisu* dla dysku systemu operacyjnego Premium dołączony do maszyny Wirtualnej. To ustawienie konfiguracji jest zalecane w celu osiągnięcia optymalnej wydajności dla aplikacji systemu IOs. W przypadku dysków ciężki zapisu lub w trybie tylko do zapisu danych (takich jak pliki dziennika programu SQL Server) Wyłącz buforowanie dysku, dzięki czemu można osiągnąć lepszą wydajność aplikacji.
+Domyślnie jest dyskowej pamięci podręcznej zasad *tylko do odczytu* dla wszystkich hello dysków danych w warstwie Premium i *odczytu i zapisu* dla dysku systemu operacyjnego Premium hello dołączony toohello maszyny Wirtualnej. To ustawienie konfiguracji jest zalecane tooachieve hello optymalnej wydajności dla aplikacji systemu IOs. W przypadku dysków ciężki zapisu lub w trybie tylko do zapisu danych (takich jak pliki dziennika programu SQL Server) Wyłącz buforowanie dysku, dzięki czemu można osiągnąć lepszą wydajność aplikacji.
 
 ## <a name="pricing"></a>Cennik
 
-Przegląd [ceny dysków zarządzanych](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Cen dysków zarządzanych w warstwie Premium jest taka sama jak niezarządzane dysków Premium. Ale ceny dyski standardowe zarządzanych jest inny niż dyski standardowe niezarządzane.
+Przejrzyj hello [ceny dysków zarządzanych](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Cen dysków zarządzanych w warstwie Premium jest taka sama jak hello niezarządzane dysków Premium. Ale ceny dyski standardowe zarządzanych jest inny niż dyski standardowe niezarządzane.
 
 
 

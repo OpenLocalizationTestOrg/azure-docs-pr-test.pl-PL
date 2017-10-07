@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 9e5eed35334f1b95441b8181c8e90645be78b389
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 31d0aa67b6ca58b75b432ae94f93ebcf6d730380
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Często zadawane pytania dotyczące dyski maszyny Wirtualnej Azure IaaS i zarządzane i niezarządzane — wersja premium
 
@@ -28,67 +28,67 @@ Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 
 **Co to jest Azure zarządzane dyski?**
 
-Dyski zarządzane jest funkcja, która ułatwia zarządzanie dyskami dla maszyn wirtualnych IaaS platformy Azure dzięki obsłudze Zarządzanie kontem magazynu dla Ciebie. Aby uzyskać więcej informacji, zobacz [omówienie dysków zarządzanych](storage-managed-disks-overview.md).
+Dyski zarządzane jest funkcja, która ułatwia zarządzanie dyskami dla maszyn wirtualnych IaaS platformy Azure dzięki obsłudze Zarządzanie kontem magazynu dla Ciebie. Aby uzyskać więcej informacji, zobacz hello [omówienie dysków zarządzanych](storage-managed-disks-overview.md).
 
 **Jeśli utworzyć standardowych dysków zarządzanych z istniejącego dysku VHD, 80 GB, ile będzie tego koszt mnie?**
 
-Standardowa dysków zarządzanych utworzone na podstawie wirtualny dysk twardy 80 GB jest traktowany jako dalej rozmiar dostępnych dysków w warstwie standardowa, który jest dyskiem s10 w warstwie. Są naliczane opłaty zgodnie z s10 w warstwie cenowej dysku. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/storage).
+Standardowa dysków zarządzanych utworzone na podstawie wirtualny dysk twardy 80 GB jest traktowany jako dalej rozmiaru dysku standardowe hello, który jest dyskiem s10 w warstwie. Są naliczane opłaty zgodnie z toohello s10 w warstwie dysków cennik. Aby uzyskać więcej informacji, zobacz hello [cennikiem](https://azure.microsoft.com/pricing/details/storage).
 
 **Czy istnieją kosztów transakcji dla standardowych dysków zarządzanych?**
 
-Tak. W przypadku naliczona opłata za każdą transakcję. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/storage).
+Tak. W przypadku naliczona opłata za każdą transakcję. Aby uzyskać więcej informacji, zobacz hello [cennikiem](https://azure.microsoft.com/pricing/details/storage).
 
-**Dla standardowych dysków zarządzanych I obciążymy rzeczywisty rozmiar danych na dysku lub elastycznie pojemność dysku?**
+**Dla standardowych dysków zarządzanych I obciążymy hello rzeczywisty rozmiar hello danych na dysku hello lub hello elastycznie pojemność dysku hello?**
 
-Są naliczane opłaty oparte na elastycznie pojemność dysku. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/storage).
+Są naliczane opłaty oparte na powitania elastycznie pojemność dysku hello. Aby uzyskać więcej informacji, zobacz hello [cennikiem](https://azure.microsoft.com/pricing/details/storage).
 
 **Jak jest inny niż dyski niezarządzane cennik dysków zarządzanych w warstwie premium?**
 
-Cennik dysków zarządzanych w warstwie premium jest taka sama jak dyski premium niezarządzane.
+jak w przypadku dysków premium niezarządzanym jest hello Hello cennik dysków zarządzanych w warstwie premium.
 
-**Można zmienić typu (standardowy lub Premium) konta magazynu z dysków zarządzanych?**
+**Czy można zmienić hello typu konta magazynu (standardowa lub Premium) z dysków zarządzanych?**
 
-Tak. Można zmienić typu konta magazynu dysków zarządzanych za pomocą portalu Azure, programu PowerShell lub wiersza polecenia platformy Azure.
+Tak. Można zmienić typu konta magazynu hello dysków zarządzanych za pomocą hello portalu Azure, programu PowerShell lub hello wiersza polecenia platformy Azure.
 
-**Czy istnieje sposób, aby I skopiuj lub wyeksportować dysków zarządzanych do konta magazynu prywatnej?**
+**Czy istnieje sposób, aby I skopiuj lub wyeksportować konta magazynu prywatnego tooa dysków zarządzanych w?**
 
-Tak. Dyski zarządzane można wyeksportować za pomocą portalu Azure, programu PowerShell lub wiersza polecenia platformy Azure.
+Tak. Dyski zarządzane można wyeksportować za pomocą hello portalu Azure, programu PowerShell lub hello wiersza polecenia platformy Azure.
 
-**Aby utworzyć dysków zarządzanych za pomocą innej subskrypcji można użyć pliku VHD na koncie magazynu platformy Azure?**
+**Czy można użyć pliku wirtualnego dysku twardego w toocreate konta magazynu Azure dysków zarządzanych z innej subskrypcji?**
 
 Nie.
 
-**Aby utworzyć dysków zarządzanych w innym regionie można użyć pliku VHD na koncie magazynu platformy Azure?**
+**Czy można użyć pliku wirtualnego dysku twardego w toocreate konta magazynu Azure dysków zarządzanych w innym regionie?**
 
 Nie.
 
 **Czy istnieją jakiekolwiek ograniczenia skali dla klientów korzystających z zarządzanego dyski?**
 
-Dyski zarządzane eliminuje limity skojarzonego z kontami magazynu. Jednak liczbę zarządzanych dysków dla subskrypcji jest ograniczona do 2000 domyślnie. Możesz wywołać pomocy technicznej, aby zwiększyć ten numer.
+Dyski zarządzane eliminuje limity hello skojarzonego z kontami magazynu. Hello liczby zarządzanych dysków dla subskrypcji jest jednak ograniczona too2, 000 domyślnie. Obsługa tooincrease można wywołać ten numer.
 
 **Czy można wykonać przyrostowej migawki dysków zarządzanych?**
 
-Nie. Pełną kopię dysków zarządzanych sprawia, że bieżąca funkcja migawki. Jednak firma Microsoft planuje obsługuje przyrostowe migawek w przyszłości.
+Nie. Bieżąca funkcja migawki Hello sprawia, że pełna kopia dysków zarządzanych. Jednak firma Microsoft są planowania toosupport przyrostowe migawki w przyszłości hello.
 
 **Maszyny wirtualne w zestawie dostępności może zawierać kombinację dysków zarządzane i niezarządzane?**
 
-Nie. Maszyn wirtualnych w zestawie dostępności muszą używać wszystkich zarządzanych dysków lub wszystkie dyski niezarządzane. Podczas tworzenia zestawu dostępności można wybrać typu dysków, którego chcesz użyć.
+Nie. Hello maszyn wirtualnych w zestawie dostępności muszą używać wszystkich zarządzanych dysków lub wszystkie dyski niezarządzane. Podczas tworzenia zestawu dostępności można wybrać typu dyski mają toouse.
 
-**Jest domyślną opcją w portalu Azure zarządzane dyski?**
+**Jest opcja domyślna hello dysków zarządzanych w portalu Azure hello?**
 
-Aktualnie nie ale stanie się domyślnie w przyszłości.
+Aktualnie nie ale będzie gotowa do domyślnego hello w przyszłości hello.
 
 **Można utworzyć pusty dysk zarządzany?**
 
-Tak. Możesz utworzyć pusty dysk. Dysk zarządzany można tworzyć niezależnie od maszyny Wirtualnej, na przykład bez dołączeniu go do maszyny Wirtualnej.
+Tak. Możesz utworzyć pusty dysk. Dysk zarządzany można tworzyć niezależnie od maszyny Wirtualnej, na przykład bez podłączany tooa maszyny Wirtualnej.
 
-**Co to liczba domen błędów obsługiwanych dostępności ustawiono używającym dysków zarządzanych?**
+**Co to jest liczba domen błędów hello obsługiwane dla zestawu dostępności używającym dysków zarządzanych?**
 
-W zależności od regionu, w którym znajduje się zestaw dostępności, który używa dysków zarządzanych liczba domen błędów obsługiwanych jest 2 lub 3.
+W zależności od hello regionu, w którym znajduje się zestaw dostępności hello, który używa dysków zarządzanych liczba domen błędów hello obsługiwane jest 2 lub 3.
 
-**Jak jest to konto magazynu w warstwie standardowa dla diagnostyki Konfigurowanie?**
+**W jaki sposób hello konta standard storage dla diagnostyki Konfigurowanie?**
 
-Skonfiguruj konto magazynu prywatne dla diagnostyki maszyny Wirtualnej. W przyszłości firma Microsoft planuje także przełącznik diagnostyki do zarządzanych dysków.
+Skonfiguruj konto magazynu prywatne dla diagnostyki maszyny Wirtualnej. W przyszłości hello, planujemy diagnostyki tooswitch również tooManaged dysków.
 
 **Jakiego rodzaju obsługi kontroli dostępu opartej na rolach jest dostępna dla dysków zarządzanych?**
 
@@ -98,20 +98,20 @@ Zarządzane dysków obsługuje trzy kluczowe domyślne role:
 * Współautor: Mogą zarządzać wszystkim poza dostępem
 * Czytnik: Można przeglądać wszystko, ale nie można wprowadzić zmian
 
-**Czy istnieje sposób, aby I skopiuj lub wyeksportować dysków zarządzanych do konta magazynu prywatnej?**
+**Czy istnieje sposób, aby I skopiuj lub wyeksportować konta magazynu prywatnego tooa dysków zarządzanych w?**
 
-Można pobrać sygnatury dostępu współdzielonego tylko do odczytu identyfikatora URI dla dysków zarządzanych i go użyć do kopiowania zawartości do magazynu konta lub lokalnego magazynu prywatnych.
+Możesz uzyskać sygnatury dostępu współdzielonego tylko do odczytu identyfikator URI dla hello zarządzane na dysku i korzystać z niego toocopy hello zawartość tooa prywatnego składowania konta lub lokalnego magazynu.
 
 **Można utworzyć kopię dysku zarządzanego?**
 
-Klienci mogą migawki dysków zarządzanych, a następnie użyj migawki do tworzenia dysków zarządzanych w innym.
+Klienci mogą migawki dysków zarządzanych, a następnie użyj toocreate migawki hello dysków zarządzanych w innym.
 
 **Niezarządzane dyski nadal są obsługiwane?**
 
-Tak. Firma Microsoft obsługuje dyski niezarządzane i zarządzane. Zalecamy dysków zarządzanych dla nowych obciążeń, a migracja bieżącego obciążeń do zarządzanych dysków.
+Tak. Firma Microsoft obsługuje dyski niezarządzane i zarządzane. Zalecamy dysków zarządzanych dla nowych obciążeń, a następnie migracji dysków toomanaged bieżącego obciążenia.
 
 
-**Jeśli I Utwórz dysk 128 GB i dopiero potem zwiększyć rozmiar 130 GB I obciążymy dla następnego rozmiar dysku (512 GB)?**
+**Jeśli. Utwórz dysk 128 GB i dopiero potem zwiększyć jej hello rozmiar too130 GB, będzie I naliczona opłata za hello dalej rozmiar dysku (512 GB)?**
 
 Tak.
 
@@ -123,11 +123,11 @@ Dyskach zarządzanych platformy Azure obsługuje obecnie tylko lokalnie nadmiaro
 
 Nie. Ta funkcja nie jest obecnie obsługiwana. 
 
-**Właściwość Nazwa komputera można zmienić po specjalistycznej (nie utworzone przy użyciu narzędzia przygotowywania systemu lub uogólniony) dysku systemu operacyjnego jest używany do udostępnienia maszyny Wirtualnej?**
+**Właściwość Nazwa komputera hello można zmienić, gdy specjalistycznej (nie utworzone przy użyciu narzędzia przygotowywania systemu hello lub uogólniony) dysku systemu operacyjnego jest używany tooprovision maszyny Wirtualnej?**
 
-Nie. Nie można zaktualizować właściwości Nazwa komputera. Nowa maszyna wirtualna dziedziczy z elementu nadrzędnego maszyny Wirtualnej, który został użyty do utworzenia dysku systemu operacyjnego. 
+Nie. Nie można zaktualizować właściwości Nazwa komputera hello. Hello nowej maszyny Wirtualnej dziedziczy on hello nadrzędna maszyna wirtualna, będącą dysku systemu operacyjnego hello toocreate używane. 
 
-**Gdzie można znaleźć przykładowych szablonów usługi Azure Resource Manager do tworzenia maszyn wirtualnych z dyskami zarządzanych**
+**Gdzie można znaleźć przykładowe usługi Azure Resource Manager toocreate szablony maszyn wirtualnych z dyskami zarządzanych**
 * [Lista szablonów przy użyciu dysków zarządzanych](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
@@ -137,9 +137,9 @@ Nie. Nie można zaktualizować właściwości Nazwa komputera. Nowa maszyna wirt
 
 Tak.
 
-**Kto zarządza klucze szyfrowania?**
+**Kto zarządza hello klucze szyfrowania?**
 
-Firma Microsoft zarządza kluczy szyfrowania.
+Firma Microsoft zarządza hello kluczy szyfrowania.
 
 **Do zarządzanych dysków można wyłączyć szyfrowanie usługi Magazyn?**
 
@@ -147,30 +147,30 @@ Nie.
 
 **Jest szyfrowanie usługi Magazyn dostępna tylko w określonych regionach?**
 
-Nie. Jest dostępna we wszystkich regionach, gdzie dostępna jest opcja dysków zarządzanych. Dyski zarządzane jest dostępna we wszystkich regionach publicznego i Niemczech.
+Nie. Jest dostępna we wszystkich regionach hello, gdzie dostępna jest opcja dysków zarządzanych. Dyski zarządzane jest dostępna we wszystkich regionach publicznego i Niemczech.
 
 **Jak można sprawdzić w przypadku zarządzanych dysku są szyfrowane?**
 
-Można ustalić czas utworzenia dysków zarządzanych w portalu Azure, interfejsu wiersza polecenia Azure i programu PowerShell. Gdy czas po 9 czerwca 2017 dysku są szyfrowane. 
+Można ustalić hello godzina utworzenia dysków zarządzanych z hello portalu Azure, hello wiersza polecenia platformy Azure i programu PowerShell. Jeśli godzina powitania po 9 czerwca 2017 dysku są szyfrowane. 
 
 **Jak można zaszyfrować Moje istniejących dysków, które zostały utworzone przed 10 czerwca 2017 r.**
 
-Począwszy od 10 czerwca 2017 nowych danych istniejących dysków zarządzanych jest szyfrowane automatycznie. Możemy również planowania szyfrowania istniejących danych i szyfrowanie nastąpi asynchronicznie w tle. Jeśli musi teraz zaszyfrować dane, należy utworzyć kopię dysku. Nowe dyski zostaną zaszyfrowane.
+Począwszy od 10 czerwca 2017 nowych danych tooexisting zarządzane dysków jest szyfrowane automatycznie. Firma Microsoft są także planowania tooencrypt istniejących danych i szyfrowania hello nastąpi asynchronicznie w tle hello. Jeśli musi teraz zaszyfrować dane, należy utworzyć kopię dysku. Nowe dyski zostaną zaszyfrowane.
 
-* [Kopiowanie dysków zarządzanych przy użyciu wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+* [Kopiowanie dysków zarządzanych za pomocą hello wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
 * [Kopiowanie dysków zarządzanych za pomocą programu PowerShell](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
 
 **Są zarządzane migawki i obrazy szyfrowane?**
 
 Tak. Wszystkie zarządzane migawki i obrazy utworzone po 9 czerwca 2017 r są szyfrowane automatycznie. 
 
-**Czy mogę przekonwertować maszyny wirtualne z dyskami niezarządzane, które znajdują się na kontach magazynu, które są lub wcześniej były szyfrowane do zarządzanych dysków**
+**Z niezarządzanego dysków, które znajdują się na kontach magazynu, które są lub toomanaged wcześniej zaszyfrowanych dysków można przekonwertować maszyny wirtualne?**
 
 Tak
 
 **Wyeksportowane wirtualnego dysku twardego z zarządzanego dysku lub migawka także będą zaszyfrowane?**
 
-Nie. Ale jeśli możesz wyeksportować do konta magazynu zaszyfrowanego dysku VHD z zaszyfrowanego zarządzane dysku lub migawki, a następnie jest on zaszyfrowany. 
+Nie. Jeśli możesz wyeksportować tooan wirtualnego dysku twardego, ale szyfrowane konta magazynu z zaszyfrowanych dysków zarządzanych lub migawki, a następnie jest on zaszyfrowany. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Dyski Premium: zarządzanych i niezarządzanych
 
@@ -178,43 +178,43 @@ Nie. Ale jeśli możesz wyeksportować do konta magazynu zaszyfrowanego dysku VH
 
 Tak.
 
-**Do rozmiaru serii, która nie obsługuje usługi Premium Storage, takich jak seria D, Dv2, G lub F można podłączyć zarówno premium i dyski standardowe danych?**
+**Czy mogę dołączyć zarówno premium i standardowa danych dysków tooa rozmiar serii, która nie obsługuje usługi Premium Storage, takich jak seria D, Dv2, G lub F?**
 
-Nie. Tylko dyski standardowe danych można dołączyć do maszyn wirtualnych, które nie używają serii rozmiar, który obsługuje magazyn w warstwie Premium.
+Nie. Można dołączać tylko tooVMs dyski standardowe danych, który nie należy używać serii rozmiar, który obsługuje magazyn w warstwie Premium.
 
 **Jeśli dysk danych — warstwa premium można utworzyć z istniejącego dysku VHD, który był 80 GB, ile będzie tego koszt?**
 
-Dysk z danymi premium utworzone na podstawie wirtualny dysk twardy 80 GB jest traktowany jako rozmiaru dysku premium dostępne dalej, który jest dyskiem P10. Są naliczane opłaty zgodnie z cennik P10 dysku.
+Dysk z danymi premium utworzone na podstawie wirtualny dysk twardy 80 GB jest traktowany jako rozmiar dysku dostępny dalej premium hello, który jest dyskiem P10. Jest naliczane opłaty zgodnie z toohello P10 dysku cennik.
 
-**Czy istnieją koszty transakcji do użycia magazyn w warstwie Premium?**
+**Czy istnieją toouse kosztów transakcji magazynu Premium?**
 
-Brak koszt stały rozmiar każdego dysku, które pojawia się z określonym limity udostępnionym IOPS i przepustowość. Inne koszty są przepustowości wychodzącej i pojemność migawki, jeśli ma to zastosowanie. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/storage).
+Brak koszt stały rozmiar każdego dysku, które pojawia się z określonym limity udostępnionym IOPS i przepustowość. Witaj innych kosztów są przepustowości wychodzącej i pojemności migawki, jeśli ma to zastosowanie. Aby uzyskać więcej informacji, zobacz hello [cennikiem](https://azure.microsoft.com/pricing/details/storage).
 
-**Jakie są limity dla IOPS i przepływność, którą można pobrać z pamięci podręcznej dysku?**
+**Jakie są limity hello IOPS i przepływność, którą można pobrać z pamięci podręcznej dysku hello?**
 
-Łączne limity dla pamięci podręcznej i lokalny dysk SSD dla serii DS są 4000 IOPS na podstawowe i 33 MB na sekundę na podstawowe. Serii GS oferuje 5000 IOPS na podstawowe i 50 MB na sekundę na podstawowe.
+Witaj łączne limity dla pamięci podręcznej i lokalny dysk SSD dla serii DS są 4000 IOPS na podstawowe i 33 MB na sekundę na podstawowe. Witaj serii GS oferuje 5000 IOPS na podstawowe i 50 MB na sekundę na podstawowe.
 
-**Lokalny dysk SSD jest obsługiwana dla maszyny Wirtualnej, zarządzane dyski?**
+**To jest hello obsługiwany przez lokalny dysk SSD dla maszyny Wirtualnej, zarządzane dyski?**
 
-Lokalny dysk SSD jest tymczasowego magazynu, który jest dołączony do maszyny Wirtualnej dysków zarządzanych. Jest nie żadnymi dodatkowymi kosztami dla tego magazynu tymczasowego. Firma Microsoft zaleca, aby używać tego lokalny dysk SSD do przechowywania danych aplikacji, ponieważ nie jest on utrwalane w magazynie obiektów Blob platformy Azure.
+Witaj lokalny dysk SSD jest tymczasowego magazynu, który jest dołączony do maszyny Wirtualnej dysków zarządzanych. Jest nie żadnymi dodatkowymi kosztami dla tego magazynu tymczasowego. Firma Microsoft zaleca, aby używać tego toostore lokalnych dysków SSD dane aplikacji, ponieważ nie jest on utrwalane w magazynie obiektów Blob platformy Azure.
 
-**Czy istnieją żadnych skutków PRZYCINANIE do użytku na dyski premium?**
+**Są dostępne wszelkie następstwa dla hello używać TRIM na dysków w warstwie premium?**
 
-Nie ma żadnych wadą interfejsu użyciem PRZYCINANIE na dyskach platformy Azure w warstwie premium albo lub dyski standardowe.
+Nie jest używana toohello wadą interfejsu TRIM na dyskach platformy Azure w warstwie premium albo lub dyski standardowe.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nowy rozmiar dysku: zarządzanych i niezarządzanych
 
-**Co to jest największy rozmiar dysku systemu operacyjnego i dysków z danymi obsługiwane?**
+**Co to jest hello największy rozmiar dysku systemu operacyjnego i dysków z danymi obsługiwane?**
 
-Typ partycji, który Azure obsługuje dla dysku systemu operacyjnego jest główny rekord rozruchowy (MBR). Obsługuje format MBR dysk rozmiar do 2 TB. Największy rozmiar, który Azure obsługuje dla dysku systemu operacyjnego jest 2 TB. Azure obsługuje do 4 TB dla dysków z danymi. 
+Typ partycji Hello Azure obsługuje dla dysku systemu operacyjnego jest hello główny rekord rozruchowy (MBR). Hello MBR format obsługuje rozmiaru dysku too2 TB. Witaj największy rozmiar, który Azure obsługuje dla dysku systemu operacyjnego jest 2 TB. Azure obsługuje too4 TB dla dysków z danymi. 
 
-**Co to jest największy rozmiar strony obiektu blob jest obsługiwana?**
+**Co to jest hello największy blob rozmiar strony jest obsługiwana?**
 
-Największy rozmiar strony obiektu blob Azure obsługuje jest 8 TB (8191 GB). Nie obsługujemy stronicowe obiekty BLOB większych niż 4 TB (4,095 GB) dołączona do maszyny Wirtualnej jako dane lub dysków systemu operacyjnego.
+Hello największy strony rozmiar obiektu blob Azure obsługującym jest 8 TB (8191 GB). Nie obsługujemy stronicowe obiekty BLOB większych niż 4 TB (4,095 GB) dołączona tooa maszyny Wirtualnej jako dane lub dysków systemu operacyjnego.
 
-**Należy użyć nowej wersji narzędzi platformy Azure do tworzenia, Dołącz, zmienianie rozmiaru i przekaż dysków większych niż 1 TB?**
+**Należy toouse nowej wersji z toocreate narzędzi platformy Azure, Dołącz, zmienianie rozmiaru i przekazać dysków większych niż 1 TB?**
 
-Nie trzeba uaktualnić Azure istniejących narzędzi do tworzenia, Dołącz lub zmieniać rozmiar dysków większych niż 1 TB. Aby przesłać plik wirtualnego dysku twardego z lokalnymi bezpośrednio na platformie Azure jako stronicowy obiekt blob lub niezarządzane dysku, należy użyć najnowszej zestawów narzędzia:
+Nie ma potrzeby tooupgrade Twojego istniejących toocreate narzędzia Azure, Dołącz lub zmieniać rozmiar dysków większych niż 1 TB. tooupload dysk VHD plik z lokalnymi bezpośrednio tooAzure jako stronicowy obiekt blob lub niezarządzane dysku, należy toouse hello najnowsze narzędzia zestawów:
 
 |Narzędzia platformy Azure      | Obsługiwane wersje                                |
 |-----------------|---------------------------------------------------|
@@ -222,23 +222,23 @@ Nie trzeba uaktualnić Azure istniejących narzędzi do tworzenia, Dołącz lub 
 |Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13: 2017 może zwolnić lub nowszy|
 |Narzędzie AzCopy           | Numer wersji 6.1.0: czerwiec 2017 wersji lub nowszy|
 
-Obsługa interfejsu wiersza polecenia Azure w wersji 2 i Eksploratora usługi Storage platformy Azure będzie dostępna wkrótce. 
+Witaj obsługę wiersza polecenia platformy Azure w wersji 2 i Eksploratora usługi Storage platformy Azure będzie dostępna wkrótce. 
 
 **P4 i P6 rozmiary dysków są obsługiwane dla niezarządzanego dysków lub stronicowych obiektów blob?**
 
 Nie. P4 (32 GB) i P6 rozmiary dysków (64 GB) są obsługiwane tylko w przypadku dysków zarządzanych. Obsługa dysków niezarządzane i stronicowe obiekty BLOB będzie dostępna wkrótce.
 
-**Jeśli Mój istniejący premium zarządzane na dysku z mniej niż 64 GB został utworzony przed włączeniem małego dysku (około 15 czerwca 2017 r), jak jest on rozliczany?**
+**Jeśli Mój istniejący premium zarządzane na dysku z mniej niż 64 GB został utworzony przed włączeniem hello małego dysku (około 15 czerwca 2017 r), jak jest on rozliczany?**
 
-Istniejące premium małe dyski mniej niż 64 GB nadal będą naliczane opłaty zgodnie z warstwy cenowej P10. 
+Istniejące dyski premium małych mniej niż 64 GB nadal toobe rozliczane zgodnie z toohello P10 warstwę cenową. 
 
-**Jak można zmienić warstwy dysków premium małe dyski, mniejsze niż 64 GB z P10 P4 lub P6?**
+**Jak można zmienić warstwy dysku hello dyski premium małych mniejsze niż 64 GB P10 tooP4 lub P6?**
 
-Można utworzyć migawkę małe dyski, a następnie utwórz dysk, aby automatycznie Zmień warstwę cenową P4 lub P6 zależnie od rozmiaru elastycznie. 
+Można utworzyć migawkę małe dyski, a następnie utworzyć dysku hello przełącznika tooautomatically tooP4 warstwy cenowej lub P6 na podstawie hello elastycznie rozmiaru. 
 
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Co zrobić, jeśli mojego pytania nie ma odpowiedzi w tym miejscu?
 
-Jeśli Twoje pytanie nie ma na liście w tym miejscu, Daj nam znać, a pomożemy Ci znaleźć odpowiedź. W komentarzach można Zadaj pytanie na końcu tego artykułu. Aby współpracować z zespołu usługi Magazyn Azure i innymi członkami społeczności informacje w tym artykule, należy użyć MSDN [forum usługi Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+Jeśli Twoje pytanie nie ma na liście w tym miejscu, Daj nam znać, a pomożemy Ci znaleźć odpowiedź. W komentarzach hello można Zadaj pytanie na końcu hello w tym artykule. tooengage z zespołem usługi Azure Storage hello i innymi członkami społeczności informacje w tym artykule, należy użyć hello MSDN [forum usługi Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 
-Aby poprosić o funkcje, przesłać żądania i pomysłami, które [forum opinii usługi Azure Storage](https://feedback.azure.com/forums/217298-storage).
+Funkcje toorequest przesłać toohello Twojego żądania i pomysły [forum opinii usługi Azure Storage](https://feedback.azure.com/forums/217298-storage).

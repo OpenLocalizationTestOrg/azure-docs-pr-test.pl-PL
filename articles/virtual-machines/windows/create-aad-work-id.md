@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie tożsamości służbowe w usłudze AAD dla systemu Windows | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć tożsamość firmy lub szkoły w usłudze Azure Active Directory do użycia z maszyn wirtualnych systemu Windows."
+title: "aaaCreate służbowego tożsamości w usłudze AAD dla systemu Windows | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate służbowego tożsamości w usłudze Azure Active Directory toouse maszynom wirtualnym z systemem Windows."
 services: virtual-machines-windows
 documentationcenter: 
 author: squillace
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
-ms.openlocfilehash: 7694b959a384aaed213adc31e02debca31b7c131
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dd6e2381fd0aa503483aa786b36232e557729c4d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="creating-a-work-or-school-identity-in-azure-active-directory-to-use-with-windows-vms"></a>Tworzenie tożsamości służbowe w usłudze Azure Active Directory do użycia z maszyn wirtualnych systemu Windows
-Jeśli utworzone osobiste konto platformy Azure lub osobistych subskrypcji MSDN i utworzyć konto platformy Azure, aby skorzystać z środków MSDN Azure — użyto *konta Microsoft* tożsamości, aby go utworzyć. Wiele najważniejszych funkcji Azure-- [Szablony grupy zasobów](../../azure-resource-manager/resource-group-overview.md) przykładem — wymagają konta firmowego lub szkolnego (tożsamość zarządzane przez usługę Azure Active Directory) do pracy. Aby wykonać instrukcjami poniżej, aby utworzyć nowe konta firmowego lub szkolnego, ponieważ na szczęście z czynności najważniejsze informacje osobiste konta platformy Azure jest pochodzi z domyślnej domeny usługi Azure Active Directory służy do tworzenia nowego konta firmowego lub szkolnego korzystające z funkcjami platformy Azure, które tego wymagają.
+# <a name="creating-a-work-or-school-identity-in-azure-active-directory-toouse-with-windows-vms"></a>Tworzenie tożsamości służbowe w toouse usługi Azure Active Directory z maszynami wirtualnymi systemu Windows
+Jeśli utworzone osobiste konto platformy Azure lub osobistych subskrypcji MSDN i utworzyć hello konta Azure tootake z środków na korzystanie hello MSDN Azure — użyto *konta Microsoft* toocreate tożsamości go. Wiele najważniejszych funkcji Azure-- [Szablony grupy zasobów](../../azure-resource-manager/resource-group-overview.md) przykładem — wymagają konta firmowego lub szkolnego (tożsamości zarządzanych przez usługę Azure Active Directory) toowork. Możesz wykonać instrukcje hello poniżej toocreate się, że nowe służbowego konta, ponieważ na szczęście z hello czynności najważniejsze informacje osobiste konta platformy Azure jest czy pochodzą z domyślną domenę usługi Azure Active Directory służy toocreate nowej pracy lub nauki konto, które można używać z funkcje platformy Azure, które tego wymagają.
 
-Jednak ostatnie zmiany umożliwiają Zarządzanie subskrypcją z dowolnego typu za pomocą konta Azure `azure login` metody logowania interakcyjnego opisanej [tutaj](../../xplat-cli-connect.md). Możesz użyć tego mechanizmu, lub możesz wykonać postępuj zgodnie z instrukcjami. Możesz również [tworzenie służbowego tożsamości w usłudze Azure Active Directory do użycia z maszyn wirtualnych systemu Linux](../linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Jednak najnowszych zmian była możliwa toomanage subskrypcji z dowolnego typu konta platformy Azure przy użyciu hello `azure login` metody logowania interakcyjnego opisanej [tutaj](../../xplat-cli-connect.md). Możesz użyć tego mechanizmu, lub możesz wykonać hello postępuj zgodnie z instrukcjami. Możesz również [tworzenie służbowego tożsamości w usłudze Azure Active Directory toouse z maszyn wirtualnych systemu Linux](../linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie prywatnego rejestru platformy Docker — witryna Azure Portal | Microsoft Doc"
-description: "Rozpoczynanie pracy z tworzeniem prywatnych rejestrów kontenerów platformy Docker za pomocą witryny Azure Portal i zarządzaniem nimi"
+title: prywatne aaaCreate Docker rejestru - portalu Azure | Dokumentacja firmy Microsoft
+description: "Rozpocząć tworzenie i zarządzanie nimi prywatnej rejestrów kontenera Docker z hello portalu Azure"
 services: container-registry
 documentationcenter: 
 author: neilpeterson
@@ -17,57 +17,57 @@ ms.workload: na
 ms.date: 07/11/2017
 ms.author: nepeters
 ms.custom: na
-ms.openlocfilehash: 560aee42b0c5a61c37c594d7937f833ab7183d49
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: cf3ce0dcf3036d0e9cd1eaf01721deccb00248d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-managed-container-registry-using-the-azure-portal"></a>Tworzenie zarządzanego rejestru kontenerów przy użyciu witryny Azure Portal
+# <a name="create-a-managed-container-registry-using-hello-azure-portal"></a>Tworzenie rejestru kontenera zarządzanych przy użyciu hello portalu Azure
 
-Usługa Azure Container Registry to zarządzana usługa rejestru kontenerów platformy Docker używana do przechowywania prywatnych obrazów kontenerów Docker. W tym przewodniku znajdują się szczegółowe informacje dotyczące tworzenia zarządzanego wystąpienia usługi Azure Container Registry przy użyciu witryny Azure Portal.
+Usługa Azure Container Registry to zarządzana usługa rejestru kontenerów platformy Docker używana do przechowywania prywatnych obrazów kontenerów Docker. Szczegóły tego Przewodnik tworzenia zarządzanego wystąpienia rejestru kontenera Azure za pomocą portalu Azure hello.
 
 Zarządzane rejestry kontenerów platformy Azure są w wersji zapoznawczej i nie są dostępne we wszystkich regionach.
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+## <a name="log-in-tooazure"></a>Zaloguj się za tooAzure
 
-Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
+Zaloguj się za toohello portalu Azure w http://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Kliknij przycisk hello **nowy** znaleziono przycisku na powitania lewym górnym rogu hello portalu Azure.
 
-2. W portalu Marketplace wyszukaj usługę **Azure Container Registry** i wybierz ją.
+2. Marketplace hello wyszukiwania dla **rejestru kontenera platformy Azure** i zaznacz je.
 
-3. Kliknij pozycję **Utwórz**, aby otworzyć blok tworzenia usługi ACR.
+3. Kliknij przycisk **Utwórz** który zostanie otwarty blok tworzenia hello ACR.
 
     ![Ustawienia usługi Container Registry](./media/container-registry-get-started-portal/managed-container-registry-settings.png)
 
-4. W bloku usługi **Azure Container Registry** wprowadź następujące informacje. Po zakończeniu kliknij przycisk **Utwórz**.
+4. W hello **rejestru kontenera Azure** bloku, wprowadź hello następujących informacji. Po zakończeniu kliknij przycisk **Utwórz**.
 
-    a. **Nazwa rejestru**: globalnie unikatowa nazwa domeny najwyższego poziomu dla określonego rejestru. W tym przykładzie nazwa rejestru to *myAzureContainerRegistry1*, ale zastąp ją własną unikatową nazwą. Nazwa może zawierać tylko litery i cyfry.
+    a. **Nazwa rejestru**: globalnie unikatowa nazwa domeny najwyższego poziomu dla określonego rejestru. W tym przykładzie nazwa rejestru hello jest *myAzureContainerRegistry1*, ale podstawić własną unikatową nazwę. Nazwa Hello może zawierać tylko litery i cyfry.
 
-    b. **Grupa zasobów**: wybierz istniejącą [grupę zasobów](../azure-resource-manager/resource-group-overview.md#resource-groups) lub wprowadź nazwę nowej grupy zasobów.
+    b. **Grupa zasobów**: Wybierz istniejący [grupy zasobów](../azure-resource-manager/resource-group-overview.md#resource-groups) lub nazwa typu hello nowej.
 
-    c. **Lokalizacja**: wybierz taką lokalizację centrum danych Azure, gdzie usługa jest [dostępna](https://azure.microsoft.com/regions/services/), na przykład **Południowo-środkowe stany USA**.
+    c. **Lokalizacja**: Wybierz lokalizację centrum danych Azure, gdzie usługa hello jest [dostępne](https://azure.microsoft.com/regions/services/), takich jak **południowo-środkowe stany**.
 
-    d. **Administrator**: jeśli chcesz, umożliw administratorowi dostęp do rejestru. Po utworzeniu rejestru można zmienić to ustawienie.
+    d. **Administrator**: należy włączyć rejestru hello tooaccess użytkownika Administrator. Można zmienić to ustawienie po utworzeniu hello rejestru.
 
-    e. **Użyj rejestru zarządzanego**: wybierz opcję Tak, aby usługa ACR automatycznie zarządzała magazynem rejestru, korzystała z elementów webhook i używała uwierzytelniania w usłudze AAD.
+    e. **Użyj zarządzanego rejestru**: kliknij przycisk Tak toohave ACR automatycznie zarządzać magazynem rejestru hello, użyj elementów webhook, a uwierzytelnianie usługi AAD.
 
     f. **Warstwa cenowa**: wybierz warstwę cenową; zobacz cennik usługi ACR, aby uzyskać więcej informacji.
 
-## <a name="log-in-to-acr-instance"></a>Logowanie do wystąpienia usługi ACR
+## <a name="log-in-tooacr-instance"></a>Zaloguj się w wystąpieniu tooACR
 
-Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do wystąpienia usługi ACR. 
+Przed wypychanie i ściąganie kontener obrazów, należy zalogować się toohello ACR wystąpienia. 
 
-Aby to zrobić, użyj interfejsu wiersza polecenia platformy Azure 2.0. Najpierw, w razie potrzeby, zaloguj się do platformy Azure za pomocą polecenia [az login](/cli/azure/#login). 
+toodo tak, użycie hello Azure CLI 2.0. Po pierwsze, w razie potrzeby zaloguj się do platformy Azure przy użyciu hello [logowania az](/cli/azure/#login) polecenia. 
 
 ```azurecli
 az login
 ```
 
-Następnie użyj polecenia [az acr login](/cli/azure/acr#login), aby zalogować się do usługi Azure Container Registry.
+Następnie użyj hello [logowania acr az](/cli/azure/acr#login) toolog polecenia w toohello rejestru kontenera platformy Azure.
 
 ```azurecli-interactive
 az acr login --name myAzureContainerRegistry1
@@ -77,14 +77,14 @@ az acr login --name myAzureContainerRegistry1
 
 ### <a name="list-container-images"></a>Tworzenie listy obrazów kontenerów
 
-Użyj poleceń interfejsu wiersza polecenia `az acr` do tworzenia zapytań dotyczących obrazów i tagów w repozytorium.
+Użyj hello `az acr` polecenia interfejsu wiersza polecenia tooquery hello obrazów i tagów w repozytorium.
 
 > [!NOTE]
-> Obecnie usługa Container Registry nie obsługuje tworzenia zapytań dotyczących obrazów i tagów przy użyciu polecenia `docker search`.
+> Obecnie rejestru kontenera nie obsługuje hello `docker search` tooquery polecenia dla obrazów i tagów.
 
 ### <a name="list-repositories"></a>Tworzenie listy repozytoriów
 
-W poniższym przykładzie przedstawiono listę repozytoriów w rejestrze w formacie JSON (JavaScript Object Notation):
+Hello poniższym przykładzie przedstawiono repozytoria hello w rejestrze, w formacie JSON (JavaScript Object Notation):
 
 ```azurecli
 az acr repository list -n myContainerRegistry1 -o json
@@ -92,7 +92,7 @@ az acr repository list -n myContainerRegistry1 -o json
 
 ### <a name="list-tags"></a>Tworzenie listy tagów
 
-W poniższym przykładzie przedstawiono listę tagów w repozytorium **samples/nginx** w formacie JSON:
+Witaj poniższy przykład zawiera tagi hello na powitania **przykłady/nginx** repozytorium, w formacie JSON:
 
 ```azurecli
 az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -o json
@@ -100,7 +100,7 @@ az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono zarządzane wystąpienie usługi Azure Container Registry za pomocą witryny Azure Portal.
+W tym szybki start zostanie utworzona zarządzanego wystąpienia rejestru kontenera Azure za pomocą hello portalu Azure.
 
 > [!div class="nextstepaction"]
-> [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md) (Wypychanie pierwszego obrazu za pomocą interfejsu wiersza polecenia platformy Docker)
+> [Pierwszy obraz przy użyciu interfejsu wiersza polecenia Docker hello push](container-registry-get-started-docker-cli.md)

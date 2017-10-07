@@ -1,6 +1,6 @@
 ---
 title: "Usług domenowych Azure Active Directory: Wprowadzenie | Dokumentacja firmy Microsoft"
-description: "Włączanie usługi Azure Active Directory Domain Services przy użyciu portalu Azure (wersja zapoznawcza)"
+description: "Włączanie usługi Azure Active Directory Domain Services przy użyciu hello portalu Azure (wersja zapoznawcza)"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: maheshu
-ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8bde872a13bc9960d1e62c74017ff78a8953a0a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Włączanie usługi Azure Active Directory Domain Services przy użyciu portalu Azure (wersja zapoznawcza)
+# <a name="enable-azure-active-directory-domain-services-using-hello-azure-portal-preview"></a>Włączanie usługi Azure Active Directory Domain Services przy użyciu hello portalu Azure (wersja zapoznawcza)
 
 
 ## <a name="task-3-configure-administrative-group"></a>Zadanie 3: Konfigurowanie grupy administracyjnej
-W tym zadaniu konfiguracji grupy administracyjnej tworzenia w katalogu usługi Azure AD. Nosi nazwę tej grupy administracyjnej specjalne *Administratorzy kontrolera domeny usługi AAD*. Członkowie tej grupy są przyznawane uprawnienia administracyjne na komputerach, które są przyłączone do domeny do domeny zarządzanej. Na komputerach przyłączonych do domeny ta grupa jest dodawane do grupy Administratorzy. Ponadto Członkowie tej grupy służy pulpitu zdalnego do łączności zdalnej dla komputerów przyłączonych do domeny.
+W tym zadaniu konfiguracji grupy administracyjnej tworzenia w katalogu usługi Azure AD. Nosi nazwę tej grupy administracyjnej specjalne *Administratorzy kontrolera domeny usługi AAD*. Członkowie tej grupy są przyznawane uprawnienia administracyjne na komputerach, które są przyłączone do domeny toohello domeny zarządzanej. Na komputerach przyłączonych do domeny ta grupa jest dodawana toohello grupy Administratorzy. Ponadto Członkowie tej grupy można użyć maszyny zdalnie przyłączonych toodomain tooconnect pulpitu zdalnego.
 
 > [!NOTE]
-> Nie masz uprawnienia administratora domeny lub administratora przedsiębiorstwa domeny zarządzanej, który został utworzony za pomocą usługi Azure Active Directory Domain Services. W domenach zarządzanych te uprawnienia są zastrzeżone przez usługę i nie są udostępniane użytkownikom w ramach dzierżawy. Jednak można użyć specjalnej grupy administracyjne utworzone w ramach tego zadania konfiguracji można wykonać pewne operacje uprzywilejowane. Tych operacji zalicza się przyłączanie komputerów do domeny, należą do tej grupy administracyjnej na komputerach przyłączonych do domeny i konfigurowania zasad grupy.
+> Nie masz uprawnienia administratora domeny lub administratora przedsiębiorstwa hello domeny zarządzanej, który został utworzony za pomocą usługi Azure Active Directory Domain Services. W domenach zarządzanych te uprawnienia są zastrzeżone przez usługę hello i nie będą dostępne toousers w ramach dzierżawy hello. Można jednak użyć hello specjalnej grupy administracyjne utworzone w tej konfiguracji tooperform zadań niektóre czynności uprzywilejowane. Tych operacji zalicza się dołączenie komputerów domeny toohello, należącego do grupy administracyjnej toohello na komputerach przyłączonych do domeny i konfigurowania zasad grupy.
 >
 
-Kreator automatycznie tworzy grupy administracyjnej w katalogu usługi Azure AD. Ta grupa jest nazywany "Administratorzy usługi AAD kontrolera domeny". Jeśli istnieje już grupa o tej nazwie w katalogu usługi Azure AD, Kreator wybierze tej grupy. Można skonfigurować przy użyciu członkostwa w grupie **grupy administratorów** strony kreatora.
+Witaj Kreator automatycznie tworzy grupy administracyjnej hello w katalogu usługi Azure AD. Ta grupa jest nazywany "Administratorzy usługi AAD kontrolera domeny". Jeśli istnieje już grupa o tej nazwie w katalogu usługi Azure AD, Kreator hello wybiera tej grupy. Można skonfigurować przy użyciu hello członkostwa w grupie **grupy administratorów** strony kreatora.
 
-1. Kliknij, aby skonfigurować członkostwo w grupie **Administratorzy kontrolera domeny usługi AAD**.
+1. członkostwo w grupie tooconfigure, kliknij przycisk **Administratorzy kontrolera domeny usługi AAD**.
 
     ![Konfigurowanie członkostwa w grupie](./media/getting-started/domain-services-blade-admingroup.png)
 
-2. Kliknij przycisk **dodawać członków** przycisk, aby dodać użytkowników z katalogu usługi Azure AD do grupy administratorów.
+2. Kliknij przycisk hello **dodawać członków** przycisk tooadd użytkowników z grupy administrator toohello katalogu usługi Azure AD.
 
-3. Gdy wszystko będzie gotowe, kliknij przycisk **OK** można przenieść do **Podsumowanie** stronie kreatora.
+3. Gdy wszystko będzie gotowe, kliknij przycisk **OK** toomove na toohello **Podsumowanie** hello kreatora.
 
-4. Na **Podsumowanie** strony kreatora należy przejrzeć ustawienia konfiguracji dla domeny zarządzanej. Można przejść wstecz do dowolnego kroku kreatora, aby wprowadzić zmiany, jeśli to konieczne. Gdy wszystko będzie gotowe, kliknij przycisk **OK** do utworzenia nowej domeny zarządzanej.
+4. Na powitania **Podsumowanie** hello kreatora przejrzyj ustawienia konfiguracji hello hello domeny zarządzanej. Możesz wrócić krok tooany hello kreatora toomake zmian, jeśli to konieczne. Gdy wszystko będzie gotowe, kliknij przycisk **OK** toocreate hello nowego zarządzanego domeny.
 
     ![Podsumowanie](./media/getting-started/domain-services-blade-summary.png)
 
-5. Zostanie wyświetlone powiadomienie, że będzie wyświetlany postęp wdrażania usług domenowych Azure AD. Kliknij powiadomienie, aby wyświetlić szczegółowe informacje o postępie dla wdrożenia.
+5. Zostanie wyświetlone powiadomienie, że pokazuje hello postęp wdrażania usług domenowych Azure AD. Kliknij powiadomienie hello toosee szczegółowe postępu hello wdrożenia.
 
     ![Powiadomienie — wdrożenie w toku](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
 ## <a name="provision-your-managed-domain"></a>Zapewnij domeny zarządzanej
-Proces inicjowania obsługi administracyjnej domeny zarządzanej może potrwać do godziny.
+Proces inicjowania obsługi administracyjnej domeny zarządzanej Hello może potrwać godzinę tooan.
 
-1. Gdy wdrożenie jest w toku, możesz wyszukać "usługi domeny", w **wyszukiwania zasobów** pola wyszukiwania. Wybierz **usług domenowych Azure AD** z wyników wyszukiwania. **Usług domenowych Azure AD** bloku wymieniono domeny zarządzanej, która jest inicjowana.
+1. Podczas wdrożenia jest w toku, możesz wyszukać frazę "usługi domeny" w hello **wyszukiwania zasobów** pola wyszukiwania. Wybierz **usług domenowych Azure AD** z hello wyników wyszukiwania. Witaj **usług domenowych Azure AD** bloku wymieniono hello domeny zarządzanej, która jest inicjowana.
 
     ![Znajdź zainicjowanie obsługi domeny zarządzanej](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Kliknij nazwę domeny zarządzanej (na przykład "contoso100.com"), aby zobaczyć więcej szczegółów dotyczących domeny.
+2. Kliknij nazwę hello toosee domeny (na przykład "contoso100.com") hello zarządzane więcej szczegółów na temat hello domeny.
 
     ![Usług domenowych — stan inicjowania obsługi](./media/getting-started/domain-services-provisioning-state.png)
 
-3. **Omówienie** kartę pokazuje, że domena jest aktualnie aprowizowany. Nie można skonfigurować domeny zarządzanej, dopóki nie jest w pełni zaaprowizowanym. Może potrwać do godziny dla domeny zarządzanej być w pełni obsługiwany.
+3. Witaj **omówienie** karcie są wyświetlane tej domeny hello jest aktualnie aprowizowany. Nie można skonfigurować hello domeny zarządzanej, dopóki nie jest w pełni zaaprowizowanym. Może potrwać godzinę tooan Twojego toobe domeny zarządzanej, w pełni zaaprowizowanym.
 
-    ![Usługi domenowe — karta Przegląd w stanie inicjowania obsługi administracyjnej ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Usługi domenowe — karta Przegląd podczas hello stan inicjowania obsługi ](./media/getting-started/domain-services-provisioning-state-details.png)
 
-4. Gdy domeny zarządzanej jest w pełni zaaprowizowanym, **omówienie** stan wyświetlany na karcie domeny jako **systemem**.
+4. Gdy domeny zarządzanej hello jest w pełni zaaprowizowanym, hello **omówienie** karta przedstawia stan domen hello jako **systemem**.
 
     ![Usługi Domain Services — karta Przegląd po pełnej aprowizacji](./media/getting-started/domain-services-provisioned.png)
 
-5. Na **właściwości** kartę, zobacz dwa adresy IP, w której domeny kontrolery są dostępne dla sieci wirtualnej.
+5. Na powitania **właściwości** kartę, zobacz dwa adresy IP, w której domeny są dostępne dla sieci wirtualnej hello kontrolerów.
 
     ![Usługi domenowe — karta właściwości po w pełni zaaprowizowanym](./media/getting-started/domain-services-provisioned-properties.png)
 
 
 ## <a name="next-step"></a>Następny krok
-[Zadanie 4. Aktualizowanie ustawień usługi DNS dla sieci wirtualnej platformy Azure](active-directory-ds-getting-started-dns.md)
+[Zadanie 4: aktualizowanie ustawień DNS hello hello sieci wirtualnej platformy Azure](active-directory-ds-getting-started-dns.md)

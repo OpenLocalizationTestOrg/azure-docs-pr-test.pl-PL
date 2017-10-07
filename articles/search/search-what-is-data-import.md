@@ -1,6 +1,6 @@
 ---
-title: "Przekazywanie danych do usługi Azure Search | Microsoft Docs"
-description: "Dowiedz się, jak przekazywać dane do indeksu w usłudze Azure Search."
+title: "przekazywanie aaaData w usłudze Azure Search | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooan danych tooupload indeksu w usłudze Azure Search."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: ashmaka
-ms.openlocfilehash: 5a601b75ec67824e72d8736bc3c45f8e1231ca86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a95eae94f72c1d0926804ff7e1152f21773fcabf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upload-data-to-azure-search"></a>Przekazywanie danych do usługi Azure Search
+# <a name="upload-data-tooazure-search"></a>Przekazywanie danych tooAzure wyszukiwania
 > [!div class="op_single_selector"]
 > * [Omówienie](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -29,31 +29,31 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Istnieją dwa sposoby wypełniania indeksu danymi. Pierwsza opcja polega na ręcznym wypychaniu danych do indeksu przy użyciu interfejsu [API REST](search-import-data-rest-api.md) lub zestawu [.NET SDK](search-import-data-dotnet.md) usługi Azure Search. Drugą opcją jest [wskazanie obsługiwanego źródła danych](search-indexer-overview.md) indeksowi i zezwolenie usłudze Azure Search na automatyczne ściągnięcie danych.
+Istnieją dwa sposoby toopopulate indeksu z danymi. Hello pierwsza opcja polega na ręcznym wypychaniu danych do indeksu hello przy użyciu usługi Azure Search hello [interfejsu API REST](search-import-data-rest-api.md) lub [zestawu .NET SDK](search-import-data-dotnet.md). Druga opcja Hello jest zbyt[punktu obsługiwanego źródła danych](search-indexer-overview.md) tooyour indeksu i zezwolenie usłudze Azure Search na automatyczne ściągnięcie danych hello.
 
-## <a name="push-data-to-an-index"></a>Wypychanie danych do indeksu
-Ta metoda obejmuje programowe wysyłanie danych do usługi Azure Search w celu udostępnienia ich do wyszukiwania. W przypadku aplikacji wymagających bardzo niskich opóźnień (na przykład w razie konieczności synchronizowania operacji wyszukiwania z dynamicznymi bazami danych zapasów) model wypychania jest jedynym rozwiązaniem.
+## <a name="push-data-tooan-index"></a>Wypychanie danych tooan indeksu
+Ta metoda obejmuje tooprogrammatically wysyłania toomake wyszukiwania tooAzure Twojego danych będzie dostępna do wyszukiwania. W przypadku aplikacji o bardzo niskich opóźnień (na przykład wyszukiwania toobe operacji synchronizacji z dynamicznymi bazami danych zapasów) hello model wypychania jest jedynym rozwiązaniem.
 
-W celu wypychania danych do indeksu możesz użyć interfejsu [API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) lub zestawu [.NET SDK](search-import-data-dotnet.md). Obecnie nie istnieje wsparcie narzędziowe wypychania danych za pośrednictwem portalu.
+Można użyć hello [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) lub [zestawu .NET SDK](search-import-data-dotnet.md) toopush danych tooan indeksu. Obecnie nie jest narzędzie obsługiwane dla wypychania danych za pośrednictwem portalu hello.
 
-To podejście jest bardziej elastyczne niż model polegający na ściąganiu, ponieważ możesz przekazywać dokumenty pojedynczo lub w partiach (maksymalnie 1000 dokumentów na partię lub 16 MB zależnie od tego, który limit zostanie osiągnięty jako pierwszy). Model polegający na wypychaniu umożliwia również przekazywanie dokumentów do usługi Azure Search niezależnie od tego, gdzie znajdują się dane.
+Takie podejście jest bardziej elastyczne niż model ściągania hello, ponieważ możesz przekazywać dokumenty pojedynczo lub w partiach (się too1000 na partię lub 16 MB, niezależnie od limit zostanie osiągnięty jako pierwszy). model wypychania Hello umożliwia także tooupload dokumenty tooAzure wyszukiwania niezależnie od tego, gdzie dane.
 
-Formatem danych zrozumiałym dla usługi Azure Search jest JSON, a wszystkie dokumenty w zestawie danych muszą zawierać pola, które są mapowane na pola zdefiniowane w schemacie indeksu. 
+format danych Hello zrozumiałe dla usługi Azure Search jest JSON, a wszystkie dokumenty w zestawie danych hello musi zawierać pola, które mapują toofields zdefiniowanej w schemacie Twojego indeksu. 
 
 ## <a name="pull-data-into-an-index"></a>Ściąganie danych do indeksu
-Model polegający na ściąganiu obejmuje przeszukiwanie obsługiwanego źródła danych i automatyczne przekazywanie danych do indeksu. W usłudze Azure Search ta możliwość jest zaimplementowana za pomocą *indeksatorów*, które obecnie są dostępne dla usług [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer) i [Azure SQL Database oraz programu SQL Server na maszynach wirtualnych platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
+model ściągania Hello obejmuje przeszukiwanie obsługiwanego źródła danych i automatyczne przekazywanie hello danych do indeksu. W usłudze Azure Search ta możliwość jest zaimplementowana za pomocą *indeksatorów*, które obecnie są dostępne dla usług [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer) i [Azure SQL Database oraz programu SQL Server na maszynach wirtualnych platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 
-Indeksatory łączą indeks ze źródłem danych (zwykle tabelą, widokiem lub równoważną strukturą) i mapują pola źródłowe na równoważne pola w indeksie. W czasie wykonywania zestaw wierszy jest automatycznie przekształcany w dane w formacie JSON i ładowany do określonego indeksu. Wszystkie indeksatory obsługują planowanie, dzięki czemu możesz określić, jak często dane mają być odświeżane. Większość indeksatorów udostępnia śledzenie zmian, jeśli źródło danych obsługuje tę funkcję. Dzięki śledzeniu zmian i usuwania istniejących dokumentów oraz rozpoznawaniu nowych dokumentów indeksatory eliminują konieczność aktywnego zarządzania danymi w indeksie. 
+Indeksatory Połącz indeksu tooa źródła danych (zazwyczaj tabeli, widoku lub równoważnej struktury) i mapowanie źródła pola tooequivalent pól w indeksie hello. W czasie wykonywania hello zestawu wierszy jest automatycznie po przekształceniu tooJSON i ładowane do hello określonego indeksu. Wszystkie indeksatory obsługuje planowania, dzięki czemu można określić, jak często hello dane są odświeżane toobe. Większość indeksatory Podaj śledzenia, jeśli źródło danych hello obsługuje zmian. Śledzenie zmian i usuwa tooexisting dokumentów dodatkowo toorecognizing nowych dokumentów, indeksatory eliminują konieczność hello tooactively zarządzać danymi hello w indeksie. 
 
-Funkcja indeksatora jest udostępniona w witrynie [Azure Portal](search-import-data-portal.md), interfejsie [API REST](/rest/api/searchservice/Indexer-operations) i zestawie [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperations). 
+Funkcja indeksatora jest widoczna w hello [portalu Azure](search-import-data-portal.md), hello [interfejsu API REST](/rest/api/searchservice/Indexer-operations)i hello [zestawu .NET SDK](/dotnet/api/microsoft.azure.search.indexersoperations). 
 
-Zaletą korzystania z portalu jest to, że usługa Azure Search zazwyczaj może wygenerować domyślny schemat indeksu, odczytując metadane zestawu źródła danych. Wygenerowany indeks można modyfikować, dopóki indeks jest przetwarzany, po czym dozwolone są tylko te zmiany schematu, które nie wymagają ponownego indeksowania. Jeśli żądane zmiany wpływają bezpośrednio na schemat, konieczne będzie odbudowanie indeksu. 
+Portal hello toousing zaletą jest, że usługi Azure Search zwykle wygenerować domyślny schemat indeksu dla Ciebie odczytu hello metadanych zestawu hello źródła danych. Witaj generowania indeksu można modyfikować, dopóki indeks hello jest przetwarzany, po którym hello są tymi, które nie wymagają indeksowanie dozwolone tylko zmiany schematu. Jeśli zmiany hello ma wpływ toomake hello schematu bezpośrednio, będzie potrzebny toorebuild hello indeksu. 
 
-Po wypełnieniu indeksu możesz użyć **Eksploratora wyszukiwania** na pasku poleceń portalu jako kroku weryfikacji.
+Po hello indeks zostanie wypełnione, można użyć **Eksplorator wyszukiwania** na pasku poleceń portalu hello krokiem weryfikacji.
 
 ## <a name="query-an-index-using-search-explorer"></a>Tworzenie zapytań względem indeksu za pomocą Eksploratora wyszukiwania
 
-Szybkim sposobem wykonania wstępnego sprawdzenia przekazywania dokumentu jest użycie **Eksploratora wyszukiwania** w portalu. Eksplorator umożliwia wykonywanie zapytań względem indeksu bez konieczności pisania kodu. Środowisko wyszukiwania jest oparte na ustawieniach domyślnych, takich jak [prosta składnia](/rest/api/searchservice/simple-query-syntax-in-azure-search) i domyślny parametr zapytania [searchMode](/rest/api/searchservice/search-documents). Wyniki są zwracane w formacie JSON, co umożliwia inspekcję całego dokumentu.
+Szybko tooperform wstępnego wyboru na przekazanie dokumentu hello jest toouse **Eksplorator wyszukiwania** w portalu hello. Program Hello explorer umożliwia tworzenie zapytań względem indeksu bez żadnego kodu toowrite. Witaj wyników wyszukiwania jest na podstawie domyślnych ustawień, takich jak hello [proste składni](/rest/api/searchservice/simple-query-syntax-in-azure-search) i domyślne [parametru zapytania searchMode](/rest/api/searchservice/search-documents). Wyniki są zwracane w formacie JSON, dzięki czemu możesz sprawdzić hello całego dokumentu.
 
 > [!TIP]
-> Wiele [przykładów kodu usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) obejmuje osadzone lub szybko dostępne zestawy danych, oferując łatwy sposób na rozpoczęcie pracy. Portal udostępnia również przykładowy indeksator i źródło danych składające się z małego zestawu danych nieruchomości (o nazwie „realestate-us-sample”). Po uruchomieniu wstępnie skonfigurowanego indeksatora na przykładowym źródle danych indeks zostaje utworzony i załadowany przy użyciu dokumentów, które następnie można odpytywać w Eksploratorze wyszukiwania lub za pomocą napisanego kodu.
+> Wiele [przykłady kodu usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) obejmują osadzonego lub łatwo dostępne zestawy danych, oferty tooget łatwy sposób pracy. Hello portal także przykładowe indeksatora i źródła danych składający się z zestawu danych nieruchomości małej (o nazwie "współużytkowania us test"). Po uruchomieniu indeksatora wstępnie skonfigurowane hello na źródła danych przykładowych hello indeksu jest tworzony i załadowane z dokumentami, które następnie można wyszukiwać w Eksploratorze wyszukiwania lub przez kod, który można zapisać.

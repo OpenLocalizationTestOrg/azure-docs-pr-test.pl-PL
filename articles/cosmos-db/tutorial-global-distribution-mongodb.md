@@ -1,6 +1,6 @@
 ---
-title: "Samouczek usługi Azure globalne dystrybucji rozwiązania Cosmos DB dla bazy danych MongoDB interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować bazy danych Azure rozwiązania Cosmos dystrybucji globalnego przy użyciu interfejsu API bazy danych MongoDB."
+title: "Samouczek globalne dystrybucji DB rozwiązania Cosmos aaaAzure dla bazy danych MongoDB interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak przy użyciu dystrybucji globalnej bazy danych Azure rozwiązania Cosmos toosetup hello API bazy danych MongoDB."
 services: cosmos-db
 keywords: globalne dystrybucji, bazy danych MongoDB
 documentationcenter: 
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: a2747102f4d8cac412b67abc3fd07cfa3661bcee
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0fc2d670bb4e21ac5f813f9586b407ba06ccf354
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Konfigurowanie bazy danych Azure rozwiązania Cosmos dystrybucji globalnego przy użyciu interfejsu API bazy danych MongoDB
+# <a name="how-toosetup-azure-cosmos-db-global-distribution-using-hello-mongodb-api"></a>Jak przy użyciu dystrybucji globalnej bazy danych Azure rozwiązania Cosmos toosetup hello API bazy danych MongoDB
 
-W tym artykule zostanie przedstawiony sposób użycia portalu Azure do instalacji bazy danych Azure rozwiązania Cosmos globalne dystrybucji, a następnie nawiąż połączenie przy użyciu interfejsu API bazy danych MongoDB.
+W tym artykule zostanie przedstawiony sposób toouse hello Azure toosetup portalu Azure DB rozwiązania Cosmos globalne dystrybucji, a następnie nawiąż połączenie przy użyciu hello API bazy danych MongoDB.
 
-W tym artykule opisano następujące zadania: 
+W tym artykule omówiono hello następujące zadania: 
 
 > [!div class="checklist"]
-> * Skonfiguruj globalne dystrybucji przy użyciu portalu Azure
-> * Skonfigurować globalne dystrybucji za pomocą [API bazy danych MongoDB](mongodb-introduction.md)
+> * Skonfiguruj globalne dystrybucji przy użyciu hello portalu Azure
+> * Skonfiguruj globalne dystrybucji przy użyciu hello [API bazy danych MongoDB](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Weryfikowanie ustawień regionalnych przy użyciu interfejsu API bazy danych MongoDB
-Najprostszym sposobem sprawdzanie globalnej konfiguracji w obrębie interfejsu API dla bazy danych MongoDB ma być uruchamiany o podwójnej precyzji *isMaster()* polecenie z poziomu powłoki Mongo.
+## <a name="verifying-your-regional-setup-using-hello-mongodb-api"></a>Weryfikowanie ustawień regionalnych przy użyciu hello API bazy danych MongoDB
+Najprostszym sposobem Hello o podwójnej precyzji sprawdzanie globalnej konfiguracji w obrębie interfejsu API dla bazy danych MongoDB jest toorun hello *isMaster()* polecenie hello powłoki Mongo.
 
 Z powłoki Mongo:
 
@@ -68,23 +68,23 @@ Przykładowe wyniki:
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>Łączenie z preferowanego regionu przy użyciu interfejsu API bazy danych MongoDB
+## <a name="connecting-tooa-preferred-region-using-hello-mongodb-api"></a>Łączenie preferowanego regionu tooa przy użyciu hello API bazy danych MongoDB
 
-Interfejs API bazy danych MongoDB umożliwia określenie preferencji odczytu kolekcji globalnie rozproszone bazy danych. Dla obu małe opóźnienia odczytów, jak i globalnego wysokiej dostępności, firma Microsoft zaleca ustawienie preferencji odczytu kolekcji *najbliższej*. Przeczytaj preferencję *najbliższej* jest skonfigurowany do odczytu z najbliżej regionu.
+Hello bazy danych MongoDB interfejsu API umożliwia toospecify możesz odczytu preferencji globalnie rozproszoną bazę danych z kolekcji. Dla obu małe opóźnienia odczytów, jak i globalnego wysokiej dostępności, firma Microsoft zaleca ustawienie zbyt preferencji odczytu kolekcji*najbliższej*. Przeczytaj preferencję *najbliższej* jest skonfigurowany tooread z hello najbliżej regionu.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-Dla aplikacji za pomocą podstawowego odczytu/zapisu regionu i regionu pomocniczego do odzyskiwania awaryjnego (DR) scenariuszy, firma Microsoft zaleca ustawienie preferencji odczytu kolekcji *pomocniczy preferowane*. Odczytu preferencję *pomocniczy preferowane* jest skonfigurowany do odczytu z regionu pomocniczego, gdy region podstawowy jest niedostępny.
+Dla aplikacji za pomocą podstawowego odczytu/zapisu regionu i regionu pomocniczego do odzyskiwania awaryjnego (DR) scenariuszy, firma Microsoft zaleca ustawienie zbyt preferencji odczytu kolekcji*pomocniczy preferowane*. Odczytu preferencję *pomocniczy preferowane* jest skonfigurowany tooread z regionu pomocniczego hello w przypadku regionu podstawowego hello jest niedostępny.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
 ```
 
-Ponadto jeśli chcesz ręcznie określić Twojej odczytu regionów. Można ustawić regionu tagu w swoich preferencji odczytu.
+Ponadto jeśli takie jak toomanually Określ Twojej odczytu regionów. Można ustawić regionu hello tagu w swoich preferencji odczytu.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -92,17 +92,17 @@ var tag = new Tag("region", "Southeast Asia");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-To wszystko, która kończy w tym samouczku. Znajdują się informacje dotyczące zarządzania spójności konta globalnie replikowanych odczytując [poziomów spójności w usłudze Azure DB rozwiązania Cosmos](consistency-levels.md). I uzyskać więcej informacji na temat sposobu globalnej replikacji bazy danych działa w usłudze Azure DB rozwiązania Cosmos, zobacz [dystrybucji danych globalnie z bazy danych Azure rozwiązania Cosmos](distribute-data-globally.md).
+To wszystko, która kończy w tym samouczku. Dowiedz się jak toomanage hello spójności konta globalnie replikowanych odczytując [poziomów spójności w usłudze Azure DB rozwiązania Cosmos](consistency-levels.md). I uzyskać więcej informacji na temat sposobu globalnej replikacji bazy danych działa w usłudze Azure DB rozwiązania Cosmos, zobacz [dystrybucji danych globalnie z bazy danych Azure rozwiązania Cosmos](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku wykonaniu następujących czynności:
+W tym samouczku wykonaniu hello następujące czynności:
 
 > [!div class="checklist"]
-> * Skonfiguruj globalne dystrybucji przy użyciu portalu Azure
-> * Skonfiguruj globalne dystrybucji przy użyciu interfejsów API usługi DocumentDB
+> * Skonfiguruj globalne dystrybucji przy użyciu hello portalu Azure
+> * Skonfiguruj globalne dystrybucji przy użyciu hello interfejsów API usługi DocumentDB
 
-Możesz teraz przejść do następnym samouczku, aby dowiedzieć się, jak opracowywać lokalnie przy użyciu emulatora lokalnej bazy danych Azure rozwiązania Cosmos.
+Można teraz kontynuować toohello następny samouczek toolearn jak toodevelop lokalnie za pomocą hello emulatora lokalnej bazy danych Azure rozwiązania Cosmos.
 
 > [!div class="nextstepaction"]
-> [Opracowywanie lokalnie w emulatorze](local-emulator.md)
+> [Opracowywanie lokalnie emulatorze hello](local-emulator.md)

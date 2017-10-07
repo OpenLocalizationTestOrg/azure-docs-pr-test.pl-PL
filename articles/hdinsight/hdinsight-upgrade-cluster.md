@@ -1,6 +1,6 @@
 ---
-title: "Uaktualnienia klastra usługi HDInsight do nowszej wersji-Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak uaktualnić klaster usługi HDInsight do nowszej wersji."
+title: "wersja nowsza tooa klastra usługi HDInsight aaaUpgrade-Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooUpgrade HDInsight cluster tooa nowszej wersji."
 services: hdinsight
 documentationcenter: 
 author: bhanupr
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: bhanupr
-ms.openlocfilehash: fa2e37bd922690322ccc3d8f68128180d013b701
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5fff3c9bc88dfbcbc1ccb0188accdfbbec3a62f6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Uaktualnij do nowszej wersji klastra usługi HDInsight
-Aby móc korzystać z najnowszych funkcji usługi HDInsight, zaleca się, że klastry usługi HDInsight można uaktualnić do najnowszej wersji. Postępuj zgodnie z poniższych wytycznych, aby uaktualnić Twoje HDInsight cluster wersji.
+# <a name="upgrade-hdinsight-cluster-tooa-newer-version"></a>Uaktualnij tooa klastra usługi HDInsight w nowszej wersji
+Zaletą tootake hello najnowszych funkcji usługi HDInsight, zaleca się klastrów usługi HDInsight toolatest uaktualnionej wersji. Wykonaj hello poniżej tooupgrade wskazówki dotyczące Twojej wersji klastra usługi HDInsight.
 
 > [!NOTE]
 > Klastry usługi HDInsight w wersji 3.2 lub 3.3 zbliża się Data wycofania. Aby uzyskać informacji na temat obsługiwanych wersji usługi hdinsight, zobacz [wersji składnika usługi HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
@@ -30,26 +30,26 @@ Aby móc korzystać z najnowszych funkcji usługi HDInsight, zaleca się, że kl
 >
 
 ## <a name="upgrade-tasks"></a>Zadania uaktualniania
-Poniżej przedstawiono przepływ pracy do uaktualnienia klastra usługi HDInsight.
+Witaj przepływu pracy tooupgrade klastra usługi HDInsight ma następującą składnię.
 
 ![Diagram przepływu pracy uaktualniania](./media/hdinsight-upgrade-cluster/upgrade-workflow.png)
 
-1. Przeczytaj każdej sekcji tego dokumentu, aby zrozumieć zmiany, które mogą być wymagane w przypadku uaktualniania z klastrem usługi HDInsight.
-2. Tworzenie klastra jako środowiska gwarancji testu/jakości. Aby uzyskać więcej informacji na temat tworzenia klastra, zobacz [informacje o sposobie tworzenia klastrów usługi HDInsight opartej na systemie Linux](hdinsight-hadoop-provision-linux-clusters.md)
-3. Skopiuj zadania istniejące źródła danych i wychwytywanie do nowego środowiska. Zobacz [kopiowania danych do środowiska testowego](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment) więcej szczegółów.
-4. Należy przeprowadzić testy weryfikacji, aby upewnić się, że zadaniach działać zgodnie z oczekiwaniami w nowym klastrze.
+1. Przeczytaj sekcję tego dokumentu toounderstand zmiany, które mogą być wymagane w przypadku uaktualniania z klastrem usługi HDInsight.
+2. Tworzenie klastra jako środowiska gwarancji testu/jakości. Aby uzyskać więcej informacji na temat tworzenia klastra, zobacz [Dowiedz się, jak toocreate opartych na systemie Linux klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+3. Kopia istniejącego zadania, źródła danych i wychwytywanie toohello nowego środowiska. Zobacz [tooTest skopiować dane środowisko](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment) więcej szczegółów.
+4. Sprawdzania poprawności testowania toomake się upewnić, że zadaniach działać zgodnie z oczekiwaniami w nowym klastrze hello.
 
 
-Po upewnieniu się, że wszystko działa zgodnie z oczekiwaniami, należy zaplanować przestój do migracji. Podczas tego przestojów wykonaj następujące czynności:
+Po upewnieniu się, że wszystko działa zgodnie z oczekiwaniami, należy zaplanować przestój hello migracji. Podczas tego przestoju hello następujących czynności:
 
-1.  Utwórz kopię zapasową przejściowej danych przechowywanych lokalnie w węzłach klastra. Jeśli na przykład dane przechowywane bezpośrednio na węzła głównego.
-2.  Usuwanie istniejącego klastra.
-3.  Tworzenia klastra w tej samej podsieci sieci Wirtualnej z najnowszą (lub obsługiwanych) wersja usługi HDI przy użyciu tego samego magazynu danych domyślne używane poprzedniego klastra. Dzięki temu nowego klastra kontynuować pracę z istniejących danych produkcyjnych.
+1.  Utwórz kopię zapasową przejściowej dane przechowywane lokalnie na hello węzłów klastra. Jeśli na przykład dane przechowywane bezpośrednio na węzła głównego.
+2.  Usuń hello istniejącego klastra.
+3.  Tworzenie klastra w hello hello tej samej sieci Wirtualnej podsieci o najnowszych (lub obsługiwanych) HDI wersji przy użyciu tego samego magazynu danych domyślne hello poprzedniego klastra używane. Dzięki temu hello nowego klastra toocontinue rywalizacja istniejących danych produkcyjnych.
 4.  Importuj wszystkie przejściowej dane kopii zapasowej.
-5.  Uruchom zadania/Kontynuuj przetwarzanie przy użyciu nowego klastra.
+5.  Uruchom zadania/Kontynuuj przetwarzania przy użyciu hello nowego klastra.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Informacje o sposobie tworzenia klastrów usługi HDInsight opartej na systemie Linux](hdinsight-hadoop-provision-linux-clusters.md)
-* [Połączenie do usługi HDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Dowiedz się, jak toocreate opartych na systemie Linux klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+* [Połącz tooHDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Zarządzanie klastrem opartych na systemie Linux przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md)
 

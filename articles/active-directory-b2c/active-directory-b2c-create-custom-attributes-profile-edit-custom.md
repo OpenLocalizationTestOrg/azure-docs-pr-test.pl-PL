@@ -1,6 +1,6 @@
 ---
-title: "Usługa Azure Active Directory B2C: Dodać własne atrybutów niestandardowych zasad i używać w edycji profilu | Dokumentacja firmy Microsoft"
-description: "Przewodnik dotyczący przy użyciu właściwości rozszerzenia, atrybuty niestandardowe, w tym ich z interfejsu użytkownika"
+title: "Usługa Azure Active Directory B2C: Dodawanie własnych zasad toocustom atrybutów i używanie w edycji profilu | Dokumentacja firmy Microsoft"
+description: "Przewodnik dotyczący przy użyciu właściwości rozszerzenia, atrybuty niestandardowe, w tym ich z hello interfejsu użytkownika"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,63 +14,63 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 67c9f6eca18e2dd77e00b8bc8c7bcc546ea3936e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8cc9c6a38d7652797ba54a3e02078ac2bf4a693b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Usługa Azure Active Directory B2C: Tworzenie i używanie niestandardowych atrybutów w profilu niestandardowego edytowanie zasad
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W tym artykule Tworzenie niestandardowego atrybutu w katalogu usługi Azure AD B2C i jako oświadczenia niestandardowego w podróży użytkownika edycji profilu za pomocą tego nowego atrybutu.
+W tym artykule Tworzenie niestandardowego atrybutu w katalogu usługi Azure AD B2C i jako oświadczenia niestandardowego w podróży użytkownika edycji profilu hello za pomocą tego nowego atrybutu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wykonaj kroki w artykule [wprowadzenie zasady niestandardowe](active-directory-b2c-get-started-custom.md).
+Hello pełną kroki opisane w artykule hello [wprowadzenie zasady niestandardowe](active-directory-b2c-get-started-custom.md).
 
-## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-active-directory-b2c-using-custom-policies"></a>Wykorzystaj niestandardowe atrybuty do zbierania informacji o klientach w usłudze Azure Active Directory B2C za pomocą zasad niestandardowych
-Katalogu usługi Azure Active Directory (Azure AD) B2C jest dostarczany z wbudowanego zestawu atrybutów: podana imię, nazwisko, Miasto, kod pocztowy, userPrincipalName, itp.  Często muszą utworzyć własne atrybuty.  Na przykład:
-* Aplikacja klienta uwzględniającym musi być zachowany atrybut, taki jak "LoyaltyNumber."
+## <a name="use-custom-attributes-toocollect-information-about-your-customers-in-azure-active-directory-b2c-using-custom-policies"></a>Atrybuty niestandardowe toocollect informacje o klientach w usłudze Azure Active Directory B2C za pomocą zasad niestandardowych
+Katalogu usługi Azure Active Directory (Azure AD) B2C jest dostarczany z wbudowanego zestawu atrybutów: podana imię, nazwisko, Miasto, kod pocztowy, userPrincipalName, itp.  Często konieczne toocreate własne atrybuty.  Na przykład:
+* Aplikacja klienta uwzględniającym musi toopersist atrybut, taki jak "LoyaltyNumber."
 * Dostawca tożsamości ma identyfikator unikatowy użytkownika, który musi zostać zapisany, takie jak "uniqueUserGUID"."
-* Przebieg użytkownika niestandardowego musi być zachowany stan użytkownika, takie jak "migrationStatus."
+* Przebieg użytkownika niestandardowego wymaga toopersist hello stanu użytkownika, takie jak "migrationStatus."
 
-Z usługi Azure AD B2C można rozszerzyć zestaw atrybutów przechowywanych dla każdego konta użytkownika. Może także odczytywać i zapisywać te atrybuty za pomocą [interfejsu API usługi Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md).
+Z usługi Azure AD B2C można rozszerzyć hello zestaw atrybutów przechowywanych dla każdego konta użytkownika. Może także odczytywać i zapisywać te atrybuty przy użyciu hello [interfejsu API usługi Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
-Właściwości rozszerzenia rozszerzenie schematu obiektu użytkownika w katalogu.  Właściwość rozszerzenia warunki, atrybutu niestandardowego i oświadczenia niestandardowe zapoznaj się samo w kontekście tego artykułu, a nazwa może być różna w zależności od kontekstu (aplikacji, obiekt zasad).
+Właściwości rozszerzenia rozszerzenie schematu hello hello obiektów użytkownika w katalogu hello.  Właściwość rozszerzenia warunki Hello, atrybutu niestandardowego i oświadczenia niestandardowe odwoływać się toohello, które samo w kontekście hello tego artykułu i hello nazwa różni się w zależności od kontekstu hello (aplikacji, obiekt zasad).
 
-Właściwości rozszerzenia mogą być rejestrowane tylko dla obiektu aplikacji, nawet jeśli dane mogą zawierać dla użytkownika. Właściwość jest dołączony do aplikacji. Obiekt aplikacji muszą mieć uprawnienie zapisu do rejestru właściwość rozszerzenia. 100 właściwości rozszerzenia (za pośrednictwem wszystkich typów i wszystkie aplikacje) mogą być zapisywane na żadnym pojedynczym obiektem. Właściwości rozszerzenia są dodawane na typ docelowy katalogu i stanie się dostępny natychmiast w dzierżawie usługi Azure AD B2C w katalogu.
-Jeśli aplikacja zostanie usunięty, są również usuwane te właściwości rozszerzenia wraz z danymi znajdującymi się w nich dla wszystkich użytkowników. Jeśli właściwość rozszerzenia zostanie usunięty przez aplikację, zostanie ono usunięte obiekty katalogu docelowego i wartości usunięte.
+Właściwości rozszerzenia mogą być rejestrowane tylko dla obiektu aplikacji, nawet jeśli dane mogą zawierać dla użytkownika. Właściwość Hello jest dołączona toohello aplikacji. obiekt aplikacji Hello musi być przyznany dostęp do zapisu tooregister właściwość rozszerzenia. Tooany pojedynczego obiektu można pisać 100 właściwości rozszerzenia (za pośrednictwem wszystkich typów i wszystkie aplikacje). Właściwości rozszerzenia są dodawane typ katalog docelowy toohello i staje się natychmiast dostępne w dzierżawie katalogu hello Azure AD B2C.
+Usunięcie aplikacji hello są również usuwane te właściwości rozszerzenia wraz z danymi znajdującymi się w nich dla wszystkich użytkowników. Jeśli właściwość rozszerzenia są usuwane przez hello aplikacji, zostanie ono usunięte na powitania obiektów katalogu docelowego i hello wartości usunięte.
 
-Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikację w dzierżawie. Identyfikator obiektu tej aplikacji muszą być zawarte w TechnicalProfile, który go używać.
+Właściwości rozszerzenia istnieją tylko w kontekście hello zarejestrowaną aplikację w dzierżawie powitalnych. Identyfikator obiektu Hello tej aplikacji muszą być zawarte w hello TechnicalProfile, który go używać.
 
 >[!NOTE]
->Katalog usługi Azure AD B2C zwykle obejmuje aplikację sieci Web o nazwie `b2c-extensions-app`.  Ta aplikacja jest używany głównie za pomocą zasad wbudowany b2c dla oświadczenia niestandardowe utworzone za pośrednictwem portalu Azure.  Za pomocą tej aplikacji do zarejestrowania rozszerzenia zasad niestandardowych b2c jest zalecane tylko dla użytkowników zaawansowanych.  Odpowiednie instrukcje znajdują się w sekcji kolejne kroki w tym artykule.
+>katalog usługi Azure AD B2C Hello zwykle zawiera aplikację sieci Web o nazwie `b2c-extensions-app`.  Tę aplikację przede wszystkim jest używany przez zasady wbudowanych b2c hello hello oświadczeń niestandardowe utworzone przy użyciu hello portalu Azure.  Za pomocą tego rozszerzenia tooregister aplikacji do zasad niestandardowych b2c jest zalecane tylko dla użytkowników zaawansowanych.  Odpowiednie instrukcje znajdują się w sekcji kolejne kroki w tym artykule hello.
 
 
-## <a name="creating-a-new-application-to-store-the-extension-properties"></a>Tworzenie nowej aplikacji do zapisania właściwości rozszerzenia
+## <a name="creating-a-new-application-toostore-hello-extension-properties"></a>Tworzenie nowego toostore aplikacji hello — właściwości rozszerzenia
 
-1. Otwórz sesję przeglądania i przejdź do [Azure porta](https://portal.azure.com) i zaloguj się przy użyciu poświadczeń administracyjnych katalogu B2C, chcesz skonfigurować.
-1. Kliknij przycisk **usługi Azure Active Directory** w menu nawigacji po lewej stronie. Konieczne może być go znaleźć, wybierając więcej usług >.
+1. Otwórz sesję przeglądania i przejdź toohello [Azure porta](https://portal.azure.com) i zaloguj się przy użyciu poświadczeń administracyjnych serwera hello mają tooconfigure katalogu usługi B2C.
+1. Kliknij przycisk **usługi Azure Active Directory** w menu nawigacji po lewej stronie powitania. Toofind ją, wybierając więcej usług może być konieczne >.
 1. Wybierz **rejestracji aplikacji** i kliknij przycisk **nowej rejestracji aplikacji**
-1. Podaj następujące wpisy zalecane:
-  * Określ nazwę dla aplikacji sieci web: **aplikacji sieci Web-GraphAPI-DirectoryExtensions**
+1. Zapewniają następujące hello zalecane wpisy:
+  * Określ nazwę dla aplikacji sieci web hello: **aplikacji sieci Web-GraphAPI-DirectoryExtensions**
   * Typ aplikacji: aplikacja/interfejs API sieci Web
   * URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions logowania jednokrotnego
-1. Wybierz ** utworzyć. Pomyślne zakończenie pojawia się w **powiadomienia**
-1. Wybierz aplikację sieci web nowo utworzony: **aplikacji sieci Web-GraphAPI-DirectoryExtensions**
+1. Wybierz ** utworzyć. Pomyślne zakończenie pojawia się w hello **powiadomienia**
+1. Wybierz aplikację sieci web hello nowo utworzony: **aplikacji sieci Web-GraphAPI-DirectoryExtensions**
 1. Wybierz ustawienia: **wymagane uprawnienia**
 1. Wybierz interfejs API **usługi Active Directory systemu Windows**
 1. Należy zaznaczyć uprawnienia aplikacji: **Odczyt i zapis danych katalogu**, i **Zapisz**
 1. Wybierz **udzielić uprawnień** i Potwierdź **tak**.
-1. Skopiuj do Schowka i Zapisz następujące identyfikatory z aplikacji sieci Web-GraphAPI-DirectoryExtensions > Ustawienia > Właściwości >
+1. Skopiuj tooyour Schowka i Zapisz hello poniższych identyfikatorów z aplikacji sieci Web-GraphAPI-DirectoryExtensions > Ustawienia > Właściwości >
 *  **Identyfikator aplikacji** . Przykład:`103ee0e6-f92d-4183-b576-8c3739027780`
 * **Obiekt o identyfikatorze**. Przykład:`80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
-## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>Modyfikowanie zasad niestandardowych do dodania ApplicationObjectId
+## <a name="modifying-your-custom-policy-tooadd-hello-applicationobjectid"></a>Modyfikowanie hello tooadd Twojego zasad niestandardowych ApplicationObjectId
 
 ```xml
     <ClaimsProviders>
@@ -96,16 +96,16 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
 ```
 
 >[!NOTE]
-><TechnicalProfile Id="AAD-Common"> Jest określana jako "wspólne", ponieważ jego elementy są uwzględnione w i użyć ponownie w wszystkie usługi Azure Active Directory TechnicalProfiles przy użyciu elementu:`<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
+>Witaj <TechnicalProfile Id="AAD-Common"> jest określony tooas "typowe", ponieważ jego elementy są uwzględnione w i użyć ponownie w wszystkich hello Azure Active Directory TechnicalProfiles przy użyciu elementu hello:`<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
 
 >[!NOTE]
->Podczas TechnicalProfile zapisuje po raz pierwszy właściwość nowo utworzonego rozszerzenia, może wystąpić błąd jednorazowego.  Właściwość rozszerzenia jest tworzony podczas pierwszego, który jest używany.  
+>Podczas hello TechnicalProfile zapisuje dla właściwości rozszerzenia toohello nowo utworzony czasu hello pierwszy, może wystąpić błąd jednorazowego.  Właściwość rozszerzenia Hello jest tworzony hello jest używany po raz pierwszy.  
 
-## <a name="using-the-new-extension-property--custom-attribute-in-a-user-journey"></a>Przy użyciu nowego rozszerzenia właściwości / atrybutu niestandardowego w podróży użytkownika
+## <a name="using-hello-new-extension-property--custom-attribute-in-a-user-journey"></a>Za pomocą hello nowe rozszerzenie właściwości / atrybutu niestandardowego w podróży użytkownika
 
 
-1. Otwieranie pliku Party(RP) jednostki uzależnionej, który opisuje zasady edytować przebieg użytkownika.  Jest uruchamiany,, może być wskazane w celu pobrania z już skonfigurowany wersji pliku RP PolicyEdit bezpośrednio z sekcji zasady niestandardowe Azure B2C w portalu Azure.  Alternatywnie można otworzyć pliku XML z folderu magazynu.
-2. Dodawanie oświadczenia niestandardowego `loyaltyId`.  Dodając niestandardowe oświadczenia w `<RelyingParty>` elementu, jest przekazywany jako parametr do UserJourney TechnicalProfiles i uwzględnione w tokenie dla aplikacji.
+1. Otwórz hello jednostki uzależnionej Party(RP) pliku, który opisuje zasady edytować przebieg użytkownika.  Jeśli uruchamiasz, może być wskazane toodownload swoją wersję już skonfigurowany hello RP PolicyEdit pliku bezpośrednio z hello Azure B2C niestandardowych zasad części hello portalu Azure.  Alternatywnie można otworzyć pliku XML z folderu magazynu.
+2. Dodawanie oświadczenia niestandardowego `loyaltyId`.  Dodając niestandardowe hello oświadczeń w hello `<RelyingParty>` elementu, jest przekazywana jako parametr toohello UserJourney TechnicalProfiles i uwzględnione w tokenie hello aplikacji hello.
 ```xml
 <RelyingParty>
    <DefaultUserJourney ReferenceId="ProfileEdit" />
@@ -123,7 +123,7 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
    </TechnicalProfile>
  </RelyingParty>
  ```
-3. Dodawanie definicji oświadczenia do pliku rozszerzenie zasad `TrustFrameworkExtensions.xml` wewnątrz `<ClaimsSchema>` element, jak pokazano.
+3. Dodaj plik zasad oświadczeń definicji toohello rozszerzenia `TrustFrameworkExtensions.xml` wewnątrz hello `<ClaimsSchema>` element, jak pokazano.
 ```xml
 <ClaimsSchema>
         <ClaimType Id="extension_loyaltyId">
@@ -134,10 +134,10 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
         </ClaimType>
 </ClaimsSchema>
 ```
-4. Dodaj takie same oświadczeń definicji do pliku podstawowego zasad `TrustFrameworkBase.xml`.  
->Dodawanie `ClaimType` definicji w zarówno dla typu podstawowego, jak i plik rozszerzenia zwykle nie jest konieczne, jednak ponieważ następnych krokach zostaną dodane extension_loyaltyId do TechnicalProfiles w pliku podstawowego, modułu sprawdzania poprawności zasad spowoduje odrzucenie przekazywania pliku podstawowego bez niego.
->Może to być przydatne do śledzenia realizacji przebieg użytkownika o nazwie "ProfileEdit" w pliku TrustFrameworkBase.xml.  Wyszukaj przebieg użytkownika o tej samej nazwie w edytorze i sprawdź, czy aranżacji krok 5 wywołuje TechnicalProfileReferenceID = "SelfAsserted ProfileUpdate".  Wyszukiwanie i sprawdzić to TechnicalProfile, aby zapoznać się z przepływem.
-5. Dodaj loyaltyId zgodnie z oświadczeń przychodzących i wychodzących w TechnicalProfile "SelfAsserted ProfileUpdate"
+4. Dodaj hello oświadczeń sam plik podstawowy zasad toohello definicji `TrustFrameworkBase.xml`.  
+>Dodawanie `ClaimType` definicji w jednocześnie hello typu podstawowego, jak i plik rozszerzenia hello zwykle nie jest konieczne, jednak ponieważ następne kroki hello doda hello extension_loyaltyId tooTechnicalProfiles w pliku podstawowego hello, modułu sprawdzania poprawności hello zasad spowoduje odrzucenie hello przekazywania Witaj pliku bazowego bez niego.
+>Może to być przydatne tootrace hello wykonywania hello podróży użytkownika o nazwie "ProfileEdit" w pliku TrustFrameworkBase.xml hello.  Wyszukaj użytkownika obejmuje hello hello takie same nazwy w edytorze i sprawdź, czy aranżacji krok 5 wywołuje hello TechnicalProfileReferenceID = "SelfAsserted ProfileUpdate".  Wyszukiwanie i sprawdzić samodzielnie tego toofamiliarize TechnicalProfile z przepływem hello.
+5. Dodaj loyaltyId zgodnie z oświadczeń przychodzących i wychodzących w hello TechnicalProfile "SelfAsserted ProfileUpdate"
 ```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
           <DisplayName>User ID signup</DisplayName>
@@ -151,8 +151,8 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
             <InputClaim ClaimTypeReferenceId="alternativeSecurityId" />
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
-            <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+            <!-- Optional claims. These claims are collected from hello user and can be modified. Any claim added here should be updated in the
+                 ValidationTechnicalProfile referenced below so it can be written toodirectory after being updateed by hello user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -161,8 +161,8 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
             <!-- Required claims -->
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
-            <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+            <!-- Optional claims. These claims are collected from hello user and can be modified. Any claim added here should be updated in the
+                 ValidationTechnicalProfile referenced below so it can be written toodirectory after being updateed by hello user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -172,7 +172,7 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
           </ValidationTechnicalProfiles>
         </TechnicalProfile>
 ```
-6. Dodaj oświadczenie w TechnicalProfile "AAD-UserWriteProfileUsingObjectId", aby zachować wartości oświadczenia we właściwości rozszerzenia dla bieżącego użytkownika w katalogu.
+6. Dodaj oświadczenie TechnicalProfile "AAD UserWriteProfileUsingObjectId" toopersist hello wartości oświadczenia hello we właściwości rozszerzenia hello, hello bieżącego użytkownika w katalogu hello.
 ```xml
 <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
           <Metadata>
@@ -197,10 +197,10 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
           <IncludeTechnicalProfile ReferenceId="AAD-Common" />
         </TechnicalProfile>
 ```
-7. Dodaj oświadczenie w TechnicalProfile "AAD-UserReadUsingObjectId" można odczytać wartości atrybutu rozszerzenia za każdym razem, gdy użytkownik loguje. Dotychczas TechnicalProfiles zostały zmienione w strumieniu tylko kont lokalnych.  Razie nowy atrybut przepływu konto społecznego/federacyjnych inny zestaw TechnicalProfiles musi zostać zmienione. Zobacz następne kroki.
+7. Dodaj oświadczenie TechnicalProfile "AAD UserReadUsingObjectId" tooread hello wartości atrybutu rozszerzenia hello za każdym razem, gdy użytkownik loguje. Dotychczas hello TechnicalProfiles zostały zmienione w przepływie hello tylko kont lokalnych.  Razie nowy atrybut hello w przepływie hello konta społecznego/federacyjnych inny zestaw TechnicalProfiles musi toobe zmienione. Zobacz następne kroki.
 
 ```xml
-<!-- The following technical profile is used to read data after user authenticates. -->
+<!-- hello following technical profile is used tooread data after user authenticates. -->
      <TechnicalProfile Id="AAD-UserReadUsingObjectId">
        <Metadata>
          <Item Key="Operation">Read</Item>
@@ -225,14 +225,14 @@ Właściwości rozszerzenia istnieje tylko w kontekście zarejestrowaną aplikac
 
 
 >[!IMPORTANT]
->IncludeTechnicalProfile element dodaje wszystkie elementy wspólnych AAD tego TechnicalProfile.
+>Hello IncludeTechnicalProfile element dodaje wszystkie elementy hello AAD typowe toothis TechnicalProfile.
 
-## <a name="test-the-custom-policy-using-run-now"></a>Testowanie zasad niestandardowych za pomocą "Uruchom teraz"
-1. Otwórz **bloku usługi Azure AD B2C** i przejdź do **tożsamości środowiska Framework > zasady niestandardowe**.
-1. Wybierz zasady niestandardowe przekazywane i kliknij przycisk **Uruchom teraz** przycisku.
-1. Należy zalogowanie przy użyciu adresu e-mail.
+## <a name="test-hello-custom-policy-using-run-now"></a>Zasady niestandardowe hello testu przy użyciu "opcji Uruchom teraz"
+1. Otwórz hello **bloku usługi Azure AD B2C** i przejdź zbyt**tożsamości środowiska Framework > zasady niestandardowe**.
+1. Wybierz zasady niestandardowe hello, który został przekazany, a następnie kliknij przycisk hello **Uruchom teraz** przycisku.
+1. Powinno być możliwe toosign przy użyciu adresu e-mail.
 
-Token identyfikatora wysyłane powrót do aplikacji zawiera nową właściwość rozszerzenia jako oświadczenia niestandardowego poprzedzony extension_loyaltyId. Zobacz przykład.
+token identyfikatora Hello odesłał tooyour aplikacji zawiera nową właściwość rozszerzenia hello jako oświadczenia niestandardowego poprzedzony extension_loyaltyId. Zobacz przykład.
 
 ```
 {
@@ -253,18 +253,18 @@ Token identyfikatora wysyłane powrót do aplikacji zawiera nową właściwość
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dodaj nowe oświadczenie do przepływów dla logowania do kont społecznościowych, zmieniając TechnicalProfiles na liście. Te dwie TechnicalProfiles są używane przez federacyjne/społecznego konto logowania do zapisu i odczytu danych użytkownika za pomocą alternativeSecurityId jako lokalizacji obiektu użytkownika.
+Dodaj hello nowe oświadczenie toohello przepływów społecznościowych konta logowania, zmieniając hello TechnicalProfiles na liście. Te dwie TechnicalProfiles są używane przez toowrite logowania do konta społecznego/federacyjnych i odczytywania danych użytkowników hello przy użyciu hello alternativeSecurityId hello lokalizatora hello obiektu user.
 ```
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
 ```
 
-Przy użyciu tego samego atrybuty rozszerzenia między zasadami wbudowanych i niestandardowych.
-Po dodaniu rozszerzenia atrybutów (alias niestandardowych atrybutów) za pośrednictwem portalu środowisko te atrybuty są rejestrowane przy użyciu ** b2c rozszerzeń aplikacji w każdej dzierżawy b2c.  Aby użyć te atrybuty rozszerzenia w zasadach niestandardowych:
-1. W ramach dzierżawy usługi b2c w portal.azure.com, przejdź do **usługi Azure Active Directory** i wybierz **rejestracji aplikacji**
+Przy użyciu hello takie same atrybuty rozszerzenia między zasadami wbudowanych i niestandardowych.
+Po dodaniu atrybuty rozszerzenia (alias atrybutów niestandardowych) za pośrednictwem portalu środowisko hello te atrybuty są rejestrowane przy użyciu hello ** b2c rozszerzeń aplikacji w każdej dzierżawy b2c.  toouse te atrybuty rozszerzenia w zasadach niestandardowych:
+1. W ramach dzierżawy usługi b2c w portal.azure.com Przejdź zbyt**usługi Azure Active Directory** i wybierz **rejestracji aplikacji**
 2. Znajdź użytkownika **b2c rozszerzeń aplikacji** i wybierz ją
-3. W obszarze "Essentials" rekordu **identyfikator aplikacji** i **identyfikator obiektu:**
+3. W obszarze "Essentials" hello rekordu **identyfikator aplikacji** i hello **identyfikator obiektu:**
 4. Należy uwzględnić je w metadanych programu AAD typowe techniczne profilu podobnie jak w następujący sposób:
 
 ```xml
@@ -276,25 +276,25 @@ Po dodaniu rozszerzenia atrybutów (alias niestandardowych atrybutów) za pośre
               <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
               <!-- Provide objectId and appId before using extension properties. -->
               <Metadata>
-                <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
-                <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+                <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is hello "Object ID" from hello "b2c-extensions-app"-->
+                <Item Key="ClientId">insert appId here</Item> <!--This is hello "Application ID" from hello "b2c-extensions-app"-->
               </Metadata>
 ```
 
-Aby zachować spójność z obsługi portalu, Utwórz te atrybuty przy użyciu interfejsu użytkownika portalu *przed* używane w niestandardowych zasad.  Podczas tworzenia atrybutu "ActivationStatus" w portalu, użytkownik musi odwoływać się do niego w następujący sposób:
+spójności tookeep hello doświadczenie w portalu, Utwórz te atrybuty przy użyciu interfejsu użytkownika portalu hello *przed* używane w niestandardowych zasad.  Podczas tworzenia atrybutu "ActivationStatus" w portalu hello, użytkownik musi odwoływać się tooit w następujący sposób:
 
 ```
-extension_ActivationStatus in the custom policy
-extension_<app-guid>_ActivationStatus via the Graph API.
+extension_ActivationStatus in hello custom policy
+extension_<app-guid>_ActivationStatus via hello Graph API.
 ```
 
 
 ## <a name="reference"></a>Dokumentacja
 
-* A **techniczne profilu (TP)** jest typem elementu, który można traktować jako *funkcja* definiuje nazwę punktu końcowego, jego metadanych, protokół, a szczegóły programu exchange oświadczeń który tożsamości Należy wykonać czynności Framework.  Gdy to *funkcja* jest wywoływana w kroku aranżacji lub z innego TechnicalProfile, InputClaims i OutputClaims są przekazywane jako parametry przez obiekt wywołujący.
+* A **techniczne profilu (TP)** jest typem elementu, który można traktować jako *funkcja* definiuje nazwę punktu końcowego, jego metadanych, protokół, a szczegóły hello exchange oświadczenia, które hello tożsamości Należy wykonać czynności Framework.  Gdy to *funkcja* jest wywoływana w kroku aranżacji lub z innego TechnicalProfile, hello InputClaims i OutputClaims są udostępniane jako parametry przez obiekt wywołujący hello.
 
 
-* Pełna oczyszczania we właściwościach rozszerzenia, zobacz artykuł [rozszerzenia SCHEMATU katalogu | POJĘCIA DOTYCZĄCE INTERFEJSU API PROGRAMU GRAPH](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)
+* Pełna oczyszczania we właściwościach rozszerzenia, zobacz artykuł hello [rozszerzenia SCHEMATU katalogu | POJĘCIA DOTYCZĄCE INTERFEJSU API PROGRAMU GRAPH](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)
 
 >[!NOTE]
->Atrybuty rozszerzenia interfejsu API programu Graph są nazywane zgodnie z Konwencją `extension_ApplicationObjectID_attributename`. Zasady niestandardowe nazywać atrybuty rozszerzenia extension_attributename, w związku z tym pominięcie ApplicationObjectId w pliku XML
+>Atrybuty rozszerzenia interfejsu API programu Graph są nazywane przy użyciu konwencji hello `extension_ApplicationObjectID_attributename`. Zasady niestandardowe można znaleźć atrybuty tooextensions jako extension_attributename, w związku z tym pominięcie hello ApplicationObjectId w hello XML

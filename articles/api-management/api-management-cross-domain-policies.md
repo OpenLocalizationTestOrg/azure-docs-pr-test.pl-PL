@@ -1,6 +1,6 @@
 ---
-title: Azure API Management cross zasady domeny | Dokumentacja firmy Microsoft
-description: "Więcej informacji na temat dostępnych do użycia w usłudze Azure API Management zasady obejmujące różne domeny."
+title: aaaAzure API Management cross zasady domeny | Dokumentacja firmy Microsoft
+description: "Więcej informacji na temat hello cross dostępne do użycia w usłudze Azure API Management zasad domeny."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: ddca9e35b44a21294abbb5eaa4418bcdb85494cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dd5ebfd65b92ebd0c1f589a2bac669a3928d40b3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies (Zasady usługi API Management obejmujące różne domeny)
-W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+W tym temacie znajdują się informacje na następujące zasady usługi API Management hello. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CrossDomainPolicies"></a>Krzyżowe zasady domeny  
   
--   [Zezwalaj na połączenia między domenami](api-management-cross-domain-policies.md#AllowCrossDomainCalls) — może ułatwić interfejsu API programu Adobe Flash i Microsoft Silverlight bazujące na przeglądarce klientów.  
+-   [Zezwalaj na połączenia między domenami](api-management-cross-domain-policies.md#AllowCrossDomainCalls) — sprawia, że interfejs API hello dostępne od klientów programu Adobe Flash i Microsoft Silverlight bazujące na przeglądarce.  
   
--   [CORS](api-management-cross-domain-policies.md#CORS) -dodaje współużytkowanie zasobów między źródłami (CORS) obsługi operacji lub interfejsu API w celu zapewnienia obsługi wywołań między domenami od klientów przeglądarki do udostępniania.  
+-   [CORS](api-management-cross-domain-policies.md#CORS) -dodaje współużytkowanie zasobów między źródłami (CORS) obsługuje tooan operacji lub międzydomenowego interfejsu API tooallow wymaga od klientów przeglądarki.  
   
--   [JSONP](api-management-cross-domain-policies.md#JSONP) -dodaje JSON z obsługą dopełnienie (JSONP) do operacji lub interfejsu API w celu zapewnienia obsługi wywołań między domenami od klientów przeglądarki JavaScript.  
+-   [JSONP](api-management-cross-domain-policies.md#JSONP) — dodaje JSON dopełnienie (JSONP) operacji tooan pomocy technicznej lub międzydomenowego interfejsu API tooallow wymaga od klientów przeglądarki JavaScript.  
   
 ##  <a name="AllowCrossDomainCalls"></a>Zezwalaj na połączenia między domenami  
- Użyj `cross-domain` zasad, aby udostępnić interfejsu API programu Adobe Flash i Microsoft Silverlight bazujące na przeglądarce klientów.  
+ Użyj hello `cross-domain` hello toomake zasad interfejsu API dostępny od klientów programu Adobe Flash i Microsoft Silverlight bazujące na przeglądarce.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
 ```xml  
 <cross-domain>  
-   <!-Policy configuration is in the Adobe cross-domain policy file format,   
+   <!-Policy configuration is in hello Adobe cross-domain policy file format,   
       see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
 </cross-domain>  
 ```  
@@ -57,19 +57,19 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
-|między domenami|Element główny. Elementy podrzędne muszą być zgodne z [specyfikacji pliku zasad międzydomenowych Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Tak|  
+|między domenami|Element główny. Elementy podrzędne muszą być zgodne toohello [specyfikacji pliku zasad międzydomenowych Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Tak|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** globalne  
   
 ##  <a name="CORS"></a>CORS  
- `cors` Zasad dodaje współużytkowanie zasobów między źródłami (CORS) obsługi operacji lub interfejsu API w celu zapewnienia obsługi wywołań między domenami od klientów przeglądarki do udostępniania.  
+ Witaj `cors` zasad dodaje współużytkowanie zasobów między źródłami (CORS) obsługuje tooan operacji lub międzydomenowego interfejsu API tooallow wymaga od klientów przeglądarki.  
   
- CORS pozwala przeglądarką a serwerem interakcji i określić, czy należy zezwolić określonym żądań cross-origin (tj. XMLHttpRequests wywołań z poziomu języka JavaScript na stronie sieci web do innych domen). To pozwala na większą elastyczność niż tylko zezwalanie żądania z tego samego źródła, ale jest bezpieczniejsze niż stosowanie wszystkich żądań cross-origin.  
+ CORS przeglądarce i toointeract serwera i określić, czy tooallow określonych cross-origin żądań (tj. XMLHttpRequests wywołań z poziomu języka JavaScript w domenach tooother strony sieci web). To pozwala na większą elastyczność niż tylko zezwalanie żądania z tego samego źródła, ale jest bezpieczniejsze niż stosowanie wszystkich żądań cross-origin.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -91,7 +91,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 ```  
   
 ### <a name="example"></a>Przykład  
- W tym przykładzie pokazano, jak obsługiwać żądania wstępnego transmitowane, takich jak niestandardowe nagłówki lub metod innych niż GET i POST. Aby obsługiwać niestandardowe nagłówki i dodatkowe zleceń HTTP, należy użyć `allowed-methods` i `allowed-headers` sekcjach przedstawiono, jak pokazano w poniższym przykładzie.  
+ W tym przykładzie pokazano, jak transmitowane wstępne toosupport żądań, takich jak niestandardowe nagłówki lub metod innych niż GET i POST. Niestandardowe nagłówki toosupport i dodatkowe zleceń HTTP, użyj hello `allowed-methods` i `allowed-headers` sekcjach przedstawiono, jak pokazano w hello poniższy przykład.  
   
 ```xml  
 <cors allow-credentials="true">  
@@ -128,30 +128,30 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
 |cors|Element główny.|Tak|Nie dotyczy|  
-|dozwolone źródła|Zawiera `origin` elementy, które opisują dozwolonych źródeł dla żądań między domenami. `allowed-origins`może zawierać pojedyncze `origin` element, który określa `*` zezwalająca na wszystkie pochodzenia, jeden lub więcej `origin` elementów, które zawierają identyfikator URI.|Tak|Nie dotyczy|  
-|Punkt początkowy|Wartość może być albo `*` zezwalająca na wszystkie pochodzenia lub identyfikator URI, który określa pojedynczy punkt początkowy. Identyfikator URI musi zawierać schemat, hosta i portu.|Tak|W przypadku pominięcia w identyfikatorze URI port jest używany port 80 dla protokołu HTTP i jest używany port 443 dla protokołu HTTPS.|  
-|dozwolone metody|Ten element jest wymagany, jeśli metod innych niż GET lub POST są dozwolone. Zawiera `method` elementy, które określają obsługiwane polecenia HTTP.|Nie|Jeśli nie ma tej sekcji, są obsługiwane GET i POST.|  
-|— Metoda|Określa zlecenie HTTP.|Co najmniej jeden `method` element jest wymagany, jeśli `allowed-methods` sekcja jest obecny.|Nie dotyczy|  
-|dozwolone nagłówki|Ten element zawiera `header` elementy Określanie nazw nagłówków, które mogą znajdować się w żądaniu.|Nie|Nie dotyczy|  
-|Uwidacznianie nagłówki|Ten element zawiera `header` elementy Określanie nazw nagłówków, które mają być dostępne dla klienta.|Nie|Nie dotyczy|  
-|nagłówek|Określa nazwę nagłówka.|Co najmniej jeden `header` element jest wymagany w `allowed-headers` lub `expose-headers` sekcja jest obecny.|Nie dotyczy|  
+|dozwolone źródła|Zawiera `origin` elementy, które opisują hello dozwolone źródła dla żądań między domenami. `allowed-origins`może zawierać pojedyncze `origin` element, który określa `*` tooallow każde źródło lub co najmniej jeden `origin` elementów, które zawierają identyfikator URI.|Tak|Nie dotyczy|  
+|Punkt początkowy|Witaj wartość może być albo `*` tooallow wszystkie pochodzenia lub identyfikator URI, który określa pojedynczy punkt początkowy. Witaj identyfikator URI musi zawierać schemat, hosta i portu.|Tak|W przypadku pominięcia portu hello w identyfikatorze URI jest używany port 80 dla protokołu HTTP i jest używany port 443 dla protokołu HTTPS.|  
+|dozwolone metody|Ten element jest wymagany, jeśli metod innych niż GET lub POST są dozwolone. Zawiera `method` elementy określające hello obsługiwane polecenia HTTP.|Nie|Jeśli nie ma tej sekcji, są obsługiwane GET i POST.|  
+|— Metoda|Określa zlecenie HTTP.|Co najmniej jeden `method` element jest wymagany, jeśli hello `allowed-methods` sekcja jest obecny.|Nie dotyczy|  
+|dozwolone nagłówki|Ten element zawiera `header` Określanie nazw hello nagłówki, które można uwzględnić w żądaniu hello elementów.|Nie|Nie dotyczy|  
+|Uwidacznianie nagłówki|Ten element zawiera `header` elementy Określanie nazw nagłówków hello, które mają być dostępne przez powitania klienta.|Nie|Nie dotyczy|  
+|nagłówek|Określa nazwę nagłówka.|Co najmniej jeden `header` element jest wymagany w `allowed-headers` lub `expose-headers` sekcja hello jest obecny.|Nie dotyczy|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|Zezwalaj na poświadczenia|`Access-Control-Allow-Credentials` Nagłówek odpowiedzi dotyczące stanu wstępnego zostanie ustawiona na wartość tego atrybutu i wpływa na możliwość klienta przesyłania poświadczeń w żądaniach między domenami.|Nie|wartość false|  
-|Inspekcja result-max-age.|`Access-Control-Max-Age` Nagłówek odpowiedzi dotyczące stanu wstępnego zostanie ustawiona na wartość tego atrybutu i wpływać na zdolność agenta użytkownika do pamięci podręcznej przed transmitowane odpowiedzi.|Nie|0|  
+|Zezwalaj na poświadczenia|Witaj `Access-Control-Allow-Credentials` nagłówka odpowiedzi dotyczące stanu wstępnego hello zostanie Ustaw toohello wartość tego atrybutu i wpływają na powitania klienta możliwości toosubmit poświadczeń w żądaniach między domenami.|Nie|wartość false|  
+|Inspekcja result-max-age.|Witaj `Access-Control-Max-Age` nagłówka odpowiedzi dotyczące stanu wstępnego hello zostanie Ustaw toohello wartość tego atrybutu i wpływają na agenta użytkownika hello możliwości toocache wstępne transmitowane odpowiedzi.|Nie|0|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** interfejsu API, operacji  
   
 ##  <a name="JSONP"></a>FORMAT JSONP  
- `jsonp` Zasad dodaje JSON z obsługą dopełnienie (JSONP) do operacji lub interfejsu API w celu zapewnienia obsługi wywołań między domenami od klientów przeglądarki JavaScript. Format JSONP jest metoda używana w programach języka JavaScript do żądania danych z serwera w innej domenie. JSONP pomija ograniczenia wymuszane przez większość przeglądarek internetowych, w którym dostęp do stron sieci web musi być w tej samej domenie.  
+ Witaj `jsonp` zasad dodaje JSON z dopełnienie operacji tooan pomocy technicznej (JSONP) lub tooallow międzydomenowego interfejsu API z klientów przeglądarki języka JavaScript. Format JSONP jest metodę JavaScript programy toorequest danych z serwera w innej domenie. JSONP pomija ograniczenia hello wymuszane przez większość przeglądarek internetowych, w którym strony tooweb dostępu muszą być w hello tej samej domenie.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -165,9 +165,9 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 <jsonp callback-parameter-name="cb" />  
 ```  
   
- Jeśli należy wywołać metodę bez parametru wywołania zwrotnego? cb = XXX zwróci JSON zwykły (bez otoka wywołania funkcji).  
+ Jeśli należy wywołać metodę hello bez parametru wywołania zwrotnego hello? cb = XXX zwróci JSON zwykły (bez otoka wywołania funkcji).  
   
- Jeśli dodasz parametru wywołania zwrotnego `?cb=XXX` będzie zwracać wynik JSONP, zawijania oryginalnego JSON wyników wokół funkcja wywołania zwrotnego, takich jak`XYZ('<json result goes here>');`  
+ Jeśli dodasz parametru wywołania zwrotnego hello `?cb=XXX` zostanie zwrócone w wyniku JSONP zawijania hello oryginalne wyniki JSON wokół hello funkcja wywołania zwrotnego, takie jak`XYZ('<json result goes here>');`  
   
 ### <a name="elements"></a>Elementy  
   
@@ -179,10 +179,10 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|nazwy parametru wywołania zwrotnego|Wywołanie funkcji JavaScript między domenami prefiksem nazwy FQDN, w której znajduje się funkcja.|Tak|Nie dotyczy|  
+|nazwy parametru wywołania zwrotnego|Witaj wywołanie funkcji JavaScript między domenami prefiksem nazwy FQDN hello gdzie hello znajduje się funkcja.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** ruchu wychodzącego  
   

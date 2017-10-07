@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie wiele środowisk w sieci szkieletowej usług | Dokumentacja firmy Microsoft"
-description: "W klastrach, w zakresie rozmiaru maszyn z jednego komputera można uruchomić aplikacji sieci szkieletowej usług. W niektórych przypadkach należy skonfigurować aplikację inaczej w przypadku tych środowisk zróżnicowane. W tym artykule opisano sposób definiowania parametry różnych aplikacji dla środowiska."
+title: "aaaManage wiele środowisk w sieci szkieletowej usług | Dokumentacja firmy Microsoft"
+description: "Sieć szkieletowa usług aplikacji może działać w klastrach, w zakresie rozmiaru z jednego komputera toothousands maszyn. W niektórych przypadkach można tooconfigure aplikacji inaczej w przypadku tych środowisk zróżnicowane. W tym artykule opisano sposób toodefine parametry różnych aplikacji dla środowiska."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 9317b3f0b7984e795c4205360ed58e2c4f3fbcb1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2b3327e0e1a3bbd35a50835e720619f308b1b501
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>Parametry aplikacji dla wielu środowisk zarządzania
-Można utworzyć klastry z sieci szkieletowej usług Azure przy użyciu dowolnej lokalizacji z jednego do wielu tysięcy komputerów. Podczas plików binarnych aplikacji można uruchomić bez żadnych modyfikacji w tym szerokie spektrum środowisk, często chcesz skonfigurować aplikację różnie w zależności od liczby maszyn, które wdrażasz do.
+Można utworzyć klastry z sieci szkieletowej usług Azure przy użyciu dowolnego miejsca, z jedną toomany tysięcy komputerów. Podczas plików binarnych aplikacji można uruchomić bez żadnych modyfikacji w tym szerokie spektrum środowisk, często mają aplikacji hello tooconfigure inaczej, w zależności od numer hello maszyny, które jest wdrażany do.
 
-Jako przykład prostego, należy wziąć pod uwagę `InstanceCount` usługi bezstanowej. Po uruchomieniu aplikacji na platformie Azure mają zwykle Ustaw ten parametr przyjmuje wartość specjalną-"1". Taka konfiguracja powoduje, że usługa działa na każdym węźle w klastrze (lub każdego węzła w typu węzła, jeśli ustawiono ograniczenia umieszczania). Jednak ta konfiguracja nie jest odpowiednia dla klastra pojedynczego komputera, ponieważ nie może mieć wiele procesów, które nasłuchują na tym samym punkcie końcowym na jednym komputerze. Zamiast tego należy zwykle ustawić `InstanceCount` "1".
+Jako przykład prostego, należy wziąć pod uwagę `InstanceCount` usługi bezstanowej. Po uruchomieniu aplikacji na platformie Azure, zazwyczaj mają tooset wartości tego parametru toohello specjalne-"1". Taka konfiguracja powoduje, że usługa działa na każdym węźle w klastrze hello (lub każdego węzła w hello typu węzła, jeśli ustawiono ograniczenia umieszczania). Jednak ta konfiguracja nie jest odpowiedni dla pojedynczego komputera klastrów, ponieważ nie może mieć wiele procesów nasłuchiwania na powitania sam punkt końcowy na jednym komputerze. Zamiast tego należy zwykle ustawić `InstanceCount` zbyt "1".
 
 ## <a name="specifying-environment-specific-parameters"></a>Określanie parametrów określonego środowiska
-Rozwiązanie tego problemu konfiguracji to zestaw usług domyślnych sparametryzowanych i pliki parametrów aplikacji, które wypełnić wartości tych parametrów dla danego środowiska. Parametry aplikacji i usług domyślnych są konfigurowane w manifestów aplikacji i usług. Definicja schematu dla plików ServiceManifest.xml i ApplicationManifest.xml jest instalowany z zestawu SDK sieci szkieletowej usług i narzędzi do *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+problem z konfiguracją toothis Hello rozwiązanie to zestaw usług domyślnych sparametryzowanych i pliki parametrów aplikacji, które wypełnić wartości tych parametrów dla danego środowiska. Parametry aplikacji i usług domyślnych są konfigurowane w aplikacji hello i manifestów usługi. Witaj definicji schematu dla plików ServiceManifest.xml i ApplicationManifest.xml hello jest instalowany z hello zestawu SDK sieci szkieletowej usług i narzędzi zbyt*C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ### <a name="default-services"></a>Domyślne usługi
-Aplikacje usługi sieć szkieletowa składają się z kolekcji wystąpień usługi. Gdy to możliwe, należy utworzyć pustą aplikację, a następnie utwórz dynamicznie wszystkich wystąpień usługi, większość aplikacji ma zestaw podstawowe usługi, które należy zawsze utworzyć podczas tworzenia wystąpienia klasy aplikacji. Te są określane jako "domyślne usługi". Są one określone w manifeście aplikacji z symbole zastępcze-środowisko konfiguracji zawarte w nawiasach kwadratowych:
+Aplikacje usługi sieć szkieletowa składają się z kolekcji wystąpień usługi. Podczas umożliwiające toocreate pustą aplikację, a następnie dynamicznie utworzyć wszystkich wystąpień usługi, większość aplikacji ma zestaw podstawowe usługi, które należy zawsze utworzyć podczas tworzenia wystąpienia klasy aplikacji hello. Są to określonego tooas "domyślne usługi". Są one określone w manifeście aplikacji hello z symbole zastępcze-środowisko konfiguracji zawarte w nawiasach kwadratowych:
 
 ```xml
   <DefaultServices>
@@ -49,7 +49,7 @@ Aplikacje usługi sieć szkieletowa składają się z kolekcji wystąpień usłu
   </DefaultServices>
 ```
 
-Każdy nazwane parametry muszą być zdefiniowane w elemencie parametry dla manifest aplikacji:
+Każdy z hello nazwanych parametrów musi być zdefiniowana w elemencie parametry hello manifestu aplikacji hello:
 
 ```xml
     <Parameters>
@@ -59,24 +59,24 @@ Każdy nazwane parametry muszą być zdefiniowane w elemencie parametry dla mani
     </Parameters>
 ```
 
-Atrybut DefaultValue określa wartość do użycia w przypadku braku parametru bardziej specyficzne dla danego środowiska.
+Atrybut DefaultValue Hello określa toobe wartość hello używane w braku hello parametru bardziej specyficzne dla danego środowiska.
 
 > [!NOTE]
-> Nie wszystkie parametry wystąpienia usługi są odpowiednie dla konfiguracji poszczególnych środowiska. W powyższym przykładzie LowKey i HighKey wartości schemat partycjonowania usługi są jawnie zdefiniowany dla wszystkich wystąpień usługi, ponieważ zakres partycji jest funkcją domeny danych, nie środowiska.
+> Nie wszystkie parametry wystąpienia usługi są odpowiednie dla konfiguracji poszczególnych środowiska. W powyższym przykładzie hello hello LowKey i HighKey dla schemat partycjonowania usługi hello są jawnie zdefiniowane wartości dla wszystkich wystąpień usługi hello ponieważ zakres partycji hello jest funkcją hello danych domeny, nie hello środowiska.
 > 
 > 
 
 ### <a name="per-environment-service-configuration-settings"></a>Ustawienia konfiguracji usługi na środowisko
-[Model aplikacji usługi sieć szkieletowa](service-fabric-application-model.md) umożliwia usługom zawierać pakiety konfiguracji, które zawierają niestandardowe pary klucz wartość, które są do odczytu w czasie wykonywania. Wartości tych ustawień można również zróżnicowane przez środowisko, określając `ConfigOverride` w manifeście aplikacji.
+Witaj [model aplikacji usługi sieć szkieletowa](service-fabric-application-model.md) umożliwia usług tooinclude konfiguracji pakiety, które zawierają niestandardowe pary klucz wartość, które są do odczytu w czasie wykonywania. Witaj wartości tych ustawień można również zróżnicowane przez środowisko, określając `ConfigOverride` w manifeście aplikacji hello.
 
-Załóżmy, że zostały następujące ustawienia w pliku Config\Settings.xml `Stateful1` usługi:
+Załóżmy, że masz następujące ustawienia w pliku Config\Settings.xml hello hello hello `Stateful1` usługi:
 
 ```xml
   <Section Name="MyConfigSection">
      <Parameter Name="MaxQueueSize" Value="25" />
   </Section>
 ```
-Aby zastąpić tę wartość dla określonej aplikacji środowiskową pary, Utwórz `ConfigOverride` podczas importowania manifestu usługi w manifeście aplikacji.
+Utwórz tę wartość dla pary określonych aplikacji środowiskową toooverride `ConfigOverride` podczas importowania manifestu usługi hello w manifeście aplikacji hello.
 
 ```xml
   <ConfigOverrides>
@@ -89,16 +89,16 @@ Aby zastąpić tę wartość dla określonej aplikacji środowiskową pary, Utw�
      </ConfigOverride>
   </ConfigOverrides>
 ```
-Ten parametr może zostać następnie skonfigurowane przez środowisko zgodnie z powyższym. Można to zrobić, deklarowanie go w sekcji parametrów w manifeście aplikacji i określając wartości określonego środowiska w pliki parametrów aplikacji.
+Ten parametr może zostać następnie skonfigurowane przez środowisko zgodnie z powyższym. Można to zrobić, deklarowanie go w sekcji parametrów hello manifest aplikacji hello i określając wartości określonego środowiska w pliki parametrów aplikacji hello.
 
 > [!NOTE]
-> W przypadku ustawienia konfiguracji usługi, istnieją trzy miejsca, w którym można ustawić wartość klucza: pakiet konfiguracji usługi, manifest aplikacji i pliku parametrów aplikacji. Zawsze wybierze sieci szkieletowej usług z pliku parametrów aplikacji pierwszego (Jeśli określono), następnie manifest aplikacji, a na końcu pakiet konfiguracji.
+> W przypadku hello ustawienia konfiguracji usługi, istnieją trzy miejsca, w którym można ustawić wartości hello klucza: pakiet konfiguracji usługi hello manifest aplikacji hello i pliku parametrów aplikacji hello. Sieci szkieletowej usług będzie zawsze wybierz z pliku parametrów aplikacji hello najpierw (Jeśli określono), następnie hello manifest aplikacji, a na koniec hello pakiet konfiguracji.
 > 
 > 
 
 ### <a name="setting-and-using-environment-variables"></a>Ustawianie i za pomocą zmiennych środowiskowych 
-Można określić i ustaw zmienne środowiskowe w pliku ServiceManifest.xml i następnie zastąpić je w pliku ApplicationManifest.xml dla poszczególnych wystąpień.
-W poniższym przykładzie przedstawiono dwie zmienne środowiskowe, jeden zestaw wartości, a druga zostanie zastąpiona. Można ustawić wartości zmiennych środowiskowych w taki sam sposób, jak te były używane dla zastąpień konfiguracji, mogą używać parametrów aplikacji.
+Można określić i ustaw zmienne środowiskowe w pliku ServiceManifest.xml hello i następnie zastąpić je w pliku ApplicationManifest.xml powitania dla poszczególnych wystąpień.
+Witaj w poniższym przykładzie przedstawiono dwie zmienne środowiskowe, ustawić jedną z wartości i hello innych zostanie zastąpiona. Można używać parametrów aplikacji, zmienne środowiskowe tooset wartości w hello sam sposób że powyższe użyto do konfiguracji zastąpień.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -127,7 +127,7 @@ W poniższym przykładzie przedstawiono dwie zmienne środowiskowe, jeden zestaw
   <DataPackage Name="MyData" Version="DataVersion1" />
 </ServiceManifest>
 ```
-Aby zastąpić zmienne środowiskowe w pliku ApplicationManifest.xml, odwoływania się do pakietu kodu w ServiceManifest z `EnvironmentOverrides` elementu.
+zmienne środowiskowe hello toooverride w pliku ApplicationManifest.xml, pakiet kodu hello odwołania w hello ServiceManifest z hello hello `EnvironmentOverrides` elementu.
 
 ```xml
   <ServiceManifestImport>
@@ -137,14 +137,14 @@ Aby zastąpić zmienne środowiskowe w pliku ApplicationManifest.xml, odwoływan
     </EnvironmentOverrides>
   </ServiceManifestImport>
  ``` 
- Po utworzeniu wystąpienia usługi o nazwie można uzyskać dostępu do zmiennych środowiskowych, z kodu. np. W C# możesz wykonać następujące czynności
+ Po utworzeniu hello nazwane wystąpienie usługi dostępne zmienne środowiskowe hello z kodu. np. W języku C# można wykonać następujące hello
 
 ```csharp
     string EnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ### <a name="service-fabric-environment-variables"></a>Zmienne środowiskowe sieci szkieletowej usług
-Sieć szkieletowa usług są wbudowane zmienne środowiskowe ustawione dla każdego wystąpienia usługi. Pełną listę zmiennych środowiskowych poniżej, gdzie pogrubioną czcionką w podane w są te, które będą używane w usłudze innych używane przez środowisko uruchomieniowe usługi sieć szkieletowa. 
+Sieć szkieletowa usług są wbudowane zmienne środowiskowe ustawione dla każdego wystąpienia usługi. Witaj pełną listę zmiennych środowiskowych jest poniżej, gdzie hello tych w są pogrubione hello używanych w usłudze hello innych są używane przez środowisko uruchomieniowe usługi sieć szkieletowa. 
 
 * Fabric_ApplicationHostId
 * Fabric_ApplicationHostType
@@ -166,7 +166,7 @@ Sieć szkieletowa usług są wbudowane zmienne środowiskowe ustawione dla każd
 * Fabric_ServicePackageVersionInstance
 * FabricPackageFileName
 
-Belows kod przedstawia sposób wyświetlania zmiennych środowiskowych sieci szkieletowej usług
+Witaj belows kodu pokazuje, jak toolist hello zmiennych środowiskowych sieci szkieletowej usług
  ```csharp
     foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
     {
@@ -176,7 +176,7 @@ Belows kod przedstawia sposób wyświetlania zmiennych środowiskowych sieci szk
         }
     }
 ```
-Poniżej podano przykłady zmiennych środowiskowych dla typu aplikacji o nazwie `GuestExe.Application` z typem usługi o nazwie `FrontEndService` uruchomienia na komputerze deweloperskim lokalnego.
+Witaj poniżej przedstawiono przykłady zmiennych środowiskowych dla typu aplikacji o nazwie `GuestExe.Application` z typem usługi o nazwie `FrontEndService` uruchomienia na komputerze deweloperskim lokalnego.
 
 * **Fabric_ApplicationName = fabric:/GuestExe.Application**
 * **Fabric_CodePackageName = kod**
@@ -185,7 +185,7 @@ Poniżej podano przykłady zmiennych środowiskowych dla typu aplikacji o nazwie
 * **Fabric_NodeName = to węzeł _Node_2**
 
 ### <a name="application-parameter-files"></a>Pliki parametrów aplikacji
-Projekt aplikacji platformy Service Fabric może zawierać co najmniej jeden plik parametrów aplikacji. Każde z nich definiuje określone wartości parametrów, które są zdefiniowane w manifeście aplikacji:
+Projekt aplikacji Hello sieci szkieletowej usług mogą zawierać jeden lub więcej plików parametr aplikacji. Każde z nich definiuje hello określonych wartości dla parametrów hello, które są zdefiniowane w manifeście aplikacji hello:
 
 ```xml
     <!-- ApplicationParameters\Local.xml -->
@@ -202,25 +202,25 @@ Domyślnie nowa aplikacja obejmuje trzy pliki parametrów aplikacji, o nazwie Lo
 
 ![Pliki parametrów aplikacji w Eksploratorze rozwiązań][app-parameters-solution-explorer]
 
-Aby utworzyć plik parametrów, po prostu skopiuj i Wklej istniejący i nadaj mu nazwę nowej.
+toocreate pliku parametrów po prostu skopiuj i Wklej istniejący i nadaj mu nazwę.
 
 ## <a name="identifying-environment-specific-parameters-during-deployment"></a>Identyfikowanie określonego środowiska parametrów podczas wdrażania
-W czasie wdrażania musisz wybrać plik odpowiedni parametr, aby zastosować z aplikacją. Można to zrobić za pomocą okna dialogowego publikowanie w programie Visual Studio lub za pomocą programu PowerShell.
+W czasie wdrażania należy toochoose hello odpowiedni parametr pliku tooapply z aplikacją. Można to zrobić za pomocą okna dialogowego publikowanie hello w programie Visual Studio lub za pomocą programu PowerShell.
 
 ### <a name="deploy-from-visual-studio"></a>Wdrażanie w programie Visual Studio
-Można wybrać z listy dostępnych parametrów plików podczas publikowania aplikacji w programie Visual Studio.
+Można wybierać spośród hello listę dostępnych parametrów plików podczas publikowania aplikacji w programie Visual Studio.
 
-![Wybierz plik parametrów w oknie dialogowym publikowania][publishdialog]
+![Wybierz plik parametrów w oknie dialogowym Publikowanie hello][publishdialog]
 
 ### <a name="deploy-from-powershell"></a>Wdrażanie z programu PowerShell
-`Deploy-FabricApplication.ps1` Skrypt programu PowerShell zawarte w szablonie projektu aplikacji akceptuje profil publikowania, jako parametr i PublishProfile zawiera odwołanie do pliku parametrów aplikacji.
+Witaj `Deploy-FabricApplication.ps1` profil publikowania, jako parametr akceptuje zawarte w szablonie projektu aplikacji hello skrypt programu PowerShell i hello PublishProfile zawiera plik parametrów aplikacji toohello odwołania.
 
   ```PowerShell
     ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
   ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat niektórych podstawowych pojęciach, które zostały omówione w tym temacie, zobacz [omówienie techniczne sieci szkieletowej usług](service-fabric-technical-overview.md). Aby uzyskać informacje o inne funkcje zarządzania aplikacjami, które są dostępne w programie Visual Studio, zobacz [Zarządzaj aplikacjami sieci szkieletowej usług w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+toolearn więcej informacji na temat niektórych hello podstawowe koncepcje, które zostały omówione w tym temacie, zobacz hello [omówienie techniczne sieci szkieletowej usług](service-fabric-technical-overview.md). Aby uzyskać informacje o inne funkcje zarządzania aplikacjami, które są dostępne w programie Visual Studio, zobacz [Zarządzaj aplikacjami sieci szkieletowej usług w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 

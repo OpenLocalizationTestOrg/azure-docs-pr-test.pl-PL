@@ -1,6 +1,6 @@
 ---
-title: Azure Mobile Engagement Web SDK procedur uaktualniania | Dokumentacja firmy Microsoft
-description: "Najnowsze aktualizacje i procedury dotyczące zestawu SDK sieci Web dla usługi Azure Mobile Engagement"
+title: "procedury uaktualniania zestaw SDK usługi Mobile Engagement Web aaaAzure | Dokumentacja firmy Microsoft"
+description: "Witaj najnowsze aktualizacje i procedury dotyczące hello zestawu SDK sieci Web dla usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,40 +14,40 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2df65904c6b56584ce6588ed26a9b79f3aa27ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Azure procedur uaktualniania zestaw SDK usługi Mobile Engagement w sieci Web
-Jeśli zintegrowano już program wcześniejszej wersji zestawu SDK usługi Azure Mobile Engagement sieci Web do aplikacji sieci web, należy wziąć pod uwagę następujące kwestie, po uaktualnieniu zestawu SDK.
+Jeśli zintegrowano już program wcześniejszej wersji hello zestaw SDK usługi Azure Mobile Engagement w sieci Web do aplikacji sieci web, należy hello tooconsider następujące punkty po uaktualnieniu hello zestawu SDK.
 
-Wiele wersji zestaw SDK usługi Mobile Engagement w sieci Web została pominięta, może być konieczne podczas procesu uaktualniania należy wykonać kilka procedury. Na przykład w przypadku migrowania z 1.4.0 do 1.6.0 najpierw wykonać procedury uaktualniania z 1.4.0 do 1.5.0. Następnie wykonaj procedury uaktualniania z 1.5.0 do 1.6.0.
+Wiele wersji hello zestaw SDK usługi Mobile Engagement w sieci Web została pominięta, może być konieczne toocomplete kilka procedur podczas procesu uaktualniania hello. Na przykład w przypadku migracji z 1.4.0 too1.6.0, pierwszy tooupgrade procedury hello postępuj zgodnie z 1.4.0 too1.5.0. Następnie wykonaj hello procedury tooupgrade z 1.5.0 too1.6.0.
 
-Niezależnie od wersji uaktualnienia, Zamień jakakolwiek wcześniejsza wersja pliku azure-engagement.js najnowszej wersji pliku.
+Niezależnie od wersji uaktualnienia, Zamień hello najnowszą wersję pliku hello jakakolwiek wcześniejsza wersja pliku hello azure-engagement.js.
 
-## <a name="upgrade-from-121-to-200"></a>Uaktualnienie z wersji 1.2.1 do 2.0.0
-W tej sekcji opisano sposób migracji integracji zestaw SDK usługi Mobile Engagement w sieci Web w usłudze Capptain oferowanych przez Capptain SAS, aplikację usługi Azure Mobile Engagement. W przypadku migracji z wcześniejszej wersji, zajrzyj do witryny sieci Web Capptain najpierw migracji do wersji 1.2.1, a następnie zastosuj poniższe procedury.
+## <a name="upgrade-from-121-too200"></a>Uaktualnienie z wersji 1.2.1 too2.0.0
+W tej sekcji opisano, jak toomigrate zestaw SDK usługi Mobile Engagement w sieci Web integracji z usługą Capptain hello, oferowane przez Capptain SAS, tooan aplikacji usługi Azure Mobile Engagement. W przypadku migracji z wcześniejszej wersji, należy hello należy zapoznać się z toofirst witryny sieci Web Capptain too1.2.1 migracji, a następnie Zastosuj hello zgodnie z procedurami.
 
-Ta wersja zestaw SDK usługi Mobile Engagement w sieci Web nie obsługuje Samsung inteligentne TV, Opera TV, webOS lub funkcji Reach.
+Ta wersja hello zestaw SDK usługi Mobile Engagement w sieci Web nie obsługuje Samsung inteligentne TV, Opera TV, webOS lub hello Reach funkcji.
 
 > [!IMPORTANT]
-> Capptain i usługi Azure Mobile Engagement nie są tę samą usługę. Poniższa procedura zawiera wyróżnione tylko sposób migracji aplikacji klienckiej. Migrowanie Mobile Engagement Web SDK w aplikacji nie będą migrowane dane z serwera Capptain na serwerze usługi Mobile Engagement.
+> Capptain i usługi Azure Mobile Engagement nie są hello tę samą usługę. Witaj procedury prezentuje tylko sposób toomigrate hello aplikacji klienta. Migrowanie hello zestaw SDK usługi Mobile Engagement w sieci Web w aplikacji hello nie będą migrowane dane z serwera usługi Mobile Engagement tooa Capptain serwera.
 > 
 > 
 
 ### <a name="javascript-files"></a>Pliki JavaScript
-Zastąp plik capptain-sdk.js plików azure-engagement.js, a następnie odpowiednio zaktualizować importów Twojego skryptu.
+Zastąp plik hello capptain-sdk.js pliku hello azure-engagement.js, a następnie zaktualizować skrypt importuje odpowiednio.
 
 ### <a name="remove-capptain-reach"></a>Usuń Capptain Reach
-Ta wersja zestaw SDK usługi Mobile Engagement w sieci Web nie obsługuje funkcji Reach. Jeśli Capptain Reach zintegrowana aplikacja, należy go usunąć.
+Ta wersja hello zestaw SDK usługi Mobile Engagement w sieci Web nie obsługuje funkcji Reach hello. Jeśli Capptain Reach zintegrowana aplikacja, należy tooremove go.
 
-Usuń import osiągnąć CSS ze strony i usuń plik .css powiązane (capptain-reach.css, domyślnie).
+Usuń import osiągnąć CSS hello ze strony użytkownika i spróbuj usunąć plik .css powiązane hello (capptain-reach.css, domyślnie).
 
-Usuń następujące zasoby Reach: Zamknij obrazu (capptain-close.png, domyślnie) i ikonę marki (capptain powiadomienia ikona, domyślnie).
+Usuń następujące zasoby Reach hello: hello Zamknij obrazu (capptain-close.png, domyślnie) i hello brand ikona (capptain powiadomienia-, domyślnie).
 
-Usuń osiągnąć interfejsu użytkownika dla powiadomień w aplikacji. Domyślny układ wygląda następująco:
+Usuń hello osiągnąć interfejsu użytkownika dla powiadomień w aplikacji. Układ domyślny Hello wygląda następująco:
 
     <!-- capptain notification -->
     <div id="capptain_notification_area" class="capptain_category_default">
@@ -64,7 +64,7 @@ Usuń osiągnąć interfejsu użytkownika dla powiadomień w aplikacji. Domyśln
       </div>
     </div>
 
-Usuń osiągnąć interfejsu użytkownika dla tekstu i sieci web anonsów i sond. Domyślny układ wygląda następująco:
+Usuń hello osiągnąć interfejsu użytkownika dla sieci web i tekst anonsów i sond. Układ domyślny Hello wygląda następująco:
 
     <div id="capptain_overlay" class="capptain_category_default">
       <button id="capptain_overlay_close">x</button>
@@ -77,7 +77,7 @@ Usuń osiągnąć interfejsu użytkownika dla tekstu i sieci web anonsów i sond
       </div>
     </div>
 
-Usuń `reach` obiekt z konfiguracji, jeśli istnieje. Wygląda następująco:
+Usuń hello `reach` obiekt z konfiguracji, jeśli istnieje. Wygląda następująco:
 
     window.capptain = {
       [...]
@@ -89,16 +89,16 @@ Usuń `reach` obiekt z konfiguracji, jeśli istnieje. Wygląda następująco:
 Usuń wszelkie inne dostosowania Reach, takich jak kategorii.
 
 ### <a name="remove-deprecated-apis"></a>Usuń przestarzałe interfejsy API
-Niektóre funkcje interfejsu API z Capptain są używane w sieci Web zestaw SDK usługi Mobile Engagement.
+Niektóre funkcje interfejsu API z Capptain są używane w hello zestaw SDK usługi Mobile Engagement w sieci Web.
 
-Usuń wszystkie wywołania API: `agent.connect`, `agent.disconnect`, `agent.pause`, i `agent.sendMessageToDevice`.
+Usuń wszelkie toohello wywołania następujące interfejsy API: `agent.connect`, `agent.disconnect`, `agent.pause`, i `agent.sendMessageToDevice`.
 
-Usuń wszystkie wystąpienia elementu następujące wywołania zwrotne w konfiguracji Capptain: `onConnected`, `onDisconnected`, `onDeviceMessageReceived`, i `onPushMessageReceived`.
+Usuń wszystkie wystąpienia poniższych wywołań zwrotnych z konfiguracji Capptain hello: `onConnected`, `onDisconnected`, `onDeviceMessageReceived`, i `onPushMessageReceived`.
 
 ### <a name="configuration"></a>Konfiguracja
-Usługa Mobile Engagement używa parametrów połączenia do konfigurowania zestawu SDK identyfikatorów, na przykład identyfikator aplikacji.
+Połączenie tooconfigure SDK identyfikatory ciągów, na przykład identyfikator aplikacji hello korzysta z usługi Mobile Engagement.
 
-Zastąp identyfikator aplikacji parametrów połączenia. Należy pamiętać, że obiekt globalny dla konfiguracji SDK zmieni się z `capptain` do `azureEngagement`.
+Zastąp identyfikator aplikacji hello parametrów połączenia. Należy zwrócić uwagę hello obiektu globalnego dla hello konfiguracji SDK zmieni się z `capptain` zbyt`azureEngagement`.
 
 Przed migracją:
 
@@ -114,10 +114,10 @@ Po zakończeniu migracji:
       [...]
     };
 
-Ciąg połączenia dla aplikacji jest wyświetlana w portalu Azure.
+Parametry połączenia Hello aplikacji jest wyświetlany w hello portalu Azure.
 
 ### <a name="javascript-apis"></a>Interfejsy API języka JavaScript
-Obiekt globalny JavaScript `window.capptain` została zmieniona `window.azureEngagement` , ale można użyć `window.engagement` alias dla interfejsu API. Nie można użyć aliasu, aby zdefiniować konfigurację zestawu SDK.
+Obiekt global JavaScript Hello `window.capptain` została zmieniona `window.azureEngagement` , ale można użyć hello `window.engagement` alias dla interfejsu API. Nie można użyć hello alias toodefine hello SDK konfiguracji.
 
 Na przykład `capptain.deviceId` staje się `engagement.deviceId`, `capptain.agent.startActivity` staje się `engagement.agent.startActivity`i tak dalej.
 

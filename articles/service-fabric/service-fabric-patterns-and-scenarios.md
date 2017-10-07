@@ -1,6 +1,6 @@
 ---
-title: "Scenariusze i wzorców usługi sieć szkieletowa usług Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, najlepsze rozwiązania i sprawdzonych wzorców wielokrotnego użytku, projektowanie, tworzenie i obsługi Twojej mikrousług w sieci szkieletowej usług."
+title: "aaaAzure sieci szkieletowej usług wzorców i scenariusze | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, najlepsze rozwiązania i sprawdzonych wzorców wielokrotnego użytku toodesign, tworzy i wykorzystuje Twojej mikrousług w sieci szkieletowej usług."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2017
 ms.author: ryanwi
-ms.openlocfilehash: fb2fa495758433e357722427b1c162420935955d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3811420eb53d9a49e490dd2e2e5319d8dea5629c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Scenariusze i wzorce sieci szkieletowej usług
-Jeśli rozważasz usługę kompilowania dużych mikrousług przy użyciu usługi Azure Service Fabric, Dowiedz się od ekspertów, którzy zaprojektowany i zbudowany ta platforma jako usługa (PaaS). Wprowadzenie do architektury właściwe, a następnie Dowiedz się, jak zoptymalizować zasobów dla aplikacji. [Usługi sieć szkieletowa Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) plan odpowiedzi na pytania najczęściej zadawane przez klientów rzeczywistych scenariuszy sieci szkieletowej usług i aplikacji.
+Jeśli rozważasz usługę kompilowania dużych mikrousług przy użyciu usługi Azure Service Fabric, Dowiedz się od ekspertów hello, którzy zaprojektowany i zbudowany ta platforma jako usługa (PaaS). Wprowadzenie do architektury właściwe, a następnie Dowiedz się, jak toooptimize zasobów dla aplikacji. Witaj [usługi sieć szkieletowa Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) plan odpowiedzi na pytania hello najczęściej zadawane przez klientów rzeczywistych scenariuszy sieci szkieletowej usług i aplikacji.
  
-Dowiedz się, jak projektować i opracowywać mikrousługi oraz korzystać z nich w usłudze Service Fabric, korzystając z najlepszych rozwiązań i sprawdzonych wzorców z możliwością ponownego użycia. Zapoznaj się z omówieniem usługi sieć szkieletowa usług, a następnie głębokość Poznaj tematów, które obejmują optymalizacji klastra i zabezpieczeń, migrowanie starszych aplikacji IoT na dużą skalę, hosting aparaty gier i inne. Obejrzyj ciągłego dostarczania dla różnych obciążeń i nawet uzyskać szczegółowe informacje o pomocy technicznej systemu Linux i kontenerów. 
+Dowiedz się, jak toodesign, tworzenie i działanie programu mikrousług w sieci szkieletowej usług za pomocą najlepszych rozwiązań i wzorców sprawdzona, wielokrotnego użytku. Zapoznaj się z omówieniem usługi sieć szkieletowa usług, a następnie głębokość Poznaj tematów, które obejmują optymalizacji klastra i zabezpieczeń, migrowanie starszych aplikacji IoT na dużą skalę, hosting aparaty gier i inne. Obejrzyj ciągłego dostarczania dla różnych obciążeń i nawet uzyskać hello szczegóły dotyczące obsługi systemu Linux i kontenerów. 
 
 ## <a name="introduction"></a>Wprowadzenie
-Eksploruj najlepszych rozwiązań i Dowiedz się więcej o wybieraniu platforma jako usługa (PaaS) przez infrastrukturę jako usługę (IaaS). Szczegółowe informacje o następujących zasadach projektowania sprawdzonych aplikacji.
+Eksploruj najlepszych rozwiązań i Dowiedz się więcej o wybieraniu platforma jako usługa (PaaS) przez infrastrukturę jako usługę (IaaS). Uzyskiwanie szczegółowych informacji hello na następujące zasady projektowania sprawdzonych aplikacji.
 
 <table><tr><th>Połączenia wideo</th><th>PowerPoint talii</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=N2KwbbSGD_6405167344">
 <img src="./media/service-fabric-patterns-and-scenarios/intro.png" WIDTH="360" HEIGHT="244">
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344">Wprowadzenie do sieci szkieletowej usług</a></td></tr>
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344">Wprowadzenie tooService sieci szkieletowej</a></td></tr>
 </table>
 
 ## <a name="cluster-planning-and-management"></a>Planowanie klastra i zarządzania
@@ -53,7 +53,7 @@ Przegląd pojęć wokół hiperskali sieci web, w tym dostępności i niezawodno
 </table>
 
 ## <a name="iot"></a>IoT
-Poznaj Internetu rzeczy (IoT) w kontekście sieci szkieletowej usług Azure, w tym potoku, obsługi wielu dzierżawców i IoT Azure IoT na dużą skalę.
+Poznaj hello Internetu rzeczy (IoT) w kontekście hello sieć szkieletowa usług Azure, w tym hello Azure IoT potoku, obsługi wielu dzierżawców i IoT na dużą skalę.
 
 <table><tr><th>Połączenia wideo</th><th>PowerPoint talii</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=naFUVeSGD_1505167344">
@@ -80,7 +80,7 @@ Poznaj pojęcia, włącznie z ciągłej integracji/ciągłego dostarczania z Vis
 </table>
 
 ## <a name="migration"></a>Migracja
-Więcej informacji na temat migracji z usługi w chmurze, oprócz migracji starsze aplikacje.
+Więcej informacji na temat migracji z usługi w chmurze, oprócz toomigration starsze aplikacje.
 
 <table><tr><th>Połączenia wideo</th><th>PowerPoint talii</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=hd1cMgSGD_5605167344">
@@ -89,7 +89,7 @@ Więcej informacji na temat migracji z usługi w chmurze, oprócz migracji stars
 </table>
 
 ## <a name="containers-and-linux-support"></a>Kontenery i obsługi systemu Linux
-Uzyskaj odpowiedzi na pytanie "Dlaczego kontenery?" Więcej informacji na temat podglądu kontenery systemu Windows, Linux obsługuje i aranżacji kontenery systemu Linux. Ponadto dowiedzieć się, jak przeprowadzić migrację aplikacji .NET Core do systemu Linux.
+Pobierz hello odpowiedzi na pytanie toohello, "Dlaczego kontenery?" Więcej informacji na temat podglądu hello kontenery systemu Windows, Linux obsługuje i aranżacji kontenery systemu Linux. Ponadto dowiedzieć się, jak tooLinux aplikacji .NET Core toomigrate.
 
 <table><tr><th>Połączenia wideo</th><th>PowerPoint talii</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=V1ERJhSGD_305167344">
@@ -98,4 +98,4 @@ Uzyskaj odpowiedzi na pytanie "Dlaczego kontenery?" Więcej informacji na temat 
 </table>
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz już o wzorce sieci szkieletowej usług i scenariusze, Dowiedz się więcej o sposobie [tworzenia i zarządzania klastrami](service-fabric-deploy-anywhere.md), [migracji aplikacji usługi w chmurze do sieci szkieletowej usług](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [— Konfiguracja ciągłego dostarczania](service-fabric-set-up-continuous-integration.md), i [wdrażanie kontenerów](service-fabric-containers-overview.md).
+Teraz, kiedy znasz scenariusze i platformy Service Fabric wzorce, przeczytaj więcej na temat sposobu zbyt[tworzenia i zarządzania klastrami](service-fabric-deploy-anywhere.md), [migracji usługi w chmurze tooService aplikacji sieci szkieletowej](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [— Konfiguracja ciągłego dostarczania](service-fabric-set-up-continuous-integration.md), i [wdrażanie kontenerów](service-fabric-containers-overview.md).

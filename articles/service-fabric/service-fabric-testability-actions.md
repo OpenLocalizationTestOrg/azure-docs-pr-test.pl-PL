@@ -1,6 +1,6 @@
 ---
-title: "Symulacji awarii w Azure mikrousług | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera informacje o akcji zmianę w usługi sieć szkieletowa usług Microsoft Azure."
+title: "błędy aaaSimulate w Azure mikrousług | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera informacje o akcji zmianę hello w usługi sieć szkieletowa usług Microsoft Azure."
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
-ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5bdda1c0c5a40b243ab956c4791afd52e11c4089
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="testability-actions"></a>Testowania czynności
-Aby symulować zawodnych infrastruktury, sieć szkieletowa usług Azure udostępnia Tobie, deweloperze, ze sposobów, aby symulować różne błędy rzeczywistych i przejścia stanu. Są one widoczne jako testowania czynności. Akcje są niskiego poziomu interfejsów API, które powodują iniekcji określonych błędów, przejście stanu lub sprawdzania poprawności. Łącząc te akcje można zapisywać scenariusze kompleksowego testowania dla usług.
+W kolejności toosimulate zawodnych infrastruktury sieć szkieletowa usług Azure udostępnia, hello dewelopera, przy użyciu metody toosimulate różnych rzeczywistych błędów i przejścia stanu. Są one widoczne jako testowania czynności. Akcje Hello są hello niskiego poziomu interfejsów API, które powodują iniekcji określonych błędów, przejście stanu lub sprawdzania poprawności. Łącząc te akcje można zapisywać scenariusze kompleksowego testowania dla usług.
 
-Sieć szkieletowa usług zawiera kilka typowych scenariuszy testu składa się z tych akcji. Zdecydowanie zaleca się korzystanie z tych wbudowanych scenariuszy, które dokładnie chcą wspólnej przejść stanu i przypadków awarii. Jednak akcje może służyć do tworzenia scenariuszy testowania niestandardowych, jeśli chcesz dodać pokrycia w scenariuszach, które nie są objęte wbudowanych scenariusze jeszcze lub które są niestandardowe dostosowane do aplikacji.
+Sieć szkieletowa usług zawiera kilka typowych scenariuszy testu składa się z tych akcji. Zdecydowanie zaleca się korzystanie z tych scenariuszy wbudowanych, które dokładnie wybrano tootest wspólnej przejść stanu oraz przypadki niepowodzenia. Jednak akcji może być używane toocreate testu scenariuszy należy tooadd pokrycia w scenariuszach, które nie są objęte scenariusze wbudowanych hello jeszcze lub które są niestandardowe dostosowane do aplikacji.
 
-C# implementacje akcje znajdują się w zestawie System.Fabric.dll. Moduł PowerShell sieci szkieletowej systemu znajduje się w zestawie Microsoft.ServiceFabric.Powershell.dll. W ramach instalacji środowiska uruchomieniowego zainstalowano modułu ServiceFabric programu PowerShell umożliwiające łatwość użycia.
+C# implementacje akcje hello znajdują się w hello System.Fabric.dll zestawu. Moduł PowerShell sieci szkieletowej systemu Hello znajduje się w hello Microsoft.ServiceFabric.Powershell.dll zestawu. W ramach instalacji środowiska uruchomieniowego hello modułu ServiceFabric programu PowerShell jest zainstalowane tooallow dla łatwość użycia.
 
 ## <a name="graceful-vs-ungraceful-fault-actions"></a>Bezpieczne, a błąd nieprawidłowego działania
 Testowania czynności dzieli się na dwie główne pakiety:
 
-* Błędy nieprawidłowego: te błędy symulacji awarii, takie jak ponowne uruchomienie komputera i awarii procesów. W takich przypadkach niepowodzenia kontekstu wykonywania procesu zatrzymuje nagle. Oznacza to, że nie oczyszczania stanu można uruchomić, zanim uruchamiania aplikacji ponownie.
-* Błędy bezpiecznie: te błędy symulować łagodne akcje jak przenosi repliki i porzucania wyzwalane przez równoważenia obciążenia. W takiej sytuacji usługa pobiera powiadomienie po zamknięciu i wyczyścić stanu przed zakończeniem.
+* Błędy nieprawidłowego: te błędy symulacji awarii, takie jak ponowne uruchomienie komputera i awarii procesów. W takich przypadkach niepowodzenia hello kontekstu wykonywania procesu zatrzymuje nagle. Oznacza to, że nie oczyszczania stanu hello można uruchomić, zanim aplikacji hello uruchamiany ponownie.
+* Błędy bezpiecznie: te błędy symulować łagodne akcje jak przenosi repliki i porzucania wyzwalane przez równoważenia obciążenia. W takich przypadkach usługi hello pobiera powiadomienie z informacją o hello Zamknij i wyczyścić stanu hello przed zakończeniem.
 
-Podczas wywołania różnych błędów bezpieczne i nieprawidłowego lepszą jakość sprawdzania poprawności, uruchamiać obciążenie usługi i biznesowych. Błędy nieprawidłowego wykonuje scenariuszy, w którym proces usługi nagle kończy środku niektórych przepływu pracy. Testy ścieżka odzyskiwania, po przywróceniu repliki usługi przez sieć szkieletowa usług. To może pomóc w testowania spójności danych i określa, czy stan usługi jest prawidłowo utrzymywany po awarii. Zestaw błędów (awarii bezpieczne) przetestować, czy usługa poprawnie reaguje na replik przenoszenie przez sieć szkieletowa usług. Obsługa anulowania to testów w metodzie RunAsync. Usługa musi Sprawdź, czy token anulowania jest ustawiona, poprawnie zapisać jej stan, a następnie zamknij metodzie RunAsync.
+Dla lepszej jakości weryfikacji, należy uruchomić usługę hello i firm obciążenie podczas wywołania różnych bezpieczne i nieprawidłowego błędów. Błędy nieprawidłowego wykonuje scenariuszy, w którym hello usługi proces nagle kończy się w środku hello niektórych przepływu pracy. Testy hello ścieżka odzyskiwania, po przywróceniu repliki usługi hello przez sieć szkieletowa usług. To może pomóc w testowania spójności danych i czy stan usługi hello jest poprawnie utrzymywany po awarii. Witaj drugi zestaw błędów (hello łagodne awarii) testu czy usługa hello poprawnie reaguje tooreplicas przenoszenie przez sieć szkieletowa usług. Obsługa anulowania to testów w metodzie RunAsync hello. Usługa Hello musi toocheck hello anulowania tokenu jest ustawiona, poprawnie zapisać jej stan, a następnie zamknij hello metodzie RunAsync.
 
 ## <a name="testability-actions-list"></a>Pola listy Akcje
 | Akcja | Opis | Zarządzanego interfejsu API | Polecenia cmdlet programu PowerShell | Bezpieczne/nieprawidłowego błędów |
 | --- | --- | --- | --- | --- |
-| CleanTestState |Usuwa wszystkie stanu testu z klastra w przypadku zły wyłączania sterownika testu. |CleanTestStateAsync |Remove-ServiceFabricTestState |Nie dotyczy |
+| CleanTestState |Usuwa wszystkie stanu testu hello z klastra hello w przypadku zły zamknięcia hello testu sterownika. |CleanTestStateAsync |Remove-ServiceFabricTestState |Nie dotyczy |
 | InvokeDataLoss |Powoduje utratę danych na partycji usługi. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Bezpieczne |
 | InvokeQuorumLoss |Umieszcza partycji danej usługi stanowej, w wyniku utraty kworum. |InvokeQuorumLossAsync |Wywołanie ServiceFabricQuorumLoss |Bezpieczne |
-| Przenoszenie podstawowej |Przenosi określony repliką podstawową usługi stanowej określony węzeł klastra. |MovePrimaryAsync |Przenieś ServiceFabricPrimaryReplica |Bezpieczne |
-| Przenieś pomocniczej |Przenosi bieżący pomocniczej replice usługi stanowej na inny węzeł klastra. |MoveSecondaryAsync |Przenieś ServiceFabricSecondaryReplica |Bezpieczne |
-| RemoveReplica |Symuluje awarii repliki poprzez usunięcie repliki z klastra. To spowoduje zamknięcie repliki i przenieść ją do roli "None", usunięcie wszystkich jego stanu z klastra. |RemoveReplicaAsync |Usuń ServiceFabricReplica |Bezpieczne |
-| RestartDeployedCodePackage |Symuluje awarii procesu pakietu kodu przez ponowne uruchomienie pakiet kodu wdrożonych na węzłach w klastrze. Przerywa ten proces pakietu kodu, który zostanie uruchomiony ponownie wszystkie użytkownika repliki usługi hostowanej w tym procesie. |RestartDeployedCodePackageAsync |ServiceFabricDeployedCodePackage ponownego uruchomienia |Nieprawidłowego |
+| Przenoszenie podstawowej |Przenosi hello określić podstawową replikę usługi stanowej toohello określony węzeł klastra. |MovePrimaryAsync |Przenieś ServiceFabricPrimaryReplica |Bezpieczne |
+| Przenieś pomocniczej |Przenosi hello bieżącego pomocniczej replice usługi stanowej tooa inny węzeł klastra. |MoveSecondaryAsync |Przenieś ServiceFabricSecondaryReplica |Bezpieczne |
+| RemoveReplica |Symuluje awarii repliki poprzez usunięcie repliki z klastra. To spowoduje zamknięcie hello repliki i przejdą toorole "None", usunięcie wszystkich jego stanu z hello klastra. |RemoveReplicaAsync |Usuń ServiceFabricReplica |Bezpieczne |
+| RestartDeployedCodePackage |Symuluje awarii procesu pakietu kodu przez ponowne uruchomienie pakiet kodu wdrożonych na węzłach w klastrze. To przerywa proces pakietu kodu hello, który zostanie uruchomiony ponownie wszystkie repliki hello użytkownika usługi, obsługiwane w tym procesie. |RestartDeployedCodePackageAsync |ServiceFabricDeployedCodePackage ponownego uruchomienia |Nieprawidłowego |
 | RestartNode |Symuluje awarii węzła klastra sieci szkieletowej usług przez ponowne uruchomienie węzła. |RestartNodeAsync |ServiceFabricNode ponownego uruchomienia |Nieprawidłowego |
 | RestartPartition |Symuluje scenariusza niedostępności klastra lub niedostępności centrum danych przez ponowne uruchomienie niektórych lub wszystkich replik partycji. |RestartPartitionAsync |Restart-ServiceFabricPartition |Bezpieczne |
-| RestartReplica |Symuluje awarii repliki ponownego uruchamiania utrwalonych repliki w klastrze, zamykając repliki i otworzyć go ponownie. |RestartReplicaAsync |ServiceFabricReplica ponownego uruchomienia |Bezpieczne |
+| RestartReplica |Symuluje awarii repliki ponownego uruchamiania utrwalonych repliki w klastrze, zamykając hello repliki i otworzyć go ponownie. |RestartReplicaAsync |ServiceFabricReplica ponownego uruchomienia |Bezpieczne |
 | Parametr StartNode |Rozpoczyna się węzeł w klastrze, który jest już zatrzymana. |StartNodeAsync |Start-ServiceFabricNode |Nie dotyczy |
-| Polecenie StopNode |Symuluje awarii węzła przez zatrzymanie węzła w klastrze. Węzeł pozostanie w dół do momentu parametr StartNode jest wywoływana. |StopNodeAsync |Stop-ServiceFabricNode |Nieprawidłowego |
-| ValidateApplication |Sprawdza dostępność i kondycję wszystkich usług sieci szkieletowej usług aplikacji, zwykle po wywołania niektórych błędów w systemie. |ValidateApplicationAsync |ServiceFabricApplication testu |Nie dotyczy |
-| ValidateService |Sprawdza dostępność i kondycji usługi Service Fabric, zwykle po wywołania niektórych błędów w systemie. |ValidateServiceAsync |ServiceFabricService testu |Nie dotyczy |
+| Polecenie StopNode |Symuluje awarii węzła przez zatrzymanie węzła w klastrze. węzeł Hello pozostanie w dół do momentu parametr StartNode jest wywoływana. |StopNodeAsync |Stop-ServiceFabricNode |Nieprawidłowego |
+| ValidateApplication |Sprawdza dostępność hello i kondycję wszystkich usług sieci szkieletowej usług aplikacji, zwykle po wywołania niektórych błędów w systemie hello. |ValidateApplicationAsync |ServiceFabricApplication testu |Nie dotyczy |
+| ValidateService |Sprawdza dostępność hello i kondycji usługi Service Fabric, zwykle po wywołania niektórych błędów w systemie hello. |ValidateServiceAsync |ServiceFabricService testu |Nie dotyczy |
 
 ## <a name="running-a-testability-action-using-powershell"></a>Uruchomienie akcji testowania przy użyciu programu PowerShell
-Ten samouczek przedstawia sposób uruchamiania działania testowania przy użyciu programu PowerShell. Dowiesz się sposób uruchamiania działania kontroli względem klastra lokalnego (jeden pole) lub klastrze platformy Azure. Microsoft.Fabric.Powershell.dll — moduł programu PowerShell usługi Service Fabric — jest instalowana automatycznie podczas instalowania MSI sieci szkieletowej usług firmy Microsoft. Moduł jest ładowane automatycznie podczas otwierania wiersza programu PowerShell.
+W tym samouczku przedstawiono sposób toorun akcją testowania przy użyciu programu PowerShell. Dowiesz się jak toorun akcją kontroli względem klastra lokalnego (jeden pole) lub klastrze platformy Azure. Microsoft.Fabric.Powershell.dll — Witaj modułu programu PowerShell dla usługi sieci szkieletowej — jest instalowana automatycznie podczas instalowania hello MSI sieci szkieletowej usług firmy Microsoft. Moduł Hello jest ładowane automatycznie podczas otwierania wiersza programu PowerShell.
 
 Samouczek segmentów:
 
@@ -62,13 +62,13 @@ Samouczek segmentów:
 * [Uruchom akcję względem klastra platformy Azure](#run-an-action-against-an-azure-cluster)
 
 ### <a name="run-an-action-against-a-one-box-cluster"></a>Uruchom akcję w odniesieniu do klastra z jednym polu
-W celu uruchomienia działania kontroli klastra lokalnego, połącz się z klastrem i otwórz wiersz polecenia programu PowerShell w trybie administratora. Daj nam przyjrzeć się **ServiceFabricNode ponowne uruchomienie** akcji.
+toorun akcję kontroli w odniesieniu do klastra lokalnego, podłącz najpierw toohello klastra i otwórz hello wierszu polecenia PowerShell w trybie administratora. Daj nam przyjrzeć się hello **ServiceFabricNode ponowne uruchomienie** akcji.
 
 ```powershell
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Tutaj akcji **ServiceFabricNode ponowne uruchomienie** jest uruchamiana w węźle o nazwie "Node1". Tryb uzupełniania Określa, że także powinien sprawdza, czy ponowne uruchomienie węzła akcji faktycznie zakończyło się pomyślnie. Określanie tryb uzupełniania jako "Weryfikuj" spowoduje, że należy sprawdzić, czy akcja ponownego uruchomienia faktycznie zakończyło się pomyślnie. Zamiast bezpośrednio określać węzła przy użyciu nazwy, możesz je określić za pomocą klucza partycji i rodzaj repliki, w następujący sposób:
+W tym miejscu hello akcji **ServiceFabricNode ponowne uruchomienie** jest uruchamiana w węźle o nazwie "Node1". Tryb uzupełniania Hello Określa, że także powinien sprawdza, czy akcja ponownego uruchomienia węzła hello faktycznie zakończyło się pomyślnie. Określanie tryb uzupełniania hello jako "Zweryfikuj" spowoduje jego tooverify czy akcja ponownego uruchomienia hello faktycznie zakończyło się pomyślnie. Zamiast bezpośrednio określać hello węzła przy użyciu nazwy, możesz je określić za pomocą rodzaj partycji klucza i hello replik, w następujący sposób:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -83,20 +83,20 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-**Ponowne uruchomienie ServiceFabricNode** należy ponownie uruchomić węzeł sieci szkieletowej usług w klastrze. Spowoduje to zatrzymanie proces Fabric.exe, który zostanie uruchomiony ponownie wszystkie system usługi i użytkowników usługi repliki obsługiwane w tym węźle. Przy użyciu tego interfejsu API, aby przetestować usługi pomaga odkrywanie usterki wzdłuż ścieżki odzyskiwania trybu failover. Pomaga symulacji awarii węzła w klastrze.
+**Ponowne uruchomienie ServiceFabricNode** powinny być używane toorestart węzeł sieci szkieletowej usług w klastrze. Spowoduje to zatrzymanie proces Fabric.exe hello, który zostanie uruchomiony ponownie wszystkie hello system usługi i użytkowników usługi replik hostowanych w tym węźle. Użycie tootest tego interfejsu API usługi ułatwia odkrywanie usterki wzdłuż ścieżki odzyskiwania trybu failover hello. Pomaga symulacji awarii węzła w klastrze hello.
 
-Poniższy zrzut ekranu przedstawia **ServiceFabricNode ponowne uruchomienie** polecenia kontroli w akcji.
+Witaj Poniższy zrzut ekranu przedstawia hello **ServiceFabricNode ponowne uruchomienie** polecenia kontroli w akcji.
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-Dane wyjściowe pierwszego **Get-ServiceFabricNode** (polecenia cmdlet z modułu programu PowerShell usługi Service Fabric) pokazuje, że klaster lokalny zawiera pięć węzłów: Node.1 do Node.5. Po testowania czynności (polecenia cmdlet) **ServiceFabricNode ponowne uruchomienie** jest wykonywana w węźle o nazwie Node.4, widzimy zresetowano węzła przestojów.
+Witaj dane wyjściowe z hello najpierw **Get-ServiceFabricNode** (polecenia cmdlet z modułu programu PowerShell usługi Service Fabric hello) zawiera klastra lokalne powitania zawiera pięć węzłów: Node.1 tooNode.5. Po akcji zmianę hello (polecenia cmdlet) **ServiceFabricNode ponowne uruchomienie** jest wykonywana w węźle hello o nazwie Node.4, przedstawia czas pracy tego węzła hello został zresetowany.
 
 ### <a name="run-an-action-against-an-azure-cluster"></a>Uruchom akcję względem klastra platformy Azure
-Uruchomienie akcji pola (przy użyciu programu PowerShell) względem klastra platformy Azure jest podobny do uruchamiania działania klastra lokalnego. Jedyna różnica polega na tym, że przed uruchomieniem tej akcji, zamiast nawiązywania połączenia z lokalnym klastrem, należy połączyć się z klastrem Azure najpierw.
+Uruchomienie akcji pola (przy użyciu programu PowerShell) względem klastra platformy Azure jest podobne kroki hello toorunning w odniesieniu do klastra lokalnego. Witaj tylko różnicą jest to, że przed uruchomieniem akcji hello, zamiast łączącego toohello klastra lokalnego, należy tooconnect toohello Azure najpierw klastra.
 
 ## <a name="running-a-testability-action-using-c35"></a>Uruchomienie akcji testowania w języku C & 35;
-Aby uruchomić akcję testowania przy użyciu języka C#, musisz najpierw Połącz się z klastrem przy użyciu klienta fabricclient z rolą. Następnie Uzyskaj parametrów wymaganych do uruchomienia akcji. Można użyć różnych parametrów do uruchomienia tego samego działania.
-Jednym ze sposobów uruchamiania patrzeć akcji RestartServiceFabricNode, jest przy użyciu informacji węzła (nazwy węzła i identyfikator wystąpienia węzła) w klastrze.
+toorun akcją testowania przy użyciu języka C#, należy najpierw tooconnect toohello klastra przy użyciu klienta fabricclient z rolą. Następnie Uzyskaj hello parametry potrzebne toorun hello akcji. Można użyć różnych parametrów toorun hello tę samą akcję.
+Spojrzenie na powitania RestartServiceFabricNode akcji, jednokierunkowej toorun, jest przy użyciu informacji węzła hello (nazwy węzła i identyfikator wystąpienia węzła) w klastrze hello.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
@@ -104,16 +104,16 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 Objaśnienie parametrów:
 
-* **CompleteMode** Określa, czy tryb nie należy sprawdzić, czy akcja ponownego uruchomienia faktycznie zakończyło się pomyślnie. Określanie tryb uzupełniania jako "Weryfikuj" spowoduje, że należy sprawdzić, czy akcja ponownego uruchomienia faktycznie zakończyło się pomyślnie.  
-* **OperationTimeout** ustawia czas operacji przed jest zgłaszany wyjątek TimeoutException.
-* **CancellationToken** umożliwia oczekujące wywołanie do anulowania.
+* **CompleteMode** Określa, że tryb hello nie sprawdzić, czy akcja ponownego uruchomienia hello faktycznie zakończyło się pomyślnie. Określanie tryb uzupełniania hello jako "Zweryfikuj" spowoduje jego tooverify czy akcja ponownego uruchomienia hello faktycznie zakończyło się pomyślnie.  
+* **OperationTimeout** zestawy hello czas toofinish operacji hello przed jest zgłaszany wyjątek TimeoutException.
+* **CancellationToken** umożliwia toobe oczekujące wywołanie, anulowane.
 
-Zamiast bezpośrednio określać węzła przy użyciu nazwy, możesz je określić za pomocą klucza partycji i rodzaj repliki.
+Zamiast bezpośrednio określać hello węzła przy użyciu nazwy, możesz je określić za pomocą rodzaj partycji klucza i hello repliki.
 
 Aby uzyskać więcej informacji, zobacz [elementu PartitionSelector i elementu ReplicaSelector](#partition_replica_selector).
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll
+// Add a reference tooSystem.Fabric.Testability.dll and System.Fabric.dll
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -136,10 +136,10 @@ class Test
         Console.WriteLine("Starting RestartNode test");
         try
         {
-            //Restart the node by using ReplicaSelector
+            //Restart hello node by using ReplicaSelector
             RestartNodeAsync(clusterConnection, serviceName).Wait();
 
-            //Another way to restart node is by using nodeName and nodeInstanceId
+            //Another way toorestart node is by using nodeName and nodeInstanceId
             RestartNodeAsync(clusterConnection, nodeName, nodeInstanceId).Wait();
         }
         catch (AggregateException exAgg)
@@ -180,9 +180,9 @@ class Test
 
 ## <a name="partitionselector-and-replicaselector"></a>Elementu PartitionSelector i elementu ReplicaSelector
 ### <a name="partitionselector"></a>Elementu PartitionSelector
-Elementu PartitionSelector jest pomocnika ujawnione podczas testowania i jest używany do wybierania określonej partycji, na którym należy wykonać czynności kontroli. Można ją wybrać określonej partycji, jeśli identyfikator partycji jest znany wcześniej. Lub, możesz podać klucz partycji i operacji wewnętrznie rozwiąże Identyfikatora partycji. Masz również wybrać losowe partycji.
+Elementu PartitionSelector jest pomocnika ujawnione podczas testowania i jest używany tooselect określonej partycji na które tooperform hello testowania czynności. Jeśli identyfikator partycji: hello jest znany wcześniej może być używane tooselect określonej partycji. Lub, możesz podać klucz partycji hello i operacji hello rozwiąże identyfikator partycji: hello wewnętrznie. Istnieje również opcja hello losowe partycji.
 
-Aby użyć tego pomocnika, Utwórz obiekt elementu PartitionSelector i wybierz partycję za pomocą jednej z metod Select *. Następnie przekaż obiekt elementu PartitionSelector do interfejsu API, która go wymaga. Jeśli wybrano opcję nie, domyślnie losowe partycji.
+toouse tego pomocnika tworzenia obiektu elementu PartitionSelector hello i wybierz partycję hello przy użyciu jednej z hello Select * metod. Następnie przekazać hello elementu PartitionSelector obiektu toohello interfejsu API, która go wymaga. Jeśli wybrano opcję nie, domyślnie tooa losowe partycji.
 
 ```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
@@ -204,9 +204,9 @@ PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf
 ```
 
 ### <a name="replicaselector"></a>Elementu ReplicaSelector
-Elementu ReplicaSelector jest pomocnika ujawnione podczas testowania i służą do wybierz replikę, na którym należy wykonać czynności kontroli. Można ją wybrać określonych repliki, jeśli identyfikator repliki jest znany wcześniej. Ponadto istnieje możliwość wybrania repliki podstawowej lub pomocniczej losowe. Elementu ReplicaSelector pochodzi z elementu PartitionSelector, dlatego należy wybrać zarówno repliki i partycji, na którym chcesz wykonać operacji kontroli.
+Elementu ReplicaSelector jest pomocnika ujawnione podczas testowania i jest używany toohelp Wybierz replikę, na które tooperform hello testowania czynności. Identyfikator repliki hello jest znany wcześniej może być używane tooselect określonych repliki. Ponadto można jeszcze hello opcja repliki podstawowej lub dodatkowej losowych. Elementu ReplicaSelector pochodzi z elementu PartitionSelector, warto tooselect hello zarówno repliki i hello partycji, na którym chcesz tooperform hello zmianę operacji.
 
-Aby użyć tego pomocnika, Utwórz obiekt elementu ReplicaSelector i skonfigurowane w sposób, aby wybrać repliki i partycji. Można następnie przekazać do interfejsu API, która go wymaga. Jeśli wybrano opcję nie, domyślnie losowe repliki i losowe partycji.
+toouse tego pomocnika, Utwórz obiekt elementu ReplicaSelector i ustaw sposób hello tooselect hello repliki i hello partycji. Można następnie przekazać do hello interfejsu API, która go wymaga. Jeśli wybrano opcję nie, domyślnie tooa losowe repliki i losowe partycji.
 
 ```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
@@ -216,10 +216,10 @@ long replicaId = 130559876481875498;
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
-// Select the primary replica
+// Select hello primary replica
 ReplicaSelector primaryReplicaSelector = ReplicaSelector.PrimaryOf(partitionSelector);
 
-// Select the replica by ID
+// Select hello replica by ID
 ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelector, replicaId);
 
 // Select a random secondary replica
@@ -228,7 +228,7 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 
 ## <a name="next-steps"></a>Następne kroki
 * [Scenariusze testowania](service-fabric-testability-scenarios.md)
-* Jak przetestować usługi
+* Jak tootest usługi
   * [Symulacji awarii podczas obciążeń usługi](service-fabric-testability-workload-tests.md)
   * [Błędy usługi do komunikacji](service-fabric-testability-scenarios-service-communication.md)
 

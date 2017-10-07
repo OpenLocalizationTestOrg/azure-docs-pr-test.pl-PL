@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI przykładowym skrypcie — pobranie szczegółów pamięci podręcznej Redis Azure | Dokumentacja firmy Microsoft"
+title: "aaaAzure przykładowym skrypcie interfejsu wiersza polecenia — pobranie szczegółów pamięci podręcznej Redis Azure | Dokumentacja firmy Microsoft"
 description: "Azure CLI przykładowym skrypcie — pobranie szczegółów pamięci podręcznej Redis Azure"
 services: redis-cache
 documentationcenter: 
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/14/2017
 ms.author: sdanie
-ms.openlocfilehash: 9f4eb32227bd8a68837eabd58b9d058bc4995d17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3ad1fdf000bbab52e84dbf9f002a5e9fa6d347a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-details-of-an-azure-redis-cache"></a>Uzyskiwanie szczegółowych informacji o pamięci podręcznej Redis Azure
 
-W tym scenariuszu należy dowiedzieć się, jak można pobrać szczegółów wystąpienia pamięci podręcznej Redis Azure, takich jak jej stan inicjowania obsługi administracyjnej.
+W tym scenariuszu możesz dowiedzieć się, jak szczegóły hello tooretrieve pamięć podręczna Redis Azure wystąpienia, łącznie z jej stan inicjowania obsługi administracyjnej.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-azurecli[główne](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "pamięć podręczna Redis Azure")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Redis Cache")]
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt można pobrać szczegółów wystąpienia pamięci podręcznej Redis Azure korzysta z następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa hello poniższe polecenia tooretrieve hello informacje wystąpienia pamięci podręcznej Redis Azure. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
@@ -42,6 +42,6 @@ Ten skrypt można pobrać szczegółów wystąpienia pamięci podręcznej Redis 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów w pamięci podręcznej Redis Azure CLI znajdują się w [dokumentacji pamięć podręczna Redis Azure](../cli-samples.md).
+Dodatkowe przykłady skryptów interfejsu wiersza polecenia pamięci podręcznej Redis Azure można znaleźć w hello [dokumentacji pamięć podręczna Redis Azure](../cli-samples.md).

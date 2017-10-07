@@ -1,6 +1,6 @@
 ---
-title: "Praca z istniejącym lokalnych serwerów proxy i Azure AD | Dokumentacja firmy Microsoft"
-description: "Uwzględniono również sposób pracy z istniejących serwerów proxy lokalnymi."
+title: "aaaWork przy użyciu istniejących lokalnych serwerów proxy i Azure AD | Dokumentacja firmy Microsoft"
+description: "Opisano sposób toowork przy użyciu istniejących lokalnych serwerów proxy."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -13,43 +13,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: kgremban
-ms.openlocfilehash: bdca442755507c4ffe8d43692c5b7f2aa3a746f3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7f8cec4f676f99bead5211bcbcf23056bd7f211f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącym lokalnych serwerów proxy
 
-W tym artykule opisano sposób konfigurowania serwera Proxy aplikacji usługi Azure Active Directory (Azure AD) łączniki do pracy z serwerami serwera proxy ruchu wychodzącego. Przewodnik jest przeznaczony dla klientów z sieci środowiskach z istniejących serwerów proxy.
+W tym artykule opisano sposób toowork łączniki serwera Proxy aplikacji usługi Azure Active Directory (Azure AD) tooconfigure z serwerów proxy ruchu wychodzącego. Przewodnik jest przeznaczony dla klientów z sieci środowiskach z istniejących serwerów proxy.
 
 Rozpoczniemy analizując te scenariusze wdrażania głównego:
-* Skonfiguruj konektory w celu obejścia proxy ruchu wychodzącego sieci lokalnej.
-* Skonfiguruj konektory w celu użycia serwera proxy ruchu wychodzącego do serwera Proxy aplikacji usługi Azure AD.
+* Skonfiguruj toobypass łączniki proxy ruchu wychodzącego sieci lokalnej.
+* Skonfiguruj toouse łączniki tooaccess serwera proxy ruchu wychodzącego serwera Proxy aplikacji usługi Azure AD.
 
 Aby uzyskać więcej informacji na temat działania łączników, zobacz [łączniki serwera Proxy aplikacji usługi AD zrozumieć Azure](application-proxy-understand-connectors.md).
 
-## <a name="configure-the-outbound-proxy"></a>Konfigurowanie serwera proxy ruchu wychodzącego
+## <a name="configure-hello-outbound-proxy"></a>Konfigurowanie serwera proxy ruchu wychodzącego hello
 
-Jeśli w środowisku serwera proxy ruchu wychodzącego, użyj konta z odpowiednimi uprawnieniami do konfigurowania serwera proxy ruchu wychodzącego. Ponieważ Instalator jest uruchamiany w kontekście użytkownika, który jest podczas instalacji, konfiguracji można sprawdzić za pomocą Microsoft Edge lub innej przeglądarki internetowej.
+Jeśli masz serwera proxy ruchu wychodzącego w danym środowisku, należy użyć konta z serwera proxy ruchu wychodzącego hello tooconfigure odpowiednie uprawnienia. Ponieważ hello Instalator jest uruchamiany w kontekście hello hello użytkownika, który wykonuje hello instalacji, należy sprawdzić konfigurację hello przy użyciu Microsoft Edge lub innej przeglądarki internetowej.
 
-Aby skonfigurować ustawienia serwera proxy w programie Microsoft Edge:
+tooconfigure hello ustawienia serwera proxy w programie Microsoft Edge:
 
-1. Przejdź do **ustawienia** > **widoku Zaawansowane ustawienia** > **Otwórz ustawienia serwera Proxy** > **instalacji ręcznej serwera Proxy**.
-2. Ustaw **Użyj serwera proxy** do **na**, wybierz pozycję **nie używaj serwera proxy dla adresów lokalnych (sieć intranet)** pole wyboru, a następnie zmień adres i port, aby odzwierciedlić serwera proxy w lokalnych.
-3. Wypełnij ustawienia serwera proxy niezbędne.
+1. Przejdź za**ustawienia** > **ustawienia zaawansowane widoku** > **Otwórz ustawienia serwera Proxy** > **ręcznego ustawienia serwera Proxy** .
+2. Ustaw **Użyj serwera proxy** za**na**, wybierz pozycję hello **nie używaj powitania serwera proxy dla adresów lokalnych (sieć intranet)** pole wyboru, a następnie zmień hello adres i port tooreflect Serwer proxy lokalnego.
+3. Wypełnij ustawienia serwera proxy niezbędne hello.
 
    ![Okno dialogowe ustawień serwera proxy](./media/application-proxy-working-with-proxy-servers/proxy-bypass-local-addresses.png)
 
 ## <a name="bypass-outbound-proxies"></a>Obejście proxy ruchu wychodzącego
 
-Łączniki mają podstawowych składników systemu operacyjnego, które żądania wychodzącego. Te składniki automatycznie podejmować próby zlokalizowania serwera proxy w sieci. Korzystają autowykrywania serwera Proxy sieci Web (WPAD), jeśli jest włączona w środowisku.
+Łączniki mają podstawowych składników systemu operacyjnego, które żądania wychodzącego. Te składniki automatycznie próbę toolocate serwera proxy w sieci hello. Korzystają autowykrywania serwera Proxy sieci Web (WPAD), jeśli jest włączona w środowisku hello.
 
-Składniki systemu operacyjnego podejmować próby zlokalizowania serwera proxy przeprowadzając wyszukiwania DNS dla wpad.domainsuffix. Jeśli to rozwiązuje w systemie DNS do adresu IP dla wpad.dat następnie jest przeprowadzane żądania HTTP. To żądanie staje się skrypt konfiguracji serwera proxy w danym środowisku. Łącznik korzysta ten skrypt, aby wybrać serwer proxy ruchu wychodzącego. Jednak ruch łącznika może nadal nie powiodło się, ze względu na dodatkowe ustawienia konfiguracji potrzebne na serwerze proxy.
+składniki systemu operacyjnego Hello próba toolocate serwer proxy przeprowadzając wyszukiwania DNS dla wpad.domainsuffix. Jeśli to rozwiązuje w systemie DNS, żądanie HTTP jest przeprowadzane toohello IP adres wpad.dat. To żądanie staje się hello skryptu konfiguracji serwera proxy w danym środowisku. Łącznik Hello korzysta z tego tooselect skryptu serwera proxy ruchu wychodzącego. Jednak ruch łącznika może nadal nie powiodło się, ze względu na ustawienia dodatkowe czynności konfiguracyjne na powitania serwera proxy.
 
-Można skonfigurować łącznik, aby pominąć lokalnego serwera proxy do zapewnienia korzysta z bezpośredniego łączności usług Azure. Zalecamy takie podejście (Jeśli zasady sieci umożliwia on), ponieważ oznacza, że masz mniej jedną konfigurację do obsługi.
+Można skonfigurować toobypass łącznika hello tooensure serwera proxy sieci lokalnej, używa bezpośrednie połączenie toohello Azure usługi. Zalecamy takie podejście (Jeśli zasady sieci umożliwia on), ponieważ oznacza, że masz jeden mniej toomaintain konfiguracji.
 
-Aby wyłączyć użycia serwera proxy ruchu wychodzącego dla łącznika, przeprowadź edycję pliku C:\Program Files\Microsoft usługi AAD aplikacji serwera Proxy Connector\ApplicationProxyConnectorService.exe.config i Dodaj *system.net* sekcji pokazano w tym przykładowym kodzie:
+toodisable użycia serwera proxy ruchu wychodzącego dla łącznika hello, Edytuj plik C:\Program Files\Microsoft usługi AAD aplikacji serwera Proxy Connector\ApplicationProxyConnectorService.exe.config hello i dodać hello *system.net* sekcji pokazano w tym przykładowym kodzie :
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -65,25 +65,25 @@ Aby wyłączyć użycia serwera proxy ruchu wychodzącego dla łącznika, przepr
   </appSettings>
 </configuration>
 ```
-Aby upewnić się, że aktualizator łącznika usługi również pomija serwera proxy, należy wprowadzić zmianę podobne do pliku ApplicationProxyConnectorUpdaterService.exe.config znajdującym się w aktualizator łącznika serwera Proxy aplikacji usługi AAD C:\Program Files\Microsoft.
+tooensure hello aktualizator łącznika usługi będzie również pomija powitania serwera proxy, należy podobne zmiany toohello ApplicationProxyConnectorUpdaterService.exe.config plik znajdujący się w aktualizator łącznika serwera Proxy aplikacji usługi AAD C:\Program Files\Microsoft.
 
-Należy pamiętać o wykonaniu kopii oryginalnych plików, w razie potrzeby można przywrócić w plikach .config domyślne.
+Należy się kopie toomake hello oryginalnych plików, w razie potrzeby toorevert toohello domyślnych .config plików.
 
-## <a name="use-the-outbound-proxy-server"></a>Użyj serwera proxy ruchu wychodzącego
+## <a name="use-hello-outbound-proxy-server"></a>Użyj serwera proxy ruchu wychodzącego hello
 
-Niektóre środowiska wymagają cały ruch wychodzący do go za pośrednictwem serwera proxy ruchu wychodzącego, bez wyjątku. W związku z tym pomijanie serwera proxy nie jest opcją.
+Niektóre środowiska wymagają wszystkich toogo ruch wychodzący za pośrednictwem serwera proxy ruchu wychodzącego, bez wyjątku. W związku z tym pomijanie powitania serwera proxy nie jest opcją.
 
-Możesz skonfigurować ruchu łącznika do go za pośrednictwem serwera proxy ruchu wychodzącego, jak pokazano na poniższym diagramie:
+Można skonfigurować hello łącznika ruchu toogo za pośrednictwem serwera proxy ruchu wychodzącego hello, pokazane na powitania po diagramu:
 
- ![Konfigurowanie łącznika ruchu można przejść za pośrednictwem serwera proxy ruchu wychodzącego do serwera Proxy aplikacji usługi Azure AD](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
+ ![Konfigurowanie łącznika toogo ruchu za pośrednictwem serwera proxy ruchu wychodzącego tooAzure AD serwera Proxy aplikacji](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
-W wyniku o tylko ruchu wychodzącego, nie istnieje potrzeba aby skonfigurować dostęp przychodzących na zaporach.
+W związku z tym o tylko ruchu wychodzącego, jest tooconfigure nie konieczności ruchu przychodzącego dostęp za pośrednictwem zapór.
 
-### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Krok 1: Konfigurowanie łącznika i powiązane usługi, aby przejść za pośrednictwem serwera proxy ruchu wychodzącego
+### <a name="step-1-configure-hello-connector-and-related-services-toogo-through-hello-outbound-proxy"></a>Krok 1: Skonfiguruj łącznik hello i powiązanych usług toogo za pośrednictwem serwera proxy ruchu wychodzącego hello
 
-Objętych wcześniej, jeśli WPAD jest włączona w środowisku i prawidłowo skonfigurowany, łącznik automatycznie odnajdzie serwera proxy ruchu wychodzącego i spróbować go użyć. Można jednak jawnie skonfigurować łącznik, aby go za pośrednictwem serwera proxy ruchu wychodzącego.
+Objętych wcześniej, jeśli WPAD jest włączona w środowisku hello i prawidłowo skonfigurowany, łącznik hello automatycznie wykryje na powitania serwera proxy ruchu wychodzącego toouse serwera, a następnie spróbuj go. Jednak jawnie skonfigurować toogo łącznika hello za pośrednictwem serwera proxy ruchu wychodzącego.
 
-Aby to zrobić, Edytuj plik C:\Program Files\Microsoft usługi AAD aplikacji serwera Proxy Connector\ApplicationProxyConnectorService.exe.config i Dodaj *system.net* sekcji pokazano w tym przykładowym kodzie. Zmień *proxyserver:8080* w celu uwzględnienia nazwę lokalnego serwera proxy serwera lub adres IP i portu nasłuchiwania na.
+toodo tak, przeprowadź edycję pliku C:\Program Files\Microsoft usługi AAD aplikacji serwera Proxy Connector\ApplicationProxyConnectorService.exe.config hello i Dodaj hello *system.net* sekcji pokazano w tym przykładowym kodzie. Zmień *proxyserver:8080* tooreflect swoją nazwę serwera lokalnego serwera proxy lub adres IP i hello portu, że nasłuchuje na.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -102,124 +102,124 @@ Aby to zrobić, Edytuj plik C:\Program Files\Microsoft usługi AAD aplikacji ser
 </configuration>
 ```
 
-Skonfiguruj usługę aktualizator łącznika, aby serwer proxy jest używany przez wprowadzenie zmiany podobną do następującej lokalizacji C:\Program Files\Microsoft usługi AAD aplikacji serwera Proxy łącznika Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+Skonfiguruj serwer proxy hello aktualizator łącznika usługi toouse hello dokonując podobne zmiany toohello w następującej lokalizacji C:\Program Files\Microsoft usługi AAD aplikacji serwera Proxy łącznika Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Krok 2: Konfigurowanie serwera proxy zezwalająca na ruch z łącznika i powiązane usługi przepływają przez
+### <a name="step-2-configure-hello-proxy-tooallow-traffic-from-hello-connector-and-related-services-tooflow-through"></a>Krok 2: Konfigurowanie hello proxy tooallow ruch z hello łącznika i powiązane usługi tooflow za pośrednictwem
 
-Istnieją cztery aspektów, które należy wziąć pod uwagę w przypadku serwera proxy ruchu wychodzącego:
+Istnieją cztery tooconsider aspekty na powitania serwera proxy ruchu wychodzącego:
 * Reguły ruchu wychodzącego serwera proxy
 * Uwierzytelnianie serwera proxy
 * Porty serwera proxy
 * Inspekcja protokołu SSL
 
 #### <a name="proxy-outbound-rules"></a>Reguły ruchu wychodzącego serwera proxy
-Zezwalaj na dostęp do następujących punktów końcowych do łącznika usługi:
+Zezwalaj na dostęp toohello następujące punkty końcowe dla dostępu do usługi łącznika:
 
 * *. msappproxy.net
 * *. servicebus.windows.net
 
-Początkowe rejestracyjny można zezwolić na dostęp do następujących punktów końcowych:
+Początkowa rejestracji Zezwalaj na następujące punkty końcowe toohello dostępu:
 
 * login.windows.net
 * Login.microsoftonline.com
 
-Jeśli nie umożliwiają nawiązywanie połączeń przez nazwę FQDN, a zamiast tego określ zakresy adresów IP, korzystać z tych opcji:
+Jeśli nie umożliwiają nawiązywanie połączeń przez nazwę FQDN, a zamiast tego muszą toospecify zakresy adresów IP, należy użyć tych opcji:
 
-* Zezwalaj na dostęp ruchu wychodzącego łącznika do wszystkich miejsc docelowych.
-* Zezwalaj na dostęp ruchu wychodzącego łącznika do [zakresy IP centrum danych Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). Wyzwanie z listy zakresów IP centrum danych Azure jest, że jest aktualizowana co tydzień. Należy umieścić procesu w celu zapewnienia odpowiednio aktualizowany reguł dostępu.
+* Zezwalaj na dostęp ruchu wychodzącego łącznika hello tooall miejsc docelowych.
+* Zezwalaj na powitania łącznik wychodzący dostęp za[zakresy IP centrum danych Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). Hello żądania przy użyciu hello listą zakresów IP centrum danych Azure jest, że jest aktualizowana co tydzień. Należy tooput procesu w miejscu tooensure odpowiednio aktualizowany reguł dostępu.
 
 #### <a name="proxy-authentication"></a>Uwierzytelnianie serwera proxy
 
-Uwierzytelnianie serwera proxy nie jest obecnie obsługiwane. Nasze zalecenie, bieżący jest zezwala na dostęp anonimowy łącznika do Internetu miejsc docelowych.
+Uwierzytelnianie serwera proxy nie jest obecnie obsługiwane. Nasze zalecenie, bieżący jest hello tooallow łącznika toohello anonimowy dostęp do Internetu miejsc docelowych.
 
 #### <a name="proxy-ports"></a>Porty serwera proxy
 
-Łącznik sprawia, że oparte na protokole SSL połączeń wychodzących przy użyciu metody CONNECT. Ta metoda powoduje ustawienie zasadniczo tunelu za pośrednictwem serwera proxy ruchu wychodzącego. Konfiguracja serwera proxy, aby umożliwić tunelowania na porty 443 i 80.
+Łącznik Hello sprawia, że oparte na protokole SSL połączeń wychodzących przy użyciu metody CONNECT hello. Ta metoda konfiguruje zasadniczo tunel powitania serwera proxy ruchu wychodzącego. Skonfiguruj tooallow serwera proxy hello tunelowania tooports 443 i 80.
 
 >[!NOTE]
->Po uruchomieniu usługi Service Bus przy użyciu protokołu HTTPS używa portu 443. Domyślnie usługi Service Bus podejmuje próbę bezpośredniego połączenia TCP i powraca do HTTPS tylko wtedy, gdy bezpośrednie połączenie między zakończy się niepowodzeniem.
+>Po uruchomieniu usługi Service Bus przy użyciu protokołu HTTPS używa portu 443. Domyślnie usługi Service Bus podejmuje próbę bezpośredniego połączenia TCP i powraca tooHTTPS tylko wtedy, gdy bezpośrednie połączenie między zakończy się niepowodzeniem.
 
-Aby upewnić się, że ruch usługi Service Bus jest również przesyłany za pośrednictwem serwera proxy ruchu wychodzącego, upewnij się, że łącznik nie może nawiązać bezpośrednie usług platformy Azure dla porty 9350, 9352 i 5671.
+tooensure hello ruch jest również przesyłany za pośrednictwem serwera proxy ruchu wychodzącego hello usługi Service Bus, upewnij się, że ten łącznik hello nie może połączyć się bezpośrednio z toohello usług Azure porty 9350, 9352 i 5671.
 
 #### <a name="ssl-inspection"></a>Inspekcja protokołu SSL
-Nie należy używać protokołu SSL inspekcji dla ruchu łącznika, ponieważ powoduje problemy w przypadku ruchu łącznika.
+Nie należy używać SSL kontroli w przypadku ruchu łącznika hello, ponieważ powoduje problemy w przypadku ruchu łącznika hello.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Rozwiązywanie problemów z łącznika serwera proxy problemów i problemy z połączeniem usługi
-Teraz powinien być widoczny cały ruch przepływających przez serwer proxy. Jeśli masz problemy powinny pomóc następujące informacje dotyczące rozwiązywania problemów.
+Teraz powinien być widoczny cały ruch przepływających przez powitania serwera proxy. Jeśli masz problemy powinny pomóc w hello następujące informacje dotyczące rozwiązywania problemów.
 
-Najlepszym sposobem na identyfikowanie i rozwiązywanie problemów z łącznością łącznika jest przechwytywanie sieci na usługę łącznika podczas uruchamiania usługi łącznika. To stanowić nie lada wyzwanie, więc Przyjrzyjmy się szybkie porady dotyczące przechwytywania i filtrowania śladów sieciowych.
+Witaj najlepsze sposób tooidentify i rozwiązywania problemów z łącznością łącznika tootake sieci przechwytywania usługi łącznika hello podczas uruchamiania usługi łącznika hello jest problemy. To stanowić nie lada wyzwanie, więc Przyjrzyjmy się szybkie porady dotyczące przechwytywania i filtrowania śladów sieciowych.
 
-Można użyć narzędzia monitorowania wybranych przez użytkownika. Do celów tego artykułu użyliśmy Microsoft Network Monitor 3.4. Możesz [Pobierz go z Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
+Możesz użyć hello monitorowania dowolnego narzędzia. Dla celów hello w tym artykule użyliśmy Microsoft Network Monitor 3.4. Możesz [Pobierz go z Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
 
-Przykłady i filtry, których używamy w poniższych sekcjach są specyficzne dla monitora sieci, ale zasady mogą być stosowane do dowolnego narzędzia do analizy.
+filtry, których używamy w hello następujące sekcje zawierają informacje i przykłady Hello są określone tooNetwork Monitor, ale hello zasady mogą być zastosowane tooany narzędzie do analizy.
 
 ### <a name="take-a-capture-by-using-network-monitor"></a>Przechwytywanie za pomocą Monitora sieci
 
-Aby uruchomić przechwytywania:
+toostart przechwytywania:
 
 1. Otwórz program Network Monitor i kliknij przycisk **nowe przechwycenia**.
-2. Kliknij przycisk **Start** przycisku.
+2. Kliknij przycisk hello **Start** przycisku.
 
    ![Okno Monitora sieci](./media/application-proxy-working-with-proxy-servers/network-capture.png)
 
-Po ukończeniu przechwytywania, kliknij przycisk **zatrzymać** przycisk, aby ją zakończyć.
+Po ukończeniu przechwytywania, kliknij przycisk hello **zatrzymać** tooend przycisk go.
 
 ### <a name="take-a-capture-of-connector-traffic"></a>Przechwytywanie ruchu łącznika
 
-Do rozwiązywania problemów początkowej, wykonaj następujące czynności:
+Do rozwiązywania problemów początkowej, wykonaj hello następujące kroki:
 
-1. Z services.msc należy zatrzymać usługę łącznika serwera Proxy aplikacji w usłudze Azure AD.
-2. Uruchom przechwytywania ruchu sieciowego.
-3. Uruchom usługę łącznika serwera Proxy aplikacji w usłudze Azure AD.
-4. Zatrzymaj przechwytywania ruchu sieciowego.
+1. Z services.msc należy zatrzymać usługę łącznika serwera Proxy aplikacji w usłudze Azure AD hello.
+2. Uruchom hello przechwytywania ruchu sieciowego.
+3. Uruchom usługę łącznika serwera Proxy aplikacji w usłudze Azure AD hello.
+4. Zatrzymaj hello przechwytywania ruchu sieciowego.
 
    ![Usługa Azure łącznika serwera Proxy aplikacji usługi AD w celu aplikację services.msc](./media/application-proxy-working-with-proxy-servers/services-local.png)
 
-### <a name="look-at-the-requests-from-the-connector-to-the-proxy-server"></a>Przyjrzyj się z serwerem proxy żądania z łącznika
+### <a name="look-at-hello-requests-from-hello-connector-toohello-proxy-server"></a>Obejrzyj hello żądań z serwera proxy toohello łącznika hello
 
-Skoro masz przechwytywania ruchu sieciowego, możesz go filtrować. Klucz do analizowania śledzenia jest zrozumienie sposobu filtru przechwytywania.
+Skoro masz przechwytywania ruchu sieciowego, wszystko jest gotowe toofilter go. toolooking klucza Hello na powitania śledzenia jest zrozumienie, jak toofilter hello przechwytywania.
 
-Jeden filtr następująco (gdzie 8080 jest port usługi serwera proxy):
+Jeden filtr następująco (gdzie 8080 jest port usługi serwera proxy hello):
 
 **(protokół http. Żądanie lub http. Odpowiedź) i tcp.port==8080**
 
-Po wprowadzeniu tego filtru w **filtru wyświetlania** i zaznacz **Zastosuj**, filtruje przechwycony ruch na podstawie filtru.
+Po wprowadzeniu tego filtru w hello **filtru wyświetlania** i zaznacz **Zastosuj**, filtruje ruchu hello przechwycone oparte na powitania filtru.
 
-Poprzednie filtru zawiera po prostu żądań i odpowiedzi HTTP z port serwera proxy. Do uruchomienia łącznika, gdy łącznik jest skonfigurowany do używania serwera proxy filtr będzie Pokaż mniej więcej tak:
+Witaj poprzedniego filtru zawiera tylko hello żądań i odpowiedzi HTTP z hello port serwera proxy. Do uruchomienia łącznika, gdy łącznik hello jest toouse skonfigurowany serwer proxy filtr hello czy Pokaż podobny do następującego:
 
  ![Przykład listy filtrowane żądań i odpowiedzi HTTP](./media/application-proxy-working-with-proxy-servers/http-requests.png)
 
-Teraz w szczególności szukasz żądania połączenia, które Pokaż komunikacji z serwerem proxy. Na sukces otrzymasz odpowiedź HTTP OK (200).
+Teraz w szczególności szukasz hello CONNECT żądań, które Pokaż komunikacji z serwerem proxy hello. Na sukces otrzymasz odpowiedź HTTP OK (200).
 
-Jeśli widzisz innych kodów odpowiedzi, na przykład 407 lub 502, serwer proxy jest wymaganie uwierzytelniania lub nie zezwala na ruch innego powodu. W tym momencie Uwzględnij się z zespołem pomocy technicznej serwera proxy.
+Jeśli widzisz innych kodów odpowiedzi, na przykład 407 lub 502 powitania serwera proxy jest wymaganie uwierzytelniania lub nie zezwala na ruch hello innego powodu. W tym momencie Uwzględnij się z zespołem pomocy technicznej serwera proxy.
 
 ### <a name="identify-failed-tcp-connection-attempts"></a>Zidentyfikuj nieudanych prób połączenia TCP
 
-Typowy scenariusz, który może Cię zainteresować jest łącznik próbuje nawiązać połączenie bezpośrednio, ale występuje błąd.
+Hello innych typowy scenariusz, który może Cię zainteresować jest hello łącznika próbuje tooconnect bezpośrednio, ale występuje błąd.
 
-Inny filtr Monitor sieci, która pomaga łatwo zidentyfikować ten problem jest:
+Inny filtr Monitor sieci, która pomaga tooeasily zidentyfikować ten problem jest:
 
 **Właściwość. TCPSynRetransmit**
 
-Pakiet SYN jest pierwszy pakiet wysyłany do nawiązywania połączeń TCP. Jeśli ten pakiet nie zwraca odpowiedź, SYN jest podjęta ponownie. Można użyć poprzedniego filtru, aby wyświetlić wszystkie syn ponownie przesłane. Następnie można sprawdzić, czy te syn odpowiadają żadnych ruch związany z usługą łącznika.
+Pakiet SYN jest pierwszy pakiet hello wysłanych tooestablish połączenie TCP. Jeśli ten pakiet nie zwraca odpowiedź, hello SYN jest podjęta ponownie. Można użyć dowolnego syn ponownie przesłane hello poprzedzających toosee filtru. Następnie można sprawdzić, czy te syn odpowiada tooany ruch związany z usługą łącznika.
 
-W poniższym przykładzie przedstawiono portu usługi Service Bus 9352 próba połączenia nie powiodło się:
+Witaj poniższy przykład przedstawia próba połączenia nie powiodło się tooService magistrali port 9352:
 
  ![Przykład odpowiedzi próby połączenia nie powiodło się](./media/application-proxy-working-with-proxy-servers/failed-connection-attempt.png)
 
-Jeśli zostanie wyświetlony ekran podobny do poprzedniej odpowiedzi łącznika próbuje komunikują się bezpośrednio z usługi Azure Service Bus. Jeśli łącznik, aby nawiązywać połączenia bezpośrednio z usług Azure, ta odpowiedź jest jednoznacznie zidentyfikować, że masz problem sieci i zapory.
+Jeśli zostanie wyświetlony ekran podobny do hello poprzedzających odpowiedzi łącznika hello próbuje toocommunicate bezpośrednio z hello usługi Azure Service Bus. Jeśli oczekujesz hello łącznika toomake bezpośrednich połączeń toohello Azure usługi, to odpowiedź jest jednoznacznie zidentyfikować, że masz problem sieci i zapory.
 
 >[!NOTE]
->Jeśli są skonfigurowane do korzystania z serwera proxy, tej odpowiedzi może oznaczać, że usługi Service Bus próbuje bezpośrednie połączenie TCP przed przełączeniem do próba połączenia za pośrednictwem protokołu HTTPS.
+>Jeśli jesteś toouse skonfigurowany serwer proxy tej odpowiedzi może oznaczać, że usługi Service Bus próbuje bezpośrednie połączenie TCP przed przełączeniem tooattempting połączenie za pośrednictwem protokołu HTTPS.
 >
 
-Analiza śledzenia sieci nie jest dostępne dla wszystkich użytkowników. Jednak jest przydatnym narzędziem, aby uzyskać szybki dowiedzieć się, co dzieje się z sieci.
+Analiza śledzenia sieci nie jest dostępne dla wszystkich użytkowników. Jednak jest przydatnym narzędziem tooget szybkie informacje o to, co dzieje się z sieci.
 
-Jeśli nadal mieć trudności z problemów z łącznością łącznika, Utwórz bilet z naszym zespołem pomocy technicznej. Zespół może pomóc dalszego rozwiązywania problemów.
+Jeśli będziesz kontynuować toostruggle z problemów z łącznością łącznika, Utwórz bilet z naszym zespołem pomocy technicznej. zespół Hello mogą pomóc o dodatkowe informacje o rozwiązywaniu.
 
 Aby uzyskać informacje o rozwiązywaniu problemów z łącznika serwera Proxy aplikacji, zobacz [Rozwiązywanie problemów z serwera Proxy aplikacji](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 
 ## <a name="next-steps"></a>Następne kroki
 
 [Zrozumienie łączniki serwera Proxy aplikacji usługi Azure AD](application-proxy-understand-connectors.md)<br>
-[Jak zainstalować łącznik serwera Proxy aplikacji Azure AD w trybie dyskretnym](active-directory-application-proxy-silent-installation.md)
+[Jak toosilently zainstalować hello łącznika serwera Proxy aplikacji w usłudze Azure AD](active-directory-application-proxy-silent-installation.md)

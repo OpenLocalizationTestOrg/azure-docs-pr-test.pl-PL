@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązywanie problemów z wystąpień kontenera platformy Azure"
-description: "Dowiedz się, jak rozwiązać problemy z wystąpień kontenera platformy Azure"
+title: "aaaTroubleshooting wystąpień kontenera platformy Azure"
+description: "Dowiedz się, jak tootroubleshoot problemy związane z wystąpień kontenera platformy Azure"
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -17,25 +17,25 @@ ms.workload: na
 ms.date: 08/03/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 86fa4b7dca7c362f95c0243a33f03d1f2dd3ab42
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: dfec636a0a174c74a6f2e9d9c4da6e871f8d2fda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Rozwiązywanie problemów dotyczących wdrożenia z wystąpień kontenera platformy Azure
 
-W tym artykule przedstawiono sposób rozwiązywania problemów w przypadku wdrażania kontenerów do wystąpień kontenera platformy Azure. Omówiono także niektóre typowe problemy, które może napotkać.
+W tym artykule opisano, jak tootroubleshoot problemy podczas wdrażania tooAzure kontenery wystąpień kontenera. Omówiono także niektóre hello typowych problemów, które może napotkać.
 
 ## <a name="getting-diagnostic-events"></a>Pobieranie zdarzeń diagnostycznych
 
-Aby wyświetlić dzienniki w kodzie aplikacji w kontenerze, można użyć [dzienniki kontenera az](/cli/azure/container#logs) polecenia. Jednak jeśli Twoje kontenera nie pomyślnie wdrożone, należy przejrzeć informacje diagnostyczne dostarczone przez dostawcę zasobów wystąpień kontenera platformy Azure. Aby wyświetlić zdarzenia z kontenera, uruchom następujące polecenie:
+Dzienniki tooview w kodzie aplikacji w kontenerze, można użyć hello [dzienniki kontenera az](/cli/azure/container#logs) polecenia. Jednak jeśli Twoje kontenera nie pomyślnie wdrożone, informacje diagnostyczne hello tooreview dostarczonych przez dostawcę zasobów hello wystąpień kontenera platformy Azure. zdarzenia hello tooview Twojego kontenera, uruchom następujące polecenie hello:
 
 ```azurecli-interactive
 az container show -n mycontainername -g myresourcegroup
 ```
 
-Dane wyjściowe zawiera właściwości core z kontenera, wraz z wdrożenia zdarzenia:
+dane wyjściowe Hello zawiera właściwości core hello z kontenera, wraz z wdrożenia zdarzenia:
 
 ```bash
 {
@@ -91,9 +91,9 @@ Dane wyjściowe zawiera właściwości core z kontenera, wraz z wdrożenia zdarz
 
 Istnieje kilka typowych problemów z tego konta dla większości błędy we wdrożeniu.
 
-### <a name="unable-to-pull-image"></a>Nie można ściągania obrazu
+### <a name="unable-toopull-image"></a>Nie można toopull obrazu
 
-W przypadku nie można ściągnąć obrazu początkowo wystąpień kontenera Azure ponowi próbę niektórych okres przed niepowodzeniem po pewnym czasie. Jeśli obraz nie może być pobierane, wyświetlane są zdarzenia podobne do następujących:
+W przypadku wystąpień kontenera Azure toopull obrazu początkowo ponowną niektórych okres przed niepowodzeniem po pewnym czasie. Jeśli nie można ściągnąć obraz powitania, są wyświetlane zdarzeń, takich jak następujące hello:
 
 ```bash
 "events": [
@@ -108,7 +108,7 @@ W przypadku nie można ściągnąć obrazu początkowo wystąpień kontenera Azu
     "count": 1,
     "firstTimestamp": "2017-08-03T22:19:32+00:00",
     "lastTimestamp": "2017-08-03T22:19:32+00:00",
-    "message": "Failed: Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
+    "message": "Failed: Failed toopull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
     "type": "Warning"
   },
   {
@@ -121,11 +121,11 @@ W przypadku nie można ściągnąć obrazu początkowo wystąpień kontenera Azu
 ]
 ```
 
-Aby rozwiązać, usunięcie kontenera i ponów próbę wdrożenia, płatności zamknięcie uwagi prawidłowo wpisana nazwa obrazu.
+tooresolve, usunąć kontener hello i ponów próbę wdrożenia, płatniczych szczególną uwagę prawidłowo wpisana nazwa obrazu hello.
 
 ### <a name="container-continually-exits-and-restarts"></a>Kontener stale kończy działanie i uruchamia ponownie
 
-Obecnie wystąpień kontenera Azure obsługuje tylko długotrwałe usług. Jeśli z kontenera uruchamia uzupełniania i wyjściach, automatycznie uruchamia ponownie i zostanie ponownie uruchomione. W takim przypadku zdarzeń, takich jak następujące po są wyświetlane. Należy pamiętać, że kontener uruchamia, a następnie szybko ponownego uruchomienia. Interfejs API wystąpień kontenera zawiera `retryCount` właściwość, która pokazuje, ile razy w określonym kontenerze została uruchomiona ponownie.
+Obecnie wystąpień kontenera Azure obsługuje tylko długotrwałe usług. Jeśli Twoje kontenera uruchamia toocompletion i wyjściach, automatycznie uruchamia ponownie i zostanie ponownie uruchomione. W takim przypadku zdarzeń, takich jak następujące po są wyświetlane. Należy pamiętać, kontenera hello uruchamia, a następnie szybko ponownego uruchomienia. Witaj API wystąpień kontenera obejmuje `retryCount` właściwość, która pokazuje, ile razy w określonym kontenerze została uruchomiona ponownie.
 
 ```bash
 "events": [
@@ -189,13 +189,13 @@ Obecnie wystąpień kontenera Azure obsługuje tylko długotrwałe usług. Jeśl
 ```
 
 > [!NOTE]
-> Większość obrazów kontener dla dystrybucje systemu Linux ustawić powłoki, takie jak bash, jako domyślne polecenie. Ponieważ powłoki samodzielnie nie jest usługą długotrwałe, kontenery natychmiast zamknąć i dzielą się na pętli ponownego uruchomienia.
+> Większość obrazów kontener dla dystrybucje systemu Linux ustawić powłoki, takie jak bash, jako hello domyślne polecenie. Ponieważ powłoki samodzielnie nie jest usługą długotrwałe, kontenery natychmiast zamknąć i dzielą się na pętli ponownego uruchomienia.
 
-### <a name="container-takes-a-long-time-to-start"></a>Kontener zajmuje dużo czasu do uruchomienia
+### <a name="container-takes-a-long-time-toostart"></a>Kontener ma toostart długi czas
 
-Jeśli Twoje kontenera zajmuje dużo czasu można uruchomić, ale ostatecznie zakończy się powodzeniem, przyjrzeć rozmiar obrazu kontenera. Ponieważ wystąpień kontenera platformy Azure pobiera kontener obrazu na żądanie, czas uruchamiania, które występują jest bezpośrednio powiązana z jego rozmiaru.
+Jeśli Twoje kontenera toostart długo trwa, ale ostatecznie zakończy się pomyślnie, należy uruchomić analizując hello rozmiar obrazu kontenera. Ponieważ wystąpień kontenera platformy Azure pobiera kontener obrazu na żądanie, czas uruchamiania hello występują jest z nią bezpośrednio powiązane tooits rozmiar.
 
-Rozmiar obrazu kontenera przy użyciu interfejsu wiersza polecenia Docker można wyświetlić:
+Można wyświetlić hello rozmiar obrazu kontenera przy użyciu interfejsu wiersza polecenia Docker hello:
 
 ```bash
 docker images
@@ -208,6 +208,6 @@ REPOSITORY                             TAG                 IMAGE ID            C
 microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
 ```
 
-Klucz do przechowywania małych rozmiary obrazów jest zapewnienie, że ostatecznego obrazu nie zawiera żadnych czynności, które nie są wymagane w czasie wykonywania. Jednym ze sposobów czy jest on [kompilacje wieloetapowym](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Wieloetapowym kompilacje upewnij ułatwiają zapewnienie finalnego obrazu zawiera artefakty potrzebnych dla aplikacji i nie jakiekolwiek nadmiarowe zawartości, która nie jest wymagana podczas kompilacji.
+rozmiary obrazów klucza tookeeping Hello małych jest zapewnienie, że ostatecznego obrazu nie zawiera żadnych czynności, które nie są wymagane w czasie wykonywania. Jednym ze sposobów toodo jest [kompilacje wieloetapowym](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Kompilacje wieloetapowym był łatwy tooensure hello finalnego obrazu zawiera tylko artefakty hello potrzebne dla aplikacji, czy nie wszelkie dodatkowe hello zawartości, która nie jest wymagana podczas kompilacji.
 
-Inny sposób, aby zmniejszyć wpływ ściągania obrazu na czas uruchamiania programu kontenera jest hosta obrazu kontenera, w tym samym regionie, w którym zamierzasz używać wystąpień kontenera Azure za pomocą rejestru kontenera platformy Azure. Skraca lokalizacji sieciowej, która obraz kontenera musi podróży, znacznie skrócić czas pobierania.
+Witaj innych sposób tooreduce hello wpływ ściągania obraz powitania w chwili uruchomienia z kontenera jest obraz kontenera hello toohost przy użyciu hello Azure kontenera rejestru w hello tym samym regionie, w którym ma być wystąpień kontenera Azure toouse. Skraca to ścieżki sieciowej hello hello tootravel potrzeb obrazu kontenera znacznie skrócić czas pobierania hello.

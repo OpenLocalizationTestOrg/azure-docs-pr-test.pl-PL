@@ -1,6 +1,6 @@
 ---
-title: "Dostęp do aplikacji Sklep internetowy i delegowane zarządzanie za pomocą usługi Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób włączania dostępu do aplikacji Sklep internetowy i delegowane zarządzanie za pomocą usługi Azure Active Directory."
+title: "dostęp do aplikacji usługi aaaSelf i delegowane zarządzanie za pomocą usługi Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak uzyskać dostęp do aplikacji Sklep internetowy tooenable i delegowane zarządzanie za pomocą usługi Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,90 +16,90 @@ ms.date: 07/26/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 7872d5229cdc053bfb9dc8ddba01785b0f8e5a9a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 90bec3bd71796f22a782929b028db0d18c3aa1c3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Dostęp do aplikacji Sklep internetowy i delegowane zarządzanie za pomocą usługi Azure Active Directory
-Włączenie funkcji samoobsługi dla użytkowników końcowych jest typowym scenariuszem dla organizacji IT. Wielu użytkowników, wiele aplikacji i osoby, która jest best-informed podejmowanie decyzji o przyznanie dostępu nie może być administratora katalogu. Często osoba najlepszych decyzji o tym, kto ma dostęp do aplikacji jest realizacji zespołu lub innych administratora delegowanego. Jednak jest użytkownik, który korzysta z aplikacji, a użytkownik wie, muszą mieć możliwość wykonania zadania.
+Włączenie funkcji samoobsługi dla użytkowników końcowych jest typowym scenariuszem dla organizacji IT. Wielu użytkowników, wiele aplikacji i hello osoba best-informed dostępu toomake Przydziel decyzji może nie być hello administratora katalogu. Realizacji zespołu lub innych administratora delegowanego jest często hello najlepsze osoby toodecide kto ma dostęp do aplikacji. Jest jednak hello użytkownika, który korzysta z aplikacji hello i hello użytkownik wie, co potrzebują toobe toodo stanie ich zadania.
 
 > [!IMPORTANT]
-> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule. 
+> Firma Microsoft zaleca się, że zarządzania usługi Azure AD przy użyciu hello [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w hello portalu Azure zamiast hello klasycznego portalu Azure, do którego odwołuje się w tym artykule. 
 
 Dostęp do aplikacji Sklep internetowy jest funkcją [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) P1 i P2 licencjonowania, która pozwala administratorom katalogu:
 
-* Zezwalaj użytkownikom na żądanie dostępu do aplikacji za pomocą kafelka "Pobierz więcej aplikacji" w [Panel dostępu usługi Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Włącz dostęp toorequest użytkowników przy użyciu "Pobierz więcej aplikacji" tooapplications kafelka w hello [Panel dostępu usługi Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Zestaw, do których aplikacji użytkownicy mogą żądać dostępu do
-* Ustaw czy zatwierdzenia jest wymagana dla użytkowników można było samodzielnie przypisać dostęp do aplikacji
-* Zestaw, który należy zatwierdzać żądania i zarządzanie dostępem dla każdej aplikacji
+* Ustaw czy zatwierdzenia jest wymagana dla użytkowników toobe można przypisać tooself dostępu tooan aplikacji
+* Zestaw, który należy zatwierdzać żądania hello i zarządzanie dostępem dla każdej aplikacji
 
-Obecnie ta funkcja jest obsługiwana dla wszystkich wstępnie zintegrowanych i niestandardowych aplikacji, które obsługują jednym federacyjnym lub opartego na hasłach logowania jednokrotnego [galerii aplikacji usługi Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/), w tym aplikacji, takich jak Salesforce, Dropbox, Google Apps i inne.
+Obecnie ta funkcja jest obsługiwana dla wszystkich wstępnie zintegrowanych i niestandardowych aplikacji obsługujących federacyjnych lub opartego na hasłach rejestracji jednokrotnej w hello [galerii aplikacji usługi Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/), w tym aplikacji, takich jak Salesforce, Dropbox, Usługi Google Apps i inne.
 W tym artykule opisano sposób:
 
 * Konfigurowanie dostępu do aplikacji Sklep internetowy dla użytkowników końcowych, łącznie z konfigurowaniem zatwierdzeń opcjonalnych przepływu pracy 
-* Delegowanie zarządzania dostępem do określonych aplikacji do najbardziej odpowiednich osób w organizacji i włączyć je do zatwierdzenia żądania dostępu, bezpośrednio przypisać dostęp do wybranych użytkowników za pomocą panelu dostępu do usługi Azure AD lub (opcjonalnie) ustawiona poświadczenia dostępu do aplikacji, gdy opartego na hasłach rejestracji jednokrotnej jest skonfigurowany
+* Delegowanie zarządzanie dostępem dla określonych aplikacji toohello najbardziej odpowiednie osoby w Twojej organizacji i je włączyć żądania dostępu tooapprove panelu dostępu toouse hello Azure AD, bezpośrednio przypisać dostęp użytkowników tooselected i (opcjonalnie) poświadczenia dostępu do aplikacji podczas opartego na hasłach rejestracji jednokrotnej jest skonfigurowany
 
 ## <a name="configuring-self-service-application-access"></a>Konfigurowanie dostępu do aplikacji Sklep internetowy
-Aby włączyć dostęp do aplikacji Sklep internetowy i skonfigurować aplikacje, które można dodać lub żądane przez użytkowników końcowych, wykonaj te instrukcje.
+dostęp do aplikacji Sklep internetowy tooenable i skonfigurować aplikacje, które można dodać lub żądane przez użytkowników końcowych, wykonaj te instrukcje.
 
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com/).
+1. Zaloguj się na powitania [klasycznego portalu Azure](https://manage.windowsazure.com/).
 
-2.   W obszarze **usługi Active Directory** sekcji, wybierz swój katalog, a następnie wybierz **aplikacji** kartę. 
+2.   W obszarze hello **usługi Active Directory** sekcji, wybierz swój katalog, a następnie wybierz hello **aplikacji** kartę. 
 
-3. Wybierz **Dodaj** przycisk, a następnie użyj opcji Galerii, aby wybrać i dodać aplikację.
+3. Wybierz hello **Dodaj** przycisk i użyj hello galerii opcji tooselect i dodać aplikację.
 
-4. Po dodaniu aplikacji można uzyskać na stronie Szybki Start aplikacji. Kliknij przycisk **skonfigurować logowanie jednokrotne**, wybierz żądany pojedynczego logowania jednokrotnego tryb i zapisać konfigurację. 
+4. Po dodaniu aplikacji można uzyskać strony Szybki Start aplikacji hello. Kliknij przycisk **skonfigurować logowanie jednokrotne**, wybierz hello żądaną logowania jednokrotnego tryb pojedynczy i Zapisz konfigurację hello. 
 
-5. Następnie wybierz pozycję **Konfiguruj** kartę. Aby użytkownicy mogli poprosić o dostęp do tej aplikacji z poziomu panelu dostępu do usługi Azure AD, należy ustawić **Zezwalaj na dostęp do aplikacji Sklep internetowy** do **tak**.
+5. Następnie wybierz pozycję hello **Konfiguruj** kartę tooenable użytkowników toorequest toothis aplikacji dostępu z poziomu panelu dostępu hello Azure AD, ustaw **Zezwalaj na dostęp do aplikacji Sklep internetowy** zbyt**tak**.
   
   ![][1]
 
-6. Opcjonalnie skonfigurować zatwierdzania dla żądań dostępu, należy ustawić **wymagają zatwierdzenia przed udzieleniem im dostępu** do **tak**. Następnie można wybrać jedną lub więcej osób zatwierdzających za pomocą **osób zatwierdzających** przycisku.
+6. toooptionally Konfigurowanie zatwierdzania żądań dostępu, ustaw **wymagają zatwierdzenia przed udzieleniem im dostępu** za**tak**. Następnie można wybrać jedną lub więcej osób zatwierdzających za pomocą hello **osób zatwierdzających** przycisku.
 
-  Osoba zatwierdzająca może być dowolny użytkownik w organizacji przy użyciu konta usługi Azure AD i mogą być odpowiedzialne za konto inicjowania obsługi administracyjnej, licencjonowanie lub innych proces biznesowy organizacja wymaga przed udzieleniem im dostępu do aplikacji. Osoba zatwierdzająca nawet może być właścicielem grupy jednego lub więcej udostępnionego konta grupy, a można przypisać użytkowników do jednej z następujących grup w celu udzielenia dostępu za pomocą konta współużytkowanego. 
+  Osoba zatwierdzająca może być dowolny użytkownik w organizacji hello przy użyciu konta usługi Azure AD i może być odpowiedzialny za inicjowanie obsługi kont, licencjonowania, lub inne procesy biznesowe organizacja wymaga przed udzieleniem im dostępu tooan aplikacji. Osoba zatwierdzająca Hello można nawet hello właściciel grupy co najmniej jednego udostępnionego konta grup i przypisanie hello tooone użytkowników o toogive tych grup, których ich dostęp za pośrednictwem udostępnionego konta. 
 
-  Jeśli nie zatwierdzenia jest wymagana, następnie użytkownicy natychmiast uzyskują aplikacji dodany do ich panel dostępu usługi Azure AD. Jeśli aplikacja została ustawiona dla [użytkownika automatycznego inicjowania obsługi administracyjnej](active-directory-saas-app-provisioning.md), lub nie został skonfigurowany ["zarządzane przez użytkownika" hasło logowania jednokrotnego tryb](active-directory-appssoaccess-whatis.md#password-based-single-sign-on), użytkownik ma już konto i hasło użytkownika.
+  Jeśli nie zatwierdzenia jest wymagana, użytkownicy natychmiast uzyskać panelu dostępu dodano tootheir usługi Azure AD aplikacji hello. Jeśli aplikacja hello została ustawiona dla [użytkownika automatycznego inicjowania obsługi administracyjnej](active-directory-saas-app-provisioning.md), lub nie został skonfigurowany ["zarządzane przez użytkownika" hasło logowania jednokrotnego tryb](active-directory-appssoaccess-whatis.md#password-based-single-sign-on), hello użytkownik ma już użytkownika konta i hasło hello.
 
-7. Jeśli aplikacja została skonfigurowana do użycia na podstawie hasła logowania jednokrotnego, a następnie opcję umożliwiające osoba zatwierdzająca w celu ustawienia poświadczeń logowania jednokrotnego w imieniu każdy użytkownik jest również dostępna. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [delegowane zarządzanie dostępem](#delegated-application-access-management).
+7. Jeśli aplikacja hello została skonfigurowana toouse opartego na hasłach rejestracji jednokrotnej, następnie opcję stosowanie poświadczeń logowania jednokrotnego hello tooset imieniu każdego użytkownika osoba zatwierdzająca hello jest również dostępna. Aby uzyskać więcej informacji, zobacz sekcję hello na [delegowane zarządzanie dostępem](#delegated-application-access-management).
 
-8. Na koniec **grupy użytkowników Self-Assigned** zawiera nazwę grupy, który jest używany do przechowywania użytkowników, którym przyznano, lub dostępem do aplikacji. Osoba zatwierdzająca dostępu staje się właścicielem tej grupy. Jeśli nazwa grupy pokazano nie istnieje, jest tworzona automatycznie. Opcjonalnie może mieć ustawionej nazwy grupy nazwę istniejącej grupy.
+8. Na koniec hello **grupy użytkowników Self-Assigned** pokazuje hello nazwę grupy hello, która jest używana toostore hello użytkowników, którzy zostały przyznane lub przypisać dostępu toohello aplikacji. Osoba zatwierdzająca dostępu Hello staje się właścicielem hello tej grupy. Jeśli nazwa grupy hello pokazano nie istnieje, jest tworzona automatycznie. Opcjonalnie hello Nazwa grupy można ustawić toohello nazwę istniejącej grupy.
 
-9. Aby zapisać konfigurację, kliknij przycisk **zapisać** w dolnej części ekranu. Teraz użytkownicy mogą Aby zażądać dostępu do tej aplikacji w panelu dostępu.
+9. toosave hello konfiguracji, kliknij przycisk **zapisać** u dołu hello hello ekranu. Użytkownicy mogą teraz toorequest dostępu toothis aplikacji hello panelu dostępu.
 
-10. Aby wypróbować środowisko użytkownika końcowego, zaloguj się do panelu dostępu usługi Azure AD w organizacji pod adresem https://myapps.microsoft.com, najlepiej przy użyciu innego konta, która nie jest osobą zatwierdzającą aplikacji. 
+10. środowisko użytkownika końcowego hello tootry, zaloguj się do panelu dostępu usługi Azure AD w organizacji pod adresem https://myapps.microsoft.com, najlepiej przy użyciu innego konta, która nie jest osobą zatwierdzającą aplikacji. 
 
-11. W obszarze **aplikacji** , kliknij pozycję **Pobierz więcej aplikacje** kafelka. Ten Kafelek Wyświetla wszystkie aplikacje, które zostały włączone samoobsługi dostępu do aplikacji w katalogu, z możliwością wyszukiwania i filtrowania według kategorii aplikacji po lewej stronie galerii. 
+11. W obszarze hello **aplikacji** , kliknij pozycję hello **Pobierz więcej aplikacje** kafelka. Ten Kafelek Wyświetla galerii wszystkich aplikacji hello, które zostały włączone samoobsługi dostępu do aplikacji w katalogu hello hello możliwości toosearch i Filtruj według kategorii aplikacji hello po lewej stronie. 
 
-12. Kliknięcie aplikacji rozpoczyna proces żądania. Jeśli nie jest wymagany żaden proces zatwierdzania, a następnie aplikacja zostanie natychmiast dodany w obszarze **aplikacji** kartę po krótkim potwierdzenia. Jeśli zatwierdzenia jest wymagana, czym pojawi się okno dialogowe tego wskazująca i zostanie wysłana wiadomość e-mail do osób zatwierdzających. Użytkownik musi zalogować się do panelu dostępu z systemem innym niż zatwierdzającą aby zobaczyć ten proces żądania.
+12. Kliknięcie aplikacji rozpoczyna przetwarzanie żądania hello. Jeśli nie jest wymagany żaden proces zatwierdzania, a następnie aplikacja hello natychmiast dodany w obszarze hello **aplikacji** kartę po krótkim potwierdzenia. Jeśli zatwierdzenia jest wymagana, czym pojawi się okno dialogowe tego wskazująca i osób zatwierdzających toohello zostanie wysłana wiadomość e-mail. Użytkownik musi zalogować się do hello dostępu panelu jako toosee z systemem innym niż osoba zatwierdzająca ten proces żądania.
 
-13. Wiadomości e-mail powoduje, że osoba zatwierdzająca zalogowania się do panelu dostępu do usługi Azure AD i zatwierdzić żądanie. Gdy żądanie zostanie zatwierdzone i wszelkie specjalne procesy, należy zdefiniować mogły zostać wykonane przez osoby zatwierdzającej, użytkownik zobaczy aplikacji są wyświetlane w obszarze ich **aplikacji** kartę, której można zalogować do niego.
+13. e-mail Hello kieruje toosign osoba zatwierdzająca hello do panelu dostępu do usługi Azure AD hello i zatwierdzić Żądanie hello. Po hello żądanie zostanie zatwierdzone i wszelkie specjalne procesy, należy zdefiniować mogły zostać wykonane przez osoby zatwierdzającej hello, hello użytkownik widzi aplikacji hello są wyświetlane w obszarze ich **aplikacji** kartę, której można zalogować do niego.
 
 ## <a name="delegated-application-access-management"></a>Zarządzanie dostępem aplikacji delegowanego
-Osoba zatwierdzająca dostępu do aplikacji może być dowolny użytkownik w organizacji, który jest najbardziej odpowiednią osobą do zatwierdzenia lub odmowy dostępu do aplikacji w. Ten użytkownik może być odpowiedzialny za inicjowanie obsługi konta licencjonowania, lub inne proces biznesowy organizacja wymaga przed udzieleniem im dostępu do aplikacji.
+Osoba zatwierdzająca dostępu aplikacji można każdy użytkownik w organizacji, który jest najbardziej odpowiednia tooapprove osoby hello lub odmówić dostępu toohello aplikacji. Ten użytkownik może być odpowiedzialny za inicjowanie obsługi konta licencjonowania, lub inne proces biznesowy organizacja wymaga przed udzieleniem im dostępu tooan aplikacji.
 
-Podczas konfigurowania dostępu aplikacji samoobsługi opisane powyżej, wszelkie przypisane aplikacji, zobacz osób zatwierdzających dodatkowe **Zarządzanie aplikacjami** kafelka w panelu dostępu do usługi Azure AD zawiera ich aplikacji, które mają dostęp administratora do. Kliknięcie aplikacji powoduje wyświetlenie ekranu z kilku opcji.
+Podczas konfigurowania dostępu aplikacji samoobsługi opisane powyżej, wszelkie przypisane aplikacji, zobacz osób zatwierdzających dodatkowe **Zarządzanie aplikacjami** kafelka w panelu dostępu hello Azure AD, które zawiera ich aplikacji, które mają uzyskać Hello dostępu administratora. Kliknięcie aplikacji powoduje wyświetlenie ekranu z kilku opcji.
 
 ![][2]
 
 ### <a name="approve-requests"></a>Zatwierdzanie żądań
-**Zatwierdzanie żądań** kafelka umożliwia osób zatwierdzających wyświetlić wszystkie oczekujące zatwierdzenia specyficzne dla danej aplikacji i przekierowuje kartę zatwierdzeń, gdzie potwierdzenia lub odmowy żądania. Zawsze, gdy żądanie zostanie utworzony nakazuje co należy zrobić osoba zatwierdzająca Ponadto otrzymuje zautomatyzowane wiadomości e-mail.
+Witaj **zatwierdzanie żądań** kafelka umożliwia osób zatwierdzających toosee oczekujących zatwierdzeń toothat określonych aplikacji i przekierowuje toohello zatwierdzenia kartę, gdy zażąda hello potwierdzone lub odrzucone. zawsze, gdy żądanie jest tworzony, która sprawia, że ich jakie toodo osoba zatwierdzająca Hello Ponadto otrzymuje zautomatyzowane wiadomości e-mail.
 
 ### <a name="add-users"></a>Dodawanie użytkowników
-**Dodaj użytkowników** kafelka umożliwia osób zatwierdzających można bezpośrednio udzielić wybranym użytkownikom dostęp do aplikacji. Po kliknięciu tego kafelka, osoba zatwierdzająca widzi, okno dialogowe umożliwia je do widoku i Wyszukaj użytkowników w ich katalogu. Dodawanie wyników użytkownika w aplikacji jest pokazywany w tych użytkowników usługi Azure AD dostęp paneli lub usługi Office 365. Jeśli dowolny użytkownik ręcznego procesu udostępniania jest wymagana w aplikacji, zanim użytkownik będzie logować się, osoba zatwierdzająca należy wykonać ten proces przed udzieleniem im dostępu.  
+Witaj **Dodaj użytkowników** kafelka umożliwia osób zatwierdzających toodirectly grant wybrane użytkowników dostępu toohello aplikacji. Po kliknięciu tego kafelka, osoba zatwierdzająca hello widzi się, że okno dialogowe umożliwia im tooview i Wyszukaj użytkowników w ich katalogu. Dodawanie wyników użytkownika w aplikacji hello jest pokazywany w tych użytkowników usługi Azure AD dostęp paneli lub usługi Office 365. Jeśli wymagana jest dowolny użytkownik ręcznego procesu udostępniania w aplikacji hello zanim użytkownik hello jest możliwe toosign w, a następnie osoba zatwierdzająca hello należy to zrobić przed udzieleniem im dostępu.  
 
 ### <a name="manage-users"></a>Zarządzanie użytkownikami
-**Zarządzanie użytkownikami** kafelka umożliwia osób zatwierdzających bezpośrednio zaktualizować lub usunąć, którzy użytkownicy mają dostęp do aplikacji. 
+Witaj **Zarządzanie użytkownikami** kafelka umożliwia osób zatwierdzających toodirectly aktualizacji lub usuń użytkowników, którzy mają dostęp do aplikacji toohello. 
 
 ### <a name="configure-password-sso-credentials-if-applicable"></a>Skonfiguruj poświadczenia logowania jednokrotnego hasło (jeśli dotyczy)
-**Konfiguruj** kafelka jest wyświetlana tylko, jeśli aplikacja została skonfigurowana przez administratora IT, aby użyć opartego na hasłach rejestracji jednokrotnej i administrator przyznane osoby zatwierdzającej możliwość określenia hasła poświadczeń logowania jednokrotnego, jak opisano wcześniej. W przypadku wybrania, osoba zatwierdzająca zobaczy kilka opcji jak poświadczenia są propagowane do przypisanych użytkowników:
+Witaj **Konfiguruj** kafelka jest wyświetlana tylko, jeśli aplikacji hello zostały skonfigurowane przez hello IT administrator toouse opartego na hasłach logowania jednokrotnego, a hello administrator przyznane osoba zatwierdzająca hello poświadczenia logowania jednokrotnego hello możliwości tooset hasła jak opisano wcześniej. Po wybraniu hello osoba zatwierdzająca zostanie wyświetlony kilka opcji jak hello poświadczenia są propagowany tooassigned użytkowników:
 
 ![][3]
 
-* **Użytkownicy, zaloguj się przy użyciu swoje hasła** — w tym trybie przypisanych użytkowników wiedzieć, co ich nazwami użytkowników i hasła są przeznaczone dla aplikacji są proszeni o wprowadzenie je na ich pierwsze logowanie do aplikacji. Scenariusz odpowiada hasła Usługa rejestracji Jednokrotnej w przypadku których [zarządzania przez użytkowników poświadczeń](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-* **Użytkownicy są automatycznie logowani przy użyciu osobnych kont, którymi zarządza** — w tym trybie przypisanych użytkowników nie muszą wprowadzać lub znasz poświadczeń specyficzny dla aplikacji, podczas logowania do aplikacji. Zamiast tego, osoba zatwierdzająca Ustawia poświadczenia dla każdego użytkownika, po przypisaniu dostępu przy użyciu **Dodaj użytkownika** kafelka. Gdy użytkownik kliknie w aplikacji w panelu dostępu i usługi Office 365, zostaną automatycznie wylogowani przy użyciu poświadczeń, ustawione przez osoby zatwierdzającej. Scenariusz odpowiada hasła Usługa rejestracji Jednokrotnej w przypadku których [administratorom zarządzanie poświadczeniami](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-* **Użytkownicy zostaną automatycznie wylogowani za pomocą jednego konta, które mogę zarządzać** -szczególnych przypadkach, przypadkiem jest odpowiednie do użycia w przypadku wszystkich użytkowników przypisanych muszą otrzymać dostęp przy użyciu jednego, udostępnionego konta. Najbardziej typowe przypadek użycia dla tej funkcji jest z aplikacjami mediów społecznościowych, w którym organizacja ma konto pojedynczy "firmy" i wielu użytkowników należy udostępnić aktualizacje dla tego konta. Scenariusz również odpowiada hasła Usługa rejestracji Jednokrotnej w przypadku których [administratorom zarządzanie poświadczeniami](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Jednak po wybraniu tej opcji, osoba zatwierdzająca pojawi się monit o wprowadzenie nazwy użytkownika i hasła dla jednego, udostępnionego konta. Po ukończeniu wszystkich użytkowników przypisanych jest zalogowany przy użyciu tego konta, po kliknięciu przycisku w aplikacji w ich panele dostępu do usługi Azure AD lub usługi Office 365.
+* **Użytkownicy, zaloguj się przy użyciu swoje hasła** — w tym trybie hello przypisane użytkownicy wiedzieli, co ich nazwami użytkowników i hasła są dla aplikacji hello i są tooenter zostanie wyświetlony monit o ich po ich pierwszym aplikacji toohello logowania. Witaj scenariusz odpowiada toohello hasła Usługa rejestracji Jednokrotnej w przypadku gdy hello [zarządzania przez użytkowników poświadczeń](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+* **Użytkownicy są automatycznie logowani przy użyciu osobnych kont, którymi zarządza** — w tym trybie hello przypisanych użytkowników nie są wymagane tooenter lub znać poświadczeń specyficzny dla aplikacji, podczas logowania do aplikacji hello. Zamiast tego, osoba zatwierdzająca hello Ustawia poświadczenia hello dla każdego użytkownika, po przypisaniu dostęp przy użyciu hello **Dodaj użytkownika** kafelka. Gdy użytkownik hello kliknie aplikacji hello w panelu dostępu i usługi Office 365, zostaną automatycznie wylogowani przy użyciu poświadczeń hello ustawione przez osoby zatwierdzającej hello. Witaj scenariusz odpowiada toohello hasła Usługa rejestracji Jednokrotnej w przypadku gdy hello [administratorom zarządzanie poświadczeniami](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+* **Użytkownicy zostaną automatycznie wylogowani za pomocą jednego konta, które mogę zarządzać** -szczególnych przypadkach, przypadkiem jest toouse odpowiednie w przypadku wszystkich użytkowników przypisanych muszą toobe prawa dostępu przy użyciu jednego, udostępnionego konta. Witaj najczęściej przypadek użycia dla tej funkcji jest z aplikacjami mediów społecznościowych, w którym organizacja ma konto pojedynczy "firmy" i wielu użytkowników wymagane jest konto toothat aktualizacje toomake. Hello scenariusz również odpowiada toohello hasła Usługa rejestracji Jednokrotnej w przypadku gdy hello [administratorom zarządzanie poświadczeniami](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Jednak po wybraniu tej opcji, osoba zatwierdzająca hello będą zostanie wyświetlony monit o tooenter hello w nazwę użytkownika i hasło hello jednego, udostępnionego konta. Po ukończeniu wszystkich użytkowników przypisanych jest zalogowany przy użyciu tego konta, po kliknięciu przycisku w aplikacji hello w ich panele dostępu do usługi Azure AD lub usługi Office 365.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)

@@ -1,5 +1,5 @@
 ---
-title: "Omówienie maszyny wirtualnej systemu Linux | Dokumentacja firmy Microsoft"
+title: "aaaLinux maszyn wirtualnych — omówienie | Dokumentacja firmy Microsoft"
 description: "Pomoc zawartość omówienie maszyn wirtualnych systemu Linux w portalu Azure"
 services: virtual-machines-linux
 author: sewatson
@@ -8,19 +8,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0de3fc4cab53564d7d131666e4a8c0ace8a64fb8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f86980c9f39e1a0fbef78dbde0c60803d8ace25a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="linux-virtual-machines-documentation"></a>Dokumentacja dotycząca maszyn wirtualnych z systemem Linux
 
-Maszyny wirtualne z systemem Linux na platformie Azure zapewniają bezpieczną infrastrukturę zwirtualizowaną na żądanie o dużej skali z zastosowaniem systemu Red Hat lub Ubuntu albo wybranej dystrybucji systemu Linux. Dowiedz się, jak tworzyć, konfigurować i skalować maszyny wirtualne z systemem Linux oraz zarządzać nimi, korzystając z przewodników Szybki Start, samouczków i przykładów.
+Maszyny wirtualne systemu Linux platformy Azure udostępnia na żądanie, wysokiej skali, bezpieczne, zwirtualizowanego infrastruktury przy użyciu Red Hat, Ubuntu lub hello dystrybucja systemu Linux na wybranych przez użytkownika. Dowiedz się, jak toocreate, konfigurowanie, zarządzanie i skalowania maszyn wirtualnych systemu Linux z naszych poradniki Szybki Start, samouczki i przykłady.
 
 ## <a name="5-minute-quickstarts"></a>5-minutowe przewodniki Szybki start
 
-Dowiedz się, jak wdrożyć serwer sieci Web usług NGINX na maszynie wirtualnej z systemem Ubuntu:
+Dowiedz się, jak toodeploy serwera sieci web NGINX w ramach maszyny wirtualnej z systemem Ubuntu:
 
 - [Azure Portal](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -28,7 +28,7 @@ Dowiedz się, jak wdrożyć serwer sieci Web usług NGINX na maszynie wirtualnej
 
 ## <a name="step-by-step-tutorials"></a>Samouczki krok po kroku
 
-Informacje o sposobie wdrażania, zarządzania i skalowania maszyn wirtualnych systemu Linux na platformie Azure.
+Dowiedz się, jak toodeploy, zarządzanie i skalowania maszyn wirtualnych systemu Linux na platformie Azure.
 
 - [Tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi](/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Tworzenie dysków maszyn wirtualnych i zarządzanie nimi](/azure/virtual-machines/linux/tutorial-manage-disks)
@@ -51,12 +51,12 @@ Informacje o sposobie wdrażania, zarządzania i skalowania maszyn wirtualnych s
 
 ## <a name="samples"></a>Przykłady 
 
-Wdrażanie pierwszej aplikacji na platformie Azure.
+Wdrażanie Twojego pierwszego tooAzure aplikacji.
 
 - [Interfejs wiersza polecenia platformy Azure](/azure/virtual-machines/virtual-machines-linux-cli-samples)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-powershell-samples)
 
 ## <a name="more"></a>Więcej
 
-- [Odwiedź stronę dokumentacji, aby dowiedzieć się więcej](/azure/virtual-machines/linux/index)
+- [Odwiedź stronę dokumentacji toolearn więcej](/azure/virtual-machines/linux/index)
 - [Więcej informacji na temat wszystkich usług Azure](https://aka.ms/j3wr7y)

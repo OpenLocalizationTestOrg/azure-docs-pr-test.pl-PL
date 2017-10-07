@@ -1,6 +1,6 @@
 ---
-title: "Azure zarządzanych aplikacji OptionsGroup elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
-description: "Opis elementu Microsoft.Common.OptionsGroup interfejsu użytkownika dla aplikacji Azure"
+title: "aaaAzure zarządzanych aplikacji OptionsGroup elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
+description: "Opisuje hello elementu Microsoft.Common.OptionsGroup interfejsu użytkownika dla aplikacji Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 6e147ed28c8248f7f17cb36fd7ae13468141dced
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e222468009c8db567bdde9f42836a48fb791da00
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Element Microsoft.Common.OptionsGroup interfejsu użytkownika
 Formant wyboru z wierszem dostępnych opcji. Użyj tego elementu po [tworzenie aplikacji zarządzanych Azure](managed-application-publishing.md).
@@ -50,10 +50,10 @@ Formant wyboru z wierszem dostępnych opcji. Użyj tego elementu po [tworzenie a
 ```
 
 ## <a name="remarks"></a>Uwagi
-- Etykieta dla `constraints.allowedValues` jest wyświetlany tekst dla elementu i jego wartość jest wartością danych wyjściowych w przypadku wybrania elementu.
-- Jeśli jest określony, wartość domyślna musi być obecne w etykiecie `constraints.allowedValues`. Jeśli nie zostanie określony, pierwszy element `constraints.allowedValues` jest domyślnie zaznaczona. Wartość domyślna to **null**.
+- Etykieta Hello `constraints.allowedValues` jest hello wyświetlany tekst dla elementu i jego wartość wynosi wartość wyjściowa hello elementu hello zaznaczenie.
+- Jeśli jest określony, wartość domyślna hello musi być obecne w etykiecie `constraints.allowedValues`. Jeśli nie zostanie określony, hello pierwszy element `constraints.allowedValues` jest domyślnie zaznaczona. Witaj, wartość domyślna to **null**.
 - `constraints.allowedValues`musi zawierać co najmniej jeden element.
-- Ten element nie obsługuje `constraints.required` właściwości; można pomyślnie zweryfikować należy wybrać element.
+- Ten element nie obsługuje hello `constraints.required` właściwości; element musi być wybrany toovalidate pomyślnie.
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
 ```json
@@ -61,6 +61,6 @@ Formant wyboru z wierszem dostępnych opcji. Użyj tego elementu po [tworzenie a
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
-* Aby obejrzeć wprowadzenie do tworzenia definicji interfejsu użytkownika, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Wprowadzenie toomanaged aplikacji, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
+* Definicje interfejsu użytkownika toocreating wprowadzenie, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Opis właściwości wspólnych elementów interfejsu użytkownika, zobacz [elementy CreateUiDefinition](managed-application-createuidefinition-elements.md).

@@ -1,6 +1,6 @@
 ---
-title: "Użyj dynamicznych telemetrii | Dokumentacja firmy Microsoft"
-description: "Postępuj zgodnie z tym samouczkiem, aby dowiedzieć się, jak dynamiczna telemetrii za pomocą zdalnego wstępnie skonfigurowane rozwiązanie monitorujące, pakiet IoT Azure."
+title: dynamiczne dane telemetryczne aaaUse | Dokumentacja firmy Microsoft
+description: "Postępuj zgodnie z tego samouczka toolearn jak toouse dynamiczne dane telemetryczne z monitorowania zdalnego pakiet IoT Azure hello wstępnie skonfigurowane rozwiązanie."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: 0114f27f9b8ae76e1170d04ddf66e2c4bf20686a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 06cb2a370b67b4950efdfa4c7d906ac92106f4a0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Dynamiczne telemetrii za pomocą zdalnego wstępnie skonfigurowane rozwiązanie monitorowania
+# <a name="use-dynamic-telemetry-with-hello-remote-monitoring-preconfigured-solution"></a>Dynamiczne telemetrii za pomocą zdalnego wstępnie skonfigurowane rozwiązanie monitorujące hello
 
-Dynamiczne telemetrii umożliwia wizualizować wszystkie dane telemetryczne wysyłane do zdalnego wstępnie skonfigurowane rozwiązanie monitorowania. Symulowanego urządzenia, które wdrożyć przy użyciu wstępnie skonfigurowane rozwiązanie wysłać telemetrii temperatury i wilgotności, które można zwizualizować na pulpicie nawigacyjnym. Dostosowywanie istniejących urządzeń symulowane, Utwórz nowe symulowanego urządzenia, czy nawiązać urządzeń fizycznych wstępnie skonfigurowane rozwiązanie możesz wysłać innych wartości telemetrii, takie jak zewnętrzny temperatury obr. / min i prędkość wiatru. Następnie można zwizualizować to dodatkowe dane telemetryczne na pulpicie nawigacyjnym.
+Dynamiczne telemetrii umożliwia toovisualize możesz wszystkie wysyłane dane telemetryczne toohello zdalne monitorowanie wstępnie skonfigurowane rozwiązanie. urządzenia Hello symulowane, wdrażających rozwiązania hello wstępnie wysyłają telemetrii temperatury i wilgotności, który można zwizualizować na powitania pulpitu nawigacyjnego. Dostosowywanie istniejących urządzeń symulowane, utworzyć nowe symulowanego urządzenia, czy połączenie fizyczne urządzenia toohello wstępnie skonfigurowane rozwiązanie możesz wysłać innych wartości telemetrii, takich jak hello temperatury zewnętrznych, obr. / min lub prędkość wiatru. Następnie można zwizualizować to dodatkowe dane telemetryczne na pulpicie nawigacyjnym hello.
 
-W tym samouczku korzysta z prostego symulowane urządzenie Node.js, który można łatwo zmodyfikować eksperymentować dynamiczne telemetrii.
+W tym samouczku korzysta z prostego Node.js symulowane urządzenie można łatwo zmodyfikować tooexperiment z dynamicznego telemetrii.
 
-Do ukończenia tego samouczka będą potrzebne:
+toocomplete tego samouczka będą potrzebne:
 
 * Aktywna subskrypcja platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure][lnk_free_trial].
 * [Node.js] [ lnk-node] wersji 0.12.x lub nowszej.
@@ -40,10 +40,10 @@ Można wykonać w tym samouczku we wszystkich systemach operacyjnych, takich jak
 
 ## <a name="add-a-telemetry-type"></a>Dodaj typ telemetrii
 
-Następnym krokiem jest zastąpienie telemetrii generowany przez urządzenie symulowane Node.js nowy zestaw wartości:
+Witaj następnym krokiem jest generowany przez hello Node.js symulowane urządzenie nowy zestaw wartości telemetrii hello tooreplace:
 
-1. Zatrzymaj Node.js symulowane urządzenie, wpisując **klawisze Ctrl + C** w wierszu polecenia lub powłoki.
-2. W pliku remote_monitoring.js można zobaczyć wartości danych podstawowych istniejących temperatury, wilgotności i telemetrii temperatury zewnętrznych. Dodaj wartość danych podstawowych **obr. / min** w następujący sposób:
+1. Zatrzymaj hello Node.js symulowane urządzenie, wpisując **klawisze Ctrl + C** w wierszu polecenia lub powłoki.
+2. W pliku remote_monitoring.js hello można zobaczyć wartości danych podstawowych hello temperatury istniejących hello, wilgoć i telemetrii temperatury zewnętrznych. Dodaj wartość danych podstawowych **obr. / min** w następujący sposób:
 
     ```nodejs
     // Sensors data
@@ -53,7 +53,7 @@ Następnym krokiem jest zastąpienie telemetrii generowany przez urządzenie sym
     var rpm = 200;
     ```
 
-3. Node.js symulowane urządzenie używa **generateRandomIncrement** funkcji w pliku remote_monitoring.js, aby dodać przyrostu losowych wartości danych podstawowych. Ustaw losowy **obr. / min** wartości przez dodanie wiersza kodu po randomizations istniejących w następujący sposób:
+3. Witaj Node.js symulowane urządzenie używa hello **generateRandomIncrement** działać w hello remote_monitoring.js pliku tooadd toohello przyrostu losowych wartości danych podstawowych. Ustaw losowy hello **obr. / min** wartości przez dodanie wiersza kodu po randomizations istniejących hello w następujący sposób:
 
     ```nodejs
     temperature += generateRandomIncrement();
@@ -62,7 +62,7 @@ Następnym krokiem jest zastąpienie telemetrii generowany przez urządzenie sym
     rpm += generateRandomIncrement();
     ```
 
-4. Dodaj nową wartość obr. / min do ładunek JSON, które urządzenie wysyła do Centrum IoT:
+4. Dodaj hello nowe rpm wartość toohello JSON ładunku hello urządzenie wysyła tooIoT Centrum:
 
     ```nodejs
     var data = JSON.stringify({
@@ -74,20 +74,20 @@ Następnym krokiem jest zastąpienie telemetrii generowany przez urządzenie sym
     });
     ```
 
-5. Uruchom Node.js symulowane urządzenie za pomocą następującego polecenia:
+5. Uruchom hello Node.js symulowane urządzenie przy użyciu hello następujące polecenie:
 
     `node remote_monitoring.js`
 
-6. Zwróć nowy typ telemetrii obr. / min wyświetlane na wykresie na pulpicie nawigacyjnym:
+6. Zwróć hello nowego obr. / min telemetrii typu, który wyświetla na wykresie hello na pulpicie nawigacyjnym hello:
 
-![Dodaj do pulpitu nawigacyjnego obr. / min][image3]
+![Dodaj pulpit nawigacyjny toohello obr. / min][image3]
 
 > [!NOTE]
-> Należy wyłączyć, a następnie włączyć w urządzeniu Node.js na **urządzeń** strony na pulpicie nawigacyjnym, aby zobaczyć zmianę natychmiast.
+> Może muszą toodisable, a następnie Włącz urządzenia Node.js hello na powitania **urządzeń** strony hello pulpitu nawigacyjnego toosee hello zmian natychmiast.
 
-## <a name="customize-the-dashboard-display"></a>Dostosowywanie wyświetlania pulpitu nawigacyjnego
+## <a name="customize-hello-dashboard-display"></a>Dostosowywanie wyświetlania pulpitu nawigacyjnego hello
 
-**Informacje o urządzeniu** komunikatu może zawierać metadane dotyczące telemetrii urządzenia można wysyłać do Centrum IoT. Te metadane można określić typy telemetrii wysyłanych przez urządzenia. Modyfikowanie **deviceMetaData** wartości w pliku remote_monitoring.js, aby uwzględnić **Telemetrii** definicji następujących **polecenia** definicji. Poniższy kod fragment kodu przedstawia **polecenia** definicji (należy pamiętać o dodaniu `,` po **polecenia** definicji):
+Witaj **informacje o urządzeniu** komunikatu może zawierać metadane o telemetrii hello hello urządzenie może wysyłać tooIoT koncentratora. Te metadane można określić typy telemetrii hello wysyłanych przez urządzenia hello. Modyfikowanie hello **deviceMetaData** wartość hello remote_monitoring.js pliku tooinclude **Telemetrii** definicji następującego hello **polecenia** definicji. Witaj poniższy fragment kodu przedstawia hello **polecenia** definicji (można się tooadd `,` po hello **polecenia** definicji):
 
 ```nodejs
 'Commands': [{
@@ -119,10 +119,10 @@ Następnym krokiem jest zastąpienie telemetrii generowany przez urządzenie sym
 ```
 
 > [!NOTE]
-> Rozwiązanie monitorowania zdalnego używa bez uwzględniania wielkości liter dopasowanie do porównania definicji metadanych z danymi w strumieniu danych telemetrycznych.
+> rozwiązanie monitorowania zdalnego Hello używa definicji metadanych hello toocompare bez uwzględniania wielkości liter dopasowanie z danymi w strumieniu danych telemetrycznych hello.
 
 
-Dodawanie **Telemetrii** definicji, jak pokazano w poprzednim fragment kodu nie zmienia zachowanie pulpitu nawigacyjnego. Jednak metadane mogą również obejmować **DisplayName** atrybutu, aby dostosować wyświetlanie na pulpicie nawigacyjnym. Aktualizacja **Telemetrii** definicji metadanych, jak pokazano w poniższy fragment kodu:
+Dodawanie **Telemetrii** definicji, jak pokazano w poprzednim hello fragment kodu nie zmienia zachowanie hello hello pulpitu nawigacyjnego. Jednak hello metadane mogą również obejmować **DisplayName** atrybutu toocustomize hello wyświetlania na pulpicie nawigacyjnym hello. Aktualizacja hello **Telemetrii** definicji metadanych, jak pokazano w hello następującego fragmentu:
 
 ```nodejs
 'Telemetry': [
@@ -144,18 +144,18 @@ Dodawanie **Telemetrii** definicji, jak pokazano w poprzednim fragment kodu nie 
 ]
 ```
 
-Poniższy zrzut ekranu pokazuje, jak ta zmiana modyfikuje legendy wykresu w pulpicie nawigacyjnym:
+Witaj Poniższy zrzut ekranu przedstawia sposób ta zmiana modyfikuje legendy wykresu hello na pulpicie nawigacyjnym hello:
 
-![Dostosowywanie legendy wykresu][image4]
+![Dostosowywanie hello legendy wykresu][image4]
 
 > [!NOTE]
-> Należy wyłączyć, a następnie włączyć w urządzeniu Node.js na **urządzeń** strony na pulpicie nawigacyjnym, aby zobaczyć zmianę natychmiast.
+> Może muszą toodisable, a następnie Włącz urządzenia Node.js hello na powitania **urządzeń** strony hello pulpitu nawigacyjnego toosee hello zmian natychmiast.
 
-## <a name="filter-the-telemetry-types"></a>Filtruj typy telemetrii
+## <a name="filter-hello-telemetry-types"></a>Filtruj hello typy telemetrii
 
-Domyślnie wykresu w pulpicie nawigacyjnym przedstawia co serii danych w strumieniu danych telemetrycznych. Można użyć **informacje o urządzeniu** metadanych do Pomija wyświetlanie typów określonych danych telemetrycznych na wykresie. 
+Domyślnie wykresu hello na powitania pulpitu nawigacyjnego przedstawia co serii danych w strumieniu danych telemetrycznych hello. Można użyć hello **informacje o urządzeniu** wyświetlanie typów określonych danych telemetrycznych na wykresie hello hello toosuppress metadanych. 
 
-Aby wykres Pokaż tylko dane telemetryczne temperatury i wilgotności, Pomiń **ExternalTemperature** z **informacje o urządzeniu** **Telemetrii** metadanych w następujący sposób:
+Wykres hello toomake Pokaż tylko telemetrii temperatury i wilgotności, Pomiń **ExternalTemperature** z hello **informacje o urządzeniu** **Telemetrii** metadanych w następujący sposób:
 
 ```nodejs
 'Telemetry': [
@@ -177,22 +177,22 @@ Aby wykres Pokaż tylko dane telemetryczne temperatury i wilgotności, Pomiń **
 ]
 ```
 
-**Na zewnątrz temperatury** nie jest już wyświetlany na wykresie:
+Witaj **na zewnątrz temperatury** nie jest już wyświetlany na wykresie hello:
 
-![Filtrowanie danych telemetrycznych na pulpicie nawigacyjnym][image5]
+![Filtruj dane telemetryczne hello na powitania pulpitu nawigacyjnego][image5]
 
-Ta zmiana wpływa tylko na wykres. **ExternalTemperature** wartości danych nadal są przechowywane i dostępne do jakiegokolwiek przetwarzania wewnętrznej bazy danych.
+Ta zmiana wpływa tylko na powitania wyświetlania wykresu. Witaj **ExternalTemperature** wartości danych nadal są przechowywane i dostępne do jakiegokolwiek przetwarzania wewnętrznej bazy danych.
 
 > [!NOTE]
-> Należy wyłączyć, a następnie włączyć w urządzeniu Node.js na **urządzeń** strony na pulpicie nawigacyjnym, aby zobaczyć zmianę natychmiast.
+> Może muszą toodisable, a następnie Włącz urządzenia Node.js hello na powitania **urządzeń** strony hello pulpitu nawigacyjnego toosee hello zmian natychmiast.
 
 ## <a name="handle-errors"></a>Obsługa błędów
 
-Dla strumienia danych do wyświetlenia na wykresie jego **typu** w **informacje o urządzeniu** metadanych musi odpowiadać typowi danych telemetrycznych wartości. Na przykład, jeśli metadane Określa, że **typu** wilgotność dane są **int** i **podwójne** znajduje się w strumieniu danych telemetrycznych telemetrii wilgotności nie są wyświetlane, a następnie na wykresie. Jednak **wilgotności** wartości nadal są przechowywane i dostępne do przetwarzania dowolnego zaplecza.
+Dla toodisplay strumienia danych na wykresie hello jego **typu** w hello **informacje o urządzeniu** metadanych musi odpowiadać typowi danych hello hello telemetrii wartości. Na przykład, jeśli hello metadanych Określa że hello **typu** wilgotność dane są **int** i **podwójne** znajduje się w hello telemetrii strumienia, a następnie telemetrii wilgotności hello jest nie są wyświetlane na wykresie hello. Jednak hello **wilgotności** wartości nadal są przechowywane i dostępne do przetwarzania dowolnego zaplecza.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Skoro już znasz, jak używać dynamicznej telemetrii, możesz dowiedzieć się więcej o jak wstępnie skonfigurowanego rozwiązania używają informacji o urządzeniu: [urządzenia informacji metadanych do monitorowania zdalnego wstępnie skonfigurowane rozwiązanie] [ lnk-devinfo].
+Teraz, w tym samouczku jak toouse dynamiczne dane telemetryczne, możesz dowiedzieć się więcej na temat sposobu hello wstępnie rozwiązań Użyj informacji o urządzeniu: [urządzenia informacji metadanych w monitorowania zdalnego hello wstępnie skonfigurowane rozwiązanie] [ lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 

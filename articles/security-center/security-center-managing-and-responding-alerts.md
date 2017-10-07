@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie alertami zabezpieczeń w usłudze Azure Security Center | Microsoft Docs"
-description: "Ten dokument ułatwia zarządzanie alertami zabezpieczeń i reagowanie na nie przy użyciu funkcji Centrum zabezpieczeń Azure."
+title: "aaaManage alerty zabezpieczeń w Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
+description: "Ten dokument pomaga możesz toouse Centrum zabezpieczeń Azure możliwości toomanage i Odpowiedz toosecurity alertów."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: 56fcfbfdbe15749132ba6a27861142fd564063c3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f1cb7e4770776827b75ed15893914678c1f44216
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Reagowanie na alerty zabezpieczeń i zarządzanie nimi w Centrum zabezpieczeń Azure
-Ten dokument ułatwia zarządzanie alertami zabezpieczeń i reagowanie na nie przy użyciu usługi Azure Security Center.
+# <a name="managing-and-responding-toosecurity-alerts-in-azure-security-center"></a>Reagowanie na alerty toosecurity w Centrum zabezpieczeń Azure i zarządzanie nimi
+Ten dokument ułatwia Użyj toomanage Centrum zabezpieczeń Azure i reagowania na alerty toosecurity.
 
 > [!NOTE]
-> Aby włączyć wykrywanie zaawansowane, przeprowadź uaktualnienie usługi Azure Security Center do wersji Standard. Dostępna jest bezpłatna 60-dniowa wersja próbna. W celu uaktualnienia wybierz warstwę cenową w [Zasadach zabezpieczeń](security-center-policies.md). Aby dowiedzieć się więcej, zobacz [cennik usługi Azure Security Center](security-center-pricing.md).
+> wykryć tooenable zaawansowane, uaktualnienia tooAzure Security Center Standard. Dostępna jest bezpłatna 60-dniowa wersja próbna. tooupgrade, wybierz opcję warstwy cenowej w hello [zasady zabezpieczeń](security-center-policies.md). Zobacz [cennik Centrum zabezpieczeń Azure](security-center-pricing.md) toolearn więcej.
 >
 >
 
 ## <a name="what-are-security-alerts"></a>Czym są alerty zabezpieczeń?
-Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzienników z zasobów platformy Azure, sieci oraz połączonych rozwiązań partnerskich, takich jak rozwiązania zapory i ochrony punktów końcowych, aby wykrywać prawdziwe zagrożenia i redukować liczbę fałszywych alarmów. W usłudze Security Center jest wyświetlana lista alertów zabezpieczeń uporządkowanych według priorytetu oraz informacje potrzebne do szybkiego analizowania problemu i zalecenia dotyczące postępowania w razie ataku.
+Centrum zabezpieczeń automatycznie gromadzi informacje, analizuje i integruje dane dzienników z zasobów platformy Azure, sieci hello, połączone rozwiązań partnerskich, takich jak zapory i punktu końcowego rozwiązań do ochrony, toodetect prawdziwe zagrożenia i redukować liczbę fałszywych alarmów. Lista alertów zabezpieczeń uporządkowanych według priorytetu jest wyświetlany w Centrum zabezpieczeń oraz hello informacje potrzebne tooquickly Zbadaj hello problem i zalecenia dotyczące tooremediate atak.
 
 
 > [!NOTE]
@@ -38,56 +38,56 @@ Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzien
 >
 
 ## <a name="managing-security-alerts"></a>Zarządzanie alertami zabezpieczeń
-Bieżące alerty można przeglądać przy użyciu kafelka **Alerty zabezpieczeń**. Otwórz witrynę Azure Portal i wykonaj poniższe kroki, aby wyświetlić więcej szczegółowych informacji dotyczących poszczególnych alertów:
+Bieżące alerty można przeglądać, analizując hello **alerty zabezpieczeń** kafelka. Otwórz Azure Portal i wykonaj kroki hello poniżej toosee więcej szczegółów dotyczących poszczególnych alertów:
 
-1. Na pulpicie nawigacyjnym Centrum zabezpieczeń widoczny jest kafelek **Alerty zabezpieczeń**.
+1. Na pulpicie nawigacyjnym Centrum zabezpieczeń hello, zobaczysz hello **alerty zabezpieczeń** kafelka.
 
     ![Kafelek Alerty zabezpieczeń w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
-2. Kliknij kafelek, aby otworzyć blok **Alerty zabezpieczeń** zawierający więcej szczegółowych informacji o alertach, jak pokazano poniżej.
+2. Kliknij przycisk hello kafelka tooopen hello **alerty zabezpieczeń** blok zawierający więcej szczegółów na temat hello alertów, jak pokazano poniżej.
 
-   ![Blok kafelka Alerty zabezpieczeń w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
+   ![Witaj blok alerty zabezpieczeń w Centrum zabezpieczeń](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
-W dolnej części tego bloku znajdują się szczegółowe informacje o każdym alercie. Aby posortować dane, kliknij kolumnę, według której chcesz wykonać sortowanie. Poniżej znajdują się definicje poszczególnych kolumn:
+W dolnej części tego bloku hello są hello uzyskać szczegółowe informacje o każdym alercie. toosort, kliknij kolumnę hello, który ma toosort przez. Poniżej podano Hello definicje poszczególnych kolumn:
 
-* **Opis**: krótki opis alertu.
+* **Opis elementu**: Krótki opis alertu hello.
 * **Liczba**: lista wszystkich alertów określonego typu, które zostały wykryte w określonym dniu.
-* **Wykryte przez**: usługa odpowiedzialna za wyzwolenie alertu.
-* **Data**: dzień, w którym wystąpiło zdarzenie.
-* **Stan**: bieżący stan alertu. Istnieją dwa typy stanów:
-  * **Aktywny**: alert zabezpieczeń został wykryty.
-* **Ważność**: poziom ważności (wysoki, średni lub niski).
+* **Wykryte przez**: hello usługa, która jest odpowiedzialna za wyzwolenie alertu hello.
+* **Data**: hello Data zdarzenie hello wystąpił.
+* **Stan**: hello bieżący stan alertu. Istnieją dwa typy stanów:
+  * **Aktywne**: wykryto alert zabezpieczeń hello.
+* **Ważność**: hello poziom ważności, który może być wysoki, średni lub niski.
 
 ### <a name="filtering-alerts"></a>Filtrowanie alertów
-Alerty można filtrować na podstawie daty, stanu i ważności. Filtrowanie alertów może być przydatne w przypadku scenariuszy, w których należy zawęzić zakres wyświetlanych alertów zabezpieczeń. Możesz na przykład sprawdzić alerty zabezpieczeń, które wystąpiły w ciągu ostatnich 24 godzin, ponieważ badasz potencjalne naruszenie zabezpieczeń systemu.
+Alerty można filtrować na podstawie daty, stanu i ważności. Filtrowanie alertów może być przydatne w scenariuszach wymagających toonarrow hello zakres wyświetlanych alertów zabezpieczeń. Na przykład użytkownik ma tooaddress alerty zabezpieczeń, które wystąpiły w hello ostatnich 24 godzinach, ponieważ badasz potencjalne naruszenie zabezpieczeń w systemie hello.
 
-1. Kliknij pozycję **Filtr** w bloku **Alerty zabezpieczeń**. Zostanie otwarty blok **Filtr**. Wybierz wartości daty, stanu i ważności, które chcesz wyświetlić.
+1. Kliknij przycisk **filtru** na powitania **alerty zabezpieczeń** bloku. Witaj **filtru** zostanie otwarty blok i wybierz wartości daty, stanu i ważności hello mają toosee.
 
     ![Filtrowanie alertów w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
-### <a name="respond-to-security-alerts"></a>Odpowiadanie na alerty zabezpieczeń
-Wybierz alert zabezpieczeń, aby dowiedzieć się więcej o zdarzeniach, które go wywołały, oraz o czynnościach, które należy wykonać w celu wyeliminowania skutków ataku (jeśli ma to zastosowanie). Alerty zabezpieczeń są grupowane według typu i daty. Kliknięcie alertu zabezpieczeń spowoduje otwarcie bloku zawierającego listę pogrupowanych alertów.
+### <a name="respond-toosecurity-alerts"></a>Odpowiadanie na alerty toosecurity
+Wybierz toolearn alertu zabezpieczeń wymagają więcej informacji na temat hello zdarzenia, która wyzwoliła hello alert i co, jeśli kroki, możesz tooremediate tootake atak. Alerty zabezpieczeń są grupowane według typu i daty. Kliknięcie alertu zabezpieczeń spowoduje otwarcie bloku zawierającego listę hello pogrupowanych alertów.
 
-![Odpowiadanie na alerty zabezpieczeń w Centrum zabezpieczeń Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
+![Odpowiadanie na alerty toosecurity w Centrum zabezpieczeń Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
 
-W tym przypadku wyzwolone alerty dotyczą podejrzanego działania protokołu RDP (Remote Desktop Protocol). Pierwsza kolumna zawiera zaatakowane zasoby, druga przedstawia liczbę ataków na zasób, trzecia — czas ataku, czwarta — stan alertu, a piąta — ważność ataku. Po przejrzeniu tych informacji kliknij zaatakowany zasób. Zostanie otwarty nowy blok.
+W tym przypadku wyzwolone alerty hello można znaleźć toosuspicious działania protokołu RDP (Remote Desktop). Witaj pierwsza kolumna zawiera zaatakowane zasoby; Witaj drugi Pokazuje ile razy zaatakowany zasób hello; Witaj innej przedstawia czas hello atak powitania; Witaj czwarty pokazuje stan alertu hello; i hello piąte pokazuje hello ważność atak powitania. Po przejrzeniu tych informacji kliknij zaatakowany zasób hello i zostanie otwarty nowy blok.
 
-![Sugestie dotyczące zalecanych działań związanych z alertami zabezpieczeń w Centrum zabezpieczeń Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
+![Sugestie dotyczące alertów jakie toodo dotyczących zabezpieczeń w Centrum zabezpieczeń Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-W polu **Opis** tego bloku znajdują się dalsze szczegółowe informacje na temat danego zdarzenia. Te dodatkowe szczegóły dotyczą przyczyn wyzwolenia alertu zabezpieczeń, zasobu docelowego, źródłowego adresu IP (jeśli ma to zastosowanie) i zaleceń dotyczących sposobu wyeliminowania skutków ataku.  W niektórych przypadkach źródłowy adres IP będzie pusty (niedostępny), ponieważ nie wszystkie dzienniki zdarzeń zabezpieczeń systemu Windows obejmują adres IP.
+W hello **opis** tego bloku można znaleźć więcej szczegółów dotyczących tego zdarzenia. Te dodatkowe szczegóły zapewniają wgląd w jaki wyzwalanych hello zabezpieczeń alertów, hello zasobu docelowego, gdy dotyczy hello źródłowy adres IP i zaleceń dotyczących tooremediate.  W niektórych przypadkach hello źródłowy adres IP będzie pusty (niedostępny), ponieważ nie wszystkie dzienniki zdarzeń zabezpieczeń systemu Windows obejmują adres IP hello.
 
-Czynności naprawcze sugerowane w Centrum zabezpieczeń będą różnić się w zależności od alertu zabezpieczeń. W niektórych przypadkach do wykonania zalecanych czynności naprawczych trzeba będzie użyć innych funkcji platformy Azure. Na przykład aby wyeliminować skutki takiego ataku, należy utworzyć listę niedozwolonych adresów IP generujących atak przy użyciu [sieciowej listy ACL](../virtual-network/virtual-networks-acl.md) lub reguły [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md).
+Witaj naprawcze sugerowane w Centrum zabezpieczeń będą się różnić zgodnie z alert zabezpieczeń toohello. W niektórych przypadkach może być toouse tooimplement innych funkcji platformy Azure hello zalecane korygowania. Na przykład Witaj korygowania takiego ataku jest adres IP hello tooblacklist generujących atak przy użyciu [sieciowej listy ACL](../virtual-network/virtual-networks-acl.md) lub [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md) reguły.
 
 > [!NOTE]
-> Aby znaleźć więcej informacji na temat różnych typów alertów, przeczytaj artykuł [Alerty zabezpieczeń według typu w usłudze Azure Security Center](security-center-alerts-type.md).
+> Aby uzyskać więcej informacji na powitania różnych typów alertów, przeczytaj [alerty zabezpieczeń według typu w Centrum zabezpieczeń Azure](security-center-alerts-type.md).
 >
 >
 
 ## <a name="see-also"></a>Zobacz też
-W tym dokumencie przedstawiono sposób konfigurowania zasad zabezpieczeń w Centrum zabezpieczeń. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
+W tym dokumencie możesz przedstawiono sposób tooconfigure zasad zabezpieczeń w Centrum zabezpieczeń. toolearn więcej informacji na temat Centrum zabezpieczeń, zobacz następujące hello:
 
 * [Obsługa zdarzeń naruszenia zabezpieczeń w usłudze Azure Security Center](security-center-incident.md)
 * [Funkcje wykrywania usługi Azure Security Center](security-center-detection-capabilities.md)
 * [Przewodnik planowania i obsługi usługi Azure Security Center](security-center-planning-and-operations-guide.md)
-* [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
+* [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md) — często zadawane pytania dotyczące korzystania z usługi hello Znajdź.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.

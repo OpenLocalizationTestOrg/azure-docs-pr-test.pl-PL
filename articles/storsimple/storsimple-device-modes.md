@@ -1,6 +1,6 @@
 ---
-title: "Zmień tryb urządzenia StorSimple | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano tryby urządzenia StorSimple i wyjaśniono, jak zmienić tryb urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple."
+title: "Tryb urządzenia StorSimple hello aaaChange | Dokumentacja firmy Microsoft"
+description: "Zawiera opis tryby urządzenia StorSimple hello i jak toouse środowiska Windows PowerShell dla StorSimple toochange hello tryb urządzenia."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,80 +14,80 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2016
 ms.author: alkohli
-ms.openlocfilehash: 33c65bf2eecff3914f3227c76f7d638a4507e1f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 299fd380a83bcd06780c97937f4064f0791b440d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-device-mode-on-your-storsimple-device"></a>Zmień tryb urządzenia na urządzeniu StorSimple
-Ten artykuł zawiera krótki opis różnych trybach, w których może działać urządzenia StorSimple. Urządzenia StorSimple może działać w trzech trybów: Normalny, obsługi i odzyskiwania. 
+# <a name="change-hello-device-mode-on-your-storsimple-device"></a>Zmień tryb urządzenia hello na urządzeniu StorSimple
+Ten artykuł zawiera krótki opis hello różnych trybach, w których może działać urządzenia StorSimple. Urządzenia StorSimple może działać w trzech trybów: Normalny, obsługi i odzyskiwania. 
 
 Po przeczytaniu tego artykułu, oznacza to:
 
-* Jakie tryby urządzenia StorSimple są
-* Znajduje się w sposób dowiedzieć się, który tryb urządzenia StorSimple
-* Jak zmienić z normalnym i tryb konserwacji i *na odwrót*
+* Jakie są tryby urządzenia StorSimple hello
+* Jak toofigure limit trybu hello urządzenia StorSimple znajduje się w
+* Jak toochange w trybie normalnym toomaintenance i *na odwrót*
 
-Powyżej zadań zarządzania można wykonać tylko za pośrednictwem interfejsu programu Windows PowerShell urządzenia StorSimple.
+Witaj powyżej zadania związane z zarządzaniem można wykonać tylko za pośrednictwem interfejsu programu Windows PowerShell hello urządzenia StorSimple.
 
 ## <a name="about-storsimple-device-modes"></a>Temat trybów urządzenia StorSimple
 Urządzenia StorSimple może działać w trybie normalnym, konserwacji lub odzyskiwania. Każdy z tych trybów krótko opisano poniżej.
 
 ### <a name="normal-mode"></a>Tryb normalny
-To jest zdefiniowana jako normalne tryb operacyjnych urządzenie StorSimple w pełni skonfigurowany. Domyślnie urządzenia powinny być w trybie normalnym.
+To jest zdefiniowany jako hello normalnym trybem operacyjnych urządzenie StorSimple w pełni skonfigurowany. Domyślnie urządzenia powinny być w trybie normalnym.
 
 ### <a name="maintenance-mode"></a>Tryb konserwacji
-Czasami urządzenia StorSimple może być konieczne umieszczenie w trybie konserwacji. Ten tryb służy do przeprowadzania konserwacji na urządzeniu i zainstaluj aktualizacje destrukcyjne, takich jak powiązane z oprogramowania układowego dysku.
+Czasami hello urządzenia StorSimple może być konieczne toobe przełączony w tryb konserwacji. Ten tryb umożliwia tooperform konserwacji na urządzeniu hello i zainstaluj destrukcyjne aktualizacje, takie jak te dotyczące toodisk oprogramowania układowego.
 
-System można umieścić w trybie konserwacji tylko przy użyciu programu Windows PowerShell dla urządzenia StorSimple. Wszystkie żądania We/Wy są wstrzymane w tym trybie. Usługi, takie jak trwałej pamięci (NVRAM) lub usługę klastrowania również zostały zatrzymane. Zarówno kontrolery są ponownie uruchamiane po wprowadzeniu lub opuścić ten tryb. Po wyjściu z trybu konserwacji, wszystkie usługi zostanie wznowiona i powinna być w dobrej kondycji. Może to potrwać kilka minut.
+Hello system można umieścić w tryb konserwacji tylko przy użyciu hello środowiska Windows PowerShell dla urządzenia StorSimple. Wszystkie żądania We/Wy są wstrzymane w tym trybie. Usług takich jak trwałej pamięci (NVRAM) lub usługa klastrowania hello również zostały zatrzymane. Zarówno kontrolery hello są ponownie uruchamiane po wprowadzeniu lub opuścić ten tryb. Po wyjściu z trybu konserwacji hello, wszystkie usługi hello wznowi i powinna być w dobrej kondycji. Może to potrwać kilka minut.
 
 > [!NOTE]
-> **Tryb konserwacji jest obsługiwana tylko na urządzeniu działa prawidłowo. Nie jest obsługiwane na urządzeniu, w którym jednego lub obu kontrolerów nie działają.**
+> **Tryb konserwacji jest obsługiwana tylko na urządzeniu działa prawidłowo. Nie jest obsługiwane na urządzeniu, w którym jednego lub obu kontrolerów hello nie działają.**
 > </br>
 > 
 > 
 
 ### <a name="recovery-mode"></a>Tryb odzyskiwania
-Tryb odzyskiwania można określić jako "Tryb awaryjny dla systemu Windows z obsługą sieci". Tryb odzyskiwania angażujący zespołu Support firmy Microsoft i umożliwia im wykonywanie diagnostyki w systemie. Podstawowym celem trybu odzyskiwania jest pobrać dzienniki systemu.
+Tryb odzyskiwania można określić jako "Tryb awaryjny dla systemu Windows z obsługą sieci". Tryb odzyskiwania angażujący zespołu Microsoft Support hello oraz pozwala tooperform diagnostyki w systemie hello. podstawowym celem Hello trybu odzyskiwania jest dzienniki systemu hello tooretrieve.
 
-System przechodzi do trybu odzyskiwania, należy skontaktować się Microsoft Support dalsze czynności. Aby uzyskać więcej informacji, przejdź do [skontaktuj się z pomocą techniczną firmy Microsoft](storsimple-contact-microsoft-support.md).
+System przechodzi do trybu odzyskiwania, należy skontaktować się Microsoft Support dalsze czynności. Aby uzyskać więcej informacji, przejdź zbyt[skontaktuj się z pomocą techniczną firmy Microsoft](storsimple-contact-microsoft-support.md).
 
 > [!NOTE]
-> **Nie można umieścić urządzenia w trybie odzyskiwania. Jeśli urządzenie jest w złym stanie, tryb odzyskiwania próbuje pobrać urządzenia do stanu, w której personel firmy Microsoft Support można ją zbadać.**
+> **Nie można umieścić hello urządzenia w trybie odzyskiwania. Jeśli urządzenie hello jest w złym stanie, tryb odzyskiwania próbuje tooget hello urządzenia do stanu, w której personel firmy Microsoft Support można sprawdzić jego.**
 > 
 > 
 
 ## <a name="determine-storsimple-device-mode"></a>Określić tryb urządzenia StorSimple
-#### <a name="to-determine-the-current-device-mode"></a>Aby określić bieżący tryb urządzenia
-1. Zaloguj się do konsoli szeregowej urządzenia, wykonując kroki opisane w [przy użyciu programu PuTTY można nawiązać połączenia z konsolą szeregową urządzenia](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
-2. Sprawdź komunikat transparentu, w menu konsoli szeregowej urządzenia. Ten komunikat oznacza jawnie, czy urządzenie jest w trybie konserwacji lub odzyskiwania. Jeśli komunikat nie zawiera żadnych określonych informacji dotyczących trybu systemu, urządzenie jest w trybie normalnym.
+#### <a name="toodetermine-hello-current-device-mode"></a>bieżący tryb urządzenia toodetermine hello
+1. Zaloguj się na konsoli szeregowej urządzenia toohello wykonując kroki hello w [konsolą szeregową urządzenia przy użyciu programu PuTTY tooconnect toohello](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+2. Sprawdź komunikat transparentu hello w menu konsoli szeregowej hello hello urządzenia. Ten komunikat oznacza jawnie, czy urządzenie hello jest w trybie konserwacji lub odzyskiwania. Jeśli wiadomość hello nie zawiera żadnych określonych informacji dotyczących trybu systemu toohello, urządzenie hello jest w trybie normalnym.
 
-## <a name="change-the-storsimple-device-mode"></a>Zmień tryb urządzenia StorSimple
-Urządzenia StorSimple można umieścić w tryb konserwacji (w trybie normalnym) do wykonania konserwacji lub instalowania aktualizacji tryb konserwacji. Wykonaj poniższe procedury, aby wprowadzić lub wyjść z trybu konserwacji.
+## <a name="change-hello-storsimple-device-mode"></a>Zmień tryb urządzenia StorSimple hello
+Możesz umieścić hello urządzenia StorSimple do obsługi trybu (w trybie normalnym) tooperform konserwacji lub aktualizacji trybu konserwacji. Wykonaj następujące procedury tooenter lub zakończenia trybu konserwacji hello.
 
 > [!IMPORTANT]
-> Przed trybu konserwacji, sprawdź, czy zarówno kontrolery urządzeń są w dobrej kondycji po zalogowaniu się do **stan sprzętu** na **konserwacji** strony w klasycznym portalu Azure. Jeśli jeden lub oba kontrolery nie są w dobrej kondycji, skontaktuj się z Microsoft Support następnych kroków. Aby uzyskać więcej informacji, przejdź do [skontaktuj się z pomocą techniczną firmy Microsoft](storsimple-contact-microsoft-support.md).
+> Przed wprowadzeniem tryb konserwacji, sprawdź, czy zarówno kontrolery urządzeń są dobrej kondycji, uzyskując dostęp do hello **stan sprzętu** na powitania **konserwacji** strony w hello klasycznego portalu Azure. Jeśli jeden lub oba kontrolerów hello nie jest dobra, skontaktuj się z Microsoft Support hello następnych kroków. Aby uzyskać więcej informacji, przejdź zbyt[skontaktuj się z pomocą techniczną firmy Microsoft](storsimple-contact-microsoft-support.md).
 > 
 > 
 
-#### <a name="to-enter-maintenance-mode"></a>Aby przejść do trybu konserwacji
-1. Zaloguj się do konsoli szeregowej urządzenia, wykonując kroki opisane w [przy użyciu programu PuTTY można nawiązać połączenia z konsolą szeregową urządzenia](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
-2. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się przy użyciu pełnego dostępu**. Po wyświetleniu monitu podaj **hasło administratora urządzenia**. Domyślne hasło jest: `Password1`.
-3. W wierszu polecenia wpisz 
+#### <a name="tooenter-maintenance-mode"></a>Tryb konserwacji tooenter
+1. Zaloguj się na konsoli szeregowej urządzenia toohello wykonując kroki hello w [konsolą szeregową urządzenia przy użyciu programu PuTTY tooconnect toohello](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+2. W menu konsoli szeregowej hello, wybierz opcję 1, **Zaloguj się przy użyciu pełnego dostępu**. Po wyświetleniu monitu podaj hello **hasło administratora urządzenia**. jest Hello domyślne hasło: `Password1`.
+3. Wpisz w wierszu polecenia hello 
    
     `Enter-HcsMaintenanceMode`
-4. Zobaczysz komunikat ostrzegawczy informujący o trybu konserwacji będzie zakłócać wszystkich żądań We/Wy i sever połączenia do klasycznego portalu Azure i zostanie wyświetlony monit o potwierdzenie. Typ **Y** do trybu konserwacji.
-5. Zarówno kontrolery zostanie uruchomiony ponownie. Po zakończeniu ponownego uruchomienia innego pojawi się komunikat wskazujący, że urządzenie jest w trybie konserwacji.
+4. Pojawi się komunikat ostrzegawczy informujący, że tryb konserwacji będzie zakłócać wszystkich żądań We/Wy i sever hello połączenia toohello klasycznego portalu Azure i zostanie wyświetlony monit o potwierdzenie. Typ **Y** tooenter tryb konserwacji.
+5. Zarówno kontrolery zostanie uruchomiony ponownie. Po zakończeniu ponownego uruchomienia hello innego pojawi się komunikat wskazujący, że urządzenie hello jest w trybie konserwacji.
 
-#### <a name="to-exit-maintenance-mode"></a>Aby wyjść z trybu konserwacji
-1. Zaloguj się do konsoli szeregowej urządzenia. Sprawdź z komunikat transparentu, że urządzenie jest w trybie konserwacji.
-2. W wierszu polecenia wpisz:
+#### <a name="tooexit-maintenance-mode"></a>Tryb konserwacji tooexit
+1. Zaloguj się na konsoli szeregowej urządzenia toohello. Sprawdź z hello komunikat transparentu, że urządzenie jest w trybie konserwacji.
+2. Witaj wiersza polecenia wpisz:
    
     `Exit-HcsMaintenanceMode`
-3. Zostanie wyświetlony komunikat ostrzegawczy i komunikat potwierdzenia. Typ **Y** aby wyjść z trybu konserwacji.
-4. Zarówno kontrolery zostanie uruchomiony ponownie. Po zakończeniu ponownego uruchomienia innego pojawi się komunikat wskazujący, że urządzenie jest w trybie normalnym.
+3. Zostanie wyświetlony komunikat ostrzegawczy i komunikat potwierdzenia. Typ **Y** tooexit tryb konserwacji.
+4. Zarówno kontrolery zostanie uruchomiony ponownie. Po zakończeniu ponownego uruchomienia hello innego pojawi się komunikat wskazujący, że urządzenie tym hello jest w trybie normalnym.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak [stosowania aktualizacji tryb normalny i konserwacja](storsimple-update-device.md) na urządzeniu StorSimple.
+Dowiedz się, jak za[stosowania aktualizacji tryb normalny i konserwacja](storsimple-update-device.md) na urządzeniu StorSimple.
 

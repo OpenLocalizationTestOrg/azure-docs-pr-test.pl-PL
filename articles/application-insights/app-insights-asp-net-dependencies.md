@@ -1,5 +1,5 @@
 ---
-title: "Zależności śledzenia w usłudze Azure Application Insights | Dokumentacja firmy Microsoft"
+title: "aaaDependency śledzenia w usłudze Azure Application Insights | Dokumentacja firmy Microsoft"
 description: "Analizowanie użycia, dostępności i wydajności aplikacji lokalnej lub aplikacji sieci Web na platformie Microsoft Azure za pomocą usługi Application Insights."
 services: application-insights
 documentationcenter: .net
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.openlocfilehash: 6e0b67ba98af27017901608dde4401600eb9957f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e72f5465462ae8e64363cbbaa62911aff636c504
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Skonfiguruj usługę Application Insights: Śledzenie zależności
-A *zależności* jest składnik zewnętrzny, który jest wywoływany przez aplikację. Usługa ta jest zazwyczaj wywoływana przy użyciu protokołu HTTP, lub bazy danych lub systemu plików. [Usługa Application Insights](app-insights-overview.md) mierzy czas oczekiwania zależności aplikacji i jak często wywołanie zależności nie powiedzie się. Zbadaj określonych wywołań i dotyczą żądań i wyjątki.
+A *zależności* jest składnik zewnętrzny, który jest wywoływany przez aplikację. Usługa ta jest zazwyczaj wywoływana przy użyciu protokołu HTTP, lub bazy danych lub systemu plików. [Usługa Application Insights](app-insights-overview.md) mierzy czas oczekiwania zależności aplikacji i jak często wywołanie zależności nie powiedzie się. Zbadaj określonych wywołań i łączyć je toorequests i wyjątki.
 
 ![przykładowe wykresy](./media/app-insights-asp-net-dependencies/10-intro.png)
 
-Monitor zależności poza pole raportów obecnie wywołań do tych typów zależności:
+monitor zależności poza pole Hello raportów obecnie typy toothese wywołania zależności:
 
 * Serwer
   * Bazy danych SQL
@@ -36,103 +36,103 @@ Monitor zależności poza pole raportów obecnie wywołań do tych typów zależ
 
 Monitorowanie działania za pomocą [Instrumentacji kodu bajtów](https://msdn.microsoft.com/library/z9z62c29.aspx) wokół wybrane metody zostaną usunięte. Obciążenie jest minimalne.
 
-Można również napisać własny wywołania SDK do monitorowania innych zależności, zarówno w kodzie klienta i serwera przy użyciu [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+Można również napisać własny zestaw SDK wymaga toomonitor innych zależności, zarówno w hello kod klienta i serwera, jak za pomocą hello [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 ## <a name="set-up-dependency-monitoring"></a>Konfigurowanie monitorowania zależności
-Informacje o zależnościach częściowe są zbierane automatycznie przez [zestaw SDK usługi Application Insights](app-insights-asp-net.md). Aby uzyskać pełne dane, zainstalowanie odpowiedniego agenta dla serwera hosta.
+Informacje o zależnościach częściowe są zbierane automatycznie przez hello [zestaw SDK usługi Application Insights](app-insights-asp-net.md). tooget pełnych danych, zainstaluj hello odpowiedniego agenta dla powitania serwera hosta.
 
 | Platforma | Instalowanie |
 | --- | --- |
-| Serwer usług IIS |Albo [Zainstaluj Monitor stanu na serwerze](app-insights-monitor-performance-live-website-now.md) lub [uaktualnić aplikacji .NET Framework 4.6 lub nowszy](http://go.microsoft.com/fwlink/?LinkId=528259) i zainstaluj [zestaw SDK usługi Application Insights](app-insights-asp-net.md) w aplikacji. |
-| Aplikacja sieci Web platformy Azure |W Panelu sterowania aplikacji sieci web [otwarcie bloku usługi Application Insights w Panelu sterowania aplikacji sieci web](app-insights-azure-web-apps.md) i wybierz opcję instalacji, jeśli zostanie wyświetlony monit. |
+| Serwer usług IIS |Albo [Zainstaluj Monitor stanu na serwerze](app-insights-monitor-performance-live-website-now.md) lub [uaktualnienia struktury too.NET aplikacji 4.6 lub nowszy](http://go.microsoft.com/fwlink/?LinkId=528259) i zainstaluj hello [zestaw SDK usługi Application Insights](app-insights-asp-net.md) w aplikacji. |
+| Aplikacja sieci Web platformy Azure |W Panelu sterowania aplikacji sieci web [hello Otwórz blok usługi Application Insights w Panelu sterowania aplikacji sieci web](app-insights-azure-web-apps.md) i wybierz opcję instalacji, jeśli zostanie wyświetlony monit. |
 | Usługi w chmurze Azure |[Zadanie uruchamiania użyj](app-insights-cloudservices.md) lub [zainstalowania środowiska .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
-## <a name="where-to-find-dependency-data"></a>Gdzie można znaleźć danych zależności
+## <a name="where-toofind-dependency-data"></a>Gdy dane zależności toofind
 * [Mapowanie aplikacji](#application-map) wizualizuje zależności między aplikacji i składniki pokrewne.
 * [Bloki wydajności, przeglądarki oraz Niepowodzenie](#performance-and-blades) przedstawiono dane zależności serwera.
 * [Blok przeglądarki](#ajax-calls) pokazuje wywołania AJAX z przeglądarki użytkownika.
-* [Kliknij go, z powolnym działaniem lub nieudanych żądań](#diagnose-slow-requests) do sprawdzania ich zależności wywołania.
-* [Analiza](#analytics) można wykonać zapytania o dane zależności.
+* [Kliknij go, z powolnym działaniem lub nieudanych żądań](#diagnose-slow-requests) toocheck wywołania ich zależności.
+* [Analiza](#analytics) mogą być używane tooquery zależności danych.
 
 ## <a name="application-map"></a>Mapa aplikacji
-Mapowanie aplikacji działa jako pomoc wizualną odnajdywanie zależności między składnikami aplikacji. Jest automatycznie generowany na podstawie danych telemetrycznych z aplikacji. Ten przykład przedstawia wywołania AJAX ze skryptów przeglądarki i wywołania REST z aplikacji serwera do dwóch usług zewnętrznych.
+Mapowanie aplikacji działa jako pomoc visual toodiscovering zależności między składnikami aplikacji hello. Jest automatycznie generowany na podstawie danych telemetrycznych hello z aplikacji. Ten przykład przedstawia wywołania AJAX hello przeglądarki skryptów i wywołania REST z powitania serwera usług zewnętrznych tootwo aplikacji.
 
 ![Mapa aplikacji](./media/app-insights-asp-net-dependencies/08.png)
 
-* **Przejdź z pól** do odpowiednich zależności i innych wykresów.
-* **Przypnij mapę** do [pulpitu nawigacyjnego](app-insights-dashboards.md), gdzie będzie pełną funkcjonalność.
+* **Przejdź z pól hello** toorelevant zależności oraz inne wykresy.
+* **Numer PIN hello mapy** toohello [pulpitu nawigacyjnego](app-insights-dashboards.md), gdzie będzie pełną funkcjonalność.
 
 [Dowiedz się więcej](app-insights-app-map.md).
 
 ## <a name="performance-and-failure-blades"></a>Wydajność i niepowodzenie bloków
-Blok wydajności przedstawia czas trwania wywołania zależności za pomocą aplikacji serwera. Brak podsumowania wykres i tabelę segmentowanych przez wywołanie.
+Blok wydajności Hello pokazuje hello czas trwania wywołania zależności przez powitania serwera aplikacji. Brak podsumowania wykres i tabelę segmentowanych przez wywołanie.
 
 ![Wykresy zależności bloku wydajności](./media/app-insights-asp-net-dependencies/dependencies-in-performance-blade.png)
 
-Kliknij wykresy podsumowań lub elementów tabeli wyszukiwania raw wystąpień tych wywołań.
+Kliknij wykresy podsumowań hello lub hello tabeli elementów toosearch raw wystąpień tych wywołań.
 
 ![Wystąpienia wywołanie zależności](./media/app-insights-asp-net-dependencies/dependency-call-instance.png)
 
-**Liczba awarii** są wyświetlane na **błędów** bloku. Błąd jest kod powrotny, który nie znajduje się w zakresie 200 – 399, lub nieznany.
+**Liczba awarii** są wyświetlane na powitania **błędów** bloku. Błąd jest kod powrotny, który nie znajduje się w hello zakresu 200 – 399, lub nieznany.
 
 > [!NOTE]
-> **100% błędów?** -Prawdopodobnie oznacza to są dane z częściowa zależności tylko pierwsze. Musisz [Konfigurowanie zależności monitorowania odpowiednią dla danej platformy](#set-up-dependency-monitoring).
+> **100% błędów?** -Prawdopodobnie oznacza to są dane z częściowa zależności tylko pierwsze. Należy zbyt[Konfigurowanie monitorowania tooyour odpowiednie platformy zależności](#set-up-dependency-monitoring).
 >
 >
 
 ## <a name="ajax-calls"></a>Wywołania AJAX
-Blok przeglądarki przedstawia współczynnik czas trwania i Niepowodzenie wywołania AJAX z [JavaScript na stronach sieci web](app-insights-javascript.md). Są wyświetlane jako zależności.
+Blok przeglądarki Hello pokazuje czas trwania hello i częstość niepowodzeń AJAX wywołuje z [JavaScript na stronach sieci web](app-insights-javascript.md). Są wyświetlane jako zależności.
 
 ## <a name="diagnosis"></a>Diagnozowanie powolne żądań
-Każde zdarzenie żądania jest skojarzony z wywołania zależności, wyjątków i inne zdarzenia, które są śledzone podczas przetwarzania żądania aplikacji. Dlatego niektórych żądań są wykonywane nieprawidłowo, można ustalić czy jest ze względu na wolne odpowiedzi z zależności.
+Każde zdarzenie żądania jest powiązany z wywołania zależności hello, wyjątków i inne zdarzenia, które są śledzone podczas przetwarzania aplikacji hello żądania. Dlatego nieprawidłowo wykonywania niektórych żądań można ustalić czy jest powodu tooslow odpowiedzi z zależności.
 
 Przejdźmy przykład tego.
 
-### <a name="tracing-from-requests-to-dependencies"></a>Śledzenie żądań zależności
-Otwarcie bloku wydajności i przyjrzyj się siatki żądania:
+### <a name="tracing-from-requests-toodependencies"></a>Śledzenie za pomocą toodependencies żądań
+Otwarcie bloku wydajności hello i przyjrzyj się siatki hello żądań:
 
 ![Lista żądań ze średnimi lub liczby](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
-Elementem najwyższego trwa bardzo długo. Zobaczmy, jeśli firma Microsoft można ustalić, gdzie jest zużywany czas.
+Witaj top, który jest zbyt długa. Zobaczmy, jeśli firma Microsoft można ustalić, gdzie jest zużywany czas hello.
 
-Kliknij ten wiersz, aby wyświetlić poszczególne żądania zdarzenia:
+Kliknij ten wiersz toosee oddzielne żądanie zdarzenia:
 
 ![Lista wystąpień żądania](./media/app-insights-asp-net-dependencies/03-instances.png)
 
-Kliknij pozycję dowolnego wystąpienia długotrwałe, aby sprawdzić dodatkowe, a następnie przewiń w dół do połączenia zdalnego zależności powiązane z tym żądaniem:
+Kliknij tooinspect wystąpienia dowolnego długotrwałe dalszego i przewiń w dół toohello zależności zdalne wywołania toothis pokrewne żądanie:
 
-![Znajdź wywołania zależności zdalnych, zidentyfikuj nietypowe czas trwania](./media/app-insights-asp-net-dependencies/04-dependencies.png)
+![Znajdź wywołania zależności tooRemote, zidentyfikować nietypowe czas trwania](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
-Wygląda jak większość obsługi czasu poświęconego tego żądania podczas wywołania usługi lokalnej.
+Wygląda jak większość hello obsługi czasu poświęconego tego żądania w usłudze lokalnej tooa wywołania.
 
-Wybierz ten wiersz, aby uzyskać więcej informacji:
+Wybierz ten wiersz tooget więcej informacji:
 
-![Kliknij go, że zdalnego zależności do identyfikowania dziedziczonej z istotnymi elementami](./media/app-insights-asp-net-dependencies/05-detail.png)
+![Kliknij przycisk za pośrednictwem tego culprit hello tooidentify zależności zdalne](./media/app-insights-asp-net-dependencies/05-detail.png)
 
-Wygląda na to, gdzie jest problem. Firma Microsoft już przeprowadzana na ten problem, więc teraz możemy just należy dowiedzieć się, dlaczego tego wywołania trwa tak długo.
+Wygląda na to, gdzie jest hello problem. Firma Microsoft już przeprowadzana na powitania problem. należy więc teraz możemy just toofind się, dlaczego tego wywołania trwa tak długo.
 
 ### <a name="request-timeline"></a>Oś czasu żądania
-W przypadku różnych nie ma żadnych wywołanie zależności, które są szczególnie długie. Jednak przełączyć do widoku osi czasu, możemy stwierdzić, gdzie wystąpił opóźnienie w naszym wewnętrzne przetwarzanie:
+W przypadku różnych nie ma żadnych wywołanie zależności, które są szczególnie długie. Ale przełączając toohello widoku osi czasu, możemy stwierdzić, których opóźnienie hello wystąpiła w naszym wewnętrzne przetwarzanie:
 
-![Znajdź wywołania zależności zdalnych, zidentyfikuj nietypowe czas trwania](./media/app-insights-asp-net-dependencies/04-1.png)
+![Znajdź wywołania zależności tooRemote, zidentyfikować nietypowe czas trwania](./media/app-insights-asp-net-dependencies/04-1.png)
 
-Wydaje się duży przerwę po pierwszej zależności wywołać, więc należy przyjrzymy się naszego kodu, aby zobaczyć, dlaczego jest.
+Prawdopodobnie toobe big przerwę po pierwszym wywołaniu zależności hello, więc należy przyjrzymy się naszego kodu toosee dlatego oznacza to.
 
 ### <a name="profile-your-live-site"></a>Profil witryny na żywo
 
-Nie wiadomo, gdzie przechodzi czas? [Profilera usługi Application Insights](app-insights-profiler.md) najdłużej trwało śladów HTTP wywołań witryny na żywo i zawiera funkcje, które w kodzie.
+Nie wiadomo, gdzie czas hello przechodzi? Witaj [profilera usługi Application Insights](app-insights-profiler.md) najdłużej hello trwało śladów HTTP wywołuje tooyour witryny na żywo i zawiera funkcje, które w kodzie.
 
 ## <a name="failed-requests"></a>Żądań zakończonych niepowodzeniem
-Żądań zakończonych niepowodzeniem może też być skojarzone z niepowodzeniem wywołania zależności. Firma Microsoft ponownie, kliknij go, można wykrywać problem.
+Żądań zakończonych niepowodzeniem może też być skojarzone z toodependencies wywołania nie powiodło się. Firma Microsoft ponownie, kliknij go, tootrack dół hello problem.
 
-![Kliknij wykres nieudanych żądań](./media/app-insights-asp-net-dependencies/06-fail.png)
+![Kliknij przycisk hello wykres nieudanych żądań](./media/app-insights-asp-net-dependencies/06-fail.png)
 
-Kliknij, aby wystąpienie nieudanych żądań i przyjrzyj się jego skojarzonego zdarzenia.
+Kliknij go, wystąpienie tooan nieudanych żądań i przyjrzyj się jego skojarzonego zdarzenia.
 
-![Kliknij typ żądania, kliknij wystąpienia, aby uzyskać dostęp do innego widoku tego samego wystąpienia, kliknij go, aby uzyskać szczegóły wyjątku.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
+![Kliknij typ żądania, kliknij przycisk hello tooget tooa inny widok wystąpienia hello tego samego wystąpienia, kliknij go tooget szczegóły wyjątku.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analiza
-Można śledzić zależności w [języka zapytań usługi Analiza dzienników](https://docs.loganalytics.io/). Oto kilka przykładów.
+Można śledzić zależności w hello [języka zapytań usługi Analiza dzienników](https://docs.loganalytics.io/). Oto kilka przykładów.
 
 * Znajdź wszystkie wywołania zależności nie powiodło się:
 
@@ -172,11 +172,11 @@ Można śledzić zależności w [języka zapytań usługi Analiza dzienników](h
 
 
 ## <a name="custom-dependency-tracking"></a>Niestandardowe śledzenia zależności
-Standardowy moduł śledzenia zależności automatycznie odnajduje zależności zewnętrzne, takie jak bazy danych i interfejsów API REST. Jednak może być niektóre dodatkowe składniki należy traktować w taki sam sposób.
+Standardowy moduł śledzenia zależności Hello automatycznie odnajduje zależności zewnętrzne, takie jak bazy danych i interfejsów API REST. Może być toobe niektóre dodatkowe składniki używane w hello sam sposób.
 
-Można napisać kod, który wysyła informacje o zależnościach, korzystającej z tego samego [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) używany przez standardowe moduły.
+Można napisać kod, który wysyła informacje o zależnościach, przy użyciu hello sam [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) używany przez moduły standardowe hello.
 
-Na przykład jeśli kod jest kompilacji z zestawu, który nie jest pisana samodzielnie, można czasu wszystkie wywołania, aby dowiedzieć się, jakie wkład zgłasza Twoje czasy odpowiedzi. Te dane wyświetlane na wykresach zależności w usłudze Application Insights, aby wysyłać go za pomocą `TrackDependency`.
+Na przykład że nie są pisane samodzielnie, można czasu wszystkie tooit wywołania hello w przypadku tworzenia kodu z zestawem toofind się, jakie wkład ułatwia tooyour odpowiedzi czasu. toohave wysyłać te dane wyświetlane na wykresach zależności hello w usłudze Application Insights, za pomocą `TrackDependency`.
 
 ```C#
 
@@ -193,16 +193,16 @@ Na przykład jeśli kod jest kompilacji z zestawu, który nie jest pisana samodz
             }
 ```
 
-Jeśli chcesz wyłączyć modułu śledzenia zależności standardowe, Usuń odwołanie do DependencyTrackingTelemetryModule w [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+Tooswitch poza modułu śledzenia zależności standardowe hello, usunąć hello tooDependencyTrackingTelemetryModule odwołania w [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 *Powodzenie zależności Flaga zawsze wyświetla wartość PRAWDA lub FAŁSZ.*
 
 *Zapytania SQL nie są wyświetlane w całości.*
 
-* Uaktualnij do najnowszej wersji zestawu SDK. Jeśli wersja .NET jest mniejsza niż 4.6:
-  * Host usługi IIS: Zainstaluj [agenta Application Insights](app-insights-monitor-performance-live-website-now.md) na serwerach hostach.
-  * Aplikacja sieci web platformy Azure: Otwórz Application Insights w Panelu sterowania aplikacji sieci web, a następnie zainstaluj usługę Application Insights.
+* Uaktualnij toohello najnowszą wersję hello zestawu SDK. Jeśli wersja .NET jest mniejsza niż 4.6:
+  * Host usługi IIS: Zainstaluj [agenta Application Insights](app-insights-monitor-performance-live-website-now.md) na serwerach hostów hello.
+  * Aplikacja sieci web platformy Azure: Otwórz Application Insights w Panelu sterowania aplikacji hello w sieci web, a następnie zainstaluj usługę Application Insights.
 
 ## <a name="video"></a>Połączenia wideo
 

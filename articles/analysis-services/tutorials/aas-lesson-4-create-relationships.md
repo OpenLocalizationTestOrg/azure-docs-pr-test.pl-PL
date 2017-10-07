@@ -1,58 +1,40 @@
 ---
-title: "Samouczek Azure Analysis Services: lekcja 4 — tworzenie relacji | Microsoft Docs"
-description: "Opisuje sposób tworzenia relacji w projekcie samouczka usług Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: minewiskan
-manager: erikre
-editor: 
-tags: 
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 05/26/2017
-ms.author: owend
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+title: aaa "lekcji samouczka usług Azure Analysis Services 4: tworzenie relacji | Opis elementu Microsoft Docs": w tym artykule opisano, jak relacje toocreate w hello projekt samouczka usług Azure Analysis Services. usługi: documentationcenter usług analysis services: "Autor: minewiskan Menedżera: Edytor erikre:" tagów: "
+
+MS.AssetID: ms.service: ms.devlang usług analysis services: NA ms.topic: get-started-article ms.tgt_pltfrm: NA ms.workload: na ms.date: 05/26/2017 ms.author: owend
 ---
 # <a name="lesson-4-create-relationships"></a>Lekcja 4. Tworzenie relacji
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-W tej lekcji sprawdzisz relacje, które zostały automatycznie utworzone po zaimportowaniu danych, i dodasz nowe relacje między różnymi tabelami. Relacja to połączenie między dwiema tabelami, które określa sposób korelowania danych w tych tabelach. Na przykład: między tabelą DimProduct a tabelą DimProductSubcategory istnieje relacja opierająca się na fakcie, że każdy z produktów należy do podkategorii. Aby dowiedzieć się więcej, zobacz [Relacje](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
+W tej lekcji Sprawdź hello relacje, które zostały automatycznie utworzone po zaimportowaniu danych i dodać nowe relacje między tabelami w różnych. Relacja to połączenie między dwiema tabelami, które określa, jak powinna zostać skorelowane hello danych w tych tabelach. Na przykład tabela DimProduct hello i tabela DimProductSubcategory hello relacją oparte na hello fakt, że każdy z produktów należy podkategorii tooa. toolearn więcej, zobacz [relacje](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
-Szacowany czas trwania lekcji: **10 minut**  
+Szacowany czas toocomplete tej lekcji: **10 minut**  
   
 ## <a name="prerequisites"></a>Wymagania wstępne  
-Ten temat stanowi część samouczka modelowania tabelarycznego, który należy wykonać w podanej kolejności. Przed przystąpieniem do wykonywania zadań w tej lekcji należy ukończyć lekcję poprzednią: [Lekcja 3. Oznaczanie jako tabeli dat](../tutorials/aas-lesson-3-mark-as-date-table.md). 
+Ten temat stanowi część samouczka modelowania tabelarycznego, który należy wykonać w podanej kolejności. Przed wykonaniem zadania hello w tej lekcji, powinno mieć ukończone poprzedniej lekcji hello: [lekcji 3: Oznacz jako tabelę dat](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Przegląd istniejących relacji i dodawanie nowych  
-Podczas importowania danych przy użyciu narzędzia Pobierz dane uzyskano siedem tabel z bazy danych AdventureWorksDW2014. Ogólnie rzecz biorąc, podczas importowania danych ze źródła relacyjnego istniejące relacje są importowane automatycznie wraz z danymi. Jednak przed przystąpieniem do tworzenia modelu należy sprawdzić, czy relacje między tabelami zostały utworzone prawidłowo. W tym samouczku zostaną dodane trzy nowe relacje.  
+Podczas importowania danych za pomocą Pobierz dane uzyskano siedmiu tabel z bazy danych AdventureWorksDW2014 hello. Ogólnie rzecz biorąc gdy użytkownik importuje dane ze źródła relacyjne istniejące relacje są automatycznie importowane oraz hello dane. Jednak przed przystąpieniem do tworzenia modelu należy sprawdzić, czy relacje między tabelami zostały utworzone prawidłowo. W tym samouczku zostaną dodane trzy nowe relacje.  
   
-#### <a name="to-review-existing-relationships"></a>Aby przejrzeć istniejące relacje:  
+#### <a name="tooreview-existing-relationships"></a>istniejące relacje tooreview  
   
-1.  W menu **Model** kliknij **Widok modelu** > **Widok diagramu**.  
+1.  Kliknij przycisk hello **modelu** menu > **widok modelu** > **widoku diagramu**.  
 
-    Projektant modeli zostanie wyświetlony w widoku diagramu, który w postaci graficznej przedstawia wszystkie zaimportowane tabele oraz łączące je linie. Linie między tabelami wskazują relacje, które zostały automatycznie utworzone po zaimportowaniu danych.
+    Witaj Projektant modelu jest teraz wyświetlany w widoku diagramu, postaci graficznej wyświetlanie wszystkich tabel hello zaimportowane linie między nimi. Witaj linie między tabelami wskazują hello relacje, które zostały automatycznie utworzone po zaimportowaniu danych hello.
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Dołącz jak najwięcej tabel, używając formantów minimapy w prawym dolnym rogu projektanta modeli. Można również kliknąć i przeciągnąć tabele do innych lokalizacji, zbliżając je do siebie lub umieszczając w określonej kolejności. Przenoszenie tabel nie ma wpływu na relacje istniejące już między tabelami. Jeśli chcesz wyświetlić wszystkie kolumny w określonej tabeli, kliknij i przeciągnij krawędź tabeli, aby powiększyć ją lub zmniejszyć.  
+    Dołączyć jako wiele tabel hello możliwie za pomocą formantów minimapa w prawym dolnym narożniku hello hello Projektant modelu. Można również kliknij i przeciągnij lokalizacje toodifferent tabel, łącząc bliżej tabel lub umieszczania ich w określonej kolejności. Przenoszenie tabel nie ma wpływu na relacje hello już między tabelami hello. tooview wszystkie kolumny hello w określonej tabeli, kliknij i przeciągnij na tooexpand krawędzi tabeli lub zmniejszyć jego rozmiar.  
   
-2.  Kliknij ciągłą linię między tabelami **DimCustomer** a **DimGeography**. Linia ciągła między tymi dwiema tabelami pokazuje, że relacja jest aktywna, co oznacza, że jest używana domyślnie podczas obliczania formuł języka DAX.  
+2.  Kliknij przycisk Linia ciągła hello między hello **DimCustomer** tabeli i hello **DimGeography** tabeli. Linia ciągła Hello między tymi dwiema tabelami pokazuje ta relacja jest aktywna, oznacza to, że jest używany domyślnie podczas obliczania formuły języka DAX.  
   
-    Należy zauważyć, że w polu pojawiła się zarówno kolumna **GeographyKey** w tabeli **DimCustomer**, jak i kolumna **GeographyKey** w tabeli **DimGeography**. Te kolumny są używane w relacji. Właściwości relacji również pojawiają się w oknie **Właściwości**.  
+    Powiadomienie hello **GeographyKey** kolumny w hello **DimCustomer** tabeli i hello **GeographyKey** kolumny w hello **DimGeography** tabeli teraz każdy znajdować się w polu. Te kolumny są używane w hello relacji. Witaj we właściwościach relacji również pojawiają się teraz hello **właściwości** okna.  
   
     > [!TIP]  
-    > Oprócz projektanta modeli w widoku diagramu do wyświetlania relacji między wszystkimi tabelami w formacie tabeli można również użyć okna dialogowego Zarządzanie relacjami. W Eksploratorze modeli tabelarycznych kliknij prawym przyciskiem myszy pozycje **Relacje** > **Zarządzanie relacjami**.
+    > Ponadto toousing hello Projektant modelu w widoku diagramu, można również użyć hello zarządzanie relacjami okna dialogowego pole tooshow hello relacje między wszystkie tabele w formacie tabeli. W Eksploratorze modeli tabelarycznych kliknij prawym przyciskiem myszy pozycje **Relacje** > **Zarządzanie relacjami**.
   
-3.  Sprawdź, czy podczas importowania wszystkich tabel z bazy danych AdventureWorksDW zostały utworzone następujące relacje:  
+3.  Sprawdź następujące relacje hello zostały utworzone podczas każdej z tabel hello zostały zaimportowane z bazy danych AdventureWorksDW hello:  
   
     |Aktywne|Tabela|Pokrewna tabela odnośników|  
     |----------|---------|------------------------|  
@@ -62,37 +44,37 @@ Podczas importowania danych przy użyciu narzędzia Pobierz dane uzyskano siedem
     |Tak|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Tak|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Jeśli brakuje dowolnej z tych relacji, sprawdź, czy model zawiera następujące tabele: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory i FactInternetSales. W przypadku tabel pochodzących z tego samego połączenia źródła danych, które zostały zaimportowane w różnym czasie, relacje między takimi tabelami nie są tworzone i należy utworzyć je ręcznie.  
+    Jeśli którekolwiek z relacji hello brakuje, sprawdź, czy model zawiera następujące tabele hello: DimCustomer, DimDate DimGeography, DimProduct, DimProductCategory, DimProductSubcategory i FactInternetSales. Jeśli tabel z tego samego połączenia źródła danych zostaną zaimportowane na powitania rozdzielić razy, wszystkie relacje między tabelami te nie są tworzone i muszą być utworzone ręcznie.  
 
 ### <a name="take-a-closer-look"></a>Przyjrzyjmy się temu bliżej
-W widoku diagramu zwróć uwagę na strzałkę, gwiazdkę i liczbę w wierszach, które wskazują relacje między tabelami.
+W widoku diagramu Zwróć uwagę, Strzałka gwiazdkę i numer w wierszach hello, które zawierają hello relacji między tabelami.
 
 ![aas-lesson4-line](../tutorials/media/aas-lesson4-line.png)
 
-Strzałka wskazuje kierunek filtrowania. Gwiazdka wskazuje, że dana tabela znajduje się po stronie wielu w kardynalności relacji, a jedynka wskazuje, że dana tabela jest po stronie jednego w kardynalności relacji. W przypadku konieczności edytowania relacji, na przykład w celu zmiany kierunku filtrowania relacji lub jej kardynalności, kliknij dwukrotnie wiersz relacji, aby otworzyć okno dialogowe Edytowanie relacji.
+Strzałka Hello pokazuje hello kierunek filtru. gwiazdki Hello pokazano, że ta tabela jest hello wiele relacji hello kardynalności i hello jedną pokazuje ta tabela jest hello na jednej stronie relacji hello. Jeśli potrzebujesz tooedit relacji; na przykład zmienić kierunek filtru relacji hello lub Kardynalność, kliknij dwukrotnie hello relacji wiersza tooopen hello Edytuj relację z okna dialogowego.
 
 ![aas-lesson4-edit](../tutorials/media/aas-lesson4-edit.png)
 
-Te funkcje są przeznaczone do zaawansowanego modelowania danych i wykraczają poza zakres tego samouczka. Aby dowiedzieć się więcej, zobacz [Dwukierunkowe filtry krzyżowe dla modeli tabelarycznych w usługach Analysis Services](https://docs.microsoft.com/sql/analysis-services/tabular-models/bi-directional-cross-filters-tabular-models-analysis-services).
+Te funkcje są przeznaczone dla zaawansowanych modelowania danych i są poza zakresem hello tego samouczka. toolearn więcej, zobacz [dwukierunkowego krzyżowego filtry dla modeli tabelarycznych w usługach Analysis Services](https://docs.microsoft.com/sql/analysis-services/tabular-models/bi-directional-cross-filters-tabular-models-analysis-services).
 
-W niektórych przypadkach może być konieczne utworzenie dodatkowych relacji między tabelami w modelu służącym do obsługi określonej logiki biznesowej. W tym samouczku zostaną utworzone trzy dodatkowe relacje między tabelami FactInternetSales a DimDate.  
+W niektórych przypadkach może być konieczne toocreate dodatkowe relacje między tabelami w Twojej toosupport modelu niektórych logiki biznesowej. W tym samouczku należy toocreate trzy dodatkowe relacje między tabelami FactInternetSales hello i DimDate hello.  
   
-#### <a name="to-add-new-relationships-between-tables"></a>Aby dodać nowe relacje między tabelami  
+#### <a name="tooadd-new-relationships-between-tables"></a>tooadd nowe relacje między tabelami  
   
-1.  W Projektancie modeli w tabeli **FactInternetSales** kliknij i przytrzymaj kolumnę **OrderDate**, a następnie przeciągnij kursor do kolumny **Date** w tabeli **DimDate**, po czym zwolnij kursor.  
+1.  W Konstruktorze modelu hello w hello **FactInternetSales** tabeli, kliknij i przytrzymaj hello **OrderDate** kolumny, a następnie przeciągnij hello kursora toohello **data** kolumny w hello  **DimDate** tabeli, a następnie zwolnij.  
 
-    Zostanie wyświetlona linia ciągła wskazująca utworzenie aktywnej relacji między kolumną **OrderDate** w tabeli **Internet Sales** tabeli a kolumną **Date** w tabeli **Date**. 
+    Linia ciągła wyświetleniu utworzono aktywna relacja między hello **OrderDate** kolumny w hello **sprzedaży Internet** tabeli i hello **data** kolumny w hello **Data** tabeli. 
   
       ![aas-lesson4-new](../tutorials/media/aas-lesson4-new.png) 
   
     > [!NOTE]  
-    > Podczas tworzenia relacji jest automatycznie wybierana kardynalność i kierunek filtrowania pomiędzy tabelą podstawową a pokrewną tabelą odnośników.  
+    > Podczas tworzenia relacji, hello kardynalność i Filtruj kierunku między hello tabeli podstawowej i tabeli odnośników pokrewne hello jest automatycznie wybierany.  
   
-2.  W tabeli **FactInternetSales** kliknij i przytrzymaj kolumnę **DueDate**, a następnie przeciągnij kursor do kolumny **Date** w tabeli **DimDate**, po czym zwolnij kursor.  
+2.  W hello **FactInternetSales** tabeli, kliknij i przytrzymaj hello **Data ukończenia** kolumny, a następnie przeciągnij hello kursora toohello **data** kolumny w hello **DimDate** tabeli, a następnie zwolnij.  
   
-    Zostanie wyświetlona linia przerywana wskazująca utworzenie nieaktywnej relacji między kolumną **DueDate** w tabeli **FactInternet Sales** a kolumną **Date** w tabeli **DimDate**. Między tabelami może istnieć wiele relacji, ale tylko jedna z nich może być aktywna w danym momencie. Nieaktywne relacje można uaktywnić, wykonując specjalne agregacje za pomocą niestandardowych wyrażeń języka DAX.  
+    Linia kropkowana wyświetleniu utworzono nieaktywne relacji między hello **Data ukończenia** kolumny w hello **FactInternetSales** tabeli i hello **data** kolumny Witaj **DimDate** tabeli. Między tabelami może istnieć wiele relacji, ale tylko jedna z nich może być aktywna w danym momencie. Nieaktywne relacje można podjąć aktywne tooperform specjalne agregacji w niestandardowych wyrażenia języka DAX.  
   
-3.  Na koniec utwórz jeszcze jedną relację. W tabeli **FactInternetSales** kliknij i przytrzymaj kolumnę **ShipDate**, a następnie przeciągnij kursor do kolumny **Date** w tabeli **DimDate**, po czym zwolnij kursor.  
+3.  Na koniec utwórz jeszcze jedną relację. W hello **FactInternetSales** tabeli, kliknij i przytrzymaj hello **DataWysyłki** kolumny, a następnie przeciągnij hello kursora toohello **data** kolumny w hello **DimDate** tabeli, a następnie zwolnij.  
     
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   

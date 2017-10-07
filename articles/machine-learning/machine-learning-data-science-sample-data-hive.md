@@ -1,5 +1,5 @@
 ---
-title: "Przykładowe dane w tabelach platformy Azure HDInsight Hive | Dokumentacja firmy Microsoft"
+title: aaaSample dane w tabelach platformy Azure HDInsight Hive | Dokumentacja firmy Microsoft
 description: "Dół próbkowania dane w tabelach Hive w usłudze Azure HDInsight (Hadopop)"
 services: machine-learning,hdinsight
 documentationcenter: 
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: d46297dfaf85976114fbf610803e5f1a997041e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5f86df9b5a18facc875f437abfb004dbe3a06ea4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Przykładowe dane w tabelach usługi Azure HDInsight Hive
-W tym artykule firma Microsoft opisują sposób dół przykładowe dane przechowywane w tabelach platformy Azure HDInsight Hive za pomocą zapytań Hive. Firma Microsoft obejmuje trzy metody pobierania próbek popularly używany:
+W tym artykule opisano sposób toodown przykładowe dane przechowywane w tabelach platformy Azure HDInsight Hive za pomocą zapytań Hive. Firma Microsoft obejmuje trzy metody pobierania próbek popularly używany:
 
 * Jednolite losowego pobierania próbek
 * Losowe próbkowania według grup
 * Stratyfikowana pobierania próbek
 
-Następujące **menu** linki do tematów opisujących sposób przykładowe dane z różnych środowiskach magazynu.
+następujące Hello **menu** łączy tootopics, które opisują sposób toosample danych z różnych środowiskach magazynu.
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 **Dlaczego przykładowe dane?**
-Jeśli zestaw danych, które mają być analizowanie jest duży, zazwyczaj jest dobrym rozwiązaniem w dół przykładowych danych, aby zmniejszyć jego rozmiar mniejsze, ale reprezentatywny i łatwiejsze w zarządzaniu. To ułatwia zrozumienie danych, badanie i inżynieria funkcji. Swoją rolę w procesie nauki danych zespołu jest umożliwienie szybkiego prototypy funkcji przetwarzania danych i modeli uczenia maszynowego.
+Jeśli planujesz tooanalyze dataset hello jest duży, zazwyczaj jest to dobrze hello toodown przykładowych danych tooreduce jego rozmiar tooa mniejsze, ale reprezentatywny i łatwiejsze w zarządzaniu. To ułatwia zrozumienie danych, badanie i inżynieria funkcji. Swoją rolę w hello proces nauki danych zespołu jest szybkie tworzenie prototypów tooenable hello przetwarzania danych funkcji i modeli uczenia maszynowego.
 
-To zadanie próbkowania jest krokiem w [zespołu danych nauki procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+To zadanie próbkowania jest etapem hello [zespołu danych nauki procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="how-to-submit-hive-queries"></a>Temat dotyczący przesyłania zapytań programu Hive
-W konsoli usługi Hadoop wiersza polecenia na węzła głównego klastra usługi Hadoop można przesłać zapytań programu hive. Aby to zrobić, zaloguj się do węzła głównego klastra usługi Hadoop, otwórz konsolę wiersza polecenia platformy Hadoop i wysyłanie zapytań programu Hive z tego miejsca. Aby uzyskać instrukcje dotyczące przesyłania zapytań programu Hive w konsoli usługi Hadoop wiersza polecenia, zobacz [sposobu przesyłania zapytań Hive](machine-learning-data-science-move-hive-tables.md#submit).
+## <a name="how-toosubmit-hive-queries"></a>Jak toosubmit zapytań programu Hive
+W konsoli usługi Hadoop wiersza polecenia hello na powitania węzła głównego klastra usługi Hadoop hello można przesłać zapytań programu hive. toodo to Zaloguj się do hello węzła głównego klastra usługi Hadoop hello, otwórz hello konsoli wiersza polecenia platformy Hadoop i wysyłanie zapytań programu Hive hello stamtąd. Aby uzyskać instrukcje dotyczące przesyłania zapytań programu Hive w konsoli usługi Hadoop wiersza polecenia hello, zobacz [jak tooSubmit zapytań Hive](machine-learning-data-science-move-hive-tables.md#submit).
 
 ## <a name="uniform"></a>Jednolite losowego pobierania próbek
-Jednolite próbkowania losowe oznacza, że każdego wiersza w zestawie danych ma taki sam sposób przez cały czas jest próbkowany. To może być zaimplementowany przez dodanie rand() dodatkowe pola zestawu danych w wewnętrznym zapytania "select" i w zapytaniu "Wybierz" zewnętrzne tego warunku na losowe pola.
+Jednolite próbkowania losowe oznacza, że każdego wiersza w zestawie danych hello ma taki sam sposób przez cały czas jest próbkowany. Może być zaimplementowany przez dodanie zestawu danych toohello rand() dodatkowe pola w wewnętrznym zapytania "select" hello, a w hello zewnętrzne zapytania "select" tego warunku w polu losowych.
 
 Poniżej przedstawiono przykładowe zapytanie:
 
@@ -55,11 +55,11 @@ Poniżej przedstawiono przykładowe zapytanie:
         )a
     where samplekey<='${hiveconf:sampleRate}'
 
-W tym miejscu `<sample rate, 0-1>` określa część rekordów, które użytkownicy mają do próbkowania.
+W tym miejscu `<sample rate, 0-1>` określa hello część rekordów, które hello użytkownicy będą toosample.
 
 ## <a name="group"></a>Losowe próbkowania według grup
-Podczas pobierania próbek danych podzielone na kategorie, warto uwzględnić lub wykluczyć wszystkie wystąpienia niektórych określonej wartości zmiennej podzielone na kategorie. Jest to, co oznacza "próbkowania przez grupę".
-Na przykład jeśli zmienna kategorii "Stan", która zawiera wartości NY MA, urząd certyfikacji, NJ, PA, itp, mają rekordy z takim samym stanie zawsze być ze sobą, czy są próbkowane lub nie.
+Podczas próbkowania danych podzielone na kategorie, może być tooeither dołączyć lub wykluczyć wszystkich wystąpień hello pewnej określonej wartości zmiennej podzielone na kategorie. Jest to, co oznacza "próbkowania przez grupę".
+Na przykład jeśli zmienna kategorii "Stan", która zawiera wartości NY MA, urząd certyfikacji, NJ, PA, itp, rekordy z hello takim samym stanie zawsze być ze sobą, czy są pobierane, czy nie.
 
 Poniżej przedstawiono przykładowe zapytanie tej próbki przez grupę:
 
@@ -88,7 +88,7 @@ Poniżej przedstawiono przykładowe zapytanie tej próbki przez grupę:
     on b.catfield=c.catfield
 
 ## <a name="stratified"></a>Stratyfikowana pobierania próbek
-Losowe próbkowania jest uporządkować względem zmienną podzielone na kategorie gdy próbki otrzymane wartości czy podzielone na kategorie które znajdują się w tej samej stosunek jak populacji nadrzędnej, z którego uzyskano próbek. W tym samym przykładzie jako powyżej, załóżmy, że dane mają grupy przez Państwa, co oznacza NJ ma 100 uwagi, NY ma 60 uwag, a WA ma 300 uwag. Jeśli określisz częstotliwość próbkowania stratyfikowana jako 0,5, następnie otrzymaną próbkę ma około 50, 30 i 150 obserwacji NJ, NY i WA odpowiednio.
+Losowe próbkowania jest uporządkować względem tooa podzielone na kategorie zmienną gdy próbki hello otrzymane wartości to podzielone na kategorie w hello zachowaniem jak hello nadrzędnego wypełniania, z których hello przykłady zostały uzyskane. Przy użyciu hello tym samym przykładzie, jako powyżej, załóżmy, że dane ma grupy przez Państwa, powiedz NJ ma 100 uwagi, NY ma 60 uwag, a WA ma 300 uwagi. Jeśli określisz szybkość hello uporządkować toobe próbkowania 0,5, a następnie hello próbki uzyskane powinny mieć około 50, 30 i 150 obserwacji NJ, NY i WA odpowiednio.
 
 Poniżej przedstawiono przykładowe zapytanie:
 

@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie rolami w usług w chmurze Azure z programem Visual Studio | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie dodawania i usuwania ról w usług w chmurze Azure z programem Visual Studio."
+title: "aaaManaging ról na platformie Azure cloud services z programem Visual Studio | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooadd i usuwanie ról na platformie Azure cloud services z programem Visual Studio."
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.openlocfilehash: 6ed857b857cf8c14506ca39725c214a7fea4fc95
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 131edc534d1110ba3d25cd00a3a24b643576875c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Zarządzanie rolami w usług w chmurze Azure z programem Visual Studio
-Po utworzeniu usługi w chmurze platformy Azure, można dodać do niego nowych ról lub usuwać istniejących ról. Możesz także zaimportować istniejący projekt i przekształcić ją do roli. Można na przykład zaimportować aplikację sieci web platformy ASP.NET i wyznaczanie roli sieci web.
+Po utworzeniu usługi w chmurze platformy Azure, można dodać nowe role tooit lub usuwać istniejących ról. Można także zaimportować istniejący projekt i przekonwertować go tooa roli. Można na przykład zaimportować aplikację sieci web platformy ASP.NET i wyznaczanie roli sieci web.
 
-## <a name="adding-a-role-to-an-azure-cloud-service"></a>Dodawanie roli do usługi w chmurze Azure
-Poniższe kroki prowadzące przez Dodawanie roli sieci web lub procesu roboczego do projektu usługi w chmurze platformy Azure w programie Visual Studio.
+## <a name="adding-a-role-tooan-azure-cloud-service"></a>Dodawanie tooan roli usługi w chmurze Azure
+Hello następujące kroki prowadzące przez dodawanie sieci web lub procesu roboczego roli tooan Azure projektu usługi w chmurze w programie Visual Studio.
 
 1. Utwórz lub Otwórz projekt usługi w chmurze platformy Azure w programie Visual Studio.
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł projektu
+1. W **Eksploratora rozwiązań**, rozwiń węzeł projektu hello
 
-1. Kliknij prawym przyciskiem myszy **ról** węzeł, aby wyświetlić menu kontekstowe. Wybierz z menu kontekstowego **Dodaj**, następnie wybierz istniejącą rolę sieci web lub roli proces roboczy z bieżącego rozwiązania lub Utwórz projekt roli sieci web lub procesu roboczego. Można również wybrać odpowiedni projekt, takich jak projekt aplikacji sieci web platformy ASP.NET i skojarzyć go z projektu roli.
+1. Kliknij prawym przyciskiem myszy hello **ról** menu kontekstowe hello toodisplay węzłów. Wybierz z menu kontekstowego hello **Dodaj**, następnie wybierz istniejącą rolę sieci web lub roli proces roboczy z bieżącego rozwiązania hello lub Utwórz projekt roli sieci web lub procesu roboczego. Można również wybrać odpowiedni projekt, takich jak projekt aplikacji sieci web platformy ASP.NET i skojarzyć go z projektu roli.
 
-    ![Opcje menu, aby dodać rolę do projektu usługi w chmurze Azure](media/vs-azure-tools-cloud-service-project-managing-roles/add-role.png)
+    ![Menu Opcje tooadd projektu usługi w chmurze Azure tooan roli](media/vs-azure-tools-cloud-service-project-managing-roles/add-role.png)
 
 ## <a name="removing-a-role-from-an-azure-cloud-service"></a>Usunięcie roli z usługi w chmurze Azure
-Poniższe kroki prowadzące przez usunięcie roli sieci web lub procesu roboczego z projektu usługi w chmurze platformy Azure w programie Visual Studio.
+Witaj następujące kroki prowadzące przez usunięcie roli sieci web lub procesu roboczego z projektu usługi w chmurze platformy Azure w programie Visual Studio.
 
 1. Utwórz lub Otwórz projekt usługi w chmurze platformy Azure w programie Visual Studio.
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł projektu
+1. W **Eksploratora rozwiązań**, rozwiń węzeł projektu hello
 
-1. Rozwiń węzeł **ról** węzła.
+1. Rozwiń węzeł hello **ról** węzła.
 
-1. Kliknij prawym przyciskiem myszy węzeł, który chcesz usunąć, a z menu kontekstowego wybierz **Usuń**. 
+1. Kliknij prawym przyciskiem myszy hello węzła tooremove, a następnie, wybierz z menu kontekstowego hello **Usuń**. 
 
-    ![Opcje menu, aby dodać rolę do usługi w chmurze Azure](media/vs-azure-tools-cloud-service-project-managing-roles/remove-role.png)
+    ![Menu Opcje tooadd tooan roli usługi w chmurze Azure](media/vs-azure-tools-cloud-service-project-managing-roles/remove-role.png)
 
-## <a name="readding-a-role-to-an-azure-cloud-service-project"></a>Ponowne Dodawanie roli do projektu usługi w chmurze Azure
-Jeśli usunąć rolę z projektu usługi w chmurze, ale później zdecyduje się Dodaj rolę projektu, tylko deklaracji roli i Podstawowe atrybuty, takie jak punkty końcowe i informacje diagnostyczne, zostaną dodane. Nie dodatkowe zasoby lub odwołania zostały dodane do `ServiceDefinition.csdef` pliku lub `ServiceConfiguration.cscfg` pliku. Jeśli chcesz dodać te informacje, należy ręcznie dodać do tych plików.
+## <a name="readding-a-role-tooan-azure-cloud-service-project"></a>Ponowne dodawanie projektu usługi w chmurze Azure tooan roli
+Usuń rolę z projektu usługi w chmurze, ale później zdecyduje tooadd hello powrotem rolę toohello projektu, tylko hello roli deklaracji i Podstawowe atrybuty, takie jak punkty końcowe i informacje diagnostyczne, zostaną dodane. Nie dodatkowe zasoby lub odwołania są dodawane toohello `ServiceDefinition.csdef` pliku lub toohello `ServiceConfiguration.cscfg` pliku. Jeśli chcesz tooadd te informacje, należy toomanually go z powrotem dodać do tych plików.
 
-Na przykład można usunąć roli usługi sieci web, a później zdecydujesz się dodać tej roli do rozwiązania. Jeśli to zrobisz, występuje błąd. Aby uniknąć tego błędu, należy dodać `<LocalResources>` pokazano w poniższych XML do elementu `ServiceDefinition.csdef` pliku. Użyj nazwy roli usługi sieci web, który został dodany do projektu jako część atrybutu nazwy dla  **<LocalStorage>**  elementu. W tym przykładzie nazwa roli usługi sieci web jest **WCFServiceWebRole1**.
+Na przykład można usunąć roli usługi sieci web, a później zdecyduje tooadd kopii tej roli w ramach rozwiązania. Jeśli to zrobisz, występuje błąd. tooprevent ten błąd, masz tooadd hello `<LocalResources>` element pokazano powitania po XML z powrotem do hello `ServiceDefinition.csdef` pliku. Użyj nazwy hello hello roli usługi sieci web, która dodane do projektu hello jako część atrybut nazwy hello hello  **<LocalStorage>**  elementu. W tym przykładzie nazwa hello roli usługi sieci web hello jest **WCFServiceWebRole1**.
 
     <WebRole name="WCFServiceWebRole1">
         <Sites>
@@ -72,4 +72,4 @@ Na przykład można usunąć roli usługi sieci web, a później zdecydujesz si�
     </WebRole>
 
 ## <a name="next-steps"></a>Następne kroki
-- [Konfigurowanie ról dla usługi w chmurze Azure z programem Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md)
+- [Konfigurowanie ról powitania dla usługi w chmurze Azure z programem Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md)

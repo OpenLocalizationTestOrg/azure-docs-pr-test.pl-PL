@@ -1,5 +1,5 @@
 ---
-title: "Azure: Szybki start — Tworzenie maszyn wirtualnych z systemem Windows za pomocą portalu | Microsoft Docs"
+title: Szybki Start - aaaAzure Tworzenie portalu maszyny Wirtualnej z systemem Windows | Dokumentacja firmy Microsoft
 description: "Azure: Szybki start — Tworzenie maszyn wirtualnych z systemem Windows za pomocą portalu"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,93 +16,93 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5646ad51244db6d214c0121d1f7cc45c59f9a78b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą witryny Azure Portal
+# <a name="create-a-windows-virtual-machine-with-hello-azure-portal"></a>Utwórz maszynę wirtualną systemu Windows z hello portalu Azure
 
-Maszyny wirtualne platformy Azure można utworzyć za pomocą witryny Azure Portal. Ta metoda bazuje na opartym na przeglądarce interfejsie użytkownika umożliwiającym tworzenie i konfigurowanie maszyn wirtualnych oraz wszystkich pokrewnych zasobów. Ten przewodnik Szybki start opisuje proces tworzenia maszyny wirtualnej i instalowania serwera sieci Web na tej maszynie wirtualnej.
+Maszyny wirtualne platformy Azure mogą być tworzone za pomocą hello portalu Azure. Ta metoda bazuje na opartym na przeglądarce interfejsie użytkownika umożliwiającym tworzenie i konfigurowanie maszyn wirtualnych oraz wszystkich pokrewnych zasobów. Ta procedura Szybki Start do utworzenia maszyny wirtualnej oraz jest instalowany serwer sieci Web na powitania maszyny Wirtualnej.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+## <a name="log-in-tooazure"></a>Zaloguj się za tooAzure
 
-Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
+Zaloguj się za toohello portalu Azure w http://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Kliknij przycisk hello **nowy** znaleziono przycisku na powitania lewym górnym rogu hello portalu Azure.
 
 2. Wybierz pozycję **Wystąpienia obliczeniowe**, a następnie wybierz pozycję **Windows Server 2016 Datacenter**. 
 
-3. Wprowadź informacje o maszynie wirtualnej. Nazwa użytkownika i hasło wprowadzone w tym miejscu są używane na potrzeby logowania się do maszyny wirtualnej. Po zakończeniu kliknij przycisk **OK**.
+3. Wprowadź informacje o maszynie wirtualnej hello. Hello nazwy użytkownika i hasła wprowadzonego w tym miejscu jest używane toolog toohello maszynie wirtualnej. Po zakończeniu kliknij przycisk **OK**.
 
-    ![Wprowadzanie podstawowych informacji o maszynie wirtualnej w bloku portalu](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
+    ![Podaj podstawowe informacje dotyczące maszyny Wirtualnej w bloku portalu hello](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
-4. Wybierz rozmiar maszyny wirtualnej. Aby wyświetlić więcej rozmiarów, wybierz pozycje **Wyświetl wszystkie** lub zmień filtr **Obsługiwany typ dysku**. 
+4. Wybierz rozmiar hello maszyny Wirtualnej. Wybierz więcej rozmiary toosee **Wyświetl wszystkie** lub zmień hello **obsługiwany typ dysku** filtru. 
 
     ![Zrzut ekranu przedstawiający rozmiary maszyn wirtualnych](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. W bloku ustawień pozostaw ustawienia domyślne i kliknij przycisk **OK**.
+5. W bloku ustawień hello zachować hello wartości domyślne, a następnie kliknij przycisk **OK**.
 
-6. Na stronie podsumowania kliknij przycisk **OK**, aby rozpocząć wdrażanie maszyny wirtualnej.
+6. Na stronie Podsumowanie powitania kliknij **Ok** wdrożenia maszyny wirtualnej hello toostart.
 
-7. Maszyna wirtualna zostanie przypięta do pulpitu nawigacyjnego witryny Azure Portal. Po zakończeniu wdrożenia zostanie automatycznie otwarty blok podsumowania maszyny wirtualnej.
+7. Witaj maszyny Wirtualnej będzie przypiętych toohello pulpitu nawigacyjnego portalu Azure. Po zakończeniu wdrażania hello bloku podsumowania hello maszyny Wirtualnej automatycznie otwiera.
 
 
-## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
+## <a name="connect-toovirtual-machine"></a>Podłącz maszynę toovirtual
 
-Utwórz połączenie pulpitu zdalnego z maszyną wirtualną.
+Utwórz maszynę wirtualną toohello połączeń usług pulpitu zdalnego.
 
-1. Kliknij przycisk **Połącz** we właściwościach maszyny wirtualnej. Zostanie utworzony i pobrany plik Remote Desktop Protocol (rdp).
+1. Kliknij przycisk hello **Connect** przycisk na powitania właściwości maszyny wirtualnej. Zostanie utworzony i pobrany plik Remote Desktop Protocol (rdp).
 
     ![Portal 9](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png) 
 
-2. Aby połączyć się z maszyną wirtualną, otwórz pobrany plik RDP. Jeśli zostanie wyświetlony monit, kliknij przycisk **Połącz**. Na komputerze Mac należy skorzystać z klienta RDP, takiego jak ten [klient pulpitu zdalnego](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) ze sklepu Mac App Store.
+2. tooyour tooconnect maszynę Wirtualną, otwórz hello pobrany plik RDP. Jeśli zostanie wyświetlony monit, kliknij przycisk **Połącz**. Na komputerze Mac, należy klienta RDP, takich jak ta [klienta usług pulpitu zdalnego](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) z hello Mac App Store.
 
-3. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej, a następnie kliknij przycisk **OK**.
+3. Wprowadź hello nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej hello, a następnie kliknij przycisk **Ok**.
 
-4. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Kliknij przycisk **Tak** lub **Kontynuuj**, aby kontynuować nawiązywanie połączenia.
+4. Może pojawić się ostrzeżenie o certyfikacie podczas hello procesu logowania. Kliknij przycisk **tak** lub **Kontynuuj** tooproceed z połączeniem hello.
 
 
 ## <a name="install-iis-using-powershell"></a>Instalowanie usług IIS przy użyciu programu PowerShell
 
-Uruchom sesję programu PowerShell na maszynie wirtualnej i uruchom następujące polecenie, aby zainstalować usługi IIS.
+Na maszynie wirtualnej hello Uruchom sesję programu PowerShell i uruchom hello następujące polecenia tooinstall usług IIS.
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Po zakończeniu zamknij sesję RDP i wróć do właściwości maszyny wirtualnej w witrynie Azure Portal.
+Po zakończeniu zamknąć sesji protokołu RDP hello i zwróć hello właściwości maszyny Wirtualnej na powitania portalu Azure.
 
 ## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
-Sieciowa grupa zabezpieczeń zabezpiecza ruch przychodzący i wychodzący. Po utworzeniu maszyny wirtualnej z poziomu witryny Azure Portal na porcie 3389 jest tworzona reguła ruchu przychodzącego dla połączeń RDP. Ponieważ maszyna wirtualna hostuje serwer sieci Web, należy utworzyć regułę sieciowej grupy zabezpieczeń dla portu 80.
+Sieciowa grupa zabezpieczeń zabezpiecza ruch przychodzący i wychodzący. Po utworzeniu maszyny Wirtualnej z portalu Azure hello tworzona jest reguła dla ruchu przychodzącego z portu 3389 połączenia RDP. Ponieważ ta maszyna wirtualna znajduje się serwer sieci Web, reguły NSG musi toobe utworzony dla portu 80.
 
-1. Na maszynie wirtualnej kliknij nazwę **grupy zasobów**.
-2. Wybierz **sieciową grupę zabezpieczeń**. Sieciową grupę zabezpieczeń można zidentyfikować za pomocą kolumny **Typ**. 
-3. W menu po lewej stronie, w obszarze ustawień, kliknij pozycję **Reguły zabezpieczeń dla ruchu przychodzącego**.
+1. Na maszynie wirtualnej hello, kliknij nazwę hello hello **grupy zasobów**.
+2. Wybierz hello **sieciowej grupy zabezpieczeń**. Witaj grupy NSG mogą zostać zidentyfikowane przy użyciu hello **typu** kolumny. 
+3. W menu po lewej stronie powitania, w obszarze Ustawienia, kliknij polecenie **reguły zabezpieczeń dla ruchu przychodzącego**.
 4. Kliknij pozycję **Dodaj**.
-5. W polu **Nazwa** wpisz wartość **http**. Upewnij się, że w polu **Zakres portów** ustawiono wartość 80, a w polu **Akcja** — wartość **Zezwalaj**. 
+5. W polu **Nazwa** wpisz wartość **http**. Upewnij się, że **zakres portów** ustawiono too80 i **akcji** ustawiono zbyt**Zezwalaj**. 
 6. Kliknij przycisk **OK**.
 
 
-## <a name="view-the-iis-welcome-page"></a>Wyświetlanie strony powitalnej usług IIS
+## <a name="view-hello-iis-welcome-page"></a>Widok hello strona powitalna usług IIS
 
-Po zainstalowaniu usług IIS i otwarciu portu 80 dla maszyny wirtualnej można uzyskać dostęp do serwera sieci Web z Internetu. Otwórz przeglądarkę internetową i wpisz publiczny adres IP maszyny wirtualnej. Publiczny adres IP można znaleźć w bloku maszyny wirtualnej w witrynie Azure Portal.
+Z programem IIS zainstalowanych i port 80 Otwórz tooyour maszyny Wirtualnej, hello serwer sieci Web jest teraz dostępna z hello internet. Otwórz przeglądarkę sieci web, a następnie wprowadź hello publicznego adresu IP hello maszyny Wirtualnej. Witaj publiczny adres IP można znaleźć w bloku maszyny Wirtualnej hello w hello portalu Azure.
 
 ![Domyślna witryna usług IIS](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. W tym celu wybierz grupę zasobów z bloku maszyny wirtualnej, a następnie kliknij przycisk **Usuń**.
+Gdy nie są już potrzebne, Usuń grupy zasobów hello, maszyny wirtualnej i wszystkie powiązane zasoby. toodo tak, zaznacz grupę zasobów hello hello bloku maszyny wirtualnej i kliknij przycisk **usunąć**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start została wdrożona prosta maszyna wirtualna i reguła sieciowej grupy zabezpieczeń oraz zainstalowano serwer sieci Web. Aby dowiedzieć się więcej o maszynach wirtualnych platformy Azure, przejdź do samouczka dla maszyn wirtualnych z systemem Windows.
+W tym przewodniku Szybki start została wdrożona prosta maszyna wirtualna i reguła sieciowej grupy zabezpieczeń oraz zainstalowano serwer sieci Web. toolearn więcej informacji o maszynach wirtualnych platformy Azure, nadal samouczek toohello dla maszyn wirtualnych systemu Windows.
 
 > [!div class="nextstepaction"]
 > [Samouczki dla maszyny wirtualnej platformy Azure z systemem Windows](./tutorial-manage-vm.md)

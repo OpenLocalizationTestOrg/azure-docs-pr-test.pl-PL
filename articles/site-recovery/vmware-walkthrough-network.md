@@ -1,6 +1,6 @@
 ---
-title: Plan sieci dla VMware do platformy Azure replikacji | Dokumentacja firmy Microsoft
-description: W tym artykule opisano planowanie wymagane sieci podczas replikowania maszyn wirtualnych VMware do platformy Azure
+title: aaaPlan sieci do replikacji tooAzure VMware | Dokumentacja firmy Microsoft
+description: "W tym artykule omówiono planowania wymagane podczas replikowania maszyn wirtualnych VMware tooAzure sieci"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: f164ac68ba6ec650bb3996b4aa870e1b98533a23
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2b4f385c768cc7f5e98abae0afb8258b00f3724f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-4-plan-networking-for-vmware-to-azure-replication"></a>Krok 4: Planowanie sieci dla VMware do platformy Azure replikacji
+# <a name="step-4-plan-networking-for-vmware-tooazure-replication"></a>Krok 4: Planowanie sieci w przypadku replikacji maszyn wirtualnych VMware tooAzure
 
-W tym artykule przedstawiono zagadnienia związane z planowaniem podczas replikowania lokalnych maszyn wirtualnych VMware do platformy Azure przy użyciu sieci [usługi Azure Site Recovery](site-recovery-overview.md) usługi.
+Ten artykuł zawiera podsumowanie sieci — kwestie podczas replikowania lokalnych maszyn wirtualnych VMware tooAzure przy użyciu hello [usługi Azure Site Recovery](site-recovery-overview.md) usługi.
 
-Wszelkie komentarze umieszczaj pod tym artykułem lub zadawaj pytania na [Forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Opublikuj wszelkie komentarze u dołu hello w tym artykule, lub zadać pytania w hello [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="connect-to-replica-vms"></a>Połącz się z repliką maszyny wirtualne
+## <a name="connect-tooreplica-vms"></a>Połącz tooreplica maszyny wirtualne
 
-Podczas planowania strategii trybu failover i replikacji, na których, jedno z pytań klucza jest sposób nawiązywania połączenia z maszyną wirtualną Azure po pracy awaryjnej. Istnieje kilka opcji do wyboru podczas projektowania strategii sieci dla repliki maszyny wirtualne platformy Azure:
+Podczas planowania strategii trybu failover i replikacji, na których należy jedno z pytań klucza hello jest sposób tooconnect toohello maszyny Wirtualnej Azure po pracy awaryjnej. Istnieje kilka opcji do wyboru podczas projektowania strategii sieci dla repliki maszyny wirtualne platformy Azure:
 
-- **Użyj innego adresu IP**: można określić, aby użyć różnych zakresów adresów IP dla sieci maszyny Wirtualnej Azure zreplikowane. W tym scenariuszu maszyny Wirtualnej pobiera nowego adresu IP po w tryb failover i aktualizowania DNS jest wymagany.
-- **Zachowaj tego samego adresu IP**: może chcesz użyć tego samego zakresu adresów IP jak w witrynie głównej lokalnymi dla sieci platformy Azure po pracy awaryjnej. Utrzymywanie tego samego adresu IP adresów upraszcza odzyskiwanie dzięki zmniejszeniu problemów dotyczących sieci po pracy awaryjnej. Jednak jeśli przeprowadzasz replikację do platformy Azure, należy zaktualizować tras z nowej lokalizacji adresy IP po pracy awaryjnej. 
+- **Użyj innego adresu IP**: można wybrać toouse różnych zakresów adresów IP dla hello replikowane sieci maszyny Wirtualnej platformy Azure. W tym scenariuszu hello maszyny Wirtualnej pobiera nowego adresu IP po pracy awaryjnej i aktualizacji DNS jest wymagany.
+- **Zachowaj tego samego adresu IP**: może być toouse hello tego samego zakresu adresów IP jak w witrynie głównej lokalnymi dla hello sieć platformy Azure po pracy awaryjnej. Utrzymywanie hello upraszcza samych adresów IP odzyskiwania hello zmniejszając sieci problemy związane z po pracy awaryjnej. Jednak Jeśli replikujesz tooAzure należy tooupdate tras z nowej lokalizacji hello adresów IP hello po pracy awaryjnej. 
 
 
 ## <a name="retain-ip-addresses"></a>Zachowaj adresów IP
 
-Usługa Site Recovery zapewnia adresy możliwości, aby zachować stałego adresu IP podczas przechodzenie w tryb failover na platformie Azure, z trybu failover podsieci.
+Usługa Site Recovery zapewnia adresy IP tooretain stałej możliwości hello przy awarii tooAzure z trybu failover podsieci.
 
-Tryb failover podsieci określonej podsieci jest obecny w lokacji 1 lub 2 lokacji, ale nigdy nie w obu lokacjach jednocześnie. Aby zachować przestrzeń adresów IP w przypadku trybu failover, można programowo Rozmieść infrastruktury router przenieść podsieci z jednej lokacji. Podczas pracy w trybie failover podsieci są przenoszone wraz z skojarzone chronionych maszyn wirtualnych. Główną wadą jest, że w przypadku awarii, należy przenieść całej podsieci.
+Tryb failover podsieci określonej podsieci jest obecny w lokacji 1 lub 2 lokacji, ale nigdy nie w obu lokacjach jednocześnie. W kolejności toomaintain hello przestrzeń adresów IP w przypadku hello trybu failover można programowo Rozmieść hello podsieci hello toomove infrastruktury router z jedną tooanother lokacji. Podczas pracy awaryjnej Przenieś podsieci hello z hello skojarzone chronionych maszyn wirtualnych. Główną wadą Hello jest w zdarzeniu hello awarii toomove hello całej podsieci.
 
 
 ### <a name="failover-example"></a>Przykład trybu failover
 
-Oto przykład dla trybu failover na platformie Azure.
+Oto przykład tooAzure trybu failover.
 
 - Firmy ficticious, banku Woodgrove ma infrastruktury lokalnej hosting aplikacji swoich biznesowych. Ich aplikacji dla urządzeń przenośnych znajdują się na platformie Azure.
-- Łączność między maszynami wirtualnymi banku Woodgrove na serwerach Azure i lokalnymi są udostępniane przez połączenie lokacja lokacja (VPN) między siecią lokalną krawędzi i sieci wirtualnej platformy Azure.
-- Tej sieci VPN oznacza, że sieci wirtualnej firmy w usłudze Azure jest wyświetlany jako rozszerzenie sieci lokalnej.
-- Woodgrove chce Użyj usługi Site Recovery, aby replikować obciążenia lokalnego do platformy Azure.
- - Woodgrove ma radzenia sobie z aplikacje i konfiguracje, które są zależne od stałe adresy IP, a w związku z tym konieczne zachowanie adresów IP dla swoich aplikacji po w tryb failover na platformie Azure.
- - Woodgrove ma przypisanych adresów IP z zakresu 172.16.1.0/24, 172.16.2.0/24 do jej zasobów, które działają na platformie Azure.
+- Łączność między maszynami wirtualnymi banku Woodgrove na serwerach Azure i lokalnymi są udostępniane przez połączenie lokacja lokacja (VPN) między siecią krawędzi lokalne powitania i hello sieci wirtualnej platformy Azure.
+- Oznacza to sieci VPN, że hello firmy sieci wirtualnej platformy Azure jest wyświetlany jako rozszerzenie sieci lokalnej.
+- Woodgrove chce toouse usługi Site Recovery tooreplicate lokalnymi obciążeń tooAzure.
+ - Woodgrove ma toodeal z aplikacje i konfiguracje, które są zależne od stałe adresy IP, a w związku z tym należy tooretain adresów IP dla swoich aplikacji po tooAzure pracy awaryjnej.
+ - Woodgrove ma przypisanych adresów IP z zakresu 172.16.1.0/24, zasobów tooits 172.16.2.0/24 działające na platformie Azure.
 
 
-Dla Woodgrove można było do replikowania jego maszyn wirtualnych na platformie Azure przy zachowaniu adresy IP, tutaj firmy, co firma musi wykonać:
+Woodgrove toobe stanie tooreplicate adresy jego tooAzure maszyn wirtualnych podczas zachowywania hello IP w tym miejscu jest jakie firma hello wymaga toodo:
 
-1. Tworzenie sieci wirtualnej platformy Azure. Rozszerzenie sieci lokalnej, należy tak, aby aplikacje działają w trybie Failover bezproblemowo.
-2. Azure umożliwia dodanie połączenie sieci VPN typu lokacja lokacja, oprócz połączenie punkt lokacja sieci wirtualnych utworzonych na platformie Azure.
-3. Podczas konfigurowania połączenia lokacja lokacja, w sieci platformy Azure może kierować ruchem do lokalizacji lokalnego (sieci lokalne) tylko wtedy, gdy zakres adresów IP jest inny niż zakres adresów lokalnych.
-    - Jest to spowodowane Azure nie obsługuje rozciągnięty podsieci. Jeśli masz podsieci 192.168.1.0/24 lokalnymi, nie można dodać 192.168.1.0/24 sieci lokalnej w sieci platformy Azure.
-    - Oczekiwany jest Azure nie może ustalić, czy brak aktywnych maszyn wirtualnych w podsieci i że podsieć jest tworzony tylko odzyskiwania po awarii.
-    - Aby można było poprawnie kierować ruchem sieciowym spoza sieci platformy Azure podsieci w sieci i sieci lokalnej nie może powodować konflikt.
+1. Tworzenie sieci wirtualnej platformy Azure. Należy go rozszerzenie hello lokalnej sieci, dzięki czemu aplikacje mogą bezproblemowo awaryjnie.
+2. Azure umożliwia możesz tooadd lokacja lokacja łączność w sieci VPN, oprócz toopoint lokacja, łączność toohello sieci wirtualne utworzone na platformie Azure.
+3. Podczas konfigurowania połączenia lokacja lokacja hello, w hello Azure sieci, można kierować ruchu toohello lokalnej lokalizacji (sieci lokalne) tylko wtedy, gdy zakres adresów IP hello różni się od zakresu adresów IP lokalne powitania.
+    - Jest to spowodowane Azure nie obsługuje rozciągnięty podsieci. Dlatego masz podsieci 192.168.1.0/24 lokalnymi, nie można dodać 192.168.1.0/24 sieci lokalnej w hello sieć platformy Azure.
+    - Oczekiwany jest Azure nie może ustalić, czy brak aktywnych maszyn wirtualnych w podsieci hello i podsieci hello jest tworzony tylko odzyskiwania po awarii.
+    - Program toobe toocorrectly może kierować ruchem sieciowym poza podsieci hello sieć platformy Azure w sieci hello i sieci lokalnej hello nie może powodować konflikt.
 
 ![Przed podsieci trybu failover](./media/site-recovery-network-design/network-design7.png)
 
 ### <a name="before-failover"></a>Przed trybu failover
 
-1. Utwórz dodatkowe sieci (na przykład odzyskiwania). To jest sieć w którego przejścia w tryb failover maszyny wirtualne są tworzone.
-2. Aby upewnić się, że adres IP dla maszyny Wirtualnej jest zachowywany po przejściu w tryb failover, we właściwościach maszyny Wirtualnej > **Konfiguruj**, należy określić ten sam adres IP, że maszyna wirtualna ma lokalnego i kliknij **zapisać**.
-3. Gdy maszyna wirtualna przeszła w tryb failover, usługi Azure Site Recovery przypisze podanego adresu IP do niego.
+1. Utwórz dodatkowe sieci (na przykład odzyskiwania). Jest hello sieć w którego przejścia w tryb failover maszyny wirtualne są tworzone.
+2. tooensure, który hello adresu IP dla maszyny Wirtualnej jest zachowywane po przejściu w tryb failover, hello właściwości maszyny Wirtualnej > **Konfiguruj**, określ hello hello, że maszyna wirtualna ma lokalnego, a następnie kliknij przycisk adres IP tego samego **zapisać**.
+3. Gdy hello wirtualna przeszła w tryb failover, usługi Azure Site Recovery przypisze hello podane tooit adresów IP.
 
     ![Właściwości sieci](./media/site-recovery-network-design/network-design8.png)
 
-4. Po wyzwoleniu wyzwalacza i maszyn wirtualnych są tworzone na platformie Azure przy użyciu wymaganych adresu IP trybu failover możesz nawiązać połączenie przy użyciu sieci [sieci wirtualnej do sieci wirtualnej połączenia](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Ta akcja umożliwia pisanie skryptów.
-5. Trasy należy odpowiednio można zmodyfikować, aby odzwierciedlał tego 192.168.1.0/24 teraz zostały przeniesione do platformy Azure.
+4. Po wyzwoleniu wyzwalacza i hello maszyny wirtualne są tworzone na platformie Azure z adresem IP hello wymagane trybu failover można połączyć za pomocą sieci toohello [sieci wirtualnej tooVnet połączenia](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Ta akcja umożliwia pisanie skryptów.
+5. Trasy należy zmodyfikować odpowiednio, toobe tooreflect tego 192.168.1.0/24 teraz przeniósł tooAzure.
 
     ![Po podsieci w tryb failover](./media/site-recovery-network-design/network-design9.png)
 
@@ -84,8 +84,8 @@ Jeśli nie ma sieci platformy Azure, jak pokazano powyżej, można utworzyć po�
 
 ## <a name="change-ip-addresses"></a>Zmiana adresów IP
 
-To [wpis w blogu](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) wyjaśniono, jak skonfigurować infrastrukturę sieci Azure, gdy nie trzeba zachować adresy IP po pracy awaryjnej. Go rozpoczyna się od opisu aplikacji wygląda jak skonfigurować sieci lokalnej na platformie Azure i zawiera informacje o uruchamianiu przechodzenia w tryb failover.  
+To [wpis w blogu](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) wyjaśniono, jak adresy tooset się hello Azure infrastrukturę sieci, gdy tooretain IP nie jest konieczne po pracy awaryjnej. Go rozpoczyna się od opisu aplikacji wygląda w sposób tooset się sieci lokalnej i w systemie Azure i zawiera informacje o uruchamianiu przechodzenia w tryb failover.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do [krok 5: przygotowanie Azure](vmware-walkthrough-prepare-azure.md)
+Przejdź do zbyt[krok 5: przygotowanie Azure](vmware-walkthrough-prepare-azure.md)

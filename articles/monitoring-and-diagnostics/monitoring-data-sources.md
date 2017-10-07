@@ -1,6 +1,6 @@
 ---
-title: "Wykorzystują dane monitorowania z platformy Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat wszystkich monitorowania źródeł danych dostępnych na platformie Azure dzisiaj."
+title: aaaConsume monitorowania danych z platformy Azure | Dokumentacja firmy Microsoft
+description: "Więcej informacji na temat wszystkich hello dzisiaj monitorowania źródeł danych dostępnych na platformie Azure."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 6586cad908e6527b874dc3f0ee256c6b2cea8c49
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3c7fdad7c25b4d456df395b453fa0e75d514b0b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Wykorzystują dane monitorowania z platformy Azure
 
-Na platformie Azure możemy są łączące dane monitorowania w jednym miejscu z monitorem Azure potoku, ale praktycznie potwierdzić, że obecnie nie wszystkie dane monitorowania są jeszcze dostępne w tym potoku. W tym artykule firma Microsoft będzie podsumowanie różne sposoby, można programowo dostęp do danych monitorowania z usług Azure.
+Między hello Azure platformy, możemy są przywracanie danych w jednym miejscu z hello Azure Monitor potoku razem monitorowania, ale praktycznie potwierdzić, że obecnie nie wszystkie dane monitorowania są jeszcze dostępne w tym potoku. W tym artykule firma Microsoft będzie podsumowanie hello różne sposoby, można programowo dostęp do danych monitorowania z usług Azure.
 
 ## <a name="options-for-data-consumption"></a>Opcje wykorzystania danych
 
@@ -52,5 +52,5 @@ Na platformie Azure możemy są łączące dane monitorowania w jednym miejscu z
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [metryki Azure Monitor](monitoring-overview-metrics.md)
-- Dowiedz się więcej o [dziennika aktywności platformy Azure](monitoring-overview-activity-logs.md)
+- Dowiedz się więcej o [hello dziennika aktywności platformy Azure](monitoring-overview-activity-logs.md)
 - Dowiedz się więcej o [dzienników diagnostycznych platformy Azure](monitoring-overview-of-diagnostic-logs.md)

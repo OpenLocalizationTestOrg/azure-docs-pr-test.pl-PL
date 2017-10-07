@@ -1,7 +1,7 @@
 # Macierz wirtualna usługi StorSimple
 
 ## Omówienie
-### [Jakie jest rozwiązanie?](storsimple-ova-overview.md)
+### [Co to jest hello rozwiązania?](storsimple-ova-overview.md)
 
 ## Rozpoczęcie pracy
 ### Planowanie
@@ -9,8 +9,8 @@
 #### [Poznawanie ograniczeń](storsimple-ova-limits.md)
 #### [Przeglądanie najlepszych rozwiązań](storsimple-ova-best-practices.md)
 
-### Wdrożenie
-#### [Przygotowanie do wdrożenia](storsimple-virtual-array-deploy1-portal-prep.md)
+### Wdrażanie
+#### [Przygotowanie toodeploy](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Wdrażanie usługi StorSimple Manager](storsimple-virtual-array-manage-service.md)
 #### [Aprowizacja za pomocą funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Aprowizacja w oprogramowaniu VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
@@ -53,7 +53,7 @@
 # Seria StorSimple 8000 (Azure Portal)
 
 ## Omówienie
-### [Jakie jest rozwiązanie?](storsimple-overview.md)
+### [Co to jest hello rozwiązania?](storsimple-overview.md)
 ### [StorSimple — mapa uczenia się](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Zagadnienia związane z zabezpieczeniami](storsimple-8000-security.md)
 
@@ -87,12 +87,12 @@
 #### [Korzystanie z usługi StorSimple Manager](storsimple-8000-manager-service-administration.md)
 ##### [Przywracanie z kopii zapasowej](storsimple-8000-restore-from-backup-set-u2.md)
 ##### [Klonowanie woluminu](storsimple-8000-clone-volume-u2.md)
-##### [Zdalne łączenie z urządzeniem](storsimple-8000-remote-connect.md)
+##### [Połączenie zdalne urządzenie tooyour](storsimple-8000-remote-connect.md)
 ##### [Dezaktywacja i usuwanie urządzenia](storsimple-8000-deactivate-and-delete-device.md)
 ##### [Przełączanie urządzenia do trybu failover](storsimple-8000-device-failover-disaster-recovery.md)
-###### [Fail over to physical device (Przełączanie w tryb failover na urządzenie fizyczne)](storsimple-8000-device-failover-physical-device.md)
-###### [Fail over to cloud appliance (Przełączanie w tryb failover na urządzenie w chmurze)](storsimple-8000-device-failover-cloud-appliance.md)
-###### [Fail over to same device (Przełączanie w tryb failover na to samo urządzenie)](storsimple-8000-device-failover-same-device.md)
+###### [Tryb failover toophysical urządzenia](storsimple-8000-device-failover-physical-device.md)
+###### [Tryb failover toocloud urządzenia](storsimple-8000-device-failover-cloud-appliance.md)
+###### [Tryb failover toosame urządzenia](storsimple-8000-device-failover-same-device.md)
 ##### [Zarządzanie wykazem kopii zapasowych](storsimple-8000-manage-backup-catalog.md)
 ##### [Zarządzanie zasadami tworzenia kopii zapasowych](storsimple-8000-manage-backup-policies-u2.md)
 ##### [Zarządzanie kontami magazynu](storsimple-8000-manage-storage-accounts.md)
@@ -132,7 +132,7 @@
 #### [Usługa StorSimple z oprogramowaniem Veeam](storsimple-configure-backup-target-veeam.md)
 #### [Usługa StorSimple z oprogramowaniem Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
 #### [Usługa StorSimple z oprogramowaniem Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
-#### [Automatyzowanie odzyskiwania po awarii serwera plików na platformie Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [Automatyzowanie serwera plików DR tooAzure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Usługa StorSimple z usługą Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [Usługa StorSimple z oprogramowaniem VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
 #### [Usługa StorSimple z funkcją Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
@@ -163,7 +163,7 @@
 
 ### Migrate (Migracja)
 #### [Z urządzeń serii 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
-#### [Z innych urządzeń magazynujących](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Z innych urządzeń magazynujących](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data tooStorSimple Volumes_09-02-15.pdf)
 
 ### Aktualizacja
 #### [Instalowanie aktualizacji Update 5 — bieżącej](storsimple-8000-install-update-5.md)
@@ -191,7 +191,7 @@
 # Seria StorSimple 8000 (portal klasyczny)
 
 ## Omówienie
-### [Jakie jest rozwiązanie?](storsimple-overview.md)
+### [Co to jest hello rozwiązania?](storsimple-overview.md)
 ### [StorSimple — mapa uczenia się](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Zagadnienia związane z zabezpieczeniami](storsimple-8000-security.md)
 
@@ -230,7 +230,7 @@
 ###### [Przywracanie z kopii zapasowej](storsimple-restore-from-backup-set.md)
 ##### [Klonowanie woluminu](storsimple-clone-volume-u2.md)
 ###### [Klonowanie woluminu](storsimple-clone-volume.md)
-##### [Zdalne łączenie z urządzeniem](storsimple-remote-connect.md)
+##### [Połączenie zdalne urządzenie tooyour](storsimple-remote-connect.md)
 ##### [Dezaktywacja i usuwanie urządzenia](storsimple-deactivate-and-delete-device.md)
 ##### [Przełączanie urządzenia do trybu failover](storsimple-device-failover-disaster-recovery.md)
 ##### [Zarządzanie wykazem kopii zapasowych](storsimple-manage-backup-catalog.md)
@@ -273,7 +273,7 @@
 #### [Usługa StorSimple z oprogramowaniem Veeam](storsimple-configure-backup-target-veeam.md)
 #### [Usługa StorSimple z oprogramowaniem Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
 #### [Usługa StorSimple z oprogramowaniem Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
-#### [Automatyzowanie odzyskiwania po awarii serwera plików na platformie Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [Automatyzowanie serwera plików DR tooAzure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Usługa StorSimple z usługą Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [Usługa StorSimple z oprogramowaniem VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
 #### [Usługa StorSimple z funkcją Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
@@ -302,7 +302,7 @@
 
 ### Migrate (Migracja)
 #### [Z urządzeń serii 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
-#### [Z innych urządzeń magazynujących](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Z innych urządzeń magazynujących](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data tooStorSimple Volumes_09-02-15.pdf)
 
 ### Aktualizacja
 #### [Instalowanie aktualizacji Update 4](storsimple-install-update-4.md)
@@ -329,22 +329,22 @@
 # Usługa StorSimple Data Manager (prywatna wersja zapoznawcza)
 
 ## Omówienie
-### [Jakie jest rozwiązanie?](storsimple-data-manager-overview.md)
+### [Co to jest hello rozwiązania?](storsimple-data-manager-overview.md)
 
 ## Rozpoczęcie pracy
 ### [Korzystanie z usługi StorSimple Data Manager](storsimple-data-manager-ui.md)
 
 ## Instrukcje
-### [Rozpoczynanie zadań przy użyciu programu .NET](storsimple-data-manager-dotnet-jobs.md)
-### [Rozpoczynanie zadań przy użyciu usługi Automation](storsimple-data-manager-job-using-automation.md)
+### [Użyj zadań toostart .NET](storsimple-data-manager-dotnet-jobs.md)
+### [Użyj automatyzacji zadań toostart](storsimple-data-manager-job-using-automation.md)
 ### [Zmienianie domyślnej ścieżki obiektu blob](storsimple-data-manager-change-default-blob-path.md)
 
 # Usługa StorSimple dla partnerów
 
 ## Omówienie
-### [Jakie jest rozwiązanie?](storsimple-partner-csp-overview.md)
+### [Co to jest hello rozwiązania?](storsimple-partner-csp-overview.md)
 
-## Rozpoczynanie pracy
+## Rozpoczęcie pracy
 ### [Wdrażanie macierzy wirtualnej dla dostawców CSP](storsimple-partner-csp-deploy.md)
 
 ## Informacje o wersji

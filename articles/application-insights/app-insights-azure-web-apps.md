@@ -1,5 +1,5 @@
 ---
-title: "Monitorowanie wydajności aplikacji sieci Web platformy Azure | Microsoft Docs"
+title: "aaaMonitor wydajność aplikacji sieci web platformy Azure | Dokumentacja firmy Microsoft"
 description: "Monitorowanie wydajności aplikacji dla aplikacji sieci Web platformy Azure. Udostępnianie wykresów czasu ładowania i odpowiedzi oraz informacji o zależnościach oraz ustawianie alertów dotyczących wydajności."
 services: application-insights
 documentationcenter: .net
@@ -13,29 +13,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
-ms.openlocfilehash: f2bbadfbcb93873ed910aeff050bd6896e2e8fec
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d1083254e5c504b18f2ac5ae2368610dc2790436
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorowanie wydajności aplikacji sieci Web platformy Azure
-W witrynie [Azure Portal](https://portal.azure.com) możesz skonfigurować monitorowanie wydajności [aplikacji sieci Web platformy Azure](../app-service-web/app-service-web-overview.md). [Usługa Azure Application Insights](app-insights-overview.md) umożliwia instrumentację aplikacji w celu wysyłania danych telemetrii do usługi Application Insights, gdzie są one przechowywane i analizowane. W usłudze tej można używać wykresów metryki i narzędzi wyszukiwania do ułatwiania diagnozowania problemów, zwiększania wydajności i oceny użycia.
+W hello [Azure Portal](https://portal.azure.com) można skonfigurować monitorowanie wydajności aplikacji dla programu [aplikacje sieci web Azure](../app-service-web/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instruments telemetrii toosend aplikacji o jego toohello działania usługi Application Insights, gdzie są przechowywane i przeanalizowane. Istnieje, można użyć narzędzia wyszukiwania i wykresy metryki toohelp diagnozowanie problemów, zwiększenia wydajności i użycia do oceny.
 
 ## <a name="run-time-or-build-time"></a>W czasie wykonywania lub czasie kompilacji
-Możesz skonfigurować monitorowanie, instrumentując aplikację na jeden z dwóch sposobów:
+Można skonfigurować monitorowanie przez instrumentacji aplikacji hello na dwa sposoby:
 
-* **Czas wykonywania** — możesz wybrać rozszerzenie monitorowania wydajności, gdy aplikacja sieci Web już działa. Nie trzeba ponownie kompilować ani instalować aplikacji. Uzyskujesz standardowy zestaw pakietów, które monitorują czasy odpowiedzi, współczynniki sukcesu, wyjątki, zależności itd. 
-* **Czas kompilacji** — możesz zainstalować pakiet w aplikacji podczas programowania. Ta opcja jest bardziej wszechstronna. Oprócz tych samych pakietów standardowych możesz napisać kod w celu dostosowania telemetrii lub wysłania własnych danych telemetrii. Możesz rejestrować określone działania lub zdarzenia zgodnie z semantyką domeny aplikacji. 
+* **Czas wykonywania** — możesz wybrać rozszerzenie monitorowania wydajności, gdy aplikacja sieci Web już działa. Go nie jest konieczne toorebuild lub zainstaluj ponownie aplikację. Uzyskujesz standardowy zestaw pakietów, które monitorują czasy odpowiedzi, współczynniki sukcesu, wyjątki, zależności itd. 
+* **Czas kompilacji** — możesz zainstalować pakiet w aplikacji podczas programowania. Ta opcja jest bardziej wszechstronna. W przypadku dodawania toohello same pakiety standardowe, można napisać kod toocustomize hello telemetrii lub toosend własnych danych telemetrycznych. Możesz zalogować się konkretne działania lub zdarzenia rekordu zgodnie z semantyki toohello domeny aplikacji. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentacja w czasie wykonywania za pomocą usługi Application Insights
-Jeśli już masz uruchomioną aplikację sieci Web na platformie Azure, otrzymujesz pewne informacje monitorowania: żądania i współczynniki błędów. Dodaj usługę Application Insights, aby uzyskać więcej informacji, na przykład czasy odpowiedzi, monitorowanie wywołań dla zależności, inteligentne wykrywanie i zaawansowany język zapytań usługi Log Analytics. 
+Jeśli już masz uruchomioną aplikację sieci Web na platformie Azure, otrzymujesz pewne informacje monitorowania: żądania i współczynniki błędów. Dodaj więcej, takich jak czas reakcji, monitorowania toodependencies wywołania inteligentne wykrywanie i hello zaawansowanych język zapytań usługi Analiza dzienników tooget usługi Application Insights. 
 
-1. **Wybierz usługę Application Insights** w Panelu sterowania platformy Azure dla aplikacji sieci Web.
+1. **Wybierz usługi Application Insights** w Panelu sterowania Azure powitania dla aplikacji sieci web.
    
     ![W obszarze Monitorowanie wybierz pozycję Application Insights](./media/app-insights-azure-web-apps/05-extend.png)
    
-   * Wybierz opcję tworzenia nowego zasobu, chyba że zasób usługi Application Insights dla tej aplikacji został już skonfigurowany inną drogą.
+   * Wybierz toocreate nowy zasób, chyba że — konfiguracja zasobu usługi Application Insights dla tej aplikacji jest już w innej trasy.
 2. **Zastosuj instrumentację aplikacji sieci Web** po zainstalowaniu usługi Application Insights. 
    
     ![Instrumentacja aplikacji sieci Web](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
@@ -48,59 +48,59 @@ Jeśli już masz uruchomioną aplikację sieci Web na platformie Azure, otrzymuj
     Klucz: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
     
     Wartość:`true`
-   * **Zapisz** ustawienia i **ponownie uruchom** aplikację.
-3. **Monitoruj aplikację**.  [Eksploruj dane](#explore-the-data).
+   * **Zapisz** hello ustawienia i **ponowne uruchomienie** aplikacji.
+3. **Monitoruj aplikację**.  [Dane hello Expore](#explore-the-data).
 
-W razie potrzeby możesz później utworzyć aplikację za pomocą usługi Application Insights.
+Później można utworzyć aplikacji hello za pomocą usługi Application Insights, jeśli chcesz.
 
-*Jak usunąć usługę Application Insights lub przełączyć się na wysyłanie do innego zasobu?*
+*Jak usunąć usługi Application Insights, lub przełączyć zasób tooanother toosending?*
 
-* Na platformie Azure otwórz blok sterowania aplikacji sieci Web i w obszarze Narzędzia programistyczne otwórz pozycję **Rozszerzenia**. Usuń rozszerzenie usługi Application Insights. Następnie w obszarze Monitorowanie wybierz pozycję Application Insights i utwórz lub wybierz żądany zasób.
+* Na platformie Azure, otwórz hello bloku kontroli aplikacja sieci web, a w obszarze Narzędzia deweloperskie, otwórz **rozszerzenia**. Usuń hello rozszerzenia usługi Application Insights. Następnie w obszarze monitorowania, wybierz usługę Application Insights i Utwórz lub wybierz hello żądanego zasobu.
 
-## <a name="build-the-app-with-application-insights"></a>Skompiluj aplikację za pomocą usługi Application Insights
+## <a name="build-hello-app-with-application-insights"></a>Tworzenie aplikacji hello za pomocą usługi Application Insights
 Usługa Application Insights może zapewnić bardziej szczegółową telemetrię dzięki instalacji zestawu SDK w Twojej aplikacji. W szczególności możesz gromadzić dzienniki śledzenia, [zapisywać niestandardową telemetrię](app-insights-api-custom-events-metrics.md) i uzyskiwać bardziej szczegółowe raporty o wyjątkach.
 
 1. **W programie Visual Studio** (2013 Update 2 lub nowszym) skonfiguruj usługę Application Insights dla projektu.
 
-    Kliknij prawym przyciskiem myszy projekt sieci Web i wybierz pozycje **Dodaj > Application Insights** lub **Konfiguruj usługę Application Insights**.
+    Kliknij prawym przyciskiem myszy projekt sieci web hello, a następnie wybierz **Dodaj > usługi Application Insights** lub **Konfiguruj usługę Application Insights**.
    
-    ![Kliknij prawym przyciskiem myszy projekt sieci Web i pozycję Dodaj lub Konfiguruj usługę Application Insights](./media/app-insights-azure-web-apps/03-add.png)
+    ![Kliknij prawym przyciskiem myszy projekt sieci web hello i wybierz polecenie Dodaj i Konfiguruj usługę Application Insights](./media/app-insights-azure-web-apps/03-add.png)
    
-    Jeśli pojawi się prośba o zalogowanie, użyj poświadczeń konta platformy Azure.
+    Jeśli użytkownik jest proszony toosign w, należy użyć hello poświadczeń dla konta platformy Azure.
    
-    Operacja ma dwa skutki:
+    Operacja Hello zawiera dwa efekty:
    
    1. Tworzy zasób usługi Application Insights na platformie Azure, gdzie telemetria jest przechowywana, analizowana i wyświetlana.
-   2. Dodaje pakiet aplikacji NuGet usługi Application Insights do kodu (jeśli jeszcze go tam nie ma) i konfiguruje go do wysyłania telemetrii do zasobu platformy Azure.
-2. **Przetestuj telemetrię**, uruchamiając aplikację na komputerze deweloperskim (F5).
-3. **Opublikuj aplikację** na platformie Azure w zwykły sposób. 
+   2. Dodaje hello NuGet usługi Application Insights tooyour kod pakietu (jeśli go nie ma już) i skonfiguruje je toosend telemetrii toohello zasobów platformy Azure.
+2. **Testowanie telemetrii hello** w uruchomionej aplikacji hello w komputerze deweloperskim (F5).
+3. **Publikowanie aplikacji hello** tooAzure hello — w zwykły sposób. 
 
-*Jak przełączyć się na wysyłanie do innego zasobu usługi Application Insights?*
+*Jak zmienić toosending tooa innego zasobu usługi Application Insights?*
 
-* W programie Visual Studio kliknij prawym przyciskiem myszy projekt, wybierz pozycję **Konfiguruj usługę Application Insights**, a następnie wybierz żądany zasób. Uzyskasz opcję tworzenia nowego zasobu. Ponownie skompiluj i wdróż.
+* W programie Visual Studio, kliknij prawym przyciskiem myszy projekt hello, wybierz **Konfiguruj usługę Application Insights** i wybierz zasób hello ma. Pobierz toocreate opcji hello nowy zasób. Ponownie skompiluj i wdróż.
 
-## <a name="explore-the-data"></a>Eksplorowanie danych
-1. W bloku usługi Application Insights panelu sterowania aplikacji sieci Web pojawi się obszar Metryki na żywo, który pokazuje żądania i błędy po upływie sekundy lub dwóch od chwili ich wystąpienia. Jest to bardzo przydatny widok w przypadku ponownego publikowania aplikacji — natychmiast zobaczysz wszelkie problemy.
-2. Kliknij elementy, aby przejść do pełnego zasobu usługi Application Insights.
+## <a name="explore-hello-data"></a>Eksplorowanie danych hello
+1. W bloku usługi Application Insights hello Twojej aplikacji sieci web w Panelu sterowania, zobacz Live metryki przedstawiającego żądań i błędów w ciągu sekundy lub dwóch ich wystąpienia. Jest to bardzo przydatny widok w przypadku ponownego publikowania aplikacji — natychmiast zobaczysz wszelkie problemy.
+2. Kliknij toohello pełne zasobu usługi Application Insights.
 
     ![Kliknij elementy](./media/app-insights-azure-web-apps/view-in-application-insights.png)
 
     Możesz tam przejść również bezpośrednio z nawigacji zasobów platformy Azure.
 
-1. Kliknij elementy któregokolwiek z wykresów, aby uzyskać więcej szczegółów:
+1. Kliknij za pomocą dowolnego tooget wykresu więcej szczegółów:
    
-    ![W bloku przeglądu usługi Application Insights kliknij wykres](./media/app-insights-azure-web-apps/07-dependency.png)
+    ![W bloku Omówienie usługi Application Insights hello kliknij wykres](./media/app-insights-azure-web-apps/07-dependency.png)
    
     Możesz [dostosować bloki metryk](app-insights-metrics-explorer.md).
-2. Klikaj dalej elementy, aby zobaczyć poszczególne zdarzenia i ich właściwości:
+2. Kliknij go, dalsze toosee pojedynczych zdarzeń i ich właściwości:
    
-    ![Kliknij typ zdarzenia, aby otworzyć wyszukiwanie filtrowane według danego typu](./media/app-insights-azure-web-apps/08-requests.png)
+    ![Kliknij przycisk tooopen typu zdarzenia wyszukiwania filtrowane wg typu](./media/app-insights-azure-web-apps/08-requests.png)
    
-    Zwróć uwagę na link „...”, aby otworzyć wszystkie właściwości.
+    Zwróć uwagę, Witaj "..." tooopen łącze wszystkich właściwości.
    
     Możesz [dostosować wyszukiwania](app-insights-diagnostic-search.md).
 
-Aby skorzystać z bardziej zaawansowanego wyszukiwania w ramach telemetrii, użyj [języka zapytań usługi Log Analytics](app-insights-analytics-tour.md).
+Bardziej zaawansowane wyszukiwanie za pośrednictwem telemetrii, użyj hello [języka zapytań usługi Analiza dzienników](app-insights-analytics-tour.md).
 
 ## <a name="more-telemetry"></a>Dalsze funkcje telemetrii
 
@@ -112,11 +112,11 @@ Aby skorzystać z bardziej zaawansowanego wyszukiwania w ramach telemetrii, uży
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Następne kroki
-* [Uruchom profilera aplikacji na żywo](app-insights-profiler.md).
+* [Uruchom w aktywnej aplikacji hello profilera](app-insights-profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) — monitorowanie usługi Azure Functions za pomocą usługi Application Insights
-* [Włącz diagnostykę platformy Azure](app-insights-azure-diagnostics.md), która ma być wysyłana do usługi Application Insights.
-* [Monitoruj metryki kondycji usługi](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md), aby upewnić się, że usługa jest dostępna i szybko reaguje.
+* [Włącz diagnostykę Azure](app-insights-azure-diagnostics.md) tooApplication toobe wysyłane szczegółowe informacje.
+* [Monitorowanie usługi kondycji metryk](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) toomake się, że usługa jest dostępna i elastyczny.
 * [Odbieraj powiadomienia o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) zawsze, gdy wystąpią zdarzenia operacyjne lub metryki przekroczą próg.
-* Użyj pozycji [Usługa Application Insights dla aplikacji JavaScript i stron sieci Web](app-insights-javascript.md), aby pobrać telemetrię klienta z przeglądarek, w których odwiedzono stronę sieci Web.
-* [Konfiguruj testy sieci Web dostępności](app-insights-monitor-web-app-availability.md), aby otrzymywać alerty, gdy witryna nie działa.
+* Użyj [usługi Application Insights dla aplikacji JavaScript i stron sieci web](app-insights-javascript.md) tooget klienta telemetrii hello przeglądarek, które strony sieci web.
+* [Konfigurowanie testów sieci web dostępności](app-insights-monitor-web-app-availability.md) toobe alert, jeśli witryna jest wyłączony.
 

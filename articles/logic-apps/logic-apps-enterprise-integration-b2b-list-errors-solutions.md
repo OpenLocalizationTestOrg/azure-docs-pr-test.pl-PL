@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1865d75f1b4c2aa18d5a3130f639572d19563b3e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0340e2979f1972ba631354e206c93969e55946e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>Logiki aplikacji B2B listę błędów i rozwiązania  
 Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w scenariusze B2B aplikacji logiki, a także sugeruje odpowiednie działania w przypadku naprawiania te błędy.
@@ -31,7 +31,7 @@ Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w sc
 |   |   |  
 |---|---|
 | Opis błędu | Nie znaleziono z parametrami rozpoznawania umowy umowę.|    
-| Akcja użytkownika | Umowy powinno być dodane do konta integracji z tożsamości firm uzgodnione.</br> Tożsamości firm powinien być zgodny z identyfikatorami komunikatu wejściowego|  
+| Akcja użytkownika | Umowa Hello powinny zostać dodane toohello konta integracji z tożsamości firm uzgodnione.</br> tożsamości firm Hello powinna być zgodna toohello komunikat wejściowy identyfikatorów|  
 |   |   |
 
 ### <a name="-no-agreement-found-with-identities"></a>* Nie znaleziono z tożsamościami umowę.
@@ -39,7 +39,7 @@ Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w sc
 |   |   | 
 |---|---|
 | Opis błędu | Nie znaleziono z tożsamościami umowę: "AS2Identity":: "Partner1" i "AS2Identity":: "Partner3"| 
-| Akcja użytkownika | Nieprawidłowy AS2-z lub AS2 — do skonfigurowanych dla umowy. </br> Komunikatów AS2 AS2-z lub AS2-nagłówków lub umowy do dopasowania identyfikatorów AS2 w AS2 komunikatu nagłówków z konfiguracjami umowy |
+| Akcja użytkownika | Nieprawidłowy AS2-z lub AS2-tooconfigured umowy. </br> Komunikatów AS2 AS2-z lub identyfikatory toomatch AS2 AS2 tooheaders lub umowy w AS2 komunikatu nagłówków z konfiguracjami umowy |
 |   |   |     
 
 ## <a name="as2"></a>AS2
@@ -49,7 +49,7 @@ Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w sc
 |   |   |  
 |---|---|
 | Opis błędu| Nieprawidłowy nagłówek AS2. Jedną z "AS2 — do" lub "AS2 — od" nagłówki są puste| 
-| Akcja użytkownika | Odebrano komunikat AS2, która nie zawiera AS2-z lub AS2 — aby lub obu nagłówków. </br> Sprawdź komunikat AS2 AS2-z i AS2-nagłówków i prawidłowe je na podstawie umowy konfiguracji |
+| Akcja użytkownika | Odebrano komunikat AS2, która nie zawiera hello AS2-z lub AS2 tooor zarówno nagłówków. </br> Sprawdź komunikat AS2 AS2-z i AS2 tooheaders i popraw je na podstawie umowy konfiguracji |
 |  |  | 
 
 
@@ -57,8 +57,8 @@ Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w sc
 
 |   |   |  
 |---|---|
-| Opis błędu| Zawartość żądania ma wartość null lub pusty | 
-| Akcja użytkownika | Odebrano komunikat AS2, która nie zawiera treść komunikatu |
+| Opis błędu| zawartość żądania Hello ma wartość null lub pusty | 
+| Akcja użytkownika | Odebrano komunikat AS2, która nie zawiera treść wiadomości powitania |
 |  |  | 
 
 ### <a name="-as2-message-decryption-failure"></a>* Błąd odszyfrowywania wiadomości AS2
@@ -66,7 +66,7 @@ Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w sc
 |   |   | 
 |---|---|
 | Opis błędu |  [przetwarzane błąd: nie powiodło się odszyfrowywania] | 
-| Akcja użytkownika | Dodaj @base64ToBinary do AS2Message przed wysłaniem do partnera 
+| Akcja użytkownika | Dodaj @base64ToBinary tooAS2Message przed wysłaniem toopartner 
 ```java
             "HTTP": {
                 "inputs": {
@@ -83,7 +83,7 @@ Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w sc
 |   |   | 
 |---|---|
 | Opis błędu |  [przetwarzane błąd: nie powiodło się odszyfrowywania] | 
-| Akcja użytkownika | Dodaj @base64ToBinary do MDN przed wysłaniem do partnera 
+| Akcja użytkownika | Dodaj @base64ToBinary tooMDN przed wysłaniem toopartner 
 ```java
             "Response": {
                 "inputs": {
@@ -98,7 +98,7 @@ Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w sc
 
 |   |   |  
 |---|---|
-| Opis błędu| Nie skonfigurowano certyfikatu podpisywania firmy AS2. </br> AS2 — z: partner1 AS2 — do: partner2 | 
+| Opis błędu| Witaj certyfikat podpisywania nie skonfigurowano dla strony AS2. </br> AS2 — z: partner1 AS2 — do: partner2 | 
 | Akcja użytkownika | Skonfiguruj ustawienia umowy AS2 z prawidłowego certyfikatu do podpisu |
 |  |  | 
 
@@ -108,34 +108,34 @@ Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w sc
     
 |   |   | 
 |---|---|
-| Opis błędu | Napotkano błąd podczas analizowania. Transakcja Edifact zestawu o identyfikatorze "123456"zawarte w interchange (bez grupy) o identyfikatorze "987654", identyfikator nadawcy "Partner1", identyfikator odbiorcy "Partner2" zostanie wstrzymane z następujących błędów: wiodące końcowe separatora, znaleziono |
-| Akcja użytkownika | Ustawienia umowy, aby umożliwiać spacji wiodących i końcowych miejsca. </br> Edytowanie umowy ustawienia umożliwiające programowi miejsca wiodące i końcowe |
+| Opis błędu | Napotkano błąd podczas analizowania. Witaj transakcji Edifact ustawić o identyfikatorze "123456"zawarte w interchange (bez grupy) o identyfikatorze "987654", identyfikatorem nadawcy "Partner1", identyfikator odbiorcy "Partner2" zostanie wstrzymane z następujących błędów: wiodące końcowe separatora, znaleziono |
+| Akcja użytkownika | toobe ustawienia umowy Hello skonfigurowane tooallow spacji wiodących i końcowych miejsca. </br> Edytowanie umowy ustawienia tooallow spacji wiodących i końcowych miejsca |
 |   |   |
 
 ![Zezwalaj na miejsce](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
 
-### <a name="-duplicate-check-has-enabled-in-the-agreement"></a>* Zduplikowane wyboru włączył umowy
+### <a name="-duplicate-check-has-enabled-in-hello-agreement"></a>* Zduplikowane wyboru włączył hello umowy
 
 |   |   | 
 |---|---| 
 | Opis błędu | Zduplikowany numer formantu |
-| Akcja użytkownika | Ten błąd wskazuje, że odebranego komunikatu ma numery zduplikowane kontroli. </br> Popraw liczbę kontroli i ponownie wysłać wiadomość |
+| Akcja użytkownika | Ten błąd wskazuje, że wiadomość hello Odebrano ma numery zduplikowane kontroli. </br> Popraw liczbę kontroli hello i ponownie wyślij wiadomość hello |
 |   |   |
 
-### <a name="-missing-schema-in-the-agreement"></a>* Brak schematu umowy
+### <a name="-missing-schema-in-hello-agreement"></a>* Brak schematu hello umowy
 
 |   |   | 
 |---|---| 
-| Opis błędu | Napotkano błąd podczas analizowania. X12 zestawu transakcji o identyfikatorze '564220001' zawarte w grupy funkcjonalnej o identyfikatorze "56422', w wymiany o identyfikatorze"000056422"o identyfikatorze nadawcy" 12345678", identyfikator odbiorcy" 87654321"zostanie wstrzymane z następujących błędów" wiadomość ma nieznany typ dokumentu ND nie zostało rozwiązane do żadnego z istniejących schematów skonfigurowanych w umowie" |
-| Akcja użytkownika | Konfigurowanie schematu w ustawieniach umowy  |
+| Opis błędu | Napotkano błąd podczas analizowania. zestaw transakcji Hello X12 o identyfikatorze '564220001' zawarte w grupy funkcjonalnej o identyfikatorze "56422', w wymiany o identyfikatorze"000056422"o identyfikatorze nadawcy" 12345678", identyfikator odbiorcy" 87654321"zostanie wstrzymane z następujących błędów"wiadomość hello ma ty nieznany dokumentu PE i nie rozwiązało tooany hello istniejących schematów skonfigurowanych w umowie hello " |
+| Akcja użytkownika | Konfigurowanie schematu w ustawieniach umowy hello  |
 |   |   |
 
-### <a name="-incorrect-schema-in-the-agreement"></a>* Niepoprawny schemat umowy
+### <a name="-incorrect-schema-in-hello-agreement"></a>* Niepoprawny schemat hello umowy
 
 |   |   | 
 |---|---| 
-| Opis błędu | Wiadomość ma nieznany typ dokumentu i nie zostało rozwiązane do żadnego z istniejących schematów skonfigurowanych w umowie. |
-| Akcja użytkownika | Skonfiguruj poprawny schemat w ustawieniach umowy  |
+| Opis błędu | wiadomości powitania ma nieznany typ dokumentu i nie rozwiązało tooany hello istniejących schematów skonfigurowanych w hello umowy. |
+| Akcja użytkownika | Skonfiguruj poprawny schemat w ustawieniach umowy hello  |
 |   |   |
 
 ## <a name="flat-file"></a>Plik prosty
@@ -144,9 +144,9 @@ Ten artykuł pomaga rozwiązywania problemów, które może się tak dziać w sc
 
 |   |   | 
 |---|---|
-| Opis błędu | InvalidTemplate. Nie można wyrażeń języka szablonu procesu w danych wejściowych "Flat_File_Decoding" akcji w wierszu "1" i kolumnie "1902": "Wymagana właściwość"content"oczekuje, ale wartość otrzymano wartość null. Ścieżka ".". |
-| Akcja użytkownika | Ten błąd oznacza, że komunikat wejściowy nie zawiera jednostkę |
+| Opis błędu | InvalidTemplate. Nie można tooprocess wyrażeń języka szablonu w danych wejściowych "Flat_File_Decoding" akcji w wierszu "1" i kolumnie "1902": "Wymagana właściwość"content"oczekuje, ale wartość otrzymano wartość null. Ścieżka ".". |
+| Akcja użytkownika | Ten błąd oznacza, że komunikat wejściowy hello nie zawiera treści |
 |   |   | 
 
 ## <a name="learn-more"></a>Dowiedz się więcej
-[Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md)
+[Dowiedz się więcej o hello pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md)

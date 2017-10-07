@@ -1,6 +1,6 @@
 ---
-title: "Czy Twoje dane są gotowe na analizę danych? Ocena danych - Azure Machine Learning | Dokumentacja firmy Microsoft"
-description: "Dowiedz się 4 kryteria dla danych będzie gotowa do analizy danych. Nauki danych dla początkujących wideo 2 ma konkretnego przykłady ułatwiające oceny podstawowe dane."
+title: aaaIs danych gotowe do analizy danych? Ocena danych - Azure Machine Learning | Dokumentacja firmy Microsoft
+description: "Dowiedz się kryteria hello 4 toobe danych gotowe do analizy danych. Nauki danych dla początkujących wideo 2 ma toohelp konkretnych przykłady oceny podstawowe dane."
 keywords: "odpowiednie dane oceny danych, należy przygotować danych kryteria danych, danych gotowe"
 services: machine-learning
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: c4a8bc11aec2f71796f589c0af54cc92253e5180
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ef6bb680ace771537157dbdd50a4ccce0a3eb7ed
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Czy Twoje dane są gotowe na analizę danych?
 ## <a name="video-2-data-science-for-beginners-series"></a>Wideo 2: Nauki danych serii dla początkujących
-Dowiedz się, jak można obliczyć wartości danych, aby upewnić się, że spełnia on podstawowe kryteria gotowość do analizy danych.
+Dowiedz się, jak tooevaluate Twojego toomake danych się, że spełnia on wymagania podstawowe kryteria toobe gotowe do analizy danych.
 
-Aby uzyskać wykorzystanie serii, obejrzyj je wszystkie. [Przejdź do listy filmów wideo](#other-videos-in-this-series)
+Witaj tooget wykorzystanie serii hello, obejrzyj je wszystkie. [Przejdź do listy toohello filmów wideo](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
@@ -33,81 +33,81 @@ Aby uzyskać wykorzystanie serii, obejrzyj je wszystkie. [Przejdź do listy film
 >
 
 ## <a name="other-videos-in-this-series"></a>Inne pliki wideo w tej serii
-*Nauki danych dla początkujących* jest szybkie wprowadzenie do analizy danych w pięciu krótkie wideo.
+*Nauki danych dla początkujących* to nauka toodata szybkie wprowadzenie w pięciu krótkie wideo.
 
-* Wideo 1: [danych nauki odpowiedzi na pytania 5](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sek.)*
+* Wideo 1: [danych nauki odpowiedzi na pytania hello 5](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sek.)*
 * Wideo 2: Jest gotowy do analizy danych danych?
 * Wideo 3: [Zadaj pytanie może odpowiedzieć z danymi](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 s 17 min)*
 * Wideo 4: [prognozowania odpowiedzi z modelu prostego](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 s 42 min)*
-* Wideo 5: [skopiuj pracy innych osób nauki danych](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek.)*
+* Wideo 5: [skopiować inne osoby pracy toodo danych nauki](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek.)*
 
 ## <a name="transcript-is-your-data-ready-for-data-science"></a>Zapis: Jest gotowy do analizy danych danych?
-— Zapraszamy! "Jest danych gotowe do analizy danych?" drugi wideo w serii *nauki danych dla początkujących*.  
+Zapraszamy zbyt "jest danych gotowe do analizy danych?" Witaj drugi wideo w serii hello *nauki danych dla początkujących*.  
 
-Przed nauki danych można nadać odpowiedzi, który ma, należy nadać mu niektórych materiałów raw wysokiej jakości do pracy z. Podobnie jak wprowadzenie składników rozpoczęcia z lepsze produktu końcowego pizza, tym lepiej. 
+Przed danych naukowe zapewnić hello odpowiedzi mają, masz toogive on toowork niektórych materiałów wysokiej jakości z. Podobnie jak wprowadzania pizza, hello lepsze hello składników rozpoczęcia, lepiej hello hello produktu końcowego. 
 
 ## <a name="criteria-for-data"></a>Kryteria dla danych
-Tak w przypadku analizy danych, ma niektórych składników, które należy do scalenia.
+Tak w przypadku hello analizy danych, brak niektórych składników, że razem potrzebujemy toopull.
 
 Potrzebujemy dane, które są:
 
 * Odpowiednie
 * połączone
 * Dokładne
-* Aby pracować z
+* Za mało toowork z
 
 ## <a name="is-your-data-relevant"></a>Dotyczy danych?
-Potrzebujemy pierwszy składnik — dane, które są odpowiednie.
+Potrzebujemy hello pierwszy składnik — dane, które są odpowiednie.
 
 ![Istotne dane, a dane nie ma znaczenia — oceny danych](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-Szukaj w tabeli po lewej stronie. Firma Microsoft spełnione siedmiu osób poza paski Boston, mierzony poziom alkohol krwi, Sox czerwony średnią batting ich ostatniego gry, w i cen mleka w najbliższej sklepie.
+Spójrz na powitania tabeli po lewej stronie powitania. Firma Microsoft spełnione siedmiu osób poza paski Boston, mierzona ich poziom alkohol krwi, średnia batting Sox czerwony hello ich ostatniego gry, w i cen hello mleka na powitania najbliższej sklepie.
 
-To są wszystkie dane doskonale uzasadnionych. Błąd tylko jego jest, że nie jest odpowiedni. Nie ma żadnej oczywiste zależności między te liczby. Jeśli po otwarciu bieżącej ceny i średnia batting Sox czerwony, nie istnieje sposób można odgadnąć Moja zawartość alkoholu krwi.
+To są wszystkie dane doskonale uzasadnionych. Błąd tylko jego jest, że nie jest odpowiedni. Nie ma żadnej oczywiste zależności między te liczby. Jeśli po otwarciu hello bieżącej ceny mleka i hello średniej batting Sox czerwony, nie istnieje sposób można odgadnąć Moja zawartość alkoholu krwi.
 
-Teraz wyglądać w tabeli po prawej stronie. Teraz możemy mierzony każda osoba body masowej i zliczane liczba napojów one właśnie.  Numery w każdym wierszu teraz mają zastosowanie do siebie. Jeśli I udostępniła Ci Moje treści masowej oraz liczby Margaritas I właśnie, można utworzyć wynik w mojej krwi alkohol zawartości.
+Teraz wyglądać w tabeli hello na powitania prawo. Teraz możemy mierzone każda osoba treści hello masowych i są one uwzględniane liczba napojów one właśnie.  numery Hello w każdym wierszu są teraz tooeach odpowiednich innymi. Jeśli po otwarciu Moje treści masowej i hello liczbę Margaritas I właśnie, można wprowadzeniu wynik w mojej krwi alkohol zawartości.
 
 ## <a name="do-you-have-connected-data"></a>Czy nawiązano połączenie danych?
-Następny składnik jest połączonych danych.
+następny składnik Hello jest połączonych danych.
 
 ![Połączenia danych, a dane bez połączenia — kryteria danych danych gotowe](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
 
-Oto niektóre dane dotyczące jakości hamburgers: kraty temperatury, waga patty i ocenę w lokalnym żywności magazyn. Jednak zauważyć luk w tabeli po lewej stronie.
+Oto niektóre dane dotyczące jakości hello hamburgers: kraty temperatury, waga patty i ocenę w żywności lokalne powitania magazyn. Jednak zauważyć hello luk w hello tabeli po lewej stronie powitania.
 
-Brak niektórych wartości większość zestawów danych. Jest często mają luk w następujący sposób i sposoby ich obejścia. Jednak jeśli istnieje za dużo Brak, dane rozpocznie się wyglądały jak ser Szwajcaria.
+Brak niektórych wartości większość zestawów danych. Jest on typowe luk toohave następująco i istnieją sposoby toowork wokół nich. Jednak jeśli istnieje za dużo Brak, dane rozpocznie się toolook, takich jak ser Szwajcaria.
 
-Jeśli Szukaj w tabeli po lewej stronie ma tak dużo brakujące dane, trudno jest opracowywane dowolnego rodzaju relacji między rusztem temperatury i patty wagi. To jest przykład bez połączenia danych.
+Czy tabeli hello przyjrzeć się po lewej stronie powitania, jest więc dużo brakujące dane, twardych toocome się z dowolnego rodzaju relacji między kraty temperatury i patty wagi. To jest przykład bez połączenia danych.
 
-Tabeli po prawej stronie, jednak jest zapełniony i ukończenia — przykład połączonych danych.
+jednak Hello tabeli po prawej stronie powitania jest zapełniony i ukończenia — przykład połączonych danych.
 
 ## <a name="is-your-data-accurate"></a>Dane są dokładne?
-Następny składnik, potrzebne jest dokładności. Poniżej przedstawiono cztery obiektów docelowych, które chcielibyśmy trafień za pomocą strzałek.
+Witaj następny składnik potrzebne jest dokładności. Poniżej przedstawiono cztery elementy docelowe, chcielibyśmy toohit z strzałki.
 
 ![Dokładne dane a niedokładne dane — kryteria danych](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Szukaj w celu, w prawym górnym rogu. Mamy ścisłej grupowania prawo wokół bullseye. Oczywiście jest dokładna. Dziwnie danego języka nauki danych naszych wydajności z prawej strony docelowej poniżej jest traktowana jako dokładne.
+Szukaj w celu hello w prawym górnym rogu hello. Mamy ścisłej grupowania prawo wokół hello bullseye. Oczywiście jest dokładna. Dziwnie języka hello nauki danych naszych wydajności prawej strony docelowej hello poniżej jest traktowana jako dokładne.
 
-Jeśli do mapowania Centrum te strzałki, zobaczysz, że bardzo jest bliski bullseye. Strzałki są rozproszone wszystkie wokół docelowej, więc są traktowane jako nieprecyzyjna, ale jest wyśrodkowane wokół bullseye, więc są traktowane jako dokładne.
+Gdyby toomap limit hello środek te strzałki, zobaczysz, jest bardzo Zamknij toohello bullseye. strzałki Hello są rozproszone wszystkie wokół docelowej hello są traktowane jako nieprecyzyjne, ale jest wyśrodkowywana wokół hello bullseye, są traktowane jako dokładne.
 
-Teraz wyglądać w lewym górnym docelowej. W tym miejscu naszych strzałki bardzo blisko siebie osiągnęła ścisłej grupowania. Są one dokładne, ale są one nieprawidłowe, ponieważ Centrum jest sposób poza bullseye. I oczywiście strzałki w lewym dolnym rogu docelowej są niedokładne i niedokładna. Ten archer wymaga więcej rozwiązań.
+Teraz wyglądać w celu lewej górnej hello. W tym miejscu naszych strzałki bardzo blisko siebie osiągnęła ścisłej grupowania. Są one dokładne, ale są one nieprawidłowe, ponieważ Centrum hello jest sposób poza hello bullseye. I oczywiście strzałki hello w celu lewym dolnym rogu hello są niedokładne i niedokładna. Ten archer wymaga więcej rozwiązań.
 
-## <a name="do-you-have-enough-data-to-work-with"></a>Masz za mało danych do pracy z?
-Na koniec składnik #4 - musimy mieć wystarczającej ilości danych.
+## <a name="do-you-have-enough-data-toowork-with"></a>Masz za mało danych toowork z?
+Na koniec składnik #4 - potrzebujemy toohave wystarczającej ilości danych.
 
 ![Masz za mało danych do analizy? Ocena danych](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
-Pomyśl o każdego punktu danych w tabeli jako pędzla w malowania. Jeśli masz tylko niektóre z nich może być dość rozmytego rysowania — jest stwierdzić, co to jest.
+Pomyśl o każdego punktu danych w tabeli jako pędzla w malowania. Jeśli masz tylko niektóre z nich, rysowania hello może być dość rozmytego — jest tootell twardym co to jest.
 
-Jeśli dodasz kilka więcej pociągnięć Twojej rysowania uruchamia uzyskać nieco ostrzejszy.
+Jeśli dodasz kilka więcej pociągnięć Twojej rysowania uruchamia tooget małego Wyostrzanie.
 
-Jeśli masz prawie za mało pociągnięć widać niektóre szerokie decyzje, aby. Jest to miejsce, które można znaleźć? Wygląda na to jasny, to wygląda czystej wody — tak, będącą, gdzie użyjemy na urlop.
+Jeśli masz pociągnięć prawie wystarczającej ilości widać tylko za mało toomake kilku szerokie decyzji. Jest to innym można toovisit? Wygląda na to jasny, to wygląda czystej wody — tak, będącą, gdzie użyjemy na urlop.
 
-Jak dodać więcej danych obraz staje się jaśniejszy i bardziej szczegółowe decyzje. Teraz można przyjrzeć trzy hotels na lewym bank. Znasz, naprawdę jak z architektury funkcje co na pierwszym planie. I będzie pozostać, trzeci piętra.
+Jak dodać więcej danych obraz powitania staje się jaśniejszy i bardziej szczegółowe decyzje. Teraz można obejrzeć hello trzy hotels na powitania bank po lewej stronie. Znasz, naprawdę jak z architektury funkcji hello jedną na pierwszym planie hello hello. I będzie pozostać, hello trzeci piętra.
 
-Z danych, które jest odpowiednie, połączony, dokładne i wystarczająco, firma Microsoft ma wszystkich składników należy wykonać niektóre nauki wysokiej jakości danych.
+Z danymi, które jest odpowiednie, połączony, dokładne oraz za mało, mamy wszystkich składników hello potrzebujemy toodo niektórych nauki wysokiej jakości danych.
 
-Należy koniecznie zapoznaj się z czterech wideo w *nauki danych dla początkujących* z Microsoft Azure Machine Learning.
+Należy się toocheck limit hello innych cztery pliki wideo w *nauki danych dla początkujących* z Microsoft Azure Machine Learning.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Spróbuj pierwszego eksperymentu analizy danych z usługi Machine Learning Studio](machine-learning-create-experiment.md)
-* [Wprowadzenie do uczenia maszynowego w systemie Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Pobierz wprowadzenie tooMachine uczenia w systemie Microsoft Azure](machine-learning-what-is-machine-learning.md)

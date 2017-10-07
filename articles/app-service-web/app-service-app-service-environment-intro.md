@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do aplikacji usługi v1 środowiska"
-description: "Więcej informacji na temat funkcji v1 środowiska usługi aplikacji, która zawiera jednostki skalowania bezpieczne przyłączone do sieci wirtualnej, dedykowane do uruchamiania wszystkich aplikacji."
+title: "tooApp aaaIntroduction v1 środowiska usługi"
+description: "Więcej informacji na temat funkcji hello v1 środowiska usługi aplikacji, która zawiera jednostki skalowania bezpieczne przyłączone do sieci wirtualnej, dedykowane do uruchamiania wszystkich aplikacji."
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 38cb79eb32bd61cdbfb6da91d50e6713d71a2b0d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6e3cd1909b241887b5ec19412b9f7884d870cc3d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-app-service-environment-v1"></a>Wprowadzenie do aplikacji usługi v1 środowiska
+# <a name="introduction-tooapp-service-environment-v1"></a>Wprowadzenie tooApp v1 środowiska usługi
 
 > [!NOTE]
-> Ten artykuł dotyczy v1 środowiska usługi aplikacji.  Istnieje nowsza wersja środowiska usługi aplikacji jest łatwiejsza w użyciu, który jest uruchamiany na bardziej zaawansowanych infrastruktury. Aby dowiedzieć się więcej o nowy początek wersji z [wprowadzenie do środowiska usługi aplikacji](../app-service/app-service-environment/intro.md).
+> Ten artykuł dotyczy hello v1 środowiska usługi aplikacji.  Istnieje nowsza wersja hello środowiska usługi aplikacji jest łatwiejsze toouse, który jest uruchamiany na bardziej zaawansowanych infrastruktury. więcej informacji na temat nowej wersji hello rozpoczynać hello toolearn [toohello wprowadzenie środowiska usługi aplikacji](../app-service/app-service-environment/intro.md).
 > 
 
 ## <a name="overview"></a>Omówienie
@@ -36,56 +36,56 @@ ms.lasthandoff: 08/03/2017
 
 Klienci mogą tworzyć wiele środowisk usługi aplikacji w jednym regionie Azure, a także w wielu regionach platformy Azure.  Dzięki temu można idealne rozwiązanie w przypadku skalowania w poziomie warstwach aplikacji bez stanu, w związku z wysoką obciążeniami RPS środowiska usługi App Service.
 
-Środowiska usługi aplikacji są izolowane do uruchamiania tylko jednego odbiorcy aplikacji i zawsze są wdrażane w sieci wirtualnej.  Klienci mają precyzyjną kontrolę nad zarówno aplikacji dla ruchu przychodzącego i wychodzącego ruchu sieciowego i aplikacji może nawiązywać bezpiecznych połączeń o dużej szybkości za pośrednictwem sieci wirtualnej do zasobów firmy lokalnie.
+Środowiska usługi aplikacji są izolowane toorunning tylko jednego odbiorcy aplikacje i zawsze są wdrażane w sieci wirtualnej.  Klienci mają precyzyjną kontrolę nad zarówno aplikacji dla ruchu przychodzącego i wychodzącego ruchu sieciowego i aplikacji może nawiązywać bezpiecznych połączeń o dużej szybkości za pośrednictwem zasobów firmowych tooon lokalnej sieci wirtualnych.
 
-Wszystkie artykuły i w jaki sposób — do obiektu o środowiska usługi aplikacji są dostępne w [Plik README dla środowiska usługi aplikacji](../app-service/app-service-app-service-environments-readme.md).
+Wszystkie artykuły i w jaki sposób — do obiektu o środowiska usługi aplikacji są dostępne w hello [Plik README dla środowiska usługi aplikacji](../app-service/app-service-app-service-environments-readme.md).
 
-Omówienie sposób środowiska usługi App Service włączyć wysoką skalę i zabezpieczania dostępu do sieci, zobacz [nowości AzureCon] [ AzureConDeepDive] na środowiska usługi App Service!
+Omówienie sposób środowiska usługi App Service włączyć wysoką skalę i zabezpieczania dostępu do sieci, zobacz hello [nowości AzureCon] [ AzureConDeepDive] na środowiska usługi App Service!
 
-Szczegółowo na poziomie odbierającej za pomocą wielu środowiska usługi App Service w artykule na temat sposobu instalacji [wpływ aplikacja rozproszona geograficznie][GeodistributedAppFootprint].
+Szczegółowo na poziomie odbierającej za pomocą wielu środowiska usługi App Service zawiera artykuł hello na temat toosetup [wpływ aplikacja rozproszona geograficznie][GeodistributedAppFootprint].
 
-Aby zobaczyć, jak pokazano nowości AzureCon architektury zabezpieczeń został skonfigurowany, zobacz artykuł na implementacji [warstwie Architektura zabezpieczeń](app-service-app-service-environment-layered-security.md) ze środowiska usługi App Service.
+toosee, jak pokazano hello nowości AzureCon Architektura zabezpieczeń hello został skonfigurowany, zobacz artykuł hello na implementacji [warstwie Architektura zabezpieczeń](app-service-app-service-environment-layered-security.md) ze środowiska usługi App Service.
 
-Aplikacje działające w środowisku usługi aplikacji może mieć ich dostęp uzyskiwany za nadrzędnego urządzenia, takie jak zapory aplikacji sieci web (WAF).  Artykuł na temat [Konfigurowanie zapory aplikacji sieci Web dla środowiska usługi App Service](app-service-app-service-environment-web-application-firewall.md) obejmuje tego scenariusza. 
+Aplikacje działające w środowisku usługi aplikacji może mieć ich dostęp uzyskiwany za nadrzędnego urządzenia, takie jak zapory aplikacji sieci web (WAF).  Artykuł Hello na [Konfigurowanie zapory aplikacji sieci Web dla środowiska usługi App Service](app-service-app-service-environment-web-application-firewall.md) obejmuje tego scenariusza. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="dedicated-compute-resources"></a>Zasoby obliczeniowe dedykowane
-Wszystkie zasoby obliczeniowe, w środowisku usługi aplikacji dedykowane wyłącznie jedną subskrypcją i środowiska usługi aplikacji można skonfigurować maksymalnie 50 (50) zasoby obliczeniowe do wyłącznego użytku przez jedną aplikację.
+Wszystkie hello zasobów obliczeniowych, zasobów w środowisku usługi aplikacji są wyłącznie tooa jednej subskrypcji w wersji dedykowanej i środowiska usługi aplikacji można skonfigurować za pomocą zasobów obliczeniowych toofifty (50) do wyłącznego użytku przez jedną aplikację.
 
-Środowiska usługi aplikacji składa się z puli zasobów obliczeniowych frontonu, jak również pule zasobów obliczeniowych procesów roboczych jednej do trzech. 
+Środowiska usługi aplikacji składa się z puli zasobów obliczeniowych frontonu, jak również pul zasobów obliczeniowych proces roboczy co toothree. 
 
-Frontonu pula zawiera zasoby obliczeniowe odpowiedzialny za kończenia żądań SSL, jak również automatyczne równoważenie obciążenia żądań aplikacji w środowisku usługi aplikacji. 
+Pula frontonu Hello zawiera zasoby obliczeniowe odpowiedzialny za kończenia żądań SSL, jak również automatyczne równoważenie obciążenia żądań aplikacji w środowisku usługi aplikacji. 
 
-Każda pula procesu roboczego zawiera zasoby obliczeniowe przydzielone do [plany usługi App Service][AppServicePlan], które z kolei zawierają co najmniej jedną aplikację usługi Azure App Service.  Ponieważ może istnieć maksymalnie trzy pule procesów roboczych różnych w środowisku usługi aplikacji, należy wybrać zasoby obliczeniowe różnych dla każdej puli procesów roboczych.  
+Każda pula procesu roboczego zawiera zasoby obliczeniowe przydzielone za[plany usługi App Service][AppServicePlan], które z kolei zawierają co najmniej jedną aplikację usługi Azure App Service.  Ponieważ może istnieć zapasowej pule procesów roboczych różnych toothree w środowisku usługi aplikacji, masz hello elastyczność toochoose obliczeń różnych zasobów dla każdej puli procesów roboczych.  
 
-Na przykład dzięki temu można utworzyć jeden puli procesów roboczych z słabszy zasoby obliczeniowe dla plany usługi App Service przeznaczonego dla rozwoju lub testowania aplikacji.  Puli procesów roboczych drugi (lub nawet trzeci) można użyć bardziej zaawansowanych zasoby obliczeniowe, przeznaczony dla plany usługi App Service uruchamianie aplikacji w środowisku produkcyjnym.
+Na przykład umożliwia toocreate jednego procesu roboczego puli z słabszy zasoby obliczeniowe dla plany usługi App Service przeznaczonego dla rozwoju lub testowania aplikacji.  Puli procesów roboczych drugi (lub nawet trzeci) można użyć bardziej zaawansowanych zasoby obliczeniowe, przeznaczony dla plany usługi App Service uruchamianie aplikacji w środowisku produkcyjnym.
 
-Aby uzyskać więcej szczegółowych informacji na temat ilości zasobów obliczeniowych dostępnych do pul frontonu i proces roboczy, zobacz [sposobu konfigurowania środowiska usługi aplikacji][HowToConfigureanAppServiceEnvironment].  
+Więcej szczegółów na powitania ilość obliczeniowego zasoby dostępne toohello frontonu i pule procesów roboczych, zobacz [jak tooConfigure środowiska usługi aplikacji][HowToConfigureanAppServiceEnvironment].  
 
-Aby uzyskać więcej informacji na temat rozmiarów zasobów obliczeniowych dostępnych obsługiwane w środowisku usługi aplikacji, zapoznaj się [App Service — ceny] [ AppServicePricing] strony i przejrzyj opcje dostępne dla środowiska usługi aplikacji Warstwa cenowa Premium.
+Aby uzyskać szczegółowe informacje o dostępnych hello obliczeniowe rozmiary zasobów obsługiwane w środowisku usługi aplikacji, zapoznaj się z pomocą techniczną firmy hello [App Service — ceny] [ AppServicePricing] strony i przejrzyj dostępne opcje powitania dla środowiska usługi App Service w warstwie cenowej Premium hello.
 
 ## <a name="virtual-network-support"></a>Obsługa sieci wirtualnej
-Środowiska usługi aplikacji mogą być tworzone w **albo** sieci wirtualnej platformy Azure Resource Manager **lub** sieci wirtualnej wdrożenia klasycznego modelu ([więcej informacji o sieciach wirtualnych] [MoreInfoOnVirtualNetworks]).  Ponieważ środowisko usługi aplikacji istnieje zawsze w sieci wirtualnej, a dokładniej w podsieci sieci wirtualnej, można korzystać z funkcji zabezpieczeń sieci wirtualnych do kontrolowania komunikacji zarówno ruchu przychodzącego i wychodzącego.  
+Środowiska usługi aplikacji mogą być tworzone w **albo** sieci wirtualnej platformy Azure Resource Manager **lub** sieci wirtualnej wdrożenia klasycznego modelu ([więcej informacji o sieciach wirtualnych] [MoreInfoOnVirtualNetworks]).  Ponieważ środowisko usługi aplikacji istnieje zawsze w sieci wirtualnej, a dokładniej w podsieci sieci wirtualnej, można wykorzystać funkcje zabezpieczeń hello toocontrol sieci wirtualnych obu komunikacji sieciowej dla ruchu przychodzącego i wychodzącego.  
 
 Środowiska usługi aplikacji może być albo internetowy, za pomocą publicznego adresu IP lub wewnętrzny ukierunkowane przy użyciu adresu Azure wewnętrznego modułu równoważenia obciążenia (ILB).
 
-Można użyć [sieciowej grupy zabezpieczeń] [ NetworkSecurityGroups] do ograniczenia komunikacji sieciowej dla ruchu przychodzącego do podsieci, w której znajduje się środowiska usługi aplikacji.  Dzięki temu można korzystać z aplikacji za nadrzędnego urządzeń i usług, takich jak zapory aplikacji sieci web i dostawców SaaS sieci.
+Można użyć [sieciowej grupy zabezpieczeń] [ NetworkSecurityGroups] toorestrict przychodzącej komunikacji toohello podsieci, z którym znajduje się środowiska usługi aplikacji.  Dzięki temu aplikacje toorun za nadrzędnego urządzeń i usług, takich jak zapory aplikacji sieci web i dostawców SaaS sieci.
 
-Aplikacje muszą również często dostępu do zasobów firmy, takich jak wewnętrznej bazy danych i usług sieci web.  Typowym podejściem jest, aby udostępnić te punkty końcowe tylko ruchu w sieci wewnętrznej przepływu w ramach sieci wirtualnej platformy Azure.  Po środowiska usługi aplikacji jest dołączony do tej samej sieci wirtualnej co wewnętrzny usługi, aplikacje działające w środowisku może uzyskiwać do nich dostęp, łącznie z punktów końcowych osiągalne za pomocą [lokacja-lokacja] [ SiteToSite] i [Azure ExpressRoute] [ ExpressRoute] połączenia.
+Aplikacje muszą również często tooaccess zasobów firmowych, takich jak wewnętrznej bazy danych i usług sieci web.  Typowym podejściem jest toomake te punkty końcowe ruchu sieciowego dostępne tylko toointernal przepływu w ramach sieci wirtualnej platformy Azure.  Środowiska usługi aplikacji po toohello przyłączone do tej samej sieci wirtualnej co wewnętrzny hello usługi, aplikacje działające w środowisku hello można uzyskać dostępu do ich tym osiągalne za pomocą punktów końcowych [lokacja-lokacja] [ SiteToSite]i [Azure ExpressRoute] [ ExpressRoute] połączenia.
 
-Dla więcej szczegółowych informacji na temat środowiska usługi App Service z sieciami wirtualnymi i sieciami lokalnymi zapoznaj się następujące artykuły na [architektury sieci][NetworkArchitectureOverview], [kontrolowanie ruchu przychodzącego Ruch][ControllingInboundTraffic], i [bezpiecznego połączenia Zapleczy][SecurelyConnectingToBackends]. 
+Dla więcej szczegółowych informacji na temat środowiska usługi App Service z sieci wirtualnych i sieci lokalnej, zapoznaj się następujące artykuły powitania [architektury sieci][NetworkArchitectureOverview], [kontrolowanie ruchu przychodzącego Ruch][ControllingInboundTraffic], i [bezpiecznego połączenia tooBackends][SecurelyConnectingToBackends]. 
 
 ## <a name="getting-started"></a>Wprowadzenie
-Wprowadzenie do środowiska usługi App Service, zobacz [jak do tworzenia środowiska usługi aplikacji][HowToCreateAnAppServiceEnvironment]
+tooget wprowadzenie do środowiska usługi App Service, zobacz [jak tooCreate środowiska usługi aplikacji][HowToCreateAnAppServiceEnvironment]
 
-Wszystkie artykuły i w jaki sposób — do użytkownika dla środowiska usługi aplikacji są dostępne w [Plik README dla środowiska usługi aplikacji](../app-service/app-service-app-service-environments-readme.md).
+Wszystkie artykuły i w jaki sposób — do użytkownika dla środowiska usługi aplikacji są dostępne w hello [Plik README dla środowiska usługi aplikacji](../app-service/app-service-app-service-environments-readme.md).
 
-Aby uzyskać więcej informacji o platformie usługi Azure App Service, zobacz [usłudze Azure App Service][AzureAppService].
+Aby uzyskać więcej informacji na temat hello platformy Azure App Service, zobacz [usłudze Azure App Service][AzureAppService].
 
-Omówienie architektury sieci środowiska usługi aplikacji, zobacz [omówienie architektury sieci] [ NetworkArchitectureOverview] artykułu.
+Omówienie architektury sieci środowiska usługi aplikacji hello, zobacz hello [omówienie architektury sieci] [ NetworkArchitectureOverview] artykułu.
 
-Aby uzyskać więcej informacji o używaniu środowiska usługi aplikacji z usługi ExpressRoute, zobacz następujący artykuł w [Express Route i środowiska usługi App Service][NetworkConfigDetailsForExpressRoute].
+Szczegółowe informacje o używaniu środowiska usługi aplikacji z usługi ExpressRoute, możesz znaleźć hello poniższego artykułu [Express Route i środowiska usługi App Service][NetworkConfigDetailsForExpressRoute].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

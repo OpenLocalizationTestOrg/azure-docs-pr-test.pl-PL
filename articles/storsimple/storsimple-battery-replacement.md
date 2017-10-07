@@ -1,6 +1,6 @@
 ---
-title: "Wymiana baterii urządzenia Microsoft Azure StorSimple | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób usunięcia, Zastąp i obsługa modułu baterii kopii zapasowych w urządzeniu StorSimple."
+title: "aaaReplace baterii urządzenia Microsoft Azure StorSimple | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób tooremove, Zastąp i obsługa modułu kopii zapasowej baterii hello na urządzeniu StorSimple."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 542774a5f451ec7ad2bd442f88598df318d8b285
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Zastąpienie modułu baterii kopii zapasowych w urządzeniu StorSimple
+# <a name="replace-hello-backup-battery-module-on-your-storsimple-device"></a>Zastąp hello modułu baterii kopii zapasowych w urządzeniu StorSimple
 ## <a name="overview"></a>Omówienie
-Podstawowy obudowy zasilania i chłodzenia modułu (PCM) na urządzeniu Microsoft Azure StorSimple ma dodatkowe baterii pakietu. Ten pakiet zawiera zasilania, aby urządzenia StorSimple można zapisać danych w przypadku utraty zasilaniem podstawowego systemu. Ten pakiet baterii jest określany jako *modułu kopii zapasowej baterii*. Moduł kopii zapasowej baterii istnieje tylko dla podstawowego obudowa w urządzeniu StorSimple (obudowa EBOD nie zawiera modułu baterii kopii zapasowej). 
+obudowy głównej Hello zasilania i chłodzenia modułu (PCM) na urządzeniu Microsoft Azure StorSimple ma dodatkowe baterii pakietu. Ten pakiet zawiera zasilania, dzięki czemu hello urządzenia StorSimple można zapisać danych w przypadku utraty AC zasilania toohello głównej obudowy. Ten pakiet baterii jest hello określonego tooas *modułu kopii zapasowej baterii*. Moduł kopii zapasowej baterii Hello istnieje tylko dla podstawowego obudowa hello w urządzeniu StorSimple (hello obudowa EBOD nie zawiera modułu baterii kopii zapasowej). 
 
 Ten samouczek wyjaśnia, jak:
 
-* Usuń moduł kopii zapasowej baterii 
+* Usuń moduł kopii zapasowej baterii hello 
 * Zainstaluj nowy moduł kopii zapasowej baterii
-* Obsługa modułu kopii zapasowej baterii
+* Obsługa modułu kopii zapasowej baterii hello
 
 > [!IMPORTANT]
-> Przed usuwanie i zastępowanie moduł kopii zapasowej baterii, zapoznaj się z informacjami bezpieczeństwa w [wprowadzenie do wymiany składników sprzętu StorSimple](storsimple-hardware-component-replacement.md).
+> Przed usuwanie i zastępowanie moduł kopii zapasowej baterii, przejrzyj informacje bezpieczeństwa hello w hello [wymiana składników sprzętowych tooStorSimple wprowadzenie](storsimple-hardware-component-replacement.md).
 > 
 > 
 
-## <a name="remove-the-backup-battery-module"></a>Usuń moduł kopii zapasowej baterii
-Moduł baterii kopii zapasowej dla urządzenia StorSimple jest jednostką replaceable pola. Przed zainstalowaniem w PCM modułu baterii powinny być przechowywane w oryginalnym opakowaniu. Wykonaj poniższe kroki, aby usunąć baterii kopii zapasowej.
+## <a name="remove-hello-backup-battery-module"></a>Usuń moduł kopii zapasowej baterii hello
+Hello modułu baterii kopii zapasowej dla urządzenia StorSimple jest jednostką replaceable pola. Przed zainstalowaniem w hello PCM modułu baterii hello powinny być przechowywane w oryginalnym opakowaniu. Wykonaj następujące kroki tooremove hello kopii zapasowej baterii hello.
 
-#### <a name="to-remove-the-backup-battery-module"></a>Aby usunąć moduł kopii zapasowej baterii
-1. W klasycznym portalu Azure, przejdź do **urządzeń** > **konserwacji** > **stan sprzętu**. W obszarze **współużytkowanych składników**, zobaczyć stan baterii.
-2. Zidentyfikuj PCM, w którym baterii nie powiodła się. Rysunek 1 pokazuje z tyłu urządzenia StorSimple.
+#### <a name="tooremove-hello-backup-battery-module"></a>Moduł kopii zapasowej baterii hello tooremove
+1. W hello klasycznego portalu Azure, przejdź zbyt**urządzeń** > **konserwacji** > **stan sprzętu**. W obszarze **współużytkowanych składników**, przyjrzeć się stan hello hello baterii.
+2. Zidentyfikuj PCM hello, w których hello baterii nie powiodła się. Rysunek 1 pokazuje hello obu hello urządzenia StorSimple.
    
     ![Płyty montażowej urządzenia podstawowego obudowy modułów](./media/storsimple-battery-replacement/IC740994.png)
    
@@ -53,11 +53,11 @@ Moduł baterii kopii zapasowej dla urządzenia StorSimple jest jednostką replac
    | 3 |Kontrolera 0 |
    | 4 |Kontrolera 1 |
    
-    Jak to przedstawiono numer 3 na rysunku 2, monitorowania wskaźnika DOPROWADZIŁY na PCM 0, który odpowiada **uszkodzenia** powinny być włączone.
+    Jak pokazano numerem 3 hello na rysunku 2, hello monitorowania wskaźnik DOPROWADZIŁY na PCM 0, który odpowiada za**uszkodzenia** powinny być włączone.
    
     ![Montażowa LED wskaźnik monitorowania PCM urządzenia](./media/storsimple-battery-replacement/IC740992.png)
    
-    **Rysunek 2** PCM z powrotem przedstawiający monitorowania wskaźnik LED
+    **Rysunek 2** hello przedstawiający PCM z powrotem monitorowania wskaźników
    
    | Etykieta | Opis |
    |:--- |:--- |
@@ -67,44 +67,44 @@ Moduł baterii kopii zapasowej dla urządzenia StorSimple jest jednostką replac
    | 4 |PCM OK |
    | 5 |Kontroler domeny awarii zasilania |
    | 6 |Baterii dobrej kondycji |
-3. Aby usunąć PCM z baterii nie powiodło się, postępuj zgodnie z instrukcjami [Usuń PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
-4. Z PCM usunięte Podnieś Obróć uchwytu modułu baterii w górę, wskazane na poniższej ilustracji i umieszczenie jej do Usuń baterii.
+3. Witaj tooremove PCM z baterii nie powiodło się, wykonaj kroki hello w [Usuń PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+4. Hello PCM usunięte, przyrostu i baterii hello Obróć moduł obsługi górę wskazane powitania po rysunek, a obudowach go tooremove hello baterii.
    
     ![Usuwanie z PCM baterii](./media/storsimple-battery-replacement/IC741019.png)
    
-    **Rysunek 3** usuwanie baterii z PCM
-5. Umieść moduł jednostkę field-replaceable unit pakowania.
-6. Zwraca wadliwe urządzenie do firmy Microsoft dla odpowiednich obsługi i ich obsługi.
+    **Rysunek 3** usuwanie baterii hello z hello PCM
+5. Moduł hello miejsce w jednostce replaceable pola hello pakowania.
+6. Zwróć hello tooMicrosoft urządzenie do właściwego obsługi i obsługi.
 
 ## <a name="install-a-new-backup-battery-module"></a>Zainstaluj nowy moduł kopii zapasowej baterii
-Wykonaj poniższe kroki, aby zainstalować moduł baterii zastąpienia w PCM w głównej Obudowa urządzenia StorSimple.
+Wykonaj następujące kroki tooinstall hello zastępczy baterii modułu w hello PCM w obudowie głównej hello urządzenia StorSimple hello.
 
-#### <a name="to-install-the-battery-module"></a>Aby zainstalować moduł baterii
-1. Umieść odpowiednią orientację w PCM modułu baterii kopii zapasowej.
-2. Przytrzymaj naciśnięty uchwytu modułu baterii, aż do miejsca łącznika.
-3. Zastąpienie PCM w obudowie głównej zgodnie z wytycznymi w [Zastąp zasilania i chłodzenia modułu na urządzeniu StorSimple](storsimple-power-cooling-module-replacement.md).
-4. Po zakończeniu zastąpienia, przejdź do **urządzeń** > **konserwacji** > **stan sprzętu** w klasycznym portalu Azure. Sprawdź stan baterii, aby upewnić się, że Instalacja powiodła się. Stan zielony oznacza baterii jest w dobrej kondycji.
+#### <a name="tooinstall-hello-battery-module"></a>Moduł baterii hello tooinstall
+1. Umieść moduł kopii zapasowej baterii hello hello odpowiednią orientację w hello PCM.
+2. Naciśnij klawisz hello baterii modułu obsługi wszystkich hello sposób tooseat hello łącznika.
+3. Zastąp hello PCM w obudowie głównej hello przez następujące wytyczne hello w [Zastąp zasilania i chłodzenia modułu na urządzeniu StorSimple](storsimple-power-cooling-module-replacement.md).
+4. Po zakończeniu hello zastąpienie go za**urządzeń** > **konserwacji** > **stan sprzętu** w hello klasycznego portalu Azure. Sprawdź stan hello hello baterii toomake się upewnić, że hello instalacja zakończyła się pomyślnie. Stan zielony oznacza baterii hello jest w dobrej kondycji.
 
-## <a name="maintain-the-backup-battery-module"></a>Obsługa modułu kopii zapasowej baterii
-W urządzeniu StorSimple modułu baterii kopii zapasowej zawiera zasilania do kontrolera podczas zdarzenia utraty zasilania. Umożliwia urządzeniu StorSimple można zapisać krytyczne dane przed zamykanie w kontrolowany sposób. Z dwóch baterii pełni obciążona w PCMs systemu może obsługiwać dwa kolejne utraty zdarzenia.
+## <a name="maintain-hello-backup-battery-module"></a>Obsługa modułu kopii zapasowej baterii hello
+W urządzeniu StorSimple hello kopii zapasowej baterii modułu zawiera kontroler toohello energią podczas zdarzenia utraty zasilania. Umożliwia hello StorSimple urządzenia toosave krytyczne dane przed tooshutting w dół w kontrolowany sposób. Z dwóch baterii pełni obciążona w hello PCMs hello systemu może obsługiwać dwa kolejne utraty zdarzenia.
 
-W klasycznym portalu Azure **stan sprzętu** na **konserwacji** strony wskazuje, czy działa poprawnie baterii zbliża się koniec życia. Wskazuje stan baterii **baterii w PCM 0** lub **baterii w PCM 1** w obszarze **współużytkowanych składników**. Ta strona będzie wyświetlany **OBNIŻONY** dla zbliża się z eksploatacji, i **nie powiodło się** dla osiągnięto koniec z eksploatacji. 
+W hello klasycznego portalu Azure, hello **stan sprzętu** na powitania **konserwacji** strony wskazuje, czy działa poprawnie baterii hello zbliża się hello z wycofanych. Wskazuje stan baterii Hello **baterii w PCM 0** lub **baterii w PCM 1** w obszarze **współużytkowanych składników**. Ta strona będzie wyświetlany **OBNIŻONY** dla zbliża się z eksploatacji, i **nie powiodło się** dla osiągnięto koniec z eksploatacji. 
 
 > [!NOTE]
-> Bateria może raportować **** po prostu zajdzie potrzeba jego naliczane opłaty.
+> zgłosić baterii Hello **** gdy po prostu potrzebuje toobe obciążona.
 > 
 > 
 
-Jeśli **OBNIŻONY** pojawi się stan, zaleca się następujące sposobu działania:
+Jeśli hello **OBNIŻONY** pojawi się stan, firma Microsoft zaleca powitania od sposobu działania:
 
-* System może wystąpić ostatnie utraty zasilania lub baterie przeprowadzona okresowej konserwacji. Sprawdź system na 12 godzin przed kontynuowaniem.
+* Hello system mogła wystąpić ostatnie utraty zasilania lub baterie hello przeprowadzona okresowej konserwacji. Sprawdź hello system na 12 godzin przed kontynuowaniem.
   
-  * Jeśli stan jest nadal **OBNIŻONY** po 12 godzin ciągłe połączenie AC zasilania z kontrolerami i PCMs uruchomiony, następnie baterii ma zostać zamieniony. Sprawdź [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) zastępczy modułu baterii kopii zapasowej.
-  * Jeśli stan jest OK po 12 godzinach, bateria działa i wymagane tylko opłat konserwacji.
-* Jeśli nie został skojarzony utraty zasilaniem, PCM jest włączony i podłączony do zasilania Sieciowego baterii ma zostać zamieniony. [Skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) porządkowania modułu kopii zapasowej baterii zastąpienia.
+  * Jeśli stan hello jest nadal **OBNIŻONY** po 12 godzin zasilania tooAC stałego połączenia z hello kontrolerów i PCMs uruchomiony, następnie hello poziomie naładowania baterii musi toobe zastąpione. Sprawdź [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) zastępczy modułu baterii kopii zapasowej.
+  * Jeśli stan hello staje się OK po 12 godzinach, baterii hello działa i wymagane tylko opłat konserwacji.
+* Jeśli nie nastąpiła skojarzone utraty zasilania Sieciowego i hello PCM jest włączony i podłączony tooAC zasilania, hello poziomie naładowania baterii musi toobe zastąpione. [Skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) tooorder modułu kopii zapasowej baterii zastąpienia.
 
 > [!IMPORTANT]
-> Usuwanie nie powiodło się baterii zgodnie z przepisami krajowych i regionalnych. 
+> Usuń hello nie baterii zgodnie z toonational i przepisy regionalne. 
 > 
 > 
 

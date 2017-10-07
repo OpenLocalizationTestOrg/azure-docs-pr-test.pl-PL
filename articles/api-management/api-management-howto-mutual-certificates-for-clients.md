@@ -1,6 +1,6 @@
 ---
-title: "Zabezpieczenie interfejsów API przy użyciu klienta uwierzytelniania certyfikatów w usłudze API Management — zarządzanie interfejsami API Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak bezpieczny dostęp do interfejsów API przy użyciu certyfikatów klienta"
+title: "aaaSecure interfejsów API przy użyciu wstępnego uwierzytelniania certyfikatu klienta w usłudze API Management — zarządzanie interfejsami API Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toosecure dostępu tooAPIs przy użyciu certyfikatów klienta"
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: d3d51d0575a6d2dacced931601d48eb1e51a4051
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6ff78bda3d429829da79d0dc4d652f19669cc919
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Jak zabezpieczyć interfejsy API za pomocą klienta uwierzytelniania certyfikatów w usłudze API Management
+# <a name="how-toosecure-apis-using-client-certificate-authentication-in-api-management"></a>W jaki sposób toosecure interfejsów API przy użyciu klienta certyfikatów uwierzytelniania w zarządzanie interfejsami API
 
-Zarządzanie interfejsami API oferuje możliwość bezpiecznego dostępu do interfejsów API (np. od klienta do usługi API Management) przy użyciu certyfikatów klienta. Obecnie można sprawdzić odcisk palca certyfikatu klienta na żądaną wartość. Można również sprawdzić odcisk palca z istniejących certyfikatów przekazanych do interfejsu API zarządzania.  
+Zarządzanie interfejsami API udostępnia hello możliwości toosecure dostępu tooAPIs (tj., klient tooAPI Management) przy użyciu certyfikatów klienta. Obecnie można sprawdzić hello odcisk palca certyfikatu klienta na żądaną wartość. Możesz również sprawdzić się, że odcisk palca hello z istniejących certyfikatów przekazano tooAPI zarządzania.  
 
-Aby uzyskać informacji na temat zabezpieczania dostępu do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta (np. interfejsu API Management do wewnętrznej), zobacz [zabezpieczania usług zaplecza za pomocą klienta uwierzytelnianie certyfikatu](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+Aby uzyskać informacje dotyczące zabezpieczania usługi zaplecza toohello dostępu do interfejsu API przy użyciu certyfikatów klienta (np. zarządzanie interfejsami API tooback-end), zobacz [jak za pomocą klienta usług zaplecza toosecure certyfikatu uwierzytelniania](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 
-## <a name="checking-the-expiration-date"></a>Sprawdzanie daty wygaśnięcia
+## <a name="checking-hello-expiration-date"></a>Sprawdzanie, czy data wygaśnięcia hello
 
-Aby sprawdzić, czy certyfikat wygasł można skonfigurować poniżej zasad:
+Poniżej zasad może być skonfigurowany toocheck Jeśli hello certyfikat wygasł:
 
 ```
 <choose>
@@ -39,9 +39,9 @@ Aby sprawdzić, czy certyfikat wygasł można skonfigurować poniżej zasad:
 </choose>
 ```
 
-## <a name="checking-the-issuer-and-subject"></a>Sprawdzanie wystawcy i podmiotu
+## <a name="checking-hello-issuer-and-subject"></a>Sprawdzanie, czy wystawca hello i podmiotu
 
-Poniżej zasad można skonfigurować w celu sprawdzenia wystawcy i podmiotu certyfikatu klienta:
+Poniżej zasad może być skonfigurowany toocheck hello wystawcy i podmiotu certyfikatu klienta:
 
 ```
 <choose>
@@ -53,9 +53,9 @@ Poniżej zasad można skonfigurować w celu sprawdzenia wystawcy i podmiotu cert
 </choose>
 ```
 
-## <a name="checking-the-thumbprint"></a>Sprawdzanie odcisk palca
+## <a name="checking-hello-thumbprint"></a>Sprawdzanie, czy hello odcisk palca
 
-Poniżej zasad można skonfigurować w celu Sprawdź odcisk palca certyfikatu klienta:
+Poniżej zasad może być skonfigurowany toocheck hello odcisk palca certyfikatu klienta:
 
 ```
 <choose>
@@ -67,9 +67,9 @@ Poniżej zasad można skonfigurować w celu Sprawdź odcisk palca certyfikatu kl
 </choose>
 ```
 
-## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Sprawdzanie odcisk palca przed certyfikatami, przekazany do interfejsu API zarządzania
+## <a name="checking-a-thumbprint-against-certificates-uploaded-tooapi-management"></a>Sprawdzanie odcisk palca przed certyfikatami, przekazać tooAPI zarządzania
 
-Poniższy przykład przedstawia sposób Sprawdź odcisk palca certyfikatu klienta przed przekazany do interfejsu API zarządzania certyfikatami: 
+Witaj poniższy przykład przedstawia sposób toocheck hello odcisk palca certyfikatu klienta przed certyfikatami, przekazać tooAPI zarządzania: 
 
 ```
 <choose>
@@ -84,6 +84,6 @@ Poniższy przykład przedstawia sposób Sprawdź odcisk palca certyfikatu klient
 
 ## <a name="next-step"></a>Następny krok
 
-*  [Jak zabezpieczyć za pomocą klienta usług zaplecza uwierzytelnianie certyfikatu](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
-*  [Jak przekazywać certyfikatów](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [Jak za pomocą klienta usług zaplecza toosecure certyfikatu uwierzytelniania](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+*  [Jak tooupload certyfikatów](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

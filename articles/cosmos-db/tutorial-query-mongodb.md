@@ -1,6 +1,6 @@
 ---
-title: "Azure DB rozwiązania Cosmos: Jak wykonać zapytanie, za pomocą interfejsu API usługi DocumentDB? | Microsoft Docs"
-description: "Dowiedz się, jak zapytania przy użyciu interfejsu API usługi DocumentDB dla bazy danych Azure rozwiązania Cosmos"
+title: "Azure DB rozwiązania Cosmos: Jak tooquery przy użyciu hello interfejsu API usługi DocumentDB? | Microsoft Docs"
+description: "Dowiedz się tooquery z hello interfejsu API usługi DocumentDB dla bazy danych Azure rozwiązania Cosmos"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e3e5a49f7510942bcfb15330e5f86c5dd8b1e5d9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure DB rozwiązania Cosmos: Jak zbadać za pomocą interfejsu API dla bazy danych MongoDB?
+# <a name="azure-cosmos-db-how-tooquery-with-api-for-mongodb"></a>Azure DB rozwiązania Cosmos: Jak tooquery z interfejsem API bazy danych mongodb?
 
-Azure DB rozwiązania Cosmos [interfejsu API dla bazy danych MongoDB](mongodb-introduction.md) obsługuje [zapytania powłoki MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+Hello Azure DB rozwiązania Cosmos [interfejsu API dla bazy danych MongoDB](mongodb-introduction.md) obsługuje [zapytania powłoki MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
-W tym artykule opisano następujące zadania: 
+W tym artykule omówiono hello następujące zadania: 
 
 > [!div class="checklist"]
 > * Wykonywanie zapytania na danych z bazy danych MongoDB
 
 ## <a name="sample-document"></a>Przykładowy dokument
 
-Zapytania w tym artykule, użyj następujących przykładowy dokument.
+Witaj zapytania w tym artykule Użyj powitania po przykładowy dokument.
 
 ```json
 {
@@ -64,7 +64,7 @@ Zapytania w tym artykule, użyj następujących przykładowy dokument.
 ```
 ## <a id="examplequery1"></a>Przykładowe Zapytanie 1 
 
-Podana dokument rodziny próbki powyżej, następujące zapytanie zwraca dokumenty Jeśli w polu identyfikatora odpowiada `WakefieldFamily`.
+Podana hello próbki rodziny dokumentu powyżej, hello następujące zapytanie zwraca hello dokumentów, jeśli pole identyfikatora hello odpowiada `WakefieldFamily`.
 
 **Zapytanie**
     
@@ -114,7 +114,7 @@ Podana dokument rodziny próbki powyżej, następujące zapytanie zwraca dokumen
 
 ## <a id="examplequery2"></a>Przykładowe zapytanie 2 
 
-Dalej zapytanie zwraca wszystkie elementy podrzędne w rodzinie. 
+Witaj dalej zapytanie zwraca wszystkie elementy podrzędne hello hello rodziny. 
 
 **Zapytanie**
     
@@ -147,7 +147,7 @@ Dalej zapytanie zwraca wszystkie elementy podrzędne w rodzinie.
 
 ## <a id="examplequery3"></a>Przykładowe zapytanie 3 
 
-Dalej zapytanie zwraca wszystkie rodziny, które zostały zarejestrowane. 
+Witaj dalej zapytanie zwraca wszystkich rodzin hello, które zostały zarejestrowane. 
 
 **Zapytanie**
     
@@ -156,7 +156,7 @@ Dalej zapytanie zwraca wszystkie rodziny, które zostały zarejestrowane.
 
 ## <a id="examplequery4"></a>Przykładowe zapytanie 4
 
-Dalej zapytanie zwraca wszystkie rodziny, które nie zostały zarejestrowane. 
+Witaj dalej zapytanie zwraca wszystkich rodzin hello, które nie zostały zarejestrowane. 
 
 **Zapytanie**
     
@@ -200,7 +200,7 @@ Dalej zapytanie zwraca wszystkie rodziny, które nie zostały zarejestrowane.
 
 ## <a id="examplequery5"></a>Przykładowe zapytanie 5
 
-Dalej zapytanie zwraca rodziny, które nie są zarejestrowane i stan jest NY. 
+Hello dalej zapytanie zwraca wszystkie rodzin hello, które nie są zarejestrowane i stan NY. 
 
 **Zapytanie**
     
@@ -246,7 +246,7 @@ Dalej zapytanie zwraca rodziny, które nie są zarejestrowane i stan jest NY.
 
 ## <a id="examplequery6"></a>Przykładowe zapytanie 6
 
-Dalej zapytanie zwraca wszystkich rodzin, w których 8 klas podrzędnych.
+Hello dalej zapytanie zwraca wszystkich rodzin hello, w których 8 klas podrzędnych.
 
 **Zapytanie**
   
@@ -291,7 +291,7 @@ Dalej zapytanie zwraca wszystkich rodzin, w których 8 klas podrzędnych.
 
 ## <a id="examplequery7"></a>Przykładowe zapytanie 7
 
-Dalej zapytanie zwraca wszystkich rodzin, których rozmiar tablicy elementów podrzędnych to 3.
+Hello dalej zapytanie zwraca wszystkich rodzin hello, w których rozmiar tablicy elementów podrzędnych jest 3.
 
 **Zapytanie**
   
@@ -299,16 +299,16 @@ Dalej zapytanie zwraca wszystkich rodzin, których rozmiar tablicy elementów po
 
 **Wyniki**
 
-Nie będzie można zwrócić wyników, ponieważ nie ma więcej niż 2 elementów podrzędnych. Tylko wtedy, gdy parametr 2 to zapytanie powiodło się i zwróć pełnego dokumentu.
+Nie będzie można zwrócić wyników, ponieważ nie ma więcej niż 2 elementów podrzędnych. Tylko wtedy, gdy parametr 2 to zapytanie powiodło się i zwróć hello pełnego dokumentu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku wykonaniu następujących czynności:
+W tym samouczku wykonaniu hello następujące czynności:
 
 > [!div class="checklist"]
-> * Przedstawiono sposób zapytań przy użyciu bazy danych MongoDB 
+> * Przedstawiono sposób tooquery przy użyciu bazy danych MongoDB 
 
-Możesz teraz przejść do następnym samouczku informacje na temat dystrybucji danych globalnie.
+Można teraz kontynuować toohello następny samouczek toolearn jak toodistribute danych globalnie.
 
 > [!div class="nextstepaction"]
 > [Globalny dystrybucji danych](tutorial-global-distribution-documentdb.md)

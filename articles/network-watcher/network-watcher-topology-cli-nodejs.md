@@ -1,6 +1,6 @@
 ---
-title: "Wyświetl topologii obserwatora sieciowego Azure - Azure CLI 1.0 | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób użycia interfejsu wiersza polecenia platformy Azure w wersji 1.0 się zapytanie o topologii sieci."
+title: "Topologia obserwatora sieciowego Azure aaaView — 1.0 interfejsu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano sposób tooquery toouse Azure CLI 1.0 topologii sieci."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 9178c485a92e04564c95dae8073f045b5c639bb7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 30679d6dc74e85bacfc86c63bd1afa873893c772
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-network-watcher-topology-with-azure-cli-10"></a>Wyświetl topologią obserwatora sieciowego za pomocą interfejsu wiersza polecenia platformy Azure w wersji 1.0
 
@@ -28,39 +28,39 @@ ms.lasthandoff: 07/11/2017
 > - [Interfejs wiersza polecenia 2.0](network-watcher-topology-cli.md)
 > - [Interfejs API REST](network-watcher-topology-rest.md)
 
-Funkcja topologii sieci obserwatora zapewnia wizualną reprezentację zasobów sieciowych w ramach subskrypcji. W portalu tej wizualizacji są prezentowane automatycznie. Informacje dotyczące widoku topologii w portalu można pobrać za pomocą programu PowerShell.
-Dzięki temu informacje topologii bardziej elastyczne, dane mogą być używane przez inne narzędzia do tworzenia wizualizacji.
+Funkcja topologii Hello obserwatora sieciowego zapewnia wizualną reprezentację hello zasobów sieciowych w ramach subskrypcji. W portalu hello tej wizualizacji przedstawiono tooyou automatycznie. informacje Hello za hello widoku topologii w portalu hello mogą zostać pobrane za pomocą programu PowerShell.
+Dzięki temu informacji dotyczących topologii hello bardziej elastyczne, hello danych mogą być używane przez inne narzędzia toobuild limit hello wizualizacji.
 
 W tym artykule wykorzystano 1.0 interfejsu wiersza polecenia platformy Azure i platform, która jest dostępna dla systemu Windows, Mac i Linux. 
 
-W obszarze dwie relacje w modelu połączenia.
+w obszarze dwie relacje w modelu Hello połączenia.
 
 - **Zawieranie** — przykład: sieć wirtualna zawiera podsieć zawiera karty Sieciowej
 - **Skojarzone** — przykład: karta sieciowa jest skojarzona z maszyną Wirtualną
 
-Poniżej znajduje się właściwości, które są zwracane podczas wykonywania zapytania interfejsu API REST topologii.
+Witaj poniżej znajduje się właściwości, które są zwracane, gdy zapytanie hello interfejsu API REST topologii.
 
-* **Nazwa** — Nazwa zasobu
-* **Identyfikator** — identyfikator uri zasobu.
-* **Lokalizacja** — lokalizacji, w której istnieje zasób.
-* **skojarzenia** -listę skojarzeń odwołuje się do obiektu.
-    * **Nazwa** — Nazwa zasobu, do którego istnieje odwołanie.
-    * **resourceId** — element resourceId jest identyfikatorem uri zasobu, do którego odwołuje się powiązanie.
-    * **Obiekt associationType** — ta wartość odwołuje się do relacji między obiekt podrzędny i obiektu nadrzędnego. Prawidłowe wartości to **zawiera** lub **skojarzone**.
+* **Nazwa** — Witaj Nazwa zasobu hello
+* **Identyfikator** — Witaj identyfikatora uri zasobu hello.
+* **Lokalizacja** — Witaj lokalizacji, w której istnieje zasób hello.
+* **skojarzenia** — lista toohello skojarzenia odwołuje się do obiektu.
+    * **Nazwa** — nazwa hello hello odwołuje się do zasobu.
+    * **resourceId** -hello resourceId jest identyfikatorem uri hello hello zasobu, do którego odwołuje się powiązanie hello.
+    * **Obiekt associationType** -hello relacja między hello obiektu podrzędnego i nadrzędnego hello odwołuje się do tej wartości. Prawidłowe wartości to **zawiera** lub **skojarzone**.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym scenariuszu, należy użyć `network watcher topology` polecenia cmdlet można pobrać informacji o topologii. Istnieje również artykuł na temat [pobrać topologii sieci z interfejsu API REST](network-watcher-topology-rest.md).
+W tym scenariuszu, należy użyć hello `network watcher topology` informacje topologii hello tooretrieve polecenia cmdlet. Istnieje również artykuł na temat zbyt[pobrać topologii sieci z interfejsu API REST](network-watcher-topology-rest.md).
 
-W tym scenariuszu przyjęto zostały już wykonane kroki przedstawione w [utworzyć obserwatora sieciowego](network-watcher-create.md) utworzyć obserwatora sieciowego.
+W tym scenariuszu przyjęto zostały już wykonane kroki hello [utworzyć obserwatora sieciowego](network-watcher-create.md) toocreate obserwatora sieciowego.
 
 ## <a name="scenario"></a>Scenariusz
 
-Scenariusz omówione w tym artykule pobiera odpowiedź topologii dla określonej grupy zasobów.
+Scenariusz Hello omówione w tym artykule pobiera odpowiedź hello topologii dla określonej grupy zasobów.
 
 ## <a name="retrieve-topology"></a>Pobrać topologii
 
-`network watcher topology` Polecenie cmdlet pobiera topologii dla określonej grupy zasobów. Dodaj argument "--json" Aby wyświetlić oput w formacie json
+Witaj `network watcher topology` polecenie cmdlet pobiera hello topologii dla określonej grupy zasobów. Dodaj hello argument "--json" tooview oput hello w formacie json
 
 ```azurecli
 azure network watcher topology -g resourceGroupName -n networkWatcherName -r topologyResourceGroupName --json
@@ -68,7 +68,7 @@ azure network watcher topology -g resourceGroupName -n networkWatcherName -r top
 
 ## <a name="results"></a>Wyniki
 
-Wyniki zwrócone ma właściwości name "zasoby", które zawiera treści odpowiedzi json dla `network watcher topology` polecenia cmdlet.  Odpowiedź zawiera zasoby w grupie zabezpieczeń sieci i ich powiązania (to znaczy zawiera, skojarzone).
+Witaj wyników zwróconych ma właściwości name "zasoby", które zawiera treść odpowiedzi json hello hello `network watcher topology` polecenia cmdlet.  odpowiedź Hello zawiera zasoby hello w hello sieciowej grupy zabezpieczeń i ich powiązania (to znaczy zawiera, skojarzone).
 
 ```json
 {
@@ -113,4 +113,4 @@ Wyniki zwrócone ma właściwości name "zasoby", które zawiera treści odpowie
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat reguł zabezpieczeń, które są stosowane do zasobów sieciowych, odwiedzając [Omówienie widoku grupy zabezpieczeń](network-watcher-security-group-view-overview.md)
+Dowiedz się więcej o hello reguły zabezpieczeń, które są stosowane tooyour zasobów sieciowych, odwiedzając [Omówienie widoku grupy zabezpieczeń](network-watcher-security-group-view-overview.md)

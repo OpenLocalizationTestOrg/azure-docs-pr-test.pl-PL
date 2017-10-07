@@ -1,6 +1,6 @@
 ---
-title: "Jak używać magazynu obiektów Blob (obiekt magazynu) w języku Ruby | Dokumentacja firmy Microsoft"
-description: "Przechowuj dane niestrukturalne w chmurze za pomocą Magazynu obiektów blob Azure."
+title: "toouse aaaHow obiektu Blob magazynu (obiekt) w języku Ruby | Dokumentacja firmy Microsoft"
+description: "Przechowuj dane niestrukturalne w chmurze hello z magazynu obiektów Blob platformy Azure (obiekt magazynu)."
 services: storage
 documentationcenter: ruby
 author: mmacy
@@ -14,21 +14,21 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: d27cf1594d6a31a746ca85b5c3184f8a5dbbaa54
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 776e7d788e69d4960f8dde0b783513f6b39b7a47
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-blob-storage-from-ruby"></a>Jak używać Magazynu obiektów Blob w języku Ruby
+# <a name="how-toouse-blob-storage-from-ruby"></a>Jak toouse magazynu obiektów Blob w języku Ruby
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Omówienie
-Magazyn obiektów blob Azure jest usługą służącą do przechowywania danych niestrukturalnych w chmurze w postaci obiektów blob. Magazyn obiektów blob umożliwia przechowywanie dowolnego typu danych tekstowych lub binarnych, takich jak dokumenty, pliki multimedialne lub instalatory aplikacji. Magazyn obiektów blob jest również nazywany magazynem obiektów.
+Magazyn obiektów Blob Azure to usługa, która przechowywania danych niestrukturalnych w chmurze hello w postaci obiektów blob. Magazyn obiektów blob umożliwia przechowywanie dowolnego typu danych tekstowych lub binarnych, takich jak dokumenty, pliki multimedialne lub instalatory aplikacji. Magazyn obiektów blob jest również tooas określonego obiektu magazynu.
 
-W tym przewodniku opisano sposób wykonywania typowych scenariuszy przy użyciu magazynu obiektów Blob. Przykłady są napisane przy użyciu interfejsu API Ruby. Omówione scenariusze obejmują **przekazywania, wyświetlanie, pobieranie,** i **usuwanie** obiektów blob.
+W tym przewodniku opisano, jak tooperform typowych scenariuszy przy użyciu magazynu obiektów Blob. Hello przykłady są napisane przy użyciu hello Ruby interfejsu API. Witaj omówione scenariusze obejmują **przekazywania, wyświetlanie, pobieranie,** i **usuwanie** obiektów blob.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -37,42 +37,42 @@ W tym przewodniku opisano sposób wykonywania typowych scenariuszy przy użyciu 
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji Ruby
 Utwórz aplikację dopisków fonetycznych. Aby uzyskać instrukcje, zobacz [dopisków fonetycznych w aplikacji sieci Web szyny na maszynie Wirtualnej platformy Azure](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
 
-## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji dostęp do magazynu
-Aby korzystać z usługi Azure Storage, konieczne pobranie i użycie dopisków fonetycznych pakiet azure zawiera zestaw wygody bibliotek, które komunikują się z magazynu usługi REST.
+## <a name="configure-your-application-tooaccess-storage"></a>Konfigurowanie sieci tooaccess aplikacji magazynu
+toouse usługi Azure Storage, należy toodownload i użyj hello dopisków fonetycznych azure pakiet, który zawiera zestaw wygody bibliotek, które komunikują się z usługi REST magazynu hello.
 
-### <a name="use-rubygems-to-obtain-the-package"></a>Umożliwia uzyskanie pakietu RubyGems
+### <a name="use-rubygems-tooobtain-hello-package"></a>Użyj RubyGems tooobtain hello pakietu
 1. Użyj interfejsu wiersza polecenia, takich jak **PowerShell** (system Windows), **terminali** (Mac), lub **Bash** (Unix).
-2. Wpisz "azure gem instalacji" w oknie wiersza polecenia, aby zainstalować gem i zależności.
+2. Wpisz "gem zainstalować program azure" hello polecenia okna tooinstall hello gem i zależności.
 
-### <a name="import-the-package"></a>Importowanie pakietu
-Za pomocą edytora tekstu, Dodaj następujący element do góry pliku dopisków fonetycznych, których zamierzasz używać magazynu:
+### <a name="import-hello-package"></a>Importowanie pakietu hello
+Za pomocą edytora tekstu, Dodaj powitania od góry toohello hello dopisków fonetycznych pliku, w którym ma toouse magazynu:
 
 ```ruby
 require "azure"
 ```
 
 ## <a name="set-up-an-azure-storage-connection"></a>Konfigurowanie połączenia z magazynem Azure
-Moduł azure odczyta zmiennych środowiskowych **AZURE\_MAGAZYNU\_konta** i **AZURE\_MAGAZYNU\_ACCESS_KEY** informacji wymagane do łączenia się z kontem magazynu platformy Azure. Jeśli te zmienne środowiskowe nie są skonfigurowane, należy określić informacje o koncie przed użyciem **Azure::Blob::BlobService** następującym kodem:
+Moduł Hello azure odczyta zmiennych środowiskowych hello **AZURE\_MAGAZYNU\_konta** i **AZURE\_MAGAZYNU\_ACCESS_KEY** dla Konto magazynu Azure tooyour tooconnect wymaganych informacji. Jeśli te zmienne środowiskowe nie są skonfigurowane, należy określić informacje o koncie hello przed użyciem **Azure::Blob::BlobService** z hello następującego kodu:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your azure storage access key>"
 ```
 
-Aby uzyskać te wartości z klasyczny lub Menedżera zasobów konta magazynu w portalu Azure:
+tooobtain te wartości z klasyczny lub Menedżera zasobów magazynu konta w portalu Azure hello:
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Przejdź do konta magazynu, którego chcesz użyć.
-3. W bloku ustawienia po prawej stronie, kliknij przycisk **klucze dostępu**.
-4. W bloku klucze dostępu pojawia się zostanie wyświetlony klucz dostępu 1 i klucz dostępu 2. Można użyć jednego z tych.
-5. Kliknij ikonę kopiowania, aby skopiować klucz do Schowka.
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com).
+2. Przejdź toohello konta magazynu, które chcesz toouse.
+3. W bloku ustawienia hello na powitania prawo, kliknij przycisk **klucze dostępu**.
+4. W bloku klucze dostępu hello, który pojawia się zostanie wyświetlony klucz dostępu hello 1 i klucz dostępu 2. Można użyć jednego z tych.
+5. Kliknij przycisk hello Kopiuj ikona toocopy hello klucza toohello Schowka.
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-**Azure::Blob::BlobService** obiektu umożliwia pracę z kontenerów i obiektów blob. Aby utworzyć kontener, użyj **utworzyć\_container()** metody.
+Witaj **Azure::Blob::BlobService** obiektu umożliwia pracę z kontenerów i obiektów blob. toocreate kontener, użyj hello **utworzyć\_container()** metody.
 
-Poniższy przykład kodu tworzy kontener lub drukuje ten błąd, jeśli istnieje.
+Witaj poniższy przykład kodu tworzy kontener lub drukuje hello błąd, jeśli istnieje.
 
 ```ruby
 azure_blob_service = Azure::Blob::BlobService.new
@@ -83,32 +83,32 @@ rescue
 end
 ```
 
-Jeśli chcesz udostępnić pliki w kontenerze, możesz ustawić uprawnienia do kontenera.
+Jeśli chcesz toomake hello pliki w kontenerze hello publiczne, możesz ustawić uprawnienia hello kontenera.
 
-Można zmodyfikować <strong>utworzyć\_container()</strong> wywołania do przekazania **: publiczny\_dostępu\_poziom** opcji:
+Można modyfikować tylko hello <strong>utworzyć\_container()</strong> hello toopass wywołania **: publiczny\_dostępu\_poziom** opcji:
 
 ```ruby
 container = azure_blob_service.create_container("test-container",
     :public_access_level => "<public access level>")
 ```
 
-Prawidłowymi wartościami dla **: publiczny\_dostępu\_poziom** są opcji:
+Prawidłowe wartości hello **: publiczny\_dostępu\_poziom** są opcji:
 
-* **Obiekt blob:** Określa publiczny dostęp do odczytu obiektów blob. Mogą być odczytywane dane obiektów blob w tym kontenerze za pomocą żądania od użytkowników anonimowych, ale nie są dostępne dane kontenera. Klienci nie można wyliczyć obiektów blob w kontenerze, za pomocą żądania od użytkowników anonimowych.
-* **kontener:** określa pełnej publiczny dostęp do odczytu obiektów blob i kontenera danych. Klientów można wyliczyć obiektów blob w kontenerze, za pomocą żądania od użytkowników anonimowych, ale nie można wyliczyć kontenery w ramach konta magazynu.
+* **Obiekt blob:** Określa publiczny dostęp do odczytu obiektów blob. Mogą być odczytywane dane obiektów blob w tym kontenerze za pomocą żądania od użytkowników anonimowych, ale nie są dostępne dane kontenera. Klienci nie można wyliczyć obiektów blob w kontenerze hello za pomocą żądania od użytkowników anonimowych.
+* **kontener:** określa pełnej publiczny dostęp do odczytu obiektów blob i kontenera danych. Klientów można wyliczyć obiektów blob w kontenerze hello za pomocą żądania od użytkowników anonimowych, ale nie można wyliczyć kontenery w ramach konta magazynu hello.
 
-Alternatywnie można zmodyfikować poziomu dostępu publicznego kontenera za pomocą **ustawić\_kontenera\_acl()** metodę, aby określić poziom dostępu publicznego.
+Alternatywnie można zmodyfikować poziomu dostępu publicznego hello kontenera za pomocą **ustawić\_kontenera\_acl()** poziom dostępu publicznego hello toospecify metody.
 
-Poniższy przykład kodu zmienia poziom dostępu publicznego do **kontenera**:
+Witaj, poniższy przykład kodu zmiany hello zbyt poziomie dostępu publicznego**kontenera**:
 
 ```ruby
 azure_blob_service.set_container_acl('test-container', "container")
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Przekazywanie obiektu blob do kontenera
-Aby przekazać zawartości do obiektu blob, użyj **utworzyć\_bloku\_blob()** metodę w celu utworzenia obiektu blob, użyj pliku lub ciągu jako zawartość obiektu blob.
+tooupload zawartości tooa blob, użyj hello **utworzyć\_bloku\_blob()** obiektu blob hello toocreate metody, przy użyciu pliku lub string jako zawartość hello hello obiektu blob.
 
-Poniższy kod powoduje przekazanie pliku **test.png** jako nowy obiekt blob o nazwie "— obiekt blob obrazu" w kontenerze.
+Witaj następujący kod plik zostanie przesłany hello **test.png** jako nowy obiekt blob o nazwie "— obiekt blob obrazu" w kontenerze hello.
 
 ```ruby
 content = File.open("test.png", "rb") { |file| file.read }
@@ -117,11 +117,11 @@ blob = azure_blob_service.create_block_blob(container.name,
 puts blob.name
 ```
 
-## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
-Aby wyświetlić listę kontenery, użyj **list_containers()** metody.
-Aby wyświetlić listę obiektów blob w kontenerze, należy użyć **listy\_blobs()** metody.
+## <a name="list-hello-blobs-in-a-container"></a>Lista hello BLOB w kontenerze
+toolist hello kontenery, użyj **list_containers()** metody.
+Użyj toolist hello BLOB w kontenerze, **listy\_blobs()** metody.
 
-Generuje to adresy URL wszystkich obiektów blob w kontenerach dla konta.
+To generuje hello adresy URL wszystkich hello obiektów blob w wszystkich kontenerów hello hello konta.
 
 ```ruby
 containers = azure_blob_service.list_containers()
@@ -134,9 +134,9 @@ end
 ```
 
 ## <a name="download-blobs"></a>Pobieranie obiektów blob
-Aby pobrać obiekty BLOB, użyj **uzyskać\_blob()** metody, aby pobrać zawartość.
+toodownload obiektów blob, użyj hello **uzyskać\_blob()** metody tooretrieve hello zawartość.
 
-Poniższy przykład kodu pokazuje, za pomocą **uzyskać\_blob()** do pobrania zawartości "obiekt blob obrazu" i zapisz je w pliku lokalnym.
+Witaj poniższy przykład kodu pokazuje przy użyciu **uzyskać\_blob()** toodownload hello zawartość "obiekt blob obrazu" i Zapisz plik lokalny tooa.
 
 ```ruby
 blob, content = azure_blob_service.get_blob(container.name,"image-blob")
@@ -144,16 +144,16 @@ File.open("download.png","wb") {|f| f.write(content)}
 ```
 
 ## <a name="delete-a-blob"></a>Usuwanie obiektu Blob
-Na koniec, aby usunąć obiekt blob, użyj **usunąć\_blob()** metody. Poniższy przykład kodu pokazuje, jak można usunąć obiektu blob.
+Na koniec toodelete obiektu blob, użyj hello **usunąć\_blob()** metody. Witaj poniższy przykład kodu pokazuje sposób toodelete obiektu blob.
 
 ```ruby
 azure_blob_service.delete_blob(container.name, "image-blob")
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu, skorzystaj z poniższych linków:
+toolearn o bardziej skomplikowanych zadaniach magazynu, skorzystaj z poniższych linków:
 
 * [Blog zespołu odpowiedzialnego za usługę Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Zestaw Azure SDK dla środowiska Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repozytorium w witrynie GitHub
-* [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Transfer danych za pomocą wiersza polecenia Azcopy hello](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

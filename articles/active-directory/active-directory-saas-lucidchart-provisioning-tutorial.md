@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Konfigurowanie LucidChart dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować usługi Azure Active Directory, aby automatycznie zapewnianie i usuwanie kont użytkowników do LucidChart."
+description: "Dowiedz się, jak konta tooLucidChart tooconfigure usługi Azure Active Directory tooautomatically udostępniania i usuwanie użytkowników."
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -14,82 +14,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 1f9344a5e750360e21ed7dc8e3ed013c2c2e1a45
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: d3af45141731215f2edc8942ad21b016468c1e38
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-configuring-lucidchart-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie LucidChart dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 
-Celem tego samouczka jest opisano czynności, które należy wykonać w LucidChart i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD LucidChart. 
+Celem Hello tego samouczka jest tooshow hello czynności, które należy tooperform w LucidChart i Azure AD tooautomatically udostępniania i usuwanie kont użytkowników z usługi Azure AD tooLucidChart. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że już następujące elementy:
+Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
 
 *   Dzierżawy usługi Azure Active directory
-*   Dzierżawcy LucidChart z [Enterprise plan](https://www.lucidchart.com/user/117598685#/subscriptionLevel) lub lepiej jest włączone 
+*   Dzierżawcy LucidChart z hello [Enterprise plan](https://www.lucidchart.com/user/117598685#/subscriptionLevel) lub lepiej jest włączone 
 *   Konto użytkownika z uprawnieniami administratora w LucidChart 
 
-## <a name="assigning-users-to-lucidchart"></a>Przypisywanie użytkowników do LucidChart
+## <a name="assigning-users-toolucidchart"></a>Przypisywanie użytkowników tooLucidChart
 
-Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD jest zsynchronizowany. 
+Azure Active Directory korzysta z koncepcji o nazwie "przypisania" toodetermine użytkowników, którzy mają otrzymywać aplikacje tooselected dostępu. W kontekście hello Inicjowanie obsługi konta użytkowników tylko hello użytkowników i grup, które zostały "przypisane" tooan aplikacji w usłudze Azure AD jest zsynchronizowany. 
 
-Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy zdecydować, jakie użytkownicy i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji LucidChart. Po decyzję, postępując zgodnie z instrukcjami w tym miejscu można przypisać tych użytkowników do aplikacji LucidChart:
+Przed Skonfiguruj i Włącz hello usługi inicjowania obsługi administracyjnej, należy toodecide jakie użytkowników i/lub grup w usłudze Azure AD reprezentują hello użytkowników, którzy muszą uzyskiwać dostęp do aplikacji LucidChart tooyour. Po decyzję, wykonując instrukcje hello w tym miejscu można przypisać tych użytkowników tooyour LucidChart aplikacji:
 
-[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](active-directory-coreapps-assign-user-azure-portal.md)
+[Przypisywanie użytkownikowi lub grupie aplikacji przedsiębiorstwa tooan](active-directory-coreapps-assign-user-azure-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-lucidchart"></a>Ważne porady dotyczące przypisywania użytkowników do LucidChart
+### <a name="important-tips-for-assigning-users-toolucidchart"></a>Ważne porady dotyczące przypisywania tooLucidChart użytkowników
 
-*   Zalecane jest jeden jest przypisany użytkownik usługi Azure AD LucidChart do testowania konfiguracji inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest jeden użytkownik usługi Azure AD jest przypisany hello tootest tooLucidChart inicjowania obsługi konfiguracji. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-*   Przypisanie użytkownika do LucidChart, należy wybrać opcję **użytkownika** rola, lub inny prawidłowy specyficzne dla aplikacji (jeśli jest dostępny) w oknie dialogowym przypisania. **Domyślnego dostępu** roli nie działa w przypadku inicjowania obsługi administracyjnej, a użytkownicy są pomijane.
+*   Podczas przypisywania tooLucidChart użytkownika, należy wybrać albo hello **użytkownika** rola, lub inny prawidłowy specyficzne dla aplikacji (jeśli jest dostępny) w oknie dialogowym przydział hello. Witaj **domyślnego dostępu** roli nie działa w przypadku inicjowania obsługi administracyjnej, a użytkownicy są pomijane.
 
 
-## <a name="configuring-user-provisioning-to-lucidchart"></a>Konfigurowanie inicjowania obsługi administracyjnej LucidChart użytkownika 
+## <a name="configuring-user-provisioning-toolucidchart"></a>Konfigurowanie inicjowania obsługi administracyjnej tooLucidChart użytkownika 
 
-Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkownika w LucidChart inicjowania obsługi interfejsu API i konfigurowanie inicjowania obsługi usługi do tworzenia, aktualizacji i wyłączania konta użytkowników przypisane w LucidChart w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez łączenie inicjowania obsługi interfejsu API konta użytkownika tooLucidChart programu Azure AD i konfigurowanie hello inicjowania obsługi usługi toocreate, zaktualizować, a następnie wyłącz konta użytkowników przypisane w LucidChart w oparciu o przypisania użytkowników i grup w usłudze Azure AD .
 
 > [!TIP]
-> Można też włączyć na języku SAML logowania jednokrotnego dla LucidChart, wykonując instrukcje podane w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
+> Można też tooenabled na języku SAML logowania jednokrotnego dla LucidChart hello instrukcje podane w następujących [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
 
 
-### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Skonfiguruj użytkownika automatyczne Inicjowanie obsługi konta do LucidChart w usłudze Azure AD
+### <a name="configure-automatic-user-account-provisioning-toolucidchart-in-azure-ad"></a>Skonfiguruj konto użytkownika automatycznego inicjowania obsługi administracyjnej tooLucidChart w usłudze Azure AD
 
 
-1. W [portalu Azure](https://portal.azure.com), przejdź do **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
+1. W hello [portalu Azure](https://portal.azure.com), Przeglądaj toohello **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
 
-2. Jeśli LucidChart został już skonfigurowany dla logowania jednokrotnego, wyszukiwanie wystąpieniem LucidChart przy użyciu pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **LucidChart** w galerii aplikacji. Wybierz LucidChart w wynikach wyszukiwania, a następnie dodaj go do listy aplikacji.
+2. LucidChart został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpieniem LucidChart za pomocą hello pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **LucidChart** w galerii aplikacji hello. Wybierz LucidChart z wyników wyszukiwania hello i dodać go tooyour listy aplikacji.
 
-3. Wybierz wystąpienia programu LucidChart, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
+3. Wybierz wystąpienia programu LucidChart, a następnie wybierz hello **inicjowania obsługi administracyjnej** kartę.
 
-4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**.
+4. Zestaw hello **inicjowania obsługi trybu** za**automatyczne**.
 
     ![LucidChart inicjowania obsługi administracyjnej.](./media/active-directory-saas-lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. W obszarze **poświadczeń administratora** sekcji wejściowych **klucz tajny tokenu** generowane przez konto użytkownika LucidChart (przy użyciu tego konta można znaleźć tokenu: **zespołu**  >  **Integracji aplikacji** > **SCIM**). 
+5. W obszarze hello **poświadczeń administratora** hello wejściowych, sekcji **klucz tajny tokenu** generowane przez konto użytkownika LucidChart (przy użyciu tego konta można znaleźć tokenu hello: **zespołu**  >  **Integracji aplikacji** > **SCIM**). 
 
     ![LucidChart inicjowania obsługi administracyjnej.](./media/active-directory-saas-lucidchart-provisioning-tutorial/LucidChart2.png)
 
-6. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji LucidChart. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto LucidChart ma uprawnienia administratora i spróbuj ponownie wykonać krok 5.
+6. W portalu Azure hello, kliknij przycisk **Testuj połączenie** tooensure usługi Azure AD można połączyć tooyour LucidChart aplikację. Jeśli hello połączenia nie powiedzie się, upewnij się, że Twoje konto LucidChart ma uprawnienia administratora i spróbuj ponownie wykonać krok 5.
 
-7. Wprowadź adres e-mail osoby lub grupy, który powinien zostać wyświetlony inicjowania obsługi administracyjnej powiadomienia o błędach w **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru "Wyślij wiadomość e-mail z powiadomieniem, gdy wystąpi błąd".
+7. Wprowadź adres e-mail hello osoby lub grupy, które powinny być przesyłane powiadomienia błąd inicjowania obsługi administracyjnej w hello **wiadomość E-mail z powiadomieniem** pola i wyboru hello wyboru "Wyślij wiadomość e-mail z powiadomieniem, gdy wystąpi błąd."
 
 8. Kliknij pozycję **Zapisz**. 
 
-9. W sekcji mapowania wybierz **synchronizacji Azure Active Directory użytkownikom LucidChart**.
+9. W obszarze hello sekcji mapowania, wybierz **tooLucidChart synchronizacji Azure Active Directory użytkowników**.
 
-10. W **mapowań atrybutów** Przejrzyj atrybutów użytkowników, które są synchronizowane z usługi Azure AD LucidChart. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w LucidChart dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
+10. W hello **mapowań atrybutów** Przejrzyj hello atrybutów użytkowników, które są synchronizowane z usługą Azure AD tooLucidChart. Witaj atrybuty wybrany jako **pasujące** właściwości są używane toomatch hello kontom LucidChart dla operacji update. Wybierz toocommit przycisk Zapisz hello wszelkie zmiany.
 
-11. Aby włączyć usługi Azure AD usługi dla LucidChart inicjowania obsługi administracyjnej, zmień **stan inicjowania obsługi administracyjnej** do **na** w **ustawienia** sekcji
+11. tooenable hello inicjowania obsługi usługi Azure AD dla LucidChart, zmień hello **stan inicjowania obsługi administracyjnej** za**na** w hello **ustawienia** sekcji
 
 12. Kliknij pozycję **Zapisz**. 
 
-Ta operacja uruchamia wstępnej synchronizacji użytkowników i/lub grupy przypisane do LucidChart w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej.
+Ta operacja spowoduje uruchomienie synchronizacji początkowej hello użytkowników i/lub grupy przypisane tooLucidChart w hello użytkowników i grup sekcji. Witaj początkowej synchronizacji ma tooperform dłużej niż kolejne synchronizacje, które występują co około 20 minut, tak długo, jak działa usługa hello. Można użyć hello **szczegóły synchronizacji** sekcji postępu toomonitor i wykonaj łącza tooprovisioning działania raporty, które opisują wszystkie działania wykonywane przez hello inicjowania obsługi usługi.
 
-Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Aby uzyskać więcej informacji dotyczących sposobu inicjowania obsługi usługi Azure AD hello tooread logowania, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
@@ -99,4 +99,4 @@ Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak należy przejrzeć dzienniki i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](active-directory-saas-provisioning-reporting.md)
+* [Dowiedz się, jak dzienniki tooreview i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](active-directory-saas-provisioning-reporting.md)

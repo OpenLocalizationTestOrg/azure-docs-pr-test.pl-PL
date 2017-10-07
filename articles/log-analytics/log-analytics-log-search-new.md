@@ -1,6 +1,6 @@
 ---
-title: Zaloguj wyszukiwania OMS Log Analytics | Dokumentacja firmy Microsoft
-description: "Wymagane jest wyszukiwania dziennika, aby pobrać wszystkie dane z analizy dzienników.  W tym artykule opisano sposób nowy dziennik wyszukiwania są używane w analizy dzienników i zapewnia pojęcia, które należy zrozumieć przed utworzeniem jeden."
+title: aaaLog wyszukiwania OMS Log Analytics | Dokumentacja firmy Microsoft
+description: "Tooretrieve wyszukiwania dziennika jest wymagane żadne dane z analizy dzienników.  W tym artykule opisano sposób nowy dziennik wyszukiwania są używane w analizy dzienników i zapewnia koncepcje potrzebne toounderstand przed utworzeniem jeden."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -13,46 +13,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 08fda1d9eb9e6ab824ffb9e12af09832c3e3fad2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Opis wyszukiwania dziennika analizy dzienników
 
 > [!NOTE]
-> W tym artykule opisano dziennik wyszukiwania przy użyciu nowego języka zapytań usługi Analiza dzienników Azure.  Możesz dowiedzieć się więcej o nowy język i uzyskać Procedura uaktualniania obszaru roboczego na [uaktualnienia obszaru roboczego analizy dzienników Azure do nowego wyszukiwania dziennika](log-analytics-log-search-upgrade.md).  
+> W tym artykule opisano dziennik wyszukiwania przy użyciu hello nowego języka zapytań usługi Analiza dzienników Azure.  Możesz dowiedzieć się więcej o nowy język hello i uzyskać hello procedury tooupgrade obszaru roboczego na [uaktualnienia wyszukiwania dziennika toonew roboczym usługi Analiza dzienników Azure](log-analytics-log-search-upgrade.md).  
 >
-> Jeśli nowy język kwerendy nie została ona uaktualniona obszaru roboczego, należy zapoznać się [wyszukiwanie danych przy użyciu dziennika wyszukiwania w analizy dzienników](log-analytics-log-searches.md).
+> Jeśli obszar roboczy nie został uaktualniony toohello nowy język zapytań, należy zapoznać się zbyt[wyszukiwanie danych przy użyciu dziennika wyszukiwania w analizy dzienników](log-analytics-log-searches.md).
 
-Wymagane jest wyszukiwania dziennika, aby pobrać wszystkie dane z analizy dzienników.  Czy w przypadku analizowania danych w portalu, konfigurowanie ma być powiadamiany o określony warunek reguły alertu lub pobierania danych przy użyciu interfejsu API usługi Analiza dzienników, umożliwia wyszukiwanie dziennika Określ dane, które mają.  W tym artykule opisano sposób użycia dziennika wyszukiwania w analizy dzienników i zapewnia pojęcia, które należy zrozumieć przed utworzeniem jeden. Zobacz [następne kroki](#next-steps) sekcji, aby uzyskać więcej informacji na temat tworzenia i edytowania dziennik wyszukiwania i odwołań na język zapytań.
+Tooretrieve wyszukiwania dziennika jest wymagane żadne dane z analizy dzienników.  Czy w przypadku analizowania danych w portalu hello, konfigurowanie toobe reguły alertu powiadomienie określony warunek, lub podczas pobierania danych przy użyciu hello dziennika analizy interfejsu API, będzie używać danych hello toospecify wyszukiwania dziennika, który ma.  W tym artykule opisano sposób użycia dziennika wyszukiwania w analizy dzienników i zapewnia pojęcia, które należy zrozumieć przed utworzeniem jeden. Zobacz hello [następne kroki](#next-steps) sekcji, aby uzyskać więcej informacji na temat tworzenia i edytowania dziennik wyszukiwania i odwołań na powitania język zapytań.
 
 ## <a name="where-log-searches-are-used"></a>Gdzie są używane dziennik wyszukiwania
 
-Różne sposoby, który będzie używany dziennik wyszukiwania w analizy dzienników są następujące:
+różne sposoby Hello, który będzie używany dziennik wyszukiwania w analizy dzienników Uwzględnij hello następujące elementy:
 
-- **Portale.** Można wykonywać analizy interakcyjnej danych w repozytorium i [dziennik wyszukiwania portalu](log-analytics-log-search-log-search-portal.md) lub [portal analityka zaawansowane](https://go.microsoft.com/fwlink/?linkid=856587).  Dzięki temu można edytować zapytania i Analizuj wyniki w różnych formatach i wizualizacji.  Większość zapytań, które możesz utworzyć zostanie uruchomiony w jednym z portali i następnie skopiowana po zweryfikowaniu, że działa zgodnie z oczekiwaniami.
-- **Reguły alertów.** [Reguły alertów](log-analytics-alerts.md) aktywne identyfikowanie problemów z danych w obszarze roboczym.  Każdej reguły alertu jest oparta na wyszukiwania dziennika, który jest automatycznie uruchamiany w regularnych odstępach czasu.  Wyniki są sprawdzana w celu określenia, czy można utworzyć alertu.
-- **Widoki.**  Możesz utworzyć wizualizacje danych do uwzględnienia w pulpity nawigacyjne użytkownika z [Widok projektanta](log-analytics-view-designer.md).  Wyszukiwanie dziennika zawierają dane używane przez [Kafelki](log-analytics-view-designer-tiles.md) i [części wizualizacji](log-analytics-view-designer-parts.md) w każdym widoku.  Możesz można przejść z części wizualizacji do portalu wyszukiwania dziennika podczas dalszej analizy danych.
-- **Eksportowanie.**  Podczas eksportowania danych z obszaru roboczego analizy dzienników do programu Excel lub [usługi Power BI](log-analytics-powerbi.md), tworzenie wyszukiwania dziennika do definiowania danych do wyeksportowania.
-- **Środowiska PowerShell.** Należy uruchomić skrypt programu PowerShell z wiersza polecenia lub element runbook usługi Automatyzacja Azure, która używa [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) do pobierania danych z analizy dzienników.  To polecenie cmdlet wymaga zapytań w celu określenia danych do pobrania.
-- **Interfejs API analizy dziennika.**  [Analizy dzienników logowania interfejsu API search](log-analytics-log-search-api.md) umożliwia dowolnego klienta interfejsu API REST do pobierania danych z obszaru roboczego.  Żądanie interfejsu API zawiera zapytanie, które jest wykonywane na analizy dzienników do określenia danych do pobrania.
+- **Portale.** Można wykonywać analizy interakcyjnej danych w repozytorium hello i hello [dziennik wyszukiwania portalu](log-analytics-log-search-log-search-portal.md) lub hello [portal analityka zaawansowane](https://go.microsoft.com/fwlink/?linkid=856587).  Dzięki temu można tooedit Twojego zapytania i Analizuj wyniki hello w różnych formatach i wizualizacji.  Większość zapytań, które możesz utworzyć zostanie uruchomiony w jednym z portali hello i następnie skopiowana po zweryfikowaniu, że działa zgodnie z oczekiwaniami.
+- **Reguły alertów.** [Reguły alertów](log-analytics-alerts.md) aktywne identyfikowanie problemów z danych w obszarze roboczym.  Każdej reguły alertu jest oparta na wyszukiwania dziennika, który jest automatycznie uruchamiany w regularnych odstępach czasu.  wyniki Hello są toodetermine kontrolowanego, jeśli alert powinien zostać utworzony.
+- **Widoki.**  Możesz utworzyć wizualizacje toobe dane zawarte w pulpity nawigacyjne użytkownika z [Widok projektanta](log-analytics-view-designer.md).  Wyszukiwanie dziennika zawierają dane hello używane przez [Kafelki](log-analytics-view-designer-tiles.md) i [części wizualizacji](log-analytics-view-designer-parts.md) w każdym widoku.  Możesz można przejść z części wizualizacji do hello dziennik wyszukiwania portalu tooperform dalszą analizę danych hello.
+- **Eksportowanie.**  Podczas eksportowania danych z tooExcel obszaru roboczego analizy dzienników hello lub [usługi Power BI](log-analytics-powerbi.md), Utwórz tooexport dziennik wyszukiwania toodefine hello danych.
+- **Środowiska PowerShell.** Należy uruchomić skrypt programu PowerShell z wiersza polecenia lub element runbook usługi Automatyzacja Azure, która używa [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) tooretrieve dane z analizy dzienników.  To polecenie cmdlet wymaga kwerendy toodetermine hello danych tooretrieve.
+- **Interfejs API analizy dziennika.**  Witaj [analizy dzienników dziennika wyszukiwania interfejsu API](log-analytics-log-search-api.md) umożliwia tooretrieve danych z obszaru roboczego hello dowolnego klienta interfejsu API REST.  żądanie interfejsu API Hello zawiera zapytanie, które jest wykonywane na tooretrieve danych hello toodetermine analizy dzienników.
 
 ![Dziennik wyszukiwania](media/log-analytics-log-search-new/log-search-overview.png)
 
 ## <a name="how-log-analytics-data-is-organized"></a>Sposób organizowania danych analizy dzienników
-Podczas tworzenia zapytania należy rozpocząć od określania tabel, które znajdują się dane, którego szukasz. Każdy [źródła danych](log-analytics-data-sources.md) i [rozwiązania](../operations-management-suite/operations-management-suite-solutions.md) przechowuje dane w tabelach dedykowanych w obszarze roboczym analizy dzienników.  Dokumentacja dla każdego źródła danych i rozwiązanie zawiera nazwę typu danych, które tworzy i opis każdego z jego właściwości.     Wiele zapytań będzie wymagać tylko dane z jednej tabeli, ale inne osoby mogą Użyj różnych opcji, aby uwzględnić dane z wielu tabel.
+Podczas tworzenia zapytania należy rozpocząć od określania tabel, które znajdują się dane hello, którego szukasz. Każdy [źródła danych](log-analytics-data-sources.md) i [rozwiązania](../operations-management-suite/operations-management-suite-solutions.md) przechowuje dane w tabelach dedykowanych w obszarze roboczym analizy dzienników hello.  Dokumentacja dla każdego źródła danych i rozwiązanie zawiera nazwę hello hello typu danych, które tworzy i opis każdego z jego właściwości.     Wiele zapytań będzie wymagać tylko dane z jednej tabeli, ale inne osoby mogą używać różnych opcji tooinclude danych z wielu tabel.
 
 ![Tabele](media/log-analytics-log-search-new/queries-tables.png)
 
 
 ## <a name="writing-a-query"></a>Pisanie zapytań
-Stanowiącej podstawę dziennika jest wyszukiwanie w analizy dzienników [język zapytań szeroką gamę](https://docs.loganalytics.io/) umożliwia pobieranie i analizowanie danych w repozytorium w różny sposób.  Tym samym języku zapytania jest używana do [usługi Application Insights](../application-insights/app-insights-analytics.md).  Dowiedzieć, jak napisać zapytanie jest kluczowym elementem tworzenia dziennik wyszukiwania w analizy dzienników.  Będzie zazwyczaj rozpoczyna się z zapytaniami podstawowa, a następnie postępu za pomocą bardziej zaawansowanych funkcji, zgodnie z wymaganiami staną się bardziej złożonych.
+W podstawowej hello dziennika jest wyszukiwanie w analizy dzienników [język zapytań szeroką gamę](https://docs.loganalytics.io/) umożliwia pobieranie i analizowanie danych z repozytorium hello na różne sposoby.  Tym samym języku zapytania jest używana do [usługi Application Insights](../application-insights/app-insights-analytics.md).  Learning, jak toowrite zapytania jest krytyczne toocreating wyszukiwania dziennika analizy dzienników.  Będzie zazwyczaj rozpoczyna się z zapytaniami podstawowa, a następnie toouse postępu bardziej zaawansowane funkcje zgodnie z wymaganiami staną się bardziej złożonych.
 
-Podstawowa struktura zapytania jest tabeli źródłowej następuje szereg operatory oddzielone znakiem potoku `|`.  Użytkownik może łańcuch wielu operatorów w celu udoskonalenia danych i wykonywanie zaawansowanych funkcji.
+Hello podstawową strukturę zapytania jest tabela źródłowa następuje szereg operatory oddzielone znakiem potoku `|`.  Możesz łańcuch wielu operatorów toorefine hello danych i wykonywanie zaawansowanych funkcji.
 
-Na przykład załóżmy, że chcesz znaleźć górny dziesięć komputerów z większości zdarzeń błędu w ciągu ostatnich dni.
+Na przykład załóżmy, że chce toofind hello top dziesięć komputerów z hello większość zdarzeń błędów za pośrednictwem hello dnia.
 
     Event
     | where (EventLevelName == "Error")
@@ -60,14 +60,14 @@ Na przykład załóżmy, że chcesz znaleźć górny dziesięć komputerów z wi
     | summarize ErrorCount = count() by Computer
     | top 10 by ErrorCount desc
 
-Lub może być chcesz wyszukać komputery, których nie zastosowano pulsu w ostatni dzień.
+A może warto toofind komputerów, które nie mam pulsu w hello ostatni dzień.
 
     Heartbeat
     | where TimeGenerated > ago(7d)
     | summarize max(TimeGenerated) by Computer
     | where max_TimeGenerated < ago(1d)  
 
-Jak wykres liniowy z użycie procesora dla każdego komputera w ostatnim tygodniu?
+Jak wykres liniowy z hello użycie procesora dla każdego komputera w ostatnim tygodniu?
 
     Perf
     | where ObjectName == "Processor" and CounterName == "% Processor Time"
@@ -75,11 +75,11 @@ Jak wykres liniowy z użycie procesora dla każdego komputera w ostatnim tygodni
     | summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
     | render timechart    
 
-Szybkie próbki widać, że niezależnie od typu danych, który pracy ze strukturą zapytania jest podobne.  Można podzielić je w dół na różne czynności wysyłania danych z jednego polecenia przez potok do następnego polecenia.
+Z tych szybkie przykłady, które niezależnie od hello rodzaj danych, które użytkownik pracuje, hello można zauważyć, że przypomina strukturę hello zapytania.  Można podzielić je w dół na różne czynności wysyłania hello danych wynikowych polecenia za pomocą potoku hello toohello następnego polecenia.
 
-Pełna dokumentacja języka zapytań usługi Analiza dzienników Azure tym samouczki i materiały referencyjne dotyczące języka, zobacz [dokumentację dotyczącą języka zapytań usługi Analiza dzienników Azure](https://docs.loganalytics.io/).
+Pełna dokumentacja języka zapytań usługi Analiza dzienników Azure hello tym samouczki i materiały referencyjne dotyczące języka, zobacz hello [dokumentację dotyczącą języka zapytań usługi Analiza dzienników Azure](https://docs.loganalytics.io/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [portali, które umożliwiają tworzenie i edytowanie dziennika wyszukiwania](log-analytics-log-search-portals.md).
-- Zapoznaj się z [Samouczek o pisaniu zapytań](https://go.microsoft.com/fwlink/?linkid=856078) przy użyciu nowego języka zapytań.
+- Dowiedz się więcej o hello [portali Użyj toocreate, a następnie edytować dziennik wyszukiwania](log-analytics-log-search-portals.md).
+- Zapoznaj się z [Samouczek o pisaniu zapytań](https://go.microsoft.com/fwlink/?linkid=856078) przy użyciu hello nowy język kwerendy.

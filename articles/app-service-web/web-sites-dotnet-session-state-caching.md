@@ -1,6 +1,6 @@
 ---
-title: "Stan sesji i usługa Azure Redis Cache w usłudze Azure App Service"
-description: "Dowiedz się, jak używać usługi Azure Redis Cache do obsługi buforowania informacji o stanie sesji programu ASP.NET."
+title: "Stan aaaSession z pamięcią podręczną Azure Redis w usłudze Azure App Service"
+description: "Dowiedz się, jak toouse hello usługi pamięć podręczna Azure toosupport ASP.NET sesji buforowania informacji o stanie."
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
@@ -14,36 +14,36 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
-ms.openlocfilehash: 64fa909daf92b2b1f0cf4c7b334edba807fe7228
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f689b6754ea072aa195f822ab6482f4bf2748375
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>Stan sesji i usługa Azure Redis Cache w usłudze Azure App Service
-W tym temacie wyjaśniono, jak używać usługi Azure Redis Cache do buforowania informacji o stanie sesji.
+W tym temacie wyjaśniono, jak toouse hello usługi pamięć podręczna Redis Azure dla stanu sesji.
 
-Jeśli aplikacja sieci Web programu ASP.NET używa informacji o stanie sesji, należy skonfigurować zewnętrznego dostawcę stanu sesji (usługę Azure Redis Cache lub dostawcę stanu sesji programu SQL Server). Jeśli korzystasz z informacji o stanie sesji i nie używasz dostawcy zewnętrznego, obowiązuje ograniczenie do pojedynczego wystąpienia aplikacji sieci Web. Użycie usługi Azure Redis Cache jest najszybszym i najprostszym sposobem zapewnienia tej funkcji.
+Jeśli aplikacja sieci web platformy ASP.NET używa stanu sesji, należy tooconfigure zewnętrznego dostawcę stanu sesji (hello usługi pamięć podręczna Redis lub dostawcę stanu sesji SQL Server). Jeśli używasz stanu sesji i nie używasz dostawcy zewnętrznego, będzie ograniczona tooone wystąpienie aplikacji sieci web. Witaj usługi pamięć podręczna Redis jest tooenable najszybszym i najprostszym hello.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a id="createcache"></a>Tworzenie pamięci podręcznej
-Wykonaj [te kroki](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache), aby utworzyć pamięć podręczną.
+## <a id="createcache"></a>Utwórz hello pamięci podręcznej
+Postępuj zgodnie z [te kierunkach](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) toocreate hello w pamięci podręcznej.
 
-## <a id="configureproject"></a>Dodawanie pakietu RedisSessionStateProvider NuGet do aplikacji sieci Web
-Zainstaluj pakiet NuGet `RedisSessionStateProvider`.  Użyj następującego polecenia do instalacji z poziomu konsoli menedżera pakietów (**Narzędzia** > **Menedżer pakietów NuGet** > **Konsola menedżera pakietów**):
+## <a id="configureproject"></a>Dodawanie pakietu RedisSessionStateProvider NuGet pakietu tooyour sieci web aplikacji hello
+Zainstaluj hello NuGet `RedisSessionStateProvider` pakietu.  Użyj hello następujące polecenie tooinstall z konsoli Menedżera pakietów hello (**narzędzia** > **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
 
-Aby zainstalować z lokalizacji **Narzędzia** > **Menedżer pakietów NuGet** > **Zarządzaj pakietami NugGet dla rozwiązania**, wyszukaj `RedisSessionStateProvider`.
+tooinstall z **narzędzia** > **Menedżera pakietów NuGet** > **Zarządzaj pakietami NugGet dla rozwiązania**, wyszukaj `RedisSessionStateProvider`.
 
-Aby uzyskać więcej informacji, zapoznaj się ze [stroną pakietu NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) i sekcją [Configure the cache client](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet) (Konfigurowanie klienta pamięci podręcznej).
+Aby uzyskać więcej informacji, zobacz hello [strony pakietu NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) i [Konfigurowanie klienta pamięci podręcznej hello](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-## <a id="configurewebconfig"></a>Modyfikowanie pliku Web.Config
-Oprócz tworzenia odwołań do zestawów dla pamięci podręcznej pakiet NuGet dodaje wpisy zastępcze w pliku *web.config*. 
+## <a id="configurewebconfig"></a>Modyfikowanie hello pliku Web.Config
+Ponadto zestaw toomaking odwołuje się do pamięci podręcznej, hello pakiet NuGet Dodaje wpisy zastępcze w hello *web.config* pliku. 
 
-1. Otwórz plik *web.config* i znajdź element **sessionState**.
-2. Wprowadź wartości dla `host`, `accessKey`, `port` (wymagany jest port SSL 6380) i ustaw opcję `SSL` na `true`. Te wartości można uzyskać z bloku witryny [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) dotyczącego wystąpienia pamięci podręcznej. Aby uzyskać więcej informacji, zobacz sekcję [Connect to the cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache) (Nawiązywanie połączenia z pamięcią podręczną). Port bez protokołu SSL jest domyślnie wyłączony w przypadku nowych pamięci podręcznych. Aby uzyskać więcej informacji na temat włączania portu bez protokołu SSL, zobacz sekcję [Access Ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) (Porty dostępowe) w temacie [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) (Konfigurowanie pamięci podręcznej w usłudze Azure Redis Cache). Następujący kod przedstawia zmiany *web.config* pliku, w szczególności zmiany *portu*, *hosta*, accessKey * i *ssl* .
+1. Otwórz hello *web.config* i Znajdź hello hello **sessionState** elementu.
+2. Wprowadź wartości hello `host`, `accessKey`, `port` (hello SSL port 6380) i ustaw `SSL` zbyt`true`. Te wartości można uzyskać z hello [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) bloku dla swojego wystąpienia w pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [połączyć z pamięci podręcznej toohello](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Należy pamiętać, że port bez protokołu SSL hello jest domyślnie wyłączona dla nowych pamięci podręcznych. Aby uzyskać więcej informacji na temat włączania portu bez protokołu SSL hello Zobacz hello [porty dostępu](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) części hello [Konfigurowanie pamięci podręcznej w pamięci podręcznej Redis Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx) tematu. Hello następujący kod przedstawia hello zmiany toohello *web.config* pliku, w szczególności zmiany hello zbyt*portu*, *hosta*, accessKey * i *ssl*.
    
           <system.web>;
             <customErrors mode="Off" />;
@@ -73,32 +73,32 @@ Oprócz tworzenia odwołań do zestawów dla pamięci podręcznej pakiet NuGet d
             </sessionState>;
           </system.web>;
 
-## <a id="usesessionobject"></a>Użycie obiektu Session w kodzie
-Ostatnim krokiem jest rozpoczęcie korzystania z obiektu Session w kodzie ASP.NET. Obiekty są dodawane do stanu sesji przy użyciu metody **Session.Add**. Ta metoda używa par kluczy i wartości do przechowywania elementów w pamięci podręcznej stanu sesji.
+## <a id="usesessionobject"></a>Użyj hello obiektu Session w kodzie
+Ostatnim krokiem Hello jest toobegin przy użyciu hello obiektu Session w kodzie ASP.NET. Dodaj stan toosession obiektów przy użyciu hello **Session.Add** metody. Ta metoda używa par klucz wartość toostore elementów w pamięci podręcznej stanu sesji hello.
 
     string strValue = "yourvalue";
     Session.Add("yourkey", strValue);
 
-Poniższy kod pobiera tę wartość z informacji o stanie sesji.
+powitania po kod pobiera tę wartość ze stanu sesji.
 
     object objValue = Session["yourkey"];
     if (objValue != null)
        strValue = (string)objValue;    
 
-Możesz również użyć usługi Pamięć podręczna Redis do buforowania obiektów w aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [MVC movie app with Azure Redis Cache in 15 minutes](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/) (Tworzenie aplikacji filmowej MVC przy użyciu usługi Azure Redis Cache w ciągu 15 minut).
-Aby uzyskać więcej informacji na temat sposobu używania informacji o stanie sesji programu ASP.NET, zobacz [ASP.NET Session State Overview][ASP.NET Session State Overview] (Omówienie informacji o stanie sesji programu ASP.NET).
+Umożliwia także hello pamięci podręcznej Redis toocache obiektów w aplikacji sieci web. Aby uzyskać więcej informacji, zobacz [MVC movie app with Azure Redis Cache in 15 minutes](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/) (Tworzenie aplikacji filmowej MVC przy użyciu usługi Azure Redis Cache w ciągu 15 minut).
+Aby uzyskać więcej informacji na temat stanu sesji ASP.NET toouse, zobacz [przegląd stanu sesji ASP.NET][ASP.NET Session State Overview].
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Tooget wprowadzenie do usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź zbyt[Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), gdzie możesz od razu utworzyć krótkotrwałą, początkową aplikację sieci web w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
 ## <a name="whats-changed"></a>Co zostało zmienione
-* Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
+* Toohello przewodnik zmiany z tooApp witryn sieci Web usługi dla: [usłudze Azure App Service i jej wpływ na istniejące usługi platformy Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
   
   *Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)*
 
-[installed the latest]: http://www.windowsazure.com/downloads/?sdk=net  
+[installed hello latest]: http://www.windowsazure.com/downloads/?sdk=net  
 [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
 [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png

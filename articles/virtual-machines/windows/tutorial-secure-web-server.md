@@ -1,6 +1,6 @@
 ---
-title: "Zabezpieczenie usług IIS z certyfikatów SSL na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zabezpieczyć serwer sieci web usług IIS z certyfikatów SSL na maszynie Wirtualnej systemu Windows na platformie Azure"
+title: "Certyfikaty aaaSecure usług IIS przy użyciu protokołu SSL na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toosecure hello IIS sieci web server z certyfikatów SSL na maszynie Wirtualnej systemu Windows na platformie Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,32 +16,32 @@ ms.workload: infrastructure
 ms.date: 07/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6567853e9ef3cad63595dc0afe7a793bdc5d972c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7a9e0ce07be2f55095fdb5347b64faf5caa4f7e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Zabezpieczenia serwera sieci web usług IIS z certyfikatów SSL na maszynie wirtualnej systemu Windows na platformie Azure
-Do zabezpieczania serwerów sieci web, certyfikatu później SSL (Secure Sockets) może być używany do szyfrowania ruchu w sieci web. Te certyfikaty SSL mogą być przechowywane w usłudze Azure Key Vault i Zezwalaj wdrożeń zabezpieczonych certyfikatów na maszynach wirtualnych systemu Windows (VM) na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+serwery sieci web toosecure, certyfikat później SSL (Secure Sockets) mogą być używane tooencrypt ruchu w sieci web. Te certyfikaty SSL mogą być przechowywane w usłudze Azure Key Vault i umożliwia bezpieczne wdrażanie certyfikatów tooWindows o maszynach wirtualnych (VM) na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie usługi Azure Key Vault
-> * Generowanie lub Przekaż certyfikat do magazynu kluczy
-> * Utwórz maszynę Wirtualną i zainstaluj serwer sieci web usług IIS
-> * Wstaw certyfikat do maszyny Wirtualnej i skonfiguruj program IIS wraz z powiązaniem SSL
+> * Generowanie lub Przekaż certyfikat toohello magazyn kluczy
+> * Utwórz maszynę Wirtualną i zainstalowania serwera sieci web usług IIS hello
+> * Wstaw hello certyfikatu do hello maszyny Wirtualnej i skonfiguruj program IIS wraz z powiązaniem SSL
 
-Dla tego samouczka jest wymagany moduł Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli potrzebujesz do uaktualnienia, zobacz [modułu instalacji programu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Ten samouczek wymaga hello Azure PowerShell w wersji modułu 3,6 lub nowszej. Uruchom ` Get-Module -ListAvailable AzureRM` toofind hello wersji. Jeśli potrzebujesz tooupgrade, zobacz [modułu instalacji programu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="overview"></a>Omówienie
-Usługa Azure Key Vault zabezpiecza kluczy kryptograficznych i kluczy tajnych takich certyfikatów lub hasła. Key Vault ułatwia uprościć proces zarządzania certyfikatu i pozwala zachować kontrolę nad kluczami, które uzyskują dostęp do tych certyfikatów. Można utworzyć certyfikatu z podpisem własnym wewnątrz usługi Key Vault, lub Przekaż istniejących, zaufanego certyfikatu, który już następującą.
+Usługa Azure Key Vault zabezpiecza kluczy kryptograficznych i kluczy tajnych takich certyfikatów lub hasła. Magazyn kluczy pozwala uprościć proces zarządzania hello certyfikatu i umożliwia toomaintain kontrolę nad kluczami, które uzyskują dostęp do tych certyfikatów. Można utworzyć certyfikatu z podpisem własnym wewnątrz usługi Key Vault, lub Przekaż istniejących, zaufanego certyfikatu, który już następującą.
 
-Zamiast przy użyciu niestandardowego obrazu maszyny Wirtualnej, który zawiera certyfikaty rozszerzania w, wstrzyknąć certyfikatów do uruchomionej maszyny Wirtualnej. Ten proces zapewnia, że najbardziej aktualne certyfikaty są zainstalowane na serwerze sieci web podczas wdrażania. Jeśli odnowić lub Zastąp certyfikat, masz nie można utworzyć nowego niestandardowego obrazu maszyny Wirtualnej. Najnowsze certyfikaty są automatycznie dodane podczas tworzenia dodatkowych maszyn wirtualnych. W trakcie całego nigdy nie certyfikatów pozostaw platformy Azure lub są widoczne w skrypcie, Historia wiersza polecenia lub szablonu.
+Zamiast przy użyciu niestandardowego obrazu maszyny Wirtualnej, który zawiera certyfikaty rozszerzania w, wstrzyknąć certyfikatów do uruchomionej maszyny Wirtualnej. Ten proces zapewnia, że certyfikaty aktualną hello są zainstalowane na serwerze sieci web podczas wdrażania. Jeśli możesz odnowić lub zastąpić certyfikat, nie masz również toocreate nowego niestandardowego obrazu maszyny Wirtualnej. Hello najnowsze certyfikaty są automatycznie dodane podczas tworzenia dodatkowych maszyn wirtualnych. W trakcie całego procesu hello certyfikaty hello nigdy nie pozostaw hello platformy Azure lub są widoczne w skrypcie, Historia wiersza polecenia lub szablonu.
 
 
 ## <a name="create-an-azure-key-vault"></a>Tworzenie usługi Azure Key Vault
-Przed utworzeniem magazyn kluczy i certyfikatów, Utwórz nową grupę zasobów o [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupSecureWeb* w *wschodnie stany USA* lokalizacji:
+Przed utworzeniem magazyn kluczy i certyfikatów, Utwórz nową grupę zasobów o [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Witaj poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupSecureWeb* w hello *wschodnie stany USA* lokalizacji:
 
 ```powershell
 $resourceGroup = "myResourceGroupSecureWeb"
@@ -49,7 +49,7 @@ $location = "East US"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Następnie należy utworzyć magazyn kluczy o [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Każdy magazyn kluczy wymaga unikatowej nazwy i powinna być małe litery. Zastąp `<mykeyvault>` w poniższym przykładzie z własną unikatową nazwę usługi Key Vault:
+Następnie należy utworzyć magazyn kluczy o [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Każdy magazyn kluczy wymaga unikatowej nazwy i powinna być małe litery. Zastąp `<mykeyvault>` w hello poniższy przykład z własną unikatową nazwę usługi Key Vault:
 
 ```powershell
 $keyvaultName="<mykeyvault>"
@@ -60,7 +60,7 @@ New-AzureRmKeyVault -VaultName $keyvaultName `
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Wygeneruj certyfikat i przechowywania w magazynie kluczy
-W środowisku produkcyjnym, należy zaimportować prawidłowy certyfikat podpisane przez zaufanego dostawcę z [AzureKeyVaultCertificate importu](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). W tym samouczku, w poniższym przykładzie pokazano, jak można wygenerować certyfikatu z podpisem własnym z [AzureKeyVaultCertificate Dodaj](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) używającą domyślne zasady certyfikatów z [AzureKeyVaultCertificatePolicy nowy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
+W środowisku produkcyjnym, należy zaimportować prawidłowy certyfikat podpisane przez zaufanego dostawcę z [AzureKeyVaultCertificate importu](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). W tym samouczku hello poniższym przykładzie pokazano, jak można wygenerować certyfikatu z podpisem własnym z [AzureKeyVaultCertificate Dodaj](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) czy używa hello domyślne zasady dotyczące certyfikatów z [ Nowy AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
 
 ```powershell
 $policy = New-AzureKeyVaultCertificatePolicy `
@@ -77,13 +77,13 @@ Add-AzureKeyVaultCertificate `
 
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
-Ustaw nazwę użytkownika i hasło administratora dla maszyny Wirtualnej z [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Zestaw administratora nazwę użytkownika i hasło dla maszyny Wirtualnej z hello [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Teraz możesz utworzyć maszynę Wirtualną z [AzureRmVM nowy](/powershell/module/azurerm.compute/new-azurermvm). Poniższy przykład tworzy składniki wymagane sieci wirtualnej, konfiguracja systemu operacyjnego, a następnie tworzy Maszynę wirtualną o nazwie *myVM*:
+Teraz możesz utworzyć maszynę Wirtualną za pomocą hello [AzureRmVM nowy](/powershell/module/azurerm.compute/new-azurermvm). Witaj poniższy przykład tworzy hello wymagane składniki sieci wirtualnej, konfiguracja hello systemu operacyjnego, a następnie tworzy Maszynę wirtualną o nazwie *myVM*:
 
 ```powershell
 # Create a subnet configuration
@@ -157,7 +157,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 # Create virtual machine
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
-# Use the Custom Script Extension to install IIS
+# Use hello Custom Script Extension tooinstall IIS
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName "IIS" `
     -VMName "myVM" `
@@ -168,11 +168,11 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server -IncludeManagementTools"}'
 ```
 
-Trwa kilka minut, aż do utworzenia maszyny Wirtualnej. Ostatnim krokiem używa niestandardowe rozszerzenie skryptu Azure w celu zainstalowania serwera sieci web usług IIS z [AzureRmVmExtension zestawu](/powershell/module/azurerm.compute/set-azurermvmextension).
+Trwa kilka minut, aż hello toobe maszyny Wirtualnej utworzone. Witaj ostatniego kroku jest używana hello Azure niestandardowe rozszerzenie skryptu tooinstall powitania serwera sieci web IIS z [AzureRmVmExtension zestawu](/powershell/module/azurerm.compute/set-azurermvmextension).
 
 
-## <a name="add-a-certificate-to-vm-from-key-vault"></a>Dodawanie certyfikatu do maszyny Wirtualnej z magazynu kluczy
-Aby dodać certyfikat z magazynu kluczy do maszyny Wirtualnej, należy uzyskać identyfikator certyfikatu z [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Dodawanie certyfikatu do maszyny Wirtualnej z [AzureRmVMSecret Dodaj](/powershell/module/azurerm.compute/add-azurermvmsecret):
+## <a name="add-a-certificate-toovm-from-key-vault"></a>Dodaj tooVM certyfikatu z magazynu kluczy
+tooadd hello certyfikat z magazynu kluczy tooa maszyny Wirtualnej, uzyskać identyfikator hello certyfikatu z [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Dodaj hello certyfikatu toohello maszyny Wirtualnej z [AzureRmVMSecret Dodaj](/powershell/module/azurerm.compute/add-azurermvmsecret):
 
 ```powershell
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
@@ -185,8 +185,8 @@ Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
 ```
 
 
-## <a name="configure-iis-to-use-the-certificate"></a>Konfigurowanie usług IIS do używania certyfikatu
-Niestandardowe rozszerzenie skryptu ponownie, podając [AzureRmVMExtension zestaw](/powershell/module/azurerm.compute/set-azurermvmextension) można zaktualizować konfiguracji usług IIS. Ta aktualizacja dotyczy certyfikatu wprowadzonym z magazynu kluczy usług IIS i konfiguruje powiązanie sieci web:
+## <a name="configure-iis-toouse-hello-certificate"></a>Konfigurowanie certyfikatu hello toouse usług IIS
+Użyj hello niestandardowe rozszerzenie skryptu ponownie, podając [AzureRmVMExtension zestaw](/powershell/module/azurerm.compute/set-azurermvmextension) konfiguracji usług IIS hello tooupdate. Ta aktualizacja dotyczy certyfikatu hello wprowadzonym z tooIIS magazyn kluczy i konfiguruje hello powiązanie sieci web:
 
 ```powershell
 $PublicSettings = '{
@@ -205,33 +205,33 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ```
 
 
-### <a name="test-the-secure-web-app"></a>Testowanie aplikacji sieci web bezpieczne
-Publiczny adres IP maszyny wirtualnej z [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). Poniższy przykład uzyskuje adres IP dla `myPublicIP` utworzony wcześniej:
+### <a name="test-hello-secure-web-app"></a>Przetestuj aplikację sieci web bezpiecznego hello
+Uzyskaj hello publicznego adresu IP maszyny Wirtualnej z [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). Witaj poniższy przykład uzyskuje hello adres IP dla `myPublicIP` utworzony wcześniej:
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" | select "IpAddress"
 ```
 
-Teraz możesz otworzyć przeglądarkę sieci web i wprowadź `https://<myPublicIP>` na pasku adresu. Aby zaakceptować zabezpieczeń ostrzeżenie, jeśli używasz certyfikatu z podpisem własnym, wybierz **szczegóły** , a następnie **przejdź do strony sieci Web**:
+Teraz możesz otworzyć przeglądarkę sieci web i wprowadź `https://<myPublicIP>` na pasku adresu hello. Wybierz tooaccept hello ostrzeżenie o zabezpieczeniach Jeśli używasz certyfikatu z podpisem własnym, **szczegóły** , a następnie **przejdź na stronę sieci Web toohello**:
 
 ![Zaakceptuj ostrzeżenie o zabezpieczeniach przeglądarki sieci web](./media/tutorial-secure-web-server/browser-warning.png)
 
-Wyświetlane są następnie zabezpieczonej witryny sieci Web usług IIS, jak w poniższym przykładzie:
+Jak hello poniższy przykład następnie wyświetleniem zabezpieczonej witryny sieci Web usług IIS:
 
 ![Widok działa bezpiecznej witryny usług IIS](./media/tutorial-secure-web-server/secured-iis.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku serwer sieci web usług IIS jest zabezpieczony za pomocą certyfikatu SSL, przechowywane w usłudze Azure Key Vault. Możesz przedstawiono sposób do:
+W tym samouczku serwer sieci web usług IIS jest zabezpieczony za pomocą certyfikatu SSL, przechowywane w usłudze Azure Key Vault. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 > * Tworzenie usługi Azure Key Vault
-> * Generowanie lub Przekaż certyfikat do magazynu kluczy
-> * Utwórz maszynę Wirtualną i zainstaluj serwer sieci web usług IIS
-> * Wstaw certyfikat do maszyny Wirtualnej i skonfiguruj program IIS wraz z powiązaniem SSL
+> * Generowanie lub Przekaż certyfikat toohello magazyn kluczy
+> * Utwórz maszynę Wirtualną i zainstalowania serwera sieci web usług IIS hello
+> * Wstaw hello certyfikatu do hello maszyny Wirtualnej i skonfiguruj program IIS wraz z powiązaniem SSL
 
-Wykonaj to łącze, aby wyświetlić przykłady skryptów wbudowanych maszyny wirtualnej.
+Postępuj zgodnie z tym toosee łącze wstępnie skompilowany przykłady skryptów maszyny wirtualnej.
 
 > [!div class="nextstepaction"]
 > [Przykłady skryptów maszyny wirtualnej systemu Windows](./powershell-samples.md)

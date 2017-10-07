@@ -1,6 +1,6 @@
 ---
-title: Funkcje Smooth Streaming samouczek aplikacji Sklepu Windows | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak używać usługi Azure Media Services do tworzenia aplikacji Sklepu Windows w języku C# za pomocą formantu XML MediaElement do strumienia Smooth odtwarzania zawartości."
+title: Samouczek aplikacji Sklepu Windows Streaming aaaSmooth | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toouse usługi Azure Media Services toocreate aplikacją ze Sklepu Windows w języku C# z XML MediaElement kontrolować tooplayback Smooth Stream zawartości."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: c9bb3b1915543fea3561cb309f55c4e8a74ded6d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b02aa2c7f68fe22a23ea846d72fdd23bfba2b19c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Jak tworzyć Smooth Streaming aplikację ze Sklepu Windows
+# <a name="how-toobuild-a-smooth-streaming-windows-store-application"></a>Jak tooBuild Smooth Streaming aplikację ze Sklepu Windows
 
-Smooth Streaming klienta zestawu SDK dla systemu Windows 8 umożliwia deweloperom tworzenie aplikacji Sklepu Windows, które można odtwarzać zawartości na żądanie i na żywo Smooth Streaming. Oprócz podstawowych odtwarzania zawartości Smooth Streaming, zestaw SDK udostępnia zaawansowane funkcje, takie jak Microsoft PlayReady ochrony ograniczenie poziomu jakości, Live DVR, strumieniem audio przełączania, nasłuchiwanie aktualizacji stanu (np. zmiany poziomu jakości) i zdarzenia błędu i tak dalej. Aby uzyskać więcej informacji na obsługiwanych funkcji, zobacz [informacje o wersji](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Aby uzyskać więcej informacji, zobacz [Framework Player dla systemu Windows 8](http://playerframework.codeplex.com/). 
+Witaj Smooth Streaming klienta zestawu SDK dla systemu Windows 8 umożliwia deweloperom toobuild aplikacji ze Sklepu Windows, które można odtwarzać zawartości na żądanie i na żywo Smooth Streaming. Ponadto toohello podstawowe odtwarzania programu Smooth Streaming zawartości, hello SDK również zapewnia zaawansowane funkcje, takie jak Microsoft PlayReady ochrony ograniczenie poziomu jakości, Live DVR, strumieniem audio przełączania, nasłuchiwanie aktualizacji stanu (np. zmiany poziomu jakości ) i zdarzeń błędu i tak dalej. Aby uzyskać więcej informacji na powitania obsługiwanych funkcji, zobacz hello [informacje o wersji](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Aby uzyskać więcej informacji, zobacz [Framework Player dla systemu Windows 8](http://playerframework.codeplex.com/). 
 
 Ten samouczek zawiera cztery lekcje:
 
 1. Tworzenie podstawowej płynnego przesyłania strumieniowego aplikacji sklepu
-2. Dodawanie paska suwaka do kontrolowania postępu nośnika
+2. Dodaj suwaka hello tooControl postępu nośnika
 3. Wybierz Smooth Streaming strumieni
 4. Wybierz Smooth Streaming ścieżki
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Windows 8, 32-bitowy lub 64-bitowej. Możesz uzyskać [systemu Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx) w witrynie MSDN.
-* Program Visual Studio 2012 lub Visual Studio Express 2012 (lub nowszy). Można pobrać wersję próbną z [tutaj](http://www.microsoft.com/visualstudio/11/downloads).
+* Program Visual Studio 2012 lub Visual Studio Express 2012 (lub nowszy). Można uzyskać wersji próbnej hello z [tutaj](http://www.microsoft.com/visualstudio/11/downloads).
 * [Microsoft Smooth Streaming Client zestawu SDK dla systemu Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
-Gotowego rozwiązania dla każdej lekcji można pobrać z przykładów kodu deweloperów MSDN (Galeria kodu): 
+rozwiązanie ukończyć powitalnych dla każdej lekcji można pobrać z przykładów kodu deweloperów MSDN (Galeria kodu): 
 
 * [Lekcja 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) — sprawne prostego systemu Windows 8 przesyłania strumieniowego Media Player 
 * [Lekcja 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) — sprawne prostego systemu Windows 8 przesyłania strumieniowego Media Player paska suwaka formantu 
@@ -45,22 +45,22 @@ Gotowego rozwiązania dla każdej lekcji można pobrać z przykładów kodu dewe
 
 ## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Lekcja 1: Tworzenie podstawowej płynnego przesyłania strumieniowego aplikacji sklepu
 
-W tej lekcji utworzysz aplikację ze Sklepu Windows za pomocą formantu MediaElement do odtwarzania Smooth Stream zawartości.  Działającej aplikacji wygląda następująco:
+W tej lekcji utworzysz aplikacji Sklepu Windows za pomocą MediaElement kontroli tooplay Smooth strumienia zawartości.  działającej aplikacji Hello wygląda następująco:
 
 ![Przykładowa aplikacja Sklepu Windows Smooth Streaming][PlayerApplication]
 
-Aby uzyskać więcej informacji na temat tworzenia aplikacji Sklepu Windows, temacie [tworzenie wspaniałych aplikacji dla systemu Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). W tej lekcji obejmuje następujące procedury:
+Aby uzyskać więcej informacji na temat tworzenia aplikacji Sklepu Windows, temacie [tworzenie wspaniałych aplikacji dla systemu Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). Tej lekcji zawiera hello następujące procedury:
 
 1. Tworzenie projektu ze Sklepu Windows
-2. Projektowanie interfejsu użytkownika (XAML)
-3. Zmodyfikuj plik związany z kodem
-4. Kompilowanie i testowanie aplikacji
+2. Projektowanie interfejsu użytkownika hello (XAML)
+3. Modyfikowanie pliku CodeBehind hello
+4. Kompilowanie i testowanie aplikacji hello
 
-**Aby utworzyć projekt Sklepu Windows**
+**toocreate projektu ze Sklepu Windows**
 
 1. Uruchom program Visual Studio 2012 lub nowszym.
-2. W menu **PLIK** kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**.
-3. W oknie dialogowym Nowy projekt wpisz lub wybierz następujące wartości:
+2. Z hello **pliku** menu, kliknij przycisk **nowy**, a następnie kliknij przycisk **projektu**.
+3. W oknie dialogowym Nowy projekt hello wpisz lub wybierz hello następujące wartości:
 
 | Nazwa | Wartość |
 | --- | --- |
@@ -73,10 +73,10 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji Sklepu Windows, tem
 
 1. Kliknij przycisk **OK**.
 
-**Aby dodać odwołanie do Smooth Streaming SDK klienta**
+**tooadd toohello odwołania Smooth Streaming Client SDK**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **SSPlayer**, a następnie kliknij przycisk **Dodaj odwołanie**.
-2. Wpisz lub wybierz poniższe wartości:
+2. Wpisz lub wybierz hello następujące wartości:
 
 | Nazwa | Wartość |
 | --- | --- |
@@ -85,12 +85,12 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji Sklepu Windows, tem
 
 1. Kliknij przycisk **OK**. 
 
-Po dodaniu odwołań, musisz wybrać platformę docelową (x64 lub x86), Dodawanie odwołania nie będą działać dla konfiguracji platformy dowolnego Procesora.  W Eksploratorze rozwiązań pojawi się żółty znak ostrzeżenie tych dodać odwołań.
+Po dodaniu odwołań hello, musisz wybrać platformy docelowe hello (x64 lub x86), Dodawanie odwołania nie będą działać dla konfiguracji platformy dowolnego Procesora.  W Eksploratorze rozwiązań pojawi się żółty znak ostrzeżenie tych dodać odwołań.
 
-**Projektowanie interfejsu użytkownika player**
+**Interfejs użytkownika player hello toodesign**
 
-1. W Eksploratorze rozwiązań kliknij dwukrotnie kliknij **MainPage.xaml** aby otworzyć go w widoku Projekt.
-2. Zlokalizuj  **&lt;siatki&gt;**  i  **&lt;/Grid&gt;**  znaczniki pliku XAML i wklej następujący kod między tagami dwóch:
+1. W Eksploratorze rozwiązań kliknij dwukrotnie kliknij **MainPage.xaml** tooopen go w projekcie hello wyświetlić.
+2. Zlokalizuj hello  **&lt;siatki&gt;**  i  **&lt;/Grid&gt;**  tagi hello pliku XAML, a następnie wklej hello poniższy kod między tagami hello dwa:
 
          <Grid.RowDefinitions>
 
@@ -135,27 +135,27 @@ Po dodaniu odwołań, musisz wybrać platformę docelową (x64 lub x86), Dodawan
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
    
-   Formant MediaElement służy do odtwarzania multimediów. Kontrolka suwaka o nazwie sliderProgress będzie można użyć w następnej lekcji do kontrolowania postępu nośnika.
-3. Naciśnij klawisz **CTRL + S** można zapisać pliku.
+   Hello Formant MediaElement jest używane tooplayback nośnika. Kontrolka suwaka Hello o nazwie sliderProgress będzie służyć trwa hello dalej lekcji toocontrol hello nośnika.
+3. Naciśnij klawisz **CTRL + S** toosave hello pliku.
 
-Formant MediaElement nie obsługuje funkcji Smooth Streaming zawartości out-of-box. Aby włączyć obsługę Smooth Streaming, należy zarejestrować obsługi strumienia bajtów Smooth Streaming przez rozszerzenie nazwy pliku i typ MIME.  Aby zarejestrować, należy użyć metody MediaExtensionManager.RegisterByteStremHandler Windows.Media przestrzeni nazw.
+Hello Formant MediaElement nie obsługuje funkcji Smooth Streaming zawartości out-of-box. Obsługa Smooth Streaming hello tooenable należy zarejestrować obsługi hello strumień bajtów Smooth Streaming przez rozszerzenie nazwy pliku i typ MIME.  tooregister, należy użyć metody MediaExtensionManager.RegisterByteStremHandler hello hello Windows.Media w przestrzeni nazw.
 
-W tym pliku XAML niektóre programy obsługi zdarzeń skojarzonych z formantami.  Należy zdefiniować te programy obsługi zdarzeń.
+W tym pliku XAML niektóre programy obsługi zdarzeń skojarzonych z hello kontrolki.  Należy zdefiniować te programy obsługi zdarzeń.
 
-**Aby zmodyfikować kodzie pliku**
+**toomodify hello kodzie pliku**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **kod widoku**.
-2. W górnej części pliku, dodaj następującą instrukcję using:
+2. U góry pliku hello hello, Dodaj następujące hello instrukcję using:
    
         using Windows.Media;
-3. Na początku **MainPage** klasy, Dodaj następujący element członkowski danych:
+3. Na początku hello hello **MainPage** klasy, Dodaj hello następującego elementu członkowskiego danych:
    
          private MediaExtensionManager extensions = new MediaExtensionManager();
-4. Na koniec **MainPage** konstruktora, Dodaj następujące dwa wiersze:
+4. Na końcu hello hello **MainPage** konstruktora, Dodaj hello następujące dwa wiersze:
    
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
-5. Na koniec **MainPage** klasy, wklej następujący kod:
+5. Na końcu hello hello **MainPage** klasy, Wklej hello następującego kodu:
    
          # region UI Button Click Events
          private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -182,7 +182,7 @@ W tym pliku XAML niektóre programy obsługi zdarzeń skojarzonych z formantami.
          }
          else
          {
-             txtStatus.Text = "Click the Play button to play the media source.";
+             txtStatus.Text = "Click hello Play button tooplay hello media source.";
          }
          }
          private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -194,68 +194,68 @@ W tym pliku XAML niektóre programy obsługi zdarzeń skojarzonych z formantami.
          private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)
          {
 
-         txtStatus.Text = "Seek to position " + sliderProgress.Value;
+         txtStatus.Text = "Seek tooposition " + sliderProgress.Value;
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
          }
          # endregion
 
-Program obsługi zdarzeń sliderProgress_PointerPressed jest zdefiniowany w tym miejscu.  Istnieje więcej działa zrobić, aby przygotować go do pracy, które będą objęte w następnej lekcji tego samouczka.
-6. Naciśnij klawisz **CTRL + S** można zapisać pliku.
+Program obsługi zdarzeń sliderProgress_PointerPressed Hello jest zdefiniowany w tym miejscu.  Istnieje więcej tooget toodo works pracy, który będzie uwzględnione w następnej lekcji hello tego samouczka.
+6. Naciśnij klawisz **CTRL + S** toosave hello pliku.
 
-Zakończono kodzie pliku powinna wyglądać następująco:
+Witaj hello gotowym kodzie pliku powinna wyglądać następująco:
 
 ![Codeview w aplikacji Visual Studio programu Smooth Streaming Sklepu Windows][CodeViewPic]
 
-**Aby skompilować i testowanie aplikacji**
+**toocompile i testowania aplikacji hello**
 
-1. Z **kompilacji** menu, kliknij przycisk **programu Configuration Manager**.
-2. Zmień **platformy aktywne rozwiązanie** odpowiadające rozwoju platformy.
-3. Naciśnij klawisz **F6** skompilować projekt. 
-4. Naciśnij klawisz **F5**, aby uruchomić aplikację.
-5. W górnej części aplikacji możesz użyć domyślnej Smooth Streaming URL lub wprowadź inną. 
-6. Kliknij przycisk **Ustaw źródło**. Ponieważ **Auto-odtwarzanie** jest włączona domyślnie nośnika jest odtwarzany automatycznie.  Można kontrolować przy użyciu nośnika **odtwarzanie**, **Wstrzymaj** i **zatrzymać** przycisków.  Można kontrolować woluminu nośnika przy użyciu pionowej kontrolce slider.  Jednak suwak poziomy kontroli postępu nośnika nie jest całkowicie jeszcze zaimplementowane. 
+1. Z hello **kompilacji** menu, kliknij przycisk **programu Configuration Manager**.
+2. Zmień **platformy aktywne rozwiązanie** toomatch rozwoju platformy.
+3. Naciśnij klawisz **F6** toocompile hello projektu. 
+4. Naciśnij klawisz **F5** toorun hello aplikacji.
+5. U góry hello aplikacji hello możesz użyć domyślnej hello Smooth Streaming URL lub wprowadź inną. 
+6. Kliknij przycisk **Ustaw źródło**. Ponieważ **Auto-odtwarzanie** jest włączona domyślnie hello nośnika jest odtwarzany automatycznie.  Można kontrolować hello nośnika przy użyciu hello **odtwarzanie**, **Wstrzymaj** i **zatrzymać** przycisków.  Można kontrolować hello nośnika woluminu przy użyciu hello pionowej kontrolce slider.  Jednak hello suwak poziomy kontroli powitalne postępu nośnika nie jest całkowicie jeszcze zaimplementowane. 
 
-Lesson1 została ukończona.  W tej lekcji służy do odtwarzania zawartości Smooth Streaming Formant MediaElement.  W następnej lekcji doda suwak do kontrolowania postęp Smooth Streaming zawartości.
+Lesson1 została ukończona.  W tej lekcji służy element MediaElement kontroli tooplayback Smooth Streaming zawartości.  W następnej lekcji hello doda postęp hello toocontrol suwaka hello Smooth Streaming zawartości.
 
-## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Lekcja 2: Dodawanie paska suwaka do kontrolowania postępu nośnika
+## <a name="lesson-2-add-a-slider-bar-toocontrol-hello-media-progress"></a>Lekcja 2: Dodaj suwaka hello tooControl postępu nośnika
 
-W Lekcja 1 utworzono aplikację ze Sklepu Windows za pomocą formantu MediaElement XAML do odtwarzania zawartości multimedialnej Smooth Streaming.  Pochodzi niektórych funkcji podstawowych nośników, takich jak start, stop i wstrzymania.  W tej lekcji formantu paska suwaka doda do aplikacji.
+W lekcji 1 zostały utworzone z tooplayback kontrolki MediaElement XAML Smooth Streaming zawartości multimedialnej aplikacji Sklepu Windows.  Pochodzi niektórych funkcji podstawowych nośników, takich jak start, stop i wstrzymania.  W tej lekcji spowoduje dodanie aplikacji toohello formantów paska suwaka.
 
-W tym samouczku używamy czasomierz do zaktualizowania pozycji suwaka na podstawie bieżącego położenia kontrolki MediaElement.  Suwak rozpoczęcia i zakończenia czasu również muszą zostać zaktualizowane w przypadku zawartości na żywo.  Mogą być lepiej obsłużone w zdarzeniu adaptacyjną źródła aktualizacji.
+W tym samouczku używamy pozycji suwaka hello tooupdate czasomierza oparte na bieżącej pozycji hello hello Formant MediaElement.  suwak Hello start i czas zakończenia również toobe należy zaktualizować w przypadku zawartości na żywo.  Mogą być lepiej obsłużone w hello adaptacyjną źródła aktualizacji zdarzeń.
 
-Źródeł multimediów to obiekty, które generować dane do nośnika.  Źródło programu rozpoznawania nazw przyjmujący element stream adres URL lub bajt i tworzy odpowiedni nośnik źródła dla tej zawartości.  Mechanizm rozpoznawania źródła jest standardowym sposobem dla aplikacji do tworzenia źródeł multimediów. 
+Źródeł multimediów to obiekty, które generować dane do nośnika.  Witaj źródła programu rozpoznawania nazw przyjmujący element stream adres URL lub bajt i tworzy hello odpowiedni nośnik źródła dla tej zawartości.  Program rozpoznawania nazw Hello źródła jest hello standardowy sposób dla źródeł multimediów toocreate aplikacji hello. 
 
-W tej lekcji obejmuje następujące procedury:
+Tej lekcji zawiera hello następujące procedury:
 
-1. Zarejestrować obsługi Smooth Streaming 
-2. Dodawanie obsługi zdarzeń na poziomie menedżera adaptacyjną źródła
-3. Dodawanie obsługi zdarzeń poziomu adaptacyjną źródła
+1. Zarejestrować hello Smooth Streaming obsługi 
+2. Dodać obsługę zdarzeń poziomu Menedżera źródła adaptacyjną hello
+3. Dodaj programy obsługi zdarzeń na poziomie adaptacyjną źródła hello
 4. Dodaj element MediaElement procedury obsługi zdarzeń
 5. Dodaj suwaka kodu powiązanego
-6. Kompilowanie i testowanie aplikacji
+6. Kompilowanie i testowanie aplikacji hello
 
-**Aby zarejestrować obsługi strumienia bajtów Smooth Streaming i przekaż propertyset**
+**tooregister hello strumień bajtów Smooth Streaming obsługi i przekazać hello propertyset**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **kod widoku**.
-2. Na początku pliku, dodaj następującą instrukcję using:
+2. Na początku hello pliku hello, Dodaj następujące hello instrukcję using:
 
         using Microsoft.Media.AdaptiveStreaming;
-3. Na początku klasy MainPage, Dodaj następujące elementy członkowskie danych:
+3. Na początku hello hello klasy MainPage, Dodaj hello następujące elementy członkowskie danych:
 
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
-4. Wewnątrz **MainPage** konstruktora, Dodaj następujący kod po **to. Inicjowanie Components();**  wiersza i rejestracji kodu wierszach w poprzedniej lekcji:
+4. Witaj wewnątrz **MainPage** konstruktora, Dodaj hello następującego kodu po hello **to. Inicjowanie Components();**  wiersza i hello rejestracji kodu wierszach w poprzedniej lekcji hello:
 
-        // Gets the default instance of AdaptiveSourceManager which manages Smooth 
+        // Gets hello default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
         adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
-        // Sets property key value to AdaptiveSourceManager default instance.
+        // Sets property key value tooAdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
-5. Wewnątrz **MainPage** konstruktora, zmodyfikuj te dwie metody RegisterByteStreamHandler, aby dodać określonymi parametrami:
+5. Witaj wewnątrz **MainPage** konstruktora, zmodyfikuj Witaj dwie RegisterByteStreamHandler metody tooadd Witaj określonymi parametry:
 
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
-         // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
+         // "text/xml" and "application/vnd.ms-ss" mime-types and pass hello propertyset. 
          // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
          extensions.RegisterByteStreamHandler(
 
@@ -269,15 +269,15 @@ W tej lekcji obejmuje następujące procedury:
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
-6. Naciśnij klawisz **CTRL + S** można zapisać pliku.
+6. Naciśnij klawisz **CTRL + S** toosave hello pliku.
 
-**Aby dodać obsługi zdarzeń na poziomie menedżera adaptacyjną źródła**
+**Program obsługi zdarzeń na poziomie menedżera tooadd hello adaptacyjną źródła**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **kod widoku**.
-2. Wewnątrz **MainPage** klasy, Dodaj następujący element członkowski danych:
+2. Witaj wewnątrz **MainPage** klasy, Dodaj hello następującego elementu członkowskiego danych:
    
      prywatne adaptiveSource AdaptiveSource = null;
-3. Na koniec **MainPage** klasy, Dodaj następujący program obsługi zdarzeń:
+3. Na końcu hello hello **MainPage** klasy, Dodaj powitania po obsługi zdarzeń:
    
          # region Adaptive Source Manager Level Events
          private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
@@ -287,19 +287,19 @@ W tej lekcji obejmuje następujące procedury:
          }
 
          # endregion Adaptive Source Manager Level Events
-4. Na koniec **MainPage** konstruktora, Dodaj następujący wiersz, aby subskrybować zdarzenia otwarte adaptacyjną źródłowego:
+4. Na końcu hello hello **MainPage** konstruktora, Dodaj następujące zdarzenia otwarte adaptacyjną źródłowego toohello toosubscribe wiersza hello:
    
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
-5. Naciśnij klawisz **CTRL + S** można zapisać pliku.
+5. Naciśnij klawisz **CTRL + S** toosave hello pliku.
 
-**Aby dodać obsługę zdarzeń poziomu adaptacyjną źródła**
+**programy obsługi zdarzeń na poziomie adaptacyjną źródła tooadd**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **kod widoku**.
-2. Wewnątrz **MainPage** klasy, Dodaj następujący element członkowski danych:
+2. Witaj wewnątrz **MainPage** klasy, Dodaj hello następującego elementu członkowskiego danych:
    
      prywatne adaptiveSourceStatusUpdate AdaptiveSourceStatusUpdatedEventArgs;   prywatne manifestObject manifestu;
-3. Na koniec **MainPage** klasy, Dodaj następujące programy obsługi zdarzeń:
+3. Na końcu hello hello **MainPage** klasy, Dodaj hello następujące procedury obsługi zdarzeń:
 
          # region Adaptive Source Level Events
          private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
@@ -322,7 +322,7 @@ W tej lekcji obejmuje następujące procedury:
          }
 
          # endregion Adaptive Source Level Events
-4. Na koniec **mediaElement AdaptiveSourceOpened** metody, Dodaj następujący kod, aby subskrybować zdarzenia:
+4. Na końcu hello hello **mediaElement AdaptiveSourceOpened** metody, Dodaj następujące zdarzenia toohello toosubscribe kodu hello:
    
          adaptiveSource.ManifestReadyEvent +=
 
@@ -333,14 +333,14 @@ W tej lekcji obejmuje następujące procedury:
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
-5. Naciśnij klawisz **CTRL + S** można zapisać pliku.
+5. Naciśnij klawisz **CTRL + S** toosave hello pliku.
 
-Tego samego zdarzenia są dostępne na adaptacyjną Menedżer poziom źródła również, która może służyć do obsługi funkcji wspólne dla wszystkich elementów nośnika w aplikacji. Każdy AdaptiveSource zawiera własnych zdarzeń i wszystkie zdarzenia AdaptiveSource będzie kaskadowych w obszarze AdaptiveSourceManager.
+Witaj, które same zdarzenia są dostępne na adaptacyjną Menedżer poziom źródła również, która może służyć do obsługi funkcji typowe tooall nośnika elementy w aplikacji hello. Każdy AdaptiveSource zawiera własnych zdarzeń i wszystkie zdarzenia AdaptiveSource będzie kaskadowych w obszarze AdaptiveSourceManager.
 
-**Aby dodać obsługę zdarzeń Element multimediów**
+**programy obsługi zdarzeń elementu mediów tooadd**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **kod widoku**.
-2. Na koniec **MainPage** klasy, Dodaj następujące programy obsługi zdarzeń:
+2. Na końcu hello hello **MainPage** klasy, Dodaj hello następujące procedury obsługi zdarzeń:
 
          # region Media Element Event Handlers
          private void MediaOpened(object sender, RoutedEventArgs e)
@@ -362,29 +362,29 @@ Tego samego zdarzenia są dostępne na adaptacyjną Menedżer poziom źródła r
          }
 
          # endregion Media Element Event Handlers
-3. Na koniec **MainPage** konstruktora, Dodaj następujący kod do indeks dolny do zdarzeń:
+3. Na końcu hello hello **MainPage** konstruktora, Dodaj następujące zdarzenia toohello toosubscript kodu hello:
 
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
-4. Naciśnij klawisz **CTRL + S** można zapisać pliku.
+4. Naciśnij klawisz **CTRL + S** toosave hello pliku.
 
-**Aby dodać paska suwaka związane z kodu**
+**suwak tooadd powiązane kodu kreskowego**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **kod widoku**.
-2. Na początku pliku, dodaj następującą instrukcję using:
+2. Na początku hello pliku hello, Dodaj następujące hello instrukcję using:
       
         using Windows.UI.Core;
-3. Wewnątrz **MainPage** klasy, Dodaj następujące elementy członkowskie danych:
+3. Witaj wewnątrz **MainPage** klasy, Dodaj następujące elementy członkowskie danych hello:
    
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
-4. Na koniec **MainPage** konstruktora, Dodaj następujący kod:
+4. Na końcu hello hello **MainPage** konstruktora, Dodaj hello następującego kodu:
    
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
-5. Na koniec **MainPage** klasy, Dodaj następujący kod:
+5. Na końcu hello hello **MainPage** klasy, Dodaj hello następującego kodu:
 
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
@@ -469,7 +469,7 @@ Tego samego zdarzenia są dostępne na adaptacyjną Menedżer poziom źródła r
          # endregion sliderMediaPlayer
       
 >[!NOTE]
->CoreDispatcher jest używany do wprowadzania zmian w wątku interfejsu użytkownika z wątku interfejsu użytkownika innych niż. W przypadku "wąskie gardło" na Wątek dyspozytora developer mogą być używane dyspozytora dostarczonych przez jego zamierza zaktualizować elementu interfejsu użytkownika.  Na przykład:
+>CoreDispatcher jest zmian używanych toomake wątku toohello interfejsu użytkownika z wątku interfejsu użytkownika innych niż. W przypadku "wąskie gardło" na Wątek dyspozytora developer można wybrać dyspozytora toouse pod warunkiem przez element interfejsu użytkownika, że jego zamierza tooupdate.  Na przykład:
    
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
@@ -477,38 +477,38 @@ Tego samego zdarzenia są dostępne na adaptacyjną Menedżer poziom źródła r
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
-6. Na koniec **mediaElement_AdaptiveSourceStatusUpdated** metody, Dodaj następujący kod:
+6. Na końcu hello hello **mediaElement_AdaptiveSourceStatusUpdated** metody, Dodaj hello następującego kodu:
 
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
-7. Na koniec **MediaOpened** metody, Dodaj następujący kod:
+7. Na końcu hello hello **MediaOpened** metody, Dodaj hello następującego kodu:
 
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
-8. Naciśnij klawisz **CTRL + S** można zapisać pliku.
+8. Naciśnij klawisz **CTRL + S** toosave hello pliku.
 
-**Aby skompilować i testowanie aplikacji**
+**toocompile i testowania aplikacji hello**
 
-1. Naciśnij klawisz **F6** skompilować projekt. 
-2. Naciśnij klawisz **F5**, aby uruchomić aplikację.
-3. W górnej części aplikacji możesz użyć domyślnej Smooth Streaming URL lub wprowadź inną. 
+1. Naciśnij klawisz **F6** toocompile hello projektu. 
+2. Naciśnij klawisz **F5** toorun hello aplikacji.
+3. U góry hello aplikacji hello możesz użyć domyślnej hello Smooth Streaming URL lub wprowadź inną. 
 4. Kliknij przycisk **Ustaw źródło**. 
-5. Przetestuj paska suwaka.
+5. Test hello paska suwaka.
 
-Lekcja 2 została ukończona.  W tej lekcji suwaka jest dodanych do aplikacji. 
+Lekcja 2 została ukończona.  W tej lekcji dodano tooapplication suwaka. 
 
 ## <a name="lesson-3-select-smooth-streaming-streams"></a>Lekcja 3: Wybierz Smooth Streaming strumieni
-Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wielu ścieżek audio języka, które można wybrać przez przeglądarki.  W tej lekcji spowoduje włączenie przeglądarki wybrać strumieni. W tej lekcji obejmuje następujące procedury:
+Smooth Streaming jest funkcją toostream zawartości z wielu ścieżek audio języka, które można wybrać przez hello przeglądarki.  W tej lekcji spowoduje włączenie strumienie tooselect przeglądarki. Tej lekcji zawiera hello następujące procedury:
 
-1. Zmodyfikuj plik XAML
-2. Modyfikowanie pliku behand kodu
-3. Kompilowanie i testowanie aplikacji
+1. Modyfikowanie pliku XAML hello
+2. Modyfikowanie pliku behand kodu hello
+3. Kompilowanie i testowanie aplikacji hello
 
-**Aby zmodyfikować plik XAML**
+**Plik XAML hello toomodify**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **Widok projektanta**.
-2. Zlokalizuj &lt;Grid.RowDefinitions&gt;i zmodyfikować RowDefinitions, aby ich wygląda następująco:
+2. Zlokalizuj &lt;Grid.RowDefinitions&gt;i zmodyfikować hello RowDefinitions, aby ich wygląda następująco:
    
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
@@ -517,7 +517,7 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
-3. Wewnątrz &lt;siatki&gt;&lt;/Grid&gt; tagów, Dodaj następujący kod do zdefiniowania kontrolki listbox, dlatego użytkownicy mogą zobaczyć listę dostępnych strumieni i wybierz strumieni:
+3. Witaj wewnątrz &lt;siatki&gt;&lt;/Grid&gt; tagów, Dodaj hello poniższy kod toodefine kontrolki listbox, aby użytkownicy mogli widzieć hello listę dostępnych strumieni i wybierz strumieni:
 
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
@@ -542,12 +542,12 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
                 </ListBox>
             </StackPanel>
          </Grid>
-4. Naciśnij klawisz **CTRL + S** Aby zapisać zmiany.
+4. Naciśnij klawisz **CTRL + S** toosave hello zmiany.
 
-**Aby zmodyfikować kodzie pliku**
+**toomodify hello kodzie pliku**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **kod widoku**.
-2. W obszarze nazw SSPlayer Dodaj nową klasę:
+2. W obszarze nazw SSPlayer hello Dodaj nową klasę:
    
         #region class Stream
    
@@ -574,7 +574,7 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
                 get { return isCheckedValue; }
                 set
                 {
-                    // mMke the video stream always checked.
+                    // mMke hello video stream always checked.
                     if (stream.Type == MediaStreamType.Video)
                     {
                         isCheckedValue = true;
@@ -593,21 +593,21 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
             }
         }
         #endregion class Stream
-3. Na początku klasy MainPage, Dodaj następujące definicje zmiennych:
+3. Na początku hello hello klasy MainPage, Dodaj hello następujące definicje zmiennych:
    
          private List<Stream> availableStreams;
          private List<Stream> availableAudioStreams;
          private List<Stream> availableTextStreams;
          private List<Stream> availableVideoStreams;
-4. Wewnątrz klasy MainPage Dodaj następujący region:
+4. Wewnątrz klasy MainPage hello Dodaj powitania od regionu:
    
         #region stream selection
         ///<summary>
-        ///Functionality to select streams from IManifestStream available streams
+        ///Functionality tooselect streams from IManifestStream available streams
         /// </summary>
    
-        // This function is called from the mediaElement_ManifestReady event handler 
-        // to retrieve the streams and populate them to the local data members.
+        // This function is called from hello mediaElement_ManifestReady event handler 
+        // tooretrieve hello streams and populate them toohello local data members.
         public void getStreams(Manifest manifestObject)
         {
             availableStreams = new List<Stream>();
@@ -622,7 +622,7 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
                     Stream newStream = new Stream(manifestObject.AvailableStreams[i]);
                     newStream.isChecked = false;
    
-                    //populate the stream lists based on the types
+                    //populate hello stream lists based on hello types
                     availableStreams.Add(newStream);
    
                     switch (newStream.ManifestStream.Type)
@@ -638,7 +638,7 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
                             break;
                     }
    
-                    // Select the default selected streams from the manifest.
+                    // Select hello default selected streams from hello manifest.
                     for (int j = 0; j<manifestObject.SelectedStreams.Count; j++)
                     {
                         string selectedStreamName = manifestObject.SelectedStreams[j].Name;
@@ -656,12 +656,12 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
             }
         }
    
-        // This function set the list box ItemSource
+        // This function set hello list box ItemSource
         private async void refreshAvailableStreamsListBoxItemSource()
         {
             try
             {
-                //update the stream check box list on the UI
+                //update hello stream check box list on hello UI
                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
                     => { lbAvailableStreams.ItemsSource = availableStreams; });
             }
@@ -687,7 +687,7 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
                 }
             }
    
-            // Select the frist video stream from the list if no video stream is selected
+            // Select hello frist video stream from hello list if no video stream is selected
             if (!isOneVideoSelected)
             {
                 availableVideoStreams[0].isChecked = true;
@@ -701,11 +701,11 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
                 {
                     selectedStreams.Add(availableAudioStreams[j].ManifestStream);
                     isOneAudioSelected = true;
-                    txtStatus.Text = "The audio stream is changed to " + availableAudioStreams[j].ManifestStream.Name;
+                    txtStatus.Text = "hello audio stream is changed too" + availableAudioStreams[j].ManifestStream.Name;
                 }
             }
    
-            // Select the frist audio stream from the list if no audio steam is selected.
+            // Select hello frist audio stream from hello list if no audio steam is selected.
             if (!isOneAudioSelected)
             {
                 availableAudioStreams[0].isChecked = true;
@@ -736,46 +736,46 @@ Smooth Streaming jest w stanie do strumieniowego przesyłania zawartości z wiel
             }
         }
         #endregion stream selection
-5. Zlokalizuj metody mediaElement_ManifestReady, Dołącz następujący kod na końcu funkcji:
+5. Zlokalizuj metody mediaElement_ManifestReady hello, Dołącz hello następującego kodu na końcu hello hello funkcji:
    
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
    
-    Element MediaElement manifestu jest gotowy, kod pobiera listę dostępnych strumieni i wypełnia pole listy interfejsu użytkownika z listy.
-6. Wewnątrz klasy MainPage zlokalizować interfejsu użytkownika przycisków kliknij region zdarzenia, a następnie dodaj następującą definicję funkcji:
+    Tak, gdy element MediaElement manifestu jest gotowy, hello kod pobiera listę dostępnych strumieni hello i wypełnia hello pole listy interfejsu użytkownika z listy hello.
+6. Wewnątrz klasy MainPage hello, zlokalizuj przycisków interfejsu użytkownika powitania kliknij region zdarzenia, a następnie dodaj powitania po definicji funkcji:
    
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
    
-            // Create a list of the selected streams
+            // Create a list of hello selected streams
             createSelectedStreamsList(selectedStreams);
    
-            // Change streams on the presentation
+            // Change streams on hello presentation
             changeStreams(selectedStreams);
         }
 
-**Aby skompilować i testowanie aplikacji**
+**toocompile i testowania aplikacji hello**
 
-1. Naciśnij klawisz **F6** skompilować projekt. 
-2. Naciśnij klawisz **F5**, aby uruchomić aplikację.
-3. W górnej części aplikacji możesz użyć domyślnej Smooth Streaming URL lub wprowadź inną. 
+1. Naciśnij klawisz **F6** toocompile hello projektu. 
+2. Naciśnij klawisz **F5** toorun hello aplikacji.
+3. U góry hello aplikacji hello możesz użyć domyślnej hello Smooth Streaming URL lub wprowadź inną. 
 4. Kliknij przycisk **Ustaw źródło**. 
-5. Język domyślny jest audio_eng. Spróbuj przełączać się między audio_eng i audio_es. Zawsze, gdy, wybierz nowego strumienia, należy kliknąć przycisk przesyłania.
+5. język domyślny Hello jest audio_eng. Spróbuj tooswitch między audio_eng i audio_es. Zawsze, gdy, wybierz nowego strumienia, należy kliknąć przycisk Prześlij hello.
 
-Ukończono Lekcja 3.  W tej lekcji możesz dodać funkcje wybrać strumieni.
+Ukończono Lekcja 3.  W tej lekcji możesz dodać hello funkcji toochoose strumieni.
 
 ## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lekcja 4: Wybierz Smooth Streaming ścieżki
-Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowane za pomocą różne poziomy jakości (szybkości transmisji bitów) i rozwiązania. W tej lekcji umożliwi użytkownikom na wybór ścieżki. W tej lekcji obejmuje następujące procedury:
+Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowane za pomocą różne poziomy jakości (szybkości transmisji bitów) i rozwiązania. W tej lekcji umożliwi użytkownikom tooselect ścieżki. Tej lekcji zawiera hello następujące procedury:
 
-1. Zmodyfikuj plik XAML
-2. Modyfikowanie pliku behand kodu
-3. Kompilowanie i testowanie aplikacji
+1. Modyfikowanie pliku XAML hello
+2. Modyfikowanie pliku behand kodu hello
+3. Kompilowanie i testowanie aplikacji hello
 
-**Aby zmodyfikować plik XAML**
+**Plik XAML hello toomodify**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **Widok projektanta**.
-2. Zlokalizuj &lt;siatki&gt; tag o nazwie **gridStreamAndBitrateSelection**, Dołącz następujący kod na końcu tagu:
+2. Zlokalizuj hello &lt;siatki&gt; tag o nazwie hello **gridStreamAndBitrateSelection**, Dołącz hello następującego kodu na końcu hello hello tagu:
    
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
@@ -791,12 +791,12 @@ Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowane za p
              </ListBox.ItemTemplate>
          </ListBox>
          </StackPanel>
-3. Naciśnij klawisz **CTRL + S** można zapisać zmian he
+3. Naciśnij klawisz **CTRL + S** toosave zmieniane
 
-**Aby zmodyfikować kodzie pliku**
+**toomodify hello kodzie pliku**
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MainPage.xaml**, a następnie kliknij przycisk **kod widoku**.
-2. W obszarze nazw SSPlayer Dodaj nową klasę:
+2. W obszarze nazw SSPlayer hello Dodaj nową klasę:
    
         #region class Track
         public class Track
@@ -834,17 +834,17 @@ Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowane za p
             //public Track() { }
         }
         #endregion class Track
-3. Na początku klasy MainPage, Dodaj następujące definicje zmiennych:
+3. Na początku hello hello klasy MainPage, Dodaj hello następujące definicje zmiennych:
    
         private List<Track> availableTracks;
-4. Wewnątrz klasy MainPage Dodaj następujący region:
+4. Wewnątrz klasy MainPage hello Dodaj powitania od regionu:
    
         #region track selection
         /// <summary>
-        /// Functionality to select video streams
+        /// Functionality tooselect video streams
         /// </summary>
    
-        /// This Function gets the tracks for the selected video stream
+        /// This Function gets hello tracks for hello selected video stream
         public void getTracks(Manifest manifestObject)
         {
             availableTracks = new List<Track>();
@@ -878,7 +878,7 @@ Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowane za p
             }
         }
    
-        // This function gets the video stream that is playing
+        // This function gets hello video stream that is playing
         private IManifestStream getVideoStream()
         {
             IManifestStream videoStream = null;
@@ -893,12 +893,12 @@ Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowane za p
             return videoStream;
         }
    
-        // This function set the UI list box control ItemSource
+        // This function set hello UI list box control ItemSource
         private async void refreshAvailableTracksListBoxItemSource()
         {
             try
             {
-                // Update the track check box list on the UI 
+                // Update hello track check box list on hello UI 
                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
                     => { lbAvailableVideoTracks.ItemsSource = availableTracks; });
             }
@@ -908,7 +908,7 @@ Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowane za p
             }        
         }
    
-        // This function creates a list of the selected tracks.
+        // This function creates a list of hello selected tracks.
         private void createSelectedTracksList(List<IManifestTrack> selectedTracks)
         {
             // Create a list of selected tracks
@@ -921,7 +921,7 @@ Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowane za p
             }
         }
    
-        // This function selects the tracks based on user selection 
+        // This function selects hello tracks based on user selection 
         private void changeTracks(List<IManifestTrack> selectedTracks)
         {
             IManifestStream videoStream = getVideoStream();
@@ -935,32 +935,32 @@ Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowane za p
             }
         }
         #endregion track selection
-5. Zlokalizuj metody mediaElement_ManifestReady, Dołącz następujący kod na końcu funkcji:
+5. Zlokalizuj metody mediaElement_ManifestReady hello, Dołącz hello następującego kodu na końcu hello hello funkcji:
    
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
-6. Wewnątrz klasy MainPage zlokalizować interfejsu użytkownika przycisków kliknij region zdarzenia, a następnie dodaj następującą definicję funkcji:
+6. Wewnątrz klasy MainPage hello, zlokalizuj przycisków interfejsu użytkownika powitania kliknij region zdarzenia, a następnie dodaj powitania po definicji funkcji:
    
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
 
-            // Create a list of the selected streams
+            // Create a list of hello selected streams
             createSelectedStreamsList(selectedStreams);
 
-            // Change streams on the presentation
+            // Change streams on hello presentation
             changeStreams(selectedStreams);
          }
 
-**Aby skompilować i testowanie aplikacji**
+**toocompile i testowania aplikacji hello**
 
-1. Naciśnij klawisz **F6** skompilować projekt. 
-2. Naciśnij klawisz **F5**, aby uruchomić aplikację.
-3. W górnej części aplikacji możesz użyć domyślnej Smooth Streaming URL lub wprowadź inną. 
+1. Naciśnij klawisz **F6** toocompile hello projektu. 
+2. Naciśnij klawisz **F5** toorun hello aplikacji.
+3. U góry hello aplikacji hello możesz użyć domyślnej hello Smooth Streaming URL lub wprowadź inną. 
 4. Kliknij przycisk **Ustaw źródło**. 
-5. Domyślnie wszystkie ścieżki strumienia wideo wybrane. Wypróbować zmiany szybkości bitowej, można wybrać najniższa szybkość transmisji bitów, dostępne, a następnie wybierz najwyższy szybkość transmisji bitów, dostępne. Należy kliknąć przesyłania po każdej zmianie.  Zmiany jakości wideo jest widoczny.
+5. Domyślnie wszystkie ścieżki hello strumienia wideo hello wybrane. Witaj tooexperiment bit szybkość zmian, można wybrać hello najniższa szybkość transmisji bitów dostępne, a następnie wybierz hello najwyższą szybkość transmisji bitów dostępne. Należy kliknąć przesyłania po każdej zmianie.  Zmiany jakości wideo hello jest widoczny.
 
-Ukończono lekcji 4.  W tej lekcji możesz dodać funkcje, aby wybrać ścieżki.
+Ukończono lekcji 4.  W tej lekcji możesz dodać hello funkcji toochoose ścieżki.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -969,7 +969,7 @@ Ukończono lekcji 4.  W tej lekcji możesz dodać funkcje, aby wybrać ścieżki
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Inne zasoby:
-* [Jak utworzyć aplikację z zaawansowanych funkcji Smooth JavaScript 8 Windows przesyłania strumieniowego](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [Jak toobuild aplikacja Smooth JavaScript 8 Windows przesyłania strumieniowego o funkcje zaawansowane](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 * [Płynnego przesyłania strumieniowego — omówienie](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png

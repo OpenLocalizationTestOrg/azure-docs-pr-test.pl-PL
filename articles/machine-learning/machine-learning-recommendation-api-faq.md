@@ -1,5 +1,5 @@
 ---
-title: "Konfigurowanie i używanie Machine Learning zalecenia API | Dokumentacja firmy Microsoft"
+title: "aaaSet się i użyj hello Machine Learning API zalecenia | Dokumentacja firmy Microsoft"
 description: "Interfejs API zalecenia Microsoft skompilowanej za pomocą usługi Azure Machine Learning — często zadawane pytania"
 services: machine-learning
 documentationcenter: 
@@ -16,127 +16,127 @@ ms.date: 03/31/2017
 ms.author: luisca
 ROBOTS: NOINDEX
 redirect_url: machine-learning-datamarket-deprecation
-redirect_document_id: TRUE
-ms.openlocfilehash: 3851589818bb8f4309bf3c65f17b115e0dcd27fa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 980bf1a36f3291275d9ef0fee9b4446f7e0cbecf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="setting-up-and-using-machine-learning-recommendations-api-faq"></a>Konfigurowanie i używanie interfejsu API zaleceń usługi Machine Learning — często zadawane pytania
 **Co to jest zalecenia?**
 
 > [!NOTE]
-> Należy rozpocząć korzystanie z usługi kognitywnych interfejsu API zalecenia zamiast tej wersji. Kognitywnych usługę rekomendacji spowoduje zastąpienie tej usługi, a opracowane zostaną nowe funkcje. Ma on nowe funkcje, takie jak przetwarzanie wsadowe pomocy technicznej, lepiej Explorer interfejsu API, czyszczący środowisko signup/rozliczeń powierzchni, bardziej spójny interfejs API,... itd.
-> Dowiedz się więcej o [migracji do nowej usługi kognitywnych](http://aka.ms/recomigrate)
+> Należy rozpocząć za pomocą hello usługi kognitywnych zalecenia dotyczące interfejsu API, zamiast tej wersji. Hello kognitywnych usługę rekomendacji spowoduje zastąpienie tej usługi, a opracowane zostaną wszystkie hello nowe funkcje. Ma on nowe funkcje, takie jak przetwarzanie wsadowe pomocy technicznej, lepiej Explorer interfejsu API, czyszczący środowisko signup/rozliczeń powierzchni, bardziej spójny interfejs API,... itd.
+> Dowiedz się więcej o [toohello Migrowanie nową usługę kognitywnych](http://aka.ms/recomigrate)
 > 
 > 
 
-W przypadku organizacji i firm, które zależą od zaleceń dotyczących sprzedaży i sprzedaje up produktów i usług klientom zalecenia w usłudze Azure Machine Learning zapewnia aparat samoobsługi zalecenia. Jest implementację współpracy filtrowania, która używa factorization macierzy jako jego algorytmu core. Deweloperzy aplikacji można uzyskać dostępu do zalecenia za pomocą interfejsów API REST. 
+W przypadku organizacji i firm, które opierają się na sprzedaży toocross zalecenia i sprzedaje up produktów i usług tootheir klientów zalecenia w usłudze Azure Machine Learning zapewnia aparat samoobsługi zalecenia. Jest implementację współpracy filtrowania, która używa factorization macierzy jako jego algorytmu core. Deweloperzy aplikacji można uzyskać dostępu do zalecenia za pomocą interfejsów API REST. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **Co można zrobić z ZALECENIAMI?**
 
-Zalecenia dotyczące przyjmuje jako wejście element lub zbiór elementów i zwraca listę odpowiednich zaleceń. Na przykład: klient sklepie internetowym kliknie produktu. Online detalicznej wysyła tego produktu jako dane wejściowe zalecenia, pobiera listę produktów w zamian i decyduje o tym, które z tych produktów będzie wyświetlana dla klienta. Może zajść potrzeba użycia zaleceń w celu zoptymalizowania sklepu online lub nawet powiadomienia użytkownika wewnątrz sprzedaży, działu lub wywołanie Centrum.
+Zalecenia dotyczące przyjmuje jako wejście element lub zbiór elementów i zwraca listę odpowiednich zaleceń. Na przykład: klient sklepie internetowym kliknie produktu. Hello online detalicznej tego produktu są wysyłane jako tooRECOMMENDATIONS wejściowych, pobiera listę produktów w zamian i decyduje o tym, które te produkty zostaną wyświetlone toohello klienta. Może mają toooptimize zalecenia toouse sklepu online lub nawet tooinform Twojego wewnątrz sprzedaży, działu lub wywołanie Centrum.
 
 **Czy istnieją jakiekolwiek ograniczenia użycia?**
 
-Zalecenia dotyczące ma następujące ograniczenia użycia:
+Zalecenia dotyczące ma hello następujące ograniczenia:
 
 * Maksymalna liczba modeli dla subskrypcji: 10
 * Maksymalna liczba elementów, które mogą zawierać wykaz: 100 000
-* Maksymalna liczba punktów użycia, które są zachowane jest ~ 5,000,000. Najstarszych zostanie usunięte, gdy nowe zostanie przekazany lub zgłaszane.
+* Maksymalna liczba punktów użycia, które są zachowane w Hello jest ~ 5,000,000. Hello najstarsze zostanie usunięte, gdy nowe zostanie przekazany lub zgłaszane.
 * Maksymalny rozmiar danych, który można wysłać w wiadomości e-mail (na przykład importu wykazu danych, importowanie danych użycia) to 200 MB
-* Liczba transakcji na sekundę (TPS) dla kompilacji modelu zalecenia, która nie jest aktywny jest TPS ~ 2. Zalecenia kompilacji modelu, który jest aktywny może przechowywać maksymalnie 20 TPS.
+* Liczba transakcji na sekundę (TPS) dla kompilacji modelu zalecenia, która nie jest aktywny jest TPS ~ 2. Zalecenia dotyczące kompilacji modelu, która jest aktywna mogą przechowywać się too20 TPS.
 
 ## <a name="purchase-and-billing"></a>Zakup i rozliczenia
-**Jaki jest koszt zalecenia w okresie uruchamiania?**
+**Ile kosztuje zalecenia w okresie uruchamiania hello?**
 
-Zalecenia dotyczące jest usługą opartą na subskrypcję. Ładowanie opiera się na woluminie transakcji w miesiącu. Możesz sprawdzić [oferują strony](https://datamarket.azure.com/dataset/amla/recommendations) w Microsoft Azure Marketplace w celu uzyskania informacji o cenach.
+Zalecenia dotyczące jest usługą opartą na subskrypcję. Ładowanie opiera się na woluminie transakcji w miesiącu. Możesz sprawdzić hello [oferują strony](https://datamarket.azure.com/dataset/amla/recommendations) w Microsoft Azure Marketplace w celu uzyskania informacji o cenach.
 
 **Czy istnieją kosztów związanych z o zalecenia dotyczące śledzenia i przechowywania aktywności użytkownika?**
 
-Nie w tej chwili.
+Nie w momencie hello.
 
 **Zalecenia dotyczące ma bezpłatną wersję próbną?**
 
-Brak wolnego dziennik, który jest ograniczony do 10 000 transakcji w miesiącu.
+Brak wolnego dziennik, który jest ograniczony too10, 000 transakcji w miesiącu.
 
 **Gdy zostanie I opłaty będą naliczane za zalecenia?**
 
-Subskrypcja płatna jest żadnej subskrypcji, dla którego jest miesięcznej opłaty za. Po zakupie subskrypcji płatnej, natychmiast są naliczane do użytku w pierwszym miesiącu. Naliczane są opłaty kwotę, która jest skojarzona z ofertą na stronę subskrypcji (oraz podatków). Opłata miesięczna następuje co miesiąc, w tym samym dniu kalendarza jako pierwotnego zakupu do momentu anulowania subskrypcji. 
+Subskrypcja płatna jest żadnej subskrypcji, dla którego jest miesięcznej opłaty za. Jeśli kupisz subskrypcję płatną, możesz są natychmiast naliczane opłaty za hello najpierw użyj miesiącu. Naliczane są opłaty hello ilość, którą jest skojarzone z ofertą hello na stronę subskrypcji hello (oraz podatków). Opłata miesięczna utworzona na powitania sam kalendarza daty w postaci pierwotnego zakupu do momentu anulowania subskrypcji hello każdego miesiąca. 
 
-**Jak uaktualnić usługą wyższej warstwy**
+**Jak uaktualnić tooa wyższej warstwy usługi?**
 
-Możesz kupić lub zaktualizować subskrypcji [oferują strony](https://datamarket.azure.com/dataset/amla/recommendations) strony w witrynie Microsoft Azure Marketplace.
+Możesz kupić lub zaktualizować subskrypcji hello [oferują strony](https://datamarket.azure.com/dataset/amla/recommendations) strony w witrynie Microsoft Azure Marketplace.
 
 Po uaktualnieniu subskrypcji:
 
-* Transakcje, które pozostały w ramach starego subskrypcji nie są dodawane do nowej subskrypcji. 
-* Płać pełną cenę nowej subskrypcji, nawet jeśli masz nieużywane transakcji na starym subskrypcji.
+* Transakcje, które pozostały w ramach starego subskrypcji nie są dodawane tooyour nową subskrypcję. 
+* Płacisz pełną cenę hello nowej subskrypcji, nawet jeśli masz nieużywane transakcji na starym subskrypcji.
 
-Proces uaktualniania subskrypcji:
+Proces tooupgrade subskrypcji:
 
-* Nevigate do [oferują strony](https://datamarket.azure.com/dataset/amla/recommendations).
-* Zaloguj się do witryny Marketplace, jeśli nie jest już zalogowany.
-* W okienku po prawej stronie są wyświetlane wszystkie dostępne plany. Kliknij przycisk radiowy planu, który chcesz uaktualnić do wersji.
-* Jeśli chcesz uaktualnić, kliknij przycisk **OK**. Jeśli nie chcesz uaktualnić, kliknij przycisk **anulować**.
+* Nevigate toohello [oferują strony](https://datamarket.azure.com/dataset/amla/recommendations).
+* Zaloguj się w toohello Marketplace, jeśli nie jest już zalogowany.
+* W okienku po prawej stronie powitania są wyświetlane wszystkie dostępne plany hello. Kliknij przycisk radiowy hello hello planu, który ma tooupgrade do.
+* Jeśli chcesz tooupgrade, kliknij przycisk **OK**. Jeśli nie chcesz, aby tooupgrade, kliknij przycisk **anulować**.
 
-**Ważne** należy dokładnie zapoznać się okno dialogowe przed rozpoczęciem uaktualniania, ponieważ istnieją rozliczeń i użycia.
+**Ważne** okno dialogowe hello dokładnie Przeczytaj przed rozpoczęciem uaktualniania, ponieważ istnieją rozliczeń i użycia.
 
-**Kiedy skończy się subskrypcję zalecenia**
+**Gdy zakończy się tooRecommendations mojej subskrypcji?**
 
-Subskrypcja zakończy się po anulowaniu jej. Jeśli chcesz anulować subskrypcji, zobacz poniższe instrukcje.
+Subskrypcja zakończy się po anulowaniu jej. Jeśli chcesz toocancel subskrypcji, zobacz hello, postępując zgodnie z instrukcjami.
 
 **Jak anulować subskrypcję zalecenia?**
 
-Aby anulować subskrypcję, wykonaj następujące kroki. Jeśli Twojej bieżącej subskrypcji płatnej subskrypcji, subskrypcji nadal obowiązują do końca bieżącego okresu rozliczeniowego. Anulowania do obowiązywać natychmiast, należy skontaktować się z nami pod adresem [Microsoft Support](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
+toocancel, które subskrypcji, użyj hello następujące kroki. Jeśli Twojej bieżącej subskrypcji płatnej subskrypcji, subskrypcji nadal obowiązują do końca hello hello bieżącego okresu rozliczeniowego. Jeśli należy natychmiast hello toobe anulowania skuteczne, skontaktuj się z nami pod adresem [Microsoft Support](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
-**Uwaga** zwrot nie podano anulowanie przed zakończeniem okresu rozliczeniowego lub nieużywane transakcji w okresie rozliczeniowym.
+**Uwaga** zwrot nie podano anulowanie przed zakończeniem hello okresie rozliczeniowym lub nieużywane transakcji w okresie rozliczeniowym.
 
-* Przejdź do [oferują strony](https://datamarket.azure.com/dataset/amla/recommendations).
-* Zaloguj się do witryny Marketplace, jeśli nie jest już zalogowany.
-* Kliknij przycisk **anulować** z prawej strony nazwy zestawu danych i stanu. Możesz użyć tej subskrypcji do końca bieżącego okresu rozliczeniowego lub osiągnięto limit transakcji (cokolwiek nastąpi najpierw).
+* Przejdź toohello [oferują strony](https://datamarket.azure.com/dataset/amla/recommendations).
+* Zaloguj się w toohello Marketplace, jeśli nie jest już zalogowany.
+* Kliknij przycisk **anulować** toohello rogu hello nazwę zestawu danych i stanu. Ta subskrypcja jest używana, aż do osiągnięcia końca hello hello bieżącego rozliczeń okres lub Twój limit transakcji (cokolwiek nastąpi najpierw).
 
-Jeśli chcesz anulować subskrypcję, natychmiast, więc możesz kupić nową subskrypcję, założyć zgłoszenie w [Microsoft Support](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
+Jeśli chcesz toocancel subskrypcji natychmiast, więc możesz kupić nową subskrypcję, założyć zgłoszenie w [Microsoft Support](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
 ## <a name="getting-started-with-recommendations"></a>Wprowadzenie do zalecenia
 **Zalecenia dotyczące jest dla mnie?** 
 
-Zalecenia w uczeniu maszynowym jest przeznaczony dla organizacji i firm, które zależą od zaleceń dotyczących sprzedaży i sprzedaje up produktów lub usług klientom. Jeśli masz witryny sieci Web skierowane do klientów, pracownicy działu sprzedaży, wewnętrznej pracownicy działu sprzedaży lub biurem, oraz Jeśli oferujesz katalogu więcej niż kilka dozen produktów lub usług wyników firmy mogą korzystać z zalecenia. 
+Zalecenia w uczeniu maszynowym jest przeznaczony dla organizacji i firm, które zależą od zaleceń toocross sprzedaży i sprzedaje up produktów lub usług tootheir klientów. Jeśli masz witryny sieci Web skierowane do klientów, pracownicy działu sprzedaży, wewnętrznej pracownicy działu sprzedaży lub biurem, oraz Jeśli oferujesz katalogu więcej niż kilka dozen produktów lub usług wyników firmy mogą korzystać z zalecenia. 
 
-Eksperymentowanie z zaleceniami ma być stosunkowo proste. Bieżąca wersja interfejsu API na podstawie wymaga podstawowe umiejętności programowania. Jeśli potrzebujesz pomocy, skontaktuj się z dostawcą, która opracowała witryny sieci Web. Jeśli masz wewnętrzny dział IT lub lokalnego projektanta, należy uzyskać zalecenia do działania. 
+Eksperymentowanie z zaleceniami jest zaprojektowana toobe dość proste. Bieżąca wersja interfejsu API na podstawie Hello wymaga podstawowe umiejętności programowania. Jeśli potrzebujesz pomocy, skontaktuj się z dostawcą hello, która opracowała witryny sieci Web. Jeśli masz wewnętrzny dział IT lub lokalnego projektanta, powinny być możliwe tooget toowork zalecenia dla Ciebie. 
 
-**Jakie są wymagania wstępne dotyczące konfigurowania zalecenia?**
+**Jakie są wymagania wstępne hello konfigurowania zalecenia?**
 
-Zalecenia dotyczące wymaga dziennika opcji użytkownika w odniesieniu do katalogu. Jeśli nie masz takiego dziennika i masz klienta witryna sieci Web, zalecenia mogą zbierać aktywność użytkowników dla Ciebie. 
+Zalecenia dotyczące wymaga dziennika opcji użytkownika pod kątem tooyour katalogu. Jeśli nie masz takiego dziennika i masz klienta witryna sieci Web, zalecenia mogą zbierać aktywność użytkowników dla Ciebie. 
 
-Zalecenia dotyczące wymaga także katalog produktów i usług. Jeśli nie masz katalogu zalecenia można użyć klienta rzeczywiste dane użycia i przetwarzania wykazu. Dorozumiany katalogu nie będzie zawierać elementy, które nie zostały zgłoszone w ramach transakcji użytkownika.
+Zalecenia dotyczące wymaga także katalog produktów i usług. Jeśli nie masz katalogu hello zalecenia można użyć danych użycia klienta rzeczywiste hello i przetwarzania wykazu. Dorozumiany katalogu nie będzie zawierać elementy, które nie zostały zgłoszone w ramach transakcji użytkownika.
 
-**Sposób konfigurowania zalecenia po raz pierwszy**
+**Jak skonfigurować zalecenia dla powitania po raz pierwszy?**
 
-Po [subskrybującą](https://datamarket.azure.com/dataset/amla/recommendations) zaleceń, należy używać w dokumentacji interfejsu API w [Azure Machine Learning zalecenia — Przewodnik Szybki Start](machine-learning-recommendation-api-quick-start-guide.md) do skonfigurowania usługi.
+Po [subskrybującą](https://datamarket.azure.com/dataset/amla/recommendations) tooRecommendations, powinien użyć dokumentacji interfejsu API hello hello [Azure Machine Learning zalecenia — Przewodnik Szybki Start](machine-learning-recommendation-api-quick-start-guide.md) tooset hello usługi.
 
 **Gdzie można znaleźć dokumentację interfejsu API?** 
 
-Dokumentacja interfejsu API jest [Azure Machine Learning zalecenia — Przewodnik Szybki Start](machine-learning-recommendation-api-quick-start-guide.md).
+Dokumentacja interfejsu API Hello jest [Azure Machine Learning zalecenia — Przewodnik Szybki Start](machine-learning-recommendation-api-quick-start-guide.md).
 
-**Jakie opcje czy mają przekazywać dane katalogu i użycia do zalecenia?**
+**Opcje czy mam tooRecommendations tooupload katalogu i użycia danych?**
 
-Dostępne są dwie opcje do przekazywania danych katalogu i użycia: można eksportować dane z tego systemu CRM lub inne dzienniki i przekaż go do zalecenia lub można dodać tagów do witryny sieci Web, który będzie śledzić działania użytkowników. Jeśli używasz druga metoda, dane będą przechowywane na platformie Azure.
+Dostępne są dwie opcje do przekazywania danych katalogu i użycia: można wyeksportować hello dane systemu CRM lub inne dzienniki i przekaż go tooRecommendations lub można dodać tagów tooyour witryny sieci Web, który będzie śledzić działania użytkowników. Jeśli używasz hello druga metoda hello dane będą przechowywane na platformie Azure.
 
 ## <a name="maintenance-and-support"></a>Obsługi i pomocy technicznej
 **Jak duży może być zestawu danych?**
 
-Każdy zestaw danych może zawierać maksymalnie 100 000 elementów katalogu i 2048 MB danych użycia.
-Ponadto subskrypcja może zawierać maksymalnie 10 zestawów danych (modeli).
+Każdy zestaw danych może zawierać too100, 000 elementów katalogu i too2048 MB danych użycia.
+Ponadto subskrypcja może zawierać zapasowej too10 zestawów danych (modeli).
 
 **Gdzie można uzyskać pomoc techniczną dotyczącą zalecenia?**
 
-Pomoc techniczna jest dostępna na [Microsoft Azure obsługuje](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) lokacji.
+Pomoc techniczna jest dostępna na powitania [Microsoft Azure obsługuje](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) lokacji.
 
-**Gdzie można znaleźć warunki użytkowania?**
+**Gdzie można znaleźć hello warunki użytkowania?**
 
 [Microsoft Azure Machine Learning zalecenia dotyczące interfejsu API warunków użytkowania usługi](https://datamarket.azure.com/dataset/amla/recommendations#terms).
 
