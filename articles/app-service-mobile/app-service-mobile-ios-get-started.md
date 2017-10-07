@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji systemu iOS przy użyciu funkcji Azure App Service Mobile Apps| Microsoft Docs"
-description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z zapleczy usług mobilnych Azure na potrzeby opracowywania aplikacji systemu iOS w środowisku Objective-C lub Swift."
+title: "aaaCreate aplikacji systemu iOS w usłudze Azure App Service Mobile Apps | Dokumentacja firmy Microsoft"
+description: "Postępuj zgodnie z tego samouczka tooget korzystanie z zapleczy zapleczy aplikacji mobilnych Azure dla opracowywania aplikacji systemu iOS w języku Objective-C lub Swift."
 services: app-service\mobile
 documentationcenter: ios
 author: ggailey777
@@ -14,27 +14,27 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 36936ae66c458fcbedeec95cfa2f573a40c8af53
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 869fa971f7b5ab4a7119bbfa92808185d2ecdf8a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-ios-app"></a>Tworzenie aplikacji systemu iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym samouczku przedstawiono sposób dodawania [Azure Mobile Apps](app-service-mobile-value-prop.md), usługi zaplecza w chmurze, do aplikacji systemu iOS. Najpierw utworzymy nowe zaplecze aplikacji mobilnej. Następnie użyjemy prostej aplikacji systemu iOS typu *Lista czynności do wykonania* do przechowywania danych na platformie Azure.
+Ten samouczek pokazuje, jak tooadd [Azure Mobile Apps](app-service-mobile-value-prop.md), usługi zaplecza w chmurze, aplikacji dla systemu iOS tooan. Najpierw utworzymy nowe zaplecze aplikacji mobilnej. Następnie użyjemy prostej *lista czynności do wykonania* dane toostore aplikacji systemu iOS w usłudze Azure.
 
-Aby można było ukończyć ten samouczek, potrzebny jest komputer Mac i [konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
+toocomplete tego samouczka należy Mac i [konta platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Krok I. Tworzenie nowego zaplecza aplikacji mobilnej Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="step-ii-configure-the-backend-project"></a>Krok II. Konfigurowanie projektu zaplecza
+## <a name="step-ii-configure-hello-backend-project"></a>Krok II: Konfigurowanie projektu zaplecza hello
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="step-iii-download-and-run-the-ios-app"></a>Krok III. Pobieranie i uruchamianie aplikacji systemu iOS
+## <a name="step-iii-download-and-run-hello-ios-app"></a>Krok III: Pobieranie i uruchamianie aplikacji systemu iOS hello
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 
 <!-- URLs -->

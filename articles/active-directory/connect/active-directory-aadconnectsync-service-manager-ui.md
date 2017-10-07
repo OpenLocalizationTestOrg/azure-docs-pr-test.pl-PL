@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05dd28bf850a84ff4644c46a45bd941b7c6e7d01
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d33f02822097aa7f83042606ba46fd533e85ac23
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Wprowadzenie do usługi Azure AD Connect interfejsu użytkownika Menedżera usługi synchronizacji
+# <a name="introduction-toohello-azure-ad-connect-synchronization-service-manager-ui"></a>Wprowadzenie toohello Azure AD Connect Synchronization Service Manager interfejsu użytkownika
 
 ![Menedżera usługi synchronizacji](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 
-**Menedżera usługi synchronizacji** interfejsu użytkownika jest używana do konfigurowania zaawansowanych aspektów aparatu synchronizacji i sprawdzania aspekty działania usługi.
+Witaj **Menedżera usługi synchronizacji** interfejsu użytkownika jest używana tooconfigure bardziej zaawansowane aspektów hello synchronizacji aparat i toosee hello aspekty działania hello usługi.
 
-Możesz uruchomić **Menedżera usługi synchronizacji** interfejsu użytkownika z start menu. Szablon ma nazwę **usługi synchronizacji** i znajduje się w **Azure AD Connect** grupy.  
+Rozpoczęciem powitalne **Menedżera usługi synchronizacji** interfejsu użytkownika z hello menu start. Szablon ma nazwę **usługi synchronizacji** i znajduje się w hello **Azure AD Connect** grupy.  
 ![Menedżera usługi synchronizacji](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
 
-Po kliknięciu łączy w górnej części tego tematu, aby dowiedzieć się więcej o różnych kartach w Interfejsie użytkownika.
+Kliknij łącza hello na powitania na początku tego tematu toolearn więcej informacji o różnych kartach hello w hello interfejsu użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
+Dowiedz się więcej o hello [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

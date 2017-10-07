@@ -1,6 +1,6 @@
 ---
-title: Tworzenie i przekazywanie obrazu OpenBSD maszyny Wirtualnej na platformie Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak tworzenie i przekazywanie wirtualnego dysku twardego (VHD) z systemem operacyjnym OpenBSD, aby utworzyć maszynę wirtualną platformy Azure za pomocą wiersza polecenia platformy Azure"
+title: aaaCreate i przekazywanie wirtualna OpenBSD obrazu tooAzure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toocreate i przekazywanie wirtualnego dysku twardego (VHD) zawierający hello OpenBSD toocreate systemu operacyjnego maszyny wirtualnej platformy Azure za pomocą wiersza polecenia platformy Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: KylieLiang
@@ -15,28 +15,28 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: kyliel
-ms.openlocfilehash: 716c07f6a738189d6cf2b3caafa16b753927d182
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0524f45ea1ecec37e55cbe9d54438a571a831de7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Tworzenie i przekazywanie obrazu dysku OpenBSD na platformie Azure
-W tym artykule opisano tworzenie i przekazywanie wirtualnego dysku twardego (VHD) z systemem operacyjnym OpenBSD. Po wysłaniu, służy ona jako własnego obrazu można utworzyć maszynę wirtualną (VM) na platformie Azure za pomocą wiersza polecenia platformy Azure.
+# <a name="create-and-upload-an-openbsd-disk-image-tooazure"></a>Tworzenie i przekazywanie tooAzure obrazu dysku OpenBSD
+W tym artykule opisano, jak toocreate i przekazywanie wirtualnego dysku twardego (VHD) zawierający hello OpenBSD systemu operacyjnego. Po wysłaniu, można użyć jej jako toocreate własny obraz maszyny wirtualnej (VM) na platformie Azure za pomocą wiersza polecenia platformy Azure.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule przyjęto założenie, że masz następujące elementy:
+W tym artykule założono, że hello następujące elementy:
 
-* **Subskrypcja platformy Azure** — Jeśli nie masz konta, możesz utworzyć jedną w zaledwie kilka minut. Jeśli masz subskrypcję MSDN, zobacz [Azure miesięczne środki dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). W przeciwnym razie Dowiedz się, jak [utworzyć bezpłatne konto próbne](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0** — upewnij się, że masz najnowszą [Azure CLI 2.0](/cli/azure/install-azure-cli) zainstalowane i zalogowany do konta platformy Azure z [logowania az](/cli/azure/#login).
-* **OpenBSD zainstalowanego systemu operacyjnego w pliku VHD** -obsługiwany system operacyjny OpenBSD (w wersji 6.1) musi być zainstalowana w wirtualnym dysku twardym. Istnieje wiele narzędzi do tworzenia plików VHD. Na przykład umożliwia rozwiązanie wirtualizacji, takich jak funkcja Hyper-V Utwórz plik VHD i zainstalowania systemu operacyjnego. Aby uzyskać instrukcje dotyczące instalowania i używania funkcji Hyper-V, zobacz [Instalowanie funkcji Hyper-V i tworzenie maszyny wirtualnej](http://technet.microsoft.com/library/hh846766.aspx).
+* **Subskrypcja platformy Azure** — Jeśli nie masz konta, możesz utworzyć jedną w zaledwie kilka minut. Jeśli masz subskrypcję MSDN, zobacz [Azure miesięczne środki dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). W przeciwnym razie Dowiedz się, jak za[utworzyć bezpłatne konto próbne](https://azure.microsoft.com/pricing/free-trial/).  
+* **Azure CLI 2.0** — upewnij się, że masz hello najnowszych [Azure CLI 2.0](/cli/azure/install-azure-cli) zainstalowane i zarejestrowane w tooyour konto platformy Azure z [logowania az](/cli/azure/#login).
+* **OpenBSD zainstalowanego systemu operacyjnego w pliku VHD** -obsługiwany system operacyjny OpenBSD (w wersji 6.1) musi być zainstalowany tooa wirtualnego dysku twardego. Wiele narzędzi istnieje toocreate pliki VHD. Można na przykład, takich jak plik VHD hello toocreate funkcji Hyper-V za pomocą rozwiązania wirtualizacji i zainstaluj system operacyjny hello. Aby uzyskać instrukcje dotyczące sposobu tooinstall i użyj funkcji Hyper-V, zobacz [Instalowanie funkcji Hyper-V i tworzenie maszyny wirtualnej](http://technet.microsoft.com/library/hh846766.aspx).
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>Przygotowywanie obrazu OpenBSD dla platformy Azure
-Na maszynie Wirtualnej, w którym zainstalowano system operacyjny OpenBSD 6.1, dodanego funkcji Hyper-V obsługi, wykonaj następujące procedury:
+Na powitania maszyny Wirtualnej, w którym zainstalowano hello OpenBSD systemie operacyjnym 6.1, w którym dodano obsługę funkcji Hyper-V, wykonaj hello następujące procedury:
 
-1. Jeśli podczas instalacji nie jest włączony protokół DHCP, włącz usługę w następujący sposób:
+1. Jeśli protokół DHCP nie jest włączony podczas instalacji, włącz usługę hello w następujący sposób:
 
     ```sh    
     echo dhcp > /etc/hostname.hvn0
@@ -55,9 +55,9 @@ Na maszynie Wirtualnej, w którym zainstalowano system operacyjny OpenBSD 6.1, d
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Domyślnie `root` użytkownik jest wyłączony na maszynach wirtualnych platformy Azure. Użytkownicy mogą uruchamiać polecenia z podwyższonym poziomem uprawnień przy użyciu `doas` na OpenBSD maszyny Wirtualnej. Doas jest domyślnie włączona. Aby uzyskać więcej informacji, zobacz [doas.conf](http://man.openbsd.org/doas.conf.5). 
+4. Domyślnie program hello `root` użytkownik jest wyłączony na maszynach wirtualnych platformy Azure. Użytkownicy mogą uruchamiać polecenia z podwyższonym poziomem uprawnień przy użyciu hello `doas` na OpenBSD maszyny Wirtualnej. Doas jest domyślnie włączona. Aby uzyskać więcej informacji, zobacz [doas.conf](http://man.openbsd.org/doas.conf.5). 
 
-5. Zainstaluj i skonfiguruj wymagania wstępne dotyczące agenta platformy Azure w następujący sposób:
+5. Zainstaluj i skonfiguruj wymagania wstępne dotyczące hello Azure agenta w następujący sposób:
 
     ```sh
     pkg_add py-setuptools openssl git
@@ -67,7 +67,7 @@ Na maszynie Wirtualnej, w którym zainstalowano system operacyjny OpenBSD 6.1, d
     ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
-6. Najnowszą wersję agenta programu Azure zawsze można znaleźć w [Github](https://github.com/Azure/WALinuxAgent/releases). Zainstaluj agenta w następujący sposób:
+6. najnowszą wersję Hello hello Azure agenta zawsze można znaleźć w [Github](https://github.com/Azure/WALinuxAgent/releases). Zainstaluj agenta hello w następujący sposób:
 
     ```sh
     git clone https://github.com/Azure/WALinuxAgent 
@@ -77,7 +77,7 @@ Na maszynie Wirtualnej, w którym zainstalowano system operacyjny OpenBSD 6.1, d
     ```
 
     > [!IMPORTANT]
-    > Po zainstalowaniu agenta platformy Azure jest dobrym pomysłem jest sprawdzenie, czy działa w następujący sposób:
+    > Po zainstalowaniu agenta platformy Azure jest tooverify dobrym rozwiązaniem, która działa w następujący sposób:
     >
     > ```bash
     > ps auxw | grep waagent
@@ -85,7 +85,7 @@ Na maszynie Wirtualnej, w którym zainstalowano system operacyjny OpenBSD 6.1, d
     > cat /var/log/waagent.log
     > ```
 
-7. Anulowanie zastrzeżenia systemu do czyszczenia go i była odpowiednia dla reprovisioning. Następujące polecenie spowoduje również usunięcie ostatnie konto użytkownika elastycznie i skojarzone dane:
+7. Deprovision hello tooclean systemu go i udostępnić go odpowiednie dla reprovisioning. Witaj następujące polecenie spowoduje również usunięcie hello ostatnie konto użytkownika elastycznie i hello skojarzone dane:
 
     ```sh
     waagent -deprovision+user -force
@@ -94,21 +94,21 @@ Na maszynie Wirtualnej, w którym zainstalowano system operacyjny OpenBSD 6.1, d
 Teraz można zamknąć maszyny Wirtualnej.
 
 
-## <a name="prepare-the-vhd"></a>Przygotowywanie wirtualnego dysku twardego
-VHDX format jest nieobsługiwane w systemie Azure, tylko **stały VHD**. Można konwertować na dysk stały format wirtualnego dysku twardego za pomocą Menedżera funkcji Hyper-V lub programu Powershell [convert-vhd](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) polecenia cmdlet. Przykładem jest następujące.
+## <a name="prepare-hello-vhd"></a>Przygotowanie hello wirtualnego dysku twardego
+Witaj VHDX format nie jest obsługiwany na platformie Azure, tylko **stały VHD**. Możesz przekonwertować hello dysku toofixed formatu wirtualnego dysku twardego za pomocą Menedżera funkcji Hyper-V lub hello Powershell [convert-vhd](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) polecenia cmdlet. Przykładem jest następujące.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Utwórz zasoby magazynu i przekaż
-Najpierw utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *eastus* lokalizacji:
+Najpierw utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Witaj poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w hello *eastus* lokalizacji:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Aby przekazać dysk VHD, Utwórz konto magazynu z [Tworzenie konta magazynu az](/cli/azure/storage/account#create). Nazwy konta magazynu musi być unikatowa, więc podać własną nazwę. Poniższy przykład tworzy konto magazynu o nazwie *mojekontomagazynu*:
+tooupload dysk VHD, Utwórz konto magazynu z [Tworzenie konta magazynu az](/cli/azure/storage/account#create). Nazwy konta magazynu musi być unikatowa, więc podać własną nazwę. Witaj poniższy przykład tworzy konto magazynu o nazwie *mojekontomagazynu*:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -117,7 +117,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-Aby kontrolować dostęp do konta magazynu, należy uzyskać klucza magazynu z [listy kluczy konta magazynu az](/cli/azure/storage/account/keys#list) w następujący sposób:
+toocontrol uzyskać dostęp do konta magazynu toohello, uzyskać klucza magazynu hello z [listy kluczy konta magazynu az](/cli/azure/storage/account/keys#list) w następujący sposób:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -126,7 +126,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-Aby rozdzielić logicznie możesz przekazać pliki VHD, należy utworzyć kontener w ramach konta magazynu z [utworzyć kontenera magazynu az](/cli/azure/storage/container#create):
+oddzielne hello toologically wirtualne dyski twarde można przekazać utworzyć kontener w ramach konta magazynu hello z [utworzyć kontenera magazynu az](/cli/azure/storage/container#create):
 
 ```azurecli
 az storage container create \
@@ -148,7 +148,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Tworzenie maszyny Wirtualnej z dysk VHD
-Można utworzyć maszyny Wirtualnej z [przykładowy skrypt](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) lub bezpośrednio z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create). Aby określić OpenBSD wirtualnego dysku twardego, należy przekazać, użyj `--image` parametru w następujący sposób:
+Można utworzyć maszyny Wirtualnej z [przykładowy skrypt](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) lub bezpośrednio z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create). toospecify hello OpenBSD wirtualnego dysku twardego został przekazany, użyj hello `--image` parametru w następujący sposób:
 
 ```azurecli
 az vm create \
@@ -160,13 +160,13 @@ az vm create \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-Uzyskaj adres IP dla maszyny Wirtualnej z OpenBSD [az vm--adresy ip](/cli/azure/vm#list-ip-addresses) w następujący sposób:
+Uzyskaj adres IP powitania dla maszyny Wirtualnej z OpenBSD [az vm--adresy ip](/cli/azure/vm#list-ip-addresses) w następujący sposób:
 
 ```azurecli
 az vm list-ip-addresses --resource-group myResourceGroup --name myOpenBSD61
 ```
 
-Teraz możesz SSH do maszyny Wirtualnej OpenBSD normal:
+Teraz można tooyour SSH maszyny Wirtualnej OpenBSD normal:
         
 ```bash
 ssh azureuser@<ip address>
@@ -174,6 +174,6 @@ ssh azureuser@<ip address>
 
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli chcesz dowiedzieć się więcej na temat obsługi funkcji Hyper-V na OpenBSD6.1 odczytu [OpenBSD 6.1](https://www.openbsd.org/61.html) i [hyperv.4](http://man.openbsd.org/hyperv.4).
+Więcej informacji na temat funkcji Hyper-V obsługuje na OpenBSD6.1 tooknow należy odczytać [OpenBSD 6.1](https://www.openbsd.org/61.html) i [hyperv.4](http://man.openbsd.org/hyperv.4).
 
-Jeśli chcesz utworzyć Maszynę wirtualną od dysków zarządzanych w odczytu [dysku az](/cli/azure/disk). 
+Chcąc toocreate Maszynę wirtualną od dysków zarządzanych, przeczytaj [dysku az](/cli/azure/disk). 

@@ -1,6 +1,6 @@
 ---
 title: "Usługa Azure Active Directory B2C: Zmodyfikować logowania się w zasadach niestandardowych i skonfigurować własny potwierdzone dostawcy"
-description: "Wskazówki dotyczące dodawania oświadczeń utworzyć konto i skonfigurować dane wejściowe użytkownika"
+description: "Wskazówki dotyczące dodawania oświadczeń toosign się i skonfigurować hello dane wejściowe użytkownika"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,30 +14,30 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
-ms.openlocfilehash: 64b9d904d7d070052e125b479f4719d208c9ff85
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: c31d737263fef3e771bdf451b809b0ca522c8fe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Usługa Azure Active Directory B2C: Zmodyfikuj logowania się do dodawania nowych oświadczeń i skonfigurować dane wejściowe użytkownika.
+# <a name="azure-active-directory-b2c-modify-sign-up-tooadd-new-claims-and-configure-user-input"></a>Usługa Azure Active Directory B2C: Zmodyfikuj rejestracji tooadd nowych oświadczeń i skonfigurować dane wejściowe użytkownika.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W tym artykule nowy wpis podane przez użytkownika (oświadczenie) doda do zapisywania podróży użytkownika.  Skonfigurujesz wpis jako listy rozwijanej i umożliwia określenie, czy jest to wymagane.
+W tym artykule spowoduje dodanie nowego podane przez użytkownika wpis (oświadczenie) tooyour rejestracja użytkownika podróży.  Skonfigurujesz hello wpis jako listy rozwijanej i umożliwia określenie, czy jest to wymagane.
 
-Edytowany przez Sipi do wyzwolenia przekazaniem testu.
+Edytowany przez Sipi tootrigger testu przekazaniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Wykonaj kroki w artykule [wprowadzenie zasady niestandardowe](active-directory-b2c-get-started-custom.md).  Przetestuj podróży signup/logowanie użytkownika do zapisywania nowego konta lokalnego, przed kontynuowaniem.
+* Hello pełną kroki opisane w artykule hello [wprowadzenie zasady niestandardowe](active-directory-b2c-get-started-custom.md).  Przetestuj hello signup/logowanie użytkownika podróży toosignup nowego konta lokalnego, przed kontynuowaniem.
 
 
-Gromadzenia danych początkowych z użytkowników odbywa się za pośrednictwem signup/signin.  Dodatkowe oświadczenia można zbierać później za pomocą podróże użytkownika edycji profilu. Zastosowano w ramach obsługi tożsamości w dowolnym momencie usługi Azure AD B2C interaktywnie zbiera informacje bezpośrednio od użytkownika, jego `selfasserted provider`. Poniższe kroki mają zastosowanie w dowolnym momencie ten dostawca jest używany.
+Gromadzenia danych początkowych z użytkowników odbywa się za pośrednictwem signup/signin.  Dodatkowe oświadczenia można zbierać później za pomocą podróże użytkownika edycji profilu. W dowolnym momencie usługi Azure AD B2C interaktywnie zbiera informacje bezpośrednio z hello użytkownika, hello Framework obsługi tożsamości używa jej `selfasserted provider`. Poniższe kroki Hello mają zastosowanie w dowolnym momencie ten dostawca jest używany.
 
 
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Zdefiniuj oświadczenia, jego nazwa wyświetlana i typ danych wejściowych użytkownika
-Umożliwia poprosić użytkownika o ich miasta.  Dodaj następujący element do `<ClaimsSchema>` elementu w pliku zasad TrustFrameWorkExtensions:
+## <a name="define-hello-claim-its-display-name-and-hello-user-input-type"></a>Zdefiniuj hello oświadczenia, jego nazwa wyświetlana i hello typu danych wprowadzonych przez użytkownika
+Umożliwia poprosić użytkownika hello ich miastu.  Dodaj hello następującego elementu toohello `<ClaimsSchema>` elementu w pliku zasad TrustFrameWorkExtensions hello:
 
 ```xml
 <ClaimType Id="city">
@@ -47,13 +47,13 @@ Umożliwia poprosić użytkownika o ich miasta.  Dodaj następujący element do 
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-Dostępne są dodatkowe opcje, które można wprowadzać w tym miejscu dostosować oświadczenia.  Pełny schemat, można znaleźć w temacie **tożsamości środowiska Framework techniczne podręcznik**.  W tym przewodniku wkrótce zostaną opublikowane zamieszczone w tej sekcji.
+Dostępne są dodatkowe opcje, które możesz wprowadzić tutaj hello toocustomize oświadczeń.  Pełny schemat, można znaleźć w temacie toohello **tożsamości środowiska Framework techniczne podręcznik**.  W tym przewodniku wkrótce zostaną opublikowane w sekcji odwołania hello.
 
-* `<DisplayName>`ciąg, który definiuje dla użytkownika jest *etykiety*
+* `<DisplayName>`ciąg, który definiuje uwzględniającym działania użytkownika hello jest *etykiety*
 
-* `<UserHelpText>`ułatwia użytkownikom zrozumienie, co jest wymagane
+* `<UserHelpText>`pomaga użytkownika hello Poznaj, co jest wymagane
 
-* `<UserInputType>`czy ukończona ma następujących opcji:
+* `<UserInputType>`Witaj następujących opcji ujawniło poniżej:
     * `TextBox`
 ```xml
 <ClaimType Id="city">
@@ -78,7 +78,7 @@ Dostępne są dodatkowe opcje, które można wprowadzać w tym miejscu dostosowa
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect`— Umożliwia zaznaczenie tylko prawidłowe wartości.
+    * `DropdownSingleSelect`— Umożliwia wybór hello tylko prawidłowe wartości.
 
 ![Zrzut ekranu opcji listy rozwijanej](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
@@ -97,7 +97,7 @@ Dostępne są dodatkowe opcje, które można wprowadzać w tym miejscu dostosowa
 ```
 
 
-* `CheckboxMultiSelect`Umożliwia wybór co najmniej jedną wartość.
+* `CheckboxMultiSelect`Umożliwia wybór hello co najmniej jedną wartość.
 
 ![Zrzut ekranu opcji wyboru wielokrotnego](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
@@ -115,9 +115,9 @@ Dostępne są dodatkowe opcje, które można wprowadzać w tym miejscu dostosowa
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Dodawanie oświadczenia do logowania w górę/logowania użytkownika podróży
+## <a name="add-hello-claim-toohello-sign-upsign-in-user-journey"></a>Dodaj znak toohello oświadczeń hello w górę/znak w podróży użytkownika
 
-1. Dodaj oświadczenie jako `<OutputClaim ClaimTypeReferenceId="city"/>` do TechnicalProfile `LocalAccountSignUpWithLogonEmail` (które można znaleźć w pliku zasad TrustFrameworkBase).  Należy zauważyć, że ta TechnicalProfile używa SelfAssertedAttributeProvider.
+1. Dodaj oświadczenie hello jako `<OutputClaim ClaimTypeReferenceId="city"/>` toohello TechnicalProfile `LocalAccountSignUpWithLogonEmail` (które można znaleźć w pliku zasad TrustFrameworkBase hello).  Należy zauważyć, że ta TechnicalProfile używa hello SelfAssertedAttributeProvider.
 
   ```xml
   <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -142,7 +142,7 @@ Dostępne są dodatkowe opcje, które można wprowadzać w tym miejscu dostosowa
       <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
       <OutputClaim ClaimTypeReferenceId="authenticationSource" />
       <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
+      <!-- Optional claims, toobe collected from hello user -->
       <OutputClaim ClaimTypeReferenceId="givenName" />
       <OutputClaim ClaimTypeReferenceId="surName" />
       <OutputClaim ClaimTypeReferenceId="city"/>
@@ -154,7 +154,7 @@ Dostępne są dodatkowe opcje, które można wprowadzać w tym miejscu dostosowa
   </TechnicalProfile>
   ```
 
-2. Dodawanie oświadczenia do usługi AAD-UserWriteUsingLogonEmail jako `<PersistedClaim ClaimTypeReferenceId="city" />` zapisu oświadczenia do katalogu usługi AAD po zebraniu go przez użytkownika. Może pominąć ten krok, jeśli nie chcesz zachować oświadczeń w katalogu do użytku w przyszłości.
+2. Dodaj hello oświadczeń toohello AAD UserWriteUsingLogonEmail jako `<PersistedClaim ClaimTypeReferenceId="city" />` toowrite hello oświadczeń toohello AAD katalogu po zebraniu go z hello użytkownika. Jeśli wolisz nie toopersist hello oświadczeń w katalogu hello do użytku w przyszłości może pominąć ten krok.
 
   ```xml
   <!-- Technical profiles for local accounts -->
@@ -190,14 +190,14 @@ Dostępne są dodatkowe opcje, które można wprowadzać w tym miejscu dostosowa
   </TechnicalProfile>
   ```
 
-3. Dodawanie oświadczenia do TechnicalProfile, która odczytuje z katalogu, gdy użytkownik zaloguje się jako`<OutputClaim ClaimTypeReferenceId="city" />`
+3. Dodaj hello oświadczeń toohello TechnicalProfile odczytująca hello katalogu, gdy użytkownik zaloguje się jako`<OutputClaim ClaimTypeReferenceId="city" />`
 
   ```xml
   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
     <Metadata>
       <Item Key="Operation">Read</Item>
       <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for hello provided user ID.</Item>
     </Metadata>
     <IncludeInSso>false</IncludeInSso>
     <InputClaims>
@@ -218,7 +218,7 @@ Dostępne są dodatkowe opcje, które można wprowadzać w tym miejscu dostosowa
   </TechnicalProfile>
   ```
 
-4. Dodaj `<OutputClaim ClaimTypeReferenceId="city" />` zasad RP pliku SignUporSignIn.xml, więc tego oświadczenia są wysyłane do aplikacji w tokenie po przebieg pomyślne użytkownika.
+4. Dodaj hello `<OutputClaim ClaimTypeReferenceId="city" />` pliku zasad RP toohello SignUporSignIn.xml tak tego oświadczenia wysyłane toohello aplikacji hello token po przebieg użytkownika powiodło się.
 
   ```xml
   <RelyingParty>
@@ -240,17 +240,17 @@ Dostępne są dodatkowe opcje, które można wprowadzać w tym miejscu dostosowa
   </RelyingParty>
   ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>Testowanie zasad niestandardowych za pomocą "Uruchom teraz"
+## <a name="test-hello-custom-policy-using-run-now"></a>Zasady niestandardowe hello testu przy użyciu "opcji Uruchom teraz"
 
-1. Otwórz **bloku usługi Azure AD B2C** i przejdź do **tożsamości środowiska Framework > zasady niestandardowe**.
-2. Wybierz zasady niestandardowe przekazywane i kliknij przycisk **Uruchom teraz** przycisku.
-3. Należy zalogowanie przy użyciu adresu e-mail.
+1. Otwórz hello **bloku usługi Azure AD B2C** i przejdź zbyt**tożsamości środowiska Framework > zasady niestandardowe**.
+2. Wybierz zasady niestandardowe hello, który został przekazany, a następnie kliknij przycisk hello **Uruchom teraz** przycisku.
+3. Powinno być możliwe toosign przy użyciu adresu e-mail.
 
-Ekran rejestracji w trybie testowym powinny wyglądać podobnie do poniższego:
+ekran rejestracji Hello w trybie testowym powinien wyglądać podobnie toothis:
 
 ![Zrzut ekranu przedstawiający zmodyfikowane opcją](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  Token do aplikacji będzie zawierają teraz `city` oświadczenia, jak pokazano poniżej
+  Witaj tooyour tyłu tokenu aplikacji będzie zawierają teraz hello `city` oświadczenia, jak pokazano poniżej
 ```json
 {
   "exp": 1493596822,
@@ -273,16 +273,16 @@ Ekran rejestracji w trybie testowym powinny wyglądać podobnie do poniższego:
 
 ## <a name="optional-remove-email-verification-from-signup-journey"></a>Opcjonalnie: Usuń e-mail weryfikacji w podróży rejestracji
 
-Aby pominąć Weryfikacja adresu e-mail, tworzenie zasad może być usunięty `PartnerClaimType="Verified.Email"`. Adres e-mail zostanie wymagane, ale nie zweryfikowane, chyba że "Wymagane" = true zostanie usunięta.  Należy rozważyć, jeśli ta opcja jest odpowiednia dla Twojej przypadki użycia!
+Weryfikacja adresu e-mail tooskip, hello autor zasad można wybrać tooremove `PartnerClaimType="Verified.Email"`. Witaj adres e-mail zostanie wymagane, ale nie zweryfikowane, chyba że "Wymagane" = true zostanie usunięta.  Należy rozważyć, jeśli ta opcja jest odpowiednia dla Twojej przypadki użycia!
 
-Zweryfikować adres e-mail jest domyślnie włączone w `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` w pliku zasad TrustFrameworkBase w pakiecie starter:
+Zweryfikować adres e-mail jest domyślnie włączone w hello `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` w pliku zasad TrustFrameworkBase hello w pakiecie starter hello:
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dodaj nowe oświadczenie do przepływów dla logowania do kont społecznościowych, zmieniając TechnicalProfiles wymienionych poniżej. Są one używane przez federacyjne/społecznego konto logowania do zapisu i odczytu danych użytkownika za pomocą alternativeSecurityId jako Lokalizator.
+Dodaj hello nowe oświadczenie toohello przepływów społecznościowych konta logowania, zmieniając powitalne TechnicalProfiles wymienionych poniżej. Są używane przez toowrite logowania do konta społecznego/federacyjnych i odczytywania danych użytkowników hello przy użyciu hello alternativeSecurityId hello lokalizatora.
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

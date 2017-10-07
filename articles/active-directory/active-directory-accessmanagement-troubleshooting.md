@@ -1,5 +1,5 @@
 ---
-title: "Rozwiązywanie problemów z członkostwo dynamiczne w grupach | Dokumentacja firmy Microsoft"
+title: "aaaTroubleshooting członkostwo dynamiczne w grupach | Dokumentacja firmy Microsoft"
 description: "Porady dotyczące rozwiązywania problemów dynamicznego zarządzania członkostwem w grupach w usłudze Azure AD."
 services: active-directory
 documentationcenter: 
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
-ms.openlocfilehash: 32947e8cc69c9a48d9a285bf0a37ab3398571f86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d792fc406288844e2c5dbe3702c2c9870d09473e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Rozwiązywanie problemów z członkostwem dynamicznym w grupach
-**Po skonfigurowaniu reguły w grupie, ale aktualizowany nie członkostwa w grupie**<br/>Sprawdź, czy **Włącz delegowane Zarządzanie grupami** mają ustawioną wartość **tak** w **Konfiguruj** kartę. To ustawienie zostanie wyświetlony tylko wtedy, gdy użytkownik jest zalogowany jako użytkownik, któremu przypisano licencji usługi Azure Active Directory Premium. Sprawdź wartości atrybutów użytkownika dla reguły: istnieją użytkownicy, którzy spełniają zasady?
+**Po skonfigurowaniu reguły w grupie, ale aktualizowany nie członkostwa w grupie hello**<br/>Sprawdź, że hello **Włącz delegowane Zarządzanie grupami** ustawioną zbyt**tak** w hello **Konfiguruj** kartę. To ustawienie zostanie wyświetlony tylko wtedy, gdy użytkownik jest zalogowany jako użytkownik toowhom licencji usługi Azure Active Directory Premium jest przypisana. Sprawdź wartości atrybutów użytkownika w regule hello hello: istnieją użytkownicy, którzy spełniają zasady hello?
 
-**Po skonfigurowaniu reguły, ale teraz istniejących członków reguły zostaną usunięte**<br/>Jest to oczekiwane zachowanie. Istniejących członków grupy są usuwane, gdy reguła jest włączona lub zmienione. Użytkownicy zwrócił ewaluacyjną reguła są dodawane jako członków do grupy.     
+**Po skonfigurowaniu reguły, ale teraz hello istniejących członków hello reguły zostaną usunięte**<br/>Jest to oczekiwane zachowanie. Istniejących członków grupy hello są usuwane, gdy reguła jest włączona lub zmienione. Użytkownicy Hello zwrócił ewaluacyjną reguła hello są dodawane jako elementy członkowskie grupy toohello.     
 
-**Nie widzę członkostwa zmian natychmiast po Dodawanie lub zmienianie reguły, dlaczego nie?**<br/>Ocenę członkostwa dedykowanych okresowo odbywa się w tle asynchronicznego. Jak długo trwa proces jest określana przez liczbę użytkowników w katalogu i rozmiar grupy utworzone w wyniku reguły. Zazwyczaj katalogi z małej liczby użytkowników zobaczą zmiany członkostwa w grupie w mniej niż kilka minut. Katalogi z dużą liczbą użytkowników może potrwać 30 minut lub dłużej, aby wypełnić.
+**Nie widzę członkostwa zmian natychmiast po Dodawanie lub zmienianie reguły, dlaczego nie?**<br/>Ocenę członkostwa dedykowanych okresowo odbywa się w tle asynchronicznego. Jak długo trwa proces hello jest określana przez hello liczbę użytkowników w rozmiar katalogu i hello hello grupy utworzone w wyniku hello reguły. Zazwyczaj katalogi z małej liczby użytkowników zobaczą zmiany członkostwa w grupie hello mniej niż za kilka minut. Katalogi z dużą liczbą użytkowników może potrwać 30 minut lub dłużej toopopulate.
 
 ### <a name="next-steps"></a>Następne kroki
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
-* [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
+* [Zarządzanie tooresources dostępu za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 * [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)

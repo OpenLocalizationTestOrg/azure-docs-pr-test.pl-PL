@@ -1,6 +1,6 @@
 ---
-title: Funkcje szablonu Azure Resource Manager - string | Dokumentacja firmy Microsoft
-description: "Opisuje funkcje do użycia w szablonie usługi Azure Resource Manager do pracy z ciągami."
+title: "funkcje szablonu usługi Resource Manager aaaAzure - string | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano toouse funkcje hello w toowork szablonu usługi Azure Resource Manager z ciągami."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3e5c9ca546629f782a3d722b49f5fbaf5147e823
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 27f7f6a52cbe4e9915718184433e92ca92999346
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funkcje ciągów dla szablonów usługi Azure Resource Manager
 
-Usługa Resource Manager zapewnia następujące funkcje do pracy z ciągami:
+Usługa Resource Manager zapewnia następujące funkcje do pracy z ciągami hello:
 
 * [Base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -59,21 +59,21 @@ Usługa Resource Manager zapewnia następujące funkcje do pracy z ciągami:
 ## <a name="base64"></a>Base64
 `base64(inputString)`
 
-Zwraca reprezentację ciągu wejściowego base64.
+Zwraca hello base64 reprezentację ciągu wejściowego hello.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| inputString |Tak |Ciąg |Wartość zwracana jako reprezentacji base64. |
+| inputString |Tak |Ciąg |Witaj tooreturn wartość jako reprezentacji base64. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg zawierający reprezentację base64.
+Ciąg zawierający hello reprezentacja base64.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób użycia funkcji base64.
+Witaj poniższy przykład pokazuje, jak toouse hello funkcja base64.
 
 ```json
 {
@@ -112,7 +112,7 @@ Poniższy przykład przedstawia sposób użycia funkcji base64.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -125,13 +125,13 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="base64tojson"></a>base64ToJson
 `base64tojson`
 
-Konwertuje obiekt JSON reprezentację base64.
+Konwertuje obiekt JSON tooa reprezentacja base64.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| base64Value |Tak |Ciąg |Reprezentacja base64, który można przekonwertować na obiekt JSON. |
+| base64Value |Tak |Ciąg |Witaj base64 reprezentacja tooconvert tooa obiekt JSON. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -139,7 +139,7 @@ Obiekt JSON.
 
 ### <a name="examples"></a>Przykłady
 
-W poniższym przykładzie użyto funkcji base64ToJson można przekonwertować wartości base64:
+Witaj poniższym przykładzie użyto hello base64ToJson funkcja tooconvert wartość base64:
 
 ```json
 {
@@ -178,7 +178,7 @@ W poniższym przykładzie użyto funkcji base64ToJson można przekonwertować wa
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -191,21 +191,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="base64tostring"></a>base64ToString
 `base64ToString(base64Value)`
 
-Konwertuje ciąg reprezentację base64.
+Konwertuje ciąg base64 reprezentacja tooa.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| base64Value |Tak |Ciąg |Reprezentacja base64, który można przekonwertować na ciąg. |
+| base64Value |Tak |Ciąg |Witaj base64 reprezentacja tooconvert tooa ciąg. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg wartość przekonwertowanego base64.
+Ciąg hello przekonwertować wartość base64.
 
 ### <a name="examples"></a>Przykłady
 
-W poniższym przykładzie użyto funkcji base64ToString można przekonwertować wartości base64:
+Witaj poniższym przykładzie użyto hello base64ToString funkcja tooconvert wartość base64:
 
 ```json
 {
@@ -244,7 +244,7 @@ W poniższym przykładzie użyto funkcji base64ToString można przekonwertować 
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -259,13 +259,13 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="concat"></a>concat
 `concat (arg1, arg2, arg3, ...)`
 
-Łączy wielu wartości ciągów i zwraca połączony ciąg lub łączy wiele tablic i zwraca tablicę połączonych.
+Łączy wielu wartości ciągów i zwraca ciąg hello połączonych lub łączy wiele tablic i zwraca tablicę hello połączonych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |ciąg lub tablica |Wartość pierwszego łączenia. |
+| arg1 |Tak |ciąg lub tablica |Witaj pierwsza wartość dla łączenia. |
 | dodatkowe argumenty |Nie |Ciąg |Dodatkowe wartości w kolejności sekwencyjnej dla łączenia. |
 
 ### <a name="return-value"></a>Wartość zwracana
@@ -273,7 +273,7 @@ Ciąg lub tablica wartości połączonych.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład pokazuje, jak połączyć dwóch wartości ciągu i zwraca połączony ciąg.
+Witaj poniższy przykład przedstawia sposób toocombine dwóch wartości ciągu i zwraca połączony ciąg.
 
 ```json
 {
@@ -295,13 +295,13 @@ Poniższy przykład pokazuje, jak połączyć dwóch wartości ciągu i zwraca p
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | concatOutput | Ciąg | Prefiks 5yj4yjf5mbg72 |
 
-Poniższy przykład pokazuje, jak połączyć dwóch tablic.
+Witaj poniższy przykład pokazuje, jak toocombine dwóch stałych.
 
 ```json
 {
@@ -336,7 +336,7 @@ Poniższy przykład pokazuje, jak połączyć dwóch tablic.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -353,16 +353,16 @@ Sprawdza, czy tablica zawiera wartość, obiekt zawiera klucz lub ciąg zawieraj
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| Kontener |Tak |Tablica, obiektów lub ciąg |Wartość, która zawiera wartość, aby znaleźć. |
-| itemToFind |Tak |ciąg lub int |Wartość, aby znaleźć. |
+| Kontener |Tak |Tablica, obiektów lub ciąg |wartość Hello zawierający hello toofind wartość. |
+| itemToFind |Tak |ciąg lub int |Witaj toofind wartość. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-**Wartość true,** Jeśli element zostanie znaleziony, a w przeciwnym razie **False**.
+**Wartość true,** Jeśli hello element zostanie znaleziony, a w przeciwnym razie wartość **False**.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia użycie zawiera z różnych typów:
+Witaj poniższy przykład przedstawia sposób toouse zawiera z różnych typów:
 
 ```json
 {
@@ -413,7 +413,7 @@ Poniższy przykład przedstawia użycie zawiera z różnych typów:
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -429,13 +429,13 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="datauri"></a>dataUri
 `dataUri(stringToConvert)`
 
-Konwertuje wartość na identyfikator URI danych.
+Konwertuje dane tooa wartości identyfikatora URI.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Tak |Ciąg |Wartość można przekonwertować na identyfikator URI danych. |
+| stringToConvert |Tak |Ciąg |Witaj tooconvert tooa dane wartości identyfikatora URI. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -443,7 +443,7 @@ Ciąg w formacie identyfikatora URI danych.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład konwertuje wartość na identyfikator URI danych i konwertuje identyfikator URI danych na ciąg:
+Poniższy przykład Hello konwertuje dane tooa wartości identyfikatora URI i konwertuje dane ciągu tooa identyfikatora URI:
 
 ```json
 {
@@ -473,7 +473,7 @@ Poniższy przykład konwertuje wartość na identyfikator URI danych i konwertuj
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -485,21 +485,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="datauritostring"></a>dataUriToString
 `dataUriToString(dataUriToConvert)`
 
-Wartość na ciąg w formacie konwertowania przez identyfikator URI danych.
+Wartość tooa ciąg w formacie konwertowania przez identyfikator URI danych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Tak |Ciąg |Dane wartości identyfikatora URI do konwersji. |
+| dataUriToConvert |Tak |Ciąg |dane Hello tooconvert wartość identyfikatora URI. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg zawierający wartość przekonwertowana.
+Ciąg zawierający hello przekonwertować wartość.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład konwertuje wartość na identyfikator URI danych i konwertuje identyfikator URI danych na ciąg:
+Poniższy przykład Hello konwertuje dane tooa wartości identyfikatora URI i konwertuje dane ciągu tooa identyfikatora URI:
 
 ```json
 {
@@ -529,7 +529,7 @@ Poniższy przykład konwertuje wartość na identyfikator URI danych i konwertuj
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -547,15 +547,15 @@ Określa, czy tablicy, obiektu lub ciąg pusty.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Tak |Tablica, obiektów lub ciąg |Wartość do sprawdzenia, czy jest pusta. |
+| itemToTest |Tak |Tablica, obiektów lub ciąg |Witaj toocheck wartość, jeśli jest pusty. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Zwraca **True** , jeśli wartość jest pusta, a w przeciwnym razie **False**.
+Zwraca **True** Jeśli wartość hello jest pusty; w przeciwnym razie **False**.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład sprawdza, czy tablica, obiekt i ciąg są puste.
+Poniższy przykład Hello sprawdza, czy tablicy, obiekt i ciąg są puste.
 
 ```json
 {
@@ -594,7 +594,7 @@ Poniższy przykład sprawdza, czy tablica, obiekt i ciąg są puste.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -607,22 +607,22 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="endswith"></a>endsWith
 `endsWith(stringToSearch, stringToFind)`
 
-Określa, czy ciąg kończy się wartość. Wynik porównania ma bez uwzględniania wielkości liter.
+Określa, czy ciąg kończy się wartość. Porównanie Hello jest rozróżniana wielkość liter.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Tak |Ciąg |Wartość, która zawiera element, aby znaleźć. |
-| stringToFind |Tak |Ciąg |Wartość, aby znaleźć. |
+| stringToSearch |Tak |Ciąg |wartość Hello zawierający hello toofind elementu. |
+| stringToFind |Tak |Ciąg |Witaj toofind wartość. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-**Wartość true,** Jeśli ostatni znak lub znaków ciągu jest zgodna z wartością; w przeciwnym razie **False**.
+**Wartość true,** Jeśli hello ostatni znak lub znaki ciąg hello odpowiada wartości hello; w przeciwnym razie **False**.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób korzystania z funkcji startsWith i endsWith:
+Witaj poniższy przykład przedstawia, jak toouse hello funkcji startsWith i endsWith:
 
 ```json
 {
@@ -658,7 +658,7 @@ Poniższy przykład przedstawia sposób korzystania z funkcji startsWith i endsW
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -674,21 +674,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="first"></a>pierwszy
 `first(arg1)`
 
-Zwraca pierwszy znak w ciągu lub pierwszym elementem tablicy.
+Zwraca hello pierwszego znaku ciągu hello lub pierwszy element macierzy hello.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica lub ciąg |Wartości do pobrania pierwszy element lub znak. |
+| arg1 |Tak |tablica lub ciąg |Witaj wartość tooretrieve hello pierwszym elementem lub znak. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg pierwszego znaku lub typu (string, int, tablicy lub obiektu) pierwszego elementu w tablicy.
+Ciąg hello pierwszego znaku lub typu hello (ciąg, int, tablicy lub obiekt) hello pierwszego elementu w tablicy.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład pokazuje, jak używać funkcji pierwszy z tablicy i ciąg.
+Witaj poniższy przykład przedstawia sposób toouse hello pierwszej funkcji z tablicy i ciąg.
 
 ```json
 {
@@ -715,7 +715,7 @@ Poniższy przykład pokazuje, jak używać funkcji pierwszy z tablicy i ciąg.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -727,22 +727,22 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="indexof"></a>indexOf
 `indexOf(stringToSearch, stringToFind)`
 
-Zwraca pierwszą pozycję wartości ciągu. Wynik porównania ma bez uwzględniania wielkości liter.
+Zwraca hello pierwszą pozycję wartości ciągu. Porównanie Hello jest rozróżniana wielkość liter.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Tak |Ciąg |Wartość, która zawiera element, aby znaleźć. |
-| stringToFind |Tak |Ciąg |Wartość, aby znaleźć. |
+| stringToSearch |Tak |Ciąg |wartość Hello zawierający hello toofind elementu. |
+| stringToFind |Tak |Ciąg |Witaj toofind wartość. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Liczba całkowita, która reprezentuje pozycję element, aby znaleźć. Wartość jest liczony od zera. Jeśli element nie zostanie znaleziony, zwracana jest wartość -1.
+Liczba całkowita, która reprezentuje pozycję hello toofind elementu hello. wartość Hello jest liczony od zera. Jeśli element hello nie zostanie znaleziony, zwracana jest wartość -1.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób korzystania z funkcji indexOf i lastIndexOf:
+Witaj poniższy przykład przedstawia, jak toouse hello funkcji indexOf i lastIndexOf:
 
 ```json
 {
@@ -774,7 +774,7 @@ Poniższy przykład przedstawia sposób korzystania z funkcji indexOf i lastInde
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -789,21 +789,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="last"></a>ostatni
 `last (arg1)`
 
-Zwraca ostatni znak w ciągu lub ostatnim elemencie tablicy.
+Zwraca ostatni znak w ciągu hello lub hello ostatnim elemencie tablicy hello.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica lub ciąg |Wartość można pobrać ostatniego elementu lub znak. |
+| arg1 |Tak |tablica lub ciąg |Witaj wartość tooretrieve hello ostatni element lub znak. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg ostatni znak lub typ ostatniego elementu w tablicy (string, int, tablicy lub obiektu).
+Ciąg hello ostatni znak lub typu hello (ciąg, int, tablicy lub obiekt) hello ostatniego elementu w tablicy.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład pokazuje, jak używać funkcji ostatniego z tablicy i ciąg.
+Witaj poniższy przykład przedstawia sposób toouse hello ostatniej funkcji i tablicy ciągów.
 
 ```json
 {
@@ -830,7 +830,7 @@ Poniższy przykład pokazuje, jak używać funkcji ostatniego z tablicy i ciąg.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -842,22 +842,22 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="lastindexof"></a>lastIndexOf
 `lastIndexOf(stringToSearch, stringToFind)`
 
-Zwraca pozycję ostatniego wartość ciągu. Wynik porównania ma bez uwzględniania wielkości liter.
+Zwraca hello ostatniej pozycji wartość ciągu. Porównanie Hello jest rozróżniana wielkość liter.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Tak |Ciąg |Wartość, która zawiera element, aby znaleźć. |
-| stringToFind |Tak |Ciąg |Wartość, aby znaleźć. |
+| stringToSearch |Tak |Ciąg |wartość Hello zawierający hello toofind elementu. |
+| stringToFind |Tak |Ciąg |Witaj toofind wartość. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Liczba całkowita, która reprezentuje ostatniej pozycji elementu można znaleźć. Wartość jest liczony od zera. Jeśli element nie zostanie znaleziony, zwracana jest wartość -1.
+Liczba całkowita, która reprezentuje hello ostatniej pozycji hello toofind elementu. wartość Hello jest liczony od zera. Jeśli element hello nie zostanie znaleziony, zwracana jest wartość -1.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób korzystania z funkcji indexOf i lastIndexOf:
+Witaj poniższy przykład przedstawia, jak toouse hello funkcji indexOf i lastIndexOf:
 
 ```json
 {
@@ -889,7 +889,7 @@ Poniższy przykład przedstawia sposób korzystania z funkcji indexOf i lastInde
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -904,13 +904,13 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="length"></a>długość
 `length(string)`
 
-Zwraca liczbę znaków w ciągu lub elementów w tablicy.
+Zwraca hello liczbę znaków w ciągu lub elementów w tablicy.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica lub ciąg |Tablica służących do pobierania liczba elementów lub ciąg do użycia podczas pobierania liczby znaków. |
+| arg1 |Tak |tablica lub ciąg |Witaj toouse tablicy uzyskania hello liczba elementów lub hello toouse ciąg uzyskania hello liczbę znaków. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -918,7 +918,7 @@ Int.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia użycie długość tablicy oraz ciąg:
+powitania po przykładzie pokazano, jak toouse długość tablicy oraz ciąg:
 
 ```json
 {
@@ -952,7 +952,7 @@ Poniższy przykład przedstawia użycie długość tablicy oraz ciąg:
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -964,25 +964,25 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="padleft"></a>PadLeft
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
-Zwraca ciąg wyrównany do prawej, dodając znaki po lewej stronie do momentu osiągnięcia określonej całkowita długość.
+Zwraca ciąg wyrównany do prawej przez dodanie znaków toohello pozostałych aż do osiągnięcia hello całkowita określonej długości.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Tak |ciąg lub int |Wartość do wyrównanie do prawej. |
-| wartość właściwości totalLength |Tak |int |Całkowita liczba znaków w zwracany ciąg. |
-| paddingCharacter |Nie |pojedynczy znak |Znak służących do uzupełniania po lewej, aż do osiągnięcia całkowita długość. Wartość domyślna to miejsce. |
+| valueToPad |Tak |ciąg lub int |Witaj wartość tooright-align. |
+| wartość właściwości totalLength |Tak |int |Całkowita liczba znaków w hello Hello zwrócony ciąg. |
+| paddingCharacter |Nie |pojedynczy znak |Witaj toouse znak dopełnienia po lewej, aż do osiągnięcia hello całkowita długość. Wartość domyślna Hello jest spacja. |
 
-Jeśli oryginalny string jest dłuższy niż liczba znaków do konsoli, żadne znaki nie są dodawane.
+Jeśli oryginalny ciąg hello jest dłuższy niż hello liczbę znaków toopad, żadne znaki nie są dodawane.
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg znaków z co najmniej liczba określonych znaków.
+Ciąg zawierający co najmniej hello liczba określonych znaków.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład pokazuje, jak do konsoli wartość parametru dostarczane przez użytkownika przez dodawanie znak zero, dopóki nie osiągnie całkowita liczba znaków. 
+Witaj poniższy przykład pokazuje, jak toopad hello wartość parametru dostarczane przez użytkownika, dodając hello zero znak aż osiągnie hello całkowita liczba znaków. 
 
 ```json
 {
@@ -1004,7 +1004,7 @@ Poniższy przykład pokazuje, jak do konsoli wartość parametru dostarczane prz
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1021,17 +1021,17 @@ Zwraca nowy ciąg z wszystkie wystąpienia jednego ciągu zastępuje innego cią
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| originalString |Tak |Ciąg |Wartość, która zawiera wszystkie wystąpienia jednego ciągu zastępuje innego ciągu. |
-| oldString |Tak |Ciąg |Ciąg, który ma zostać usunięty z oryginalnego ciągu. |
-| newString |Tak |Ciąg |Ciąg do dodania zamiast ciągu usunięte. |
+| originalString |Tak |Ciąg |Witaj wartość, która zawiera wszystkie wystąpienia jednego ciągu zastępuje innego ciągu. |
+| oldString |Tak |Ciąg |usunięte z oryginalnej ciąg hello toobe ciąg Hello. |
+| newString |Tak |Ciąg |tooadd ciąg Hello zamiast hello usunięte ciągu. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg znaków zastąpionego.
+Ciąg hello zastąpione znaków.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia, jak usunąć wszystkie łączniki z ciągu dostarczane przez użytkownika oraz sposób wymiany części ciągu z innego ciągu.
+Hello poniższy przykład przedstawia sposób tooremove wszystkich łączników z ciągu hello dostarczane przez użytkownika, i jak tooreplace część hello ciągu z innego ciągu.
 
 ```json
 {
@@ -1057,7 +1057,7 @@ Poniższy przykład przedstawia, jak usunąć wszystkie łączniki z ciągu dost
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1069,14 +1069,14 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="skip"></a>Pomiń
 `skip(originalValue, numberToSkip)`
 
-Zwraca ciąg zawierający wszystkie znaki po określonej liczbie znaków lub tablica nie zawierająca wszystkie elementy po określonej liczbie elementów.
+Zwraca ciąg zawierający wszystkie znaki hello po hello określona liczba znaków lub tablicę ze wszystkimi elementami powitania po hello określona liczba elementów.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| originalValue |Tak |tablica lub ciąg |Tablica lub ciąg wykorzystywany do pominięcia. |
-| numberToSkip |Tak |int |Liczba elementów lub znaków, aby pominąć. Jeśli ta wartość jest mniejsze lub równe 0, zwracane są wszystkie elementy lub znaków w wartości. Jeśli jest większa niż długość tablicy lub ciągu, zwracana jest pusta tablica lub ciąg. |
+| originalValue |Tak |tablica lub ciąg |Witaj tablicy lub ciągu toouse pomijania. |
+| numberToSkip |Tak |int |Liczba Hello tooskip elementów ani znaków. Jeśli ta wartość jest mniejsze lub równe 0, hello wszystkie elementy lub znaków w wartości hello są zwracane. Jeśli jest większa niż długość hello hello tablicy lub ciągu, zwracana jest pusta tablica lub ciąg. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -1084,7 +1084,7 @@ Tablica lub ciąg.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład pomija określoną liczbę elementów w tablicy i określoną liczbę znaków w ciągu.
+powitania po przykład hello pomija określone liczba elementów w tablicy hello i hello określona liczba znaków w ciągu.
 
 ```json
 {
@@ -1126,7 +1126,7 @@ Poniższy przykład pomija określoną liczbę elementów w tablicy i określon�
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1138,14 +1138,14 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="split"></a>split
 `split(inputString, delimiter)`
 
-Zwraca tablicę ciągów zawierającą podciągów ciągu wejściowego, które są rozdzielane określonych ograniczników.
+Zwraca tablica ciągów hello podciągów hello zawiera ciąg wejściowy, które są rozdzielane hello określonych ograniczników.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| inputString |Tak |Ciąg |Ciąg do dzielenia. |
-| Ogranicznik |Tak |ciąg lub tablica ciągów |Ogranicznik do użycia na potrzeby podzielić ciąg. |
+| inputString |Tak |Ciąg |toosplit ciąg Hello. |
+| Ogranicznik |Tak |ciąg lub tablica ciągów |Witaj toouse ogranicznik do dzielenia ciąg hello. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -1153,7 +1153,7 @@ Tablica ciągów.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład dzieli ciąg wejściowy przecinkami i przecinkami lub średnikami.
+Witaj poniższy przykład dzieli ciąg wejściowy hello przecinkami i przecinkami lub średnikami.
 
 ```json
 {
@@ -1186,7 +1186,7 @@ Poniższy przykład dzieli ciąg wejściowy przecinkami i przecinkami lub średn
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1198,22 +1198,22 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="startswith"></a>startsWith
 `startsWith(stringToSearch, stringToFind)`
 
-Określa, czy ciąg rozpoczyna się od wartości. Wynik porównania ma bez uwzględniania wielkości liter.
+Określa, czy ciąg rozpoczyna się od wartości. Porównanie Hello jest rozróżniana wielkość liter.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Tak |Ciąg |Wartość, która zawiera element, aby znaleźć. |
-| stringToFind |Tak |Ciąg |Wartość, aby znaleźć. |
+| stringToSearch |Tak |Ciąg |wartość Hello zawierający hello toofind elementu. |
+| stringToFind |Tak |Ciąg |Witaj toofind wartość. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-**Wartość true,** Jeśli pierwszego znaku lub znaków ciągu jest zgodna z wartością; w przeciwnym razie **False**.
+**Wartość true,** jeśli pierwszym znakiem hello lub znaków ciągu hello odpowiada wartości hello; w przeciwnym razie **False**.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób korzystania z funkcji startsWith i endsWith:
+Witaj poniższy przykład przedstawia, jak toouse hello funkcji startsWith i endsWith:
 
 ```json
 {
@@ -1249,7 +1249,7 @@ Poniższy przykład przedstawia sposób korzystania z funkcji startsWith i endsW
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1265,21 +1265,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="string"></a>Ciąg
 `string(valueToConvert)`
 
-Konwertuje określoną wartość na ciąg.
+Witaj konwertuje określony ciąg tooa wartości.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Tak | Dowolne |Wartość do przekonwertowania na ciąg. Można przekonwertować dowolnego typu wartości, w tym obiekty i tablice. |
+| valueToConvert |Tak | Dowolne |Witaj toostring tooconvert wartość. Można przekonwertować dowolnego typu wartości, w tym obiekty i tablice. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg skonwertowana wartość.
+Ciąg hello przekonwertować wartość.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób konwertowania różnego rodzaju wartości do ciągów:
+Witaj poniższy przykład przedstawia, jak tooconvert różnego rodzaju wartości toostrings:
 
 ```json
 {
@@ -1324,7 +1324,7 @@ Poniższy przykład przedstawia sposób konwertowania różnego rodzaju wartośc
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1337,23 +1337,23 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="substring"></a>substring
 `substring(stringToParse, startIndex, length)`
 
-Zwraca podciąg, który rozpoczyna się od określonego znaku na pozycji i zawiera określoną liczbę znaków.
+Zwraca podciąg, że rozpoczyna się od hello określony znak na pozycji i zawiera hello określić liczbę znaków.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Tak |Ciąg |Oryginalny ciąg znaków, z której jest wyodrębniany podciąg. |
-| Wartość startIndex |Nie |int |Liczony od zera znak pozycja początkowa podciąg. |
-| długość |Nie |int |Liczba znaków podciąg. Musi odwoływać się do lokalizacji w ciągu. |
+| stringToParse |Tak |Ciąg |Oryginalny ciąg Hello z których hello jest wyodrębniany podciąg. |
+| Wartość startIndex |Nie |int |Witaj liczony od zera znak pozycja początkowa hello podciąg. |
+| długość |Nie |int |Witaj liczba znaków hello podciąg. Musi odwoływać się tooa lokalizacji w ciągu hello. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Podciąg.
+Witaj podciąg.
 
 ### <a name="remarks"></a>Uwagi
 
-Funkcja nie powiedzie się, gdy podciąg wykracza poza koniec ciągu. Poniższy przykład kończy się niepowodzeniem z powodu błędu "Parametry indeksu i długości muszą odwoływać się do lokalizacji w ciągu. Parametr indeksu: "0", parametr długości: "11", parametr długości ciągu: "10". ".
+Funkcja Hello kończy się niepowodzeniem, gdy podciąg hello wykracza poza koniec hello ciąg hello. Poniższy przykład Hello kończy się niepowodzeniem z hello błąd "hello parametry indeksu i długości muszą odwoływać się tooa lokalizacji w ciągu hello. Witaj parametr indeksu: "0" hello, parametr długości: "11" hello długość parametru ciągu hello: "10". ".
 
 ```json
 "parameters": {
@@ -1366,7 +1366,7 @@ Funkcja nie powiedzie się, gdy podciąg wykracza poza koniec ciągu. Poniższy 
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład zwraca podciąg z parametrem.
+Poniższy przykład Hello wyodrębnianie podciągu z parametrem.
 
 ```json
 {
@@ -1388,7 +1388,7 @@ Poniższy przykład zwraca podciąg z parametrem.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1400,14 +1400,14 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="take"></a>podejmij
 `take(originalValue, numberToTake)`
 
-Zwraca ciąg o określoną liczbę znaków od początku ciągu lub tablicą o określoną liczbę elementów od początku tablicy.
+Zwraca ciąg hello określić liczbę znaków od początku hello hello ciąg lub tablicą o hello określona liczba elementów od początku hello hello tablicy.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| originalValue |Tak |tablica lub ciąg |Tablica lub ciąg Aby pobrać elementy z. |
-| numberToTake |Tak |int |Liczba elementów lub znaków do wykonania. Jeśli ta wartość jest mniejsze lub równe 0, zwracana jest pusta tablica lub ciąg. Jeśli jest większa niż długość podanej tablicy lub ciągu, zwracane są wszystkie elementy tablicy lub ciągu. |
+| originalValue |Tak |tablica lub ciąg |Witaj tablicy lub ciągu tootake hello elementy z. |
+| numberToTake |Tak |int |Liczba Hello tootake elementów ani znaków. Jeśli ta wartość jest mniejsze lub równe 0, zwracana jest pusta tablica lub ciąg. Jeśli jest większa niż długość tablicy lub ciągu hello hello, zwracane są wszystkie elementy hello hello tablicy lub ciągu. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -1415,7 +1415,7 @@ Tablica lub ciąg.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład pobiera określoną liczbę elementów z tablicy i znaków z ciągu.
+powitania po hello ma przykład określona liczba elementów w tablicy hello i znaków z ciągu.
 
 ```json
 {
@@ -1457,7 +1457,7 @@ Poniższy przykład pobiera określoną liczbę elementów z tablicy i znaków z
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1469,21 +1469,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="tolower"></a>toLower
 `toLower(stringToChange)`
 
-Konwertuje określony ciąg na małe litery.
+Hello konwertuje określony ciąg toolower case.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Tak |Ciąg |Wartość do przekonwertowania na małe litery. |
+| stringToChange |Tak |Ciąg |Witaj wartość tooconvert toolower case. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg przekonwertowany na małe litery.
+ciąg Hello przekonwertować toolower case.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład konwertuje wartość parametru wielkie i małe litery.
+Poniższy przykład Hello konwertuje przypadku toolower wartość parametru i tooupper case.
 
 ```json
 {
@@ -1509,7 +1509,7 @@ Poniższy przykład konwertuje wartość parametru wielkie i małe litery.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1521,21 +1521,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="toupper"></a>toUpper
 `toUpper(stringToChange)`
 
-Konwertuje określony ciąg na wielkie litery.
+Hello konwertuje określony ciąg tooupper case.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Tak |Ciąg |Wartość do przekonwertowania na wielkie litery. |
+| stringToChange |Tak |Ciąg |Witaj wartość tooconvert tooupper case. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg przekonwertowany na wielkie litery.
+ciąg Hello przekonwertować tooupper case.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład konwertuje wartość parametru wielkie i małe litery.
+Poniższy przykład Hello konwertuje przypadku toolower wartość parametru i tooupper case.
 
 ```json
 {
@@ -1561,7 +1561,7 @@ Poniższy przykład konwertuje wartość parametru wielkie i małe litery.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1573,21 +1573,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="trim"></a>TRIM
 `trim (stringToTrim)`
 
-Usuwa wszystkie znaki odstępu wiodące i końcowe z określonego ciągu.
+Usuwa wszystkie początkowe i końcowe białe znaki z hello określony ciąg.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Tak |Ciąg |Wartość do przycinania. |
+| stringToTrim |Tak |Ciąg |Witaj tootrim wartość. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg bez spacji wiodących i końcowych znaków odstępu.
+ciąg Hello bez spacji wiodących i końcowych znaków odstępu.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład usuwa białe znaki z parametru.
+Witaj poniższy przykład przycina hello białe znaki z hello parametru.
 
 ```json
 {
@@ -1609,7 +1609,7 @@ Poniższy przykład usuwa białe znaki z parametru.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1620,44 +1620,44 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="uniquestring"></a>uniqueString
 `uniqueString (baseString, ...)`
 
-Tworzy ciąg deterministyczne skrótu na podstawie wartości podanych jako parametry. 
+Tworzy ciąg skrótu deterministyczne w zależności od wartości hello przekazywane jako parametry. 
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| baseString |Tak |Ciąg |Wartość używana w funkcji wyznaczania wartości skrótu, aby utworzyć unikatowy ciąg. |
-| dodatkowe parametry zgodnie z potrzebami |Nie |Ciąg |Możesz dodać dowolną liczbę ciągów w razie potrzeby można utworzyć wartości, który określa poziom unikatowości. |
+| baseString |Tak |Ciąg |Witaj wartość używana w toocreate funkcji skrótu hello unikatowy ciąg. |
+| dodatkowe parametry zgodnie z potrzebami |Nie |Ciąg |Można dodać dowolną liczbę ciągów jako wymagane toocreate hello wartość, która określa poziom hello unikatowości. |
 
 ### <a name="remarks"></a>Uwagi
 
-Ta funkcja jest użyteczna, gdy trzeba utworzyć unikatowej nazwy dla zasobu. Musisz podać wartości parametrów, które ograniczyć zakres unikatowości dla wyniku. Można określić, czy nazwa jest unikatowa w dół do subskrypcji, grupy zasobów lub wdrożenia. 
+Ta funkcja jest użyteczna, gdy będziesz potrzebować toocreate unikatową nazwę dla zasobu. Musisz podać wartości parametrów, które ograniczyć zakres hello unikatowości hello wynik. Można określić, czy nazwa hello jest unikatowa w dół toosubscription, grupy zasobów lub wdrożenia. 
 
-Zwrócona wartość nie jest losowy ciąg, ale raczej wynik funkcji skrótu. Zwrócona wartość jest 13 znaków. Nie jest globalnie unikatowa. Można połączyć z prefiksem z z konwencją nazewnictwa, aby utworzyć nazwę opisową wartość. W poniższym przykładzie przedstawiono format zwracanej wartości. Wartość rzeczywista jest zależna od podanych parametrów.
+Witaj zwróciła wartość nie jest ciągiem losowych, ale raczej hello wynik funkcji skrótu. Witaj zwrócił wartość jest 13 znaków. Nie jest globalnie unikatowa. Możesz toocombine hello wartość z prefiksem z nazewnictwa toocreate Konwencji nazwę opisową. Witaj poniższy przykład przedstawia format hello hello zwrócił wartość. Wartość rzeczywista Hello jest zależna od hello podanym parametrem obiektu.
 
     tcvhiyu5h2o5o
 
-Następujące przykłady przedstawiają sposób użycia uniqueString można utworzyć unikatową wartość dla często używanych poziomów.
+Witaj następujące przykłady pokazują, jak toocreate uniqueString toouse a unikatową wartość często używanych poziomów.
 
-UNIQUE ograniczone do subskrypcji
+Unikatowy toosubscription zakresami
 
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
-Unikatowy zakres do grupy zasobów
+Unikatowy tooresource zakresu grupy
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
-Unikatowy zakres wdrożenia dla grupy zasobów.
+Unikatowy toodeployment zakresami dla grupy zasobów.
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-Poniższy przykład przedstawia sposób utworzenia unikatowej nazwy dla konta magazynu, w oparciu o grupie zasobów. Wewnątrz grupy zasobów nazwa nie jest unikatowa, jeśli utworzone w taki sam sposób.
+Witaj poniższy przykład pokazuje, jak toocreate unikatową nazwę konta magazynu w grupie zasobów. W grupie zasobów hello, hello nazwa nie jest unikatowa, jeśli utworzone hello tak samo.
 
 ```json
 "resources": [{ 
@@ -1672,7 +1672,7 @@ Ciąg zawierający 13 znaków.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład zwraca wyniki z uniquestring:
+Witaj poniższy przykład zwraca wyniki z uniquestring:
 
 ```json
 {
@@ -1697,30 +1697,30 @@ Poniższy przykład zwraca wyniki z uniquestring:
 ## <a name="uri"></a>Identyfikator URI
 `uri (baseUri, relativeUri)`
 
-Tworzy bezwzględny identyfikator URI, łącząc baseUri i relativeUri ciągu.
+Tworzy bezwzględny identyfikator URI, łącząc hello baseUri i hello relativeUri ciągu.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| baseUri |Tak |Ciąg |Ciąg podstawowy identyfikator uri. |
-| relativeUri |Tak |Ciąg |Ciąg względny identyfikator uri do dodania do ciągu podstawowy identyfikator uri. |
+| baseUri |Tak |Ciąg |Witaj ciąg podstawowy identyfikator uri. |
+| relativeUri |Tak |Ciąg |Witaj względnym identyfikatorem uri ciąg tooadd toohello podstawowy identyfikator uri ciąg. |
 
-Wartość **baseUri** parametr może zawierać określonego pliku, ale tylko podstawowy ścieżka jest używana podczas tworzenia identyfikatora URI. Na przykład przekazywanie `http://contoso.com/resources/azuredeploy.json` jako wyniki parametru baseUri w podstawowy identyfikator URI elementu `http://contoso.com/resources/`.
+Witaj wartość hello **baseUri** parametr może zawierać określonego pliku, ale tylko ścieżki bazowej hello jest używany podczas tworzenia hello identyfikatora URI. Na przykład przekazywanie `http://contoso.com/resources/azuredeploy.json` jako hello baseUri parametru powoduje podstawowy identyfikator URI elementu `http://contoso.com/resources/`.
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg reprezentujący bezwzględny identyfikator URI dla wartości podstawowej i względna.
+Ciąg reprezentujący hello bezwzględny identyfikator URI dla wartości podstawowej i względną hello.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład pokazuje, jak utworzyć łącza do szablonu zagnieżdżonych, na podstawie wartości szablonu nadrzędnego.
+Hello poniższy przykład pokazuje, jak tooconstruct szablon zagnieżdżony tooa łącza na wartość hello hello nadrzędnego szablonu.
 
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-Poniższy przykład przedstawia sposób użycia identyfikatora uri, uriComponent i uriComponentToString:
+powitania po przykładzie pokazano, jak identyfikator uri toouse, uriComponent i uriComponentToString:
 
 ```json
 {
@@ -1749,7 +1749,7 @@ Poniższy przykład przedstawia sposób użycia identyfikatora uri, uriComponent
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1768,15 +1768,15 @@ Koduje identyfikatora URI.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Tak |Ciąg |Wartość do zakodowania. |
+| stringToEncode |Tak |Ciąg |Witaj tooencode wartość. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ciąg identyfikatora URI zakodowana wartość.
+Ciąg hello URI zakodowana wartość.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób użycia identyfikatora uri, uriComponent i uriComponentToString:
+powitania po przykładzie pokazano, jak identyfikator uri toouse, uriComponent i uriComponentToString:
 
 ```json
 {
@@ -1805,7 +1805,7 @@ Poniższy przykład przedstawia sposób użycia identyfikatora uri, uriComponent
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1825,7 +1825,7 @@ Zwraca ciąg identyfikatora URI zakodowana wartość.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Tak |Ciąg |Wartość do przekonwertowania na ciąg kodowany w formacie identyfikatora URI. |
+| uriEncodedString |Tak |Ciąg |wartość tooconvert tooa ciąg kodowany w formacie Hello identyfikatora URI. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -1833,7 +1833,7 @@ Dekodowany ciąg identyfikatora URI zakodowana wartość.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób użycia identyfikatora uri, uriComponent i uriComponentToString:
+powitania po przykładzie pokazano, jak identyfikator uri toouse, uriComponent i uriComponentToString:
 
 ```json
 {
@@ -1862,7 +1862,7 @@ Poniższy przykład przedstawia sposób użycia identyfikatora uri, uriComponent
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -1872,8 +1872,8 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Opis części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Aby scalić wiele szablonów, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
-* Do wykonywania iteracji określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
-* Aby zobaczyć, jak wdrożyć szablon został utworzony, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
+* Aby uzyskać opis hello części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
+* Zobacz wielu szablonów toomerge [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
+* toosee toodeploy hello szablonu po utworzeniu, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
 

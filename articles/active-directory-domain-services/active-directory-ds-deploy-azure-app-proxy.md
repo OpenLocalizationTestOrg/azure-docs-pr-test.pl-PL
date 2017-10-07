@@ -14,115 +14,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4142111231d0256960d0c02d686d51533ba2171c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Wdrażanie aplikacji serwera Proxy Azure AD w domenie zarządzanej usług domenowych Azure AD
-Serwer Proxy aplikacji usługi Azure Active Directory (AD) pomaga obsługuje pracowników zdalnych przez publikowania lokalnych aplikacji można uzyskać dostęp za pośrednictwem Internetu. Z usług domenowych Azure AD możesz teraz przyrostu i shift starsze aplikacje uruchomione w siedzibie firmy do usługi infrastruktury platformy Azure. Następnie można opublikować te aplikacje przy użyciu usługi Azure AD serwera Proxy aplikacji, co zapewnia bezpieczny dostęp zdalny do użytkowników w organizacji.
+Serwer Proxy aplikacji usługi Azure Active Directory (AD) pomaga obsługuje pracowników zdalnych, publikując lokalnymi toobe aplikacji udostępnianych za pośrednictwem hello internet. Z usług domenowych Azure AD możesz teraz przyrostu i shift starsze aplikacje lokalne tooAzure infrastruktury usługi. Następnie można opublikować te aplikacje przy użyciu hello AD serwera Proxy aplikacji Azure, tooprovide toousers bezpieczny dostęp zdalny w Twojej organizacji.
 
-Jeśli jesteś nowym użytkownikiem serwer Proxy aplikacji usługi Azure AD, więcej informacji na temat tej funkcji w programie artykule: [jak zapewnić bezpieczny zdalny dostęp do aplikacji lokalnych](../active-directory/active-directory-application-proxy-get-started.md).
+Jeśli masz toohello nowego serwera Proxy aplikacji usługi Azure AD, Dowiedz się więcej o tej funkcji z poniższego artykułu hello: [jak tooprovide bezpiecznego dostępu zdalnego aplikacje lokalne tooon](../active-directory/active-directory-application-proxy-get-started.md).
 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-Aby wykonać zadania opisane w tym artykule, należy:
+zadania hello tooperform wymienione w tym artykule, potrzebne są:
 
 1. Prawidłowy **subskrypcji platformy Azure**.
 2. **Katalog usługi Azure AD** -albo synchronizowane z katalogu lokalnego lub w katalogu tylko w chmurze.
-3. **Licencji Azure AD podstawowa lub Premium** musisz wybrać serwer Proxy aplikacji usługi Azure AD.
-4. **Usługi domenowe Azure AD** musi być włączona dla katalogu usługi Azure AD. Jeśli nie zostało to jeszcze zrobione, należy wykonać wszystkie zadania opisane w temacie [Przewodnik wprowadzający](active-directory-ds-getting-started.md).
+3. **Licencji Azure AD podstawowa lub Premium** jest wymagane toouse hello serwera Proxy aplikacji usługi Azure AD.
+4. **Usługi domenowe Azure AD** musi być włączona dla katalogu hello Azure AD. Jeśli nie zostało to jeszcze zrobione, należy wykonać wszystkie zadania hello opisane w hello [Przewodnik wprowadzający](active-directory-ds-getting-started.md).
 
 <br>
 
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Zadanie 1 - serwer Proxy aplikacji włączania usługi Azure AD dla katalogu usługi Azure AD
-Wykonaj poniższe kroki, aby włączyć serwer Proxy aplikacji usługi AD platformy Azure dla katalogu usługi Azure AD.
+Wykonaj następujące kroki tooenable hello Azure serwera Proxy aplikacji usługi AD dla katalogu usługi Azure AD hello.
 
-1. Zaloguj się jako administrator w [portalu Azure](http://portal.azure.com).
+1. Zaloguj się jako administrator w hello [portalu Azure](http://portal.azure.com).
 
-2. Kliknij przycisk **usługi Azure Active Directory** można wyświetlić informacje o katalogu. Kliknij przycisk **aplikacje dla przedsiębiorstw**.
+2. Kliknij przycisk **usługi Azure Active Directory** toobring się hello directory — omówienie. Kliknij przycisk **aplikacje dla przedsiębiorstw**.
 
     ![Wybierz katalog usługi Azure AD](./media/app-proxy/app-proxy-enable-start.png)
-3. Kliknij przycisk **serwera proxy aplikacji**. Jeśli nie masz subskrypcji usługi Azure AD podstawowa lub Azure AD Premium, zobaczysz opcję, aby włączyć korzystania z wersji próbnej. Przełącz **Włączanie serwera Proxy aplikacji?** do **włączyć** i kliknij przycisk **zapisać**.
+3. Kliknij przycisk **serwera proxy aplikacji**. Jeśli nie masz subskrypcji usługi Azure AD podstawowa lub Azure AD Premium, zobaczysz tooenable opcji korzystania z wersji próbnej. Przełącz **Włączanie serwera Proxy aplikacji?** za**włączyć** i kliknij przycisk **zapisać**.
 
     ![Włącz serwer Proxy aplikacji](./media/app-proxy/app-proxy-enable-proxy-blade.png)
-4. Aby pobrać łącznik, kliknij przycisk **łącznik** przycisku.
+4. toodownload hello łącznik, kliknij przycisk hello **łącznik** przycisku.
 
     ![Pobierz łącznik](./media/app-proxy/app-proxy-enabled-download-connector.png)
-5. Na stronie pobierania, zaakceptuj postanowienia licencyjne i zasady ochrony prywatności umowy i kliknij przycisk **Pobierz** przycisku.
+5. Na stronie pobierania hello, zaakceptuj postanowienia licencyjne hello i ochrony prywatności umowy, a następnie kliknij przycisk hello **Pobierz** przycisku.
 
     ![Potwierdź pobierania](./media/app-proxy/app-proxy-enabled-confirm-download.png)
 
 
-## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>Zadanie 2 - Provision przyłączonych do domeny serwery z systemem Windows do wdrożenia serwera Proxy aplikacji usługi Azure AD connector
-Wymagane są przyłączone do domeny systemu Windows Server maszyny wirtualne na których można zainstalować łącznik serwera Proxy aplikacji usługi Azure AD. W zależności od aplikacji, są publikowane możesz udostępnić wielu serwerów, na których jest zainstalowany łącznik. Ta opcja wdrażania zapewnia większą dostępność i pomaga obsługi większych obciążeń uwierzytelniania.
+## <a name="task-2---provision-domain-joined-windows-servers-toodeploy-hello-azure-ad-application-proxy-connector"></a>Zadanie 2 - Provision przyłączonych do domeny serwerów toodeploy hello Azure AD serwera Proxy aplikacji łącznika usługi Windows
+Wymagane są przyłączone do domeny systemu Windows Server maszyny wirtualne na których można zainstalować hello łącznika serwera Proxy aplikacji usługi Azure AD. W zależności od aplikacji hello publikowaną można wybrać wiele serwerów, na których jest zainstalowany łącznik hello tooprovision. Ta opcja wdrażania zapewnia większą dostępność i pomaga obsługi większych obciążeń uwierzytelniania.
 
-Udostępnić serwery łącznika w tej samej sieci wirtualnej (lub połączony/połączyć za pomocą sieci wirtualnej), w których włączono domeny zarządzanej usług domenowych Azure AD. Podobnie serwery obsługujące aplikacje, które można opublikować za pośrednictwem serwera Proxy aplikacji muszą być zainstalowane w tej samej sieci wirtualnej platformy Azure.
+Świadczenie serwery łącznika hello na hello tej samej sieci wirtualnej (lub połączony/połączyć za pomocą sieci wirtualnej), w którym włączono domeny zarządzanej usług domenowych Azure AD. Podobnie, serwery hello hostowania aplikacji hello opublikować za pośrednictwem serwera Proxy aplikacji hello muszą toobe zainstalowane na powitania tej samej sieci wirtualnej platformy Azure.
 
-Aby udostępnić serwery łącznika, należy wykonać zadania opisane w artykule zatytułowany [Dołącz maszynę wirtualną systemu Windows do domeny zarządzanej](active-directory-ds-admin-guide-join-windows-vm.md).
+serwery łącznika tooprovision, wykonaj zadania hello opisane w artykule hello zatytułowany [Dołącz do domeny zarządzanej tooa maszyny wirtualnej systemu Windows](active-directory-ds-admin-guide-join-windows-vm.md).
 
 
-## <a name="task-3---install-and-register-the-azure-ad-application-proxy-connector"></a>Zadanie 3 — Instalowanie i rejestrowanie łącznika serwera Proxy aplikacji Azure AD
-Poprzednio udostępnione maszynę wirtualną systemu Windows Server i do domeny zarządzanej. W tym zadaniu zostanie zainstalowany łącznik serwera Proxy aplikacji usługi Azure AD na tej maszynie wirtualnej.
+## <a name="task-3---install-and-register-hello-azure-ad-application-proxy-connector"></a>Zadanie 3 — Instalowanie i rejestrowanie hello łącznika serwera Proxy aplikacji w usłudze Azure AD
+Poprzednio udostępnione maszynę wirtualną systemu Windows Server i opcję dołączenia do niej toohello domeny zarządzanej. W tym zadaniu łącznika serwera Proxy aplikacji usługi Azure AD hello zostanie zainstalowany na tej maszynie wirtualnej.
 
-1. Skopiuj pakiet instalacyjny łącznika do maszyny Wirtualnej, na którym jest instalowany łącznik serwera Proxy aplikacji sieci Web platformy Azure AD.
+1. Skopiuj hello łącznika instalacji pakietu toohello VM na którym jest instalowany łącznik serwera Proxy aplikacji sieci Web platformy Azure AD hello.
 
-2. Uruchom **AADApplicationProxyConnectorInstaller.exe** na maszynie wirtualnej. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania.
+2. Uruchom **AADApplicationProxyConnectorInstaller.exe** hello maszyny wirtualnej. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania hello.
 
     ![Zaakceptuj postanowienia instalacji](./media/app-proxy/app-proxy-install-connector-terms.png)
-3. Podczas instalacji wyświetlany jest monit o zarejestrowanie łącznika serwera proxy aplikacji z katalogu usługi Azure AD.
+3. Podczas instalacji to zostanie wyświetlony monit o tooregister hello łącznika z powitania serwera Proxy aplikacji z katalogu usługi Azure AD.
     * Podaj Twojej **poświadczenia administratora globalnego usługi Azure AD**. Administrator globalny dzierżawy może mieć inne poświadczenia platformy Microsoft Azure niż Twoje.
-    * Konto administratora używane do rejestrowania łącznik muszą należeć do tego samego katalogu, w którym włączono usługę serwera Proxy aplikacji. Na przykład, jeśli domena dzierżawy to contoso.com, administrator powinien mieć admin@contoso.com lub dowolny inny alias prawidłowe w tej domenie.
-    * Jeśli Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer jest włączona dla serwera którym jest instalowany łącznik, ekran rejestracji może zostać zablokowany. Aby zezwolić na dostęp, postępuj zgodnie z instrukcjami w komunikacie o błędzie. Upewnij się, że pozycja Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer jest wyłączona.
+    * Witaj łącznika hello tooregister używane konto administratora musi należeć toohello tym samym katalogu, w którym włączono usługę serwera Proxy aplikacji hello. Na przykład, jeśli domena dzierżawy hello to contoso.com, Witaj, Administratorze powinna być admin@contoso.com lub dowolny inny alias prawidłowe w tej domenie.
+    * Jeśli Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer jest włączona dla serwera hello podczas instalowania łącznika hello, hello ekran rejestracji może zostać zablokowany. tooallow dostęp, wykonaj instrukcje hello w komunikacie o błędzie hello. Upewnij się, że pozycja Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer jest wyłączona.
     * Jeśli rejestracja łącznika nie powiedzie się, zobacz [Troubleshoot Application Proxy](../active-directory/active-directory-application-proxy-troubleshoot.md) (Rozwiązywanie problemów z serwerem proxy aplikacji).
 
     ![Zainstalowanego łącznika](./media/app-proxy/app-proxy-connector-installed.png)
-4. Aby zapewnić łącznik działa prawidłowo, uruchomić rozwiązywania łącznika serwera Proxy aplikacji w usłudze Azure AD. Pomyślne raportu powinna zostać wyświetlona po uruchomieniu narzędzia do rozwiązywania problemów.
+4. tooensure hello łącznik działa prawidłowo, uruchom hello rozwiązywania łącznika serwera Proxy aplikacji Azure AD. Pomyślne raportu powinna zostać wyświetlona po uruchomionych hello narzędzia do rozwiązywania problemów.
 
     ![Powodzenie narzędzia do rozwiązywania problemów](./media/app-proxy/app-proxy-connector-troubleshooter.png)
-5. Powinny pojawić się nowo zainstalowany łącznik na liście na stronie serwer proxy aplikacji w katalogu usługi Azure AD.
+5. Powinny pojawić się hello nowo zainstalowany łącznik wyświetlane na stronie serwer proxy aplikacji hello w katalogu usługi Azure AD.
 
     ![](./media/app-proxy/app-proxy-connector-page.png)
 
 > [!NOTE]
-> Użytkownik może wybrać opcję instalacji łączników na wielu serwerach w celu zapewnienia wysokiej dostępności w celu uwierzytelniania aplikacji opublikowanych przez serwer Proxy aplikacji usługi Azure AD. Wykonaj te same kroki wymienione powyżej, aby zainstalować łącznik na inne serwery przyłączone do domeny zarządzanej.
+> Możesz wybrać łączniki tooinstall na wielu serwerach tooguarantee wysokiej dostępności do uwierzytelniania w aplikacjach opublikowanych w usłudze powitania serwera Proxy aplikacji usługi Azure AD. Wykonaj hello te same czynności wymienionych powyżej tooinstall hello łącznika na inne domeny zarządzanej tooyour połączonych serwerów.
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Masz skonfigurować serwer Proxy aplikacji usługi Azure AD i zintegrować ją z domeny zarządzanej usług domenowych Azure AD.
+Ma ustawienie powitania serwera Proxy aplikacji usługi Azure AD i zintegrować ją z domeny zarządzanej usług domenowych Azure AD.
 
-* **Migracji aplikacji do maszyn wirtualnych platformy Azure:** można przyrostu i shift aplikacji z serwerów lokalnych maszyn wirtualnych platformy Azure jest przyłączony do domeny zarządzanej. Pomoże pozbyć się kosztów infrastruktury działających serwerów lokalnych.
+* **Migrowanie maszyn wirtualnych tooAzure aplikacji:** można przyrostu shift aplikacji z lokalnych serwerów tooAzure maszyn wirtualnych tooyour przyłączone do zarządzanej domeny. Pomoże pozbyć się hello infrastruktury kosztów działających serwerów lokalnych.
 
-* **Publikowanie aplikacji przy użyciu serwera Proxy aplikacji usługi Azure AD:** publikowania aplikacji działających na maszynach wirtualnych platformy Azure przy użyciu serwera Proxy aplikacji usługi AD platformy Azure. Aby uzyskać więcej informacji, zobacz [publikowanie aplikacji przy użyciu serwera Proxy aplikacji usługi Azure AD](../active-directory/application-proxy-publish-azure-portal.md)
+* **Publikowanie aplikacji przy użyciu serwera Proxy aplikacji usługi Azure AD:** publikowania aplikacji działających na maszynach wirtualnych platformy Azure przy użyciu powitania serwera Proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [publikowanie aplikacji przy użyciu serwera Proxy aplikacji usługi Azure AD](../active-directory/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Uwaga wdrożenia — aplikacje publikowania IWA (zintegrowane uwierzytelnianie systemu Windows) przy użyciu serwera Proxy aplikacji usługi Azure AD
-Włącz logowanie jednokrotne do aplikacji przy użyciu zintegrowanego uwierzytelniania systemu Windows (IWA) przez udzielanie uprawnień łączniki serwera Proxy aplikacji personifikować użytkowników i wysyłać i odbierać tokeny w ich imieniu. Skonfiguruj ograniczone delegowanie protokołu kerberos (KCD) dla łącznika można udzielić wymaganych uprawnień dostępu do zasobów z domeny zarządzanej. Aby zwiększyć bezpieczeństwo, użyj mechanizmu KCD oparte na zasobach w domenach zarządzanych.
+Włączanie aplikacji tooyour rejestracji jednokrotnej, przy użyciu zintegrowanego uwierzytelniania systemu Windows (IWA) przez udzielanie uprawnień łączniki serwera Proxy aplikacji tooimpersonate użytkowników oraz wysyłanie i odbieranie tokenów w ich imieniu. Skonfiguruj ograniczone delegowanie protokołu kerberos (KCD) dla hello łącznika toogrant hello wymagane uprawnienia tooaccess zasobów na powitania domeny zarządzanej. Aby zwiększyć bezpieczeństwo, użyj mechanizmu KCD oparte na zasobach hello w domenach zarządzanych.
 
 
-### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Włącz oparte na zasobach ograniczonego delegowania protokołu kerberos dla łącznika serwera Proxy aplikacji usługi Azure AD
-Łącznik serwera Proxy aplikacji Azure powinien być skonfigurowany ograniczonego delegowania protokołu kerberos (KCD), dlatego może on personifikować użytkowników dla domeny zarządzanej. W domenie zarządzanej usług domenowych Azure AD nie masz uprawnienia administratora domeny. W związku z tym **tradycyjnych KCD poziomie konta nie można skonfigurować w domenie zarządzanej**.
+### <a name="enable-resource-based-kerberos-constrained-delegation-for-hello-azure-ad-application-proxy-connector"></a>Włącz oparte na zasobach ograniczonego delegowania protokołu kerberos dla łącznika serwera Proxy aplikacji hello Azure AD
+łącznika serwera Proxy aplikacji Azure Hello powinien być skonfigurowany ograniczonego delegowania protokołu kerberos (KCD), dlatego może on personifikować użytkowników dla domeny zarządzanej hello. W domenie zarządzanej usług domenowych Azure AD nie masz uprawnienia administratora domeny. W związku z tym **tradycyjnych KCD poziomie konta nie można skonfigurować w domenie zarządzanej**.
 
 Użyj KCD oparte na zasobach, zgodnie z opisem w tym [artykułu](active-directory-ds-enable-kcd.md).
 
 > [!NOTE]
-> Musisz być członkiem grupy "Administratorzy kontrolera domeny usługi AAD", do administrowania domeny zarządzanej przy użyciu poleceń cmdlet programu PowerShell usługi AD.
+> Należy toobe członkiem grupy "Administratorzy kontrolera domeny usługi AAD" hello, tooadminister hello zarządzane domeny przy użyciu poleceń cmdlet programu PowerShell usługi AD.
 >
 >
 
-Użyj polecenia cmdlet programu PowerShell Get-ADComputer można pobrać ustawień dla komputera, na którym zainstalowano łącznik serwera Proxy aplikacji usługi Azure AD.
+Za pomocą hello programu PowerShell Get-ADComputer polecenia cmdlet tooretrieve hello ustawień dla hello komputera, na które powitania serwera Proxy aplikacji usługi Azure AD connector jest zainstalowany.
 ```
 $ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
 ```
 
-Później za pomocą polecenia cmdlet Set-ADComputer Konfigurowanie oparte na zasobach KCD dla serwera zasobu.
+Później Użyj tooset polecenia cmdlet Set-ADComputer hello zapasowych oparte na zasobach KCD hello zasobów serwera.
 ```
 Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 
-Jeśli wiele łączników serwera Proxy aplikacji zostały wdrożone na domeny zarządzanej, należy skonfigurować oparte na zasobach KCD dla każdego wystąpienia łącznika.
+Jeśli wiele łączników serwera Proxy aplikacji zostały wdrożone na domeny zarządzanej, należy tooconfigure oparte na zasobach KCD dla każdego wystąpienia łącznika.
 
 
 ## <a name="related-content"></a>Powiązana zawartość

@@ -1,6 +1,6 @@
 ---
-title: "Ochrona interfejsu API za pomocą usługi Azure API Management | Microsoft Docs"
-description: "Dowiedz się, jak chronić interfejs API za pomocą zasad przydziałów i dławienia (ograniczania liczby wywołań)."
+title: "aaaProtect interfejs API usługi Azure API Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooprotect interfejs API przydziały i ograniczenia przepustowości (limitów szybkości) zasady."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -14,106 +14,106 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 5553bcb8f9fd38630f694151dc644a684266387c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3113fd277d434da0c051b8b90fd629a102bf4867
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Ochrona interfejsu API za pomocą ograniczania liczby wywołań przy użyciu usługi Azure API Management
-W tym przewodniku przedstawiono, jak łatwo można dodawać ochronę do interfejsu API zaplecza dzięki konfigurowaniu zasad ograniczania liczby wywołań i przydziałów za pomocą usługi Azure API Management.
+Ten przewodnik przedstawia, jak łatwo jest tooadd ochronę interfejs API zaplecza przez skonfigurowanie zasad limitu i przydziału szybkość z usługą Azure API Management.
 
-W tym samouczku utworzysz produkt interfejsu API o nazwie „Bezpłatna wersja próbna”, który umożliwia deweloperom wykonywanie do 10 wywołań na minutę i maksymalnie 200 wywołań na tydzień tego interfejsu API przy użyciu zasad [Ograniczanie liczby wywołań na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [Ustawianie przydziału użycia na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Następnie opublikujesz interfejs API i przetestujesz zasadę ograniczania liczby wywołań.
+W tym samouczku utworzysz produkt "Bezpłatnej wersji próbnej" interfejsu API, który umożliwia deweloperom stosowanie toomake rozmowy too10 na minutę oraz tooa maksymalnie 200 wywołań na tydzień tooyour API przy użyciu hello [częstotliwość wywołań Limit subskrypcji](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [ Ustawianie użycie przydziału dla subskrypcji](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) zasad. Następnie zostanie publikowanie hello interfejsu API i testowania zasad limitu szybkości hello.
 
-Bardziej zaawansowane scenariusze ograniczania żądań używające zasad [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) i [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) są opisane w artykule [Advanced request throttling with Azure API Management](api-management-sample-flexible-throttling.md) (Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management).
+Bardziej zaawansowanych scenariuszy przy użyciu hello ograniczania [szybkość limit przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) i [limitu przydziału przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) zasad, zobacz [Zaawansowane żądanie ograniczania z usługą Azure API Management](api-management-sample-flexible-throttling.md).
 
-## <a name="create-product"> </a>Aby utworzyć produkt
+## <a name="create-product"></a>toocreate produktu
 W tym kroku utworzysz produkt Bezpłatna wersja próbna, który nie wymaga zatwierdzania subskrypcji.
 
 > [!NOTE]
-> Jeśli już masz skonfigurowany produkt i chcesz używać go w ramach tego samouczka, możesz przejść od razu do tematu [Konfigurowanie zasad ograniczania liczby wywołań oraz przydziałów][Configure call rate limit and quota policies] i wykonać kroki samouczka od tamtego miejsca przy użyciu swojego produktu zamiast produktu Bezpłatna wersja próbna.
+> Jeśli już korzystasz z produktem skonfigurowane i chcesz toouse go w tym samouczku, można przejść dalej zbyt[Konfiguruj wywołać szybkość zasady, a limit przydziału] [ Configure call rate limit and quota policies] i postępuj zgodnie z samouczkiem hello stamtąd pomocą produktu zamiast hello bezpłatnej wersji próbnej produktu.
 > 
 > 
 
-Na początku kliknij opcję **Portal wydawcy** w klasycznej witrynie Azure Portal dla usługi API Management.
+tooget pracę, kliknij przycisk **portal wydawcy** w hello portalu Azure usługi Zarządzanie interfejsami API.
 
 ![Portal wydawcy][api-management-management-console]
 
-> Jeśli jeszcze nie utworzono wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][Manage your first API in Azure API Management].
+> Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API] [ Create an API Management service instance] w hello [Zarządzanie pierwszy interfejs API usługi Azure API Management] [ Manage your first API in Azure API Management] samouczka.
 > 
 > 
 
-Kliknij opcję **Produkty** w menu **API Management** po lewej stronie, aby wyświetlić stronę **Produkty**.
+Kliknij przycisk **produktów** w hello **zarządzanie interfejsami API** menu na powitania po lewej stronie toodisplay hello **produktów** strony.
 
 ![Dodawanie produktu][api-management-add-product]
 
-Kliknij przycisk **Dodaj produkt**, aby wyświetlić okno dialogowe **Dodawanie nowego produktu**.
+Kliknij przycisk **produktu Dodaj** toodisplay hello **Dodaj nowy produkt** okno dialogowe.
 
 ![Dodawanie nowego produktu][api-management-new-product-window]
 
-W polu **Tytuł** wpisz **Bezpłatna wersja próbna**.
+W hello **tytuł** wpisz **bezpłatnej wersji próbnej**.
 
-W polu **Opis** wpisz następujący tekst: **Subskrybenci będą mogli uruchamiać 10 wywołań na minutę, ale nie więcej niż 200 wywołań na tydzień, po czym nastąpi odmowa dostępu.**
+W hello **opis** okno, hello typu następującego tekstu: **subskrybenci będą mogli toorun 10 wywołań/minutę w górę tooa maksymalnie 200 wywołania na tydzień po upływie którego dostęp jest zabroniony.**
 
-Produkty w usłudze API Management mogą być chronione lub otwarte. Produkty chronione muszą być subskrybowane przed użyciem. Produkty otwarte mogą być używane bez subskrypcji. Upewnij się, że opcja **Wymagaj subskrypcji** jest zaznaczona, aby utworzyć produkt chroniony, który wymaga subskrypcji. Jest to ustawienie domyślne.
+Produkty w usłudze API Management mogą być chronione lub otwarte. Produkty chronione muszą być subskrybowanego toobefore, które mogą być używane. Produkty otwarte mogą być używane bez subskrypcji. Upewnij się, że **wymagają subskrypcji** jest wybrany toocreate chronionych produkt, który wymaga subskrypcji. To jest ustawienie domyślne hello.
 
-Jeśli chcesz, aby administrator przeglądał i akceptował lub odrzucał próby subskrypcji tego produktu, wybierz opcję **Wymagaj zatwierdzenia subskrypcji**. Jeśli to pole wyboru nie jest zaznaczone, próby subskrypcji będą zatwierdzane automatycznie. W tym przykładzie subskrypcje są zatwierdzane automatycznie, więc nie zaznaczaj tego pola.
+Jeśli chcesz tooreview administratora i zaakceptuj lub Odrzuć subskrypcji prób toothis produktu, wybierz **wymagają zatwierdzenia subskrypcji**. Jeśli nie zaznaczono pola wyboru hello, prób subskrypcji zostaną automatycznie zatwierdzone. W tym przykładzie subskrypcje są automatycznie zatwierdzane, więc nie zaznaczaj pola hello.
 
-Aby umożliwić kontom deweloperów wielokrotne subskrybowanie nowego produktu, zaznacz pole wyboru **Zezwalaj na wiele jednoczesnych subskrypcji**. Ten samouczek nie wykorzystuje wielu jednoczesnych subskrypcji, więc pozostaw to pole niezaznaczone.
+Deweloper tooallow kont toosubscribe wielokrotnie toohello nowego produktu wybierz hello **zezwalać na wiele równoczesnych subskrypcji** pole wyboru. Ten samouczek nie wykorzystuje wielu jednoczesnych subskrypcji, więc pozostaw to pole niezaznaczone.
 
-Po wprowadzeniu wszystkich wartości kliknij przycisk **Zapisz**, aby utworzyć produkt.
+Po wprowadzeniu wszystkich wartości kliknij **zapisać** toocreate hello produktu.
 
 ![Dodany produkt][api-management-product-added]
 
-Domyślnie nowe produkty są widoczne dla użytkowników w grupie **Administratorzy**. Zamierzamy dodać grupę **Deweloperzy**. Kliknij produkt **Bezpłatna wersja próbna**, a następnie kliknij kartę **Widoczność**.
+Domyślnie nowe produkty są widoczne toousers w hello **Administratorzy** grupy. Zamierzamy tooadd hello **deweloperzy** grupy. Kliknij przycisk **bezpłatnej wersji próbnej**, a następnie kliknij przycisk hello **widoczność** kartę.
 
-> W usłudze API Management grupy służą do zarządzania widocznością produktów dla deweloperów. Widoczność produktów jest przydzielana według grup, a deweloperzy mogą wyświetlać i subskrybować produkty, które są widoczne dla grup, do których należą. Aby uzyskać więcej informacji, zobacz [How to create and use groups in Azure API Management][How to create and use groups in Azure API Management] (Jak utworzyć grupy w usłudze Azure API Management i używać ich).
+> W usłudze API Management grupy są używane toomanage widoczność hello toodevelopers produktów. Produkty Udziel toogroups widoczność i deweloperzy mogą wyświetlać i subskrybować toohello produktów, które są widoczne toohello grup, w których one należą. Aby uzyskać więcej informacji, zobacz [jak toocreate i użycie grup w usłudze Azure API Management][How toocreate and use groups in Azure API Management].
 > 
 > 
 
 ![Dodawanie grupy deweloperów][api-management-add-developers-group]
 
-Zaznacz pole wyboru **Deweloperzy**, a następnie kliknij przycisk **Zapisz**.
+Wybierz hello **deweloperzy** pole wyboru, a następnie kliknij przycisk **zapisać**.
 
-## <a name="add-api"> </a>Aby dodać interfejs API do produktu
-W tym kroku samouczka dodamy interfejs Echo API do nowego produktu Bezpłatna wersja próbna.
+## <a name="add-api"></a>produktu toohello tooadd interfejsu API
+W tym kroku samouczka hello dodamy hello Echo API toohello nowego bezpłatnej wersji próbnej produktu.
 
-> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, którego można używać do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][Manage your first API in Azure API Management].
+> Każde wystąpienie usługi API Management jest wstępnie skonfigurowany z użyciem interfejsu API Echo, które można tooexperiment używanych z i więcej informacji na temat interfejsu API zarządzania. Aby uzyskać więcej informacji, zobacz [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][Manage your first API in Azure API Management].
 > 
 > 
 
-Kliknij przycisk **Produkty** z menu **API Management** po lewej stronie, a następnie kliknij produkt **Bezpłatna wersja próbna**, aby go skonfigurować.
+Kliknij przycisk **produktów** z hello **zarządzanie interfejsami API** menu na powitania po lewej, a następnie kliknij **bezpłatnej wersji próbnej** tooconfigure hello produktu.
 
 ![Konfigurowanie produktu][api-management-configure-product]
 
-Kliknij przycisk **Dodaj interfejs API do produktu**.
+Kliknij przycisk **tooproduct dodać interfejsu API**.
 
-![Dodawanie interfejsu API do produktu.][api-management-add-api]
+![Dodaj tooproduct interfejsu API][api-management-add-api]
 
 Wybierz interfejs **Echo API**, a następnie kliknij przycisk **Zapisz**.
 
 ![Dodawanie interfejsu Echo API][api-management-add-echo-api]
 
-## <a name="policies"> </a>Aby skonfigurować zasady ograniczania liczby wywołań oraz przydziałów
-Ograniczenia liczby wywołań i przydziały są konfigurowane w edytorze zasad. Dwiema zasadami, które dodamy w tym samouczku, są zasady [Ograniczanie liczby wywołań na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [Ustawianie przydziału użycia na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Te zasady muszą być stosowane w zakresie produktu.
+## <a name="policies"></a>tooconfigure wywołać szybkość zasady, a limit przydziału
+Limity szybkości i przydziały są skonfigurowane w edytorze zasad hello. Witaj dwie zasady dodamy w tym samouczku są hello [częstotliwość wywołań Limit subskrypcji](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [przydział użycia zestawu na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) zasad. Te zasady muszą być stosowane w zakresie produktu hello.
 
-Kliknij opcję **Zasady** w menu **API Management** po lewej stronie. Na liście **Produkty** kliknij produkt **Bezpłatna wersja próbna**.
+Kliknij przycisk **zasady** w obszarze hello **zarządzanie interfejsami API** menu po lewej stronie powitania. W hello **produktu** kliknij **bezpłatnej wersji próbnej**.
 
 ![Zasady produktu][api-management-product-policy]
 
-Kliknij przycisk **Dodaj zasadę**, aby zaimportować szablon zasad i rozpocząć tworzenie zasad ograniczania liczby wywołań i przydziałów.
+Kliknij przycisk **Dodaj zasady** tooimport hello szablonu zasad i rozpocząć tworzenie hello szybkość zasad limitu i przydziału.
 
 ![Dodawanie zasad][api-management-add-policy]
 
-Zasady ograniczania liczby wywołań i przydziałów są zasadami ruchu przychodzącego, więc umieść kursor w elemencie inbound.
+Zasady, a limit przydziału szybkość są zasady ruchu przychodzącego, tak pozycji hello kursora w elemencie przychodzących hello.
 
 ![Edytor zasad][api-management-policy-editor-inbound]
 
-Przewiń listę zasad i znajdź wpis zasad **Ograniczanie liczby wywołań na subskrypcję**.
+Przewiń listę hello zasad i Znajdź hello **częstotliwość wywołań Limit subskrypcji** wpis zasad.
 
 ![Instrukcje zasad][api-management-limit-policies]
 
-Po umieszczeniu kursora w elemencie zasady **inbound**, kliknij strzałkę obok opcji **Ograniczanie liczby wywołań na subskrypcję**, aby wstawić ten szablon zasady.
+Po hello kursor znajduje się w hello **przychodzących** elementu zasad, kliknij strzałkę hello obok **częstotliwość wywołań Limit subskrypcji** tooinsert jego szablonu zasad.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -123,21 +123,21 @@ Po umieszczeniu kursora w elemencie zasady **inbound**, kliknij strzałkę obok 
 </rate-limit>
 ```
 
-Jak widać we fragmencie kodu, zasady umożliwiają ustawienie limitów dla interfejsów API i operacji produktu. W tym samouczku nie będziemy korzystać z tej możliwości, więc usuń elementy **api** i **operation** elementu **rate-limit**, aby pozostał tylko zewnętrzny element **rate-limit**, jak pokazano w poniższym przykładzie.
+Jak widać w hello fragment, zasad hello umożliwia ustawianie limitów interfejsów API i operacje hello produktu. W tym samouczku firma Microsoft nie używać tej funkcji, aby usunąć hello **interfejsu api** i **operacji** elementy z hello **limit szybkości** element, taki sposób, że tylko hello zewnętrzne **limit szybkości** element pozostaje, jak pokazano w hello poniższy przykład.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
 </rate-limit>
 ```
 
-W produkcie Bezpłatna wersja próbna maksymalna liczba wywołań to 10 na minutę, więc wpisz **10** jako wartość atrybutu **calls** oraz i **60** jako wartość atrybutu **renewal-period**.
+W hello bezpłatnej wersji próbnej produktu, szybkość maksymalna dopuszczalna wywołania hello jest 10 połączeń na minutę, wpisać **10** jako wartość hello hello **wywołania** atrybutu i **60** dla hello **okres odnawiania** atrybutu.
 
 ```xml
 <rate-limit calls="10" renewal-period="60">
 </rate-limit>
 ```
 
-Aby skonfigurować zasady **Ustawianie przydziału użycia na subskrypcję**, umieść kursor bezpośrednio pod nowo dodanym elementem **rate-limit** w elemencie **inbound**, a następnie zlokalizuj i kliknij strzałkę po lewej stronie zasad **Ustawianie przydziału użycia na subskrypcję**.
+tooconfigure hello **przydział użycia zestawu na subskrypcję** zasad, pozycja kursora bezpośrednio pod hello nowo dodanych **limit szybkości** elementu w obrębie hello **przychodzących** element, a następnie odszukaj i kliknij hello Strzałka toohello lewej strony **przydział użycia zestawu na subskrypcję**.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -147,32 +147,32 @@ Aby skonfigurować zasady **Ustawianie przydziału użycia na subskrypcję**, um
 </quota>
 ```
 
-Podobnie jak zasady **Ustawianie przydziału użycia na subskrypcję**, zasady **Ustawianie przydziału użycia na subskrypcję** umożliwia ustawienie limitów dla interfejsów API i operacji w produkcie. W tym samouczku nie będziemy korzystać z tej możliwości, więc usuń elementy **api** i **operation** z elementu **quota**, jak pokazano w poniższym przykładzie.
+Podobnie toohello **przydział użycia zestawu na subskrypcję** zasad, **przydział użycia zestawu na subskrypcję** zasad pozwala na ustawienie informacji o możliwościach dla interfejsów API i operacje hello produktu. W tym samouczku firma Microsoft nie używać tej funkcji, aby usunąć hello **interfejsu api** i **operacji** elementy z hello **przydziału** element, jak pokazano w hello poniższy przykład.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 </quota>
 ```
 
-Przydziały mogą opierać się na liczbie wywołań na interwał, przepustowości lub obu tych warunkach. W tym samouczku nie będziemy ograniczać żądań na podstawie przepustowości, więc usuń atrybut **bandwidth**.
+Przydziały może bazować na powitania liczba wywołań na interwał i przepustowości. W tym samouczku będziemy są nie ograniczania przepustowości na podstawie, więc usunięcie hello **przepustowości** atrybutu.
 
 ```xml
 <quota calls="number" renewal-period="seconds">
 </quota>
 ```
 
-W produkcie Bezpłatna wersja próbna przydział wynosi 200 wywołań na tydzień. Podaj **200** jako wartość atrybutu **calls**, a następnie podaj **604800** jako wartość atrybutu **renewal-period**.
+Hello bezpłatnej wersji próbnej produktu przydział hello jest wywołania 200 punktów w tygodniu. Określ **200** jako wartość hello hello **wywołania** atrybutu, a następnie określ **604800** jako wartość hello hello **okres odnawiania** atrybut.
 
 ```xml
 <quota calls="200" renewal-period="604800">
 </quota>
 ```
 
-> Interwały zasad są określane w sekundach. Aby obliczyć interwał dla tygodnia, należy pomnożyć liczbę dni (7) przez liczbę godzin w ciągu dnia (24) przez liczbę minut w godzinie (60) przez liczbę sekund w ciągu minuty (60): 7 * 24 * 60 * 60 = 604800.
+> Interwały zasad są określane w sekundach. Interwał powitania toocalculate na tydzień, należy pomnożyć hello liczbę dni (7) do hello liczbę godzin w ciągu dnia (24) hello liczbę minut w ciągu godziny (60) hello liczby sekund na minutę (60): 7 * 24 * 60 * 60 = 604800.
 > 
 > 
 
-Po zakończeniu konfigurowania zasady powinny być zgodne z poniższym przykładem.
+Po zakończeniu konfigurowania zasad hello powinna być zgodna hello poniższy przykład.
 
 ```xml
 <policies>
@@ -192,27 +192,27 @@ Po zakończeniu konfigurowania zasady powinny być zgodne z poniższym przykład
 </policies>
 ```
 
-Po skonfigurowaniu żądanych zasad kliknij przycisk **Zapisz**.
+Po hello potrzeby skonfigurowano zasad, kliknij przycisk **zapisać**.
 
 ![Zapisywanie zasad][api-management-policy-save]
 
-## <a name="publish-product"> </a> Aby opublikować produkt
-Teraz, gdy interfejsy API zostały dodane, a zasady skonfigurowane, trzeba opublikować produkt, aby mógł być używany przez deweloperów. Kliknij przycisk **Produkty** z menu **API Management** po lewej stronie, a następnie kliknij produkt **Bezpłatna wersja próbna**, aby go skonfigurować.
+## <a name="publish-product"></a> toopublish hello produktu
+Witaj hello dodano interfejsy API i hello zasad są skonfigurowane, hello produktu musi zostać opublikowany, dzięki czemu mogą być używane przez deweloperów. Kliknij przycisk **produktów** z hello **zarządzanie interfejsami API** menu na powitania po lewej, a następnie kliknij **bezpłatnej wersji próbnej** tooconfigure hello produktu.
 
 ![Konfigurowanie produktu][api-management-configure-product]
 
-Kliknij przycisk **Publikuj**, a następnie kliknij przycisk **Tak, opublikuj**, aby potwierdzić.
+Kliknij przycisk **publikowania**, a następnie kliknij przycisk **tak, przed opublikowaniem** tooconfirm.
 
 ![Publikowanie produktu][api-management-publish-product]
 
-## <a name="subscribe-account"> </a>Aby zasubskrybować produkt dla konta dewelopera
-Teraz, gdy produkt jest publikowany, jest on dostępny do subskrybowania i używania przez deweloperów.
+## <a name="subscribe-account"></a>toosubscribe produktu toohello konta dewelopera
+Teraz tego produktu hello zostanie opublikowana, jest używane przez programistów tooand toobe dostępnych subskrypcji.
 
-> Administratorzy wystąpienia usługi API Management automatycznie mają subskrypcję każdego produktu. W tym kroku samouczka zasubskrybujemy produkt Bezpłatna wersja próbna dla jednego z kont deweloperów, którzy nie są administratorami. Jeśli konto dewelopera należy do roli Administratorzy, możesz wykonać ten krok, chociaż masz już subskrypcję.
+> Administratorzy wystąpienia interfejsu API zarządzania są automatycznie subskrybowanego tooevery produktu. W tym kroku samouczka firma Microsoft będzie subskrypcji jedną hello dewelopera z systemem innym niż administrator konta toohello bezpłatnej wersji próbnej produktu. Jeśli konta dewelopera jest częścią roli Administratorzy hello, następnie można wykonać wraz z tego kroku, nawet jeśli masz już subskrypcję.
 > 
 > 
 
-Kliknij przycisk **Użytkownicy** w menu **API Management** po lewej stronie, a następnie kliknij nazwę Twojego konta dewelopera. W tym przykładzie użyto konta dewelopera **Clayton Gragg**.
+Kliknij przycisk **użytkowników** na powitania **zarządzanie interfejsami API** menu na powitania po lewej, a następnie kliknij nazwę hello konta dewelopera. W tym przykładzie używamy hello **Gragg Borowik** konta dewelopera.
 
 ![Konfigurowanie konta dewelopera][api-management-configure-developer]
 
@@ -225,23 +225,23 @@ Wybierz produkt **Bezpłatna wersja próbna**, a następnie kliknij przycisk **S
 ![Dodawanie subskrypcji][api-management-add-subscription]
 
 > [!NOTE]
-> W tym samouczku nie włączono wielu jednoczesnych subskrypcji dla produktu Bezpłatna wersja próbna. Gdyby były włączone, pojawiłby się monit o podanie nazwy subskrypcji, jak pokazano w poniższym przykładzie.
+> W tym samouczku wiele równoczesnych subskrypcji nie są włączone hello bezpłatnej wersji próbnej produktu. Jeśli były, jak pokazano w hello poniższy przykład użytkownik będzie zostanie wyświetlony monit o tooname hello subskrypcji.
 > 
 > 
 
 ![Dodawanie subskrypcji][api-management-add-subscription-multiple]
 
-Po kliknięciu przycisku **Subskrybuj** produkt jest wyświetlany na liście **Subskrypcja** danego użytkownika.
+Po kliknięciu przycisku **Subskrybuj**, produktu hello jest wyświetlana w hello **subskrypcji** listę hello użytkownika.
 
 ![Dodana subskrypcja][api-management-subscription-added]
 
-## <a name="test-rate-limit"> </a>Aby wywołać operację i przetestować ograniczanie liczby wywołań
-Teraz, gdy produkt Bezpłatna wersja próbna jest skonfigurowany i opublikowany, możemy wywołać pewne operacje i przetestować zasadę ograniczania liczby wywołań.
-Kliknij opcję **Portal dla deweloperów** w górnym menu po prawej stronie, aby przejść do portalu dla deweloperów.
+## <a name="test-rate-limit"></a>toocall operacji i testowania limit szybkości hello
+Witaj bezpłatnej wersji próbnej produktu jest skonfigurowany, a opublikowana, firma Microsoft wywoływanie niektórych operacji i testowania zasad limitu szybkości hello.
+Przełącznik toohello portalu dla deweloperów, klikając **portalu dla deweloperów** hello prawym górnym menu.
 
 ![Portal dla deweloperów][api-management-developer-portal-menu]
 
-Kliknij opcję **Interfejsy API** w górnym menu, a następnie wybierz interfejs **Echo API**.
+Kliknij przycisk **interfejsów API** w hello menu u góry, a następnie kliknij przycisk **Echo API**.
 
 ![Portal dla deweloperów][api-management-developer-portal-api-menu]
 
@@ -249,29 +249,29 @@ Kliknij operację **GET Resource** (pobieranie zasobu), a następnie kliknij prz
 
 ![Otwarta konsola][api-management-open-console]
 
-Zachowaj domyślne wartości parametrów, a następnie wybierz klucz subskrypcji dla produktu Bezpłatna wersja próbna.
+Zachowaj hello domyślne wartości parametrów, a następnie wybierz klucz subskrypcji hello bezpłatnej wersji próbnej produktu.
 
 ![Klucz subskrypcji][api-management-select-key]
 
 > [!NOTE]
-> Jeśli masz wiele subskrypcji, koniecznie wybierz klucz dla produktu **Bezpłatna wersja próbna**. W przeciwnym razie zasady skonfigurowane w poprzednich krokach nie będą obowiązywać.
+> Jeśli masz wiele subskrypcji, należy się, że klucz hello tooselect dla **bezpłatnej wersji próbnej**, lub inne zasady hello, które zostały skonfigurowane w poprzednich krokach hello nie będzie obowiązywać.
 > 
 > 
 
-Kliknij przycisk **Wyślij**, a następnie zobacz odpowiedź. Zauważ, że **Stan odpowiedzi** to **200 OK**.
+Kliknij przycisk **wysyłania**, a następnie Wyświetl hello odpowiedzi. Uwaga hello **stanu odpowiedzi** z **200 OK**.
 
 ![Wyniki operacji][api-management-http-get-results]
 
-Kliknij przycisk **Wyślij** szybciej niż pozwala na to zasada ograniczenia liczby wywołań do 10 na minutę. Po przekroczeniu zasady ograniczania liczby wywołań zwracany jest stan **429 Too Many Requests** (429 Zbyt wiele żądań).
+Kliknij przycisk **wysyłania** szybkością większa niż hello polityka limit 10 połączeń na minutę. Po przekroczeniu zasad limitu szybkości hello stan odpowiedzi **429 zbyt wiele żądań** jest zwracany.
 
 ![Wyniki operacji][api-management-http-get-429]
 
-**Zawartość odpowiedzi** wskazuje pozostały czas, zanim ponowna próba zakończy się pomyślnie.
+Witaj **zawartości odpowiedzi** wskazuje hello pozostałych Interwał ponownych prób zakończy się pomyślnie.
 
-Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejne wywołania będą kończyć się niepowodzeniem, aż upłynie 60 sekund od pierwszego z 10 pomyślnych wywołań produktu przed przekroczeniem ograniczenia. W tym przykładzie pozostały interwał to 54 sekundy.
+Jeśli obowiązuje zasada limit szybkości hello 10 połączeń na minutę, kolejne wywołania zakończy się niepowodzeniem przed upływem 60 sekund od hello pierwszy hello 10 pomyślnych wywołań toohello produktu przed został przekroczony limit szybkości hello. W tym przykładzie hello pozostałych interwał to 54 sekund.
 
 ## <a name="next-steps"> </a>Następne kroki
-* Obejrzyj następujący film z prezentacją ustawiania ograniczeń liczby wywołań i przydziałów.
+* Obejrzyj pokaz ustawienia limitów szybkości i przydziały w powitania po wideo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
@@ -304,24 +304,24 @@ Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejn
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How tooadd and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Manage your first API in Azure API Management]: api-management-get-started.md
-[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
-[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[How toocreate and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers tooa product]: api-management-howto-add-products.md#view-subscribers
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
 
 [Create a product]: #create-product
 [Configure call rate limit and quota policies]: #policies
-[Add an API to the product]: #add-api
-[Publish the product]: #publish-product
-[Subscribe a developer account to the product]: #subscribe-account
-[Call an operation and test the rate limit]: #test-rate-limit
+[Add an API toohello product]: #add-api
+[Publish hello product]: #publish-product
+[Subscribe a developer account toohello product]: #subscribe-account
+[Call an operation and test hello rate limit]: #test-rate-limit
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota

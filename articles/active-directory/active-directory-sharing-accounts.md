@@ -1,6 +1,6 @@
 ---
-title: "Udostępnianie kont za pomocą usługi Azure AD | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak Azure Active Directory umożliwia organizacjom bezpieczne udostępnianie kont dla aplikacji lokalnych i usług w chmurze konsumenta."
+title: "aaaSharing kont za pomocą usługi Azure AD | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak Azure Active Directory umożliwia organizacjom toosecurely udostępnianie kont dla aplikacji lokalnych i usług w chmurze konsumenta."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
-ms.openlocfilehash: b40335eda9dffe75e65d004837a1d67914db15b6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9f98bfa97a6c9ba1566d3f921c1b676d5f3c2a88
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Udostępnianie kont usługi Azure AD
 ## <a name="overview"></a>Omówienie
-Czasami organizacje muszą używać jednej nazwy użytkownika i hasło dla wielu osób. Ta sytuacja zwykle występuje w dwóch przypadkach:
+Czasami organizacje muszą toouse jednej nazwy użytkownika i hasło dla wielu osób. Ta sytuacja zwykle występuje w dwóch przypadkach:
 
 * Podczas uzyskiwania dostępu do aplikacji, które wymagają Unikatowy identyfikator logowania i hasło dla każdego użytkownika, czy aplikacjami lokalnymi lub odbiorcy usług w chmurze (np. kont firmowych mediów społecznościowych).
-* Podczas tworzenia środowiska wielu użytkowników. Może mieć pojedynczy konto lokalne, mającego podniesione uprawnienia, który może służyć do podstawowe działania Instalatora, Administracja i odzyskiwania (np. "globalne konta administratora lokalnego" dla usługi Office 365) lub konta głównego w usłudze Salesforce.
+* Podczas tworzenia środowiska wielu użytkowników. Może mieć pojedynczy konto lokalne, mającego podniesione uprawnienia i mogą być używane toodo core instalacji, Administracja i odzyskiwania działania (np. hello "globalny konta administratora lokalnego" dla konta głównego usługi Office 365 lub hello w usłudze Salesforce).
 
-Tradycyjnie będzie można współużytkować tych kont przez dystrybucję poświadczeń (nazwy użytkownika i hasła) do prawej osób lub przechowywania ich w lokalizacji udostępnionej, gdzie wiele zaufanych agentów mogą uzyskiwać do nich dostęp.
+Tradycyjnie będzie można współużytkować tych kont przez dystrybucję hello poświadczeń (nazwy użytkownika i hasła) toohello prawo osób lub przechowywania ich w lokalizacji udostępnionej, gdzie wiele zaufanych agentów mogą uzyskiwać do nich dostęp.
 
-Tradycyjnego modelu udostępniania ma kilka wady:
+tradycyjnego modelu udostępniania Hello ma kilka wady:
 
-* Włączanie dostępu do nowych aplikacji należy rozpowszechnić poświadczenia dla wszystkich użytkowników, które musi mieć dostęp.
-* Każda aplikacja udostępnionego może wymagać własny unikatowy zestaw poświadczeń udostępnionych wymaganie od użytkowników do zapamiętania wiele zestawów poświadczeń. Jeśli użytkownik ma do zapamiętania wiele poświadczeń, ryzyka zwiększa ich powróci do rozwiązania ryzykowne. (np. zapisanie hasła).
-* Nie można sprawdzić, kto ma dostęp do aplikacji.
+* Włączanie dostępu toonew aplikacji wymaga toodistribute tooeveryone poświadczenia, które wymagają dostępu.
+* Każda aplikacja udostępnionego może wymagać własny unikatowy zestaw poświadczeń udostępnionych wymagające tooremember użytkowników wiele zestawów poświadczeń. Gdy użytkownicy mają tooremember wiele poświadczeń, ryzyka hello zwiększa ich powróci toorisky rozwiązania. (np. zapisanie hasła).
+* Nie można sprawdzić, kto ma dostęp do aplikacji tooan.
 * Nie można sprawdzić, kto ma *dostępne* aplikacji.
-* Jeśli musisz usunąć dostęp do aplikacji, należy zaktualizować poświadczenia i ponownie przekazać je do wszystkich osób, które muszą mieć dostęp do tej aplikacji.
+* Jeśli potrzebujesz tooremove dostępu tooan aplikacji hello tooupdate poświadczenia i ponownie przekazać je tooeveryone, który wymaga dostępu toothat aplikacji.
 
 ## <a name="azure-active-directory-account-sharing"></a>Udostępnianie Azure konta usługi Active Directory
-Usługa Azure AD zapewnia nowe podejście do przy użyciu udostępnionego konta, aby wyeliminować te wady.
+Usługa Azure AD zapewnia nowe podejście toousing udostępnionego konta, które eliminuje te wady.
 
-Skonfigurowane przez administratora usługi Azure AD, aplikacji, które użytkownik może uzyskać dostęp za pomocą panelu dostępu i wybierając typ najlepiej rejestracji jednokrotnej nadaje się do tej aplikacji. Jeden z tych typów *opartego na hasłach jednokrotnego*, umożliwia usługi Azure AD, które działają jako rodzaj "brokerze" podczas procesu logowania dla danej aplikacji.
+administrator usługi Azure AD Hello konfiguruje aplikacji, które użytkownik może uzyskać dostęp za pomocą hello panelu dostępu i wybierając typ hello rejestracji jednokrotnej najlepiej nadaje się do tej aplikacji. Jeden z tych typów *opartego na hasłach jednokrotnego*, umożliwia usługi Azure AD, które działają jako rodzaj "brokerze" procesie hello logowania dla danej aplikacji.
 
-W drugi raz z swoje konta organizacyjne logowania użytkowników. To samo konto, które używają regularnie uzyskiwać dostęp do swojego pulpitu lub poczty e-mail. Mogą odnajdywać i tylko te aplikacje, które są przypisane do dostępu. Z udostępnionego konta lista aplikacji może zawierać dowolną liczbę poświadczeń udostępnionych. Użytkownik końcowy nie trzeba pamiętać lub Zapisz różne konta, którego może używać.
+W drugi raz z swoje konta organizacyjne logowania użytkowników. Jest to hello tego samego konta, że regularnie korzystają z tooaccess pulpicie lub w wiadomości e-mail. Mogą odnajdywać i tylko te aplikacje, które są przypisane do dostępu. Z udostępnionego konta lista aplikacji może zawierać dowolną liczbę poświadczeń udostępnionych. użytkownik końcowy Hello nie wymagają tooremember lub Zapisz hello różnych kont, których może używać.
 
-Udostępnionego konta nie tylko zwiększyć nadzoru i poprawić użyteczność, zapewniają również ze względów bezpieczeństwa. Użytkownicy z uprawnieniami, aby użyć poświadczeń nie widzisz wspólne hasło, ale raczej uzyskać uprawnienia do używania hasło jako część przepływu zorkiestrowana uwierzytelniania. Ponadto z niektórymi aplikacjami hasło logowania jednokrotnego, użytkownik może mieć usługi Azure AD okresowo przerzucania (aktualizacja) hasła przy użyciu dużych, złożonych haseł, zwiększenie bezpieczeństwa konta. Administrator może łatwo udzielić lub odwołać dostęp do aplikacji i także dowiedzieć się, kto ma dostęp do konta i kto uzyskał do niego dostęp w przeszłości.
+Udostępnionego konta nie tylko zwiększyć nadzoru i poprawić użyteczność, zapewniają również ze względów bezpieczeństwa. Użytkownicy z poświadczeniami hello toouse uprawnień nie będą widzieli hello wspólne hasło, ale raczej uzyskać uprawnienia toouse hello hasło jako część przepływu zorkiestrowana uwierzytelniania. Ponadto z niektórymi aplikacjami hasło logowania jednokrotnego, masz toohave opcji hello Azure AD okresowo hello przerzucania (aktualizacja) hasła przy użyciu dużych, złożonych haseł, zwiększenie hello konta zabezpieczeń. Hello administrator można łatwo udzielić lub odwołać dostęp do aplikacji tooan i także dowiedzieć się, kto ma dostęp do konta toohello i kto uzyskał do niego dostęp w przeszłości hello.
 
-Usługi Azure AD obsługuje udostępnionego konta dla dowolnego Enterprise Mobility Suite (EMS), Premium lub podstawowa licencjonowani użytkownicy wszystkich typów jednego hasła logowania aplikacji. Można udostępniać konta dla każdego tysięcy wstępnie zintegrowanych aplikacji w galerii aplikacji i dodać własne uwierzytelniania hasła aplikacji z [aplikacji niestandardowych logowania jednokrotnego](active-directory-sso-integrate-saas-apps.md).
+Usługi Azure AD obsługuje udostępnionego konta dla dowolnego Enterprise Mobility Suite (EMS), Premium lub podstawowa licencjonowani użytkownicy wszystkich typów jednego hasła logowania aplikacji. Można udostępniać konta dla każdego tysięcy wstępnie zintegrowanych aplikacji w galerii aplikacji hello i dodać własne uwierzytelniania hasła aplikacji z [aplikacji niestandardowych logowania jednokrotnego](active-directory-sso-integrate-saas-apps.md).
 
 Azure AD funkcje, które umożliwiają udostępnianie konta:
 
@@ -60,14 +60,14 @@ Azure AD funkcje, które umożliwiają udostępnianie konta:
 * [Usługi Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Udostępnianie kont
-Udostępnianie konta, które mają być przy użyciu usługi Azure AD:
+tooshare toouse usługi Azure AD konto należy do:
 
 * Dodawanie aplikacji [galerii aplikacji](https://azure.microsoft.com/marketplace/active-directory/) lub [aplikacji niestandardowych](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
-* Konfigurowanie aplikacji dla hasła pojedynczego logowania jednokrotnego (SSO)
-* Użyj [przypisywania na podstawie grupy](active-directory-accessmanagement-group-saasapps.md) i wybrać opcję wprowadzenia poświadczeń udostępnionych
-* Opcjonalnie: w niektórych aplikacjach, takich jak Facebook, Twitter i LinkedIn, należy włączyć opcję dla [usługi Azure AD automatycznego przerzucania hasła](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+* Konfigurowanie aplikacji hello hasła pojedynczego logowania jednokrotnego (SSO)
+* Użyj [przypisywania na podstawie grupy](active-directory-accessmanagement-group-saasapps.md) i wybierz hello tooenter opcji poświadczeń udostępnionych
+* Opcjonalnie: w niektórych aplikacjach, takich jak Facebook, Twitter i LinkedIn, można włączyć opcję hello [usługi Azure AD automatycznego przerzucania hasła](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-Można również ustawić udostępnionego konta bardziej bezpieczne z usługi Multi-Factor Authentication (MFA) (Dowiedz się więcej o [zabezpieczanie aplikacji z usługą Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)) i delegować możliwości zarządzania, kto ma dostęp do aplikacji przy użyciu [ Azure AD samoobsługi](active-directory-accessmanagement-self-service-group-management.md) grupy zarządzania.
+Można również ustawić udostępnionego konta bardziej bezpieczne z usługi Multi-Factor Authentication (MFA) (Dowiedz się więcej o [zabezpieczanie aplikacji z usługą Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)) i delegować toomanage możliwości hello, kto ma dostęp do toohello aplikacji przy użyciu [Azure AD samoobsługi](active-directory-accessmanagement-self-service-group-management.md) grupy zarządzania.
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)

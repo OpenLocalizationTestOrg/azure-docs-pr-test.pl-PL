@@ -5,7 +5,7 @@
 ## [Często zadawane pytania](faq.md)
 
 # Wprowadzenie
-## [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu portalu](createportal.md)
+## [Utworzyć Maszynę wirtualną systemu Linux za pomocą portalu hello](createportal.md)
 ## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../cli-install-nodejs.md)
 ## [Tworzenie kluczy SSH](../mac-create-ssh-keys.md)
 
@@ -16,21 +16,21 @@
 ### [Używanie pulpitu zdalnego z maszyną wirtualną z systemem Linux](remote-desktop.md)
 ### [Zarządzanie rozszerzeniami maszyn wirtualnych](manage-extensions.md)
 ### [Zarządzanie maszynami wirtualnymi za pomocą programu Visual Studio](manage-visual-studio.md)
-### [Monitorowanie maszyn wirtualnych za pomocą diagnostycznego rozszerzenia maszyny wirtualnej](../diagnostic-extension.md)
-### [Monitorowanie maszyn wirtualnych za pomocą diagnostycznego rozszerzenia maszyny wirtualnej w wersji 2.x](diagnostic-extension-v2.md)
+### [Monitorowanie maszyn wirtualnych przy użyciu hello diagnostycznych rozszerzenia maszyny Wirtualnej](../diagnostic-extension.md)
+### [Monitorowanie maszyn wirtualnych przy użyciu v2.x hello diagnostycznych rozszerzenia maszyny Wirtualnej](diagnostic-extension-v2.md)
 ### [Wstawianie niestandardowych danych](inject-custom-data.md)
 ### [Resetowanie haseł lub kluczy systemu Linux, naprawianie kluczy SSH i sprawdzanie dysków](reset-access.md)
 ### [Maintenance (Konserwacja)](planned-maintenance-schedule.md)
-### [Tworzenie hosta platformy Docker przy użyciu interfejsu wiersza polecenia](cli-use-docker.md)
-### [Tworzenie hosta platformy Docker przy użyciu portalu](portal-use-docker.md)
-### [Jak używać platformy Docker przy użyciu koordynatora Swarm](../../virtual-machines-linux-docker-swarm.md)
+### [Utwórz hosta Docker przy użyciu hello interfejsu wiersza polecenia](cli-use-docker.md)
+### [Utwórz hosta Docker przy użyciu portalu hello](portal-use-docker.md)
+### [Jak toouse Docker z Swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Korzystanie z usługi Storage
 ### [Dołączanie dysku danych](attach-disk.md)
 ### [Odłączanie dysku danych](detach-disk.md)
 
 ## Sieć
-### [Otwieranie portów dla maszyny wirtualnej](setup-endpoints.md)
+### [Otwórz porty tooyour maszyny Wirtualnej](setup-endpoints.md)
 ### [Łączenie maszyn wirtualnych z siecią wirtualną lub usługą w chmurze](connect-vms.md)
 
 ## Wdrażanie obrazów
@@ -43,7 +43,7 @@
 ### MySQL i MariaDB
 #### [Samouczek klastra MariaDB](mariadb-mysql-cluster.md)
 #### [Instalowanie programu MySQL na maszynie wirtualnej z systemem OpenSUSE](mysql-on-opensuse.md)
-#### [Używanie zestawów o zrównoważonym obciążeniu do klastrowania programu MySQL](mysql-cluster.md)
+#### [Za pomocą zestawów o zrównoważonym obciążeniu tooclusterize MySQL](mysql-cluster.md)
 #### [Optymalizacja wydajności programu MySQL](optimize-mysql.md)
 
 ## Uruchamianie aplikacji
@@ -52,8 +52,8 @@
 ### [Stos LAMP](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
 ### [Aplikacja sieci Web z programem Visual Studio](web-app-visual-studio.md)
-### [Klaster RDMA do uruchamiania aplikacji MPI](rdma-cluster.md)
-### [Jak używać podrzędnej wtyczki platformy Azure z ciągłą integracją rozwiązania Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md)
+### [Aplikacje MPI toorun klastra RDMA](rdma-cluster.md)
+### [Jak toouse hello Azure podrzędna wtyczki o Hudson elementu konfiguracji](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [Tworzenie klastra dla obciążeń systemu Linux](hpcpack-cluster-powershell-script.md)
 #### [Zarządzanie klastrem z węzłami z systemem Linux](hpcpack-cluster.md)
@@ -64,7 +64,7 @@
 ## Rozwiązywanie problemów
 ### [Wdrożenia maszyn wirtualnych](troubleshoot-deployment-new-vm.md)
 ### [Ponowne uruchamianie maszyny wirtualnej lub zmienianie jej rozmiaru](restart-resize-error-troubleshooting.md)
-### [Dołączanie wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania problemów](troubleshoot-recovery-disks-portal.md)
+### [Dołącz wirtualny dysk twardy tootroubleshooting maszyny Wirtualnej](troubleshoot-recovery-disks-portal.md)
 
 # Dokumentacja
 ## [PowerShell](/powershell/azure/overview)

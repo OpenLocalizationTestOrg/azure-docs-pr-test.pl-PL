@@ -1,6 +1,6 @@
 ---
-title: "Linux obliczeń maszyny wirtualne w klastrze HPC Pack | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć i używać klastra HPC Pack Linux komputerowych o wysokiej wydajności (HPC) obciążeń na platformie Azure"
+title: "aaaLinux obliczeń maszyny wirtualne w klastrze HPC Pack | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate i użyj HPC Pack klastra w systemie Azure Linux komputerowych o wysokiej wydajności (HPC) obciążeń"
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9ed20d6cd69a6472a00666caf8965e9d022698a6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Rozpoczynanie pracy z węzłami obliczeniowymi systemu Linux w klastrze pakietu HPC Pack na platformie Azure
-Konfigurowanie [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) klastra na platformie Azure, zawierającą węzła głównego z systemem Windows Server i kilka obliczeniowe węzłów z systemem obsługiwanych dystrybucji systemu Linux. Poznaj opcje przenoszenia danych między węzły systemu Linux i Windows węzłem głównym klastra. Dowiedz się, jak można przesłać zadań HPC systemu Linux do klastra.
+Konfigurowanie [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) klastra na platformie Azure, zawierającą węzła głównego z systemem Windows Server i kilka obliczeniowe węzłów z systemem obsługiwanych dystrybucji systemu Linux. Poznaj opcje toomove danych między hello węzłów systemu Linux i Windows hello węzła głównego klastra hello. Dowiedz się, jak toosubmit HPC systemu Linux zadania toohello klastra.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-Na wysokim poziomie na poniższym diagramie przedstawiono klastra HPC Pack, tworzenie i Praca z.
+Na wysokim poziomie hello Poniższy diagram przedstawia klastra HPC Pack hello tworzenie i Praca z.
 
 ![Klaster HPC Pack z węzłami systemu Linux][scenario]
 
-Inne opcje do uruchamiania obciążeń HPC systemu Linux na platformie Azure, zobacz [zasobów technicznych partii i wysoką wydajność pracy](../../../batch/big-compute-resources.md).
+Dla innych opcji toorun HPC systemu Linux obciążeń na platformie Azure, zobacz [zasobów technicznych partii i wysoką wydajność pracy](../../../batch/big-compute-resources.md).
 
 ## <a name="deploy-an-hpc-pack-cluster-with-linux-compute-nodes"></a>Wdrożenie klastra HPC Pack z węzłami obliczeniowymi systemu Linux
-W tym artykule przedstawiono się, że możesz dwie opcje do wdrożenia klastra HPC Pack na platformie Azure z systemem Linux węzły obliczeniowe. Obie metody za pomocą obrazu systemu Windows Server z witryny Marketplace HPC Pack można utworzyć węzła głównego. 
+W tym artykule przedstawiono dwie opcje toodeploy klastra HPC Pack na platformie Azure z węzłami obliczeniowymi systemu Linux. Obie metody użyć obrazu z witryny Marketplace systemu Windows Server z węzłem głównym HPC Pack toocreate hello. 
 
-* **Szablonu usługi Azure Resource Manager** -Użyj szablonu z portalu Azure Marketplace, lub w szablonie Szybki Start od społeczności, można zautomatyzować tworzenie klastra w modelu wdrażania usługi Resource Manager. Na przykład [klastra HPC Pack dla systemu Linux obciążeń](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) szablonu w portalu Azure Marketplace tworzy pełną infrastruktura klastra HPC Pack dla systemu Linux HPC obciążeń.
-* **Skrypt programu PowerShell** -użyj [skrypt wdrożenia Microsoft HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (**HpcIaaSCluster.ps1 nowy**) można zautomatyzować wdrożenie całego klastra w klasycznym modelu wdrażania. Ten skrypt programu PowerShell usługi Azure używa obrazu maszyny Wirtualnej pakietu HPC w portalu Azure Marketplace do szybkiego wdrożenia i zapewnia rozbudowany zestaw parametrów konfiguracji, aby wdrożyć węzły obliczeniowe systemu Linux.
+* **Szablonu usługi Azure Resource Manager** -Użyj szablonu z portalu Azure Marketplace hello, lub w szablonie Szybki Start społeczność hello, tooautomate tworzenia klastra hello w modelu wdrażania usługi Resource Manager hello. Na przykład Witaj [klastra HPC Pack dla systemu Linux obciążeń](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) szablonu w hello Azure Marketplace tworzy pełną infrastruktura klastra HPC Pack dla systemu Linux HPC obciążeń.
+* **Skrypt programu PowerShell** -Użyj hello [skrypt wdrożenia Microsoft HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (**HpcIaaSCluster.ps1 nowy**) tooautomate wdrożenia całego klastra w hello klasycznego modelu wdrażania. Ten skrypt programu PowerShell usługi Azure używa obrazu maszyny Wirtualnej programu HPC Pack w hello Azure Marketplace do szybkiego wdrożenia i zapewnia rozbudowany zestaw toodeploy parametry konfiguracji węzły obliczeniowe systemu Linux.
 
-Aby uzyskać więcej informacji dotyczących opcji wdrażania klastrów HPC Pack na platformie Azure, zobacz [opcje tworzenia i zarządzania nimi, przetwarzanie o wysokiej wydajności (HPC) klastra na platformie Azure z pakietem Microsoft HPC](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Aby uzyskać więcej informacji dotyczących opcji wdrażania klastrów HPC Pack na platformie Azure, zobacz [opcje toocreate i zarządzać klastrem wysokiej wydajności (HPC) na platformie Azure z pakietem Microsoft HPC](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="prerequisites"></a>Wymagania wstępne
-* **Subskrypcja platformy Azure** — można użyć subskrypcji w usłudze Azure globalne lub chińskiej wersji platformy Azure. Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut.
-* **Limit przydziału rdzeni** — należy zwiększyć limit przydziału rdzeni, zwłaszcza, jeśli użytkownik chce wdrożyć kilka węzłów klastra z wielordzeniowych rozmiarów maszyn wirtualnych. Aby zwiększyć limit przydziału, otwórz żądanie pomocy technicznej online klienta bez dodatkowych opłat.
-* **Dystrybucje systemu Linux** — obecnie HPC Pack obsługuje następujące dystrybucje systemu Linux dla węzłów obliczeniowych. Użyj wersji Marketplace tych dystrybucji, jeśli jest on dostępny lub Podaj własny.
+* **Subskrypcja platformy Azure** -subskrypcji można używać w obu hello usługi Azure globalnym, ani w chińskiej wersji platformy Azure. Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut.
+* **Limit przydziału rdzeni** — może być konieczne tooincrease hello przydziału rdzeni, zwłaszcza jeśli toodeploy kilka węzłów klastra z wielordzeniowych rozmiarów maszyn wirtualnych. tooincrease limit przydziału, otwórz żądanie pomocy technicznej online klienta bez dodatkowych opłat.
+* **Dystrybucje systemu Linux** — obecnie HPC Pack obsługuje powitania po dystrybucje systemu Linux dla węzłów obliczeniowych. Użyj wersji Marketplace tych dystrybucji, jeśli jest on dostępny lub Podaj własny.
   
   * **Na podstawie centOS**: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
   * **Red Hat Enterprise Linux**: 6.7, 6.8, 7.2
@@ -51,49 +51,49 @@ Aby uzyskać więcej informacji dotyczących opcji wdrażania klastrów HPC Pack
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > Aby użyć sieciowych Azure RDMA z jednym rozmiary maszyny Wirtualnej z funkcją RDMA, podaj SUSE Linux Enterprise Server 12 HPC lub na podstawie CentOS HPC obrazu z portalu Azure Marketplace. Aby uzyskać więcej informacji, zobacz [wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > toouse hello Azure RDMA sieć z jedną rozmiarów maszyn wirtualnych z funkcją RDMA hello, Określ obraz systemu SUSE Linux Enterprise Server 12 HPC lub na podstawie CentOS HPC z hello Azure Marketplace. Aby uzyskać więcej informacji, zobacz [wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
-Dodatkowe wymagania wstępne dotyczące wdrażania klastra za pomocą skryptu wdrażania HPC Pack IaaS:
+Dodatkowe wymagania wstępne toodeploy hello klastra za pomocą skryptu wdrażania HPC Pack IaaS hello:
 
-* **Komputer kliencki** — należy komputer kliencki z systemem Windows uruchom skrypt wdrażania klastra.
+* **Komputer kliencki** — należy skryptu wdrażania klienta z systemem Windows komputera toorun hello klastra.
 * **Program Azure PowerShell** - [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) (wersja 0.8.10 lub nowszego) na komputerze klienckim.
-* **Skrypt wdrożenia HPC Pack IaaS** — Pobierz i Rozpakuj najnowszej wersji skryptu z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Wersja skryptu można sprawdzić, uruchamiając `.\New-HPCIaaSCluster.ps1 –Version`. Ten artykuł jest oparty na wersji 4.4.1 lub nowszej skryptu.
+* **Skrypt wdrożenia HPC Pack IaaS** — Pobierz i Rozpakuj hello najnowszą wersję hello skryptu z hello [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Można sprawdzić wersji hello skryptu hello uruchamiając `.\New-HPCIaaSCluster.ps1 –Version`. Ten artykuł jest oparty na wersji 4.4.1 lub nowszej hello skryptu.
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Opcja wdrażania 1. Użyj szablonu usługi Resource Manager
-1. Przejdź do [klastra HPC Pack dla systemu Linux obciążeń](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) szablonu w portalu Azure Marketplace, a następnie kliknij przycisk **Wdróż**.
-2. W portalu Azure, przejrzyj informacje, a następnie kliknij przycisk **Utwórz**.
+1. Przejdź toohello [klastra HPC Pack dla systemu Linux obciążeń](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) szablonu w hello Azure Marketplace, a następnie kliknij przycisk **Wdróż**.
+2. W portalu Azure hello, przejrzyj informacje hello, a następnie kliknij przycisk **Utwórz**.
    
     ![Tworzenie portalu][portal]
-3. Na **podstawy** bloku, wprowadź nazwę klastra, który także nazwy węzła głównego maszyny Wirtualnej. Można wybrać istniejącą grupę zasobów lub Utwórz grupę wdrożenia w lokalizacji, która jest dostępna. Lokalizacja ma wpływ na dostępność niektórych rozmiarów maszyn wirtualnych i innymi usługami Azure (zobacz [produkty, które są dostępne w regionie](https://azure.microsoft.com/regions/services/)).
-4. Na **przejdź do węzła ustawienia** bloku, w przypadku pierwszego wdrożenia zazwyczaj można zaakceptować ustawienia domyślne. 
+3. Na powitania **podstawy** bloku, wprowadź nazwę klastra hello, który także nazwy węzła głównego hello maszyny Wirtualnej. Możesz wybrać istniejącą grupę zasobów lub Utwórz grupę wdrożenia hello w lokalizacji, która jest dostępna tooyou. Witaj lokalizacji ma wpływ na dostępność hello niektórych rozmiarów maszyn wirtualnych i innymi usługami Azure (zobacz [produkty, które są dostępne w regionie](https://azure.microsoft.com/regions/services/)).
+4. Na powitania **przejdź do węzła ustawienia** bloku, w przypadku pierwszego wdrożenia zazwyczaj można zaakceptować ustawienia domyślne hello. 
    
    > [!NOTE]
-   > **Adresu URL skryptu pokonfiguracyjnego** jest ustawienie opcjonalne, aby określić publicznie dostępnych skrypt programu Windows PowerShell, który ma zostać uruchomione w węźle głównym maszyny Wirtualnej po jej uruchomieniu. 
+   > Witaj **adresu URL skryptu pokonfiguracyjnego** jest opcjonalne ustawienie toospecify publicznie dostępnych skrypt programu Windows PowerShell, które mają toorun na powitania węzła głównego maszyny Wirtualnej po jej uruchomieniu. 
    > 
    > 
-5. Na **obliczeniowe węzła ustawienia** bloku, wybierz wzorzec nazewnictwa dla węzłów, liczby i rozmiaru węzły i dystrybucja systemu Linux do wdrożenia.
-6. Na **ustawienia infrastruktury** bloku nazwy sieci wirtualnej i usługi Active Directory wprowadź domenę, domeny i poświadczenia administratora maszyny Wirtualnej i wzorzec nazewnictwa dla kont magazynu.
+5. Na powitania **obliczeniowe węzła ustawienia** bloku, wybierz wzorzec nazewnictwa dla węzłów hello, hello liczby i rozmiaru hello węzłów i hello toodeploy dystrybucji systemu Linux.
+6. Na powitania **ustawienia infrastruktury** bloku, wprowadź nazwy sieci wirtualnej hello i usługi Active Directory domeny, domeny i poświadczenia administratora maszyny Wirtualnej i wzorzec nazewnictwa hello kont magazynu.
    
    > [!NOTE]
-   > Do uwierzytelniania użytkowników klastra HPC Pack używane do domeny usługi Active Directory. 
+   > HPC Pack używa hello — użytkownicy klastra tooauthenticate domeny usługi Active Directory. 
    > 
    > 
-7. Po uruchomieniu testów sprawdzania poprawności i zapoznaj się z warunkami użytkowania, kliknij przycisk **zakupu**.
+7. Po uruchomieniu testów sprawdzania poprawności hello i przejrzyj hello warunki użytkowania, kliknij przycisk **zakupu**.
 
-### <a name="deployment-option-2-use-the-iaas-deployment-script"></a>Opcja wdrażania 2. Użyj skryptu wdrożenia IaaS
-Poniżej przedstawiono dodatkowe wymagania wstępne dotyczące wdrażania klastra za pomocą skryptu wdrażania HPC Pack IaaS:
+### <a name="deployment-option-2-use-hello-iaas-deployment-script"></a>Opcja wdrażania 2. Użyj skryptu wdrożenia IaaS hello
+Poniżej przedstawiono dodatkowe wymagania wstępne toodeploy hello klastra za pomocą skryptu wdrażania HPC Pack IaaS hello:
 
-* **Komputer kliencki** — należy komputer kliencki z systemem Windows uruchom skrypt wdrażania klastra.
+* **Komputer kliencki** — należy skryptu wdrażania klienta z systemem Windows komputera toorun hello klastra.
 * **Program Azure PowerShell** - [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) (wersja 0.8.10 lub nowszego) na komputerze klienckim.
-* **Skrypt wdrożenia HPC Pack IaaS** — Pobierz i Rozpakuj najnowszej wersji skryptu z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Wersja skryptu można sprawdzić, uruchamiając `.\New-HPCIaaSCluster.ps1 –Version`. Ten artykuł jest oparty na wersji 4.4.1 lub nowszej skryptu.
+* **Skrypt wdrożenia HPC Pack IaaS** — Pobierz i Rozpakuj hello najnowszą wersję hello skryptu z hello [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Można sprawdzić wersji hello skryptu hello uruchamiając `.\New-HPCIaaSCluster.ps1 –Version`. Ten artykuł jest oparty na wersji 4.4.1 lub nowszej hello skryptu.
 
 **Plik konfiguracji XML**
 
-Skrypt wdrażania HPC Pack IaaS używa pliku konfiguracji XML jako dane wejściowe do opisywania klastra HPC. Przykładowy plik konfiguracyjny określa mały składające się z węzłem głównym HPC Pack i dwa węzły obliczeniowe A7 CentOS 7.0 Linux rozmiar klastra. 
+Hello skrypt wdrożenia HPC Pack IaaS używa pliku konfiguracji XML jako klaster HPC hello toodescribe wejściowego. Witaj następujący przykładowy plik konfiguracyjny określa mały składające się z węzłem głównym HPC Pack i dwa węzły obliczeniowe A7 CentOS 7.0 Linux rozmiar klastra. 
 
-Zmodyfikuj odpowiednio dla swojego środowiska i konfiguracji klastra, a następnie zapisz plik z nazwą, takich jak HPCDemoConfig.xml. Na przykład należy podać nazwę subskrypcji i nazwy konta magazynu unikatowy i nazwa usługi w chmurze. Ponadto można wybrać inny obraz systemu Linux obsługiwane dla węzłów obliczeniowych. Aby uzyskać więcej informacji na temat elementów w pliku konfiguracji, zobacz plik Manual.rtf w folderze skryptów i [utworzyć klaster HPC z skrypt wdrożenia HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Zmodyfikuj plik hello odpowiednio dla swojego środowiska i konfiguracji klastra, a następnie zapisz plik z nazwą, takich jak HPCDemoConfig.xml. Na przykład należy toosupply nazwę subskrypcji i nazwy konta magazynu unikatowy i nazwa usługi w chmurze. Ponadto można toochoose innej obsługiwane Linux obrazu dla węzłów obliczeniowych hello. Aby uzyskać więcej informacji o elementach hello w pliku konfiguracyjnym hello, zobacz hello Manual.rtf plik w folderze skryptów hello i [utworzyć klaster HPC z hello skrypt wdrożenia HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -131,63 +131,63 @@ Zmodyfikuj odpowiednio dla swojego środowiska i konfiguracji klastra, a następ
 </IaaSClusterConfig>
 ```
 
-**Aby uruchomić skrypt wdrażania HPC Pack IaaS**
+**Witaj toorun skrypt wdrożenia HPC Pack IaaS**
 
-1. Jako administrator Otwórz program Windows PowerShell na komputerze klienckim.
-2. Zmień katalog na folder, w którym skrypt jest zainstalowany (E:\IaaSClusterScript w tym przykładzie).
+1. Otwórz program Windows PowerShell na komputerze klienckim hello jako administrator.
+2. Zmień folder toohello katalogu, w którym skrypt hello jest zainstalowany (E:\IaaSClusterScript w tym przykładzie).
    
     ```powershell
     cd E:\IaaSClusterScript
     ```
-3. Uruchom następujące polecenie, aby wdrożyć klaster HPC Pack. W tym przykładzie przyjęto założenie, że plik konfiguracji znajduje się w E:\HPCDemoConfig.xml
+3. Uruchom powitania po klastra HPC Pack hello toodeploy polecenia. W tym przykładzie przyjęto założenie, że ten plik konfiguracji hello znajduje się w E:\HPCDemoConfig.xml
    
     ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
     ```
    
-    a. Ponieważ **AdminPassword** nie została określona w poprzednim poleceniu, zostanie wyświetlony monit o wprowadzenie hasła dla użytkownika *MyAdminName*.
+    a. Ponieważ hello **AdminPassword** nie jest określona w hello poprzedzających polecenia, są hello tooenter zostanie wyświetlony monit o hasło użytkownika *MyAdminName*.
    
-    b. Skrypt uruchamia następnie można sprawdzić poprawności pliku konfiguracji. Może potrwać kilka minut w zależności od połączenia sieciowego.
+    b. skrypt Hello następnie uruchamia plik konfiguracji hello toovalidate. Tooseveral minut w zależności od połączenia sieciowego hello może potrwać.
    
     ![Walidacja][validate]
    
-    c. Po operacji sprawdzania poprawności przekazać, skrypt zawiera listę zasobów klastra do utworzenia. Wprowadź *Y* aby kontynuować.
+    c. Po operacji sprawdzania poprawności przekazać, skrypt hello wymieniono toocreate zasobów klastra hello. Wprowadź *Y* toocontinue.
    
     ![Zasoby][resources]
    
-    d. Skrypt rozpocznie wdrażanie klastra HPC Pack i kończy działanie konfiguracji bez dalszego wymagane ręczne wykonanie czynności. Skrypt może trwać kilka minut.
+    d. skrypt Hello uruchamia klastra HPC Pack hello toodeploy i zakończeniu konfiguracji hello bez dalszego wymagane ręczne wykonanie czynności. skrypt Hello może trwać kilka minut.
    
     ![Wdrażanie][deploy]
    
    > [!NOTE]
-   > W tym przykładzie skrypt generuje plik dziennika automatycznie ponieważ **- LogFile** parametr nie jest określony. Dzienniki nie są zapisywane w czasie rzeczywistym, ale są zbierane na końcu sprawdzania poprawności i wdrażania. Jeśli proces programu PowerShell zostanie zatrzymana podczas wykonywania skryptu, niektóre dzienniki zostaną utracone.
+   > W tym przykładzie hello skrypt generuje plik dziennika automatycznie od hello **- LogFile** parametr nie jest określony. Dzienniki Hello nie są zapisywane w czasie rzeczywistym, ale są zbierane na końcu hello hello weryfikacji i hello wdrożenia. Po zatrzymaniu hello proces PowerShell uruchomionej skryptu hello niektórych dzienników zostaną utracone.
    > 
    > 
 
-## <a name="connect-to-the-head-node"></a>Połączenie z węzłem głównym
-Po wdrożeniu klastra HPC Pack na platformie Azure, [połączenia przez pulpit zdalny](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) z węzłem głównym maszyny Wirtualnej przy użyciu domeny poświadczenia zostanie podane podczas wdrażania klastra (na przykład *hpc\\clusteradmin*). Klaster zarządzania za pomocą węzła głównego.
+## <a name="connect-toohello-head-node"></a>Połącz toohello węzła głównego
+Po wdrożeniu klastra HPC Pack hello na platformie Azure, [połączenia przez pulpit zdalny](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toohello węzła głównego maszynę Wirtualną przy użyciu hello podana podczas wdrażania klastra hello poświadczeń domeny (na przykład *hpc\\ clusteradmin*). Witaj klastra można zarządzać z węzła głównego hello.
 
-W węźle głównym Uruchom Menedżera klastra HPC, aby sprawdzić stan klastra HPC Pack. Można zarządzać i węzły obliczeniowe monitor węzły obliczeniowe systemu Linux, ten sam sposób pracy z systemem Windows. Na przykład, zobacz węzłów systemu Linux na liście **zarządzanie zasobami** (te węzły zostały wdrożone za pomocą **LinuxNode** szablonu).
+Na powitania węzła głównego Uruchom Menedżera klastra HPC toocheck hello stan klastra HPC Pack hello. Można zarządzać i monitorować węzły obliczeniowe Linux hello taki sam sposób pracy z systemem Windows węzły obliczeniowe. Na przykład, zobacz hello Linux węzły na liście **zarządzanie zasobami** (te węzły zostały wdrożone za pomocą hello **LinuxNode** szablonu).
 
 ![Zarządzanie węzła][management]
 
-Zobacz też w węzłach Linux **Mapa cieplna** widoku.
+Zobacz też węzłów Linux hello hello **Mapa cieplna** widoku.
 
 ![Mapa cieplna][heatmap]
 
-## <a name="how-to-move-data-in-a-cluster-with-linux-nodes"></a>Sposób przenoszenia danych w klastrze z węzłami systemu Linux
-Można wybrać kilka opcji do przenoszenia danych między węzłami Linux i Windows węzłem głównym klastra. Poniżej przedstawiono trzy typowe metody opisane bardziej szczegółowo w następujących sekcjach:
+## <a name="how-toomove-data-in-a-cluster-with-linux-nodes"></a>Jak dane toomove w klastrze z węzłami systemu Linux
+Masz kilka opcji toomove danych między węzłami systemu Linux i Windows hello węzła głównego klastra hello. Poniżej przedstawiono trzy typowe metody opisane bardziej szczegółowo w hello następujące sekcje:
 
-* **Plików na platformę Azure** — przedstawia zarządzany udział plików SMB do przechowywania plików danych w magazynie Azure. Węzłów z systemem Windows i Linux węzłów mogą zainstalować udział plików Azure jako dysku lub folderu w tym samym czasie, nawet jeśli są one wdrożone w różnych sieciach wirtualnych.
-* **Udział SMB węzła głównego** — instaluje standardowe folder udostępniony systemu Windows węzła głównego w węzłach systemu Linux.
+* **Plików na platformę Azure** -ujawnia zarządzanych danych toostore udziałów plików SMB plików w magazynie Azure. Węzłów z systemem Windows i Linux węzłów mogą zainstalować udziały plików platformy Azure jako dysku lub folderu na powitania czasu takie same, nawet jeśli są one wdrożone w różnych sieciach wirtualnych.
+* **Udział SMB węzła głównego** — instaluje standardowe folder udostępniony systemu Windows hello węzła głównego w węzłach systemu Linux.
 * **Serwer systemu plików NFS węzła HEAD** — zapewnia rozwiązanie do udostępniania plików w środowisku mieszanym Windows i Linux.
 
 ### <a name="azure-file-storage"></a>Magazyn plików Azure
-[Plików Azure](https://azure.microsoft.com/services/storage/files/) udziałami plików przy użyciu standardowego protokołu SMB 2.1 udostępnia usługi. Maszyny wirtualne platformy Azure i usługi w chmurze mogą udostępniać dane między składnikami aplikacji za pośrednictwem zainstalowanych udziałów i lokalnych aplikacji mają dostęp do danych plików w udziale za pośrednictwem interfejsu API magazynu plików. 
+Witaj [plików Azure](https://azure.microsoft.com/services/storage/files/) udziałami plików przy użyciu standardowego protokołu SMB 2.1 hello udostępnia usługi. Maszyny wirtualne platformy Azure i usługi w chmurze mogą udostępniać dane między składnikami aplikacji za pośrednictwem zainstalowanych udziałów i lokalnych aplikacji mają dostęp do danych plików w udziale za pośrednictwem hello interfejsu API magazynu plików. 
 
-Aby uzyskać szczegółowy opis kroków utworzyć udział plików Azure i zainstalować go w węźle głównym, zobacz [Rozpoczynanie pracy z magazynem plików Azure w systemie Windows](../../../storage/files/storage-how-to-use-files-windows.md). Aby zainstalować udział plików Azure w węzłach Linux, zobacz [jak używać magazynu plików Azure z systemem Linux](../../../storage/files/storage-how-to-use-files-linux.md). Aby skonfigurować utrwalanie połączeń, zobacz [połączeń Persisting pliki programu Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Aby uzyskać szczegółowy opis kroków toocreate plików Azure udziału i zainstalować go na powitania węzła głównego, zobacz [Rozpoczynanie pracy z magazynem plików Azure w systemie Windows](../../../storage/files/storage-how-to-use-files-windows.md). udział plików Azure hello toomount hello węzłach Linux, zobacz [jak toouse magazyn plików Azure z systemem Linux](../../../storage/files/storage-how-to-use-files-linux.md). Zobacz tooset utrwalanie połączenia [Persisting tooMicrosoft połączenia usługi pliki Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
-W poniższym przykładzie należy utworzyć udział plików Azure na koncie magazynu. Aby zainstalować udział w węźle głównym, otwórz wiersz polecenia i wpisz następujące polecenia:
+W hello poniższy przykład należy utworzyć udział plików Azure na koncie magazynu. Witaj toomount udział na powitania węzła głównego, otwórz wiersz polecenia i wprowadź hello następującego polecenia:
 
 ```command
 cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccountkey>
@@ -195,11 +195,11 @@ cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccoun
 net use Z: \\allvhdje.file.core.windows.net\rdma /persistent:yes
 ```
 
-W tym przykładzie allvhdsje to nazwa konta magazynu, storageaccountkey jest klucz konta magazynu, a funkcja rdma jest nazwa udziału plików platformy Azure. Udziału plików platformy Azure jest zainstalowany jako Z: węzła głównego.
+W tym przykładzie allvhdsje to nazwa konta magazynu, storageaccountkey jest klucz konta magazynu, a funkcja rdma jest nazwa udziału plików Azure hello. udział plików Azure Hello jest zainstalowany jako Z: hello węzła głównego.
 
-Aby zainstalować udział plików Azure w węzłach Linux, uruchom **clusrun** na węzła głównego. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)**  stanowi przydatne narzędzie HPC Pack do wykonywania zadań administracyjnych na wielu węzłach. (Zobacz też [Clusrun dla systemu Linux węzłów](#Clusrun-for-Linux-nodes) w tym artykule.)
+udział plików Azure hello toomount w węzłach Linux, uruchom **clusrun** na powitania węzła głównego. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)**  jest przydatne toocarry narzędzie HPC Pack zadania administracyjne na wielu węzłach. (Zobacz też [Clusrun dla systemu Linux węzłów](#Clusrun-for-Linux-nodes) w tym artykule.)
 
-Otwórz okno programu Windows PowerShell i wpisz następujące polecenia:
+Otwórz okno programu Windows PowerShell i wprowadź hello następującego polecenia:
 
 ```powershell
 clusrun /nodegroup:LinuxNodes mkdir -p /rdma
@@ -207,22 +207,22 @@ clusrun /nodegroup:LinuxNodes mkdir -p /rdma
 clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rdma /rdma -o vers=2.1`,username=allvhdsje`,password=<storageaccountkey>'`,dir_mode=0777`,file_mode=0777
 ```
 
-Pierwsze polecenie tworzy folder o nazwie /rdma we wszystkich węzłach grupy LinuxNodes. Drugie polecenie instaluje allvhdsjw.file.core.windows.net/rdma udziału plików platformy Azure na folder /rdma z katalogu i pliku bitów trybu ustawioną 777. W drugim poleceniu allvhdsje jest nazwa konta magazynu i storageaccountkey jest klucz konta magazynu.
+pierwsze polecenie Hello tworzy folder o nazwie /rdma we wszystkich węzłach grupy LinuxNodes hello. drugie polecenie Hello instaluje allvhdsjw.file.core.windows.net/rdma udział plików Azure hello na powitania /rdma folder o dir i plików trybu too777 zestawu usługi bits. W hello drugiego polecenia allvhdsje jest nazwa konta magazynu i storageaccountkey jest klucz konta magazynu.
 
 > [!NOTE]
-> "\`" Symbol w drugie polecenie jest symbolem ucieczki dla środowiska PowerShell. "\`," oznacza, że "," (przecinek znak) jest częścią polecenia.
+> Witaj "\`" symbol w hello drugie polecenie jest symbolem ucieczki dla środowiska PowerShell. "\`,"oznacza, że hello"," (przecinek znak) jest częścią polecenia hello.
 > 
 > 
 
 ### <a name="head-node-share"></a>Udział węzła głównego
-Można również zainstalować z węzłem głównym folderu udostępnionego na węzłów systemu Linux. Udział zapewnia Najprostszym sposobem udostępniania plików, ale węzła głównego i wszystkie węzły Linux należy wdrożyć w tej samej sieci wirtualnej. Poniżej przedstawiono kroki.
+Można również zainstalować hello węzła głównego folderu udostępnionego na węzłach systemu Linux. Udział zapewnia hello najprostszy sposób tooshare plików, ale hello węzła głównego i na wszystkich węzłach Linux, musi być wdrażana w hello tej samej sieci wirtualnej. Poniżej przedstawiono kroki hello.
 
-1. Utwórz folder w węźle głównym i udostępnić go dla wszystkich osób mających uprawnienia odczytu/zapisu. Na przykład udostępnić D:\OpenFOAM w węźle głównym jako \\CentOS7RDMA HN\OpenFOAM. W tym miejscu CentOS7RDMA HN jest nazwą hosta węzła głównego.
+1. Utwórz folder na powitania węzła głównego i udostępniać je tooEveryone uprawnienia odczytu/zapisu. Na przykład udostępnić D:\OpenFOAM na powitania węzła głównego jako \\CentOS7RDMA HN\OpenFOAM. W tym miejscu CentOS7RDMA HN jest hostname hello hello węzła głównego.
    
     ![Uprawnienia do udziału plików][fileshareperms]
    
     ![Udostępnianie plików][filesharing]
-2. Otwórz okno programu Windows PowerShell i uruchom następujące polecenia:
+2. Otwórz okno programu Windows PowerShell i uruchom hello następującego polecenia:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -230,19 +230,19 @@ Można również zainstalować z węzłem głównym folderu udostępnionego na w
     clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
-Pierwsze polecenie tworzy folder o nazwie /openfoam we wszystkich węzłach grupy LinuxNodes. Drugie polecenie instaluje //CentOS7RDMA-HN/OpenFOAM folderu udostępnionego na folder z katalogu i pliku bitów trybu ustawioną 777. Nazwa użytkownika i hasło w poleceniu powinna być nazwa użytkownika i hasło użytkownika klastra w węźle głównym. (Zobacz [Dodaj lub usuń użytkowników klastra](https://technet.microsoft.com/library/ff919330.aspx).)
+pierwsze polecenie Hello tworzy folder o nazwie /openfoam we wszystkich węzłach grupy LinuxNodes hello. drugie polecenie Hello instaluje hello udostępnionego folderu //CentOS7RDMA-HN/OpenFOAM na powitania folder o dir i plików trybu too777 zestawu usługi bits. Witaj nazwę użytkownika i hasło w poleceniu hello powinna być hello nazwę użytkownika i hasło użytkownika klastra na powitania węzła głównego. (Zobacz [Dodaj lub usuń użytkowników klastra](https://technet.microsoft.com/library/ff919330.aspx).)
 
 > [!NOTE]
-> "\`" Symbol w drugie polecenie jest symbolem ucieczki dla środowiska PowerShell. "\`," oznacza, że "," (przecinek znak) jest częścią polecenia.
+> Witaj "\`" symbol w hello drugie polecenie jest symbolem ucieczki dla środowiska PowerShell. "\`,"oznacza, że hello"," (przecinek znak) jest częścią polecenia hello.
 > 
 > 
 
 ### <a name="nfs-server"></a>Serwer systemu plików NFS
-Usługa systemu plików NFS umożliwia udostępnianie i migrować pliki komputerach działa system operacyjny Windows Server 2012 przy użyciu protokołu SMB i opartych na systemie Linux przy użyciu protokołu NFS. Serwer systemu plików NFS i inne węzły ma zostać wdrożony w tej samej sieci wirtualnej. Zapewnia lepszą zgodność z węzłami systemu Linux w porównaniu z udziału SMB. Na przykład obsługuje łącza do plików.
+Witaj usługi systemu plików NFS pozwala tooshare oraz migrację plików na komputerach przy użyciu protokołu SMB hello systemem operacyjnym hello systemu Windows Server 2012 i opartych na systemie Linux przy użyciu protokołu NFS hello. Witaj serwer systemu plików NFS i inne węzły mają toobe wdrożone w hello tej samej sieci wirtualnej. Zapewnia lepszą zgodność z węzłami systemu Linux w porównaniu z udziału SMB. Na przykład obsługuje łącza do plików.
 
-1. Aby zainstalować i skonfigurować serwer NFS, postępuj zgodnie z instrukcjami [serwera dla systemu pierwszego udziału sieciowego na całej trasie](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
+1. tooinstall i skonfigurować serwer NFS, wykonaj kroki hello w [serwera dla systemu pierwszego udziału sieciowego na całej trasie](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
    
-    Na przykład można utworzyć udziału NFS o nazwie nfs z następującymi właściwościami:
+    Na przykład można utworzyć udziału NFS o nazwie systemu plików nfs, ze hello następujące właściwości:
    
     ![Autoryzacja systemu plików NFS][nfsauth]
    
@@ -251,7 +251,7 @@ Usługa systemu plików NFS umożliwia udostępnianie i migrować pliki komputer
     ![Uprawnienia NTFS systemu plików NFS][nfsperm]
    
     ![Właściwości zarządzania systemu plików NFS][nfsmanage]
-2. Otwórz okno programu Windows PowerShell i uruchom następujące polecenia:
+2. Otwórz okno programu Windows PowerShell i uruchom hello następującego polecenia:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
@@ -259,47 +259,47 @@ Usługa systemu plików NFS umożliwia udostępnianie i migrować pliki komputer
     clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared
     ```
    
-   Pierwsze polecenie tworzy folder o nazwie /nfsshared we wszystkich węzłach grupy LinuxNodes. Drugie polecenie instaluje udziału NFS CentOS7RDMA HN: / systemu plików nfs na folder. W tym miejscu CentOS7RDMA HN: / systemu plików nfs to ścieżka do zdalnego udziału NFS.
+   pierwsze polecenie Hello tworzy folder o nazwie /nfsshared we wszystkich węzłach grupy LinuxNodes hello. Witaj drugiego polecenia hello instalacji NFS udostępnianie CentOS7RDMA HN: / systemu plików nfs na hello folderu. W tym miejscu CentOS7RDMA HN: / systemu plików nfs jest hello zdalnego ścieżka udziału NFS.
 
-## <a name="how-to-submit-jobs"></a>Temat dotyczący przesyłania zadań
-Istnieje kilka sposobów umożliwiają przesyłanie zadań do klastra HPC Pack:
+## <a name="how-toosubmit-jobs"></a>Jak toosubmit zadania
+Istnieje kilka sposobów toosubmit zadania toohello HPC Pack klastra:
 
 * Menedżer klastrów HPC lub Menedżer zadań klastra HPC graficznego interfejsu użytkownika
 * Portalu internetowego HPC
 * Interfejs API REST
 
-Przesyłanie zadań do klastra na platformie Azure za pomocą narzędzia HPC Pack graficznego interfejsu użytkownika i portalu internetowego HPC są takie same jak w przypadku systemu Windows węzły obliczeniowe. Zobacz [Menedżer zadań klastra HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) i [sposobu przesyłania zadań z komputera klienckiego lokalnymi](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Przesyłanie zadań do klastra toohello na platformie Azure za pomocą narzędzia HPC Pack graficznego interfejsu użytkownika i portalu internetowego HPC hello są hello takie same jak w przypadku systemu Windows węzłów obliczeniowych. Zobacz [Menedżer zadań klastra HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) i [jak toosubmit zadania z komputera klienckiego lokalnymi](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Aby przesłać zadania za pomocą interfejsu API REST, należy zapoznać się [tworzenie i przesyłanie zadań przy użyciu interfejsu API REST w Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Do przesyłania zadań w kliencie systemu Linux, również dotyczyć próbki Python w [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
+zadania toosubmit za pośrednictwem interfejsu API REST, hello odwoływać się za[tworzenie i przesyłanie zadań za pomocą interfejsu API REST w Microsoft HPC Pack hello](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). zadania toosubmit w kliencie systemu Linux można znaleźć próbki Python toohello w hello [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
 
 ## <a name="clusrun-for-linux-nodes"></a>Clusrun dla węzłów systemu Linux
-HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) narzędzie może służyć do wykonywania poleceń w węzłach systemu Linux przy użyciu wiersza polecenia lub Menedżer klastra HPC. Poniżej przedstawiono niektóre podstawowe przykłady.
+Witaj HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) narzędzie może być używane tooexecute poleceń w węzłach systemu Linux przy użyciu wiersza polecenia lub Menedżer klastra HPC. Poniżej przedstawiono niektóre podstawowe przykłady.
 
-* Pokaż bieżącej nazwy użytkownika na wszystkich węzłach w klastrze.
+* Pokaż bieżącej nazwy użytkownika na wszystkich węzłach w klastrze hello.
   
     ```command
     clusrun whoami
     ```
-* Zainstaluj **gdb** narzędzie debugera z **yum** na wszystkich węzłów w linuxnodes grupy, a następnie uruchom ponownie węzeł po 10 minutach.
+* Zainstaluj hello **gdb** narzędzie debugera z **yum** we wszystkich węzłach hello linuxnodes grupy, a następnie ponownie uruchom węzłów powitania po 10 minutach.
   
     ```command
     clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
     ```
-* Utwórz skrypt powłoki wyświetlania każdej liczby od 1 do 10 sekundy jeden w każdym węźle systemu Linux w klastrze, uruchom go i natychmiast wyświetlane dane wyjściowe z węzłów.
+* Utwórz skrypt powłoki wyświetlania każdej liczby od 1 do 10 sekundy jeden w każdym węźle systemu Linux w klastrze hello, uruchom go i natychmiast wyświetlane dane wyjściowe z węzłów hello.
   
     ```command
     clusrun /interleaved /nodegroup:linuxnodes echo \"for i in {1..10}; do echo \\\"\$i\\\"; sleep 1; done\" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 > [!NOTE]
-> Konieczne może być użycia pewnych znaków ucieczki w **clusrun** poleceń. Jak pokazano w tym przykładzie, użyj ^ w wierszu polecenia, aby wprowadzić ">" symbolu.
+> Może być konieczne toouse escape niektórych znaków w **clusrun** poleceń. Jak pokazano w tym przykładzie, użyj ^ w hello tooescape wiersza polecenia ">" symbolu.
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-* Spróbuj skalowaniu większą liczbę węzłów klastra lub działających obciążeń systemu Linux w klastrze. Na przykład zobacz [Uruchom NAMD z pakietem Microsoft HPC w systemie Linux obliczeniowe węzłów na platformie Azure](hpcpack-cluster-namd.md).
-* Spróbuj klaster z [maszyn wirtualnych z funkcją RDMA, obliczeniowych](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uruchamiać obciążenia na MPI. Na przykład zobacz [klastra uruchom OpenFOAM z pakietem Microsoft HPC na RDMA systemu Linux na platformie Azure](hpcpack-cluster-openfoam.md).
-* Jeśli interesuje Cię w pracy z Linux węzłów w klastrze HPC Pack lokalnych, zobacz [wskazówki TechNet](https://technet.microsoft.com/library/mt595803.aspx).
+* Spróbuj skalowaniu hello klastra tooa większą liczbę węzłów lub działających obciążeń systemu Linux na powitania klastra. Na przykład zobacz [Uruchom NAMD z pakietem Microsoft HPC w systemie Linux obliczeniowe węzłów na platformie Azure](hpcpack-cluster-namd.md).
+* Spróbuj klaster z [maszyn wirtualnych z funkcją RDMA, obliczeniowych](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toorun MPI obciążeń. Na przykład zobacz [klastra uruchom OpenFOAM z pakietem Microsoft HPC na RDMA systemu Linux na platformie Azure](hpcpack-cluster-openfoam.md).
+* Jeśli interesuje Cię w pracy z Linux węzłów w klastrze HPC Pack lokalnych, zobacz hello [wskazówki TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->
 [scenario]:media/hpcpack-cluster/scenario.png

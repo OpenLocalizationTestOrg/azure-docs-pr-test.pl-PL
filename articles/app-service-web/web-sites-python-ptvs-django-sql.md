@@ -1,6 +1,6 @@
 ---
-title: "Obsługa platformy Django i bazy danych SQL Database na platformie Azure przy użyciu narzędzi Python Tools 2.2 for Visual Studio"
-description: "Dowiedz się, jak używać narzędzi Python Tools for Visual Studio do tworzenia aplikacji sieci web Django przechowującej dane w wystąpieniu bazy danych SQL i wdróż je do aplikacji sieci Web usługi aplikacji Azure."
+title: "aaaDjango i bazy danych SQL na platformie Azure za pomocą narzędzia Python Tools 2.2 for Visual Studio"
+description: "Dowiedz się jak toouse hello narzędzi Python Tools dla Visual Studio toocreate aplikacji sieci web Django przechowującej dane w wystąpieniu bazy danych SQL i wdróż je tooAzure aplikacji usługi sieci Web aplikacji."
 services: app-service\web
 tags: python
 documentationcenter: python
@@ -15,54 +15,54 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
-ms.openlocfilehash: 65b59dee2b7bddca77d31c692dab713c68d67e24
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b5b2ef4f3292e7df85007465c5394c8660a7d231
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="django-and-sql-database-on-azure-with-python-tools-22-for-visual-studio"></a>Obsługa platformy Django i bazy danych SQL Database na platformie Azure przy użyciu narzędzi Python Tools 2.2 for Visual Studio
-W tym samouczku użyjemy [narzędzi Python Tools for Visual Studio] utworzyć prostą sondy sieci web aplikacji przy użyciu jednego z szablonów próbki PTVS. W tym samouczku jest również dostępny jako [wideo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
+W tym samouczku użyjemy [narzędzi Python Tools for Visual Studio] toocreate prostą sonduje aplikacji sieci web przy użyciu jednej z hello PTVS przykładowe szablony. W tym samouczku jest również dostępny jako [wideo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
-Firma Microsoft dowiesz się, sposobu korzystania z bazy danych SQL hostowanej na platformie Azure, jak skonfigurować aplikację sieci web do używania bazy danych SQL i jak opublikować aplikację sieci web, aby [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+Firma Microsoft dowiesz się, jak toouse bazy danych SQL hostowanej na platformie Azure, jak tooconfigure hello toouse aplikacji sieci web bazy danych SQL i jak toopublish hello aplikacji sieci web za[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Zobacz [Centrum deweloperów języka Python] więcej artykułów o programowaniu aplikacji sieci Web usługi aplikacji Azure z narzędziami PTVS przy użyciu Bottle, Flask i Django oraz sieci web z usługami Azure Table Storage, MySQL i bazy danych SQL. Chociaż ten artykuł dotyczy usługi App Service, opisane kroki są podobne do programowania [usług Azure Cloud Services].
+Zobacz hello [Centrum deweloperów języka Python] więcej artykułów o programowaniu aplikacji sieci Web usługi aplikacji Azure z narzędziami PTVS przy użyciu Bottle, Flask i Django oraz sieci web z usługami Azure Table Storage, MySQL i bazy danych SQL. Gdy ten artykuł dotyczy usługi App Service, hello kroki są podobne do programowania [usługi w chmurze Azure].
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Visual Studio 2015
 * [32-bitowe środowisko Python w wersji 2.7]
 * [Python Tools 2.2 for Visual Studio]
-* [Zestaw przykładów VSIX dla narzędzi Python Tools 2.2 for Visual Studio]
+* [Python Tools 2.2 for Visual Studio przykładów VSIX]
 * [Azure SDK Tools for VS 2015]
 * Django 1.9 lub nowsze
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Tooget wprowadzenie do usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź zbyt[Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), gdzie możesz od razu utworzyć krótkotrwałą, początkową aplikację sieci web w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 >
 >
 
-## <a name="create-the-project"></a>Tworzenie projektu
-W tej sekcji utworzymy projektu programu Visual Studio przy użyciu przykładowego szablonu. Firma Microsoft będzie utworzyć środowisko wirtualne i zainstalujesz wymagane pakiety. Utworzymy lokalnej bazy danych przy użyciu systemu sqlite. Następnie aplikacja sieci web zostanie uruchomiony lokalnie.
+## <a name="create-hello-project"></a>Utwórz hello projektu
+W tej sekcji utworzymy projektu programu Visual Studio przy użyciu przykładowego szablonu. Firma Microsoft będzie utworzyć środowisko wirtualne i zainstalujesz wymagane pakiety. Utworzymy lokalnej bazy danych przy użyciu systemu sqlite. Następnie hello aplikacji sieci web zostanie uruchomiony lokalnie.
 
 1. W programie Visual Studio wybierz pozycje **Plik**, **Nowy projekt**.
-2. Szablony projektu z [Zestaw przykładów VSIX dla narzędzi Python Tools 2.2 for Visual Studio] są dostępne w menu **Python**, **Przykłady**. Wybierz pozycję **Polls Django Web Project** (Projekt sieci Web Django z ankietą) i kliknij przycisk OK, aby utworzyć projekt.
+2. Szablony projektu z hello Hello [Python Tools 2.2 for Visual Studio przykładów VSIX] są dostępne w ramach **Python**, **przykłady**. Wybierz **projektu sieci Web Django sond** i kliknij przycisk OK toocreate hello projektu.
 
      ![Okno dialogowe Nowy projekt](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
-3. Zostanie wyświetlony monit o zainstalowanie pakietów zewnętrznych. Wybierz pozycję **Zainstaluj w środowisku wirtualnym**.
+3. Pakiety zewnętrzne zostanie wyświetlony monit o tooinstall będzie. Wybierz pozycję **Zainstaluj w środowisku wirtualnym**.
 
      ![Okno dialogowe Pakiety zewnętrzne](./media/web-sites-python-ptvs-django-sql/PollsDjangoExternalPackages.png)
-4. Wybierz jako podstawowy interpreter **Python 2.7**.
+4. Wybierz **Python 2.7** jako podstawowy interpreter hello.
 
      ![Okno dialogowe Dodawanie środowiska wirtualnego](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
-5. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz pozycję **Python**, a następnie wybierz pozycję **Migracja platformy Django**.  Następnie wybierz pozycję **Django — tworzenie administratora**.
-6. Spowoduje to otwarcie konsoli zarządzania Django i utworzenie bazy danych SQLite w folderze projektu. Postępuj zgodnie z monitami, aby utworzyć użytkownika.
-7. Upewnij się, że aplikacja działa, naciskając <kbd>F5</kbd>.
-8. Kliknij pozycję **Zaloguj** na górnym pasku nawigacyjnym.
+5. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy węzeł projektu hello i wybierz **Python**, a następnie wybierz **migracji Django**.  Następnie wybierz pozycję **Django — tworzenie administratora**.
+6. Spowoduje to otwarcie konsoli zarządzania Django i utworzenie bazy danych sqlite w folderze projektu hello. Wykonaj hello toocreate monity użytkownika.
+7. Upewnij się, że aplikacja hello działa, naciskając <kbd>F5</kbd>.
+8. Kliknij przycisk **Zaloguj** z paska nawigacji hello u góry hello.
 
      ![Przeglądarka internetowa](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalMenu.png)
-9. Wprowadź poświadczenia użytkownika, który został utworzony podczas synchronizowania bazy danych.
+9. Wprowadź poświadczenia hello hello użytkownika, który został utworzony podczas synchronizowania bazy danych hello.
 
      ![Przeglądarka internetowa](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalLogin.png)
 10. Kliknij pozycję **Utwórz przykładową ankietę**.
@@ -73,29 +73,29 @@ W tej sekcji utworzymy projektu programu Visual Studio przy użyciu przykładowe
       ![Przeglądarka internetowa](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqliteBrowser.png)
 
 ## <a name="create-a-sql-database"></a>Tworzenie bazy danych SQL
-Dla bazy danych utworzymy bazy danych Azure SQL.
+W przypadku bazy danych hello utworzymy bazy danych Azure SQL.
 
 Można utworzyć bazy danych, wykonaj następujące czynności.
 
-1. Zaloguj się do [portalu Azure].
-2. W dolnej części okienka nawigacji kliknij **nowy**. , kliknij przycisk **dane i magazyn** > **bazy danych SQL**.
-3. Skonfiguruj nową bazę danych SQL, tworząc nową grupę zasobów, a następnie wybierz dla niej odpowiednią lokalizację.
-4. Po utworzeniu bazy danych SQL, kliknij przycisk **Otwórz w programie Visual Studio** w bloku bazy danych.
+1. Zaloguj się do hello [Azure Portal].
+2. U dołu okienka nawigacji hello hello, kliknij przycisk **nowy**. , kliknij przycisk **dane i magazyn** > **bazy danych SQL**.
+3. Skonfiguruj hello nowej bazy danych SQL, tworząc nową grupę zasobów i wybierz Witaj dla niej odpowiednią lokalizację.
+4. Po utworzeniu hello bazy danych SQL, kliknij przycisk **Otwórz w programie Visual Studio** w hello bloku bazy danych.
 5. Kliknij przycisk **skonfigurowanie zapory**.
-6. W **ustawienia zapory** bloku, Dodaj regułę zapory z **START IP** i **KOŃCOWEMU adresowi IP** ustawiona na komputerze deweloperskim publiczny adres IP. Kliknij pozycję **Zapisz**.
+6. W hello **ustawienia zapory** bloku, Dodaj regułę zapory z **START IP** i **KOŃCOWEMU adresowi IP** ustawić toohello publicznego adresu IP komputerze deweloperskim. Kliknij pozycję **Zapisz**.
 
-   Pozwoli to połączenia z serwerem bazy danych w komputerze deweloperskim.
-7. W bloku bazy danych, kliknij **właściwości**, następnie kliknij przycisk **Pokaż parametry połączenia bazy danych**.
-8. Użyj przycisku kopiowania, aby umieścić wartość elementu **ADO.NET** w Schowku.
+   Dzięki temu serwer bazy danych toohello połączeń z komputerze deweloperskim.
+7. W bloku bazy danych powitania kliknij **właściwości**, następnie kliknij przycisk **Pokaż parametry połączenia bazy danych**.
+8. Witaj kopiowania przycisk tooput hello wartości **ADO.NET** hello w Schowku.
 
-## <a name="configure-the-project"></a>Konfigurowanie projektu
-W tej sekcji skonfigurujemy swoją aplikację sieci web do używania bazy danych SQL, które właśnie utworzyliśmy. Firma Microsoft będzie także zainstalować dodatkowe pakiety Python niezbędne do używania bazy danych SQL przy użyciu platformy Django. Następnie aplikacja sieci web zostanie uruchomiony lokalnie.
+## <a name="configure-hello-project"></a>Skonfiguruj hello projektu
+W tej sekcji skonfigurujemy naszych sieci web aplikacji toouse hello bazy danych SQL, którą właśnie utworzyliśmy. Firma Microsoft będzie także zainstalować dodatkowe baz toouse wymagane pakiety języka Python przy użyciu platformy Django. Następnie hello aplikacji sieci web zostanie uruchomiony lokalnie.
 
-1. W programie Visual Studio otwórz plik **settings.py** z folderu *NazwaProjektu*. Wklej tymczasowo parametry połączenia w edytorze. Parametry połączenia mają następujący format:
+1. W programie Visual Studio Otwórz **settings.py**, z hello *ProjectName* folderu. Wklej tymczasowo parametry połączenia hello w edytorze hello. Witaj parametry połączenia mają następujący format:
 
        Server=<ServerName>,<ServerPort>;Database=<DatabaseName>;User ID=<UserName>;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-Edytowanie definicji `DATABASES` powyżej wartości.
+Edytowanie definicji hello `DATABASES` wartości hello toouse powyżej.
 
         DATABASES = {
             'default': {
@@ -112,42 +112,42 @@ Edytowanie definicji `DATABASES` powyżej wartości.
             }
         }
 
-1. W Eksploratorze rozwiązań w obszarze **Środowiska Python** kliknij prawym przyciskiem myszy środowisko wirtualne i wybierz polecenie **Zainstaluj pakiet języka Python**.
-2. Zainstaluj pakiet `pyodbc`, korzystając z polecenia **pip**.
+1. W Eksploratorze rozwiązań w obszarze **środowiska Python**, kliknij prawym przyciskiem myszy na powitania środowisko wirtualne i wybierz **zainstaluj pakiet języka Python**.
+2. Zainstaluj pakiet hello `pyodbc` przy użyciu **pip**.
 
      ![Zainstaluj pakiet języka Python w oknie dialogowym](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
-3. Zainstaluj pakiet `django-pyodbc-azure`, korzystając z polecenia **pip**.
+3. Zainstaluj pakiet hello `django-pyodbc-azure` przy użyciu **pip**.
 
      ![Zainstaluj pakiet języka Python w oknie dialogowym](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
-4. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz pozycję **Python**, a następnie wybierz pozycję **Migracja platformy Django**.  Następnie wybierz pozycję **Django — tworzenie administratora**.
+4. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy węzeł projektu hello i wybierz **Python**, a następnie wybierz **migracji Django**.  Następnie wybierz pozycję **Django — tworzenie administratora**.
 
-   Spowoduje to utworzenie tabel dla bazy danych SQL, utworzony w poprzedniej sekcji. Postępuj zgodnie z monitami, aby utworzyć użytkownika, nie musi odpowiadać nazwie użytkownika w bazie danych sqlite utworzone w pierwszej sekcji.
-5. Uruchom aplikację klawiszem `F5`. Ankieta utworzona za pomocą **tworzenie przykładowej ankiety** oraz dane przesłane podczas głosowania zostaną zserializowane w bazie danych SQL.
+   Spowoduje to utworzenie tabel hello hello bazy danych SQL utworzony w poprzedniej sekcji hello. Wykonaj hello toocreate monity użytkownika, który nie ma toomatch hello użytkownika w bazie danych sqlite hello utworzone w pierwszej sekcji hello.
+5. Uruchamianie aplikacji hello z `F5`. Ankieta utworzona za pomocą **tworzenie przykładowej ankiety** i hello dane przesłane podczas głosowania zostaną zserializowane w bazie danych SQL hello.
 
-## <a name="publish-the-web-app-to-azure-app-service"></a>Publikowanie aplikacji sieci Web w usłudze Azure App Service
-Zestaw .NET SDK usługi Azure zapewnia łatwy sposób wdrażania aplikacji sieci web w sieci web do aplikacji sieci Web usługi aplikacji Azure.
+## <a name="publish-hello-web-app-tooazure-app-service"></a>Publikowanie tooAzure aplikacji sieci web hello usługi aplikacji
+Hello zestawu .NET SDK usługi Azure zapewnia łatwy sposób toodeploy Twojej aplikacji usługi sieci Web aplikacji tooAzure aplikacji sieci web w sieci web.
 
-1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Opublikuj**.
+1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy węzeł projektu hello i wybierz **publikowania**.
 
      ![Okno dialogowe Publikowanie w sieci Web](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png)
 2. Kliknij pozycję **Microsoft Azure Web Apps**.
-3. Kliknij pozycję **Nowa**, aby utworzyć nową aplikację sieci Web.
-4. Wypełnij następujące pola i kliknij przycisk **Utwórz**.
+3. Polecenie **nowy** toocreate nowej aplikacji sieci web.
+4. Wypełnij następujące pola hello i kliknij przycisk **Utwórz**.
 
    * **Nazwa aplikacji sieci Web**
    * **Plan usługi App Service**
    * **Grupa zasobów**
    * **Region**
-   * W polu **Serwer bazy danych** pozostaw wartość **Brak bazy danych**
+   * Pozostaw **serwera bazy danych** ustawić także**bazy danych**
 5. Zaakceptuj wszystkie inne ustawienia domyślne i kliknij przycisk **Opublikuj**.
-6. Opublikowana aplikacja sieci Web zostanie automatycznie otwarta w przeglądarce internetowej. Powinna zostać wyświetlona aplikacja sieci web działa zgodnie z oczekiwaniami, za pomocą **SQL** bazy danych hostowanej na platformie Azure.
+6. Przeglądarki sieci web zostanie otwarty toohello opublikowana aplikacja sieci web. Powinny pojawić się pracy aplikacji sieci web hello zgodnie z oczekiwaniami, za pomocą hello **SQL** bazy danych hostowanej na platformie Azure.
 
    Gratulacje!
 
      ![Przeglądarka internetowa](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Skorzystaj z poniższych linków, aby dowiedzieć się więcej informacji na temat narzędzi Python Tools dla programu Visual Studio, Django i bazy danych SQL.
+Wykonaj te toolearn łącza więcej informacji na temat narzędzi Python Tools for Visual Studio, Django i bazy danych SQL.
 
 * [Dokumentacja narzędzi Python Tools for Visual Studio]
   * [Projekty sieci Web]
@@ -157,17 +157,17 @@ Skorzystaj z poniższych linków, aby dowiedzieć się więcej informacji na tem
 * [SQL Database]
 
 ## <a name="whats-changed"></a>Co zostało zmienione
-* Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
+* Toohello przewodnik zmiany z tooApp witryn sieci Web usługi dla: [usłudze Azure App Service i jej wpływ na istniejące usługi platformy Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!--Link references-->
 [Centrum deweloperów języka Python]: /develop/python/
-[usług Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
+[usługi w chmurze Azure]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[portalu Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [narzędzi Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Zestaw przykładów VSIX dla narzędzi Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Python Tools 2.2 for Visual Studio przykładów VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [32-bitowe środowisko Python w wersji 2.7]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Dokumentacja narzędzi Python Tools for Visual Studio]: http://aka.ms/ptvsdocs

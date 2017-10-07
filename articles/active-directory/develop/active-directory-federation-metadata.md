@@ -1,6 +1,6 @@
 ---
-title: "Metadanych Federacji usługi Azure AD | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano dokument metadanych Federacji, który publikuje usługi Azure Active Directory dla usług, które akceptują tokeny usługi Azure Active Directory."
+title: aaaAzure AD metadanych Federacji | Dokumentacja firmy Microsoft
+description: "W tym artykule opisano dokument metadanych usług federacyjnych hello publikującej usługi Azure Active Directory dla usług, które akceptują tokeny usługi Azure Active Directory."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,41 +15,41 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ecafb02a6ac13d1c3cd1fe77ef710cd8525e32b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 23535bcd5eeb3e9b2e17d89a9b0420fc98bd3895
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="federation-metadata"></a>Metadane federacji
-Azure Active Directory (Azure AD) publikuje dokument metadanych usług federacyjnych usługi skonfigurowanego do akceptowania na usługa Azure AD wystawia tokeny zabezpieczające. Format dokumentu metadanych federacji jest opisany w [Web Services Federation Language (WS-Federation) w wersji 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), która rozszerza [metadane języka OASIS Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+Azure Active Directory (Azure AD) publikuje dokument metadanych Federacji dla usług, które są skonfigurowane tokeny zabezpieczające hello tooaccept problemy z usługą Azure AD. Witaj format dokumentu metadanych federacji jest opisana w hello [Web Services Federation Language (WS-Federation) w wersji 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), która rozszerza [metadanych dla hello języka OASIS Security Assertion Markup Language (SAML) w wersji 2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
 ## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Punkty końcowe metadanych niezależny od dzierżawcy i specyficzne dla dzierżawy
 Usługi Azure AD publikuje punktów końcowych specyficznego dla dzierżawy i niezależny od dzierżawcy.
 
-Punkty końcowe specyficznego dla dzierżawy są przeznaczone dla konkretnego dzierżawy. Metadane Federacji specyficznego dla dzierżawy zawierają informacje o dzierżawie, w tym informacje specyficzne dla dzierżawy wystawcy i punktu końcowego. Aplikacje, które ograniczają dostęp do pojedynczej dzierżawy korzystanie z punktów końcowych specyficznego dla dzierżawy.
+Punkty końcowe specyficznego dla dzierżawy są przeznaczone dla konkretnego dzierżawy. metadane Federacji specyficznego dla dzierżawy Hello zawiera informacje na temat dzierżawy hello, w tym wystawcy specyficznego dla dzierżawy i informacje o punkcie końcowym. Aplikacje, które ograniczają dostęp tooa pojedynczej dzierżawy korzystanie z punktów końcowych specyficznego dla dzierżawy.
 
-Punkty końcowe niezależny od dzierżawcy Podaj informacje, które są wspólne dla dzierżaw wszystkie usługi Azure AD. Te informacje dotyczą hostowanej w lokalizacji dzierżawcy *login.microsoftonline.com* i jest współużytkowana przez dzierżawców. Niezależny od dzierżawcy punkty końcowe są zalecane dla wielodostępnych aplikacji, ponieważ nie są one powiązane z konkretnym dzierżawami.
+Punkty końcowe niezależny od dzierżawcy Podaj informacje, które są typowe dzierżaw usługi Azure AD tooall. Te informacje dotyczą tootenants hostowanej w lokalizacji *login.microsoftonline.com* i jest współużytkowana przez dzierżawców. Niezależny od dzierżawcy punkty końcowe są zalecane dla wielodostępnych aplikacji, ponieważ nie są one powiązane z konkretnym dzierżawami.
 
 ## <a name="federation-metadata-endpoints"></a>Punkty końcowe metadanych Federacji
 Usługi Azure AD publikuje metadanych federacji w `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
 
-Aby uzyskać **punkty końcowe specyficznego dla dzierżawy**, `TenantDomainName` może być jedną z następujących typów:
+Dla **punkty końcowe specyficznego dla dzierżawy**, hello `TenantDomainName` może być jedną z hello następujące typy:
 
 * Dzierżawy zarejestrowaną nazwę domeny usługi Azure AD, takich jak: `contoso.onmicrosoft.com`.
-* Niezmienne dzierżawy identyfikator domeny, takie jak `72f988bf-86f1-41af-91ab-2d7cd011db45`.
+* niezmienne Hello dzierżawy identyfikator hello domeny, takich jak `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
-Aby uzyskać **punkty końcowe niezależny od dzierżawcy**, `TenantDomainName` jest `common`. Ten dokument zawiera listę elementów metadanych Federacji, które są wspólne dla wszystkich dzierżaw usługi Azure AD, które są hostowane na login.microsoftonline.com.
+Aby uzyskać **punkty końcowe niezależny od dzierżawcy**, hello `TenantDomainName` jest `common`. Ten dokument zawiera tylko elementy metadanych Federacji hello, które są typowe tooall dzierżaw usługi Azure AD, które są hostowane na login.microsoftonline.com.
 
-Na przykład może być punkt końcowy specyficznego dla dzierżawy `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Punkt końcowy niezależny od dzierżawcy jest [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Dokument metadanych usług federacyjnych można wyświetlić, wpisując adres URL w przeglądarce.
+Na przykład może być punkt końcowy specyficznego dla dzierżawy `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. punkt końcowy niezależny od dzierżawcy Hello jest [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Dokument metadanych usług federacyjnych hello można wyświetlić, wpisując adres URL w przeglądarce.
 
 ## <a name="contents-of-federation-metadata"></a>Zawartość metadanych Federacji
-W poniższej sekcji przedstawiono informacje wymagane przez usługi, które korzystają z tokenów wystawiony przez usługę Azure AD.
+Hello Poniższa sekcja zawiera informacje potrzebne usługi, które korzystają z tokenów hello wystawionych przez usługę Azure AD.
 
 ### <a name="entity-id"></a>Identyfikator jednostki
-`EntityDescriptor` Zawiera element `EntityID` atrybutu. Wartość `EntityID` atrybut reprezentuje wystawcy, oznacza to, że usługa tokenu zabezpieczającego (STS) która wystawiła token. Należy zweryfikować wystawca po odebraniu tokenu.
+Witaj `EntityDescriptor` zawiera element `EntityID` atrybutu. Witaj wartość hello `EntityID` Witaj wystawca reprezentuje atrybut, oznacza to, że zabezpieczeń hello token usługi (STS) hello wystawionego tokenu. Po odebraniu tokenu jest ważne toovalidate hello wystawcy.
 
-Następujące metadane Pokazuje przykładowy specyficznego dla dzierżawy `EntityDescriptor` element z `EntityID` elementu.
+Witaj następujące metadane Pokazuje przykładowy specyficznego dla dzierżawy `EntityDescriptor` element z `EntityID` elementu.
 
 ```
 <EntityDescriptor
@@ -57,9 +57,9 @@ xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
 ID="_b827a749-cfcb-46b3-ab8b-9f6d14a1294b"
 entityID="https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db45/">
 ```
-Identyfikator dzierżawcy w punkcie końcowym niezależne od dzierżawcy można zastąpić swój identyfikator dzierżawy, aby utworzyć konkretny dzierżawy `EntityID` wartość. Wartość wynikową będzie taka sama jak wystawcy tokenów. Strategia umożliwia aplikacji wielodostępnych do sprawdzania poprawności wystawcy dla danej dzierżawy.
+Można zastąpić hello identyfikator dzierżawcy w punkcie końcowym niezależne od dzierżawcy hello toocreate ID Twojej dzierżawy specyficznego dla dzierżawy `EntityID` wartość. wartość wynikową Hello będzie można hello tak samo jak Witaj wystawca tokenów. Strategia Hello umożliwia wystawcy hello toovalidate wielodostępnych aplikacji dla danej dzierżawy.
 
-Następujące metadane Pokazuje przykładowy niezależny od dzierżawcy `EntityID` elementu. Należy pamiętać, że `{tenant}` jest literałem nie symbol zastępczy.
+Witaj następujące metadane Pokazuje przykładowy niezależny od dzierżawcy `EntityID` elementu. Należy pamiętać, że hello `{tenant}` jest literałem nie symbol zastępczy.
 
 ```
 <EntityDescriptor
@@ -69,11 +69,11 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>Certyfikaty podpisywania tokenu
-Gdy usługa odbiera token wystawiony przez dzierżawę usługi Azure AD, podpisu tokenu musi zostać zweryfikowany przy użyciu klucza podpisywania, publikowana w dokumencie metadanych federacji. Metadane Federacji zawierają publicznej części o certyfikatach używanych przez dzierżawców do podpisywania tokenu. Bajty pierwotne certyfikatu są wyświetlane w `KeyDescriptor` elementu. Certyfikat podpisywania tokenu jest nieprawidłowy na potrzeby podpisywania tylko wtedy, gdy wartość `use` atrybutu `signing`.
+Gdy usługa odbiera token wystawiony przez dzierżawę usługi Azure AD, hello podpisu tokenu hello musi zostać zweryfikowany przy użyciu klucza podpisywania, publikowana w hello dokument metadanych usług federacyjnych. metadane Federacji Hello zawierają hello części publicznej hello certyfikatom dzierżaw hello używane do podpisywania tokenu. Bajty pierwotne certyfikatu Hello są wyświetlane w hello `KeyDescriptor` elementu. certyfikat podpisywania tokenu Hello jest prawidłowy dla podczas podpisywania tylko hello wartość hello `use` atrybutu `signing`.
 
-Dokument metadanych Federacji, publikowane przez usługę Azure AD może mieć wielu kluczy podpisywania, np. gdy przygotowuje usługi Azure AD można zaktualizować certyfikat podpisywania. Gdy dokument metadanych usług federacyjnych zawiera więcej niż jeden certyfikat, to usługa, która jest sprawdzanie poprawności tokenów powinien obsługiwać wszystkie certyfikaty w dokumencie.
+Dokument metadanych Federacji, publikowane przez usługę Azure AD może mieć wielu kluczy podpisywania, np. Jeśli usługi Azure AD przygotowuje hello tooupdate certyfikat podpisywania. Gdy dokument metadanych usług federacyjnych zawiera więcej niż jeden certyfikat, to usługa, która jest sprawdzanie poprawności tokenów hello powinien obsługiwać wszystkie certyfikaty w dokumencie hello.
 
-Następujące metadane Pokazuje przykładowy `KeyDescriptor` elementu przy użyciu klucza podpisywania.
+Witaj następujące metadane Pokazuje przykładowy `KeyDescriptor` elementu przy użyciu klucza podpisywania.
 
 ```
 <KeyDescriptor use="signing">
@@ -87,29 +87,29 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 </KeyDescriptor>
   ```
 
-`KeyDescriptor` Element jest wyświetlany w dwóch miejscach w dokumencie metadanych federacji; w sekcji WS federacyjnego określonego i sekcja specyficzne dla języka SAML. Certyfikaty opublikowane w obydwie sekcje będzie taka sama.
+Witaj `KeyDescriptor` element jest wyświetlany w dwóch miejscach w dokument metadanych usług federacyjnych hello; w hello WS federacyjnego określonego i hello SAML określonej sekcji. Certyfikaty Hello opublikowane w obydwie sekcje będzie hello w tej samej.
 
-W sekcji WS federacyjnego określonego czytnika metadanych WS-Federation czytać certyfikatów z `RoleDescriptor` element z `SecurityTokenServiceType` typu.
+W sekcji hello WS federacyjnego określonego czytnika metadanych WS-Federation czytać hello certyfikatów z `RoleDescriptor` element z hello `SecurityTokenServiceType` typu.
 
-Następujące metadane Pokazuje przykładowy `RoleDescriptor` elementu.
+Witaj następujące metadane Pokazuje przykładowy `RoleDescriptor` elementu.
 
 ```
 <RoleDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-W sekcji specyficzne dla języka SAML czytnika metadanych WS-Federation czytać certyfikatów z `IDPSSODescriptor` elementu.
+W sekcji hello specyficzne dla języka SAML czytnika metadanych WS-Federation czytać hello certyfikatów z `IDPSSODescriptor` elementu.
 
-Następujące metadane Pokazuje przykładowy `IDPSSODescriptor` elementu.
+Witaj następujące metadane Pokazuje przykładowy `IDPSSODescriptor` elementu.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
-Nie ma żadnych różnic w formacie certyfikaty specyficznego dla dzierżawy i niezależny od dzierżawcy.
+Nie ma żadnych różnic w formacie hello certyfikatów specyficznego dla dzierżawy i niezależny od dzierżawcy.
 
 ### <a name="ws-federation-endpoint-url"></a>Adres URL punktu końcowego usługi WS-Federation
-Metadane Federacji zawierają adres URL, który jest używa usługi Azure AD dla jednego logowania i jednym wylogowania w protokole WS-Federation. Ten punkt końcowy jest wyświetlany w `PassiveRequestorEndpoint` elementu.
+metadane Federacji Hello zawierają hello używanych dla jednego logowania i wylogowania w protokole WS-Federation pojedynczego adresu URL usługi Azure AD. Ten punkt końcowy jest wyświetlany w hello `PassiveRequestorEndpoint` elementu.
 
-Następujące metadane Pokazuje przykładowy `PassiveRequestorEndpoint` elementu dla punktu końcowego specyficznego dla dzierżawy.
+Witaj następujące metadane Pokazuje przykładowy `PassiveRequestorEndpoint` elementu dla punktu końcowego specyficznego dla dzierżawy.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -120,7 +120,7 @@ https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-Dla punktu końcowego niezależny od dzierżawcy adres URL protokołu WS-Federation pojawia się w punktu końcowego usługi WS-Federation, jak pokazano w poniższym przykładzie.
+Dla punktu końcowego niezależny od dzierżawcy hello hello adresu URL protokołu WS-Federation pojawi się w punkcie końcowym hello WS-Federation, pokazane na powitania następujące przykładowe.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -133,11 +133,11 @@ https://login.microsoftonline.com/common/wsfed
 ```
 
 ### <a name="saml-protocol-endpoint-url"></a>Adres URL punktu końcowego protokołu SAML
-Metadane Federacji zawierają adres URL, który używa usługi Azure AD dla jednego logowania i jednym wylogowania w protokole SAML 2.0. Te punkty końcowe są wyświetlane w `IDPSSODescriptor` elementu.
+metadane Federacji Hello zawierają hello adres URL, który używa usługi Azure AD dla jednego logowania i jednym wylogowania w protokole SAML 2.0. Te punkty końcowe są wyświetlane w hello `IDPSSODescriptor` elementu.
 
-Adresy URL logowania i wylogowywania są wyświetlane w `SingleSignOnService` i `SingleLogoutService` elementy.
+Witaj logowania i wylogowywania adresy URL są wyświetlane w hello `SingleSignOnService` i `SingleLogoutService` elementy.
 
-Następujące metadane Pokazuje przykładowy `PassiveResistorEndpoint` dla punktu końcowego specyficznego dla dzierżawy.
+Witaj następujące metadane Pokazuje przykładowy `PassiveResistorEndpoint` dla punktu końcowego specyficznego dla dzierżawy.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -147,7 +147,7 @@ Następujące metadane Pokazuje przykładowy `PassiveResistorEndpoint` dla punkt
   </IDPSSODescriptor>
 ```
 
-Podobnie punktów końcowych dla typowych punktów końcowych protokołu SAML 2.0, które są publikowane w metadanych Federacji niezależny od dzierżawcy, jak pokazano w poniższym przykładzie.
+Podobnie hello punktów końcowych punkty końcowe hello wspólnej SAML 2.0 protokołu są publikowane w metadanych Federacji niezależny od dzierżawcy hello, jak pokazano w hello następujące przykładowe.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

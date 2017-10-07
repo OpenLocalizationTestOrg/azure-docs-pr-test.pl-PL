@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z miejsca pracy przez Facebook | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i miejsca pracy przez usługi Facebook."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i miejsca pracy przez usługi Facebook."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,87 +13,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 9b22679c304248ed7ba7a6bd9eaf82b64f7143cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 551ec353a5ec1da936373587688c299a6f4acca7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez usługi Facebook na potrzeby Inicjowanie obsługi użytkowników
 
-Celem tego samouczka jest opisano czynności, które należy wykonać w miejscu pracy przez Facebook i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD do miejsca pracy przez usługi Facebook.
+Celem Hello tego samouczka jest tooshow hello czynności, które należy tooperform w miejscu pracy przez Facebook i Azure AD tooautomatically udostępniania i usuwanie kont użytkowników z usługi Azure AD tooWorkplace przez usługi Facebook.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z miejsca pracy przez usługi Facebook, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z miejsca pracy przez usługi Facebook, należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Pracy przez Facebook jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="assigning-users-to-workplace-by-facebook"></a>Przypisywanie użytkowników do miejsca pracy przez usługi Facebook
+## <a name="assigning-users-tooworkplace-by-facebook"></a>Przypisywanie użytkowników tooWorkplace przez usługi Facebook
 
-Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD jest zsynchronizowany.
+Azure Active Directory korzysta z koncepcji o nazwie "przypisania" toodetermine użytkowników, którzy mają otrzymywać aplikacje tooselected dostępu. W kontekście hello Inicjowanie obsługi konta użytkowników tylko hello użytkowników i grup, które zostały "przypisane" tooan aplikacji w usłudze Azure AD jest zsynchronizowany.
 
-Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy zdecydować, jakie użytkownicy i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do miejsca pracy przez aplikację usługi Facebook. Po decyzję, można przypisać użytkowników do miejsca pracy przez aplikację usługi Facebook postępując zgodnie z instrukcjami w tym miejscu:
+Przed Skonfiguruj i Włącz hello usługi inicjowania obsługi administracyjnej, należy toodecide jakie użytkowników i/lub grup w usłudze Azure AD reprezentują hello użytkowników, którzy wymagają dostępu tooyour miejsca pracy przez aplikację usługi Facebook. Po decyzję, można przypisać tych użytkowników tooyour miejsca pracy przez aplikację usługi Facebook, wykonując instrukcje hello tutaj:
 
-[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Przypisywanie użytkownikowi lub grupie aplikacji przedsiębiorstwa tooan](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-workplace-by-facebook"></a>Ważne porady dotyczące przypisywania użytkowników do miejsca pracy przez usługi Facebook
+### <a name="important-tips-for-assigning-users-tooworkplace-by-facebook"></a>Ważne porady dotyczące przypisywania tooWorkplace użytkowników przez usługi Facebook
 
-*   Zalecane jest jeden użytkownik usługi Azure AD jest przypisany do miejsca pracy przez Facebook do testowania konfiguracji inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest pojedynczego użytkownika usługi Azure AD jest przypisywany tooWorkplace przez hello tootest Facebook inicjowania obsługi konfiguracji. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-*   Przypisanie użytkownika do miejsca pracy przez usługi Facebook, musisz wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" nie działa w przypadku inicjowania obsługi administracyjnej.
+*   Podczas przypisywania tooWorkplace użytkownika przez usługi Facebook, musisz wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" Hello nie działa w przypadku inicjowania obsługi administracyjnej.
 
 ## <a name="enable-user-provisioning"></a>Włącz inicjowanie obsługi użytkowników
 
-Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD do miejsca pracy przez konto użytkownika usługi Facebook na inicjowanie obsługi interfejsu API i konfigurowanie inicjowania obsługi usługi do tworzenia, aktualizacji i wyłączania konta użytkowników przypisane w pracy przez usługi Facebook na podstawie przypisań użytkowników i grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez łączenie z tooWorkplace usługi Azure AD przez konto użytkownika usługi Facebook na inicjowanie obsługi interfejsu API i konfigurowanie hello inicjowania obsługi usługi toocreate, zaktualizować, a następnie wyłącz konta użytkowników przypisane w pracy przez usługi Facebook na podstawie użytkownika i grupy przypisania w usłudze Azure AD.
 
 >[!Tip]
->Można też włączyć na języku SAML logowania jednokrotnego dla miejsca pracy przez usługi Facebook, wykonując instrukcje podane w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
+>Można też tooenabled na języku SAML logowania jednokrotnego dla miejsca pracy przez Facebook, po hello instrukcje podane w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
 
-### <a name="to-configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Aby skonfigurować użytkownika Inicjowanie obsługi konta w serwisie Facebook w miejscu pracy w usłudze Azure AD:
+### <a name="tooconfigure-user-account-provisioning-tooworkplace-by-facebook-in-azure-ad"></a>konto użytkownika tooconfigure udostępniania tooWorkplace w serwisie Facebook w usłudze Azure AD:
 
-Celem tej sekcji jest przedstawiają sposób włączania obsługi kont użytkowników usługi Active Directory do miejsca pracy przez usługi Facebook.
+Celem Hello w tej sekcji jest toooutline jak tooenable użytkownika usługi Active Directory Inicjowanie obsługi administracyjnej kont tooWorkplace przez usługi Facebook.
 
-Usługi Azure AD umożliwia automatyczną synchronizację szczegóły konta użytkowników przypisane do miejsca pracy przez usługi Facebook. To automatyczną synchronizację umożliwia dołączanie przez Facebook, aby pobrać dane, należy go autoryzacji użytkowników dostępu przed ich próbował zarejestrować się po raz pierwszy. Również cofnąć udostępnia użytkowników z miejsca pracy przez usługi Facebook, gdy został odwołany dostępu w usłudze Azure AD.
+Azure obsługuje AD tooautomatically możliwości hello zsynchronizować hello szczegóły konta przypisane tooWorkplace użytkowników przez usługi Facebook. To automatyczną synchronizację umożliwia dołączanie przez dane hello tooget Facebook tooauthorize użytkowników, aby uzyskać dostęp, wymaga przed ich próby toosign w przypadku powitania po raz pierwszy. Również cofnąć udostępnia użytkowników z miejsca pracy przez usługi Facebook, gdy został odwołany dostępu w usłudze Azure AD.
 
-1. W [portalu Azure](https://portal.azure.com), przejdź do **usługi Azure Active Directory** > **aplikacje przedsiębiorstwa** > **wszystkie aplikacje** sekcji.
+1. W hello [portalu Azure](https://portal.azure.com), Przeglądaj toohello **usługi Azure Active Directory** > **aplikacje przedsiębiorstwa** > **wszystkie aplikacje** sekcji.
 
-2. Obszar roboczy w serwisie Facebook został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpienia miejsca pracy przez usługi Facebook, korzystając z pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **miejsca pracy przez Facebook** w galerii aplikacji. Wybierz obszar roboczy w serwisie Facebook w wynikach wyszukiwania, a następnie dodaj go do listy aplikacji.
+2. Jeśli skonfigurowano już miejsca pracy przez Facebook dla logowania jednokrotnego, wyszukiwania dla swojego wystąpienia w miejscu pracy przez usługi Facebook za pomocą pola wyszukiwania hello. W przeciwnym razie wybierz **Dodaj** i wyszukaj **miejsca pracy przez Facebook** w galerii aplikacji hello. Wybierz obszar roboczy w serwisie Facebook z wyników wyszukiwania hello i dodać go tooyour listę aplikacji.
 
-3. Wybierz wystąpienia programu miejsca pracy przez usługi Facebook, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
+3. Wybierz wystąpienia programu miejsca pracy przez usługi Facebook, a następnie wybierz hello **inicjowania obsługi administracyjnej** kartę.
 
-4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**. 
+4. Zestaw hello **inicjowania obsługi trybu** za**automatyczne**. 
 
     ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. W obszarze **poświadczeń administratora** wprowadź klucz tajny tokenu i adres URL dzierżawy z miejsca pracy przez administratora usługi Facebook.
+5. W obszarze hello **poświadczeń administratora** sekcji i wprowadź klucz tajny tokenu hello hello adres URL dzierżawy z miejsca pracy przez administratora usługi Facebook.
 
-6. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z miejsca pracy przez aplikację usługi Facebook. Jeśli połączenie nie powiedzie się, upewnij się, że miejsca pracy przez Facebook konto ma uprawnienia administratora zespołu.
+6. W portalu Azure hello, kliknij przycisk **Testuj połączenie** tooensure usługi Azure AD mogą się łączyć tooyour miejsca pracy przez aplikację usługi Facebook. Jeśli hello połączenia nie powiedzie się, upewnij się, że miejsca pracy przez Facebook konto ma uprawnienia administratora zespołu.
 
-7. Wprowadź adres e-mail osoby lub grupy, który powinien zostać wyświetlony inicjowania obsługi administracyjnej powiadomienia o błędach w **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru.
+7. Wprowadź adres e-mail hello osoby lub grupy, które powinny być przesyłane powiadomienia błąd inicjowania obsługi administracyjnej w hello **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru hello.
 
 8. Kliknij przycisk **zapisać.**
 
-9. W sekcji mapowania wybierz **synchronizacji Azure użytkownicy usługi Active Directory do miejsca pracy przez usługi Facebook.**
+9. W obszarze hello sekcji mapowania, wybierz **tooWorkplace synchronizacji Azure Active Directory użytkowników przez usługi Facebook.**
 
-10. W **mapowań atrybutów** Przejrzyj atrybutów użytkowników, które są synchronizowane z usługi Azure AD do miejsca pracy przez usługi Facebook. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w miejscu pracy przez Facebook dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
+10. W hello **mapowań atrybutów** Przejrzyj hello atrybutów użytkowników, które są synchronizowane z usługą Azure AD tooWorkplace przez usługi Facebook. Witaj atrybuty wybrany jako **pasujące** właściwości są używane toomatch kont użytkowników hello w miejscu pracy przez Facebook dla operacji update. Wybierz toocommit przycisk Zapisz hello wszelkie zmiany.
 
-11. Aby włączyć usługi Azure AD, świadczenie usługi dla miejsca pracy przez usługi Facebook, zmień **stan inicjowania obsługi administracyjnej** do **na** w **ustawienia** sekcji
+11. tooenable hello inicjowania obsługi usługi Azure AD dla miejsca pracy przez Facebook, zmień hello **stan inicjowania obsługi administracyjnej** za**na** w hello **ustawienia** sekcji
 
 12. Kliknij przycisk **zapisać.**
 
-Aby uzyskać więcej informacji na temat konfigurowania automatycznego inicjowania obsługi administracyjnej, zobacz [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
+Aby uzyskać więcej informacji na temat tooconfigure automatycznego inicjowania obsługi administracyjnej, zobacz [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
-Można teraz utworzyć konta testowego. Poczekaj maksymalnie 20 minut, aby sprawdzić, czy konto zostało zsynchronizowane w miejscu pracy przez usługi Facebook.
+Można teraz utworzyć konta testowego. Poczekaj na górę minut too20 tooverify, który hello konto zostało zsynchronizowane tooWorkplace przez usługi Facebook.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

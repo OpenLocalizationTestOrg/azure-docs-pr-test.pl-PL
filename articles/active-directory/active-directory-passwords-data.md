@@ -1,6 +1,6 @@
 ---
 title: "Wymagania dotyczące danych usługi Azure AD SSPR | Dokumentacja firmy Microsoft"
-description: "Wymagania dotyczące danych dla usługi Azure AD samoobsługi hasła resetowania i sposobu ich spełnienia"
+description: "Resetuj danych wymagania dotyczące usługi Azure AD samoobsługi hasła i w jaki sposób toosatisfy ich"
 services: active-directory
 keywords: 
 documentationcenter: 
@@ -16,24 +16,24 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2d1afd2d1265b371e0d311ed70fffbc55874b0a7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b68a1d7914dcd0bb4509d0e94914dc4309f4463a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Wdrażanie resetowania hasła bez konieczności rejestrowania użytkownika końcowego
 
-Wdrażanie funkcji samoobsługowego resetowania hasła (SSPR) wymaga dane uwierzytelniania obecności. Niektóre organizacje mają użytkownikom wprowadź dane uwierzytelniania samodzielnie, ale w wielu organizacjach preferowane można zsynchronizować z istniejącymi danymi w usłudze Active Directory. Prawidłowo sformatowane dane w katalogu lokalnego i skonfigurować [Azure AD Connect przy użyciu ustawień ekspresowych](./connect/active-directory-aadconnect-get-started-express.md), że dane będą dostępne dla usługi Azure AD i SSPR z bez udziału użytkownika.
+Wdrażanie funkcji samoobsługowego resetowania hasła (SSPR) wymaga się toobe danych uwierzytelniania. Niektóre organizacje mają użytkownikom wprowadź dane uwierzytelniania samodzielnie, ale w wielu organizacjach preferowane toosynchronize z istniejącymi danymi w usłudze Active Directory. Prawidłowo sformatowane dane w katalogu lokalnego i skonfigurować [Azure AD Connect przy użyciu ustawień ekspresowych](./connect/active-directory-aadconnect-get-started-express.md), że dane stają się dostępne tooAzure AD i SSPR z bez udziału użytkownika.
 
-Wszystkie numery telefonów musi być w formacie + CountryCode PhoneNumber przykład: + 1 4255551234 działała poprawnie.
+Wszystkie numery telefonów musi być w formacie hello + CountryCode PhoneNumber przykład: + 1 4255551234 toowork poprawnie.
 
 > [!NOTE]
-> Resetowanie hasła nie obsługuje rozszerzeń telefonu. Nawet w formacie 12345 4255551234 + 1 X rozszerzenia zostały usunięte przed wykonaniem połączenia.
+> Resetowanie hasła nie obsługuje rozszerzeń telefonu. Nawet w hello 4255551234 + 1 X 12345 format rozszerzenia zostały usunięte przed wykonaniem hello.
 
 ## <a name="fields-populated"></a>Pól
 
-Jeśli używasz ustawienia domyślne w programie Azure AD Connect zostały wprowadzone następujące mapowania.
+Jeśli używasz ustawienia domyślne hello hello Azure AD Connect po mapowania zostały wprowadzone.
 
 | Lokalne usługi AD | Azure AD | Azure AD Authentication informacje kontaktowe |
 | --- | --- | --- |
@@ -43,21 +43,21 @@ Jeśli używasz ustawienia domyślne w programie Azure AD Connect zostały wprow
 
 ## <a name="security-questions-and-answers"></a>Pytania zabezpieczające i odpowiedzi
 
-Pytania zabezpieczające i odpowiedzi są bezpiecznie przechowywane w dzierżawie usługi Azure AD i są dostępne dla użytkowników za pośrednictwem jedynie [portal rejestracji SSPR](https://aka.ms/ssprsetup). Administratorzy nie widać lub zmodyfikować zawartość innym użytkownikom pytania i odpowiedzi.
+Pytania zabezpieczające i odpowiedzi są bezpiecznie przechowywane w dzierżawie usługi Azure AD i są tylko dostępny toousers za pośrednictwem hello [portal rejestracji SSPR](https://aka.ms/ssprsetup). Administratorzy nie można wyświetlić ani zmodyfikować hello zawartość innym użytkownikom pytania i odpowiedzi.
 
 ### <a name="what-happens-when-a-user-registers"></a>Co się dzieje, gdy użytkownik rejestruje
 
-Gdy użytkownik rejestruje, strony rejestracji ustawia następujące pola:
+Gdy użytkownik rejestruje, strony rejestracji hello ustawia hello następujące pola:
 
 * Numer telefonu uwierzytelniania
 * Uwierzytelnianie wiadomości E-mail
 * Pytania zabezpieczające i odpowiedzi
 
-Jeśli podano wartość **telefon komórkowy** lub **alternatywny adres E-mail**, użytkownicy mogą natychmiast używać tych wartości na resetowanie haseł, nawet jeśli nie zostały one zarejestrowane przez usługę. Ponadto użytkownicy zobaczyć te wartości podczas rejestrowania po raz pierwszy, a ich modyfikacji, jeśli chcesz, aby ich. Po ich pomyślnie zarejestrować, te wartości zostaną utrwalone w **numer telefonu uwierzytelniania** i **E-mail uwierzytelniania** pola odpowiednio.
+Jeśli podano wartość **telefon komórkowy** lub **alternatywny adres E-mail**, użytkownicy mogą od razu używać tooreset tych wartości haseł, nawet jeśli ich nie został zarejestrowany w usłudze hello. Ponadto użytkownicy zobaczyć te wartości podczas rejestrowania dla powitania po raz pierwszy, a ich modyfikacji, jeśli chcesz, aby ich. Po ich pomyślnie zarejestrować, te wartości zostaną utrwalone w hello **numer telefonu uwierzytelniania** i **E-mail uwierzytelniania** pola odpowiednio.
 
 ## <a name="set-and-read-authentication-data-using-powershell"></a>Ustaw i odczytywanie danych uwierzytelniania przy użyciu programu PowerShell
 
-Następujące pola można ustawić przy użyciu programu PowerShell
+Witaj kolejnych pól można ustawić za pomocą programu PowerShell
 
 * Alternatywny adres E-mail
 * Telefon komórkowy
@@ -65,7 +65,7 @@ Następujące pola można ustawić przy użyciu programu PowerShell
 
 ### <a name="using-powershell-v1"></a>Przy użyciu programu PowerShell w wersji 1
 
-Aby rozpocząć pracę, musisz [Pobierz i zainstaluj moduł programu PowerShell usługi Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Gdy jest zainstalowany, można wykonać kroki, które należy wykonać, aby skonfigurować każde pole.
+tooget uruchomiona, należy za[Pobierz i zainstaluj moduł programu PowerShell usługi Azure AD hello](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Gdy jest zainstalowany, można wykonać czynności hello, które wykonują tooconfigure każdego pola.
 
 #### <a name="set-authentication-data-with-powershell-v1"></a>Zestaw danych uwierzytelniania za pomocą programu PowerShell w wersji 1
 
@@ -91,7 +91,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
 Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,MobilePhone,PhoneNumber | Format-Table
 ```
 
-#### <a name="authentication-phone-and-authentication-email-can-only-be-read-using-powershell-v1-using-the-commands-that-follow"></a>Numer telefonu uwierzytelniania i uwierzytelniania wiadomości E-mail mogą być odczytywane tylko przy użyciu programu Powershell w wersji 1 za pomocą poleceń, które należy wykonać
+#### <a name="authentication-phone-and-authentication-email-can-only-be-read-using-powershell-v1-using-hello-commands-that-follow"></a>Numer telefonu uwierzytelniania i uwierzytelniania wiadomości E-mail mogą być odczytywane tylko przy użyciu programu Powershell w wersji 1 przy użyciu hello polecenia poniżej
 
 ```
 Connect-MsolService
@@ -101,9 +101,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="using-powershell-v2"></a>Przy użyciu programu PowerShell w wersji 2
 
-Aby rozpocząć pracę, musisz [pobrać i zainstalować moduł PowerShell usługi Azure AD w wersji 2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Gdy jest zainstalowany, można wykonać kroki, które należy wykonać, aby skonfigurować każde pole.
+tooget uruchomiona, należy za[Pobierz i zainstaluj moduł programu PowerShell hello Azure AD w wersji 2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Gdy jest zainstalowany, można wykonać czynności hello, które wykonują tooconfigure każdego pola.
 
-Aby zainstalować szybko z obsługujących instalację modułu nowe wersje programu PowerShell, uruchom następujące polecenia, (pierwszy wiersz po prostu sprawdza, czy nazwa jest już zainstalowany):
+tooinstall szybko z ostatnie wersjami programu PowerShell, które obsługują moduł instalacji, uruchom następujące polecenia (pierwszy wiersz hello sprawdza toosee Jeśli jest już zainstalowana):
 
 ```
 Get-Module AzureADPreview
@@ -137,14 +137,14 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poniższe linki dają dostęp do dodatkowych informacji dotyczących resetowania haseł za pomocą usługi Azure AD
+Witaj następującego łącza znajdują się dodatkowe informacje dotyczące resetowania przy użyciu usługi Azure AD
 
 * [**Szybki start**](active-directory-passwords-getting-started.md) — Przygotowywanie do pracy samoobsługowego zarządzania hasłami w usłudze Azure AD 
 * [**Licencjonowanie**](active-directory-passwords-licensing.md) — Konfigurowanie licencjonowania w usłudze Azure AD
-* [**Wdrażanie**](active-directory-passwords-best-practices.md) — Planowanie funkcji samoobsługowego resetowania haseł i jej wdrażanie dla użytkowników przy użyciu znajdujących się tu wytycznych
-* [**Dostosowywanie**](active-directory-passwords-customize.md) — Dostosowywanie wyglądu i działania środowiska samoobsługowego resetowania haseł dla firmy
+* [**Wdrożenie** ](active-directory-passwords-best-practices.md) — planowanie i wdrażanie SSPR tooyour użytkowników przy użyciu wskazówek hello znaleźć tutaj
+* [**Dostosowywanie** ](active-directory-passwords-customize.md) — Dostosowywanie hello wygląd i działanie hello SSPR środowisko firmy.
 * [**Zasady**](active-directory-passwords-policy.md) — Omówienie zasad haseł usługi Azure AD i ich ustawianie
 * [**Raportowanie**](active-directory-passwords-reporting.md) — Czy, kiedy i gdzie użytkownicy uzyskują dostęp do funkcji samoobsługowego resetowania haseł
-* [**Szczegóły techniczne**](active-directory-passwords-how-it-works.md) — Informacje o tym, co dzieje się za kulisami tej funkcji i jak ona działa
-* [**Często zadawane pytania**](active-directory-passwords-faq.md) — Jak? Dlaczego? Co? Gdzie? Kto? Kiedy? — Odpowiedzi na wszystkie nurtujące Cię pytania
-* [**Rozwiązywanie problemów**](active-directory-passwords-troubleshoot.md) — Informacje o tym, jak rozwiązywać typowe problemy z samoobsługowym resetowaniem haseł
+* [**Nowości techniczne** ](active-directory-passwords-how-it-works.md) -przejdź za hello ściany toounderstand, jak to działa
+* [**Często zadawane pytania**](active-directory-passwords-faq.md) — Jak? Dlaczego? Co? Gdzie? Kto? Kiedy? -Tooquestions tooask chciał zawsze odpowiada
+* [**Rozwiązywanie problemów z** ](active-directory-passwords-troubleshoot.md) — Dowiedz się, jak tooresolve typowe problemy, widzimy z SSPR

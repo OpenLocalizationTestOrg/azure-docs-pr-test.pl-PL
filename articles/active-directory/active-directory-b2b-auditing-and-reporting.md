@@ -1,5 +1,5 @@
 ---
-title: "Inspekcja i raportowania usługi Azure Active Directory B2B współpracy użytkownika | Dokumentacja firmy Microsoft"
+title: "aaaAuditing i raportowania usługi Azure Active Directory B2B współpracy użytkownika | Dokumentacja firmy Microsoft"
 description: "Właściwości użytkownika gościa są konfigurowane w usłudze Azure Active Directory B2B współpracy"
 services: active-directory
 documentationcenter: 
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 24ee5f7a2e9585a5edcdd795ec0ffc7124756c11
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Inspekcja i raportowania użytkownika współpracy B2B
-Z gości masz inspekcji funkcje podobne do elementu członkowskiego użytkownikom. Oto przykład zaproszenia i realizacji historii osoby zaproszonej Sam Oogle:
+Z gości masz inspekcji możliwości podobne toowith użytkowników. Oto przykład historię zaproszenia i realizacji hello osoby zaproszonej Sam Oogle:
 
 ![Dziennik inspekcji](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 
-Użytkownik może przejść do każdego z tych zdarzeń, aby uzyskać szczegóły. Na przykład Przyjrzyjmy się szczegóły zatwierdzenia.
+Możesz można przejść do każdego z tych zdarzeń tooget hello szczegółów. Na przykład Przyjrzyjmy się hello akceptacji szczegóły.
 
 ![Szczegóły działania](./media/active-directory-b2b-auditing-and-reporting/activity-details.png)
 
-Można również wyeksportować te dzienniki z usługi Azure AD i uzyskiwanie dostosowanych raportów za pomocą narzędzia raportowania wybranych przez użytkownika.
+Możesz też wyeksportować te dzienniki z usługi Azure AD i użyciu hello raportowania narzędzia z wyborem tooget raporty niestandardowe.
 
 ### <a name="next-steps"></a>Następne kroki
 
@@ -38,7 +38,7 @@ Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 
 * [Czym jest współpraca B2B w usłudze Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Właściwości użytkownika współpracy B2B](active-directory-b2b-user-properties.md)
-* [Dodawanie do roli użytkownika współpracy B2B](active-directory-b2b-add-guest-to-role.md)
+* [Dodawanie roli tooa użytkownika współpracy B2B](active-directory-b2b-add-guest-to-role.md)
 * [Delegowanie B2bB współpracy zaproszenia](active-directory-b2b-delegate-invitations.md)
 * [Grupami dynamicznymi i współpracy B2B](active-directory-b2b-dynamic-groups.md)
 * [Kod współpracy B2B i przykłady środowiska PowerShell](active-directory-b2b-code-samples.md)

@@ -1,6 +1,6 @@
 ---
-title: "Zasady ograniczeń dostępu w usłudze Azure zarządzanie interfejsami API | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat zasad ograniczeń dostępu dostępne do użycia w usłudze Azure API Management."
+title: "zasady ograniczeń dostępu do interfejsu API zarządzania aaaAzure | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat zasad ograniczeń dostępu hello dostępne do użycia w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 4c9991baf3fbcf3b8ea01f8dd573e2336db88b68
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0ef368c2781d9a5cf9eaaa41a47489c904ed3198
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu do interfejsu API zarządzania
-W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+W tym temacie znajdują się informacje na następujące zasady usługi API Management hello. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a>Zasady ograniczeń dostępu  
   
@@ -33,14 +33,14 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 -   [Ograniczenia adresów IP wywołującego](api-management-access-restriction-policies.md#RestrictCallerIPs) -wywołania filtrów (umożliwia/nie zezwala na) z określonych adresów IP i/lub zakresów adresów.  
   
--   [Ustaw przydział użycia subskrypcji](api-management-access-restriction-policies.md#SetUsageQuota) — umożliwia egzekwowanie odnawialnymi lub okres istnienia wywołania woluminu i/lub przepustowości limit przydziału, na podstawie na subskrypcję.  
+-   [Przydział użycia zestawu subskrypcji](api-management-access-restriction-policies.md#SetUsageQuota) — umożliwia tooenforce odnawialnymi lub okres istnienia połączenia woluminu i/lub przepustowości przydziału na podstawie na subskrypcję.  
   
--   [Ustaw przydział użycia przez klucz](#SetUsageQuotaByKey) — umożliwia egzekwowanie odnawialnymi lub okres istnienia wywołania woluminu i/lub przepustowości limit przydziału, na podstawie według klucza.  
+-   [Przydział użycia zestawu przez klucz](#SetUsageQuotaByKey) — umożliwia tooenforce odnawialnymi lub okres istnienia połączenia woluminu i/lub przepustowości przydziału na podstawie według klucza.  
   
 -   [Sprawdź poprawność JWT](api-management-access-restriction-policies.md#ValidateJWT) — wymusza istnienia i ważności wyodrębniony z określonego nagłówka HTTP lub parametr zapytania określony token JWT.  
   
 ##  <a name="CheckHTTPHeader"></a>Sprawdź nagłówka HTTP  
- Użyj `check-header` zasady do wymuszenia, że żądanie ma określonego nagłówka HTTP. Można opcjonalnie sprawdzić, czy nagłówek nie ma określonej wartości lub sprawdź, czy zakres dozwolonych wartości. W przypadku niepowodzenia sprawdzania zasad przerywa przetwarzania żądania i zwraca komunikat kodu i błąd stanu HTTP określone przez zasady.  
+ Użyj hello `check-header` tooenforce zasady, czy żądanie ma określonego nagłówka HTTP. Opcjonalnie można sprawdzić toosee, jeśli nagłówek hello ma określoną wartość lub sprawdź, czy zakres wartości dozwolonych. W przypadku niepowodzenia sprawdzania hello zasad hello kończy przetwarzanie żądań i zwraca hello komunikat stanu HTTP kodu i błąd określone przez zasady hello.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -64,31 +64,31 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |Sprawdź — nagłówek|Element główny.|Tak|  
-|wartość|Dozwolone wartości nagłówka HTTP. Jeśli wiele elementów wartości są określone, sprawdzania jest uznawany sukcesu, jeśli jedna z wartości jest dopasowanie.|Nie|  
+|wartość|Dozwolone wartości nagłówka HTTP. Jeśli wiele elementów wartości są określone, wyboru hello jest uznawany sukcesu, jeśli jedno hello wartości są zgodne.|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|nie powiodło się wyboru komunikatów o błędach|Komunikat o błędzie zwracany w treści odpowiedzi HTTP, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość. Ta wiadomość musi mieć żadnych znaków specjalnych prawidłowo wpisywany.|Tak|Nie dotyczy|  
-|nie powiodło się wyboru httpcode|Kod stanu HTTP do zwrócenia, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość.|Tak|Nie dotyczy|  
-|Nazwa nagłówka|Nazwa nagłówka HTTP do sprawdzenia.|Tak|Nie dotyczy|  
-|Ignoruj case|Można ustawić na wartość True lub False. Jeśli jest ustawiona na True przypadek jest ignorowane w przypadku wartość nagłówka jest porównywana zbiór dopuszczalnych wartości.|Tak|Nie dotyczy|  
+|nie powiodło się wyboru komunikatów o błędach|Błąd tooreturn wiadomość w treści odpowiedzi hello HTTP, jeśli nagłówek hello nie istnieje lub ma nieprawidłową wartość. Ta wiadomość musi mieć żadnych znaków specjalnych prawidłowo wpisywany.|Tak|Nie dotyczy|  
+|nie powiodło się wyboru httpcode|Tooreturn kod stanu HTTP, jeśli nagłówek hello nie istnieje lub ma nieprawidłową wartość.|Tak|Nie dotyczy|  
+|Nazwa nagłówka|Nazwa Hello hello toocheck nagłówka HTTP.|Tak|Nie dotyczy|  
+|Ignoruj case|Można ustawić tooTrue, lub FAŁSZ. Jeśli zestaw tooTrue w wielkość liter jest ignorowana, gdy wartość nagłówka hello jest porównywana hello zbiór dopuszczalnych wartości.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzące, wychodzące  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="LimitCallRate"></a>Limit szybkości wywołanie przez subskrypcję  
- `rate-limit` Zasad uniemożliwia nagłego interfejsu API na podstawie subskrypcji na ograniczając szybkość wywołania do określonej liczby na określonym przedziale czasu. Po wyzwoleniu tych zasad wywołującego odbiera `429 Too Many Requests` kod stanu odpowiedzi.  
+ Witaj `rate-limit` zasad uniemożliwia użycie API nagłego na podstawie subskrypcji na ograniczając hello wywołać tooa szybkość określony numer na określonym przedziale czasu. Po wyzwoleniu tych zasad wywołującego hello odbiera `429 Too Many Requests` kod stanu odpowiedzi.  
   
 > [!IMPORTANT]
 >  Te zasady mogą być użyte tylko raz na dokument zasad.  
 >   
->  [Wyrażenie zasad](api-management-policy-expressions.md) nie można użyć w żadnym z atrybutów zasad dla tej zasady.  
+>  [Wyrażenie zasad](api-management-policy-expressions.md) nie można użyć w żadnym hello atrybuty zasady dla tych zasad.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -119,26 +119,26 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |Ustaw limit|Element główny.|Tak|  
-|api|Dodaj co najmniej jeden z tych elementów do narzuca ograniczenia szybkości wywołania interfejsów API w obrębie produktu. Produktu i interfejsu API wywołać szybkość, z jaką ograniczenia są stosowane niezależnie.|Nie|  
-|Operacja|Dodaj co najmniej jeden z tych elementów do narzuca ograniczenia szybkości wywołania operacji w obrębie interfejsu API. Produkt, interfejsu API i operacji należy wywołać szybkość, z jaką ograniczenia są stosowane niezależnie.|Nie|  
+|api|Dodaj co najmniej jednego z tych elementów tooimpose limit szybkości wywołanie w interfejsach API w ramach produktu hello. Produktu i interfejsu API wywołać szybkość, z jaką ograniczenia są stosowane niezależnie.|Nie|  
+|Operacja|Dodaj co najmniej jednego z tych elementów tooimpose limit szybkości wywołania na operacje w interfejsie API. Produkt, interfejsu API i operacji należy wywołać szybkość, z jaką ograniczenia są stosowane niezależnie.|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|name|Nazwa interfejsu API, do których chcesz zastosować limit szybkości.|Tak|Nie dotyczy|  
-|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Tak|Nie dotyczy|  
-|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Tak|Nie dotyczy|  
+|name|Witaj nazwa hello interfejsu API dla których limit szybkości hello tooapply.|Tak|Nie dotyczy|  
+|wywołania|Maksymalna całkowita liczba połączeń dozwolona interwale hello określone w hello Hello `renewal-period`.|Tak|Nie dotyczy|  
+|okres odnawiania|czas w sekundach, po których hello przydziału resetuje Hello.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** produktu  
   
 ##  <a name="LimitCallRateByKey"></a>Limit szybkości wywołanie przez klucz  
- `rate-limit-by-key` Zasad uniemożliwia nagłego interfejsu API na podstawie klucza na ograniczając szybkość wywołania do określonej liczby na określonym przedziale czasu. Klucz może mieć wartość dowolny ciąg i jest zwykle zapewniany przy użyciu wyrażenia zasad. Aby określić, które żądania powinno być liczone się do limitu można dodać warunku opcjonalnie przyrostu. Po wyzwoleniu tych zasad wywołującego odbiera `429 Too Many Requests` kod stanu odpowiedzi.  
+ Witaj `rate-limit-by-key` zasad uniemożliwia użycie API nagłego na podstawie na klucz, ograniczając hello wywołać tooa szybkość określony numer na określonym przedziale czasu. klucz Hello może mieć wartość dowolny ciąg i jest zwykle zapewniany przy użyciu wyrażenia zasad. Toospecify żądaniach powinno być liczone się limitu hello można dodać warunku opcjonalnie przyrostu. Po wyzwoleniu tych zasad wywołującego hello odbiera `429 Too Many Requests` kod stanu odpowiedzi.  
   
  Aby uzyskać dodatkowe informacje i przykłady tych zasad, zobacz [Zaawansowane żądanie ograniczania z usługą Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -156,7 +156,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 ```  
   
 ### <a name="example"></a>Przykład  
- W poniższym przykładzie limit szybkości jest wyznaczaną przez obiekt wywołujący adresu IP.  
+ W hello poniższy przykład limit szybkości hello jest kluczem według adresu IP hello wywołującego.  
   
 ```xml  
 <policies>  
@@ -183,20 +183,20 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Tak|Nie dotyczy|  
-|klucz liczników|Klucz do użycia zasad limitu szybkości.|Tak|Nie dotyczy|  
-|Stan przyrostowy|Wyrażenie warunkowe określenie, czy żądanie powinno być liczone kierunku przydział (`true`).|Nie|Nie dotyczy|  
-|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Tak|Nie dotyczy|  
+|wywołania|Maksymalna całkowita liczba połączeń dozwolona interwale hello określone w hello Hello `renewal-period`.|Tak|Nie dotyczy|  
+|klucz liczników|Witaj toouse klucza dla zasad limitu szybkości hello.|Tak|Nie dotyczy|  
+|Stan przyrostowy|wyrażenie warunkowe Hello określenie, czy hello żądanie powinno być liczone kierunku hello przydziału (`true`).|Nie|Nie dotyczy|  
+|okres odnawiania|czas w sekundach, po których hello przydziału resetuje Hello.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="RestrictCallerIPs"></a>Ograniczenia adresów IP wywołującego  
- `ip-filter` (Umożliwia/nie zezwala na) wywołania z określonych adresów IP i/lub zakresów adresów filtry zasad.  
+ Witaj `ip-filter` (umożliwia/nie zezwala na) wywołania z określonych adresów IP i/lub zakresów adresów filtry zasad.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -221,30 +221,30 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |Filtr IP|Element główny.|Tak|  
-|Adres|Określa pojedynczy adres IP, na których chcesz filtrować.|Co najmniej jeden `address` lub `address-range` element jest wymagany.|  
-|zakres adresów z = "address" Aby = "address"|Określa adres zakresu adresów IP, na których chcesz filtrować.|Co najmniej jeden `address` lub `address-range` element jest wymagany.|  
+|Adres|Określa pojedynczy adres IP, na których toofilter.|Co najmniej jeden `address` lub `address-range` element jest wymagany.|  
+|zakres adresów z = "address" Aby = "address"|Określa adres zakresu adresów IP, na których toofilter.|Co najmniej jeden `address` lub `address-range` element jest wymagany.|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|zakres adresów z = "address" Aby = "address"|Zakres adresów IP, aby zezwolić lub odmówić dostępu.|Wymagany, gdy `address-range` element jest używany.|Nie dotyczy|  
-|Filtr IP akcji = "Zezwalaj na &#124; zabraniać"|Określa, czy powinno być dozwolone wywołania nie dla określonych adresów IP i zakresów.|Tak|Nie dotyczy|  
+|zakres adresów z = "address" Aby = "address"|Zakres IP adresów tooallow lub odmówić dostępu.|Wymagana, gdy hello `address-range` element jest używany.|Nie dotyczy|  
+|Filtr IP akcji = "Zezwalaj na &#124; zabraniać"|Określa, czy powinno być dozwolone lub nie dla hello określonych adresów IP i zakresów.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="SetUsageQuota"></a>Ustaw przydział użycia przez subskrypcję  
- `quota` Zasady wymuszają zastosowanie odnawialnymi lub okres istnienia wywołania woluminu i/lub przepustowości limit przydziału, na podstawie na subskrypcję.  
+ Witaj `quota` zasady wymuszają zastosowanie odnawialnymi lub okres istnienia wywołania woluminu i/lub przepustowości limit przydziału, na podstawie na subskrypcję.  
   
 > [!IMPORTANT]
 >  Te zasady mogą być użyte tylko raz na dokument zasad.  
 >   
->  [Wyrażenie zasad](api-management-policy-expressions.md) nie można użyć w żadnym z atrybutów zasad dla tej zasady.  
+>  [Wyrażenie zasad](api-management-policy-expressions.md) nie można użyć w żadnym hello atrybuty zasady dla tych zasad.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -275,34 +275,34 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |limit przydziału|Element główny.|Tak|  
-|api|Dodaj co najmniej jeden z tych elementów do nakładają limit przydziału na interfejsy API w obrębie produktu. Przydziały produktu i interfejsu API są stosowane niezależnie.|Nie|  
-|Operacja|Dodaj co najmniej jeden z tych elementów do nakładają limit przydziału na operacje w interfejsie API. Przydziały produktu, interfejsu API i operacji są stosowane niezależnie.|Nie|  
+|api|Dodaj co najmniej jednego z tych elementów tooimpose limit przydziału w ramach produktu hello w interfejsach API. Przydziały produktu i interfejsu API są stosowane niezależnie.|Nie|  
+|Operacja|Dodaj co najmniej jednego z tych elementów tooimpose limit przydziału na operacje w interfejsie API. Przydziały produktu, interfejsu API i operacji są stosowane niezależnie.|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|name|Nazwa interfejsu API lub operacji, którego dotyczy limitu przydziału.|Tak|Nie dotyczy|  
-|Przepustowość|Maksymalna liczba kilobajtów dozwolone określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
-|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
-|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Tak|Nie dotyczy|  
+|name|Nazwa Hello hello API lub operacji, które hello dotyczy limitu przydziału.|Tak|Nie dotyczy|  
+|Przepustowość|Witaj maksymalną liczbę kilobajtów dozwolone interwale hello określone w hello `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
+|wywołania|Maksymalna całkowita liczba połączeń dozwolona interwale hello określone w hello Hello `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
+|okres odnawiania|czas w sekundach, po których hello przydziału resetuje Hello.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** produktu  
   
 ##  <a name="SetUsageQuotaByKey"></a>Ustaw przydział użycia według klucza  
- `quota-by-key` Zasady wymuszają zastosowanie odnawialnymi lub okres istnienia wywołania woluminu i/lub przepustowości limit przydziału, na podstawie według klucza. Klucz może mieć wartość dowolny ciąg i jest zwykle zapewniany przy użyciu wyrażenia zasad. Opcjonalne przyrostu warunku można dodać do określenia żądań, które powinno być liczone kierunku limit przydziału.  
+ Witaj `quota-by-key` zasady wymuszają zastosowanie odnawialnymi lub okres istnienia wywołania woluminu i/lub przepustowości limit przydziału, na podstawie według klucza. klucz Hello może mieć wartość dowolny ciąg i jest zwykle zapewniany przy użyciu wyrażenia zasad. Toospecify żądaniach powinno być liczone kierunku hello przydziału można dodać warunku opcjonalnie przyrostu.  
   
  Aby uzyskać dodatkowe informacje i przykłady tych zasad, zobacz [Zaawansowane żądanie ograniczania z usługą Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
 > [!IMPORTANT]
 >  Te zasady mogą być użyte tylko raz na dokument zasad.  
 >   
->  [Wyrażenie zasad](api-management-policy-expressions.md) nie można użyć w żadnym z atrybutów zasad dla tej zasady.  
+>  [Wyrażenie zasad](api-management-policy-expressions.md) nie można użyć w żadnym hello atrybuty zasady dla tych zasad.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -316,7 +316,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 ```  
   
 ### <a name="example"></a>Przykład  
- W poniższym przykładzie przydział jest wyznaczaną przez obiekt wywołujący adresu IP.  
+ W hello poniższy przykład przydział hello jest wyznaczaną przez adres IP hello wywołującego.  
   
 ```xml  
 <policies>  
@@ -342,33 +342,33 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|Przepustowość|Maksymalna liczba kilobajtów dozwolone określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
-|wywołania|Maksymalna liczba połączeń dozwolona określona w interwale `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
-|klucz liczników|Klucz do użycia zasad przydziału.|Tak|Nie dotyczy|  
-|Stan przyrostowy|Wyrażenie warunkowe określenie, czy żądanie powinno być liczone kierunku przydział (`true`)|Nie|Nie dotyczy|  
-|okres odnawiania|Okres czasu w sekundach, po których resetuje limit przydziału.|Tak|Nie dotyczy|  
+|Przepustowość|Witaj maksymalną liczbę kilobajtów dozwolone interwale hello określone w hello `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
+|wywołania|Maksymalna całkowita liczba połączeń dozwolona interwale hello określone w hello Hello `renewal-period`.|Albo `calls`, `bandwidth`, lub razem muszą być jednocześnie określone.|Nie dotyczy|  
+|klucz liczników|Witaj klucza toouse hello zasad przydziału.|Tak|Nie dotyczy|  
+|Stan przyrostowy|wyrażenie warunkowe Hello określenie, czy hello żądanie powinno być liczone kierunku hello przydziału (`true`)|Nie|Nie dotyczy|  
+|okres odnawiania|czas w sekundach, po których hello przydziału resetuje Hello.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="ValidateJWT"></a>Sprawdź poprawność JWT  
- `validate-jwt` Zasady wymuszają zastosowanie istnienia i ważności token JWT wyodrębnione z albo określonego nagłówka HTTP lub parametr zapytania określony.  
+ Witaj `validate-jwt` zasady wymuszają zastosowanie istnienia i ważności token JWT wyodrębnione z albo określonego nagłówka HTTP lub parametr zapytania określony.  
   
 > [!IMPORTANT]
->  `validate-jwt` Zasad wymaga, aby `exp` zarejestrowanych oświadczeń jest inlcuded w JWT token, chyba że `require-expiration-time` atrybut jest określona i ustawić `false`.  
-> `validate-jwt` Zasad obsługuje HS256 i RS256 algorytmy podpisywania. Dla HS256 klucz należy podać wbudowane w ramach zasad w postaci kodowany w standardzie base64. RS256 klucz ma zapewnienie za pośrednictwem punktu końcowego Otwórz identyfikator konfiguracji.  
+>  Witaj `validate-jwt` zasady wymagają tego hello `exp` zarejestrowanych oświadczeń jest inlcuded w hello JWT token, chyba że `require-expiration-time` atrybut jest określona i ustawić także`false`.  
+> Witaj `validate-jwt` zasad obsługuje HS256 i RS256 algorytmy podpisywania. Dla HS256 hello klucz należy podać wbudowane w ramach zasad hello w postaci kodowany w standardzie base64 hello. RS256 hello klucz ma toobe Podaj za pośrednictwem punktu końcowego Otwórz identyfikator konfiguracji.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
 ```xml  
 <validate-jwt   
-    header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
-    failed-validation-httpcode="http status code to return on failure"   
-    failed-validation-error-message="error message to return on failure"   
+    header-name="name of http header containing hello token (use query-parameter-name attribute if hello token is passed in hello URL)"   
+    failed-validation-httpcode="http status code tooreturn on failure"   
+    failed-validation-error-message="error message tooreturn on failure"   
     require-expiration-time="true|false"
     require-scheme="scheme"
     require-signed-tokens="true|false"   
@@ -386,13 +386,13 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
-      <value>claim value as it is expected to appear in the token</value>  
+    <claim name="name of hello claim as it appears in hello token" match="all|any">  
+      <value>claim value as it is expected tooappear in hello token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
     <!-- if there are multiple possible allowed values, then add additional value elements -->  
   </required-claims>  
-  <openid-config url="full URL of the configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />  
+  <openid-config url="full URL of hello configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />  
   <zumo-master-key id="key identifier">key value</zumo-master-key>  
 </validate-jwt>  
   
@@ -449,11 +449,11 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 </validate-jwt>  
 ```  
   
-#### <a name="authorize-access-to-operations-based-on-token-claims"></a>Autoryzacja dostępu do operacji na podstawie tokenu oświadczeń  
- Ten przykład przedstawia sposób użycia [JWT do zweryfikowania](api-management-access-restriction-policies.md#ValidateJWT) zasad do wstępnie autoryzacji dostępu do operacji na podstawie tokenu oświadczeń. Aby demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przewijanie do przodu do 13:50. Szybko przewiń do przodu do 15:00, aby wyświetlić zasady skonfigurowane w edytorze zasad, a następnie do 18:50 dla pokaz wywołanie operacji z portalu dla deweloperów zarówno z i bez tokenu autoryzacji wymagane.  
+#### <a name="authorize-access-toooperations-based-on-token-claims"></a>Autoryzowanie toooperations dostępu na podstawie tokenu oświadczeń  
+ W tym przykładzie pokazano sposób toouse hello [JWT do zweryfikowania](api-management-access-restriction-policies.md#ValidateJWT) toopre zasad-toooperations dostępu na podstawie tokenu oświadczeń autoryzacji. Aby demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybko przewinąć do przodu too13:50. Szybkie przewijanie do przodu too15:00 zasady hello toosee skonfigurowane w edytorze zasad hello, a następnie too18:50 dla pokaz wywołanie operacji z portalu dla deweloperów hello zarówno z i bez hello wymagany token autoryzacji.  
   
 ```xml  
-<!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
+<!-- Copy hello following snippet into hello inbound section at hello api (or higher) level toopre-authorize access toooperations based on token claims -->  
 <set-variable name="signingKey" value="insert signing key here" />  
 <choose>  
   <when condition="@(context.Request.Method.Equals("patch",StringComparison.OrdinalIgnoreCase))">  
@@ -495,31 +495,31 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
 |Sprawdź poprawność jwt|Element główny.|Tak|  
-|grupy odbiorców|Zawiera listę oświadczeń dopuszczalne odbiorców, które mogą być obecne w tokenie. Jeśli wiele wartości odbiorców są obecne, a następnie sprawdzane są poszczególne wartości do momentu wszystkie wyczerpania (w takim przypadku niepowodzenia weryfikacji) lub aż do znalezienia właściwego konta. Należy określić co najmniej jednego odbiorcy.|Nie|  
-|podpisywania klucze wystawcy|Lista kluczy algorytmem Base64 zabezpieczeń używany do weryfikowania podpisanych tokenów. Jeśli wiele kluczy zabezpieczeń są obecne, a następnie sprawdzane są poszczególne klucze do momentu wszystkie wyczerpania (w takim przypadku niepowodzenia weryfikacji) lub do chwili pomyślnego jedną (przydatne w przypadku przerzucania token). Kluczowe elementy mają opcjonalny `id` atrybut używany do dopasowywania `kid` oświadczeń.|Nie|  
-|wystawcy|Lista dopuszczalne podmiotów zabezpieczeń, które wystawiony token. Jeśli występują wiele wartości wystawcy, a następnie sprawdzane są poszczególne wartości do momentu wszystkie wyczerpania (w takim przypadku niepowodzenia weryfikacji) lub aż do znalezienia właściwego konta.|Nie|  
-|Konfiguracja protokołu openid|Element używany do określania zgodne endpoint konfiguracji Open ID, z którego podpisywania kluczy i wystawcy można uzyskać.|Nie|  
-|wymagane oświadczenia|Zawiera listę oświadczeń powinien znajdować się na token, aby były uważane za prawidłowe. Gdy `match` atrybut ma ustawioną `all` każdej wartości oświadczeń w zasadzie musi znajdować się w tokenem Weryfikacja powiodła się. Gdy `match` atrybut ma ustawioną `any` co najmniej jedno oświadczenie musi być obecny w tokenie Weryfikacja powiodła się.|Nie|  
+|grupy odbiorców|Zawiera listę oświadczeń dopuszczalne odbiorców, które mogą być obecne w tokenie hello. Jeśli wiele wartości odbiorców są obecne, a następnie sprawdzane są poszczególne wartości do momentu wszystkie wyczerpania (w takim przypadku niepowodzenia weryfikacji) lub aż do znalezienia właściwego konta. Należy określić co najmniej jednego odbiorcy.|Nie|  
+|podpisywania klucze wystawcy|Lista toovalidate klucze używane z algorytmem Base64 zabezpieczeń podpisany tokenów. Jeśli wiele kluczy zabezpieczeń są obecne, a następnie sprawdzane są poszczególne klucze do momentu wszystkie wyczerpania (w takim przypadku niepowodzenia weryfikacji) lub do chwili pomyślnego jedną (przydatne w przypadku przerzucania token). Kluczowe elementy mają opcjonalny `id` toomatch atrybut przed `kid` oświadczeń.|Nie|  
+|wystawcy|Lista dopuszczalne podmiotów zabezpieczeń, które wystawiły hello tokenu. Jeśli występują wiele wartości wystawcy, a następnie sprawdzane są poszczególne wartości do momentu wszystkie wyczerpania (w takim przypadku niepowodzenia weryfikacji) lub aż do znalezienia właściwego konta.|Nie|  
+|Konfiguracja protokołu openid|element Hello używany do określania zgodne endpoint konfiguracji Open ID, z którego podpisywania kluczy i wystawcy można uzyskać.|Nie|  
+|wymagane oświadczenia|Zawiera listę toobe oświadczeń oczekiwano występuje na powitania token dla niego toobe uważany za prawidłowy. Gdy hello `match` zbyt ustawiono atrybut`all` każdej wartości oświadczeń w zasadach hello musi być dostępna w tokenie hello toosucceed sprawdzania poprawności. Gdy hello `match` zbyt ustawiono atrybut`any` co najmniej jedno oświadczenie musi być dostępna w tokenie hello toosucceed sprawdzania poprawności.|Nie|  
 |zumo głównego klucza|Klucz główny dla tokenów wystawionych przez usługi Azure Mobile Services|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|niedokładność zegara|Zakres czasu. Zawiera niektóre małych swobodę w przypadku oświadczeń wygaśnięcia tokenu jest obecny w tokenie i jest poza bieżącą datę / godzinę.|Nie|0 sekund|  
-|nie powiodło się weryfikacji komunikatów o błędach|Komunikat o błędzie do zwrócenia w treści odpowiedzi HTTP, jeśli token JWT nie przeszedł pomyślnie weryfikacji. Ta wiadomość musi mieć żadnych znaków specjalnych prawidłowo wpisywany.|Nie|Domyślnego komunikatu o błędzie jest zależny od weryfikacji problem, na przykład "token JWT nie istnieje."|  
-|nie powiodło się weryfikacji httpcode|Kod stanu HTTP do zwrócenia, jeśli token JWT nie przeszedł pomyślnie weryfikacji.|Nie|401|  
-|Nazwa nagłówka|Nazwa nagłówka HTTP zawierający token.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|Nie dotyczy|  
-|id|`id` Atrybutu `key` element umożliwia określenie ciąg, który będzie dopasowywane `kid` oświadczenia w tokenie (jeśli istnieje) dowiedzieć się, odpowiedni klucz do użycia w celu weryfikacji podpisu.|Nie|Nie dotyczy|  
-|dopasowanie|`match` Atrybutu `claim` element określa, czy każda wartość oświadczenia w zasadach musi być obecny w tokenie Weryfikacja powiodła się. Możliwe wartości:<br /><br /> -                          `all`-każdej wartości oświadczeń w zasadzie musi znajdować się w tokenem Weryfikacja powiodła się.<br /><br /> -                          `any`— wartość co najmniej jedno oświadczenie musi być obecny w tokenie Weryfikacja powiodła się.|Nie|Wszystkie|  
-|Nazwa zapytania — paremeter|Nazwa parametru zapytania zawierający token.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|Nie dotyczy|  
-|Wymagaj — wygasa|Wartość logiczna. Określa, czy oświadczenie wygaśnięcia jest wymagany w tokenie.|Nie|Wartość true|
-|Wymagaj schematu|Nazwa tokenu schemat, np. "Bearer". Gdy tego atrybutu jest ustawiona, zasady zapewni określony schemat jest obecny w wartość nagłówka uwierzytelnienia.|Nie|Nie dotyczy|
-|Wymagaj podpisany — tokeny|Wartość logiczna. Określa, czy token jest wymagany do podpisania.|Nie|Wartość true|  
-|adres URL|Otwórz adres URL punktu końcowego konfiguracji identyfikator, z której można uzyskać metadanych konfiguracji Open ID. Dla usługi Azure Active Directory, użyj następującego adresu URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` podstawiając nazwa dzierżawy katalogu, np. `contoso.onmicrosoft.com`.|Tak|Nie dotyczy|  
+|niedokładność zegara|Zakres czasu. Zawiera niektóre małych swobodę w przypadku oświadczeń wygaśnięcia tokenu hello jest obecny w tokenie hello i jest poza bieżącym hello Data i godzina.|Nie|0 sekund|  
+|nie powiodło się weryfikacji komunikatów o błędach|Błąd tooreturn wiadomość w treści odpowiedzi hello HTTP, jeśli hello JWT nie przeszedł pomyślnie weryfikacji. Ta wiadomość musi mieć żadnych znaków specjalnych prawidłowo wpisywany.|Nie|Domyślnego komunikatu o błędzie jest zależny od weryfikacji problem, na przykład "token JWT nie istnieje."|  
+|nie powiodło się weryfikacji httpcode|Tooreturn kod stanu HTTP, jeśli hello JWT nie przeszedł pomyślnie weryfikacji.|Nie|401|  
+|Nazwa nagłówka|Nazwa Hello nagłówka hello HTTP zawierający hello tokenu.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|Nie dotyczy|  
+|id|Hello `id` atrybutu na powitania `key` element umożliwia toospecify hello ciąg, który będzie dopasowywane `kid` oświadczeń w hello toofind tokenu (jeśli istnieje) limit hello odpowiedniego klucza toouse Walidacja podpisu.|Nie|Nie dotyczy|  
+|dopasowanie|Witaj `match` atrybutu na powitania `claim` element określa, czy wartość oświadczenia, co w zasadach hello musi być dostępna w tokenie hello toosucceed sprawdzania poprawności. Możliwe wartości:<br /><br /> -                          `all`-każdej wartości oświadczeń w zasadach hello musi być dostępna w tokenie hello toosucceed sprawdzania poprawności.<br /><br /> -                          `any`— wartość co najmniej jedno oświadczenie musi być dostępna w tokenie hello toosucceed sprawdzania poprawności.|Nie|Wszystkie|  
+|Nazwa zapytania — paremeter|Nazwa parametru zapytania hello hello zawierający hello token Hello.|Albo `header-name` lub `query-paremeter-name` musi być określony; ale nie oba.|Nie dotyczy|  
+|Wymagaj — wygasa|Wartość logiczna. Określa, czy oświadczenie wygaśnięcia jest wymagany w tokenie hello.|Nie|Wartość true|
+|Wymagaj schematu|Witaj nazwę schematu tokenu hello, np. "Bearer". Jeśli ten atrybut zostanie ustawiony, hello zasad będzie upewnij się, że który określony schemat jest obecny w hello wartość nagłówka uwierzytelnienia.|Nie|Nie dotyczy|
+|Wymagaj podpisany — tokeny|Wartość logiczna. Określa, czy token jest wymagany toobe podpisany.|Nie|Wartość true|  
+|adres URL|Otwórz adres URL punktu końcowego konfiguracji identyfikator, z której można uzyskać metadanych konfiguracji Open ID. Dla usługi Azure Active Directory użyj następującego adresu URL hello: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` podstawiając nazwa dzierżawy katalogu, np. `contoso.onmicrosoft.com`.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   

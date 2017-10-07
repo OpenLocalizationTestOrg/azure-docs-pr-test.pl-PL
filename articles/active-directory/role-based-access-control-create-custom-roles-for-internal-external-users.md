@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie niestandardowych ról kontroli dostępu opartej na rolach i przypisać do użytkowników wewnętrznych i zewnętrznych na platformie Azure | Dokumentacja firmy Microsoft"
+title: "role niestandardowe kontroli dostępu opartej na rolach aaaCreate i przypisać toointernal i użytkowników zewnętrznych na platformie Azure | Dokumentacja firmy Microsoft"
 description: "Przypisz role RBAC niestandardowe utworzone przy użyciu programu PowerShell i interfejsu wiersza polecenia dla użytkowników wewnętrznych i zewnętrznych"
 services: active-directory
 documentationcenter: 
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: d687f94bebfd0b6c1ec0690da798be5409640954
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 26793a66d6ca2f771338eed87d10ce2b3b431841
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 ## <a name="intro-on-role-based-access-control"></a>Wprowadzenie dotyczących kontroli dostępu opartej na rolach
 
-Kontrola dostępu oparta na rolach to Azure portalu funkcja tylko stosowanie właściciele subskrypcji do przypisywania ról szczegółowego do innych użytkowników zarządzających zasobów dla określonych zakresów w swoim środowisku.
+Kontrola dostępu oparta na rolach to Azure portalu tylko funkcja umożliwia hello właściciele subskrypcji tooassign szczegółowego ról tooother użytkownikom, którzy mogą zarządzać zasobów dla określonych zakresów w swoim środowisku.
 
-RBAC umożliwia lepsze zarządzanie zabezpieczeniami dla dużych organizacji oraz dla małych i średnich firmach, Praca z zewnętrznym współpracownikom, dostawców lub freelancers, które wymagają dostępu do określonych zasobów w danym środowisku, ale niekoniecznie całej infrastruktury lub żadnych zakresów związanych z rozliczeniami. RBAC umożliwia elastyczność będący właścicielem jedną subskrypcją platformy Azure zarządzanych przez administratora konta (usługi roli administrator na poziomie subskrypcji) i mieć wielu użytkowników zaproszenie do pracy w ramach tej samej subskrypcji, ale bez jakichkolwiek praw administracyjnych dla niego. Zarządzanie i rozliczeń funkcję RBAC okaże się, że czas i zarządzanie wydajne opcji korzystania z funkcji Azure w różnych scenariuszach.
+RBAC umożliwia lepsze zarządzanie zabezpieczeniami dla dużych organizacji oraz dla małych i średnich firmach praca z zewnętrznym współpracownikom, dostawców lub freelancers, które wymagają dostępu do zasobów toospecific w danym środowisku, ale niekoniecznie toohello całej infrastruktury lub w dowolnej zakresy związanych z rozliczeniami. RBAC zapewnia elastyczność hello będący właścicielem jedną subskrypcją platformy Azure zarządza hello konta administratora (usługi roli administrator na poziomie subskrypcji) i ma wiele toowork zaproszonych użytkowników w obszarze hello tej samej subskrypcji ale bez żadnych administracyjnych prawa dla niego. Zarządzanie i rozliczeń funkcji RBAC hello okaże się toobe czas i zarządzanie wydajne opcji korzystania z funkcji Azure w różnych scenariuszach.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W środowisku platformy Azure przy użyciu funkcji RBAC wymaga:
+Przy użyciu funkcji RBAC w hello środowiska platformy Azure wymaga:
 
-* Posiadanie autonomiczny subskrypcji platformy Azure powierzonych użytkownika jako właściciela (rola subskrypcji)
-* Rola właściciela subskrypcji platformy Azure
-* Ma dostęp do [portalu Azure](https://portal.azure.com)
-* Upewnij się, że ma następujących dostawców zasobów w zarejestrowany dla subskrypcji użytkownika: **Microsoft.Authorization**. Aby uzyskać więcej informacji na temat rejestrowania dostawców zasobów, zobacz [dostawców usługi Resource Manager, regiony, wersje interfejsu API i schematów](/azure-resource-manager/resource-manager-supported-services.md).
+* O autonomiczny subskrypcji platformy Azure przypisane toohello użytkownika jako właściciela (rola subskrypcji)
+* Ma rolę właściciela hello hello subskrypcji platformy Azure
+* Ma dostęp toohello [portalu Azure](https://portal.azure.com)
+* Upewnij się, że hello toohave następujących dostawców zasobów zarejestrowany dla subskrypcji użytkownika hello: **Microsoft.Authorization**. Aby uzyskać więcej informacji dotyczących sposobu tooregister hello dostawców zasobów, zobacz [dostawców usługi Resource Manager, regiony, wersje interfejsu API i schematów](/azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Licencje usługi Azure Active Directory lub subskrypcji usługi Office 365 (na przykład: dostęp do usługi Azure Active Directory) z usługi Office 365, portal nie jakości przy użyciu funkcji RBAC.
+> Licencje usługi Azure Active Directory lub subskrypcji usługi Office 365 (na przykład: dostęp do usługi Active Directory tooAzure) pobranego z portalu nie jakości przy użyciu funkcji RBAC hello usługi Office 365.
 
 ## <a name="how-can-rbac-be-used"></a>Jak można użyć RBAC
-RBAC można zastosować na trzy różne zakresy na platformie Azure. Z najwyższą zakresu na najniższym jeden są następujące:
+RBAC można zastosować na trzy różne zakresy na platformie Azure. Z hello najwyższy toohello zakres jednej najniższy są następujące:
 
 * Subskrypcja (najwyższy)
 * Grupa zasobów
-* Zakres zasobów (najniższy poziom dostępu do oferty docelowe uprawnienia do zakresu poszczególnych zasobów platformy Azure)
+* Zakres zasobów (hello najniższy poziom dostępu oferty uprawnienia docelowego zakresu poszczególnych zasobów platformy Azure tooan)
 
-## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Przypisz role RBAC w zakresie subskrypcji
+## <a name="assign-rbac-roles-at-hello-subscription-scope"></a>Przypisz role RBAC w zakresie subskrypcji hello
 Istnieją dwie typowe przykłady dotyczące RBAC jest używana (między innymi):
 
-* Użytkowników zewnętrznych z organizacji (nie jest częścią dzierżawy usługi Azure Active Directory dla użytkownika administracyjnego) zaproszenie do zarządzania niektórych zasobów lub całej subskrypcji
-* Praca z użytkownikami w organizacji (są one częścią dzierżawy usługi Azure Active Directory użytkownika), ale należy do różnych zespołów lub grup, które wymagają szczegółowego dostępu do całej subskrypcji lub do określonych grup zasobów lub zakresy zasobów w środowisku
+* Użytkowników zewnętrznych z hello organizacji (nie jest częścią dzierżawy usługi Azure Active Directory użytkownika administratora hello) zaproszenie toomanage niektórych zasobów lub subskrypcji całego hello
+* Praca z użytkownikami w organizacji hello (są one częścią hello użytkownik dzierżawy usługi Azure Active Directory), ale należy do różnych zespołów lub grup, które wymagają dostępu szczegółowe albo toohello całej subskrypcji lub grupy zasobów toocertain lub zasobu zakresów w hello środowisko
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Udziel dostępu na poziomie subskrypcji dla użytkownika poza usługą Azure Active Directory
-Role RBAC może zostać przydzielony tylko przez **właścicieli** subskrypcji w związku z tym administrator musi być zalogowany z nazwą użytkownika, które tej roli wstępnie przypisany lub została utworzona subskrypcja platformy Azure.
+Role RBAC może zostać przydzielony tylko przez **właścicieli** hello subskrypcji w związku z tym hello administrator musi być zalogowany z nazwą użytkownika, które tej roli wstępnie przypisany lub został utworzony hello subskrypcji platformy Azure.
 
-W portalu Azure po można zalogować jako administrator, wybierz "Subskrypcji" i wybierz jedno.
-![Subskrypcja bloku w portalu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) domyślnie, jeśli dla użytkownika administracyjnego kupiła subskrypcji platformy Azure, użytkownik będzie wyświetlany jako **administrator konta**, to jest rola subskrypcji. Więcej szczegółów na rolach subskrypcji platformy Azure, zobacz [Dodawanie lub zmienianie ról administrator usługi Azure, które zarządzają subskrypcji lub usługi](/billing/billing-add-change-azure-subscription-administrator.md).
+Z hello portalu Azure po zalogować jako administrator, wybierz pozycję "Subskrypcje" i wybierz opcję hello żądana jeden.
+![bloku subskrypcji w portalu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) domyślnie, jeśli administrator hello kupiła hello subskrypcji platformy Azure, hello użytkownika będzie wyświetlany jako **administrator konta**, to jest rola subskrypcji hello. Więcej szczegółów na powitania ról subskrypcji platformy Azure, zobacz [Dodawanie lub zmienianie role administratora platformy Azure, zarządzających hello subskrypcji lub usługi](/billing/billing-add-change-azure-subscription-administrator.md).
 
-W tym przykładzie użytkownik "alflanigan@outlook.com" jest **właściciela** z "Bezpłatnej wersji próbnej" subskrypcji w usłudze AAD dzierżawy "Dzierżawy Azure Default". Ponieważ ten użytkownik jest twórca subskrypcji platformy Azure z początkowej Account Microsoft "Outlook" (Account Microsoft = programu Outlook, Live itp.) będzie domyślna nazwa domeny dla wszystkich innych użytkowników dodane w tej dzierżawie **"@alflaniganuoutlook.onmicrosoft.com"**. Zgodnie z projektem składni nowej domeny jest tworzony przez zestawienie nazwę użytkownika i domenę nazwę użytkownika, który utworzył dzierżawcy i dodawanie rozszerzenia **". onmicrosoft.com"**.
-Ponadto użytkownicy mogą logowania z niestandardowej nazwy domeny w dzierżawie po dodaniu i weryfikowanie jego dla nowej dzierżawy. Aby uzyskać więcej szczegółów na sposób weryfikacji niestandardowej nazwy domeny w dzierżawie usługi Azure Active Directory, zobacz [Dodawanie niestandardowej nazwy domeny do katalogu](/active-directory/active-directory-add-domain).
+W tym przykładzie hello użytkownika "alflanigan@outlook.com" hello jest **właściciela** z hello "Bezpłatnej wersji próbnej" subskrypcji w hello AAD dzierżawy "Dzierżawy Azure Default". Ponieważ ten użytkownik jest twórca hello hello subskrypcji platformy Azure z hello początkowa Account Microsoft "Outlook" (Account Microsoft = programu Outlook, Live itp.) będzie domyślna nazwa domeny dla wszystkich innych użytkowników dodane w tej dzierżawie powitalnych **"@alflaniganuoutlook.onmicrosoft.com"**. Zgodnie z projektem hello składni nowej domeny hello jest tworzony przez zestawienie hello nazwy użytkownika i nazwy domen hello użytkownika, który utworzył hello dzierżawy oraz dodawania rozszerzenia hello **". onmicrosoft.com"**.
+Ponadto użytkownicy mogą logowania z niestandardowej nazwy domeny w dzierżawie powitalnych po dodaniu i weryfikowanie jego dla nowej dzierżawy hello. Aby uzyskać więcej informacji na tooverify niestandardowej nazwy domeny w dzierżawie usługi Azure Active Directory, zobacz temat [Dodaj katalog tooyour nazwy domeny niestandardowej](/active-directory/active-directory-add-domain).
 
-W tym przykładzie katalog "Domyślna dzierżawa usługi Azure" zawiera tylko użytkownicy z nazwą domeny "@alflanigan.onmicrosoft.com".
+W tym przykładzie katalog hello "domyślna dzierżawa usługi Azure" zawiera tylko użytkownicy z nazwą domeny hello "@alflanigan.onmicrosoft.com".
 
-Po wybraniu subskrypcji, administrator musi kliknij **kontroli dostępu (IAM)** , a następnie **dodania roli**.
+Po wybraniu subskrypcji hello, musisz kliknąć przycisk Administrator hello **kontroli dostępu (IAM)** , a następnie **dodania roli**.
 
 
 
@@ -75,15 +75,15 @@ Po wybraniu subskrypcji, administrator musi kliknij **kontroli dostępu (IAM)** 
 
 ![Dodaj nowego użytkownika w funkcja IAM kontroli dostępu w portalu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-Następnym krokiem jest wybranie roli do przypisania i użytkownika, którego rola RBAC zostanie przypisana do. W **roli** menu rozwijane dla użytkownika administracyjnego widzi tylko wbudowane role RBAC, które są dostępne w systemie Azure. Aby uzyskać bardziej szczegółowe wyjaśnienia dotyczące poszczególnych ról i ich zakresy możliwe do przypisania, zobacz [wbudowanych ról dla kontroli dostępu](/active-directory/role-based-access-built-in-roles.md).
+Witaj następnym krokiem jest toobe roli hello tooselect przypisane i hello użytkownika, którego hello RBAC roli zostanie przypisana do. W hello **roli** listy rozwijanej menu hello administratora użytkownik widzi tylko hello wbudowanych RBAC role, które są dostępne w systemie Azure. Aby uzyskać bardziej szczegółowe wyjaśnienia dotyczące poszczególnych ról i ich zakresy możliwe do przypisania, zobacz [wbudowanych ról dla kontroli dostępu](/active-directory/role-based-access-built-in-roles.md).
 
-Następnie administrator musi dodać adres e-mail użytkownika zewnętrznego. Oczekiwane zachowanie jest dla użytkownika zewnętrznego, które nie są wyświetlani w istniejącej dzierżawy. Po Zaproszono użytkownika zewnętrznego, on będą widoczne w obszarze **subskrypcji > kontroli dostępu (IAM)** z wszystkich bieżących użytkowników, które są obecnie przypisane roli RBAC w zakresie subskrypcji.
-
-
+Witaj administrator musi następnie tooadd hello adres e-mail użytkownika zewnętrznego hello. Hello oczekuje się, że zachowanie jest hello użytkownika zewnętrznego toonot będą wyświetlane w hello istniejącej dzierżawy. Po zaproszono hello użytkownika zewnętrznego, on będą widoczne w obszarze **subskrypcji > kontroli dostępu (IAM)** wszystkim użytkownikom bieżącego hello, które są obecnie przypisane roli RBAC na powitania zakres subskrypcji.
 
 
 
-![Dodaj uprawnienia do nowej roli RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/3.png)
+
+
+![Dodaj rolę RBAC toonew uprawnień](./media/role-based-access-control-create-custom-roles-for-internal-external-users/3.png)
 
 
 
@@ -91,10 +91,10 @@ Następnie administrator musi dodać adres e-mail użytkownika zewnętrznego. Oc
 
 ![Lista ról RBAC na poziomie subskrypcji](./media/role-based-access-control-create-custom-roles-for-internal-external-users/4.png)
 
-Użytkownik "chessercarlton@gmail.com" zaproszono jako **właściciela** dla subskrypcji "Bezpłatnej wersji próbnej". Po wysłaniu zaproszenia, zewnętrznych użytkownik otrzyma wiadomość e-mail z potwierdzeniem z link aktywacji.
+Użytkownik Hello "chessercarlton@gmail.com" został zaproszony toobe **właściciela** dla subskrypcji "Bezpłatnej wersji próbnej" hello. Po wysłaniu hello zaproszenia, hello zewnętrznych użytkownik otrzyma wiadomość e-mail z potwierdzeniem z link aktywacji.
 ![wiadomość e-mail z zaproszeniem dla roli RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-Trwa spoza organizacji, nowy użytkownik nie ma żadnych istniejących atrybutów w katalogu "Domyślna dzierżawa usługi Azure". Będzie można utworzyć po uzyskaniu zgody użytkownika zewnętrznego mają być rejestrowane w katalogu, który jest skojarzony z subskrypcją, który został przydzielony do roli.
+Stanowi organizacji toohello zewnętrznych, hello nowego użytkownika nie ma żadnych istniejących atrybutów w katalogu "Dzierżawy Azure Default" hello. Będzie można utworzyć po toobe zgody rejestrowane w katalogu hello, który jest skojarzony z subskrypcją hello, który został przydzielony do roli użytkownika zewnętrznego hello.
 
 
 
@@ -102,7 +102,7 @@ Trwa spoza organizacji, nowy użytkownik nie ma żadnych istniejących atrybutó
 
 ![wiadomość e-mail zaproszenia dla roli RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-Pokazuje użytkownika zewnętrznego w dzierżawcy usługi Azure Active Directory od teraz jako użytkownik zewnętrzny i to można wyświetlić zarówno w portalu Azure, jak i w klasycznym portalu.
+Użytkownik zewnętrzny Hello pokazuje w hello dzierżawy usługi Azure Active Directory od teraz jako użytkownik zewnętrzny i to można wyświetlić zarówno w hello portalu Azure, jak i w portalu klasycznym hello.
 
 
 
@@ -116,47 +116,47 @@ Pokazuje użytkownika zewnętrznego w dzierżawcy usługi Azure Active Directory
 
 ![Użytkownicy bloku usługi azure active directory klasycznego portalu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
 
-W **użytkowników** widoku w obu portalach użytkownicy zewnętrzni mogą być rozpoznawane przez:
+W hello **użytkowników** widoku w obu portalach użytkowników zewnętrznych hello mogą być rozpoznawane przez:
 
-* Typ inną ikonę w portalu Azure
-* Inny punkt źródeł w klasycznym portalu
+* Wpisz inną ikonę Hello hello portalu Azure
+* Witaj różnych sourcing punktu w portalu klasycznym hello
 
-Jednak udzielanie **właściciela** lub **współautora** dostępu do użytkownika zewnętrznego w **subskrypcji** zakresu, nie zezwala na dostęp do katalogu dla użytkownika administracyjnego, chyba że **administratora globalnego** pozwala. W ich właściwości użytkownika **typ użytkownika** mającego dwóch parametrów typowych, **elementu członkowskiego** i **gościa** mogą zostać zidentyfikowane. Element członkowski jest użytkownik, który jest zarejestrowany w katalogu, gdy Gość jest użytkownikiem zaproszenie do katalogu z zewnętrznego źródła. Aby uzyskać więcej informacji, zobacz [jak Administratorzy usługi Azure Active Directory dodać użytkowników współpracy B2B](/active-directory/active-directory-b2b-admin-add-users).
+Jednak udzielanie **właściciela** lub **współautora** tooan dostępu użytkownika zewnętrznego w hello **subskrypcji** zakresu, nie zezwala na powitania dostępu toohello administratora katalogu użytkownika, o ile hello **administratora globalnego** pozwala. W ich właściwości użytkownika hello, hello **typ użytkownika** mającego dwóch parametrów typowych, **elementu członkowskiego** i **gościa** mogą zostać zidentyfikowane. Element członkowski jest użytkownik, który jest zarejestrowany w katalogu hello podczas Gość jest katalogiem toohello zaproszonych użytkowników ze źródła zewnętrznego. Aby uzyskać więcej informacji, zobacz [jak Administratorzy usługi Azure Active Directory dodać użytkowników współpracy B2B](/active-directory/active-directory-b2b-admin-add-users).
 
 > [!NOTE]
-> Upewnij się, że po wprowadzeniu poświadczeń w portalu, zewnętrznych użytkownik wybierze do logowania się w poprawnym katalogu. Tego samego użytkownika może mieć dostęp do wielu katalogów i można wybrać jedną z nich, klikając nazwę użytkownika w góry po prawej stronie w portalu Azure a następnie wybierz odpowiedniego katalogu z listy rozwijanej.
+> Upewnij się, że po wprowadzeniu poświadczeń hello w portalu hello, użytkownik zewnętrzny hello wybiera poprawny katalog hello toosign w celu. Hello tego samego użytkownika ma katalogów toomultiple dostępu i można wybrać jedną z nich, klikając nazwę użytkownika hello w hello góry po prawej stronie w portalu Azure hello i następnie wybierz z listy rozwijanej hello hello odpowiedniego katalogu.
 
-Będąc gościa w katalogu użytkownika zewnętrznego mogą zarządzać zasobami wszystkich subskrypcji platformy Azure, ale nie można uzyskać dostępu do katalogu.
-
-
+Będąc gościa w katalogu hello użytkownika zewnętrznego hello można zarządzać wszystkie zasoby hello subskrypcji platformy Azure, ale nie można uzyskać dostępu do katalogu hello.
 
 
 
-![dostęp ograniczony do portalu Azure usługi azure active directory](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory i subskrypcji platformy Azure nie ma relacji relacji nadrzędny podrzędny, takich jak innych zasobów platformy Azure (na przykład: maszyn wirtualnych, sieci wirtualnych, aplikacje sieci web, magazynu itp.) z subskrypcją platformy Azure. Wszystkie ostatnie jest tworzony, zarządzane i rozliczany w ramach subskrypcji platformy Azure, podczas gdy subskrypcji platformy Azure jest używany do zarządzania dostępem do usługi Azure directory. Aby uzyskać więcej informacji, zobacz [subskrypcji jak Azure jest powiązana z usługą Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
-Z wszystkich wbudowane role RBAC **właściciela** i **współautora** oferują pełnego zarządzania dostęp do wszystkich zasobów w środowisku różnica, że współautora nie może tworzyć i usuwać nowe role RBAC. Inne role wbudowane, takich jak **współautora maszyny wirtualnej** oferować pełnego zarządzania dostęp tylko do zasobów, jest określany przez nazwę, niezależnie od tego **grupy zasobów** jest tworzona w.
+![dostęp do portalu Azure tooazure ograniczone usługi active directory](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Przypisywanie roli RBAC wbudowanych **Współautor·maszyny·wirtualnej** na poziomie subskrypcji, oznacza, że użytkownikowi przypisano rolę:
+Azure Active Directory i subskrypcji platformy Azure nie ma relacji relacji nadrzędny podrzędny, takich jak innych zasobów platformy Azure (na przykład: maszyn wirtualnych, sieci wirtualnych, aplikacje sieci web, magazynu itp.) z subskrypcją platformy Azure. Wszystkie ostatnie hello jest tworzony, zarządzane i rozliczane w ramach subskrypcji platformy Azure, gdy subskrypcja platformy Azure jest używana toomanage hello dostępu tooan katalogu platformy Azure. Aby uzyskać więcej informacji, zobacz [jak Azure subskrypcji jest powiązane tooAzure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
-* Można wyświetlić wszystkich maszyn wirtualnych niezależnie od daty wdrożenia i grupy zasobów, które są częścią
-* Ma dostęp do pełnego zarządzania do maszyn wirtualnych w subskrypcji
-* Nie można wyświetlić inne typy zasobów w subskrypcji
+Ze wszystkich hello wbudowanych RBAC ról **właściciela** i **współautora** oferują pełnego dostępu do zasobów tooall w środowisku hello, hello różnica podpisu współautora nie można utworzyć i usuwania nowych Role RBAC. Witaj innych wbudowanych ról, takich jak **współautora maszyny wirtualnej** oferują dostęp do pełnego zarządzania tylko zasoby toohello wskazywanym przez nazwę hello, niezależnie od hello **grupy zasobów** ich tworzenia do.
+
+Przypisywanie hello wbudowanych RBAC roli **współautora maszyny wirtualnej** na poziomie subskrypcji, oznacza tej roli hello przypisane przez użytkownika hello:
+
+* Można wyświetlić wszystkich maszyn wirtualnych niezależnie od ich wdrożenia daty i hello grup zasobów, które są częścią
+* Zawiera maszyny wirtualne toohello dostęp do pełnego zarządzania w ramach subskrypcji hello
+* Nie można wyświetlić inne typy zasobów w subskrypcji hello
 * Nie można wykonać operacji zmiany z punktu widzenia rozliczeń
 
 > [!NOTE]
-> RBAC jest funkcją Azure tylko portalu, nie udziela dostępu do klasycznego portalu.
+> RBAC jest funkcją Azure tylko portalu, nie udziela dostępu toohello klasycznego portalu.
 
-## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Przypisywanie roli RBAC wbudowanych do użytkownika zewnętrznego
-Dla innego scenariusza, w tym teście użytkownika zewnętrznego "alflanigan@gmail.com" zostanie dodany jako **Współautor·maszyny·wirtualnej**.
+## <a name="assign-a-built-in-rbac-role-tooan-external-user"></a>Przypisz wbudowanych RBAC roli tooan użytkownika zewnętrznego
+Do innego scenariusza w teście hello użytkownika zewnętrznego "alflanigan@gmail.com" zostanie dodany jako **Współautor·maszyny·wirtualnej**.
 
 
 
 
 ![wbudowana Rola współautora maszyny wirtualnej](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Normalne zachowanie dla tego użytkownika zewnętrznego z tą rolą wbudowanych jest wyświetlanie i zarządzanie nimi tylko maszyny wirtualne i ich sąsiadujących ze sobą Menedżer zasobów tylko zasoby niezbędne podczas wdrażania. Zgodnie z projektem, te role ograniczone oferują dostęp tylko do ich zasobów odpowiedniego utworzone w portalu Azure, niezależnie od tego niektóre nadal można wdrożyć w portalu klasycznym (na przykład: maszyn wirtualnych).
+Hello jest ich normalne zachowanie dla tego użytkownika zewnętrznego z tą rolą wbudowanych jest toosee i zarządzaj nimi tylko dla maszyn wirtualnych i ich sąsiadujących ze sobą Menedżer zasobów tylko zasoby niezbędne podczas wdrażania. Zgodnie z projektem, te role ograniczone oferować dostęp tylko zasoby odpowiedniego tootheir utworzone w portalu Azure hello, niezależnie od tego niektóre nadal można wdrożyć w hello również klasyczny portal (na przykład: maszyn wirtualnych).
 
 
 
@@ -164,16 +164,16 @@ Normalne zachowanie dla tego użytkownika zewnętrznego z tą rolą wbudowanych 
 
 ![Omówienie roli współautora maszyny wirtualnej w portalu azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Udziel dostępu na poziomie subskrypcji dla użytkownika w tym samym katalogu
-Przepływ procesu jest taki sam jak dodawanie użytkownika zewnętrznego, zarówno z perspektywy administracyjnej przyznania roli RBAC, a także użytkownika zostanie im przyznany dostęp do roli. Różnica polega na tym że zaproszonych użytkownik nie będzie otrzymywać żadnych zaproszeń do skorzystania z poczty e-mail, jak wszystkie zakresy zasobów w subskrypcji będą dostępne na pulpicie nawigacyjnym po zalogowaniu się.
+## <a name="grant-access-at-a-subscription-level-for-a-user-in-hello-same-directory"></a>Udziel dostępu na poziomie subskrypcji dla użytkownika w hello sam katalogu
+przepływ procesu Hello jest identyczne tooadding użytkownika zewnętrznego, zarówno z hello perspektywy udzielającym hello RBAC rolę administratora, a także hello użytkownika zostanie im przyznany dostęp toohello roli. Hello różnicą jest ten użytkownik hello zaproszenie nie będą otrzymywać żadnych zaproszeń do skorzystania z poczty e-mail jako wszystkie zakresy zasobów hello w ramach subskrypcji hello będą dostępne na pulpicie nawigacyjnym powitania po zalogowaniu się.
 
-## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>Przypisz role RBAC w zakresie grupy zasobów
-Przypisywanie roli RBAC **grupy zasobów** zakres ma taki sam proces przypisywania roli na poziomie subskrypcji dla obu typów użytkownicy — zewnętrznym lub wewnętrznym (część z tym samym katalogu). Użytkownicy, którzy mają przypisaną rolę RBAC ma zobacz w swoim środowisku tylko grupy zasobów z przypisanym dostępem z **grup zasobów** ikonę w portalu Azure.
+## <a name="assign-rbac-roles-at-hello-resource-group-scope"></a>Przypisz role RBAC w zakresie grupy zasobów hello
+Przypisywanie roli RBAC **grupy zasobów** zakres ma taki sam proces przypisywania roli hello na poziomie subskrypcji hello, dla obu typów użytkownicy — zewnętrznym lub wewnętrznym (część hello tego samego katalogu). Witaj użytkowników, którzy mają przypisaną rolę RBAC hello jest toosee w swoim środowisku tylko grupy zasobów hello z przypisanym dostępu z hello **grup zasobów** ikonę w hello portalu Azure.
 
-## <a name="assign-rbac-roles-at-the-resource-scope"></a>Przypisz role RBAC w zakresie zasobów
-Przypisywanie roli RBAC w zakresie zasobów na platformie Azure mają identyczne proces przypisywania roli na poziomie subskrypcji lub na poziomie grupy zasobów, po tym samym przepływie pracy w obydwu scenariuszach. Ponownie, użytkowników, którzy mają przypisaną rolę RBAC można zobaczyć tylko elementy, które przypisano dostępu do w **wszystkie zasoby** kartę lub bezpośrednio w ich pulpitu nawigacyjnego.
+## <a name="assign-rbac-roles-at-hello-resource-scope"></a>Przypisz role RBAC w zakresie zasobów hello
+Przypisywanie roli RBAC w zakresie zasobów na platformie Azure mają taki sam proces przypisywania roli hello na poziomie subskrypcji hello lub na poziomie grupy zasobów hello, następujące hello sam przepływ pracy oba scenariusze. Ponownie hello użytkowników, którzy mają przypisaną rolę RBAC hello widzą tylko elementy hello czy przypisano dostęp do obu hello w **wszystkie zasoby** kartę lub bezpośrednio w ich pulpitu nawigacyjnego.
 
-Jest istotnym elementem do RBAC zarówno w zakresie grupy zasobów lub zasobów zakresie użytkownikom upewnij się, że do logowania się w poprawnym katalogu.
+Istotnym elementem do RBAC zarówno w zakresie grupy zasobów lub zasobów zakresie dotyczy hello użytkowników toomake toohello się, że toosign w poprawnym katalogu.
 
 
 
@@ -182,9 +182,9 @@ Jest istotnym elementem do RBAC zarówno w zakresie grupy zasobów lub zasobów 
 ![katalog logowania w portalu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
 ## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Przypisz role RBAC dla grupy usługi Azure Active Directory
-Wszystkie scenariusze na trzy różne zakresy na platformie Azure przy użyciu funkcji RBAC oferują uprawnienie Zarządzanie, wdrażanie i administrowanie różnych zasobów jako przypisany użytkownik bez konieczności zarządzania osobiste subskrypcji. Niezależnie od roli RBAC jest przypisany do subskrypcji, grupy zasobów lub zasobów zakresu, wszystkie zasoby utworzone dalej przez przypisanych użytkowników są rozliczane zgodnie z jedną subskrypcją platformy Azure, której użytkownicy mają dostęp do. Dzięki temu użytkowników, którzy mają rozliczeń uprawnień administratora dla całej subskrypcji platformy Azure ma pełny przegląd zużycia, niezależnie od tego, kto jest zarządzania zasobami.
+Wszystkie scenariusze hello przy użyciu funkcji RBAC na trzy różne zakresy hello w uprawnień hello platformy Azure, zarządzanie, wdrażanie i administrowanie różnych zasobów jako przypisany użytkownik bez hello konieczne Zarządzanie subskrypcją osobistych. Dla subskrypcji, grupy zasobów lub zasobów zakresu przypisano rolę RBAC hello niezależnie od tego, wszystkie zasoby hello utworzone dalej przez użytkowników hello przypisane są rozliczane w ramach subskrypcji platformy Azure z jednego hello której hello użytkownicy mają dostęp do. Dzięki temu hello użytkowników, którzy mają rozliczeń uprawnień administratora dla całej subskrypcji platformy Azure ma pełny przegląd zużycia hello, niezależnie od tego, kto jest zarządzanie zasobami hello.
 
-W przypadku większych organizacji role RBAC można zastosować w taki sam sposób dla uwzględnieniu perspektywy administrator chce szczegółowego dostęp dla zespołów lub całego działów, indywidualnie dla każdego użytkownika, w związku z tym uwzględnieniu bardzo czas i zarządzanie wydajne opcja grup usługi Azure Active Directory. Przykład ilustrujący **współautora** rola została dodana do jednej z grup w dzierżawie na poziomie subskrypcji.
+W przypadku większych organizacji role RBAC można zastosować w hello taki sam sposób dla grup usługi Azure Active Directory uwzględnieniu perspektywy hello tego użytkownika administracyjnego hello potrzebuje dostępu szczegółowego hello toogrant dla zespołów lub całego działów, indywidualnie dla każdego użytkownika, w związku z tym biorąc pod uwagę go jako bardzo czas i zarządzanie wydajne opcji. tooillustrate ten przykład, hello **współautora** dodano rolę tooone grup hello w dzierżawie powitalnych na poziomie subskrypcji hello.
 
 
 
@@ -194,16 +194,16 @@ W przypadku większych organizacji role RBAC można zastosować w taki sam spos�
 
 Te grupy są grupami zabezpieczeń, które są udostępniane i zarządzane tylko w ramach usługi Azure Active Directory.
 
-## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>Utwórz niestandardową rolę RBAC można otworzyć żądania obsługi przy użyciu programu PowerShell
-Wbudowane role RBAC, które są dostępne w systemie Azure zapewnia określone poziomy uprawnień na podstawie dostępnych zasobów w środowisku. Jeśli żadna z tych ról potrzeb dla użytkownika administracyjnego, istnieje jednak możliwość ograniczenia dostępu nawet więcej, tworząc niestandardowe role RBAC.
+## <a name="create-a-custom-rbac-role-tooopen-support-requests-using-powershell"></a>Utwórz niestandardowe Obsługa tooopen roli RBAC żądania przy użyciu programu PowerShell
+określone poziomy uprawnień na podstawie dostępnych zasobów hello w środowisku hello upewnij się, Hello wbudowanych RBAC role, które są dostępne w systemie Azure. Jednak jeśli żadna z tych ról potrzeb użytkownika administratora hello, jest dostępny hello opcja toolimit jeszcze więcej, tworząc niestandardowe role RBAC.
 
-Tworzenie niestandardowych ról RBAC wymaga, aby zająć jedną rolę wbudowanych, edycji, a następnie zaimportuj go ponownie w środowisku. Pobieranie i przekazywania roli są zarządzane przy użyciu programu PowerShell lub interfejsu wiersza polecenia.
+Tworzenie niestandardowych ról RBAC wymaga jednej wbudowanej roli tootake, edytować, a następnie zaimportuj go ponownie w środowisku hello. Hello pobierania i przekazywanie roli hello są zarządzane przy użyciu programu PowerShell lub interfejsu wiersza polecenia.
 
-Należy zrozumieć wymagania wstępne utworzenia niestandardowej roli zabezpieczeń, które można udostępniać szczegółowe na poziomie subskrypcji, a także umożliwić zaproszonych użytkowników elastyczność otwarcia żądania pomocy technicznej.
+Jest ważne toounderstand hello wymagania wstępne tworzenie niestandardowej roli zabezpieczeń, które można przyznać szczegółowego dostęp na poziomie subskrypcji hello i również umożliwić hello zaproszonych użytkowników hello elastyczność otwarcia żądania pomocy technicznej.
 
-W tym przykładzie wbudowanej roli **czytnika** umożliwia użytkownikom dostęp do wyświetlania wszystkich zakresów zasobów, ale nie do je edytować lub utworzyć nowe został dostosowany do Zezwalaj użytkownikom z możliwością otwarcia żądania pomocy technicznej.
+Dla tej roli wbudowanych hello przykład **czytnika** co pozwala użytkownikom dostępu tooview zasobów hello wszystkich zakresów ale nie tooedit je lub utworzyć nowe został dostosowany tooallow hello użytkownika hello możliwością otwarcia żądania pomocy technicznej.
 
-Pierwszą akcją eksportowania **czytnika** roli musi zostać wykonane w programie PowerShell został uruchomiony z podwyższonym poziomem uprawnień administratora.
+Witaj pierwszą akcją eksportowania hello **czytnika** roli toobe musi ukończyć w programie PowerShell został uruchomiony z podwyższonym poziomem uprawnień administratora.
 
 ```
 Login-AzureRMAccount
@@ -220,7 +220,7 @@ Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole
 
 ![Zrzut ekranu programu PowerShell dla roli czytnika RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
 
-Następnie należy wyodrębnić szablonu JSON w roli.
+Następnie należy tooextract hello JSON szablonu hello roli.
 
 
 
@@ -230,44 +230,44 @@ Następnie należy wyodrębnić szablonu JSON w roli.
 
 Typowa rola RBAC składa się z trzech głównych sekcji, **akcje**, **NotActions** i **AssignableScopes**.
 
-W **akcji** sekcji są wymienione wszystkie działania dozwolone dla tej roli. Należy zrozumieć, że każda akcja przypisano od dostawcy zasobów. W takim przypadku służący do tworzenia biletów pomocy technicznej **Microsoft.Support** musi być wymieniona dostawcy zasobów.
+W hello **akcji** sekcji są wyświetlane wszystkie hello dozwolonych operacji dla tej roli. Jest ważne toounderstand, każda akcja przypisany od dostawcy zasobów. W takim przypadku służący do tworzenia hello biletów pomocy technicznej **Microsoft.Support** musi być wymieniona dostawcy zasobów.
 
-Aby można było wyświetlić wszystkich dostawców zasobów dostępnych i zarejestrowanych w ramach subskrypcji, można użyć programu PowerShell.
+toosee stanie toobe hello wszystkich dostawców zasobów dostępnych i zarejestrowanych w ramach subskrypcji, możesz użyć programu PowerShell.
 ```
 Get-AzureRMResourceProvider
 
 ```
-Ponadto można sprawdzić wszystkie dostępne polecenia cmdlet programu PowerShell do zarządzania dostawcy zasobów.
+Ponadto możesz sprawdzić hello wszystkich hello dostępne PowerShell polecenia cmdlet toomanage hello dostawców zasobów.
     ![Zrzut ekranu programu PowerShell do zarządzania dostawcy zasobów](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
 
-Aby ograniczyć wszystkie akcje dla określonej roli RBAC, dostawców zasobów są wymienione w sekcji **NotActions**.
-Ostatnio jest to konieczne, że rola RBAC zawiera jawne subskrypcji identyfikatorów, w którym została użyta. Identyfikatory subskrypcji są wyświetlane w obszarze **AssignableScopes**, w przeciwnym razie będzie nie można zaimportować roli w ramach subskrypcji.
+Witaj wszystkie akcje dla konkretnej roli RBAC zasobów dostawcy są wymienione w sekcji hello toorestrict **NotActions**.
+Ostatnio jest to konieczne, że tej roli RBAC hello zawiera jawne subskrypcji hello identyfikatorów, w którym została użyta. Witaj identyfikatorów subskrypcji są wyświetlane w obszarze hello **AssignableScopes**, w przeciwnym razie użytkownik nie będzie można tooimport hello roli w ramach subskrypcji.
 
-Po utworzeniu i dostosowywanie roli RBAC, musi zostać zaimportowany kopii środowiska.
+Po utworzeniu i dostosowywanie hello RBAC roli, musi on toobe importowanych hello wstecz środowiska.
 
 ```
 New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
 
 ```
 
-W tym przykładzie niestandardową nazwę dla tej roli RBAC jest "Czytnika obsługi biletów poziom dostępu" dzięki czemu użytkownik, aby wyświetlić wszystkie elementy w ramach subskrypcji, a także do otwarcia żądania pomocy technicznej.
+W tym przykładzie hello niestandardową nazwę dla tej roli RBAC jest "Czytnika obsługi biletów poziom dostępu" stosowanie wszystko hello tooview użytkownika w subskrypcji hello, a także tooopen żądania pomocy technicznej.
 
 > [!NOTE]
-> Są dwa tylko wbudowane role RBAC umożliwiając akcji otwarcia żądania pomocy technicznej **właściciela** i **współautora**. Użytkownik może mieć możliwość otwarcia żądania pomocy technicznej on musi posiadać rolę RBAC tylko w zakresie subskrypcji, ponieważ wszystkie żądania pomocy technicznej są tworzone na podstawie subskrypcji platformy Azure.
+> Witaj tylko dwa wbudowane role RBAC, umożliwiając akcji hello otwarcia żądania pomocy technicznej są **właściciela** i **współautora**. Dla użytkownika toobe stanie tooopen żądania pomocy technicznej on musi posiadać rolę RBAC tylko w zakresie subskrypcji hello, ponieważ wszystkie żądania pomocy technicznej są tworzone na podstawie subskrypcji platformy Azure.
 
-Tę rolę niestandardową nowe zostanie przypisana do użytkownika z tym samym katalogu.
-
-
-
-
-
-![Zrzut ekranu przedstawiający niestandardową rolę RBAC zaimportowany w portalu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+Ta nowa rola niestandardowych przypisano tooan użytkownika z hello tego samego katalogu.
 
 
 
 
 
-![Zrzut ekranu przedstawiający przypisywanie niestandardowej roli zabezpieczeń RBAC zaimportowane do użytkownika w tym samym katalogu](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
+![Zrzut ekranu przedstawiający niestandardowej roli zabezpieczeń RBAC zaimportowana hello portalu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+
+
+
+
+
+![Zrzut ekranu przedstawiający przypisywanie niestandardowych toouser roli RBAC importowanych w hello tym samym katalogu](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
 
 
 
@@ -275,7 +275,7 @@ Tę rolę niestandardową nowe zostanie przypisana do użytkownika z tym samym k
 
 ![Zrzut ekranu przedstawiający uprawnienia niestandardowe importowanych roli RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
-Przykład został opisany bardziej szczegółowo aby podkreślić limitów tę rolę niestandardową RBAC w następujący sposób:
+przykład Witaj został dalsze szczegółowe tooemphasize limitów hello tę rolę niestandardową RBAC w następujący sposób:
 * Można tworzyć nowe żądania pomocy technicznej
 * Nie można utworzyć nowe zakresy zasobów (na przykład: maszyny wirtualnej)
 * Nie można utworzyć nowej grupy zasobów
@@ -290,20 +290,20 @@ Przykład został opisany bardziej szczegółowo aby podkreślić limitów tę r
 
 
 
-![Zrzut ekranu przedstawiający niestandardową rolę RBAC nie można utworzyć maszyny wirtualne](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
+![Zrzut ekranu przedstawiający niestandardowej roli zabezpieczeń RBAC nie jest w stanie toocreate maszyny wirtualne](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
 
 
 
 
 
-![Zrzut ekranu przedstawiający niestandardowych nie można utworzyć nowego RGs roli RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![Zrzut ekranu przedstawiający niestandardowej roli zabezpieczeń RBAC nie jest w stanie toocreate RGs nowy](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
-## <a name="create-a-custom-rbac-role-to-open-support-requests-using-azure-cli"></a>Utwórz niestandardową rolę RBAC można otworzyć żądania obsługi przy użyciu wiersza polecenia platformy Azure
-Uruchomiony na komputerze Mac i bez uzyskiwania dostępu do programu PowerShell, interfejsu wiersza polecenia Azure to sposób go.
+## <a name="create-a-custom-rbac-role-tooopen-support-requests-using-azure-cli"></a>Utwórz niestandardowe Obsługa tooopen roli RBAC żądań przy użyciu wiersza polecenia platformy Azure
+Uruchomiony na komputerze Mac i bez potrzeby dostępu tooPowerShell, Azure CLI jest hello toogo sposób.
 
-Kroki umożliwiające utworzenie niestandardowej roli zabezpieczeń są takie same, z wyjątkiem wyłącznie przy użyciu interfejsu wiersza polecenia roli nie można pobrać szablonu JSON, ale można je wyświetlić w interfejsu wiersza polecenia.
+toocreate kroki Hello niestandardowej roli zabezpieczeń są powitalne takie same, z wyjątkiem wyłącznie hello, że przy użyciu interfejsu wiersza polecenia hello roli nie można pobrać szablonu JSON, ale można je wyświetlać w hello interfejsu wiersza polecenia.
 
-W tym przykładzie wybrano I wbudowana rola **czytnika kopii zapasowej**.
+W tym przykładzie wybrano I role wbudowane hello **czytnika kopii zapasowej**.
 
 ```
 
@@ -317,7 +317,7 @@ azure role show "backup reader" --json
 
 ![Pokaż zrzut ekranu interfejsu wiersza polecenia rolę czytelnika kopii zapasowej](./media/role-based-access-control-create-custom-roles-for-internal-external-users/24.png)
 
-Edytowanie roli w programie Visual Studio po skopiowaniu ich właściwości w szablonie JSON **Microsoft.Support** dostawca zasobów został dodany w **akcje** sekcjach, aby ten użytkownik może otworzyć żądania pomocy technicznej pozostawiając można czytnik dla magazynów kopii zapasowych. Ponownie należy dodać identyfikator subskrypcji, w którym ta rola będzie używany w **AssignableScopes** sekcji.
+Edytowanie hello roli w programie Visual Studio po skopiowaniu hello ich właściwości w szablonie JSON, hello **Microsoft.Support** dostawca zasobów został dodany w hello **akcje** sekcje, tak aby mogli otworzyć tego użytkownika żądania pomocy technicznej, pozostawiając toobe czytnik hello magazynów kopii zapasowych. Ponownie jest identyfikator subskrypcji hello niezbędne tooadd gdy ta rola będzie używany w hello **AssignableScopes** sekcji.
 
 ```
 
@@ -331,7 +331,7 @@ azure role create --inputfile <path>
 
 ![Zrzut ekranu interfejsu wiersza polecenia importowania niestandardowej roli zabezpieczeń RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/25.png)
 
-Nowa rola jest teraz dostępna w portalu Azure i proces assignation jest taki sam, jak w poprzednich przykładach.
+Nowa rola Hello jest teraz dostępna w portalu Azure hello i procesu assignation hello jest hello takie same jak w poprzednich przykładach hello.
 
 
 
@@ -339,7 +339,7 @@ Nowa rola jest teraz dostępna w portalu Azure i proces assignation jest taki sa
 
 ![Azure portalu zrzut ekranu przedstawiający niestandardową rolę RBAC utworzone za pomocą interfejsu wiersza polecenia 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
 
-Od najnowszej 2017 kompilacji powłoka chmury Azure jest ogólnie dostępna. Powłoka chmury Azure jest uzupełnienie IDE i portalu Azure. Z tą usługą Pobierz powłoką bazujące na przeglądarce, która jest uwierzytelniane i hostowanej na platformie Azure i można go użyć zamiast interfejsu wiersza polecenia na komputerze jest zainstalowany.
+Począwszy od hello 2017 najnowszej kompilacji, hello powłoki chmury Azure jest ogólnie dostępna. Powłoka chmury Azure to tooIDE dopełnienia i hello portalu Azure. Z tą usługą Pobierz powłoką bazujące na przeglądarce, która jest uwierzytelniane i hostowanej na platformie Azure i można go użyć zamiast interfejsu wiersza polecenia na komputerze jest zainstalowany.
 
 
 

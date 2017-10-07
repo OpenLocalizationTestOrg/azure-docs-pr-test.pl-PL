@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z CloudPassage | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i CloudPassage."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i CloudPassage."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,121 +13,122 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 094740e20570665e975dec1a591989e411f90c16
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 32fb007b90f071626c9b40fb5afc341dd3c1ae99
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Samouczek: Integracji Azure Active Directory z CloudPassage
 
-Z tego samouczka dowiesz się integrowanie CloudPassage z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate CloudPassage w usłudze Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD CloudPassage zapewnia następujące korzyści:
+Integracja z usługą Azure AD CloudPassage zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do CloudPassage
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do CloudPassage (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooCloudPassage
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooCloudPassage (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z CloudPassage, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z CloudPassage należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - CloudPassage logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie CloudPassage z galerii
+1. Dodawanie CloudPassage z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-cloudpassage-from-the-gallery"></a>Dodawanie CloudPassage z galerii
-Aby skonfigurować integrację usługi Azure AD CloudPassage, należy dodać CloudPassage z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-cloudpassage-from-hello-gallery"></a>Dodawanie CloudPassage z galerii hello
+tooconfigure hello integracji CloudPassage do usługi Azure AD, należy tooadd CloudPassage z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać CloudPassage z galerii, wykonaj następujące czynności:**
+**tooadd CloudPassage z galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **CloudPassage**.
+4. W polu wyszukiwania hello wpisz **CloudPassage**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_search.png)
 
-5. W panelu wyników wybierz **CloudPassage**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello zaznacz **CloudPassage**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z CloudPassage na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w CloudPassage jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w CloudPassage musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w CloudPassage jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w CloudPassage musi toobe ustanowione.
 
-W CloudPassage, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W CloudPassage, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z CloudPassage, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z CloudPassage, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego CloudPassage](#creating-a-cloudpassage-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta CloudPassage połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego CloudPassage](#creating-a-cloudpassage-test-user)**  -toohave odpowiednikiem Simona Britta w CloudPassage, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji CloudPassage.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji CloudPassage.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z CloudPassage, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z CloudPassage, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **CloudPassage** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **CloudPassage** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_samlbase.png)
 
-3. Na **CloudPassage domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **CloudPassage domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://portal.cloudpassage.com/saml/init/accountid`
+    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://portal.cloudpassage.com/saml/init/accountid`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca: `https://portal.cloudpassage.com/saml/consume/accountid`. Możesz też uzyskać wartość tego atrybutu, klikając **dokumentacji ustawienia logowania jednokrotnego** w **ustawień rejestracji jednokrotnej** sekcji portalem CloudPassage.
+    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca: `https://portal.cloudpassage.com/saml/consume/accountid`. Możesz też uzyskać wartość tego atrybutu, klikając **dokumentacji ustawienia logowania jednokrotnego** w hello **ustawień rejestracji jednokrotnej** sekcji portalem CloudPassage.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_05.png)
      
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty adres URL odpowiedzi i adres URL logowania, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta CloudPassage](https://www.cloudpassage.com/company/contact/) uzyskać te wartości. 
+    > Wartości te nie są prawdziwe. Witaj rzeczywisty adres URL odpowiedzi służący i adres URL logowania, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta CloudPassage](https://www.cloudpassage.com/company/contact/) tooget tych wartości. 
 
-4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_certificate.png) 
 
-5. Aplikacja CloudPassage oczekuje potwierdzenia języka SAML w określonym formacie, musisz dodać mapowania atrybutu niestandardowego do konfiguracji atrybuty tokenu SAML. Poniższy zrzut ekranu przedstawia przykład tego.
+5. Aplikacja CloudPassage oczekuje potwierdzenia SAML hello w określonym formacie wymaga możesz tooadd atrybutu niestandardowego mapowania tooyour SAML tokenu atrybuty konfiguracji.   
+powitania po zrzut ekranu przedstawia przykład tego.
    
    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_25.png) 
 
-6. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano na ilustracji powyżej i wykonaj następujące czynności:
+6. W hello **atrybuty użytkownika** sekcji na powitania **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano w powyższy obraz powitania i wykonywać hello następujące kroki:
 
     | Nazwa atrybutu | Wartość atrybutu |
     | --- | --- |
@@ -135,15 +136,15 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     | nazwisko |User.surname |
     | Adres e-mail |User.mail |
     
-    a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
+    a. Kliknij przycisk **Dodaj atrybut** tooopen hello **Dodawanie atrybutu** okna dialogowego.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_attribute_04.png)
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_attribute_05.png)
     
-    b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
+    b. W hello **nazwa** pole tekstowe, nazwa atrybutu hello typu wyświetlany dla danego wiersza.
 
-    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+    c. Z hello **wartość** listy wartości atrybutu hello typ wyświetlanego dla tego wiersza.
     
     d. Kliknij przycisk **OK**.
 
@@ -151,117 +152,117 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_400.png)
     
-8. Na **konfiguracji CloudPassage** , kliknij przycisk **skonfigurować CloudPassage** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+8. Na powitania **konfiguracji CloudPassage** kliknij **skonfigurować CloudPassage** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_configure.png) 
 
-9. W oknie innej przeglądarki logowania do witryny firmy CloudPassage jako administrator.
+9. W oknie innej przeglądarki, witryny firmy CloudPassage tooyour logowania jako administrator.
 
-10. W menu u góry kliknij **ustawienia**, a następnie kliknij przycisk **administrowania lokacją**. 
+10. Witaj menu u góry hello, kliknij przycisk **ustawienia**, a następnie kliknij przycisk **administrowania lokacją**. 
    
     ![Konfigurowanie rejestracji jednokrotnej][12]
 
-11. Kliknij przycisk **ustawienia uwierzytelniania** kartę. 
+11. Kliknij przycisk hello **ustawienia uwierzytelniania** kartę. 
    
     ![Konfigurowanie rejestracji jednokrotnej][13]
 
-12. W **ustawień rejestracji jednokrotnej** sekcji, wykonaj następujące czynności: 
+12. W hello **ustawień rejestracji jednokrotnej** sekcji, wykonaj następujące kroki hello: 
    
     ![Konfigurowanie rejestracji jednokrotnej][14]
 
     a. Wybierz **sign-on(SSO) włączyć pojedynczego (dokumentacja Instalatora logowania jednokrotnego)** wyboru.
     
-    b. Wklej **identyfikator jednostki SAML** do **adres URL wystawcy SAML** pola tekstowego.
+    b. Wklej **identyfikator jednostki SAML** do hello **adres URL wystawcy SAML** pola tekstowego.
   
-    c. Wklej **SAML pojedynczy znak na adres URL usługi** do **adres URL punktu końcowego SAML** pola tekstowego.
+    c. Wklej **SAML pojedynczy znak na adres URL usługi** do hello **adres URL punktu końcowego SAML** pola tekstowego.
   
-    d. Wklej **Sign-Out URL** do **strony docelowej wylogowania** pola tekstowego.
+    d. Wklej **Sign-Out URL** do hello **strony docelowej wylogowania** pola tekstowego.
   
-    e. Otwórz w Notatniku pobranego certyfikatu, skopiuj zawartość pobranego certyfikatu do Schowka, a następnie wklej go do **x 509 certyfikatu** pola tekstowego.
+    e. Otwórz pobrany certyfikat w Notatniku, hello kopia zawartości pobranej certyfikatu do Schowka, a następnie wklej go do hello **x 509 certyfikatu** pola tekstowego.
   
     f. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-cloudpassage-test-user"></a>Tworzenie użytkownika testowego CloudPassage
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w CloudPassage.
+Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w CloudPassage.
 
-**Aby utworzyć użytkownika o nazwie Simona Britta w CloudPassage, wykonaj następujące czynności:**
+**toocreate użytkownika o nazwie Simona Britta w CloudPassage, wykonaj następujące kroki hello:**
 
-1. Logowanie do Twojej **CloudPassage** witryny firmy jako administrator. 
+1. Logowania jednokrotnego tooyour **CloudPassage** witryny firmy jako administrator. 
 
-2. Na pasku narzędzi u góry kliknij **ustawienia**, a następnie kliknij przycisk **administrowania lokacją**. 
+2. Witaj pasku narzędzi u góry hello, kliknij przycisk **ustawienia**, a następnie kliknij przycisk **administrowania lokacją**. 
    
    ![Tworzenie użytkownika testowego CloudPassage][22] 
 
-3. Kliknij przycisk **użytkowników** , a następnie kliknij pozycję **Dodaj nowego użytkownika**. 
+3. Kliknij przycisk hello **użytkowników** , a następnie kliknij pozycję **Dodaj nowego użytkownika**. 
    
    ![Tworzenie użytkownika testowego CloudPassage][23]
 
-4. W **Dodaj nowego użytkownika** sekcji, wykonaj następujące czynności: 
+4. W hello **Dodaj nowego użytkownika** sekcji, wykonaj następujące kroki hello: 
    
    ![Tworzenie użytkownika testowego CloudPassage][24]
     
-    a. W **imię** tekstowym, wpisz Britta. 
+    a. W hello **imię** tekstowym, wpisz Britta. 
   
-    b. W **nazwisko** tekstowym, wpisz Simona.
+    b. W hello **nazwisko** tekstowym, wpisz Simona.
   
-    c. W **Username** pole tekstowe, **E-mail** pole tekstowe i **ponownie poczty E-mail** pole tekstowe, wpisz nazwę użytkownika w Britta w usłudze Azure AD.
+    c. W hello **Username** pole tekstowe, hello **E-mail** pole tekstowe i hello **ponownie poczty E-mail** pole tekstowe, wpisz nazwę użytkownika w Britta w usłudze Azure AD.
   
     d. Jako **typu dostępu**, wybierz pozycję **Włącz dostęp do portalu Halo**.
   
     e. Kliknij pozycję **Dodaj**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu CloudPassage.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooCloudPassage.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta CloudPassage, wykonaj następujące czynności:**
+**tooassign tooCloudPassage Simona Britta wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **CloudPassage**.
+2. Z listy aplikacji hello wybierz **CloudPassage**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -269,7 +270,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -277,13 +278,13 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem tej sekcji służy do testowania konfigurację usługi Azure AD z logowania jednokrotnego za pomocą panelu dostępu.
+Celem Hello w tej sekcji jest tootest programu Azure AD SSO konfiguracji przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka CloudPassage w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji CloudPassage.
+Po kliknięciu kafelka CloudPassage hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour CloudPassage aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

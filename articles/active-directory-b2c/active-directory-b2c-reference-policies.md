@@ -1,6 +1,6 @@
 ---
 title: "Usługi Azure Active Directory B2C: Wbudowane zasady | Dokumentacja firmy Microsoft"
-description: "Temat w ramach rozszerzalnych zasad usługi Azure Active Directory B2C i o sposobach tworzenia różnych typów zasad"
+description: "Temat na powitania rozszerzona platforma zasad usługi Azure Active Directory B2C i jak toocreate różne typy zasad"
 services: active-directory-b2c
 documentationcenter: 
 author: sama
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: sama
-ms.openlocfilehash: daad3af089afdf76b930053728bb11a5cf4c2a92
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 24bb85eba30f888c6ea7d0401e05235e8eb6ea79
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Usługi Azure Active Directory B2C: Wbudowane zasady
 
 
-Rozszerzona platforma zasad usługi Azure Active Directory (Azure AD) B2C jest siły podstawowe usługi. Zasady pełni opisano funkcje tożsamości konsumentów takich jak konta, logowania lub edytowanie profilu. Na przykład zasad rejestracji umożliwia kontrolowanie zachowania, konfigurując następujące ustawienia:
+Witaj rozszerzona platforma zasad usługi Azure Active Directory (Azure AD) B2C jest siły core hello hello usługi. Zasady pełni opisano funkcje tożsamości konsumentów takich jak konta, logowania lub edytowanie profilu. Na przykład zasad rejestracji umożliwia zachowania toocontrol konfigurując hello następujące ustawienia:
 
-* Typy kont (kont społecznościowych takimi jak Facebook) lub kont lokalnych, takie jak adresy e-mail, których klienci mogą korzystać zalogowania się do aplikacji
-* Atrybuty (na przykład imię, kod pocztowy i rozmiarze buta) mają być zbierane od konsumenta podczas tworzenia konta
+* Typy (kont społecznościowych takimi jak Facebook) lub kont lokalnych, takie jak adresy e-mail użytkowników za pomocą toosign dla aplikacji hello konta
+* Atrybuty (na przykład imię, kod pocztowy i rozmiarze buta) toobe zebrane z klienta na powitania podczas tworzenia konta
 * Korzystanie z usługi Azure Multi-Factor Authentication
-* Wygląd i działanie wszystkie strony
-* Informacje (które manifesty jako oświadczenia w tokenie) czy po otrzymaniu kiedy zasad, uruchom zakończenie
+* Witaj wygląd i działanie wszystkie strony
+* Informacje (który manifesty jako oświadczenia w tokenie) hello aplikacji otrzymuje po zakończeniu uruchom zasad hello
 
-Można utworzyć wiele zasad o różnych typach w dzierżawie i używać ich w aplikacji, zgodnie z potrzebami. Zasady mogą być ponownie używane w aplikacjach. Tego rodzaju elastyczności umożliwia deweloperom definiowanie i modyfikowanie środowiska tożsamości użytkownika z minimalnym lub Brak zmian do ich kodu.
+Można utworzyć wiele zasad o różnych typach w dzierżawie i używać ich w aplikacji, zgodnie z potrzebami. Zasady mogą być ponownie używane w aplikacjach. Tego rodzaju elastyczności umożliwia deweloperom toodefine i zmodyfikuj środowiska tożsamości użytkownika z minimalnym lub żaden kod tootheir zmiany.
 
-Zasady są dostępne do użycia przy użyciu interfejsu dewelopera proste. Wyzwala zasady przy użyciu standardowego żądania uwierzytelniania HTTP (przekazywanie parametru zasad w żądaniu) i otrzymuje token dostosowane odpowiedzi aplikacji. Jedyną różnicą między żądań, które wywołują zasad logowania i żądań, które wywołują zasad rejestracji jest na przykład nazwę zasad, która jest używana w "p" parametru ciągu zapytania:
+Zasady są dostępne do użycia przy użyciu interfejsu dewelopera proste. Wyzwala zasady przy użyciu standardowego żądania uwierzytelniania HTTP (przekazywanie parametru zasad w żądaniu hello) i otrzymuje token dostosowane odpowiedzi aplikacji. Na przykład hello jedyną różnicą między żądań, które wywołują zasad logowania i żądań, które wywołują zasad rejestracji jest hello nazwę zasady, który jest używany w parametru ciągu zapytania "p" hello:
 
 ```
 
@@ -63,11 +63,11 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-Aby uzyskać więcej informacji na temat framework zasad, zobacz [ten wpis w blogu dotyczące usługi Azure AD B2C na Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
+Aby uzyskać więcej informacji na temat hello platformy zasad, zobacz [ten wpis w blogu dotyczące usługi Azure AD B2C na powitania pakietu Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Tworzenie zasad rejestracji i logowania
 
-Ta zasada obsługuje zarówno konsumenta rejestracji i logowania, korzystając z pojedynczą konfiguracją. Konsumenci są doprowadziło do prawej ścieżki (rejestracji lub logowania), w zależności od kontekstu. Omówiono także zawartość tokenów, które otrzymają aplikacji po pomyślnej napędza rejestracje lub logowania.  Przykład kodu dla zasad rejestracji i logowania jest [dostępne tutaj](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Jest zalecane w przypadku użycia tej zasady protokołu zasad rejestracji i logowania zasad.  
+Ta zasada obsługuje zarówno konsumenta rejestracji i logowania, korzystając z pojedynczą konfiguracją. Konsumenci są przeprowadzony hello prawidłową ścieżkę (rejestracji lub logowania) w zależności od kontekstu hello w dół. Omówiono także zawartość hello tokenów otrzymujących aplikacji hello po pomyślnym napędza rejestracje lub logowania.  Przykład kodu dla zasad rejestracji i logowania hello jest [dostępne tutaj](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Jest zalecane w przypadku użycia tej zasady protokołu zasad rejestracji i logowania zasad.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -90,16 +90,16 @@ Ta zasada obsługuje zarówno konsumenta rejestracji i logowania, korzystając z
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Jak połączyć zasady rejestracji lub logowania za pomocą zasad resetowania hasła
-Podczas tworzenia zasady rejestracji i logowania (za pomocą kont lokalnych), zobacz **nie pamiętam hasła?** łącza na pierwszej stronie środowisko. Kliknięcie tego łącza nie automatycznie wyzwalacza hasła zasady resetowania. 
+Podczas tworzenia zasady rejestracji i logowania (za pomocą kont lokalnych), zobacz **nie pamiętam hasła?** łącza na pierwszej stronie powitania hello środowisko. Kliknięcie tego łącza nie automatycznie wyzwalacza hasła zasady resetowania. 
 
-Zamiast tego kodu błędu  **`AADB2C90118`**  jest zwracana do aplikacji. Twoja aplikacja powinna obsługiwać tego kodu błędu za pomocą zasad resetowania hasła określone. Aby uzyskać więcej informacji, zobacz [przykład przedstawiający metodę łączenia zasad](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+Witaj, kod błędu:  **`AADB2C90118`**  jest zwracany tooyour aplikacji. Twoja aplikacja powinna toohandle tego kodu błędu za pomocą zasad resetowania określonego hasła. Aby uzyskać więcej informacji, zobacz [program hello podejście łączenie zasad](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Należy użyć zasad rejestracji i logowania lub zasad rejestracji i logowania zasady?
 Zalecane jest użycie zasad rejestracji lub logowania za pośrednictwem zasad rejestracji i logowania zasad.  
 
-Zasady rejestracji i logowania ma więcej możliwości niż zasad logowania. Również umożliwia dostosowywanie interfejsu użytkownika strony i ma lepszą obsługę lokalizacji. 
+zasady rejestracji i logowania Hello ma więcej możliwości niż hello zasad logowania. Ponadto umożliwia dostosowywanie interfejsu użytkownika strony toouse i ma lepszą obsługę lokalizacji. 
 
-Nie należy do zlokalizowania zasad tylko potrzeby znakowania możliwości personalizacji i mają hasła, zaleca się zasad logowania resetowania wbudowanych.
+zasad logowania Hello zaleca się, jeśli nie potrzebujesz toolocalize zasad, tylko potrzebna jest funkcja personalizacji znakowania i mają hasło resetowania wbudowanych.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Token sesji i konfiguracji rejestracji jednokrotnej](active-directory-b2c-token-session-sso.md)

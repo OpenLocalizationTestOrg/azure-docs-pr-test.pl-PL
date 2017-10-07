@@ -1,6 +1,6 @@
 ---
-title: "Azure AD 2.0 OAuth2.0 imieniu-przepływ \"w\" | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób użycia wiadomości HTTP do zaimplementowania usług uwierzytelniania za pomocą OAuth2.0 imieniu-przepływ \"w\"."
+title: "v2.0 aaaAzure AD OAuth2.0 imieniu-przepływ \"w\" | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak toouse HTTP wiadomości tooimplement tooservice uwierzytelnianie usługi przy użyciu hello OAuth2.0 imieniu-przepływ \"w\"."
 services: active-directory
 documentationcenter: 
 author: navyasric
@@ -15,61 +15,61 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 356083fbaabfcd2ec7581adf319fa22b810df0d3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6063869d07c2544000094db8deea7dce19f14f67
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # V2.0 usługi Azure Active Directory i przepływu OAuth 2.0 On-Behalf-Of
-OAuth On-Behalf-Of 2.0, którego przepływ służy przypadek użycia, w którym aplikacja wywołuje usługi/składnika web API, który z kolei musi wywołać inny usługi/interfejs API sieci web. Będzie propagację uprawnień za pomocą łańcucha żądań i tożsamości użytkowników delegowanego. Dla usługi warstwy środkowej na wysyłanie żądań uwierzytelnionych usługi podrzędne należy go secure token dostępu z usługi Azure Active Directory (Azure AD), w imieniu użytkownika.
+Witaj przepływu OAuth 2.0 On-Behalf-Of służy hello przypadek użycia gdzie aplikacja wywołuje usługi/składnika web API, który z kolei musi toocall innej usługi/interfejs API sieci web. pomysł Hello jest toopropagate hello delegowane uprawnienia za pomocą hello łańcucha żądań i tożsamości użytkowników. Dla hello warstwy środkowej toomake uwierzytelnić żądania toohello podrzędne usługi musi on toosecure token dostępu z usługi Azure Active Directory (Azure AD), w imieniu użytkownika hello.
 
 > [!NOTE]
-> Punktu końcowego v2.0 nie obsługuje wszystkich scenariuszy Azure Active Directory i funkcji. Aby ustalić, czy należy używać punktu końcowego v2.0, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
+> punktu końcowego v2.0 Hello nie obsługuje wszystkich scenariuszy Azure Active Directory i funkcji. toodetermine, czy należy używać punktu końcowego v2.0 hello, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
 >
 >
 
 ## Diagram protokołu
-Załóżmy, że użytkownik został uwierzytelniony w aplikacji przy użyciu [kodu autoryzacji protokołu OAuth 2.0 przyznać przepływu](active-directory-v2-protocols-oauth-code.md). W tym momencie aplikacja ma token dostępu (token A) z oświadczeń użytkowników i zgody na dostęp do sieci web warstwy środkowej interfejsu API (interfejs API A). Teraz A interfejsu API musi wprowadzić żądania uwierzytelnionego podrzędne sieci web interfejsu API (interfejs API B).
+Załóżmy, że hello użytkownik został uwierzytelniony w aplikacji przy użyciu hello [kodu autoryzacji protokołu OAuth 2.0 przyznać przepływu](active-directory-v2-protocols-oauth-code.md). W tym momencie aplikacji hello ma token dostępu (token A) z oświadczeń użytkownika hello i zgody tooaccess hello warstwy środkowej interfejsu API sieci web (A interfejsu API). Teraz A interfejsu API musi toomake żądania uwierzytelnionego toohello podrzędne interfejsu API sieci web (interfejs API B).
 
-Czynności, które wykonują stanowią przepływu w imieniu-z i zostały wyjaśnione przy użyciu poniższym diagramie.
+Hello czynności, które wykonują stanowią hello imieniu-przepływ "w" i opisano szczegółowo za pomocą hello powitania po diagramu.
 
 ![OAuth2.0 imieniu-przepływ "w"](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. Aplikacja kliencka zgłasza żądanie do interfejsu API, A z tokenem A.
-2. A interfejsu API uwierzytelnia do punktu końcowego wystawiania tokenu usługi Azure AD i żądania tokenu na potrzeby dostępu do interfejsu API B.
-3. Punkt końcowy usługi Azure AD wydawania tokenów sprawdza poprawność poświadczeń A interfejsu API z tokenów w przypadku i wystawia token dostępu do interfejsu API B (token B).
-4. Token B znajduje się w nagłówku autoryzacji żądania interfejsu API B.
-5. Dane zabezpieczonych zasobów jest zwracane przez interfejs API B.
+1. Aplikacja kliencka Hello sprawia, że tooAPI żądania A z hello tokenu A.
+2. Interfejs API A uwierzytelnia punkt końcowy wystawiania tokenu usługi Azure AD toohello i żądania tokenu tooaccess B. interfejsu API
+3. punkt końcowy wystawiania tokenu usługi Azure AD Hello weryfikuje poświadczenia A interfejsu API z tokenów w przypadku i problemy hello tokenu dostępu dla interfejsu API B (token B).
+4. Hello token B znajduje się w nagłówku autoryzacji hello hello żądania tooAPI B.
+5. Dane hello zabezpieczonych zasobów jest zwracane przez interfejs API B.
 
 > [!NOTE]
-> W tym scenariuszu usługa warstwy środkowej ma bez interakcji użytkownika, aby uzyskać zgodę użytkownika na dostęp do interfejsu API niższego rzędu. W związku z tym opcję, aby udzielić dostępu do interfejsu API niższego rzędu są prezentowane wiedzieli, jako część zgody kroku podczas uwierzytelniania.
+> W tym scenariuszu usługa warstwy środkowej hello ma nie interakcji tooobtain hello użytkownik użytkownika zgody podrzędne interfejsu API tooaccess hello. W związku z tym hello toohello dostępu toogrant opcji podrzędne interfejsu API są prezentowane góry w ramach kroku zgody hello podczas uwierzytelniania.
 >
 
-## Usługi w celu żądania tokenu dostępu usługi
-Żądania tokenu dostępu, aby HTTP POST do specyficznego dla dzierżawy punktu końcowego v2.0 usługi Azure AD z następującymi parametrami.
+## Żądanie tokenu dostępu usługi tooservice
+toorequest tokenu dostępu, dzięki hello następujące parametry punkt końcowy HTTP POST toohello specyficznego dla dzierżawy usługi Azure AD w wersji 2.0.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 ```
 
-Istnieją dwa przypadki, w zależności od tego, czy aplikacja kliencka zdecydował się były zabezpieczone przez Wspólny klucz tajny lub certyfikatu.
+Istnieją dwa przypadki, w zależności od tego, czy aplikacja kliencka hello wybierze toobe zabezpieczone przez Wspólny klucz tajny lub certyfikatu.
 
 ### Najpierw przypadek: żądanie tokenu dostępu z wspólny klucz tajny
-Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawiera następujące parametry:
+Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawiera hello następujące parametry:
 
 | Parametr |  | Opis |
 | --- | --- | --- |
-| Typ grant_type |Wymagane | Typ żądania tokenu. Dla żądania przy użyciu token JWT, wartość musi być **urn: ietf:params:oauth:grant — typ: jwt-elementu nośnego**. |
-| client_id |Wymagane | Identyfikator aplikacji, która [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisany do aplikacji. |
-| client_secret |Wymagane | Klucz tajny aplikacji, generowany dla aplikacji w portalu rejestracji aplikacji. |
-| Potwierdzenia |Wymagane | Wartość tokenu użytego w żądaniu. |
-| Zakres |Wymagane | Lista zakresów dla żądania tokenu rozdzielonych spacją. Aby uzyskać więcej informacji, zobacz [zakresy](active-directory-v2-scopes.md).|
-| requested_token_use |Wymagane | Określa sposób przetwarzania żądania. W strumieniu w imieniu-z, wartość musi być **on_behalf_of**. |
+| Typ grant_type |Wymagane | Typ Hello hello żądania tokenu. Dla żądania przy użyciu token JWT, hello wartość musi być **urn: ietf:params:oauth:grant — typ: jwt-elementu nośnego**. |
+| client_id |Wymagane | hello tego IDENTYFIKATORA aplikacji Hello [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisane tooyour aplikacji. |
+| client_secret |Wymagane | Witaj klucz tajny aplikacji generowany dla aplikacji na powitania portalu rejestracji aplikacji. |
+| Potwierdzenia |Wymagane | wartość Hello hello token użyty w żądaniu hello. |
+| Zakres |Wymagane | Lista zakresów dla żądania tokenu hello rozdzielonych spacją. Aby uzyskać więcej informacji, zobacz [zakresy](active-directory-v2-scopes.md).|
+| requested_token_use |Wymagane | Określa sposób przetwarzania żądań hello. W imieniu-przepływ "w" hello, musi być wartością hello **on_behalf_of**. |
 
 #### Przykład
-Następujące POST protokołu HTTP żądania tokenu dostępu z `user.read` zakres dla interfejsu API sieci web https://graph.microsoft.com.
+token dostępu z żądań powitania po HTTP POST `user.read` zakres hello interfejsu API sieci web https://graph.microsoft.com.
 
 ```
 //line breaks for legibility only
@@ -87,22 +87,22 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 ```
 
 ### W drugim przypadku: żądanie tokenu dostępu przy użyciu certyfikatu
-Żądanie tokenu dostępu do usługi przy użyciu certyfikatu zawiera następujące parametry:
+Żądanie tokenu dostępu do usługi przy użyciu certyfikatu zawiera hello następujące parametry:
 
 | Parametr |  | Opis |
 | --- | --- | --- |
-| Typ grant_type |Wymagane | Typ żądania tokenu. Dla żądania przy użyciu token JWT, wartość musi być **urn: ietf:params:oauth:grant — typ: jwt-elementu nośnego**. |
-| client_id |Wymagane | Identyfikator aplikacji, która [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisany do aplikacji. |
-| client_assertion_type |Wymagane |Wartość musi być`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Wymagane | (JSON Web Token) potwierdzenia, że musisz utworzyć i podpisać przy użyciu certyfikatu został zarejestrowany jako poświadczeń dla aplikacji.  Przeczytaj informacje o [certyfikatu poświadczeń](active-directory-certificate-credentials.md) informacje na temat rejestracji certyfikatu i format potwierdzenia.|
-| Potwierdzenia |Wymagane | Wartość tokenu użytego w żądaniu. |
-| requested_token_use |Wymagane | Określa sposób przetwarzania żądania. W strumieniu w imieniu-z, wartość musi być **on_behalf_of**. |
-| Zakres |Wymagane | Lista zakresów dla żądania tokenu rozdzielonych spacją. Aby uzyskać więcej informacji, zobacz [zakresy](active-directory-v2-scopes.md).|
+| Typ grant_type |Wymagane | Typ Hello hello żądania tokenu. Dla żądania przy użyciu token JWT, hello wartość musi być **urn: ietf:params:oauth:grant — typ: jwt-elementu nośnego**. |
+| client_id |Wymagane | hello tego IDENTYFIKATORA aplikacji Hello [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisane tooyour aplikacji. |
+| client_assertion_type |Wymagane |Witaj, wartość musi być`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Wymagane | Potwierdzeniem (JSON Web Token) czy potrzebujesz toocreate oraz znak hello certyfikatu można zarejestrowany jako poświadczeń dla aplikacji.  Przeczytaj informacje o [certyfikatu poświadczeń](active-directory-certificate-credentials.md) toolearn jak tooregister Twojego certyfikatu i hello format hello potwierdzenia.|
+| Potwierdzenia |Wymagane | wartość Hello hello token użyty w żądaniu hello. |
+| requested_token_use |Wymagane | Określa sposób przetwarzania żądań hello. W imieniu-przepływ "w" hello, musi być wartością hello **on_behalf_of**. |
+| Zakres |Wymagane | Lista zakresów dla żądania tokenu hello rozdzielonych spacją. Aby uzyskać więcej informacji, zobacz [zakresy](active-directory-v2-scopes.md).|
 
-Należy zauważyć, że parametry są prawie takie same jak w przypadku żądania przez Wspólny klucz tajny, z wyjątkiem tego, że parametr client_secret zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
+Należy zauważyć, że parametry hello są prawie hello takie same jak przypadku hello hello żądania przez Wspólny klucz tajny z tą różnicą, że parametr client_secret hello zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
 
 #### Przykład
-Następujące POST protokołu HTTP żądania tokenu dostępu z `user.read` zakres https://graph.microsoft.com interfejsu API sieci web przy użyciu certyfikatu.
+token dostępu z żądań powitania po HTTP POST `user.read` zakres hello https://graph.microsoft.com interfejsu API sieci web przy użyciu certyfikatu.
 
 ```
 // line breaks for legibility only
@@ -120,19 +120,19 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read
 ```
 
-## Usługa do odpowiedzi tokenu dostępu usługi
-Odpowiedź sukcesu jest odpowiedź JSON OAuth 2.0 z następującymi parametrami.
+## Usługa odpowiedzi tokenu dostępu tooservice
+Odpowiedź sukcesu jest odpowiedź JSON OAuth 2.0 z hello następujące parametry.
 
 | Parametr | Opis |
 | --- | --- |
-| token_type |Wskazuje wartość typ tokenu. Jedynym typem, który obsługuje usługę Azure AD jest **elementu nośnego**. Aby uzyskać więcej informacji dotyczących tokenów elementu nośnego, zobacz [OAuth 2.0 autoryzacji Framework: użycie tokenu elementu nośnego (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| Zakres |Zakres dostępu przyznane w tokenie. |
-| expires_in |Czas token dostępu jest nieprawidłowy (w sekundach). |
-| ' access_token ' |Żądany dostęp token. Wywołanie usługi umożliwia ten token uwierzytelniania w usłudze odbierania. |
-| refresh_token |Token odświeżania dla tokenu żądany dostęp. Wywołanie usługi umożliwia żądania inny token dostępu po wygaśnięciu tokenu dostępu bieżącego ten token. |
+| token_type |Wskazuje wartość tokenu typu hello. Witaj tylko typ, który obsługuje usługę Azure AD **elementu nośnego**. Aby uzyskać więcej informacji na temat tokenów elementu nośnego, zobacz hello [OAuth 2.0 autoryzacji Framework: użycie tokenu elementu nośnego (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| Zakres |zakres Hello udzielono hello tokenu dostępu. |
+| expires_in |Długość Hello tokenu dostępu hello czasu jest prawidłowy (w sekundach). |
+| ' access_token ' |token dostępu do żądanego Hello. Witaj wywoływania usługi można użyć tej usługi odbierania toohello tooauthenticate tokenu. |
+| refresh_token |token odświeżania Hello hello żądanego tokenu dostępu. Hello wywoływania usługi można użyć z tym token toorequest inny token dostępu po wygaśnięciu tokenu dostępu bieżącego hello. |
 
 ### Przykład odpowiedź sukcesu
-W poniższym przykładzie przedstawiono odpowiedzi na żądanie tokenu dostępu do interfejsu API sieci web https://graph.microsoft.com Powodzenie.
+Witaj poniższy przykład przedstawia żądania tooa odpowiedź sukcesu token dostępu dla hello interfejsu API sieci web https://graph.microsoft.com.
 
 ```
 {
@@ -146,12 +146,12 @@ W poniższym przykładzie przedstawiono odpowiedzi na żądanie tokenu dostępu 
 ```
 
 ### Przykład odpowiedzi błędu
-Odpowiedzi na błąd jest zwracany przez punkt końcowy tokenu usługi Azure AD podczas próby uzyskania tokenu dostępu dla interfejsu API podrzędne, jeśli zasady dostępu warunkowego, takich jak uwierzytelnianie wieloskładnikowe, ustaw w niej ma podrzędne interfejsu API. Usługi warstwy środkowej powinien powierzchni ten błąd do aplikacji klienckiej, aby aplikacja kliencka zapewniają interakcji użytkownika, aby spełniać zasady dostępu warunkowego.
+Odpowiedzi na błąd jest zwracany przez punkt końcowy tokenu usługi Azure AD podczas próby tooacquire token dostępu hello podrzędne interfejsu API, gdy zasady dostępu warunkowego, takich jak uwierzytelnianie wieloskładnikowe, ustaw w niej ma hello podrzędne interfejsu API. Usługa warstwy środkowej Hello powinien powierzchni aplikacji klienta toohello błąd tak, aby aplikacja kliencka hello zapewniają zasady dostępu warunkowego hello toosatisfy interakcji użytkownika hello.
 
 ```
 {
     "error":"interaction_required",
-    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
+    "error_description":"AADSTS50079: Due tooa configuration change made by your administrator, or because you moved tooa new location, you must enroll in multi-factor authentication tooaccess 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
     "error_codes":[50079],
     "timestamp":"2017-05-01 22:43:20Z",
     "trace_id":"b72a68c3-0926-4b8e-bc35-3150069c2800",
@@ -160,8 +160,8 @@ Odpowiedzi na błąd jest zwracany przez punkt końcowy tokenu usługi Azure AD 
 }
 ```
 
-## Użyj tokenu dostępu, aby uzyskać dostępu do zabezpieczonych zasobów
-Obecnie usługa warstwy środkowej może używać tokenu nabyte powyżej, aby uwierzytelnionego żądania podrzędnego sieci Web interfejsu API, ustawiając token w `Authorization` nagłówka.
+## Użyj hello tooaccess tokenu dostępu hello zabezpieczonych zasobów
+Teraz usługi warstwy środkowej hello używać downstream toohello żądania tokenu toomake nabytych przez niego powyżej uwierzytelniony hello interfejs API, sieci web przez ustawienie token hello w hello `Authorization` nagłówka.
 
 ### Przykład
 ```
@@ -171,6 +171,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 ```
 
 ## Następne kroki
-Dowiedz się więcej na temat protokołu OAuth 2.0 i innym sposobem wykonania uwierzytelniania usług przy użyciu poświadczeń klienta.
+Dowiedz się więcej o protokół OAuth 2.0 hello i inny sposób tooperform usługi tooservice uwierzytelniania przy użyciu poświadczeń klienta.
 * [Przyznanie poświadczeń klienta OAuth 2.0 w usłudze Azure AD w wersji 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 * [OAuth 2.0 w usłudze Azure AD w wersji 2.0](active-directory-v2-protocols-oauth-code.md)

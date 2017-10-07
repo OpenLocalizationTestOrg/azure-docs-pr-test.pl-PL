@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Netsuite | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Netsuite."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Netsuite."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7cf205d5bda5333872fb589e57f4779a8670b595
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Samouczek: Integracji Azure Active Directory z Netsuite
 
-Z tego samouczka dowiesz się integrowanie Netsuite z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate Netsuite w usłudze Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Netsuite zapewnia następujące korzyści:
+Integracja z usługą Azure AD Netsuite zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do Netsuite
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do Netsuite (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooNetsuite
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooNetsuite (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z Netsuite, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z Netsuite należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Netsuite jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Netsuite z galerii
+1. Dodawanie Netsuite z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-netsuite-from-the-gallery"></a>Dodawanie Netsuite z galerii
-Aby skonfigurować integrację usługi Azure AD Netsuite, należy dodać Netsuite z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-netsuite-from-hello-gallery"></a>Dodawanie Netsuite z galerii hello
+tooconfigure hello integracji Netsuite do usługi Azure AD, należy tooadd Netsuite z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać Netsuite z galerii, wykonaj następujące czynności:**
+**tooadd Netsuite z galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. Kliknij przycisk **nowej aplikacji** przycisk u góry hello hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **Netsuite**.
+4. W polu wyszukiwania hello wpisz **Netsuite**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_search.png)
 
-5. W panelu wyników wybierz **Netsuite**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello zaznacz **Netsuite**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Netsuite na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Netsuite jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Netsuite musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Netsuite jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Netsuite musi toobe ustanowione.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w Netsuite.
+Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w Netsuite.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Netsuite, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Netsuite, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Netsuite](#creating-a-netsuite-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Netsuite połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Netsuite](#creating-a-netsuite-test-user)**  -toohave odpowiednikiem Simona Britta w Netsuite, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Netsuite.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Netsuite.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Netsuite, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z Netsuite, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **Netsuite** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **Netsuite** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_samlbase.png)
 
-3. Na **Netsuite domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **Netsuite domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
 
-    W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs``https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
+    W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs``https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość do rzeczywistego adresu URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej Netsuite](http://www.netsuite.com/portal/services/support.shtml) aby zyskać tę wartość.
+    > Ta wartość nie jest prawdziwe. Wartość hello aktualizacji z hello rzeczywisty adres URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej Netsuite](http://www.netsuite.com/portal/services/support.shtml) tooget tej wartości.
  
-4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik XML na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik XML hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_certificate.png) 
 
@@ -123,33 +123,33 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-netsuite-tutorial/tutorial_general_400.png)
 
-6. Na **konfiguracji Netsuite** , kliknij przycisk **skonfigurować Netsuite** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na powitania **konfiguracji Netsuite** kliknij **skonfigurować Netsuite** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_configure.png) 
 
 7. Otwórz nową kartę w przeglądarce i zaloguj się do witryny firmy Netsuite jako administrator.
 
-8. Na pasku narzędzi w górnej części strony kliknij **Instalator**, następnie kliknij przycisk **Menedżer instalacji**.
+8. Hello pasku narzędzi u góry hello hello strony, kliknij przycisk **Instalator**, następnie kliknij przycisk **Menedżer instalacji**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
-9. Z **zadań konfiguracyjnych** listy, wybierz **integracji**.
+9. Z hello **zadań konfiguracyjnych** listy, wybierz **integracji**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-integration.png)
 
-10. W **Zarządzanie uwierzytelniania** kliknij **SAML logowania jednokrotnego**.
+10. W hello **Zarządzanie uwierzytelniania** kliknij **SAML logowania jednokrotnego**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-saml.png)
 
-11. Na **Instalatora SAML** wykonaj następujące czynności:
+11. Na powitania **Instalatora SAML** wykonaj hello następujące kroki:
    
-    a. Kopia **SAML pojedynczy znak na adres URL usługi** wartość z **krótkimi opisami** sekcji **Konfigurowanie logowania jednokrotnego** i wklej ją do **strony logowania dostawcy tożsamości** w Netsuite.
+    a. Kopia hello **SAML pojedynczy znak na adres URL usługi** wartość z **krótkimi opisami** sekcji **Konfigurowanie logowania jednokrotnego** i wklej go do hello **dostawcy tożsamości Strona logowania** w Netsuite.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png)
   
     b. Netsuite, wybierz **podstawowej metody uwierzytelniania**.
 
-    c. W polu z etykietą **metadanych dostawcy tożsamości SAMLV2**, wybierz pozycję **Przekaż plik metadanych IDP**. Następnie kliknij przycisk **Przeglądaj** można przekazać pliku metadanych, który został pobrany z portalu Azure.
+    c. Dla pola hello etykietą **metadanych dostawcy tożsamości SAMLV2**, wybierz pozycję **Przekaż plik metadanych IDP**. Następnie kliknij przycisk **Przeglądaj** tooupload hello metadanych pliku, który został pobrany z portalu Azure.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png)
 
@@ -159,37 +159,37 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
 
-13. Aby uzyskać **nazwa atrybutu** wpisz w `account`. Aby uzyskać **wartość atrybutu** wpisz w identyfikatora konta Netsuite Ta wartość jest stała i zmianę konta. Poniżej znajdują się instrukcje dotyczące sposobu Znajdź identyfikator konta:
+13. Dla hello **nazwa atrybutu** wpisz w `account`. Dla hello **wartość atrybutu** wpisz w identyfikatora konta Netsuite Ta wartość jest stała i zmianę konta. Instrukcje dotyczące toofind identyfikator konta znajdują się poniżej:
 
       ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
 
-    a. W Netsuite, kliknij przycisk **Instalator** w menu górnym menu nawigacyjnym.
+    a. W Netsuite, kliknij przycisk **Instalator** menu górnym menu nawigacyjnym hello.
 
-    b. Kliknięcie w obszarze **zadań konfiguracyjnych** części menu nawigacji po lewej stronie wybierz **integracji** sekcji, a następnie kliknij polecenie **preferencje usług sieci Web**.
+    b. Kliknięcie w obszarze hello **zadań konfiguracyjnych** sekcji hello menu nawigacji po lewej stronie, wybierz opcję hello **integracji** sekcji, a następnie kliknij polecenie **preferencje usług sieci Web**.
 
-    c. Identyfikator konta Netsuite skopiuj i wklej ją do **wartość atrybutu** pole w usłudze Azure AD.
+    c. Identyfikator konta Netsuite skopiuj i wklej go do hello **wartość atrybutu** pole w usłudze Azure AD.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-account-id.png)
 
-14. Zanim użytkownicy mogą wykonywać logowania jednokrotnego do Netsuite, ich należy przypisać odpowiednie uprawnienia w Netsuite. Postępuj zgodnie z instrukcjami poniżej, aby przypisać te uprawnienia.
+14. Zanim użytkownicy mogą wykonywać logowania jednokrotnego do Netsuite, ich należy przypisać odpowiednie uprawnienia hello w Netsuite. Wykonaj instrukcje hello poniżej tooassign te uprawnienia.
 
-    a. W menu górnym menu nawigacyjnym kliknij **Instalator**, następnie kliknij przycisk **Menedżer instalacji**.
+    a. W menu górnym menu nawigacyjnym powitania kliknij **Instalator**, następnie kliknij przycisk **Menedżer instalacji**.
       
       ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
-    b. W menu nawigacji po lewej stronie wybierz **użytkownicy i role**, następnie kliknij przycisk **Zarządzanie rolami**.
+    b. W menu nawigacji po lewej stronie powitania wybierz **użytkownicy i role**, następnie kliknij przycisk **Zarządzanie rolami**.
       
       ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-manage-roles.png)
 
     c. Kliknij przycisk **nową rolę**.
 
-    d. Wpisz w **nazwa** dla nowej roli, a wybierz **pojedynczego logowania tylko** wyboru.
+    d. Wpisz w **nazwa** nową rolę i wybierz hello **pojedynczego logowania tylko** wyboru.
       
       ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
     e. Kliknij pozycję **Zapisz**.
 
-    f. W menu u góry kliknij **uprawnienia**. Następnie kliknij przycisk **Instalatora**.
+    f. W menu hello na górze hello, kliknij przycisk **uprawnienia**. Następnie kliknij przycisk **Instalatora**.
       
        ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
@@ -197,11 +197,11 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     h. Kliknij pozycję **Zapisz**.
 
-    i. W menu górnym menu nawigacyjnym kliknij **Instalator**, następnie kliknij przycisk **Menedżer instalacji**.
+    i. W menu górnym menu nawigacyjnym powitania kliknij **Instalator**, następnie kliknij przycisk **Menedżer instalacji**.
       
        ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
-    j. W menu nawigacji po lewej stronie wybierz **użytkownicy i role**, następnie kliknij przycisk **Zarządzanie użytkownikami**.
+    j. W menu nawigacji po lewej stronie powitania wybierz **użytkownicy i role**, następnie kliknij przycisk **Zarządzanie użytkownikami**.
       
        ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-manage-users.png)
 
@@ -209,70 +209,70 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
       
        ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-edit-user.png)
 
-    l. W oknie dialogowym ról, wybierz rolę, którą utworzono i kliknij przycisk **Dodaj**.
+    l. W oknie dialogowym ról hello, wybierz rolę hello, które zostały utworzone i kliknij przycisk **Dodaj**.
       
        ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Netsuite-tutorial/ns-add-role.png)
 
     m. Kliknij pozycję **Zapisz**.
     
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_01.png) 
 
-2.  Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2.  toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_02.png) 
 
-3. W górnej części okna dialogowego, kliknij przycisk **Dodaj** otworzyć **użytkownika** okna dialogowego.
+3. U góry okna dialogowego hello hello, kliknij przycisk **Dodaj** tooopen hello **użytkownika** okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**. 
 
 ### <a name="creating-a-netsuite-test-user"></a>Tworzenie użytkownika testowego Netsuite
 
 W tej sekcji użytkownika o nazwie Simona Britta jest tworzony w Netsuite. Netsuite obsługę w czasie, który jest domyślnie włączona.
-Nie ma elementu akcji można w tej sekcji. Jeśli użytkownik nie istnieje w Netsuite, nowy jest tworzony podczas próby uzyskania dostępu Netsuite.
+Nie ma elementu akcji można w tej sekcji. Jeśli użytkownik nie istnieje w Netsuite, tworzona jest nowy, podczas próby tooaccess Netsuite.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Netsuite.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooNetsuite.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta Netsuite, wykonaj następujące czynności:**
+**tooassign tooNetsuite Simona Britta wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **Netsuite**.
+2. Z listy aplikacji hello wybierz **Netsuite**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -280,7 +280,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -288,13 +288,13 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
 
-Aby przetestować jednego ustawienia logowania jednokrotnego, otwórz Panel dostępu w [https://myapps.microsoft.com](https://myapps.microsoft.com/), zaloguj się do konta testowego i kliknij przycisk **Netsuite**.
+tootest pojedynczego logowania jednokrotnego ustawienia, otwórz hello panelu dostępu pod adresem [https://myapps.microsoft.com](https://myapps.microsoft.com/), zaloguj się do konta testowego hello i kliknij przycisk **Netsuite**.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Skonfiguruj Inicjowanie obsługi użytkowników](active-directory-saas-netsuite-provisioning-tutorial.md)
 

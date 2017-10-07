@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integracji Azure Active Directory z usługi GitHub | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i usługi GitHub."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i usługi GitHub."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,71 +14,71 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 9dc12bc2e313bcb2000724d035156c5054d14e1c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 688779de4e6627e49c0e3e8a7576f2f8c7a81ab1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Samouczek: Integracji Azure Active Directory z usługi GitHub
 
-Z tego samouczka dowiesz się integrowanie GitHub z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate GitHub z usługą Azure Active Directory (Azure AD).
 
-Integrowanie usługi GitHub z usługą Azure AD zapewnia następujące korzyści:
+Integracja z usługą Azure AD GitHub udostępnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do usługi GitHub
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do usługi GitHub (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu zarządzania Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooGitHub
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooGitHub (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu zarządzania Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z usługi GitHub, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z usługi GitHub należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - GitHub jednokrotnego włączone subskrypcji
 
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie GitHub z galerii
+1. Dodawanie GitHub z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
 
-## <a name="adding-github-from-the-gallery"></a>Dodawanie GitHub z galerii
-Aby skonfigurować integrację usługi Azure AD GitHub, musisz dodać GitHub z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-github-from-hello-gallery"></a>Dodawanie GitHub z galerii hello
+tooconfigure hello integracji GitHub z usługą Azure AD, należy tooadd GitHub z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać GitHub z poziomu galerii, wykonaj następujące czynności:**
+**tooadd GitHub z galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu zarządzania Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu zarządzania Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Kliknij przycisk **Dodaj** przycisk w górnej części okna dialogowego.
+3. Kliknij przycisk **Dodaj** przycisk u góry hello hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **witryną GitHub.com**.
+4. W polu wyszukiwania hello wpisz **witryną GitHub.com**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-github-tutorial/tutorial_github_search02.png)
 
-5. W panelu wyników wybierz **GitHub**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello zaznacz **GitHub**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-github-tutorial/tutorial_github_search_result02.png)
 
@@ -86,68 +86,68 @@ Aby skonfigurować integrację usługi Azure AD GitHub, musisz dodać GitHub z g
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z usługi GitHub w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w serwisie GitHub jest dla użytkownika, w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i powiązane użytkownika w usłudze GitHub musi określone.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow hello odpowiednikiem użytkownika w usłudze GitHub jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w serwisie GitHub musi toobe ustanowione.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w witrynie GitHub.
+Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w serwisie GitHub.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z usługi GitHub, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z usługi GitHub, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego GitHub](#creating-a-GitHub-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta GitHub połączonego z jej reprezentacji usługi Azure AD.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego GitHub](#creating-a-GitHub-test-user)**  -toohave odpowiednikiem Simona Britta w usłudze GitHub, że jego reprezentacja toohello połączonej usługi Azure AD.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu zarządzania Azure i skonfigurować logowanie jednokrotne w aplikacji GitHub.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu zarządzania Azure hello i skonfigurować logowanie jednokrotne w aplikacji GitHub.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z usługi GitHub, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z usługi GitHub, wykonaj hello następujące kroki:**
 
-1. W portalu zarządzania Azure na **GitHub** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu zarządzania Azure hello na powitania **GitHub** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okna dialogowego, jako **tryb** wybierz **na języku SAML logowania jednokrotnego** Włącz funkcji logowania jednokrotnego.
+2. Na powitania **logowanie jednokrotne** okna dialogowego, jako **tryb** wybierz **na języku SAML logowania jednokrotnego** tooenable logowania jednokrotnego.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_github_01.png)
 
-3. Na **GitHub domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **GitHub domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz wartość, jak:`https://github.com/orgs/<entity-id>/sso`
+    a. W hello **adres URL logowania** pole tekstowe, wartość hello typu jako:`https://github.com/orgs/<entity-id>/sso`
 
-    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://github.com/orgs/<entity-id>`
+    b. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://github.com/orgs/<entity-id>`
 
     > [!NOTE] 
-    > Należy pamiętać, że nie są one rzeczywiste wartości. Należy zaktualizować te wartości z rzeczywistego uwagi na URL i identyfikator. W tym miejscu zalecamy można używać unikatowej wartości ciągu w identyfikatorze. Przejdź do sekcji GitHub administratora dotyczące pobierania tych wartości. 
+    > Należy pamiętać, że nie są one hello wartości rzeczywistych. Masz tooupdate tych wartości za pomocą hello rzeczywiste uwagi na adres URL i identyfikator. W tym miejscu zalecamy możesz toouse hello unikatową wartość ciągu w hello identyfikator. Przejdź tooretrieve sekcji administracyjnej tooGitHub tych wartości. 
 
-4. Na **atrybuty użytkownika** zaznacz **identyfikator użytkownika** jako user.mail.
+4. Na powitania **atrybuty użytkownika** zaznacz **identyfikator użytkownika** jako user.mail.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
     
-5. Na **certyfikat podpisywania SAML** kliknij **Utwórz nowy certyfikat**.
+5. Na powitania **certyfikat podpisywania SAML** kliknij **Utwórz nowy certyfikat**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
-6. Na **Tworzenie nowego świadectwa** okna dialogowego, kliknij ikonę kalendarza i wybierz **Data wygaśnięcia**. Następnie kliknij przycisk **zapisać** przycisku.
+6. Na powitania **Tworzenie nowego świadectwa** okna dialogowego, kliknij ikonę kalendarza hello i wybierz **Data wygaśnięcia**. Następnie kliknij przycisk **zapisać** przycisku.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_general_300.png)
 
-7. Na **certyfikat podpisywania SAML** wybierz opcję **uaktywnić nowego świadectwa** i kliknij przycisk **zapisać** przycisku.
+7. Na powitania **certyfikat podpisywania SAML** wybierz opcję **uaktywnić nowego świadectwa** i kliknij przycisk **zapisać** przycisku.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_github_04.png)
 
-8. W oknie podręcznym **certyfikat przerzucania** okna, kliknij przycisk **OK**.
+8. W oknie podręcznym hello **certyfikat przerzucania** okna, kliknij przycisk **OK**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_general_400.png)
 
-9. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+9. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_github_05.png) 
 
-10. Na **konfiguracji GitHub** , kliknij przycisk **skonfigurować GitHub** otworzyć **Konfigurowanie logowania jednokrotnego** okna.
+10. Na powitania **konfiguracji GitHub** kliknij **skonfigurować GitHub** tooopen **Konfigurowanie logowania jednokrotnego** okna.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_github_06.png) 
 
@@ -155,70 +155,70 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
 11. W oknie przeglądarki innej witryny sieci web Zaloguj się do witryny GitHub organizacji jako administrator.
 
-12. Przejdź do **ustawienia** i kliknij przycisk **zabezpieczeń**
+12. Przejdź za**ustawienia** i kliknij przycisk **zabezpieczeń**
 
     ![Ustawienia](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_03.png)
 
-13. Sprawdź **uwierzytelnianie Włącz SAML** pole ujawniania pola konfiguracji logowania jednokrotnego. Następnie zaktualizuj pojedynczy adres URL logowania w konfiguracji usługi Azure AD za pomocą pojedynczego logowania jednokrotnego wartość adresu URL.
+13. Sprawdź hello **uwierzytelnianie Włącz SAML** pole ujawniania hello rejestracji jednokrotnej pola konfiguracji. Następnie należy użyć hello pojedynczego adresu URL wartość tooupdate hello pojedynczego logowania jednokrotnego adres URL logowania w konfiguracji usługi Azure AD.
 
     ![Ustawienia](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_13.png)
 
-14. Określ następujące pola:
+14. Skonfiguruj hello następujące pola:
 
-    a. **Zaloguj się na adres URL**: wprowadź **SAML rejestracji jednokrotnej adres URL usługi** z **skonfigurować GitHub** sekcję na temat usługi Azure AD
+    a. **Zaloguj się na adres URL**: wprowadź **SAML rejestracji jednokrotnej adres URL usługi** z hello **skonfigurować GitHub** sekcję na temat usługi Azure AD
 
-    b. **Wystawca**: wprowadź **identyfikator jednostki SAML** z **skonfigurować GitHub** sekcję na temat usługi Azure AD
+    b. **Wystawca**: wprowadź **identyfikator jednostki SAML** z hello **skonfigurować GitHub** sekcję na temat usługi Azure AD
 
-    c. **Certyfikat publiczny**: Otwórz pobranego certyfikatu z usługi Azure AD w programie Notatnik i skopiuj zawartość, w tym "Certyfikat BEGIN" i "END CERTIFICATE"
+    c. **Certyfikat publiczny**: Otwórz hello pobrać certyfikatu z usługi Azure AD w programie Notatnik i skopiuj zawartości hello tym "BEGIN certyfikatu" i "END CERTIFICATE"
 
     ![Ustawienia](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 
-15. Polecenie **konfiguracji testu SAML** potwierdzić, że nie wystąpiły błędy sprawdzania poprawności lub błędy podczas rejestracji Jednokrotnej.
+15. Polecenie **konfiguracji testu SAML** tooconfirm że nie wystąpiły błędy sprawdzania poprawności lub błędy podczas rejestracji Jednokrotnej.
 
     ![Ustawienia](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_06.png)
 
 16. Kliknij przycisk **Zapisz**
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu zarządzania Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu zarządzania Azure hello o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu zarządzania Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu zarządzania Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-github-tutorial/create_aaduser_01.png) 
 
-2. Przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy** do wyświetlenia na liście Użytkownicy.
+2. Przejdź za**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy** toodisplay hello listy użytkowników.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-github-tutorial/create_aaduser_02.png) 
 
-3. W górnej części okna dialogowego kliknij **Dodaj** otworzyć **użytkownika** okna dialogowego.
+3. U góry okna dialogowego hello powitania kliknij **Dodaj** tooopen hello **użytkownika** okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-github-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-github-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**. 
 
 
 ### <a name="creating-a-github-test-user"></a>Tworzenie użytkownika testowego GitHub
 
-Aby włączyć użytkowników usługi Azure AD zalogować się do usługi GitHub, muszą mieć przydzielone w witrynie GitHub.  
-W przypadku GitHub Inicjowanie obsługi to zadanie ręczne.
+W kolejności tooenable usługi Azure AD użytkownicy toolog w witrynie GitHub muszą mieć przydzielone w witrynie GitHub.  
+W przypadku hello GitHub Inicjowanie obsługi to zadanie ręczne.
 
-**Aby udostępnić konta użytkowników, wykonaj następujące czynności:**
+**tooprovision kont użytkowników, wykonaj hello następujące kroki:**
 
-1. Zaloguj się do witryny GitHub firmy jako administrator.
+1. Zaloguj się za tooyour GitHub witryny firmy jako administrator.
 
 2. Kliknij przycisk **osób**.
 
@@ -228,9 +228,9 @@ W przypadku GitHub Inicjowanie obsługi to zadanie ręczne.
 
     ![Zaprosić użytkowników](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_09.png "zaprosić użytkowników")
 
-4. Na **Członkowskie zaproszenia** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **Członkowskie zaproszenia** okna dialogowego wykonaj hello następujące kroki:
 
-    a. W **E-mail** tekstowym, wpisz adres e-mail konta Simona Britta.
+    a. W hello **E-mail** pole tekstowe, adres e-mail hello typu Simona Britta konta.
 
     ![Zaproś inne osoby](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_10.png "Zaproś inne osoby")
     
@@ -239,26 +239,26 @@ W przypadku GitHub Inicjowanie obsługi to zadanie ręczne.
     ![Zaproś inne osoby](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_11.png "Zaproś inne osoby")
 
     > [!NOTE]
-    > Właścicielem konta usługi Azure Active Directory otrzymasz wiadomość e-mail, a następnie kliknij łącze, aby potwierdzić swoje konto, zanim staje się aktywny.
+    > właścicielem konta usługi Azure Active Directory Hello będzie otrzymywać wiadomości e-mail i postępuj zgodnie tooconfirm łącze swojego konta przed staje się aktywny.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do użycia usługi Azure logowania jednokrotnego za udostępnienie jej do usługi GitHub.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie jej tooGitHub dostępu.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta GitHub, wykonaj następujące czynności:**
+**tooassign tooGitHub Simona Britta wykonaj hello następujące kroki:**
 
-1. Otwórz widok aplikacji w portalu zarządzania Azure, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu zarządzania Azure hello, otwórz widok aplikacji hello, a następnie przejdź widok katalogu toohello i go za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **witryną GitHub.com**.
+2. Z listy aplikacji hello wybierz **witryną GitHub.com**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-github-tutorial/tutorial_github_search_result021.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -266,7 +266,7 @@ W tej sekcji można włączyć Simona Britta do użycia usługi Azure logowania 
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -276,14 +276,14 @@ W tej sekcji można włączyć Simona Britta do użycia usługi Azure logowania 
 
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka GitHub w panelu dostępu użytkownik powinien pobrać zalogowane do aplikacji GitHub. Można będzie można logować się jako organizacji konta muszą jednak następnie zaloguj się przy użyciu konta osobistego.
+Po kliknięciu kafelka GitHub hello w hello Panel dostępu, należy pobrać zalogowane tooyour GitHub aplikacji. Można będzie można logować się jako konta organizacji, ale następnie toolog muszą się przy użyciu konta osobistego.
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

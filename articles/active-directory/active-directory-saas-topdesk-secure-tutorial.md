@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z TOPdesk - bezpiecznego | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak używać TOPdesk - zabezpieczyć za pomocą usługi Azure Active Directory, aby włączyć logowanie jednokrotne, automatyczne Inicjowanie obsługi i inne!."
+description: "Dowiedz się, jak toouse TOPdesk - zabezpieczyć za pomocą usługi Azure Active Directory tooenable logowania jednokrotnego, automatyczne Inicjowanie obsługi i inne!."
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -13,67 +13,67 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 10fe420d1691c2845b89c779486ffd6fcd736432
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Samouczek: Integracji Azure Active Directory z TOPdesk - bezpieczne
-Celem tego samouczka jest pokazanie integracji Azure i TOPdesk - bezpieczny.  
-Scenariusz opisany w tym samouczku założono, że już następujące elementy:
+Celem Hello tego samouczka jest tooshow integracji hello Azure i TOPdesk — zabezpieczenia.  
+Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
 
 * Ważnej subskrypcji platformy Azure
 * A TOPdesk - bezpieczne logowanie jednokrotne włączone subskrypcji
 
-Ten samouczek użytkowników usługi Azure AD, zostały przypisane do TOPdesk - bezpiecznego będzie można funkcji logowania jednokrotnego do aplikacji w TOPdesk - firmy bezpiecznej witryny (usługi zainicjował dostawcy logowania) lub przy użyciu [wprowadzenie dostępu Panel](active-directory-saas-access-panel-introduction.md).
+Po ukończeniu tego samouczka, użytkownicy hello Azure AD przypisano tooTOPdesk - bezpiecznego będzie można stanie toosingle logowania do aplikacji hello w Twojej TOPdesk - firmy bezpiecznej witryny (usługi zainicjował dostawcy logowania) lub przy użyciu hello [wprowadzenie Panel dostępu toohello](active-directory-saas-access-panel-introduction.md).
 
-Scenariusz opisany w tym samouczku składa się z następujących bloków konstrukcyjnych:
+Scenariusz Hello opisane w tym samouczku składa się z powitania po bloków konstrukcyjnych:
 
-1. Włączanie integracji aplikacji dla TOPdesk - bezpieczne
+1. Włączanie integracji aplikacji hello dla TOPdesk - bezpieczne
 2. Konfigurowanie rejestracji jednokrotnej
 3. Konfigurowanie Inicjowanie obsługi użytkowników
 4. Przypisywanie użytkowników
 
 ![Scenariusz](./media/active-directory-saas-topdesk-secure-tutorial/IC790596.png "scenariusza")
 
-## <a name="enabling-the-application-integration-for-topdesk---secure"></a>Włączanie integracji aplikacji dla TOPdesk - bezpieczne
-Celem tej sekcji jest przedstawiają sposób włączania integracji aplikacji dla TOPdesk - bezpieczny.
+## <a name="enabling-hello-application-integration-for-topdesk---secure"></a>Włączanie integracji aplikacji hello dla TOPdesk - bezpieczne
+Celem Hello w tej sekcji jest toooutline sposób integracji aplikacji hello tooenable dla TOPdesk - bezpieczny.
 
-### <a name="to-enable-the-application-integration-for-topdesk---secure-perform-the-following-steps"></a>W celu umożliwienia integracji aplikacji programu TOPdesk - bezpieczny, wykonaj następujące czynności:
-1. W klasycznym portalu Azure, w okienku nawigacji po lewej stronie kliknij **usługi Active Directory**.
+### <a name="tooenable-hello-application-integration-for-topdesk---secure-perform-hello-following-steps"></a>Integracja aplikacji hello tooenable dla TOPdesk - bezpieczny, wykonaj hello następujące kroki:
+1. W hello klasycznego portalu Azure, w okienku nawigacji po lewej stronie powitania kliknij **usługi Active Directory**.
    
     ![Usługi Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "usługi Active Directory")
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
 
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
+3. Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
    
     ![Aplikacje](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "aplikacji")
 
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
+4. Kliknij przycisk **Dodaj** u dołu hello hello strony.
    
     ![Dodaj aplikację](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "Dodaj aplikację")
 
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
+5. Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.
    
     ![Dodawanie aplikacji z gallerry](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "dodać aplikację z gallerry")
 
-6. W **pole wyszukiwania**, typ **TOPdesk - bezpiecznego**.
+6. W hello **pole wyszukiwania**, typ **TOPdesk - bezpiecznego**.
    
     ![Galerii aplikacji](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "galerii aplikacji")
 
-7. W okienku wyników wybierz **TOPdesk - bezpiecznego**, a następnie kliknij przycisk **Complete** można dodać aplikację.
+7. Wybierz w okienku wyników hello **TOPdesk - bezpiecznego**, a następnie kliknij przycisk **Complete** aplikacji hello tooadd.
    
     ![TOPdesk - bezpiecznego](./media/active-directory-saas-topdesk-secure-tutorial/IC791933.png "TOPdesk - bezpieczne")
 
 ## <a name="configuring-single-sign-on"></a>Konfigurowanie rejestracji jednokrotnej
-Celem tej sekcji jest przedstawiają sposób umożliwić użytkownikom uwierzytelnianie na TOPdesk — zabezpieczyć za pomocą swojego konta w usłudze Azure AD przy użyciu federacyjnego na podstawie protokołu SAML.  
-Konfigurowanie rejestracji jednokrotnej dla TOPdesk - bezpiecznego wymaga przekazać plik ikony logo. Aby uzyskać plik ikony, skontaktuj się z zespołem pomocy technicznej TOPdesk.
+Celem Hello w tej sekcji jest toooutline jak tooTOPdesk tooauthenticate użytkowników tooenable - zabezpieczyć za pomocą swojego konta w usłudze Azure AD przy użyciu Federacji oparte na powitania protokołu SAML.  
+Konfigurowanie rejestracji jednokrotnej dla TOPdesk - bezpiecznego wymaga tooupload pliku ikony logo. Plik ikony hello tooget, skontaktuj się z pomocą hello TOPdesk z pomocą techniczną.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Aby skonfigurować rejestrację jednokrotną, wykonaj następujące czynności:
-1. Zaloguj się na Twojej **TOPdesk - bezpiecznego** witryny firmy jako administrator.
-2. W **TOPdesk** menu, kliknij przycisk **ustawienia**.
+### <a name="tooconfigure-single-sign-on-perform-hello-following-steps"></a>tooconfigure logowanie jednokrotne, wykonaj następujące kroki hello:
+1. Zaloguj się na tooyour **TOPdesk - bezpiecznego** witryny firmy jako administrator.
+2. W hello **TOPdesk** menu, kliknij przycisk **ustawienia**.
    
     ![Ustawienia](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "ustawienia")
 
@@ -81,61 +81,61 @@ Konfigurowanie rejestracji jednokrotnej dla TOPdesk - bezpiecznego wymaga przeka
    
     ![Ustawienia logowania](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "ustawienia logowania")
 
-4. Rozwiń węzeł **ustawienia logowania** menu, a następnie kliknij przycisk **ogólne**.
+4. Rozwiń węzeł hello **ustawienia logowania** menu, a następnie kliknij przycisk **ogólne**.
    
     ![Ogólne](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "ogólne")
 
-5. W **bezpiecznego** sekcji **logowania SAML** konfiguracji sekcji, wykonaj następujące czynności:
+5. W hello **bezpiecznego** sekcji hello **logowania SAML** konfiguracji sekcji, wykonaj następujące kroki hello:
    
     ![Ustawienia techniczne](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "ustawienia techniczne")
    
-    a. Kliknij przycisk **Pobierz** można pobrać pliku metadanych publicznego, a następnie zapisz go lokalnie na komputerze.
+    a. Kliknij przycisk **Pobierz** toodownload hello pliku metadanych publicznego, a następnie zapisz go lokalnie na komputerze.
    
-    b. Otwórz plik metadanych, a następnie zlokalizuj **AssertionConsumerService** węzła.
+    b. Otwórz plik metadanych hello, a następnie zlokalizuj hello **AssertionConsumerService** węzła.
     
     ![Usługa konsumenta potwierdzenia](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "potwierdzenia klienta usługi")
    
-    c. Kopiuj **AssertionConsumerService** wartości.  
+    c. Kopiuj hello **AssertionConsumerService** wartości.  
       
     > [!NOTE]
-    > Konieczne będzie wartość **Konfigurowanie adresu URL aplikacji** dalszej części tego samouczka.
+    > Będzie konieczne hello wartość hello **Konfigurowanie adresu URL aplikacji** dalszej części tego samouczka.
     > 
     > 
 
 6. W oknie przeglądarki innej witryny sieci web, zaloguj się do Twojego **klasycznego portalu Azure** jako administrator.
 
-7. Na **TOPdesk - bezpiecznego** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć ** skonfigurować rejestrację jednokrotną ** okna dialogowego.
+7. Na powitania **TOPdesk - bezpiecznego** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello ** skonfigurować rejestrację jednokrotną ** okna dialogowego.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "skonfigurować logowanie jednokrotne")
 
-8. Na **jak chcesz użytkownikom zalogować się na TOPdesk - bezpiecznego** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+8. Na powitania **jak czy jak toosign użytkowników na tooTOPdesk - Secure** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-topdesk-secure-tutorial/IC790603.png "skonfigurować logowanie jednokrotne")
 
-9. Na **Konfigurowanie adresu URL aplikacji** wykonaj następujące czynności:
+9. Na powitania **Konfigurowanie adresu URL aplikacji** wykonaj hello następujące kroki:
    
     ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "skonfigurować adres URL aplikacji")
    
-    a. W **TOPdesk - bezpiecznego logowania na adres URL** tekstowym, wpisz adres URL używany przez użytkowników do logowania się do sieci TOPdesk - zabezpieczonej aplikacji (np.: "*https://qssolutions.topdesk.net*").
+    a. W hello **TOPdesk - bezpiecznego logowania na adres URL** pole tekstowe, wprowadź adres URL hello używany przez Twoje toosign użytkowników do Twojej TOPdesk - zabezpieczonej aplikacji (np.: "*https://qssolutions.topdesk.net*").
    
-    b. W **TOPdesk — publiczny adres URL odpowiedzi** pole tekstowe, Wklej **TOPdesk - bezpiecznego adresu URL AssertionConsumerService** (np.: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
+    b. W hello **TOPdesk — publiczny adres URL odpowiedzi** pole tekstowe, Wklej hello **TOPdesk - bezpiecznego adresu URL AssertionConsumerService** (np.: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
    
     c. Kliknij przycisk **Dalej**.
 
-10. Na **skonfigurować logowanie jednokrotne w TOPdesk - bezpiecznego** można pobrać pliku metadanych, kliknij przycisk **pobierania metadanych**, a następnie zapisz plik lokalnie na komputerze.
+10. Na powitania **skonfigurować logowanie jednokrotne w TOPdesk - bezpiecznego** strony, toodownload pliku metadanych, kliknij przycisk **pobierania metadanych**, a następnie zapisz plik hello lokalnie na komputerze.
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-topdesk-secure-tutorial/IC790605.png "skonfigurować logowanie jednokrotne")
 
-11. Aby utworzyć plik certyfikatu, wykonaj następujące czynności:
+11. toocreate plik certyfikatu, należy wykonać hello następujące kroki:
     
     ![Certyfikat](./media/active-directory-saas-topdesk-secure-tutorial/IC790606.png "certyfikatu")
     
-    a. Otwórz plik pobrany metadanych.
-    b. Rozwiń węzeł **RoleDescriptor** węzła, który ma **xsi: type** z **przekazywani: ApplicationServiceType**.
-    c. Skopiuj wartość **X509Certificate** węzła.
-    d. Zapisz skopiowanych **X509Certificate** wartość lokalnie na komputerze w pliku.
+    a. Plik metadanych pobranych hello otwarte.
+    b. Rozwiń węzeł hello **RoleDescriptor** węzła, który ma **xsi: type** z **przekazywani: ApplicationServiceType**.
+    c. Skopiuj wartość hello hello **X509Certificate** węzła.
+    d. Zapisz hello skopiowane **X509Certificate** wartość lokalnie na komputerze w pliku.
 
-12. W Twojej TOPdesk - zabezpieczenie witryny firmy, w **TOPdesk** menu, kliknij przycisk **ustawienia**.
+12. W Twojej TOPdesk - zabezpieczenie witryny firmy, w hello **TOPdesk** menu, kliknij przycisk **ustawienia**.
     
     ![Ustawienia](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "ustawienia")
 
@@ -143,75 +143,75 @@ Konfigurowanie rejestracji jednokrotnej dla TOPdesk - bezpiecznego wymaga przeka
     
     ![Ustawienia logowania](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "ustawienia logowania")
 
-14. Rozwiń węzeł **ustawienia logowania** menu, a następnie kliknij przycisk **ogólne**.
+14. Rozwiń węzeł hello **ustawienia logowania** menu, a następnie kliknij przycisk **ogólne**.
     
     ![Ogólne](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "ogólne")
 
-15. W **publicznego** kliknij **Dodaj**.
+15. W hello **publicznego** kliknij **Dodaj**.
     
     ![Dodaj](./media/active-directory-saas-topdesk-secure-tutorial/IC790607.png "Dodaj")
 
-16. Na **Asystenta konfiguracji SAML** okna dialogowego strony, należy wykonać następujące czynności:
+16. Na powitania **Asystenta konfiguracji SAML** okna dialogowego wykonaj hello następujące kroki:
     
     ![Asystent konfiguracji SAML](./media/active-directory-saas-topdesk-secure-tutorial/IC790608.png "Asystenta konfiguracji SAML")
     
-    a. Aby przesłać plik metadanych pobranych, w obszarze **metadanych Federacji**, kliknij przycisk **Przeglądaj**.
+    a. tooupload metadanych pobranych plików, w obszarze **metadanych Federacji**, kliknij przycisk **Przeglądaj**.
 
-    b. Aby przesłać plik certyfikatu, w obszarze **certyfikatu (RSA)**, kliknij przycisk **Przeglądaj**.
+    b. tooupload pliku certyfikatu, w obszarze **certyfikatu (RSA)**, kliknij przycisk **Przeglądaj**.
 
-    c. Aby przekazać plik logo uzyskano z zespołem pomocy technicznej TOPdesk, w obszarze **ikona Logo**, kliknij przycisk **Przeglądaj**.
+    c. plik z logo hello tooupload uzyskano z zespołem pomocy technicznej TOPdesk hello, w obszarze **ikona Logo**, kliknij przycisk **Przeglądaj**.
 
-    d. W **atrybutu nazwy użytkownika** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    d. W hello **atrybutu nazwy użytkownika** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    e. W **Nazwa wyświetlana** tekstowym, wpisz nazwę dla danej konfiguracji.
+    e. W hello **Nazwa wyświetlana** tekstowym, wpisz nazwę dla danej konfiguracji.
 
     f. Kliknij pozycję **Zapisz**.
 
-17. W klasycznym portalu Azure, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **Complete** zamknąć **skonfigurować rejestrację jednokrotną** okna dialogowego.
+17. Na powitania klasycznego portalu Azure, wybierz hello konfiguracji rejestracji jednokrotnej potwierdzenie, a następnie kliknij **Complete** tooclose hello **skonfigurować rejestrację jednokrotną** okna dialogowego.
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "skonfigurować logowanie jednokrotne")
 
 ## <a name="configuring-user-provisioning"></a>Konfigurowanie Inicjowanie obsługi użytkowników
-Aby włączyć użytkowników usługi Azure AD zalogować się do TOPdesk - bezpieczny, ich muszą mieć przydzielone do TOPdesk - bezpieczny.  
-W przypadku TOPdesk - bezpieczny, inicjowanie obsługi to zadanie ręczne.
+W kolejności tooenable usługi Azure AD użytkownicy toolog do TOPdesk - bezpieczny, ich muszą mieć przydzielone do TOPdesk - bezpieczny.  
+W przypadku hello TOPdesk - bezpieczny, inicjowanie obsługi to zadanie ręczne.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:
-1. Zaloguj się na Twojej **TOPdesk - bezpiecznego** witryny firmy jako administrator.
-2. W menu u góry kliknij **TOPdesk \> nowy \> pliki obsługi \> Operator**.
+### <a name="tooconfigure-user-provisioning-perform-hello-following-steps"></a>tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:
+1. Zaloguj się na tooyour **TOPdesk - bezpiecznego** witryny firmy jako administrator.
+2. W menu hello na górze hello, kliknij przycisk **TOPdesk \> nowy \> pliki obsługi \> Operator**.
    
     ![Operator](./media/active-directory-saas-topdesk-secure-tutorial/IC790610.png "— Operator")
 
-3. Na **operatora New** okna dialogowego, wykonaj następujące czynności:
+3. Na powitania **operatora New** okna dialogowego, wykonaj następujące kroki hello:
    
     ![New Operator](./media/active-directory-saas-topdesk-secure-tutorial/IC790611.png "New — Operator")
    
-    a. Kliknij kartę Ogólne.
+    a. Kliknij kartę Ogólne hello.
    
-    b. W **nazwisko** pole tekstowe z **ogólne** wpisz nazwisko prawidłowe konto usługi Azure Active Directory, aby udostępnić.
+    b. W hello **nazwisko** textbox hello **ogólne** typu hello nazwisko prawidłowe konto usługi Azure Active Directory ma tooprovision, sekcji.
    
-    c. Wybierz **lokacji** dla konta w **lokalizacji** sekcji.
+    c. Wybierz **lokacji** konta hello w hello **lokalizacji** sekcji.
    
-    d. W **nazwa logowania** pole tekstowe z **logowania TOPdesk** wpisz nazwę logowania dla użytkownika.
+    d. W hello **nazwa logowania** textbox hello **logowania TOPdesk** wpisz nazwę logowania dla użytkownika.
    
     e. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
-> Można użyć dowolnego innego TOPdesk — narzędzia do tworzenia konta użytkownika bezpiecznego lub interfejsów API dostarczonych przez TOPdesk - bezpieczny do udostępnienia konta użytkownika usługi AAD.
+> Można użyć dowolnego innych TOPdesk - bezpieczne konta narzędzia do tworzenia lub interfejsów API dostarczonych przez TOPdesk - Secure tooprovision kont użytkowników usługi AAD.
 > 
 > 
 
 ## <a name="assigning-users"></a>Przypisywanie użytkowników
-Aby przetestować konfigurację, musisz przyznać użytkowników usługi Azure AD, czy chcesz zezwolić, używając przypisywania do nich dostęp aplikacji do niego.
+tootest konfiguracji, należy toogrant hello Azure AD użytkownicy mają tooallow przy użyciu Twojej aplikacji tooit dostępu przez przypisywanie ich.
 
-### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Do przypisywania użytkowników do TOPdesk - bezpieczny, wykonaj następujące czynności:
-1. W klasycznym portalu Azure Utwórz konto testu.
-2. Na ** TOPdesk - bezpiecznego ** strona integracji aplikacji, kliknij przycisk **przypisywać użytkowników**.
+### <a name="tooassign-users-tootopdesk---secure-perform-hello-following-steps"></a>tooTOPdesk użytkowników tooassign - bezpieczny, wykonaj następujące kroki hello:
+1. W hello klasycznego portalu Azure Utwórz konto testu.
+2. Na powitania ** TOPdesk - bezpiecznego ** strona integracji aplikacji, kliknij przycisk **przypisywać użytkowników**.
    
     ![Przypisywanie użytkowników](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "przypisywanie użytkowników")
 
-3. Wybierz użytkownika testowego, kliknij przycisk **przypisać**, a następnie kliknij przycisk **tak** o potwierdzenie przypisania.
+3. Wybierz użytkownika testowego, kliknij przycisk **przypisać**, a następnie kliknij przycisk **tak** tooconfirm przypisania.
    
     ![Tak](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "tak")
 
-Jeśli chcesz przetestować jednego ustawienia logowania jednokrotnego, otwórz Panel dostępu. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Jeśli chcesz tootest jednego ustawienia logowania jednokrotnego, otwórz hello panelu dostępu. Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
 

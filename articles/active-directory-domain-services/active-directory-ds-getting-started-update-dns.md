@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory Domain Services: Aktualizowanie ustawień DNS na potrzeby sieci wirtualnej platformy Azure | Microsoft Docs"
+title: "Azure Active Directory Domain Services: Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure hello | Dokumentacja firmy Microsoft"
 description: "Wprowadzenie do usługi Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/27/2017
 ms.author: maheshu
-ms.openlocfilehash: 8bee2a25f196d645b27f30f21305b1550e44e07a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 484ff1a197a651bccb2b416448056acf69b0d8c6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="update-dns-settings-for-the-azure-virtual-network"></a>Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
-## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
-W poprzednich zadaniach konfiguracji pomyślnie włączono usługi Azure Active Directory Domain Services dla katalogu. Następnym krokiem jest zapewnienie komputerom w sieci wirtualnej możliwości łączenia się z tymi usługami i korzystania z nich. W tym artykule zaktualizujesz ustawienia serwera DNS dla sieci wirtualnej, wskazując dwa adresy IP, pod którymi usługi Azure Active Directory Domain Services są dostępne w sieci wirtualnej.
+# <a name="update-dns-settings-for-hello-azure-virtual-network"></a>Aktualizowanie ustawień DNS dla hello sieci wirtualnej platformy Azure
+## <a name="task-4-update-dns-settings-for-hello-azure-virtual-network"></a>Zadanie 4: Aktualizowanie ustawień DNS na potrzeby hello sieci wirtualnej platformy Azure
+W hello poprzedzających zadania konfiguracji została pomyślnie włączona Azure Active Directory Domain Services dla katalogu. następne zadanie Hello jest tooensure, że komputery w sieci wirtualnej hello łączyć i korzystanie z tych usług. W tym artykule należy zaktualizować ustawienia serwera DNS hello sieci wirtualnej toopoint toohello dwa adresy IP gdzie usług domenowych Azure Active Directory jest dostępny w sieci wirtualnej hello.
 
 > [!NOTE]
-> Po włączeniu usług Azure Active Directory Domain Services dla katalogu zanotuj ich adresy IP wyświetlane na karcie **Konfigurowanie** katalogu.
+> Po włączeniu usługi Azure Active Directory Domain Services dla katalogu hello Uwaga hello adresów IP dla usługi Azure Active Directory Domain Services, które są wyświetlane na powitania **Konfiguruj** katalogu.
 >
 >
 
-Wykonaj poniższe kroki, aby zaktualizować ustawienia serwera DNS dla sieci wirtualnej, w której włączono usługi Azure Active Directory Domain Services:
+tooupdate hello ustawienia serwera DNS dla sieci wirtualnej hello, w której włączono usługi Azure Active Directory Domain Services, pełną hello następujące kroki:
 
-1. Przejdź do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W lewym okienku wybierz opcję **Sieci**.  
-    Zostanie otwarte okno **Sieci**.
+1. Przejdź toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
+2. Wybierz w okienku po lewej stronie powitania **sieci**.  
+    Witaj **sieci** zostanie otwarte okno.
 
     ![Okno Sieci wirtualne](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
-3. Na karcie **Sieci wirtualne** wybierz sieć wirtualną, w której włączono usługi Azure Active Directory Domain Services, aby wyświetlić jej właściwości.
-4. Kliknij kartę **Konfiguracja**.
+3. Na powitania **sieci wirtualnych** kartę, zaznacz hello sieci wirtualnej, w której włączono usługi Azure Active Directory Domain Services tooview jego właściwości.
+4. Kliknij przycisk hello **Konfiguruj** kartę.
 
     ![Okno Sieci wirtualne](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
-5. W sekcji **Serwery DNS** wprowadź obydwa adresy IP wyświetlane w sekcji **Usługi domenowe** na karcie **Konfigurowanie** katalogu.
-6. Aby zapisać ustawienia serwera DNS tej sieci wirtualnej, kliknij pozycję **Zapisz** w okienku zadań w dolnej części okna.
+5. W hello **serwerów DNS** wprowadź zarówno hello adresów IP, które były wyświetlane w hello **usług domenowych w usłudze** sekcji na powitania **Konfiguruj** katalogu.
+6. Kliknij przycisk Ustawienia serwera DNS hello toosave tej sieci wirtualnej, w okienku zadań hello u dołu okna hello hello **zapisać**.
 
-   ![Aktualizowanie ustawień serwera DNS dla sieci wirtualnej](./media/active-directory-domain-services-getting-started/update-dns.png)
+   ![Zaktualizuj ustawienia serwera DNS hello hello sieci wirtualnej](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [!NOTE]
->  Maszyny wirtualne w sieci otrzymują nowe ustawienia DNS dopiero po ponownym uruchomieniu. Jeśli chcesz, aby od razu miały zaktualizowane ustawienia usługi DNS, wyzwól ich ponowne uruchomienie przez portal, program PowerShell lub interfejs wiersza polecenia.
+>  Maszyny wirtualne w sieci hello pobierają tylko nowe ustawienia DNS powitania po ponownym uruchomieniu. Jeśli potrzebne ustawienia DNS tooget hello zaktualizowane od razu, wyzwolić ponowne uruchomienie komputera przez hello portal, programu PowerShell lub hello interfejsu wiersza polecenia.
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Zadanie 5. [Włączanie synchronizacji haseł w usługach Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
+Zadanie 5: [włączyć tooAzure synchronizacji haseł usług domenowych w usłudze Active Directory](active-directory-ds-getting-started-password-sync.md)

@@ -1,5 +1,5 @@
 ---
-title: "Zdarzenia raportowania inspekcji usługi Azure Active Directory | Dokumentacja firmy Microsoft"
+title: "zdarzenia raportów inspekcji usługi Active Directory aaaAzure | Dokumentacja firmy Microsoft"
 description: "Przeprowadzono inspekcję zdarzeń, które są dostępne do wyświetlania i pobierania z usługą Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -14,107 +14,107 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/16/2017
 ms.author: dhanyahk;markvi
-ms.openlocfilehash: 1620d917acf5a2c36767b5b03750c405f3631ee2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a84cce2be56bde006164abf10ad1e72ca6e99bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-audit-report-events"></a>Zdarzenia raportu inspekcji usługi Azure Active Directory
-*Ta dokumentacja jest częścią [Przewodnika po raportach usługi Azure Active Directory](active-directory-reporting-guide.md).*
+*Niniejsza dokumentacja jest częścią hello [Azure Active Directory Przewodnik po raportach](active-directory-reporting-guide.md).*
 
-Azure Active Directory inspekcji raport pomaga klientom identyfikowanie uprzywilejowanych akcji, które wystąpiły w usłudze Azure Active Directory. Uprzywilejowane akcje obejmują zmiany podniesienia uprawnień (na przykład tworzenie roli lub resetowanie haseł), zmiana konfiguracji zasad (na przykład zasady haseł) lub zmiany w konfiguracji katalogu (na przykład zmiany ustawień federacyjnego domeny). Raporty dostarczają rekordu inspekcji dla nazwy zdarzenia aktora, kto wykonał akcję zasobu docelowego wpływ zmiany oraz Data i godzina (w formacie UTC). Klienci będą mogli pobrać listę zdarzeń inspekcji dla ich Azure Active Directory za pośrednictwem [Azure Portal](https://portal.azure.com/), zgodnie z opisem w [wyświetlanie dzienników inspekcji](active-directory-reporting-azure-portal.md).
+Hello Azure Active Directory inspekcji raport pomaga klientom identyfikowanie uprzywilejowanych akcji, które wystąpiły w usłudze Azure Active Directory. Uprzywilejowanych akcji obejmują zmiany podniesienia uprawnień (na przykład tworzenie roli lub resetowanie haseł), zmiana konfiguracji zasad (na przykład zasady haseł) lub zmiany konfiguracji toodirectory (na przykład zmiany toodomain federacyjnego ustawienia). Witaj raporty zawierają hello rekordu inspekcji dla nazwy zdarzenia hello, aktora hello, który wykonał akcję hello, zasobu docelowego hello wpływ zmiany hello i hello daty i czasu (UTC). Klienci są w stanie tooretrieve hello listę zdarzeń inspekcji dla ich Azure Active Directory za pośrednictwem hello [Azure Portal](https://portal.azure.com/), zgodnie z opisem w [wyświetlanie dzienników inspekcji](active-directory-reporting-azure-portal.md).
 
 ## <a name="list-of-audit-report-events"></a>Lista zdarzenia raportów inspekcji
-<!--- audit event descriptions should be in the past tense --->
+<!--- audit event descriptions should be in hello past tense --->
 
 | Zdarzenia | Opis zdarzenia |
 | --- | --- |
 | **Zdarzenia użytkownika** | |
-| Dodaj użytkownika |Dodaje użytkownika do katalogu. |
-| Usuń użytkownika |Usunąć użytkownika z katalogu. |
-| Ustawianie właściwości licencji |Ustawianie właściwości licencji dla użytkowników w katalogu. |
-| Resetowanie hasła użytkownika |Resetowanie hasła dla użytkownika w katalogu. |
-| Zmień hasło użytkownika |Zmieniono hasło dla użytkownika w katalogu. |
-| Licencja użytkownika zmiany |Zmienić licencji przypisana do użytkownika w katalogu. Aby sprawdzić, jakie licencje zostały zaktualizowane, spójrz na [aktualizacji użytkownika](#update-user-attributes) poniżej właściwości |
-| Aktualizuj użytkownika |Zaktualizowano użytkownika w katalogu. [Zobacz poniżej](#update-user-attributes) dla atrybutów, które mogą zostać zaktualizowane. |
-| Zestaw życie Zmienianie hasła użytkownika |Ustaw właściwość, która wymusza na użytkowniku zmiany hasła podczas logowania. |
-| Zaktualizuj poświadczenia użytkownika |Użytkownik zmienił hasło |
+| Dodaj użytkownika |Dodać katalog toohello użytkowników. |
+| Usuń użytkownika |Usunąć użytkownika z katalogu hello. |
+| Ustawianie właściwości licencji |Ustawianie właściwości licencji powitania dla użytkownika w katalogu hello. |
+| Resetowanie hasła użytkownika |Resetowanie hasła hello użytkownika w katalogu hello. |
+| Zmień hasło użytkownika |Witaj hasło dla użytkownika w katalogu hello zmienione. |
+| Licencja użytkownika zmiany |Zmienić hello licencją tooa użytkownika w katalogu hello. licencje, które zostały zaktualizowane, poszukać na powitania toosee [aktualizacji użytkownika](#update-user-attributes) poniżej właściwości |
+| Aktualizuj użytkownika |Zaktualizowano użytkownika w katalogu hello. [Zobacz poniżej](#update-user-attributes) dla atrybutów, które mogą zostać zaktualizowane. |
+| Zestaw życie Zmienianie hasła użytkownika |Ustaw właściwość hello toochange użytkownika hasła podczas logowania. |
+| Zaktualizuj poświadczenia użytkownika |Hasło użytkownika hello zmienione |
 | **Grupowanie zdarzeń** | |
-| Dodaj grupę |Utworzyć grupę w katalogu. |
-| Grupy aktualizacji |Zaktualizowano grupę w katalogu. Aby wyświetlić właściwości grupy, które zostały zaktualizowane, zapoznaj się [inspekcji właściwości grupy](#update-group-attributes) w poniższej sekcji |
-| Usuwanie grupy |Usunąć grupę z katalogu. |
+| Dodaj grupę |Utworzyć grupę w katalogu hello. |
+| Grupy aktualizacji |Zaktualizowano grupę w katalogu hello. toosee właściwości grupy, które zostały zaktualizowane, można znaleźć zbyt[inspekcji właściwości grupy](#update-group-attributes) w poniższej sekcji hello |
+| Usuwanie grupy |Usunąć grupę z hello katalogu. |
 | CreateGroupSettings |Utworzona grupa ustawień |
-| UpdateGroupSettings |Zaktualizowano ustawienia grupy. Aby zobaczyć, jakie ustawienia grupy zostały zaktualizowane, zapoznaj się [inspekcji właściwości grupy](#update-group-attributes) w poniższej sekcji |
+| UpdateGroupSettings |Zaktualizowano ustawienia grupy. toosee, jakie ustawienia grupy zostały zaktualizowane, można znaleźć zbyt[inspekcji właściwości grupy](#update-group-attributes) w poniższej sekcji hello |
 | DeleteGroupSettings |Usunięto grupę ustawień |
 | SetGroupLicense |Ustaw grupy licencji. |
-| SetGroupManagedBy |Ustaw grupę, które mają być zarządzane przez użytkownika |
-| AddGroupMember |Dodano członka do grupy |
+| SetGroupManagedBy |Ustaw grupę toobe zarządzanych przez użytkownika |
+| AddGroupMember |Dodano element członkowski toogroup |
 | RemoveGroupMember |Usuwanie członka z grupy |
-| AddGroupOwner |Właściciel dodany do grupy |
+| AddGroupOwner |Dodano właściciela toogroup |
 | RemoveGroupOwner |Właściciel usunięty z grupy |
 | **Zdarzenia aplikacji** | |
-| Dodaj nazwy głównej usługi |Dodać nazwy głównej usługi do katalogu. |
-| Usuń nazwy głównej usługi |Nazwy głównej usługi usunięta z katalogu. |
-| Dodaj poświadczenia główne usługi |Dodano poświadczenia do nazwy głównej usługi. |
+| Dodaj nazwy głównej usługi |Dodać katalog główny toohello usługi. |
+| Usuń nazwy głównej usługi |Usunięte nazwy głównej usługi z hello katalogu. |
+| Dodaj poświadczenia główne usługi |Nazwy głównej usługi tooa dodano poświadczeń. |
 | Usuń poświadczenia główne usługi |Usunięto poświadczeń z nazwy głównej usługi. |
-| Dodaj wpis delegowania |Utworzony [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) w katalogu. |
-| Wpis delegowania zestawu |Zaktualizowano [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) w katalogu. |
-| Usuń wpis delegowania |Usunięte [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) w katalogu. |
+| Dodaj wpis delegowania |Utworzony [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) w katalogu hello. |
+| Wpis delegowania zestawu |Zaktualizowano [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) w katalogu hello. |
+| Usuń wpis delegowania |Usunięte [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) w katalogu hello. |
 | **Zdarzenia roli** | |
-| Dodaj członka roli do roli |Dodaje użytkownika do roli katalogu. |
+| Dodaj tooRole członek roli |Dodaje rolę użytkownika tooa katalogu. |
 | Usuń członka roli z roli |Usunięty użytkownik z rolą katalogu. |
 | AddRoleDefinition |Definicja roli dodany. |
-| UpdateRoleDefinition |Zaktualizowano definicji roli. Aby zobaczyć, jakie ustawienia roli zostały zaktualizowane, zapoznaj się [inspekcji właściwości definicji roli](#update-role-definition-attributes) w poniższej sekcji |
+| UpdateRoleDefinition |Zaktualizowano definicji roli. toosee ustawienia ról zostały zaktualizowane, można znaleźć zbyt[inspekcji właściwości definicji roli](#update-role-definition-attributes) w poniższej sekcji hello |
 | DeleteRoleDefinition |Usunąć definicji roli. |
-| AddRoleAssignmentToRoleDefinition |Przypisanie roli dodane do definicji roli. |
+| AddRoleAssignmentToRoleDefinition |Dodano definicji toorole przypisania roli. |
 | RemoveRoleAssignmentFromRoleDefinition |Przypisanie roli usuniętych z definicji roli. |
 | AddRoleFromTemplate |Dodano rolę z szablonu. |
 | UpdateRole |Zaktualizowano rolę. |
-| AddRoleScopeMemberToRole |Dodano zakresami członka do roli. |
+| AddRoleScopeMemberToRole |Dodano toorole zakresami elementu członkowskiego. |
 | RemoveRoleScopedMemberFromRole |Usunąć element członkowski w zakresie z roli. |
 | **Zdarzenia urządzenia (wszystkie zdarzenia)** | |
 | AddDevice |Dodane urządzenie. |
-| UpdateDevice |Zaktualizowano urządzenia. Aby wyświetlić właściwości, które urządzenia zostały zaktualizowane, zapoznaj się [właściwości urządzenia Audited](#update-device-attributes) w poniższej sekcji |
+| UpdateDevice |Zaktualizowano urządzenia. toosee właściwości, które urządzenia zostały zaktualizowane, można znaleźć zbyt[właściwości urządzenia Audited](#update-device-attributes) w poniższej sekcji hello |
 | DeleteDevice |Usunięto urządzenie. |
 | AddDeviceConfiguration |Konfiguracja dodanego urządzenia. |
-| UpdateDeviceConfiguration |Konfiguracja zaktualizowanych urządzeniach. Aby wyświetlić właściwości konfiguracji urządzenia, które zostały zaktualizowane, zapoznaj się [właściwości konfiguracji urządzenia Audited](#update-device-configuration-attributes) w poniższej sekcji |
+| UpdateDeviceConfiguration |Konfiguracja zaktualizowanych urządzeniach. toosee właściwości konfiguracji urządzenia, które zostały zaktualizowane, można znaleźć zbyt[właściwości konfiguracji urządzenia Audited](#update-device-configuration-attributes) w poniższej sekcji hello |
 | DeleteDeviceConfiguration |Konfiguracja urządzenia usunięte. |
-| AddRegisteredOwner |Dodano zarejestrowany właściciel do urządzenia. |
-| AddRegisteredUsers |Dodani użytkownicy zarejestrowanych do urządzenia. |
+| AddRegisteredOwner |Dodano toodevice zarejestrowany właściciel. |
+| AddRegisteredUsers |Dodano toodevice zarejestrowanych użytkowników. |
 | RemoveRegisteredOwner |Zarejestrowany właściciel należy usunąć z urządzenia. |
 | RemoveRegisteredUsers |Usuń zarejestrowanych użytkowników z urządzeniami. |
 | RemoveDeviceCredentials |Usuń poświadczenia urządzenia. |
 | **Zdarzenia B2B** | |
-| Przekazano zaprasza partii. |Administrator został przekazany plik zawierający zaproszenia, które mają być wysyłane do użytkowników z firm partnerskich. |
-| Partii zaprasza przetworzone. |Plik zawierający zaproszeń do użytkowników z firm partnerskich została przetworzona. |
-| Zaprosić użytkowników zewnętrznych. |Użytkownik zewnętrzny ma zaproszenie do katalogu. |
-| Wykorzystaj zaprosić użytkowników zewnętrznych. |Użytkownik zewnętrzny ma zrealizowane ich zaproszenie do katalogu. |
-| Dodaj użytkownika zewnętrznego do grupy. |Użytkownik zewnętrzny przypisano przynależności do grupy w katalogu. |
-| Przypisz użytkowników zewnętrznych do aplikacji. |Użytkownik zewnętrzny przypisano bezpośredni dostęp do aplikacji. |
-| Tworzenie wirusa dzierżawy. |Realizacji zaproszenia utworzono nowej dzierżawy w usłudze Azure AD. |
-| Tworzenie użytkownika wirusa. |Użytkownik został utworzony w istniejącej dzierżawy w usłudze Azure AD przez realizacji zaproszenia. |
+| Przekazano zaprasza partii. |Administrator został przekazany plik zawierający toobe zaproszenia wysyłane toopartner użytkowników. |
+| Partii zaprasza przetworzone. |Plik zawierający użytkowników toopartner zaproszenia został przetworzony. |
+| Zaprosić użytkowników zewnętrznych. |Użytkownik zewnętrzny został zaproszony toohello katalogu. |
+| Wykorzystaj zaprosić użytkowników zewnętrznych. |Użytkownik zewnętrzny ma zrealizowane ich katalogu toohello zaproszenia. |
+| Dodaj toogroup użytkownika zewnętrznego. |Członkostwo grupy tooa w katalogu hello został przypisany użytkownik zewnętrzny. |
+| Przypisz tooapplication użytkownika zewnętrznego. |Bezpośredni dostęp do aplikacji tooan został przypisany użytkownik zewnętrzny. |
+| Tworzenie wirusa dzierżawy. |Realizacji zaproszenia hello utworzono nowej dzierżawy w usłudze Azure AD. |
+| Tworzenie użytkownika wirusa. |Użytkownik został utworzony w istniejącej dzierżawy w usłudze Azure AD przez hello zaproszenia realizacji. |
 | **Jednostki administracyjne (wszystkie zdarzenia)** | |
 | AddAdministrativeUnit |Dodaj jednostki administracyjnej. |
-| UpdateAdministrativeUnit |Aktualizowanie jednostki administracyjnej. Aby wyświetlić właściwości jednostki administracyjne, które zostały zaktualizowane, zapoznaj się [właściwości jednostki administracyjne inspekcji](#update-administrative-unit-attributes) w poniższej sekcji |
+| UpdateAdministrativeUnit |Aktualizowanie jednostki administracyjnej. toosee właściwości jednostki administracyjne, które zostały zaktualizowane, można znaleźć zbyt[właściwości jednostki administracyjne inspekcji](#update-administrative-unit-attributes) w poniższej sekcji hello |
 | DeleteAdministrativeUnit |Usuń jednostki administracyjnej. |
-| AddMemberToAdministrativeUnit |Dodaj członka do jednostki administracyjne. |
+| AddMemberToAdministrativeUnit |Dodaj element członkowski tooadministrative jednostki. |
 | RemoveMemberFromAdministrativeUnit |Usuń element członkowski z jednostki administracyjne. |
 | **Katalog zdarzenia** | |
-| Dodać partnera do firmy |Dodać partnera do katalogu. |
-| Usunąć partnera firmy |Usunąć partnera z katalogu. |
+| Dodaj toocompany partnera |Dodaje katalogu toohello partnera. |
+| Usunąć partnera firmy |Usunąć partnera z hello katalogu. |
 | DemotePartner |Obniż poziom partnera. |
-| Dodawanie domeny do firmy |Domeny dodawane do katalogu. |
-| Usuwanie domen z firmy |Domena może być usunięta z katalogu. |
-| Aktualizowanie domeny |Zaktualizowano do domeny w katalogu. Aby wyświetlić właściwości domeny, które zostały zaktualizowane, zapoznaj się [właściwości domeny inspekcji](#update-domain-attributes) w poniższej sekcji |
-| Zestaw uwierzytelniania domeny |Zmienić domyślne ustawienie domeny dla firmy. |
+| Dodaj toocompany domeny |Dodaje katalogu toohello domeny. |
+| Usuwanie domen z firmy |Domena może być usunięta z katalogu hello. |
+| Aktualizowanie domeny |Zaktualizowano domeny hello katalogu. toosee właściwości domeny, które zostały zaktualizowane, można znaleźć zbyt[właściwości domeny inspekcji](#update-domain-attributes) w poniższej sekcji hello |
+| Zestaw uwierzytelniania domeny |Zmienić domyślne ustawienie domeny hello hello firmy. |
 | Ustaw informacje kontaktowe firmy |Ustawianie preferencji dotyczących kontaktu na poziomie przedsiębiorstwa. W tym adresów e-mail dla powiadomień marketing, a także techniczne dotyczące usług Microsoft Online Services. |
-| Ustawienia federacji w domenie |Zaktualizowano ustawienia domeny federacyjnej. |
-| Sprawdź domeny |Zweryfikować domeny w katalogu. |
-| Sprawdź zweryfikowanej domeny poczty e-mail |Zweryfikować domeny w katalogu za pomocą Weryfikacja adresu e-mail. |
-| Ustaw flagę DirSyncEnabled na firmy |Ustaw właściwość, która umożliwia katalogu dla usługi Azure AD Sync. |
+| Ustawienia federacji w domenie |Zaktualizowano ustawienia Federacji hello domeny. |
+| Sprawdź domeny |Zweryfikować domeny hello katalogu. |
+| Sprawdź zweryfikowanej domeny poczty e-mail |Zweryfikować domeny na powitania katalogu przy użyciu Weryfikacja adresu e-mail. |
+| Ustaw flagę DirSyncEnabled na firmy |Ustaw właściwość hello, która umożliwia katalogu dla usługi Azure AD Sync. |
 | Ustaw zasady haseł |Ustaw ograniczenia długości i znak dla hasła użytkownika. |
-| Ustaw informacje o firmie |Informacje o poziomie firmy zostały zaktualizowane. Zobacz [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) polecenia cmdlet programu PowerShell, aby uzyskać więcej informacji. |
+| Ustaw informacje o firmie |Informacje o poziomie firmy hello zaktualizowane. Zobacz hello [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) polecenia cmdlet programu PowerShell, aby uzyskać więcej informacji. |
 | SetCompanyAllowedDataLocation |Zestaw firmy może lokalizacja danych. |
 | SetCompanyDirSyncEnabled |Ustaw flagę DirSyncEnabled. |
 | SetCompanyDirSyncFeature |Zestaw funkcji DirSync. |
@@ -123,7 +123,7 @@ Azure Active Directory inspekcji raport pomaga klientom identyfikowanie uprzywil
 | SetDirectoryFeatureOnTenant |Ustawienia funkcji katalogu dzierżawcy. |
 | SetTenantLicenseProperties |Ustaw właściwości licencji dzierżawy. |
 | CreateCompanySettings |Tworzenie ustawień firmy |
-| UpdateCompanySettings |Zaktualizuj ustawienia firmy. Aby wyświetlić właściwości firmy, które zostały zaktualizowane, zapoznaj się [właściwości firmy inspekcji](#update-company-attributes) w poniższej sekcji |
+| UpdateCompanySettings |Zaktualizuj ustawienia firmy. toosee właściwości firmy, które zostały zaktualizowane, można znaleźć zbyt[właściwości firmy inspekcji](#update-company-attributes) w poniższej sekcji hello |
 | DeleteCompanySettings |Usuń ustawienia firmy |
 | SetAccidentalDeletionThreshold |Należy ustawić próg przypadkowego usunięcia. |
 | SetRightsManagementProperties |Ustaw właściwości zarządzania prawami. |
@@ -133,198 +133,198 @@ Azure Active Directory inspekcji raport pomaga klientom identyfikowanie uprzywil
 | AddPolicy |Dodaj zasady. |
 | UpdatePolicy |Aktualizacja zasad. |
 | Usuń zasady |Usuń zasady. |
-| AddDefaultPolicyApplication |Dodawanie zasad do aplikacji. |
-| AddDefaultPolicyServicePrincipal |Dodawanie zasad do nazwy głównej usługi. |
+| AddDefaultPolicyApplication |Dodaj tooapplication zasad. |
+| AddDefaultPolicyServicePrincipal |Dodaj zasady tooservice principal. |
 | RemoveDefaultPolicyApplication |Usuń zasady z aplikacji. |
 | RemoveDefaultPolicyServicePrincipal |Usuń zasady z nazwy głównej usługi. |
 | RemovePolicyCredentials |Usuń poświadczenia zasad. |
 
 ## <a name="audit-report-retention"></a>Przechowywania raportów inspekcji
 
-Aby uzyskać najnowsze informacje dotyczące przechowywania, zobacz [zasady przechowywania raportów usługi Azure Active Directory](active-directory-reporting-retention.md).
+Aby hello najnowsze informacje dotyczące przechowywania, zobacz [zasady przechowywania raportów usługi Azure Active Directory](active-directory-reporting-retention.md).
 
 
-W przypadku klientów do przechowywania ich zdarzeń inspekcji przez dłuższy czas przechowywania interfejsu API raportowania można regularnie ściągnięcia zdarzeń inspekcji w magazynie danych. Zobacz [wprowadzenie do interfejsu API raportowania](active-directory-reporting-api-getting-started.md) szczegółowe informacje.
+W przypadku klientów do przechowywania ich zdarzeń inspekcji przez dłuższy czas przechowywania hello interfejsu API raportowania może być zdarzeń inspekcji ściągania tooregularly używanych w magazynie danych. Zobacz [wprowadzenie hello interfejsu API raportowania](active-directory-reporting-api-getting-started.md) szczegółowe informacje.
 
 ## <a name="properties-included-with-each-audit-event"></a>Właściwości dołączone do każdego zdarzenia inspekcji
 | Właściwość | Opis |
 | --- | --- |
-| Data i godzina |Data i godzina wystąpienia zdarzenia inspekcji |
-| Aktora |Użytkownika lub nazwy głównej usługi, który wykonał akcję |
-| Akcja |Akcja, która została wykonana |
-| docelowy |Użytkownika lub nazwy głównej usługi wykonanej akcji |
+| Data i godzina |Wystąpił Hello datę i godzinę, które hello zdarzeń inspekcji |
+| Aktora |Witaj użytkownika lub nazwy głównej usługi, która wykonana akcja hello |
+| Akcja |Witaj akcję, która została wykonana |
+| docelowy |Witaj użytkownika lub nazwy głównej usługi, który hello akcja została wykonana na |
 
 ## <a name="update-user-attributes"></a>Atrybuty "Aktualizuj użytkownika"
-Zdarzenie inspekcji "Aktualizacji użytkownika" zawiera dodatkowe informacje na temat atrybutów użytkowników, jakie zostały zaktualizowane. Dla każdego atrybutu zarówno poprzednią wartość, jak i nowa wartość jest dołączony.
+zdarzenie inspekcji Hello "użytkownik aktualizacji" zawiera dodatkowe informacje na temat atrybutów użytkowników, jakie zostały zaktualizowane. Dla każdego atrybutu zarówno hello poprzednią wartość i nową wartość hello jest dołączony.
 
 | Atrybut | Opis |
 | --- | --- |
-| AccountEnabled |Użytkownicy mogą się logować. |
-| AssignedLicense |Wszystkie licencje, które zostały przypisane do użytkownika. |
-| AssignedPlan |Plany usługi wynikające z licencji przypisane do użytkownika. |
-| LicenseAssignmentDetail |Szczegółowe informacje o licencji przypisane do użytkownika. Na przykład jeśli uczestniczyła oparte na grupach licencjonowania obejmuje to grupy, do której przyznano licencji. |
-| Komórkowy |Telefon komórkowy użytkownika. |
-| OtherMail |Adres alternatywny adres e-mail użytkownika. |
-| OtherMobile |Użytkownika alternatywnych telefonu komórkowego. |
-| StrongAuthenticationMethod |Z listy metod weryfikacji skonfigurowany przez użytkownika usługi Multi-Factor Authentication, takie jak wywołania głosowych, SMS lub weryfikacji kod z aplikacji mobilnej. |
+| AccountEnabled |Hello użytkownicy mogą się logować. |
+| AssignedLicense |Wszystkie licencje, które zostały przypisane do użytkownika toohello. |
+| AssignedPlan |Planów usługi wynikające z licencji hello przypisany użytkownik toohello. |
+| LicenseAssignmentDetail |Szczegółowe informacje o licencji przypisany użytkownik toohello. Na przykład jeśli uczestniczyła oparte na grupach licencjonowania to obejmować grupy hello przyznanych hello licencji. |
+| Komórkowy |Telefon komórkowy Hello użytkownika. |
+| OtherMail |Witaj adres alternatywny adres e-mail użytkownika. |
+| OtherMobile |Witaj użytkownika alternatywnych telefonu komórkowego. |
+| StrongAuthenticationMethod |Z listy metod weryfikacji skonfigurowany przez użytkownika hello uwierzytelnianie wieloskładnikowe, takie jak wywołania głosowych, SMS lub weryfikacji kod z aplikacji mobilnej. |
 | StrongAuthenticationRequirement |Jeśli uwierzytelnianie wieloskładnikowe jest wymuszana, włączona lub wyłączona dla tego użytkownika. |
-| StrongAuthenticationUserDetails |Numer telefonu użytkownika, alternatywne telefonu i adresu e-mail używany podczas weryfikacji resetowania uwierzytelnianie wieloskładnikowe i hasło. |
-| StrongAuthenticationPhoneAppDetail |Aplikacje phone forof szczegółów zarejestrowany na potrzeby logowania 2FA |
-| TelephoneNumber |Numer telefonu użytkownika. |
-| AlternativeSecurityId |Identyfikator alternatywny zabezpieczeń dla obiektu. |
-| Wartość CreationType |Metoda tworzenia użytkownika (albo przez zaproszenie wirusa). |
-| InviteTicket |Lista zaproszenia biletów dla użytkownika. |
-| InviteReplyUrl |Lista adresów URL odpowiedzi po zaakceptowaniu zaproszenia. |
-| InviteResources |Lista zasobów, do których Zaproszono użytkownika. |
-| LastDirSyncTime |Czas ostatniego obiekt został zaktualizowany ze względu na synchronizowanie z autorytatywnych katalogu (nabywca, lokalnych). |
-| MSExchRemoteRecipientType |Mapy MSO typów adresatów. Zobacz [typy odbiorcy MSO] https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx dla typów adresatów |
-| PreferredDataLocation |Preferowaną lokalizację użytkownika, grupy, kontaktu, folder publiczny lub danych urządzenia. |
-| ProxyAddresses |Adres, za pomocą której rozpoznano obiektu adresatów programu Exchange Server w systemie obcego poczty. |
+| StrongAuthenticationUserDetails |Hello użytkownika telefonu numer telefonu number, alternatywnych i wiadomości e-mail adres używany przez uwierzytelnianie wieloskładnikowe i weryfikacji resetowania hasła. |
+| StrongAuthenticationPhoneAppDetail |Aplikacje phone forof szczegółów zarejestrowany tooperform 2FA logowania |
+| TelephoneNumber |numer telefonu użytkownika Hello. |
+| AlternativeSecurityId |Identyfikator alternatywny zabezpieczeń dla obiektu hello. |
+| Wartość CreationType |Metoda tworzenia użytkownika hello, (albo przez zaproszenie wirusa). |
+| InviteTicket |Lista biletów zaproszenia na powitania użytkownika. |
+| InviteReplyUrl |Lista adresów URL tooreply po zaakceptowaniu zaproszenia. |
+| InviteResources |Lista zasobów toowhich hello użytkownika zostali zaproszeni. |
+| LastDirSyncTime |Czas ostatniej hello obiektu aktualizacji ze względu na synchronizowanie z hello autorytatywne (nabywca, lokalna) katalogu. |
+| MSExchRemoteRecipientType |Mapuje tooMSO typy odbiorcy. Odwołuje się zbyt https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx [typy odbiorcy MSO] dla typów adresatów |
+| PreferredDataLocation |Witaj Preferowana lokalizacja hello użytkownika, grupy, kontaktu folderu publicznego lub danych urządzenia. |
+| ProxyAddresses |adres Hello za pomocą której rozpoznano obiektu adresatów programu Exchange Server w systemie obcego poczty. |
 | StsRefreshTokensValidFrom |Powoduje odświeżenie tokenu odwołania — wszystkie tokeny odświeżania STS wydanych przed tym razem są uznawane za wygasłe. |
-| userPrincipalName |Nazwa UPN jest Internet stylu nazwy logowania dla użytkownika. |
+| userPrincipalName |Witaj nazwę UPN, która jest Internet stylu nazwy logowania dla użytkownika. |
 | Wartości parametru UserState |Stan użytkownika oczekuje na zatwierdzenie/PendingAcceptance/zaakceptowany/PendingVerification. |
-| UserStateChangedOn |Sygnatura czasowa ostatniej zmiany wartości parametru UserState. Użyty do wyzwolenia cyklu życia przepływów pracy. |
+| UserStateChangedOn |Sygnatura czasowa ostatniego tooUserState zmiany. Używane tootrigger cyklu życia w przepływach pracy. |
 | UserType |Typ użytkownika. Element członkowski (0), gościa (1), Viral(2). |
 
 ## <a name="update-group-attributes"></a>Atrybuty "Grupa aktualizacji"
 | Atrybut | Opis |
 | --- | --- |
-| Klasyfikacja |Klasyfikacja grupy Unified (o dużym znaczeniu Biznesowym, MBI itp.). |
-| Opis |Czytelny dla człowieka opisową fraz o obiekcie. |
-| Nazwa wyświetlana |Nazwa wyświetlana dla obiekt |
+| Klasyfikacja |Klasyfikacja Hello grupy Unified (o dużym znaczeniu Biznesowym, MBI itp.). |
+| Opis |Czytelny dla człowieka opisową fraz o hello obiektu. |
+| Nazwa wyświetlana |Nazwa wyświetlana Hello obiektu |
 | DirSyncEnabled |Wskazuje, czy z autorytatywnych synchronizacji katalogu (nabywca, lokalnych). |
 | GroupLicenseAssignment |Przypisanie licencji grupy |
 | GroupType |Typ grupy, Unified (0) |
-| IsMembershipRuleLocked |Wskazuje, że właściwość MembershipRule jest ustawiana przez usługę zarządzania grupami samoobsługi i nie może zostać zmienione przez użytkowników. Zastosowanie tylko do grup, których GroupType zawiera GroupType.DynamicMembership |
-| IsPublic |Flaga wskazująca, czy grupa jest publiczny/prywatny. |
-| LastDirSyncTime |Czas ostatniego obiekt został zaktualizowany w wyniku synchronizowanie z autorytatywnych katalogu (lokalnie klienta). |
+| IsMembershipRuleLocked |Wskazuje, że hello właściwości MembershipRule jest ustawiony przez usługę zarządzania grupami samoobsługi hello i nie może zostać zmienione przez użytkowników. Dotyczy tylko toogroups, gdzie GroupType obejmuje GroupType.DynamicMembership |
+| IsPublic |Flaga tooindicate, jeśli grupa hello jest publiczny/prywatny. |
+| LastDirSyncTime |Czas ostatniego hello obiektu został zaktualizowany w wyniku synchronizowanie z autorytatywnych hello (lokalnie klienta) katalogu. |
 | Poczta |Podstawowy adres e-mail |
 | MailEnabled |Wskazuje, czy ta grupa ma obsługi poczty e-mail. |
-| mailNickname |Moniker dla obiekt książki adresów, zwykle część nazwy e-mail poprzedniego "@" symbolu. |
-| MembershipRule |Ciąg, przedstawiając kryteria używane przez usługę zarządzania grupami samoobsługi do określenia, które elementy Członkowskie powinny należeć do tej grupy. Zobacz też IsMembershipRuleLocked. Zastosowanie tylko do grup, których GroupType zawiera GroupType.DynamicMembership. |
-| MembershipRuleProcessingState |Wartość wyliczenia zdefiniowanych przez usługę zarządzania grupami samoobsługi Definiowanie stanu członkostwa przetwarzania dla tej grupy. Zastosowanie tylko do grup, których GroupType zawiera GroupType.DynamicMembership. |
-| ProxyAddresses |Adres, za pomocą której rozpoznano obiektu adresatów programu Exchange Server w systemie obcego poczty. |
+| mailNickname |Moniker dla obiekt książki adresów, zwykle hello część nazwy e-mail poprzedzających hello "@" symbolu. |
+| MembershipRule |Ciąg hello kryteriów używanych przez toodetermine usługi Zarządzanie grupami samoobsługi hello wyrażenia elementów członkowskich, które powinny należeć toothis grupy. Zobacz też IsMembershipRuleLocked. Dotyczy tylko toogroups gdzie GroupType obejmuje GroupType.DynamicMembership. |
+| MembershipRuleProcessingState |Wartość wyliczenia zdefiniowanych przez usługę zarządzania grupami samoobsługi hello definiowaniu stanu hello członkostwa przetwarzania dla tej grupy. Dotyczy tylko toogroups gdzie GroupType obejmuje GroupType.DynamicMembership. |
+| ProxyAddresses |adres Hello za pomocą której rozpoznano obiektu adresatów programu Exchange Server w systemie obcego poczty. |
 | RenewedDateTime |Rekord sygnatury czasowej podczas ostatniego został odnowiony grupy. |
-| Securityenabled musi |Wskazuje, czy członkostwo w grupie mogą wpływać na decyzje dotyczące autoryzacji. |
+| Securityenabled musi |Wskazuje, czy członkostwo w grupie hello mogą wpływać na decyzje dotyczące autoryzacji. |
 | WellKnownObject |Etykiety obiektu katalogu wyznaczenie go jako jeden z wstępnie zdefiniowanego zestawu. |
 
 ## <a name="update-device-attributes"></a>Atrybuty "Aktualizuj urządzenia"
 | Atrybut | Opis |
 | --- | --- |
 | AccountEnabled |Wskazuje, czy podmiot zabezpieczeń może uwierzytelnić. |
-| CloudAccountEnabled |Wskazuje, czy podmiot zabezpieczeń może uwierzytelnić. Gdy urządzenie jest zarządzany w siedzibie firmy i zapisywane przez usługę InTune. |
-| CloudDeviceOSType |Typ urządzenia na podstawie systemu operacyjnego np. Windows RT, iOS. Gdy są ustawione przez usługi w chmurze (takich jak usługa Intune), ten atrybut staje się autorytatywne w katalogu dla DeviceOSType. |
-| CloudDeviceOSVersion |Wersja systemu operacyjnego. Gdy są ustawione przez usługi w chmurze (takich jak usługa Intune), ten atrybut staje się autorytatywne w katalogu dla DeviceOSVersion. |
-| CloudDisplayName |Wartość atrybutu LDAP Nazwa wyświetlana. Gdy są ustawione przez usługi w chmurze (takich jak usługa Intune), ten atrybut staje się autorytatywne w katalogu Nazwa wyświetlana. |
-| CloudCreated |Wskazuje, czy obiekt został utworzony przez usługi w chmurze. |
+| CloudAccountEnabled |Wskazuje, czy podmiot zabezpieczeń może uwierzytelnić. Gdy urządzenie hello jest zarządzany w siedzibie firmy i zapisywane przez usługę InTune. |
+| CloudDeviceOSType |Typ urządzenia hello oparte na powitania systemu operacyjnego, np. Windows RT, iOS. Kiedy ustawione przez usługi w chmurze (takich jak usługa Intune), ten atrybut staje się w katalogu hello autorytatywne dla DeviceOSType. |
+| CloudDeviceOSVersion |Wersja hello systemu operacyjnego. Kiedy ustawione przez usługi w chmurze (takich jak usługa Intune), ten atrybut staje się w katalogu hello autorytatywne dla DeviceOSVersion. |
+| CloudDisplayName |Wartość atrybutu LDAP hello Nazwa wyświetlana. Gdy są ustawione przez usługi w chmurze (takich jak usługa Intune), ten atrybut staje się autorytatywne w katalogu hello Nazwa wyświetlana. |
+| CloudCreated |Wskazuje, czy obiekt hello został utworzony przez usługi w chmurze. |
 | CompliantUntil |Do czasu, jaki urządzenie jest uznany za zgodnego. |
-| DeviceMetadata |Niestandardowych metadanych dla urządzenia |
-| DeviceObjectVersion |Ten atrybut służy do identyfikowania wersji schematu urządzenia. |
-| DeviceOSType |Typ urządzenia na podstawie systemu operacyjnego np. Windows RT, iOS. Zapisane przez usługę rejestracji i mają zostać zaktualizowane przez zarządzania urządzeniami Przenośnymi zarządzania usługa lub STS jasny usługi zarządzania. |
-| DeviceOSVersion |Wersja systemu operacyjnego. Zapisane przez usługę rejestracji i mają zostać zaktualizowane przez zarządzania urządzeniami Przenośnymi zarządzania usługa lub STS jasny usługi zarządzania. |
-| DevicePhysicalIds |Wielowartościowy atrybut przeznaczone do przechowywania identyfikatorów urządzenia fizycznego. Może to obejmować identyfikatory systemu BIOS, modułu TPM odciski palców, sprzętu określonych identyfikatorów itp. |
+| DeviceMetadata |Niestandardowych metadanych dla hello urządzenia |
+| DeviceObjectVersion |Ten atrybut jest wersją schematu hello tooidentify używane hello urządzenia. |
+| DeviceOSType |Typ urządzenia hello oparte na powitania systemu operacyjnego, np. Windows RT, iOS. Napisane przez hello usługi rejestracji i zamierzonego toobe zaktualizowane przez hello MDM zarządzania usługi STS światła lub usługi zarządzania. |
+| DeviceOSVersion |Wersja hello systemu operacyjnego. Napisane przez hello usługi rejestracji i zamierzonego toobe zaktualizowane przez hello MDM zarządzania usługi STS światła lub usługi zarządzania. |
+| DevicePhysicalIds |Wielowartościowy atrybut przeznaczony toostore identyfikatory hello urządzenia fizycznego. Może to obejmować identyfikatory systemu BIOS, modułu TPM odciski palców, sprzętu określonych identyfikatorów itp. |
 | DirSyncEnabled |Wskazuje, czy z autorytatywnych (nabywca, lokalnie) synchronizacji katalogu. |
-| Nazwa wyświetlana |Nazwa wyświetlana dla obiekt |
-| IsCompliant |Ten atrybut służy do zarządzania stan zarządzania urządzeniem przenośnym urządzenia. |
-| IsManaged |Ten atrybut służy wskazująca, że urządzenie jest zarządzane w chmurze zarządzanie urządzeniami przenośnymi. |
-| LastDirSyncTime |Czas ostatniego obiekt został zaktualizowany ze względu na synchronizowanie z autorytatywnych katalogu (lokalnie klienta). |
+| Nazwa wyświetlana |Nazwa wyświetlana Hello obiektu |
+| IsCompliant |Ten atrybut jest stan zarządzania urządzeniem przenośnym hello używane toomanage hello urządzenia. |
+| IsManaged |Ten atrybut służy tooindicate hello urządzenie jest zarządzane przez chmurze zarządzanie urządzeniami przenośnymi. |
+| LastDirSyncTime |Czas ostatniej hello obiektu aktualizacji ze względu na synchronizowanie z autorytatywnych hello (lokalnie klienta) katalogu. |
 
 ## <a name="update-device-configuration-attributes"></a>Atrybuty "Aktualizuj konfigurację urządzenia"
 | Atrybut | Opis |
 | --- | --- |
-| MaximumRegistrationInactivityPeriod |Maksymalna liczba dni, przez które urządzenie może być nieaktywne przed nią jest uważany za do usunięcia. |
-| RegistrationQuota |Zasady pozwala ograniczyć liczbę dozwoloną dla pojedynczego użytkownika rejestracji urządzenia. |
+| MaximumRegistrationInactivityPeriod |Hello maksymalna liczba dni korzystania z urządzenia może być nieaktywne, zanim zostanie to uznane za do usunięcia. |
+| RegistrationQuota |Zasada używana toolimit hello liczbę dozwoloną dla pojedynczego użytkownika rejestracji urządzenia. |
 
 ## <a name="update-service-principal-configuration-attributes"></a>Atrybuty "Aktualizuj konfigurację główna usługi"
 | Atrybut | Opis |
 | --- | --- |
 | AccountEnabled |Wskazuje, czy podmiot zabezpieczeń może uwierzytelnić. |
 | Identyfikator AppPrincipalId |Tożsamość zewnętrznych, zdefiniowane przez aplikację dla podmiotu zabezpieczeń. |
-| Nazwa wyświetlana |Nazwa wyświetlana dla obiekt |
-| ServicePrincipalName |Główną nazwę usługi, zawierający "Nazwa/urząd" gdzie nazwa określa wartość klasy aplikacji, a urząd zawiera co najmniej nazwę hosta [: port] lub "name" określający identyfikator dla nazwy głównej usługi. |
+| Nazwa wyświetlana |Nazwa wyświetlana Hello obiektu |
+| ServicePrincipalName |Główną nazwę usługi, zawierający "Nazwa/urząd" gdzie nazwa określa wartość klasy aplikacji, a urząd zawiera co najmniej nazwę hosta [: port] lub "name", który określa identyfikator hello nazwy głównej usługi. |
 
 ## <a name="update-app-attributes"></a>Atrybuty "Aktualizuj aplikacji"
 | Atrybut | Opis |
 | --- | --- |
-| AppAddress |Zbiór adresów (adresy URL przekierowania), które są przypisane do nazwy głównej usługi. |
-| Identyfikator aplikacji |Identyfikator aplikacji w aplikacji |
-| AppIdentifierUri |Aplikacja identyfikator URI, który identyfikuje aplikację.  Zazwyczaj jest adres URL dostępu do aplikacji. |
-| AppLogoUrl |Adres url obrazu logo aplikacji, które są przechowywane w sieci CDN. |
-| AvailableToOtherTenants |Wartość true, aplikacja jest aplikacją wielodostępne (tj. mogą być używane przez innych dzierżawców). |
-| Nazwa wyświetlana |Nazwa wyświetlana nazwa aplikacji |
+| AppAddress |zestaw Hello adresów (adresy URL przekierowania), które są przypisane tooa nazwy głównej usługi. |
+| Identyfikator aplikacji |Identyfikator aplikacji hello aplikacji |
+| AppIdentifierUri |Aplikacja identyfikator URI, który identyfikuje aplikacji hello.  Zazwyczaj jest adres URL dostępu do aplikacji hello. |
+| AppLogoUrl |adres url Hello obraz logo aplikacji hello przechowywane w sieci CDN. |
+| AvailableToOtherTenants |Aplikacja hello wartość true, to wielodostępne (tj. mogą być używane przez innych dzierżawców). |
+| Nazwa wyświetlana |Nazwa wyświetlana nazwa aplikacji Hello |
 | Uprawnienia |Lista aplikacji uprawnień. |
 | ExternalUserAccountDelegationsAllowed |Flaga wskazująca, czy aplikacja zasobów jest zaufany i można tworzyć wpisów delegowania dla kont użytkowników zewnętrznych. |
-| GroupMembershipClaims |Członkostwo w grupie oświadczeń zasad. |
-| PublicClient |Wartość true, jeśli klient nie może przechowywać tajne (tj. jawne klienta w OAuth2.0) |
-| RecordConsentConditions |Typy warunków zgody, zgodnie z warunkami umowy: Brak (0), SilentConsentForPartnerManagedApp(1). Ta wartość będzie widoczne w schemacie interfejsu API programu Graph i mogą być tylko zestaw/zmieniony przez administratorów dzierżawy. |
-| RequiredResourceAccess |Zawartości XML wartość właściwości RequiredResourceAccess. |
+| GroupMembershipClaims |członkostwo w grupie Hello oświadczeń zasad. |
+| PublicClient |Wartość true, jeśli powitania klienta nie może przechowywać tajne (tj. jawne klienta w OAuth2.0) |
+| RecordConsentConditions |Typy warunków zgody, zgodnie z definicją hello warunków umów: Brak (0), SilentConsentForPartnerManagedApp(1). Ta wartość będzie widoczne w schemacie interfejsu API programu Graph hello i mogą być tylko zestaw/zmieniony przez administratorów dzierżawy. |
+| RequiredResourceAccess |Zawartości XML wartość hello RequiredResourceAccess właściwości. |
 | Aplikacja sieci Web |Wartość true wskazuje, że ta aplikacja jest aplikacji sieci web. |
-| WwwHomepage |Podstawowy strony sieci Web. |
+| WwwHomepage |Witaj głównej strony sieci Web. |
 
 ## <a name="update-role-attributes"></a>Atrybuty "Aktualizuj rolę"
 | Atrybut | Opis |
 | --- | --- |
-| AppAddress |Zbiór adresów (adresy URL przekierowania), które są przypisane do nazwy głównej usługi. |
-| BelongsToFirstLoginObjectSet |Wartość true wskazuje, że ten obiekt należy do zestawu obiektów wymagane do włączenia logowania administratora pierwszy z nowym dzierżawcą. |
-| Wbudowane |Wskazuje, czy okres istnienia obiektu jest własnością systemu. |
-| Opis |Czytelny dla człowieka opisową fraz o obiekcie. |
-| Nazwa wyświetlana |Nazwa wyświetlana dla obiekt |
-| mailNickname |Moniker dla obiekt książki adresów, zwykle część nazwy e-mail poprzedniego "@" symbolu. |
-| RoleDisabled |Wskazuje, czy rola powinny być ignorowane na potrzeby kontroli dostępu. |
-| RoleTemplateId |Tożsamość szablonu roli. |
-| ServiceInfo |Specyficzne dla usługi informacje inicjowania obsługi administracyjnej może być zużyte przez MOAC i/lub innych wystąpień usługi (typu tego samego lub innego usługi). |
+| AppAddress |zestaw Hello adresów (adresy URL przekierowania), które są przypisane tooa nazwy głównej usługi. |
+| BelongsToFirstLoginObjectSet |Wartość true wskazuje, że ten obiekt należy toohello zestaw obiektów tooenable wymagana nazwa logowania Witaj, Administratorze pierwszy z nowym dzierżawcą. |
+| Wbudowane |Wskazuje, czy okres istnienia obiektu hello jest własnością hello systemu. |
+| Opis |Czytelny dla człowieka opisową fraz o hello obiektu. |
+| Nazwa wyświetlana |Nazwa wyświetlana Hello obiektu |
+| mailNickname |Moniker dla obiekt książki adresów, zwykle hello część nazwy e-mail poprzedzających hello "@" symbolu. |
+| RoleDisabled |Wskazuje, czy rola hello powinny być ignorowane na potrzeby kontroli dostępu. |
+| RoleTemplateId |Tożsamość hello szablonu roli. |
+| ServiceInfo |Specyficzne dla usługi udostępniania informacji, które może być zużyte przez MOAC i/lub innych wystąpień usługi (z hello tych samych lub różnych typów usług). |
 | TaskSetScopeReference |Identyfikuje TaskSet i zestaw zakresy skojarzone z rolą lub szablonów RoleTemplate. |
-| ValidationError |Informacje o opublikowane przez usługę federacyjną opisujące nieprzejściowego, specyficzne dla usługi błąd dotyczący właściwości lub łącze od działania administratora obiektu w celu rozwiązania. |
+| ValidationError |Informacje o opublikowane przez usługę federacyjną opisujące nieprzejściowego, specyficzne dla usługi błąd dotyczący właściwości hello lub Połącz z tooresolve działania administratora obiektu. |
 | WellKnownObject |Etykiety obiektu katalogu wyznaczenie go jako jeden z wstępnie zdefiniowanego zestawu. |
 
 ## <a name="update-role-definition-attributes"></a>Atrybuty "Aktualizuj definicji roli"
 | Atrybut | Opis |
 | --- | --- |
-| AssignableScopes |Kolekcja zakresów autoryzacji, które można odwoływać się podczas przypisywania tej definicji RoleDefinition do podmiotu zabezpieczeń. |
-| Nazwa wyświetlana |Nazwa wyświetlana dla obiekt |
+| AssignableScopes |Kolekcja zakresów autoryzacji, które można odwoływać się podczas przypisywania tego podmiotu zabezpieczeń tooa definicji RoleDefinition. |
+| Nazwa wyświetlana |Nazwa wyświetlana Hello obiektu |
 | GrantedPermissions |Uprawnienia przyznane przez tej definicji RoleDefinition. |
 
 ## <a name="update-administrative-unit-attributes"></a>Atrybuty "Aktualizuj jednostki administracyjne"
 | Atrybut | Opis |
 | --- | --- |
-| Opis |Ta właściwość jest aktualizowany po zmianie opis jednostki administracyjne. |
-| Nazwa wyświetlana |Ta właściwość jest aktualizowany po zmianie nazwy jednostki administracyjne. |
+| Opis |Ta właściwość jest aktualizowany po zmianie hello opis jednostki administracyjne. |
+| Nazwa wyświetlana |Ta właściwość jest aktualizowany po zmianie nazwy hello jednostki administracyjne. |
 
 ## <a name="update-company-attributes"></a>Atrybuty "Firmy aktualizacji"
 | Atrybut | Opis |
 | --- | --- |
-| AllowedDataLocation |Lokalizacja, w którym firmy użytkownicy mogą być udostępniane. |
-| AuthorizedServiceInstance |Nazwy wystąpień usługi, do których można wdrożyć plan. |
+| AllowedDataLocation |Lokalizacja, w których hello firmy użytkownicy mogą toobe udostępnione. |
+| AuthorizedServiceInstance |Nazwy toowhich wystąpień usługi planu może wdrożyć. |
 | DirSyncEnabled |Wskazuje, czy z autorytatywnych (nabywca, lokalnie) synchronizacji katalogu. |
-| DirSyncStatus |Wskazuje, czy synchronizacja adres książki obiektów w tym kontekście dzierżawy autorytatywne (klientów lokalnie) katalogu. rozszerzenie właściwości DirSyncEnabled obiektów firmy. |
-| DirSyncFeatures |Flaga bitowa do śledzenia zestaw funkcji dirsync włączonych i wyłączonych dla dzierżawcy. |
+| DirSyncStatus |Wskazuje, czy synchronizacja adres książki obiektów w tym kontekście dzierżawy autorytatywne (klientów lokalnie) katalogu. rozszerzenia hello DirSyncEnabled właściwości obiektów firmy. |
+| DirSyncFeatures |Bit flagi śledzenie tookeep zestawu funkcji dirsync włączonych i wyłączonych hello dzierżawcy. |
 | DirectoryFeatures |Funkcje katalogu włączone/wyłączone. |
-| DirSyncConfiguration |Zawiera wszystkie specyficzne dla dzierżawy bieżącej konfiguracji narzędzia DirSync. |
-| Nazwa wyświetlana |Nazwa wyświetlana dla obiekt |
-| IsMnc |Flaga wartości logicznej ustawioną "wartość" ("true", jeśli firma jest włączona funkcja międzynarodową firmą. |
-| ObjectSettings |Kolekcja ustawienia są stosowane w zakresie obiektu. |
-| PartnerCommerceUrl |Adres URL do witryny commerce partnera. |
-| PartnerHelpUrl |Adres URL witryny pomocy partnera. |
-| PartnerSupportEmail |Adres URL do partnera adres e-mail pomocy technicznej. |
-| PartnerSupportTelephone |Adres URL do partnera telefonu pomocy technicznej. |
-| PartnerSupportUrl |Adres URL w witrynie pomocy technicznej partnera. |
-| StrongAuthenticationDetails |Szczegółowe informacje związane z StrongAuthentication. |
-| StrongAuthenticationPolicy |Silne uwierzytelnianie zasad dla firmy. |
-| TechnicalNotificationMail |Adres e-Mail, aby powiadomić problemów technicznych dotyczących firmy. |
-| TelephoneNumber |Numery telefonów, które są zgodne z ITU E.123 zalecenia. |
-| TenantType |Typ dzierżawcy. Jeśli ta wartość nie jest określona, dzierżawcy jest firmą. W przeciwnym razie możliwe wartości to: MicrosoftSupport (0), SyndicatePartner (1), ValueAddedResellerPartnerDelegatedAdmin ResellerPartnerDelegatedAdmin (4) BreadthPartnerDelegatedAdmin (3) BreadthPartner [2] [5]. |
-| VerifiedDomain |Zestaw nazw domen DNS, powiązany z firmy. |
+| DirSyncConfiguration |Zawiera wszystkie narzędzia DirSync konfiguracji określonych toohello bieżącą dzierżawą. |
+| Nazwa wyświetlana |Nazwa wyświetlana Hello obiektu |
+| IsMnc |Flaga wartości logicznej firmy hello zbyt "wartość true", jeśli zestaw jest włączone dla funkcji międzynarodową firmą hello. |
+| ObjectSettings |Kolekcja zakresie toohello odpowiednie ustawienia hello obiektu. |
+| PartnerCommerceUrl |Witryna handlowa partnera toohello adresu URL. |
+| PartnerHelpUrl |Witryna pomocy partnera toohello adresu URL. |
+| PartnerSupportEmail |Adres URL toohello partnera adres e-mail pomocy technicznej. |
+| PartnerSupportTelephone |Adres URL toohello partnera telefonu pomocy technicznej. |
+| PartnerSupportUrl |Adres URL toohello partnera witrynę pomocy technicznej. |
+| StrongAuthenticationDetails |Szczegóły dotyczące tooStrongAuthentication. |
+| StrongAuthenticationPolicy |Silne uwierzytelnianie zasad dla firmy hello. |
+| TechnicalNotificationMail |Wiadomości e-Mail adres toonotify problemów technicznych dotyczących tooa firmy. |
+| TelephoneNumber |Numery telefonów, które są zgodne z hello ITU zalecenie E.123. |
+| TenantType |Typ Hello dzierżawcy. Jeśli ta wartość nie jest określona, dzierżawy hello jest firma. W przeciwnym razie możliwe wartości to: MicrosoftSupport (0), SyndicatePartner (1), ValueAddedResellerPartnerDelegatedAdmin ResellerPartnerDelegatedAdmin (4) BreadthPartnerDelegatedAdmin (3) BreadthPartner [2] [5]. |
+| VerifiedDomain |Zestaw nazw domen DNS powiązany tooa firmy. |
 
 ## <a name="update-domain-attributes"></a>Atrybuty "Aktualizuj domeny"
 | Atrybut | Opis |
 | --- | --- |
-| Możliwości |Bit flagi opisujące możliwości domeny, jeśli istnieje. |
-| Domyślne |Wskazuje, czy domena jest wartością domyślną; na przykład UserPrincipalName domyślny sufiks gdy administrator tworzy nowego użytkownika w MOAC. |
-| Początkowa |Wskazuje, czy domena jest domena początkowa dla firmy, przydzielony przez OCP. Domena początkowa jest unikatowy domeny podrzędne domeny Online firmy Microsoft; e.g.contoso3.microsoftonline.com. |
-| LiveType |Typ odpowiedniego identyfikatora Windows Live przestrzeni nazw, jeśli istnieje. |
-| Nazwa |Identyfikator dla punktu końcowego. |
-| PasswordNotificationWindowDays |Liczba dni do wygaśnięcia hasła użytkownik zostanie powiadomiony. |
-| PasswordValidityPeriodDays |Liczba dni, przez które hasła jest dobra dla, należy zmienić. |
+| Możliwości |Bit flagi opisujące możliwości hello domeny hello ewentualne. |
+| Domyślne |Wskazuje, czy domena hello jest wartość domyślna hello; na przykład hello domyślne UserPrincipalName sufiks gdy administrator tworzy nowego użytkownika w MOAC. |
+| Początkowa |Wskazuje, czy domeny hello jest domena początkowa hello firmy hello przydzielony przez OCP. domena początkowa Hello jest unikatowy domeny podrzędne domeny Online firmy Microsoft; e.g.contoso3.microsoftonline.com. |
+| LiveType |Typ hello odpowiedniego identyfikatora Windows Live przestrzeni nazw, jeśli istnieją. |
+| Nazwa |Identyfikator dla punktu końcowego hello. |
+| PasswordNotificationWindowDays |Witaj liczba dni do wygaśnięcia hasła użytkownika hello zostaje powiadomiony. |
+| PasswordValidityPeriodDays |Witaj liczbę dni ważności hasła jest dobra dla, należy zmienić. |
 
-Rekordy inspekcji są wymaganej kontrolki do wielu przepisy dotyczące zgodności. Dla klientów korzystających z usługi Azure Active Directory inspekcji raportu do spełnienia ich przepisy dotyczące zgodności zaleca się, że klient przesłać kopię tego tematu pomocy kopię raportu inspekcji wyeksportowanego przez klienta w celu lepszego objaśnienia szczegóły raportu. Audytor chcą poznać przepisy dotyczące zgodności, które Azure obecnie spełnia, bezpośrednie kontrolera do [strony zgodności](https://azure.microsoft.com/support/trust-center/compliance/) programu Microsoft Azure Trust Center.
+Rekordy inspekcji są wymaganej kontrolki do wielu przepisy dotyczące zgodności. W przypadku klientów przy użyciu hello Azure Active Directory inspekcji raport toomeet ich przepisy dotyczące zgodności zaleca się powitania klienta przesyłania kopię tego tematu Pomocy z kopią powitania klienta hello wyeksportowany raport dotyczący inspekcji toohelp wyjaśnić hello raportu szczegółowe informacje. Jeżeli audytor hello toounderstand hello przepisy dotyczące zgodności obecnie spełniających Azure, bezpośrednie hello audytora toohello [strony zgodności](https://azure.microsoft.com/support/trust-center/compliance/) z hello Microsoft Azure Trust Center.
 

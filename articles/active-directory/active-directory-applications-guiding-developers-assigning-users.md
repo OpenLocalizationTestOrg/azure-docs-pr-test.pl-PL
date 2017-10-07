@@ -1,6 +1,6 @@
 ---
-title: "Usługi Azure AD i aplikacji: przypisywanie użytkowników do aplikacji | Dokumentacja firmy Microsoft"
-description: "Jak zaimplementować przypisanie użytkownika dla aplikacji platformy Azure."
+title: "Usługi Azure AD i aplikacji: przypisywanie użytkowników tooan aplikacji | Dokumentacja firmy Microsoft"
+description: "Jak tooimplement przypisanie użytkownika dla aplikacji platformy Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: 29d63bd5781dc7ef9e84840dd4b1b70222cf6892
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e9374cbd106d1bcb302645828a061fe184f9956b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Usługi Azure AD i aplikacji: przypisywanie użytkowników do aplikacji
-Przed przypisaniem użytkowników i grup do aplikacji może wymagać przypisanie użytkownika.  Aby dowiedzieć się, jak wymagają przypisania użytkownika można znaleźć pod adresem [wymagające przypisanie użytkownika](active-directory-applications-guiding-developers-requiring-user-assignment.md) artykułu.
+# <a name="azure-ad-and-applications-assigning-users-tooan-application"></a>Usługi Azure AD i aplikacji: przypisywanie użytkowników tooan aplikacji
+Przed przypisaniem użytkowników i grup tooan aplikacji może wymagać przypisanie użytkownika.  toolearn jak toorequire przypisanie użytkownika można znaleźć pod adresem hello [wymagające przypisanie użytkownika](active-directory-applications-guiding-developers-requiring-user-assignment.md) artykułu.
 
-## <a name="assigning-users-to-an-application"></a>Przypisywanie użytkowników do aplikacji
-1. Zaloguj się do portalu Azure przy użyciu konta administratora.
-2. Polecenie **wszystkie elementy** elementu w menu głównym.
-3. Wybierz katalog, w używanej aplikacji.
-4. Polecenie **aplikacji** kartę.
-5. Wybierz aplikację z listy aplikacji skojarzonych z tym katalogiem.
-6. Kliknij przycisk **użytkowników i grup** kartę.
-7. Wybierz użytkowników, których chcesz przypisać do aplikacji.
+## <a name="assigning-users-tooan-application"></a>Przypisywanie użytkowników tooan aplikacji
+1. Zaloguj się za toohello portalu Azure przy użyciu konta administratora.
+2. Polecenie hello **wszystkie elementy** element w menu głównym hello.
+3. Wybierz katalog hello, używanego dla aplikacji hello.
+4. Polecenie hello **aplikacji** kartę.
+5. Wybierz aplikację hello z hello listy aplikacji skojarzonych z tym katalogiem.
+6. Kliknij przycisk hello **użytkowników i grup** kartę.
+7. Wybierz opcję użytkownicy hello chcesz tooassign toohello aplikacji.
 8. Kliknij przycisk **PRZYPISAĆ**.
 9. Kliknij przycisk **tak** po wyświetleniu monitu.
 

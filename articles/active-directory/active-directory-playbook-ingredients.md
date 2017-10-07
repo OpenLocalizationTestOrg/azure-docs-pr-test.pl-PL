@@ -1,5 +1,5 @@
 ---
-title: "Składniki fazy weryfikacji koncepcji podręcznika dotyczącego usługi Azure Active Directory | Dokumentacja firmy Microsoft"
+title: "aaaAzure składników podręcznika dotyczącego fazy weryfikacji koncepcji w usłudze Active Directory | Dokumentacja firmy Microsoft"
 description: "Eksploruj i szybkie rozpoczęcie scenariusze Zarządzanie tożsamościami i dostępem"
 services: active-directory
 keywords: "Usługa Azure active directory, podręcznika dotyczącego koncepcji, aby zapewnić"
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/12/2017
 ms.author: dstefan
-ms.openlocfilehash: d2a0fe280f143d390f5e4ba40e0ebe92d8a4a837
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0a7f5cd659b9d62ac86e3c27e5727294d481f4a2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-ingredients"></a>Usługa Azure Active Directory dowód koncepcji podręcznika dotyczącego składników 
 
 ## <a name="theme"></a>Motyw
-Usługa Azure AD zapewnia rozwiązania tożsamościami i dostępem w wielu obszarach w przedsiębiorstwie. Firma Microsoft klasyfikowania scenariusze w następujących obszarach: 
+Usługa Azure AD zapewnia rozwiązania tożsamościami i dostępem w wielu obszarach w przedsiębiorstwie hello. Firma Microsoft klasyfikowania scenariusze hello w hello następujące obszary: 
 
 * [Wiele aplikacji i jednej tożsamości](active-directory-playbook-implementation.md#theme---lots-of-apps-one-identity) 
 * [Zwiększające bezpieczeństwo](active-directory-playbook-implementation.md#theme---increase-your-security) 
 * [Skalowalność samoobsługi](active-directory-playbook-implementation.md#theme---scale-with-self-service) 
 
-Definiowanie motyw do ramki fazy weryfikacji koncepcji pozwala skupić się wysiłków o korzyściach z cele biznesowe, które często są wyzwalacze zainteresowanie weryfikacji koncepcji w pierwszej kolejności. 
+Definiowania motywu tooframe hello fazy weryfikacji koncepcji pomaga wysiłków hello toofocus o korzyściach z cele biznesowe, które często są hello wyzwalaczy hello zainteresowanie weryfikacji koncepcji w miejscu pierwszego hello. 
 
 ## <a name="environment"></a>Środowisko
 
-Należy określić szczegóły środowisko, w którym będzie dostarczać fazy weryfikacji koncepcji. W idealnym przypadku można tworzyć na niej po zakończeniu weryfikacji koncepcji. Środowisko docelowe odgrywa kluczową rolę i powinna być widoczna kompromisu między go jako prawdziwe, jak to możliwe i koszty ograniczeń lub dodatkowe zagadnienia. Środowisk do weryfikacji koncepcji są:
-* **Produkcja:** scenariusze są realizowane w środowisku na żywo i już wdrożone usługi Microsoft Cloud (środowisko produkcyjne AD, Office 365, rozwiązanie SSO/dzierżawy usługi Azure AD). 
-* **Użytkownik akceptacji testu Akceptacyjne / środowiska deweloperskiego:** infrastruktury testu (równoległe AD i potencjalnie Azure AD rozwiązania dzierżawy/logowania jednokrotnego) z danych testowych, podobny do produkcji. Zazwyczaj środowiska testowego jest współużytkowana przez wielu projektów w przedsiębiorstwie.
+Jest ważne toodetermine hello szczegóły środowiska hello, gdzie będzie dostarczać hello fazy weryfikacji koncepcji. W idealnym przypadku tworzenie można na niej po zakończeniu weryfikacji koncepcji powitalne. środowisko docelowe Hello odgrywa kluczową rolę i powinna być widoczna hello kompromisu między go jako prawdziwe, jak to możliwe i koszty hello ograniczeń lub dodatkowe zagadnienia. Witaj środowisk weryfikacji koncepcji są:
+* **Produkcja:** scenariusze hello są realizowane w środowisku na żywo i już wdrożone usługi Microsoft Cloud (środowisko produkcyjne AD, Office 365, rozwiązanie SSO/dzierżawy usługi Azure AD). 
+* **Użytkownik akceptacji testu Akceptacyjne / środowiska deweloperskiego:** infrastruktury testu (równoległe AD i potencjalnie Azure AD rozwiązania dzierżawy/logowania jednokrotnego) z danych testowych, podobny do produkcji. Zazwyczaj środowiska testowego hello jest współużytkowana przez wielu projektów w przedsiębiorstwie hello.
 
-Większość scenariuszy, w tym przewodniku są addytywne charakter. W związku z tym ich można wdrożyć w dzierżawie produkcyjnego bez wpływu na użytkowników spoza fazy weryfikacji koncepcji. W tym dokumencie Zadzwonimy limit scenariusze, które ma wpływ na poziomie dzierżawy. W takich przypadkach można wziąć pod uwagę środowiskach nieprodukcyjnych. 
+Większość scenariuszy, w tym przewodniku są addytywne charakter. W związku z tym ich można wdrożyć w dzierżawie produkcji hello bez wpływu na użytkowników spoza hello fazy weryfikacji koncepcji. W tym dokumencie Zadzwonimy limit scenariusze, które ma wpływ na poziomie dzierżawy. W takich przypadkach możesz tooconsider środowiskach nieprodukcyjnych. 
 
 
 ## <a name="target-users"></a>Użytkownicy docelowi
 
-Należy ustalić docelowy zbiór użytkowników, które wykonują scenariuszy, szczególnie w przypadku, gdy środowisko jest środowisko produkcyjne lub testu. Kategorie użytkowników docelowych do weryfikacji koncepcji są:
-* **Użytkownicy pilotażowi:** rzeczywistych użytkowników w środowisku, który będzie używany w rozwiązaniu przy użyciu konta, które używają w swoich funkcji codzienne zadania
-* **Użytkowników testowych:** konta tworzone w środowisko testowe 
+Jest ważne toodetermine hello docelowy zbiór użytkowników, które wykonują hello scenariuszy, szczególnie w przypadku, gdy środowisko hello jest środowisko produkcyjne lub testu. kategorie Hello użytkowników docelowych do weryfikacji koncepcji są:
+* **Użytkownicy pilotażowi:** funkcji zadań rzeczywistych użytkowników w środowisku hello, który będzie używany w rozwiązaniu hello z kontem hello używają w swoich tooday dnia
+* **Użytkowników testowych:** konta tworzone w środowisku hello testowe 
 
 Większość scenariuszy, w tym przewodniku może być wykonywane przez użytkowników pilotażowych. W tym dokumencie Zadzwonimy limit uwagi dotyczące użytkownika docelowego w razie potrzeby.
 

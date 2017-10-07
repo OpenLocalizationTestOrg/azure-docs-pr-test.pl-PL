@@ -1,6 +1,6 @@
 ---
-title: "Instalowanie aktualizacji 2 na urządzeniu StorSimple | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak zainstalować StorSimple 8000 serii Update 2 na urządzeniu z serii StorSimple 8000."
+title: "aaaInstall Update 2 na urządzeniu StorSimple | Dokumentacja firmy Microsoft"
+description: "Wyjaśniono, jak tooinstall StorSimple 8000 serii Update 2 na urządzeniu z serii StorSimple 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: e788439608b7122f2bca6b99b832baa5258e472d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 33a0bea4358c944644563192f686af332d2ad7bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-update-2-on-your-storsimple-device"></a>Instalowanie aktualizacji 2 na urządzeniu StorSimple
 ## <a name="overview"></a>Omówienie
-W tym samouczku przedstawiono sposób instalacji aktualizacji 2 na urządzeniu StorSimple uruchomiona starsza wersja oprogramowania za pośrednictwem klasycznego portalu Azure. Samouczek obejmuje również kroków wymaganych do aktualizacji, gdy brama jest skonfigurowany w interfejsie sieciowym innym niż dane 0 urządzenia StorSimple i są próby aktualizacji z wersji oprogramowania 1 przed aktualizacją.
+W tym samouczku wyjaśniono, jak tooinstall Update 2 na urządzeniu StorSimple uruchomiona starsza wersja oprogramowania za pośrednictwem hello klasycznego portalu Azure. Samouczek Hello obejmuje również kroki hello wymagana hello aktualizacji, gdy brama jest skonfigurowana w interfejsie sieciowym innym niż dane 0 hello urządzenia StorSimple i próbujesz tooupdate z wersji oprogramowania 1 przed aktualizacją.
 
-Aktualizacja 2 obejmuje urządzenia aktualizacji oprogramowania, aktualizacje sterowników LSI i aktualizacje oprogramowania układowego dysku. LSI aktualizacji oprogramowania urządzenia i Brak aktualizacji i mogą być stosowane za pośrednictwem klasycznego portalu Azure. Aktualizacje oprogramowania układowego dysku destrukcyjne aktualizacji i mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell urządzenia.
+Aktualizacja 2 obejmuje urządzenia aktualizacji oprogramowania, aktualizacje sterowników LSI i aktualizacje oprogramowania układowego dysku. LSI aktualizacji i oprogramowania urządzenia Hello Brak aktualizacji i mogą być stosowane za pośrednictwem hello klasycznego portalu Azure. aktualizacje oprogramowania układowego dysku Hello są aktualizacje zakłócenie i mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell hello hello urządzenia.
 
 > [!IMPORTANT]
-> * Nie widzisz Update 2 natychmiast, ponieważ jak etapowego wdrażania aktualizacji. Skanowanie w poszukiwaniu aktualizacji ponownie za kilka dni jako tej aktualizacji zostanie wkrótce udostępnione.
-> * Zestaw ręczne i automatyczne wstępne sprawdzanie gotowe czasu zainstalowania w celu określenia kondycji urządzenia pod względem sprzętu stanu i łączność sieciową. Kontrole wstępne są wykonywane tylko wtedy, gdy należy zastosować aktualizacje z klasycznego portalu Azure.
-> * Zaleca się zainstalowanie aktualizacji oprogramowania i sterowników za pośrednictwem klasycznego portalu Azure. Tylko powinien możesz przejść do interfejsu programu Windows PowerShell, urządzenia (w celu instalowania aktualizacji), jeśli sprawdzenie przed aktualizacją bramy nie powiedzie się w portalu. Zastosowanie aktualizacji może potrwać 4-7 godzin instalacji (w tym aktualizacje systemu Windows). Aktualizacje trybu konserwacji musi być zainstalowany za pośrednictwem interfejsu programu Windows PowerShell urządzenia. Aktualizacje trybu konserwacji są aktualizacje destrukcyjne, te spowoduje dół czasu dla danego urządzenia.
-> * Uruchomiona opcjonalne StorSimple Snapshot Manager, upewnij się, że uaktualniono wersji Snapshot Manager do wersji Update 2 przed zaktualizowaniem urządzenia.
+> * Nie widzisz Update 2 natychmiast, ponieważ jak etapowego wdrażania hello aktualizacji. Skanowanie w poszukiwaniu aktualizacji ponownie za kilka dni jako tej aktualizacji zostanie wkrótce udostępnione.
+> * Zestaw ręczne i automatyczne wstępne sprawdzanie gotowe toohello uprzedniej instalacji toodetermine hello urządzenia kondycji pod względem sprzętu stanu i łączność sieciową. Kontrole wstępne są wykonywane tylko wtedy, gdy należy zastosować aktualizacje hello z hello klasycznego portalu Azure.
+> * Zaleca się instalowanie oprogramowania hello i aktualizacje sterowników za pomocą hello klasycznego portalu Azure. Interfejsu programu Windows PowerShell toohello hello urządzenia (tooinstall aktualizacje) należy postępować tylko, jeśli hello przed aktualizacją bramy sprawdzenie nie powiedzie się w portalu hello. Witaj aktualizacji może potrwać tooinstall 4-7 godzin (w tym aktualizacje systemu Windows hello). aktualizacje trybu konserwacji Hello muszą być zainstalowane za pomocą interfejsu programu Windows PowerShell hello hello urządzenia. Aktualizacje trybu konserwacji są aktualizacje destrukcyjne, te spowoduje dół czasu dla danego urządzenia.
+> * Uruchamianie hello opcjonalne StorSimple Snapshot Manager, upewnij się, uaktualniono Snapshot Manager wersji tooUpdate 2 wcześniejsze tooupdating hello urządzenia.
 > 
 > 
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## <a name="install-update-2-via-the-azure-classic-portal"></a>Instalowanie aktualizacji 2 za pośrednictwem klasycznego portalu Azure
-Wykonaj poniższe kroki, aby zaktualizować urządzenie do [Update 2](storsimple-update2-release-notes.md).
+## <a name="install-update-2-via-hello-azure-classic-portal"></a>Instalowanie aktualizacji 2 za pośrednictwem hello klasycznego portalu Azure
+Wykonaj następujące kroki tooupdate hello urządzenia zbyt[Update 2](storsimple-update2-release-notes.md).
 
 > [!NOTE]
-> Aktualizacja 2 umożliwia firmie Microsoft ściągnięcia dodatkowych informacji diagnostycznych z urządzenia. W związku z tym gdy działu operacji identyfikuje urządzenia, które występują problemy, firma Microsoft mają większe możliwości zbierania informacji z urządzenia i diagnozowanie problemów. Akceptowanie Update 2, umożliwia firmie Microsoft w celu obsługi aktywne.
+> Aktualizacja 2 umożliwia toopull Microsoft dodatkowe informacje diagnostyczne z hello urządzenia. W związku z tym gdy działu operacji identyfikuje urządzenia, które występują problemy, firma Microsoft są lepsze informacje wyposażone toocollect z hello urządzenia i diagnozowanie problemów. Akceptowanie Update 2, umożliwia nam tooprovide ta obsługa aktywne.
 > 
 > 
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-1. Sprawdź, czy urządzenie działa **StorSimple 8000 serii Update 2 (6.3.9600.17673)**. **Ostatniej aktualizacji daty** również powinien być modyfikowany. Widoczny będzie również, że są dostępne aktualizacje tryb konserwacji (ten komunikat może nadal wyświetlane przez 24 godziny, po zainstalowaniu aktualizacji).
+1. Sprawdź, czy urządzenie działa **StorSimple 8000 serii Update 2 (6.3.9600.17673)**. Witaj **ostatniej aktualizacji daty** również powinien być modyfikowany. Widoczny będzie również, że są dostępne aktualizacje tryb konserwacji (ten komunikat może nadal toobe są wyświetlane się too24 godzin po zainstalowaniu hello aktualizacji).
    
-   Aktualizacje trybu konserwacji są destrukcyjne aktualizacje, które powoduje przestój urządzenia i mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell urządzenia. W niektórych przypadkach po uruchomieniu 1.2 aktualizacji oprogramowania układowego dysku mogą być już aktualne, w którym to przypadku nie trzeba instalować żadnych aktualizacji w trybie konserwacji.
-2. Pobierz aktualizacje tryb konserwacji przy użyciu kroków opisanych w [do pobrania poprawek](#to-download-hotfixes) do wyszukania i pobrania KB3121899, które instaluje aktualizacje oprogramowania układowego dysku (inne aktualizacje powinny być zainstalowane przez teraz).
-3. Wykonaj czynności opisane w [zainstalowany i sprawdź poprawki trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes) trybu konserwacji do zainstalowania aktualizacji.
+   Aktualizacje trybu konserwacji są destrukcyjne aktualizacje, które powoduje przestój urządzenia i mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell hello urządzenia. W niektórych przypadkach po uruchomieniu aktualizacji 1.2, oprogramowania układowego dysku mogą być już aktualne, w tym przypadku nie trzeba tooinstall aktualizuje dowolny tryb konserwacji.
+2. Pobierz aktualizacje trybu konserwacji hello przy użyciu hello czynności opisane w [poprawki toodownload](#to-download-hotfixes) toosearch dla i Pobierz KB3121899, który instaluje aktualizacje oprogramowania układowego dysku (hello inne aktualizacje powinny być zainstalowane przez teraz).
+3. Wykonaj kroki hello na liście [zainstalowany i sprawdź poprawki trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes) tooinstall hello obsługi trybu aktualizacji.
 
 ## <a name="install-update-2-as-a-hotfix"></a>Instalowanie aktualizacji 2 jako poprawki
-Użyj tej procedury, jeśli nie wyboru bramy, podczas próby zainstalowania aktualizacji za pośrednictwem klasycznego portalu Azure. Sprawdzenie nie powiedzie się, masz przypisane do karty sieciowej 0-DATA bramy i urządzenia z wersją oprogramowania przed Update 1.
+Użyj tej procedury, jeśli nie hello bramy wyboru podczas próby aktualizacji hello tooinstall za pośrednictwem hello klasycznego portalu Azure. Witaj sprawdzenie nie powiedzie się, masz przypisane interfejs sieciowy 0-DATA tooa bramy i urządzeniu jest uruchomiona tooUpdate wcześniejszych wersji 1 oprogramowania.
 
-Wersje oprogramowania, które można uaktualnić za pomocą metody poprawki są Update 0.1, Update 0.2 i Update 0.3, aktualizacja 1, aktualizacja 1.1 i 1.2 aktualizacji. Metoda poprawki obejmuje następujące trzy kroki:
+Hello wersji oprogramowania, które można uaktualnić za pomocą metody poprawki hello są Update 0.1, Update 0.2 i Update 0.3, aktualizacja 1, aktualizacja 1.1 i 1.2 aktualizacji. Metoda poprawki Hello polega na powitania następujące trzy kroki:
 
-* Pobierz poprawki z wykazu usługi Microsoft Update.
-* Zainstaluj i sprawdź regularne poprawki.
-* Zainstaluj i sprawdź poprawkę trybu konserwacji.
+* Pobierz hello poprawki z hello wykazu usługi Microsoft Update.
+* Zainstaluj i sprawdź regularne hello poprawki.
+* Zainstaluj i sprawdź poprawkę trybu konserwacji hello.
 
-Aby zainstalować aktualizacji 2 jako poprawki, należy pobrać i zainstalować następujące poprawki:
+tooinstall Update 2 jako poprawki, należy pobrać i zainstalować hello następujące poprawki:
 
 | Kolejność | KB | Opis | Typ aktualizacji |
 | --- | --- | --- | --- |
@@ -72,19 +72,19 @@ Aby zainstalować aktualizacji 2 jako poprawki, należy pobrać i zainstalować 
 | 5 |KB3121899 |Oprogramowanie układowe dysku |Konserwacji |
 
 > [!IMPORTANT]
-> * Jeśli urządzenie korzysta z wersji Release (GA), skontaktuj się z [Microsoft Support](storsimple-contact-microsoft-support.md) pomocne podczas aktualizacji.
-> * Ta procedura musi zostać wykonana tylko raz do zastosowania aktualizacji 2. Klasyczny portal Azure umożliwia stosowanie kolejnych aktualizacji.
-> * Każdej instalacji poprawki może trwać około 20 minut, aby zakończyć. Godzina instalacji całkowita jest bliski 2 godziny.
-> * Przed użyciem tej procedury, aby zastosować aktualizację, upewnij się, że zarówno kontrolery urządzeń są w trybie online i wszystkie składniki sprzętowe są w dobrej kondycji.
+> * Jeśli urządzenie korzysta z wersji Release (GA), skontaktuj się z [Microsoft Support](storsimple-contact-microsoft-support.md) tooassist z hello aktualizacji.
+> * Ta procedura toobe musi wykonać tylko raz tooapply Update 2. Możesz użyć hello Azure classic portal tooapply kolejnych aktualizacji.
+> * Każda instalacja poprawek może zająć toocomplete około 20 minut. Godzina instalacji całkowita jest too2 Zamknij godzin.
+> * Przed użyciem tej procedury tooapply hello aktualizacji, upewnij się, że zarówno kontrolery urządzeń są w trybie online i wszystkie składniki sprzętowe hello są w dobrej kondycji.
 > 
 > 
 
-Wykonaj poniższe kroki, aby zastosować tę aktualizację jako poprawki.
+Jako poprawki, należy wykonać następujące kroki tooapply hello tej aktualizacji.
 
 [!INCLUDE [storsimple-install-update2-hotfix](../../includes/storsimple-install-update2-hotfix.md)]
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [wersji Update 2](storsimple-update2-release-notes.md).
+Dowiedz się więcej o hello [wersji Update 2](storsimple-update2-release-notes.md).
 

@@ -1,6 +1,6 @@
 ---
 title: 'Synchronizacja programu Azure AD Connect: harmonogram | Dokumentacja firmy Microsoft'
-description: "W tym temacie opisano funkcję wbudowanych harmonogramu synchronizacji Azure AD Connect."
+description: W tym temacie opisano hello funkcji wbudowanych harmonogram synchronizacji Azure AD Connect.
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63f69756b3933fecdec75cc677e1098447e5b94e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c587039cc68d305862a07beff364894b6f74cd2f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizacja programu Azure AD Connect: harmonogramu
-W tym temacie opisano wbudowanych harmonogramu synchronizacji Azure AD Connect () Aparat synchronizacji).
+W tym temacie opisano hello wbudowanych harmonogramu synchronizacji Azure AD Connect () Aparat synchronizacji).
 
 Ta funkcja została wprowadzona z kompilacją 1.1.105.0 (wydane luty 2016).
 
 ## <a name="overview"></a>Omówienie
-Synchronizacja programu Azure AD Connect zsynchronizować zmiany zachodzące w katalogu lokalnym za pomocą harmonogramu. Istnieją dwa procesy harmonogramu dla synchronizacji haseł i drugi dla obiekt/atrybutu zadań synchronizacji i konserwacji. W tym temacie omówiono te ostatnie.
+Synchronizacja programu Azure AD Connect zsynchronizować zmiany zachodzące w katalogu lokalnym za pomocą harmonogramu. Istnieją dwa procesy harmonogramu dla synchronizacji haseł i drugi dla obiekt/atrybutu zadań synchronizacji i konserwacji. W tym temacie omówiono hello później.
 
-We wcześniejszych wersjach harmonogramu dla obiektów i atrybutów zostało zewnętrznych do aparatu synchronizacji. Użyć harmonogramu zadań systemu Windows lub osobnych usługi systemu Windows do synchronizacji. Harmonogram jest dzięki wbudowanej wersji 1.1, aby synchronizacja aparat i umożliwienia pewne dostosowania. Nowe domyślna częstotliwość synchronizacji jest 30 minut.
+We wcześniejszych wersjach hello harmonogramu dla obiektów i atrybutów zostało toohello zewnętrznych aparatu synchronizacji. Go użyć harmonogramu zadań systemu Windows lub osobnych Windows tootrigger hello proces synchronizacji usługi. Harmonogram Hello jest z hello 1.1 aparatu synchronizacji wbudowanych toohello wersje i umożliwienia pewne dostosowania. Hello nowe częstotliwość synchronizacji domyślny to 30 minut.
 
-Harmonogram jest odpowiedzialny za dwa zadania:
+Harmonogram Hello jest odpowiedzialny za dwa zadania:
 
-* **Cykl synchronizacji**. Proces importowania, synchronizacji i eksportowanie zmiany.
-* **Zadania konserwacji**. Odnów klucze i certyfikaty służące do resetowania hasła i usługi rejestracji urządzeń (DRS). Przeczyszczać stare wpisy w Dzienniku działań.
+* **Cykl synchronizacji**. tooimport proces Hello, synchronizacji i zmian eksportu.
+* **Zadania konserwacji**. Odnów klucze i certyfikaty służące do resetowania hasła i usługi rejestracji urządzeń (DRS). Przeczyszczać stare wpisy w dzienniku operacji hello.
 
-Planista się zawsze działa, ale może być skonfigurowana do uruchamiania tylko jednej lub żadna z tych zadań. Na przykład jeśli musisz mieć własnego procesu cyklu synchronizacji, można wyłączyć tego zadania w harmonogramie, ale nadal uruchamiać zadanie konserwacji.
+Harmonogram Hello, sama zawsze jest uruchomiony, ale może być skonfigurowany tooonly uruchomienia co najmniej żadna z tych zadań. Na przykład należy toohave własnego procesu cyklu synchronizacji można wyłączyć tego zadania w harmonogramie hello, ale hello nadal wykonywania zadań konserwacji.
 
 ## <a name="scheduler-configuration"></a>Konfiguracja harmonogramu
-Aby zobaczyć bieżące ustawienia konfiguracji, przejdź do programu PowerShell i uruchom `Get-ADSyncScheduler`. Przedstawia on podobny do tego obrazu:
+toosee bieżących ustawień konfiguracji Przejdź tooPowerShell i uruchom `Get-ADSyncScheduler`. Przedstawia on podobny do tego obrazu:
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
 
-Jeśli widzisz **polecenia synchronizacji lub polecenie cmdlet nie jest dostępna** po uruchomieniu tego polecenia cmdlet, następnie modułu programu PowerShell nie jest załadowany. Ten problem może się zdarzyć, jeśli uruchomienie usługi Azure AD Connect na kontrolerze domeny lub na serwerze z wyższego poziomu ograniczeń programu PowerShell niż domyślne ustawienia. Jeśli zostanie wyświetlony ten błąd, uruchom `Import-Module ADSync` udostępnić polecenia cmdlet.
+Jeśli widzisz **polecenia synchronizacji hello lub polecenie cmdlet nie jest dostępna** po uruchomieniu tego polecenia cmdlet, następnie hello modułu programu PowerShell nie jest załadowany. Ten problem może się zdarzyć, jeśli uruchomisz Azure AD Connect na kontrolerze domeny lub na serwerze z wyższego poziomu ograniczeń programu PowerShell niż hello domyślnych ustawień. Jeśli zostanie wyświetlony ten błąd, uruchom `Import-Module ADSync` toomake hello polecenia cmdlet dostępne.
 
-* **AllowedSyncCycleInterval**. Najkrótszy odstęp czasu między cykle synchronizacji dozwolone przez usługę Azure AD. Nie można zsynchronizować częściej niż to ustawienie i nadal obsługiwane.
-* **CurrentlyEffectiveSyncCycleInterval**. Aktualnie aktywny harmonogram. Ma taką samą wartość jak CustomizedSyncInterval (Jeśli ustawiona) Jeśli nie jest krótszy niż AllowedSyncInterval. Jeśli używasz kompilacji przed 1.1.281 i zmienić CustomizedSyncCycleInterval, to zmiany zostaną uwzględnione po następnym cyklu synchronizacji. Z kompilacji 1.1.281 zmiany zaczęły obowiązywać natychmiast.
-* **CustomizedSyncCycleInterval**. Jeśli chcesz uruchomić inne częstotliwością niż domyślne 30 minut harmonogram, należy skonfigurować to ustawienie. W powyższym rysunku harmonogram został ustawiony należy zamiast tego uruchomić co godzinę. Jeśli to ustawienie na wartość niższa niż AllowedSyncInterval, drugie będzie używana.
-* **NextSyncCyclePolicyType**. Delta lub początkowego. Określa, czy przy następnym uruchomieniu należy tylko zmiany różnicowe procesu, lub jeśli przy następnym uruchomieniu, należy wykonać pełny importowania i synchronizacji. Drugie będzie również ponownie przetworzyć żadnych reguł nowe lub zostały zmienione.
-* **NextSyncCycleStartTimeInUTC**. Następnym uruchomieniu harmonogramu następnego cyklu synchronizacji.
-* **PurgeRunHistoryInterval**. Czas, powinny być przechowywane dzienniki operacji. Te dzienniki mogą być przeglądane na Menedżera usługi synchronizacji. Wartość domyślna to aby zachować te dzienniki 7 dni.
-* **SyncCycleEnabled**. Wskazuje, czy harmonogram działa importu, synchronizacji i procesy eksportu w ramach jego operacji.
-* **MaintenanceEnabled**. Wskazuje, czy Proces obsługi jest włączony. Aktualizuje certyfikaty/klucze, a Przeczyszcza dziennika operacji.
-* **StagingModeEnabled**. Pokazuje Jeśli [Tryb przejściowy](active-directory-aadconnectsync-operations.md#staging-mode) jest włączona. Jeśli to ustawienie jest włączone, następnie go pomija eksportuje uruchamiania, ale nadal uruchamiać importowania i synchronizacji.
-* **SchedulerSuspended**. Ustawioną przy użyciu Connect podczas uaktualniania tymczasowo bloku harmonogramu uruchamiania.
+* **AllowedSyncCycleInterval**. Witaj najkrótszy odstęp czasu między cykle synchronizacji dozwolone przez usługę Azure AD. Nie można zsynchronizować częściej niż to ustawienie i nadal obsługiwane.
+* **CurrentlyEffectiveSyncCycleInterval**. Witaj harmonogram obecnie efektu. Ma takie same wartości jak CustomizedSyncInterval hello (Jeśli ustawiona) Jeśli nie jest krótszy niż AllowedSyncInterval. Jeśli używasz kompilacji przed 1.1.281 i zmienić CustomizedSyncCycleInterval, to zmiany zostaną uwzględnione po następnym cyklu synchronizacji. Z kompilacji 1.1.281 zmiany hello aktywne natychmiast.
+* **CustomizedSyncCycleInterval**. Jeśli chcesz toorun harmonogramu hello częstotliwością żadnych innych niż domyślne hello 30 minut, następnie dla tego ustawienia. Na rysunku powyżej hello hello harmonogram został ustawiony toorun co godzinę zamiast tego. Jeśli ustawisz wartość tooa ustawienie niższa niż AllowedSyncInterval, drugie hello jest używany.
+* **NextSyncCyclePolicyType**. Delta lub początkowego. Określa, czy hello kolejnego uruchomienia należy tylko proces zmiany różnicowe, lub jeśli hello następnym uruchomieniu, należy wykonać pełny importowania i synchronizacji. ostatnie Hello będzie również ponownie przetworzyć żadnych reguł nowe lub zostały zmienione.
+* **NextSyncCycleStartTimeInUTC**. Następnym uruchomieniu harmonogramu hello hello następnego cyklu synchronizacji.
+* **PurgeRunHistoryInterval**. Witaj operację czas, który powinny być przechowywane dzienniki. Te dzienniki mogą być przeglądane na Menedżera usługi synchronizacji hello. Witaj domyślny jest tookeep te dzienniki 7 dni.
+* **SyncCycleEnabled**. Wskazuje, czy harmonogramu hello działa hello importu, synchronizacji i procesy eksportu w ramach jego operacji.
+* **MaintenanceEnabled**. Wskazuje, czy proces konserwacji hello jest włączona. Aktualizuje kluczy certyfikatów hello i powoduje usunięcie hello dziennika operacji.
+* **StagingModeEnabled**. Pokazuje Jeśli [Tryb przejściowy](active-directory-aadconnectsync-operations.md#staging-mode) jest włączona. Jeśli to ustawienie jest włączone, następnie go pomija eksportuje hello uruchamiania, ale nadal uruchamiać importowania i synchronizacji.
+* **SchedulerSuspended**. Ustawić Connect podczas uaktualniania tootemporarily bloku hello harmonogramu uruchamiania.
 
-Można zmienić niektóre z tych ustawień z `Set-ADSyncScheduler`. Można zmodyfikować następujące parametry:
+Można zmienić niektóre z tych ustawień z `Set-ADSyncScheduler`. można zmodyfikować Hello następujące parametry:
 
 * CustomizedSyncCycleInterval
 * NextSyncCyclePolicyType
@@ -63,73 +63,73 @@ Można zmienić niektóre z tych ustawień z `Set-ADSyncScheduler`. Można zmody
 * SyncCycleEnabled
 * MaintenanceEnabled
 
-W starszych wersjach programu Azure AD Connect **isStagingModeEnabled** luk w ADSyncScheduler zestawu. Jest **nieobsługiwany** Aby ustawić tę właściwość. Właściwość **SchedulerSuspended** powinien zostać zmodyfikowany tylko przez połączenie. Jest **nieobsługiwany** bezpośrednio ustawienie przy użyciu programu PowerShell.
+W starszych wersjach programu Azure AD Connect **isStagingModeEnabled** luk w ADSyncScheduler zestawu. Jest **nieobsługiwany** tooset tej właściwości. Witaj właściwości **SchedulerSuspended** powinien zostać zmodyfikowany tylko przez połączenie. Jest **nieobsługiwany** tooset to przy użyciu programu PowerShell bezpośrednio.
 
-Konfiguracja harmonogramu jest przechowywana w usłudze Azure AD. Jeśli masz serwer tymczasowej zmiany na serwerze podstawowym również wpływa na serwerze (z wyjątkiem IsStagingModeEnabled).
+Konfiguracja harmonogramu Hello jest przechowywana w usłudze Azure AD. Jeśli masz serwer tymczasowej zmiany na serwerze podstawowym hello również ma wpływ na powitania serwera (z wyjątkiem IsStagingModeEnabled) na potrzeby przemieszczania.
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Składnia:`Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d — dni, HH - godziny, mm — minuty, ss — sekundy
 
 Przykład:`Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
-Zmienia harmonogram co 3 godziny.
+Zmiany hello toorun harmonogramu co 3 godziny.
 
 Przykład:`Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
-Zmiany wpływają na codzienne Uruchamianie harmonogramu.
+Zmiany zmianę toorun harmonogramu hello codziennie.
 
-### <a name="disable-the-scheduler"></a>Wyłączanie harmonogramu  
-Jeśli chcesz wprowadzić zmiany w konfiguracji, następnie chcesz wyłączyć harmonogram. Na przykład, gdy użytkownik [skonfigurować filtrowanie](active-directory-aadconnectsync-configure-filtering.md) lub [dokonać zmian reguły synchronizacji](active-directory-aadconnectsync-change-the-configuration.md).
+### <a name="disable-hello-scheduler"></a>Wyłączanie harmonogramu hello  
+Jeśli potrzebujesz toomake zmian konfiguracji, ma toodisable hello harmonogramu. Na przykład, gdy użytkownik [skonfigurować filtrowanie](active-directory-aadconnectsync-configure-filtering.md) lub [zmiany reguły toosynchronization](active-directory-aadconnectsync-change-the-configuration.md).
 
-Aby wyłączyć harmonogram, uruchom polecenie `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+Harmonogram hello toodisable, uruchom `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
-![Wyłączanie harmonogramu](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)
+![Wyłączanie harmonogramu hello](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)
 
-Po dokonaniu zmiany, pamiętaj włączyć harmonogram ponownie, podając `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+Po dokonaniu zmiany, nie zapomnij harmonogramu hello tooenable ponownie, podając `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
-## <a name="start-the-scheduler"></a>Uruchomiony harmonogram
-Harmonogram jest domyślnie uruchamiane co 30 minut. W niektórych przypadkach można wykonać cykl synchronizacji Between zaplanowanego cyklu lub należy uruchomić innego typu.
+## <a name="start-hello-scheduler"></a>Uruchamianie harmonogramu hello
+Harmonogram Hello jest domyślnie uruchamiane co 30 minut. W niektórych przypadkach może być toorun cykl synchronizacji Between hello zaplanowane cykle lub należy toorun innego typu.
 
 **Cykl synchronizacji różnicowej**  
-Cykl synchronizacji różnicowej obejmuje następujące kroki:
+Cykl synchronizacji różnicowej obejmuje hello następujące kroki:
 
 * Import zmian dla wszystkich łączników
 * Synchronizacja różnicowa dla wszystkich łączników
 * Eksportowanie na wszystkich łączników
 
-Możliwe, że masz pilnych zmiany, która musi być synchronizowany natychmiast, dlatego należy ręcznie uruchomić cykl. Jeśli chcesz ręcznie uruchomić cykl, następnie z programu PowerShell, uruchom `Start-ADSyncSyncCycle -PolicyType Delta`.
+Jest to możliwe, że masz pilnych zmiany, która musi być synchronizowany natychmiast, dlatego należy toomanually uruchomienie cyklu. Jeśli potrzebujesz toomanually Uruchom cykl, następnie z programu PowerShell, uruchom `Start-ADSyncSyncCycle -PolicyType Delta`.
 
 **Cykl pełnej synchronizacji**  
-Jeśli jeden z następujących zmian konfiguracji zostały wprowadzone, należy uruchomić cykl pełnej synchronizacji () Początkowy):
+Jeden z hello następujące zmiany konfiguracji zostały wprowadzone, konieczne będzie toorun cyklu pełnej synchronizacji () Początkowy):
 
-* Dodano więcej obiektów i atrybutów do zaimportowania z katalogu źródłowego
-* Wprowadzone zmiany reguły synchronizacji
+* Dodano więcej obiektów i atrybutów toobe zaimportowane z katalogu źródłowego
+* Wprowadzone zmiany toohello reguły synchronizacji
 * Zmienione [filtrowania](active-directory-aadconnectsync-configure-filtering.md) tak szereg różnych obiektów, należy włączyć
 
-Jeśli jeden z tych zmian, następnie należy wykonać cykl pełnej synchronizacji, więc aparat synchronizacji ma możliwość ponowna przestrzeni łącznika. Cykl Pełna synchronizacja obejmuje następujące kroki:
+Jeśli wprowadzono jedną z tych zmian należy toorun cykl pełnej synchronizacji, więc aparat synchronizacji hello hello możliwości tooreconsolidate hello — obszary łączników. Cykl Pełna synchronizacja obejmuje hello następujące kroki:
 
 * Pełny Import dla wszystkich łączników
 * Pełna synchronizacja w wszystkich łączników
 * Eksportowanie na wszystkich łączników
 
-Aby zainicjować cykl pełną synchronizację, należy uruchomić `Start-ADSyncSyncCycle -PolicyType Initial` w wierszu programu PowerShell. To polecenie uruchamia cyklu pełnej synchronizacji.
+Uruchom tooinitiate cyklu pełnej synchronizacji `Start-ADSyncSyncCycle -PolicyType Initial` w wierszu programu PowerShell. To polecenie uruchamia cyklu pełnej synchronizacji.
 
-## <a name="stop-the-scheduler"></a>Zatrzymania harmonogramu
-Harmonogram jest obecnie uruchomiony cykl synchronizacji, może być konieczne Zatrzymaj ją. Na przykład jeśli Uruchom Kreatora instalacji, a ten błąd:
+## <a name="stop-hello-scheduler"></a>Zatrzymaj hello harmonogramu
+Jeśli harmonogram hello jest aktualnie uruchomione cykl synchronizacji, może być konieczne toostop go. Na przykład jeśli możesz uruchomić Kreatora instalacji hello i ten błąd:
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
 
-Podczas cyklu synchronizacji jest uruchomiona, nie można wprowadzić zmian w konfiguracji. Użytkownik może poczekaj, aż planista zakończył proces, ale można również zatrzymać go, wprowadź zmiany w natychmiast. Zatrzymywanie bieżącego cyklu nie jest szkodliwe i oczekujących zmian są przetwarzane przy następnym uruchomieniu.
+Podczas cyklu synchronizacji jest uruchomiona, nie można wprowadzić zmian w konfiguracji. Można czekanie, aż harmonogramu hello zakończył proces hello, ale Zatrzymaj ją również, dzięki czemu można zmieniać zmiany natychmiast. Zatrzymywanie hello bieżącego cyklu nie jest szkodliwe i oczekujących zmian są przetwarzane kolejnego uruchomienia.
 
-1. Rozpocznij od informuje harmonogramu, aby zatrzymać bieżącego cyklu za pomocą polecenia cmdlet programu PowerShell `Stop-ADSyncSyncCycle`.
-2. Jeśli używasz kompilacji przed 1.1.281, następnie zatrzymywanie harmonogramu nie zatrzymuje bieżącego łącznika z jego bieżącego zadania. Aby wymusić łącznika, aby zatrzymać, należy wykonać następujące czynności: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
-   * Uruchom **usługi synchronizacji** z start menu. Przejdź do **łączniki**, zaznacz łącznika ze stanem **systemem**i wybierz **zatrzymać** z akcji.
+1. Rozpocząć od informacją o bieżącym hello toostop harmonogramu cyklu za pomocą polecenia cmdlet programu PowerShell hello `Stop-ADSyncSyncCycle`.
+2. Jeśli używasz kompilacji przed 1.1.281, a następnie zatrzymywanie harmonogramu hello nie zatrzymuje hello bieżącego łącznika z jego bieżącego zadania. tooforce hello toostop łącznika, podjąć hello następujące akcje: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
+   * Uruchom **usługi synchronizacji** z hello start menu. Przejdź za**łączniki**, zaznacz hello łącznika ze stanem hello **systemem**i wybierz **zatrzymać** z hello akcje.
 
-Harmonogram jest nadal aktywna i uruchamia ponownie w następnym możliwości.
+Hello harmonogram jest nadal aktywna i uruchamia ponownie w następnym możliwości.
 
 ## <a name="custom-scheduler"></a>Harmonogram niestandardowy
-Polecenia cmdlet, opisane w tej sekcji są dostępne tylko w kompilacji [1.1.130.0](active-directory-aadconnect-version-history.md#111300) i nowszych.
+Witaj poleceń cmdlet w tej sekcji są dostępne tylko w kompilacji [1.1.130.0](active-directory-aadconnect-version-history.md#111300) i nowszych.
 
-Wbudowane harmonogramu nie spełnia wymagań, można zaplanować łączniki przy użyciu programu PowerShell.
+Harmonogram wbudowanych hello nie spełnia wymagań, można zaplanować łączniki hello przy użyciu programu PowerShell.
 
 ### <a name="invoke-adsyncrunprofile"></a>Wywołanie ADSyncRunProfile
 Można uruchomić profilu dla łącznika w ten sposób:
@@ -138,37 +138,37 @@ Można uruchomić profilu dla łącznika w ten sposób:
 Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
 ```
 
-Nazwy do użycia na potrzeby [nazw łączników](active-directory-aadconnectsync-service-manager-ui-connectors.md) i [nazwy profilu uruchamiania](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) znajdują się w [interfejsu użytkownika Menedżera usługi synchronizacji](active-directory-aadconnectsync-service-manager-ui.md).
+Witaj toouse nazwy dla [nazw łączników](active-directory-aadconnectsync-service-manager-ui-connectors.md) i [nazwy profilu Uruchom](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) można znaleźć w hello [interfejsu użytkownika Menedżera usługi synchronizacji](active-directory-aadconnectsync-service-manager-ui.md).
 
 ![Wywołanie profilu uruchamiania](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)  
 
-`Invoke-ADSyncRunProfile` Polecenia cmdlet jest synchroniczne, czyli nie zwraca sterowania aż do zakończenia operacji, łącznik, pomyślnie lub z powodu błędu.
+Witaj `Invoke-ADSyncRunProfile` polecenia cmdlet jest synchroniczne, czyli nie zwraca sterowania aż do zakończenia operacji hello hello łącznika, pomyślnie lub z powodu błędu.
 
-Podczas planowania łączników, zaleca się zaplanować je w następującej kolejności:
+Podczas planowania łączniki hello zaleca tooschedule je hello w następującej kolejności:
 
 1. (Full/Delta) Importuj z katalogów lokalnych, takich jak usługi Active Directory
 2. (Full/Delta) Importuj z usługi Azure AD
 3. (Full/Delta) Synchronizacja z katalogów lokalnych, takich jak usługi Active Directory
 4. (Full/Delta) Synchronizacja z usługą Azure AD
-5. Eksportowanie do usługi Azure AD
-6. Eksportowanie do katalogów lokalnych, takich jak usługi Active Directory
+5. Eksportuj tooAzure AD
+6. Eksportowanie lokalnych tooon katalogi, takich jak usługi Active Directory
 
-Porządek ten jest sposób wbudowanych harmonogramu uruchamiania łączników.
+Porządek ten jest działania łączników hello hello wbudowanych harmonogramu.
 
 ### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
-Można również monitorować aparatu synchronizacji, aby sprawdzić, czy jest zajęty lub bezczynności. To polecenie cmdlet zwraca żadnego wyniku, jeśli aparat synchronizacji jest w stanie bezczynności i łącznika nie jest uruchomiona. Jeśli łącznik jest uruchomiona, zwraca nazwę łącznika.
+Można również monitorować toosee aparatu synchronizacji hello, jeżeli jest zajęty lub bezczynności. To polecenie cmdlet zwraca żadnego wyniku, jeśli aparat synchronizacji hello jest w stanie bezczynności i łącznika nie jest uruchomiona. Jeśli łącznik jest uruchomiona, zwraca nazwę hello hello łącznika.
 
 ```
 Get-ADSyncConnectorRunStatus
 ```
 
 ![Stan uruchomienia łącznika](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
-W powyższym rysunku pierwszy wiersz jest ze stanu, gdy aparat synchronizacji jest w stanie bezczynności. Drugi wiersz z gdy działa łącznik usługi Azure AD.
+Witaj ilustracji powyżej hello pierwszy wiersz jest ze stanu, w którym hello aparat synchronizacji jest w stanie bezczynności. drugi wiersz Hello z gdy hello łącznika usługi Azure AD jest uruchomiona.
 
 ## <a name="scheduler-and-installation-wizard"></a>Kreator harmonogramu i instalacji
-Po uruchomieniu Kreatora instalacji planista tymczasowo jest wstrzymane. To zachowanie jest, ponieważ zakłada się zmian konfiguracji i nie można zastosować te ustawienia, jeśli aparat synchronizacji jest aktywnie wykonywane. Z tego powodu nie może pozostać Kreatora instalacji Otwórz ponieważ przestaje wykonywać wszystkie akcje synchronizacji aparatu synchronizacji.
+Po uruchomieniu Kreatora instalacji hello harmonogramu hello tymczasowo jest wstrzymane. To zachowanie jest, ponieważ zakłada się zmian konfiguracji i nie można zastosować te ustawienia, jeśli aparat synchronizacji hello jest aktywnie wykonywane. Z tego powodu nie może pozostać Kreatora instalacji hello Otwórz ponieważ przestaje hello aparatu synchronizacji z wykonywania żadnych czynności synchronizacji.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
+Dowiedz się więcej o hello [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

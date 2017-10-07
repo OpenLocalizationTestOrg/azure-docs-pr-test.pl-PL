@@ -1,6 +1,6 @@
 ---
-title: "Nawiązać Edison firmy Intel (węzeł) Azure IoT — Lekcja 1: Pobierz narzędzia (Ubuntu) | Dokumentacja firmy Microsoft"
-description: "Pobierz i zainstaluj niezbędne narzędzia i oprogramowania dla pierwszego Przykładowa aplikacja dla Edison na Ubuntu."
+title: "Połącz Edison firmy Intel (węzeł) tooAzure IoT — Lekcja 1: Pobierz narzędzia (Ubuntu) | Dokumentacja firmy Microsoft"
+description: "Pobierz i zainstaluj hello niezbędne narzędzia i oprogramowania hello pierwszy przykładowej aplikacji Edison na Ubuntu."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,13 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 74c5f06c2b12d140814bfb75125d60b83addf70c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ad1a48708bd74bcc07d09f105f597f18c3f9d2b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-tools-ubuntu-1604"></a>Pobierz narzędzia (Ubuntu 16.04)
+# <a name="get-hello-tools-ubuntu-1604"></a>Pobierz narzędzia hello (Ubuntu 16.04)
 
 > [!div class="op_single_selector"]
 > * [Windows 7 lub nowszy][windows]
@@ -31,25 +31,25 @@ ms.lasthandoff: 07/11/2017
 > * [System macOS 10.10][macos]
 
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-Pobierz narzędzia deweloperskie i oprogramowania dla pierwszego Przykładowa aplikacja dla programu Edison Intel. Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony][troubleshooting].
+Pobierz narzędzia deweloperskie hello i oprogramowania hello hello pierwszy przykładowej aplikacji Edison Twojego Intel. Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
 W tym artykule dowiesz się:
 
-* Jak zainstalować usługi Git i Node.js
-  * [Git](https://git-scm.com) jest typu open source rozproszonego systemu kontroli wersji. Przykładowa aplikacja dla tego artykułu znajduje się na Git.
+* Jak tooinstall Git i Node.js
+  * [Git](https://git-scm.com) jest typu open source rozproszonego systemu kontroli wersji. Witaj Przykładowa aplikacja dla tego artykułu znajduje się na Git.
   * [Node.js](https://nodejs.org/en/) jest środowiska wykonawczego języka JavaScript z ekosystemem sformatowanego pakietu.
-* Sposób instalowania dodatkowych narzędzi do tworzenia środowiska Node.js za pomocą programu NPM.
-  * Minimalna wymagana wersja programu Node.js jest 4.5 LTS.
-  * [NPM](https://www.npmjs.com) jest jednym z wybranych menedżerów pakietu dla środowiska Node.js.
+* Jak toouse NPM tooinstall dodatkowe Node.js narzędzia deweloperskie.
+  * Witaj minimalnej wymaganej wersji środowiska Node.js jest 4.5 LTS.
+  * [NPM](https://www.npmjs.com) jest jednym z hello menedżerów pakietu dla środowiska Node.js.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
-Aby wykonać tę operację, potrzebne będą:
-* Połączenie internetowe, aby pobrać oprogramowanie i narzędzia deweloperskie.
+toocomplete tej operacji, należy:
+* Toodownload połączenia internetowego hello narzędzia deweloperskie i hello oprogramowania.
 * Komputer z systemem Ubuntu 16.04 lub nowszej.
 
 ## <a name="install-git-nodejs-and-npm"></a>Zainstaluj narzędzia Git, Node.js i NPM
-Użyj skrótu klawiaturowego `Ctrl + Alt + T` Otwórz terminal i uruchom następujące polecenia:
+Skrót klawiaturowy używany hello `Ctrl + Alt + T` tooopen hello terminalu i uruchom następujące polecenia:
 
 ```bash
 sudo apt-get update
@@ -59,24 +59,24 @@ sudo apt-get install git
 ```
 
 ## <a name="install-additional-nodejs-development-tools"></a>Instalowania dodatkowych narzędzi do tworzenia środowiska Node.js
-Użyj [gulp.js](http://gulpjs.com) do automatyzowania wdrażania przykładowej aplikacji do Edison.
+Użyj [gulp.js](http://gulpjs.com) tooautomate wdrożenie hello hello przykładowej aplikacji tooEdison.
 
-Zainstaluj `gulp` , uruchamiając następujące polecenie z poziomu terminala:
+Zainstaluj `gulp` , uruchamiając następujące polecenie w terminalu hello hello:
 
 ```bash
 sudo npm install -g gulp
 ```
 
-Jeśli występują problemy z instalacją środowiska Node.js i te narzędzia programistyczne dodatkowe na Ubuntu, zobacz [przewodnik rozwiązywania problemów] [ troubleshooting] dla rozwiązania typowych problemów.
+Jeśli wystąpią problemy z instalacją środowiska Node.js i te narzędzia programistyczne dodatkowe na Ubuntu Zobacz hello [przewodnik rozwiązywania problemów] [ troubleshooting] dla rozwiązania toocommon problemów.
 
 ## <a name="install-visual-studio-code"></a>Zainstaluj kod programu Visual Studio
-[Pobierz](https://code.visualstudio.com/docs/setup/linux) i zainstalować Visual Studio Code. Visual Studio Code to lekkie, ale jednocześnie wydajną źródła Edytor kodu dla systemu Windows, Linux i macOS. Umożliwia to edytor później w samouczku Edytuj przykładowy kod.
+[Pobierz](https://code.visualstudio.com/docs/setup/linux) i zainstalować Visual Studio Code. Visual Studio Code to lekkie, ale jednocześnie wydajną źródła Edytor kodu dla systemu Windows, Linux i macOS. Edytor w dalszej części hello samouczek tooedit hello przykładowy kod.
 
 ## <a name="summary"></a>Podsumowanie
-Po zainstalowaniu narzędzi do tworzenia wymaganych i oprogramowania dla pierwszej aplikacji przykładowej. Następnym zadaniem jest tworzenie, wdrażanie i uruchom przykładową aplikację na Edison.
+Po zainstalowaniu oprogramowania hello pierwszy przykładowej aplikacji i narzędzia deweloperskie hello wymagane. następne zadanie Hello jest toocreate, wdrażanie i uruchamianie hello przykładowej aplikacji na Edison.
 
 ## <a name="next-steps"></a>Następne kroki
-[Tworzenie i wdrażanie migania przykładowej aplikacji][create-and-deploy-the-blink-application]
+[Tworzenie i wdrażanie hello migania przykładowej aplikacji][create-and-deploy-the-blink-application]
 <!-- Images and links -->
 
 [troubleshooting]: iot-hub-intel-edison-kit-node-troubleshooting.md

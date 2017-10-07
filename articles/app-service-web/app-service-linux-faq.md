@@ -1,5 +1,5 @@
 ---
-title: "Usługa aplikacji Azure aplikacji sieci Web w systemie Linux — często zadawane pytania | Dokumentacja firmy Microsoft"
+title: "aaaAzure aplikację usługi sieci Web aplikacji na systemie Linux — często zadawane pytania | Dokumentacja firmy Microsoft"
 description: "Usługa aplikacji Azure aplikacji sieci Web w systemie Linux — często zadawane pytania."
 keywords: "Usługa aplikacji Azure, aplikacji sieci web, często zadawane pytania, linux, oss"
 services: app-service
@@ -15,57 +15,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 6122f28b35d143ec26a379ae9aa8aee9bdaaff9e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c7798d9144d936eecdc0e191fc870b0ee0b220c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-web-app-on-linux-faq"></a>Usługa aplikacji Azure aplikacji sieci Web w systemie Linux — często zadawane pytania
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 
-Wraz z wydaniem aplikacji sieci Web w systemie Linux pracujemy nad Dodawanie funkcji i wprowadzać ulepszenia platformy. Poniżej przedstawiono niektóre często zadawane pytania (FAQ), które naszym klientom ma zostały prośbą z ostatnich miesięcy.
-Jeśli masz pytania, komentarza, w artykule i firma Microsoft będzie odpowiedź tak szybko, jak to możliwe.
+Witaj wersji z aplikacji sieci Web w systemie Linux pracujemy nad Dodawanie funkcji oraz wprowadzania ulepszenia tooour platformy. W tym miejscu przedstawiono często zadawane pytania (FAQ), które naszym klientom ma zostały prośbą za pośrednictwem hello ostatnio miesięcy.
+Jeśli masz pytania, komentarza, w artykule hello i firma Microsoft będzie odpowiedź tak szybko, jak to możliwe.
 
 ## <a name="built-in-images"></a>Wbudowane obrazów
 
-**Pytanie:** chcę rozwidlania wbudowanych kontenerów Docker, które zapewnia platformę. Gdzie można znaleźć te pliki?
+**Pytanie:** ma zapewnia toofork hello wbudowanych Docker kontenerów, które hello platformy. Gdzie można znaleźć te pliki?
 
 **Odpowiedź:** wszystkie pliki Docker można znaleźć w [GitHub](https://github.com/azure-app-service). Możesz znaleźć wszystkie kontenery Docker na [Centrum Docker](https://hub.docker.com/u/appsvc/).
 
-**Pytanie:** co to są oczekiwanych wartości dla pliku uruchomienia sekcji podczas konfigurowania środowiska uruchomieniowego stosu?
+**Pytanie:** co to są hello oczekiwanych wartości dla hello sekcji uruchamiania pliku podczas konfigurowania stosu środowiska uruchomieniowego hello?
 
-**Odpowiedź:** dla środowiska Node.Js, określ plik konfiguracyjny PM2 lub plik skryptu. Określ nazwę skompilowanej biblioteki DLL dla platformy .NET Core. Dla środowiska Ruby można określić skrypt dopisków fonetycznych, który chcesz zainicjować aplikacji za pomocą.
+**Odpowiedź:** dla środowiska Node.Js, określ plik konfiguracyjny hello PM2 lub plik skryptu. Określ nazwę skompilowanej biblioteki DLL dla platformy .NET Core. Dla środowiska Ruby, można określić hello skryptu dopisków fonetycznych, które mają tooinitialize aplikacji za pomocą.
 
 ## <a name="management"></a>Zarządzanie
 
-**Pytanie:** co się stanie po naciśnięciu przycisku ponownego uruchomienia w portalu Azure?
+**Pytanie:** co się stanie po naciśnięciu przycisku ponownego uruchomienia hello w portalu Azure hello?
 
-**Odpowiedź:** to odpowiednik Docker ponownego uruchomienia komputera.
+**Odpowiedź:** hello jest to równoważne Docker ponownego uruchamiania.
 
-**Pytanie:** czy za pomocą protokołu Secure Shell (SSH) można nawiązać połączenia z aplikacji kontenera maszyny wirtualnej (VM)?
+**Pytanie:** można użyć aplikacji toohello tooconnect Secure Shell (SSH) kontenera maszyny wirtualnej (VM)?
 
-**Odpowiedź:** tak, możesz to zrobić za pośrednictwem witryny SCM, sprawdź następujący artykuł, aby uzyskać więcej informacji [Obsługa protokołu SSH dla aplikacji sieci Web w systemie Linux](./app-service-linux-ssh-support.md)
+**Odpowiedź:** tak, czy za pośrednictwem witryny SCM hello, sprawdź następujące hello artykuł Aby uzyskać więcej informacji [Obsługa protokołu SSH dla aplikacji sieci Web w systemie Linux](./app-service-linux-ssh-support.md)
 
-**Pytanie:** Utwórz płaszczyźnie Linux App Service przy użyciu zestawu SDK lub szablon ARM, jak można to osiągnąć?
+**Pytanie:** ma toocreate płaszczyźnie Linux App Service przy użyciu zestawu SDK lub szablon ARM, jak można to osiągnąć?
 
-**Odpowiedź:** należy ustawić `reserved` pole app service w celu `true`.
+**A:** należy tooset hello `reserved` pola aplikacji hello usługi zbyt`true`.
 
 ## <a name="continuous-integrationdeployment"></a>Ciągła integracja/wdrożenia
 
-**Pytanie:** Moja aplikacja sieci web nadal używa stary obraz kontenera Docker po po aktualizacji obraz Centrum Docker. Czy ciągłej integracji/wdrożenia kontenerów niestandardowe są obsługiwane?
+**Pytanie:** Moja aplikacja sieci web nadal używa stary obraz kontenera Docker po po aktualizacji obraz powitania w Centrum Docker. Czy ciągłej integracji/wdrożenia kontenerów niestandardowe są obsługiwane?
 
-**A:** do skonfigurowania integracji ciągłej/wdrożenia do rejestru kontenera platformy Azure lub DockerHub obrazy sprawdzając artykule [ciągłego wdrażania z aplikacji sieci Web platformy Azure w systemie Linux](./app-service-linux-ci-cd.md). Dla prywatnych rejestrów można odświeżyć kontenera przez zatrzymanie i uruchomienie następnie aplikacji sieci web. Lub możesz zmienić lub Dodaj ustawienie aplikacji fikcyjny, aby wymusić odświeżenie z kontenera.
+**Odpowiedź:** tooset ciągłej integracji/wdrożenia obrazów rejestru kontenera platformy Azure lub DockerHub przez hello wyboru poniższego artykułu [ciągłego wdrażania z aplikacji sieci Web platformy Azure w systemie Linux](./app-service-linux-ci-cd.md). Dla prywatnych rejestrów można odświeżyć hello kontenera przez zatrzymanie i uruchomienie następnie aplikacji sieci web. Lub możesz zmienić lub dodać aplikację fikcyjny ustawienie tooforce odświeżania z kontenera.
 
 **Pytanie:** czy środowisk przemieszczania są obsługiwane?
 
 **Odpowiedź:** tak.
 
-**Pytanie:** można użyć **narzędzia web deploy** wdrażania Moja aplikacja sieci web?
+**Pytanie:** można użyć **narzędzia web deploy** toodeploy Moja aplikacja sieci web?
 
-**Odpowiedź:** tak, należy określić aplikację nosi nazwę `WEBSITE_WEBDEPLOY_USE_SCM` do `false`.
+**Odpowiedź:** tak, potrzebujesz tooset aplikacji nosi nazwę `WEBSITE_WEBDEPLOY_USE_SCM` zbyt`false`.
 
 ## <a name="language-support"></a>Obsługa języków
 
@@ -75,31 +75,31 @@ Jeśli masz pytania, komentarza, w artykule i firma Microsoft będzie odpowiedź
 
 **Pytanie:** są obsługiwane Composer Menedżer zależności dla aplikacji PHP?
 
-**Odpowiedź:** tak. Podczas wdrażania narzędzia Git Kudu powinna wykryć wdrażania aplikacji PHP (dzięki użyciu obecność pliku composer.json), a następnie wyzwala instalacji composer dla Ciebie.
+**Odpowiedź:** tak. Podczas wdrażania narzędzia Git Kudu powinna wykryć wdrażania aplikacji PHP (Dziękujemy toohello obecność pliku composer.json), a następnie wyzwala instalacji composer dla Ciebie.
 
 ## <a name="custom-containers"></a>Kontenery niestandardowych
 
-**Pytanie:** używam własne niestandardowe kontenera. Moja aplikacja znajduje się w `\home\` katalogu, ale nie można odnaleźć plików, podczas I przeglądać zawartość przy użyciu [lokacji SCM](https://github.com/projectkudu/kudu) lub klient FTP. Gdzie są pliki?
+**Pytanie:** używam własne niestandardowe kontenera. Moja aplikacja znajduje się w hello `\home\` katalogu, ale nie można odnaleźć plików I przeglądających hello zawartości przy użyciu hello [lokacji SCM](https://github.com/projectkudu/kudu) lub klient FTP. Gdzie są pliki?
 
-**Odpowiedź:** możemy instalowanie udziału SMB do `\home\` katalogu. Spowoduje to zastąpienie zawartość, która jest.
+**Odpowiedź:** możemy zainstalować toohello udziału SMB `\home\` katalogu. Spowoduje to zastąpienie zawartość, która jest.
 
-**Pytanie:** używam własne niestandardowe kontenera. Nie chcę platformy w celu zainstalowania udziału SMB do `\home\`.
+**Pytanie:** używam własne niestandardowe kontenera. Nie chcę hello platformy toomount toohello udziału SMB `\home\`.
 
-**Odpowiedź:** możesz to zrobić przez ustawienie `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ustawienia aplikacji na `false`.
+**Odpowiedź:** możesz to zrobić przez ustawienie hello `WEBSITES_ENABLE_APP_SERVICE_STORAGE` aplikacji ustawienie zbyt`false`.
 
-**Pytanie:** Moje niestandardowe kontenera zajmuje dużo czasu do uruchomienia i platforma Uruchom kontenera przed zakończeniem uruchamiania.
+**Pytanie:** Moje niestandardowe kontenera przyjmuje toostart dużo czasu i hello platformy ponownego uruchomienia hello kontenera przed zakończeniem uruchamiania.
 
-**Odpowiedź:** możesz skonfigurować czas platformy będzie czekać przed ponownym uruchomieniem z kontenera. Można to zrobić przez ustawienie `WEBSITES_CONTAINER_START_TIME_LIMIT` ustawienia aplikacji na żądaną wartość w sekundach. Wartość domyślna to 230 sekund, a maksymalna to 600 sekund.
+**Odpowiedź:** możesz skonfigurować czas hello platformy hello czeka przed ponownym uruchomieniem z kontenera. Można to zrobić przez ustawienie hello `WEBSITES_CONTAINER_START_TIME_LIMIT` toohello ustawienie aplikacji Żądana wartość w sekundach. domyślną Hello jest 230 sekund, a maksymalna hello jest 600 sekund.
 
-**Pytanie:** co to jest format adresu url serwera prywatnej rejestru?
+**Pytanie:** co to jest hello format adresu url serwera prywatnej rejestru?
 
-**Odpowiedź:** musisz podać z rejestru pełnego adresu url, w tym `http://` lub `https://`.
+**Odpowiedź:** należy tooprovide hello rejestru pełnego adresu url w tym `http://` lub `https://`.
 
-**Pytanie:** co to jest format nazwy obrazu w opcji prywatnych rejestru?
+**Pytanie:** co to jest hello format nazw obraz powitania w opcji prywatnych rejestru?
 
-**Odpowiedź:** należy dodać nazwę pełnego obrazu tym rejestru prywatnego adresu url (np. myacr.azurecr.IO/DotNet:Latest)
+**Odpowiedź:** potrzebna nazwa pełny obraz powitania tooadd tym hello prywatnej rejestru url (np. myacr.azurecr.IO/DotNet:Latest)
 
-**Pytanie:** warto udostępnić więcej niż jeden port na obraz niestandardowy kontenera. Jest to możliwe?
+**Pytanie:** ma więcej niż jeden port tooexpose na obraz niestandardowy kontenera. Jest to możliwe?
 
 **Odpowiedź:** obecnie, która nie jest obsługiwana.
 
@@ -107,33 +107,33 @@ Jeśli masz pytania, komentarza, w artykule i firma Microsoft będzie odpowiedź
 
 **Odpowiedź:** która obecnie nie jest obsługiwana.
 
-**Pytanie:** I nie może przejrzeć Moje niestandardowe kontenera procesy systemu lub z systemem plików z lokacji, Menedżer sterowania usługami. Dlaczego jest to, że?
+**Pytanie:** I nie może przejrzeć Moje niestandardowe kontenera procesy systemu lub z systemem plików z witryny SCM hello. Dlaczego jest to, że?
 
-**Odpowiedź:** SCM witryna jest uruchamiana w oddzielnym kontenera. Nie można sprawdzić procesy systemu lub z systemem plików kontenera aplikacji.
+**Odpowiedź:** hello SCM witryna jest uruchamiana w oddzielnym kontenera. Nie można sprawdzić system plików hello lub uruchomionych procesów hello kontenera aplikacji.
 
-**Pytanie:** Moje niestandardowe kontenera nasłuchuje portu innego niż port 80. Jak można skonfigurować mojej aplikacji można przekierować żądania do tego portu
+**Pytanie:** Moje niestandardowe kontenera nasłuchuje tooa portu innego niż port 80. Jak można skonfigurować port tooroute toothat żądań hello mojej aplikacji?
 
-**A:** mamy automatyczne wykrywanie portu, można również określić aplikacja nosi nazwę **WEBSITES_PORT**i nadaj mu wartość numeru portu oczekiwanego. Poprzednio używał platformy `PORT` aplikacji ustawienie, firma Microsoft planuje zastąpić użycie tej aplikacji, ustawienia i przenieść przy użyciu `WEBSITES_PORT` wyłącznie.
+**Odpowiedź:** mamy automatyczne wykrywanie portu, można również określić aplikacja nosi nazwę **WEBSITES_PORT**i nadaj mu wartość hello hello oczekiwany numer portu. Poprzednio używał platformy hello `PORT` aplikacji, możemy planowania użycia hello toodeprecate tej aplikacji, ustawienia i Przenieś toousing `WEBSITES_PORT` wyłącznie.
 
-**Pytanie:** należy zaimplementować HTTPS w mojej niestandardowych kontenera.
+**Pytanie:** należy tooimplement HTTPS w mojej niestandardowych kontenera.
 
-**Odpowiedź:** nie, platforma obsługuje zakończenia połączenia HTTPS w frontends udostępnionego.
+**Odpowiedź:** nie, hello platformy obsługuje zakończenia połączenia HTTPS w frontends hello udostępnionych.
 
 ## <a name="pricing-and-sla"></a>Cennik i umowy SLA
 
-**Pytanie:** co to jest cennik podczas korzystania z publicznej wersji zapoznawczej?
+**Pytanie:** co to jest hello cennik podczas korzystania z publicznej wersji zapoznawczej hello?
 
-**Odpowiedź:** połowie liczby godzin, w których aplikacja będzie działać, z normalnym cennik usługi aplikacji Azure są naliczane. Oznacza to, że możesz uzyskać rabat 50 procent normalne cennik usługi aplikacji Azure.
+**Odpowiedź:** połowa hello liczbę godzin, w których aplikacja będzie działać, z normalnym cennik usługi aplikacji Azure hello są naliczane. Oznacza to, że możesz uzyskać rabat 50 procent normalne cennik usługi aplikacji Azure.
 
 ## <a name="other"></a>Inne
 
-**Pytanie:** co to są obsługiwane znaki w nazwach ustawienia aplikacji?
+**Pytanie:** co to są hello obsługiwane znaki w nazwach ustawienia aplikacji?
 
-**Odpowiedź:** A-Z, a-z, 0-9 i znak podkreślenia można używać tylko dla ustawień aplikacji.
+**Odpowiedź:** można tylko użyć A-Z, a-z, 0-9 i hello podkreślenia dla ustawienia aplikacji.
 
 **Pytanie:** których mogą żądać nowych funkcji?
 
-**Odpowiedź:** mogą przesyłać Twój pomysł na [forum opinii aplikacje sieci Web](https://aka.ms/webapps-uservoice). Do tytułu Twój pomysł, należy dodać "[Linux]".
+**A:** można przesłać Twój pomysł na powitania [forum opinii aplikacje sieci Web](https://aka.ms/webapps-uservoice). Dodaj tytuł toohello "[Linux]" Twój pomysł.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Co to jest aplikacja sieci Web Azure w systemie Linux?](app-service-linux-intro.md)

@@ -1,6 +1,6 @@
 ---
-title: "Udostępniać aplikacji sieci web, który korzysta z bazy danych SQL"
-description: "Wdrażanie aplikacji sieci web, który zawiera bazę danych SQL za pomocą szablonu usługi Azure Resource Manager."
+title: "aaaProvision aplikacji sieci web, który korzysta z bazy danych SQL"
+description: "Za pomocą usługi Azure Resource Manager toodeploy szablonu aplikacji sieci web, który zawiera bazę danych SQL."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
-ms.openlocfilehash: cc34f684f8c50e95a62cb7b04fd2ddce5deb68d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 189c0122d201e88f15013bf241d66652ef23df4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="provision-a-web-app-with-a-sql-database"></a>Udostępniać aplikacji sieci web z bazą danych SQL
-W tym temacie dowiesz się, jak utworzyć szablon usługi Azure Resource Manager, która wdraża aplikację sieci web i bazy danych SQL. Dowiesz się, jak do definiowania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym temacie przedstawiono sposób toocreate szablonu usługi Azure Resource Manager, która wdraża aplikację sieci web i bazy danych SQL. Dowiesz się jak toodefine zasobów, do których są wdrażane i jak parametry toodefine, które są określone, podczas wdrażania hello jest wykonywana. Można użyć tego szablonu własnych wdrożeniach lub dostosować go toomeet wymagań.
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Authoring Azure Resource Manager szablony](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Aby uzyskać więcej informacji na temat wdrażania aplikacji, zobacz [wdrażanie złożonych aplikacji przewidywalnego na platformie Azure](app-service-deploy-complex-application-predictably.md).
 
-Zakończenie szablonu, zobacz [szablonu aplikacji sieci Web z SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+Hello pełną szablonu, zobacz [szablonu aplikacji sieci Web z SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -41,29 +41,29 @@ W tym szablonie zostanie wdrożona:
 * Reguły alertów
 * Szczegółowe informacje w aplikacji
 
-Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
+toorun automatycznie hello wdrożenia, kliknij powitania po przycisku:
 
-[![Wdrażanie na platformie Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![Wdrażanie tooAzure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-## <a name="parameters-to-specify"></a>W celu określenia
+## <a name="parameters-toospecify"></a>Parametry toospecify
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### <a name="administratorlogin"></a>administratorLogin
-Nazwa konta do użycia dla administratora serwera bazy danych.
+Witaj toouse nazwy konta administratora serwera hello bazy danych.
 
     "administratorLogin": {
       "type": "string"
     }
 
 ### <a name="administratorloginpassword"></a>administratorLoginPassword
-Hasło do użycia dla administratora serwera bazy danych.
+Witaj toouse hasło administratora serwera hello bazy danych.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
 ### <a name="databasename"></a>DatabaseName
-Nazwa nowej bazy danych do utworzenia.
+Nazwa Hello hello nowe toocreate bazy danych.
 
     "databaseName": {
       "type": "string",
@@ -71,7 +71,7 @@ Nazwa nowej bazy danych do utworzenia.
     }
 
 ### <a name="collation"></a>Sortowanie
-Sortowanie bazy danych do użycia na potrzeby użycia prawidłowego znaków.
+Użyj toouse sortowania bazy danych powitania dla Zarząd hello prawidłowego znaków.
 
     "collation": {
       "type": "string",
@@ -79,7 +79,7 @@ Sortowanie bazy danych do użycia na potrzeby użycia prawidłowego znaków.
     }
 
 ### <a name="edition"></a>Edition
-Typ bazy danych do utworzenia.
+Typ Hello toocreate bazy danych.
 
     "edition": {
       "type": "string",
@@ -90,12 +90,12 @@ Typ bazy danych do utworzenia.
         "Premium"
       ],
       "metadata": {
-        "description": "The type of database to create."
+        "description": "hello type of database toocreate."
       }
     }
 
 ### <a name="maxsizebytes"></a>maxSizeBytes
-Maksymalny rozmiar w bajtach dla bazy danych.
+Witaj maksymalny rozmiar w bajtach hello bazy danych.
 
     "maxSizeBytes": {
       "type": "string",
@@ -103,7 +103,7 @@ Maksymalny rozmiar w bajtach dla bazy danych.
     }
 
 ### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
-Nazwa odpowiadającego poziom wydajności dla wersji. 
+Witaj nazwę odpowiedniego toohello poziom wydajności dla wersji. 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -118,12 +118,12 @@ Nazwa odpowiadającego poziom wydajności dla wersji.
         "P3"
       ],
       "metadata": {
-        "description": "Describes the performance level for Edition"
+        "description": "Describes hello performance level for Edition"
       }
     }
 
 ## <a name="variables-for-names"></a>Zmienne dla nazwy
-Ten szablon obejmuje zmiennych, które konstruowania nazwy używane w szablonie. Użyj wartości zmiennej **uniqueString** funkcji, aby wygenerować nazwę na podstawie identyfikatora grupy zasobów.
+Ten szablon obejmuje zmiennych, które konstruowania nazwy używane w szablonie hello. wartości zmiennych Hello Użyj hello **uniqueString** funkcji toogenerate nazwę hello identyfikator grupy.
 
     "variables": {
         "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -132,9 +132,9 @@ Ten szablon obejmuje zmiennych, które konstruowania nazwy używane w szablonie.
     },
 
 
-## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
+## <a name="resources-toodeploy"></a>Toodeploy zasobów
 ### <a name="sql-server-and-database"></a>SQL Server i bazy danych
-Tworzy nowy program SQL Server i bazy danych. Nazwa serwera jest określona w **serverName** parametr i lokalizacji określonej w **serverLocation** parametru. Podczas tworzenia nowego serwera, podaj nazwę logowania i hasło administratora serwera bazy danych. 
+Tworzy nowy program SQL Server i bazy danych. Nazwa Hello powitania serwera została określona w hello **serverName** parametr i hello lokalizacja określona w hello **serverLocation** parametru. Podczas tworzenia nowego serwera hello, musisz podać nazwę logowania i hasło administratora serwera hello bazy danych. 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -373,7 +373,7 @@ Tworzy nowy program SQL Server i bazy danych. Nazwa serwera jest określona w **
       },
       "properties": {
         "name": "[concat('CPUHigh ', variables('hostingPlanName'))]",
-        "description": "[concat('The average CPU is high across all the instances of ', variables('hostingPlanName'))]",
+        "description": "[concat('hello average CPU is high across all hello instances of ', variables('hostingPlanName'))]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -407,7 +407,7 @@ Tworzy nowy program SQL Server i bazy danych. Nazwa serwera jest określona w **
       },
       "properties": {
         "name": "[concat('LongHttpQueue ', variables('hostingPlanName'))]",
-        "description": "[concat('The HTTP queue for the instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
+        "description": "[concat('hello HTTP queue for hello instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -446,7 +446,7 @@ Tworzy nowy program SQL Server i bazy danych. Nazwa serwera jest określona w **
       }
     }
 
-## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
+## <a name="commands-toorun-deployment"></a>Polecenia toorun wdrożenia
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
@@ -462,6 +462,6 @@ Tworzy nowy program SQL Server i bazy danych. Nazwa serwera jest określona w **
     az resource deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE]
-> Dla zawartości pliku JSON parametrów, zobacz [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).
+> Dla zawartości pliku JSON hello parametrów, zobacz [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).
 >
 >

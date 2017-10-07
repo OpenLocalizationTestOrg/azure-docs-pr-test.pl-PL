@@ -1,6 +1,6 @@
 ---
-title: "Złożone wartości przekazywane między szablonami platformy Azure | Dokumentacja firmy Microsoft"
-description: "Przedstawia zalecane podejście do danych o stanie udostępniać szablony usługi Azure Resource Manager i połączone przy użyciu obiektów złożonych."
+title: "złożone wartości aaaPass między szablonami platformy Azure | Dokumentacja firmy Microsoft"
+description: "Przedstawia zalecane podejścia do korzystania z usługi Azure Resource Manager szablony i połączone przy użyciu danych o stanie tooshare obiektów złożonych."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
-ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72df1dee351446cea6ce15269e6db288b1f1db79
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Stan udziału do i z szablonów usługi Azure Resource Manager
-W tym temacie przedstawiono najlepsze rozwiązania dotyczące zarządzania i udostępniania stanu w szablonach. Parametry i zmienne, które przedstawiono w tym temacie przedstawiono przykładowe typy obiektów, które można zdefiniować wygodny sposób organizowania wymagań dotyczących wdrożenia. W tych przykładach można zaimplementować obiekty z wartości właściwości odpowiednich dla danego środowiska.
+# <a name="share-state-tooand-from-azure-resource-manager-templates"></a>Udostępnianie tooand stanu z szablonów usługi Azure Resource Manager
+W tym temacie przedstawiono najlepsze rozwiązania dotyczące zarządzania i udostępniania stanu w szablonach. Witaj parametry i zmienne, które przedstawiono w tym temacie przedstawiono przykłady typu hello obiektów można zdefiniować tooconveniently organizowanie wymagań dotyczących wdrożenia. W tych przykładach można zaimplementować obiekty z wartości właściwości odpowiednich dla danego środowiska.
 
-Ten temat jest częścią większej oficjalny dokument. Aby uzyskać pełne papieru, Pobierz [światowej klasy zasobu menedżera szablony zagadnienia i sprawdzonych rozwiązań](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Ten temat jest częścią większej oficjalny dokument. Pobierz hello tooread pełnej papier [światowej klasy zasobu menedżera szablony zagadnienia i sprawdzonych rozwiązań](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## <a name="provide-standard-configuration-settings"></a>Określ ustawienia konfiguracji standardowej
-Zamiast oferują szablon, który zapewnia elastyczność całkowitej i niezliczonych zmian, wspólnego wzorca ma na celu dostarczenie wybór znanych konfiguracji. W efekcie, użytkownicy mogą wybrać standardowe rozmiary obrazów na koszulki, takich jak piaskownicy, małych, średnich i dużych. Inne przykłady rozmiary obrazów na koszulki są ofert produktów, takich jak community edition lub enterprise edition. W innych przypadkach może być konfiguracje specyficznego dla obciążenia technologii — takie jak ograniczyć mapy lub nie sql.
+Zamiast oferują szablon, który zapewnia elastyczność całkowitej i niezliczonych zmian, wspólnego wzorca jest tooprovide wybór znanych konfiguracji. W efekcie, użytkownicy mogą wybrać standardowe rozmiary obrazów na koszulki, takich jak piaskownicy, małych, średnich i dużych. Inne przykłady rozmiary obrazów na koszulki są ofert produktów, takich jak community edition lub enterprise edition. W innych przypadkach może być konfiguracje specyficznego dla obciążenia technologii — takie jak ograniczyć mapy lub nie sql.
 
-Z obiektów złożonych mogą tworzyć zmiennych, które zawierają zbiory danych, czasami znana jako "zbiory właściwości" i użyć tych danych do deklaracji zasobów na dysku w szablonie. Takie podejście zapewnia dobre, znanej konfiguracji o różnych rozmiarach, które są wstępnie skonfigurowane dla klientów. Bez znanych konfiguracji użytkowników szablonu musi ustalić klastra zmiany rozmiaru na ich własnych, uwzględnieniu ograniczenia zasobów platformy i wykonywanie obliczeń do identyfikowania wynikowy partycjonowanie konta magazynu i innych zasobów (ze względu na rozmiar klastra i zasoby ograniczenia). Oprócz tworzenia lepsze środowisko dla odbiorcy, kilka konfiguracji znane są łatwiejsze do obsługi i ułatwiają dostarczanie wyższego poziomu gęstości.
+Złożone obiekty możesz tworzyć zmiennych, które zawierają zbiory danych, czasami znana jako "zbiory właściwości" i użyj deklaracja zasobów hello toodrive danych w szablonie. Takie podejście zapewnia dobre, znanej konfiguracji o różnych rozmiarach, które są wstępnie skonfigurowane dla klientów. Bez znanych konfiguracji użytkowników hello szablonu musi określić rozmiaru klastra na ich własnych, współczynnik w powiązanych zasobów platformy i czy matematyczne tooidentify hello wynikowa partycjonowanie konta magazynu i innych zasobów (ze względu na rozmiar toocluster i ograniczenia zasobów). Ponadto toomaking lepsze środowisko dla powitania klienta kilka znanych konfiguracji są łatwiejsze toosupport i ułatwiają dostarczanie wyższego poziomu gęstości.
 
-Poniższy przykład przedstawia sposób definiowania zmiennych, które zawierają złożone obiekty odpowiadające kolekcji danych. Kolekcje zdefiniuj wartości, które są używane dla rozmiaru maszyny wirtualnej, ustawienia sieciowe, ustawień systemu operacyjnego i ustawienia dostępności.
+powitania po przykładzie pokazano, jak toodefine zmiennych, które zawierają złożone obiekty odpowiadające kolekcji danych. kolekcje Hello zdefiniuj wartości, które są używane dla rozmiaru maszyny wirtualnej, ustawienia sieciowe, ustawień systemu operacyjnego i ustawienia dostępności.
 
     "variables": {
       "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
@@ -109,9 +109,9 @@ Poniższy przykład przedstawia sposób definiowania zmiennych, które zawieraj�
       }
     }
 
-Zwróć uwagę, że **tshirtSize** zmiennej łączy Rozmiar koszulki udostępnianej parametr (**małych**, **średni**, **duży** ) w tekście **tshirtSize**. Ta zmienna służy do pobierania zmiennej skojarzony obiekt złożony dla tego rozmiar koszulki.
+Zwróć uwagę, że hello **tshirtSize** zmiennej łączy Rozmiar koszulki hello udostępnianej parametr (**małych**, **średni**, **duży**) tekst toohello **tshirtSize**. Ten rozmiar koszulki używany tej zmiennej tooretrieve hello skojarzony obiekt złożony zmiennej.
 
-Następnie można odwoływać się tych zmiennych w dalszej części szablonu. Możliwość odwołania o nazwie zmienne i ich właściwości upraszcza składni szablonu i ułatwia zrozumienie kontekstu. W poniższym przykładzie zdefiniowano zasobów do wdrożenia przy użyciu obiektów pokazana wcześniej, aby ustawić wartości. Na przykład rozmiar maszyny Wirtualnej jest ustawiony przez pobranie wartość `variables('tshirtSize').vmSize` podczas wartość na rozmiar dysku jest pobierana z `variables('tshirtSize').diskSize`. Ponadto identyfikator URI dla połączonych szablonu jest ustawiony na wartość dla `variables('tshirtSize').vmTemplate`.
+Następnie można odwoływać się tych zmiennych w dalszej części hello szablonu. Witaj możliwości tooreference o nazwie — zmienne i ich właściwości upraszcza składni szablonu hello i umożliwia łatwe toounderstand kontekstu. Poniższy przykład Hello definiuje toodeploy zasobów za pomocą obiektów hello przedstawione wcześniej tooset wartości. Na przykład hello rozmiar maszyny Wirtualnej jest ustawiana przez pobierania wartości hello `variables('tshirtSize').vmSize` podczas hello wartość na rozmiar dysku hello są pobierane z `variables('tshirtSize').diskSize`. Ponadto hello identyfikatora URI dla połączonych szablonu jest ustawiony z wartością hello `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -166,23 +166,23 @@ Następnie można odwoływać się tych zmiennych w dalszej części szablonu. M
       }
     }
 
-## <a name="pass-state-to-a-template"></a>Stan powodzenia do szablonu
+## <a name="pass-state-tooa-template"></a>Przekaż szablon tooa stanu
 Możesz udostępniać stanu do szablonu za pomocą parametrów, które zapewniają bezpośrednio podczas wdrażania.
 
-W poniższej tabeli wymieniono typowe parametry w szablonach.
+Witaj następujące parametry tabeli listy najczęściej używanych w szablonach.
 
 | Nazwa | Wartość | Opis |
 | --- | --- | --- |
-| location |Ciąg z listy ograniczone regiony platformy Azure |Lokalizacja, w których są wdrożone zasoby. |
-| storageAccountNamePrefix |Ciąg |Unikatowa nazwa DNS dla konta magazynu rozmieszczenia dysków maszyny Wirtualnej |
-| domainName |Ciąg |Nazwa domeny jumpbox publicznie maszyny Wirtualnej w formacie: **{domainName}. { Lokalizacja}.cloudapp.com** na przykład: **mydomainname.westus.cloudapp.azure.com** |
-| adminUsername |Ciąg |Nazwa użytkownika dla maszyn wirtualnych |
-| adminPassword |Ciąg |Hasło dla maszyn wirtualnych |
-| tshirtSize |Rozmiary obrazów na koszulki oferowane ciąg z listy ograniczone |Rozmiar jednostki skalowania o nazwie do udostępniania. Na przykład "Małe", "Medium", "Duże" |
-| virtualNetworkName |Ciąg |Nazwa sieci wirtualnej, które użytkownik chce używać. |
-| enableJumpbox |Ciąg z listą ograniczone (włączone/wyłączone) |Parametr, który określa, czy włączyć jumpbox dla środowiska. Wartości: "enabled", "wyłączone" |
+| location |Ciąg z listy ograniczone regiony platformy Azure |Lokalizacja Hello wdrożonym hello zasobów. |
+| storageAccountNamePrefix |Ciąg |Unikatową nazwę DNS hello rozmieszczenia dysków hello wirtualna konta magazynu |
+| domainName |Ciąg |Nazwa domeny hello publicznie jumpbox maszyny Wirtualnej w formacie hello: **{domainName}. { Lokalizacja}.cloudapp.com** na przykład: **mydomainname.westus.cloudapp.azure.com** |
+| adminUsername |Ciąg |Nazwa użytkownika dla hello maszyny wirtualne |
+| adminPassword |Ciąg |Hasło dla hello maszyny wirtualne |
+| tshirtSize |Rozmiary obrazów na koszulki oferowane ciąg z listy ograniczone |Witaj o nazwie tooprovision rozmiar jednostki skalowania. Na przykład "Małe", "Medium", "Duże" |
+| virtualNetworkName |Ciąg |Nazwa hello sieci wirtualnej hello konsumenta chce toouse. |
+| enableJumpbox |Ciąg z listą ograniczone (włączone/wyłączone) |Parametr, który identyfikuje czy tooenable jumpbox hello środowiska. Wartości: "enabled", "wyłączone" |
 
-**TshirtSize** parametru użytego w poprzedniej sekcji jest zdefiniowany jako:
+Witaj **tshirtSize** parametru użytego w poprzedniej sekcji hello jest zdefiniowany jako:
 
     "parameters": {
       "tshirtSize": {
@@ -194,21 +194,21 @@ W poniższej tabeli wymieniono typowe parametry w szablonach.
           "Large"
         ],
         "metadata": {
-          "Description": "T-shirt size of the MongoDB deployment"
+          "Description": "T-shirt size of hello MongoDB deployment"
         }
       }
     }
 
 
-## <a name="pass-state-to-linked-templates"></a>Przekaż stan połączonego szablonów
-Podczas nawiązywania połączenia połączonej szablony, można często używać różnych statyczne i wygenerować zmienne.
+## <a name="pass-state-toolinked-templates"></a>Przekaż szablony toolinked stanu
+Podczas łączenia z toolinked szablony, można często używać różnych statyczne i wygenerować zmienne.
 
 ### <a name="static-variables"></a>Zmienne statyczne
-Zmienne statyczne są często używane w celu zapewnienia podstawowej wartości, takie jak adresy URL, które są używane w szablonie.
+Zmienne statyczne są często wartości podstawowe tooprovide używane, takie jak adresy URL, które są używane w szablonie.
 
-W poniższym fragmencie szablonu `templateBaseUrl` Określa katalog główny dla szablonu w witrynie GitHub. Następnego wiersza tworzy nową zmienną `sharedTemplateUrl` który łączy podstawowy adres URL ze znanej nazwy szablonu zasobów udostępnionych. Poniżej tego wiersza, zmienna obiekt złożony jest używany do przechowywania Rozmiar koszulki, gdy podstawowy adres URL jest połączony do lokalizacji szablonu znanej konfiguracji i przechowywane w `vmTemplate` właściwości.
+W hello następującego fragmentu szablonu `templateBaseUrl` Określa lokalizację głównego hello hello szablonu w witrynie GitHub. Witaj w następnym wierszu tworzy nową zmienną `sharedTemplateUrl` który łączy hello podstawowego adresu URL hello znanej nazwy szablonu zasobów udostępnionych hello. Poniżej tego wiersza, zmienną obiekt złożony jest używane toostore Rozmiar koszulki, który hello podstawowego adresu URL toohello połączonych znane lokalizacji szablonu konfiguracji i przechowywane w hello `vmTemplate` właściwości.
 
-Zaletą tej metody jest, że zmiana lokalizacji szablonu wystarczy zmienić zmienna statyczna w jednym miejscu, która przechodzi on w całym szablonów połączonych.
+Witaj zaletą tej metody jest zmiana lokalizacji szablonu hello tylko potrzeby toochange hello statyczna zmienna w jednym miejscu, która przechodzi on w całym szablony hello połączone.
 
     "variables": {
       "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -230,13 +230,13 @@ Zaletą tej metody jest, że zmiana lokalizacji szablonu wystarczy zmienić zmie
     }
 
 ### <a name="generated-variables"></a>Wygenerowany zmiennych
-Oprócz zmienne statyczne kilku zmiennych są generowane dynamicznie. W tej sekcji wymieniono niektórych typowych wygenerowanego zmiennych.
+Dodanie toostatic zmienne kilku zmiennych są generowane dynamicznie. W tej sekcji wymieniono niektóre typy typowe hello wygenerowanego zmiennych.
 
 #### <a name="tshirtsize"></a>tshirtSize
-Znasz tej zmiennej wygenerowanych w powyższych przykładach.
+Znasz tej zmiennej wygenerowanych w powyższych przykładach hello.
 
 #### <a name="networksettings"></a>networkSettings
-W wydajność, możliwości lub szablon rozwiązania zakresami end-to-end połączone szablony zwykle Utwórz zasoby, które istnieją w sieci. Jednym z podejść prostego jest złożone obiekt używany do przechowywania ustawień sieci i przekazują je do połączonego szablonów.
+W hello wydajność, możliwości lub szablon rozwiązania zakresami end-to-end, połączone szablony zwykle Utwórz zasoby, które istnieją w sieci. Jednym z podejść prostego jest toouse ustawień sieciowych toostore obiekt złożony i przekazać je toolinked szablonów.
 
 Przykład komunikacji ustawienia sieciowe są widoczne poniżej.
 
@@ -258,7 +258,7 @@ Przykład komunikacji ustawienia sieciowe są widoczne poniżej.
     }
 
 #### <a name="availabilitysettings"></a>availabilitySettings
-Zasoby utworzone w szablonach połączonego często są umieszczane w zestawie dostępności. W poniższym przykładzie jest określona nazwa zbioru dostępności, a także liczba domeny błędów i Aktualizacja domeny do użycia.
+Zasoby utworzone w szablonach połączonego często są umieszczane w zestawie dostępności. W hello poniższy przykład nazwa zbioru dostępności hello określono również hello domeny błędów i toouse liczby domen aktualizacji.
 
     "availabilitySetSettings": {
       "name": "pgsqlAvailabilitySet",
@@ -266,10 +266,10 @@ Zasoby utworzone w szablonach połączonego często są umieszczane w zestawie d
       "udCount": 5
     }
 
-Jeśli potrzebujesz wiele zestawów dostępności (na przykład, jeden dla węzłów głównych) i drugi dla węzłów danych, można użyć jako prefiksu nazwy, określ wiele zestawów dostępności lub postępuj zgodnie z modelem przedstawiona wcześniej do utworzenia zmiennej w określonym Rozmiar koszulki.
+Jeśli potrzebujesz wiele zestawów dostępności (na przykład, jeden dla węzłów głównych) i drugi dla węzłów danych, można użyć jako prefiksu nazwy, określ wiele zestawów dostępności lub wykonaj modelu hello przedstawiona wcześniej do utworzenia zmiennej w określonym Rozmiar koszulki.
 
 #### <a name="storagesettings"></a>storageSettings
-Szczegóły magazynu często są współużytkowane z szablonami połączony. W poniższym przykładzie *storageSettings* obiektu zawiera szczegółowe informacje dotyczące nazwy konta i kontener magazynu.
+Szczegóły magazynu często są współużytkowane z szablonami połączony. W poniższym przykładzie hello *storageSettings* obiektu zawiera szczegółowe informacje o hello nazwy konta i kontener magazynu.
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -278,9 +278,9 @@ Szczegóły magazynu często są współużytkowane z szablonami połączony. W 
     }
 
 #### <a name="ossettings"></a>osSettings
-Z szablonami połączone konieczne może być przekazać ustawień systemu operacyjnego do różnych typów węzłów w innej konfiguracji znanych typów. Obiekt złożony jest łatwo przechowywać i udostępniać informacje dotyczące systemu operacyjnego i również ułatwia obsługują wiele wyborów systemu operacyjnego dla wdrożenia.
+Z szablonami połączonego toopass systemu operacyjnego ustawienia toovarious węzłów typów może być konieczne w innej konfiguracji znanych typów. Obiekt złożony jest łatwy sposób toostore i udziału informacje dotyczące systemu operacyjnego i umożliwia łatwiejsze toosupport wiele wyborów systemu operacyjnego dla wdrożenia.
 
-W poniższym przykładzie przedstawiono dla obiekt *osSettings*:
+Witaj poniższy przykład przedstawia dla obiekt *osSettings*:
 
     "osSettings": {
       "imageReference": {
@@ -292,7 +292,7 @@ W poniższym przykładzie przedstawiono dla obiekt *osSettings*:
     }
 
 #### <a name="machinesettings"></a>machineSettings
-Generowana zmienna, *machineSettings* jest obiekt złożony, zawierające kombinację zmiennych core dla tworzenia maszyny Wirtualnej. Zmienne to nazwa użytkownika administratora i hasła, prefiks dla nazw maszyn wirtualnych i odwołanie do obrazu systemu operacyjnego.
+Generowana zmienna, *machineSettings* jest obiekt złożony, zawierające kombinację zmiennych core dla tworzenia maszyny Wirtualnej. zmienne Hello obejmują nazwa użytkownika administratora i hasła, prefiks dla nazw maszyn wirtualnych hello i odwołanie do obrazu systemu operacyjnego.
 
     "machineSettings": {
         "adminUsername": "[parameters('adminUsername')]",
@@ -306,17 +306,17 @@ Generowana zmienna, *machineSettings* jest obiekt złożony, zawierające kombin
         }
     },
 
-Należy pamiętać, że *osImageReference* pobiera wartości z *osSettings* zmiennej zdefiniowanej w szablonie głównym. Oznacza to, że można łatwo zmienić system operacyjny dla maszyny Wirtualnej — całkowicie lub, w zależności od preferencji konsumenta szablonu.
+Należy pamiętać, że *osImageReference* pobiera hello wartości z hello *osSettings* zmiennej zdefiniowanej w szablonie głównym hello. Oznacza to, że można łatwo zmienić hello systemu operacyjnego dla maszyny Wirtualnej — całkowicie lub, w zależności od preferencji powitania klienta szablonu.
 
 #### <a name="vmscripts"></a>vmScripts
-*VmScripts* obiekt zawiera szczegółowe informacje o skrypty w celu pobierania i wykonywania w wystąpieniu maszyny Wirtualnej, w tym odniesienia i wewnętrznego. Poza odwołaniami obejmują infrastruktury.
-Wewnątrz odwołania zawierać zainstalowanego oprogramowania zainstalowanego i konfiguracji.
+Witaj *vmScripts* obiektu zawiera szczegółowe informacje o hello toodownload skrypty i wykonywanie w wystąpieniu maszyny Wirtualnej, w tym odniesienia i wewnętrznego. Poza odwołaniami obejmują hello infrastruktury.
+Wewnątrz odwołania zawierać hello zainstalowane oprogramowanie i konfiguracji.
 
-Możesz użyć *scriptsToDownload* właściwość, aby wyświetlić skryptów do pobrania z maszyną wirtualną. Ten obiekt zawiera również odwołania do argumentów wiersza polecenia dla różnego rodzaju akcje. Czynności te obejmują wykonywanie domyślnej instalacji dla każdego indywidualnego węzła, instalacja wykonywana po wdrożeniu wszystkich węzłów i dodatkowych skryptów, które mogą być specyficzne dla danego szablonu.
+Użyj hello *scriptsToDownload* właściwości toolist hello skrypty toohello toodownload maszyny Wirtualnej. Ten obiekt zawiera również argumenty wiersza toocommand odwołania dla różnego rodzaju akcje. Dostępne są akcje wykonywane hello domyślnej instalacji dla każdego indywidualnego węzła, instalacja wykonywana po wdrożeniu wszystkich węzłów i dodatkowych skryptów, które mogą być określone tooa danego szablonu.
 
-W tym przykładzie jest używany do wdrażania bazy danych MongoDB, co wymaga kryterium zapewniających wysoką dostępność szablonu. *ArbiterNodeInstallCommand* został dodany do *vmScripts* zainstalować kryterium.
+W tym przykładzie jest używany szablon toodeploy bazy danych MongoDB, co wymaga kryterium toodeliver wysokiej dostępności. Witaj *arbiterNodeInstallCommand* został dodany za*vmScripts* tooinstall hello kryterium.
 
-W sekcji zmiennych jest, gdzie znaleźć definiujące określony tekst można wykonać skryptu za pomocą odpowiednich wartości zmiennych.
+sekcja zmienne Hello jest, gdzie znaleźć zmiennych hello, definiujące hello określony tekst tooexecute hello skryptu hello odpowiednie wartości.
 
     "vmScripts": {
         "scriptsToDownload": [
@@ -330,9 +330,9 @@ W sekcji zmiennych jest, gdzie znaleźć definiujące określony tekst można wy
 
 
 ## <a name="return-state-from-a-template"></a>Zwraca stan z szablonu
-Nie tylko możesz przekazać dane do szablonu, możesz również udostępniać danych powrót do wywoływania szablonu. W **generuje** sekcji połączonych szablonu, możesz podać pary klucz wartość, które mogą być używane w szablonie źródłowym.
+Nie tylko można przekazywania danych do szablonu, możesz również udostępnianie danych wstecz toohello wywoływania szablonu. W hello **generuje** sekcji połączonych szablonu, możesz podać pary klucz wartość, które mogą być używane w szablonie źródłowym hello.
 
-Poniższy przykład przedstawia sposób przekazywania prywatnego adresu IP generowane w szablonie połączony.
+Witaj poniższy przykład przedstawia sposób toopass hello generowane w szablonie połączonego prywatnego adresu IP.
 
     "outputs": {
         "masterip": {
@@ -341,11 +341,11 @@ Poniższy przykład przedstawia sposób przekazywania prywatnego adresu IP gener
          }
     }
 
-W szablonie głównym można użyć tych danych przy użyciu następującej składni:
+W szablonie głównym hello można użyć danych z hello następującej składni:
 
     "[reference('master-node').outputs.masterip.value]"
 
-Można użyć tego wyrażenia w sekcji danych wyjściowych lub sekcji zasobów w szablonie głównym. W sekcji zmiennych nie można użyć wyrażenia, ponieważ zależy od stanu czasu wykonywania. Aby przywrócić tę wartość w szablonie głównym, należy użyć:
+Można użyć tego wyrażenia w sekcji danych wyjściowych hello lub sekcja zasobów hello hello głównym szablonu. Nie można użyć wyrażenia hello w sekcji zmiennych hello, ponieważ zależy od hello stan czasu wykonywania. tooreturn wartość tego parametru szablonu głównego hello, użyj:
 
     "outputs": {
       "masterIpAddress": {
@@ -353,10 +353,10 @@ Można użyć tego wyrażenia w sekcji danych wyjściowych lub sekcji zasobów w
         "type": "string"
       }
 
-Przykład zgodnie z sekcją danych wyjściowych szablonu połączony do zwrócenia dysków z danymi dla maszyny wirtualnej, zobacz [tworzenie wielu dysków danych maszyny wirtualnej](resource-group-create-multiple.md).
+Na przykład za pomocą hello generuje części szablonu połączonego tooreturn dysków z danymi dla maszyny wirtualnej, zobacz [tworzenie wielu dysków danych maszyny wirtualnej](resource-group-create-multiple.md).
 
 ## <a name="define-authentication-settings-for-virtual-machine"></a>Zdefiniuj ustawienia uwierzytelniania dla maszyny wirtualnej
-Aby określić ustawienia uwierzytelniania dla maszyny wirtualnej, można użyć z tego samego wzorca wcześniej ustawień konfiguracji. Parametr do przekazania do tworzenia typ uwierzytelniania.
+Witaj można użyć tego samego wzorca wcześniej ustawień uwierzytelniania hello toospecify ustawienia konfiguracji dla maszyny wirtualnej. Parametr do przekazania do tworzenia hello typu uwierzytelniania.
 
     "parameters": {
       "authenticationType": {
@@ -372,7 +372,7 @@ Aby określić ustawienia uwierzytelniania dla maszyny wirtualnej, można użyć
       }
     }
 
-Dodaj zmienne dla typów uwierzytelniania inny i zmienną do przechowywania typ jest używany dla tego wdrożenia na podstawie wartości parametru.
+Należy dodać zmienne dla hello różnymi typami uwierzytelniania i zmiennej toostore, jaki typ jest używany dla tego wdrożenia na podstawie wartości hello hello parametru.
 
     "variables": {
       "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
@@ -400,7 +400,7 @@ Dodaj zmienne dla typów uwierzytelniania inny i zmienną do przechowywania typ 
       }
     }
 
-Podczas definiowania maszyny wirtualnej, należy ustawić **osProfile** do zmiennej został utworzony.
+Podczas definiowania hello maszyny wirtualnej, ustaw hello **osProfile** toohello zmiennej został utworzony.
 
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -410,5 +410,5 @@ Podczas definiowania maszyny wirtualnej, należy ustawić **osProfile** do zmien
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Informacje na temat części szablonu, zobacz [Authoring Azure Resource Manager szablonów](resource-group-authoring-templates.md)
-* Aby poznać funkcje, które są dostępne w ramach szablonu, zobacz [funkcje szablonów usługi Azure Resource Manager](resource-group-template-functions.md)
+* Zobacz toolearn o hello części szablonu hello [Authoring Azure Resource Manager szablonów](resource-group-authoring-templates.md)
+* toosee hello funkcje, które są dostępne w ramach szablonu, zobacz [funkcje szablonów usługi Azure Resource Manager](resource-group-template-functions.md)

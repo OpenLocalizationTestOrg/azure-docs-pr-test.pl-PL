@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET aplikacji sieci web wprowadzenie | Dokumentacja firmy Microsoft
+title: Aplikacja sieci web .NET aaaAzure AD wprowadzenie | Dokumentacja firmy Microsoft
 description: "Tworzenie aplikacji sieci web .NET MVC, która integruje się z usługą Azure AD dla logowania."
 services: active-directory
 documentationcenter: .net
@@ -15,44 +15,44 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 7ac5d3e5cc28ead993e159d003244e6451acb0cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d3098c9e3d7e1916ccb110c703f501ae52e788f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>Aplikacja sieci web ASP.NET, logowania i wylogowywania z usługą Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Podając jednego logowania i wylogowywania tylko kilka wierszy kodu, Azure Active Directory (Azure AD) upraszcza umożliwiające zewnętrzny Zarządzanie tożsamościami aplikacji sieci web. Może się zarejestrować użytkowników i aplikacji sieci web ASP.NET przy użyciu przez firmę Microsoft implementacją interfejsu Open Web dla platformy .NET (OWIN) oprogramowania pośredniczącego. Społeczność oprogramowania pośredniczącego OWIN znajduje się w programie .NET Framework 4.5. W tym artykule przedstawiono sposób użycia OWIN do:
+Podając jednego logowania i wylogowywania tylko kilka wierszy kodu, Azure Active Directory (Azure AD) prościej możesz toooutsource aplikacji sieci web zarządzania tożsamościami. Może się zarejestrować użytkowników i aplikacji sieci web ASP.NET przy użyciu hello firmę Microsoft implementacją interfejsu Open Web dla platformy .NET (OWIN) oprogramowania pośredniczącego. Społeczność oprogramowania pośredniczącego OWIN znajduje się w programie .NET Framework 4.5. W tym artykule przedstawiono sposób toouse OWIN do:
 
-* Logowania użytkowników do aplikacji sieci web przy użyciu usługi Azure AD jako dostawcy tożsamości.
+* Loguj użytkowników w aplikacjach tooweb za pomocą usługi Azure AD jako dostawcy tożsamości hello.
 * Wyświetlane informacje użytkownika.
-* Loguj użytkowników spoza aplikacji.
+* Loguj użytkowników spoza aplikacji hello.
 
 ## <a name="before-you-get-started"></a>Przed rozpoczęciem
-* Pobierz [szkielet aplikacji](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) lub pobrać [ukończone próbki](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
-* Należy również dzierżawa usługi Azure AD, w którym można zarejestrować aplikacji. Jeśli nie masz już dzierżawę usługi Azure AD [Dowiedz się, jak kupić](active-directory-howto-tenant.md).
+* Pobierz hello [szkielet aplikacji](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) lub pobrać hello [ukończone próbki](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
+* Należy również dzierżawa usługi Azure AD, w których aplikacja hello tooregister. Jeśli nie masz już dzierżawę usługi Azure AD [Dowiedz się, jak tooget jedną](active-directory-howto-tenant.md).
 
-Gdy wszystko będzie gotowe, wykonaj procedury opisane w obok cztery sekcje.
+Gdy wszystko będzie gotowe, wykonaj procedury hello hello obok cztery sekcje.
 
-## <a name="step-1-register-the-new-app-with-azure-ad"></a>Krok 1: Zarejestrować nową aplikację z usługą Azure AD
-Aby skonfigurować aplikację do uwierzytelniania użytkowników, najpierw zarejestrować ją w dzierżawie w następujący sposób:
+## <a name="step-1-register-hello-new-app-with-azure-ad"></a>Krok 1: Zarejestruj hello nowej aplikacji z usługą Azure AD
+tooset użytkowników tooauthenticate aplikacji hello, najpierw zarejestrować go w dzierżawie powitalnych następujący:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Na górnym pasku kliknij nazwę konta. W obszarze **katalogu** wybierz dzierżawy usługi Active Directory, które chcesz zarejestrować aplikację.
-3. Kliknij przycisk **więcej usług** w okienku po lewej stronie, a następnie wybierz **usługi Azure Active Directory**.
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
+2. Na górnym pasku hello kliknij nazwę konta. W obszarze hello **katalogu** listy, wybierz hello dzierżawy usługi Active Directory, w którym ma tooregister aplikacji hello.
+3. Kliknij przycisk **więcej usług** w lewym okienku hello, a następnie wybierz **usługi Azure Active Directory**.
 4. Kliknij przycisk **rejestracji aplikacji**, a następnie wybierz **Dodaj**.
-5. Postępuj zgodnie z monitami, aby utworzyć nową **aplikacji sieci Web i/lub WebAPI**.
-  * **Nazwa** opisuje aplikacji dla użytkowników.
-  * **Adres URL logowania** jest podstawowy adres URL aplikacji. Szkielet domyślny adres URL jest https://localhost:44320 /.
-6. Po zakończeniu rejestracji usługi Azure AD przypisuje aplikacji identyfikatora aplikacji Skopiuj wartość ze strony aplikacji do użycia w kolejnych sekcjach.
-7. Z **ustawienia** -> **właściwości** strony dla aplikacji, zaktualizuj identyfikator URI aplikacji. **Identyfikator URI aplikacji** to unikatowy identyfikator dla aplikacji. Konwencja nazewnictwa jest `https://<tenant-domain>/<app-name>` (na przykład `https://contoso.onmicrosoft.com/my-first-aad-app`).
+5. Wykonaj hello monituje toocreate nowy **aplikacji sieci Web i/lub WebAPI**.
+  * **Nazwa** opisuje toousers aplikacji hello.
+  * **Adres URL logowania** jest hello podstawowy adres URL aplikacji hello. szkielet Hello domyślny adres URL jest https://localhost:44320 /.
+6. Po zakończeniu rejestracji hello Azure AD przypisuje aplikacji hello identyfikatora aplikacji Skopiuj wartość hello z toouse strony aplikacji hello w kolejnych sekcjach hello.
+7. Z hello **ustawienia** -> **właściwości** strony dla aplikacji, aktualizacji hello identyfikator URI aplikacji. Witaj **identyfikator URI aplikacji** to unikatowy identyfikator dla aplikacji hello. Witaj konwencją nazewnictwa jest `https://<tenant-domain>/<app-name>` (na przykład `https://contoso.onmicrosoft.com/my-first-aad-app`).
 
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Krok 2: Konfigurowanie aplikacji do używania uwierzytelniania potoku OWIN
-W tym kroku skonfigurujesz oprogramowanie pośredniczące OWIN do używania protokołu uwierzytelniania OpenID Connect. OWIN służy do wysyłania żądań zalogowania się i wylogowania, zarządzania sesjami użytkownika uzyskiwanie informacji o użytkowniku i tak dalej.
+## <a name="step-2-set-up-hello-app-toouse-hello-owin-authentication-pipeline"></a>Krok 2: Konfigurowanie potoku uwierzytelniania OWIN toouse hello hello aplikacji
+W tym kroku skonfigurujesz hello OWIN oprogramowanie pośredniczące toouse hello protokołu uwierzytelniania OpenID Connect. Użyj żądania logowania i wylogowywania tooissue OWIN, zarządzania sesjami użytkownika, uzyskiwanie informacji o użytkowniku i tak dalej.
 
-1. Aby rozpocząć, Dodaj pakiety NuGet oprogramowanie pośredniczące OWIN do projektu przy użyciu konsoli Menedżera pakietów.
+1. toobegin, dodać hello OWIN oprogramowanie pośredniczące NuGet pakiety toohello projektu przy użyciu konsoli Menedżera pakietów hello.
 
      ```
      PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -60,8 +60,8 @@ W tym kroku skonfigurujesz oprogramowanie pośredniczące OWIN do używania prot
      PM> Install-Package Microsoft.Owin.Host.SystemWeb
      ```
 
-2. Aby dodać klasy początkowej OWIN do projektu o nazwie `Startup.cs`, kliknij prawym przyciskiem myszy projekt, wybierz **Dodaj**, wybierz pozycję **nowy element**, a następnie wyszukaj **OWIN**. Wywołuje oprogramowanie pośredniczące OWIN **Configuration(...)**  metoda po uruchomieniu aplikacji.
-3. Deklaracja klasy, aby zmienić `public partial class Startup`. Już zaimplementowano część tej klasy dla Ciebie w innym pliku. W **Configuration(...)**  utworzyć wywołanie metody **ConfgureAuth(...)**  Aby skonfigurować uwierzytelnianie dla aplikacji.  
+2. tooadd o nazwie Projekt startowy OWIN klasy toohello `Startup.cs`, kliknij prawym przyciskiem myszy projekt hello, wybierz **Dodaj**, wybierz pozycję **nowy element**, a następnie wyszukaj **OWIN**. oprogramowanie pośredniczące OWIN Hello wywołuje hello **Configuration(...)**  metoda po uruchomieniu aplikacji hello.
+3. Zmiana deklaracji klasy hello zbyt`public partial class Startup`. Już zaimplementowano część tej klasy dla Ciebie w innym pliku. W hello **Configuration(...)**  metody wywoływania zbyt**ConfgureAuth(...)**  tooset się uwierzytelniania aplikacji hello.  
 
      ```C#
      public partial class Startup
@@ -73,7 +73,7 @@ W tym kroku skonfigurujesz oprogramowanie pośredniczące OWIN do używania prot
      }
      ```
 
-4. Otwórz plik App_Start\Startup.Auth.cs, a następnie wdrożyć to rozwiązanie **ConfigureAuth(...)**  metody. Parametry podane *OpenIDConnectAuthenticationOptions* służyć jako współrzędnych dla aplikacji w celu komunikowania się z usługą Azure AD. Należy również skonfigurować uwierzytelniania plików cookie, ponieważ oprogramowanie pośredniczące OpenID Connect używa plików cookie w tle.
+4. Otwórz plik App_Start\Startup.Auth.cs hello, a następnie wdrożyć hello **ConfigureAuth(...)**  metody. Witaj podane parametry *OpenIDConnectAuthenticationOptions* służyć jako współrzędne toocommunicate aplikacji hello z usługą Azure AD. Należy również tooset się uwierzytelniania plików cookie, ponieważ oprogramowanie pośredniczące hello OpenID Connect używa plików cookie w tle hello.
 
      ```C#
      public void ConfigureAuth(IAppBuilder app)
@@ -101,15 +101,15 @@ W tym kroku skonfigurujesz oprogramowanie pośredniczące OWIN do używania prot
      }
      ```
 
-5. Otwórz plik web.config w katalogu głównym projektu, a następnie wprowadź wartości konfiguracji w `<appSettings>` sekcji.
-  * `ida:ClientId`: Identyfikator GUID został skopiowany z portalu Azure w "krok 1: zarejestrować nową aplikację z usługą Azure AD."
-  * `ida:Tenant`: Nazwa dzierżawy usługi Azure AD (np. contoso.onmicrosoft.com).
-  * `ida:PostLogoutRedirectUri`Wskaźnik, który informuje usługi Azure AD, w którym użytkownik powinien być przekierowany po pomyślnym zakończeniu wylogowania żądania.
+5. Otwórz plik web.config hello w katalogu głównym hello hello projektu, a następnie wprowadź wartości konfiguracji hello w hello `<appSettings>` sekcji.
+  * `ida:ClientId`: hello GUID skopiowany z hello portalu Azure w "krok 1: hello zarejestrować nową aplikację z usługą Azure AD."
+  * `ida:Tenant`: hello nazwa dzierżawy usługi Azure AD (np. contoso.onmicrosoft.com).
+  * `ida:PostLogoutRedirectUri`: hello wskaźnika, który informuje usługi Azure AD, w którym użytkownik powinien być przekierowany po pomyślnym zakończeniu wylogowania żądania.
 
-## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Krok 3: Użyj OWIN do wysyłania żądań zalogowania się i wylogowania do usługi Azure AD
-Aplikacji jest teraz prawidłowo skonfigurowana do komunikowania się z usługą Azure AD przy użyciu protokołu uwierzytelniania OpenID Connect. OWIN obsłużyła wszystkie szczegóły obsługuje tworzenie komunikatów uwierzytelniania, sprawdzanie poprawności tokenów z usługi Azure AD i utrzymywanie sesji użytkownika. Wszystko, co jest pozostaje, aby zapewnić użytkownikom możliwość zalogować się i wylogowywania.
+## <a name="step-3-use-owin-tooissue-sign-in-and-sign-out-requests-tooazure-ad"></a>Krok 3: Użycie tooAzure AD żądań OWIN tooissue logowania się i wylogowania
+Aplikacja Hello jest teraz toocommunicate poprawnie skonfigurowane w usłudze Azure AD przy użyciu protokołu uwierzytelniania OpenID Connect hello. OWIN obsłużyła wszystkie szczegóły hello obsługuje tworzenie komunikatów uwierzytelniania, sprawdzanie poprawności tokenów z usługi Azure AD i utrzymywanie sesji użytkownika. Wszystkie opcje, które pozostaje jest toogive użytkownikom toosign sposób w i wylogowywania.
 
-1. Można autoryzować tagów w kontrolerach, aby wymagać od użytkowników do logowania, aby dostęp do określonych stron. Aby to zrobić, otwórz Controllers\HomeController.cs, a następnie dodaj `[Authorize]` tag do kontrolera informacje.
+1. Można autoryzować tagów w Twojej kontrolerów toorequire użytkowników toosign w, aby dostęp do określonych stron. toodo tak, otwórz Controllers\HomeController.cs, a następnie dodaj hello `[Authorize]` tagu toohello dotyczące kontrolera.
 
      ```C#
      [Authorize]
@@ -118,7 +118,7 @@ Aplikacji jest teraz prawidłowo skonfigurowana do komunikowania się z usługą
        ...
      ```
 
-2. OWIN umożliwia również wystawić żądania uwierzytelniania od bezpośrednio w kodzie. Aby to zrobić, otwórz Controllers\AccountController.cs. Następnie w SignIn() i SignOut() akcje wystawiania żądań wylogowania i żądania OpenID Connect.
+2. Umożliwia także żądania uwierzytelniania OWIN toodirectly problem z w kodzie. toodo, otwórz Controllers\AccountController.cs. Następnie w akcji SignIn() i SignOut() hello wystawiania żądań wylogowania i żądania OpenID Connect.
 
      ```C#
      public void SignIn()
@@ -137,7 +137,7 @@ Aplikacji jest teraz prawidłowo skonfigurowana do komunikowania się z usługą
      }
      ```
 
-3. Otwórz Views\Shared\_LoginPartial.cshtml wyświetlany, gdy użytkownik łączy logowania i wylogowywania aplikacji i wydrukuj nazwy użytkownika w widoku.
+3. Otwórz Views\Shared\_LoginPartial.cshtml tooshow hello hello aplikacji logowania i wylogowywania łącza użytkownika i tooprint się nazwa użytkownika hello w widoku.
 
     ```HTML
     @if (Request.IsAuthenticated)
@@ -162,9 +162,9 @@ Aplikacji jest teraz prawidłowo skonfigurowana do komunikowania się z usługą
     ```
 
 ## <a name="step-4-display-user-information"></a>Krok 4: Wyświetlane informacje o użytkowniku
-Podczas uwierzytelniania użytkowników z OpenID Connect, usługi Azure AD zwraca żądaniu aplikacja, która zawiera "oświadczenia" lub potwierdzeniami dotyczącymi użytkownika. Może użyć tych oświadczeń spersonalizować aplikacji, wykonując następujące czynności:
+Podczas uwierzytelniania użytkowników z OpenID Connect, usługi Azure AD zwraca aplikację toohello żądaniu, która zawiera "oświadczenia" lub potwierdzeniami dotyczącymi hello użytkownika. Możesz użyć tych aplikacji hello toopersonalize oświadczeń hello następujący:
 
-1. Otwórz plik Controllers\HomeController.cs. Dostęp do oświadczeń użytkownika w kontrolerach za pośrednictwem `ClaimsPrincipal.Current` obiekt główny zabezpieczeń.
+1. Otwórz plik Controllers\HomeController.cs hello. Dostęp do oświadczeń użytkowników hello w kontrolerach za pośrednictwem hello `ClaimsPrincipal.Current` obiekt główny zabezpieczeń.
 
  ```C#
  public ActionResult About()
@@ -179,17 +179,17 @@ Podczas uwierzytelniania użytkowników z OpenID Connect, usługi Azure AD zwrac
  }
  ```
 
-2. Skompiluj i uruchom aplikację. Jeśli nie zostało utworzone nowy użytkownik w dzierżawie z domeny onmicrosoft.com, należy teraz Aby to zrobić. Oto kroki tej procedury:
+2. Tworzenie i uruchamianie aplikacji hello. Jeśli nie zostało utworzone nowy użytkownik w dzierżawie z domeny onmicrosoft.com, teraz jest toodo czas hello tak. Oto kroki tej procedury:
 
-  a. Zaloguj się przy użyciu tego użytkownika, zwracając uwagę, jak tożsamość użytkowników jest odzwierciedlone na górnym pasku.
+  a. Zaloguj się przy użyciu tego użytkownika, zwracając uwagę, jak tożsamość użytkownika hello jest odzwierciedlone na górnym pasku hello.
 
   b. Wyloguj się, a następnie zalogować się jako inny użytkownik w dzierżawie.
 
   c. Jeśli czujesz szczególnie ambitne, Zarejestruj i uruchomić inne wystąpienie tej aplikacji (z jego własnej clientId), a Obejrzyj jednej operacji logowania w akcji.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby informacje, zobacz [ukończone próbki](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip) (bez wartości konfiguracji).
+Aby informacje, zobacz [próbki ukończyć powitalnych](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip) (bez wartości konfiguracji).
 
-Możesz teraz przejść do bardziej zaawansowanych tematów. Na przykład, spróbuj [zabezpieczyć interfejs API sieci Web z usługą Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+Możesz teraz przejść toomore Tematy zaawansowane. Na przykład, spróbuj [zabezpieczyć interfejs API sieci Web z usługą Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

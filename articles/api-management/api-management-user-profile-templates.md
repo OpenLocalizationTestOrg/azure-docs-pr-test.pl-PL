@@ -1,6 +1,6 @@
 ---
-title: "Szablony profilów użytkownika w usłudze Azure API Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dostosować zawartość strony profilu użytkownika w portalu dla deweloperów w usłudze Azure API Management."
+title: "AAA \"Szablony profilu użytkownika w usłudze Azure API Management | Dokumentacja firmy Microsoft\""
+description: "Dowiedz się, jak strony zawartości hello toocustomize hello profilu użytkownika w portalu dla deweloperów hello w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9a11bd5800068a5725ab2f099043993bff0b28d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8f153b310221164809acf58e4af236928ceb41d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Szablony profilów użytkownika w usłudze Azure API Management
-Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartość strony portalu dewelopera przy użyciu zestawu szablonów, które skonfigurować ich zawartości. Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) składni i Edytor wybranych przez użytkownika, takie jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i zestaw udostępnionego zlokalizowane [zasoby ciągu](api-management-template-resources.md#strings), [symboli zasobów](api-management-template-resources.md#glyphs), i [strony kontrolki](api-management-page-controls.md), ma dużą elastyczność konfigurowania zawartości stron, zgodnie z własnymi potrzebami, za pomocą tych szablonów.  
+Zarządzanie interfejsami API Azure oferuje hello możliwości toocustomize hello zawartości strony portalu dewelopera przy użyciu zestawu szablonów, które skonfigurować ich zawartości. Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) edytora składni i hello wybranych przez użytkownika, takie jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i zestaw udostępnionego zlokalizowane [zasoby ciągu](api-management-template-resources.md#strings), [ Zasoby symbolu](api-management-template-resources.md#glyphs), i [strony kontrolki](api-management-page-controls.md), masz dużą elastyczność tooconfigure hello zawartość stron hello zgodnie z własnymi potrzebami, za pomocą tych szablonów.  
   
- Szablony w tej sekcji umożliwiają dostosowanie zawartości strony profilu użytkownika w portalu dla deweloperów.  
+ Szablony Hello w tej sekcji pozwalają toocustomize hello zawartości strony profilu użytkownika hello w portalu dla deweloperów hello.  
   
 -   [Profil](#Profile)  
   
@@ -34,10 +34,10 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 -   [Zaktualizuj informacje o koncie](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Przykładowe domyślnych szablonów znajdują się w następującej dokumentacji, ale mogą ulec zmianie z powodu ciągłe ulepszenia. Szablonów domyślnych na żywo można wyświetlić w portalu dla deweloperów, przechodząc do żądanego szablony osobno. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [dostosowywaniu portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Przykładowe domyślnych szablonów znajdują się w następującej dokumentacji hello, ale są toochange podmiotu powodu toocontinuous ulepszenia. Hello na żywo domyślnych szablonów można wyświetlić w portalu dla deweloperów hello, przechodząc toohello potrzeby poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [jak toocustomize hello portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="Profile"></a>Profil  
- **Profilu** szablonu umożliwia dostosowanie sekcji profilu użytkownika strony profilu użytkownika w portalu dla deweloperów.  
+ Witaj **profilu** szablon umożliwia sekcji profilu użytkownika hello toocustomize hello strony profilu użytkownika w portalu dla deweloperów hello.  
   
  ![Strony profilu użytkownika](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "strona profil użytkownika APIM")  
   
@@ -99,21 +99,21 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ### <a name="data-model"></a>Model danych  
   
 > [!NOTE]
->  [Profilu](#Profile), [aplikacji](#Applications), i [subskrypcje](#Subscriptions) szablony udostępnianie tego samego modelu danych i odbierania danych tego samego szablonu.  
+>  Witaj [profilu](#Profile), [aplikacji](#Applications), i [subskrypcje](#Subscriptions) hello tych samych danych model i odbierać hello udostępnianie szablonów tych samych danych szablonu.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|Imię|Ciąg|Imię bieżącego użytkownika.|  
-|Nazwisko|Ciąg|Nazwa ostatniego bieżącego użytkownika.|  
-|Nazwa firmy|Ciąg|Nazwa firmy bieżącego użytkownika.|  
-|addresserEmail|Ciąg|Adres e-mail bieżącego użytkownika.|  
-|developersUsageStatisticsLinkk|Ciąg|Względny adres URL, aby wyświetlić analytics dla bieżącego użytkownika.|  
-|Subskrypcje|Kolekcja [subskrypcji](api-management-template-data-model-reference.md#Subscription) jednostek.|Subskrypcje dla bieżącego użytkownika.|  
-|aplikacje|Kolekcja [aplikacji](api-management-template-data-model-reference.md#Application) jednostek.|Aplikacje bieżącego użytkownika.|  
-|changePasswordUrl|Ciąg|Względny adres URL do zmiany hasła bieżącego użytkownika.|  
-|changeNameOrEmailUrl|Ciąg|Względny adres URL, aby zmienić nazwę i adres e-mail dla bieżącego użytkownika.|  
-|canChangePassword|Wartość logiczna|Określa, czy bieżący użytkownik może zmienić swoje hasło.|  
-|isSystemUser|Wartość logiczna|Określa, czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
+|Imię|Ciąg|Imię hello bieżącego użytkownika.|  
+|Nazwisko|Ciąg|Nazwisko hello bieżącego użytkownika.|  
+|Nazwa firmy|Ciąg|Nazwa firmy Hello hello bieżącego użytkownika.|  
+|addresserEmail|Ciąg|Adres e-mail hello bieżącego użytkownika.|  
+|developersUsageStatisticsLinkk|Ciąg|Analiza tooview względny adres URL hello bieżącego użytkownika.|  
+|Subskrypcje|Kolekcja [subskrypcji](api-management-template-data-model-reference.md#Subscription) jednostek.|Subskrypcje Hello hello bieżącego użytkownika.|  
+|aplikacje|Kolekcja [aplikacji](api-management-template-data-model-reference.md#Application) jednostek.|aplikacji Hello hello bieżącego użytkownika.|  
+|changePasswordUrl|Ciąg|Witaj względny adres URL toochange hello bieżące hasło użytkownika.|  
+|changeNameOrEmailUrl|Ciąg|Witaj względny adres URL toochange hello nazwę i adres e-mail dla hello bieżącego użytkownika.|  
+|canChangePassword|Wartość logiczna|Określa, czy bieżący użytkownik hello można zmienić swoje hasło.|  
+|isSystemUser|Wartość logiczna|Określa, czy hello bieżący użytkownik jest członkiem jednej z wbudowanych hello [grup](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -130,7 +130,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -153,7 +153,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -182,7 +182,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ##  <a name="Subscriptions"></a>Subskrypcje  
- **Subskrypcje** szablonu umożliwia dostosowanie subskrypcje części strony profilu użytkownika w portalu dla deweloperów.  
+ Witaj **subskrypcje** szablon umożliwia toocustomize hello subskrypcje sekcji hello strony profilu użytkownika w portalu dla deweloperów hello.  
   
  ![Strona subskrypcji użytkownika](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "stronę subskrypcji użytkownika APIM")  
   
@@ -313,28 +313,28 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ### <a name="controls"></a>Kontrolki  
- Ten szablon może korzystać z następujących [strony kontrolki](api-management-page-controls.md).  
+ Ten szablon może używać następujących hello [strony kontrolki](api-management-page-controls.md).  
   
 -   [Anuluj subskrypcję](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Model danych  
   
 > [!NOTE]
->  [Profilu](#Profile), [aplikacji](#Applications), i [subskrypcje](#Subscriptions) szablony udostępnianie tego samego modelu danych i odbierania danych tego samego szablonu.  
+>  Witaj [profilu](#Profile), [aplikacji](#Applications), i [subskrypcje](#Subscriptions) hello tych samych danych model i odbierać hello udostępnianie szablonów tych samych danych szablonu.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|Imię|Ciąg|Imię bieżącego użytkownika.|  
-|Nazwisko|Ciąg|Nazwa ostatniego bieżącego użytkownika.|  
-|Nazwa firmy|Ciąg|Nazwa firmy bieżącego użytkownika.|  
-|addresserEmail|Ciąg|Adres e-mail bieżącego użytkownika.|  
-|developersUsageStatisticsLinkk|Ciąg|Względny adres URL, aby wyświetlić analytics dla bieżącego użytkownika.|  
-|Subskrypcje|Kolekcja [subskrypcji](api-management-template-data-model-reference.md#Subscription) jednostek.|Subskrypcje dla bieżącego użytkownika.|  
-|aplikacje|Kolekcja [aplikacji](api-management-template-data-model-reference.md#Application) jednostek.|Aplikacje bieżącego użytkownika.|  
-|changePasswordUrl|Ciąg|Względny adres URL do zmiany hasła bieżącego użytkownika.|  
-|changeNameOrEmailUrl|Ciąg|Względny adres URL, aby zmienić nazwę i adres e-mail dla bieżącego użytkownika.|  
-|canChangePassword|Wartość logiczna|Określa, czy bieżący użytkownik może zmienić swoje hasło.|  
-|isSystemUser|Wartość logiczna|Określa, czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
+|Imię|Ciąg|Imię hello bieżącego użytkownika.|  
+|Nazwisko|Ciąg|Nazwisko hello bieżącego użytkownika.|  
+|Nazwa firmy|Ciąg|Nazwa firmy Hello hello bieżącego użytkownika.|  
+|addresserEmail|Ciąg|Adres e-mail hello bieżącego użytkownika.|  
+|developersUsageStatisticsLinkk|Ciąg|Analiza tooview względny adres URL hello bieżącego użytkownika.|  
+|Subskrypcje|Kolekcja [subskrypcji](api-management-template-data-model-reference.md#Subscription) jednostek.|Subskrypcje Hello hello bieżącego użytkownika.|  
+|aplikacje|Kolekcja [aplikacji](api-management-template-data-model-reference.md#Application) jednostek.|aplikacji Hello hello bieżącego użytkownika.|  
+|changePasswordUrl|Ciąg|Witaj względny adres URL toochange hello bieżące hasło użytkownika.|  
+|changeNameOrEmailUrl|Ciąg|Witaj względny adres URL toochange hello nazwę i adres e-mail dla hello bieżącego użytkownika.|  
+|canChangePassword|Wartość logiczna|Określa, czy bieżący użytkownik hello można zmienić swoje hasło.|  
+|isSystemUser|Wartość logiczna|Określa, czy hello bieżący użytkownik jest członkiem jednej z wbudowanych hello [grup](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -351,7 +351,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -374,7 +374,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -403,7 +403,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ##  <a name="Applications"></a>Aplikacje  
- **Aplikacji** szablonu umożliwia dostosowanie subskrypcje części strony profilu użytkownika w portalu dla deweloperów.  
+ Witaj **aplikacji** szablon umożliwia toocustomize hello subskrypcje sekcji hello strony profilu użytkownika w portalu dla deweloperów hello.  
   
  ![Strony aplikacji na koncie użytkownika](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "konta użytkownika APIM strony aplikacji")  
   
@@ -476,28 +476,28 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ### <a name="controls"></a>Kontrolki  
- Ten szablon może korzystać z następujących [strony kontrolki](api-management-page-controls.md).  
+ Ten szablon może używać następujących hello [strony kontrolki](api-management-page-controls.md).  
   
 -   [Akcje aplikacji](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Model danych  
   
 > [!NOTE]
->  [Profilu](#Profile), [aplikacji](#Applications), i [subskrypcje](#Subscriptions) szablony udostępnianie tego samego modelu danych i odbierania danych tego samego szablonu.  
+>  Witaj [profilu](#Profile), [aplikacji](#Applications), i [subskrypcje](#Subscriptions) hello tych samych danych model i odbierać hello udostępnianie szablonów tych samych danych szablonu.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|Imię|Ciąg|Imię bieżącego użytkownika.|  
-|Nazwisko|Ciąg|Nazwa ostatniego bieżącego użytkownika.|  
-|Nazwa firmy|Ciąg|Nazwa firmy bieżącego użytkownika.|  
-|addresserEmail|Ciąg|Adres e-mail bieżącego użytkownika.|  
-|developersUsageStatisticsLinkk|Ciąg|Względny adres URL, aby wyświetlić analytics dla bieżącego użytkownika.|  
-|Subskrypcje|Kolekcja [subskrypcji](api-management-template-data-model-reference.md#Subscription) jednostek.|Subskrypcje dla bieżącego użytkownika.|  
-|aplikacje|Kolekcja [aplikacji](api-management-template-data-model-reference.md#Application) jednostek.|Aplikacje bieżącego użytkownika.|  
-|changePasswordUrl|Ciąg|Względny adres URL do zmiany hasła bieżącego użytkownika.|  
-|changeNameOrEmailUrl|Ciąg|Względny adres URL, aby zmienić nazwę i adres e-mail dla bieżącego użytkownika.|  
-|canChangePassword|Wartość logiczna|Określa, czy bieżący użytkownik może zmienić swoje hasło.|  
-|isSystemUser|Wartość logiczna|Określa, czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
+|Imię|Ciąg|Imię hello bieżącego użytkownika.|  
+|Nazwisko|Ciąg|Nazwisko hello bieżącego użytkownika.|  
+|Nazwa firmy|Ciąg|Nazwa firmy Hello hello bieżącego użytkownika.|  
+|addresserEmail|Ciąg|Adres e-mail hello bieżącego użytkownika.|  
+|developersUsageStatisticsLinkk|Ciąg|Analiza tooview względny adres URL hello bieżącego użytkownika.|  
+|Subskrypcje|Kolekcja [subskrypcji](api-management-template-data-model-reference.md#Subscription) jednostek.|Subskrypcje Hello hello bieżącego użytkownika.|  
+|aplikacje|Kolekcja [aplikacji](api-management-template-data-model-reference.md#Application) jednostek.|aplikacji Hello hello bieżącego użytkownika.|  
+|changePasswordUrl|Ciąg|Witaj względny adres URL toochange hello bieżące hasło użytkownika.|  
+|changeNameOrEmailUrl|Ciąg|Witaj względny adres URL toochange hello nazwę i adres e-mail dla hello bieżącego użytkownika.|  
+|canChangePassword|Wartość logiczna|Określa, czy bieżący użytkownik hello można zmienić swoje hasło.|  
+|isSystemUser|Wartość logiczna|Określa, czy hello bieżący użytkownik jest członkiem jednej z wbudowanych hello [grup](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -514,7 +514,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -537,7 +537,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -566,7 +566,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ##  <a name="UpdateAccountInfo"></a>Zaktualizuj informacje o koncie  
- **Informacje o koncie Uodate** szablonu umożliwia dostosowanie **zaktualizować informacje o koncie** strony w portalu dla deweloperów.  
+ Witaj **informacje o koncie Uodate** szablon umożliwia toocustomize hello **zaktualizować informacje o koncie** strony w portalu dla deweloperów hello.  
   
  ![Szablony portalu użytkownika konta informacje Developer strony](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM użytkownika konta informacje Developer strony portalu szablonów")  
   
@@ -623,4 +623,4 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [dostosowywaniu portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](api-management-developer-portal-templates.md).
+Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [jak toocustomize hello portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](api-management-developer-portal-templates.md).

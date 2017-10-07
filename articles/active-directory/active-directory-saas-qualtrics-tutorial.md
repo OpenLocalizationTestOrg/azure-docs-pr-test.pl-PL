@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Qualtrics | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak używać Qualtrics usłudze Azure Active Directory w celu włączenia logowania jednokrotnego, automatyczne Inicjowanie obsługi i inne!"
+description: "Dowiedz się, jak toouse Qualtrics z usługą Azure Active Directory tooenable pojedynczy logowania jednokrotnego, automatyczne Inicjowanie obsługi i inne!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -13,102 +13,102 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 2fcde595a40dafda7549f5bccb582b57585b314e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 941642e74b90bb13a5ce37ce6665cfa32cd86016
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Samouczek: Integracji Azure Active Directory z Qualtrics
-Celem tego samouczka jest pokazanie integracji Azure i Qualtrics.  
+Celem Hello tego samouczka jest tooshow integracji hello Azure i Qualtrics.  
 
-Scenariusz opisany w tym samouczku założono, że już następujące elementy:
+Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
 
 * Ważnej subskrypcji platformy Azure
 * Qualtrics rejestracji jednokrotnej (SSO) włączone subskrypcji
 
-Ten samouczek użytkowników usługi Azure AD, zostały przypisane do Qualtrics będzie można funkcji logowania jednokrotnego do aplikacji w witrynie firmy Qualtrics (usługa zainicjował dostawcy logowania) lub przy użyciu [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Ten samouczek użytkownicy hello Azure AD przypisano tooQualtrics będą mogli toosingle logowania do aplikacji hello w witrynie firmy Qualtrics (usługa zainicjował dostawcy logowania) lub przy użyciu hello [toohello wprowadzenie Dostęp do panelu](active-directory-saas-access-panel-introduction.md).
 
-Scenariusz opisany w tym samouczku składa się z następujących bloków konstrukcyjnych:
+Scenariusz Hello opisane w tym samouczku składa się z powitania po bloków konstrukcyjnych:
 
-1. Włączanie integracji aplikacji dla Qualtrics
+1. Włączanie integracji aplikacji hello dla Qualtrics
 2. Konfigurowanie rejestracji jednokrotnej (SSO)
 3. Konfigurowanie Inicjowanie obsługi użytkowników
 4. Przypisywanie użytkowników
 
 ![Scenariusz](./media/active-directory-saas-qualtrics-tutorial/IC789542.png "scenariusza")
 
-## <a name="enabling-the-application-integration-for-qualtrics"></a>Włączanie integracji aplikacji dla Qualtrics
-Celem tej sekcji jest przedstawiają sposób włączania integracji aplikacji dla Qualtrics.
+## <a name="enabling-hello-application-integration-for-qualtrics"></a>Włączanie integracji aplikacji hello dla Qualtrics
+Celem Hello w tej sekcji jest toooutline sposób integracji aplikacji hello tooenable dla Qualtrics.
 
-**Aby włączyć integrację aplikacji dla Qualtrics, wykonaj następujące czynności:**
+**integracji aplikacji hello tooenable dla Qualtrics, wykonaj następujące kroki hello:**
 
-1. W klasycznym portalu Azure, w okienku nawigacji po lewej stronie kliknij **usługi Active Directory**.
+1. W hello klasycznego portalu Azure, w okienku nawigacji po lewej stronie powitania kliknij **usługi Active Directory**.
    
    ![Usługi Active Directory](./media/active-directory-saas-qualtrics-tutorial/IC700993.png "usługi Active Directory")
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
+2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
+3. Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
    
    ![Aplikacje](./media/active-directory-saas-qualtrics-tutorial/IC700994.png "aplikacji")
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
+4. Kliknij przycisk **Dodaj** u dołu hello hello strony.
    
    ![Dodaj aplikację](./media/active-directory-saas-qualtrics-tutorial/IC749321.png "Dodaj aplikację")
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
+5. Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.
    
    ![Dodawanie aplikacji z gallerry](./media/active-directory-saas-qualtrics-tutorial/IC749322.png "dodać aplikację z gallerry")
-6. W **pole wyszukiwania**, typ **Qualtrics**.
+6. W hello **pole wyszukiwania**, typ **Qualtrics**.
    
    ![Galerii aplikacji](./media/active-directory-saas-qualtrics-tutorial/IC789543.png "galerii aplikacji")
-7. W okienku wyników wybierz **Qualtrics**, a następnie kliknij przycisk **Complete** można dodać aplikację.
+7. Wybierz w okienku wyników hello **Qualtrics**, a następnie kliknij przycisk **Complete** aplikacji hello tooadd.
    
    ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
    
 ## <a name="configure-single-sign-on"></a>Konfigurowanie rejestracji jednokrotnej
 
-Celem tej sekcji jest przedstawiają sposób umożliwić użytkownikom uwierzytelnianie na Qualtrics do swojego konta w usłudze Azure AD przy użyciu federacyjnego na podstawie protokołu SAML.
+Celem Hello w tej sekcji jest toooutline jak tooenable użytkowników tooauthenticate tooQualtrics do swojego konta w usłudze Azure AD przy użyciu Federacji oparte na powitania protokołu SAML.
 
-**Aby skonfigurować rejestrację jednokrotną, wykonaj następujące czynności:**
+**tooconfigure logowanie jednokrotne, wykonaj następujące kroki hello:**
 
-1. W klasycznym portalu Azure na **Qualtrics** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować rejestrację jednokrotną** okna dialogowego.
+1. W hello klasycznego portalu Azure na powitania **Qualtrics** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello **skonfigurować rejestrację jednokrotną** okna dialogowego.
    
    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "skonfigurować logowanie jednokrotne")
-2. Na **jak chcesz użytkownikom zalogować się na Qualtrics** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+2. Na powitania **jak ma toosign użytkowników na tooQualtrics** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
    
    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-qualtrics-tutorial/IC789546.png "skonfigurować logowanie jednokrotne")
-3. Na **Konfigurowanie adresu URL aplikacji** strony w **Qualtrics na adres URL logowania** pole tekstowe, wpisz adres URL (np.: "*https://ssotest2ut1.qualtrics.com*"), a następnie kliknij przycisk **dalej**.
+3. Na powitania **Konfigurowanie adresu URL aplikacji** strony w hello **Qualtrics na adres URL logowania** pole tekstowe, wpisz adres URL (np.: "*https://ssotest2ut1.qualtrics.com*"), a następnie kliknij przycisk **Dalej**.
    
    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-qualtrics-tutorial/IC789547.png "skonfigurować adres URL aplikacji")
-4. Na **skonfigurować logowanie jednokrotne w Qualtrics** kliknij przycisk **pobierania metadanych**, a następnie zapisz plik metadanych na tym komputerze.
+4. Na powitania **skonfigurować logowanie jednokrotne w Qualtrics** kliknij przycisk **pobierania metadanych**, a następnie zapisz plik metadanych hello na tym komputerze.
    
    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "skonfigurować logowanie jednokrotne")
-5. Wyślij plik metadanych do Qualtrics zespołu pomocy technicznej.
+5. Wyślij hello metadanych pliku toohello Qualtrics zespołem pomocy technicznej.
    
    >[!NOTE]
-   >Konfiguracji logowania jednokrotnego musi zostać wykonana przez zespół pomocy technicznej Qualtrics. Otrzymasz powiadomienie, natychmiast po zakończeniu konfiguracji.
+   >Konfiguracja rejestracji Jednokrotnej Hello ma toobe wykonywane przez hello Qualtrics zespołem pomocy technicznej. Otrzymasz powiadomienie, jak hello konfiguracji została ukończona.
    > 
    > 
-6. W klasycznym portalu Azure, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **Complete** zamknąć **skonfigurować rejestrację jednokrotną** okna dialogowego.
+6. Na powitania klasycznego portalu Azure, wybierz hello konfiguracji rejestracji jednokrotnej potwierdzenie, a następnie kliknij **Complete** tooclose hello **skonfigurować rejestrację jednokrotną** okna dialogowego.
    
    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "skonfigurować logowanie jednokrotne")
    
 ## <a name="configure-user-provisioning"></a>Skonfiguruj Inicjowanie obsługi użytkowników
 
-Nie ma elementu akcji do skonfigurowania inicjowania obsługi administracyjnej Qualtrics użytkownika. Gdy przypisany użytkownik próbuje zalogować się przy użyciu panelu dostępu Qualtrics, Qualtrics sprawdza, czy użytkownik istnieje.  
+Nie ma elementu akcji można tooconfigure użytkownika inicjowania obsługi administracyjnej tooQualtrics. Gdy przypisany użytkownik podejmie próbę toolog do Qualtrics za pomocą panelu dostępu hello, Qualtrics sprawdza, czy istnieje hello użytkownika.  
 
 Jeśli nie jest Brak konta użytkownika dostępny jeszcze, są tworzone przez Qualtrics.
 
 ## <a name="assign-users"></a>Przypisywanie użytkowników
-Aby przetestować konfigurację, musisz przyznać użytkowników usługi Azure AD, czy chcesz zezwolić, używając przypisywania do nich dostęp aplikacji do niego.
+tootest konfiguracji, należy toogrant hello Azure AD użytkownicy mają tooallow przy użyciu Twojej aplikacji tooit dostępu przez przypisywanie ich.
 
-**Do przypisywania użytkowników do Qualtrics, wykonaj następujące czynności:**
+**tooassign tooQualtrics użytkowników, wykonaj następujące kroki hello:**
 
-1. W klasycznym portalu Azure Utwórz konto testu.
-2. Na **Qualtrics** strona integracji aplikacji, kliknij przycisk **przypisywać użytkowników**.
+1. W hello klasycznego portalu Azure Utwórz konto testu.
+2. Na powitania **Qualtrics** strona integracji aplikacji, kliknij przycisk **przypisywać użytkowników**.
    
    ![Przypisywanie użytkowników](./media/active-directory-saas-qualtrics-tutorial/IC789550.png "przypisywanie użytkowników")
-3. Wybierz użytkownika testowego, kliknij przycisk **przypisać**, a następnie kliknij przycisk **tak** o potwierdzenie przypisania.
+3. Wybierz użytkownika testowego, kliknij przycisk **przypisać**, a następnie kliknij przycisk **tak** tooconfirm przypisania.
    
    ![Tak](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "tak")
 
-Jeśli chcesz przetestować ustawienia logowania jednokrotnego, otwórz Panel dostępu. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Jeśli chcesz tootest ustawienia logowania jednokrotnego, otwórz hello panelu dostępu. Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
 

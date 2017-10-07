@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z hostowanej grafitu | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i grafitu hostowanej."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i grafitu hostowanej."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,120 +13,120 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: f6ed02cc67be4090402a115c30819ff6cff99c99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d8914f6417ba8fbdef1a48e1b36635200ba130d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Samouczek: Integracji Azure Active Directory z hostowanej grafitu
 
-Z tego samouczka dowiesz integrowanie grafitu hostowanej usłudze Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate grafitu hostowana w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie grafitu obsługiwane z usługą Azure AD zapewnia następujące korzyści:
+Integrowanie grafitu obsługiwane z usługą Azure AD zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do hostowanej grafitu
-- Umożliwia użytkownikom automatycznie pobrać podpisany w przypadku hostowanych grafitu (logowanie jednokrotne) z konta usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooHosted grafitu
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooHosted grafitu (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do konfigurowania integracji z usługą Azure AD z hostowanej grafitu, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z hostowanej grafitu należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Hostowana grafitu logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie hostowanej grafitu z galerii
+1. Dodawanie grafitu obsługiwane galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-hosted-graphite-from-the-gallery"></a>Dodawanie hostowanej grafitu z galerii
-Aby skonfigurować integrację grafitu hostowanych w usłudze Azure Active Directory, należy dodać hostowanej grafitu z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-hosted-graphite-from-hello-gallery"></a>Dodawanie grafitu obsługiwane galerii hello
+tooconfigure hello integracji grafitu hostowanych w usłudze Azure Active Directory, należy tooadd grafitu hostowana z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać obsługiwane grafitu z galerii, wykonaj następujące czynności:**
+**tooadd grafitu hostowana z galerii hello wykonaj hello następujące kroki:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **hostowanej grafitu**.
+4. W polu wyszukiwania hello wpisz **hostowanej grafitu**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_search.png)
 
-5. W panelu wyników wybierz **hostowanej grafitu**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello, wybierz **hostowanej grafitu**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z grafitu hostowanej w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w hostowanej grafitu jest dla użytkownika, w usłudze Azure AD. Innymi słowy łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w hostowanej grafitu musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w hostowanej grafitu jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w hostowanej grafitu musi toobe ustanowione.
 
-Hostowana grafitu przypisywanie wartości **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W hostowanej grafitu przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Do konfigurowania i testowania usługi Azure AD rejestracji jednokrotnej z hostowanej grafitu, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i test usługi Azure AD rejestracji jednokrotnej z hostowanej grafitu należy hello toocomplete po bloków konstrukcyjnych:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego hostowanej grafitu](#creating-a-hosted-graphite-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta hostowanej grafitu połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego hostowanej grafitu](#creating-a-hosted-graphite-test-user)**  -toohave odpowiednikiem Simona Britta w hostowanej grafitu, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji hostowanej grafitu.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować rejestracji jednokrotnej w aplikacji hostowanej grafitu.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z hostowanej grafitu, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z hostowanej grafitu wykonaj hello następujące kroki:**
 
-1. W portalu Azure na **hostowanej grafitu** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **hostowanej grafitu** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_samlbase.png)
 
-3. Na **hostowanej grafitu domeny i adres URL** sekcji, jeśli chcesz skonfigurować aplikację w **IDP zainicjował tryb**, wykonaj następujące czynności:
+3. Na powitania **hostowanej grafitu domeny i adres URL** sekcji, jeśli chcesz, aby aplikacja hello tooconfigure w **IDP zainicjował tryb**, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://www.hostedgraphite.com/metadata/<user id>`
+    a. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://www.hostedgraphite.com/complete/saml/<user id>`
 
-4. Na **hostowanej grafitu domeny i adres URL** sekcji, jeśli chcesz skonfigurować aplikację w **SP zainicjował tryb**, wykonaj następujące czynności:
+4. Na powitania **hostowanej grafitu domeny i adres URL** sekcji, jeśli chcesz, aby aplikacja hello tooconfigure w **SP zainicjował tryb**, wykonaj następujące kroki hello:
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_10.png)
   
-    a. Polecenie **Pokaż zaawansowane ustawienia adresu URL** opcji
+    a. Polecenie hello **Pokaż zaawansowane ustawienia adresu URL** opcji
 
-    b. W **na adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://www.hostedgraphite.com/login/saml/<user id>/`   
+    b. W hello **na adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://www.hostedgraphite.com/login/saml/<user id>/`   
 
     > [!NOTE] 
-    > Należy pamiętać, że nie są one rzeczywiste wartości. Należy zaktualizować te wartości z rzeczywistego identyfikatora, adres URL odpowiedzi i na adres URL logowania. Aby uzyskać te wartości, możesz uzyskać dostęp -> Ustawienia SAML na stronie aplikacji lub skontaktuj się z [zespołem pomocy technicznej usługi hostowanej grafitu](mailto:help@hostedgraphite.com).
+    > Należy pamiętać, że nie są one hello wartości rzeczywistych. Masz tooupdate tych wartości za pomocą hello rzeczywisty identyfikator, adres URL odpowiedzi i zaloguj się na adres URL. tooget te wartości, możesz przejść tooAccess -> Ustawienia SAML na stronie aplikacji lub skontaktuj się z [zespołem pomocy technicznej usługi hostowanej grafitu](mailto:help@hostedgraphite.com).
     >
  
-5. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+5. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_certificate.png) 
 
@@ -134,21 +134,21 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_400.png)
 
-7. Na **obsługiwanych konfiguracji grafitu** , kliknij przycisk **skonfigurować grafitu hostowanej** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+7. Na powitania **obsługiwanych konfiguracji grafitu** kliknij **skonfigurować grafitu hostowanej** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_configure.png) 
 
-8. Logowanie do dzierżawy grafitu hostowanych jako administrator.
+8. Dzierżawca hostowanej grafitu tooyour logowania jako administrator.
 
-9. Przejdź do **strony Instalatora SAML** na pasku bocznym (**dostępu -> Ustawienia SAML**).
+9. Przejdź toohello **strony Instalatora SAML** na pasku bocznym hello (**dostępu -> Ustawienia SAML**).
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
-10. Upewnij się, te adresy URL zgodne przeprowadzić konfigurację **hostowanej grafitu domeny i adres URL** części portalu Azure.
+10. Upewnij się, te adresy URL zgodne konfiguracji przeprowadzić hello **hostowanej grafitu domeny i adres URL** sekcji hello portalu Azure.
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
-11. W **jednostki lub identyfikator wystawcy** i **adres URL logowania jednokrotnego logowania** pól tekstowych, Wklej wartość **identyfikator jednostki SAML** i **SAML pojedynczy znak na adres URL usługi** którego Skopiowano z portalu Azure. 
+11. W **jednostki lub identyfikator wystawcy** i **adres URL logowania jednokrotnego logowania** pól tekstowych, Wklej wartość hello **identyfikator jednostki SAML** i **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure. 
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
    
@@ -157,73 +157,73 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
-13. Otwórz w Notatniku pobrany z portalu Azure certyfikatu zakodowanego base-64, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu X.509** pola tekstowego.
+13. Otwieranie certyfikatu zakodowanego base-64 w Notatniku pobrany z portalu Azure, hello kopiowania zawartości go do Schowka, a następnie wklej go toohello **certyfikatu X.509** pola tekstowego.
     
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
 14. Kliknij przycisk **zapisać** przycisku.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-hosted-graphite-test-user"></a>Tworzenie użytkownika testowego hostowanej grafitu
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w hostowanej grafitu. Grafitu hostowanej obsługę w czasie, który jest domyślnie włączone.
+Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w hostowanej grafitu. Grafitu hostowanej obsługę w czasie, który jest domyślnie włączone.
 
-Nie ma elementu akcji można w tej sekcji. Nowy użytkownik zostanie utworzony podczas próby dostępu do hostowanych grafitu, jeśli go jeszcze nie istnieje.
+Nie ma elementu akcji można w tej sekcji. Nowy użytkownik zostanie utworzony podczas próby tooaccess grafitu hostowana, jeśli go jeszcze nie istnieje.
 
 >[!NOTE]
->Jeśli trzeba ręcznie utworzyć użytkownika, musisz skontaktuj się z zespołem pomocy technicznej grafitu hostowanej za pośrednictwem < mailto:help@hostedgraphite.com >. 
+>Należy ręcznie toocreate użytkownika, konieczne będzie zespołem pomocy technicznej toocontact hello grafitu hostowanej za pośrednictwem < mailto:help@hostedgraphite.com >. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do hostowanych grafitu.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooHosted grafitu.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta grafitu hostowanych, wykonaj następujące czynności:**
+**tooassign tooHosted Simona Britta grafitu, wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **hostowanej grafitu**.
+2. Z listy aplikacji hello wybierz **hostowanej grafitu**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -231,7 +231,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -239,13 +239,13 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem tej sekcji służy do testowania konfigurację usługi Azure AD z logowania jednokrotnego za pomocą panelu dostępu.
+Celem Hello w tej sekcji jest tootest programu Azure AD SSO konfiguracji przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka grafitu hostowanej w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji hostowanych grafitu.
+Po kliknięciu kafelka hostowanej grafitu hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour grafitu hostowanej aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

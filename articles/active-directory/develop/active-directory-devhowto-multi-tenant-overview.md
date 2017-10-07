@@ -1,5 +1,5 @@
 ---
-title: "Sposób tworzenia aplikacji, które można zarejestrować się w każdy użytkownik usługi Azure AD | Dokumentacja firmy Microsoft"
+title: "toobuild aaaHow aplikacji, które można zarejestrować się w każdy użytkownik usługi Azure AD | Dokumentacja firmy Microsoft"
 description: "Krok po kroku instrukcje tworzenia aplikacji, które można zalogować użytkownika z dowolnej dzierżawy usługi Azure Active Directory nazywanego także wielodostępnych aplikacji."
 services: active-directory
 documentationcenter: 
@@ -15,61 +15,61 @@ ms.workload: identity
 ms.date: 04/26/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: f1c79fa7e3b0e160487b5941741f6a6c677c6b81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 123ea8125fa3c308ce0f124cc58e85ec28d476d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Jak zarejestrować każdy użytkownik usługi Azure Active Directory (AD) przy użyciu wzorca wielodostępnych aplikacji
-Jeśli oferujesz oprogramowania jako usługi aplikacji dla wielu organizacji, można skonfigurować aplikację do akceptowania logowania z dowolnej dzierżawy usługi Azure AD.  W usłudze Azure AD jest to, co dzierżawy wielu aplikacji.  Użytkownicy w dowolnej dzierżawy usługi Azure AD będą mogli logować się do aplikacji po zgodę swojego konta za pomocą aplikacji.  
+# <a name="how-toosign-in-any-azure-active-directory-ad-user-using-hello-multi-tenant-application-pattern"></a>Jak toosign w dowolnej usługi Azure Active Directory (AD) użytkownika za pomocą hello wzorzec wielodostępnych aplikacji
+Jeśli oferujesz oprogramowania jako toomany aplikacji usługi organizacji, można skonfigurować Twojej aplikacji tooaccept logowania z dowolnej dzierżawy usługi Azure AD.  W usłudze Azure AD jest to, co dzierżawy wielu aplikacji.  Użytkownicy w dowolnej dzierżawy usługi Azure AD będą mogli toosign w aplikacji tooyour po zgodę toouse konto za pomocą aplikacji.  
 
-Jeśli masz istniejącej aplikacji, która ma swój własny system konta lub inne rodzaje logowania od innych dostawców w chmurze obsługuje dodawanie usługi Azure AD logowania z dowolnej dzierżawy jest proste. Tylko rejestrowanie aplikacji, Dodaj kod logowania za pomocą protokołu OAuth2, OpenID Connect lub SAML i umieść przycisk "Logowania w with Microsoft" w swojej aplikacji. Kliknij poniższy przycisk, aby dowiedzieć się więcej o znakowaniu aplikacji.
+Jeśli masz istniejącej aplikacji, która ma swój własny system konta lub inne rodzaje logowania od innych dostawców w chmurze obsługuje dodawanie usługi Azure AD logowania z dowolnej dzierżawy jest proste. Tylko rejestrowanie aplikacji, Dodaj kod logowania za pomocą protokołu OAuth2, OpenID Connect lub SAML i umieść przycisk "Logowania w with Microsoft" w swojej aplikacji. Kliknij przycisk powitania po toolearn przycisk więcej na temat znakowania aplikacji.
 
 [! [Zaloguj przycisk] [AAD-logowania]][AAD-App-Branding]
 
-W tym artykule przyjęto założenie, że znasz już tworzenia aplikacji pojedynczej dzierżawy dla usługi Azure AD.  Nie masz, head wykonać kopię zapasową [strony głównej przewodnik dewelopera] [ AAD-Dev-Guide] i wypróbować jeden z naszych Szybki Start!
+W tym artykule przyjęto założenie, że znasz już tworzenia aplikacji pojedynczej dzierżawy dla usługi Azure AD.  Jeśli nie masz, head, Utwórz kopię zapasową toohello [strony głównej przewodnik dewelopera] [ AAD-Dev-Guide] i wypróbować jeden z naszych Szybki Start!
 
-Istnieją cztery prostych czynności w celu konwertowania aplikacji na aplikację usługi Azure AD wielodostępne:
+Istnieją cztery tooconvert prostych czynności w aplikacji do usługi Azure AD wielodostępnych aplikacji:
 
-1. Zaktualizuj rejestrację aplikacji się wieloma dzierżawcami
-2. Zaktualizuj kod do wysyłania żądań do / Common punktu końcowego 
-3. Zaktualizuj swój kod obsługi wielu wartości wystawcy
+1. Aktualizowanie aplikacji rejestracji toobe wielu dzierżawy
+2. Zaktualizuj/Common toohello kodu toosend żądania punktu końcowego 
+3. Aktualizacja Twojego toohandle kodu wielu wartości wystawcy
 4. Zrozumienie zgody użytkownika i administratora i zmienić odpowiedni kod
 
-Przyjrzyjmy się każdego kroku szczegółowo. Można także przejść bezpośrednio do [tej listy próbek wielodostępne][AAD-Samples-MT].
+Przyjrzyjmy się każdego kroku szczegółowo. Można także przejść bezpośrednio za[tej listy próbek wielodostępne][AAD-Samples-MT].
 
-## <a name="update-registration-to-be-multi-tenant"></a>Zaktualizuj rejestrację się wieloma dzierżawcami
-Domyślnie rejestracji aplikacji/interfejsu API sieci web w usłudze Azure AD są pojedynczej dzierżawy.  Umożliwia rejestrację wielodostępne znajdując przełącznika "Wielu dzierżawcza" na stronie właściwości Twojej rejestracji aplikacji w [portalu Azure] [ AZURE-portal] i ustawiając go na "Tak".
+## <a name="update-registration-toobe-multi-tenant"></a>Aktualizacja rejestracji toobe wieloma dzierżawcami
+Domyślnie rejestracji aplikacji/interfejsu API sieci web w usłudze Azure AD są pojedynczej dzierżawy.  Umożliwia rejestrację wielodostępne znajdując hello "wielu dzierżawcza" Przełącz się na stronie właściwości hello Twojej rejestracji aplikacji w hello [portalu Azure] [ AZURE-portal] i ustawienie jej zbyt "Yes".
 
-Należy również zauważyć, zanim aplikacji może się wieloma dzierżawcami usługi Azure AD wymaga aplikacji mogą być globalnie unikatowy identyfikator URI aplikacji. Identyfikator URI aplikacji jest jednym ze sposobów, który aplikacja zostanie zidentyfikowana w wiadomości protokołu.  Dla aplikacji pojedynczej dzierżawy jest wystarczająca dla identyfikator URI aplikacji być unikatowe w obrębie tej dzierżawy.  Aplikacji wielodostępnych musi być globalnie unikatowe dzięki usłudze Azure AD można znaleźć aplikacji we wszystkich dzierżawców.  Globalne unikatowości jest wymuszana przez wymaganie identyfikator URI aplikacji ma nazwę hosta pasującą zweryfikowanej domeny dzierżawy usługi Azure AD.  Na przykład, jeśli nazwę dzierżawy został contoso.onmicrosoft.com, a następnie prawidłowy identyfikator URI aplikacji będzie `https://contoso.onmicrosoft.com/myapp`.  Gdyby dzierżawy zweryfikowanej domeny `contoso.com`, również będą prawidłowy identyfikator URI aplikacji, a następnie `https://contoso.com/myapp`.  Ustawienie aplikacji jako wielodostępnej zakończy się niepowodzeniem, jeśli identyfikator URI aplikacji nie będzie zgodna z tego wzorca.
+Należy również zauważyć, zanim aplikacji może się wieloma dzierżawcami usługi Azure AD wymaga hello z toobe aplikacji hello globalnie unikatowy identyfikator URI aplikacji. Identyfikator URI aplikacji Hello jest jeden z sposobów hello, który aplikacja zostanie zidentyfikowana w wiadomości protokołu.  Dla aplikacji pojedynczej dzierżawy jest wystarczająca dla toobe identyfikator URI aplikacji hello jest unikatowa w ramach tej dzierżawy.  Aplikacji wielodostępnych musi być globalnie unikatowe dzięki usłudze Azure AD można znaleźć aplikacji hello we wszystkich dzierżawców.  Globalne unikatowość jest wymuszana przez wymaganie toohave identyfikator URI aplikacji hello nazwę hosta pasującą zweryfikowanej domeny hello dzierżawy usługi Azure AD.  Na przykład, jeśli hello nazwę dzierżawy został contoso.onmicrosoft.com, a następnie prawidłowy identyfikator URI aplikacji będzie `https://contoso.onmicrosoft.com/myapp`.  Gdyby dzierżawy zweryfikowanej domeny `contoso.com`, również będą prawidłowy identyfikator URI aplikacji, a następnie `https://contoso.com/myapp`.  Ustawienie aplikacji jako wielodostępnej zakończy się niepowodzeniem, jeśli identyfikator URI aplikacji hello nie będzie zgodna z tego wzorca.
 
-Aplikacja Native client są wielodostępne domyślnie.  Nie musisz podejmować żadnych działań, aby natywny klienta aplikacji rejestracji wielu dzierżawców.
+Aplikacja Native client są wielodostępne domyślnie.  Nie trzeba tootake toomake żadnych akcji klienta natywnego dzierżawy usługi rejestracji aplikacji.
 
-## <a name="update-your-code-to-send-requests-to-common"></a>Zaktualizuj kod do wysyłania żądań do/Common
-W aplikacji pojedynczej dzierżawy żądań logowania są wysyłane do dzierżawcy logowania punktu końcowego. Na przykład dla contoso.onmicrosoft.com będzie punktu końcowego:
+## <a name="update-your-code-toosend-requests-toocommon"></a>Aktualizacja Twojego kodu toosend żądań zbyt/wspólne
+W aplikacji pojedynczej dzierżawy żądań logowania są wysyłane dzierżawy toohello logowania punktu końcowego. Na przykład dla contoso.onmicrosoft.com będzie hello punktu końcowego:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
-Żądania wysyłane do punktu końcowego dzierżawcy zalogować się użytkownicy (lub gości) w tej dzierżawie do aplikacji w tej dzierżawie.  Z aplikacją wielodostępnych aplikacji nie może ustalić góry dzierżawy, jakie użytkownik ma, więc nie można wysłać żądania do punktu końcowego dzierżawcy.  Zamiast tego żądania są wysyłane do punktu końcowego, który multiplexes między dzierżaw wszystkie usługi Azure AD:
+Wysyłane żądania punktu końcowego dzierżawcy tooa może podpisywać użytkowników (lub gości), w tym tooapplications dzierżawy w tej dzierżawie.  Przy użyciu aplikacji wielodostępnych aplikacji hello nie może ustalić góry użytkownika hello dzierżawy jest, więc nie można wysłać żądania punktu końcowego tooa dzierżawcy.  Zamiast tego żądania wysyłane tooan punktu końcowego, który multiplexes między dzierżaw wszystkie usługi Azure AD:
 
     https://login.microsoftonline.com/common
 
-Jeśli usługi Azure AD odbiera żądanie na / Common punktu końcowego, jego loguje użytkownika i w konsekwencji odnajduje dzierżawy, którym użytkownik jest z.  / Wspólnego punktu końcowego współpracuje z wszystkie protokoły obsługiwane przez usługę Azure AD: OpenID Connect, OAuth 2.0 SAML 2.0 i WS-Federation.
+Jeśli usługi Azure AD odbiera żądanie na powitania/wspólnego punktu końcowego, jego zalogowaniu użytkownika hello i konsekwencją odnajduje użytkownika hello dzierżawy, który jest z.  Hello/wspólnego punktu końcowego działa z wszystkimi hello protokoły obsługiwane przez usługę Azure AD: OpenID Connect, OAuth 2.0 SAML 2.0 i WS-Federation.
 
-Odpowiedź logowania do aplikacji, następnie zawiera token reprezentujący użytkownika.  Wartości wystawcy tokenu informuje aplikacji dzierżawy, jakie użytkownik jest z.  Gdy zwraca odpowiedź znajdujący punktu końcowego, wartości wystawcy tokenu odpowiada dzierżawy przez użytkownika.  Należy pamiętać, / Common jest punkt końcowy nie jest dzierżawcy i nie jest wystawcę, jest tylko multiplekser.  Używając/Common logikę w aplikacji do sprawdzania poprawności tokenów musi zostać zaktualizowany do to uwzględniać. 
+następnie aplikacja toohello logowania odpowiedzi Hello zawiera token reprezentujący hello użytkownika.  wartości wystawcy Hello w tokenie hello informuje aplikacji użytkownika hello dzierżawy jest z.  Gdy zwraca odpowiedź z hello/wspólnego punktu końcowego, wartości wystawcy hello w tokenie hello będzie odpowiadać toohello użytkownika dzierżawcy.  Jest ważne toonote hello/wspólnego punktu końcowego nie jest dzierżawcy i nie jest wystawcę, jest po prostu multiplekser.  Używając/Common hello logikę w aplikacji tokenów toovalidate musi tootake toobe zaktualizować to pod uwagę. 
 
-Jak wspomniano wcześniej, aplikacje wielodostępne powinny również zapewnia spójne środowisko logowania użytkowników w następującej aplikacji usługi Azure AD znakowania wytyczne. Kliknij poniższy przycisk, aby dowiedzieć się więcej o znakowaniu aplikacji.
+Jak wspomniano wcześniej, wielodostępnych aplikacji powinny również zapewnić spójne środowisko logowania dla użytkowników, następujące hello znakowania wytyczne aplikacji usługi Azure AD. Kliknij przycisk powitania po toolearn przycisk więcej na temat znakowania aplikacji.
 
 [! [Zaloguj przycisk] [AAD-logowania]][AAD-App-Branding]
 
-Spójrzmy na użycie / Common punktu końcowego i implementacji kodu bardziej szczegółowo.
+Spójrzmy na użycie hello/Common hello punktu końcowego i implementacji kodu bardziej szczegółowo.
 
-## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Zaktualizuj swój kod obsługi wielu wartości wystawcy
+## <a name="update-your-code-toohandle-multiple-issuer-values"></a>Aktualizacja Twojego toohandle kodu wielu wartości wystawcy
 Aplikacje sieci Web i interfejsów API sieci web odbierają i sprawdzania poprawności tokenów z usługi Azure AD.  
 
 > [!NOTE]
-> Aplikacje klienckie natywnego żądania i odbierać tokeny od usługi Azure AD, w tym celu ich wysłania do interfejsów API, w którym są weryfikowane.  Natywnych aplikacji nie sprawdzania poprawności tokenów i należy je traktować jako przezroczystości.
+> Aplikacje klienckie natywnego żądania i odbierać tokeny od usługi Azure AD, jak tak toosend ich tooAPIs, w którym są weryfikowane.  Natywnych aplikacji nie sprawdzania poprawności tokenów i należy je traktować jako przezroczystości.
 > 
 > 
 
@@ -77,106 +77,106 @@ Zobaczmy, w jaki sposób aplikacja weryfikuje tokeny odbiera z usługi Azure AD.
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
-i korzystać do utworzenia adresu URL metadanych (w tym przypadku OpenID Connect), takich jak:
+i przy jego użyciu tooconstruct adres URL metadanych (w tym przypadku OpenID Connect), takich jak:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
 
-Aby pobrać dwóch najistotniejsze informacje służące do sprawdzania poprawności tokenów: dzierżawcy podpisywania kluczy i wartości wystawcy.  Każda dzierżawa usługi Azure AD ma wartość unikatowy wystawcy formularza:
+toodownload dwa najistotniejsze informacje, które są używane toovalidate tokenów: hello dzierżawy podpisywania kluczy i wartości wystawcy.  Każdej dzierżawy usługi Azure AD ma wartość unikatowy wystawcy hello formularza:
 
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
 
-wartości identyfikatora GUID w przypadku zmiany nazwy bezpieczna wątkowo wersja identyfikatora dzierżawy dzierżawcy.  Po kliknięciu poprzedni element metadanych dla `contoso.onmicrosoft.com`, ta wartość wystawcy dokumentu.
+gdzie wartości identyfikatora GUID hello jest hello rename wersja identyfikator dzierżawcy hello hello dzierżawcy.  Po kliknięciu hello poprzedzających link metadanych dla `contoso.onmicrosoft.com`, ta wartość wystawcy dokumentu hello.
 
-Stosowanie pojedynczej dzierżawy weryfikuje token, sprawdza zgodność podpisu aplikacji tokenu przed klucze podpisywania dokumentu metadanych. Dzięki temu upewnij się, że wartości wystawcy tokenu jest zgodna ze strukturą, które odnaleziono w dokumencie metadanych.
+Gdy aplikacji pojedynczej dzierżawy weryfikuje token, sprawdza hello podpisu tokenu hello przed hello kluczy z dokumentu metadanych hello podpisywania. Dzięki temu toomake się, że wartości wystawcy hello w hello tokenu dopasowań hello jedną znalezionego w hello dokument metadanych.
 
-Ponieważ / Common punktu końcowego nie jest zgodny z dzierżawą usługi, który nie jest wystawcy należy zbadać wartości wystawcy metadanych dla / wspólnej składa się z szablonem adresu URL zamiast rzeczywista wartość:
+Od hello/wspólnego punktu końcowego nie odpowiada żadnemu tooa dzierżawy, a nie wystawcy należy zbadać wartości wystawcy hello w metadanych hello / wspólnej składa się z szablonem adresu URL zamiast rzeczywista wartość:
 
     https://sts.windows.net/{tenantid}/
 
-W związku z tym aplikacji wielodostępnych nie można sprawdzić poprawności tokenów porównując tylko wartości wystawcy w metadanych z `issuer` wartość w tokenie.  Aplikacji wielodostępnych logikę do określania wartości wystawcy, które są prawidłowe i mają, nie musi, część wartości wystawcy Identyfikatora dzierżawcy w oparciu.  
+W związku z tym aplikacji wielodostępnych nie można sprawdzić poprawności tokenów porównując tylko wartości wystawcy hello w metadanych hello z hello `issuer` wartość hello tokenu.  Aplikacji wielodostępnych musi toodecide logiki wartości wystawcy, które są prawidłowe i mają nie, oparte na powitania dzierżawy część Witaj wystawca wartość Identyfikatora.  
 
-Na przykład jeśli aplikacja wielodostępne zezwala tylko logowania z określonym dzierżawców, którzy utworzyli konto usługi, następnie powinien sprawdzić wartości wystawcy lub `tid` wartości w tokenie, aby się upewnić, że tej dzierżawy jest na liście abonentów oświadczenia.  Aplikacji wielodostępnych tylko dotyczy osób, nie decyzje żadnych dostępu oparte na dzierżaw następnie zignorowanie wartości wystawcy całkowicie.
+Na przykład jeśli aplikacja wielodostępne zezwala tylko logowania z określonym dzierżawców, którzy utworzyli konto usługi, następnie powinien sprawdzić wartości wystawcy hello lub hello `tid` wartości w hello tokenu toomake się tym dzierżawy znajduje się w ich lista oświadczenia Subskrybenci.  Aplikacji wielodostępnych tylko dotyczy osób, nie decyzje żadnych dostępu oparte na dzierżaw następnie zignorowanie wartości wystawcy hello całkowicie.
 
-W przykładach wielodostępne w [powiązane zawartości](#related-content) sekcji na końcu tego artykułu, sprawdzania poprawności wystawcy jest wyłączone, aby włączyć dowolnej dzierżawy usługi Azure AD do logowania.
+W hello wielodostępne próbek w hello [powiązane zawartości](#related-content) sekcja na końcu tego artykułu, sprawdzania poprawności wystawcy hello jest wyłączone tooenable żadnych toosign dzierżawy usługi Azure AD w.
 
-Teraz Przyjrzyjmy się czynności użytkownika dla użytkowników, którzy są logowanie do aplikacji z wieloma dzierżawcami.
+Teraz Przyjrzyjmy się hello czynności użytkownika dla użytkowników, którzy są podpisywania w aplikacjach toomulti dzierżawy.
 
 ## <a name="understanding-user-and-admin-consent"></a>Opis użytkowników i zgody administratora
-Aby użytkownik mógł zalogować się do aplikacji w usłudze Azure AD aplikacja musi być reprezentowana w dzierżawie użytkownika.  Dzięki temu wykonywanie czynności, takich jak zastosować unikatowych zasad podczas ich dzierżawy logowania do aplikacji w organizacji.  W przypadku aplikacji pojedynczej dzierżawy tej rejestracji jest proste; jest to jeden, która jest wywoływana podczas rejestrowania aplikacji w [portalu Azure][AZURE-portal].
+Dla toosign użytkownika w tooan aplikacji w usłudze Azure AD aplikacja hello musi być reprezentowana w dzierżawie powitalnych użytkownika.  Dzięki temu organizacji hello toodo rzeczy, jak zastosować unikatowych zasad podczas ich dzierżawy logowania toohello aplikacji.  W przypadku aplikacji pojedynczej dzierżawy tej rejestracji jest proste; ma ona hello jedną, która jest wywoływana podczas rejestrowania aplikacji hello w hello [portalu Azure][AZURE-portal].
 
-Dla wielodostępnych aplikacji początkowej rejestracji aplikacji znajduje się w dzierżawie usługi Azure AD używane przez dewelopera.  Po zalogowaniu użytkownika z innej dzierżawy do aplikacji po raz pierwszy, usługi Azure AD monituje użytkownika o zgodę uprawnień wymaganych przez aplikację.  Jeśli ich zgody, a następnie wywołuje reprezentację aplikacji *nazwy głównej usługi* jest tworzony w dzierżawie użytkownika i można kontynuować logowania. Delegowanie również jest tworzony w katalogu, który rejestruje zgody użytkownika do aplikacji. Zobacz [obiekty aplikacji i nazwy głównej usługi] [ AAD-App-SP-Objects] szczegółowe informacje na temat aplikacji aplikacji i ServicePrincipal obiektów i ich relacje między sobą.
+Dla aplikacji wielodostępnych hello rejestracji początkowej dla aplikacji hello przebywa w hello dzierżawy usługi Azure AD używane przez dewelopera hello.  Po zalogowaniu użytkownika z innej dzierżawy w aplikacji toohello powitania po raz pierwszy, usługi Azure AD prosi o aplikacja hello żąda uprawnienia toohello tooconsent.  Jeśli ich zgody, a następnie wywołać reprezentację aplikacji hello *nazwy głównej usługi* jest tworzony w hello użytkownika dzierżawcy i można kontynuować logowania. W katalogu hello, który rejestruje aplikacji toohello zgody użytkownika hello tworzona jest również delegowania. Zobacz [obiekty aplikacji i nazwy głównej usługi] [ AAD-App-SP-Objects] szczegółowe informacje na temat aplikacji hello aplikacji i ServicePrincipal obiektów i ich relacji tooeach innych.
 
-![Wyrażenia zgody na jednowarstwową aplikacji][Consent-Single-Tier] 
+![Zgody toosingle warstwy aplikacji][Consent-Single-Tier] 
 
-To środowisko zgody zależy od uprawnień wymaganych przez aplikację.  Usługi Azure AD obsługuje dwa rodzaje uprawnienia tylko do aplikacji i delegowani:
+To środowisko zgody zależy aplikacja hello żąda uprawnienia hello.  Usługi Azure AD obsługuje dwa rodzaje uprawnienia tylko do aplikacji i delegowani:
 
-* Delegowane uprawnienia przyznaje aplikacji, które może wykonywać możliwość działania jako zalogowanego użytkownika dla podzbioru czynności użytkownika.  Na przykład można udzielić aplikacji delegowane uprawnienia do odczytu kalendarza zalogowanego użytkownika.
-* Uprawnienia tylko do aplikacji otrzymuje bezpośrednio do odpowiedniej tożsamości aplikacji.  Na przykład można udzielić aplikacji uprawnienia tylko do aplikacji, można odczytać listy użytkowników w dzierżawie, niezależnie od tego, który jest zalogowany do aplikacji.
+* Delegowane uprawnienia przyznaje aplikacji hello możliwości tooact jak zalogowanego użytkownika dla podzbioru hello rzeczy hello użytkownika.  Na przykład można przyznać aplikacji hello delegowane uprawnienia tooread hello podpisany w kalendarzu użytkownika.
+* Uprawnienia tylko do aplikacji otrzymuje bezpośrednio toohello tożsamość aplikacji hello.  Na przykład można przyznać aplikacji hello uprawnienia tylko do aplikacji tooread hello listy użytkowników w dzierżawie, niezależnie od tego, który jest zalogowany toohello aplikacji.
 
-Niektóre uprawnienia można zgodę na przez zwykłego użytkownika, a inne wymagają zgody administratora dzierżawy. 
+Niektóre uprawnienia można przyzwolenie tooby zwykłego użytkownika, a inne wymagają zgody administratora dzierżawy. 
 
 ### <a name="admin-consent"></a>Zgody administratora
-Uprawnienia tylko do aplikacji zawsze Wymagaj zgody administratora dzierżawy.  Jeśli aplikacja żąda uprawnienia tylko do aplikacji, a użytkownik próbuje zalogować się do aplikacji, zostanie wyświetlony komunikat o błędzie informujący, że użytkownik nie jest w stanie zgody.
+Uprawnienia tylko do aplikacji zawsze Wymagaj zgody administratora dzierżawy.  Jeśli użytkownik próbuje toosign w aplikacji toohello aplikacji żąda uprawnienia tylko do aplikacji, zostanie wyświetlony komunikat o błędzie informujący, że użytkownik hello nie jest w stanie tooconsent.
 
-Niektóre delegowane uprawnienia również wymagać zgody administratora dzierżawy.  Na przykład możliwość zapisywania zwrotnego z usługą Azure AD jako zalogowany użytkownik wymaga zgody administratora dzierżawy.  Jak uprawnienia tylko do aplikacji Jeśli zwykłej użytkownik próbuje zalogować się do aplikacji, która żąda uprawnień delegowanych, które wymaga zgody administratora aplikacji spowoduje wystąpienie błędu.  Określa, czy uprawnienia wymaga zgody administratora, jest określana przez deweloperów, która wydała zasobu i można znaleźć w dokumentacji dla zasobu.  Łącza do tematów opisujących uprawnienia dostępne dla interfejsu API usługi Azure AD Graph i interfejsu API Graph usługi Microsoft są w [powiązane zawartości](#related-content) sekcji tego artykułu.
+Niektóre delegowane uprawnienia również wymagać zgody administratora dzierżawy.  Na przykład hello możliwości toowrite wstecz tooAzure AD jako zalogowany użytkownik hello wymaga zgody administratora dzierżawy.  Podobnie jak uprawnienia tylko do aplikacji Jeśli zwykłego użytkownika spróbuje toosign w aplikacji tooan, który żąda uprawnień delegowanych, które wymaga zgody administratora aplikacji spowoduje wystąpienie błędu.  Określa, czy uprawnienia wymaga zgody administratora jest określany przez dewelopera hello, która wydała hello zasobów i można znaleźć w dokumentacji hello hello zasobu.  Łączy tootopics opisujące dostępne uprawnienia hello hello interfejsu API usługi Azure AD Graph i interfejsu API Graph usługi Microsoft są w hello [powiązane zawartości](#related-content) sekcji tego artykułu.
 
-Jeśli aplikacja używa uprawnienia, które wymagają zgody administratora, należy mieć gestu, takich jak przycisk lub łącze którym administrator może zainicjować akcji.  Żądanie aplikacji wysyła ta akcja jest zwykle żądania autoryzacji OAuth2/OpenID Connect, lecz który obejmuje również `prompt=admin_consent` parametr ciągu zapytania.  Po zgodził administratora i nazwy głównej usługi jest tworzony w dzierżawie klienta, nie ma potrzeby kolejnych żądań logowania `prompt=admin_consent` parametru. Ponieważ administrator zdecydował się, że żądane uprawnienia są dopuszczalne, nie innych użytkowników w dzierżawie pojawi się monit o zgodę od tej pory.
+Jeśli aplikacja używa uprawnienia, które wymagają zgody administratora, należy toohave gestu, takich jak przycisk lub łącza, gdzie Witaj, Administratorze mogą inicjować hello akcji.  Żądanie hello aplikacji wysyła ta akcja jest zwykle żądania autoryzacji OAuth2/OpenID Connect, lecz zawiera również hello `prompt=admin_consent` parametr ciągu zapytania.  Po zgodził Witaj, Administratorze i nazwy głównej usługi hello jest tworzony w dzierżawie powitania klienta, kolejne żądania logowania nie ma potrzeby hello `prompt=admin_consent` parametru. Ponieważ hello administrator decyzję hello zażądał uprawnienia są dopuszczalne, nie innych użytkowników w dzierżawie powitalnych pojawi się monit o zgodę od tej pory.
 
-`prompt=admin_consent` Parametru można również przez aplikacje, które zażądać uprawnień, które nie wymagają zgody administratora. Można to zrobić w przypadku aplikacji wymaga środowisko, w którym dzierżawy admin "zarejestrowaniu" czasie, a nie innych użytkowników monit o wyrażenie zgody od tego momentu na.
+Witaj `prompt=admin_consent` parametru można również przez aplikacje, które zażądać uprawnień, które nie wymagają zgody administratora. Odbywa się po aplikacji hello wymaga obsługi gdzie Witaj, Administratorze dzierżawy "zarejestrowaniu" co w czasie, a nie inne użytkownicy otrzymają monit o zgodę od tego momentu na.
 
-Jeśli aplikacja wymaga zgody administratora, a administrator loguje ale `prompt=admin_consent` parametru nie są wysyłane, pomyślnie zgody administratora aplikacji **tylko dla swojego konta użytkownika**.  Regularne użytkownicy nadal nie będą mogli logować się i wyrażenia zgody na aplikację.  Jest to przydatne, jeśli chcesz nadać możliwość Eksploruj aplikacji przed zezwoleniem na innym użytkownikom dostęp administratora dzierżawy.
+Jeśli aplikacja wymaga zgody administratora, a administrator zaloguje się do jednak hello `prompt=admin_consent` parametru nie są wysyłane, Witaj, Administratorze pomyślnie zgody aplikacji toohello **tylko dla swojego konta użytkownika**.  Regularne użytkownicy nie będą nadal mogli toosign w i zgody toohello aplikacji.  Jest to przydatne, jeśli ma być toogive hello dzierżawy administratora hello możliwości tooexplore aplikację przed umożliwieniem dostępu do innych użytkowników.
 
-Administrator dzierżawy może wyłączyć przez regularne użytkownikom wyrazić zgodę na aplikacje.  Jeśli ta funkcja jest wyłączona, zgody administratora jest zawsze wymagane dla aplikacji można skonfigurować w dzierżawie.  Jeśli chcesz przetestować aplikację za zgodą użytkownika regularne wyłączone, można znaleźć przełącznik konfiguracji w dzierżawie usługi Azure AD sekcji konfiguracji [portalu Azure][AZURE-portal].
+Administrator dzierżawy można wyłączyć możliwość hello tooapplications tooconsent normalnych użytkowników.  Ta funkcja jest wyłączona, zgody administratora jest zawsze wymagane do konfigurowania w dzierżawie powitalnych toobe aplikacji hello.  Chcąc tootest aplikacji przy użyciu zwykłego użytkownika zgody wyłączone, można znaleźć hello przełącznik konfiguracji w dzierżawie powitalnych usługi Azure AD sekcji konfiguracji hello [portalu Azure][AZURE-portal].
 
 > [!NOTE]
-> Niektóre aplikacje mają środowisko, w którym regularne użytkownicy będą mogli początkowo zgody, a później aplikacja może obejmować uprawnienia administratora i żądania, które wymagają zgody administratora.  Nie istnieje sposób w tym celu z rejestracją pojedynczej aplikacji w usłudze Azure AD dzisiaj.  Nadchodzące punktu końcowego w wersji 2 usługi Azure AD umożliwia aplikacji, aby zażądać uprawnień w czasie wykonywania, zamiast w czasie rejestracji spowoduje włączenie tego scenariusza.  Aby uzyskać więcej informacji, zobacz [przewodnik dewelopera usługi Azure AD App Model v2][AAD-V2-Dev-Guide].
+> Niektóre aplikacje mają środowisko, w którym normalnych użytkowników są początkowo stanie tooconsent i nowszych aplikacji hello może obejmować hello administratora oraz zażądać uprawnień, które wymagają zgody administratora.  Brak nie toodo sposób to rejestracji pojedynczej aplikacji w usłudze Azure AD dzisiaj.  punkt końcowy v2 Hello nadchodzących usługi Azure AD umożliwi aplikacji toorequest uprawnienia w czasie wykonywania, zamiast w czasie rejestracji spowoduje włączenie tego scenariusza.  Aby uzyskać więcej informacji, zobacz hello [przewodnik dewelopera usługi Azure AD App Model v2][AAD-V2-Dev-Guide].
 > 
 > 
 
 ### <a name="consent-and-multi-tier-applications"></a>Aplikacje wielowarstwowe i zgody
-Aplikacja może mieć wielu warstw, każdy reprezentowany przez jego własnej rejestracji w usłudze Azure AD.  Na przykład natywnych aplikacji, która wywołuje interfejs API sieci web lub aplikacji sieci web która wywołuje interfejs API sieci web.  W obu przypadkach klient (aplikacji sieci web lub aplikacji natywnej) żąda uprawnień do wywoływania zasobów (interfejs API sieci web).  Klient pomyślnie można zgodę na klienta dzierżawy wszystkie zasoby, do których żąda uprawnień musi już istnieć w dzierżawy przez klienta.  Jeśli ten warunek nie jest spełniony, usługi Azure AD zwróci błąd czy zasobu należy najpierw dodać.
+Aplikacja może mieć wielu warstw, każdy reprezentowany przez jego własnej rejestracji w usłudze Azure AD.  Na przykład natywnych aplikacji, która wywołuje interfejs API sieci web lub aplikacji sieci web która wywołuje interfejs API sieci web.  W obu przypadkach powitania klienta (aplikacji sieci web lub aplikacji natywnej) żąda uprawnienia toocall hello zasobów (interfejs API sieci web).  Dla powitania klienta toobe pomyślnie zgodę na klienta dzierżawy, wszystkie toowhich zasobów wymaga uprawnień musi już istnieć w dzierżawie powitania klienta.  Jeśli ten warunek nie jest spełniony, usługi Azure AD będzie zwracać najpierw należy dodać błędu hello zasobów.
 
 **Konfiguracja wielu warstw w pojedynczej dzierżawy**
 
-Może to być problem, jeśli aplikacja logicznej składa się z dwóch lub więcej rejestracji aplikacji, na przykład oddzielnych klienta i zasobów.  Jak można uzyskać zasobu do dzierżawy klienta pierwszy?  Usługi Azure AD obejmuje przypadek przez włączenie klienta i zasobów być zgodę w jednym kroku. Użytkownik widzi łączną sumę uprawnień żądany przez klienta i zasobów na stronie zgody.  Aby włączyć to zachowanie, Rejestracja aplikacji zasobu musi zawierać identyfikator aplikacji klienta jako `knownClientApplications` w manifeście aplikacji.  Na przykład:
+Może to być problem, jeśli aplikacja logicznej składa się z dwóch lub więcej rejestracji aplikacji, na przykład oddzielnych klienta i zasobów.  Jak można uzyskać zasobu hello na powitania klienta dzierżawy pierwszy?  Usługi Azure AD obejmuje przypadek przez włączenie klienta i toobe zasobów zgodę w jednym kroku. Witaj, użytkownik widzi łączną sumę hello hello uprawnień wymaganych przez powitania klienta i zasobów na stronie zgoda hello.  tooenable to zachowanie rejestracji aplikacji hello zasobów musi zawierać identyfikator aplikacji hello klienta jako `knownClientApplications` w manifeście aplikacji.  Na przykład:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
-Ta właściwość może być aktualizowana przez zasób [manifest aplikacji][AAD-App-Manifest]. To jest przedstawiona w klientami wielowarstwowych wywoływanie przykładowy interfejs API sieci web w [powiązane zawartości](#related-content) sekcji na końcu tego artykułu. Na poniższym diagramie przedstawiono omówienie zgody dla aplikacji wielowarstwowych zarejestrowane w pojedynczej dzierżawy:
+Ta właściwość może zostać zaktualizowana przy użyciu zasobów hello [manifest aplikacji][AAD-App-Manifest]. To jest przedstawiona w klientami wielowarstwowych wywołanie interfejsu API sieci web przykładowej hello [powiązane zawartości](#related-content) sekcji na końcu hello w tym artykule. Witaj następujący diagram zawiera omówienie zgody dla aplikacji wielowarstwowych zarejestrowane w pojedynczej dzierżawy:
 
-![Wyrażenia zgody na aplikację wielowarstwową znane klienta][Consent-Multi-Tier-Known-Client] 
+![Wyrazić zgodę, aplikacja kliencka znane toomulti warstwy][Consent-Multi-Tier-Known-Client] 
 
 **Konfiguracja wielu warstw w wielu dzierżawców**
 
-Podobne przypadku się stanie w przypadku różnych warstw aplikacji są rejestrowane w różnym dzierżawcom.  Rozważmy na przykład w przypadku tworzenia aplikacji klientami, która wywołuje interfejs API z Online Exchange Office 365.  Aby opracować natywnego aplikacji, a później do natywnej aplikacji do uruchamiania w dzierżawie klienta, główną usługi Exchange Online musi być obecny.  W takim przypadku deweloperów i klient musi zakupić usługi Exchange Online dla podmiotu zabezpieczeń mogą być tworzone w swoich dzierżaw usługi.  
+Podobne przypadku się stanie w przypadku różnych warstw hello aplikacji są rejestrowane w różnym dzierżawcom.  Na przykład rozważmy hello tworzenia aplikacji klientami, która wywołuje hello interfejsu API Office 365 Exchange Online.  natywny hello toodevelop aplikacji i nowszy toorun natywnych aplikacji hello w dzierżawie klienta, nazwy głównej usługi Exchange Online hello musi być obecny.  W takim przypadku hello deweloperów i klient musi zakupić usługi Exchange Online dla toobe główna usługi hello utworzone w swoich dzierżaw.  
 
-W przypadku interfejsu API utworzony przez organizację innych niż Microsoft developer interfejsu API musi umożliwiają klientom zgody aplikacji do ich klientom dzierżaw. Zalecany projekt jest 3 developer strony do tworzenia interfejsu API w taki sposób, aby również może działać jako klient sieci web do implementowania rejestracji:
+W przypadku hello interfejs API utworzony przez organizację innych niż Microsoft Projektant hello hello interfejsu API musi tooprovide sposób ich stosowania hello tooconsent klientów do ich klientom dzierżaw. Witaj zalecane projektu jest dla hello 3 strona developer toobuild hello interfejsu API w taki sposób, że można działa również jako tooimplement klienta sieci web rejestracji:
 
-1. Postępuj zgodnie z wcześniejszych sekcjach, aby upewnić się, że interfejs API zaimplementowano wymagania rejestracji/kod wielodostępnych aplikacji
-2. Oprócz udostępnianie role/zakresy interfejsie API, upewnij się, zawiera rejestracji "Zaloguj się i odczytuj profil użytkownika" uprawnienia usługi Azure AD (domyślnie dostępne)
-3. Implementuje stronę logowania — w/tworzenia konta w kliencie sieci web po [zgody administratora](#admin-consent) wskazówki wymienione powyżej 
-4. Po wyrażeniu zgody przez użytkownika do aplikacji, linki delegowania podmiot zabezpieczeń i zgody usługi są tworzone w swojej dzierżawy, a aplikacji natywnej mogą uzyskiwać tokeny dla interfejsu API
+1. Wykonaj hello wcześniejszych sekcjach hello tooensure interfejsu API zaimplementowano wymagania dotyczące rejestracji/kod wielodostępnych aplikacji hello
+2. Ponadto role/zakresy hello tooexposing interfejsu API, upewnij się, hello rejestracji zawiera hello "Zaloguj się i odczytuj profil użytkownika" uprawnienia usługi Azure AD (domyślnie dostępne)
+3. Implementuje stronę logowania — w/tworzenia konta w powitania klienta sieci web, po hello [zgody administratora](#admin-consent) wskazówki wymienione powyżej 
+4. Po hello użytkownik zgadza toohello aplikacji, hello service principal role i zgody delegowania łącza są tworzone w swojej dzierżawy, a natywnych aplikacji hello może uzyskać tokenów dla hello interfejsu API
 
-Na poniższym diagramie przedstawiono omówienie zgody dla aplikacji wielowarstwowych zarejestrowane w różnych dzierżawców:
+powitania po diagram zawiera omówienie zgody dla aplikacji wielowarstwowych zarejestrowane w różnych dzierżawców:
 
-![Wyrażenia zgody na wieloosobowa aplikację wielowarstwową][Consent-Multi-Tier-Multi-Party] 
+![Zgody warstwy toomulti wieloosobowa aplikacji][Consent-Multi-Tier-Multi-Party] 
 
 ### <a name="revoking-consent"></a>Cofnięcie zgody
-Użytkownicy i Administratorzy mogą wycofać zgodę do aplikacji w dowolnym momencie:
+Użytkownicy i Administratorzy można odwołać zgody tooyour aplikacji w dowolnym momencie:
 
-* Użytkownicy odwołać dostęp do poszczególnych aplikacji, usuwając je z ich [aplikacji panelu dostępu] [ AAD-Access-Panel] listy.
-* Administratorzy odwołać dostęp do aplikacji, usuwając je z usługą Azure AD, korzystając z sekcji zarządzania usługi Azure AD [portalu Azure][AZURE-portal].
+* Użytkownicy odwołać dostępu tooindividual aplikacji, usuwając je z ich [aplikacji panelu dostępu] [ AAD-Access-Panel] listy.
+* Administratorzy odwołać dostępu tooapplications, usuwając je z usługi Azure AD przy użyciu sekcji zarządzania hello Azure AD hello [portalu Azure][AZURE-portal].
 
-Jeśli administrator zgadza się na aplikacji dla wszystkich użytkowników w dzierżawie, użytkownicy nie mogą indywidualnie odwołać dostęp.  Tylko administrator może odwołać dostęp i tylko dla całej aplikacji.
+Jeśli administrator wyrazi na to zgody tooan aplikacji dla wszystkich użytkowników w dzierżawie, użytkownicy nie mogą indywidualnie odwołać dostęp.  Tylko hello administrator można odwołać dostęp i tylko dla całej aplikacji hello.
 
 ### <a name="consent-and-protocol-support"></a>Obsługa protokołu i zgodę
-Zgoda jest obsługiwana w usłudze Azure AD za pomocą uwierzytelniania OAuth, OpenID Connect, WS-Federation oraz SAML protokołów.  Nie obsługują protokoły SAML i WS-Federation `prompt=admin_consent` parametru, więc zgody administratora tylko jest to możliwe za pośrednictwem protokołu OAuth i OpenID Connect.
+Zgoda jest obsługiwana w usłudze Azure AD za pomocą protokołu OpenID Connect, hello OAuth, WS-Federation oraz SAML protokołów.  Witaj protokołów języka SAML i WS-Federation nie obsługują hello `prompt=admin_consent` parametru, więc zgody administratora tylko jest to możliwe za pośrednictwem protokołu OAuth i OpenID Connect.
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Aplikacje wielodostępne i buforowanie tokeny dostępu
-Aplikacje wielodostępne można również uzyskać tokenów dostępu do wywoływania interfejsów API, które są chronione przez usługę Azure AD.  Typowym błędem podczas przy użyciu biblioteki uwierzytelniania usługi Active Directory (ADAL) z aplikacją wielodostępne jest początkowo uzyskać token dla użytkownika za pomocą/Common, otrzymują odpowiedź, a następnie żądania tokenu kolejnych dla tego samego użytkownika również przy użyciu/Common.  Ponieważ odpowiedzi z usługi Azure AD nie pochodzi od dzierżawcy, / wspólne, ADAL buforuje token jako od dzierżawcy. Wpis pamięci podręcznej chybień kolejne wywołanie/Common do uzyskania tokenu dostępu dla użytkownika, a użytkownik jest monitowany o Zaloguj się ponownie.  Aby uniknąć, Brak pamięci podręcznej, upewnij się, że wezwań do już zalogowanego użytkownika zostały wprowadzone do punktu końcowego dzierżawcy.
+Aplikacje wielodostępne można również uzyskać toocall tokenów dostępu do interfejsów API, które są chronione przez usługę Azure AD.  Typowym błędem podczas korzystania z aplikacją wielodostępne hello Active Directory Authentication Library (ADAL) jest żądaniem tooinitially token dla użytkownika za pomocą/Common, otrzymują odpowiedź, a następnie żądania tokenu kolejnych dla tego samego użytkownika również przy użyciu/Common.  Ponieważ hello odpowiedzi z usługi Azure AD pochodzi od dzierżawcy, nie/wspólne, ADAL buforuje hello token jako pochodzącej z hello dzierżawy. Hello kolejne wywołania tooget zbyt/wspólnego, jest token dostępu dla wpisu pamięci podręcznej hello hello użytkownika Chybienia i hello użytkownika zostanie wyświetlony monit o toosign w ponownie.  tooavoid Brak pamięci podręcznej hello, upewnij się, że wezwań do już zalogowanego użytkownika są wykonywane punktu końcowego toohello dzierżawcy.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogować użytkownika z dowolnej dzierżawy usługi Azure Active Directory. Po włączeniu rejestracji jednokrotnej między aplikacji i usługi Azure Active Directory, należy zaktualizować aplikacji dostępu do interfejsów API udostępnianych przez zasoby firmy Microsoft, takich jak usługi Office 365. Dlatego możesz zaoferować spersonalizowane środowisko w aplikacji, na przykład przedstawiający informacje kontekstowe użytkownikom, jak ich obraz profilu lub ich dalej terminu kalendarza. Aby dowiedzieć się więcej o wywołaniach interfejsu API usługi Azure Active Directory i usługi Office 365, takie jak Exchange, SharePoint, OneDrive, OneNote, planowania, Excel i więcej, odwiedź stronę: [interfejsu API programu Microsoft Graph][MSFT-Graph-overview].
+W tym artykule należy przedstawiono sposób toobuild aplikacji, która może zalogować użytkownika z dowolnej dzierżawy usługi Azure Active Directory. Po włączeniu rejestracji jednokrotnej między aplikacji i usługi Azure Active Directory, należy zaktualizować Twojej aplikacji tooaccess interfejsach API udostępnianych przez zasoby firmy Microsoft, takich jak usługi Office 365. Dlatego możesz zaoferować spersonalizowane środowisko w aplikacji, na przykład przedstawiający informacje kontekstowe toohello użytkowników, takich jak ich obraz profilu lub ich dalej terminu kalendarza. toolearn więcej informacji na temat tworzenia interfejsu API wywołuje tooAzure usługi Active Directory i usługi Office 365, takich jak program Exchange, SharePoint, OneDrive, OneNote, planowania, Excel i więcej, odwiedź stronę: [interfejsu API programu Microsoft Graph][MSFT-Graph-overview].
 
 
 ## <a name="related-content"></a>Zawartość pokrewna
@@ -185,11 +185,11 @@ W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogowa�
 * [Przewodnik dewelopera usługi Azure AD][AAD-Dev-Guide]
 * [Obiekty aplikacji i nazwy głównej usługi][AAD-App-SP-Objects]
 * [Integrowanie aplikacji z usługą Azure Active Directory][AAD-Integrating-Apps]
-* [Omówienie struktury zgody][AAD-Consent-Overview]
+* [Omówienie hello zgody Framework][AAD-Consent-Overview]
 * [Zakresy uprawnień Microsoft Graph API][MSFT-Graph-permision-scopes]
 * [Zakresy uprawnień usługi Azure AD Graph API][AAD-Graph-Perm-Scopes]
 
-Aby przekazać opinie i pomóc nam dostosować i kształtu zawartość, użyj następujących sekcji komentarzy.
+Użyj powitania po opinii tooprovide sekcji komentarzy i pomóc nam dostosować i kształtu zawartość.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

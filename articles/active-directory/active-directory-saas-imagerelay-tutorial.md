@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z obrazu przekazywania | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i przekazywania obrazu."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i przekazywania obrazu."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,113 +13,113 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 0bfbbaee7a74df6508584b7c8846fd07c2dc15c9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: baf39e4437b85c2de5b524984ad5ca39badbab63
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Samouczek: Integracji Azure Active Directory z przekaźnika obrazu
 
-Z tego samouczka dowiesz integrowanie przekazywania obrazu z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate przekazywania obrazu w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie przekazywania obrazu z usługą Azure AD zapewnia następujące korzyści:
+Integrowanie przekazywania obrazu z usługą Azure AD zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do przekazywania obrazu
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do przekazywania obrazu (logowanie jednokrotne) z konta usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp tooImage przekazywania
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooImage przekazywania (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z obrazu przekazywania, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z przekaźnika obrazu należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Obraz przekazywania logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie obrazu przekazywania z galerii
+1. Dodawanie obrazu przekazywania z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-image-relay-from-the-gallery"></a>Dodawanie obrazu przekazywania z galerii
-Aby skonfigurować integrację usługi Azure AD przekazywania obrazu, należy dodać przekazywania obraz w galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-image-relay-from-hello-gallery"></a>Dodawanie obrazu przekazywania z galerii hello
+tooconfigure hello integrację przekaźnika obrazu usługi Azure AD, należy tooadd przekazywania obrazu z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać przekazywania obraz w galerii, wykonaj następujące czynności:**
+**tooadd przekazywania obrazu z galerii hello wykonaj hello następujące kroki:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **przekazywania obrazu**.
+4. W polu wyszukiwania hello wpisz **przekazywania obrazu**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_search.png)
 
-5. W panelu wyników wybierz **przekazywania obrazu**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello, wybierz **przekazywania obrazu**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z przekaźnika obraz w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w przekazywania obrazu jest dla użytkownika, w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w przekazywania obrazu.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w przekazywania obrazu jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w przekazywania obrazu musi toobe ustanowione.
 
-W przekazywania obrazu, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W przekazywania obrazu, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Do konfigurowania i testowania usługi Azure AD rejestracji jednokrotnej z przekaźnika obrazu, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z przekaźnika obrazu, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego przekazywania obrazu](#creating-an-image-relay-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Relay obrazu jest połączony z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego przekazywania obrazu](#creating-an-image-relay-test-user)**  -toohave odpowiednikiem Simona Britta w przekazywania obrazu, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji przekaźnika obrazu.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji przekaźnika obrazu.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z obrazu przekazywania, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z obrazu przekazywania, wykonaj hello następujące kroki:**
 
-1. W portalu Azure na **przekazywania obrazu** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **przekazywania obrazu** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_samlbase.png)
 
-3. Na **obrazu przekazywania domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **obrazu przekazywania domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.imagerelay.com/`
+    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<companyname>.imagerelay.com/`
 
-    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.imagerelay.com/sso/metadata`
+    b. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<companyname>.imagerelay.com/sso/metadata`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta przekazywania obrazu](http://support.imagerelay.com/) uzyskać te wartości. 
+    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty adres URL logowania i identyfikator. Skontaktuj się z [zespołem pomocy technicznej klienta przekazywania obrazu](http://support.imagerelay.com/) tooget tych wartości. 
  
 
 
-4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_certificate.png) 
 
@@ -127,13 +127,13 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_general_400.png)
 
-6. Na **Konfiguracja przekazywania obrazu** , kliknij przycisk **Konfigurowanie przekazywania obrazu** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL usługi i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na powitania **Konfiguracja przekazywania obrazu** kliknij **Konfigurowanie przekazywania obrazu** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adres URL usługi i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_configure.png) 
 
-7. W innym oknie przeglądarki należy zalogować się jako administrator do witryny firmy przekazywania obrazu.
+7. W innym oknie przeglądarki Zaloguj się w witrynie firmy przekazywania obrazu tooyour jako administrator.
 
-8. Na pasku narzędzi u góry kliknij **użytkowników i uprawnienia** obciążenia.
+8. Witaj pasku narzędzi u góry hello, kliknij przycisk hello **użytkowników i uprawnienia** obciążenia.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
@@ -141,118 +141,118 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_08.png)
 
-10. W **pojedynczy znak na ustawienia** obciążenie, wybierz opcję **tej grupie można tylko logowania za pomocą rejestracji jednokrotnej** pole wyboru, a następnie kliknij przycisk **zapisać**.
+10. W hello **pojedynczy znak na ustawienia** obciążenie, wybierz hello **tej grupie można tylko logowania za pomocą rejestracji jednokrotnej** pole wyboru, a następnie kliknij przycisk **zapisać**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
-11. Przejdź do **ustawienia konta**.
+11. Przejdź za**ustawienia konta**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
-12. Przejdź do **pojedynczy znak na ustawienia** obciążenia.
+12. Przejdź toohello **pojedynczy znak na ustawienia** obciążenia.
     
      ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)
 
-13. Na **ustawienia SAML** okna dialogowego, wykonaj następujące czynności:
+13. Na powitania **ustawienia SAML** okna dialogowego, wykonaj następujące kroki hello:
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
     
-    a. W **adres URL logowania** pole tekstowe, Wklej wartość **pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
+    a. W **adres URL logowania** pole tekstowe, Wklej wartość hello **pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
 
-    b. W **adresu URL wylogowania** pole tekstowe, Wklej wartość **pojedynczy adres URL usługi Sign-Out** którego została skopiowana z portalu Azure.
+    b. W **adresu URL wylogowania** pole tekstowe, Wklej wartość hello **pojedynczy adres URL usługi Sign-Out** którego została skopiowana z portalu Azure.
 
     c. Jako **Format identyfikatora nazwy**, wybierz pozycję **urn: oasis: nazwy: tc: SAML:1.1:nameid-format: emailAddress**.
 
-    d. Jako **powiązanie opcje żądania od dostawcy usług (obraz przekazywania)**, wybierz pozycję **powiązanie POST**.
+    d. Jako **powiązanie opcje dla żądań z hello dostawcy usług (obraz przekazywania)**, wybierz pozycję **powiązanie POST**.
 
     e. W obszarze **certyfikatu x.509**, kliknij przycisk **certyfikatu aktualizacji**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)
 
-    f. Otwórz w Notatniku pobranego certyfikatu, skopiuj zawartość, a następnie wklej go w polu tekstowym certyfikatu x.509.
+    f. Otwórz w Notatniku hello pobrany certyfikat, skopiuj zawartość hello i wklej go w pole tekstowe certyfikatu x.509 hello.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)
 
-    g. W **Inicjowanie obsługi użytkowników just in Time** zaznacz **włączyć just in Time Inicjowanie obsługi użytkowników**.
+    g. W **Inicjowanie obsługi użytkowników just in Time** sekcji, wybierz hello **włączyć just in Time Inicjowanie obsługi użytkowników**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)
 
-    h. Wybierz grupę uprawnienia (na przykład **logowania jednokrotnego podstawowe**) który jest zezwolenia na logowanie tylko za pośrednictwem rejestracji jednokrotnej.
+    h. Grupy uprawnień wybierz hello (na przykład **logowania jednokrotnego podstawowe**) co jest dozwolone toosign w tylko za pośrednictwem rejestracji jednokrotnej.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-an-image-relay-test-user"></a>Tworzenie użytkownika testowego przekazywania obrazu
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w przekazywania obrazu.
+Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w przekazywania obrazu.
 
-**Aby utworzyć użytkownika o nazwie Simona Britta w przekazywania obrazu, wykonaj następujące czynności:**
+**toocreate użytkownika o nazwie Simona Britta w przekazywania obrazu, należy wykonać hello następujące kroki:**
 
-1. Logowanie do przekazywania obrazu witryny firmy jako administrator.
+1. Logowania jednokrotnego tooyour przekazywania obrazu witryny firmy jako administrator.
 
-2. Przejdź do **użytkowników i uprawnienia** i wybierz **Tworzenie użytkownika logowania jednokrotnego**.
+2. Przejdź za**użytkowników i uprawnienia** i wybierz **Tworzenie użytkownika logowania jednokrotnego**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
-3. Wprowadź **E-mail**, **imię**, **nazwisko**, i **firmy** użytkownika chcesz udostępnić, a następnie wybierz grupę uprawnień, (na przykład logowania jednokrotnego podstawowe) jest grupa, który można zalogować się tylko za pośrednictwem rejestracji jednokrotnej.
+3. Wprowadź hello **E-mail**, **imię**, **nazwisko**, i **firmy** hello użytkownika ma tooprovision i wybierz hello uprawnień grupy (na przykład logowania jednokrotnego podstawowe) czyli hello grupę, której można zalogować się tylko za pośrednictwem rejestracji jednokrotnej.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_22.png) 
 
 4. Kliknij przycisk **Utwórz**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do obrazu przekaźnika.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooImage przekazywania.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta do przekazywania obraz, wykonaj następujące czynności:**
+**tooassign tooImage Simona Britta przekazywania, wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **przekazywania obrazu**.
+2. Z listy aplikacji hello wybierz **przekazywania obrazu**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -260,7 +260,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -268,14 +268,14 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.    
+Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.    
 
-Po kliknięciu kafelka przekazywania obrazu w panelu dostępu należy należy pobrać automatycznie zalogowane do aplikacji przekaźnika obrazu.
+Po kliknięciu kafelka przekazywania obraz powitania w hello panelu dostępu, należy pobrać automatycznie zalogowane tooyour obrazu przekazywania aplikacji.
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Wyświetlanie raportów dostępu i użycia | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak wyświetlanie raportów dostępu i użycia, aby uzyskać wgląd w integralności i bezpieczeństwa katalogu organizacji."
+title: "aaaView raportów dotyczących dostępu i użycia | Dokumentacja firmy Microsoft"
+description: "W tym artykule wyjaśniono, jak tooview dostępu i użycia raporty toogain wgląd w hello integralności i bezpieczeństwa w katalogu organizacji."
 services: active-directory
 documentationcenter: 
 author: dhanyahk
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-ms.openlocfilehash: 038ac79ebf61c6429fbf7ca21eefe9414bcfc03a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1c18fd2a327ae8b67f62ce2754f643bdb03514a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-your-access-and-usage-reports"></a>Wyświetlanie raportów dostępu i użycia
-*Ta dokumentacja jest częścią [Przewodnika po raportach usługi Azure Active Directory](active-directory-reporting-guide.md).*
+*Niniejsza dokumentacja jest częścią hello [Azure Active Directory Przewodnik po raportach](active-directory-reporting-guide.md).*
 
-Dostęp do usługi Azure Active Directory i raporty użycia umożliwia wgląd we integralności i bezpieczeństwa katalogu organizacji. Dzięki tym informacjom administratora katalogu można lepiej określić, gdzie może znajdować się możliwe zagrożenia bezpieczeństwa, tak aby ich odpowiednio zaplanować ich eliminowania.
+Umożliwia dostęp do usługi Azure Active Directory i użycia raporty toogain widoczność hello integralności i bezpieczeństwa w katalogu organizacji. Dzięki tym informacjom administratora katalogu można lepiej określić, gdzie może znajdować się możliwe zagrożenia bezpieczeństwa, tak aby ich odpowiednio zaplanować toomitigate te zagrożenia.
 
-W portalu zarządzania Azure raporty są podzielone na następujące sposoby:
+W portalu zarządzania Azure hello raporty są podzielone na powitania następujące sposoby:
 
-* Raporty anomalii — zawiera logowania zdarzenia znajdujące się nietypowych. Naszym celem jest uświadomić możesz takiego działania i umożliwiają mieć możliwość określenia, czy jest podejrzane zdarzenia.
+* Raporty anomalii — zawiera rejestrowanie zdarzeń czy znaleziono toobe nietypowych. Naszym celem jest toomake należy pamiętać o tych działań oraz pozwalające użytkownikowi toobe toomake możliwe określenie, czy jest podejrzane zdarzenia.
 * Zintegrowane raportów programu Application — zapewnia wgląd w sposób aplikacji w chmurze są używane w organizacji. Usługa Azure Active Directory oferuje integrację z tysiącami aplikacji w chmurze.
-* Raporty o błędach — Wskazuj błędy, które mogą wystąpić podczas inicjowania obsługi administracyjnej kont do aplikacji zewnętrznych.
+* Raporty o błędach — Wskazuj błędy, które mogą wystąpić podczas inicjowania obsługi administracyjnej kont tooexternal aplikacji.
 * Raporty dotyczące użytkownika — ekranu urządzenia/logowania dane o aktywności dla określonego użytkownika.
-* Dzienniki aktywności — zawiera rekord wszystkich zdarzeń inspekcji w ostatnich 24 godzinach, ostatnich 7 dni lub ostatnich 30 dni, a także grupy działania zmiany i działanie resetowania i rejestracji hasła.
+* Dzienniki aktywności — zawiera rekord wszystkich zdarzeń inspekcji w ramach hello ostatnie 24 godziny, ostatnich 7 dni, lub ostatnich 30 dni, a także działania zmiany w grupie i działanie resetowania i rejestracji hasła.
 
 > [!NOTE]
-> * Niektóre zaawansowane raporty użycia anomalii i zasoby są dostępne tylko po włączeniu [Azure Active Directory Premium](active-directory-get-started-premium.md). Zaawansowane raporty ułatwiające poprawić zabezpieczenia dostępu, odpowiadanie na potencjalne zagrożenia i uzyskać dostęp do analityka na użycie urządzeń dostępu i aplikacji.
-> * Klienci w Chinach mogą używać wersji Premium i Podstawowa usługi Azure Active Directory za pomocą wystąpienia usługi Azure Active Directory dostępnego na całym świecie. Wersje Premium i Podstawowa usługi Azure Active Directory nie są obecnie obsługiwane w usłudze Microsoft Azure świadczonej przez 21Vianet w Chinach. Aby uzyskać więcej informacji, skontaktuj się z nami na [forum usługi Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> * Niektóre zaawansowane raporty użycia anomalii i zasoby są dostępne tylko po włączeniu [Azure Active Directory Premium](active-directory-get-started-premium.md). Zaawansowanych raportów pomagają poprawić zabezpieczenia dostępu odpowiadać toopotential zagrożeń i uzyskiwanie dostępu tooanalytics na użycie urządzeń dostępu i aplikacji.
+> * Azure Active Directory Premium i podstawowa wydań są dostępne dla klientów w Chinach przy użyciu hello na całym świecie wystąpienia usługi Azure Active Directory. Azure Active Directory Premium i podstawowa wersje nie są obecnie obsługiwane w hello Microsoft Azure świadczonej przez 21Vianet w Chinach. Aby uzyskać więcej informacji, skontaktuj się z nami na powitania [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 > 
 > 
 
@@ -43,24 +43,24 @@ W portalu zarządzania Azure raporty są podzielone na następujące sposoby:
 | Raport | Opis |
 | --- | --- |
 | **Raporty dotyczące nietypowych działań** | |
-| [Logowania z nieznanych źródeł](active-directory-reporting-sign-ins-from-unknown-sources.md) |Mogą oznaczać próbę logowania się bez śledzone. |
+| [Logowania z nieznanych źródeł](active-directory-reporting-sign-ins-from-unknown-sources.md) |Może sygnalizować toosign próba w bez śledzone. |
 | [Logowania po wielokrotnych niepowodzeniach](active-directory-reporting-sign-ins-after-multiple-failures.md) |Może sygnalizować atak siłowy powiodło się. |
-| [Logowania z wielu lokalizacji geograficznych](active-directory-reporting-sign-ins-from-multiple-geographies.md) |Może sygnalizować, że logujesz się przy użyciu tego samego konta wielu użytkowników. |
+| [Logowania z wielu lokalizacji geograficznych](active-directory-reporting-sign-ins-from-multiple-geographies.md) |Może sygnalizować, że wielu użytkowników są zalogować hello same konta. |
 | [Logowania z adresów IP związanych z podejrzanymi działaniami](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |Może sygnalizować pomyślnego logowania po próbie przez nieautoryzowanego dostępu. |
-| [Logowania z potencjalnie zainfekowanych urządzeń](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |Mogą oznaczać próbę zalogować z potencjalnie zainfekowanych urządzeń. |
-| [Nieprawidłowe logowanie działania](active-directory-reporting-irregular-sign-in-activity.md) |Może sygnalizować nietypowe logowania użytkowników wzorce zdarzenia. |
+| [Logowania z potencjalnie zainfekowanych urządzeń](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |Może sygnalizować toosign próba w z potencjalnie zainfekowanych urządzeń. |
+| [Nieprawidłowe logowanie działania](active-directory-reporting-irregular-sign-in-activity.md) |Może sygnalizować toousers zdarzenia nietypowe logowania wzorce. |
 | [Użytkownicy z nietypowe logowania działania](active-directory-reporting-users-with-anomalous-sign-in-activity.md) |Wskazuje użytkowników, których konta zostały naruszone. |
 | Użytkownicy z ujawnionymi poświadczeniami |Użytkownicy z ujawnionymi poświadczeniami |
 | **Dzienniki aktywności** | |
 | Raport dotyczący inspekcji |Zdarzenia inspekcji w katalogu |
 | Działania związane z resetowaniem haseł |Udostępnia szczegółowy widok resetowanie haseł, które występują w Twojej organizacji. |
 | Aktywność rejestracji resetowania haseł |Zawiera szczegółowy widok hasła resetowania rejestracji, które występują w Twojej organizacji. |
-| Raport aktywności grup samoobsługi |Zawiera dziennik aktywności, aby wszystkie grupy samoobsługi działania w katalogu |
+| Raport aktywności grup samoobsługi |Udostępnia tooall dziennika aktywności grupy samoobsługi działania w katalogu |
 | **Zintegrowane aplikacje** | |
 | Użycie aplikacji |Zawiera podsumowanie użycia dla wszystkich aplikacji SaaS zintegrowanych z katalogiem. |
-| Działanie aprowizacji kont |Zawiera historię prób do obsługi administracyjnej kont do aplikacji zewnętrznych. |
+| Działanie aprowizacji kont |Zawiera historię prób tooprovision kont tooexternal aplikacji. |
 | Stan przerzucania hasła |Szczegółowe omówienie hasła automatycznego przerzucania stan aplikacji SaaS. |
-| Błędy aprowizacji kont |Wskazuje wpływu na dostęp użytkowników do aplikacji zewnętrznych. |
+| Błędy aprowizacji kont |Wskazuje toousers wpływu dostępu tooexternal aplikacji. |
 | **Usługi rights management** | |
 | Użycie usługi RMS |Zawiera podsumowanie użycia usługi Rights Management |
 | Najbardziej aktywni użytkownicy usługi RMS |Wyświetla listę top 1000 aktywnych użytkowników, którzy uzyskać dostępu do plików chronionych przez usługi RMS |
@@ -96,11 +96,11 @@ W portalu zarządzania Azure raporty są podzielone na następujące sposoby:
 | Użycie aplikacji z obsługą usług RMS | | |Tylko usługi RMS |
 
 ## <a name="anomalous-activity-reports"></a>Raporty dotyczące nietypowych działań
-<p>Nietypowe logowania raporty aktywności Flaga podejrzane znak w działaniu usługi Office 365 portalu zarządzania Azure, Panel dostępu usługi Azure AD, Sharepoint Online, Dynamics CRM Online i innych usług online firmy Microsoft.</p>
+<p>nietypowe Hello Zaloguj raporty aktywności logowania podejrzane flagi tooOffice365 działania, portalu zarządzania Azure, Panel dostępu usługi Azure AD, Sharepoint Online, Dynamics CRM Online i innych usług online firmy Microsoft.</p>
 
-<p>Wszystkie te raporty, z wyjątkiem raport "Logowania po wielokrotnych niepowodzeniach" również Flaga podejrzane <i>federacyjnych</i> logowania do usług wyżej wymienione, niezależnie od dostawcy federacyjnego. </p>
+<p>Wszystkie te raporty, z wyjątkiem Witaj "Logowania po wielokrotnych niepowodzeniach" raport również Flaga podejrzane <i>federacyjnych</i> zarejestrować ins toohello wyżej wymienione usługi, niezależnie od dostawcy federacyjnego hello. </p>
 
-<p>Dostępne są następujące raporty: </p><ul>
+<p>dostępne są Hello następujące raporty: </p><ul>
 
 <li>[Logowania z nieznanych źródeł](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
 
@@ -122,7 +122,7 @@ W portalu zarządzania Azure raporty są podzielone na następujące sposoby:
 ### <a name="audit-report"></a>Raport dotyczący inspekcji
 | Opis | Lokalizacja raportu |
 |:--- |:--- |
-| Przedstawia rekord wszystkich zdarzeń inspekcji w ciągu ostatnich 24 godzin, ostatnich 7 dni i ostatnich 30 dni. <br /> Aby uzyskać więcej informacji, zobacz [Azure Active Directory zdarzenia raportowania inspekcji usługi](active-directory-reporting-audit-events.md) |Katalog > karta raporty |
+| Przedstawia rekord wszystkich zdarzeń inspekcji w ramach hello w ostatnich 24 godzinach, ostatnich 7 dni i ostatnich 30 dni. <br /> Aby uzyskać więcej informacji, zobacz [Azure Active Directory zdarzenia raportowania inspekcji usługi](active-directory-reporting-audit-events.md) |Katalog > karta raporty |
 
 ![Raport dotyczący inspekcji](./media/active-directory-view-access-usage-reports/auditReport.PNG)
 
@@ -143,7 +143,7 @@ W portalu zarządzania Azure raporty są podzielone na następujące sposoby:
 ### <a name="self-service-groups-activity"></a>Raport aktywności grup samoobsługi
 | Opis | Lokalizacja raportu |
 |:--- |:--- |
-| Przedstawia wszystkie działania w grupach zarządzanych samoobsługi w katalogu. |Katalog > Użytkownicy > <i>użytkownika</i> > kartę urządzenia |
+| Przedstawia wszystkie działania dla grup zarządzanych samoobsługi hello w katalogu. |Katalog > Użytkownicy > <i>użytkownika</i> > kartę urządzenia |
 
 ![Raport aktywności grup samoobsługi](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
@@ -151,29 +151,29 @@ W portalu zarządzania Azure raporty są podzielone na następujące sposoby:
 ### <a name="application-usage-summary"></a>Podsumowanie użycia aplikacji
 | Opis | Lokalizacja raportu |
 |:--- |:--- |
-| Ten raport ma być wyświetlone użycia dla wszystkich aplikacji SaaS w katalogu. Ten raport jest oparty na liczbę powtórzeń klikać użytkowników aplikacji, w panelu dostępu. |Katalog > karta raporty |
+| Ten raport ma toosee użycia dla wszystkich aplikacji SaaS hello w katalogu. Ten raport jest oparty na powitania liczba użytkowników kliknęli aplikacji hello w hello panelu dostępu. |Katalog > karta raporty |
 
-Ten raport zawiera logowania do aplikacji *wszystkie* aplikacji, które katalogu ma dostęp do, tym wstępnie zintegrowanych aplikacji firmy Microsoft.
+Ten raport zawiera logowania za*wszystkie* aplikacji, które katalogu ma dostęp do, tym wstępnie zintegrowanych aplikacji firmy Microsoft.
 
-Wstępnie zintegrowanych aplikacji Microsoft obejmują usługi Office 365, Sharepoint, portalu zarządzania Azure i inne.
+Wstępnie zintegrowanych aplikacji Microsoft obejmują usługi Office 365, Sharepoint, hello portalu zarządzania Azure i inne.
 
 ![Podsumowanie użycia aplikacji](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 ### <a name="application-usage-detailed"></a>Szczegóły użycia aplikacji
 | Opis | Lokalizacja raportu |
 |:--- |:--- |
-| Ten raport chcesz sprawdzić, ile określonej aplikacji SaaS jest używany. Ten raport jest oparty na liczbę powtórzeń klikać użytkowników aplikacji, w panelu dostępu. |Katalog > karta raporty |
+| Ten raport ma toosee ile określonej aplikacji SaaS jest używany. Ten raport jest oparty na powitania liczba użytkowników kliknęli aplikacji hello w hello panelu dostępu. |Katalog > karta raporty |
 
 ### <a name="application-dashboard"></a>Pulpit nawigacyjny aplikacji
 | Opis | Lokalizacja raportu |
 |:--- |:--- |
-| Ten raport wskazuje rejestracji zbiorczej dodatki do aplikacji przez użytkowników w organizacji przez wybrany okres. Wykres na stronie pulpitu nawigacyjnego pomoże zidentyfikować trendy użycia wszystkie tej aplikacji. |Katalog > aplikacji > karty Pulpit nawigacyjny |
+| Ten raport wskazuje rejestracji zbiorczej ins toohello aplikacji przez użytkowników w organizacji przez wybrany okres. Wykres Hello na stronie pulpitu nawigacyjnego hello ułatwia identyfikację trendów użycia wszystkie tej aplikacji. |Katalog > aplikacji > karty Pulpit nawigacyjny |
 
 ## <a name="error-reports"></a>Raporty o błędach
 ### <a name="account-provisioning-errors"></a>Błędy aprowizacji kont
 | Opis | Lokalizacja raportu |
 |:--- |:--- |
-| Umożliwia monitorowanie błędów występujących podczas synchronizacji kont z aplikacji SaaS w usłudze Azure Active Directory. |Katalog > karta raporty |
+| Użyj tego toomonitor o błędach podczas synchronizacji hello kont z tooAzure aplikacji SaaS usługi Active Directory. |Katalog > karta raporty |
 
 ![Błędy aprowizacji kont](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
 
@@ -181,65 +181,65 @@ Wstępnie zintegrowanych aplikacji Microsoft obejmują usługi Office 365, Share
 ### <a name="devices"></a>Urządzenia
 | Opis | Lokalizacja raportu |
 |:--- |:--- |
-| Ten raport umożliwia zapoznaj się z adresu IP i lokalizację geograficzną urządzenia używane przez określonego użytkownika można uzyskać dostępu do usługi Azure Active Directory. |Katalog > Użytkownicy > <i>użytkownika</i> > kartę urządzenia |
+| Ten raport ma adres IP hello toosee i lokalizację geograficzną urządzenia, czy określony użytkownik został użyty tooaccess usługi Azure Active Directory. |Katalog > Użytkownicy > <i>użytkownika</i> > kartę urządzenia |
 
 ### <a name="activity"></a>Działanie
 | Opis | Lokalizacja raportu |
 |:--- |:--- |
-| Pokazuje konta działania dla użytkownika. Raport zawiera informacje, takie jak zalogowaniem się do aplikacji, urządzenie, adres IP i lokalizacji. Nie gromadzimy Historia dla użytkowników, którzy Zaloguj się przy użyciu konta Microsoft. |Katalog > Użytkownicy > <i>użytkownika</i> > karta działanie |
+| Zawiera znak hello działania dla użytkownika. Witaj raport zawiera informacje, takie jak zalogowaniem się do aplikacji hello, urządzenie używane adresu IP i lokalizacji. Nie gromadzimy hello Historia dla użytkowników, którzy Zaloguj się przy użyciu konta Microsoft. |Katalog > Użytkownicy > <i>użytkownika</i> > karta działanie |
 
-#### <a name="sign-in-events-included-in-the-user-activity-report"></a>Zaloguj się zdarzenia uwzględnionych w raporcie aktywności użytkownika
-Niektóre rodzaje logowania zdarzenia będą wyświetlane w raport aktywności użytkownika.
+#### <a name="sign-in-events-included-in-hello-user-activity-report"></a>Zaloguj się zdarzeń zawartych w hello raport aktywność użytkownika
+Niektóre rodzaje logowania zdarzenia będą wyświetlane w hello raport aktywności użytkownika.
 
 | Typ zdarzenia | Włączone? |
 | --- | --- |
-| Logowania się do [panelu dostępu](http://myapps.microsoft.com/) |Tak |
-| Logowania się do [portalu zarządzania Azure](https://manage.windowsazure.com/) |Tak |
-| Logowania się do [portalu Microsoft Azure](https://portal.azure.com/) |Tak |
-| Logowania się do [portalu usługi Office 365](http://portal.office.com/) |Tak |
-| Logowania do aplikacji natywnej, takich jak program Outlook (zobacz wyjątek poniżej) |Tak |
-| Logowania do aplikacji federacyjnych udostępniane za pośrednictwem panelu dostępu, takie jak Salesforce |Tak |
-| Logowania do aplikacji opartych na hasłach za pomocą panelu dostępu, takich jak usługi Twitter |Tak |
-| Logowania do aplikacji firm niestandardowych, który został dodany do katalogu |Nie (wkrótce) |
-| Logowania dla aplikacji serwera Proxy aplikacji usługi Azure AD, który został dodany do katalogu |Nie (wkrótce) |
+| Zaloguj się ins toohello [panelu dostępu](http://myapps.microsoft.com/) |Tak |
+| Zaloguj się ins toohello [portalu zarządzania Azure](https://manage.windowsazure.com/) |Tak |
+| Zaloguj się ins toohello [portalu Microsoft Azure](https://portal.azure.com/) |Tak |
+| Zaloguj się ins toohello [portalu usługi Office 365](http://portal.office.com/) |Tak |
+| Zaloguj się ins tooa natywnych aplikacji, takich jak program Outlook (zobacz wyjątek poniżej) |Tak |
+| Podpisać ins tooa federacyjnych udostępniane za pośrednictwem hello Panel dostępu, takie jak Salesforce |Tak |
+| Podpisywanie ins tooa opartego na hasłach aplikacji za pośrednictwem hello Panel dostępu, takich jak usługi Twitter |Tak |
+| Podpisywania aplikacji biznesowych niestandardowych tooa dodatków, dodanym toohello katalogu |Nie (wkrótce) |
+| Podpisywanie aplikacji serwera Proxy aplikacji usługi Azure AD tooan dodatków, dodanym toohello katalogu |Nie (wkrótce) |
 
-> Uwaga: Aby zmniejszyć ilość szumu w tym raporcie, logowania przez [Microsoft Online Services Asystenta logowania](http://community.office365.com/en-us/w/sso/534.aspx) nie są pokazywane.
+> Uwaga: tooreduce hello ilość szumu w tym raporcie logowania przez hello [Microsoft Online Services Asystenta logowania](http://community.office365.com/en-us/w/sso/534.aspx) nie są pokazywane.
 > 
 > 
 
-## <a name="things-to-consider-if-you-suspect-security-breach"></a>Co należy wziąć pod uwagę, jeśli podejrzewasz naruszenia zabezpieczeń
-Jeśli zachodzi podejrzenie, że konto użytkownika może być naruszona lub dowolnego rodzaju użytkownika podejrzane działanie, które mogą prowadzić do naruszenia zabezpieczeń danych katalogu w chmurze, warto wziąć pod uwagę jedną lub więcej z następujących czynności:
+## <a name="things-tooconsider-if-you-suspect-security-breach"></a>Tooconsider rzeczy, jeśli zachodzi podejrzenie złamania zabezpieczeń
+Jeśli zachodzi podejrzenie, że konto użytkownika może być naruszona lub dowolny rodzaj użytkownika podejrzane działanie, które może spowodować naruszenie zabezpieczeń tooa dane katalogu w chmurze hello można tooconsider co najmniej jednego hello następujące akcje:
 
-* Skontaktuj się z użytkownika, aby sprawdzić działanie
-* Resetowanie hasła użytkownika.
+* Skontaktuj się z hello użytkownika tooverify hello działania
+* Resetowanie hasła użytkownika hello
 * [Włączanie uwierzytelniania wieloskładnikowego](../multi-factor-authentication/multi-factor-authentication-get-started.md) celu zapewnienia dodatkowych zabezpieczeń
 
 ## <a name="view-or-download-a-report"></a>Wyświetl lub pobranie raportu
-1. W klasycznym portalu Azure, kliknij przycisk **usługi Active Directory**, kliknij nazwę katalogu organizacji, a następnie kliknij przycisk **raporty**.
-2. Na stronie Raporty kliknij raport, który chcesz wyświetlić i/lub pobrania.
+1. W hello klasycznego portalu Azure, kliknij przycisk **usługi Active Directory**, kliknij nazwę hello katalogu organizacji, a następnie kliknij przycisk **raporty**.
+2. Na stronie powitania, raporty, kliknij przycisk Raport hello ma tooview i/lub pobrania.
    
    > [!NOTE]
-   > Jeśli jest to funkcja raportowania usługi Azure Active Directory jest używany po raz pierwszy, zobaczysz komunikat do uczestnictwa w. Jeśli akceptujesz, kliknij ikonę znacznika wyboru, aby kontynuować.
+   > Jeśli hello jest po raz pierwszy używasz hello raportowania funkcji usługi Azure Active Directory, zostanie wyświetlony tooOpt wiadomości w. Jeśli akceptujesz, kliknij przycisk toocontinue Ikona znacznika wyboru hello.
    > 
    > 
-3. Kliknij menu rozwijanym obok interwał, a następnie wybierz jedną z następujących przedziałów czasu, które powinny być używane podczas generowania tego raportu:
+3. Kliknij przycisk Dalej tooInterval menu rozwijanego hello, a następnie wybierz jedną z powitania po przedziałów czasu, które powinny być używane podczas generowania tego raportu:
    
    * Ostatnie 24 godziny
    * Ostatnie 7 dni
    * Ostatnie 30 dni
-4. Kliknij ikonę znacznika wyboru, aby uruchomić raport.
-   * Maksymalnie 1000 zdarzenia będą wyświetlane w klasycznym portalu Azure.
-5. Jeśli to konieczne, kliknij przycisk **Pobierz** pobierania raportu do skompresowanego pliku w formacie wartości rozdzielanych przecinkami (CSV) do wyświetlania w trybie offline lub archiwizacji.
-   * Maksymalnie 75,000 zdarzenia będą uwzględniane w pobranym pliku.
-   * Dla większej ilości danych, zapoznaj się z [Azure AD interfejsu API raportowania](active-directory-reporting-api-getting-started.md).
+4. Kliknij przycisk hello znacznik wyboru Ikona toorun hello raport.
+   * Zapasowej too1000 zdarzenia będą wyświetlane w hello klasycznego portalu Azure.
+5. Jeśli to konieczne, kliknij przycisk **Pobierz** toodownload hello tooa skompresowany plik raportu w formacie wartości rozdzielanych przecinkami (CSV) do wyświetlania w trybie offline lub archiwizacji.
+   * Zapasowej too75 000 zdarzenia zostaną uwzględnione w pliku hello pobrane.
+   * Dla większej ilości danych, zapoznaj się z hello [Azure AD interfejsu API raportowania](active-directory-reporting-api-getting-started.md).
 
 ## <a name="ignore-an-event"></a>Ignoruj zdarzenia
-Jeśli wyświetlasz wszystkie raporty, anomalii, mogą pojawić się zignorować różnych zdarzeń, które są widoczne w powiązanych raportów. Aby zignorować zdarzenia, po prostu zaznacz zdarzenie w raporcie, a następnie kliknij przycisk **Ignoruj**. **Ignoruj** przycisku spowoduje trwałe usunięcie zaznaczonego zdarzenia z raportu i mogą być używane tylko przez licencjonowane administratorów globalnych.
+Jeśli wyświetlasz wszystkie raporty, anomalii, mogą pojawić się zignorować różnych zdarzeń, które są widoczne w powiązanych raportów. tooignore zdarzenie, po prostu zaznacz zdarzeń hello hello raportu, a następnie kliknij przycisk **Ignoruj**. Witaj **Ignoruj** przycisku spowoduje trwałe usunięcie zaznaczonego zdarzenia hello z raportu hello i mogą być używane tylko przez licencjonowane administratorów globalnych.
 
 ## <a name="automatic-email-notifications"></a>Powiadomienia e-mail automatyczne
 Dla więcej informacji na temat usługi Azure AD do raportowania powiadomień, zapoznaj się z [Azure Active Directory powiadomienia o raportach](active-directory-reporting-notifications.md).
 
 ## <a name="whats-next"></a>Co dalej
 * [Wprowadzenie do usługi Azure Active Directory — wersja Premium](active-directory-get-started-premium.md)
-* [Dodawanie znakowania firmowego do stron logowania i panelu dostępu](active-directory-add-company-branding.md)
+* [Dodawanie znakowania firmowego tooyour logowania i panelu dostępu do stron](active-directory-add-company-branding.md)
 

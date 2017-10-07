@@ -1,6 +1,6 @@
 ---
-title: "Konwertuj WordPress do wdrożenia w wielu lokacjach w usłudze aplikacji Azure"
-description: "Dowiedz się, jak wykonać istniejącej aplikacji sieci web WordPress została utworzona za pośrednictwem galerii na platformie Azure i przekształcić ją w wielu lokacjach WordPress"
+title: "aaaConvert tooMultisite WordPress w usłudze Azure App Service"
+description: "Dowiedz się, jak tootake istniejącą aplikację sieci web WordPress została utworzona za pośrednictwem galerii hello na platformie Azure i przekonwertować go tooWordPress wdrożenia w wielu lokacjach"
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
@@ -14,118 +14,118 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 4a15fb5e97d2ca57e5883c07651c372c54021c92
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1153f0a8043de875f081704cd0a124776758878c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>Konwertuj WordPress do wdrożenia w wielu lokacjach w usłudze aplikacji Azure
+# <a name="convert-wordpress-toomultisite-in-azure-app-service"></a>Konwertuj tooMultisite WordPress w usłudze Azure App Service
 ## <a name="overview"></a>Omówienie
 *Przez [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-Z tego samouczka dowiesz się, jak wykonać istniejącej aplikacji sieci web WordPress została utworzona za pośrednictwem galerii na platformie Azure oraz przekształcać je do instalacji WordPress wdrożenia w wielu lokacjach. Ponadto dowiesz jak przypisać niestandardową domenę, wszystkie lokacje podrzędne w ramach instalacji.
+Z tego samouczka dowiesz się, jak tootake istniejącą aplikację sieci web WordPress została utworzona za pośrednictwem galerii hello Azure i przekonwertować go do wdrożenia w wielu lokacjach WordPress instalacji. Ponadto dowiesz się, jak tooassign tooeach domeny niestandardowej z hello witryny podrzędne w ramach instalacji.
 
-Zakłada się, że masz istniejącą instalację programu WordPress. W przeciwnym razie wykonaj wskazówki zamieszczone w [utworzyć witrynę sieci web WordPress z poziomu galerii na platformie Azure][website-from-gallery].
+Zakłada się, że masz istniejącą instalację programu WordPress. W przeciwnym razie wykonaj hello wskazówki zamieszczone w [utworzyć witrynę sieci web WordPress z galerii hello na platformie Azure][website-from-gallery].
 
-Konwertowanie istniejących WordPress instalacji jednej lokacji do wdrożenia w wielu lokacjach ogólnie jest dość proste i wiele początkowe kroki pochodzi bezpośrednio z [Utwórz sieć A] [ wordpress-codex-create-a-network] strony na [Kodeksu WordPress](http://codex.wordpress.org).
+Konwertowanie istniejących WordPress tooMultisite instalacji lokacja zazwyczaj jest dość proste i wiele hello tutaj początkowe kroki pochodzi bezpośrednio z hello [Utwórz sieć A] [ wordpress-codex-create-a-network] strony na powitania [Kodeksu WordPress](http://codex.wordpress.org).
 
 Zacznijmy od początku.
 
 ## <a name="allow-multisite"></a>Zezwalaj na wdrożenie w wielu lokacjach
-Należy najpierw włączyć wdrożenie w wielu lokacjach przy użyciu `wp-config.php` pliku z **WP\_Zezwalaj\_wdrożenia w wielu LOKACJACH** stałej. Istnieją dwie metody, aby edytować pliki aplikacji sieci web: pierwszy odbywa się za pośrednictwem FTP, a drugi przy użyciu programu Git. Jeśli znasz konfiguracji każdej z tych metod, przeczytaj następujące samouczki:
+Należy najpierw tooenable wdrożenia w wielu lokacjach przy użyciu hello `wp-config.php` pliku z hello **WP\_Zezwalaj\_wdrożenia w wielu LOKACJACH** stałej. Istnieją dwie metody tooedit pliki aplikacji sieci web: hello najpierw odbywa się za pośrednictwem FTP i hello drugi przy użyciu programu Git. Jeśli użytkownik nie zna jak toosetup żadnej z tych metod można znaleźć toohello następujące samouczki:
 
 * [Witryny sieci web PHP z MySQL i FTP.][website-w-mysql-and-ftp-ftp-setup]
 * [Witryny sieci web PHP, MySQL i Git][website-w-mysql-and-git-git-setup]
 
-Otwórz `wp-config.php` plik w edytorze wybrane i dodaj następującą powyżej `/* That's all, stop editing! Happy blogging. */` wiersza.
+Otwórz hello `wp-config.php` z edytorem hello wybrane i dodaj następujące hello powyżej hello `/* That's all, stop editing! Happy blogging. */` wiersza.
 
     /* Multisite */
 
     define( 'WP_ALLOW_MULTISITE', true );
 
-Pamiętaj zapisać plik i przekaż go do serwera!
+Można się, że plik hello toosave i przekaż go serwera zapasowego toohello!
 
 ## <a name="network-setup"></a>Konfiguracja sieci
-Zaloguj się do *wp-admin* obszar aplikacji sieci web i powinien zostać wyświetlony nowy element pod **narzędzia** menu o nazwie **konfiguracja sieci**. Kliknij przycisk **konfiguracja sieci** i uzupełnij informacje dotyczące sieci.
+Zaloguj się za toohello *wp-admin* obszar aplikacji sieci web i powinien zostać wyświetlony nowy element pod hello **narzędzia** menu o nazwie **konfiguracja sieci**. Kliknij przycisk **konfiguracja sieci** i wypełnij szczegóły hello sieci.
 
 ![Ekran konfiguracji sieci][wordpress-network-setup]
 
-W tym samouczku używana *podkatalogów* lokacji schematu, ponieważ zawsze powinny działać i będą możemy Trwa konfigurowanie domen niestandardowych dla każdej witryny podrzędnej później w samouczku. Jednak powinno być możliwe Instalatorowi na zainstalowanie poddomeny, jeśli mapowanie domeny przy użyciu [Azure Portal](https://portal.azure.com) i skonfiguruj poprawnie symboli wieloznacznych DNS.
+W tym samouczku używana hello *podkatalogów* lokacji schematu, ponieważ zawsze powinny działać i będą możemy Trwa konfigurowanie domen niestandardowych dla każdej witryny podrzędnej później w samouczku hello. Jednak powinno być możliwe toosetup poddomeny Zainstaluj Jeśli zamapować domenę za pośrednictwem hello [Azure Portal](https://portal.azure.com) i skonfiguruj poprawnie symboli wieloznacznych DNS.
 
-Więcej informacji na temat wersji programu vs domenę podrzędną podkatalogu konfiguracje dla [typów sieci z wieloma lokacjami] [ wordpress-codex-types-of-networks] artykuł na temat Kodeksu WordPress.
+Aby uzyskać więcej informacji na domeny podrzędne vs podkatalogu konfiguracje Zobacz hello [typów sieci z wieloma lokacjami] [ wordpress-codex-types-of-networks] artykuł na powitania Kodeksu WordPress.
 
-## <a name="enable-the-network"></a>Włącz sieci
-Sieć jest teraz skonfigurowane w bazie danych, ale jest jednym z pozostałych etapów do włączenia funkcji sieci. Finalizuj `wp-config.php` ustawienia i upewnij się, `web.config` prawidłowo kieruje każdej lokacji.
+## <a name="enable-hello-network"></a>Włącz hello sieci
+sieci Hello jest teraz skonfigurowane w bazie danych hello, ale nie ma jednego pozostałych krok tooenable hello sieci funkcji. Finalizuj hello `wp-config.php` ustawienia i upewnij się, `web.config` prawidłowo kieruje każdej lokacji.
 
-Po kliknięciu przycisku **zainstalować** znajdującego się na *konfiguracja sieci* strony zaktualizować podejmie WordPress `wp-config.php` i `web.config` plików. Jednak należy zawsze sprawdzić pliki, aby upewnić się, że aktualizacje zostały pomyślnie. Jeśli nie, spowoduje wyświetlenie tego ekranu z niezbędne aktualizacje. Edytuj i zapisuj pliki.
+Po kliknięciu przycisku hello **zainstalować** przycisk na powitania *konfiguracja sieci* strony, WordPress podejmie tooupdate hello `wp-config.php` i `web.config` plików. Jednak należy zawsze sprawdzić, hello pliki tooensure hello aktualizacje zostały pomyślnie. Jeśli nie, spowoduje wyświetlenie tego ekranu z hello niezbędne aktualizacje. Edytuj i zapisuj pliki hello.
 
-Po wykonaniu tych aktualizacji, musisz się wylogować i zalogować z powrotem do pulpitu nawigacyjnego wp administratora.
+Po wykonaniu tych aktualizacji należy toolog się i zaloguj z powrotem do hello wp — administrator z pulpitu nawigacyjnego.
 
-Powinny teraz istnieć dodatkowe menu na pasku administratora z etykietą **witryny**. To menu pozwala na kontrolowanie sieci za pomocą **administratora sieci** pulpitu nawigacyjnego.
+Powinno być teraz dodatkowe menu na pasku admin hello etykietą **witryny**. To menu umożliwia toocontrol sieci za pośrednictwem hello **administratora sieci** pulpitu nawigacyjnego.
 
 ## <a name="adding-custom-domains"></a>Dodawanie domeny niestandardowe
-[WordPress MU domeny mapowania] [ wordpress-plugin-wordpress-mu-domain-mapping] wtyczki ułatwia błyskawicznie do dodawania niestandardowych domen do dowolnej lokacji w sieci. Dodatek plug-in, aby działać prawidłowo, należy wykonać pewne dodatkowe ustawienia w portalu, a także u rejestratora domen.
+Witaj [WordPress MU domeny mapowania] [ wordpress-plugin-wordpress-mu-domain-mapping] wtyczki ułatwia błyskawicznie tooadd domen niestandardowych tooany lokacji w sieci. Aby toooperate wtyczki hello prawidłowo, należy toodo niektóre dodatkowe ustawienia na powitania portalu, a także u rejestratora domen.
 
-## <a name="enable-domain-mapping-to-the-web-app"></a>Włącz mapowanie domeny aplikacji sieci web
-**Wolne** [usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714) planu trybu nie obsługuje dodawania niestandardowych domen do aplikacji sieci Web. Musisz przełączyć się do **Shared** lub **standardowe** tryb. W tym celu:
+## <a name="enable-domain-mapping-toohello-web-app"></a>Włączanie aplikacji sieci web toohello mapowania domeny
+Witaj **wolne** [usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714) planu trybu nie obsługuje dodawania domen niestandardowych tooWeb aplikacji. Konieczne będzie tooswitch zbyt**Shared** lub **standardowe** tryb. toodo to:
 
-* Zaloguj się do portalu Azure i Znajdź aplikację sieci web. 
-* Polecenie **skalowanie w górę** karcie **ustawienia**.
+* Zaloguj się za toohello portalu Azure i Znajdź aplikację sieci web. 
+* Polecenie hello **skalowanie w górę** karcie **ustawienia**.
 * W obszarze **ogólne**, wybierz opcję *SHARED* lub *standardowe*
 * Kliknij przycisk **Zapisz**
 
-Użytkownik może zostać wyświetlony komunikat z pytaniem, aby zweryfikować zmiany i potwierdzić, że aplikacja sieci web teraz może pociągnąć za sobą koszt, w zależności od użycia i konfiguracji, które można ustawić.
+Może otrzymywać komunikat z pytaniem o zmianę hello tooverify i potwierdzić aplikacji sieci web teraz może pociągnąć za sobą koszt, w zależności od użycia i hello inna konfiguracja, które można ustawić.
 
-Trwa kilka sekund przetworzył nowe ustawienia, więc teraz jest odpowiedni moment, aby rozpocząć konfigurowanie domeny.
+Trwa kilka sekund tooprocess hello nowe ustawienia, więc teraz jest odpowiedni moment toostart konfigurowania domeny.
 
 ## <a name="verify-your-domain"></a>Sprawdź domenę
-Przed Azure aplikacje sieci Web będzie można zamapować domenę do witryny, należy najpierw sprawdź, czy masz autoryzację do mapowania do domeny. Aby to zrobić, należy dodać nowy rekord CNAME do wpisu DNS.
+Przed Azure Web Apps zezwolić toomap lokacji toohello domeny, należy najpierw tooverify, że masz hello autoryzacji toomap hello domeny. toodo tak, należy dodać nowy wpis DNS tooyour rekordu CNAME.
 
-* Zaloguj się do Twojej domeny Menedżera DNS
+* Zaloguj się w Menedżerze DNS domeny tooyour
 * Tworzenie nowego rekordu CNAME *awverify*
-* Punkt *awverify* do *awverify. YOUR_DOMAIN.azurewebsites.NET*
+* Punkt *awverify* zbyt*awverify. YOUR_DOMAIN.azurewebsites.NET*
 
-Może upłynąć trochę czasu, zanim zmiany DNS zaczynają obowiązywać pełne, więc jeśli poniższe kroki nie działają, przejdź filiżanki kawy, a następnie wróć i spróbuj ponownie.
+Może trochę potrwać hello DNS zmiany toogo obowiązywać pełne, więc jeśli hello następujące kroki nie działają, przejdź filiżanki kawy, a następnie wróć i spróbuj ponownie.
 
-## <a name="add-the-domain-to-the-web-app"></a>Dodawanie domeny do aplikacji sieci web
-Powrót do aplikacji sieci web za pośrednictwem portalu Azure, kliknij przycisk **ustawienia**, a następnie kliknij przycisk **domen niestandardowych i SSL**.
+## <a name="add-hello-domain-toohello-web-app"></a>Dodawanie aplikacji sieci web toohello domeny hello
+Zwracany tooyour aplikacji sieci web za pośrednictwem hello portalu Azure, kliknij przycisk **ustawienia**, a następnie kliknij przycisk **domen niestandardowych i SSL**.
 
-Gdy *ustawienia protokołu SSL* są wyświetlane, zobaczysz pola, w którym możesz wpisać wszystkie domeny, które chcesz przypisać do aplikacji sieci web. Jeśli domeny nie ma na liście, nie będzie dostępna dla mapowania wewnątrz WordPress, niezależnie od tego, jak domena DNS jest skonfigurowana.
+Gdy hello *ustawienia protokołu SSL* są wyświetlane, zobaczysz hello pól, których możesz wpisać wszystkie domeny hello, które mają aplikacji sieci web tooyour tooassign. Jeśli domeny nie ma na liście, nie będzie dostępna dla mapowania wewnątrz WordPress, niezależnie od tego, jak hello domeny DNS jest skonfigurowana.
 
 ![Zarządzanie domenami niestandardowymi okna dialogowego][wordpress-manage-domains]
 
-Po wpisaniu domenę, w polu tekstowym, Azure zweryfikuje rekord CNAME, który utworzono wcześniej. Jeśli DNS nie została w pełni propagowane, wyświetli się czerwone wskaźnika. Jeśli go zakończyło się pomyślnie, zostanie wyświetlony zielony znacznik wyboru. 
+Po wpisaniu domenę, w polu tekstowym hello, Azure zweryfikuje hello rekord CNAME, który utworzono wcześniej. Jeśli hello DNS nie została w pełni propagowane, wyświetli się czerwone wskaźnika. Jeśli go zakończyło się pomyślnie, zostanie wyświetlony zielony znacznik wyboru. 
 
-Zanotuj adres IP wyświetlane w dolnej części okna dialogowego. Będzie on potrzebny można skonfigurować rekordu A dla domeny.
+Zwróć uwagę na powitania wyświetlana u dołu okna dialogowego hello hello adresu IP. Należy to hello toosetup rekord dla danej domeny.
 
-## <a name="setup-the-domain-a-record"></a>Konfiguracja domeny rekordu
-Jeśli inne czynności zakończy się powodzeniem, mogą teraz przypisać domeny do aplikacji sieci web platformy Azure za pośrednictwem rekord A systemu DNS. 
+## <a name="setup-hello-domain-a-record"></a>Skonfigurować rekord A hello domeny
+Jeśli hello inne czynności nie zakończy się powodzeniem, mogą teraz przypisać hello domeny tooyour aplikacji sieci web Azure za pośrednictwem rekord A systemu DNS. 
 
-Jest w tym miejscu należy pamiętać, że aplikacje sieci web Azure akceptuje zarówno CNAME i, jednak możesz *musi* umożliwiają rekord A Mapowanie domeny. Rekord CNAME nie można przesłać dalej do innego CNAME, czyli co Azure utworzony z YOUR_DOMAIN.azurewebsites.net.
+Jest ważne toonote tutaj że aplikacje sieci web Azure akceptuje zarówno CNAME i, jednak możesz *musi* używać mapowania domeny tooenable rekordów A. Rekord CNAME nie można przesłać dalej tooanother CNAME, który jest Azure utworzone automatycznie, o YOUR_DOMAIN.azurewebsites.net.
 
-Przy użyciu adresu IP z poprzedniego kroku, wróć do Menedżera DNS i skonfigurować rekord A, aby wskazywał tego adresu IP.
+Przy użyciu adresu IP hello hello w poprzednim kroku, zwróć tooyour Menedżera DNS i hello konfiguracji IP toothat toopoint rekordów.
 
-## <a name="install-and-setup-the-plugin"></a>Zainstaluj i skonfiguruj wtyczki
-Wdrożenie w wielu lokacjach WordPress aktualnie nie ma wbudowane metodę mapowania domen niestandardowych. Istnieje jednak dodatek o nazwie [WordPress MU domeny mapowania] [ wordpress-plugin-wordpress-mu-domain-mapping] dodaje funkcjonalność dla Ciebie. Zaloguj się do administratora sieci część witryny i zainstaluj **WordPress MU domeny mapowania** wtyczki.
+## <a name="install-and-setup-hello-plugin"></a>Zainstaluj i skonfiguruj wtyczkę hello
+WordPress wdrożenia w wielu lokacjach nie ma obecnie domen niestandardowych toomap wbudowana metoda. Istnieje jednak dodatek o nazwie [WordPress MU domeny mapowania] [ wordpress-plugin-wordpress-mu-domain-mapping] dodaje funkcjonalność hello za Ciebie. Zaloguj się w części Administracja sieci toohello witryny i zainstaluj hello **WordPress MU domeny mapowania** wtyczki.
 
-Po zainstalowaniu i aktywowanie wtyczki, odwiedź stronę **ustawienia** > **mapowania domeny** do skonfigurowania wtyczki. W pierwszym polu tekstowym *adres IP serwera*, wprowadź adres IP używany można skonfigurować rekordu A dla domeny. Ustaw dowolne *opcje domeny* można desire (wartości domyślne są często poprawnie), a następnie kliknij przycisk **zapisać**.
+Po instalacji i aktywowanie wtyczki hello, odwiedź stronę **ustawienia** > **mapowania domeny** tooconfigure hello wtyczki. W pierwszym polu tekstowym hello *adres IP serwera*, wejściowych hello adres IP używany toosetup hello rekord hello domeny. Ustaw dowolne *opcje domeny* chcesz (domyślne hello często są poprawnie) i kliknij przycisk **zapisać**.
 
-## <a name="map-the-domain"></a>Mapa domeny
-Odwiedź stronę **pulpitu nawigacyjnego** chcesz mapy domeny do witryny. Polecenie **narzędzia** > **mapowania domeny** i wpisz nazwę nowej domeny w pliku tekstowym i kliknij przycisk **Dodaj**.
+## <a name="map-hello-domain"></a>Mapa hello domeny
+Odwiedź hello **pulpitu nawigacyjnego** hello lokacji mają toomap hello domeny do. Polecenie **narzędzia** > **mapowania domeny** i typ hello nowej domeny w pole tekstowe hello i kliknij przycisk **Dodaj**.
 
-Domyślnie nowej domeny będzie ponownie zapisać do domeny lokacji wygenerowana automatycznie. Jeśli chcesz, aby cały ruch wysyłany do nowej domeny, sprawdź *domeny podstawowej ten blog* pole przed zapisaniem. Można dodać dowolną liczbę domen do lokacji, ale może zawierać tylko jeden podstawowy.
+Domyślnie hello nowej domeny będzie ponownie zapisane toohello wygenerowana automatycznie lokacji domeny. Jeśli chcesz toohave wszystkie ruch wysyłany toohello nowej domeny, sprawdź hello *domeny podstawowej ten blog* pole przed zapisaniem. Można dodać dowolną liczbę domen tooa lokacji, ale może zawierać tylko jeden podstawowy.
 
 ## <a name="do-it-again"></a>Należy go ponownie
-Aplikacje sieci Web platformy Azure umożliwiają dodawanie nieograniczoną liczbę domen aplikacji sieci web. Aby dodać do innej domeny, konieczne będzie wykonanie **Sprawdź domenę** i **ustawienia domeny rekord** sekcje dla każdej domeny.    
+Aplikacje sieci Web platformy Azure pozwala tooadd nieograniczoną liczbę aplikacji sieci web tooa domen. tooadd innej domeny, konieczne będzie tooexecute hello **Sprawdź domenę** i **skonfigurować rekord A domeny hello** sekcje dla każdej domeny.    
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Tooget wprowadzenie do usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź zbyt[Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), gdzie możesz od razu utworzyć krótkotrwałą, początkową aplikację sieci web w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
 ## <a name="whats-changed"></a>Co zostało zmienione
-* Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
+* Toohello przewodnik zmiany z tooApp witryn sieci Web usługi dla: [usłudze Azure App Service i jej wpływ na istniejące usługi platformy Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com

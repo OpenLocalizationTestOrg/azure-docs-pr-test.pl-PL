@@ -1,6 +1,6 @@
 ---
-title: "Wysyłanie zdarzeń do środowiska usługi Azure Time Series Insights | Microsoft Docs"
-description: "Ten samouczek przedstawia kroki wypychania zdarzeń do środowiska usługi Time Series Insights"
+title: "aaaSend zdarzenia tooAzure Insights serii czasu środowiska | Dokumentacja firmy Microsoft"
+description: "Ten samouczek obejmuje hello kroki toopush zdarzenia tooyour Insights serii czasu środowiska"
 keywords: 
 services: tsi
 documentationcenter: 
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dbccc23f61351a0033cd48c1a02fb3841b45d560
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Wysyłanie zdarzeń do środowiska usługi Time Series Insights za pomocą centrum zdarzeń
+# <a name="send-events-tooa-time-series-insights-environment-using-event-hub"></a>Wyślij środowiska czasu serii Insights tooa zdarzeń przy użyciu Centrum zdarzeń
 
-W tym samouczku wyjaśniono, jak utworzyć i skonfigurować centrum zdarzeń oraz jak uruchomić przykładową aplikację do wypychania zdarzeń. Jeśli masz już centrum zdarzeń, które zawiera zdarzenia w formacie JSON, możesz pominąć ten samouczek i wyświetlić swoje środowisko, korzystając z [wglądu w dane szeregów czasowych](https://insights.timeseries.azure.com).
+Ten samouczek wyjaśnia sposób toocreate i konfigurowania Centrum zdarzeń i uruchamiania toopush aplikacji przykładowej zdarzenia. Jeśli masz już centrum zdarzeń, które zawiera zdarzenia w formacie JSON, możesz pominąć ten samouczek i wyświetlić swoje środowisko, korzystając z [wglądu w dane szeregów czasowych](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Konfigurowanie centrum zdarzeń
-1. Aby utworzyć centrum zdarzeń, wykonaj instrukcje zawarte w [dokumentacji](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) centrum zdarzeń.
+1. toocreate Centrum zdarzeń, wykonaj instrukcje z hello Centrum zdarzeń [dokumentacji](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 2. Upewnij się, że utworzona grupa odbiorców jest używana wyłącznie przez źródło zdarzeń usługi Time Series Insights.
 
   > [!IMPORTANT]
-  > Sprawdź, czy ta grupa odbiorców nie jest używana przez żadną inną usługę (np. zadanie usługi Stream Analytics lub drugie środowisko usługi Time Series Insights). Używanie grupy odbiorców przez inne usługi ma negatywny wpływ na operacje odczytu w bieżącym środowisku i tych usługach. Użycie grupy odbiorców „$Default” może potencjalnie spowodować jej ponowne użycie przez inne czytniki.
+  > Sprawdź, czy ta grupa odbiorców nie jest używana przez żadną inną usługę (np. zadanie usługi Stream Analytics lub drugie środowisko usługi Time Series Insights). Jeśli grupy odbiorców jest używany przez inne usługi, odczytać negatywny wpływ na operację dla tego środowiska i hello innych usług. Jeśli używasz "$Default" jako grupy odbiorców hello, połączenie może prowadzić ponownemu toopotential przez inne czytników.
 
   ![Wybieranie grupy odbiorców centrum zdarzeń](media/send-events/consumer-group.png)
 
-3. W centrum zdarzeń utwórz zasady „Moje_zasady_wysyłania”, które w poniższym przykładzie w języku csharp będą używane do wysyłania zdarzeń.
+3. Utwórz "MySendPolicy" na powitania Centrum zdarzeń, czyli toosend używane zdarzenia w przykładowym csharp hello.
 
   ![Wybieranie zasad dostępu współdzielonego i klikanie przycisku Dodaj](media/send-events/shared-access-policy.png)  
 
   ![Dodawanie nowej zasady dostępu współdzielonego](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Tworzenie źródła zdarzeń usługi Time Series Insights
-1. Jeśli nie utworzono źródła zdarzeń, postępuj zgodnie z [tymi instrukcjami](time-series-insights-add-event-source.md), aby je utworzyć.
+1. Jeśli nie utworzono źródło zdarzeń, wykonaj [tych instrukcji](time-series-insights-add-event-source.md) toocreate źródła zdarzenia.
 
-2. Wpisz „deviceTimestamp” jako nazwę właściwości sygnatury czasowej — właściwość ta jest używana w przykładzie w języku csharp jako rzeczywista sygnatura czasowa. W nazwie właściwości sygnatury czasowej jest uwzględniana wielkość liter. Wartości wysyłane do centrum zdarzeń jako dane JSON muszą mieć format __rrrr-MM-ddTGG:mm:ss.FFFFFFFK__. Jeśli w zdarzeniu nie ma tej właściwości, używany jest czas umieszczenia zdarzenia w kolejce w centrum zdarzeń.
+2. Określ "deviceTimestamp" jako nazwy właściwości sygnatury czasowej hello — ta właściwość jest używana jako hello rzeczywiste sygnatury czasowej w przykładowym csharp hello. Nazwa właściwości sygnatury czasowej Hello jest rozróżniana wielkość liter i wartości musi być zgodny hello format __RRRR-MM-Ddtgg. FFFFFFFK__ wysłany jako koncentrator tooevent JSON. Jeśli właściwość hello nie istnieje w przypadku hello, następnie hello czasu umieszczonych w kolejce Centrum zdarzeń jest używany.
 
   ![Tworzenie źródła zdarzeń](media/send-events/event-source-1.png)
 
-## <a name="sample-code-to-push-events"></a>Przykładowy kod umożliwiający wypychanie zdarzeń
-1. Przejdź do zasad centrum zdarzeń „Moje_zasady_wysyłania” i skopiuj parametry połączenia z kluczem zasad.
+## <a name="sample-code-toopush-events"></a>Przykładowy kod toopush zdarzeń
+1. Przejdź zasady Centrum zdarzeń toohello "MySendPolicy" i skopiuj parametry połączenia hello kluczem hello zasad.
 
   ![Kopiowanie parametrów połączenia Moja_zasada_wysyłania](media/send-events/sample-code-connection-string.png)
 
-2. Uruchom poniższy kod, który umożliwia wysyłanie 600 zdarzeń do każdego z trzech urządzeń. Zaktualizuj zmienną `eventHubConnectionString` przy użyciu parametrów połączenia.
+2. Uruchom hello następującego kodu tego zdarzenia toosend 600 każdego z trzech hello urządzeń. Zaktualizuj zmienną `eventHubConnectionString` przy użyciu parametrów połączenia.
 
 ```csharp
 using System;
@@ -113,7 +113,7 @@ namespace Microsoft.Rdx.DataGenerator
                 sw.Flush();
                 ms.Position = 0;
 
-                // Send JSON to event hub.
+                // Send JSON tooevent hub.
                 EventData eventData = new EventData(ms);
                 eventHubClient.Send(eventData);
             }
@@ -144,7 +144,7 @@ Prosty obiekt JSON.
 ### <a name="sample-2"></a>Przykład 2
 
 #### <a name="input"></a>Dane wejściowe
-Tablica JSON z dwoma obiektami JSON. Każdy obiekt JSON zostanie przekształcony na zdarzenie.
+Tablica JSON z dwoma obiektami JSON. Poszczególne obiekty JSON będą przekonwertowane tooan zdarzeń.
 ```json
 [
     {
@@ -185,7 +185,7 @@ Obiekt JSON z zagnieżdżoną tablicą JSON zawierającą dwa obiekty JSON.
 
 ```
 #### <a name="output---2-events"></a>Dane wyjściowe — dwa zdarzenia
-Zwróć uwagę na to, że właściwość „location” jest kopiowana do każdego zdarzenia.
+Należy pamiętać, że właściwość hello "Lokalizacja" jest kopiowana za pośrednictwem tooeach hello zdarzenia.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -196,7 +196,7 @@ Zwróć uwagę na to, że właściwość „location” jest kopiowana do każde
 
 #### <a name="input"></a>Dane wejściowe
 
-Obiekt JSON z zagnieżdżoną tablicą JSON zawierającą dwa obiekty JSON. Te dane wejściowe pokazują, że globalne właściwości mogą być reprezentowane przez złożony obiekt JSON.
+Obiekt JSON z zagnieżdżoną tablicą JSON zawierającą dwa obiekty JSON. Tych danych wejściowych pokazuje, że hello globalnych właściwości mogą być reprezentowane przez obiekt JSON złożony hello.
 
 ```json
 {

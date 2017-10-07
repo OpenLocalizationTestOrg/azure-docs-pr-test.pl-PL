@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Citrix GoToMeeting | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Citrix GoToMeeting."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Citrix GoToMeeting."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,78 +13,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ddfcd991431a11e5c3e306bd5905003d094ac18
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3c6eed5309dfa384c292b0cf63f8aa58988add81
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-configuring-citrix-gotomeeting-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Citrix GoToMeeting dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
-Celem tego samouczka jest opisano czynności, które należy wykonać w Citrix GoToMeeting i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD Citrix GoToMeeting.
+Celem Hello tego samouczka jest tooshow hello czynności, które należy tooperform w Citrix GoToMeeting i Azure AD tooautomatically udostępniania i usuwanie kont użytkowników z usługi Azure AD tooCitrix GoToMeeting.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że już następujące elementy:
+Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
 
 *   Dzierżawy usługi Azure Active directory.
 *   Citrix GoToMeeting jednokrotnego włączone subskrypcji.
 *   Konto użytkownika w Citrix GoToMeeting z uprawnieniami administratora zespołu.
 
-## <a name="assigning-users-to-citrix-gotomeeting"></a>Przypisywanie użytkowników do Citrix GoToMeeting
+## <a name="assigning-users-toocitrix-gotomeeting"></a>Przypisywanie użytkowników tooCitrix GoToMeeting
 
-Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD jest zsynchronizowany.
+Azure Active Directory korzysta z koncepcji o nazwie "przypisania" toodetermine użytkowników, którzy mają otrzymywać aplikacje tooselected dostępu. W kontekście hello Inicjowanie obsługi konta użytkowników tylko hello użytkowników i grup, które zostały "przypisane" tooan aplikacji w usłudze Azure AD jest zsynchronizowany.
 
-Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy zdecydować, jakie użytkownicy i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji Citrix GoToMeeting. Po decyzję, można przypisać tych użytkowników do aplikacji Citrix GoToMeeting, postępując zgodnie z instrukcjami poniżej:
+Przed Skonfiguruj i Włącz hello usługi inicjowania obsługi administracyjnej, należy toodecide jakie użytkowników i/lub grup w usłudze Azure AD reprezentują hello użytkowników, którzy muszą korzystać tooyour Citrix GoToMeeting aplikacji. Po decyzję, można przypisać tooyour tych użytkowników aplikacji Citrix GoToMeeting, wykonując instrukcje hello tutaj:
 
-[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Przypisywanie użytkownikowi lub grupie aplikacji przedsiębiorstwa tooan](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-citrix-gotomeeting"></a>Ważne porady dotyczące przypisywania użytkowników do Citrix GoToMeeting
+### <a name="important-tips-for-assigning-users-toocitrix-gotomeeting"></a>Ważne porady dotyczące przypisywania użytkowników tooCitrix GoToMeeting
 
-*   Zalecane jest pojedynczego użytkownika usługi Azure AD jest przypisana do Citrix GoToMeeting, aby przetestować konfigurację inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest jeden użytkownik usługi Azure AD jest przypisany hello tootest GoToMeeting tooCitrix inicjowania obsługi konfiguracji. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-*   Przypisanie użytkownika do Citrix GoToMeeting, należy wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" nie działa w przypadku inicjowania obsługi administracyjnej.
+*   Podczas przypisywania tooCitrix użytkownika GoToMeeting, musisz wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" Hello nie działa w przypadku inicjowania obsługi administracyjnej.
 
 ## <a name="enable-automated-user-provisioning"></a>Włącz automatyczne Inicjowanie obsługi użytkowników
 
-Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkownika Citrix GoToMeeting inicjowania obsługi interfejsu API i konfigurowanie inicjowania obsługi usługi do tworzenia, aktualizacji i wyłączania przypisany użytkownik kont w Citrix GoToMeeting opartych na przypisanie użytkowników i grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez łączenie inicjowania obsługi interfejsu API konta użytkownika GoToMeeting tooCitrix usługi Azure AD i konfigurowanie hello inicjowania obsługi usługi toocreate, zaktualizować, a następnie wyłącz przypisany użytkownik kont w Citrix GoToMeeting opartych na użytkowników i grup przypisania w usłudze Azure AD.
 
 > [!TIP]
-> Można też włączyć na języku SAML logowania jednokrotnego dla Citrix GoToMeeting, wykonując instrukcje podane w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
+> Można też tooenabled na języku SAML logowania jednokrotnego dla Citrix GoToMeeting, hello instrukcje podane w następujących [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Aby skonfigurować konto użytkownika automatycznego inicjowania obsługi administracyjnej:
+### <a name="tooconfigure-automatic-user-account-provisioning"></a>tooconfigure użytkownika automatyczne Inicjowanie obsługi konta:
 
-1. W [portalu Azure](https://portal.azure.com), przejdź do **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
+1. W hello [portalu Azure](https://portal.azure.com), Przeglądaj toohello **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
 
-2. Jeśli Citrix GoToMeeting został już skonfigurowany dla logowania jednokrotnego, wyszukiwanie wystąpieniem Citrix GoToMeeting, korzystając z pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **Citrix GoToMeeting** w galerii aplikacji. Wybierz Citrix GoToMeeting w wynikach wyszukiwania i dodaj ją do listy aplikacji.
+2. Citrix GoToMeeting został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpienie usługi przy użyciu pola wyszukiwania hello Citrix GoToMeeting. W przeciwnym razie wybierz **Dodaj** i wyszukaj **Citrix GoToMeeting** w galerii aplikacji hello. Wybierz Citrix GoToMeeting z wyników wyszukiwania hello i dodać go tooyour listę aplikacji.
 
-3. Wybierz wystąpienia programu Citrix GoToMeeting, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
+3. Wybierz wystąpienia programu Citrix GoToMeeting, a następnie wybierz hello **inicjowania obsługi administracyjnej** kartę.
 
-4. Ustaw **inicjowania obsługi administracyjnej** tryb **automatyczne**. 
+4. Zestaw hello **inicjowania obsługi administracyjnej** tryb zbyt**automatyczne**. 
 
     ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
-5. W sekcji poświadczenia administratora wykonaj następujące czynności:
+5. W obszarze hello sekcji poświadczenia administratora wykonaj hello następujące kroki:
    
-    a. W **nazwa użytkownika administratora GoToMeeting Citrix** tekstowym, wpisz nazwę użytkownika administratora.
+    a. W hello **nazwa użytkownika administratora GoToMeeting Citrix** tekstowym, wpisz nazwę użytkownika hello administratora.
 
-    b. W **hasło administratora GoToMeeting Citrix** pole tekstowe, hasło administratora.
+    b. W hello **hasło administratora GoToMeeting Citrix** pole tekstowe, hasło administratora hello.
 
-6. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji Citrix GoToMeeting. Jeśli połączenie nie powiedzie się, upewnij się, Twoje konto Citrix GoToMeeting ma uprawnienia administratora zespołu i spróbuj **"Poświadczeń administratora"** krok ponownie.
+6. W portalu Azure hello, kliknij przycisk **Testuj połączenie** tooensure usługi Azure AD mogą się łączyć tooyour Citrix GoToMeeting aplikacji. Jeśli hello połączenia nie powiedzie się, upewnij się, Twoje konto Citrix GoToMeeting ma uprawnienia administratora zespołu i spróbuj hello **"Poświadczeń administratora"** krok ponownie.
 
-7. Wprowadź adres e-mail osoby lub grupy, który powinien zostać wyświetlony inicjowania obsługi administracyjnej powiadomienia o błędach w **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru.
+7. Wprowadź adres e-mail hello osoby lub grupy, które powinny być przesyłane powiadomienia błąd inicjowania obsługi administracyjnej w hello **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru hello.
 
 8. Kliknij przycisk **zapisać.**
 
-9. W sekcji mapowania wybierz **synchronizacji Azure Active Directory użytkownikom Citrix GoToMeeting.**
+9. W obszarze hello sekcji mapowania, wybierz **tooCitrix synchronizacji Azure Active Directory użytkowników GoToMeeting.**
 
-10. W **mapowań atrybutów** Przejrzyj atrybutów użytkowników, które są synchronizowane z usługi Azure AD Citrix GoToMeeting. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Citrix GoToMeeting dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
+10. W hello **mapowań atrybutów** Przejrzyj hello atrybutów użytkowników, które są synchronizowane z usługą Azure AD tooCitrix GoToMeeting. Witaj atrybuty wybrany jako **pasujące** właściwości są używane toomatch hello kontom Citrix GoToMeeting dla operacji update. Wybierz toocommit przycisk Zapisz hello wszelkie zmiany.
 
-11. Aby włączyć usługi Azure AD, świadczenie usługi dla Citrix GoToMeeting, zmień **stan inicjowania obsługi administracyjnej** do **na** w sekcji Ustawienia
+11. tooenable hello inicjowania obsługi usługi Azure AD dla Citrix GoToMeeting, zmień hello **stan inicjowania obsługi administracyjnej** za**na** w sekcji Ustawienia hello
 
 12. Kliknij przycisk **zapisać.**
 
-Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do Citrix GoToMeeting w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji Citrix GoToMeeting.
+Rozpoczyna hello wstępnej synchronizacji użytkowników i/lub grupy przypisane tooCitrix GoToMeeting w sekcji hello użytkowników i grup. Witaj początkowej synchronizacji ma tooperform dłużej niż kolejne synchronizacje, które występują co około 20 minut, tak długo, jak działa usługa hello. Można użyć hello **szczegóły synchronizacji** sekcji postępu toomonitor i wykonaj łącza tooprovisioning działania raporty, które opisują wszystkie działania wykonywane przez hello świadczenie usługi w aplikacji Citrix GoToMeeting.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

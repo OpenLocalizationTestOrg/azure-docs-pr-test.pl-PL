@@ -11,43 +11,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 78dbbe085fca26ad529c6262ba852f3c06ace404
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ff07b9954d5c2ce71ab0ffd0db49fde15f323586
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Oświadczenia mapowanie w usłudze Azure Active Directory (publicznej wersji zapoznawczej)
 
 >[!NOTE]
->Ta funkcja zastępuje i zastępuje [oświadczeń dostosowania](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) obecnie dostępna za pośrednictwem portalu. Jeśli musisz dostosować przy użyciu portalu oprócz metody PowerShell wykres szczegółowo opisane w tym dokumencie na tej samej aplikacji oświadczeń, tokeny wystawiony dla czy aplikacja zignoruje konfiguracją w portalu.
-Konfiguracje wprowadzone przy użyciu metod podanych w tym dokumencie nie zostaną odzwierciedlone w portalu.
+>Ta funkcja zastępuje i zastępuje hello [oświadczeń dostosowania](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) oferowane za pośrednictwem portalu hello dzisiaj. W przypadku dostosowania oświadczeń przy użyciu portalu hello dodatkowo toohello wykres PowerShell — metoda szczegółowe w tym dokumencie na powitania sam aplikację, wystawiony dla tej aplikacji będzie ignorować konfiguracji hello w portalu hello tokenów.
+Konfiguracje wprowadzone przy użyciu metody hello szczegółowo opisane w tym dokumencie nie zostaną odzwierciedlone w portalu hello.
 
-Ta funkcja jest używana przez administratorów dzierżawy, aby dostosować oświadczeń wysyłanego w tokenach dla określonej aplikacji w swojej dzierżawy. Można użyć oświadczeń mapowanie zasad do:
+Ta funkcja jest używana przez administratorów dzierżawy toocustomize hello oświadczeń wysyłanego w tokenach dla określonej aplikacji w swojej dzierżawy. Można użyć oświadczeń mapowanie zasad do:
 
 - Wybierz, jakie oświadczenia są uwzględnione w tokenach.
 - Tworzenie typów oświadczeń, które jeszcze nie istnieje.
-- Wybierz lub Zmień źródło danych emitowanych w określonych oświadczeń.
+- Wybierz lub zmień hello źródło danych emitowanych w określonych oświadczeń.
 
 >[!NOTE]
->Ta funkcja jest obecnie w wersji zapoznawczej. Przygotuj się do przywrócenia lub Usuń wszystkie zmiany. Funkcja jest dostępna w żadnych subskrypcji usługi Azure Active Directory (Azure AD) w publicznej wersji zapoznawczej. Gdy funkcja stanie się ogólnie dostępna, niektórych aspektów funkcji mogą jednak wymagać subskrypcję usługi Azure Active Directory premium.
+>Ta funkcja jest obecnie w wersji zapoznawczej. Można przygotować toorevert lub Usuń wszystkie zmiany. Funkcja Hello jest dostępna w żadnych subskrypcji usługi Azure Active Directory (Azure AD) w publicznej wersji zapoznawczej. Gdy funkcja hello staje się ogólnie dostępna, niektórych aspektów funkcji hello mogą jednak wymagać subskrypcję usługi Azure Active Directory premium.
 
 ## <a name="claims-mapping-policy-type"></a>Mapowanie typu zasad oświadczeń
-W usłudze Azure AD **zasad** obiekt reprezentuje zestaw reguł wymuszane na poszczególnych aplikacji lub na wszystkie aplikacje w organizacji. Każdy typ zasad ma unikatową strukturę, z zestawem właściwości, które następnie są stosowane do obiektów, do których jest przypisany.
+W usłudze Azure AD **zasad** obiekt reprezentuje zestaw reguł wymuszane na poszczególnych aplikacji lub na wszystkie aplikacje w organizacji. Każdego typu zasad ma unikatowy strukturę, z zestawem właściwości, które są następnie stosowane toowhich tooobjects, które są przypisane.
 
-Oświadczenia A mapowania zasad jest typem **zasad** obiekt, który modyfikuje oświadczenia emitowanych w tokenów wystawionych dla określonych aplikacji.
+Oświadczenia A mapowania zasad jest typem **zasad** obiekt, który modyfikuje hello oświadczeń emitowanych w tokenów wystawionych dla określonych aplikacji.
 
 ## <a name="claim-sets"></a>W zestawie oświadczeń
 Istnieją pewne zestawy oświadczeń, które określają, jak i kiedy są używane w tokenach.
 
 ### <a name="core-claim-set"></a>Podstawowy zestaw oświadczeń
-Oświadczeniami w zestawie oświadczeń core znajdują się w każdym tokenu, niezależnie od zasady. Te oświadczenia również są traktowane jako ograniczona i nie może być modyfikowany.
+Oświadczenia w podstawowej hello oświadczenia, zestawu są obecne w każdym tokenu, niezależnie od zasady. Te oświadczenia również są traktowane jako ograniczona i nie może być modyfikowany.
 
 ### <a name="basic-claim-set"></a>Zestaw oświadczeń podstawowe
-Zestaw oświadczeń podstawowa zawiera oświadczenia, które są emitowane domyślnie tokeny (oprócz zestawu oświadczeń core). Te oświadczenia mogą pominięcia lub modyfikować za pomocą oświadczeń mapowanie zasad.
+zestaw oświadczeń podstawowe Hello zawiera hello oświadczenia, które są emitowane domyślnie tokeny (w dodanie toohello podstawowy zestaw oświadczeń). Te oświadczenia mogą pominięcia lub modyfikować za pomocą oświadczeń hello mapowanie zasad.
 
 ### <a name="restricted-claim-set"></a>Zestaw oświadczeń ograniczone
-Nie można zmodyfikować ograniczeniami oświadczeń przy użyciu zasad. Nie można zmienić źródła danych, a nie transformacja jest stosowana podczas generowania tych oświadczeń.
+Nie można zmodyfikować ograniczeniami oświadczeń przy użyciu zasad. Witaj źródła danych nie można zmienić, a nie transformacja jest stosowana podczas generowania tych oświadczeń.
 
 #### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabela 1: Tokenu Web JSON (JWT) ograniczony zestaw oświadczeń
 |Typ oświadczenia (nazwa)|
@@ -234,7 +234,7 @@ Nie można zmodyfikować ograniczeniami oświadczeń przy użyciu zasad. Nie mo�
 |http://schemas.microsoft.com/Identity/Claims/SCOPE|
 
 ## <a name="claims-mapping-policy-properties"></a>Mapowanie właściwości zasad oświadczeń
-Użyj właściwości mapowania zasad kontroli jakie oświadczenia są emitowane, gdy dane są uzyskiwane z oświadczeń. Jeśli żadne zasady nie jest ustawiona, system wystawia tokeny zawierający podstawowy zestaw oświadczeń w zestawie oświadczeń podstawowe i wszelkie oświadczenia opcjonalne, które wybierze aplikacji na odbieranie.
+Użyj właściwości hello mapowania toocontrol zasad, jakie oświadczenia są emitowane i gdzie danych hello są uzyskiwane z oświadczeń. Jeśli żadne zasady nie jest ustawiona, hello system wystawia tokeny zawierającego zestaw oświadczeń core hello, hello podstawowego zestawu oświadczeń i wszelkie oświadczenia opcjonalne, które aplikacji hello wybrał tooreceive.
 
 ### <a name="include-basic-claim-set"></a>Obejmują zestaw oświadczeń podstawowe
 
@@ -242,13 +242,13 @@ Użyj właściwości mapowania zasad kontroli jakie oświadczenia są emitowane,
 
 **Typ danych:** wartość logiczną (True lub False)
 
-**Podsumowanie:** ta właściwość określa, czy w zestawie oświadczeń podstawowa jest uwzględnione w tokenach wpływ tych zasad. 
+**Podsumowanie:** ta właściwość określa, czy zestaw oświadczeń podstawowe hello jest uwzględnione w tokenach wpływ tych zasad. 
 
-- Jeśli ma wartość True, wszystkie oświadczenia w zestawie oświadczeń podstawowe są emitowane w tokenach objęte zasadami. 
-- Jeśli ma wartość False, oświadczeniami w zestawie oświadczeń podstawowych nie są w tokenach, chyba, że są one dodawane indywidualnie we właściwości schematu oświadczenia te same zasady.
+- Jeśli zestaw tooTrue, wszystkich oświadczeń w zestawie oświadczeń podstawowe hello są emitowane w tokenach wpływ hello zasad. 
+- Jeśli zestaw tooFalse, oświadczeniami w zestawie oświadczeń podstawowe hello nie są w tokenach hello nie zostały indywidualnie dodane we właściwości schematu oświadczeń hello hello takie same zasady.
 
 >[!NOTE] 
->Oświadczeniami w zestawie oświadczeń core znajdują się w każdym tokenu, niezależnie od tego, co ta właściwość jest ustawiona na. 
+>Oświadczenia w podstawowej hello oświadczenia, zestawu są obecne w każdym tokenu, niezależnie od tego, co ta właściwość jest ustawiona na. 
 
 ### <a name="claims-schema"></a>Schemat oświadczeń
 
@@ -256,28 +256,28 @@ Użyj właściwości mapowania zasad kontroli jakie oświadczenia są emitowane,
 
 **Typ danych:** obiektu blob JSON z jednego lub więcej wpisów schematu oświadczeń
 
-**Podsumowanie:** właściwość ta definiuje, jakie oświadczenia są obecne w tokeny wpływ zasad, oprócz do zestawu oświadczeń podstawowe i podstawowy zestaw oświadczeń.
-Dla każdego schematu oświadczeń wpisu zdefiniowane w tej właściwości niektóre informacje są wymagane. Należy określić, gdzie dane pochodzące ze (**wartość** lub **pary źródło/identyfikator**), i który oświadczeń danych jest emitowany jako (**typu oświadczenia**).
+**Podsumowanie:** właściwość ta definiuje, jakie oświadczenia są obecne w tokeny hello wpływ zasad hello, oprócz toohello podstawowego zestawu oświadczeń i hello core zestawu oświadczeń.
+Dla każdego schematu oświadczeń wpisu zdefiniowane w tej właściwości niektóre informacje są wymagane. Należy określić, których pochodzą dane hello (**wartość** lub **pary Ident/**), i który dane hello oświadczenia jest emitowany jako (**typu oświadczenia**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementy schematu wpisu oświadczeń
 
-**Wartość:** element wartości definiuje wartości statycznej jako dane być emitowane w oświadczeniu.
+**Wartość:** hello wartość elementu definiuje wartości statycznej jako hello toobe danych emitowanych w hello oświadczeń.
 
-**Identyfikator źródłowego/para:** elementy źródłowy i identyfikator zdefiniować, gdzie dane w oświadczenia są uzyskiwane z. 
+**Identyfikator źródłowego/para:** hello źródła i identyfikator elementy zdefiniowane, gdzie danych hello hello oświadczenia są uzyskiwane z. 
 
-Element źródła musi być ustawiony na jedną z następujących: 
+element źródłowy Hello musi mieć ustawiony tooone hello poniżej: 
 
 
-- "użytkownika": dane z oświadczeń jest właściwością obiektu User. 
-- "aplikacja": dane z oświadczeń to właściwość nazwy głównej usługi aplikacji (klienta). 
-- "zasobu": dane z oświadczeń to właściwość nazwy głównej usługi zasobów.
-- "audience": dane z oświadczeń to właściwość nazwy głównej usługi, który jest odbiorcy tokenu (klienta lub zasobu nazwy głównej usługi).
-- "firmy": dane z oświadczeń jest właściwością w obiekcie firmy dzierżawy zasobów.
-- "transformacji": dane z oświadczeń pochodzą z przekształcania oświadczeń (zobacz sekcję "Przekształcanie oświadczeń" w dalszej części tego artykułu). 
+- "użytkownika": hello danych hello oświadczeń jest właściwością obiektu użytkownika hello. 
+- "aplikacja": hello danych hello oświadczeń jest właściwość nazwy głównej usługi aplikacji (klienta) hello. 
+- "zasobu": hello danych hello oświadczeń jest właściwość nazwy głównej usługi zasobów hello.
+- "audience": hello dane oświadczeń hello jest właściwością na powitania nazwy głównej usługi będący hello odbiorców tokenu hello (albo powitania klienta lub zasób nazwy głównej usługi).
+- "firmy": hello danych hello oświadczeń jest właściwością w obiekcie firmy hello zasobów dzierżawy.
+- "transformacji": hello danych hello oświadczeń, pochodzi z przekształcania oświadczeń (patrz sekcja hello "przekształcania oświadczeń" w dalszej części tego artykułu). 
 
-Jeśli źródło jest przekształcania **TransformationID** elementu muszą być zawarte w tej definicji oświadczenia.
+Jeśli źródło hello jest przekształcania, hello **TransformationID** elementu muszą być zawarte w tej definicji oświadczenia.
 
-Elementu ID identyfikuje, które właściwości w źródle zawiera wartość oświadczenia. W poniższej tabeli wymieniono wartości identyfikatora jest nieprawidłowa dla każdej wartości źródła.
+elementu ID Hello identyfikuje, które właściwości w źródle hello zawiera wartość hello hello oświadczenia. Witaj poniższej tabeli wymieniono wartości hello identyfikatora jest nieprawidłowa dla każdej wartości źródła.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Prawidłowy identyfikator wartości dla każdego źródła
 |Element źródłowy|ID|Opis|
@@ -326,17 +326,17 @@ Elementu ID identyfikuje, które właściwości w źródle zawiera wartość oś
 |Aplikacja, zasobu, grupy odbiorców|tags|Etykieta nazwy głównej usługi|
 |Firma|tenantcountry|Dzierżawcy kraju|
 
-**TransformationID:** elementu TransformationID należy podać tylko wtedy, gdy element źródłowy ma ustawioną wartość "transformacji".
+**TransformationID:** hello TransformationID element musi być podane tylko wtedy, gdy hello elementu źródła jest ustawiona zbyt "transformacji".
 
-- Ten element musi być zgodna elementu Identyfikatora wpisu przekształcania **ClaimsTransformation** właściwość, która określa, jak jest generowany dane dla tego oświadczenia.
+- Ten element musi być zgodna hello elementu Identyfikatora wpisu przekształcania hello hello **ClaimsTransformation** właściwość, która określa, jak jest generowany hello danych dla tego oświadczenia.
 
-**Typ oświadczenia:** **JwtClaimType** i **SamlClaimType** elementy zdefiniować, które oświadczenia, ten wpis schematu oświadczenie odnosi się do.
+**Typ oświadczenia:** hello **JwtClaimType** i **SamlClaimType** elementy zdefiniować, które oświadczenia, ten wpis schematu oświadczenie odnosi się do.
 
-- JwtClaimType musi zawierać nazwę oświadczenia, które można emitowanych w tokenów Jwt.
-- SamlClaimType musi zawierać identyfikator URI oświadczenia być emitowane w tokenach SAML.
+- Witaj JwtClaimType musi zawierać nazwę hello toobe oświadczeń hello emitowanych w tokenów Jwt.
+- Witaj SamlClaimType musi zawierać hello URI hello oświadczeń toobe wysyłanego w tokenach SAML.
 
 >[!NOTE]
->Nie można używać nazwy i identyfikatory URI oświadczeń w zestawie oświadczeń ograniczeniami dla elementów typu oświadczenia. Aby uzyskać więcej informacji zobacz sekcję "Wyjątki i ograniczenia" w dalszej części tego artykułu.
+>Nazwy i identyfikatory URI oświadczeń w hello ograniczony oświadczenie set nie można używać elementów typu oświadczenia hello. Aby uzyskać więcej informacji zobacz hello sekcji "Wyjątki i ograniczenia" w dalszej części tego artykułu.
 
 ### <a name="claims-transformation"></a>Przekształcanie oświadczeń
 
@@ -344,38 +344,38 @@ Elementu ID identyfikuje, które właściwości w źródle zawiera wartość oś
 
 **Typ danych:** obiektu blob JSON z jednego lub więcej wpisów przekształcania 
 
-**Podsumowanie:** ta właściwość służy do stosowania wspólnego przekształcenia do źródła danych, można wygenerować danych wyjściowych dla oświadczeń określonej w schemacie oświadczeń.
+**Podsumowanie:** używać tej właściwości tooapply wspólnego przekształcenia toosource danych, danych wyjściowych hello toogenerate oświadczenia określone w hello schematu oświadczeń.
 
-**Identyfikator:** Użyj elementu ID, aby odwoływać ten wpis przekształcania we wpisie TransformationID oświadczeń schematu. Ta wartość musi być unikatowa dla każdego wpisu transformacji w ramach tych zasad.
+**Identyfikator:** Użyj hello identyfikator elementu tooreference tego wpisu przekształcania hello TransformationID oświadczeń schematu wejścia. Ta wartość musi być unikatowa dla każdego wpisu transformacji w ramach tych zasad.
 
-**TransformationMethod:** elementu TransformationMethod identyfikuje, które jest wykonywane wygenerowane dane oświadczenia.
+**TransformationMethod:** identyfikuje hello TransformationMethod element operacji, które jest wykonywane toogenerate hello danych hello oświadczenia.
 
-Oparte na wybranej metody, oczekiwano zestaw danych wejściowych i wyjściowych. Są one zdefiniowane przy użyciu **InputClaims**, **InputParameters** i **OutputClaims** elementów.
+Oparte na wybranej metody hello, oczekiwano zestaw danych wejściowych i wyjściowych. Są one zdefiniowane przy użyciu hello **InputClaims**, **InputParameters** i **OutputClaims** elementów.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Metody przekształcania, a oczekiwano wejścia i wyjścia
 |TransformationMethod|Oczekiwano danych wejściowych|Oczekiwane dane wyjściowe|Opis|
 |-----|-----|-----|-----|
 |Join|ciąg1, ciąg2, separatora|outputClaim|Sprzężenia Wprowadź ciągi za pomocą separatora między nimi. Na przykład: ciąg1: "foo@bar.com", ciąg2: "piaskownicy", separatora: "." powoduje outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|Poczty|outputClaim|Wyodrębnia lokalnego część adresu e-mail. Na przykład: poczty: "foo@bar.com" powoduje outputClaim: "foo". Jeśli nie @ znak jest nie istnieje, a następnie orignal ciąg wejściowy jest zwracany, ponieważ jest.|
+|ExtractMailPrefix|Poczty|outputClaim|Wyodrębnia hello lokalną część adresu e-mail. Na przykład: poczty: "foo@bar.com" powoduje outputClaim: "foo". Jeśli nr @ znak jest obecny, następnie ciąg wejściowy orignal hello jest zwracany, ponieważ jest.|
 
-**InputClaims:** Użyj elementu InputClaims, aby przekazać dane z wpisu schematu oświadczenia do przekształcenia. Zawiera dwa atrybuty: **ClaimTypeReferenceId** i **TransformationClaimType**.
+**InputClaims:** użyć InputClaims elementu toopass hello danych z transformację tooa oświadczeń schematu wejścia. Zawiera dwa atrybuty: **ClaimTypeReferenceId** i **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** jest połączony z elementu Identyfikatora wpisu schematu oświadczeń można znaleźć odpowiednich oświadczeń przychodzących. 
-- **TransformationClaimType** należy nadać unikatową nazwę do tych danych wejściowych. Ta nazwa musi pasować oczekiwane dane wejściowe dla metody przekształcania.
+- **ClaimTypeReferenceId** jest połączony z identyfikator elementu hello oświadczeń schematu wpisu toofind hello odpowiednich oświadczeń przychodzących. 
+- **TransformationClaimType** jest używane toogive wprowadzania toothis unikatową nazwę. Ta nazwa musi być zgodna jedno z wejść hello Oczekiwano metody przekształcania hello.
 
-**InputParameters:** element InputParameters służy do przekazania wartości stałej do przekształcenia. Zawiera dwa atrybuty: **wartość** i **identyfikator**.
+**InputParameters:** Użyj toopass element InputParameters transformację tooa stałej wartości. Zawiera dwa atrybuty: **wartość** i **identyfikator**.
 
-- **Wartość** jest rzeczywista wartość stałej do przekazania.
-- **Identyfikator** należy nadać unikatową nazwę do tych danych wejściowych. Ta nazwa musi pasować oczekiwane dane wejściowe dla metody przekształcania.
+- **Wartość** jest przekazywany hello toobe rzeczywistej wartości stałej.
+- **Identyfikator** jest używane toogive wprowadzania toothis unikatową nazwę. Ta nazwa musi być zgodna jedno z wejść hello Oczekiwano metody przekształcania hello.
 
-**OutputClaims:** element OutputClaims służy do przechowywania danych wygenerowanych przez transformację i powiązanie jej wpis schematu oświadczeń. Zawiera dwa atrybuty: **ClaimTypeReferenceId** i **TransformationClaimType**.
+**OutputClaims:** OutputClaims elementu toohold hello dane generowane przez transformację przy użyciu, a powiązanie jej tooa oświadczeń schematu wejścia. Zawiera dwa atrybuty: **ClaimTypeReferenceId** i **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** jest połączony z identyfikator wpisu schematu oświadczeń można znaleźć oświadczeń wychodzących odpowiednie.
-- **TransformationClaimType** należy nadać unikatową nazwę tego raportu. Ta nazwa musi pasować oczekiwane dane wyjściowe metody przekształcania.
+- **ClaimTypeReferenceId** jest połączony z hello identyfikator oświadczeń wychodzących odpowiednie hello toofind wpis hello oświadczeń schematu.
+- **TransformationClaimType** jest używane toogive wyjściowego toothis unikatową nazwę. Ta nazwa musi pasować wyjść hello Oczekiwano metody przekształcania hello.
 
 ### <a name="exceptions-and-restrictions"></a>Wyjątki i ograniczenia
 
-**SAML NameID i UPN:** atrybutów, z których źródłowego wartości NameID i głównej nazwy użytkownika i przekształcenia oświadczeń, które są dozwolone, są ograniczone.
+**SAML NameID i UPN:** hello atrybutów, z których źródła hello NameID i UPN wartości i hello oświadczeń przekształcenia, które są dozwolone, są ograniczone.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atrybuty dozwolone jako źródło danych dla SAML NameID
 |Element źródłowy|ID|Opis|
@@ -404,104 +404,104 @@ Oparte na wybranej metody, oczekiwano zestaw danych wejściowych i wyjściowych.
 |TransformationMethod|Ograniczenia|
 | ----- | ----- |
 |ExtractMailPrefix|Brak|
-|Join|Sufiks jest dołączony musi być zweryfikowanej domeny zasobów dzierżawy.|
+|Join|sufiks Hello jest dołączony musi być zweryfikowanej domeny hello zasobów dzierżawy.|
 
 ### <a name="custom-signing-key"></a>Niestandardowe klucza podpisywania
-Niestandardowy klucz podpisujący musi być przypisany do obiektu główną usługi dla oświadczeń mapowania zasad, które zostały wprowadzone. Wszystkie wystawione tokeny, które wpływ zasad są podpisane przy użyciu tego klucza. Aplikacje muszą być skonfigurowane do akceptowania tokeny podpisane przy użyciu tego klucza. Dzięki temu potwierdzenia tokeny zostały zmodyfikowane przez autora oświadczeń mapowania zasad. Chroni to aplikacje z oświadczeń mapowanie zasad utworzonych przez złośliwych osób.
+Niestandardowy klucz podpisujący musi być przypisany toohello obiekt główny usługi dla mapowania efekt tootake zasad oświadczeń. Wszystkie wystawione tokeny, które wpływ zasad hello są podpisane przy użyciu tego klucza. Aplikacje muszą być skonfigurowane tooaccept tokeny podpisane przy użyciu tego klucza. Dzięki temu potwierdzenia, że tokeny zostały zmodyfikowane przez hello twórca hello oświadczeń zasady mapowania. Chroni to aplikacje z oświadczeń mapowanie zasad utworzonych przez złośliwych osób.
 
 ### <a name="cross-tenant-scenarios"></a>Scenariusze między dzierżawy
-Goście nie dotyczą mapowanie zasad oświadczeń. Jeśli użytkownik-Gość próbuje uzyskać dostęp do aplikacji z oświadczeń mapowania zasad przypisany do jego nazwy głównej usługi, zgłaszany jest domyślny token (zasada nie ma znaczenia).
+Mapowanie zasad oświadczeń nie należy stosować tooguest użytkowników. Jeśli użytkownik-Gość prób tooaccess aplikacji z oświadczeń tooits zasad przypisanych mapowanie usługi podmiot zabezpieczeń, hello domyślny token wystawiony (hello zasada nie ma znaczenia).
 
 ## <a name="claims-mapping-policy-assignment"></a>Mapowanie przypisania zasad oświadczeń
-Mapowanie zasad oświadczeń można przypisać tylko do obiektów głównych usługi.
+Wskazuje, że mapowania zasad można przypisać tylko obiekty główne tooservice.
 
 ### <a name="example-claims-mapping-policies"></a>Przykład oświadczeń mapowania zasad
 
-W usłudze Azure AD wiele scenariuszy współbieżnie, gdy można dostosować oświadczeń wysyłanego w tokenach podmiotów określonej usługi. W tej sekcji możemy przeprowadzenie kilka typowych scenariuszy, które mogą pomóc Ci ujmij sposób użycia oświadczeń mapowania typu zasad.
+W usłudze Azure AD wiele scenariuszy współbieżnie, gdy można dostosować oświadczeń wysyłanego w tokenach podmiotów określonej usługi. W tej sekcji możemy przeprowadzenie kilka typowych scenariuszy, które mogą pomóc Ci ujmij jak toouse hello oświadczeń mapowania typu zasad.
 
 #### <a name="prerequisites"></a>Wymagania wstępne
-Poniższe przykłady służy do tworzenia, aktualizacji, łączenie i usuwania zasad dla nazwy główne usług. Jeśli jesteś nowym użytkownikiem usługi Azure AD, zaleca się więcej informacji o tym, jak uzyskać dzierżawę usługi Azure AD, przed rozpoczęciem pracy z tymi przykładami. 
+Następujące przykłady hello służy do tworzenia, aktualizacji, łączenie i usuwania zasad dla nazwy główne usług. W przypadku nowych tooAzure AD zalecamy Poznaj jak tooget usługi Azure AD dzierżawy przed przystąpieniem do tych przykładów. 
 
-Aby rozpocząć pracę, wykonaj następujące czynności:
+tooget pracę, hello następujące kroki:
 
 
-1. Pobierz najnowszą [modułu Azure AD PowerShell publicznej wersji zapoznawczej](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
-2.  Uruchom polecenie Connect, aby zalogować się do konta administratora usługi Azure AD. Uruchom to polecenie za każdym razem, należy uruchomić nową sesję.
+1. Pobierz najnowsze hello [modułu Azure AD PowerShell publicznej wersji zapoznawczej](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
+2.  Uruchom toosign polecenia Connect hello w tooyour konta administratora usługi Azure AD. Uruchom to polecenie za każdym razem, należy uruchomić nową sesję.
     
      ``` powershell
     Connect-AzureAD -Confirm
     
     ```
-3.  Aby wyświetlić wszystkie zasady, które zostały utworzone w organizacji, uruchom następujące polecenie. Firma Microsoft zaleca uruchomienie tego polecenia po większości operacji w następujących scenariuszach, aby sprawdzić, czy zasady są tworzone zgodnie z oczekiwaniami.
+3.  toosee wszystkie zasady, które zostały utworzone w organizacji, hello uruchom następujące polecenie. Firma Microsoft zaleca uruchomienie tego polecenia po większości operacji w hello następujących scenariuszy, oczekiwano toocheck, które zasady są tworzone jako.
    
     ``` powershell
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Przykład: Utworzyć i przypisać zasady, aby pominąć podstawowe oświadczeń z tokenów wystawionych do nazwy głównej usługi.
-W tym przykładzie utworzysz zasady, która usuwa podstawowego zestawu oświadczeń z tokenów wystawionych do podmiotów połączonej usługi.
+#### <a name="example-create-and-assign-a-policy-tooomit-hello-basic-claims-from-tokens-issued-tooa-service-principal"></a>Przykład: Utworzyć i przypisać zasady tooomit hello podstawowe oświadczeń z nazwy głównej usługi tooa tokeny wystawione.
+W tym przykładzie utworzyć zasadę, która usuwa zestaw oświadczeń podstawowe hello z tokenów wystawionych toolinked nazwy główne usług.
 
 
-1. Utwórz mapowania zasad oświadczeń. Ta zasada podmiotów połączonej do określonej usługi, usuwa podstawowego zestawu z tokenów oświadczeń.
-    1. Aby utworzyć zasady, uruchom następujące polecenie: 
+1. Utwórz mapowania zasad oświadczeń. Ta zasada, połączone toospecific nazwy główne usług, usuwa zestaw oświadczeń podstawowe hello z tokenów.
+    1. toocreate hello zasad, uruchom to polecenie: 
     
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
     ```
-    2. Aby wyświetlić nowe zasady i pobrania ObjectId zasad, uruchom następujące polecenie:
+    2. toosee, które nowe zasady, a zasady hello tooget ObjectId, hello uruchom następujące polecenie:
     
      ``` powershell
     Get-AzureADPolicy
     ```
-2.  Przypisz zasady do Twojej nazwy głównej usługi. Należy również pobrania ObjectId usługi podmiotu zabezpieczeń. 
-    1.  Aby wyświetlić nazwy główne usług wszystkich organizacji, można zbadać Microsoft Graph. Lub, w Eksploratorze Azure AD Graph, zaloguj się do swojego konta usługi Azure AD.
-    2.  Jeśli masz ObjectId nazwy głównej usługi, uruchom następujące polecenie:  
+2.  Przypisz hello zasad tooyour service principal. Należy również hello tooget ObjectId Twojej nazwy głównej usługi. 
+    1.  toosee nazwy główne usług wszystkich organizacji, można zbadać Microsoft Graph. Lub, w Eksploratorze Azure AD Graph Zaloguj tooyour konto usługi Azure AD.
+    2.  Jeśli masz hello ObjectId Twojej usługi głównej, uruchom hello następujące polecenie:  
      
      ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
     ```
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Przykład: Utworzyć i przypisać zasady w celu włączenia identyfikator pracownika i TenantCountry jako oświadczenia w tokenach wystawiony dla nazwy głównej usługi.
-W tym przykładzie można utworzyć zasadę, która dodaje identyfikator pracownika oraz TenantCountry do tokenów wystawionych do podmiotów połączonej usługi. Identyfikator pracownika jest emitowany jako nazwa typ oświadczenia w tokenach SAML i tokenów Jwt. TenantCountry jest emitowany jako typ oświadczenia country zarówno tokeny SAML i tokenów Jwt. W tym przykładzie w dalszym obejmują podstawowe oświadczenia w tokenów.
+#### <a name="example-create-and-assign-a-policy-tooinclude-hello-employeeid-and-tenantcountry-as-claims-in-tokens-issued-tooa-service-principal"></a>Przykład: Utwórz i przypisz tooinclude zasad hello identyfikator pracownika i TenantCountry oświadczenia w tokenach wystawianych tooa nazwy głównej usługi.
+W tym przykładzie należy utworzyć zasadę, która dodaje hello identyfikator pracownika i TenantCountry tootokens wystawiony toolinked nazwy główne usług. Identyfikator pracownika Hello jest emitowany jako typ oświadczenia nazwy hello zarówno tokeny SAML i tokenów Jwt. Witaj TenantCountry jest emitowany jako typ zarówno tokeny SAML i tokenów Jwt oświadczenia hello kraju. W tym przykładzie w dalszym ciągu tooinclude hello podstawowe oświadczenia w tokenach hello.
 
-1. Utwórz mapowania zasad oświadczeń. Te zasady połączone z podmiotów określonej usługi, dodaje identyfikator pracownika i TenantCountry oświadczenia na tokeny.
-    1. Aby utworzyć zasady, uruchom następujące polecenie:  
+1. Utwórz mapowania zasad oświadczeń. Ta zasada toospecific połączonej nazwy główne usług, dodaje hello identyfikator pracownika i TenantCountry tootokens oświadczeń.
+    1. toocreate hello zasad, uruchom to polecenie:  
      
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
     ```
     
-    2. Aby wyświetlić nowe zasady i pobrania ObjectId zasad, uruchom następujące polecenie:
+    2. toosee, które nowe zasady, a zasady hello tooget ObjectId, hello uruchom następujące polecenie:
      
      ``` powershell  
     Get-AzureADPolicy
     ```
-2.  Przypisz zasady do Twojej nazwy głównej usługi. Należy również pobrania ObjectId usługi podmiotu zabezpieczeń. 
-    1.  Aby wyświetlić nazwy główne usług wszystkich organizacji, można zbadać Microsoft Graph. Lub, w Eksploratorze Azure AD Graph, zaloguj się do swojego konta usługi Azure AD.
-    2.  Jeśli masz ObjectId nazwy głównej usługi, uruchom następujące polecenie:  
+2.  Przypisz hello zasad tooyour service principal. Należy również hello tooget ObjectId Twojej nazwy głównej usługi. 
+    1.  toosee nazwy główne usług wszystkich organizacji, można zbadać Microsoft Graph. Lub, w Eksploratorze Azure AD Graph Zaloguj tooyour konto usługi Azure AD.
+    2.  Jeśli masz hello ObjectId Twojej usługi głównej, uruchom hello następujące polecenie:  
      
      ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
     ```
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Przykład: Utworzyć i przypisać zasady, która używa przekształcania oświadczeń w tokenach wystawiony dla nazwy głównej usługi.
-W tym przykładzie utworzysz zasady, które emituje oświadczenia niestandardowego "JoinedData" do tokenów Jwt wystawiony dla połączonej usługi podmiotów zabezpieczeń. To oświadczenie zawiera wartość powstały danych przechowywanych w atrybucie extensionattribute1 dla obiektu użytkownika o ".sandbox". W tym przykładzie Wyłączamy podstawowe oświadczenia w tokenów.
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-tooa-service-principal"></a>Przykład: Utworzyć i przypisać zasady, która używa nazwy głównej usługi tooa tokenów wystawionych przekształcania oświadczeń.
+W tym przykładzie utworzysz zasady, które emituje oświadczenia niestandardowego "JoinedData" czy tooJWTs wystawiony toolinked nazwy główne usług. To oświadczenie zawiera wartość powstały hello danych przechowywanych w hello extensionattribute1 atrybutu dla obiektu użytkownika hello o ".sandbox". W tym przykładzie Wyłączamy hello oświadczeń podstawowe w hello tokenów.
 
 
-1. Utwórz mapowania zasad oświadczeń. Te zasady połączone z podmiotów określonej usługi, dodaje identyfikator pracownika i TenantCountry oświadczenia na tokeny.
-    1. Aby utworzyć zasady, uruchom następujące polecenie: 
+1. Utwórz mapowania zasad oświadczeń. Ta zasada toospecific połączonej nazwy główne usług, dodaje hello identyfikator pracownika i TenantCountry tootokens oświadczeń.
+    1. toocreate hello zasad, uruchom to polecenie: 
      
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
     ```
     
-    2. Aby wyświetlić nowe zasady i pobrania ObjectId zasad, uruchom następujące polecenie: 
+    2. toosee, które nowe zasady, a zasady hello tooget ObjectId, hello uruchom następujące polecenie: 
      
      ``` powershell
     Get-AzureADPolicy
     ```
-2.  Przypisz zasady do Twojej nazwy głównej usługi. Należy również pobrania ObjectId usługi podmiotu zabezpieczeń. 
-    1.  Aby wyświetlić nazwy główne usług wszystkich organizacji, można zbadać Microsoft Graph. Lub, w Eksploratorze Azure AD Graph, zaloguj się do swojego konta usługi Azure AD.
-    2.  Jeśli masz ObjectId nazwy głównej usługi, uruchom następujące polecenie: 
+2.  Przypisz hello zasad tooyour service principal. Należy również hello tooget ObjectId Twojej nazwy głównej usługi. 
+    1.  toosee nazwy główne usług wszystkich organizacji, można zbadać Microsoft Graph. Lub, w Eksploratorze Azure AD Graph Zaloguj tooyour konto usługi Azure AD.
+    2.  Jeśli masz hello ObjectId Twojej usługi głównej, uruchom hello następujące polecenie: 
      
      ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
     ```

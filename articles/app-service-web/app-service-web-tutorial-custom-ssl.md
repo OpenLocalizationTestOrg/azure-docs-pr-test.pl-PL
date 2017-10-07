@@ -1,6 +1,6 @@
 ---
-title: "Powiąż istniejący certyfikat SSL niestandardowych do aplikacji sieci Web platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się powiązać niestandardowego certyfikatu SSL do aplikacji sieci web, zaplecza aplikacji mobilnej lub aplikacji interfejsu API w usłudze Azure App Service."
+title: "aaaBind istniejących SSL niestandardowych certyfikatów aplikacji sieci Web tooAzure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się tootoobind niestandardowej aplikacji sieci web tooyour certyfikatu SSL, zaplecza aplikacji mobilnej lub aplikacji interfejsu API w usłudze Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 15c31ae5451a31dff2df08047ee43e75edacc127
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3503ba9f96c8ea8d18451e8bf9a9b441797ef44d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Powiąż istniejący certyfikat SSL niestandardowych do aplikacji sieci Web Azure
+# <a name="bind-an-existing-custom-ssl-certificate-tooazure-web-apps"></a>Powiąż istniejący niestandardowy SSL certyfikatu tooAzure aplikacji sieci Web
 
-Aplikacje sieci Web platformy Azure oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web. Ten samouczek pokazuje, jak można powiązać certyfikat SSL niestandardowych zakupionego od zaufanego urzędu certyfikacji do [Azure Web Apps](app-service-web-overview.md). Po zakończeniu, będzie można uzyskać dostępu do aplikacji sieci web w punkcie końcowym HTTPS z niestandardowej domeny DNS.
+Aplikacje sieci Web platformy Azure oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web. Ten samouczek pokazuje, jak toobind SSL niestandardowych certyfikatów, czemu zakupionego od zaufanego urzędu certyfikacji za[Azure Web Apps](app-service-web-overview.md). Po zakończeniu będziesz w stanie tooaccess aplikacji sieci web na punkt końcowy HTTPS hello DNS domeny niestandardowej.
 
 ![Aplikacja sieci Web z niestandardowego certyfikatu SSL](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -31,72 +31,72 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 > [!div class="checklist"]
 > * Uaktualnij warstwę cenową aplikacji
-> * Powiązać niestandardowego certyfikatu SSL z usługi aplikacji
+> * Powiąż z niestandardowych tooApp certyfikatu SSL usługi
 > * Wymuszanie protokołu HTTPS dla aplikacji
 > * Powiązania certyfikatu SSL za pomocą skryptów automatyzacji
 
 > [!NOTE]
-> Jeśli potrzebujesz niestandardowego certyfikatu SSL, możesz pobrać go w portalu Azure bezpośrednio i powiązać go z aplikacji sieci web. Postępuj zgodnie z [certyfikaty usługi aplikacji — samouczek](web-sites-purchase-ssl-web-site.md).
+> Tooget niestandardowego certyfikatu SSL, należy możesz pobrać go w portalu Azure hello bezpośrednio i powiązać ją tooyour aplikacji sieci web. Wykonaj hello [certyfikaty usługi aplikacji — samouczek](web-sites-purchase-ssl-web-site.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W celu ukończenia tego samouczka:
+toocomplete tego samouczka:
 
 - [Utwórz aplikację usługi aplikacji](/azure/app-service/)
-- [Mapowanie niestandardową nazwę DNS do aplikacji sieci web](app-service-web-tutorial-custom-domain.md)
+- [Mapy niestandardowej aplikacji sieci web tooyour nazwy DNS](app-service-web-tutorial-custom-domain.md)
 - Uzyskanie certyfikatu SSL z zaufanego urzędu certyfikacji
 
 <a name="requirements"></a>
 
 ### <a name="requirements-for-your-ssl-certificate"></a>Wymagania dotyczące certyfikatu SSL
 
-Aby użyć certyfikatu w usłudze App Service, certyfikat musi spełniać następujące wymagania:
+toouse certyfikatów w usłudze App Service, hello certyfikatu musi spełniać wszystkie hello następujące wymagania:
 
 * Podpisane przez zaufany urząd certyfikacji
 * Eksportowane jako chronionego hasłem pliku PFX
 * Zawiera klucz prywatny co najmniej 2048 bitów długo
-* Zawiera wszystkie certyfikaty pośrednie w łańcuchu certyfikatów
+* Zawiera wszystkie certyfikaty pośrednie w łańcuchu certyfikatów hello
 
 > [!NOTE]
-> **Certyfikaty krzywa Cryptography (ECC) eliptycznej** może współpracować z usługi aplikacji, ale nie są objęte w tym artykule. Współpraca z urzędu certyfikacji na kolejnych kroków w celu utworzenia certyfikatów ECC.
+> **Certyfikaty krzywa Cryptography (ECC) eliptycznej** może współpracować z usługi aplikacji, ale nie są objęte w tym artykule. Współpraca z urzędu certyfikacji na powitania kolejnych kroków toocreate ECC certyfikatów.
 
 ## <a name="prepare-your-web-app"></a>Przygotowanie aplikacji sieci web
 
-Do powiązania niestandardowego certyfikatu SSL do aplikacji sieci web z [planu usługi aplikacji](https://azure.microsoft.com/pricing/details/app-service/) musi znajdować się w **podstawowe**, **standardowe**, lub **Premium** warstwy. W tym kroku należy upewnić się, że aplikacja sieci web jest w obsługiwanym warstwy cenowej.
+toobind SSL niestandardowych certyfikatów tooyour aplikacji sieci web, z [planu usługi aplikacji](https://azure.microsoft.com/pricing/details/app-service/) musi być w hello **podstawowe**, **standardowe**, lub **Premium** warstwy. W tym kroku możesz upewnij się, że aplikacja sieci web jest w hello obsługiwane warstwy cenowej.
 
-### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+### <a name="log-in-tooazure"></a>Zaloguj się za tooAzure
 
-Otwórz [portal Azure](https://portal.azure.com).
+Otwórz hello [portalu Azure](https://portal.azure.com).
 
-### <a name="navigate-to-your-web-app"></a>Przejdź do aplikacji sieci web
+### <a name="navigate-tooyour-web-app"></a>Przejdź do aplikacji sieci web tooyour
 
-Z menu po lewej stronie kliknij **usługi aplikacji**, a następnie kliknij nazwę aplikacji sieci web.
+W menu po lewej stronie powitania kliknij **usługi aplikacji**, a następnie kliknij nazwę hello aplikacji sieci web.
 
 ![Wybierz aplikację sieci web](./media/app-service-web-tutorial-custom-ssl/select-app.png)
 
-Jest na stronie Zarządzanie aplikacji sieci web.  
+Jest strony Zarządzanie hello aplikacji sieci web.  
 
-### <a name="check-the-pricing-tier"></a>Sprawdź warstwę cenową
+### <a name="check-hello-pricing-tier"></a>Sprawdź hello warstwy cenowej
 
-W obszarze nawigacji po lewej stronie strony aplikacji sieci web, przewiń do **ustawienia** a następnie wybierz opcję **skalowanie w górę (plan usługi App Service)**.
+W nawigacji po lewej stronie powitania strony aplikacji sieci web, przewiń toohello **ustawienia** a następnie wybierz opcję **skalowanie w górę (plan usługi App Service)**.
 
 ![Skalowanie w pionie menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Upewnij się, że aplikacja sieci web nie znajduje się w **wolne** lub **Shared** warstwy. Warstwa bieżąca aplikacja sieci web jest wyróżniony ciemny niebieskie pole.
+Sprawdź toomake się, że aplikacja sieci web nie jest hello **wolne** lub **Shared** warstwy. Warstwa bieżąca aplikacja sieci web jest wyróżniony ciemny niebieskie pole.
 
 ![Sprawdź warstwę cenową](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Niestandardowe SSL nie jest obsługiwany w **wolne** lub **Shared** warstwy. Jeśli potrzebujesz skalowanie w górę, wykonaj kroki opisane w następnej sekcji. W przeciwnym razie Zamknij **wybierz warstwę cenową** strony i przejść [przekazywanie i powiązać certyfikatu SSL](#upload).
+Niestandardowe SSL nie jest obsługiwany w hello **wolne** lub **Shared** warstwy. Jeśli potrzebujesz tooscale zapasowych, wykonaj kroki hello w następnej sekcji hello. W przeciwnym razie Zamknij hello **wybierz warstwę cenową** strony i pominąć zbyt[przekazywanie i powiązać certyfikatu SSL](#upload).
 
 ### <a name="scale-up-your-app-service-plan"></a>Skalowanie w górę plan usługi aplikacji
 
-Wybierz jedną z **podstawowe**, **standardowe**, lub **Premium** warstw.
+Wybierz jedną z hello **podstawowe**, **standardowe**, lub **Premium** warstw.
 
 Kliknij pozycję **Wybierz**.
 
 ![Wybierz warstwę cenową](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
-Gdy zostanie wyświetlone następujące powiadomienie, zakończeniu operacji skalowania.
+Po wyświetleniu powiadomienia hello hello skali operacja została zakończona.
 
 ![Skalowanie w górę powiadomień](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
 
@@ -104,15 +104,15 @@ Gdy zostanie wyświetlone następujące powiadomienie, zakończeniu operacji ska
 
 ## <a name="bind-your-ssl-certificate"></a>Powiąż certyfikat protokołu SSL
 
-Wszystko jest gotowe do przekazania certyfikatu SSL do aplikacji sieci web.
+Możesz są gotowe tooupload aplikację sieci web uzyskiwania informacji na temat tooyour certyfikatu SSL.
 
 ### <a name="merge-intermediate-certificates"></a>Certyfikaty pośrednie scalenia
 
-Urzędu certyfikacji zawiera wiele certyfikatów w łańcuchu certyfikatów, należy scalić certyfikaty w kolejności. 
+Urzędu certyfikacji zawiera wiele certyfikatów w łańcuchu certyfikatów hello, należy najpierw toomerge hello certyfikaty w kolejności. 
 
-Aby to zrobić, Otwórz każdy z certyfikatów, zostanie wyświetlony w edytorze tekstów. 
+toodo to open każdego certyfikatu otrzymane w edytorze tekstów. 
 
-Utwórz plik certyfikatu scalone, nazywany _mergedcertificate.crt_. W edytorze tekstów skopiuj zawartość każdy z certyfikatów do tego pliku. Kolejność certyfikaty powinna wyglądać następującego szablonu:
+Utwórz plik certyfikatu scalonych hello, nazywany _mergedcertificate.crt_. W edytorze tekstów skopiuj zawartość hello każdy z certyfikatów do tego pliku. kolejność Hello certyfikaty powinna wyglądać hello następującego szablonu:
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -132,99 +132,99 @@ Utwórz plik certyfikatu scalone, nazywany _mergedcertificate.crt_. W edytorze t
 -----END CERTIFICATE-----
 ```
 
-### <a name="export-certificate-to-pfx"></a>Wyeksportuj certyfikat PFX
+### <a name="export-certificate-toopfx"></a>Eksportuj certyfikat tooPFX
 
-Eksportowanie scalonych certyfikatu SSL z kluczem prywatnym, który żądania certyfikatu został wygenerowany z.
+Eksportowanie scalonych certyfikatu SSL z kluczem prywatnym hello wygenerowania żądania certyfikatu z.
 
-Jeśli generowany jest żądanie certyfikatu przy użyciu biblioteki OpenSSL, został utworzony plik klucza prywatnego. Aby wyeksportować certyfikat do PFX, uruchom następujące polecenie. Zastąp symbole zastępcze  _&lt;plików kluczy prywatnych >_ i  _&lt;scalić — plik certyfikatu >_.
+Jeśli generowany jest żądanie certyfikatu przy użyciu biblioteki OpenSSL, został utworzony plik klucza prywatnego. tooexport Twojego tooPFX certyfikat, uruchom następujące polecenie hello. Zastąp symbole zastępcze hello  _&lt;plików kluczy prywatnych >_ i  _&lt;scalić — plik certyfikatu >_.
 
 ```
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
-Po wyświetleniu monitu, należy określić hasło eksportu. To hasło będzie używany podczas przekazywania certyfikatu SSL w usłudze App Service później.
+Po wyświetleniu monitu, należy określić hasło eksportu. To hasło będzie używany podczas przekazywania z protokołu SSL certyfikatu tooApp usługi później.
 
-Jeśli używasz usług IIS lub _Certreq.exe_ do wygenerowania żądania certyfikatu, zainstalować certyfikat na komputerze lokalnym, a następnie [wyeksportuj certyfikat PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+Jeśli używasz usług IIS lub _Certreq.exe_ toogenerate Twojego żądania certyfikatu, zainstaluj hello certyfikatu tooyour komputera lokalnego, a następnie [wyeksportować hello certyfikatu tooPFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
 ### <a name="upload-your-ssl-certificate"></a>Przekaż certyfikat protokołu SSL
 
-Aby przekazać certyfikat SSL, kliknij przycisk **certyfikaty SSL** na lewym pasku nawigacyjnym aplikacji sieci web.
+tooupload certyfikatu SSL, kliknij przycisk **certyfikaty SSL** w hello lewy pasek nawigacyjny aplikacji sieci web.
 
 Kliknij przycisk **Przekaż certyfikat**.
 
-W **plik certyfikatu PFX**, wybierz plik w formacie PFX. W **hasło certyfikatu**, wpisz hasło, które utworzono podczas eksportowania pliku PFX.
+W **plik certyfikatu PFX**, wybierz plik w formacie PFX. W **hasło certyfikatu**, wpisz hasło hello, utworzonego podczas eksportowania pliku PFX hello.
 
 Kliknij pozycję **Przekaż**.
 
 ![Przekazywanie certyfikatu](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
 
-Po zakończeniu przekazywania certyfikatu usługi aplikacji był w **certyfikaty SSL** strony.
+Po zakończeniu przekazywania certyfikatu usługi aplikacji był w hello **certyfikaty SSL** strony.
 
 ![Przekazany certyfikat](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
 ### <a name="bind-your-ssl-certificate"></a>Powiąż certyfikat protokołu SSL
 
-W **powiązania SSL** kliknij **dodać powiązanie**.
+W hello **powiązania SSL** kliknij **dodać powiązanie**.
 
-W **Dodaj powiązanie SSL** Użyj listę rozwijaną, aby wybrać nazwę domeny do zabezpieczania i certyfikat do użycia.
+W hello **Dodaj powiązanie SSL** Użyj hello listę rozwijaną tooselect hello domeny nazwa toosecure i hello toouse certyfikatu.
 
 > [!NOTE]
-> Jeśli zostały przekazane certyfikat, ale nie ma nazwy domeny w **Hostname** listy rozwijanej, spróbuj odświeżyć stronę przeglądarki.
+> Jeśli zostały przekazane certyfikat, ale nie ma nazwy domeny hello w hello **Hostname** listy rozwijanej, spróbuj odświeżyć stronę przeglądarki hello.
 >
 >
 
-W **typu SSL**, wybierz, czy ma być używany  **[oznaczenia nazwy serwera (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)**  lub opartych na protokole SSL.
+W **typu SSL**, wybierz pozycję czy toouse  **[oznaczenia nazwy serwera (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)**  lub opartych na protokole SSL.
 
-- **SSL opartego na protokole SNI** -powiązania SSL opartego na wiele SNI mogą zostać dodane. Ta opcja umożliwia wielu certyfikatów protokołu SSL do zabezpieczania wielu domen na ten sam adres IP. Większość nowoczesnych przeglądarek (w tym programu Internet Explorer, Chrome, Firefox i Opera) obsługuje SNI (znaleźć bardziej szczegółowe informacje pomocy technicznej przeglądarki na [wskaźnika nazwy serwera](http://wikipedia.org/wiki/Server_Name_Indication)).
-- **Oparte na protokole SSL** — mogą być dodawane tylko jednego powiązania SSL opartego na protokole IP. Ta opcja umożliwia tylko jeden certyfikat SSL do zabezpieczania dedykowanych publicznego adresu IP. Aby zabezpieczyć wielu domen, należy zabezpieczyć je wszystkie przy użyciu tego samego certyfikatu SSL. Jest to tradycyjne opcja dla powiązania SSL.
+- **SSL opartego na protokole SNI** -powiązania SSL opartego na wiele SNI mogą zostać dodane. Ta opcja umożliwia wielu toosecure certyfikaty SSL wielu domen na powitania tego samego adresu IP. Większość nowoczesnych przeglądarek (w tym programu Internet Explorer, Chrome, Firefox i Opera) obsługuje SNI (znaleźć bardziej szczegółowe informacje pomocy technicznej przeglądarki na [wskaźnika nazwy serwera](http://wikipedia.org/wiki/Server_Name_Indication)).
+- **Oparte na protokole SSL** — mogą być dodawane tylko jednego powiązania SSL opartego na protokole IP. Ta opcja umożliwia tylko jeden toosecure certyfikatu SSL dedykowanych publicznego adresu IP. toosecure wiele domen, należy zabezpieczyć je przy użyciu wszystkich hello tego samego certyfikatu SSL. To jest opcją tradycyjnych hello powiązania SSL.
 
 Kliknij przycisk **dodać powiązanie**.
 
 ![Powiąż certyfikat protokołu SSL](./media/app-service-web-tutorial-custom-ssl/bind-certificate.png)
 
-Po zakończeniu przekazywania certyfikatu usługi aplikacji był w **powiązania SSL** sekcje.
+Po zakończeniu przekazywania certyfikatu usługi aplikacji był w hello **powiązania SSL** sekcje.
 
-![Certyfikat powiązany z aplikacji sieci web](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
+![Certyfikat powiązany tooweb aplikacji](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
 
 ## <a name="remap-a-record-for-ip-ssl"></a>Ponowne mapowanie rekord dla protokołu SSL z adresu IP
 
-Jeśli nie używasz opartych na protokole SSL w aplikacji sieci web, przejdź do [HTTPS testu dla domeny niestandardowej](#test).
+Jeśli nie używasz w aplikacji sieci web opartych na protokole SSL, Pomiń zbyt[HTTPS testu dla domeny niestandardowej](#test).
 
 Domyślnie aplikacja sieci web używa udostępnionego publicznego adresu IP. Gdy Powiąż certyfikat z SSL opartego na protokole IP, usługi aplikacji — tworzy nowy, dedykowany adres IP dla aplikacji sieci web.
 
-Jeśli rekord A zamapowaniu do aplikacji sieci web, należy zaktualizować rejestru domeny ten nowy, dedykowany adres IP.
+Jeśli zamapowaniu aplikacji sieci web tooyour rekordów A, zaktualizować rejestr domeny ten nowy, dedykowany adres IP.
 
-Aplikacja sieci web **domeny niestandardowe** strona zostanie zaktualizowana nowy, dedykowany adres IP. [Skopiuj ten adres IP](app-service-web-tutorial-custom-domain.md#info), następnie [ponownie zamapować rekord A](app-service-web-tutorial-custom-domain.md#map-an-a-record) ten nowy adres IP.
+Aplikacja sieci web **domeny niestandardowe** strona zostanie zaktualizowana przy hello nowy, dedykowany adres IP. [Skopiuj ten adres IP](app-service-web-tutorial-custom-domain.md#info), następnie [ponownego mapowania hello rekord](app-service-web-tutorial-custom-domain.md#map-an-a-record) toothis nowego adresu IP.
 
 <a name="test"></a>
 
 ## <a name="test-https"></a>Test protokołu HTTPS
 
-Teraz pozostało celu jest aby upewnić się, że HTTPS działa dla domeny niestandardowej. W różnych przeglądarkach, przejdź do `https://<your.custom.domain>` aby zobaczyć, służy ona zapasowej swojej aplikacji sieci web.
+Teraz opuścił toodo jest toomake się upewnić, że HTTPS działa dla domeny niestandardowej. W różnych przeglądarkach, Przeglądaj zbyt`https://<your.custom.domain>` toosee pełniącą zapasowej swojej aplikacji sieci web.
 
-![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
+![Aplikacja tooAzure nawigacji w portalu](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
 > Jeśli aplikacja sieci web udostępnia certyfikatu błędy sprawdzania poprawności, prawdopodobnie używasz certyfikatu z podpisem własnym.
 >
-> Jeśli nie jest wielkość liter, mogą być przechowywane poza certyfikaty pośrednie podczas eksportowania certyfikatu do pliku PFX.
+> Jeśli nie jest to przypadek hello, mogą być przechowywane poza certyfikaty pośrednie podczas eksportowania pliku PFX toohello certyfikatu.
 
 <a name="bkmk_enforce"></a>
 
 ## <a name="enforce-https"></a>Wymuszanie protokołu HTTPS
 
-Usługa aplikacji ma *nie* Wymuszanie protokołu HTTPS, więc każdy może nadal uzyskiwać dostęp do aplikacji sieci web przy użyciu protokołu HTTP. Aby wymusić HTTPS dla aplikacji sieci web, należy zdefiniować reguły ponownego zapisywania w _web.config_ plików dla aplikacji sieci web. Ten plik, niezależnie od struktury języka aplikacji sieci web korzysta z usługi aplikacji.
+Usługa aplikacji ma *nie* Wymuszanie protokołu HTTPS, więc każdy może nadal uzyskiwać dostęp do aplikacji sieci web przy użyciu protokołu HTTP. tooenforce HTTPS dla aplikacji sieci web, zdefiniuj reguły ponownego zapisywania w hello _web.config_ plików dla aplikacji sieci web. Ten plik, niezależnie od hello strukturę języka aplikacji sieci web korzysta z usługi aplikacji.
 
 > [!NOTE]
-> Jest specyficzny dla języka Przekierowywanie żądań. ASP.NET MVC można użyć [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filtru zamiast reguły ponownego zapisywania _web.config_.
+> Jest specyficzny dla języka Przekierowywanie żądań. ASP.NET MVC można użyć hello [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filtru zamiast reguły ponownego zapisywania hello w _web.config_.
 
-Jeśli jesteś deweloperem .NET stosunkowo zapoznaj się z tym plikiem. Znajduje się w katalogu głównym rozwiązania.
+Jeśli jesteś deweloperem .NET stosunkowo zapoznaj się z tym plikiem. Znajduje się w głównym hello rozwiązania.
 
 Można również w przypadku tworzenia z PHP, Node.js, Python lub Java, jest stosowany ten plik w Twoim imieniu możemy generowane w usłudze App Service.
 
-Połącz do punktu końcowego FTP aplikacji sieci web zgodnie z instrukcjami w [wdrażanie aplikacji w usłudze Azure App Service przy użyciu FTP/S](app-service-deploy-ftp.md).
+Łączenie aplikacji sieci web tooyour końcowego FTP wykonując instrukcje hello [wdrażanie tooAzure Twojej aplikacji App Service przy użyciu FTP/S](app-service-deploy-ftp.md).
 
-Ten plik powinien znajdować się w _/home/site/wwwroot_. Jeśli nie, należy utworzyć _web.config_ plik w tym folderze z następującego kodu XML:
+Ten plik powinien znajdować się w _/home/site/wwwroot_. Jeśli nie, należy utworzyć _web.config_ plik w tym folderze z powitania po XML:
 
 ```xml   
 <?xml version="1.0" encoding="UTF-8"?>
@@ -247,19 +247,19 @@ Ten plik powinien znajdować się w _/home/site/wwwroot_. Jeśli nie, należy ut
 </configuration>
 ```
 
-Dla istniejącej _web.config_ plików, skopiować całą `<rule>` element do Twojej _web.config_w `configuration/system.webServer/rewrite/rules` elementu. Jeśli istnieją inne `<rule>` elementów w Twojej _web.config_, umieść skopiowanych `<rule>` element przed innych `<rule>` elementów.
+Dla istniejącej _web.config_ plików, skopiować cały hello `<rule>` element do Twojej _web.config_w `configuration/system.webServer/rewrite/rules` elementu. Jeśli istnieją inne `<rule>` elementów w Twojej _web.config_, hello miejsce skopiowane `<rule>` element przed hello innych `<rule>` elementów.
 
-Ta reguła zwraca HTTP 301 (Stałe przekierowanie) protokołu HTTPS zawsze, gdy użytkownik wysyła żądanie HTTP do aplikacji sieci web. Na przykład przekierowuje z `http://contoso.com` do `https://contoso.com`.
+Ta reguła zwraca protokół HTTP 301 (Stałe przekierowanie) toohello HTTPS zawsze, gdy użytkownik hello sprawia, że aplikacja sieci web tooyour żądania HTTP. Na przykład przekierowuje z `http://contoso.com` zbyt`https://contoso.com`.
 
-Aby uzyskać więcej informacji na moduł ponowne zapisywanie adresów URL usług IIS, zobacz [ponowne zapisywanie adresów URL](http://www.iis.net/downloads/microsoft/url-rewrite) dokumentacji.
+Aby uzyskać więcej informacji na powitania moduł ponowne zapisywanie adresów URL usług IIS, zobacz hello [ponowne zapisywanie adresów URL](http://www.iis.net/downloads/microsoft/url-rewrite) dokumentacji.
 
 ## <a name="enforce-https-for-web-apps-on-linux"></a>Wymuszanie protokołu HTTPS dla aplikacji sieci Web w systemie Linux
 
-Usługa aplikacji w systemie Linux ma *nie* Wymuszanie protokołu HTTPS, więc każdy może nadal uzyskiwać dostęp do aplikacji sieci web przy użyciu protokołu HTTP. Aby wymusić HTTPS dla aplikacji sieci web, należy zdefiniować reguły ponownego zapisywania w _.htaccess_ plików dla aplikacji sieci web. 
+Usługa aplikacji w systemie Linux ma *nie* Wymuszanie protokołu HTTPS, więc każdy może nadal uzyskiwać dostęp do aplikacji sieci web przy użyciu protokołu HTTP. tooenforce HTTPS dla aplikacji sieci web, zdefiniuj reguły ponownego zapisywania w hello _.htaccess_ plików dla aplikacji sieci web. 
 
-Połącz do punktu końcowego FTP aplikacji sieci web zgodnie z instrukcjami w [wdrażanie aplikacji w usłudze Azure App Service przy użyciu FTP/S](app-service-deploy-ftp.md).
+Łączenie aplikacji sieci web tooyour końcowego FTP wykonując instrukcje hello [wdrażanie tooAzure Twojej aplikacji App Service przy użyciu FTP/S](app-service-deploy-ftp.md).
 
-W _/home/site/wwwroot_, Utwórz _.htaccess_ pliku następującym kodem:
+W _/home/site/wwwroot_, Utwórz _.htaccess_ pliku z hello następującego kodu:
 
 ```
 RewriteEngine On
@@ -267,15 +267,15 @@ RewriteCond %{HTTP:X-ARR-SSL} ^$
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ```
 
-Ta reguła zwraca HTTP 301 (Stałe przekierowanie) protokołu HTTPS zawsze, gdy użytkownik wysyła żądanie HTTP do aplikacji sieci web. Na przykład przekierowuje z `http://contoso.com` do `https://contoso.com`.
+Ta reguła zwraca protokół HTTP 301 (Stałe przekierowanie) toohello HTTPS zawsze, gdy użytkownik hello sprawia, że aplikacja sieci web tooyour żądania HTTP. Na przykład przekierowuje z `http://contoso.com` zbyt`https://contoso.com`.
 
 ## <a name="automate-with-scripts"></a>Zautomatyzować za pomocą skryptów
 
-Można zautomatyzować powiązań SSL dla aplikacji sieci web za pomocą skryptów przy użyciu [interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli) lub [programu Azure PowerShell](/powershell/azure/overview).
+Można zautomatyzować powiązań SSL dla aplikacji sieci web za pomocą skryptów przy użyciu hello [interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli) lub [programu Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Polecenie przekazuje wyeksportowanego pliku PFX i pobiera odcisk palca.
+Witaj następujące polecenia przekazuje wyeksportowanego pliku PFX i pobiera hello odcisk palca.
 
 ```bash
 thumbprint=$(az appservice web config ssl upload \
@@ -287,7 +287,7 @@ thumbprint=$(az appservice web config ssl upload \
     --output tsv)
 ```
 
-Polecenie dodaje powiązania SSL opartego na protokole SNI, za pomocą odcisku palca z poprzednie polecenie.
+Witaj następujące polecenie dodaje powiązania SSL opartego na protokole SNI, za pomocą odcisku palca hello z hello poprzednie polecenie.
 
 ```bash
 az appservice web config ssl bind \
@@ -299,7 +299,7 @@ az appservice web config ssl bind \
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Polecenie przekazuje wyeksportowanego pliku PFX i dodaje powiązania SSL opartego na SNI.
+Witaj następujące polecenie przekazuje wyeksportowanego pliku PFX i dodaje powiązania SSL opartego na SNI.
 
 ```PowerShell
 New-AzureRmWebAppSSLBinding `
@@ -317,11 +317,11 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 > * Uaktualnij warstwę cenową aplikacji
-> * Powiązać niestandardowego certyfikatu SSL z usługi aplikacji
+> * Powiąż z niestandardowych tooApp certyfikatu SSL usługi
 > * Wymuszanie protokołu HTTPS dla aplikacji
 > * Powiązania certyfikatu SSL za pomocą skryptów automatyzacji
 
-Przejdź do następnego samouczkiem, aby dowiedzieć się, jak używać usługi Azure Content Delivery Network.
+Jak przejść dalej toolearn samouczka toohello toouse Azure Content Delivery Network.
 
 > [!div class="nextstepaction"]
-> [Dodawanie sieci dostarczania zawartości (CDN) w usłudze Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+> [Dodaj tooan sieci dostarczania zawartości (CDN) usługi Azure App Service](app-service-web-tutorial-content-delivery-network.md)

@@ -1,6 +1,6 @@
 ---
-title: "Zasad przekształcania usługi Azure API Management | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat zasad przekształcania dostępne do użycia w usłudze Azure API Management."
+title: "zasad przekształcania zarządzanie interfejsami API aaaAzure | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat zasad przekształcania hello dostępne do użycia w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2891cc52d0017b717b3c12a98bc4941b5fd7ea78
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-transformation-policies"></a>Zarządzanie interfejsami API zasad przekształcania
-W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+W tym temacie znajdują się informacje na następujące zasady usługi API Management hello. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="TransformationPolicies"></a>Zasad przekształcania  
   
--   [Konwertuj JSON do pliku XML](api-management-transformation-policies.md#ConvertJSONtoXML) — konwertuje żądania lub odpowiedzi body z formatu JSON do pliku XML.  
+-   [Konwertuj JSON tooXML](api-management-transformation-policies.md#ConvertJSONtoXML) — konwertuje żądania lub odpowiedzi body z JSON tooXML.  
   
--   [Konwertuj do formatu JSON XML](api-management-transformation-policies.md#ConvertXMLtoJSON) — konwertuje żądania lub odpowiedzi body z pliku XML do formatu JSON.  
+-   [Konwertuj XML tooJSON](api-management-transformation-policies.md#ConvertXMLtoJSON) — konwertuje żądania lub odpowiedzi body z XML tooJSON.  
   
 -   [Znajdowanie i zamienianie ciągów w treści](api-management-transformation-policies.md#Findandreplacestringinbody) — znajduje podciąg żądania lub odpowiedzi i zastępuje go inny podciąg.  
   
--   [Maski adresów URL w zawartości](api-management-transformation-policies.md#MaskURLSContent) -ponownie zapisuje (maski) łącza w odpowiedzi body tak, aby wskazywać równoważne połączenie za pośrednictwem bramy.  
+-   [Maski adresów URL w zawartości](api-management-transformation-policies.md#MaskURLSContent) -ponownie zapisuje (maski) łącza w odpowiedzi hello body tak, aby wskazywały toohello równoważne połączenie za pośrednictwem bramy hello.  
   
--   [Ustaw usługę zaplecza](api-management-transformation-policies.md#SetBackendService) — zmienia usługi wewnętrznej bazy danych dla żądania przychodzącego.  
+-   [Ustaw usługę zaplecza](api-management-transformation-policies.md#SetBackendService) — zmienia hello usługi wewnętrznej bazy danych dla żądania przychodzącego.  
   
--   [Ustaw treści](api-management-transformation-policies.md#SetBody) -ustawia treść komunikatu dla żądań przychodzących i wychodzących.  
+-   [Ustaw treści](api-management-transformation-policies.md#SetBody) -ustawia treść wiadomości powitania żądań przychodzących i wychodzących.  
   
--   [Set — nagłówek HTTP](api-management-transformation-policies.md#SetHTTPheader) — przypisuje wartość do istniejących odpowiedzi i/lub nagłówek żądania lub dodaje nowy nagłówek odpowiedzi i/lub żądania.  
+-   [Set — nagłówek HTTP](api-management-transformation-policies.md#SetHTTPheader) — przypisuje wartość tooan istniejących odpowiedzi i/lub nagłówek żądania lub dodaje nowy nagłówek odpowiedzi i/lub żądania.  
   
 -   [Wartość parametru ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) — dodaje, zastępuje wartość lub usuwa parametru ciągu zapytania żądania.  
   
--   [Ponowne zapisywanie adresów URL](api-management-transformation-policies.md#RewriteURL) — konwertuje adresie URL żądania w postaci publicznego do formularza oczekiwane przez usługę sieci web.  
+-   [Ponowne zapisywanie adresów URL](api-management-transformation-policies.md#RewriteURL) — konwertuje adres URL żądania w postaci toohello publicznego formularza oczekiwane przez usługę sieci web hello.  
   
--   [Przekształcanie XML za pomocą XSLT](api-management-transformation-policies.md#XSLTransform) — ma zastosowanie transformacji XSL do formatu XML w treści żądania lub odpowiedzi.  
+-   [Przekształcanie XML za pomocą XSLT](api-management-transformation-policies.md#XSLTransform) — ma zastosowanie tooXML transformacji XSL w treści żądania lub odpowiedzi hello.  
   
-##  <a name="ConvertJSONtoXML"></a>Konwertuj JSON do pliku XML  
- `json-to-xml` Zasad konwertuje treści żądania lub odpowiedzi z formatu JSON do pliku XML.  
+##  <a name="ConvertJSONtoXML"></a>Konwertuj JSON tooXML  
+ Witaj `json-to-xml` zasad konwertuje treści żądania lub odpowiedzi z JSON tooXML.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -78,18 +78,18 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|Zastosuj|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> -zawsze — Zawsze stosuj konwersji.<br />convert zawartości typu json - tylko wtedy, gdy nagłówek odpowiedzi Content-Type wskazuje obecność JSON.|Tak|Nie dotyczy|  
-|należy wziąć pod uwagę zaakceptować — nagłówek|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> — wartość true — zastosowania konwersji w żądaniu nagłówka Accept żądania JSON.<br />— wartość false — Zawsze stosuj konwersji.|Nie|Wartość true|  
+|Zastosuj|Atrybut Hello musi być ustawiona tooone hello następujące wartości.<br /><br /> -zawsze — Zawsze stosuj konwersji.<br />convert zawartości typu json - tylko wtedy, gdy nagłówek odpowiedzi Content-Type wskazuje obecność JSON.|Tak|Nie dotyczy|  
+|należy wziąć pod uwagę zaakceptować — nagłówek|Atrybut Hello musi być ustawiona tooone hello następujące wartości.<br /><br /> — wartość true — zastosowania konwersji w żądaniu nagłówka Accept żądania JSON.<br />— wartość false — Zawsze stosuj konwersji.|Nie|Wartość true|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzące, wychodzące, na błąd  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
-##  <a name="ConvertXMLtoJSON"></a>Konwertuj do formatu JSON XML  
- `xml-to-json` Zasad konwertuje treści żądania lub odpowiedzi z pliku XML do formatu JSON. Ta zasada może służyć do modernizacji interfejsów API oparty na usługach sieci web XML — tylko do wewnętrznej bazy danych.  
+##  <a name="ConvertXMLtoJSON"></a>Konwertuj XML tooJSON  
+ Witaj `xml-to-json` zasad konwertuje treści żądania lub odpowiedzi z XML tooJSON. Te zasady mogą być używane toomodernize, podstawą interfejsów API usług sieci web XML — tylko do wewnętrznej bazy danych.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -121,24 +121,24 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|rodzaj|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> javascript — przyjazne - przekonwertowanego JSON ma formę przyjazną dla deweloperów języka JavaScript.<br />-bezpośredni — przekonwertowanego JSON odzwierciedla struktury oryginalnego dokumentu XML.|Tak|Nie dotyczy|  
-|Zastosuj|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> -zawsze - przekonwertować zawsze.<br />convert zawartości — typ xml - tylko wtedy, gdy nagłówek odpowiedzi Content-Type wskazuje obecność XML.|Tak|Nie dotyczy|  
-|należy wziąć pod uwagę zaakceptować — nagłówek|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> Jeśli żądanie XML w żądaniu nagłówek Accept - wartość true — mają zastosowanie konwersji.<br />— wartość false — Zawsze stosuj konwersji.|Nie|Wartość true|  
+|rodzaj|Atrybut Hello musi być ustawiona tooone hello następujące wartości.<br /><br /> javascript — przyjazne - hello przekonwertować JSON ma deweloperzy przyjazną tooJavaScript formularza.<br />-bezpośredni — Witaj przekonwertowanego JSON odzwierciedla strukturę dokumentu XML oryginalnego hello.|Tak|Nie dotyczy|  
+|Zastosuj|Atrybut Hello musi być ustawiona tooone hello następujące wartości.<br /><br /> -zawsze - przekonwertować zawsze.<br />convert zawartości — typ xml - tylko wtedy, gdy nagłówek odpowiedzi Content-Type wskazuje obecność XML.|Tak|Nie dotyczy|  
+|należy wziąć pod uwagę zaakceptować — nagłówek|Atrybut Hello musi być ustawiona tooone hello następujące wartości.<br /><br /> Jeśli żądanie XML w żądaniu nagłówek Accept - wartość true — mają zastosowanie konwersji.<br />— wartość false — Zawsze stosuj konwersji.|Nie|Wartość true|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzące, wychodzące, na błąd  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="Findandreplacestringinbody"></a>Znajdowanie i zamienianie ciągów w treści  
- `find-and-replace` Zasad znajduje podciąg żądania lub odpowiedzi i zastępuje go inny podciąg.  
+ Witaj `find-and-replace` zasad znajduje podciąg żądania lub odpowiedzi i zastępuje go inny podciąg.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
 ```xml  
-<find-and-replace from="what to replace" to="replacement" />  
+<find-and-replace from="what tooreplace" to="replacement" />  
 ```  
   
 ### <a name="example"></a>Przykład  
@@ -157,21 +157,21 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|Z|Ciąg do wyszukania.|Tak|Nie dotyczy|  
-|na|Ciąg zastępczy. Określ długość zastępczy ciąg o zerowej do usunięcia ciąg wyszukiwania.|Tak|Nie dotyczy|  
+|Z|toosearch ciąg Hello dla.|Tak|Nie dotyczy|  
+|na|Witaj ciąg zastępczy. Określ zero długość ciągu tooremove hello wyszukiwania ciąg zastępczy.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych, na błąd  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="MaskURLSContent"></a>Adresy URL maski w zawartości  
- `redirect-content-urls` Zasad ponownie zapisuje łącza (maski) w treści odpowiedzi tak, aby wskazywać równoważne połączenie za pośrednictwem bramy. Użyj w sekcji wychodzącego ponownie zapisać łącza treści odpowiedzi będą wskazywać bramy. Użyj części ruchu przychodzącego dla odwrotny efekt.  
+ Witaj `redirect-content-urls` zasad ponownie zapisuje łącza (maski) w treści odpowiedzi hello tak, aby wskazywały toohello równoważne połączenie za pośrednictwem bramy hello. Są używane w hello wychodzącego sekcji toore zapisu odpowiedzi treści łącza toomake toohello punktu bramy. Użyj w hello ruchu przychodzącego sekcji odwrotny efekt.  
   
 > [!NOTE]
->  Ta zasada nie zmienia żadnych wartości nagłówka takich `Location` nagłówków. Aby zmienić wartości nagłówka, użyj [nagłówka set](api-management-transformation-policies.md#SetHTTPheader) zasad.  
+>  Ta zasada nie zmienia żadnych wartości nagłówka takich `Location` nagłówków. wartości nagłówka toochange, użyj hello [nagłówka set](api-management-transformation-policies.md#SetHTTPheader) zasad.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -192,19 +192,19 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |adresy URL zawartości przekierowań|Element główny.|Tak|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzące, wychodzące  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="SetBackendService"></a>Ustawianie usługi wewnętrznej bazy danych  
- Użyj `set-backend-service` zasad, aby przekierować żądanie przychodzące do wewnętrznej bazy danych innej niż określona w ustawieniach interfejsu API dla tej operacji. Ta zasada zmiany wewnętrznej bazy danych usługi podstawowy adres URL żądania przychodzącego, jeśli określony w zasadach.  
+ Użyj hello `set-backend-service` tooredirect zasad przychodzącego żądania tooa różnych wewnętrznej bazy danych niż hello określonego w ustawieniach hello interfejsu API dla tej operacji. Ta zasada zmienia hello wewnętrznej bazy danych usługi podstawowy adres URL hello przychodzącego żądania toohello jednym określonym w zasadach hello.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
 ```xml  
-<set-backend-service base-url="base URL of the backend service" />  
+<set-backend-service base-url="base URL of hello backend service" />  
 ```  
   
 ### <a name="example"></a>Przykład  
@@ -227,13 +227,13 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
     </outbound>  
 </policies>  
 ```  
-W tym przykładzie Ustaw zasady usługi wewnętrznej bazy danych przekierowuje żądania na podstawie wartości wersji przekazany ciąg zapytania do usługi zaplecza inny niż określony w interfejsie API.
+W tym hello przykład zasad usługi wewnętrznej bazy danych dla zestawu kieruje żądania na podstawie wartości wersji hello przekazano hello zapytania ciąg tooa różnych wewnętrznej bazy danych usługi niż hello hello określony w jednej z interfejsu API.
   
-Początkowo wewnętrznej bazy danych usługi podstawowy adres URL jest pochodną ustawień interfejsu API. Dlatego adres URL żądania `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` staje się `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` gdzie `http://contoso.com/api/10.4/` jest adres URL usługi wewnętrznej bazy danych, które zostały określone w ustawieniach interfejsu API.  
+Początkowo hello podstawowy adres URL usługi wewnętrznej bazy danych jest pochodną hello ustawień interfejsu API. Dlatego hello adresu URL żądania `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` staje się `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` gdzie `http://contoso.com/api/10.4/` hello wewnętrznej bazy danych usługi adresu URL określonego w ustawieniach hello interfejsu API.  
   
-Gdy [< Wybierz\> ](api-management-advanced-policies.md#choose) deklaracji zasad są stosowane wewnętrznej bazy danych usługi podstawowy adres URL może zmienić ponownie albo `http://contoso.com/api/8.2` lub `http://contoso.com/api/9.1`, w zależności od wartości parametru zapytania żądania wersji. Na przykład, jeśli wartość jest `"2013-15"` żądania końcowego adresu URL staje się `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
+Gdy hello [< Wybierz\> ](api-management-advanced-policies.md#choose) deklaracji zasad są stosowane hello wewnętrznej bazy danych usługi podstawowy adres URL może zmienić ponownie albo zbyt`http://contoso.com/api/8.2` lub `http://contoso.com/api/9.1`, w zależności od hello wartość parametru zapytania żądania hello w wersji. Na przykład jeśli hello jest wartość `"2013-15"` hello żądania końcowego adresu URL staje się `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
   
-Jeśli dodatkowo przekształcenie żądania jest odpowiednie, inne [zasad przekształcania](api-management-transformation-policies.md#TransformationPolicies) mogą być używane. Na przykład, aby teraz, żądanie jest przesyłane do wersji określonej w wewnętrznej bazie danych, należy usunąć parametr zapytania wersji [ustawić parametr ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) zasad może służyć do Usuń atrybut nadmiarowe obecnie wersji.  
+Jeśli dodatkowo przekształcenie żądania hello jest żądany, inne [zasad przekształcania](api-management-transformation-policies.md#TransformationPolicies) mogą być używane. Na przykład tooremove hello wersji zapytania parametru skoro hello żądanie jest kierowane tooa zaplecza określonej wersji, hello [ustawić parametr ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) zasadę można następnie atrybut version nadmiarowe obecnie hello tooremove używane.  
   
 ### <a name="example"></a>Przykład  
   
@@ -247,7 +247,7 @@ Jeśli dodatkowo przekształcenie żądania jest odpowiednie, inne [zasad przeks
     </outbound>  
 </policies>  
 ```  
-W tym przykładzie zasady kieruje żądanie do usługi sieci szkieletowej wewnętrznej bazie danych, przy użyciu identyfikatora userId ciąg zapytania jako klucza partycji i repliką podstawową partycji.  
+W tym przykładzie hello zasad trasy hello żądania tooa usługi sieci szkieletowej zapleczu przy użyciu ciągu zapytania identyfikatora userId hello jako klucza partycji hello i hello repliki podstawowej hello partycji.  
 
 ### <a name="elements"></a>Elementy  
   
@@ -260,33 +260,33 @@ W tym przykładzie zasady kieruje żądanie do usługi sieci szkieletowej wewnę
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
 |adres url Base|Nowego zaplecza podstawowy adres URL usługi.|Nie|Nie dotyczy|  
-|Identyfikator wewnętrznej bazy danych|Identyfikator wewnętrznej bazy danych, aby kierować do.|Nie|Nie dotyczy|  
-|rz partycji klucza|Dotyczy tylko podczas wewnętrznej bazy danych to usługa sieci szkieletowej usług i jest określona za pomocą "wewnętrznej bazy danych id". Używany do rozpoznawania określonej partycji z usługi rozpoznawania nazw.|Nie|Nie dotyczy|  
-|rz repliki typu|Dotyczy tylko podczas wewnętrznej bazy danych to usługa sieci szkieletowej usług i jest określona za pomocą "wewnętrznej bazy danych id". Kontroluje, czy żądanie należy przejść do podstawowej lub pomocniczej replice partycji. |Nie|Nie dotyczy|    
-|rz resolve warunków|Dotyczy tylko w przypadku wewnętrznej bazy danych usługi Service Fabric. Warunek identyfikowania wywołania do zaplecza usługi sieć szkieletowa usług musi być powtarzana z nowego rozwiązania.|Nie|Nie dotyczy|    
-|rz usługi wystąpienie nazwa-|Dotyczy tylko w przypadku wewnętrznej bazy danych usługi Service Fabric. Pozwala zmienić wystąpień usługi w czasie wykonywania. |Nie|Nie dotyczy|    
+|Identyfikator wewnętrznej bazy danych|Identyfikator hello tooroute wewnętrznej bazy danych do.|Nie|Nie dotyczy|  
+|rz partycji klucza|Dotyczy tylko gdy hello wewnętrznej bazy danych to usługa sieci szkieletowej usług i jest określona za pomocą "wewnętrznej bazy danych id". Używane tooresolve określonej partycji z usługi rozpoznawania nazw hello.|Nie|Nie dotyczy|  
+|rz repliki typu|Dotyczy tylko gdy hello wewnętrznej bazy danych to usługa sieci szkieletowej usług i jest określona za pomocą "wewnętrznej bazy danych id". Kontroluje, czy powinien pojawiać się żądania hello toohello podstawowej lub pomocniczej replice partycji. |Nie|Nie dotyczy|    
+|rz resolve warunków|Dotyczy tylko gdy hello wewnętrznej bazy danych to usługa sieci szkieletowej usług. Identyfikowanie warunku hello rozmowy telefonicznej tooService sieci szkieletowej wewnętrznej bazy danych ma toobe powtarzany z nowego rozwiązania.|Nie|Nie dotyczy|    
+|rz usługi wystąpienie nazwa-|Dotyczy tylko gdy hello wewnętrznej bazy danych to usługa sieci szkieletowej usług. Umożliwia toochange wystąpień usługi w czasie wykonywania. |Nie|Nie dotyczy|    
 
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** wewnętrznej bazy danych dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="SetBody"></a>Zestaw treści  
- Użyj `set-body` zasady można ustawić treść komunikatu dla żądań przychodzących i wychodzących. Aby uzyskać dostęp do treści wiadomości, można użyć `context.Request.Body` właściwości lub `context.Response.Body`, w zależności od tego, czy zasady znajduje się w sekcji ruchu przychodzącego lub wychodzącego.  
+ Użyj hello `set-body` treści wiadomości powitania tooset zasad żądań przychodzących i wychodzących. tooaccess hello treści wiadomości, można użyć hello `context.Request.Body` właściwości lub hello `context.Response.Body`, w zależności od tego, czy zasady hello jest hello sekcji ruchu przychodzącego lub wychodzącego.  
   
 > [!IMPORTANT]
->  Należy pamiętać, że domyślnie, gdy uzyskujesz dostęp do wiadomości body przy użyciu `context.Request.Body` lub `context.Response.Body`, treści oryginalnej wiadomości zostaną utracone i musi być ustawione przez zwrócenie treści Wstecz w wyrażeniu. Aby zachować zawartość treści, ustaw `preserveContent` parametr `true` podczas uzyskiwania dostępu do wiadomości. Jeśli `preserveContent` ustawiono `true` i różnych treści jest zwracany przez wyrażenie, treść zwracane jest używany.  
+>  Należy pamiętać, że domyślnie, gdy uzyskujesz dostęp do hello przy użyciu treści komunikatu `context.Request.Body` lub `context.Response.Body`, oryginalnej wiadomości powitania treści zostaną utracone i musi być ustawione przez zwrócenie treści hello Wstecz w wyrażeniu hello. Treść hello toopreserve zawartości, ustaw hello `preserveContent` parametru zbyt`true` podczas uzyskiwania dostępu do wiadomości powitania. Jeśli `preserveContent` ustawiono zbyt`true` i różnych treści jest zwracany przez wyrażenie hello hello zwrócił treści jest używany.  
 >   
->  Należy pamiętać przedstawione poniżej zagadnienia, korzystając z `set-body` zasad.  
+>  Należy pamiętać, hello następujące zagadnienia, korzystając z hello `set-body` zasad.  
 >   
->  -   Jeśli używasz `set-body` zasad, aby zwrócić nowe lub zaktualizowane treści, nie trzeba ustawić `preserveContent` do `true` ponieważ są jawnie dostarczenie nowej zawartości w treści.  
-> -   Zachowywanie treść odpowiedzi w potoku dla ruchu przychodzącego sensu ponieważ nie istnieje jeszcze żadnej odpowiedzi.  
-> -   Zachowywanie zawartości żądania w potoku wychodzącego nie sensu, ponieważ żądania została już wysłana do wewnętrznej bazy danych w tym momencie.  
+>  -   Jeśli używasz hello `set-body` tooreturn zasad nowych lub zaktualizowanych treści, nie potrzebujesz tooset `preserveContent` zbyt`true` ponieważ są jawnie dostarczanie hello nowej zawartości w treści.  
+> -   Zachowywanie hello treści odpowiedzi w potoku przychodzącego hello sensu ponieważ nie istnieje jeszcze żadnej odpowiedzi.  
+> -   Zachowywanie hello zawartości żądania w potoku wychodzącego hello nie sensu, ponieważ Żądanie hello została już wysłana toohello wewnętrznej bazy danych w tym momencie.  
 > -   Jeśli zasada ta jest używana, gdy brak treści wiadomości, na przykład w przychodzącej GET, jest zwracany wyjątek.  
   
- Aby uzyskać więcej informacji, zobacz `context.Request.Body`, `context.Response.Body`i `IMessage` sekcje w [zmiennej kontekstu](api-management-policy-expressions.md#ContextVariables) tabeli.  
+ Aby uzyskać więcej informacji, zobacz hello `context.Request.Body`, `context.Response.Body`i hello `IMessage` części hello [zmiennej kontekstu](api-management-policy-expressions.md#ContextVariables) tabeli.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -302,7 +302,7 @@ W tym przykładzie zasady kieruje żądanie do usługi sieci szkieletowej wewnę
 <set-body>Hello world!</set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Przykład: uzyskiwanie dostępu do treść jako ciąg. Należy pamiętać, że są firma Microsoft zachowuje oryginalne treści żądania tak, aby firma Microsoft dostęp do niego później w potoku.
+#### <a name="example-accessing-hello-body-as-a-string-note-that-we-are-preserving-hello-original-request-body-so-that-we-can-access-it-later-in-hello-pipeline"></a>Przykład dostęp do treści hello jako ciąg. Należy pamiętać, że są firma Microsoft zachowuje hello oryginalnego treści żądania, aby firma Microsoft dostęp do niego później w potoku hello.
   
 ```xml  
 <set-body>  
@@ -316,7 +316,7 @@ W tym przykładzie zasady kieruje żądanie do usługi sieci szkieletowej wewnę
 </set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Przykład dostęp do treści jako JObject. Należy pamiętać, że od czasu firma Microsoft nie są rezerwowania oryginalnego treści żądania, spowoduje ona później w potoku Wystąpił wyjątek w celu dostępu.  
+#### <a name="example-accessing-hello-body-as-a-jobject-note-that-since-we-are-not-reserving-hello-original-request-body-accesing-it-later-in-hello-pipeline-will-result-in-an-exception"></a>Przykład dostęp do treści hello jako JObject. Należy pamiętać, że od czasu firma Microsoft nie są rezerwowania hello oryginalnego treści żądania później w potoku hello spowoduje wyjątek w celu dostępu.  
   
 ```xml  
 <set-body>   
@@ -332,10 +332,10 @@ W tym przykładzie zasady kieruje żądanie do usługi sieci szkieletowej wewnę
 ```  
   
 #### <a name="filter-response-based-on-product"></a>Filtrowanie oparte na produktu odpowiedzi  
- W tym przykładzie pokazano, jak wykonać filtrowanie zawartości przez usunięcie elementów danych z odpowiedzi otrzymał od usługi wewnętrznej bazy danych, korzystając z `Starter` produktu. Aby demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przewijanie do przodu do 34:30. Rozpocznij od 31:50 wyświetlić przegląd [ciemny niebo prognozy interfejsu API](https://developer.forecast.io/) używane na potrzeby tego pokazu.  
+ W tym przykładzie pokazano, jak tooperform filtrowanie zawartości przez usunięcie elementów danych z hello odpowiedzi otrzymanych od hello usługi wewnętrznej bazy danych przy użyciu hello `Starter` produktu. Aby demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybko przewinąć do przodu too34:30. Rozpocznij od 31:50 toosee omówienie [hello ciemny niebo prognozy API](https://developer.forecast.io/) używane na potrzeby tego pokazu.  
   
 ```xml  
-<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->  
+<!-- Copy this snippet into hello outbound section tooremove a number of data elements from hello response received from hello backend service based on hello name of hello api product -->  
 <choose>  
   <when condition="@(context.Response.StatusCode == 200 && context.Product.Name.Equals("Starter"))">  
     <set-body>@{  
@@ -351,17 +351,17 @@ W tym przykładzie zasady kieruje żądanie do usługi sieci szkieletowej wewnę
 ```  
 
 ### <a name="using-liquid-templates-with-set-body"></a>Za pomocą szablonów płynne o treści zestawu 
-`set-body` Zasad może być skonfigurowana do używania [płynne](https://shopify.github.io/liquid/basics/introduction/) tworzenia szablonów języka aby transfom treści żądania lub odpowiedzi. Może to być bardzo efektywnym sposobem, aby całkowicie zmienić format wiadomości.
+Witaj `set-body` zasad może być skonfigurowany toouse hello [płynne](https://shopify.github.io/liquid/basics/introduction/) tworzenia szablonów języka tootransfom hello treści żądania lub odpowiedzi. Może to być bardzo skuteczne, jeśli potrzebujesz toocompletely Przekształć hello format wiadomości.
 
 > [!IMPORTANT]
-> Implementacja płynnych używane w `set-body` zasada jest skonfigurowana w trybie"C#". Jest to szczególnie ważne podczas wykonywania czynności takich jak filtrowania. Na przykład przy użyciu filtru daty wymaga użycia Pascal wielkości liter i C# Data formatowania, np.:
+> Witaj implementacji płynnych używane w hello `set-body` zasada jest skonfigurowana w trybie"C#". Jest to szczególnie ważne podczas wykonywania czynności takich jak filtrowania. Na przykład przy użyciu filtru daty wymaga użycia hello Pascal wielkości liter i C# Data formatowania, np.:
 >
 > {{body.foo.startDateTime| Data: "yyyyMMddTHH:mm:ddZ"}}
 
 > [!IMPORTANT]
-> Aby można było poprawnie powiązać treści XML przy użyciu szablonu płynne, użyj `set-header` zasad, aby ustawić typ zawartości do albo aplikacja/xml, tekstu/xml (lub dowolnego typu kończąc + xml), na treść JSON, musi to być application/json, tekst/json (lub dowolnego typu kończąc + json).
+> W kolejności toocorrectly bind tooan treści XML przy użyciu szablonu płynne hello, użyj `set-header` tooeither tooset Content-Type zasad application/xml, tekstu/xml (lub dowolnego typu kończąc + xml); treść kodu JSON, musi być application/json (tekstu/json lub zakończenia dowolnego typu z + json).
 
-#### <a name="convert-json-to-soap-using-a-liquid-template"></a>Konwertuj JSON przy użyciu szablonu płynne SOAP
+#### <a name="convert-json-toosoap-using-a-liquid-template"></a>Konwertuj tooSOAP JSON przy użyciu szablonu płynne
 ```xml
 <set-body template="liquid">
     <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -388,15 +388,15 @@ W tym przykładzie zasady kieruje żądanie do usługi sieci szkieletowej wewnę
   
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
-|zestaw treści|Element główny. Zawiera treść lub wyrażeń, które zwraca treści.|Tak|  
+|zestaw treści|Element główny. Zawiera treść hello lub wyrażeń, które zwraca treści.|Tak|  
 
 ### <a name="properties"></a>Właściwości  
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|szablon|Pozwala zmienić tryb tworzenia szablonów zasad treści zestaw uruchamianego w. Obecnie jest to jedyna obsługiwana wartość:<br /><br />-płynne — Ustaw zasady treści będzie korzystać z aparatu płynne tworzenia szablonów |Nie|płynnych|  
+|szablon|Tryb tworzenia szablonów hello toochange używane hello zestaw treści zasad będą uruchamiane w. Obecnie jest hello tylko obsługiwane wartości:<br /><br />-płynne - hello zestaw treści zasad użyje hello płynne tworzenia szablonów aparatu |Nie|płynnych|  
 
-Aby uzyskać dostęp do informacji na temat żądania i odpowiedzi, płynne szablonu można powiązać z obiekt kontekstu z następującymi właściwościami: <br />
+Do uzyskiwania dostępu do informacji na temat hello żądań i odpowiedzi, hello płynne szablonu można powiązać obiektu context tooa hello następujące właściwości: <br />
 <pre>context.
     Request.
         Url
@@ -437,22 +437,22 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="SetHTTPheader"></a>Set — nagłówek HTTP  
- `set-header` Zasad przypisuje wartość do istniejących odpowiedzi i/lub nagłówek żądania lub dodaje nowy nagłówek odpowiedzi i/lub żądania.  
+ Witaj `set-header` zasad przypisuje wartość tooan istniejących odpowiedzi i/lub nagłówek żądania lub dodaje nowy nagłówek odpowiedzi i/lub żądania.  
   
- Wstawia listę nagłówków HTTP do wiadomości HTTP. Po umieszczeniu w potoku dla ruchu przychodzącego, ta zasada ustawia nagłówki HTTP dla żądania przekazywany do usługi docelowej. Po umieszczeniu w potoku wychodzącego, ta zasada ustawia nagłówki HTTP są wysyłane do klienta bramy odpowiedzi.  
+ Wstawia listę nagłówków HTTP do wiadomości HTTP. Po umieszczeniu w potoku dla ruchu przychodzącego, ta zasada ustawia hello nagłówków HTTP dla żądania hello przekazywany toohello usługi docelowej. Po umieszczeniu w potoku wychodzącego, ta zasada ustawia nagłówki HTTP hello hello odpowiedzi wysyłane klienta toohello bramy.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
 ```xml  
 <set-header name="header name" exists-action="override | skip | append | delete">  
-    <value>value</value> <!--for multiple headers with the same name add additional value elements-->  
+    <value>value</value> <!--for multiple headers with hello same name add additional value elements-->  
 </set-header>  
 ```  
   
@@ -466,11 +466,11 @@ OriginalUrl.
 </set-header>  
 ```  
   
-#### <a name="forward-context-information-to-the-backend-service"></a>Informacje o kontekście do przodu do usługi zaplecza  
- W tym przykładzie przedstawiono sposób zastosowania zasad na poziomie interfejsu API, aby podać informacje o kontekście usługi wewnętrznej bazy danych. Aby demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przewijanie do przodu do 10:30. Na 12:10 istnieje pokaz wywołanie operacji w portalu dla deweloperów, w którym można zobaczyć zasad w miejscu pracy.  
+#### <a name="forward-context-information-toohello-backend-service"></a>Kontekst informacji toohello wewnętrznej bazy danych usługi przekazywania  
+ Ten przykład przedstawia, jak zasady tooapply na powitania interfejsu API na poziomie toosupply kontekstu informacji toohello wewnętrznej bazy danych usługi. Aby demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybko przewinąć do przodu too10:30. Na 12:10 istnieje pokaz wywołanie operacji w portalu dla deweloperów hello umożliwia wyświetlenie zasad hello w miejscu pracy.  
   
 ```xml  
-<!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->  
+<!-- Copy this snippet into hello inbound element tooforward some context information, user id and hello region hello gateway is hosted in, toohello backend service for logging or evaluation -->  
 <set-header name="x-request-context-data" exists-action="override">  
   <value>@(context.User.Id)</value>  
   <value>@(context.Deployment.Region)</value>  
@@ -484,30 +484,30 @@ OriginalUrl.
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |set — nagłówek|Element główny.|Tak|  
-|wartość|Określa wartość nagłówka do ustawienia. Do wiele nagłówków o takiej samej nazwie Dodaj dodatkowe `value` elementy.|Tak|  
+|wartość|Określa wartość hello hello nagłówka toobe zestawu. Wiele nagłówków o hello tej samej nazwy dodanie dodatkowych `value` elementów.|Tak|  
   
 ### <a name="properties"></a>Właściwości  
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|istnieje akcja|Określa, jakie działania w sytuacji, gdy nagłówek został już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override - zastępuje wartość istniejący nagłówek.<br />-skip — nie zastępuje istniejącą wartość nagłówka.<br />-dołączania - dołącza wartość do istniejącej wartości nagłówka.<br />-Usunięcie — usuwa nagłówek z żądania.<br /><br /> Jeśli wartość `override` powoduje rejestrowanie wiele wpisów o takiej samej nazwie w nagłówku ustawiany zgodnie ze wszystkich zapisów (które zostaną wyświetlone wiele razy); zostanie ustawiona tylko wartości wyświetlane w wynikach.|Nie|zastąpienie|  
-|name|Określa nazwę nagłówka do ustawienia.|Tak|Nie dotyczy|  
+|istnieje akcja|Określa jaki tootake akcji, gdy nagłówek hello został już określony. Ten atrybut musi mieć jedną z hello następujące wartości.<br /><br /> -- zastępuje hello wartość zastępczą hello istniejący nagłówek.<br />-skip — nie zastępuje istniejącą wartość nagłówka hello.<br />-dołączania - dołącza hello wartość toohello istniejącą wartość nagłówka.<br />-Usunięcie — usuwa hello nagłówek z żądania hello.<br /><br /> Gdy ustawiona zbyt`override` rejestrowanie wiele wpisów z hello sama nazwa wyniki w nagłówku hello jest zestaw zgodnie z tooall zapisów (które zostaną wyświetlone wiele razy); w wyniku hello zostanie ustawiona tylko wartości wyświetlane.|Nie|zastąpienie|  
+|name|Określa nazwę zestawu toobe hello nagłówka.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych, na błąd  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="SetQueryStringParameter"></a>Parametr ciągu zapytania dla zestawu  
- `set-query-parameter` Zasad dodaje wartość zastępuje, lub usuwa żądania parametru ciągu zapytania. Może służyć do przekazywania kwerendy parametry oczekiwany przez usługi wewnętrznej bazy danych, które są opcjonalne lub nigdy nie są obecne w żądaniu.  
+ Witaj `set-query-parameter` zasad dodaje wartość zastępuje, lub usuwa żądania parametru ciągu zapytania. Może być używane toopass oczekiwany przez usługi zaplecza hello parametry zapytania, które są opcjonalne lub nigdy nie są obecne w żądaniu hello.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
 ```xml  
 <set-query-parameter name="param name" exists-action="override | skip | append | delete">  
-    <value>value</value> <!--for multiple parameters with the same name add additional value elements-->  
+    <value>value</value> <!--for multiple parameters with hello same name add additional value elements-->  
 </set-query-parameter>  
 ```  
   
@@ -521,16 +521,16 @@ OriginalUrl.
   <parameter name="api-key" exists-action="skip">  
     <value>12345678901</value>  
   </parameter>  
-  <!-- for multiple parameters with the same name add additional value elements -->  
+  <!-- for multiple parameters with hello same name add additional value elements -->  
 </set-query-parameter>  
   
 ```  
   
-#### <a name="forward-context-information-to-the-backend-service"></a>Informacje o kontekście do przodu do usługi zaplecza  
- W tym przykładzie przedstawiono sposób zastosowania zasad na poziomie interfejsu API, aby podać informacje o kontekście usługi wewnętrznej bazy danych. Aby demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przewijanie do przodu do 10:30. Na 12:10 istnieje pokaz wywołanie operacji w portalu dla deweloperów, w którym można zobaczyć zasad w miejscu pracy.  
+#### <a name="forward-context-information-toohello-backend-service"></a>Kontekst informacji toohello wewnętrznej bazy danych usługi przekazywania  
+ Ten przykład przedstawia, jak zasady tooapply na powitania interfejsu API na poziomie toosupply kontekstu informacji toohello wewnętrznej bazy danych usługi. Aby demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybko przewinąć do przodu too10:30. Na 12:10 istnieje pokaz wywołanie operacji w portalu dla deweloperów hello umożliwia wyświetlenie zasad hello w miejscu pracy.  
   
 ```xml  
-<!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->  
+<!-- Copy this snippet into hello inbound element tooforward a piece of context, product name in this example, toohello backend service for logging or evaluation -->  
 <set-query-parameter name="x-product-name" exists-action="override">  
   <value>@(context.Product.Name)</value>  
 </set-query-parameter>  
@@ -544,33 +544,33 @@ OriginalUrl.
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |Parametr zestawu — zapytania|Element główny.|Tak|  
-|wartość|Określa wartość parametru zapytania do ustawienia. Dla wielu parametrów zapytania o takiej samej nazwie dodanie dodatkowych `value` elementów.|Tak|  
+|wartość|Określa wartość hello zestawu toobe parametru zapytania hello. Wiele parametrów zapytania z hello tej samej nazwy dodanie dodatkowych `value` elementów.|Tak|  
   
 ### <a name="properties"></a>Właściwości  
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|istnieje akcja|Określa, jakie działania w sytuacji, gdy parametr zapytania został już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override - zastępuje wartość parametru istniejących.<br />-skip — nie zastępuje istniejącą wartość parametru zapytania.<br />-dołączania - dołącza wartość do istniejącej wartości parametru zapytania.<br />-Usunięcie — usuwa parametr zapytania z żądania.<br /><br /> Jeśli wartość `override` powoduje rejestrowanie wiele wpisów z tą samą nazwą parametru zapytania ustawiany zgodnie ze wszystkich zapisów (które zostaną wyświetlone wiele razy); zostanie ustawiona tylko wartości wyświetlane w wynikach.|Nie|zastąpienie|  
-|name|Określa nazwę parametru zapytania do ustawienia.|Tak|Nie dotyczy|  
+|istnieje akcja|Określa jaki tootake akcji, gdy parametr zapytania hello jest już określony. Ten atrybut musi mieć jedną z hello następujące wartości.<br /><br /> -- zastępuje hello wartość zastąpienia istniejącego parametru hello.<br />-skip — nie zastępuje hello istniejącą wartość parametru zapytania.<br />-dołączania - dołącza hello wartość toohello istniejącą wartość parametru zapytania.<br />-Usunięcie — usuwa parametru zapytania hello hello żądania.<br /><br /> Gdy ustawiona zbyt`override` rejestrowanie wiele wpisów z hello sama nazwa powoduje parametru zapytania hello jest zestaw zgodnie z tooall zapisów (które zostaną wyświetlone wiele razy); w wyniku hello zostanie ustawiona tylko wartości wyświetlane.|Nie|zastąpienie|  
+|name|Określa nazwę zestawu toobe parametru zapytania hello.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** wewnętrznej bazy danych dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ##  <a name="RewriteURL"></a>Ponowne zapisywanie adresów URL  
- `rewrite-uri` Zasad konwertuje adresie URL żądania postaci publicznego formularza oczekiwane przez usługę sieci web, jak pokazano w poniższym przykładzie.  
+ Witaj `rewrite-uri` zasad konwertuje adresie URL żądania w postaci toohello publicznego formularza oczekiwane przez usługę sieci web hello, jak pokazano w hello poniższy przykład.  
   
 -   Publiczny adres URL-`http://api.example.com/storenumber/ordernumber`  
   
 -   Adres URL żądania —`http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`  
   
- Ta zasada służy podczas transformacji człowieka i/lub przeglądarki przyjaznego adresu URL do formatu URL oczekiwanego przez usługę sieci web. Ta zasada musi tylko ma być stosowany podczas udostępnianie innego formatu adresu URL, takie jak czystą adresów URL, adresy URL RESTful, adresów URL przyjaznych dla użytkownika lub adresów URL przyjaznych dla aparatów wyszukiwania, które są całkowicie strukturalnych adresów URL, które nie zawierają ciągu zapytania i zamiast tego zawierają tylko ścieżki zasobu (po schemat i Urząd). Często jest to estetycznych, użyteczność lub aparat wyszukiwania (SEO) optymalizacji.  
+ Te zasady można podczas transformacji do formatu adresu URL hello oczekiwanego przez usługę sieci web hello człowieka i/lub przeglądarki przyjaznego adresu URL. Ta zasada musi tylko toobe stosowane, gdy udostępnianie innego formatu adresu URL, takie jak czystą adresów URL, adresy URL RESTful, adresów URL przyjaznych dla użytkownika lub adresów URL przyjaznych dla aparatów wyszukiwania, które są całkowicie strukturalnych adresów URL, które zawiera ciąg zapytania i zamiast tego zawierają tylko hello ścieżka hello zasób (po hello schemat i urząd hello). Często jest to estetycznych, użyteczność lub aparat wyszukiwania (SEO) optymalizacji.  
   
 > [!NOTE]
->  Można dodawać tylko przy użyciu zasad parametrów ciągu zapytania. Nie można dodać szablon dodatkowe parametry ścieżki w adresie URL ponownego zapisywania.  
+>  Można dodawać tylko za pomocą zasad hello parametrów ciągu zapytania. Nie można dodać dodatkowe szablonu ścieżki parametrów w hello ponowne zapisywanie adresów URL.  
 
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -592,7 +592,7 @@ OriginalUrl.
 </policies>  
 ```  
 ```xml
-<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set too/get?a={b} -->
 <policies>  
     <inbound>  
         <base />  
@@ -605,7 +605,7 @@ OriginalUrl.
 <!-- Resulting URL will be /put?c=d -->
 ```  
 ```xml
-<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set too/get?a={b} -->
 <policies>  
     <inbound>  
         <base />  
@@ -628,18 +628,18 @@ OriginalUrl.
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|szablon|Adres URL usługi sieci web rzeczywiste wszystkie parametry ciągu zapytania. Używając wyrażenia wartości całkowitej musi być wyrażeniem.|Tak|Nie dotyczy|  
-|Kopiuj niedopasowane — parametry|Określa, czy parametry zapytania w żądaniu przychodzącym nie znajduje się w oryginalnym szablonie adres URL są dodawane do adresu URL zdefiniowanej w szablonie Napisz ponownie|Nie|Wartość true|  
+|szablon|Hello web rzeczywisty adres URL usługi z parametrów ciągu zapytania. Używając wyrażenia wartości całkowitej hello musi być wyrażeniem.|Tak|Nie dotyczy|  
+|Kopiuj niedopasowane — parametry|Określa, czy parametry zapytania w hello żądania przychodzącego, jeśli nie znajduje się w oryginalnym szablonie adresu URL hello są dodawane toohello adres URL zdefiniowany przez hello ponownie zapisać szablon|Nie|Wartość true|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
   
 -   **Zakresy zasad:** operacja produktu, interfejsu API,  
   
 ##  <a name="XSLTransform"></a>Przekształcanie XML za pomocą XSLT  
- `Transform XML using an XSLT` Zasady dotyczą transformacji XSL XML w treści żądania lub odpowiedzi.  
+ Witaj `Transform XML using an XSLT` tooXML transformacji XSL w treści żądania lub odpowiedzi hello dotyczą zasady.  
   
 ### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -692,11 +692,11 @@ OriginalUrl.
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |Transformacja XSL|Element główny.|Tak|  
-|Parametr|Używane do definiowania zmiennych w przekształceniu|Nie|  
-|XSL: stylesheet|Elemencie głównym arkusza stylów. Wszystkie elementy i atrybuty zdefiniowane w ramach zgodne ze standardem [specyfikacji XSLT](http://www.w3.org/TR/xslt)|Tak|  
+|Parametr|Zmienne używane toodefine używane w hello przekształcenia|Nie|  
+|XSL: stylesheet|Elemencie głównym arkusza stylów. Wszystkie elementy i atrybuty zdefiniowane w ramach wykonaj standardowe hello [specyfikacji XSLT](http://www.w3.org/TR/xslt)|Tak|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Tej zasady można używać w hello następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzące, wychodzące  
   

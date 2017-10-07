@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] | Microsoft Docs"
-description: "Rozwiązania z zakresu zarządzania maszynami wirtualnymi uruchamiają i zatrzymują maszyny wirtualne usługi Azure Resource Manager zgodnie z harmonogramem i aktywnie monitorują działanie z poziomu usługi Log Analytics."
+title: "aaaStart/zatrzymywania maszyn wirtualnych podczas rozwiązania poza godzinami szczytu [Podgląd] | Dokumentacja firmy Microsoft"
+description: "rozwiązania do zarządzania maszyny Wirtualnej Hello uruchamia i zatrzymuje maszyn wirtualnych platformy Azure Resource Manager zgodnie z harmonogramem i aktywnego monitorowania z analizy dzienników."
 services: automation
 documentationCenter: 
 authors: mgoedtel
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: magoedte
-ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6cbe16dfb40bf13f29d9e58ca0bc8c5c7979879d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] w usłudze Automation
 
-Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] uruchamia i zatrzymuje maszyny wirtualne usługi Azure Resource Manager zgodnie z harmonogramem zdefiniowanym przez użytkownika i zapewnia wgląd w powodzenie zadań usługi Automation, które uruchamiają i zatrzymują maszyny wirtualne, za pomocą usługi OMS Log Analytics.  
+Hello uruchamiania/zatrzymywania maszyn wirtualnych podczas rozwiązania poza godzinami szczytu [Podgląd] uruchamia i zatrzymuje maszynach wirtualnych Azure Resource Manager zgodnie z harmonogramem zdefiniowane przez użytkownika i zapewnia wgląd w hello Powodzenie hello automatyzacji zadań, które uruchamianie i zatrzymywanie maszyn wirtualnych z usługą OMS Analiza dzienników.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Elementy Runbook działają przy użyciu [konta Uruchom jako platformy Azure](automation-offering-get-started.md#authentication-methods).  Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa certyfikatu zamiast hasła, które może wygasać lub ulegać częstym zmianom.  
+- elementy runbook Hello pracować z [konta Uruchom jako platformy Azure](automation-offering-get-started.md#authentication-methods).  Witaj konta Uruchom jako jest hello preferowana metoda uwierzytelniania, ponieważ zamiast hasła, który może wygaśnie lub zmienić często używa certyfikatu uwierzytelniania.  
 
-- To rozwiązanie może zarządzać tylko maszyn wirtualnych, które znajdują się w tej samej subskrypcji co gdzie znajduje się konto automatyzacji.  
+- To rozwiązanie może zarządzać tylko maszyn wirtualnych, które znajdują się w hello tej samej subskrypcji co gdzie znajduje się hello konta automatyzacji.  
 
-- To rozwiązanie może być wdrożone tylko w następujących regionach platformy Azure: Australia Południowo-Wschodnia, Wschodnie stany USA, Azja Południowo-Wschodnia oraz Europa Zachodnia.  Elementy Runbook, które zarządzają harmonogramem maszyny wirtualnej, mogą kierować działania na maszyny wirtualne w dowolnym regionie.  
+- To rozwiązanie obejmuje jedynie toohello następujące regiony platformy Azure - Australia Południowo-Wschodnia, wschodnie stany USA, Azja południowo-wschodnia i Europa Zachodnia.  elementów runbook Hello zarządzania hello harmonogramem maszyny Wirtualnej można kierować maszyn wirtualnych w dowolnym regionie.  
 
-- Aby wysyłać powiadomienia e-mail w momencie zakończenia działania elementów Runbook uruchamiających lub zatrzymujących maszyny wirtualne, wymagana jest subskrypcja klasy biznesowej usługi Office 365.  
+- powiadomienia e-mail toosend, gdy hello uruchamianie i zatrzymywanie elementów runbook wirtualna pełną, subskrypcję usługi Office 365 klasy biznesowej jest wymagana.  
 
 ## <a name="solution-components"></a>Składniki rozwiązania
 
-To rozwiązanie składa się z następujących zasobów, które zostaną zaimportowane i dodane do konta usługi Automation.
+To rozwiązanie składa się z następujących zasobów, które zostaną zaimportowane i dodać konto automatyzacji tooyour hello.
 
 ### <a name="runbooks"></a>Elementy Runbook
 
 Element Runbook | Opis|
 --------|------------|
-CleanSolution-MS-Mgmt-VM | Ten element Runbook spowoduje usunięcie wszystkich zasobów i harmonogramów po rozpoczęciu operacji usuwania rozwiązania z subskrypcji.|  
+CleanSolution-MS-Mgmt-VM | Ten element runbook spowoduje usunięcie wszystkich zawartych w niej zasobów i harmonogramy po przejściu toodelete hello rozwiązania z subskrypcji.|  
 SendMailO365-MS-Mgmt | Ten element Runbook wysyła wiadomość e-mail za pośrednictwem programu Exchange w usłudze Office 365.|
-StartByResourceGroup-MS-Mgmt-VM | Ten element Runbook jest przeznaczony do uruchamiania maszyn wirtualnych (opartych na modelu klasycznym oraz maszyn wirtualnych opartych na usłudze ARM), które znajdują się na danej liście grup zasobów platformy Azure.
-StopByResourceGroup-MS-Mgmt-VM | Ten element Runbook jest przeznaczony do zatrzymywania maszyn wirtualnych (opartych na modelu klasycznym oraz maszyn wirtualnych opartych na usłudze ARM), które znajdują się na danej liście grup zasobów platformy Azure.|
+StartByResourceGroup-MS-Mgmt-VM | Ten element runbook jest zamierzone toostart maszyn wirtualnych (zarówno classic i maszyn wirtualnych na podstawie ARM) który znajduje się w danej listy grup zasobów platformy Azure.
+StopByResourceGroup-MS-Mgmt-VM | Ten element runbook jest zamierzone toostop maszyn wirtualnych (zarówno classic i maszyn wirtualnych na podstawie ARM) który znajduje się w danej listy grup zasobów platformy Azure.|
 <br>
 
 ### <a name="variables"></a>Zmienne
@@ -53,164 +53,164 @@ StopByResourceGroup-MS-Mgmt-VM | Ten element Runbook jest przeznaczony do zatrzy
 Zmienna | Opis|
 ---------|------------|
 Element Runbook **SendMailO365-MS-Mgmt** ||
-SendMailO365-IsSendEmail-MS-Mgmt | Określa, czy elementy Runbook StartByResourceGroup-MS-Mgmt-VM i StopByResourceGroup-MS-Mgmt-VM mogą wysyłać powiadomienia e-mail po zakończeniu działania.  Wybierz wartość **True**, aby włączyć, lub **False**, aby wyłączyć alerty e-mail. Wartość domyślna to **False**.| 
+SendMailO365-IsSendEmail-MS-Mgmt | Określa, czy elementy Runbook StartByResourceGroup-MS-Mgmt-VM i StopByResourceGroup-MS-Mgmt-VM mogą wysyłać powiadomienia e-mail po zakończeniu działania.  Wybierz **True** tooenable i **False** toodisable poczty e-mail alertów. Wartość domyślna to **False**.| 
 Element Runbook **StartByResourceGroup-MS-Mgmt-VM** ||
-StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Wprowadź nazw maszyn wirtualnych, które mają być wykluczone z operacji zarządzania; Rozdziel nazwy przy użyciu semi-colon(;) nie może zawierać spacji. W wartościach jest rozróżniana wielkość liter. Dopuszcza się użycie symbolu wieloznacznego (gwiazdki).|
-StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Tekst, który można dołączyć do początku treści wiadomości e-mail.|
-StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Określa nazwę konta usługi Automation, które zawiera element Runbook poczty e-mail.  **Nie należy modyfikować tej zmiennej.**|
-StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Określa nazwę elementu Runbook poczty e-mail.  Ta zmienna jest używana przez elementy Runbook StartByResourceGroup-MS-Mgmt-VM i StopByResourceGroup-MS-Mgmt-VM do wysyłania wiadomości e-mail.  **Nie należy modyfikować tej zmiennej.**|
-StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Określa nazwę grupy zasobów, która zawiera element Runbook poczty e-mail.  **Nie należy modyfikować tej zmiennej.**|
-StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Określa tekst dla wiersza tematu wiadomości e-mail.|  
-StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Określa adresatów wiadomości e-mail.  Wprowadź inne nazwy przy użyciu semi-colon(;) nie może zawierać spacji.|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Wprowadź nazw maszyn wirtualnych, które mają być wykluczone z operacji zarządzania; Rozdziel nazwy przy użyciu semi-colon(;) nie może zawierać spacji. W wartościach jest rozróżniana wielkość liter. Dopuszcza się użycie symbolu wieloznacznego (gwiazdki).  Wartość domyślna (gwiazdka) będzie obejmować wszystkie grupy zasobów w subskrypcji.|
-StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Określa subskrypcję zawierającą maszyny wirtualne, które będą zarządzane przez to rozwiązanie.  Musi to być ta sama subskrypcja, w której znajduje się konto usługi Automation tego rozwiązania.|
+StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Wprowadź wykluczone z zarządzania operację; toobe nazwy maszyny Wirtualnej Rozdziel nazwy przy użyciu semi-colon(;) nie może zawierać spacji. W wartościach jest rozróżniana wielkość liter. Dopuszcza się użycie symbolu wieloznacznego (gwiazdki).|
+StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Tekst, który może być dołączane toohello początku treść wiadomości e-mail hello.|
+StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Określa nazwę hello hello konto automatyzacji zawierające hello runbook wiadomości E-mail.  **Nie należy modyfikować tej zmiennej.**|
+StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Określa nazwę hello hello runbook wiadomości e-mail.  To jest używany przez hello StartByResourceGroup-MS-Mgmt-VM i StopByResourceGroup-MS-Mgmt-VM elementów runbook toosend w wiadomości e-mail.  **Nie należy modyfikować tej zmiennej.**|
+StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Określa nazwę hello hello grupę zasobów, która zawiera hello runbook wiadomości E-mail.  **Nie należy modyfikować tej zmiennej.**|
+StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Określa tekst hello hello wiersz tematu wiadomości e-mail hello.|  
+StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Określa adresaci hello hello poczty e-mail.  Wprowadź inne nazwy przy użyciu semi-colon(;) nie może zawierać spacji.|
+StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Wprowadź wykluczone z zarządzania operację; toobe nazwy maszyny Wirtualnej Rozdziel nazwy przy użyciu semi-colon(;) nie może zawierać spacji. W wartościach jest rozróżniana wielkość liter. Dopuszcza się użycie symbolu wieloznacznego (gwiazdki).  Wartość domyślna (gwiazdkę) będzie zawierać wszystkich grup zasobów w subskrypcji hello.|
+StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Określa hello subskrypcji, która zawiera toobe maszyn wirtualnych zarządzanych przez tego rozwiązania.  Musi to być hello tej samej subskrypcji, w którym znajduje się hello konta automatyzacji tego rozwiązania.|
 Element Runbook **StopByResourceGroup-MS-Mgmt-VM** ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Wprowadź nazw maszyn wirtualnych, które mają być wykluczone z operacji zarządzania; Rozdziel nazwy przy użyciu semi-colon(;) nie może zawierać spacji. W wartościach jest rozróżniana wielkość liter. Dopuszcza się użycie symbolu wieloznacznego (gwiazdki).|
-StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Tekst, który można dołączyć do początku treści wiadomości e-mail.|
-StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Określa nazwę konta usługi Automation, które zawiera element Runbook poczty e-mail.  **Nie należy modyfikować tej zmiennej.**|
-StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Określa nazwę grupy zasobów, która zawiera element Runbook poczty e-mail.  **Nie należy modyfikować tej zmiennej.**|
-StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Określa tekst dla wiersza tematu wiadomości e-mail.|  
-StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Określa adresatów wiadomości e-mail.  Wprowadź inne nazwy przy użyciu semi-colon(;) nie może zawierać spacji.|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Wprowadź nazw maszyn wirtualnych, które mają być wykluczone z operacji zarządzania; Rozdziel nazwy przy użyciu semi-colon(;) nie może zawierać spacji. W wartościach jest rozróżniana wielkość liter. Dopuszcza się użycie symbolu wieloznacznego (gwiazdki).  Wartość domyślna (gwiazdka) będzie obejmować wszystkie grupy zasobów w subskrypcji.|
-StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Określa subskrypcję zawierającą maszyny wirtualne, które będą zarządzane przez to rozwiązanie.  Musi to być ta sama subskrypcja, w której znajduje się konto usługi Automation tego rozwiązania.|  
+StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Wprowadź wykluczone z zarządzania operację; toobe nazwy maszyny Wirtualnej Rozdziel nazwy przy użyciu semi-colon(;) nie może zawierać spacji. W wartościach jest rozróżniana wielkość liter. Dopuszcza się użycie symbolu wieloznacznego (gwiazdki).|
+StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Tekst, który może być dołączane toohello początku treść wiadomości e-mail hello.|
+StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Określa nazwę hello hello konto automatyzacji zawierające hello runbook wiadomości E-mail.  **Nie należy modyfikować tej zmiennej.**|
+StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Określa nazwę hello hello grupę zasobów, która zawiera hello runbook wiadomości E-mail.  **Nie należy modyfikować tej zmiennej.**|
+StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Określa tekst hello hello wiersz tematu wiadomości e-mail hello.|  
+StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Określa adresaci hello hello poczty e-mail.  Wprowadź inne nazwy przy użyciu semi-colon(;) nie może zawierać spacji.|
+StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Wprowadź wykluczone z zarządzania operację; toobe nazwy maszyny Wirtualnej Rozdziel nazwy przy użyciu semi-colon(;) nie może zawierać spacji. W wartościach jest rozróżniana wielkość liter. Dopuszcza się użycie symbolu wieloznacznego (gwiazdki).  Wartość domyślna (gwiazdkę) będzie zawierać wszystkich grup zasobów w subskrypcji hello.|
+StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Określa hello subskrypcji, która zawiera toobe maszyn wirtualnych zarządzanych przez tego rozwiązania.  Musi to być hello tej samej subskrypcji, w którym znajduje się hello konta automatyzacji tego rozwiązania.|  
 <br>
 
 ### <a name="schedules"></a>Harmonogramy
 
 Harmonogram | Opis|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | Harmonogram elementu Runbook StartByResourceGroup, który wykonuje uruchamianie maszyn wirtualnych zarządzanych przez to rozwiązanie. Podczas tworzenia, wartością domyślną strefę czasową UTC.|
-StopByResourceGroup-Schedule-MS-Mgmt | Harmonogram elementu Runbook StopByResourceGroup, który wykonuje zatrzymywanie maszyn wirtualnych zarządzanych przez to rozwiązanie. Podczas tworzenia, wartością domyślną strefę czasową UTC.|
+StartByResourceGroup-Schedule-MS-Mgmt | Harmonogram StartByResourceGroup elementu runbook, który przeprowadza hello uruchamiania maszyn wirtualnych zarządzanych przez tego rozwiązania. Podczas tworzenia, domyślnie tooUTC strefy czasowej.|
+StopByResourceGroup-Schedule-MS-Mgmt | Harmonogram StopByResourceGroup elementu runbook, który przeprowadza hello zamykania maszyn wirtualnych zarządzanych przez tego rozwiązania. Podczas tworzenia, domyślnie tooUTC strefy czasowej.|
 
 ### <a name="credentials"></a>Poświadczenia
 
 Poświadczenie | Opis|
 -----------|------------|
-O365Credential | Określa prawidłowe konto użytkownika usługi Office 365 do wysłania wiadomości e-mail.  Wymagane tylko wtedy, gdy zmienna SendMailO365-IsSendEmail-MS-Mgmt jest ustawiona na wartość **True**.
+O365Credential | Określa nieprawidłowy e-mail toosend konta użytkownika usługi Office 365.  Wymagany tylko wtedy, gdy zmienna SendMailO365-IsSendEmail-MS-Mgmt ustawiono zbyt**True**.
 
 ## <a name="configuration"></a>Konfiguracja
 
-Wykonaj poniższe kroki, aby dodać rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] do konta usługi Automation, a następnie skonfiguruj zmienne, aby dostosować rozwiązanie.
+Wykonaj powitania po hello tooadd kroki uruchamiania/zatrzymywania maszyn wirtualnych w tooyour rozwiązania poza godzinami szczytu [Podgląd] konta automatyzacji, a następnie skonfiguruj hello zmienne toocustomize hello rozwiązania.
 
-1. Na ekranie głównym w witrynie Azure Portal wybierz kafelek **Marketplace**.  Jeśli kafelek nie jest już przypięty do ekranu głównego, wybierz opcję **Nowy** w lewym okienku nawigacyjnym.  
-2. W bloku Marketplace wpisz **Uruchamianie maszyn wirtualnych** w polu wyszukiwania, a następnie wybierz rozwiązanie **Uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza]** z wyników wyszukiwania.  
-3. W bloku **Uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza]** dla wybranego rozwiązania sprawdź informacje w podsumowaniu, a następnie kliknij przycisk **Utwórz**.  
-4. Blok **Dodawanie rozwiązania** pojawi się, gdy zostanie wyświetlony monit o skonfigurowanie rozwiązania przed jego zaimportowaniem do subskrypcji usługi Automation.<br><br> ![Zarządzanie maszynami wirtualnymi — blok Dodawanie rozwiązania](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
-5.  W bloku **Dodawanie rozwiązania** wybierz pozycję **Obszar roboczy**. W tym miejscu możesz wybrać obszar roboczy OMS połączony z tą samą subskrypcją platformy Azure, w której znajduje się konto usługi Automation, lub utworzyć nowy obszar roboczy OMS.  Jeśli nie masz obszaru roboczego OMS, możesz wybrać opcję **Utwórz nowy obszar roboczy** i wykonać następujące czynności w bloku **Obszar roboczy OMS**: 
-   - Określ nazwę dla nowego **Obszaru roboczego OMS**.
-   - Wybierz **Subskrypcję** do połączenia poprzez wybór subskrypcji z listy rozwijanej, jeśli domyślnie wybrana subskrypcja jest niewłaściwa.
+1. Z hello głównej ekranu w hello portalu Azure, wybierz hello **Marketplace** kafelka.  Wybierz Kafelek hello jest już przypięty tooyour głównej ekranu, w okienku nawigacji po lewej stronie powitania **nowy**.  
+2. W bloku portalu Marketplace hello wpisz **uruchamianie maszyny Wirtualnej** w polu wyszukiwania hello a rozwiązanie a następnie wybierz pozycję hello **uruchamiania/zatrzymywania maszyn wirtualnych w godzinach [Podgląd]** hello wyników wyszukiwania.  
+3. W hello **uruchamiania/zatrzymywania maszyn wirtualnych w godzinach [Podgląd]** bloku hello wybrane rozwiązanie, Przejrzyj podsumowanie hello, a następnie kliknij przycisk **Utwórz**.  
+4. Witaj **Dodaj rozwiązanie** zostanie wyświetlony blok gdzie zostanie wyświetlony monit o tooconfigure hello rozwiązania są przed zaimportowaniem go w ramach subskrypcji automatyzacji.<br><br> ![Zarządzanie maszynami wirtualnymi — blok Dodawanie rozwiązania](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+5.  Na powitania **Dodaj rozwiązanie** bloku, wybierz opcję **obszaru roboczego** i tutaj wybierz obszar roboczy OMS, który jest połączony toohello znajduje się w tej samej subskrypcji Azure, która hello konta automatyzacji lub Utwórz nowy obszar roboczy OMS.  Jeśli nie masz obszar roboczy OMS, możesz wybrać **Utwórz nowy obszar roboczy** i na powitania **obszarem roboczym pakietu OMS** blok, wykonaj następujące hello: 
+   - Określ nazwę nowej hello **obszarem roboczym pakietu OMS**.
+   - Wybierz **subskrypcji** toolink tooby wybierając z listy rozwijanej hello Jeśli hello domyślne nie jest odpowiedni.
    - W pozycji **Grupa zasobów** możesz utworzyć nową grupę zasobów lub wybrać istniejącą grupę zasobów.  
-   - Wybierz **lokalizację**.  Obecnie można wybrać tylko spośród następujących lokalizacji: **Australia Południowo-Wschodnia**, **Wschodnie stany USA**, **Azja Południowo-Wschodnia** oraz **Europa Zachodnia**.
-   - Wybierz **warstwę cenową**.  Rozwiązanie jest oferowane w dwóch warstwach: bezpłatnej i płatnej warstwie pakietu OMS.  W warstwie bezpłatnej obowiązuje dzienny limit ilości zbieranych danych, a także limit okresu przechowywania oraz minut czasu wykonywania zadania elementu Runbook.  W warstwie płatnej usługi OMS nie stosuje się dziennego limitu ilości zbieranych danych.  
+   - Wybierz **lokalizację**.  Obecnie są jedynymi lokalizacjami hello przewidzianych wybór **południowo-wschodnia Australia**, **wschodnie stany USA**, **Azja południowo-wschodnia**, i **Europa**.
+   - Wybierz **warstwę cenową**.  rozwiązanie Hello jest oferowany dwóch warstw: Zwolnij i OMS płatnej warstwy.  Witaj warstwa bezpłatna ma ograniczenie na powitania ilość danych zbieranych dziennie, okres przechowywania i minut czasu wykonywania zadania elementu runbook.  Witaj OMS płatnej warstwy nie ma limit na powitania ilość danych zbieranych dziennie.  
 
         > [!NOTE]
-        > Autonomiczna warstwa płatna jest wyświetlana jako opcja, ale nie ma tu zastosowania.  Jeśli wybierzesz tę opcję i spróbujesz kontynuować tworzenie tego rozwiązania, operacja nie powiedzie się.  Ten problem zostanie rozwiązany po oficjalnym wydaniu tego rozwiązania.<br>Jeśli używasz tego rozwiązania, będzie ono używać wyłącznie minut zadania automatyzacji oraz pozyskiwania dziennika.  Rozwiązanie nie dodaje kolejnych węzłów pakietu OMS do środowiska.  
+        > Podczas wyświetlania hello autonomiczny płatnej warstwy jako opcja, nie ma zastosowania.  Zaznacz go i kontynuować tworzenie hello tego rozwiązania, w ramach subskrypcji, jego zakończy się niepowodzeniem.  Ten problem zostanie rozwiązany po oficjalnym wydaniu tego rozwiązania.<br>Jeśli używasz tego rozwiązania, będzie ono używać wyłącznie minut zadania automatyzacji oraz pozyskiwania dziennika.  rozwiązanie Hello nie dodać dodatkowe środowiska tooyour węzłów OMS.  
 
-6. Po podaniu wymaganych informacji w bloku **Obszar roboczy OMS** kliknij przycisk **Utwórz**.  Podczas weryfikowania informacji i tworzenia obszaru roboczego możesz śledzić postęp w sekcji **Powiadomienia** z poziomu menu.  Nastąpi powrót do bloku **Dodawanie rozwiązania**.  
-7. W bloku **Dodawanie rozwiązania** wybierz opcję **Konto usługi Automation**.  Jeśli tworzysz nowy obszar roboczy OMS, wymagane będzie również utworzenie nowego konta usługi Automation, które będzie skojarzone z nowym wcześniej określonym obszarem roboczym OMS, włącznie z subskrypcją platformy Azure, grupą zasobów i regionem.  Możesz wybrać opcję **Utwórz konto usługi Automation** i podać następujące dane w bloku **Dodawanie konta usługi Automation**: 
-  - W polu **Nazwa** wprowadź nazwę konta usługi Automation.
+6. Po podaniu informacji hello wymagane na powitania **obszarem roboczym pakietu OMS** bloku, kliknij przycisk **Utwórz**.  Informacje hello jest weryfikowany i utworzeniu hello obszaru roboczego, można śledzić postęp w obszarze **powiadomienia** hello menu.  Zostanie zwrócony toohello **Dodaj rozwiązanie** bloku.  
+7. Na powitania **Dodaj rozwiązanie** bloku, wybierz opcję **konto automatyzacji**.  Jeśli tworzysz nowy obszar roboczy OMS, konieczna będzie tooalso Utwórz nowe konto automatyzacji, która zostanie skojarzona z hello nowy obszar roboczy OMS określony wcześniej, łącznie z Twojej subskrypcji platformy Azure, grupy zasobów i region.  Możesz wybrać **utworzyć konto usługi automatyzacja** i na powitania **konto automatyzacji dodać** bloku, podaj poniżej hello: 
+  - W hello **nazwa** wprowadź nazwę hello hello konta automatyzacji.
 
-    Wszystkie inne opcje są automatycznie uzupełniane w oparciu o wybrany obszar roboczy OMS. Nie można zmodyfikować tych opcji.  Konto Uruchom jako platformy Azure jest domyślną metodą uwierzytelniania dla elementów Runbook zawartych w tym rozwiązaniu.  Gdy klikniesz przycisk **OK**, opcje konfiguracji zostaną sprawdzone, a konto usługi Automation zostanie utworzone.  Postęp możesz śledzić w sekcji **Powiadomienia** z poziomu menu. 
+    Wszystkie inne opcje są wypełniane automatycznie na podstawie na wybrany obszar roboczy OMS hello i nie można zmodyfikować te opcje.  Konto Uruchom jako platformy Azure jest hello domyślną metodą uwierzytelniania dla elementów runbook hello zawartych w tym rozwiązaniu.  Po kliknięciu **OK**, opcje konfiguracji hello są weryfikowane i utworzeniu hello konta automatyzacji.  Można śledzić postęp w obszarze **powiadomienia** hello menu. 
 
-    W przeciwnym razie możesz wybrać istniejące konto Uruchom jako usługi Automation.  Pamiętaj, że wybrane konto nie może być już połączone z innym obszarem roboczym OMS. W przeciwnym razie w bloku zostanie wyświetlony komunikat z odpowiednią informacją dla użytkownika.  Jeśli konto jest już połączone, należy wybrać inne konto Uruchom jako usługi Automation lub utworzyć nowe konto.<br><br> ![Konto usługi Automation, które jest już połączone z obszarem roboczym OMS](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
+    W przeciwnym razie możesz wybrać istniejące konto Uruchom jako usługi Automation.  Należy pamiętać, że konto hello, którą wybierzesz już nie może być połączone tooanother obszarem roboczym pakietu OMS inaczej wiadomości będą wyświetlane w tooinform bloku hello należy.  Jeśli jest już połączony, będzie konieczne tooselect innego konta Uruchom jako automatyzacji lub Utwórz nową.<br><br> ![Konto już połączone tooOMS automatyzacji obszaru roboczego](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
 
-8. Na koniec w bloku **Dodawanie rozwiązania** wybierz opcję **Konfiguracja**. Zostanie wyświetlony blok **Parametry**.  W bloku **Parametry** zostanie wyświetlony monit o:  
-   - Określenie **Nazwy docelowej grupy zasobów**, tj. nazwy grupy zasobów zawierającej maszyny wirtualne, które będą zarządzane przez to rozwiązanie.  Wprowadzić możesz kilka nazw i oddzielić je przy użyciu średnika (w wartościach jest rozróżniana wielkość liter).  Użycie symbolu wieloznacznego jest obsługiwane. Możesz skorzystać z tej opcji, jeśli chcesz uwzględnić maszyny wirtualne we wszystkich grupach zasobów w subskrypcji.
-   - Wybranie **Harmonogramu** czyli cyklicznej daty i godziny uruchamiania oraz zatrzymywania maszyn wirtualnych w docelowych grupach zasobów.  Domyślnie harmonogramu jest skonfigurowany zgodnie ze strefą czasową UTC i wybrać inny region nie jest dostępna.  Jeśli chcesz skonfigurować harmonogram określonej strefy czasowej po skonfigurowaniu rozwiązania, zobacz [modyfikowanie harmonogramu uruchamiania i wyłączania](#modifying-the-startup-and-shutdown-schedule) poniżej.    
+8. Na koniec na powitania **Dodaj rozwiązanie** bloku, wybierz opcję **konfiguracji** i hello **parametry** zostanie wyświetlony blok.  Na powitania **parametry** bloku, zostanie wyświetlony monit:  
+   - Określ hello **nazw grupa zasobów docelowych**, czyli nazwy grupy zasobów, która zawiera toobe maszyn wirtualnych zarządzanych przez tego rozwiązania.  Wprowadzić możesz kilka nazw i oddzielić je przy użyciu średnika (w wartościach jest rozróżniana wielkość liter).  Przy użyciu symboli wieloznacznych jest obsługiwana, jeśli chcesz, aby tootarget maszyn wirtualnych we wszystkich grupach zasobów w subskrypcji hello.
+   - Wybierz **harmonogram** czyli cyklicznego datę i godzinę dla uruchamiania i zatrzymywania hello maszyny Wirtualnej w hello docelowego grup zasobów.  Domyślnie harmonogram hello jest skonfigurowany toohello UTC strefy czasowej, i wybrać inny region nie jest dostępna.  Jeśli chcesz tooconfigure hello harmonogram tooyour określonej strefy czasowej po skonfigurowaniu hello rozwiązania, zobacz [hello modyfikowanie harmonogramu uruchamiania i wyłączania](#modifying-the-startup-and-shutdown-schedule) poniżej.    
 
-10. Po zakończeniu konfigurowania ustawień początkowych wymaganych dla rozwiązania wybierz opcję **Utwórz**.  Wszystkie ustawienia zostaną sprawdzone, a następnie zostanie podjęta próba wdrożenia rozwiązania w subskrypcji.  Ten proces może potrwać kilka sekund. Możesz śledzić postęp w sekcji **Powiadomienia** z poziomu menu. 
+10. Po zakończeniu konfigurowania ustawień początkowej hello wymagane przez rozwiązanie hello wybierz **Utwórz**.  Wszystkie ustawienia zostaną zweryfikowane, a następnie próbuje toodeploy hello rozwiązania w ramach subskrypcji.  Ten proces może potrwać kilka sekund toocomplete i można śledzić postęp w obszarze **powiadomienia** hello menu. 
 
 ## <a name="collection-frequency"></a>Częstotliwość zbierania
 
-Dziennik zadań usługi Automation oraz dane strumienia zadań są zbierane w repozytorium OMS co pięć minut.  
+Automatyzacja zadania dziennika i zadania strumienia danych jest pozyskanych w repozytorium OMS hello co pięć minut.  
 
-## <a name="using-the-solution"></a>Użycie rozwiązania
+## <a name="using-hello-solution"></a>Za pomocą rozwiązania hello
 
-Po dodaniu rozwiązania do zarządzania maszynami wirtualnymi w obszarze roboczym OMS do pulpitu nawigacyjnego OMS zostanie dodany kafelek **Widok StartStopVM**.  Ten kafelek wyświetla liczbę i graficzne przedstawienie zadań elementów Runbook dla rozwiązania, które zostały uruchomione i zakończyły pracę z powodzeniem.<br><br> ![Zarządzanie maszynami wirtualnymi — kafelek Widok StartStopVM](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
+Po dodaniu hello rozwiązania do zarządzania maszyny Wirtualnej w Twojej hello obszar roboczy OMS **widoku StartStopVM** kafelka zostanie dodany tooyour OMS z pulpitu nawigacyjnego.  Ten Kafelek Wyświetla graficzną reprezentację zadania elementów runbook hello hello rozwiązania, które zostały uruchomione i została ukończona pomyślnie i liczba.<br><br> ![Zarządzanie maszynami wirtualnymi — kafelek Widok StartStopVM](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
-Na koncie usługi Automation możesz uzyskać dostęp do rozwiązania i zarządzać nim poprzez wybranie kafelka **Rozwiązania**, a następnie wybranie w bloku **Rozwiązania** opcji **Start-Stop-VM[Obszar roboczy]** z lity.<br><br> ![Lista rozwiązań usługi Automation](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
+Na koncie automatyzacji można uzyskać dostęp i zarządzać nimi rozwiązania hello wybierając hello **rozwiązań** Kafelek, a następnie z hello **rozwiązań** bloku, wybierając rozwiązania hello **[Start-Stop-VM Obszar roboczy]** z listy hello.<br><br> ![Lista rozwiązań usługi Automation](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
-Wybranie rozwiązania spowoduje wyświetlenie bloku rozwiązania **Start-Stop-VM[Obszar roboczy]**. W tym miejscu możesz sprawdzić ważne szczegóły, np. kafelek **StartStopVM**, tak jak w obszarze roboczym OMS, przedstawiający liczbę i graficzną reprezentację zadań elementów Runbook dla rozwiązania, które zostały uruchomione i zakończyły pracę z powodzeniem.<br><br> ![Blok rozwiązania maszyny wirtualnej w usłudze Automation](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+Wybranie rozwiązania hello spowoduje wyświetlenie hello **Start-Stop-VM [obszaru roboczego]** bloku rozwiązania, w którym można przejrzeć ważne informacje, takie jak hello **StartStopVM** Kafelek tak samo, jak w obszarze roboczym pakietu OMS, które przedstawia liczbę i graficzną reprezentację zadania elementów runbook hello hello rozwiązania, które zostały uruchomione i zostały ukończone pomyślnie.<br><br> ![Blok rozwiązania maszyny wirtualnej w usłudze Automation](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
 
-W tym miejscu możesz także otworzyć obszar roboczy OMS i wykonać dalszą analizę rekordów zadania.  Po prostu kliknij pozycję **Wszystkie ustawienia** i blok **Ustawienia**, wybierz opcję **Szybki start** i następnie w bloku **Szybki start** wybierz pozycję **Portal pakietu OMS**.   To spowoduje otwarcie nowej karty lub nowej sesji przeglądarki i wyświetlenie obszaru roboczego OMS skojarzonego z Twoim kontem i subskrypcją usługi Automation.  
+W tym miejscu możesz także Otwórz obszar roboczy OMS i podczas dalszej analizy hello rekordów zadań.  Po prostu kliknij **wszystkie ustawienia**w hello **ustawienia** bloku, wybierz opcję **Szybki Start** , a następnie w hello **Szybki Start** wybierz bloku  **Portalu OMS**.   To spowoduje otwarcie nowej karty lub nowej sesji przeglądarki i wyświetlenie obszaru roboczego OMS skojarzonego z Twoim kontem i subskrypcją usługi Automation.  
 
 
 ### <a name="configuring-e-mail-notifications"></a>Konfigurowanie powiadomień e-mail
 
-Aby włączyć powiadomienia e-mail wysyłane w przypadku zakończenia pracy elementów Runbook uruchamiających i zatrzymujących maszyny wirtualne, należy zmodyfikować poświadczenie **O365Credential** oraz co najmniej następujące zmienne:
+tooenable powiadomienia e-mail, gdy hello uruchamianie i zatrzymywanie elementów runbook wirtualna pełną, konieczne będzie toomodify hello **O365Credential** poświadczeń i co najmniej hello następujących zmiennych:
 
  - SendMailO365-IsSendEmail-MS-Mgmt
  - StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
  - StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 
-Aby skonfigurować poświadczenie **O365Credential**, wykonaj następujące czynności:
+Witaj tooconfigure **O365Credential** poświadczeń, wykonaj następujące kroki hello:
 
-1. Na Twoim koncie usługi Automation kliknij przycisk **Wszystkie ustawienia** w górnej części okna. 
-2. W bloku **Ustawienia** w sekcji **Zasoby usługi Automation** wybierz opcję **Zasoby**. 
-3. W bloku **Zasoby** wybierz kafelek **Poświadczenie**, a następnie w bloku **Poświadczenie** wybierz pozycję **O365Credential**.  
-4. Wprowadź prawidłową nazwę użytkownika oraz hasło usługi Office 365, a następnie kliknij przycisk **Zapisz**, aby zapisać zmiany.  
+1. Twoje konto usługi Automatyzacja kliknij **wszystkie ustawienia** u góry hello hello okna. 
+2. Na powitania **ustawienia** bloku sekcji hello **zasobów automatyzacji**, wybierz pozycję **zasoby**. 
+3. Na powitania **zasoby** bloku, wybierz hello **poświadczeń** Kafelek i z hello **poświadczeń** bloku, wybierz hello **O365Credential**.  
+4. Wprowadź prawidłową nazwę użytkownika usługi Office 365 i hasło, a następnie kliknij przycisk **zapisać** toosave zmiany.  
 
-Aby skonfigurować wcześniej wyróżnione zmienne, wykonaj następujące czynności:
+zmienne hello tooconfigure wyróżnione wcześniej, wykonaj hello następujące kroki:
 
-1. Na Twoim koncie usługi Automation kliknij przycisk **Wszystkie ustawienia** w górnej części okna. 
-2. W bloku **Ustawienia** w sekcji **Zasoby usługi Automation** wybierz opcję **Zasoby**. 
-3. W bloku **Zasoby** wybierz kafelek **Zmienne**, a następnie w bloku **Zmienne** wybierz zmienną wymienioną powyżej. Zmodyfikuj wartość zmiennej zgodnie z opisem określonym wcześniej w sekcji [Zmienne](##variables).  
-4. Kliknij przycisk **Zapisz**, aby zapisać zmiany wprowadzone w zmiennej.   
+1. Twoje konto usługi Automatyzacja kliknij **wszystkie ustawienia** u góry hello hello okna. 
+2. Na powitania **ustawienia** bloku sekcji hello **zasobów automatyzacji**, wybierz pozycję **zasoby**. 
+3. Na powitania **zasoby** bloku, wybierz hello **zmienne** Kafelek i z hello **zmienne** bloku, wybierz zmienną hello wymienionych powyżej, a następnie zmodyfikuj jego wartość hello Opis dla niego określone w hello [zmiennej](##variables) wcześniejszej sekcji.  
+4. Kliknij przycisk **zapisać** toosave hello zmiany toohello zmiennej.   
 
-### <a name="modifying-the-startup-and-shutdown-schedule"></a>Modyfikowanie harmonogramu uruchamiania i zamykania
+### <a name="modifying-hello-startup-and-shutdown-schedule"></a>Modyfikowanie harmonogramu uruchamiania i wyłączania hello
 
-Zarządzanie harmonogramem uruchamiania i zamykania w tym rozwiązaniu obejmuje te same kroki co przedstawione w temacie [Planowanie elementu Runbook w usłudze Azure Automation](automation-schedules.md).  Należy pamiętać, że nie można zmodyfikować konfiguracji harmonogramu.  Należy wyłączyć istniejący harmonogram, utworzyć nowy i następnie połączyć go z elementem Runbook **StartByResourceGroup-MS-Mgmt-VM** lub **StopByResourceGroup-MS-Mgmt-VM**, dla którego ma zostać zastosowany harmonogram.   
+Zarządzanie hello uruchamiania i wyłączania harmonogramu w tym rozwiązaniu następuje hello same kroki opisane w [Planowanie elementu runbook automatyzacji Azure](automation-schedules.md).  Należy pamiętać, że nie można zmodyfikować hello konfiguracji harmonogramu.  Konieczne będzie toodisable hello istniejący harmonogram, a następnie utwórz nowy, a następnie połącz toohello **StartByResourceGroup-MS-Mgmt-VM** lub **StopByResourceGroup-MS-Mgmt-VM** elementu runbook, które mają hello Planowanie tooapply do.   
 
 ## <a name="log-analytics-records"></a>Rekordy usługi Log Analytics
 
-Usługa Automation tworzy dwa typy rekordów w repozytorium OMS.
+Automatyzacja tworzy dwa typy rekordów w repozytorium OMS hello.
 
 ### <a name="job-logs"></a>Dzienniki zadań
 
 Właściwość | Opis|
 ----------|----------|
-Obiekt wywołujący |  Użytkownik, który zainicjował operację.  Możliwe wartości to adres e-mail lub system w przypadku zaplanowanych zadań.|
-Kategoria | Klasyfikacja typu danych.  W przypadku usługi Automation wartością jest JobLogs.|
-CorrelationId | Identyfikator GUID, który jest identyfikatorem korelacji zadania elementu Runbook.|
-JobId | Identyfikator GUID, który jest identyfikatorem zadania elementu Runbook.|
-operationName | Określa typ operacji wykonywanej na platformie Azure.  W przypadku usługi Automation wartością jest Job.|
-resourceId | Określa typ zasobu na platformie Azure.  W przypadku usługi Automation wartością jest konto usługi Automation skojarzone z elementem Runbook.|
-ResourceGroup | Określa nazwę grupy zasobów zadania elementu Runbook.|
-ResourceProvider | Określa nazwę usługi platformy Azure, która zapewnia zasoby do wdrożenia i zarządzania.  W przypadku usługi Automation wartością jest Azure Automation.|
-ResourceType | Określa typ zasobu na platformie Azure.  W przypadku usługi Automation wartością jest konto usługi Automation skojarzone z elementem Runbook.|
-resultType | Stan zadania elementu Runbook.  Możliwe wartości:<br>— Uruchomione<br>— Zatrzymane<br>— Wstrzymane<br>— Nie powiodło się<br>— Powiodło się|
-resultDescription | Opisuje stan wyniku zadania elementu Runbook.  Możliwe wartości:<br>— Zadanie jest uruchomione<br>— Zadanie nie powiodło się<br>— Zadanie zostało ukończone|
-RunbookName | Określa nazwę elementu Runbook.|
-SourceSystem | Określa system źródłowy dla przesłanych danych.  W przypadku usługi Automation wartością jest :OpsManager|
-StreamType | Określa typ zdarzenia. Możliwe wartości:<br>— Pełne<br>— Dane wyjściowe<br>— Błąd<br>— Ostrzeżenie|
-SubscriptionId | Określa identyfikator subskrypcji zadania.
-Time | Data i godzina dla wykonania zadania elementu Runbook.|
+Obiekt wywołujący |  Kto zainicjował operację hello.  Możliwe wartości to adres e-mail lub system w przypadku zaplanowanych zadań.|
+Kategoria | Klasyfikacja hello typu danych.  Do automatyzacji wartość hello jest JobLogs.|
+CorrelationId | Identyfikator GUID jest hello identyfikator korelacji hello zadania elementu runbook.|
+JobId | Identyfikator GUID jest hello identyfikator hello zadania elementu runbook.|
+operationName | Określa typ hello operacje wykonywane na platformie Azure.  Do automatyzacji hello wartość będzie zadania.|
+resourceId | Określa typ zasobu hello na platformie Azure.  Do automatyzacji wartość hello jest skojarzony z elementem runbook hello konta automatyzacji hello.|
+ResourceGroup | Określa nazwę grupy zasobów hello hello zadanie elementu runbook.|
+ResourceProvider | Określa hello Azure usługa, która dostarcza hello zasobów można wdrażać i zarządzać nimi.  Do automatyzacji wartość hello jest automatyzacji Azure.|
+ResourceType | Określa typ zasobu hello na platformie Azure.  Do automatyzacji wartość hello jest skojarzony z elementem runbook hello konta automatyzacji hello.|
+resultType | Stan Hello hello zadanie elementu runbook.  Możliwe wartości:<br>— Uruchomione<br>— Zatrzymane<br>— Wstrzymane<br>— Nie powiodło się<br>— Powiodło się|
+resultDescription | Opisuje stan wyniku zadania elementu runbook hello.  Możliwe wartości:<br>— Zadanie jest uruchomione<br>— Zadanie nie powiodło się<br>— Zadanie zostało ukończone|
+RunbookName | Określa nazwę hello hello elementu runbook.|
+SourceSystem | Określa hello system źródła danych hello przesłane.  Do automatyzacji, zostanie użyta wartość hello: OpsManager|
+StreamType | Określa typ hello zdarzenia. Możliwe wartości:<br>— Pełne<br>— Dane wyjściowe<br>— Błąd<br>— Ostrzeżenie|
+SubscriptionId | Określa identyfikator subskrypcji hello hello zadania.
+Time | Data i godzina, kiedy wykonać zadanie elementu runbook hello.|
 
 
 ### <a name="job-streams"></a>Strumienie zadania
 
 Właściwość | Opis|
 ----------|----------|
-Obiekt wywołujący |  Użytkownik, który zainicjował operację.  Możliwe wartości to adres e-mail lub system w przypadku zaplanowanych zadań.|
-Kategoria | Klasyfikacja typu danych.  W przypadku usługi Automation wartością jest JobStreams.|
-JobId | Identyfikator GUID, który jest identyfikatorem zadania elementu Runbook.|
-operationName | Określa typ operacji wykonywanej na platformie Azure.  W przypadku usługi Automation wartością jest Job.|
-ResourceGroup | Określa nazwę grupy zasobów zadania elementu Runbook.|
-resourceId | Określa identyfikator zasobu na platformie Azure.  W przypadku usługi Automation wartością jest konto usługi Automation skojarzone z elementem Runbook.|
-ResourceProvider | Określa nazwę usługi platformy Azure, która zapewnia zasoby do wdrożenia i zarządzania.  W przypadku usługi Automation wartością jest Azure Automation.|
-ResourceType | Określa typ zasobu na platformie Azure.  W przypadku usługi Automation wartością jest konto usługi Automation skojarzone z elementem Runbook.|
-resultType | Wynik zadania elementu Runbook w czasie wygenerowania zdarzenia.  Możliwe wartości:<br>— W toku|
-resultDescription | Obejmuje strumień wyjściowy z elementu Runbook.|
-RunbookName | Nazwa elementu Runbook.|
-SourceSystem | Określa system źródłowy dla przesłanych danych.  W przypadku usługi Automation wartością jest OpsManager|
-StreamType | Typ strumienia zadania. Możliwe wartości:<br>— Postęp<br>— Dane wyjściowe<br>— Ostrzeżenie<br>— Błąd<br>— Debugowanie<br>— Pełne|
-Time | Data i godzina dla wykonania zadania elementu Runbook.|
+Obiekt wywołujący |  Kto zainicjował operację hello.  Możliwe wartości to adres e-mail lub system w przypadku zaplanowanych zadań.|
+Kategoria | Klasyfikacja hello typu danych.  Do automatyzacji wartość hello jest JobStreams.|
+JobId | Identyfikator GUID jest hello identyfikator hello zadania elementu runbook.|
+operationName | Określa typ hello operacje wykonywane na platformie Azure.  Do automatyzacji hello wartość będzie zadania.|
+ResourceGroup | Określa nazwę grupy zasobów hello hello zadanie elementu runbook.|
+resourceId | Określa identyfikator zasobu hello na platformie Azure.  Do automatyzacji wartość hello jest skojarzony z elementem runbook hello konta automatyzacji hello.|
+ResourceProvider | Określa hello Azure usługa, która dostarcza hello zasobów można wdrażać i zarządzać nimi.  Do automatyzacji wartość hello jest automatyzacji Azure.|
+ResourceType | Określa typ zasobu hello na platformie Azure.  Do automatyzacji wartość hello jest skojarzony z elementem runbook hello konta automatyzacji hello.|
+resultType | wynik Hello hello zadanie elementu runbook w zdarzeniu hello czasu hello został wygenerowany.  Możliwe wartości:<br>— W toku|
+resultDescription | Obejmuje strumienia wyjściowego hello z hello elementu runbook.|
+RunbookName | Nazwa Hello hello elementu runbook.|
+SourceSystem | Określa hello system źródła danych hello przesłane.  Do automatyzacji hello zostanie użyta wartość OpsManager|
+StreamType | Typ Hello strumienia zadania. Możliwe wartości:<br>— Postęp<br>— Dane wyjściowe<br>— Ostrzeżenie<br>— Błąd<br>— Debugowanie<br>— Pełne|
+Time | Data i godzina, kiedy wykonać zadanie elementu runbook hello.|
 
-Jeśli wykonujesz dowolne wyszukiwanie dzienników, które zwraca rekordy w kategorii **JobLogs** lub **JobStreams**, możesz wybrać widok **JobLogs** lub **JobStreams**, który zawiera zestaw kafelków z podsumowaniem aktualizacji zwracanych przez wyszukiwanie.
+Po wykonaniu wyszukiwania dziennika zwraca rekordów kategorii **JobLogs** lub **JobStreams**, możesz wybrać hello **JobLogs** lub **JobStreams** widoku, który zawiera zestaw kafelków podsumowania aktualizacji hello zwrócona przez wyszukiwanie hello.
 
 ## <a name="sample-log-searches"></a>Przykładowe wyszukiwania dzienników
 
-Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów dzienników zbieranych przez to rozwiązanie. 
+Witaj poniższej tabeli przedstawiono przykładowy dziennik wyszukuje rekordów zadań zebrane przez to rozwiązanie. 
 
 Zapytanie | Opis|
 ----------|----------|
@@ -218,24 +218,24 @@ Znajdź zadania dla elementu Runbook StartVM, które zostały zakończone powodz
 Znajdź zadania dla elementu Runbook StopVM, które zostały zakończone powodzeniem | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Failed &#124; measure count() by JobId_g
 Pokaż stan zadania w czasie dla elementów Runbook StartVM i StopVM | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" OR "StopByResourceGroup-MS-Mgmt-VM" NOT(ResultType="started") | measure Count() by ResultType interval 1day|
 
-## <a name="removing-the-solution"></a>Usuwanie rozwiązania
+## <a name="removing-hello-solution"></a>Usuwanie hello rozwiązania
 
-Jeśli zdecydujesz, że nie trzeba używać rozwiązania żadnych dalszych, należy ją usunąć z konta automatyzacji.  Usunięcie rozwiązania spowoduje tylko usunięcie elementów runbook, nie spowoduje usunięcia harmonogramy lub zmiennych, które zostały utworzone, gdy rozwiązanie zostało dodane.  Zasoby, które trzeba usunąć ręcznie, jeśli nie używasz je z innymi elementami runbook.  
+Jeśli zdecydujesz, że nie są już potrzebne rozwiązania hello toouse żadnych dalszych, należy ją usunąć z hello konta automatyzacji.  Trwa usuwanie rozwiązania hello powoduje tylko usunięcie elementów runbook hello, nie spowoduje usunięcia harmonogramy hello lub zmienne, które zostały utworzone podczas dodawania hello rozwiązania.  Te zasoby należy toodelete ręcznie, jeśli nie używasz je z innymi elementami runbook.  
 
-Aby usunąć rozwiązanie, wykonaj następujące czynności:
+toodelete hello rozwiązanie, wykonaj następujące kroki hello:
 
-1.  Twoje konto usługi Automatyzacja, zaznacz **rozwiązań** kafelka.  
-2.  Na **rozwiązań** bloku, wybierz rozwiązanie **Start-Stop-VM [obszaru roboczego]**.  Na **VMManagementSolution [obszaru roboczego]** bloku, kliknij przycisk menu **usunąć**.<br><br> ![Usuwanie maszyny Wirtualnej Mgmt rozwiązania](media/automation-solution-vm-management/vm-management-solution-delete.png)
-3.  W **Usuń rozwiązanie** okna, upewnij się, aby usunąć rozwiązania.
-4.  Informacje została zweryfikowana i rozwiązanie zostanie usunięty, można śledzić postęp w obszarze **powiadomienia** z menu.  Nastąpi powrót do **VMManagementSolution [obszaru roboczego]** bloku, po rozpoczęciu procesu usunąć rozwiązania.  
+1.  Twoje konto usługi Automatyzacja, zaznacz hello **rozwiązań** kafelka.  
+2.  Na powitania **rozwiązań** bloku, wybierz hello rozwiązania **Start-Stop-VM [obszaru roboczego]**.  Na powitania **VMManagementSolution [obszaru roboczego]** bloku, kliknij przycisk menu hello **usunąć**.<br><br> ![Usuwanie maszyny Wirtualnej Mgmt rozwiązania](media/automation-solution-vm-management/vm-management-solution-delete.png)
+3.  W hello **Usuń rozwiązanie** okna, potwierdzenie toodelete hello rozwiązania.
+4.  Informacje hello jest weryfikowany i usunięciu hello rozwiązania, można śledzić postęp w obszarze **powiadomienia** hello menu.  Zostanie zwrócony toohello **VMManagementSolution [obszaru roboczego]** bloku, po uruchomieniu hello procesu tooremove rozwiązania.  
 
-Konto usługi Automatyzacja i obszarem roboczym pakietu OMS nie są usuwane w ramach tego procesu.  Jeśli nie chcesz zachować obszar roboczy OMS, należy ręcznie je usunąć.  Można to zrobić również z portalu Azure.   Ekranie głównym w portalu Azure, zaznacz **analizy dzienników** , a następnie na **analizy dzienników** bloku, wybierz obszar roboczy i kliknij przycisk **usunąć** z menu Blok ustawień obszaru roboczego.  
+Konto automatyzacji Hello i obszarem roboczym pakietu OMS nie są usuwane w ramach tego procesu.  Jeśli nie chcesz, aby obszar roboczy OMS hello tooretain, konieczne będzie toomanually go usunąć.  Można to zrobić również z hello portalu Azure.   Z hello głównej ekranu w hello portalu Azure, wybierz **analizy dzienników** , a następnie na powitania **analizy dzienników** bloku, wybierz hello obszaru roboczego i kliknij przycisk **usunąć** z menu hello na Witaj blok ustawień obszaru roboczego.  
       
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o sposobie tworzenia różnych zapytań wyszukiwania i sprawdzaniu dzienników zadań usługi Automation przy użyciu usługi Log Analytics, zobacz [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) (Wyszukiwanie dzienników w usłudze Log Analytics)
-- Aby dowiedzieć się więcej o wykonywaniu elementów Runbook, sposobie monitorowania zadań elementów Runbook i innych szczegółach technicznych, zobacz [Track a runbook job](automation-runbook-execution.md) (Śledzenie zadania elementu Runbook)
-- Aby dowiedzieć się więcej o usłudze OMS Log Analytics i źródłach zbierania danych, zobacz [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md) (Zbieranie danych magazynu platformy Azure w usłudze Log Analytics — omówienie)
+- Zobacz toolearn więcej informacji na temat sposobu tooconstruct różne zapytania i przejrzyj hello automatyzacji zadania dzienniki z analizy dzienników [Zaloguj wyszukiwania analizy dzienników](../log-analytics/log-analytics-log-searches.md)
+- więcej informacji o wykonanie elementu runbook, w jaki sposób toomonitor zadań i inne szczegółowe informacje techniczne, zobacz toolearn [śledzić zadania elementu runbook](automation-runbook-execution.md)
+- toolearn więcej informacji na temat analizy dzienników OMS i źródeł zbierania danych, zobacz [Azure zbierania danych magazynu w omówieniu analizy dzienników](../log-analytics/log-analytics-azure-storage.md)
 
 
 

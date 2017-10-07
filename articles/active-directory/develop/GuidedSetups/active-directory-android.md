@@ -1,5 +1,5 @@
 ---
-title: Azure AD w wersji 2 dla systemu Android wprowadzenie | Dokumentacja firmy Microsoft
+title: aaaAzure AD Android v2 wprowadzenie | Dokumentacja firmy Microsoft
 description: "Jak uzyskać token dostępu i wywołania interfejsu API programu Microsoft Graph lub interfejsów API, które wymagają tokenów dostępu z punktu końcowego w wersji 2 usługi Azure Active Directory aplikacji systemu Android"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 2cf30b1cba4a942df8ac08356cd4f7482d6b7938
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 496eab239ba315588b6110cbb32a6d42e9dc407c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [1. Introduction](active-directory-mobileanddesktopapp-android-introduction.md)]
 [!INCLUDE [2. Setup](active-directory-mobileanddesktopapp-android-setup.md)]

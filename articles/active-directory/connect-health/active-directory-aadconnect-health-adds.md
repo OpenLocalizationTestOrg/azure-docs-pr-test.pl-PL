@@ -1,6 +1,6 @@
 ---
-title: "Używanie programu Azure AD Connect Health z usługami AD DS | Microsoft Docs"
-description: "Jest to strona programu Azure AD Connect Health, na której omówiono monitorowanie usług AD DS."
+title: "Program Azure AD Connect Health z usługami AD DS aaaUsing | Dokumentacja firmy Microsoft"
+description: "Jest to strona hello Azure AD Connect Health, która będzie omawiać jak toomonitor usług AD DS."
 services: active-directory
 documentationcenter: 
 author: arluca
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9e5b45d71b978c383932409f0037a4f6f32d0cb3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e2fb6be65407d02c214dcab385b85d6cb54f48de
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Używanie programu Azure AD Connect Health z usługami AD DS
-Poniższa dokumentacja dotyczy monitorowania Usług domenowych Active Directory przy użyciu programu Azure AD Connect Health. Obsługiwane wersje usługi AD DS: Windows Server 2008 R2, Windows Server 2012,Windows Server 2012 R2 i Windows Server 2016.
+po dokumentacji Hello jest toomonitoring określonych Active Directory usług domenowych w usłudze Azure AD Connect Health. Witaj obsługiwane wersje usług AD DS są: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 i Windows Server 2016.
 
 Aby uzyskać więcej informacji na temat monitorowania usług AD FS za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md). Ponadto, aby uzyskać informacje na temat monitorowania programu Azure AD Connect (synchronizacja) za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health w celu synchronizacji](active-directory-aadconnect-health-sync.md).
 
 ![Program Azure AD Connect Health dla usług AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-ad-ds"></a>Alerty programu Azure AD Connect Health dla usług AD DS
-Sekcja Alerty w ramach programu Azure AD Connect Health dla usług AD DS zawiera listę aktywnych i rozwiązanych alertów związanych z kontrolerami domeny. Wybranie aktywnego lub rozwiązanego alertu spowoduje otworzenie nowego bloku zawierającego dodatkowe informacje, a także kroki rozwiązania i linki do dodatkowej dokumentacji. Każdy typ alertu może mieć jedno lub większą liczbę wystąpień odpowiadających każdemu kontrolerowi domeny, którego dotyczy dany alert. W dolnej części bloku alertu można kliknąć dwukrotnie kontroler domeny, którego dotyczy alert, aby otworzyć nowy blok z dodatkowymi szczegółami dotyczącymi tego wystąpienia alertu.
+Hello sekcja alerty w ramach usługi Azure AD Connect Health dla usług AD DS, udostępnia listę aktywne i rozwiązane alerty, powiązane tooyour kontrolerów domeny. Wybór aktywnego lub rozwiązanego alertu zostanie otwarty nowy blok z dodatkowymi informacjami, wraz z kroki rozwiązania i łączy toosupporting dokumentacji. Każdy typ alertu może mieć co najmniej jedno wystąpienie, które odpowiada tooeach kontrolerów domeny hello objętych tym alertem określonego. Dolnej hello hello bloku alertu kliknij dwukrotnie tooopen kontrolera domeny dodatkowe blok zawierający więcej szczegółów dotyczących tego wystąpienia alertu.
 
-W ramach tego bloku można włączyć powiadomienia e-mail dla alertów i zmienić zakres czasu w widoku. Rozszerzenie zakresu czasu pozwoli zobaczyć wcześniejsze rozwiązane alerty.
+W ramach tego bloku można włączyć powiadomienia e-mail dla alertów i zmień zakres czasu hello w widoku. Rozszerzanie zakresu czasu hello umożliwia toosee wcześniejsze rozstrzygnięte alerty.
 
 ![Błąd synchronizacji programu Azure AD Connect](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
 
 ## <a name="domain-controllers-dashboard"></a>Pulpit nawigacyjny kontrolerów domeny
-Ten pulpit nawigacyjny udostępnia widok topologiczny środowiska wraz z kluczowymi metrykami operacyjnymi i stanem kondycji każdego z monitorowanych kontrolerów domeny. Prezentowane metryki ułatwiają szybkie identyfikowanie wszelkich kontrolerów domen, które mogą wymagać dalszych badań. Domyślnie jest wyświetlana tylko część kolumn. Jednak można wyświetlić wszystkie dostępne kolumny, klikając dwukrotnie polecenie Kolumny. Po wybraniu najbardziej interesujących kolumn ten pulpit nawigacyjny umożliwia łatwe sprawdzenie kondycji środowiska usług AD DS w jednym miejscu.
+Ten pulpit nawigacyjny udostępnia widok topologiczny środowiska wraz z kluczowymi metrykami operacyjnymi i stanem kondycji każdego z monitorowanych kontrolerów domeny. metryki Hello przedstawione pomocy tooquickly zidentyfikować, wszystkie kontrolery domeny, które mogą wymagać dalszego postępowania. Domyślnie jest wyświetlany tylko podzestaw hello kolumn. Jednak możesz znaleźć hello cały zestaw dostępnych kolumn, klikając polecenie kolumny hello. Wybieranie kolumn hello, które najbardziej interesujących Cię, włącza ten pulpit nawigacyjny w pojedynczy i łatwe umieścić tooview hello kondycji środowiska usług AD DS.
 
 ![Kontrolery domeny](./media/active-directory-aadconnect-health/aadconnect-health-adds-domainsandsites-dashboard.png)
 
-Kontrolery domeny można grupować według ich odpowiedniej domeny lub lokacji, co pomaga w zrozumieniu topologii środowiska. Ponadto dwukrotne kliknięcie nagłówka bloku umożliwia zmaksymalizowanie pulpitu nawigacyjnego w celu wykorzystania całej dostępnej powierzchni ekranu. Ten większy widok jest przydatny, gdy jest wyświetlanych wiele kolumn.
+Kontrolery domeny można grupować według ich odpowiedniej domeny lub lokacji, co jest przydatne dla zrozumienia hello środowiska topologii. Ponadto po dwukrotnym kliknięciu nagłówka bloku hello pulpitu nawigacyjnego hello maksymalizuje tooutilize hello dostępne ekranu nieruchomości. Ten większy widok jest przydatny, gdy jest wyświetlanych wiele kolumn.
 
 ## <a name="replication-status-dashboard"></a>Pulpit nawigacyjny stanu replikacji
-Ten pulpit nawigacyjny zawiera widok stanu replikacji i topologii replikacji monitorowanych kontrolerów domeny. Wyświetlany jest stan ostatniej próby replikacji wraz z pomocną dokumentacją dotyczącą dowolnego znalezionego błędu. Możesz kliknąć dwukrotnie kontroler domeny z błędem, aby otworzyć nowy blok zawierający następujące informacje: szczegóły błędu, zalecane kroki rozwiązania oraz linki do dokumentacji dotyczącej rozwiązywania problemów.
+Ten pulpit nawigacyjny zawiera widok hello topologii replikacji w stan i replikacji z monitorowanych kontrolerów domeny. Stan Hello hello ostatniej próby replikacji znajduje się wraz z jakiegokolwiek błędu, który można znaleźć w dokumentacji przydatne. Dwukrotne kliknięcie kontrolera domeny z powodu błędu tooopen nowy blok informacji takich jak: szczegółowe informacje o błędzie hello, zalecane kroki rozwiązania i łączy tootroubleshooting dokumentacji.
 
 ![Stan replikacji](./media/active-directory-aadconnect-health/aadconnect-health-adds-replication.png)
 
 ## <a name="monitoring"></a>Monitorowanie
-Ta funkcja udostępnia graficzne trendy różnych liczników wydajności, które są stale zbierane z każdego monitorowanego kontrolera domeny. Umożliwia to łatwe porównywanie wydajności kontrolera domeny ze wszystkimi innymi monitorowanymi kontrolerami domeny w lesie. Ponadto można wyświetlić obok siebie różne liczniki wydajności, co jest pomocne podczas rozwiązywania problemów w danym środowisku.
+Ta funkcja zapewnia graficznego trendów liczników wydajności różnych, które są stale pobierane z każdej hello monitorowanych kontrolerów domeny. Umożliwia to łatwe porównywanie wydajności kontrolera domeny ze wszystkimi innymi monitorowanymi kontrolerami domeny w lesie. Ponadto można wyświetlić obok siebie różne liczniki wydajności, co jest pomocne podczas rozwiązywania problemów w danym środowisku.
 
 ![Monitorowanie](./media/active-directory-aadconnect-health/aadconnect-health-adds-monitoring.png)
 
-Domyślnie zostały wstępnie wybrane cztery liczniki wydajności. Można jednak dodać inne przez kliknięcie polecenia filtru i zaznaczenie lub usunięcie zaznaczenia odpowiednich liczników wydajności. Ponadto możesz kliknąć dwukrotnie wykres licznika wydajności, aby otworzyć nowy blok zawierający punkty danych dla każdego monitorowanego kontrolera domeny.
+Domyślnie możemy wstępnie zostały wybrane cztery liczniki wydajności; Możesz jednak zawierać inne polecenie filtru hello i zaznaczając lub usunięcie zaznaczenia wszystkie liczniki wydajności żądany. Ponadto można kliknąć dwukrotnie tooopen wykres licznika wydajności nowy blok, w tym punktów danych dla poszczególnych kontrolerów domeny hello monitorowane.
 
 ## <a name="related-links"></a>Powiązane linki
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

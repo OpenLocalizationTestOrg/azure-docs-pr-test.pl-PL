@@ -1,6 +1,6 @@
 ---
-title: "Zrozumienie metod bezpośredniego Centrum IoT Azure | Dokumentacja firmy Microsoft"
-description: "Przewodnik dewelopera — użyj bezpośredniego metody do wywołania kodu na urządzeniach z usługi aplikacji."
+title: "aaaUnderstand Centrum IoT Azure bezpośrednie metody | Dokumentacja firmy Microsoft"
+description: "Przewodnik dewelopera — użyj metody bezpośredniego tooinvoke kodu na urządzeniach z usługi aplikacji."
 services: iot-hub
 documentationcenter: .net
 author: nberdy
@@ -15,50 +15,50 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77e788a32097edbcb1cd4faaa45f35812eabd94a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0d15d44a0c3e1d1cda1669c1ed011c2f932e3d92
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Informacje o funkcji i wywołanie metody bezpośrednio z Centrum IoT
 ## <a name="overview"></a>Omówienie
-Centrum IoT daje możliwość wywołania metod bezpośrednio na urządzeniach z chmury. Bezpośrednie metody reprezentują żądanie odpowiedź interakcji z urządzeniem podobna do wywołania HTTP w tym ich powodzenie lub niepowodzenie natychmiast (po limitu określonego przez użytkownika). Jest to przydatne w scenariuszach, w którym kursu natychmiastowego działania różni się w zależności od tego, czy urządzenie mógł odpowiedzieć, takie jak wysyłanie SMS wake-up na urządzeniu, jeśli urządzenie jest w trybie offline (SMS są droższe niż wywołania metody).
+Centrum IoT umożliwia bezpośrednie metody tooinvoke możliwości na urządzeniach z hello chmury. Bezpośrednie metody reprezentują interakcji żądanie odpowiedź z urządzenia tooan podobne, wywołaj HTTP, w tym ich powodzenie lub niepowodzenie natychmiast (po limitu określonego przez użytkownika). Jest to przydatne w scenariuszach, w którym hello przebiegu natychmiastowego działania różni się w zależności od tego, czy urządzenie hello było możliwe toorespond, takie jak wysyłanie SMS tooa wznawiania urządzenia, jeśli urządzenie jest w trybie offline (SMS są droższe niż wywołania metody).
 
-Każda metoda urządzenia jest przeznaczony dla jednego urządzenia. [Zadania] [ lnk-devguide-jobs] umożliwiają wywołania metod bezpośrednio na wielu urządzeniach i Zaplanuj wywołania metody odłączone urządzenia.
+Każda metoda urządzenia jest przeznaczony dla jednego urządzenia. [Zadania] [ lnk-devguide-jobs] podania tooinvoke sposób bezpośredniego metod na wielu urządzeniach i Zaplanuj wywołania metody odłączone urządzenia.
 
 Każda osoba mająca **usługa połączyć** uprawnień w Centrum IoT mogą wywołać metodę na urządzeniu.
 
-### <a name="when-to-use"></a>Kiedy stosować
-Bezpośrednie metody wykonaj wzorzec żądań i odpowiedzi i są przeznaczone do komunikacji, które wymagają natychmiastowego potwierdzenia ich wyniku sterowania zwykle interaktywnego urządzenia, na przykład aby włączyć wentylatora.
+### <a name="when-toouse"></a>Gdy toouse
+Bezpośrednie metody wykonaj wzorzec żądań i odpowiedzi i są przeznaczone do komunikacji, które wymagają natychmiastowego potwierdzenia ich wyniku sterowania zwykle interaktywnego hello urządzenia, na przykład tooturn na wentylatora.
 
-Zapoznaj się [wskazówki dotyczące komunikacji chmury do urządzenia] [ lnk-c2d-guidance] w razie wątpliwości między przy użyciu żądanej właściwości, bezpośrednie metod lub komunikaty chmury do urządzenia.
+Odwołuje się zbyt[wskazówki dotyczące komunikacji chmury do urządzenia] [ lnk-c2d-guidance] w razie wątpliwości między przy użyciu żądanej właściwości, bezpośrednie metod lub komunikaty chmury do urządzenia.
 
 ## <a name="method-lifecycle"></a>Cykl życia — metoda
-Bezpośrednie metody są wdrożone na urządzeniu i może wymagać zero lub więcej danych wejściowych w ładunku metody, aby poprawnie utworzyć wystąpienia. Wywołaj metodę bezpośrednio za pomocą identyfikatora URI usługi połączonej (`{iot hub}/twins/{device id}/methods/`). Urządzenie odbiera metody bezpośredniego za pośrednictwem tematu MQTT specyficzne dla urządzenia (`$iothub/methods/POST/{method name}/`). Firma Microsoft może obsługiwać bezpośredniego metod na dodatkowych protokołów sieciowych po stronie urządzenia w przyszłości.
+Bezpośrednie metody są wdrożone na urządzeniu hello i może wymagać zero lub więcej danych wejściowych w toocorrectly ładunku metody hello wystąpienia. Wywołaj metodę bezpośrednio za pomocą identyfikatora URI usługi połączonej (`{iot hub}/twins/{device id}/methods/`). Urządzenie odbiera metody bezpośredniego za pośrednictwem tematu MQTT specyficzne dla urządzenia (`$iothub/methods/POST/{method name}/`). Firma Microsoft może obsługiwać bezpośredniego metody na dodatkowych protokołów sieciowych po stronie urządzenia w przyszłości hello.
 
 > [!NOTE]
-> Po wywołaniu metody bezpośrednio na urządzeniu, nazwy i wartości właściwości mogą zawierać tylko US-ASCII drukowalnych alfanumeryczne, z wyjątkiem tych z następującego zestawu: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> Po wywołaniu metody bezpośrednio na urządzeniu, nazwy i wartości właściwości mogą zawierać tylko US-ASCII drukowalnych alfanumeryczne, z wyjątkiem tych w hello następującego zestawu: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
 
-Bezpośrednie metody są synchroniczne i albo pomyślnie lub zakończyć się niepowodzeniem po upływie limitu czasu (domyślne: 30 sekund, można ustawić się do 3600 sekund). Bezpośrednie metody są przydatne w scenariuszach interakcyjne miejsce na urządzeniu działa tylko wtedy, gdy urządzenie jest online i odbierania poleceń, jak włączenie światła przez telefon. W tych scenariuszach chcesz wyświetlić natychmiastowego powodzenie lub niepowodzenie, dlatego usługa w chmurze może działać na wynik tak szybko, jak to możliwe. Urządzenie może zwrócić niektóre treści wiadomości wyniku metody, ale nie jest wymagane dla metody to zrobić. Brak żadnej gwarancji, w kolejności lub dowolnego semantyki współbieżności na wywołania metody.
+Bezpośrednie metody są synchroniczne i albo pomyślnie lub niepowodzeniem hello limit czasu, po (domyślne: 30 sekund, można ustawić w górę too3600 sekund). Bezpośrednie metody są przydatne w scenariuszach interakcyjne miejscu tooact urządzenia tylko wtedy, gdy urządzenie hello jest online i odbierania poleceń, jak włączenie światła przez telefon. W tych scenariuszach ma toosee natychmiastowego powodzenie lub niepowodzenie, usługa w chmurze hello może działać na powitania wyniku tak szybko, jak to możliwe. Hello urządzenie może zwrócić niektóre treści wiadomości wyniku metody hello, ale nie jest wymagane dla toodo metody hello tak. Brak żadnej gwarancji, w kolejności lub dowolnego semantyki współbieżności na wywołania metody.
 
-Metoda bezpośrednia są tylko po stronie chmury HTTP i MQTT tylko po stronie urządzenia.
+Metoda bezpośrednia są tylko po stronie chmury hello HTTP i MQTT tylko z hello urządzenia strony.
 
-Ładunek dla metod żądań i odpowiedzi jest maksymalnie 8KB dokument JSON.
+ładunek Hello metod żądań i odpowiedzi jest too8KB dokumentu JSON.
 
 ## <a name="reference-topics"></a>Tematy odwołań:
-Następujące tematy dokumentacji dostarczają więcej informacji na temat przy użyciu metod bezpośredniego.
+Witaj następujące tematy dokumentacji zapewniają więcej informacji na temat przy użyciu metod bezpośredniego.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Wywoływanie metody bezpośrednio z aplikacji zaplecza
 ### <a name="method-invocation"></a>Wywołanie metody
 Bezpośrednie wywołania metod na urządzeniu są połączenia HTTP, które obejmują:
 
-* *URI* specyficzne dla urządzenia (`{iot hub}/twins/{device id}/methods/`)
-* WPIS *— metoda*
-* *Nagłówki* które zawiera autoryzacji, żądania Identyfikatora, typu zawartości i kodowania zawartości
-* Przezroczysty JSON *treści* w następującym formacie:
+* Witaj *URI* toohello określonego urządzenia (`{iot hub}/twins/{device id}/methods/`)
+* Witaj POST *— metoda*
+* *Nagłówki* które zawiera hello autoryzacji, żądania Identyfikatora, typu zawartości i kodowania zawartości
+* Przezroczysty JSON *treści* w hello następującego formatu:
 
 ```
 {
@@ -71,14 +71,14 @@ Bezpośrednie wywołania metod na urządzeniu są połączenia HTTP, które obej
 }
 ```
 
-Jest limit czasu w sekundach. Jeśli nie ustawiono limit czasu, domyślnie 30 sekund.
+Jest limit czasu w sekundach. Jeśli nie ustawiono limit czasu, domyślnie przyjmowana too30 sekund.
 
 ### <a name="response"></a>Odpowiedź
-Aplikacja zaplecza odbiera odpowiedzi, która obejmuje:
+Witaj zaplecza aplikacji otrzymuje odpowiedzi, która obejmuje:
 
-* *Kod stanu HTTP*, używany dla błędów pochodzących z Centrum IoT, łącznie z błędem 404 dla urządzeń nie jest obecnie połączony
-* *Nagłówki* który zawiera element ETag, żądania Identyfikatora, typu zawartości i kodowania zawartości
-* JSON *treści* w następującym formacie:
+* *Kod stanu HTTP*, używany błędy pochodzące z hello Centrum IoT, łącznie z błędem 404 dla urządzeń nie jest obecnie połączony
+* *Nagłówki* które zawierają hello ETag, żądania Identyfikatora, typu zawartości i kodowania zawartości
+* JSON *treści* w hello następującego formatu:
 
 ```
 {
@@ -87,13 +87,13 @@ Aplikacja zaplecza odbiera odpowiedzi, która obejmuje:
 }
 ```
 
-   Zarówno `status` i `body` udostępnianym przez urządzenie i używane do odpowiedzi z kodem stanu własnych urządzeń i/lub opis.
+   Zarówno `status` i `body` są dostarczane przez hello urządzenie i użyć toorespond z kodem stanu dla urządzenia hello i/lub opis.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Dojście metody bezpośrednio na urządzeniu
 ### <a name="method-invocation"></a>Wywołanie metody
-Urządzenia odbierania żądań metoda bezpośrednia na temat MQTT:`$iothub/methods/POST/{method name}/?$rid={request id}`
+Urządzenia odbierania żądań metoda bezpośrednia na temat MQTT hello:`$iothub/methods/POST/{method name}/?$rid={request id}`
 
-Treści, który odbiera urządzenie znajduje się w następującym formacie:
+urządzenia, które hello odbiera treści Hello znajduje się w hello następującego formatu:
 
 ```
 {
@@ -105,28 +105,28 @@ Treści, który odbiera urządzenie znajduje się w następującym formacie:
 Metoda żądania są QoS 0.
 
 ### <a name="response"></a>Odpowiedź
-Urządzenie wysyła odpowiedzi `$iothub/methods/res/{status}/?$rid={request id}`, gdzie:
+urządzenie Hello wysyła odpowiedzi zbyt`$iothub/methods/res/{status}/?$rid={request id}`, gdzie:
 
-* `status` Właściwość jest stan wykonanie metody dostarczone przez urządzenie.
-* `$rid` Właściwość jest identyfikator żądania z wywołania metody odebranych z Centrum IoT.
+* Witaj `status` właściwość jest hello dostarczone przez urządzenie stan wykonywania metody.
+* Witaj `$rid` właściwość jest identyfikator żądania powitania od wywołania metody hello odebranych z Centrum IoT.
 
-Treść jest ustawiana przez urządzenia i może być dowolnym stanie.
+Treść Hello jest ustawiana przez urządzenie hello i może być dowolnym stanie.
 
 ## <a name="additional-reference-material"></a>Odwołanie dodatkowe materiały
-Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
+Inne tematy referencyjne w hello Centrum IoT — przewodnik dewelopera obejmują:
 
-* [Punkty końcowe Centrum IoT] [ lnk-endpoints] opisano różne punkty końcowe, które udostępnia każdego centrum IoT dla operacji zarządzania i środowiska wykonawczego.
-* [Ograniczenia przepustowości i przydziały] [ lnk-quotas] opisuje przydziałów, które dotyczą usługi IoT Hub i ograniczania przepustowości zachowania można oczekiwać podczas korzystania z usługi.
-* [Zestawy Azure IoT urządzenia i usługi SDK] [ lnk-sdks] wymieniono języka różnych zestawów SDK, można użyć podczas opracowywania aplikacji usług i urządzeń, które współdziałają z Centrum IoT.
-* [Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości] [ lnk-query] opisuje język zapytań Centrum IoT można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
-* [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zapewnia więcej informacji na temat Centrum IoT obsługi protokołu MQTT.
+* [Punkty końcowe Centrum IoT] [ lnk-endpoints] opisuje hello różnych punktów końcowych, które udostępnia każdego centrum IoT dla operacji zarządzania i środowiska wykonawczego.
+* [Ograniczenia przepustowości i przydziały] [ lnk-quotas] opisuje przydziały hello, stosowane toohello usługi IoT Hub, które hello ograniczania tooexpect zachowanie, gdy używasz usługi hello.
+* [Zestawy Azure IoT urządzenia i usługi SDK] [ lnk-sdks] list hello języka różnych zestawów SDK, można użyć podczas opracowywania aplikacji usług i urządzeń, które współdziałają z Centrum IoT.
+* [Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości] [ lnk-query] opisuje hello tooretrieve informacji z Centrum IoT temat zadań i twins urządzenia można używać języka kwerend Centrum IoT.
+* [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zamieszczono więcej informacji o obsłudze Centrum IoT hello MQTT protokołu.
 
 ## <a name="next-steps"></a>Następne kroki
-Po zapoznaniu bezpośredniego metod, mogą być zainteresowane w następującym temacie przewodnika deweloperów Centrum IoT:
+Teraz wiesz już, jak toouse metody bezpośredniego, może Cię zainteresować hello kolejny temat przewodnik dewelopera Centrum IoT:
 
 * [Planowanie zadań na wielu urządzeniach][lnk-devguide-jobs]
 
-Jeśli chcesz wypróbować niektóre pojęcia opisane w tym artykule, mogą być zainteresowane w następujących instrukcji Centrum IoT:
+Jeśli chcesz tootry niektórych hello pojęcia opisane w tym artykule, mogą być zainteresowane hello samouczka Centrum IoT:
 
 * [Użyj metody bezpośredniego][lnk-methods-tutorial]
 

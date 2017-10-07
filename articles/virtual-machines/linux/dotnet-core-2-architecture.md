@@ -1,5 +1,5 @@
 ---
-title: "Wdrażanie zasoby obliczeniowe systemu Linux przy użyciu szablonów usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
+title: "aaaDeploying zasoby obliczeniowe systemu Linux przy użyciu usługi Azure Resource Manager szablonów | Dokumentacja firmy Microsoft"
 description: Samouczek DotNet podstawowej maszyny wirtualnej platformy Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,24 +16,24 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3f9f98079e0c89d1231f9c3e62e82c33ad18236
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0bc26805860fed47923d46fc84f357060f68a951
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-architecture-with-azure-resource-manager-templates-for-linux-vms"></a>Architektura aplikacji przy użyciu szablonów usługi Azure Resource Manager dla maszyn wirtualnych systemu Linux
 
-Podczas tworzenia wdrożenia usługi Azure Resource Manager, obliczeń wymagania muszą być mapowane do zasobów platformy Azure i usług. Jeśli aplikacja składa się z kilku punktów końcowych http, bazy danych i danych usługi buforowania, zasobów Azure hostujących każdego z tych składników musi być usprawnione. Na przykład przykładowej aplikacji sklepu utworów muzycznych obejmuje aplikacji sieci web, który znajduje się na maszynie wirtualnej, a baza danych SQL, który znajduje się w bazie danych Azure SQL. 
+Podczas tworzenia wdrożenia usługi Azure Resource Manager, wymagania obliczeniowe wymagają toobe mapowane tooAzure zasobów i usług. Jeśli aplikacja składa się z kilku punktów końcowych http, bazy danych i danych usługi buforowania, hello zasobów platformy Azure obsługujące każdy z tych składników musi toobe usprawnione. Na przykład hello przykładowej aplikacji sklepu utworów muzycznych obejmuje aplikacji sieci web, który znajduje się na maszynie wirtualnej, a baza danych SQL, który znajduje się w bazie danych Azure SQL. 
 
-Ten dokument zawiera szczegóły dotyczące sposobu konfiguracji zasoby obliczeniowe magazynu utworów muzycznych w przykładowy szablon usługi Azure Resource Manager. Wszystkie zależności i unikatowe konfiguracje są wyróżnione. Aby uzyskać najlepsze wyniki wykonaj wstępne wdrożenie wystąpienia rozwiązania do subskrypcji platformy Azure i pracy wraz z szablonu usługi Azure Resource Manager. Zakończenie szablonu można znaleźć tutaj — [wdrożenia magazynu utworów muzycznych na Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
+Ten dokument zawiera szczegóły dotyczące sposobu konfiguracji zasoby obliczeniowe magazynu utworów muzycznych hello w hello przykładowy szablon usługi Azure Resource Manager. Wszystkie zależności i unikatowe konfiguracje są wyróżnione. Hello najlepsze środowisko pracy wykonaj wstępne wdrożenie wystąpienie tooyour rozwiązania hello subskrypcji platformy Azure i pracy oraz hello szablonu usługi Azure Resource Manager. Szablon pełną Hello można znaleźć tutaj — [wdrożenia magazynu utworów muzycznych na Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
 
 ## <a name="virtual-machine"></a>Maszyna wirtualna
-Aplikacja utworów muzycznych magazynu zawiera aplikacji sieci web, w którym klienci mogą przeglądanie i kupowanie utworów muzycznych. Gdy istnieje kilka usług Azure, które można udostępniać aplikacji sieci web, na przykład maszyny wirtualnej jest używany. Przy użyciu przykładowego szablonu utworów muzycznych magazynu, wdrożono maszynę wirtualną, zainstalować serwer sieci web i witryny sieci Web sklep muzyczny zainstalowany i skonfigurowany. Dla tego artykułu została szczegółowo opisana tylko wdrożenia maszyny wirtualnej. Konfiguracji serwera sieci web i aplikacji została szczegółowo opisana w artykule nowsze.
+Hello aplikacji utworów muzycznych magazynu zawiera aplikacji sieci web, w którym klienci mogą przeglądanie i kupowanie utworów muzycznych. Gdy istnieje kilka usług Azure, które można udostępniać aplikacji sieci web, na przykład maszyny wirtualnej jest używany. Przy użyciu szablonu magazynu utworów muzycznych próbki hello, wdrożono maszynę wirtualną, zainstalować serwer sieci web i hello magazynu utworów muzycznych witryny sieci Web zainstalowany i skonfigurowany. Dla zapewnienia hello w tym artykule została szczegółowo opisana tylko hello wdrożenia maszyny wirtualnej. Konfiguracja Hello powitania serwera sieci web i aplikacji hello została szczegółowo opisana w artykule nowsze.
 
-Maszynę wirtualną można dodać do szablonu, za pomocą Kreatora programu Visual Studio Dodaj nowy zasób lub wstawiając poprawne dane JSON do szablonu wdrożenia. Podczas wdrażania maszyny wirtualnej, potrzebne są również kilka skojarzonych zasobów. Jeśli przy użyciu programu Visual Studio, aby utworzyć szablon, te zasoby są tworzone automatycznie. Jeśli ręcznie tworzenia szablonu, te zasoby muszą być wstawiane i skonfigurowana.
+Maszyny wirtualne można dodać szablon tooa przy użyciu hello Visual Studio Dodaj nowy zasób kreatora, lub wstawiając poprawne dane JSON do hello Szablon wdrożenia. Podczas wdrażania maszyny wirtualnej, potrzebne są również kilka skojarzonych zasobów. Przy użyciu programu Visual Studio toocreate hello szablonu, te zasoby są tworzone automatycznie. Jeśli ręcznie konstruowania hello szablonu, te zasoby muszą toobe wstawiony i skonfigurowane.
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [JSON maszyny wirtualnej](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [JSON maszyny wirtualnej](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295).
 
 ```json
 {
@@ -61,14 +61,14 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
     }
 ```
 
-Po wdrożeniu właściwości maszyny wirtualnej są widoczne w portalu Azure.
+Po wdrożeniu hello właściwości maszyny wirtualnej można znaleźć w portalu Azure hello.
 
 ![Maszyna wirtualna](./media/dotnet-core-2-architecture/vm.png)
 
 ## <a name="storage-account"></a>Konto magazynu
-Konta magazynu mają wiele opcji magazynu i możliwości. Dla kontekstu maszyn wirtualnych Azure konta magazynu przechowuje wirtualnych dysków twardych maszyny wirtualnej i dowolnego dodatkowego dysku z danymi. Przykładowy sklep muzyczny zawiera jedno konto magazynu do przechowywania wirtualnych dysków twardych z każdej maszyny wirtualnej w ramach wdrożenia. 
+Konta magazynu mają wiele opcji magazynu i możliwości. Dla kontekstu hello maszyn wirtualnych Azure konto magazynu zawiera hello wirtualnych dysków twardych maszyny wirtualnej hello i dowolnego dodatkowego dysku z danymi. Przykładowy sklep muzyczny Hello zawiera jeden magazyn konta toohold hello wirtualnych dysków twardych poszczególnych maszyn wirtualnych w hello wdrożenia. 
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [konta magazynu](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [konta magazynu](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109).
 
 ```json
 {
@@ -85,9 +85,9 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
 }
 ```
 
-Konto magazynu jest skojarzony z maszyną wirtualną wewnątrz deklaracji szablonu usługi Resource Manager maszyny wirtualnej. 
+Konto magazynu jest skojarzony z maszyną wirtualną wewnątrz deklaracji szablonu usługi Resource Manager hello hello maszyny wirtualnej. 
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [skojarzenie maszyny wirtualnej i konto magazynu](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [skojarzenie maszyny wirtualnej i konto magazynu](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341).
 
 ```json
 "osDisk": {
@@ -100,20 +100,20 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
 }
 ```
 
-Po wdrożeniu konta magazynu można wyświetlić w portalu Azure.
+Po wdrożeniu hello konta magazynu można wyświetlić w portalu Azure hello.
 
 ![Konto magazynu](./media/dotnet-core-2-architecture/storacct.png)
 
-Kliknięcie przycisku do kontenera obiektów blob konta magazynu, można wyświetlić pliku wirtualnego dysku twardego dla każdej maszyny wirtualnej z szablonu.
+Kliknięcie przycisku do kontenera obiektów blob konta magazynu hello, hello pliku wirtualnego dysku twardego dla każdej maszyny wirtualnej z szablonu hello są widoczne.
 
 ![Wirtualne dyski twarde](./media/dotnet-core-2-architecture/vhd.png)
 
 Aby uzyskać więcej informacji dotyczących usługi Azure Storage, zobacz [dokumentację usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/).
 
 ## <a name="virtual-network"></a>Virtual Network
-Jeśli maszyna wirtualna wymaga wewnętrznej sieci, takich jak możliwość komunikacji z innymi maszynami wirtualnymi i zasobów platformy Azure, sieci wirtualnej platformy Azure jest wymagany.  Sieć wirtualna nie udostępnić maszynie wirtualnej za pośrednictwem Internetu. Łączności publicznej w zakresie wymaga publicznego adresu IP, które szczegółowo w dalszej części tej serii.
+Jeśli maszyna wirtualna wymaga wewnętrzny sieci, takich jak toocommunicate możliwości hello z innymi maszynami wirtualnymi i zasobów platformy Azure, sieci wirtualnej platformy Azure jest wymagany.  Sieć wirtualna nie udostępnić hello maszyny wirtualnej za pośrednictwem hello internet. Łączności publicznej w zakresie wymaga publicznego adresu IP, które szczegółowo w dalszej części tej serii.
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [sieci wirtualnej i podsieci](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [sieci wirtualnej i podsieci](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
 
 ```json
 {
@@ -148,14 +148,14 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
 }
 ```
 
-W portalu Azure sieci wirtualnej wygląda na poniższej ilustracji. Zwróć uwagę, że wszystkie maszyny wirtualne wdrażane z szablonem są prawidłowo podłączone do sieci wirtualnej.
+Z hello portalu Azure sieci wirtualnej hello wygląda na powitania po obrazu. Zauważyć, że wszystkie maszyny wirtualne wdrażane z szablonu hello są dołączone toohello sieci wirtualnej.
 
 ![Virtual Network](./media/dotnet-core-2-architecture/vnet.png)
 
 ## <a name="network-interface"></a>Interfejs sieciowy
- Interfejs sieciowy podłącza maszynę wirtualną do sieci wirtualnej, w szczególności do podsieci, która została zdefiniowana w sieci wirtualnej. 
+ Interfejs sieciowy łączy sieci wirtualnej tooa maszyny wirtualnej, w szczególności podsieci tooa, która została zdefiniowana w sieci wirtualnej hello. 
 
- Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [interfejsu sieciowego](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
+ Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [interfejsu sieciowego](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
 
 ```json
 {
@@ -202,9 +202,9 @@ W portalu Azure sieci wirtualnej wygląda na poniższej ilustracji. Zwróć uwag
 }
 ```
 
-Każdy zasób maszyny wirtualnej zawiera profil sieciowy. Interfejs sieciowy jest skojarzony z maszyną wirtualną, w tym profilu.  
+Każdy zasób maszyny wirtualnej zawiera profil sieciowy. Interfejs sieciowy Hello jest skojarzony z maszyną wirtualną hello w tym profilu.  
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [profilu sieciowego maszyny wirtualnej](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [profilu sieciowego maszyny wirtualnej](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350).
 
 ```json
 "networkProfile": {
@@ -216,18 +216,18 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
 }
 ```
 
-W portalu Azure interfejsu sieciowego wygląda na poniższej ilustracji. Wewnętrzny adres IP i skojarzenie maszyny wirtualnej mogą być widoczne na zasobu interfejsu sieciowego.
+Z hello portalu Azure interfejsu sieciowego hello wygląda na powitania po obrazu. wewnętrzny adres IP Hello i hello skojarzenie maszyny wirtualnej mogą być widoczne na zasobu interfejsu sieciowego hello.
 
 ![Interfejs sieciowy](./media/dotnet-core-2-architecture/nic.png)
 
 Aby uzyskać więcej informacji o sieciach wirtualnych platformy Azure, zobacz [dokumentacji usługi Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 ## <a name="azure-sql-database"></a>Usługa Azure SQL Database
-Oprócz maszyny wirtualnej hosting magazynu utworów muzycznych witryny sieci Web bazy danych SQL Azure jest wdrażana na bazę danych magazynu utworów muzycznych. Zaletą korzystania z bazy danych SQL Azure w tym miejscu jest drugi zestaw maszyn wirtualnych nie jest wymagane, czy skalowalność i dostępność jest wbudowana w usłudze.
+Ponadto maszyna wirtualna tooa hosting hello magazynu utworów muzycznych witryny sieci Web, bazy danych SQL Azure jest bazy danych magazynu utworów muzycznych hello toohost wdrożone. Zaletą Hello tutaj przy użyciu bazy danych SQL Azure jest drugi zestaw maszyn wirtualnych nie jest wymagane, czy skalowalność i dostępność wbudowaną hello usługi.
 
-Można dodać bazy danych Azure SQL za pomocą programu Visual Studio Dodaj nowy zasób kreatora lub przez wstawienie poprawne dane JSON do szablonu. Zasób programu SQL Server zawiera nazwę użytkownika i hasło, któremu udzielono prawa administracyjne w wystąpieniu programu SQL. Ponadto dodaniu zasobów zapory SQL. Domyślnie aplikacje hostowane na platformie Azure mogą nawiązać połączenia z wystąpieniem serwera SQL. Aby umożliwić aplikacji zewnętrznej takie programu SQL Server Management studio nawiązywania połączenia z wystąpieniem serwera SQL, zapory należy skonfigurować. Dla pokaz magazynu utworów muzycznych domyślna konfiguracja jest poprawnie. 
+Można dodać bazy danych Azure SQL przy użyciu hello Visual Studio Dodaj nowy zasób kreatora lub przez wstawienie poprawne dane JSON do szablonu. Hello zasobów programu SQL Server zawiera nazwę użytkownika i hasło, któremu udzielono prawa administracyjne na powitania wystąpienia serwera SQL. Ponadto dodaniu zasobów zapory SQL. Domyślnie aplikacje hostowane na platformie Azure są stanie tooconnect z hello wystąpienia serwera SQL. tooallow zewnętrznej aplikacji takich programu SQL Server Management studio tooconnect toohello wystąpienie serwera SQL, zapory hello musi toobe skonfigurowany. Dla zapewnienia hello hello magazynu utworów muzycznych demonstracyjnej hello domyślnej konfiguracji jest poprawnie. 
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [bazy danych SQL Azure](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [bazy danych SQL Azure](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
 
 ```json
 {
@@ -262,7 +262,7 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
 }
 ```
 
-Widok programu SQL server i MusicStore bazy danych, jak pokazano w portalu Azure.
+Widok hello programu SQL server i MusicStore bazy danych, jak pokazano w hello portalu Azure.
 
 ![Oprogramowanie SQL Server](./media/dotnet-core-2-architecture/sql.png)
 

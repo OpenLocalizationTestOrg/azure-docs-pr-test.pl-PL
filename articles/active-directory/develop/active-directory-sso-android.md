@@ -1,6 +1,6 @@
 ---
-title: "Jak włączyć logowanie Jednokrotne wielu aplikacji w systemie Android przy użyciu biblioteki ADAL | Dokumentacja firmy Microsoft"
-description: "Jak używać funkcji ADAL zestawu SDK do Włącz rejestrację jednokrotną w aplikacji. "
+title: "aaaHow tooenable logowania jednokrotnego wielu aplikacji w systemie Android przy użyciu biblioteki ADAL | Dokumentacja firmy Microsoft"
+description: 'Jak funkcji hello toouse hello tooenable ADAL SDK rejestracji jednokrotnej w aplikacji. '
 services: active-directory
 documentationcenter: 
 author: danieldobalian
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 9c7e959530a836fe5ddf74708363a636c39b3cc6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3867e15030e5516464e4dbd92ba35894430daf00
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Jak włączyć logowanie Jednokrotne wielu aplikacji w systemie Android przy użyciu biblioteki ADAL
-Zapewniające pojedynczego logowania jednokrotnego (SSO), aby użytkownicy potrzebują tylko może wprowadzić swoje poświadczenia raz, a te poświadczenia automatycznie działać przez aplikacje teraz jest oczekiwany przez klientów. Trudności przy wprowadzaniu swoją nazwę użytkownika i hasło na małego ekranu, często razy łączyć się przy użyciu dodatkowego składnika (2FA), takich jak rozmowa telefoniczna lub kod wysłana wiadomość SMS, powoduje niezadowolenie szybki, jeśli użytkownik ma w tym celu więcej niż jeden raz na produkt.
+# <a name="how-tooenable-cross-app-sso-on-android-using-adal"></a>Jak tooenable logowania jednokrotnego wielu aplikacji w systemie Android przy użyciu biblioteki ADAL
+Zapewnianie pojedynczego logowania jednokrotnego (SSO), aby użytkownicy tylko muszą tooenter swoje poświadczenia raz i mieć tych poświadczeń, które są automatycznie pracy w aplikacjach teraz jest oczekiwany przez klientów. Hello trudności w wprowadzić swoją nazwę użytkownika i hasło na małego ekranu, często razy łączyć się przy użyciu dodatkowego składnika (2FA), takich jak rozmowa telefoniczna lub kod wysłana wiadomość SMS, powoduje niezadowolenie szybki, jeśli użytkownik ma toodo to więcej niż jeden raz na produkt.
 
-Ponadto w przypadku zastosowania platformą tożsamości, które inne aplikacje mogą używać takich jak Accounts Microsoft lub konta służbowego z usługi Office 365, klienci oczekują, że te poświadczenia były dostępne do użycia w swoich aplikacjach niezależnie od dostawcy.
+Ponadto w przypadku zastosowania platformą tożsamości, które inne aplikacje mogą używać takich jak Accounts Microsoft lub konta służbowego z usługi Office 365, klienci oczekują, że te poświadczenia toobe toouse dostępne we wszystkich aplikacjach niezależnie hello dostawcy.
 
-Platformy pakietu Microsoft Identity, wraz z nasze zestawy SDK tożsamości Microsoft robi to twarde pracy i daje możliwość doskonale dopasowanych swoich klientów za pomocą rejestracji Jednokrotnej w pakietu aplikacji lub, w przypadku naszego brokera możliwości i wystawcy uwierzytelnienia aplikacji, we wszystkich danych z urządzenia.
+Hello platformy pakietu Microsoft Identity, wraz z nasze zestawy SDK tożsamości Microsoft działa wszystkich tego twardym i zapewnia hello toodelight możliwości swoich klientów za pomocą logowania jednokrotnego, albo w ramach własnego pakietu aplikacji, lub jako z możliwości brokera i wystawcy uwierzytelnienia aplikacje na powitania wszystkich danych z urządzenia.
 
-W tym przewodniku opisano, jak skonfigurować naszego zestawu SDK w celu zapewnienia takich korzyści klientom aplikacji.
+W tym przewodniku informuje o sposobie tooconfigure naszego zestawu SDK w ramach Twojej aplikacji tooprovide klientów tooyour tego korzyści.
 
 Ten przewodnik dotyczy:
 
@@ -37,36 +37,36 @@ Ten przewodnik dotyczy:
 * B2B usługi Azure Active Directory
 * Dostęp warunkowy usługi Azure Active Directory
 
-Poprzedniego dokumentu zakłada wiesz, jak [udostępnić aplikacje w starszej wersji portalu usługi Azure Active Directory](active-directory-how-to-integrate.md) i zintegrowanych aplikacji z [zestawu SDK systemu Android tożsamości Microsoft](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+poprzedniego dokumentu Hello przyjęto założenie, wiesz, jak za[udostępnić aplikacje w portalu starszych hello usługi Azure Active Directory](active-directory-how-to-integrate.md) i zintegrowane aplikacji z hello [zestawu SDK systemu Android tożsamości Microsoft](https://github.com/AzureAD/azure-activedirectory-library-for-android) .
 
-## <a name="sso-concepts-in-the-microsoft-identity-platform"></a>Pojęcia dotyczące logowania jednokrotnego platformą tożsamości Microsoft
+## <a name="sso-concepts-in-hello-microsoft-identity-platform"></a>Pojęcia dotyczące logowania jednokrotnego hello platformą tożsamości Microsoft
 ### <a name="microsoft-identity-brokers"></a>Brokerzy tożsamość firmy Microsoft
-Firma Microsoft udostępnia aplikacji dla każdej platformy przenośne, które umożliwiają łączenie poświadczeń w aplikacjach pochodzących od różnych dostawców i umożliwia specjalne udoskonalone funkcje, które wymagają pojedynczego bezpiecznym miejscu z, w którym można sprawdzić poprawności poświadczeń. Nazywamy je **brokerzy**. W systemach iOS i Android te są realizowane za pośrednictwem aplikacji do pobrania czy klientów zainstalować niezależnie lub może zostać umieszczony na urządzeniu przez użytkowników, którzy zarządzają niektórych lub wszystkich urządzeń dla swoich pracowników firmy. Te brokerzy obsługę zarządzania zabezpieczeń tylko niektóre aplikacje lub wszystkich danych z urządzenia oparte na potrzeby administratorzy IT. W systemie Windows ta funkcja jest dostarczana przez selektora konta z wbudowanej w system operacyjny, znane pod względem technicznym jako Broker uwierzytelniania sieci Web.
+Firma Microsoft udostępnia aplikacji dla każdej platformy przenośne, które umożliwiają mostkowania hello poświadczeń w aplikacjach pochodzących od różnych dostawców i umożliwia specjalne udoskonalone funkcje, które wymagają pojedynczego bezpiecznym miejscu w przypadku toovalidate poświadczeń. Nazywamy je **brokerzy**. W systemach iOS i Android te są realizowane za pośrednictwem aplikacji do pobrania czy klientów zainstalować niezależnie lub można je przesłać toohello urządzeń przez użytkowników, którzy zarządzają niektórych lub wszystkich urządzeń hello dla swoich pracowników firmy. Te brokerzy obsługuje zarządzanie zabezpieczeń tylko dla niektórych aplikacji lub hello wszystkich danych z urządzenia oparte na potrzeby administratorzy IT. W systemie Windows ta funkcja jest dostarczana przez selektora konta wbudowane w system operacyjny toohello technicznie nazywane hello brokera uwierzytelniania sieci Web.
 
-Aby uzyskać więcej informacji na temat używamy tych brokerów i jak klienci mogą je wyświetlać w ich przepływu logowania na platformy pakietu Microsoft Identity.
+Aby uzyskać więcej informacji na temat używamy tych brokerów i jak klienci mogą je wyświetlać w ich przepływu logowania dla platformy pakietu Microsoft Identity hello na.
 
 ### <a name="patterns-for-logging-in-on-mobile-devices"></a>Wzorce do logowania na urządzeniach przenośnych
-Dostęp do poświadczeń na urządzeniach wykonaj dwa podstawowe wzorce platformy pakietu Microsoft Identity:
+Toocredentials dostępu na urządzeniach wykonaj dwa podstawowe wzorce platformy pakietu Microsoft Identity hello:
 
 * Logowania asystowaną bez brokera
 * Broker asystowaną logowania
 
 #### <a name="non-broker-assisted-logins"></a>Logowania asystowaną bez brokera
-Inne niż brokera asystowaną logowania są środowiska logowania, być wbudowane w aplikacji, które obsługują Magazyn lokalny na urządzeniu dla tej aplikacji. Ten magazyn może być współużytkowany przez aplikacje, ale poświadczenia są ściśle powiązane z aplikacji lub pakietu aplikacji przy użyciu tego poświadczenia. W przypadku najprawdopodobniej wystąpienia to w wielu aplikacjach mobilnych podczas wprowadzania nazwy użytkownika i hasła samej aplikacji.
+Inne niż brokera asystowaną logowania są funkcji logowania, które wykonana wbudowany z aplikacji hello i Użyj magazynu lokalnego hello hello urządzenia dla tej aplikacji. Ten magazyn może być współużytkowany przez aplikacje, ale poświadczenia hello są ściśle powiązane toohello aplikacji lub pakietu aplikacji przy użyciu to poświadczenie. W przypadku najprawdopodobniej wystąpienia to w wielu aplikacjach mobilnych podczas wprowadzania nazwy użytkownika i hasła w samej aplikacji hello.
 
-Te nazwy logowania są następujące korzyści:
+Te nazwy logowania ma hello następujące korzyści:
 
-* Środowisko użytkownika istnieje całkowicie w aplikacji.
-* Poświadczenia mogą być udostępniane między aplikacjami, które są podpisane przez ten sam certyfikat, zapewniając pojedynczego środowisko logowania do pakietu aplikacji.
-* Formant wokół środowisko logowania jest dostarczany do aplikacji przed i po zalogowaniu.
+* Środowisko użytkownika istnieje w całości w aplikacji hello.
+* Poświadczenia mogą być współużytkowane przez aplikacje, które są podpisane przez hello tego samego certyfikatu, podając mechanizm obsługi rejestracji jednokrotnej tooyour aplikacji.
+* Formant wokół hello środowisko logowania jest dostarczany aplikacji toohello przed i po zalogowaniu.
 
-Te nazwy logowania ma następujące wady:
+Te nazwy logowania ma następujące wady hello:
 
 * Użytkownika nie może występować jednokrotnego we wszystkich aplikacji, które używają pakietu Microsoft Identity przez te firmy Microsoft Identities skonfigurowane w aplikacji.
-* Aplikacji nie można używać z bardziej zaawansowane funkcje biznesowych, takich jak dostęp warunkowy, lub użyj produktów pakietu usługi InTune.
+* Nie można używać aplikacji z bardziej zaawansowane funkcje biznesowych, takich jak dostęp warunkowy lub zestawu InTune hello Użyj produktów.
 * Używana aplikacja nie obsługuje uwierzytelniania opartego na certyfikatach dla użytkowników biznesowych.
 
-Oto reprezentację działanie zestawów SDK tożsamość firmy Microsoft z magazynem udostępnionym aplikacji do włączenia funkcji logowania jednokrotnego:
+Oto reprezentację jak zestawy SDK tożsamości Microsoft hello pracować z hello udostępniony magazyn tooenable Twojej aplikacji rejestracji Jednokrotnej:
 
 ```
 +------------+ +------------+  +-------------+
@@ -83,35 +83,35 @@ Oto reprezentację działanie zestawów SDK tożsamość firmy Microsoft z magaz
 ```
 
 #### <a name="broker-assisted-logins"></a>Broker asystowaną logowania
-Asystowane brokera logowania są funkcji logowania, które występują w aplikacji brokera i korzystania z magazynu i zabezpieczeń brokera udostępnianie poświadczeń we wszystkich aplikacjach na urządzeniu, mające zastosowanie platformy pakietu Microsoft Identity. Oznacza to, że aplikacje zależne od brokera do logowania użytkowników. W systemach iOS i Android brokerzy te są realizowane za pośrednictwem aplikacji do pobrania, czy klientów zainstalować niezależnie lub może zostać umieszczony na urządzeniu przez firmę, użytkowników, którzy zarządzają urządzenia dla ich użytkownika. Przykładowe aplikacje tego typu jest aplikacja Microsoft Authenticator w systemie iOS. W systemie Windows ta funkcja jest dostarczana przez selektora konta z wbudowanej w system operacyjny, znane pod względem technicznym jako Broker uwierzytelniania sieci Web.
-Środowisko jest zależna od platformy i czasami mogą być uciążliwe dla użytkowników w przeciwnym razie zarządzane prawidłowo. Znasz prawdopodobnie najbardziej tego wzorca Jeśli z zainstalowaną aplikacją Facebook i używać funkcji usługi Facebook połączenie z innej aplikacji. Platforma Microsoft Identity używa tego samego wzorca.
+Asystowane brokera logowania są środowiska logowania, przeprowadzone w ciągu hello brokera aplikacji, które obsługują hello magazynu i zabezpieczeń hello brokera tooshare poświadczeń we wszystkich aplikacjach na urządzeniu hello stosowane hello pakietu Microsoft Identity platformy. Oznacza to, że aplikacje zależne od hello brokera toosign użytkowników w. W systemach iOS i Android brokerzy te są realizowane za pośrednictwem aplikacji do pobrania, czy klientów zainstalować niezależnie lub można je przesłać toohello urządzenia przez firmę, użytkowników, którzy zarządzają hello urządzenie ich użytkownika. Przykładem tego typu aplikacji jest aplikacją Microsoft Authenticator hello w systemie iOS. W systemie Windows ta funkcja jest dostarczana przez selektora konta wbudowane w system operacyjny toohello technicznie nazywane hello brokera uwierzytelniania sieci Web.
+środowisko Hello jest zależna od platformy i czasami mogą być destrukcyjne toousers Jeśli nie poprawnie zarządzane. Znasz prawdopodobnie najbardziej tego wzorca Jeśli masz zainstalowaną aplikację usługi Facebook hello i używać funkcji usługi Facebook połączenie z innej aplikacji. Witaj używa platformy pakietu Microsoft Identity hello tego samego wzorca.
 
-Dla systemu iOS, który prowadzi to do "przejścia" animacji, w którym aplikacji są wysyłane do tła podczas aplikacji Microsoft Authenticator zawiera pierwszego planu dla użytkownika wybrać konto, które chce się zalogować.  
+Dla systemu iOS prowadzi to animacji "przejścia" tooa aplikacji wysyłania tła toohello podczas aplikacji Microsoft Authenticator hello pochodzi pierwszego planu toohello dla tooselect użytkownika hello konto, które chciałby toosign przy użyciu.  
 
-Dla systemów Android i Windows selektora konta jest wyświetlany u góry aplikację, która jest prostszy sposób użytkownika.
+Dla systemów Android i Windows hello konta selektora jest wyświetlany u góry aplikację, która jest prostszy toohello użytkownika.
 
-#### <a name="how-the-broker-gets-invoked"></a>Sposób wywoływania pobiera brokera
-Zgodne brokera jest zainstalowany na urządzeniu, takie jak aplikacja Microsoft Authenticator zestawów SDK tożsamości Microsoft będzie automatycznie wykonywać pracy wywoływania brokera automatycznie, gdy użytkownik wskazuje chcą zalogowanie się przy użyciu dowolnego konta z platformy Microsoft Identity. To konto może być Account firmy Microsoft, służbowy lub konta służbowego lub konta, które należy podać i hosta na platformie Azure przy użyciu naszych produktów B2C i B2B. 
+#### <a name="how-hello-broker-gets-invoked"></a>Sposób wywoływania pobiera hello brokera
+Jeśli zgodny brokera jest zainstalowany na urządzeniu hello, takich jak hello Microsoft Authenticator aplikacji hello zestawów SDK programu Microsoft Identity będzie automatycznie hello pracy wywoływania brokera hello automatycznie, gdy użytkownik wskazuje życzą toolog przy użyciu dowolnego konta z Platforma Microsoft Identity Hello. To konto może być Account firmy Microsoft, służbowy lub konta służbowego lub konta, które należy podać i hosta na platformie Azure przy użyciu naszych produktów B2C i B2B. 
  
- #### <a name="how-we-ensure-the-application-is-valid"></a>Jak firma Microsoft zapewnia aplikacji jest prawidłowy
+ #### <a name="how-we-ensure-hello-application-is-valid"></a>Jak firma Microsoft zapewnia aplikacji hello jest prawidłowy
  
- Konieczność zapewnienia tożsamości wywołanie aplikacji, które brokera odgrywa kluczową rolę zabezpieczeń, które udostępniamy w brokerze pomocy logowania. Z systemem iOS ani Android wymusza unikatowych identyfikatorów, które są prawidłowe tylko dla danej aplikacji, więc złośliwego aplikacji może "sfałszować" identyfikator uzasadnionych aplikacji i odbierać tokeny przeznaczone dla aplikacji uzasadnione. Aby upewnić się, że zawsze komunikują się firma Microsoft z prawej aplikacji w czasie wykonywania, poprosimy developer do niestandardowych redirectURI podczas rejestrowania swoich aplikacji z firmą Microsoft. **Jak deweloperzy powinien spreparować identyfikator URI przekierowania omówiono szczegółowo poniżej.** To niestandardowe redirectURI zawiera odcisk palca certyfikatu, aplikacji i zapewniony unikatowa do aplikacji w sklepie Google Play. Gdy aplikacja wywołuje brokera, broker zapyta, systemu operacyjnego Android zapewnienie o odcisk palca certyfikatu, który wywołał brokera. Broker taki odcisk palca certyfikatu do firmy Microsoft w wywołaniu naszym systemie tożsamości. Jeśli odcisk palca certyfikatu aplikacji nie odpowiada odcisk palca certyfikatu przekazanego nam przez projektanta podczas rejestracji, firma Microsoft będzie odmawiał dostępu na tokeny dla zasobu, który żąda aplikacji. Tego wyboru gwarantuje, że tylko aplikacja zarejestrowany przez dewelopera otrzyma tokenów.
+ Hello potrzeby tooensure hello tożsamość aplikacji wywołania hello brokera jest toohello kluczową rolę zabezpieczeń, dostarczamy w danych logowania brokera wspierana. Z systemem iOS ani Android wymusza unikatowych identyfikatorów, które są prawidłowe tylko dla danej aplikacji, więc złośliwego aplikacji może "sfałszować" identyfikator uzasadnionych aplikacji i odbierać tokeny hello przeznaczone dla aplikacji uzasadnionych hello. tooensure, który zawsze komunikują się firma Microsoft z prawej aplikacji hello w czasie wykonywania, poprosimy hello developer tooprovide redirectURI niestandardowych podczas rejestrowania aplikacji z firmą Microsoft. **Jak deweloperzy powinien spreparować identyfikator URI przekierowania omówiono szczegółowo poniżej.** To niestandardowe redirectURI zawiera odcisk palca certyfikatu hello aplikacji hello i jest zapewniana toobe unikatowy toohello aplikacji przez hello sklepu Google Play. Po uruchomieniu brokera hello brokera hello zapyta hello tooprovide systemu operacyjnego Android za pomocą hello odcisk palca certyfikatu tego brokera hello wywołany. Hello broker zawiera ten tooMicrosoft odcisk palca certyfikatu w hello wywołania tooour tożsamości systemu. W przypadku certyfikatów hello odcisk palca aplikacji hello jest niezgodna z odcisk palca certyfikatu hello toous przez dewelopera hello podczas rejestracji, firma Microsoft będzie odmawiał dostępu toohello tokeny dla aplikacji hello zasobów hello jest żądanie. Tego wyboru gwarantuje, że tylko aplikacja hello zarejestrowany przez dewelopera hello odbiera tokenów.
 
-**Deweloper może wybrać opcję Microsoft tożsamość SDK wywołuje brokera lub korzysta z przepływu asystowaną bez brokera.** Jednak jeśli wybierze projektanta nie należy używać przepływu wspierana brokera utracą zaletą używania poświadczeń logowania jednokrotnego, czy użytkownik może już dodane na urządzeniu i uniemożliwia ich aplikacji z używane z funkcjami firm, które firma Microsoft udostępnia jej klientów, takie jak dostęp warunkowy, możliwości zarządzania usługi Intune i uwierzytelnianie oparte na certyfikatach.
+**Deweloper Hello ma wybór hello hello zestaw SDK programu Microsoft Identity wywołuje brokera hello lub korzysta z przepływu asystowaną hello bez brokera.** Jednak jeśli hello developer wybierze nie toouse hello wspierana brokera przepływu utracą zaletą hello przy użyciu poświadczeń logowania jednokrotnego użytkownika hello zostało już dodane na urządzeniu hello i uniemożliwia ich aplikacji z użycia przy użyciu funkcji biznesowych firmy Microsoft Umożliwia klientom, takich jak dostęp warunkowy, możliwości zarządzania usługi Intune i uwierzytelnianie oparte na certyfikatach.
 
-Te nazwy logowania są następujące korzyści:
+Te nazwy logowania ma hello następujące korzyści:
 
-* Użytkownik napotyka logowania jednokrotnego w swoich aplikacjach niezależnie od dostawcy.
-* Aplikacja może użyć bardziej zaawansowane funkcje biznesowych, takich jak dostęp warunkowy lub produktów pakietu usługi InTune.
+* Użytkownik napotyka logowania jednokrotnego w swoich aplikacjach bez względu na powitania dostawcy.
+* Aplikacji można użyć bardziej zaawansowane funkcje biznesowych, takich jak dostęp warunkowy lub zestawu InTune hello produktów.
 * Aplikacja może obsługiwać uwierzytelnianie oparte na certyfikatach dla użytkowników biznesowych.
-* Bezpieczniejszym logowania jako tożsamość aplikacji i użytkownika są weryfikowane przez aplikację broker z algorytmów zabezpieczeń i szyfrowania.
+* Bardziej bezpieczne logowanie występować jako hello tożsamości aplikacji hello i użytkownika hello są weryfikowane przez aplikację brokera hello z algorytmów zabezpieczeń i szyfrowania.
 
-Te nazwy logowania ma następujące wady:
+Te nazwy logowania ma następujące wady hello:
 
-* W systemie iOS użytkownika jest są przenoszone poza środowisko aplikacji, a poświadczenia zostały wybrane.
-* Utrata możliwości zarządzania mogą logować się klienci w aplikacji.
+* W systemie iOS hello użytkownika jest są przenoszone poza środowisko aplikacji, a poświadczenia zostały wybrane.
+* Wystąpić utrata hello możliwości toomanage hello logowania dla klientów w aplikacji.
 
-Oto reprezentację działanie zestawów SDK tożsamość firmy Microsoft z aplikacji brokera do włączenia funkcji logowania jednokrotnego:
+Oto reprezentację jak hello zestawów SDK programu Microsoft Identity współpracują z hello broker tooenable aplikacji rejestracji Jednokrotnej:
 
 ```
 +------------+ +------------+   +-------------+
@@ -138,27 +138,27 @@ Oto reprezentację działanie zestawów SDK tożsamość firmy Microsoft z aplik
 
 ```
 
-Dzięki tej ogólne informacje, które powinno być możliwe do lepszego zrozumienia i implementowanie logowania jednokrotnego w aplikacji przy użyciu pakietu Microsoft Identity platformy i zestawy SDK.
+Dzięki tym informacje powinno być możliwe toobetter poznanie i wdrożenie logowania jednokrotnego w aplikacji przy użyciu platformy pakietu Microsoft Identity hello i zestawy SDK.
 
 ## <a name="enabling-cross-app-sso-using-adal"></a>Włączanie logowania jednokrotnego wielu aplikacji za pomocą biblioteki ADAL
-W tym miejscu używamy zestawu SDK systemu Android biblioteki ADAL do:
+W tym miejscu użyjemy hello ADAL zestawu SDK systemu Android do:
 
 * Włącz brokera z systemem innym niż asystowaną pomocą rejestracji Jednokrotnej dla pakietu aplikacji
 * Włączanie obsługi wspierana brokera logowania jednokrotnego
 
 ### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>Włączanie rejestracji Jednokrotnej z systemem innym niż brokera asystowaną pomocą rejestracji Jednokrotnej
-Dla bez brokera asystowaną logowania jednokrotnego w aplikacjach zestawów SDK tożsamości Microsoft zarządzać znacznie złożoność logowania jednokrotnego dla Ciebie. Obejmuje to wyszukiwanie prawo użytkownika w pamięci podręcznej i przechowywania listy zalogowany użytkowników możesz zbadać.
+Dla innych niż brokera asystowaną logowania jednokrotnego w aplikacjach hello zestawów SDK programu Microsoft Identity Zarządzanie znacznie hello złożoność logowania jednokrotnego dla Ciebie. W tym znajdowanie hello prawo użytkownika w pamięci podręcznej hello i utrzymywanie lista zalogowany użytkowników możesz tooquery.
 
-Do włączenia funkcji logowania jednokrotnego w aplikacjach jesteś właścicielem, że należy wykonać następujące czynności:
+tooenable logowania jednokrotnego w aplikacjach własnej potrzebne hello toodo następujące:
 
-1. Upewnij się użytkownika aplikacje tego samego Identyfikatora klienta lub identyfikator aplikacji.
-2. Upewnij się, że wszystkie aplikacje mają ten sam zestaw SharedUserID.
-3. Upewnij się, dzięki czemu można udostępniać magazynu wszystkie aplikacje współużytkują ten sam certyfikat podpisywania z magazynu Google Play.
+1. Upewnij się, wszystkie Twoje aplikacje użytkownika hello tego samego Identyfikatora klienta lub identyfikator aplikacji.
+2. Upewnij się, że wszystkie aplikacje mają hello ustawione w tej samej SharedUserID.
+3. Upewnij się, że wszystkie Twoje hello udziału aplikacji tego samego certyfikatu podpisywania z hello Google Play przechowywać, dzięki czemu można udostępniać magazynu.
 
-#### <a name="step-1-using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>Krok 1: Używa tego samego Identyfikatora klienta / IDENTYFIKATORA aplikacji dla wszystkich aplikacji w pakietu aplikacji
-Aby platformy pakietu Microsoft Identity dowiedzieć się, że mogą być udostępnianie tokenów w aplikacji należy poszczególnych aplikacji do udostępniania tego samego Identyfikatora klienta lub identyfikator aplikacji. Jest to unikatowy identyfikator, który został udostępniony po zarejestrowaniu swoją pierwszą aplikację w portalu.
+#### <a name="step-1-using-hello-same-client-id--application-id-for-all-hello-applications-in-your-suite-of-apps"></a>Krok 1: Przy użyciu hello na tym samym identyfikatorze klienta / IDENTYFIKATORA aplikacji dla wszystkich hello aplikacji w pakietu aplikacji
+Aby tooknow platformy pakietu Microsoft Identity hello, że tokeny tooshare jest dozwolony w aplikacji należy poszczególnych aplikacji hello tooshare tego samego Identyfikatora klienta lub identyfikator aplikacji. Jest to hello Unikatowy identyfikator, który podano tooyou podczas rejestrowania swoją pierwszą aplikację w portalu hello.
 
-Możesz się zastanawiać, jak należy określić różnych aplikacji z usługą Microsoft Identity korzysta z tego samego identyfikatora aplikacji Odpowiedź jest z **identyfikator URI przekierowania**. Każda aplikacja może mieć wiele identyfikator URI przekierowania zarejestrowany w portalu przy dołączaniu. Każdej aplikacji w zestawie ma inny identyfikator URI przekierowania. Jak wygląda przykład znajduje się poniżej:
+Możesz się zastanawiać, jak należy określić różnych aplikacji hello toohello pakietu Microsoft Identity usługa korzysta z tego samego identyfikatora aplikacji. Witaj odpowiedzi jest z hello **identyfikator URI przekierowania**. Każda aplikacja może mieć wiele identyfikator URI przekierowania zarejestrowany w hello przechodzenia do portalu. Każdej aplikacji w zestawie ma inny identyfikator URI przekierowania. Jak wygląda przykład znajduje się poniżej:
 
 Identyfikator URI przekierowania App1`msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
@@ -168,7 +168,7 @@ Identyfikator URI przekierowania App3:`msauth://com.example.userapp2/Pt85PxIyvbL
 
 ....
 
-Te są zagnieżdżone w tym samym identyfikatorze klienta / identyfikator aplikacji i wyszukiwać oparte na przekierowanie URI powrócisz do nas w konfiguracji zestawu SDK.
+Te są zagnieżdżone w ramach tego samego Identyfikatora klienta hello / identyfikator aplikacji i wyszukiwać na podstawie hello przekierowania URI powrocie toous w konfiguracji zestawu SDK.
 
 ```
 +-------------------+
@@ -194,31 +194,31 @@ Te są zagnieżdżone w tym samym identyfikatorze klienta / identyfikator aplika
 ```
 
 
-*Należy pamiętać, że format tych identyfikator URI przekierowania opisano szczegółowo poniżej. Można użyć identyfikatora URI przekierowania, chyba że chcesz wspierać brokera, w takim przypadku one musi wyglądać powyższych*
+*Należy pamiętać, że format tych identyfikatorów przekierowania hello opisano poniżej. Identyfikator URI przekierowania może używać, chyba że chcesz toosupport hello brokera, w tym przypadku one musi wyglądać hello powyżej*
 
 #### <a name="step-2-configuring-shared-storage-in-android"></a>Krok 2: Konfigurowanie magazynu udostępnionego w systemie Android
-Ustawienie `SharedUserID` wykracza poza zakres tego dokumentu, ale może być rozpoznawane przez odczytanie w dokumentacji systemu Google Android na [manifestu](http://developer.android.com/guide/topics/manifest/manifest-element.html). Ważne jest określenie mają sharedUserID Twojego zostanie wywołana i używać go do wszystkich aplikacji sieci.
+Ustawienie hello `SharedUserID` wykracza poza zakres tego dokumentu hello, ale może być rozpoznawane przez odczytanie hello dokumentacji systemu Google Android na powitania [manifestu](http://developer.android.com/guide/topics/manifest/manifest-element.html). Ważne jest określenie mają sharedUserID Twojego zostanie wywołana i używać go do wszystkich aplikacji sieci.
 
-Po utworzeniu `SharedUserID` w aplikacjach użytkownika można przystąpić do za pomocą logowania jednokrotnego.
+Po utworzeniu hello `SharedUserID` w aplikacjach użytkownika są gotowe toouse logowania jednokrotnego.
 
 > [!WARNING]
-> Po udostępnieniu magazynu przez aplikacje dowolnej aplikacji, można usunąć użytkowników lub gorsze usunąć wszystkie tokeny w aplikacji. Jest to szczególnie Fatalne, jeśli masz aplikacje korzystające z tokenów do pracy w tle. Udostępnianie magazynu oznacza, że należy zachować ostrożność bardzo w operacji Usuń wszystkie za pomocą zestawów SDK tożsamość firmy Microsoft.
+> Po udostępnieniu magazynu przez aplikacje dowolnej aplikacji, można usunąć użytkowników lub gorsze usunąć wszystkie tokeny hello w aplikacji. Jest to szczególnie Fatalne, jeśli masz aplikacje, które opierają się na powitania Praca w tle toodo tokenów. Udostępnianie magazynu oznacza, że należy zachować ostrożność bardzo w operacjach Usuń wszystkie za pośrednictwem hello zestawów SDK programu Microsoft Identity.
 > 
 > 
 
-Gotowe. Zestaw SDK usługi Microsoft Identity teraz udostępniać poświadczeń we wszystkich aplikacjach. Lista użytkowników również będą udostępniane między wystąpieniami aplikacji.
+Gotowe. we wszystkich aplikacji Hello zestaw SDK programu Microsoft Identity teraz udostępniać poświadczeń. Lista użytkowników Hello również zostaną udostępnione w wystąpieniach aplikacji.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Włączanie logowania jednokrotnego dla brokera asystowaną pomocą rejestracji Jednokrotnej
-Dla aplikacji pod kątem wykorzystania brokera, wszelkie zainstalowanego na urządzeniu jest **domyślnie wyłączone**. Aby korzystać z aplikacji w brokera muszą nie dodatkowej konfiguracji i dodać kod do aplikacji.
+Witaj możliwość toouse aplikacji żadnych broker jest zainstalowana na urządzeniu hello jest **domyślnie wyłączone**. W celu toouse aplikacji z brokera hello należy wykonać pewne dodatkowe czynności konfiguracyjne i dodać niektórych aplikacji tooyour kodu.
 
-Wykonaj kroki są:
+Witaj toofollow kroki są następujące:
 
-1. Włącz tryb brokera w kodzie aplikacji wywołania MS SDK
-2. Ustanów nowy identyfikator URI przekierowania i zapewnić do rejestracji aplikacji i aplikacji
-3. Konfigurowanie odpowiednich uprawnień w manifestu systemu Android
+1. Włącz tryb brokera w kodzie aplikacji toohello wywołania MS SDK
+2. Ustanów nowy identyfikator URI przekierowania i podaj, aplikacja hello tooboth i rejestracji aplikacji
+3. Konfigurowanie hello odpowiednie uprawnienia w hello manifestu systemu Android
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>Krok 1: Włącz broker tryb w aplikacji
-Możliwość aplikacji pod kątem wykorzystania brokera jest włączona, podczas tworzenia "ustawienia" lub początkowej konfiguracji wystąpienia uwierzytelniania. Można to zrobić przez ustawienie danego typu ApplicationSettings w kodzie:
+Hello możliwości dla twojej aplikacji toouse hello broker jest włączona, podczas tworzenia powitania "ustawienia" lub początkowej konfiguracji wystąpienia uwierzytelniania. Można to zrobić przez ustawienie danego typu ApplicationSettings w kodzie:
 
 ```
 AuthenticationSettings.Instance.setUseBroker(true);
@@ -226,18 +226,18 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Krok 2: Ustanowić nowe przekierowania identyfikatorem URI ze schematem adresu URL
-Aby zapewnić, że firma Microsoft zawsze zwracają tokeny poświadczeń do właściwej aplikacji, musimy upewnij się, że firma Microsoft wywołania zwrotnego dla aplikacji w taki sposób, aby sprawdzić, systemu operacyjnego Android. System operacyjny Android używa skrót certyfikatu w sklepie Google Play. To nie może być sfałszowane przez nieautoryzowanej aplikacji. W związku z tym możemy wykorzystać to wraz z identyfikatora URI z naszej aplikacji brokera, aby upewnić się, że tokeny są zwracane do odpowiedniej aplikacji. Wymagane do nawiązania przekierowanie Unikatowy identyfikator URI zarówno w aplikacji i Ustaw jako identyfikator URI przekierowania w portalu deweloperów.
+Czy możemy zawsze zwracać poświadczeń hello tokeny właściwej aplikacji toohello tooensure kolejności potrzebujemy toomake się, że firma Microsoft wywołania zwrotnego, że tooyour aplikacji w taki sposób, aby hello systemu operacyjnego Android można sprawdzić. system operacyjny Android Hello używa hello skrót certyfikatu hello hello sklepu Google Play. To nie może być sfałszowane przez nieautoryzowanej aplikacji. W związku z tym możemy wykorzystać to wraz z hello URI naszych tooensure aplikacji brokera, że tokeny hello są zwracane toohello właściwej aplikacji. Wymagamy możesz tooestablish przekierowanie Unikatowy identyfikator URI, zarówno w aplikacji i Ustaw jako identyfikator URI przekierowania w portalu deweloperów.
 
-Identyfikator URI przekierowania musi być w postaci prawidłowego:
+Identyfikator URI przekierowania musi być w formie prawidłowego hello:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
 przykład: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-Ten identyfikator URI przekierowania trzeba określić za pomocą rejestracji aplikacji [portalu Azure](https://portal.azure.com/). Aby uzyskać więcej informacji dotyczących rejestracji aplikacji usługi Azure AD, zobacz [integracji z usługą Azure Active Directory](active-directory-how-to-integrate.md).
+Ten identyfikator URI przekierowania musi toobe określone w Twojej rejestracji aplikacji przy użyciu hello [portalu Azure](https://portal.azure.com/). Aby uzyskać więcej informacji dotyczących rejestracji aplikacji usługi Azure AD, zobacz [integracji z usługą Azure Active Directory](active-directory-how-to-integrate.md).
 
-#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Krok 3: Konfigurowanie odpowiednich uprawnień w aplikacji
-Broker aplikacji w systemie Android korzysta z funkcji Menedżera kont systemu operacyjnego Android do zarządzania poświadczeniami w aplikacjach. Aby można było używać brokera w systemie Android manifest aplikacji musi mieć uprawnienia do korzystania z kont elementu AccountManager. To jest omówiona szczegółowo w [Google dokumentację Menedżera kont w tym miejscu](http://developer.android.com/reference/android/accounts/AccountManager.html)
+#### <a name="step-3-set-up-hello-correct-permissions-in-your-application"></a>Krok 3: Konfigurowanie hello odpowiednie uprawnienia w aplikacji
+Broker aplikacji w systemie Android używa funkcji Menedżera kont hello hello system operacyjny Android toomanage poświadczeń w aplikacjach. W kolejności toouse hello brokera w systemie Android manifest aplikacji musi mieć uprawnienia toouse elementu AccountManager kont. To została omówiona szczegółowo w hello [Google dokumentację Menedżera kont w tym miejscu](http://developer.android.com/reference/android/accounts/AccountManager.html)
 
 W szczególności te uprawnienia są:
 
@@ -248,5 +248,5 @@ MANAGE_ACCOUNTS
 ```
 
 ### <a name="youve-configured-sso"></a>Skonfigurowaniu logowania jednokrotnego!
-Teraz Microsoft tożsamość SDK automatycznie zarówno udostępnianie poświadczeń w aplikacji i wywołać brokera, jeśli jest obecny na urządzeniu.
+Teraz hello zestaw SDK programu Microsoft Identity automatycznie zarówno udostępnianie poświadczeń w aplikacji i wywołać hello brokera, jeśli jest obecny na urządzeniu.
 

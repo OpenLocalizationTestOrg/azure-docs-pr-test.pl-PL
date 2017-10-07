@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie usług Azure Analysis Services przy użyciu programu SSDT | Microsoft Docs"
-description: "Dowiedz się, jak wdrożyć model tabelaryczny na serwerze usług Azure Analysis Services przy użyciu programu SSDT."
+title: "aaaDeploy tooAzure usług Analysis Services przy użyciu narzędzi SSDT | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toodeploy tooan modelu tabelarycznego Azure Analysis Services serwera za pomocą narzędzi SSDT."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,51 +15,51 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
-ms.openlocfilehash: e9a3aedfb6e55696e1525e226fada1062fd5eda8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e3f3771fe32a37b9e0173c274080c647152edd4c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Wdrażanie modelu w programie SSDT
-Po utworzeniu serwera w ramach subskrypcji platformy Azure wszystko jest gotowe do wdrożenia bazy danych modelu tabelarycznego. Program SSDT (SQL Server Data Tools) służy do tworzenia i wdrażania projektu modelu tabelarycznego, nad którymi pracujesz. 
+Po utworzeniu serwera w ramach subskrypcji platformy Azure, wszystko jest gotowe toodeploy tooit bazy danych modelu tabelarycznego. Można użyć programu SQL Server Data Tools (SSDT) toobuild i Wdróż projekt modelu tabelarycznego, nad którymi pracuje. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby rozpocząć pracę, potrzebne będą następujące elementy:
+Rozpoczęto tooget, potrzebne są:
 
-* **Serwer usług Analysis Services** na platformie Azure. Aby dowiedzieć się więcej, zobacz artykuł [Create an Azure Analysis Services server](analysis-services-create-server.md) (Tworzenie serwera usług Azure Analysis Services).
-* **Projekt modelu tabelarycznego** w programie SSDT lub istniejący model tabelaryczny na poziomie zgodności 1200 lub wyższym. Nie wiesz, jak go utworzyć? Spróbuj skorzystać z [samouczka sprzedaży modelowania tabelarycznego projektu Adventure Works Internet Sales](https://msdn.microsoft.com/library/hh231691.aspx).
-* **Brama lokalna** — jeśli co najmniej jedno źródło danych znajduje się w sieci organizacji, należy zainstalować [bramę danych lokalnych](analysis-services-gateway.md). Brama jest niezbędna, aby umożliwić serwerowi w chmurze łączenie się z lokalnymi źródłami danych w celu przetwarzania i odświeżania danych w modelu.
+* **Serwer usług Analysis Services** na platformie Azure. toolearn więcej, zobacz [Tworzenie serwera usług Azure Analysis Services](analysis-services-create-server.md).
+* **Projekt modelu tabelarycznego** SSDT lub istniejącego modelu tabelarycznego na powitania 1200 lub wyższym poziomie zgodności. Nie wiesz, jak go utworzyć? Spróbuj hello [samouczek sprzedaży modelowania tabelarycznym Adventure Works Internet](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Brama lokalna** — Jeśli co najmniej jedno źródło danych lokalnych w sieci organizacji, należy tooinstall [bramy danych lokalnych](analysis-services-gateway.md). Brama Hello jest niezbędne, tooyour danych źródeł tooprocess i odświeżania danych lokalnych w modelu hello połączenia z serwerem w chmurze hello.
 
 > [!TIP]
-> Przed jej wdrożeniem upewnij się, że można przetwarzać dane w tabelach. W programie SSDT kliknij opcje **Model** > **Przetwarzaj** > **Przetwarzaj wszystko**. Jeśli przetwarzanie zakończy się niepowodzeniem, wdrożenie nie jest możliwe.
+> Przed wdrożeniem, upewnij się, że można przetwarzać hello dane w tabelach. W programie SSDT kliknij opcje **Model** > **Przetwarzaj** > **Przetwarzaj wszystko**. Jeśli przetwarzanie zakończy się niepowodzeniem, wdrożenie nie jest możliwe.
 > 
 > 
 
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Aby wdrożyć model tabelaryczny w programie SSDT
+## <a name="toodeploy-a-tabular-model-from-ssdt"></a>toodeploy modelu tabelarycznego z narzędzi SSDT
 
-1. Przed wdrożeniem należy uzyskać nazwę serwera. Skopiuj nazwę serwera z **portalu Azure** > serwer > **Omówienie** > **Nazwa serwera**.
+1. Przed wdrożeniem, potrzebna jest nazwa serwera hello tooget. W **portalu Azure** > serwera > **omówienie** > **nazwy serwera**, nazwę serwera na powitania kopiowania.
    
     ![Pobieranie nazwy serwera z systemu Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. W programie SSDT > **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt > **Właściwości**. Następnie w obszarze **Wdrożenie** > **Serwer** wklej nazwę serwera.   
+2. Programu SSDT > **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt hello > **właściwości**. Następnie w **wdrożenia** > **serwera** Wklej hello nazwy serwera.   
    
     ![Wklejanie nazwy serwera we właściwościach serwera wdrażania](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy **Właściwości**, a następnie kliknij przycisk **Wdróż**. Może zostać wyświetlony monit o zalogowanie się do platformy Azure.
+3. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy **Właściwości**, a następnie kliknij przycisk **Wdróż**. Zostanie wyświetlony monit o toosign w tooAzure może być.
    
-    ![Wdrażanie na serwerze](./media/analysis-services-deploy/aas-deploy-deploy.png)
+    ![Wdrażanie tooserver](./media/analysis-services-deploy/aas-deploy-deploy.png)
    
-    Stan wdrożenia pojawia się w oknie danych wyjściowych i oknie wdrażania.
+    Stan wdrożenia pojawia się w oknie danych wyjściowych zarówno hello i wdrażania.
    
     ![Stan wdrożenia](./media/analysis-services-deploy/aas-deploy-status.png)
 
-To wszystko!
+To wszystko jest tooit!
 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-Jeśli wdrożenie zakończy się niepowodzeniem podczas wdrażania metadanych, prawdopodobną przyczyną jest brak połączenia programu SSDT z serwerem. Upewnij się, że możesz połączyć się z serwerem przy użyciu programu SSMS. Upewnij się, że właściwość serwera wdrażania dla projektu jest poprawna.
+Jeśli wdrożenie zakończy się niepowodzeniem, wdrażając metadanych, prawdopodobnie ponieważ SSDT nie może nawiązać połączenia tooyour serwera. Upewnij się, że możesz połączyć tooyour serwera przy użyciu narzędzia SSMS. Upewnij się, że hello właściwość serwera wdrażania projektu hello jest poprawna.
 
-Jeśli wdrożenie zakończy się niepowodzeniem dla tabeli, prawdopodobnie serwer nie mógł nawiązać połączenia ze źródłem danych. Jeśli źródło danych znajduje się w lokalnej sieci organizacji, należy zainstalować [bramę danych lokalnych](analysis-services-gateway.md).
+Jeśli wdrożenie zakończy się niepowodzeniem dla tabeli, prawdopodobnie ponieważ serwer nie może nawiązać połączenia tooa źródła danych. Jeśli źródło danych jest lokalnie w sieci organizacji, należy się tooinstall [bramy danych lokalnych](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Po wdrożeniu modelu tabelarycznego na serwerze możesz się z nim połączyć. W celu zarządzania modelem możesz [połączyć się przy użyciu programu SSMS](analysis-services-manage.md). Możesz również [nawiązać połączenie za pomocą narzędzia klienta](analysis-services-connect.md), takiego jak usługi Power BI, Power BI Desktop lub program Excel, i rozpocząć tworzenie raportów.
+Teraz, gdy masz serwer tooyour wdrożonym modelu tabelarycznego wszystko jest gotowe tooconnect tooit. Możesz [tooit Uzyskuj dostęp do narzędzia SSMS](analysis-services-manage.md) toomanage go. I będzie możliwe [połączyć za pomocą narzędzia klienta tooit](analysis-services-connect.md) , takie jak usługi Power BI, Power BI Desktop lub programu Excel i rozpoczęcia tworzenia raportów.
 

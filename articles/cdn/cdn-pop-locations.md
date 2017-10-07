@@ -1,5 +1,5 @@
 ---
-title: "Lokalizacje POP usługi Azure CDN | Dokumentacja firmy Microsoft"
+title: aaaAzure lokalizacje POP CDN | Dokumentacja firmy Microsoft
 description: "W tym temacie wymieniono lokalizacje punktu z obecności Azure CDN."
 services: cdn
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7c13931aa6d17036e59674cdd917e3ca221ac57f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f10afb12c168aa610f996f1e49b0ef133f2236a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Lokalizacje POP usługi Azure CDN
 W tym temacie wymieniono bieżącej lokalizacji POP **Azure CDN from Verizon** i **Azure CDN from Akamai**.
@@ -26,7 +26,7 @@ W tym temacie wymieniono bieżącej lokalizacji POP **Azure CDN from Verizon** i
 > [!IMPORTANT]
 > \***Azure CDN from Akamai** lokalizacje POP nie są indywidualnie ujawnione.  
 > 
-> Zarówno dostawców ma różne sposoby tworzenia infrastruktury sieci CDN.  Firma Microsoft zaleca się przy użyciu lokalizacji POP podjęcie decyzji, które produktu Azure CDN do użycia, a zamiast tego należy wziąć pod uwagę funkcje i wydajność użytkownika końcowego.  Testowanie wydajności z obu dostawcami, aby wybrać odpowiedniego produktu Azure CDN dla użytkowników. 
+> Zarówno dostawców ma różne sposoby tworzenia infrastruktury sieci CDN.  Zaleca się przed potencjalnym użyciem toodecide lokalizacje POP, które toouse produktu Azure CDN i zamiast tego należy wziąć pod uwagę funkcje i wydajność użytkownika końcowego.  Przetestuj wydajność hello z obu dostawców toochoose hello prawo produktu Azure CDN dla użytkowników. 
 > 
 > 
 
@@ -44,5 +44,5 @@ W tym temacie wymieniono bieżącej lokalizacji POP **Azure CDN from Verizon** i
 | Australia i Nowa Zelandia |Melbourne, Australia<br />Sydney, Australia |**& #x 2713;**\* |
 
 ## <a name="see-also"></a>Zobacz też
-* [Usługi Azure CDN krawędzi węzłów API można pobrać najnowsze adresów IP dla listę dozwolonych podobnej](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
+* [Azure CDN krawędzi węzłów API tooget najnowsze adresów IP listę dozwolonych podobnej](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
 

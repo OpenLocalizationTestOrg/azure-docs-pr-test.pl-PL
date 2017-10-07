@@ -1,6 +1,6 @@
 ---
-title: "Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory | Microsoft Docs"
-description: "Wyjaśnia, jak dodać użytkowników lub zmienić informacje o użytkowniku w usłudze Azure Active Directory, w tym gości i użytkowników zewnętrznych."
+title: "aaaAdd użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Wyjaśniono, jak użytkownicy tooadd lub zmienić informacje o użytkowniku w usłudze Azure Active Directory, w tym gości i użytkowników zewnętrznych."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,66 +16,66 @@ ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 92099e5792365c307b0f3d4f2dff5dd8424aeab4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory
 
-W tym artykule opisano sposób dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i użytkowników, którzy mają konta Microsoft, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md). 
+W tym artykule opisano sposób tooadd użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i dodawanie użytkowników, którzy mają konta Microsoft, zobacz [Dodaj nowe tooAzure użytkowników usługi Active Directory](active-directory-create-users.md). 
 
 > [!IMPORTANT]
-> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule. Aby dowiedzieć się, jak dodać użytkowników gości współpracy B2B w centrum administracyjnym usługi Azure AD, zobacz [Czym jest współpraca B2B w usłudze Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
+> Firma Microsoft zaleca się, że zarządzania usługi Azure AD przy użyciu hello [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w hello portalu Azure zamiast hello klasycznego portalu Azure, do którego odwołuje się w tym artykule. Jak Centrum gości współpracy tooadd B2B w usłudze Azure AD Witaj, Administratorze dla [co to jest współpraca B2B usługi Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
+Dodano użytkownicy nie mają uprawnień administratora domyślnie, ale można przypisać toothem role w dowolnym momencie.
 
 ## <a name="add-a-user"></a>Dodawanie użytkownika
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
+1. Zaloguj się toohello [klasycznego portalu Azure](https://manage.windowsazure.com) przy użyciu konta, które jest administratorem globalnym katalogu hello.
 2. Wybierz usługę **Active Directory**, a następnie otwórz swój katalog.
-3. Wybierz kartę **Użytkownicy**, a następnie na pasku poleceń wybierz polecenie **Dodaj użytkownika**.
-4. Na stronie **Poinformuj nas o tym użytkowniku** w obszarze **Typ użytkownika** wybierz jedną z następujących opcji:
+3. Wybierz hello **użytkowników** , a następnie na pasku poleceń hello, wybierz **Dodaj użytkownika**.
+4. Na powitania **Poinformuj nas o tym użytkowniku** w obszarze **typ użytkownika**, wybierz opcję:
 
-   * **Użytkownik w innym katalogu usługi Azure AD** — dodaje do katalogu konto użytkownika, które pochodzi z innego katalogu usługi Azure AD. Możesz wybrać użytkownika w innym katalogu tylko wtedy, gdy również jesteś członkiem tego katalogu.
-   * **Użytkownicy w firmach partnerskich** — aby zaprosić użytkowników firm partnerskich i autoryzować ich do katalogu (zobacz [Współpraca w usłudze Azure Active Directory B2B](active-directory-b2b-what-is-azure-ad-b2b.md)). Konieczne będzie [przekazanie pliku CSV zawierającego adresy e-mail](active-directory-b2b-references-csv-file-format.md).
-5. Na stronie **Profil** użytkownika podaj imię i nazwisko, nazwę przyjazną użytkownikowi i rolę użytkownika z listy **Role**. Aby uzyskać więcej informacji dotyczących ról użytkowników i administratorów, zobacz [Przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles.md). Określ, czy **włączyć usługę Multi-Factor Authentication** dla użytkownika.
-6. Na stronie **Uzyskaj hasło tymczasowe** wybierz opcję **Utwórz**.
+   * **Użytkownik w innym katalogu usługi Azure AD** — dodaje katalogu tooyour konta użytkownika, które pochodzi z innego katalogu usługi Azure AD. Możesz wybrać użytkownika w innym katalogu tylko wtedy, gdy również jesteś członkiem tego katalogu.
+   * **Użytkownicy w firmach partnerskich** -tooinvite i autoryzowania partnera firmy użytkownicy tooyour katalogu (zobacz [współpracy usługi Azure Active Directory B2B](active-directory-b2b-what-is-azure-ad-b2b.md)). Będziesz potrzebować zbyt[przekazanie pliku CSV zawierającego adresy e-mail](active-directory-b2b-references-csv-file-format.md).
+5. Na użytkownika hello **profilu** Podaj imię i nazwisko, nazwę przyjazną użytkownikowi i rolę użytkownika z hello **ról** listy. Aby uzyskać więcej informacji dotyczących ról użytkowników i administratorów, zobacz [Przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles.md). Określ, czy za**Włączanie uwierzytelniania wieloskładnikowego** hello użytkownika.
+6. Na powitania **Uzyskaj hasło tymczasowe** wybierz pozycję **Utwórz**.
 
 > [!IMPORTANT]
-> Jeśli Twoja organizacja korzysta z więcej niż jednej domeny, podczas dodawania konta użytkownika musisz wiedzieć o następujących kwestiach:
+> Jeśli Twoja organizacja korzysta z więcej niż jedną domenę, musisz wiedzieć o hello następujące problemy podczas dodawania konta użytkownika:
 >
-> * Aby dodać konta użytkowników z tą samą główną nazwą użytkownika (UPN) między domenami, **najpierw** dodaj np. adres geoffgrisso@contoso.onmicrosoft.com, **a następnie** geoffgrisso@contoso.com.
+> * tooadd kont użytkowników z hello tego samego główna nazwa użytkownika (UPN) między domenami, **pierwszy** dodać, na przykład geoffgrisso@contoso.onmicrosoft.com, **następuje** geoffgrisso@contoso.com.
 > * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com.
 >
 
-Jeśli wprowadzasz zmiany w informacjach dla użytkownika, którego tożsamość jest zsynchronizowana z lokalną usługą Active Directory, nie możesz wprowadzać zmian w informacjach o użytkowniku w klasycznym portalu Azure. Aby zmienić informacje o użytkowniku, użyj narzędzi zarządzania lokalnej usługi Active Directory.
+Jeśli zmienisz informacje dla użytkownika, którego tożsamość jest zsynchronizowana z lokalnej usługi Active Directory, nie można zmienić informacje o użytkowniku hello w hello klasycznego portalu Azure. toochange hello informacje o użytkowniku, użyj narzędzi zarządzania lokalnej usługi Active Directory.
 
 ## <a name="add-external-users"></a>Dodawanie użytkowników zewnętrznych
-Przekazując plik CSV, możesz również dodać użytkowników z innego katalogu usługi Azure AD, do którego należysz, lub z firm partnerskich. Aby dodać użytkownika zewnętrznego, dla opcji **Typ użytkownika** określ, czy jest to **Użytkownik w innym katalogu usługi Microsoft Azure AD**, czy **Użytkownicy w firmach partnerskich**.
+Możesz również dodać użytkowników z innej toowhich katalogu usługi Azure AD, której należysz, lub z firm partnerskich poprzez przekazanie pliku CSV. tooadd użytkownika zewnętrznego, dla **typ użytkownika**, określ **użytkownik w innym katalogu usługi Microsoft Azure AD** lub **użytkownicy w firmach partnerskich**.
 
-Użytkownicy obu typów pochodzą z innego katalogu i są dodawani jako **użytkownicy zewnętrzni**. Użytkownicy zewnętrzni mogą współpracować z innymi użytkownikami w katalogu bez konieczności dodawania nowych kont i poświadczeń. Użytkownicy zewnętrzni są uwierzytelniani za pomocą własnego katalogu macierzystego podczas rejestracji, a uwierzytelnianie działa w przypadku innych katalogów, do których zostali dodani.
+Użytkownicy obu typów pochodzą z innego katalogu i są dodawani jako **użytkownicy zewnętrzni**. Użytkownicy zewnętrzni mogą współpracować z innymi użytkownikami w katalogu bez żadnych wymagań tooadd nowych kont i poświadczeń. Użytkownicy zewnętrzni są uwierzytelniani z katalogu macierzystego podczas rejestracji, a uwierzytelnianie działa w przypadku innych toowhich katalogi, które zostały dodane.
 
 ## <a name="external-user-management-and-limitations"></a>Zarządzanie użytkownikami zewnętrznymi i ograniczenia
-Gdy dodajesz do swojego katalogu użytkownika z innego katalogu, użytkownik ten jest użytkownikiem zewnętrznym w Twoim katalogu. Nazwa wyświetlana i nazwa użytkownika są kopiowane z katalogu macierzystego tego użytkownika i są używane dla użytkownika zewnętrznego w Twoim katalogu. Od tego momentu właściwości konta użytkownika zewnętrznego są całkowicie niezależne. Zmiany wprowadzone we właściwościach użytkownika w jego katalogu macierzystym nie są przenoszone do konta użytkownika zewnętrznego w Twoim katalogu.
+Podczas dodawania użytkownika z innego katalogu tooyour katalogu, ten użytkownik jest użytkownika zewnętrznego w Twoim katalogu. Witaj, nazwa wyświetlana i nazwa użytkownika są kopiowane z katalogu macierzystego i używane do hello użytkownika zewnętrznego w Twoim katalogu. Następnie właściwości hello konta użytkownika zewnętrznego są całkowicie niezależne. Jeśli właściwość zmian toohello użytkownika w katalogu macierzystego, zmiany te nie są przenoszone toohello konta użytkownika zewnętrznego w Twoim katalogu.
 
-Jedyne połączenie dwóch kont polega na tym, że użytkownik zawsze jest uwierzytelniany względem swojego katalogu macierzystego lub przy użyciu konta Microsoft. Dlatego nie jest widoczna opcja resetowania hasła lub włączania uwierzytelniania wieloskładnikowego dla użytkownika zewnętrznego. Obecnie zasada uwierzytelniania katalogu macierzystego lub konta Microsoft polega na tym, że tylko jedno z nich jest oceniane w czasie logowania użytkownika.
+jedyne połączenie dwóch kont hello Hello jest ten użytkownik hello zawsze jest uwierzytelniany względem swojego katalogu macierzystego lub za pomocą swojego konta Microsoft. Dlatego nie zobacz opcję tooreset hello hasła lub Włącz uwierzytelnianie wieloskładnikowe dla użytkowników zewnętrznych. Zasady uwierzytelniania hello hello katalogu macierzystego lub konta Microsoft jest obecnie hello tylko jeden, której wartość jest szacowana po zalogowaniu użytkownika hello.
 
 > [!NOTE]
-> Wciąż możesz zablokować użytkownika zewnętrznego w katalogu, co powoduje zablokowanie dostępu do katalogu.
+> Wciąż możesz zablokować użytkownika zewnętrznego hello w katalogu hello, która blokuje dostęp do katalogu tooyour.
 >
 >
 
-Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje konto Microsoft, użytkownik zewnętrzny będzie nadal istnieć w Twoim katalogu. Jednak użytkownik w Twoim katalogu nie będzie mieć dostępu do zasobów, ponieważ nie będzie mógł uwierzytelnić się przy użyciu katalogu macierzystego ani konta Microsoft.
+Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje konta Microsoft, użytkownik zewnętrzny hello nadal istnieje w katalogu. Jednak hello użytkownika w katalogu nie dostępu do zasobów, ponieważ nie będzie mógł uwierzytelnić przy użyciu katalogu macierzystego ani konta Microsoft.
 
 ### <a name="services-that-currently-support-access-by-azure-ad-external-users"></a>Usługi obsługujące obecnie dostęp dla użytkowników zewnętrznych usługi Azure AD
-* **Klasyczny portal Azure**: umożliwia użytkownikowi zewnętrznemu, który jest administratorem wielu katalogów, zarządzanie każdym z nich.
-* **SharePoint Online**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów usługi SharePoint Online, jeśli udostępnianie zewnętrzne jest włączone.
-* **Dynamics CRM**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów programu Dynamics CRM, jeśli użytkownik ma licencję za pośrednictwem programu PowerShell.
-* **Dynamics AX**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów programu Dynamics AX, jeśli użytkownik ma licencję za pośrednictwem programu PowerShell. Ograniczenia dotyczące [użytkowników zewnętrznych usługi Azure AD](#known-limitations-of-azure-ad-external-users) mają również zastosowanie w przypadku użytkowników zewnętrznych programu Dynamics AX.
+* **Klasyczny portal Azure**: umożliwia użytkownikowi zewnętrznemu, który jest administratorem wielu katalogów toomanage każdego z nich.
+* **Usługi SharePoint Online**: Jeśli udostępnianie zewnętrzne jest włączone, umożliwia tooaccess użytkowników zewnętrznych zasobów usługi SharePoint Online autoryzacji.
+* **Dynamics CRM**: Jeśli hello użytkownik ma licencję za pomocą programu PowerShell, umożliwia użytkownikowi zewnętrznemu tooaccess autoryzowanych zasobów programu Dynamics CRM.
+* **Dynamics AX**: Jeśli hello użytkownik ma licencję za pomocą programu PowerShell, umożliwia użytkownikowi zewnętrznemu tooaccess autoryzowanych zasobów programu Dynamics AX. Witaj ograniczenia dotyczące [użytkowników zewnętrznych usługi Azure AD](#known-limitations-of-azure-ad-external-users) użytkowników o tooexternal programu Dynamics AX również zastosować.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md)
+* [Dodaj nowy tooAzure użytkowników usługi Active Directory](active-directory-create-users.md)
 * [Administrowanie usługą Azure AD](active-directory-administer.md)
 * [Zarządzanie hasłami w usłudze Azure AD](active-directory-manage-passwords.md)
 * [Zarządzanie grupami w usłudze Azure AD](active-directory-manage-groups.md)

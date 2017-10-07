@@ -1,6 +1,6 @@
 ---
 title: "Usługi Azure Active Directory B2C: Tokeny dostępu żądanie | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano jak Instalator aplikacji klienckiej i uzyskać token dostępu."
+description: "W tym artykule opisano, jak toosetup aplikacji klienckiej i uzyskać token dostępu."
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: parakhj
-ms.openlocfilehash: 4b361a8e69f885d5b89ac9b2086e2731ee4d8b48
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 410639424fd4e5119a5d58751dfdb6e8957fd100
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Usługa Azure AD B2C: Żądanie tokeny dostępu
 
-Token dostępu (oznaczonego jako **dostępu\_tokenu** w odpowiedzi z usługi Azure AD B2C) jest formą tokenów zabezpieczających klienta umożliwiają dostęp do zasobów, które są zabezpieczone przez [serwera autoryzacji](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), np. interfejsu API sieci web. Tokeny dostępu są reprezentowane jako [Jwt](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) i zawierają informacje dotyczące serwera danego zasobu i przyznanych uprawnień na serwerze. Podczas wywoływania metody serwer zasobów, token dostępu musi być obecny w żądaniu HTTP.
+Token dostępu (oznaczonego jako **dostępu\_tokenu** w hello odpowiedzi z usługi Azure AD B2C) jest formą token zabezpieczający, który klient może używać tooaccess zasoby, które są zabezpieczone przez [serwera autoryzacji](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), np. interfejsu API sieci web. Tokeny dostępu są reprezentowane jako [Jwt](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) i zawierają informacje o serwerze danego zasobu hello i hello uprawnienia nadanego toohello. Podczas wywoływania metody hello zasobów serwera, token dostępu hello musi być obecny w żądaniu HTTP hello.
 
-W tym artykule opisano sposób konfigurowania aplikacji klienckiej i interfejs API sieci web w celu uzyskania **dostępu\_tokenu**.
+W tym artykule opisano, jak tooconfigure aplikacji klienckiej i interfejs API sieci web w kolejności tooobtain **dostępu\_tokenu**.
 
 > [!NOTE]
 > **Łańcuchy interfejsu API w sieci Web (w imieniu-z) nie jest obsługiwana przez usługę Azure AD B2C.**
 >
-> Wiele architektur obejmują składnika web API, który musi wywołać inny podrzędny interfejs API sieci web, zarówno zabezpieczonej przez usługi Azure AD B2C. Ten scenariusz jest często używane w klientach natywnych, którzy mają interfejsu API sieci web zaplecze, która z kolei wywołuje usługi online firmy Microsoft, takich jak Azure AD Graph API.
+> Wiele architektur obejmują składnika web API, który wymaga toocall inny podrzędny interfejs API sieci web, zarówno zabezpieczonej przez usługi Azure AD B2C. Ten scenariusz jest często używane w klientach natywnych, którzy mają interfejsu API sieci web zaplecze, która z kolei wywołuje usługi online firmy Microsoft, takich jak hello Azure AD Graph API.
 >
-> Ten scenariusz łańcuchowa interfejsu API sieci web mogą być obsługiwane przez przy użyciu przyznania poświadczeń elementu nośnego JWT 2.0, znanej także jako przepływ w imieniu-z. Jednak przepływ w imieniu — z nie jest obecnie zaimplementowana w usłudze Azure AD B2C.
+> Ten scenariusz łańcuchowa interfejsu API sieci web mogą być obsługiwane przez przy użyciu przyznania poświadczeń elementu nośnego JWT 2.0, w przeciwnym razie hello znany jako hello imieniu-przepływ "w". Jednak hello imieniu-przepływ "w" nie jest obecnie zaimplementowana w usłudze Azure AD B2C.
 
 ## <a name="register-a-web-api-and-publish-permissions"></a>Zarejestruj interfejsu API sieci web i uprawnienia do publikowania
 
-Przed wysłaniem żądania tokenu dostępu, należy najpierw zarejestrować interfejsu API sieci web i publikowanie uprawnienia (zakresy), które może zostać przydzielony do aplikacji klienckiej.
+Przed wysłaniem żądania tokenu dostępu, najpierw należy tooregister interfejsu API sieci web i publikowania uprawnienia (zakresy), które może zostać przydzielony toohello aplikacji klienckiej.
 
 ### <a name="register-a-web-api"></a>Rejestrowanie internetowego interfejsu API
 
-1. W bloku funkcji B2C w witrynie Azure Portal kliknij pozycję **Aplikacje**.
-1. Kliknij pozycję **+Dodaj** w górnej części bloku.
-1. Wprowadź wartość **Nazwa**, która będzie opisywać aplikację na potrzeby klientów. Na przykład można wprowadzić "Interfejsu API firmy Contoso".
-1. Przestaw przełącznik **Uwzględnij aplikację sieci Web/interfejs API sieci Web** na wartość **Tak**.
-1. Należy wprowadzić dowolną wartość dla **adresy URL odpowiedzi**. Na przykład wprowadź wartość `https://localhost:44316/`. Wartość nie ma znaczenia, ponieważ interfejs API powinni nie otrzymywać token bezpośrednio z usługi Azure AD B2C.
-1. Wprowadź **identyfikator URI aplikacji**. Jest to identyfikator używany na potrzeby interfejsu API sieci Web. Na przykład wprowadź "informacje" w polu. **Identyfikator URI aplikacji** będzie wówczas `https://{tenantName}.onmicrosoft.com/notes`.
-1. Kliknij pozycję **Utwórz**, aby zarejestrować aplikację.
-1. Kliknij nowo utworzoną aplikację i skopiuj globalnie unikatowy **identyfikator klienta aplikacji**, który będzie używany w dalszej części kodu.
+1. W bloku funkcji hello B2C na powitania portalu Azure, kliknij polecenie **aplikacji**.
+1. Kliknij przycisk **+ Dodaj** u góry bloku hello hello.
+1. Wprowadź **nazwa** dla aplikacji hello, która będzie opisywać tooconsumers Twojej aplikacji. Na przykład można wprowadzić "Interfejsu API firmy Contoso".
+1. Przełącz hello **Uwzględnij aplikację sieci web / interfejs API sieci web** przełącznika zbyt**tak**.
+1. Należy wprowadzić dowolną wartość hello **adresy URL odpowiedzi**. Na przykład wprowadź wartość `https://localhost:44316/`. wartość Hello nie ma znaczenia, ponieważ interfejs API powinni nie otrzymywać hello token bezpośrednio z usługi Azure AD B2C.
+1. Wprowadź **identyfikator URI aplikacji**. Jest to identyfikator hello używany dla interfejsu API sieci web. Na przykład wprowadź "informacje" w polu hello. Witaj **identyfikator URI aplikacji** będzie wówczas `https://{tenantName}.onmicrosoft.com/notes`.
+1. Kliknij przycisk **Utwórz** tooregister aplikacji.
+1. Kliknij nowo utworzoną aplikację hello i skopiuj globalnie unikatowy hello **identyfikator klienta aplikacji** który będzie potrzebny później w kodzie.
 
 ### <a name="publishing-permissions"></a>Uprawnienia publikowania
 
-Zakresy, które są odpowiednikiem uprawnienia, jest konieczne, gdy aplikacja jest wywoływanie interfejsu API. Przykłady zakresy są "do odczytu" lub "write". Załóżmy, że chcesz sieci web lub aplikacji natywnej "odczytać" z interfejsem API. Aplikacji spowoduje wywołanie usługi Azure AD B2C i żądania tokenu dostępu, która zapewnia dostęp do zakresu "Odczyt". Dla usługi Azure AD B2C emitować tokenu dostępu, aplikacja musi mieć uprawnienie "odczytać" z interfejsu API. Aby to zrobić, interfejsu API musi najpierw opublikować zakresu "Przeczytaj".
+Zakresy, które są analogiczne toopermissions, jest konieczne, gdy aplikacja jest wywoływanie interfejsu API. Przykłady zakresy są "do odczytu" lub "write". Załóżmy, że chcesz sieci web lub aplikacji natywnej zbyt "Przeczytaj" z interfejsu API. Aplikacja spowodowałoby wywołanie usługi Azure AD B2C i żądania tokenu dostępu, który daje zakresu toohello dostępu "Odczyt". Dla usługi Azure AD B2C tooemit tokenu dostępu, aplikacja hello potrzebuje toobe przyznane uprawnienia za "odczytywać" hello interfejsu API. toodo, najpierw wymagany zakres "Przeczytaj" hello toopublish interfejsu API.
 
-1. W ramach usługi Azure AD B2C **aplikacji** bloku, Otwórz interfejs API sieci web aplikacji ("interfejsu API firmy Contoso").
-1. Kliknij pozycję **Opublikowane zakresy**. Jest to miejsce, w którym można zdefiniować uprawnienia (zakresy), które mogą być udzielone innym aplikacjom.
-1. Dodaj **wartości zakresu** niezbędne (na przykład "do odczytu"). Domyślnie zostanie zdefiniowany zakres „user_impersonation”. W razie potrzeby można zignorować to. Wprowadź opis zakresu w **nazwa zakresu** kolumny.
+1. W ramach usługi Azure AD B2C hello **aplikacji** bloku, otwórz hello sieci web aplikacji interfejsu API ("interfejsu API firmy Contoso").
+1. Kliknij pozycję **Opublikowane zakresy**. Jest to, gdzie definiowanie uprawnień hello (zakresy), które mogą być przyznane tooother aplikacji.
+1. Dodaj **wartości zakresu** niezbędne (na przykład "do odczytu"). Domyślnie zakresu "user_impersonation" hello zostaną określone. W razie potrzeby można zignorować to. Wprowadź opis zakresu hello w hello **nazwa zakresu** kolumny.
 1. Kliknij pozycję **Zapisz**.
 
 > [!IMPORTANT]
-> **Nazwa zakresu** opis **wartość zakresu**. Korzystając z zakresu, upewnij się, że użyj **wartość zakresu**.
+> Witaj **nazwa zakresu** hello opis hello **wartość zakresu**. Podczas przy użyciu zakresu hello, upewnij się, że hello toouse **wartość zakresu**.
 
-## <a name="grant-a-native-or-web-app-permissions-to-a-web-api"></a>Udziel natywny lub sieci web aplikacji uprawnienia do interfejsu API sieci web
+## <a name="grant-a-native-or-web-app-permissions-tooa-web-api"></a>Udziel natywny lub interfejs API sieci web tooa od uprawnień w aplikacji sieci web
 
-Interfejs API skonfigurowane do publikowania zakresy aplikacja kliencka musi otrzymać tych zakresów za pośrednictwem portalu Azure.
+Interfejsu API po skonfigurowanym toopublish zakresy powitania klienta aplikacji musi toobe przyznane tych zakresów za pośrednictwem hello portalu Azure.
 
-1. Przejdź do **aplikacji** menu w bloku funkcji B2C.
-1. Zarejestrować aplikację klienta ([aplikacji sieci web](active-directory-b2c-app-registration.md#register-a-web-app) lub [klientami](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) Jeśli nie masz już. Jeśli wykonujesz w tym przewodniku jako punktu początkowego, musisz zarejestrować aplikację klienta.
+1. Przejdź toohello **aplikacji** w bloku funkcji hello B2C menu.
+1. Zarejestrować aplikację klienta ([aplikacji sieci web](active-directory-b2c-app-registration.md#register-a-web-app) lub [klientami](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) Jeśli nie masz już. Jeśli wykonujesz w tym przewodniku jako punktu początkowego, potrzebujesz tooregister aplikacji klienckiej.
 1. Polecenie **dostępu do interfejsu API**.
 1. Kliknij pozycję **Dodaj**.
-1. Wybierz interfejs API sieci web i chcesz udzielić zakresów (uprawnień).
+1. Wybierz zakresach hello i interfejs API sieci web (uprawnień), które chcesz toogrant.
 1. Kliknij przycisk **OK**.
 
 > [!NOTE]
-> Usługa Azure AD B2C nie Poproś klienta aplikacji użytkowników o ich zgodę. Zamiast tego wszystkie zgody są udostępniane przez administratora, na podstawie uprawnień skonfigurowanych od aplikacje opisane powyżej. Po odebraniu Udziel uprawnień dla aplikacji, wszyscy użytkownicy, którzy wcześniej mogli uzyskać te uprawnienia nie będzie w tym celu.
+> Usługa Azure AD B2C nie Poproś klienta aplikacji użytkowników o ich zgodę. Zamiast tego wszystkie zgody są udostępniane przez Witaj, Administratorze, na podstawie uprawnień hello skonfigurowane między aplikacjami hello opisane powyżej. Po odebraniu Udziel uprawnień dla aplikacji, wszyscy użytkownicy, którzy zostały wcześniej stanie tooacquire te uprawnienia nie będzie tak się stanie toodo.
 
 ## <a name="requesting-a-token"></a>Żądania tokenu
 
-Podczas żądania tokenu dostępu, aplikacja kliencka musi określać odpowiednie uprawnienia w **zakres** parametr żądania. Na przykład, aby określić **wartość zakresu** "Przeczytaj" dla interfejsu API, który ma **identyfikator URI aplikacji** z `https://contoso.onmicrosoft.com/notes`, zakres będzie `https://contoso.onmicrosoft.com/notes/read`. Poniżej przedstawiono przykładowy kod żądania autoryzacji do `/authorize` punktu końcowego.
+Podczas żądania tokenu dostępu, powitania klienta aplikacji wymaga uprawnień hello potrzeby toospecify w hello **zakres** parametr hello żądania. Na przykład toospecify hello **wartość zakresu** "Przeczytaj" hello interfejsu API, który ma hello **identyfikator URI aplikacji** z `https://contoso.onmicrosoft.com/notes`, będzie zakresu hello `https://contoso.onmicrosoft.com/notes/read`. Poniżej przedstawiono przykładowy toohello żądania kodu autoryzacji `/authorize` punktu końcowego.
 
 > [!NOTE]
-> Obecnie domen niestandardowych nie są obsługiwane razem z tokenów dostępu. Należy użyć domeny tenantName.onmicrosoft.com w adresie URL żądania.
+> Obecnie domen niestandardowych nie są obsługiwane razem z tokenów dostępu. Należy użyć domeny tenantName.onmicrosoft.com w adresie URL żądania hello.
 
 ```
 https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
-Uzyskanie wiele uprawnień w jednym żądaniu, można dodać wiele wpisów w pojedynczej **zakres** parametru rozdzielone spacjami. Na przykład:
+tooacquire wiele uprawnień w hello same żądania, można dodać wiele wpisów w jednym hello **zakres** parametru rozdzielone spacjami. Na przykład:
 
 Adres URL zdekodować:
 
@@ -99,33 +99,33 @@ Zakodowane w adresie URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_access
 ```
 
-Dla zasobów niż co otrzymuje aplikacji klienta, aby zażądać więcej zakresów (uprawnień). W przypadku wywołania powiedzie się, jeśli co najmniej jednego uprawnienia. Powstałe w ten sposób **dostępu\_tokenu** będą miały swoje roszczenie "punkt połączenia usługi" wypełniane przy użyciu uprawnień, które pomyślnie zostały przyznane.
+Dla zasobów niż co otrzymuje aplikacji klienta, aby zażądać więcej zakresów (uprawnień). W takim przypadku hello, wywołanie hello powiedzie się, jeśli co najmniej jednego uprawnienia. Wynikowa Hello **dostępu\_tokenu** będzie mieć jego oświadczenia "punkt połączenia usługi" wypełniane przy użyciu tylko hello uprawnienia, które pomyślnie zostały przyznane.
 
 > [!NOTE] 
-> Żądania uprawnień w odniesieniu do dwóch zasobów innej witryny sieci web w jednym żądaniu nie jest obsługiwana. Tego rodzaju żądanie zakończy się niepowodzeniem.
+> Żądania uprawnień w odniesieniu do dwóch zasobów innej witryny sieci web nie jest obsługiwana w hello jednym żądaniu. Tego rodzaju żądanie zakończy się niepowodzeniem.
 
 ### <a name="special-cases"></a>Specjalne przypadki
 
-Standard OpenID Connect określa kilka wartości specjalne 'scope'. Następujące zakresy specjalne reprezentują uprawnienia do "dostępu do profilu użytkownika":
+Witaj OpenID Connect standardowe określa kilka wartości specjalne 'scope'. Witaj, następujące zakresy specjalne reprezentują hello uprawnienia za "dostępu do profilu użytkownika hello":
 
 * **openid**: żąda identyfikator tokenu
 * **w trybie offline\_dostępu**: żąda token odświeżania (przy użyciu [przepływu kodu autoryzacji](active-directory-b2c-reference-oauth-code.md)).
 
-Jeśli `response_type` parametru w `/authorize` żądanie zawiera `token`, `scope` parametr musi zawierać co najmniej jeden zasób zakres (inne niż `openid` i `offline_access`) który zostaną przyznane. W przeciwnym razie `/authorize` żądanie zakończy się niepowodzeniem.
+Jeśli hello `response_type` parametru w `/authorize` żądanie zawiera `token`, hello `scope` parametr musi zawierać co najmniej jeden zasób zakres (inne niż `openid` i `offline_access`) który zostaną przyznane. W przeciwnym razie hello `/authorize` żądanie zakończy się niepowodzeniem.
 
-## <a name="the-returned-token"></a>Zwrócony tokenu
+## <a name="hello-returned-token"></a>Witaj zwrócił token
 
-W pomyślnie minted **dostępu\_tokenu** (przy użyciu dowolnego `/authorize` lub `/token` punktu końcowego), poniższe oświadczenia będą znajdować się:
+W pomyślnie minted **dostępu\_tokenu** (z obu hello `/authorize` lub `/token` punktu końcowego), poniższe hello oświadczenia będą znajdować się:
 
 | Nazwa | Claim | Opis |
 | --- | --- | --- |
-|Grupy odbiorców |`aud` |**Identyfikator aplikacji** pojedynczego tokenu udziela dostępu do zasobu. |
-|Zakres |`scp` |Uprawnienia do tego zasobu. Wiele uprawnienia nadanego będzie rozdzielone spacjami. |
-|Strona autoryzowanych |`azp` |**Identyfikator aplikacji** aplikacji klienta, który zainicjował żądanie. |
+|Grupy odbiorców |`aud` |Witaj **identyfikator aplikacji** hello pojedynczego zasobu hello token nieograniczony dostęp do. |
+|Zakres |`scp` |Witaj uprawnienia toohello zasobów. Wiele uprawnienia nadanego będzie rozdzielone spacjami. |
+|Strona autoryzowanych |`azp` |Witaj **identyfikator aplikacji** powitania klienta aplikacji, który zainicjował żądanie hello. |
 
-Gdy odbierze interfejsu API **dostępu\_tokenu**, musi [sprawdzania poprawności tokenu](active-directory-b2c-reference-tokens.md) udowodnić, że token jest autentyczny i ma poprawne oświadczeń.
+Jeśli Twój interfejs API odbiera hello **dostępu\_tokenu**, musi [sprawdzania poprawności tokenu hello](active-directory-b2c-reference-tokens.md) tooprove, który hello tokenu jest autentyczny i ma poprawne oświadczeń hello.
 
-Firma Microsoft zawsze są otwarte na opinie i sugestie! Jeśli masz trudności w tym temacie, Opublikuj w witrynie Stack Overflow tagu ["azure-ad b2c"](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Funkcja żądań, dodaj je do [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Jesteśmy zawsze toofeedback otwarte i sugestie! Jeśli masz trudności w tym temacie, Opublikuj w witrynie Stack Overflow tagu hello ["azure-ad b2c"](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Funkcja żądań, dodaj ich zbyt[UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 
 ## <a name="next-steps"></a>Następne kroki
 

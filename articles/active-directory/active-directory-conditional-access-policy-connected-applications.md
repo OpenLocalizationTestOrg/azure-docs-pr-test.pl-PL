@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie zasad dostępu warunkowego opartego na urządzenia usługi Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania zasad dostępu warunkowego opartego na urządzenia usługi Azure Active Directory."
+title: "zasady dostępu warunkowego opartego na urządzenia usługi Azure Active Directory aaaConfigure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak zasady dostępu warunkowego opartego na urządzeniach usługi Azure Active Directory tooconfigure."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,50 +15,50 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a26c40351c6b982fd90acb4bf06220ef3f79f399
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cc5923b8ccee4335442c17ef63b2ee6f098e104e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Konfigurowanie zasad dostępu warunkowego opartego na urządzenia usługi Azure Active Directory
 
-Z [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), można dostosować sposób autoryzowani użytkownicy mają dostęp do zasobów. Na przykład ograniczyć dostęp do niektórych zasobów do zaufanych urządzeń. Zasady dostępu warunkowego, która wymaga zaufanego urządzenia jest nazywana zasad dostępu warunkowego opartego na urządzeniu.
+Z [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), można dostosować sposób autoryzowani użytkownicy mają dostęp do zasobów. Na przykład można ograniczyć hello toocertain zasobów tootrusted urządzeń. Zasady dostępu warunkowego, która wymaga zaufanego urządzenia jest nazywana zasad dostępu warunkowego opartego na urządzeniu.
 
-Ten temat zawiera informacje dotyczące sposobu konfigurowania zasad dostępu warunkowego opartego na urządzeniu dla Azure AD połączonych aplikacji. 
+Ten temat zawiera informacje o jak zasady dla aplikacji połączone AD Azure dostępu warunkowego opartego na urządzeniach tooconfigure. 
 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Ties dostępu warunkowego opartego na urządzeniu **dostępu warunkowego dla usługi Azure AD** i **zarządzania urządzeniami usługi Azure AD razem**. Jeśli nie masz doświadczenia z jednym z tych obszarów jeszcze, najpierw należy przeczytać następujące tematy:
+Ties dostępu warunkowego opartego na urządzeniu **dostępu warunkowego dla usługi Azure AD** i **zarządzania urządzeniami usługi Azure AD razem**. Jeśli nie masz doświadczenia z jednym z tych obszarów jeszcze, należy przeczytać następujące tematy, najpierw hello:
 
-- **[Dostęp warunkowy w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md)**  — ten temat zawiera omówienie pojęć dotyczących dostępu warunkowego i terminologię pokrewne.
+- **[Dostęp warunkowy w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md)**  — w tym temacie przedstawiono u omówienie warunkowego dostępu i hello terminologii pokrewne.
 
-- **[Wprowadzenie do zarządzania urządzeniami w usłudze Azure Active Directory](device-management-introduction.md)**  — ten temat zawiera omówienie różnych opcji, należy podłączyć urządzenia z usługą Azure AD. 
+- **[Wprowadzenie toodevice zarządzania w usłudze Azure Active Directory](device-management-introduction.md)**  — ten temat zawiera omówienie programu hello różne opcje masz tooconnect urządzeń z usługą Azure AD. 
 
 
 ## <a name="trusted-devices"></a>Zaufanych urządzeń
 
-W świecie pierwszy mobile, najpierw chmury Azure Active Directory umożliwia logowanie jednokrotne do urządzeń, aplikacji i usług z dowolnego miejsca. Dla niektórych zasobów w danym środowisku, udzielanie dostępu do odpowiednich użytkowników może nie być wystarczająca. Oprócz odpowiednich użytkowników może również wymagać zaufanego urządzenia ma być używany do uzyskania dostępu do zasobu. W danym środowisku, można zdefiniować zaufanego urządzenia oparte na następujących składników:
+W świecie pierwszy mobile, najpierw chmury Azure Active Directory umożliwia toodevices rejestracji jednokrotnej, aplikacji i usług z dowolnego miejsca. Dla niektórych zasobów w danym środowisku, udzielanie dostępu wybranym użytkownikom toohello może nie być wystarczająca. Ponadto toohello odpowiednich użytkowników, użytkownik może wymagać toobe zaufanego urządzenia używane tooaccess zasobu. W danym środowisku, można zdefiniować, co to jest oparta na zaufanym urządzeniu hello następujące składniki:
 
-- [Platform urządzeń](active-directory-conditional-access-azure-portal.md#device-platforms) na urządzeniu
+- Witaj [platform urządzeń](active-directory-conditional-access-azure-portal.md#device-platforms) na urządzeniu
 - Określa, czy urządzenie jest zgodne
 - Określa, czy urządzenie jest przyłączony do domeny 
 
-[Platform urządzeń](active-directory-conditional-access-azure-portal.md#device-platforms) charakteryzuje się systemu operacyjnego, który działa na urządzeniu. W zasadach dostępu warunkowego opartego na urządzeniu można ograniczyć dostęp do niektórych zasobów do konkretnych platform sprzętowych.
+Witaj [platform urządzeń](active-directory-conditional-access-azure-portal.md#device-platforms) charakteryzuje się hello systemu operacyjnego, który działa na urządzeniu. W zasadach dostępu warunkowego opartego na urządzeniu można ograniczyć platform urządzeń toospecific dostępu toocertain zasobów.
 
 
 
-W zasadach dostępu warunkowego opartego na urządzeniu można wymagać zaufanych urządzeń może być oznaczony jako zgodne.
+W zasadach dostępu warunkowego opartego na urządzeniu można wymagać toobe zaufanych urządzeń oznaczone jako zgodne.
 
 ![Aplikacje w chmurze](./media/active-directory-conditional-access-policy-connected-applications/24.png)
 
-Urządzenia może być oznaczony jako zgodne w katalogu przez:
+Urządzenia może być oznaczony jako zgodne w katalogu hello przez:
 
 - Usługi Intune 
 - System zarządzania urządzeniami przenośnymi innej firmy, która integruje się z usługą Azure AD  
 
-Tylko urządzenia, które są połączone z usługą Azure AD może być oznaczony jako zgodne. Podłącz urządzenie do usługi Azure Active Directory, masz następujące opcje: 
+Tylko urządzenia, które są połączone tooAzure AD może być oznaczony jako zgodne. tooconnect tooAzure urządzenia usługi Active Directory, masz hello następujące opcje: 
 
 - Azure AD w zarejestrowany
 - Azure AD dołączony
@@ -66,12 +66,12 @@ Tylko urządzenia, które są połączone z usługą Azure AD może być oznaczo
 
     ![Aplikacje w chmurze](./media/active-directory-conditional-access-policy-connected-applications/26.png)
 
-Jeśli masz nakłady zasobów lokalnej usługi Active Directory (AD), można rozważyć urządzeń, które nie są podłączone do usługi Azure AD, ale przyłączony do usługi AD jako zaufane.
+Jeśli masz nakłady zasobów lokalnej usługi Active Directory (AD), można rozważyć urządzeń, które nie są połączone tooAzure AD, ale toobe sprzężonych tooyour AD zaufane.
 
 ![Aplikacje w chmurze](./media/active-directory-conditional-access-policy-connected-applications/25.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przed skonfigurowaniem zasad dostępu warunkowego opartego na urządzeniu w danym środowisku, należy podjąć przyjrzeć się [najlepszych rozwiązań dotyczących dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-best-practices.md).
+Przed skonfigurowaniem zasad dostępu warunkowego opartego na urządzeniu w danym środowisku, należy podjąć przyjrzeć się hello [najlepszych rozwiązań dotyczących dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-best-practices.md).
 

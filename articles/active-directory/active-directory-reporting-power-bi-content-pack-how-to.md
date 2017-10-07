@@ -1,6 +1,6 @@
 ---
-title: "Korzystanie z pakietu zawartości usługi Power BI dla usługi Azure Active Directory | Microsoft Docs"
-description: "Dowiedz się, jak używać pakietu zawartości usługi Power BI dla usługi Azure Active Directory"
+title: "Witaj toouse aaaHow pakietu zawartości usługi Azure Active Directory Power BI | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse hello pakietu zawartości usługi Azure Active Directory Power BI"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -13,29 +13,29 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5c642bb814a279756e8391f12fdc86b6ec0b4a8f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d07d678aedbe3089c4ea5f981f72311bdb389a17
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Korzystanie z pakietu zawartości usługi Power BI dla usługi Azure Active Directory
+# <a name="how-toouse-hello-azure-active-directory-power-bi-content-pack"></a>Jak toouse hello pakietu zawartości usługi Azure Active Directory Power BI
 
-Zrozumienie, jak użytkownicy korzystają z funkcji usługi Azure Active Directory, jest bardzo ważne dla Ciebie jako administratora IT. Dzięki temu można zaplanować infrastrukturę IT oraz komunikację w celu zwiększenia użycia i maksymalnego wykorzystania funkcji usługi AAD. Pakiet zawartości usługi Power BI dla usługi Azure Active Directory umożliwia pogłębioną analizę danych, ułatwiającą zrozumienie sposobu działania usługi Azure Active Directory w przypadku różnych funkcji, na których polegasz.  Dzięki integracji interfejsów API usługi Azure Active Directory z usługą Power BI można łatwo pobrać gotowe pakiety zawartości i uzyskać informacje o wszystkich działaniach usługi Azure Active Directory za pomocą rozbudowanego środowiska wizualizacji oferowanego przez usługę Power BI. Możesz utworzyć własny pulpit nawigacyjny i w prosty sposób udostępnić go innym osobom w organizacji. 
+Zrozumienie, jak użytkownicy korzystają z funkcji usługi Azure Active Directory, jest bardzo ważne dla Ciebie jako administratora IT. Pozwala ona tooplan Twojego użycia tooincrease infrastruktury i komunikacja IT i tooget najbardziej hello poza funkcji usługi AAD. Power BI Content Pack dla usługi Azure Active Directory zapewnia hello toofurther możliwości analizowanie Twojej toounderstand danych, jak używasz tego danych toogather bardziej rozbudowane wgląd w informacje co się dzieje z ich Azure Active Directory dla hello różnych funkcjach można znacznie zależne.  Dzięki integracji hello interfejsów API usługi Azure Active Directory do usługi Power BI można łatwo pobrać hello wbudowanych pakietów zawartości i Uzyskaj wgląd w działania hello tooall w usłudze Azure Active Directory za pomocą wizualizacji rozbudowane środowisko, oferowanych przez usługę Power BI. Możesz utworzyć własny pulpit nawigacyjny i w prosty sposób udostępnić go innym osobom w organizacji. 
 
-W tym temacie przedstawiono instrukcje krok po kroku dotyczące instalacji i używania pakietu zawartości w danym środowisku.
+Ten temat zawiera o uzyskać szczegółowe instrukcje dotyczące sposobu tooinstall i użyj hello zawartości pakietu w danym środowisku.
 
 ## <a name="installation"></a>Instalacja  
 
-**Aby zainstalować pakiet zawartości usługi Power BI:**
+**Witaj tooinstall pakiet zawartości Power BI:**
 
-1. Zaloguj się do [usługi Power BI](https://app.powerbi.com/groups/me/getdata/services) za pomocą konta Power BI (jest to to samo konto, co w przypadku usługi O365 lub Azure AD).
+1. Zaloguj się do [usługi Power BI](https://app.powerbi.com/groups/me/getdata/services) z kontem Power BI (jest to hello tego samego konta jako usługi Office 365 lub konto usługi Azure AD).
 
-2. W dolnej części okienka nawigacji po lewej stronie wybierz opcję **Pobierz dane**.
+2. U dołu okienka nawigacji po lewej stronie powitania hello, wybierz **Pobierz dane**.
 
     ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/01.png)
  
-3. W polu **Usługi** kliknij opcję **Pobierz**.
+3. W hello **usług** kliknij **uzyskać**.
    
     ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/02.png)
 
@@ -46,7 +46,7 @@ W tym temacie przedstawiono instrukcje krok po kroku dotyczące instalacji i uż
 5.  Po wyświetleniu monitu wpisz swój identyfikator dzierżawy Azure AD, a następnie kliknij przycisk **Dalej**.
 
     > [!TIP] 
-    > Szybkim sposobem uzyskania identyfikatora dzierżawy dla dzierżawcy usługi Office 365/Azure AD jest zalogowanie się do portalu usługi Azure AD, przejście do katalogu i skopiowanie identyfikatora z następującego adresu URL: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+    > Szybko tooget hello identyfikatora dzierżawy dla dzierżawcy usługi Office 365 / usługi Azure AD jest toohello toologin Portal programu Azure AD, przejść do szczegółów toohello katalogu i skopiuj identyfikator hello z hello następującego adresu URL: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ ActiveDirectoryExtension lubkatalogu/<tenantid>/directoryQuickStart
 
     ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 
@@ -60,7 +60,7 @@ W tym temacie przedstawiono instrukcje krok po kroku dotyczące instalacji i uż
  
     ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/06.png) 
 
-8.  W oknie dialogowym zgody na aplikację kliknij przycisk **Akceptuj**.
+8.  W oknie dialogowym zgody aplikacji hello, kliknij przycisk **Akceptuj**.
  
 9.  Po utworzeniu pulpitu nawigacyjnego dzienników aktywności usługi Azure Active Directory kliknij go.
  
@@ -68,46 +68,46 @@ W tym temacie przedstawiono instrukcje krok po kroku dotyczące instalacji i uż
 
 ## <a name="what-can-i-do-with-this-content-pack"></a>Co można zrobić z tym pakietem zawartości?
 
-Zanim przejdziemy do tego, co można zrobić z tym pakietem zawartości, omówimy pokrótce znajdujące się w nim raporty. Dane raportu dotyczą **ostatnich 30 dni**.
+Przed możemy przejść do czynności z tym pakietem zawartości, w tym krótki przegląd hello różne raporty w hello zawartości pakietu. Raport dane Przechodzi wstecz toohello **ostatnich 30 dni**.
 
 ### <a name="reports-included-in-this-version-of-azure-active-directory-logs-content-pack"></a>Raporty zawarte w tej wersji pakietu zawartości usługi Azure Active Directory
 
-**App Usage and Trend report** (Raport dotyczący użycia i trendu aplikacji): uzyskaj wgląd w aplikacje używane w organizacji oraz dowiedz się, które są najczęściej używane i kiedy. Ten raport służy do gromadzenia informacji dotyczących sposobu używania aplikacji, które zostały niedawno wdrożone w organizacji, lub sprawdzenia popularności poszczególnych aplikacji. W ten sposób można poprawić sposób korzystania z nich, jeśli dana aplikacja nie jest używana.
+**Raport dotyczący użycia aplikacji i Trend**: Uzyskaj wgląd w aplikacje hello używane w organizacji oraz te, które są używane najczęściej hello i kiedy. Można użyć tego raportu toogather wgląd w informacje sposobu używania aplikacji, które niedawno wycofane w organizacji lub sprawdzić, które aplikacje są popularne. W ten sposób można poprawić użycia, jeśli zostanie wyświetlony, jeśli aplikacja hello nie jest używany.
 
-**Sign-ins by location and users** (Logowania według lokalizacji i użytkowników): uzyskaj wgląd w informacje o wszystkich logowaniach wykonywanych przy użyciu tożsamości Azure i poznaj tożsamość użytkowników. Dzięki temu możesz zagłębić się w szczegóły poszczególnych logowań i odpowiedzieć na pytania:
+**Logowania według lokalizacji i użytkownicy**: Uzyskaj wgląd w wszystkich hello logowania wykonywane przy użyciu tożsamości Azure i zapewnia wgląd w informacje hello tożsamość hello użytkowników. Dzięki temu możesz zagłębić się w szczegóły poszczególnych logowań i odpowiedzieć na pytania:
 
 - Skąd loguje się dany użytkownik?
-- Który użytkownik logował się najczęściej i skąd następowały logowania? 
-- Czy logowanie zakończyło się pomyślnie?  
+- Użytkownika, który ma hello większości logowania i gdzie one logowania z? 
+- Powiodła logowania hello?  
  
 Możesz przejść do szczegółów, klikając określoną datę lub lokalizację.
 
 **Unique users per app** (Liczba unikatowych użytkowników aplikacji): wyświetla wszystkich unikatowych użytkowników korzystających z danej aplikacji. Dotyczy tylko użytkowników, którzy *pomyślnie* zalogowali się do aplikacji.
 
-**Device sign-ins** (Logowania do urządzeń): wyświetla typ systemu operacyjnego i przeglądarki używane przez użytkowników w organizacji oraz szczegółowe informacje dotyczące użytkowników, takie jak:
+**Urządzenie logowania**: wyświetlać hello typ systemu operacyjnego i przeglądarki są używane przez użytkowników w organizacji za pomocą szczegółowe informacje na temat użytkowników hello, w tym:
 
 - Nazwa użytkownika
 - Adres IP
 - Lokalizacja 
 - Stan logowania 
 
-Dzięki temu raportowi można zapoznać się z różnymi profilami urządzeń używanych w organizacji i określić zasady zarządzania urządzeniami w oparciu o informacje o ich użyciu.
+W tym raporcie można zrozumieć hello różnych profilów urządzenia używane w organizacji i ustalić na podstawie co zasady urządzeń
 
-**SSPR Funnel** (Lejek SSPR): pomaga w zrozumieniu procesu resetowania haseł w Twojej organizacji. Dowiedz się, ile wystąpiło prób resetowania haseł przy użyciu narzędzia SSPR oraz ile spośród nich zakończyło się pomyślnie. Posługując się raportem, przeanalizuj próby zresetowania hasła zakończone niepowodzeniem i poznaj ich przyczyny. Ten raport pozwala lepiej zrozumieć sposób używania narzędzia SSPR w organizacji, co może pomóc w podejmowaniu prawidłowych decyzji.
+**SSPR Funnel** (Lejek SSPR): pomaga w zrozumieniu procesu resetowania haseł w Twojej organizacji. Pobierz rzut oka na ile hasła resetuje podjęto za pomocą narzędzia SSPR hello i ile z nich zostały pomyślnie. Wyświetlić elementy podrzędne awarii resetuje hasło hello za pomocą lejka SSPR hello i zrozumienie, dlaczego pewnych błędów wystąpił. Ten raport zawiera głębsze zrozumienie sposobu używania narzędzia SSPR hello w danej organizacji, możesz wprowadzić hello prawidłowych decyzji.
 
 ## <a name="customizing-azure-ad-activity-content-pack"></a>Dostosowywanie pakietu zawartości usługi Azure AD Activity
 
-**Zmień wizualizację**: możesz zmienić wizualizację raportu, klikając opcję **Edytuj raport** i wybierając wizualizację.
+**Zmień wizualizacji**: wizualizacji raportu można zmienić, klikając **Edytuj raport** i wybierz wizualizację hello ma.
  
 ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/09.png) 
  
 ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/10.png) 
 
-**Dołącz dodatkowe pola**: w raporcie można dodawać pola i je usuwać. W tym celu wystarczy wybrać element wizualny, którego ma dotyczyć zmiana. W poniższym przykładzie w widoku tabeli zostanie dodane pole „Sign-in Status” (Stan zalogowania). 
+**Dodatkowe pola**: można dodać raport toohello pola lub usuń go, wybierając hello toowhich visual pole hello tooadd lub Usuń. W poniższym przykładzie hello dodaję widoku tabeli toohello pola "stan logowania". 
  
 ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/11.png) 
 
-**Przypnij wizualizacje do pulpitu nawigacyjnego**: można dostosować pulpit nawigacyjny, dołączając własne wizualizacje do raportu i przypinając je do pulpitu nawigacyjnego. W poniższym przykładzie nowy filtr o nazwie „Sign-in Status” został dodany i dołączony do raportu. Zmieniono również wizualizację z wykresu słupkowego na liniowy. Ten nowy element wizualny można przypiąć do pulpitu nawigacyjnego.
+**Pulpit nawigacyjny tooyour wizualizacje numeru PIN**: można dostosować pulpit nawigacyjny i zawiera własną raportu toohello wizualizacje i przypiąć go toohello pulpitu nawigacyjnego. W poniższym przykładzie hello I dodaje nowy filtr o nazwie "stan logowania" i objęte hello raportu. I również zmienić wizualizacji hello z wykres liniowy tooa wykresu słupkowego i można przypiąć ten nowy pulpit nawigacyjny visual toohello.
 
 ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/12.png) 
 
@@ -117,7 +117,7 @@ Dzięki temu raportowi można zapoznać się z różnymi profilami urządzeń u�
  
 
 
-**Udostępnianie pulpitu nawigacyjnego**: po utworzeniu własnej zawartości można udostępnić pulpit nawigacyjny użytkownikom w organizacji. Należy pamiętać, że po udostępnieniu raportu jego użytkownicy widzą pola, które zostały wybrane w raporcie.
+**Udostępnianie pulpitu nawigacyjnego**: po utworzeniu hello zawartości, która ma można udostępnić pulpit nawigacyjny hello hello użytkowników w organizacji. Należy pamiętać, że po udostępnieniu hello raportu widzą hello wybrane w raporcie hello pola.
  
 ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/14.png) 
 
@@ -125,21 +125,21 @@ Dzięki temu raportowi można zapoznać się z różnymi profilami urządzeń u�
 
 ## <a name="scheduling-a-daily-refresh-of-your-power-bi-report"></a>Planowanie codziennego odświeżania raportu usługi Power BI
 
-Aby zaplanować codzienne odświeżanie raportu usługi Power BI, przejdź do obszaru **Zestawy danych > Ustawienia > Zaplanuj odświeżanie** i ustaw go, jak pokazano poniżej.
+tooschedule codzienne odświeżanie raportu usługi Power BI, przejdź zbyt**zestawów danych > Ustawienia > Planowanie odświeżania** i ustaw ją, jak pokazano poniżej.
  
 ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
 
-## <a name="updating-to-newer-version-of-content-pack"></a>Aktualizacja do nowszej wersji pakietu zawartości
+## <a name="updating-toonewer-version-of-content-pack"></a>Aktualizowanie wersji toonewer pakietu zawartości
 
-Jeśli chcesz zaktualizować pakiet zawartości do nowszej wersji:
+Jeśli chcesz, aby tooupdate zawartości pakietu tooget nowszej wersji:
 
-- Pobierz nowy pakiet zawartości i skonfiguruj go zgodnie z instrukcjami zawartymi w tym artykule.
+- Pobierz nowy pakiet zawartości hello i skonfigurować zgodnie z instrukcjami wymienione w tym artykule.
 
-- Po skonfigurowaniu pakietu przejdź do obszaru **Źródło danych > Ustawienia > Poświadczenia dostępu do źródła danych** i ponownie wprowadź swoje poświadczenia, jak pokazano poniżej
+- Po skonfigurowaniu go, przejdź zbyt**źródło danych > Ustawienia > poświadczenia źródła danych** i ponownie wprowadź swoje poświadczenia, jak pokazano poniżej
 
     ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/16.png) 
 
-Po uruchomieniu nowej wersji pakietu zawartości można w razie potrzeby pozbyć się starej wersji, usuwając skojarzone z nim raporty i zestawy danych.
+Jak działa nowa wersja pakietu zawartości hello hello, należy usunąć starą wersję hello w razie potrzeby poprzez usunięcie hello podstawowych raportów i zestawów danych skojarzonych z tego pakietu zawartości.
 
 ## <a name="still-having-issues"></a>Nadal masz problemy? 
 
@@ -148,4 +148,4 @@ Zapoznaj się z [przewodnikiem rozwiązywania problemów](active-directory-repor
 
 ## <a name="next-steps"></a>Następne kroki
 
-Omówienie funkcji raportowania można znaleźć w temacie [Raporty w usłudze Azure Active Directory](active-directory-reporting-azure-portal.md).
+Omówienie raportowania patrz hello [raportowania usługi Azure Active Directory](active-directory-reporting-azure-portal.md).

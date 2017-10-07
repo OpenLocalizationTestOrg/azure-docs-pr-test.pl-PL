@@ -1,6 +1,6 @@
 ---
-title: "Używanie bibliotek klas .NET z usługi Azure Functions | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie tworzenia biblioteki klas .NET do użycia w środowisku Azure Functions"
+title: "aaaUsing .NET klasy bibliotek z usługi Azure Functions | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak bibliotek klas .NET tooauthor za pomocą usługi Azure Functions"
 services: functions
 documentationcenter: na
 author: lindydonna
@@ -16,42 +16,42 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
-ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4e0fd954b554006ba1d8ecc47403a9fb1c67c3b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Używanie bibliotek klas .NET z usługi Azure Functions
 
-Oprócz plików skryptów usługi Azure Functions obsługuje publikowania biblioteki klas jako implementacja jedną lub więcej funkcji. Firma Microsoft zaleca użycie [Azure funkcje programu Visual Studio 2017 narzędzia](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
+Ponadto pliki tooscript, usługi Azure Functions obsługuje publikowania biblioteki klas jako hello implementacji dla jednego lub więcej funkcji. Zalecane jest użycie hello [Azure funkcje programu Visual Studio 2017 narzędzia](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-Ten artykuł zawiera następujące wymagania wstępne:
+Ten artykuł zawiera hello następujące wymagania wstępne:
 
-- [W wersji zapoznawczej programu Visual Studio 2017 15 ustęp 3](https://www.visualstudio.com/vs/preview/). Zainstaluj obciążeń **ASP.NET i sieć web development** i **Azure programowanie**.
+- [W wersji zapoznawczej programu Visual Studio 2017 15 ustęp 3](https://www.visualstudio.com/vs/preview/). Zainstaluj obciążeń hello **ASP.NET i sieć web development** i **Azure programowanie**.
 - [Funkcja Azure Tools dla programu Visual Studio 2017 r](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017)
 
 ## <a name="functions-class-library-project"></a>Projektu biblioteki klas funkcji
 
-W programie Visual Studio Utwórz nowy projekt usługi Azure Functions. Tworzy nowy szablon projektu pliki *host.json* i *local.settings.json*. Możesz [Dostosowywanie ustawień środowiska uruchomieniowego usługi Azure Functions w host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
+W programie Visual Studio Utwórz nowy projekt usługi Azure Functions. Nowy szablon projektu Hello tworzy pliki hello *host.json* i *local.settings.json*. Możesz [Dostosowywanie ustawień środowiska uruchomieniowego usługi Azure Functions w host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
 
-Plik *local.settings.json* przechowuje ustawienia Azure funkcje podstawowe narzędzia, parametry połączenia i ustawień aplikacji. Aby dowiedzieć się więcej na temat jego struktury, zobacz [kodu i przetestuj usługę Azure functions lokalnie](functions-run-local.md#local-settings).
+Plik Hello *local.settings.json* przechowuje ustawienia Azure funkcje podstawowe narzędzia, parametry połączenia i ustawień aplikacji. toolearn więcej informacji na temat jego struktury, zobacz [kodu i przetestuj usługę Azure functions lokalnie](functions-run-local.md#local-settings).
 
 ### <a name="functionname-attribute"></a>Atrybut FunctionName
 
-Atrybut [ `FunctionNameAttribute` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/FunctionNameAttribute.cs) oznacza metodę jako punktu wejścia funkcji. Musi on być używany z wyzwalaczem dokładnie jeden i 0 lub więcej wejściowa i wyjściowa powiązania.
+Atrybut Hello [ `FunctionNameAttribute` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/FunctionNameAttribute.cs) oznacza metodę jako punktu wejścia funkcji. Musi on być używany z wyzwalaczem dokładnie jeden i 0 lub więcej wejściowa i wyjściowa powiązania.
 
-### <a name="conversion-to-functionjson"></a>Konwersja do function.json
+### <a name="conversion-toofunctionjson"></a>Toofunction.json konwersji
 
-Po utworzeniu projektu usługi Azure Functions generuje plik `function.json` w katalogu zgodnego z nazwą funkcji zdefiniowanych przez `[FunctionName]`. Określa wyzwalaczy i powiązań i wskazuje na plik zestawu projektu.
+Po utworzeniu projektu usługi Azure Functions generuje plik `function.json` w katalogu hello pasujących do nazwy funkcji hello zdefiniowane przez `[FunctionName]`. Określa wyzwalaczy i powiązań i punkty toohello projektu zestawu plików.
 
-Ta konwersja jest wykonywana przez pakiet NuGet [Microsoft\.NET\.Sdk\.funkcji](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Źródło jest dostępne w repozytorium GitHub [azure\-funkcje\-vs\-kompilacji\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+Ta konwersja jest wykonywana przez pakiet NuGet hello [Microsoft\.NET\.Sdk\.funkcji](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Witaj źródło jest dostępne w repozytorium GitHub hello [azure\-funkcje\-vs\-kompilacji\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
 ## <a name="triggers-and-bindings"></a>Wyzwalacze i powiązania
 
-W poniższej tabeli wymieniono wyzwalaczy i powiązań, które są dostępne w programie Azure Functions projektu biblioteki klas. Atrybuty w przestrzeni nazw `Microsoft.Azure.WebJobs`.
+Witaj poniższej tabeli wymieniono hello wyzwalaczy i powiązań, które są dostępne w programie Azure Functions projektu biblioteki klas. Atrybuty w przestrzeni nazw hello `Microsoft.Azure.WebJobs`.
 
 | Powiązanie | Atrybut | Pakiet NuGet |
 |------   | ------    | ------        |
@@ -75,7 +75,7 @@ W poniższej tabeli wymieniono wyzwalaczy i powiązań, które są dostępne w p
 
 Wyzwalacz obsługuje funkcje platformy Azure, wejściowa i wyjściowa powiązania dla magazynu obiektów Blob platformy Azure. Aby uzyskać więcej informacji na wyrażenia wiązania i metadanych, zobacz [powiązania magazynu obiektów Blob platformy Azure funkcji](functions-bindings-storage-blob.md).
 
-Wyzwalacz obiektu blob jest zdefiniowana z `[BlobTrigger]` atrybutu. Można użyć atrybutu `[StorageAccount]` do definiowania konto magazynu jest używana przez całą funkcję lub klasy.
+Wyzwalacz obiektu blob jest zdefiniowana z hello `[BlobTrigger]` atrybutu. Można użyć atrybutu hello `[StorageAccount]` toodefine hello magazynu konta, które jest używane przez całą funkcję lub klasy.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -86,7 +86,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Obiekt blob danych wejściowych i wyjściowych są definiowane przy użyciu `[Blob]` atrybutu wraz z `FileAccess` parametr wskazujący odczytu lub zapisu. W poniższym przykładzie użyto obiektu blob powiązania wyjściowego wyzwalacza i obiektów blob.
+Obiekt blob danych wejściowych i wyjściowych są definiowane przy użyciu hello `[Blob]` atrybutu wraz z `FileAccess` parametr wskazujący odczytu lub zapisu. Witaj następujący przykład używa wyzwalacz obiektów blob i powiązania wyjściowego obiektu blob.
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -122,9 +122,9 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="cosmos-db-input-and-output-bindings"></a>Rozwiązania cosmos DB wejściowa i wyjściowa powiązania
 
-Azure Functions obsługuje wejściowa i wyjściowa powiązania dla DB rozwiązania Cosmos. Aby dowiedzieć się więcej na temat funkcji, powiązania DB rozwiązania Cosmos, zobacz [powiązania bazy danych Azure funkcji rozwiązania Cosmos](functions-bindings-documentdb.md).
+Azure Functions obsługuje wejściowa i wyjściowa powiązania dla DB rozwiązania Cosmos. toolearn więcej informacji na temat funkcji hello hello DB rozwiązania Cosmos powiązania, zobacz [powiązania bazy danych Azure funkcji rozwiązania Cosmos](functions-bindings-documentdb.md).
 
-Aby powiązać dokumentu rozwiązania Cosmos bazy danych, użyj atrybutu `[DocumentDB]` w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. W poniższym przykładzie przedstawiono wyzwalacz kolejki i interfejs API usługi DocumentDB powiązania wyjściowego:
+tooa toobind DB rozwiązania Cosmos dokumentu, użyj atrybutu hello `[DocumentDB]` w pakiecie NuGet hello [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. Poniższy przykład Hello ma wyzwalacz kolejki i interfejs API usługi DocumentDB powiązania wyjściowego:
 
 ```csharp
 [FunctionName("QueueToDocDB")]        
@@ -143,9 +143,9 @@ public static void Run(
 
 Usługi Azure Functions obsługuje uruchomić i dane wyjściowe powiązania usługi Event hubs. Aby uzyskać więcej informacji, zobacz [powiązania Centrum zdarzeń funkcji Azure](functions-bindings-event-hubs.md).
 
-Typy `[Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute]` i `[Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute]` są zdefiniowane w pakiecie NuGet [Microsoft.Azure.WebJobs.ServiceBus]. 
+Witaj typy `[Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute]` i `[Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute]` są zdefiniowane w pakiecie NuGet hello [Microsoft.Azure.WebJobs.ServiceBus]. 
 
-W poniższym przykładzie użyto wyzwalacz Centrum zdarzeń:
+Witaj poniższym przykładzie użyto wyzwalacz Centrum zdarzeń:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -155,7 +155,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-W poniższym przykładzie przedstawiono Centrum zdarzeń danych wyjściowych za pomocą zwracana wartość metody jako dane wyjściowe:
+Witaj poniższym przykładzie przedstawiono Centrum zdarzeń danych wyjściowych przy użyciu wartości zwracanych metody hello jako dane wyjściowe hello:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -171,9 +171,9 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 ### <a name="external-file-input-and-output"></a>Plik zewnętrzny dane wejściowe i wyjściowe
 
-Środowisko Azure Functions obsługuje wyzwalacza, dane wejściowe i powiązania danych wyjściowych dla plików zewnętrznych, takich jak dysk Google, Dropbox i OneDrive. Aby dowiedzieć się więcej, zobacz [powiązania zewnętrznego pliku funkcji Azure](functions-bindings-external-file.md). Atrybuty `[ExternalFileTrigger]` i `[ExternalFile]` są zdefiniowane w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.ApiHub].
+Środowisko Azure Functions obsługuje wyzwalacza, dane wejściowe i powiązania danych wyjściowych dla plików zewnętrznych, takich jak dysk Google, Dropbox i OneDrive. toolearn więcej, zobacz [powiązania zewnętrznego pliku funkcji Azure](functions-bindings-external-file.md). Witaj atrybuty `[ExternalFileTrigger]` i `[ExternalFile]` są zdefiniowane w pakiecie NuGet hello [Microsoft.Azure.WebJobs.Extensions.ApiHub].
 
-W poniższym przykładzie C# pokazano zewnętrzny plik wejściowa i wyjściowa powiązania. Kod kopiuje plik wejściowy do pliku wyjściowego.
+Hello poniższy przykład C# pokazuje zewnętrzny plik wejściowa i wyjściowa powiązania. kopie kodu Hello hello pliku wyjściowego toohello pliku wejściowego.
 
 ```csharp
 [StorageAccount("MyStorageConnection")]
@@ -192,7 +192,7 @@ public static string Run([QueueTrigger("myqueue-items")] string myQueueItem,
 
 ### <a name="http-and-webhooks"></a>HTTP i elementy webhook
 
-Użyj `HttpTrigger` atrybut do definiowania wyzwalacza HTTP lub elementu webhook. Ten atrybut jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.Http]. Można dostosować poziom autoryzacji, typ elementu webhook, trasy i metod. W poniższym przykładzie zdefiniowano wyzwalacz protokołu HTTP przy użyciu uwierzytelniania anonimowego i _genericJson_ typu elementu webhook.
+Użyj hello `HttpTrigger` wyzwalacz toodefine HTTP atrybutu lub elementu webhook. Ten atrybut jest zdefiniowany w pakiecie NuGet hello [Microsoft.Azure.WebJobs.Extensions.Http]. Można dostosować poziom autoryzacji hello, typ elementu webhook trasy i metod. Witaj poniższym przykładzie zdefiniowano wyzwalacz protokołu HTTP przy użyciu uwierzytelniania anonimowego i _genericJson_ typu elementu webhook.
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -206,9 +206,9 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 ### <a name="mobile-apps-input-and-output"></a>Aplikacje mobilne dane wejściowe i wyjściowe
 
-Azure Functions obsługuje wejściowa i wyjściowa powiązania dla aplikacji mobilnych. Aby dowiedzieć się więcej, zobacz [powiązania Azure funkcji Mobile Apps](functions-bindings-mobile-apps.md). Atrybut `[MobileTable]` jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps].
+Azure Functions obsługuje wejściowa i wyjściowa powiązania dla aplikacji mobilnych. toolearn więcej, zobacz [powiązania Azure funkcji Mobile Apps](functions-bindings-mobile-apps.md). Atrybut Hello `[MobileTable]` jest zdefiniowany w pakiecie NuGet hello [Microsoft.Azure.WebJobs.Extensions.MobileApps].
 
-W poniższym przykładzie pokazano Mobile Apps powiązania wyjściowego:
+Witaj poniższym przykładzie pokazano Mobile Apps powiązania wyjściowego:
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -223,7 +223,7 @@ public static object Run([QueueTrigger("myqueue-items", Connection = "AzureWebJo
 
 ### <a name="notification-hubs-output"></a>Centra powiadomień w danych wyjściowych
 
-Azure Functions obsługuje powiązanie danych wyjściowych dla usługi Notification Hubs. Aby dowiedzieć się więcej, zobacz [powiązania wyjściowego Centrum powiadomień Azure funkcji](functions-bindings-notification-hubs.md). Atrybut `[NotificationHub]` jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs].
+Azure Functions obsługuje powiązanie danych wyjściowych dla usługi Notification Hubs. toolearn więcej, zobacz [powiązania wyjściowego Centrum powiadomień Azure funkcji](functions-bindings-notification-hubs.md). Atrybut Hello `[NotificationHub]` jest zdefiniowany w pakiecie NuGet hello [Microsoft.Azure.WebJobs.Extensions.NotificationHubs].
 
 <a name="queue"></a>
 
@@ -231,7 +231,7 @@ Azure Functions obsługuje powiązanie danych wyjściowych dla usługi Notificat
 
 Usługi Azure Functions obsługuje uruchomić i dane wyjściowe powiązań dla kolejek platformy Azure. Aby uzyskać więcej informacji, zobacz [powiązania magazynu kolejek Azure funkcji](functions-bindings-storage-queue.md).
 
-Poniższy przykład przedstawia użycie zwracanego typu funkcji z kolejki danych wyjściowych powiązanie, używając `[Queue]` atrybutu. Aby zdefiniować wyzwalacz kolejki, należy użyć `[QueueTrigger]` atrybutu.
+Witaj poniższy przykład przedstawia sposób toouse hello typ zwracany funkcji z kolejki danych wyjściowych powiązanie, używając hello `[Queue]` atrybutu. toodefine wyzwalacz kolejki użyć hello `[QueueTrigger]` atrybutu.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -261,11 +261,11 @@ public static class QueueFunctions
 
 ### <a name="sendgrid-output"></a>Dane wyjściowe SendGrid
 
-Środowisko Azure Functions obsługuje dane wyjściowe SendGrid powiązanie do wysyłania wiadomości e-mail programowo. Aby dowiedzieć się więcej, zobacz [powiązania włączenie funkcji Azure](functions-bindings-sendgrid.md).
+Środowisko Azure Functions obsługuje dane wyjściowe SendGrid powiązanie do wysyłania wiadomości e-mail programowo. toolearn więcej, zobacz [powiązania włączenie funkcji Azure](functions-bindings-sendgrid.md).
 
-Atrybut `[SendGrid]` jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+Atrybut Hello `[SendGrid]` jest zdefiniowany w pakiecie NuGet hello [Microsoft.Azure.WebJobs.Extensions.SendGrid].
 
-Poniżej przedstawiono przykład wyzwalacza kolejki usługi Service Bus i użyciu powiązania danych wyjściowych SendGrid `SendGridMessage`:
+Witaj poniżej znajduje się przykład wyzwalacza kolejki usługi Service Bus i użyciu powiązania danych wyjściowych SendGrid `SendGridMessage`:
 
 ```csharp
 [FunctionName("SendEmail")]
@@ -282,7 +282,7 @@ public static void Run(
 
 public class OutgoingEmail
 {
-    public string To { get; set; }
+    public string too{ get; set; }
     public string From { get; set; }
     public string Subject { get; set; }
     public string Body { get; set; }
@@ -295,9 +295,9 @@ public class OutgoingEmail
 
 Usługi Azure Functions obsługuje uruchomić i dane wyjściowe powiązania dla tematów i kolejek usługi Service Bus. Aby uzyskać więcej informacji na temat konfigurowania powiązań, zobacz [powiązania funkcji usługi Azure Service Bus](functions-bindings-service-bus.md).
 
-Atrybuty `[ServiceBusTrigger]` i `[ServiceBus]` są zdefiniowane w pakiecie NuGet [Microsoft.Azure.WebJobs.ServiceBus]. 
+Witaj atrybuty `[ServiceBusTrigger]` i `[ServiceBus]` są zdefiniowane w pakiecie NuGet hello [Microsoft.Azure.WebJobs.ServiceBus]. 
 
-Poniżej przedstawiono przykład wyzwalacz kolejki usługi Service Bus:
+Witaj, poniżej przedstawiono przykładowy wyzwalacza kolejki usługi Service Bus:
 
 ```csharp
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -307,7 +307,7 @@ public static void Run([ServiceBusTrigger("myqueue", AccessRights.Manage, Connec
 }
 ```
 
-Poniżej przedstawiono przykład danych wyjściowych usługi Service Bus powiązanie, używając zwracany typ metody jako dane wyjściowe:
+Witaj poniżej znajduje się przykład danych wyjściowych usługi Service Bus powiązanie, używając zwracany typ metody hello jako dane wyjściowe hello:
 
 ```csharp
 [FunctionName("ServiceBusOutput")]
@@ -323,9 +323,9 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter l
 
 ### <a name="table-storage-input-and-output"></a>Tabela magazynu wejściowe i wyjściowe
 
-Azure Functions obsługuje wejściowa i wyjściowa powiązania dla magazynu tabel Azure. Aby dowiedzieć się więcej, zobacz [powiązania magazynu tabel Azure funkcji](functions-bindings-storage-table.md).
+Azure Functions obsługuje wejściowa i wyjściowa powiązania dla magazynu tabel Azure. toolearn więcej, zobacz [powiązania magazynu tabel Azure funkcji](functions-bindings-storage-table.md).
 
-Poniższy przykład jest klasa z dwóch funkcji prezentacja magazynu w tabeli danych wyjściowych i wejściowych powiązania. 
+Witaj poniższym przykładzie jest klasą z dwóch funkcji prezentacja magazynu w tabeli danych wyjściowych i wejściowych powiązania. 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -346,7 +346,7 @@ public class TableStorage
         return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
     }
 
-    // use the metadata parameter "queueTrigger" to bind the queue payload
+    // use hello metadata parameter "queueTrigger" toobind hello queue payload
     [FunctionName("TableInput")]
     public static void TableInput([QueueTrigger("table-items")] string input, [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, TraceWriter log)
     {
@@ -360,11 +360,11 @@ public class TableStorage
 
 ### <a name="timer-trigger"></a>Wyzwalacz czasomierza
 
-Środowisko Azure Functions ma powiązanie wyzwalacza czasomierza umożliwia uruchamianie funkcji kodu na podstawie zdefiniowanego harmonogramu. Aby dowiedzieć się więcej na temat funkcji, powiązania, zobacz [zaplanować wykonanie kodu z usługi Azure Functions](functions-bindings-timer.md).
+Środowisko Azure Functions ma powiązanie wyzwalacza czasomierza umożliwia uruchamianie funkcji kodu na podstawie zdefiniowanego harmonogramu. Zobacz toolearn więcej informacji na temat funkcji hello powiązania hello [zaplanować wykonanie kodu z usługi Azure Functions](functions-bindings-timer.md).
 
-W planie zużycie można określić harmonogramów z [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression). Jeśli używasz planu usługi App Service umożliwia także ciągu TimeSpan. 
+W planie zużycie hello, można określić harmonogramów z [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression). Jeśli używasz planu usługi App Service umożliwia także ciągu TimeSpan. 
 
-W poniższym przykładzie zdefiniowano wyzwalacz czasomierza wykonywana co 5 minut:
+Poniższy przykład Hello definiuje wyzwalacza bazującego na czasomierzu wykonywana co 5 minut:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -378,11 +378,11 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 ### <a name="twilio-output"></a>Dane wyjściowe usługi Twilio
 
-Azure Functions obsługuje usługi Twilio output powiązania, aby umożliwić funkcji do wysyłania wiadomości SMS programu SMS. Aby dowiedzieć się więcej, zobacz [powiązania wyjściowego wiadomości SMS wysłać z usługi Azure Functions przy użyciu usługi Twilio](functions-bindings-twilio.md). 
+Azure Functions obsługuje usługi Twilio output tooenable powiązania funkcji toosend SMS tekst wiadomości. toolearn więcej, zobacz [powiązania wyjściowego wiadomości SMS wysłać z usługi Azure Functions przy użyciu hello usługi Twilio](functions-bindings-twilio.md). 
 
-Atrybut `[TwilioSms]` jest zdefiniowany w pakiecie [Microsoft.Azure.WebJobs.Extensions.Twilio].
+Atrybut Hello `[TwilioSms]` jest zdefiniowany w pakiecie hello [Microsoft.Azure.WebJobs.Extensions.Twilio].
 
-W poniższym przykładzie C# korzysta z kolejką usługi Twilio i wyzwalaczy powiązania wyjściowego:
+Witaj C# przykładzie użyto kolejki usługi Twilio i wyzwalaczy powiązania wyjściowego:
 
 ```csharp
 [FunctionName("QueueTwilio")]
@@ -394,7 +394,7 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
     var message = new SMSMessage()
     {
         Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
+        too= order["mobileNumber"].ToString()
     };
 
     return message;
@@ -423,7 +423,7 @@ Aby uzyskać więcej informacji na temat używania usługi Azure Functions w ję
 [Microsoft.Azure.WebJobs.Extensions]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/2.1.0-beta1
 
 
-<!-- Links to source --> 
+<!-- Links toosource --> 
 [DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
 [EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
 [EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs

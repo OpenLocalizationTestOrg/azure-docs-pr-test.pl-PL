@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie członkami grupy w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Dodawanie i usuwanie użytkowników i urządzeń z grupy w usłudze Azure Active Directory"
+title: "aaaManage hello członków grupy w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Jak tooadd lub usuwanie użytkowników i urządzeń z grupy w usłudze Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,36 +15,36 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 044e88f95712e1cc5b5532f5492c78d711a8d858
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4cb16ee63828003da251423a04736f7174dd4896
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Zarządzanie członkostwami grup użytkowników w dzierżawie usługi Azure Active Directory
-W tym artykule wyjaśniono, jak można zarządzać członkami grupy w usłudze Azure Active Directory (Azure AD).
+W tym artykule opisano, jak toomanage hello członków grupy w usłudze Azure Active Directory (Azure AD).
 
-## <a name="how-do-i-find-the-members-and-manage-them"></a>Jak znaleźć członków i zarządzać nimi?
-1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
-2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
+## <a name="how-do-i-find-hello-members-and-manage-them"></a>Jak znaleźć członków hello i zarządzać nimi?
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu hello.
+2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w hello pola tekstowego, a następnie wybierz **Enter**.
 
    ![Otwieranie Zarządzanie użytkownikami](./media/active-directory-groups-members-azure-portal/search-user-management.png)
-3. Na **użytkowników i grup** bloku, wybierz opcję **wszystkich grup**.
+3. Na powitania **użytkowników i grup** bloku, wybierz opcję **wszystkich grup**.
 
-   ![Otwieranie bloku grupy](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
-4. Na **użytkowników i grup — wszystkie grupy** bloku, wybierz grupę.
-5. Na **grupy - *groupname***  bloku, wybierz opcję **członków**.
+   ![Otwieranie hello grup bloku](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
+4. Na powitania **użytkowników i grup — wszystkie grupy** bloku, wybierz grupę.
+5. Na powitania **grupy - *groupname***  bloku, wybierz opcję **członków**.
 
-   ![Otwieranie bloku elementy członkowskie](./media/active-directory-groups-members-azure-portal/view-group-members.png)
-6. Aby dodać członków do grupy, na **grupy - członków** bloku, wybierz opcję **Dodaj członków**.
+   ![Otwieranie hello członków bloku](./media/active-directory-groups-members-azure-portal/view-group-members.png)
+6. tooadd grupy toohello elementy członkowskie, na powitania **grupy - członków** bloku, wybierz opcję **Dodaj członków**.
 
    ![Dodaj polecenie elementy członkowskie](./media/active-directory-groups-members-azure-portal/add-group-members-command.png)
-7. Na **członków** bloku, wybierz jeden lub więcej użytkowników lub urządzeń do dodania do grupy, a następnie wybierz **wybierz** przycisk w dolnej części bloku, aby dodać je do grupy. **Użytkownika** okno filtry wyświetlania na podstawie zgodności wpis do dowolnej części nazwy użytkownika lub urządzenia. Nie symbole wieloznaczne są akceptowane w tym polu.
-8. Aby usunąć członków z grupy, na **grupy - członków** bloku, wybierz element członkowski.
-9. Na ***membername*** bloku, wybierz opcję **Usuń** polecenie i Potwierdź wybór w wierszu.
+7. Na powitania **członków** bloku, wybierz jedną lub więcej użytkowników lub urządzeń grupy toohello tooadd i wybierz hello **wybierz** przycisk u dołu hello hello bloku tooadd ich toohello grupy. Witaj **użytkownika** filtry pole hello wyświetlania, w oparciu o dopasowanie wpisu z tooany część nazwy użytkownika lub urządzenia. Nie symbole wieloznaczne są akceptowane w tym polu.
+8. tooremove członków z grupy hello na powitania **grupy - członków** bloku, wybierz element członkowski.
+9. Na powitania ***membername*** bloku, wybierz hello **Usuń** polecenie i Potwierdź wybór hello w wierszu.
 
    ![Usuń elementy członkowskie, polecenie](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
-10. Po zakończeniu zmiana członków grupy, wybierz **zapisać**.
+10. Po zakończeniu zmiana członków grupy hello, wybierz **zapisać**.
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.

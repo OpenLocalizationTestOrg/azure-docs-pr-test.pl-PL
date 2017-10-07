@@ -1,6 +1,6 @@
 ---
-title: "Ustawianie preferencji podglądu dla usługi Azure Application Insights | Dokumentacja firmy Microsoft"
-description: "Zespół deweloperów usługi Azure Application Insights wprowadza nowe funkcje. Można ustawić które nowe funkcje, które chcesz przeglądać w portalu Azure."
+title: "aaaSet Podgląd preferencje dotyczące usługi Azure Application Insights | Dokumentacja firmy Microsoft"
+description: "zespół deweloperów Hello Azure Application Insights wprowadza nowe funkcje. Które nowe funkcje, które mają można ustawić toopreview w hello portalu Azure."
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/1/2017
 ms.author: bwren
-ms.openlocfilehash: 03b69f68911a79adeab1d29f868d26653d6a7ac0
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 04a1d763bd706a9cc050d72512a8ca405f980dc4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="preview-upcoming-changes-to-azure-application-insights"></a>Podgląd zmian nadchodzących z usługą Azure Application Insights 
+# <a name="preview-upcoming-changes-tooazure-application-insights"></a>Podgląd nadchodzące zmiany tooAzure Application Insights 
 
-Usługa Application Insights często udostępnia nowe funkcje. Jeśli chcesz zobaczyć podgląd te ulepszenia, możesz utworzyć konto w bloku Application Insights w wersji zapoznawczej.  Zespół deweloperów udostępnia nowe funkcje z podglądem w ograniczonym zakresie przed ich wszystkich użytkowników. 
+Usługa Application Insights często udostępnia nowe funkcje. Jeśli chcesz z podglądem toosee te ulepszenia możesz utworzyć konto w bloku Application Insights w wersji zapoznawczej hello.  zespół deweloperów Hello udostępnia nowe funkcje z podglądem w ograniczonym zakresie przed ich tooall użytkowników. 
 
-Na poniższym obrazie przedstawiono sposób ustawić preferencje podglądu.
+Witaj poniższym obrazie przedstawiono sposób tooset preferencje podglądu.
 
 ![Application Insights Podgląd bloku](./media/app-insights-preview/preview.png)
 
 ## <a name="set-preferences"></a>Ustawianie preferencji
 
-W bloku podglądu można wybrać następujące opcje po wyświetleniu podglądu.
+W bloku Podgląd hello można wybrać następujące opcje dla po wyświetleniu podglądy hello.
 
 - Zawsze: Zobacz Podgląd napotka natychmiast po ich udostępnieniu.
 - Automatyczny: Zobacz Podgląd napotka, że firma Microsoft zaleca dla Twojego konta. 

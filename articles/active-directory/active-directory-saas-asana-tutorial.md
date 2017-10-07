@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Asana | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Asana."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Asana."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,63 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeedes
-ms.openlocfilehash: a2f0cecb93cc382bcfd710c44eb70f80ae67f9b6
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 9ac35dedc809b2b3dfb461d92a5afb066ccdedde
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Samouczek: Integracji Azure Active Directory z Asana
 
-Z tego samouczka dowiesz się integrowanie Asana z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate Asana w usłudze Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Asana zapewnia następujące korzyści:
+Integracja z usługą Azure AD Asana zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do Asana
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do Asana (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooAsana
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooAsana (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z Asana, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z Asana należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Asana jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Asana z galerii
+1. Dodawanie Asana z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-asana-from-the-gallery"></a>Dodawanie Asana z galerii
-Aby skonfigurować integrację usługi Azure AD Asana, należy dodać Asana z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-asana-from-hello-gallery"></a>Dodawanie Asana z galerii hello
+tooconfigure hello integracji Asana do usługi Azure AD, należy tooadd Asana z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać Asana z galerii, wykonaj następujące czynności:**
+**tooadd Asana z galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
-    ![Przycisk usługi Azure Active Directory][1]
+    ![przycisk usługi Azure Active Directory Hello][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa][2]
+    ![Blok aplikacje przedsiębiorstwa Hello][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
-    ![Nowy przycisk aplikacji][3]
+    ![Nowy przycisk aplikacji Hello][3]
 
-4. W polu wyszukiwania wpisz **Asana**, wybierz pozycję **Asana** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+4. W polu wyszukiwania hello wpisz **Asana**, wybierz pozycję **Asana** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-asana-tutorial/tutorial_asana_addfromgallery.png)
 
@@ -78,98 +78,98 @@ Aby skonfigurować integrację usługi Azure AD Asana, należy dodać Asana z ga
 
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Asana na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Asana jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Asana musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Asana jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Asana musi toobe ustanowione.
 
-W Asana, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W Asana, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Asana, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Asana, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Asana](#create-an-asana-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Asana połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Asana](#create-an-asana-test-user)**  -toohave odpowiednikiem Simona Britta w Asana, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Asana.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Asana.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Asana, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z Asana, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **Asana** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **Asana** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-asana-tutorial/tutorial_asana_samlbase.png)
 
-3. Na **Asana domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **Asana domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Adresy URL i domeny Asana pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-asana-tutorial/tutorial_asana_url.png)
 
-    a. W **adres URL logowania** pole tekstowe, wprowadź adres URL:`https://app.asana.com/`
+    a. W hello **adres URL logowania** pole tekstowe, wprowadź adres URL:`https://app.asana.com/`
 
-    b. W **identyfikator** pole tekstowe, wartość typu:`https://app.asana.com/`
+    b. W hello **identyfikator** pole tekstowe, wartość typu:`https://app.asana.com/`
  
-4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
-    ![Łącze pobierania certyfikatu](./media/active-directory-saas-asana-tutorial/tutorial_asana_certificate.png)
+    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-asana-tutorial/tutorial_asana_certificate.png)
     
 5. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-asana-tutorial/tutorial_general_400.png)
 
-6. Na **konfiguracji Asana** , kliknij przycisk **skonfigurować Asana** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na powitania **konfiguracji Asana** kliknij **skonfigurować Asana** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfiguracja Asana](./media/active-directory-saas-asana-tutorial/tutorial_asana_configure.png) 
 
-7. W oknie innej przeglądarki logowanie do aplikacji Asana. Aby skonfigurować logowanie Jednokrotne w Asana, uzyskać dostęp do ustawień obszaru roboczego, klikając nazwę obszaru roboczego w prawym górnym rogu ekranu. Następnie kliknij  **\<nazwa obszaru roboczego\> ustawienia**. 
+7. W oknie innej przeglądarki, logowania jednokrotnego tooyour Asana aplikacji. Logowanie Jednokrotne w Asana, ustawień dostępu hello obszaru roboczego, klikając nazwę obszaru roboczego hello na powitania prawym górnym rogu ekranu hello tooconfigure. Następnie kliknij  **\<nazwa obszaru roboczego\> ustawienia**. 
    
     ![Ustawienia logowania jednokrotnego Asana](./media/active-directory-saas-asana-tutorial/tutorial_asana_09.png)
 
-8. Na **ustawienia organizacji** okna, kliknij przycisk **administracji**. Następnie kliknij przycisk **elementów członkowskich należy zalogować się za pośrednictwem SAML** umożliwiające konfigurację logowania jednokrotnego. Wykonaj następujące kroki:
+8. Na powitania **ustawienia organizacji** okna, kliknij przycisk **administracji**. Następnie kliknij przycisk **elementów członkowskich należy zalogować się za pośrednictwem SAML** tooenable hello logowania jednokrotnego konfiguracji. Witaj wykonaj hello następujące kroki:
    
     ![Skonfiguruj ustawienia organizacji rejestracji jednokrotnej](./media/active-directory-saas-asana-tutorial/tutorial_asana_10.png)  
 
-     a. W **adres URL logowania strony** pole tekstowe, Wklej **SAML pojedynczy znak na adres URL usługi**.
+     a. W hello **adres URL logowania strony** pole tekstowe, Wklej hello **SAML pojedynczy znak na adres URL usługi**.
 
-     b. Kliknij prawym przyciskiem myszy certyfikat pobrany z portalu Azure, a następnie otwórz plik certyfikatu w Notatniku lub w edytorze tekstów preferowany. Kopiowanie zawartości między rozpoczęcia i zakończenia tytuł certyfikatu, a następnie wklej je **certyfikatu X.509** pola tekstowego.
+     b. Kliknij prawym przyciskiem myszy certyfikat hello pobrany z portalu Azure, a następnie otwórz plik certyfikatu hello Notatniku lub w edytorze tekstów preferowany. Kopiowanie zawartości hello między hello begin i hello zakończenia certyfikatów tytułu i wklej go w hello **certyfikatu X.509** pola tekstowego.
 
-9. Kliknij pozycję **Zapisz**. Przejdź do [Asana przewodnik konfigurowania rejestracji Jednokrotnej](https://asana.com/guide/help/premium/authentication#gl-saml) Jeœli potrzebujesz dodatkowej pomocy.
+9. Kliknij pozycję **Zapisz**. Przejdź za[Asana przewodnik konfigurowania rejestracji Jednokrotnej](https://asana.com/guide/help/premium/authentication#gl-saml) Jeœli potrzebujesz dodatkowej pomocy.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
-    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-asana-tutorial/create_aaduser_01.png) 
+    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-asana-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
-    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-asana-tutorial/create_aaduser_02.png) 
+    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-asana-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-asana-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
-    ![Przycisk Dodaj](./media/active-directory-saas-asana-tutorial/create_aaduser_04.png) 
+    ![przycisk Dodaj Hello](./media/active-directory-saas-asana-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -177,39 +177,39 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
 W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w Asana.
 
-1. Na **Asana**, przejdź do **zespołów** sekcji w lewym panelu. Kliknij przycisk ze znakiem plus. 
+1. Na **Asana**, przejdź toohello **zespołów** sekcji na powitania lewego panelu. Kliknij przycisk hello oraz przycisk Zaloguj. 
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-asana-tutorial/tutorial_asana_12.png) 
 
-2. Wpisz adres e-mail britta.simon@contoso.com w polu tekstowym, a następnie wybierz **zaprosić**.
+2. Wpisz wiadomość hello e-mail britta.simon@contoso.com w hello pola tekstowego, a następnie wybierz **zaprosić**.
 
-3. Kliknij przycisk **wysłać zaproszenie**. Nowy użytkownik otrzyma wiadomość e-mail na swoje konto e-mail. Użytkownik należy utworzyć i zweryfikować konto.
+3. Kliknij przycisk **wysłać zaproszenie**. Witaj nowy użytkownik otrzyma wiadomość e-mail na swoje konto e-mail. Użytkownik należy toocreate a sprawdzania hello konta.
 
-### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Asana.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooAsana.
 
-![Przypisanie roli użytkownika][200]
+![Przypisanie roli użytkownika hello][200]
 
-**Aby przypisać Simona Britta Asana, wykonaj następujące czynności:**
+**tooassign tooAsana Simona Britta wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **Asana**.
+2. Z listy aplikacji hello wybierz **Asana**.
 
-    ![Łącze Asana na liście aplikacji](./media/active-directory-saas-asana-tutorial/tutorial_asana_app.png) 
+    ![łącze Asana Hello na liście aplikacji hello](./media/active-directory-saas-asana-tutorial/tutorial_asana_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
-    ![Łącze "Użytkownicy i grupy"][202]
+    ![łącze "Użytkownicy i grupy" Hello][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![W okienku Dodaj przydziału][203]
+    ![Okienko Dodaj przypisania Hello][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -217,13 +217,13 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-Celem tej sekcji służy do testowania programu Azure AD rejestracji jednokrotnej.
+Celem Hello w tej sekcji jest tootest programu Azure AD rejestracji jednokrotnej.
 
-Przejdź do strony logowania Asana. W polu tekstowym Adres E-mail, Wstaw adres e-mail britta.simon@contoso.com. Pozostaw pole tekstowe hasła w puste, a następnie kliknij przycisk **dziennika w**. Nastąpi przekierowanie do strony logowania usługi Azure AD. Ukończ poświadczeń usługi Azure AD. Teraz użytkownik jest zalogowany na Asana.
+Przejdź na stronę logowania tooAsana. W polu tekstowym Adres E-mail hello, Wstaw adres e-mail hello britta.simon@contoso.com. Pozostaw pole tekstowe hasła hello w puste, a następnie kliknij przycisk **dziennika w**. Będzie przekierowany tooAzure AD strony logowania. Ukończ poświadczeń usługi Azure AD. Teraz użytkownik jest zalogowany na Asana.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
